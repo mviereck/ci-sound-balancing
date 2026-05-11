@@ -14,6 +14,21 @@ let lrSliderMode = "right"; // 'right' | 'left' | 'both'
 let lrPlayTO = null;
 let lrIsPlay = false;
 
+
+// Tab- und Seitensperre während LR-Test
+function lrUpdateLockState(active) {
+  const tabs = document.querySelectorAll('.tab:not([data-tab="messungen"])');
+  const subtabs = document.querySelectorAll('.subtab[data-parent="messungen"]:not([data-subtab="balance"])');
+  const sideLeftBtn = document.getElementById("sideLeftBtn");
+  const sideRightBtn = document.getElementById("sideRightBtn");
+  tabs.forEach((t) => (t.disabled = active));
+  subtabs.forEach((t) => (t.disabled = active));
+  if (sideLeftBtn) sideLeftBtn.disabled = active;
+  if (sideRightBtn) sideRightBtn.disabled = active;
+  const lockInfo = document.getElementById("lrLockedInfo");
+  if (lockInfo) lockInfo.style.display = active ? "" : "none";
+}
+
 // Audio: plays a single tone with stereo pan
 function lrPlayTone(hz, vol, ms, pan) {
   return new Promise((res) => {
@@ -285,7 +300,7 @@ function lrConfirm() {
   lrResults[el] = val;
   lrSeqIdx++;
   lrRenderResults();
-  lrApplyMedianToBalance();
+  lrApplyMeanToBalance();
   lrShowPair();
 }
 
@@ -296,7 +311,7 @@ function lrUndo() {
   else lrResults[el] = prev;
   lrSeqIdx = Math.max(0, lrSeqIdx - 1);
   lrRenderResults();
-  lrApplyMedianToBalance();
+  lrApplyMeanToBalance();
   lrShowPair();
 }
 
@@ -304,33 +319,33 @@ function lrFinish() {
   lrStopPlay();
   lrRunning = false;
   document.getElementById("lrTestArea").style.display = "none";
+  document.getElementById("lrActiveArea").style.display = "none";
   document.getElementById("lrStartBtn").disabled = false;
   document.getElementById("lrStopBtn").disabled = true;
+  lrUpdateLockState(false);
   lrRenderResults();
-  lrApplyMedianToBalance();
+  lrApplyMeanToBalance();
 }
 
 function lrStop() {
   lrStopPlay();
   lrRunning = false;
   document.getElementById("lrTestArea").style.display = "none";
+  document.getElementById("lrActiveArea").style.display = "none";
   document.getElementById("lrStartBtn").disabled = false;
   document.getElementById("lrStopBtn").disabled = true;
+  lrUpdateLockState(false);
   lrRenderResults();
 }
 
-function lrApplyMedianToBalance() {
+function lrApplyMeanToBalance() {
   const vals = Object.values(lrResults).filter((v) => isFinite(v));
   if (!vals.length) return;
-  vals.sort((a, b) => a - b);
-  const med =
-    vals.length % 2 === 0
-      ? (vals[vals.length / 2 - 1] + vals[vals.length / 2]) / 2
-      : vals[Math.floor(vals.length / 2)];
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
   // Positive lrResult = right louder = right needs to be quieter = negative balance offset
-  const balOffset = Math.max(-60, Math.min(60, parseFloat((-med).toFixed(1))));
+  const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 
-  // Prominente Median-Anzeige
+  // Prominente Mean-Anzeige
   const mvEl = document.getElementById("lrMedianValue");
   const mhEl = document.getElementById("lrMedianHint");
   if (mvEl) {
@@ -356,18 +371,22 @@ function lrApplyMedianToBalance() {
 
   const balEl = document.getElementById("balBalance");
   if (balEl) {
-    balEl.value = balOffset;
-    balEl.dispatchEvent(new Event("input"));
+    // balBalance wurde entfernt – kein Schreibzugriff mehr nötig
+    // balEl.value = balOffset;
+    // balEl.dispatchEvent(new Event("input"));
   }
 }
 
 function lrRenderResults() {
   const keys = Object.keys(lrResults).map(Number);
+  const noResEl = document.getElementById("lrNoResults");
   if (!keys.length) {
     document.getElementById("lrResultsCard").style.display = "none";
+    if (noResEl) noResEl.style.display = "";
     return;
   }
   document.getElementById("lrResultsCard").style.display = "";
+  if (noResEl) noResEl.style.display = "none";
 
   // Table
   const th = document.getElementById("lrResTH");
@@ -524,8 +543,10 @@ document.addEventListener("DOMContentLoaded", () => {
       lrRunning = true;
       lrUndoStack = [];
       document.getElementById("lrTestArea").style.display = "";
+      document.getElementById("lrActiveArea").style.display = "";
       document.getElementById("lrStartBtn").disabled = true;
       document.getElementById("lrStopBtn").disabled = false;
+      lrUpdateLockState(true);
       lrShowPair();
     });
 
@@ -543,11 +564,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!confirm("LR-Vergleichsergebnisse löschen?")) return;
       lrResults = {};
       document.getElementById("lrResultsCard").style.display = "none";
-      const balEl = document.getElementById("balBalance");
-      if (balEl) {
-        balEl.value = 0;
-        document.getElementById("balValue").textContent = "0.0 dB";
-      }
     });
 
     document.getElementById("lrSwapBtn").addEventListener("click", () => {
@@ -561,12 +577,12 @@ document.addEventListener("DOMContentLoaded", () => {
         (v >= 0 ? "+" : "") + v.toFixed(1) + " dB";
     });
 
-    // Keyboard in balance tab
+    // Keyboard in balance subtab
     document.addEventListener("keydown", (e) => {
-      if (
-        !document.getElementById("panel-balance").classList.contains("active")
-      )
-        return;
+      const balSubpanel = document.getElementById("subpanel-messungen-balance");
+      if (!balSubpanel || !balSubpanel.classList.contains("active")) return;
+      const messPanel = document.getElementById("panel-messungen");
+      if (!messPanel || !messPanel.classList.contains("active")) return;
       if (!lrRunning) return;
       if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
       const step = e.shiftKey ? 0.1 : 0.5;
@@ -602,9 +618,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 100);
 });
 
-// Hook into balance tab activation
+// Hook into balance subtab activation
 document
-  .querySelector('.tab[data-tab="balance"]')
+  .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')
+  ?.addEventListener("click", () => {
+    setTimeout(() => {
+      lrCheckData();
+    }, 0);
+  });
+
+// Hook into lrresults subtab activation
+document
+  .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
   ?.addEventListener("click", () => {
     setTimeout(() => {
       lrCheckData();

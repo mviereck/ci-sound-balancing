@@ -10,6 +10,8 @@ const L = {
     tabFreq: "Implantat",
     tabTest: "Messung",
     tabResults: "Meßergebnisse",
+    tabMessungen: "Messungen",
+    tabErgebnisse: "Meßergebnisse",
     tabFile: "Laden/Speichern",
     introTitle: "Sound Balancing Tool für Cochlea Implantat Träger",
     introDesc:
@@ -53,7 +55,7 @@ const L = {
     lblVol: "Lautstärke:",
     lblDur: "Tondauer:",
     lblPau: "Pause:",
-    testTitle: "Testeinstellungen",
+    testTitle: "Vergleich der wahrgenommenen Lautstärke der Elektroden",
     lblMode: "Modus:",
     optBal: "Ausgleichsmodus (dB-Offset)",
     optJdg: "Urteilsmodus (A/gleich/B)",
@@ -91,7 +93,7 @@ const L = {
     bCanc: "Abbrechen",
     exclTitle: "Welche Elektrode ausschließen?",
     resTitle: "Ergebnisse",
-    noRes: 'Noch keine Messungen. Starte einen Test im Tab „Test".',
+    noRes: 'Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Elektrodenlautstärke ausgleichen“ durch.',
     comp: "Vergleich",
     of: "von",
     round: "Runde",
@@ -297,6 +299,8 @@ const L = {
     tabFreq: "Implant",
     tabTest: "Measurement",
     tabResults: "Results",
+    tabMessungen: "Measurements",
+    tabErgebnisse: "Results",
     tabFile: "Load/Save",
     introTitle: "Sound Balancing Tool for Cochlear Implant Users",
     introDesc:
@@ -340,7 +344,7 @@ const L = {
     lblVol: "Volume:",
     lblDur: "Duration:",
     lblPau: "Pause:",
-    testTitle: "Test settings",
+    testTitle: "Perceived loudness comparison of electrodes",
     lblMode: "Mode:",
     optBal: "Balance mode (dB offset)",
     optJdg: "Judgment mode (A/equal/B)",
@@ -377,7 +381,7 @@ const L = {
     bCanc: "Cancel",
     exclTitle: "Which electrode to exclude?",
     resTitle: "Results",
-    noRes: "No measurements yet. Start a test.",
+    noRes: "No results yet. Please run a measurement in 'Measurements → Balance electrodes loudness' first.",
     comp: "Comparison",
     of: "of",
     round: "Round",
@@ -581,6 +585,8 @@ const L = {
     tabFreq: "Implant",
     tabTest: "Mesure",
     tabResults: "Résultats",
+    tabMessungen: "Mesures",
+    tabErgebnisse: "Résultats",
     tabFile: "Charger/Sauver",
     introTitle: "CI Sound Balancing Tool",
     introDesc:
@@ -623,7 +629,7 @@ const L = {
     lblVol: "Volume:",
     lblDur: "Durée:",
     lblPau: "Pause:",
-    testTitle: "Paramètres de test",
+    testTitle: "Comparaison du niveau sonore perçu des électrodes",
     lblMode: "Mode:",
     optBal: "Équilibrage (dB)",
     optJdg: "Jugement",
@@ -660,7 +666,7 @@ const L = {
     bCanc: "Annuler",
     exclTitle: "Exclure quelle électrode?",
     resTitle: "Résultats",
-    noRes: "Pas de mesures.",
+    noRes: "Pas encore de résultats. Effectuez d'abord une mesure dans « Mesures → Équilibrer le volume des électrodes ».",
     comp: "Comparaison",
     of: "de",
     round: "Tour",
@@ -840,6 +846,8 @@ const L = {
     tabFreq: "Implante",
     tabTest: "Medición",
     tabResults: "Resultados",
+    tabMessungen: "Mediciones",
+    tabErgebnisse: "Resultados",
     tabFile: "Cargar/Guardar",
     introTitle: "CI Sound Balancing Tool",
     introDesc:
@@ -882,7 +890,7 @@ const L = {
     lblVol: "Volumen:",
     lblDur: "Duración:",
     lblPau: "Pausa:",
-    testTitle: "Configuración",
+    testTitle: "Comparación del volumen percibido de los electrodos",
     lblMode: "Modo:",
     optBal: "Equilibrio (dB)",
     optJdg: "Juicio",
@@ -919,7 +927,7 @@ const L = {
     bCanc: "Cancelar",
     exclTitle: "¿Excluir cuál?",
     resTitle: "Resultados",
-    noRes: "Sin mediciones.",
+    noRes: "Sin resultados. Primero realice una medición en 'Mediciones → Equilibrar el volumen de los electrodos'.",
     comp: "Comparación",
     of: "de",
     round: "Ronda",
@@ -1125,12 +1133,16 @@ function applyLang() {
   s("subtitleText", "subtitle");
   s("tabIntro", "tabIntro");
   s("tabSetup", "tabFreq");
-  s("tabTest", "tabTest");
-  s("tabResults", "tabResults");
+  // tabTest und tabResults haben feste mehrsprachige Texte unten
   s("tabLevels", "tabLevels");
   s("tabPlayer", "tabPlayer");
-  s("tabBalance", "tabBalance");
+  // tabBalance entfernt – kein eigener Tab mehr
   s("tabFile", "tabFile");
+  // Neue Tab-Texte für Messungen / Meßergebnisse
+  const tabMessungen = document.getElementById("tabTest");
+  const tabErgebnisse = document.getElementById("tabResults");
+  if (tabMessungen) tabMessungen.textContent = t("tabMessungen");
+  if (tabErgebnisse) tabErgebnisse.textContent = t("tabErgebnisse");
   const gEl2 = (id) => document.getElementById(id);
   if (gEl2("glossLSEl")) gEl2("glossLSEl").innerHTML = t("glossLS");
   s("freqTitle", "freqTitle");

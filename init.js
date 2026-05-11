@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach((t) =>
       t.addEventListener("click", () => switchTab(t.dataset.tab)),
     );
+  document
+    .querySelectorAll(".subtab")
+    .forEach((t) =>
+      t.addEventListener("click", () => switchSubtab(t.dataset.parent, t.dataset.subtab)),
+    );
 
   document.getElementById("sweepBtn").addEventListener("click", playSweep);
   document.getElementById("stopBtn").addEventListener("click", stopAll);
@@ -740,14 +745,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .classList.toggle("hidden", !this.checked);
     pUpdEQ();
   });
-  document.getElementById("balBalance").addEventListener("input", function () {
-    const v = parseFloat(this.value) || 0;
-    document.getElementById("balValue").textContent =
-      (v >= 0 ? "+" : "") + v.toFixed(1) + " dB";
-    if (pBuf) {
-      pUpdEQ();
-    }
-  });
+  // balBalance wurde entfernt – kein Event-Listener nötig
+  // document.getElementById("balBalance").addEventListener(...);
   document.getElementById("plMapOn").addEventListener("change", function () {
     document
       .getElementById("plMapInfo")
@@ -895,6 +894,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (d.eqStrength !== undefined)
         document.getElementById("plStr").value = d.eqStrength;
+      if (d.lrResults && typeof lrResults !== "undefined") {
+        Object.assign(lrResults, d.lrResults);
+        if (typeof lrRenderResults === "function") lrRenderResults();
+      }
       buildFreqTable();
       updSideButtons();
     }
@@ -933,6 +936,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
           },
           currentSide: activeSide,
+          lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
           playerSource:
             plSrcMeas && plSrcLevels
               ? "both"

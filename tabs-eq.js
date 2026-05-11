@@ -1,9 +1,33 @@
 // ============================================================
+// SUBTABS
+// ============================================================
+function switchSubtab(parent, subtab) {
+  // Subtab-Buttons
+  document.querySelectorAll(`.subtab[data-parent="${parent}"]`).forEach((b) => {
+    b.classList.toggle("active", b.dataset.subtab === subtab);
+  });
+  // Subpanels
+  document.querySelectorAll(`[id^="subpanel-${parent}-"]`).forEach((p) => {
+    const name = p.id.replace(`subpanel-${parent}-`, "");
+    p.classList.toggle("active", name === subtab);
+  });
+  // Callbacks
+  if (parent === "ergebnisse" && subtab === "results") renderResults();
+  if (parent === "ergebnisse" && subtab === "lrresults") {
+    lrCheckData();
+    lrDrawChart();
+  }
+  if (parent === "messungen" && subtab === "balance") {
+    lrCheckData();
+  }
+}
+
+// ============================================================
 // TABS
 // ============================================================
 function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
-  if (testAct && n !== "test") {
+  if (testAct && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
   document
@@ -12,7 +36,7 @@ function switchTab(n) {
   document
     .querySelectorAll(".panel")
     .forEach((p) => p.classList.toggle("active", p.id === "panel-" + n));
-  if (n === "results") renderResults();
+  if (n === "ergebnisse") renderResults();
   if (n === "player") plCheck();
   if (n === "levels") {
     buildLvGrid();
@@ -22,7 +46,7 @@ function switchTab(n) {
 
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test
 function updateTabLockState() {
-  const tabs = document.querySelectorAll('.tab:not([data-tab="test"])');
+  const tabs = document.querySelectorAll('.tab:not([data-tab="messungen"])');
   const sideSelect = document.getElementById("ciSideSelect");
   const sideLeftBtn = document.getElementById("sideLeftBtn");
   const sideRightBtn = document.getElementById("sideRightBtn");

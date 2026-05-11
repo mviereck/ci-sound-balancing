@@ -753,7 +753,7 @@ function showCurPair() {
     }
     if (convRnd > 0) return nextConvRnd();
     endTest();
-    switchTab("results");
+    switchTab("ergebnisse");
     renderResults();
     return;
   }
@@ -927,7 +927,7 @@ function nextFullRound() {
     fullSweepRound = null;
     fullSweepDonePairs = [];
     endTest();
-    switchTab("results");
+    switchTab("ergebnisse");
     renderResults();
     return;
   }
@@ -949,7 +949,7 @@ function nextConvRnd() {
   const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;
   if (mx < 1) {
     endTest();
-    switchTab("results");
+    switchTab("ergebnisse");
     renderResults();
     return;
   }
@@ -1002,7 +1002,7 @@ function doExcl(i) {
   document.getElementById("roundInfo").classList.remove("hidden");
   if (testIdx >= testPairs.length) {
     endTest();
-    switchTab("results");
+    switchTab("ergebnisse");
     renderResults();
   } else showCurPair();
 }

@@ -541,6 +541,39 @@ select:disabled {
 .pr-row-off {
   opacity: 0.45;
 }
+.subtabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+  flex-wrap: wrap;
+}
+.subtab {
+  padding: 7px 14px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.88em;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  font-family: var(--font);
+  transition: color 0.15s;
+}
+.subtab:hover {
+  color: var(--text);
+}
+.subtab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+.subpanel {
+  display: none;
+}
+.subpanel.active {
+  display: block;
+}
 .modal-overlay {
   display: none;
   position: fixed;

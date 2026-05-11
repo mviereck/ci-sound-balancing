@@ -218,7 +218,13 @@ function getPlayerSide() {
 }
 function getPlayerBalance() {
   if (!plApplyBalance) return 0;
-  return parseFloat(document.getElementById("balBalance")?.value) || 0;
+  // Mean aus lrResults berechnen (lrResults ist global in lr-balance.js)
+  if (typeof lrResults === "undefined") return 0;
+  const vals = Object.values(lrResults).filter((v) => isFinite(v));
+  if (!vals.length) return 0;
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  // Positive mean = right louder → negative balance offset (rechts dämpfen)
+  return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 }
 function withSide(side, fn) {
   const prevSide = activeSide;

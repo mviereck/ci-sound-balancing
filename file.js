@@ -134,6 +134,7 @@ async function saveJson() {
       },
     },
     currentSide: activeSide,
+    lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
     paradigm: document.getElementById("paraI").value,
     toneDuration: parseInt(document.getElementById("dur1").value),
     pauseDuration: parseInt(document.getElementById("pau1").value),
@@ -353,6 +354,12 @@ function applyLoadedData(d) {
   } else {
     plSrcMeas = true;
     plSrcLevels = true;
+  }
+  if (typeof lrResults !== "undefined" && d.lrResults) {
+    Object.keys(lrResults).forEach((k) => delete lrResults[k]);
+    Object.assign(lrResults, d.lrResults);
+    if (typeof lrRenderResults === "function") lrRenderResults();
+    if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
   }
   buildFreqTable();
   renderResults();

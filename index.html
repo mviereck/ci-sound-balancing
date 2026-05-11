@@ -76,11 +76,10 @@
       <div class="tabs">
         <button class="tab active" data-tab="intro" id="tabIntro"></button>
         <button class="tab" data-tab="setup" id="tabSetup"></button>
-        <button class="tab" data-tab="test" id="tabTest"></button>
-        <button class="tab" data-tab="results" id="tabResults"></button>
+        <button class="tab" data-tab="messungen" id="tabTest">Messungen</button>
+        <button class="tab" data-tab="ergebnisse" id="tabResults">Meßergebnisse</button>
         <button class="tab" data-tab="levels" id="tabLevels"></button>
         <button class="tab" data-tab="player" id="tabPlayer"></button>
-        <button class="tab" data-tab="balance" id="tabBalance"></button>
         <button class="tab" data-tab="file" id="tabFile"></button>
       </div>
 
@@ -338,7 +337,14 @@
       </div>
 
       <!-- ===== TEST ===== -->
-      <div id="panel-test" class="panel">
+      <!-- ===== MESSUNGEN ===== -->
+      <div id="panel-messungen" class="panel">
+        <div class="subtabs">
+          <button class="subtab active" data-subtab="test" data-parent="messungen">Elektrodenlautstärke ausgleichen</button>
+          <button class="subtab" data-subtab="balance" data-parent="messungen">Stereo-Balance</button>
+        </div>
+        <div id="subpanel-messungen-test" class="subpanel active">
+      <div id="panel-test-inner">
         <div class="card no-print">
           <h2 id="testTitle"></h2>
           <div class="controls-row">
@@ -605,120 +611,28 @@
           </div>
         </div>
       </div>
-
-      <!-- ===== BALANCE ===== -->
-      <div id="panel-balance" class="panel">
-        <!-- Results overview (oben) -->
-        <div class="card" id="lrResultsCard" style="display: none">
-          <h2 id="lrResTitle">Ergebnisse L/R-Vergleich</h2>
-          <div
-            id="lrMedianDisplay"
-            style="
-              text-align: center;
-              margin: 12px 0 16px;
-              padding: 14px;
-              background: var(--accent-light);
-              border-radius: 8px;
-              border: 2px solid var(--accent);
-            "
-          >
-            <div
-              style="
-                font-size: 0.8em;
-                color: var(--text-muted);
-                margin-bottom: 4px;
-              "
-              id="lrMedianLabel"
-            >
-              Empfohlener Balance-Offset (Median)
-            </div>
-            <div
-              id="lrMedianValue"
-              style="
-                font-size: 2.2em;
-                font-weight: 700;
-                font-family: var(--mono);
-                color: var(--accent);
-              "
-            >
-              0.0 dB
-            </div>
-            <div
-              id="lrMedianHint"
-              style="
-                font-size: 0.8em;
-                color: var(--text-muted);
-                margin-top: 4px;
-              "
-            ></div>
-          </div>
+        </div>
+        <div id="subpanel-messungen-balance" class="subpanel">
+        <div class="card">
+          <h2 id="lrTitle">Lautstärkenvergleich Links/Rechts für jede Elektrode</h2>
           <p
             style="
               font-size: 0.84em;
               color: var(--text-muted);
               margin-bottom: 8px;
             "
-            id="lrResDesc"
-          >
-            Positiv = Rechts lauter als Links (rechts abschwächen oder links
-            anheben). Negativ = Links lauter.
-          </p>
-          <div
-            id="lrResChartWrap"
-            style="
-              position: relative;
-              width: 100%;
-              height: 240px;
-              background: var(--bg);
-              border-radius: 8px;
-              overflow: hidden;
-              margin-bottom: 12px;
-            "
-          >
-            <canvas
-              id="lrResChart"
-              style="width: 100%; height: 100%; display: block"
-            ></canvas>
-          </div>
-          <div style="overflow-x: auto">
-            <table class="results-table" id="lrResTable">
-              <thead>
-                <tr id="lrResTH"></tr>
-              </thead>
-              <tbody id="lrResTB"></tbody>
-            </table>
-          </div>
-          <div style="margin-top: 12px">
-            <button
-              class="btn btn-sm"
-              id="lrClearBtn"
-              style="color: var(--danger)"
-            >
-              🗑 Ergebnisse löschen
-            </button>
-          </div>
-          <div class="explain" style="margin-top: 12px" id="lrResNote">
-            Der empfohlene Globalwert (Median) wird automatisch als
-            Stereo-Balance-Offset oben eingetragen.
-          </div>
-        </div>
-
-        <!-- LR comparison test -->
-        <div class="card">
-          <h2 id="lrTitle">L/R-Elektrodenvergleich</h2>
-          <p
-            style="
-              font-size: 0.84em;
-              color: var(--text-muted);
-              margin-bottom: 12px;
-            "
             id="lrDesc"
           >
-            Vergleicht linkes und rechtes CI Elektrode für Elektrode. Die Töne
-            werden mit den Meßergebnissen aus dem Reiter „Messung" korrigiert
-            (ohne Levels). Stellen Sie den Slider so ein, daß beide Seiten
-            gleich laut klingen, und bestätigen Sie.
+            Dieser Test vergleicht die Lautstärke links und rechts für jedes Elektrodenpaar.
           </p>
+          <div class="explain explain-warn" style="margin-bottom: 12px">
+            Führen Sie zuerst den Test „Elektrodenlautstärke ausgleichen" für beide Seiten aus.
+          </div>
+          <div
+            id="lrLockedInfo"
+            class="warning-bar"
+            style="display: none; margin-bottom: 10px"
+          >Test läuft – Tab-Wechsel gesperrt.</div>
           <div id="lrNoData" class="info-box" style="margin-bottom: 12px">
             Keine oder nur einseitige Meßergebnisse – Korrekturen werden nur für
             Seiten mit Meßdaten angewandt. Ohne Meßdaten klingen die Töne
@@ -916,7 +830,8 @@
             </div>
           </div>
 
-          <!-- Balance slider (immer sichtbar, unten) -->
+          <!-- Balance slider + Bestätigen: nur sichtbar wenn Test läuft -->
+          <div id="lrActiveArea" style="display: none">
           <div class="balance-slider-wrap" style="margin-top: 16px">
             <div
               style="
@@ -984,37 +899,22 @@
               Bestätigen <span class="kbd">Enter</span>
             </button>
           </div>
+          </div><!-- /lrActiveArea -->
         </div>
-
-        <!-- Global balance slider (used by player) -->
-        <div class="card">
-          <h2 data-t="balTitle"></h2>
-          <p
-            style="
-              font-size: 0.84em;
-              color: var(--text-muted);
-              margin-bottom: 14px;
-            "
-            data-t="balDesc"
-          ></p>
-          <div class="control-group" style="margin-bottom: 14px">
-            <label data-t="balLabel"></label>
-            <input
-              type="range"
-              id="balBalance"
-              min="-60"
-              max="60"
-              step="0.1"
-              value="0"
-              style="width: 100%; margin-left: 8px"
-            />
-          </div>
-          <div class="balance-value" id="balValue">0.0 dB</div>
         </div>
       </div>
 
+      <!-- BALANCE panel entfernt – Inhalt in Subpanels aufgeteilt -->
+
       <!-- ===== RESULTS ===== -->
-      <div id="panel-results" class="panel">
+      <!-- ===== ERGEBNISSE ===== -->
+      <div id="panel-ergebnisse" class="panel">
+        <div class="subtabs">
+          <button class="subtab active" data-subtab="results" data-parent="ergebnisse">Elektrodenlautstärke</button>
+          <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse">Stereo-Balance</button>
+        </div>
+        <div id="subpanel-ergebnisse-results" class="subpanel active">
+      <div id="panel-results-inner">
         <div class="card">
           <h2 id="resTitle"></h2>
           <div id="noRes">
@@ -1102,6 +1002,106 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+        </div>
+        <div id="subpanel-ergebnisse-lrresults" class="subpanel">
+        <div id="lrNoResults" class="card">
+          <p style="color: var(--text-muted)">Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance" durch.</p>
+        </div>
+        <div class="card" id="lrResultsCard" style="display: none">
+          <h2 id="lrResTitle">Ergebnisse L/R-Vergleich</h2>
+          <div
+            id="lrMedianDisplay"
+            style="
+              text-align: center;
+              margin: 12px 0 16px;
+              padding: 14px;
+              background: var(--accent-light);
+              border-radius: 8px;
+              border: 2px solid var(--accent);
+            "
+          >
+            <div
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-bottom: 4px;
+              "
+              id="lrMedianLabel"
+            >
+              Empfohlener Balance-Offset (Mittelwert)
+            </div>
+            <div
+              id="lrMedianValue"
+              style="
+                font-size: 2.2em;
+                font-weight: 700;
+                font-family: var(--mono);
+                color: var(--accent);
+              "
+            >
+              0.0 dB
+            </div>
+            <div
+              id="lrMedianHint"
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-top: 4px;
+              "
+            ></div>
+          </div>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            id="lrResDesc"
+          >
+            Positiv = Rechts lauter als Links (rechts abschwächen oder links
+            anheben). Negativ = Links lauter.
+          </p>
+          <div
+            id="lrResChartWrap"
+            style="
+              position: relative;
+              width: 100%;
+              height: 240px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+              margin-bottom: 12px;
+            "
+          >
+            <canvas
+              id="lrResChart"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+          <div style="overflow-x: auto">
+            <table class="results-table" id="lrResTable">
+              <thead>
+                <tr id="lrResTH"></tr>
+              </thead>
+              <tbody id="lrResTB"></tbody>
+            </table>
+          </div>
+          <div style="margin-top: 12px">
+            <button
+              class="btn btn-sm"
+              id="lrClearBtn"
+              style="color: var(--danger)"
+            >
+              🗑 Ergebnisse löschen
+            </button>
+          </div>
+          <div class="explain" style="margin-top: 12px" id="lrResNote">
+            Der empfohlene Globalwert (Median) wird automatisch als
+            Stereo-Balance-Offset oben eingetragen.
+          </div>
+        </div>
         </div>
       </div>
 

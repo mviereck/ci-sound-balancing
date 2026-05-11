@@ -608,6 +608,6 @@ window.addEventListener("resize", () => {
   }
   if (document.getElementById("panel-levels").classList.contains("active"))
     drawLvChart();
-  if (document.getElementById("panel-balance").classList.contains("active"))
+  if (document.getElementById("subpanel-ergebnisse-lrresults")?.classList.contains("active"))
     lrDrawChart();
 });
