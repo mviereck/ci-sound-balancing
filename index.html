@@ -1,0 +1,1606 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CI Sound Balancing Tool</title>
+<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-row">
+        <h1>CI Sound Balancing Tool</h1>
+        <div style="display: flex; align-items: center; gap: 8px">
+          <select class="lang-select" id="langSelect">
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+          </select>
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-bottom: 14px;
+        "
+      >
+        <button
+          id="sideLeftBtn"
+          data-t="sideLeft"
+          onclick="setActiveSide('left')"
+          style="
+            min-width: 110px;
+            padding: 10px 24px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            font-family: var(--font);
+            transition: all 0.15s;
+            letter-spacing: 0.04em;
+          "
+        >
+          LINKS
+        </button>
+        <button
+          id="sideRightBtn"
+          data-t="sideRight"
+          onclick="setActiveSide('right')"
+          style="
+            min-width: 110px;
+            padding: 10px 24px;
+            font-size: 1.05em;
+            font-weight: 700;
+            border-radius: 6px;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            font-family: var(--font);
+            transition: all 0.15s;
+            letter-spacing: 0.04em;
+          "
+        >
+          RECHTS
+        </button>
+      </div>
+      <!-- hidden select kept for JS compatibility -->
+      <select id="ciSideSelect" style="display: none">
+        <option value="left">Links</option>
+        <option value="right">Rechts</option>
+      </select>
+      <p class="subtitle" id="subtitleText"></p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="intro" id="tabIntro"></button>
+        <button class="tab" data-tab="setup" id="tabSetup"></button>
+        <button class="tab" data-tab="test" id="tabTest"></button>
+        <button class="tab" data-tab="results" id="tabResults"></button>
+        <button class="tab" data-tab="levels" id="tabLevels"></button>
+        <button class="tab" data-tab="player" id="tabPlayer"></button>
+        <button class="tab" data-tab="balance" id="tabBalance"></button>
+        <button class="tab" data-tab="file" id="tabFile"></button>
+      </div>
+
+      <!-- ===== INTRO ===== -->
+      <div id="panel-intro" class="panel active">
+        <div class="card">
+          <h2 data-t="introTitle"></h2>
+          <p
+            style="
+              font-size: 0.88em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="introDesc"
+          ></p>
+          <h3 data-t="introWhat"></h3>
+          <div
+            style="
+              font-size: 0.86em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="introFlowDesc"
+          ></div>
+          <div class="explain explain-warn" data-t="introWarn"></div>
+          <h3 style="margin-top: 14px" data-t="introAudio"></h3>
+          <p
+            style="font-size: 0.86em; color: var(--text-muted)"
+            data-t="introAudioDesc"
+          ></p>
+        </div>
+      </div>
+
+      <!-- ===== SETUP ===== -->
+      <div id="panel-setup" class="panel">
+        <div class="card">
+          <h2 id="freqTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            id="freqHint"
+          ></p>
+          <div
+            id="freqDeactHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 12px"
+          ></div>
+          <div
+            id="freqAbfHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 12px"
+          ></div>
+
+          <!-- Hersteller -->
+          <div class="controls-row" style="margin-bottom: 6px">
+            <div class="control-group">
+              <label id="lblMfr"></label>
+              <select id="mfrSelect">
+                <option value="medel">MED-EL (12)</option>
+                <option value="ab">Advanced Bionics (16)</option>
+                <option value="cochlear">Cochlear (22)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Audioprozessor -->
+          <div class="controls-row" style="margin-bottom: 6px">
+            <div class="control-group">
+              <label id="lblImplProc"></label>
+              <select id="implProcSelect" style="min-width: 200px"></select>
+            </div>
+          </div>
+
+          <!-- Implantat-Modell + Generation (Cochlear) -->
+          <div class="controls-row" style="margin-bottom: 6px">
+            <div class="control-group">
+              <label id="lblImplModel"></label>
+              <select id="implModelSelect" style="min-width: 220px"></select>
+            </div>
+            <div class="control-group" id="implGenGroup" style="display: none">
+              <label id="lblImplGen"></label>
+              <span
+                id="implGenDisplay"
+                style="font-family: var(--mono); font-size: 0.88em"
+              ></span>
+            </div>
+          </div>
+
+          <!-- MED-EL: c-Wert -->
+          <div
+            class="controls-row"
+            id="implMedelParams"
+            style="display: none; margin-bottom: 6px"
+          >
+            <div class="control-group">
+              <label id="lblImplC"></label>
+              <input
+                type="number"
+                id="implC"
+                min="0"
+                max="8000"
+                step="1"
+                style="width: 80px"
+                placeholder="500"
+              />
+            </div>
+          </div>
+
+          <!-- AB: IDR -->
+          <div
+            class="controls-row"
+            id="implAbParams"
+            style="display: none; margin-bottom: 6px"
+          >
+            <div class="control-group">
+              <label id="lblImplIDR"></label>
+              <input
+                type="number"
+                id="implIDR"
+                min="20"
+                max="80"
+                step="1"
+                style="width: 80px"
+                placeholder="60"
+              />
+              dB
+            </div>
+          </div>
+
+          <!-- Cochlear: IIDR -->
+          <div
+            class="controls-row"
+            id="implCochParams"
+            style="display: none; margin-bottom: 6px"
+          >
+            <div class="control-group">
+              <label id="lblImplIIDR"></label>
+              <input
+                type="number"
+                id="implIIDR"
+                min="20"
+                max="80"
+                step="1"
+                style="width: 80px"
+                placeholder="40"
+              />
+              dB
+            </div>
+          </div>
+
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-top: 8px;
+              margin-bottom: 4px;
+            "
+            id="implIntro"
+          ></p>
+          <div
+            class="explain explain-warn"
+            id="implBilateralHintEl"
+            style="margin-top: 6px; margin-bottom: 10px; display: none"
+          ></div>
+
+          <div style="overflow-x: auto">
+            <table class="freq-table" id="freqTable">
+              <thead>
+                <tr id="freqTH"></tr>
+              </thead>
+              <tbody id="freqTB"></tbody>
+            </table>
+          </div>
+          <div
+            style="
+              margin-top: 12px;
+              display: flex;
+              gap: 8px;
+              align-items: center;
+              flex-wrap: wrap;
+            "
+          >
+            <button class="btn" id="sweepBtn"></button>
+            <button class="btn" id="stopBtn"></button>
+            <label
+              style="
+                margin-left: 12px;
+                font-size: 0.85em;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+              "
+            >
+              <input type="checkbox" id="corrToggle" checked />
+              <span id="lblCorr"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 id="toneTitle"></h2>
+          <div class="controls-row">
+            <div class="control-group">
+              <label id="lblVol"></label
+              ><input
+                type="number"
+                class="vol-num"
+                id="vol1"
+                value="50"
+                min="0"
+                max="100"
+                step="1"
+                style="
+                  width: 55px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />%
+            </div>
+            <div class="control-group">
+              <label id="lblDur"></label
+              ><input
+                type="number"
+                id="dur1"
+                value="1000"
+                min="100"
+                max="3000"
+                step="50"
+              />
+              ms
+            </div>
+            <div class="control-group">
+              <label id="lblPau"></label
+              ><input
+                type="number"
+                id="pau1"
+                value="500"
+                min="100"
+                max="1000"
+                step="50"
+              />
+              ms
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TEST ===== -->
+      <div id="panel-test" class="panel">
+        <div class="card no-print">
+          <h2 id="testTitle"></h2>
+          <div class="controls-row">
+            <div class="control-group">
+              <label id="lblMode"></label>
+              <select id="testMode">
+                <option value="balance" id="optBal"></option>
+                <option value="judgment" id="optJdg"></option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label id="lblRun"></label>
+              <select id="pairType">
+                <option value="full" id="optFull"></option>
+                <option value="conv_fast" id="optCF"></option>
+                <option value="manual" id="optMan"></option>
+              </select>
+            </div>
+          </div>
+          <div id="runExplain" class="info-box"></div>
+          <div class="controls-row">
+            <div class="control-group">
+              <label id="lblRef"></label
+              ><select id="refEl"></select>
+            </div>
+          </div>
+          <div class="controls-row">
+            <div class="control-group">
+              <label id="lblVol2"></label
+              ><input
+                type="number"
+                class="vol-num"
+                id="vol2"
+                value="50"
+                min="0"
+                max="100"
+                step="1"
+                style="
+                  width: 55px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />%
+            </div>
+            <div class="control-group">
+              <label id="lblDur2"></label
+              ><input
+                type="number"
+                id="dur2"
+                value="1000"
+                min="100"
+                max="3000"
+                step="50"
+              />
+              ms
+            </div>
+            <div class="control-group">
+              <label id="lblPau2"></label
+              ><input
+                type="number"
+                id="pau2"
+                value="500"
+                min="100"
+                max="1000"
+                step="50"
+              />
+              ms
+            </div>
+          </div>
+          <div class="controls-row">
+            <label
+              style="
+                font-size: 0.85em;
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+              "
+            >
+              <input type="checkbox" id="preCorrect" />
+              <span data-t="preCorrectLabel"></span>
+            </label>
+          </div>
+          <div id="manualSel" class="hidden" style="margin-top: 8px">
+            <div class="control-group">
+              <label>A:</label
+              ><select id="manA"></select
+              ><label style="margin-left: 10px">B:</label
+              ><select id="manB"></select>
+              <button class="btn" id="manPlayBtn" style="margin-left: 10px">
+                &#9654;
+              </button>
+            </div>
+          </div>
+          <div style="margin-top: 12px" class="btn-group">
+            <button class="btn btn-primary btn-large" id="startBtn"></button>
+            <button class="btn btn-large" id="stopTBtn" disabled></button>
+          </div>
+        </div>
+        <div class="card" id="testArea" style="display: none">
+          <div id="roundInfo" class="round-info hidden"></div>
+          <div
+            id="testLockedInfo"
+            class="warning-bar"
+            style="display: none"
+            data-t="testLockedInfo"
+          ></div>
+          <div class="test-display">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 6px;
+              "
+            >
+              <span class="progress-label" id="progLbl"></span
+              ><span class="timer-display" id="timerD">0:00</span>
+            </div>
+            <div
+              style="display: flex; justify-content: center; margin-bottom: 4px"
+            >
+              <button
+                class="btn btn-sm"
+                id="swapBtn"
+                style="
+                  font-size: 0.85em;
+                  padding: 3px 14px;
+                  min-height: 28px;
+                  border-radius: 4px;
+                "
+              >
+                ⇄ A↔B
+              </button>
+            </div>
+            <div class="pair-indicator">
+              <span class="tone-a" id="tAL"
+                ><span class="aba-label">A (Ref)</span>E1</span
+              >
+              <span
+                style="
+                  align-self: center;
+                  font-weight: 400;
+                  font-size: 0.55em;
+                  color: var(--text-muted);
+                "
+                >vs.</span
+              >
+              <span class="tone-b" id="tBL"
+                ><span class="aba-label">B (Slider)</span>E2</span
+              >
+            </div>
+            <div class="pair-freq" id="pairF"></div>
+            <div
+              style="
+                margin: 12px 0;
+                display: flex;
+                gap: 6px;
+                justify-content: center;
+                flex-wrap: wrap;
+                align-items: center;
+              "
+            >
+              <button class="btn btn-large" id="undoBtn" disabled>
+                &#9664; <span data-t="bBack"></span> <span class="kbd">Z</span>
+              </button>
+              <button class="btn btn-large" id="repBtn">
+                &#9654; <span data-t="bReplay"></span>
+                <span class="kbd" data-t="kSpace"></span>
+              </button>
+              <select
+                id="paraI"
+                style="
+                  padding: 5px 8px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  font-size: 0.84em;
+                "
+              >
+                <option value="aba">ABA</option>
+                <option value="ab">AB</option>
+              </select>
+              <button class="btn" id="exclBtn" style="color: var(--danger)">
+                &#10005; <span data-t="bExcl"></span> <span class="kbd">X</span>
+              </button>
+            </div>
+            <div id="jdgC" style="display: none">
+              <div class="judgment-buttons">
+                <button class="btn btn-large" id="bAL">
+                  A <span data-t="bLoud"></span> <span class="kbd">1</span>
+                </button>
+                <button class="btn btn-large" id="bEq">
+                  <span data-t="bEqual"></span> <span class="kbd">2</span>
+                </button>
+                <button class="btn btn-large" id="bBL">
+                  B <span data-t="bLoud2"></span> <span class="kbd">3</span>
+                </button>
+              </div>
+            </div>
+            <div id="balC">
+              <div class="balance-slider-wrap">
+                <p
+                  style="
+                    font-size: 0.84em;
+                    color: var(--text-muted);
+                    margin-bottom: 3px;
+                  "
+                  data-t="slHint"
+                ></p>
+                <input
+                  type="range"
+                  id="balSl"
+                  min="-20"
+                  max="20"
+                  step="0.1"
+                  value="0"
+                />
+                <div class="balance-value" id="balV">0.0 dB</div>
+                <div
+                  id="balAbs"
+                  style="
+                    font-size: 0.82em;
+                    color: var(--text-muted);
+                    text-align: center;
+                    margin-top: 2px;
+                    display: none;
+                  "
+                ></div>
+                <div
+                  id="extWrap"
+                  style="text-align: center; margin-top: 5px; display: none"
+                >
+                  <button
+                    class="btn btn-sm"
+                    id="extBtn"
+                    data-t="bExtend"
+                  ></button>
+                </div>
+              </div>
+              <div style="margin-top: 10px">
+                <button class="btn btn-primary btn-large" id="confBtn">
+                  <span data-t="bConf"></span>
+                  <span class="kbd" data-t="kEnter"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="exclDlg" class="card hidden" style="text-align: center">
+          <h2 data-t="exclTitle"></h2>
+          <p
+            id="exclInfo"
+            style="color: var(--text-muted); margin-bottom: 14px"
+          ></p>
+          <div class="btn-group" style="justify-content: center">
+            <button class="btn btn-large" id="exclA"></button
+            ><button class="btn btn-large" id="exclB"></button
+            ><button class="btn" id="exclCanc" data-t="bCanc"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BALANCE ===== -->
+      <div id="panel-balance" class="panel">
+        <!-- Results overview (oben) -->
+        <div class="card" id="lrResultsCard" style="display: none">
+          <h2 id="lrResTitle">Ergebnisse L/R-Vergleich</h2>
+          <div
+            id="lrMedianDisplay"
+            style="
+              text-align: center;
+              margin: 12px 0 16px;
+              padding: 14px;
+              background: var(--accent-light);
+              border-radius: 8px;
+              border: 2px solid var(--accent);
+            "
+          >
+            <div
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-bottom: 4px;
+              "
+              id="lrMedianLabel"
+            >
+              Empfohlener Balance-Offset (Median)
+            </div>
+            <div
+              id="lrMedianValue"
+              style="
+                font-size: 2.2em;
+                font-weight: 700;
+                font-family: var(--mono);
+                color: var(--accent);
+              "
+            >
+              0.0 dB
+            </div>
+            <div
+              id="lrMedianHint"
+              style="
+                font-size: 0.8em;
+                color: var(--text-muted);
+                margin-top: 4px;
+              "
+            ></div>
+          </div>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            id="lrResDesc"
+          >
+            Positiv = Rechts lauter als Links (rechts abschwächen oder links
+            anheben). Negativ = Links lauter.
+          </p>
+          <div
+            id="lrResChartWrap"
+            style="
+              position: relative;
+              width: 100%;
+              height: 240px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+              margin-bottom: 12px;
+            "
+          >
+            <canvas
+              id="lrResChart"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+          <div style="overflow-x: auto">
+            <table class="results-table" id="lrResTable">
+              <thead>
+                <tr id="lrResTH"></tr>
+              </thead>
+              <tbody id="lrResTB"></tbody>
+            </table>
+          </div>
+          <div style="margin-top: 12px">
+            <button
+              class="btn btn-sm"
+              id="lrClearBtn"
+              style="color: var(--danger)"
+            >
+              🗑 Ergebnisse löschen
+            </button>
+          </div>
+          <div class="explain" style="margin-top: 12px" id="lrResNote">
+            Der empfohlene Globalwert (Median) wird automatisch als
+            Stereo-Balance-Offset oben eingetragen.
+          </div>
+        </div>
+
+        <!-- LR comparison test -->
+        <div class="card">
+          <h2 id="lrTitle">L/R-Elektrodenvergleich</h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 12px;
+            "
+            id="lrDesc"
+          >
+            Vergleicht linkes und rechtes CI Elektrode für Elektrode. Die Töne
+            werden mit den Meßergebnissen aus dem Reiter „Messung" korrigiert
+            (ohne Levels). Stellen Sie den Slider so ein, daß beide Seiten
+            gleich laut klingen, und bestätigen Sie.
+          </p>
+          <div id="lrNoData" class="info-box" style="margin-bottom: 12px">
+            Keine oder nur einseitige Meßergebnisse – Korrekturen werden nur für
+            Seiten mit Meßdaten angewandt. Ohne Meßdaten klingen die Töne
+            unkorrigiert. Einsatz möglich z.B. für CI vs. gesundes Ohr.
+          </div>
+
+          <div class="controls-row" style="margin-bottom: 12px">
+            <div class="control-group">
+              <label id="lrOrderLbl">Reihenfolge:</label>
+              <select id="lrOrderMode">
+                <option value="random">Zufällig</option>
+                <option value="ascending">Apikal → Basal</option>
+                <option value="descending">Basal → Apikal</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label id="lrSideLbl">Seitenfolge:</label>
+              <select id="lrSideMode">
+                <option value="random">Zufällig</option>
+                <option value="lr">L → R</option>
+                <option value="rl">R → L</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label style="font-size: 0.85em; color: var(--text-muted)"
+                >Lautstärke:</label
+              >
+              <input
+                type="number"
+                id="lrVol"
+                value="50"
+                min="0"
+                max="100"
+                step="1"
+                style="
+                  width: 55px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />%
+            </div>
+            <div class="control-group">
+              <label style="font-size: 0.85em; color: var(--text-muted)"
+                >Dauer:</label
+              >
+              <input
+                type="number"
+                id="lrDur"
+                value="1000"
+                min="100"
+                max="3000"
+                step="50"
+                style="
+                  width: 65px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />
+              ms
+            </div>
+            <div class="control-group">
+              <label style="font-size: 0.85em; color: var(--text-muted)"
+                >Pause:</label
+              >
+              <input
+                type="number"
+                id="lrPau"
+                value="400"
+                min="100"
+                max="1000"
+                step="50"
+                style="
+                  width: 65px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />
+              ms
+            </div>
+          </div>
+
+          <div class="btn-group" style="margin-bottom: 16px">
+            <button class="btn btn-primary btn-large" id="lrStartBtn">
+              ▶ Vergleich starten
+            </button>
+            <button class="btn btn-large" id="lrStopBtn" disabled>
+              ■ Stopp
+            </button>
+          </div>
+
+          <!-- Active test area -->
+          <div id="lrTestArea" style="display: none">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="font-size: 0.9em; color: var(--text-muted)"
+                id="lrProgLbl"
+              ></span>
+              <button class="btn btn-sm" id="lrUndoBtn" disabled>
+                ◀ Zurück
+              </button>
+            </div>
+
+            <!-- Electrode display -->
+            <div style="text-align: center; margin-bottom: 12px">
+              <div class="pair-indicator" style="justify-content: center">
+                <span
+                  id="lrElLabel"
+                  style="
+                    padding: 8px 24px;
+                    border-radius: 8px;
+                    background: #dbeafe;
+                    color: #1e40af;
+                    font-size: 1.4em;
+                    font-weight: 700;
+                  "
+                  >E—</span
+                >
+              </div>
+              <div
+                style="
+                  font-size: 0.85em;
+                  color: var(--text-muted);
+                  margin-top: 4px;
+                "
+                id="lrFreqLabel"
+              ></div>
+            </div>
+
+            <!-- Side indicators -->
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                margin-bottom: 16px;
+              "
+            >
+              <div
+                id="lrIndL"
+                style="
+                  padding: 8px 20px;
+                  border-radius: 8px;
+                  border: 2px solid var(--border);
+                  font-weight: 700;
+                  font-size: 1.1em;
+                  transition: all 0.15s;
+                "
+              >
+                LINKS
+              </div>
+              <div style="font-size: 0.8em; color: var(--text-muted)">vs.</div>
+              <div
+                id="lrIndR"
+                style="
+                  padding: 8px 20px;
+                  border-radius: 8px;
+                  border: 2px solid var(--border);
+                  font-weight: 700;
+                  font-size: 1.1em;
+                  transition: all 0.15s;
+                "
+              >
+                RECHTS
+              </div>
+            </div>
+
+            <!-- Replay -->
+            <div style="text-align: center; margin-bottom: 14px">
+              <button class="btn btn-large" id="lrReplayBtn">
+                ▶ Nochmal <span class="kbd">Leertaste</span>
+              </button>
+              <button class="btn" id="lrSwapBtn" style="margin-left: 8px">
+                ⇄ Seiten tauschen
+              </button>
+            </div>
+          </div>
+
+          <!-- Balance slider (immer sichtbar, unten) -->
+          <div class="balance-slider-wrap" style="margin-top: 16px">
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                margin-bottom: 8px;
+              "
+            >
+              <button
+                class="btn btn-sm lrSlModeBtn"
+                data-mode="right"
+                id="lrModeRight"
+                style="min-width: 80px"
+              >
+                Rechts
+              </button>
+              <button
+                class="btn btn-sm lrSlModeBtn"
+                data-mode="left"
+                id="lrModeLeft"
+                style="min-width: 80px"
+              >
+                Links
+              </button>
+              <button
+                class="btn btn-sm lrSlModeBtn"
+                data-mode="both"
+                id="lrModeBoth"
+                style="min-width: 80px"
+              >
+                Balance
+              </button>
+            </div>
+            <p
+              style="
+                font-size: 0.84em;
+                color: var(--text-muted);
+                margin-bottom: 3px;
+              "
+              id="lrSlHint"
+            ></p>
+            <input
+              type="range"
+              id="lrSl"
+              min="-60"
+              max="60"
+              step="0.1"
+              value="0"
+            />
+            <div class="balance-value" id="lrSlV">0.0 dB</div>
+            <div
+              id="lrPrevHint"
+              style="
+                font-size: 0.82em;
+                color: var(--text-muted);
+                text-align: center;
+                margin-top: 2px;
+                display: none;
+              "
+            ></div>
+          </div>
+          <div style="text-align: center; margin-top: 12px">
+            <button class="btn btn-primary btn-large" id="lrConfBtn">
+              Bestätigen <span class="kbd">Enter</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Global balance slider (used by player) -->
+        <div class="card">
+          <h2 data-t="balTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="balDesc"
+          ></p>
+          <div class="control-group" style="margin-bottom: 14px">
+            <label data-t="balLabel"></label>
+            <input
+              type="range"
+              id="balBalance"
+              min="-60"
+              max="60"
+              step="0.1"
+              value="0"
+              style="width: 100%; margin-left: 8px"
+            />
+          </div>
+          <div class="balance-value" id="balValue">0.0 dB</div>
+        </div>
+      </div>
+
+      <!-- ===== RESULTS ===== -->
+      <div id="panel-results" class="panel">
+        <div class="card">
+          <h2 id="resTitle"></h2>
+          <div id="noRes">
+            <p style="color: var(--text-muted)" data-t="noRes"></p>
+          </div>
+          <div id="resC" style="display: none">
+            <div
+              id="reliabilityText"
+              style="
+                margin-bottom: 14px;
+                padding: 12px 16px;
+                background: var(--accent-light);
+                border-radius: 8px;
+                border-left: 3px solid var(--accent);
+                font-size: 0.88em;
+                line-height: 1.6;
+              "
+            ></div>
+            <p
+              style="
+                font-size: 0.84em;
+                color: var(--text-muted);
+                margin-bottom: 10px;
+              "
+              id="resMeta"
+            ></p>
+            <div class="chart-container">
+              <canvas id="resChart" width="800" height="320"></canvas>
+              <p
+                id="chartExpl"
+                style="
+                  font-size: 0.82em;
+                  color: var(--text-muted);
+                  margin-top: 10px;
+                  line-height: 1.5;
+                "
+              ></p>
+            </div>
+            <div style="overflow-x: auto; margin-top: 14px">
+              <table class="results-table" id="resT">
+                <thead>
+                  <tr id="resTH"></tr>
+                </thead>
+                <tbody id="resTB"></tbody>
+              </table>
+            </div>
+            <div style="margin-top: 16px">
+              <button class="btn" id="fClearBtn" style="color: var(--danger)">
+                &#128465; <span data-t="fClear"></span>
+              </button>
+            </div>
+            <div
+              style="
+                margin-top: 24px;
+                padding: 16px;
+                background: var(--bg);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+              "
+            >
+              <h3
+                id="glossTitleEl"
+                style="
+                  font-size: 0.95em;
+                  font-weight: 600;
+                  margin-bottom: 12px;
+                  color: var(--text-muted);
+                "
+              ></h3>
+              <div
+                style="
+                  font-size: 0.84em;
+                  line-height: 1.7;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                "
+              >
+                <div id="glossResiduumEl"></div>
+                <div id="glossErrBarEl"></div>
+                <div id="glossAnpassungEl"></div>
+                <div id="glossFarbeEl"></div>
+                <div id="glossRefEl"></div>
+                <div id="glossLSEl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== LEVELS ===== -->
+      <div id="panel-levels" class="panel">
+        <div class="card">
+          <h2 data-t="lvChartTitle"></h2>
+          <div
+            style="
+              margin-bottom: 8px;
+              display: flex;
+              gap: 12px;
+              flex-wrap: wrap;
+              font-size: 0.84em;
+            "
+          >
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="lvChkMeas" />
+              <span style="color: #2563eb">&#9632;</span>
+              <span data-t="plSrcMeas"></span
+            ></label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="lvChkMan" checked />
+              <span style="color: #16a34a">&#9632;</span>
+              <span data-t="lvChartMan"></span
+            ></label>
+            <label
+              style="
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+              "
+              ><input type="checkbox" id="lvChkPre" checked />
+              <span style="color: #d97706">&#9632;</span>
+              <span data-t="lvPreset"></span
+            ></label>
+            <span style="color: var(--text-muted)">|</span>
+            <span style="font-weight: 600"
+              >&#9644; <span data-t="lvChartSum"></span
+            ></span>
+          </div>
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 400px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <canvas
+              id="lvChartCv"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h2 data-t="lvPresetTitle"></h2>
+          <div
+            class="explain"
+            style="margin-bottom: 10px"
+            data-t="lvPresetDesc"
+          ></div>
+          <label
+            style="
+              font-size: 0.85em;
+              color: var(--text-muted);
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              cursor: pointer;
+              margin-bottom: 10px;
+            "
+            ><input type="checkbox" id="prBothSides" checked />
+            <span data-t="lvPresetBoth"></span
+          ></label>
+          <table class="pr-tbl" id="prTbl"></table>
+        </div>
+        <div class="card">
+          <h2 data-t="lvTitle"></h2>
+          <div
+            class="explain"
+            style="margin-bottom: 14px"
+            data-t="lvExpl"
+          ></div>
+          <div class="lv-grid" id="lvGrid"></div>
+          <div style="margin-top: 10px">
+            <button
+              class="btn btn-sm"
+              id="lvResetBtn"
+              data-t="lvReset"
+            ></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PLAYER ===== -->
+      <div id="panel-player" class="panel">
+        <div class="card">
+          <h2 data-t="plTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 10px;
+            "
+            data-t="plDesc"
+          ></p>
+          <div class="controls-row">
+            <button
+              class="btn"
+              id="plEqToggle"
+              style="font-weight: 600; min-width: 140px; border-radius: 6px"
+            ></button>
+            <div class="control-group">
+              <label data-t="plEqStr"></label
+              ><input
+                type="number"
+                id="plStr"
+                value="100"
+                min="0"
+                max="300"
+                step="1"
+                style="
+                  width: 60px;
+                  padding: 3px 5px;
+                  border: 1px solid var(--border);
+                  border-radius: 4px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  font-size: 0.88em;
+                "
+              />%
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-sm plStrBtn" data-v="25">25%</button
+              ><button class="btn btn-sm plStrBtn" data-v="50">50%</button
+              ><button class="btn btn-sm plStrBtn" data-v="75">75%</button
+              ><button class="btn btn-sm plStrBtn" data-v="100">100%</button
+              ><button class="btn btn-sm plStrBtn" data-v="150">150%</button
+              ><button class="btn btn-sm plStrBtn" data-v="200">200%</button
+              ><button class="btn btn-sm plStrBtn" data-v="300">300%</button>
+            </div>
+          </div>
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group" style="flex-wrap: wrap; gap: 6px">
+              <label data-t="plSrcLabel" style="align-self: center"></label>
+              <button
+                id="plSrcMeasBtn"
+                class="btn btn-sm"
+                style="min-width: 120px"
+                data-t="plSrcMeas"
+              ></button>
+              <button
+                id="plSrcLevelsBtn"
+                class="btn btn-sm"
+                style="min-width: 80px"
+                data-t="plSrcLevels"
+              ></button>
+            </div>
+            <!-- hidden select for compatibility -->
+            <select id="plSrc" style="display: none">
+              <option value="measured"></option>
+              <option value="levels"></option>
+              <option value="both" selected></option>
+            </select>
+            <!-- hidden plSide kept for JS compat, value managed by checkbox -->
+            <select id="plSide" style="display: none">
+              <option value="left">left</option>
+              <option value="right">right</option>
+              <option value="both">both</option>
+            </select>
+            <div class="control-group">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plBothSides" />
+                <span data-t="plBothLabel"></span
+              ></label>
+            </div>
+            <div class="control-group" id="plMonoEQRow" style="display: none">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plMonoEQ" />
+                <span data-t="plMonoEQLabel"></span
+              ></label>
+            </div>
+            <div class="control-group">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+                ><input type="checkbox" id="plNHSim" />
+                <span data-t="plNHLabel"></span
+              ></label>
+            </div>
+            <div class="control-group">
+              <button
+                id="plBalApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+                data-t="plBalApply"
+              ></button>
+            </div>
+          </div>
+          <div
+            id="plNHInfo"
+            class="explain explain-warn hidden"
+            data-t="plNHExpl"
+          ></div>
+        </div>
+        <div class="card">
+          <h3 data-t="plFileTitle" style="margin-bottom: 8px"></h3>
+          <div id="plNoD" class="hidden warning-bar" data-t="plNoData"></div>
+          <div style="margin-bottom: 14px">
+            <label
+              style="
+                font-size: 0.84em;
+                color: var(--text-muted);
+                display: block;
+                margin-bottom: 4px;
+              "
+              data-t="plFile"
+            ></label>
+            <input
+              type="file"
+              id="plAudio"
+              accept=".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*"
+              style="font-size: 0.88em"
+            />
+          </div>
+          <div id="plCtrl" style="display: none">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+              "
+            >
+              <button
+                class="btn"
+                id="plPlay"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  font-size: 1.1em;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 0;
+                "
+              >
+                &#9654;
+              </button>
+              <button
+                class="btn"
+                id="plStop"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  font-size: 1.1em;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 0;
+                "
+              >
+                &#9632;
+              </button>
+              <div
+                style="flex: 1; display: flex; flex-direction: column; gap: 3px"
+              >
+                <input
+                  type="range"
+                  id="plTL"
+                  min="0"
+                  max="1000"
+                  value="0"
+                  step="1"
+                  style="width: 100%"
+                />
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: var(--mono);
+                    font-size: 0.78em;
+                    color: var(--text-muted);
+                  "
+                >
+                  <span id="plCur">0:00</span><span id="plTot">0:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div class="control-group">
+                <label data-t="lblVol"></label
+                ><input
+                  type="number"
+                  id="plVol"
+                  value="80"
+                  min="0"
+                  max="100"
+                  step="1"
+                  style="
+                    width: 55px;
+                    padding: 3px 5px;
+                    border: 1px solid var(--border);
+                    border-radius: 4px;
+                    text-align: center;
+                    font-family: var(--mono);
+                    font-size: 0.88em;
+                  "
+                />%
+              </div>
+              <span
+                style="
+                  font-family: var(--mono);
+                  font-size: 0.72em;
+                  color: var(--text-muted);
+                  background: var(--bg);
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                "
+                >Mono</span
+              >
+            </div>
+          </div>
+          <!-- MAPLAW hidden -->
+          <div style="display: none">
+            <input
+              type="number"
+              id="plMaplaw"
+              value="500"
+              min="0"
+              max="8000"
+              step="50"
+            />
+            <input type="checkbox" id="plMapOn" />
+            <div id="plMapInfo"></div>
+          </div>
+        </div>
+        <div id="plEqViz" class="card">
+          <h2 data-t="plEqTitle"></h2>
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 400px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <canvas
+              id="plEqCv"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+          <div style="margin-top: 12px; overflow-x: auto">
+            <table class="results-table" style="font-size: 0.78em">
+              <thead>
+                <tr id="plEqH"></tr>
+              </thead>
+              <tbody>
+                <tr id="plEqLv"></tr>
+                <tr id="plEqGn"></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FILE ===== -->
+      <div id="panel-file" class="panel">
+        <div class="card">
+          <h2 data-t="fileTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 14px;
+            "
+            data-t="fileDesc"
+          ></p>
+          <div class="btn-group" style="margin-bottom: 16px">
+            <button class="btn" id="fLoadBtn">
+              &#128194; <span data-t="fLoad"></span>
+            </button>
+            <button class="btn" id="fSaveBtn">
+              &#128190; <span data-t="fSave"></span>
+            </button>
+            <button class="btn" id="fPrintBtn">
+              &#128424; <span data-t="fPrint"></span>
+            </button>
+            <button class="btn" id="fCopyBtn">
+              &#128203; <span data-t="fCopy"></span>
+            </button>
+          </div>
+          <input type="file" id="fInput" accept=".json" class="hidden" />
+          <div class="explain" data-t="fExplain"></div>
+          <button
+            class="btn"
+            id="fResetBtn"
+            style="color: var(--danger); margin-top: 16px"
+          >
+            🔄 <span data-t="fResetAll"></span>
+          </button>
+        </div>
+        <div class="card">
+          <h2>EasyEffects Export</h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 10px;
+            "
+            data-t="eeDesc"
+          ></p>
+          <div
+            class="explain explain-warn"
+            style="margin-bottom: 10px"
+            data-t="eePlayerHint"
+          ></div>
+          <button class="btn" id="eeExportBtn">
+            &#128190; <span data-t="eeExport"></span>
+          </button>
+          <div class="explain" style="margin-top: 10px" data-t="eeHowTo"></div>
+        </div>
+      </div>
+
+      <!-- ===== LOAD SIDE MODAL ===== -->
+      <div id="loadSideOverlay" class="modal-overlay">
+        <div class="modal-box">
+          <h2>Alte Datei laden</h2>
+          <p style="color: var(--text-muted); margin-bottom: 14px">
+            Diese Datei ist im alten Format. Auf welche Seite sollen die Daten
+            geladen werden?
+          </p>
+          <div class="btn-group" style="justify-content: center">
+            <button class="btn btn-large" id="loadSideLeft">Links</button
+            ><button class="btn btn-large" id="loadSideRight">Rechts</button
+            ><button class="btn" id="loadSideCanc" data-t="bCanc"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PRINT-ONLY SECTION ===== -->
+      <div id="printSection" class="print-section" style="display: none">
+        <div class="card">
+          <h2 data-t="printPlayerTitle"></h2>
+          <div id="printPlayerInfo"></div>
+        </div>
+      </div>
+    </div>
+
+<script src="i18n.js"></script>
+<script src="core.js"></script>
+<script src="state-side.js"></script>
+<script src="audio.js"></script>
+<script src="ui-implant.js"></script>
+<script src="freq-table.js"></script>
+<script src="test.js"></script>
+<script src="results.js"></script>
+<script src="chart.js"></script>
+<script src="file.js"></script>
+<script src="tabs-eq.js"></script>
+<script src="levels.js"></script>
+<script src="player.js"></script>
+<script src="lr-balance.js"></script>
+<script src="init.js"></script>
+  </body>
+</html>
