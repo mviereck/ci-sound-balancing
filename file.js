@@ -9,6 +9,8 @@ function expText() {
   ls.push(
     `${MFR[mfr].name} (${nEl}) | ${t("lblVol")} ${vol}% | Ref: E${dEN(refEl)}`,
   );
+  const toneLabel = globalToneType === "complex" ? t("toneComplex") : globalToneType === "noise" ? t("toneNoise") : t("toneSine");
+  ls.push(`${t("toneTypeLabel")}: ${toneLabel}`);
   ls.push("");
   if (bRes.length > 0) {
     const { levels, elRes } = compWLS();
@@ -150,6 +152,7 @@ async function saveJson() {
     plSide: getPlayerSide(),
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
+    globalToneType: globalToneType,
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -348,6 +351,9 @@ function applyLoadedData(d) {
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
+  globalToneType = (d.globalToneType === "complex" || d.globalToneType === "noise") ? d.globalToneType : "sine";
+  const ttSel = document.getElementById("toneTypeSel");
+  if (ttSel) ttSel.value = globalToneType;
   if (d.playerSource !== undefined) {
     plSrcMeas = d.playerSource === "measured" || d.playerSource === "both";
     plSrcLevels = d.playerSource === "levels" || d.playerSource === "both";

@@ -29,31 +29,9 @@ function lrUpdateLockState(active) {
   if (lockInfo) lockInfo.style.display = active ? "" : "none";
 }
 
-// Audio: plays a single tone with stereo pan
 function lrPlayTone(hz, vol, ms, pan) {
-  return new Promise((res) => {
-    const c = gAC();
-    const o = c.createOscillator();
-    const g = c.createGain();
-    const p = c.createStereoPanner();
-    o.type = "sine";
-    o.frequency.value = hz;
-    p.pan.value = Math.max(-1, Math.min(1, pan));
-    g.gain.setValueAtTime(0, c.currentTime);
-    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + 0.02);
-    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - 20) / 1000);
-    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
-    o.connect(g);
-    g.connect(p);
-    p.connect(c.destination);
-    curOsc = o;
-    o.start();
-    o.stop(c.currentTime + ms / 1000 + 0.01);
-    o.onended = () => {
-      curOsc = null;
-      res();
-    };
-  });
+  const c = gAC();
+  return playToneTyped(c, hz, vol, ms, pan, globalToneType);
 }
 
 function lrGVol() {

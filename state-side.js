@@ -280,6 +280,8 @@ let curA = -1,
   compCnt = 0,
   convRnd = 0;
 
+let globalToneType = "noise"; // "sine" | "complex" | "noise"
+
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden
 let plSrcMeas = true,

@@ -11,7 +11,35 @@ document.addEventListener("DOMContentLoaded", () => {
   updFClearBtn();
   updPlSrcButtons();
   buildImplantCard();
-  document.getElementById("langSelect").addEventListener("change", applyLang);
+  document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
+  // Tonart-Dropdown
+  document.getElementById("toneTypeSel").addEventListener("change", (e) => {
+    globalToneType = e.target.value;
+  });
+  // toneHint-Texte setzen (wird auch von applyLang erneut gesetzt)
+  function updToneHint() {
+    const h = t("toneHint");
+    const b1 = document.getElementById("toneHintBox");
+    const b2 = document.getElementById("lrToneHintBox");
+    if (b1) b1.textContent = h;
+    if (b2) b2.textContent = h;
+    // Dropdown-Option-Labels
+    const sel = document.getElementById("toneTypeSel");
+    if (sel) {
+      sel.options[0].text = t("toneSine");
+      sel.options[1].text = t("toneComplex");
+      sel.options[2].text = t("toneNoise");
+    }
+    const lbl = document.getElementById("toneTypeLabel");
+    if (lbl) lbl.textContent = t("toneTypeLabel");
+  }
+  // applyLang patchen, damit toneHint bei Sprachwechsel aktualisiert wird
+  const _origApplyLang = applyLang;
+  window.applyLang = function() {
+    _origApplyLang();
+    updToneHint();
+  };
+  updToneHint();
   document
     .querySelectorAll(".tab")
     .forEach((t) =>
@@ -898,6 +926,11 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
       }
+      if (d.globalToneType) {
+        globalToneType = d.globalToneType;
+        const ttSel = document.getElementById("toneTypeSel");
+        if (ttSel) ttSel.value = globalToneType;
+      }
       buildFreqTable();
       updSideButtons();
     }
@@ -947,6 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   : "none",
           eqOn: plEqOn,
           eqStrength: parseInt(document.getElementById("plStr").value),
+          globalToneType: globalToneType,
         }),
       );
     } catch (e) {}

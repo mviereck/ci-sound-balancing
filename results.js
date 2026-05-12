@@ -131,7 +131,7 @@ function renderResults() {
       }
       rtEl.textContent = txt;
     }
-    th.innerHTML = `<th>${t("thEl")}</th><th>${t("thHz")}</th><th>${t("thOff")}</th><th>${t("thMes")}</th><th>${t("thRes")}</th><th>${t("thWgt")}</th><th>${t("thStR")}</th>`;
+    th.innerHTML = `<th>${t("thEl")}</th><th>${t("thHz")}</th><th>${t("thOff")}</th><th>${t("thMes")}</th><th title="${t("thResTip")}">${t("thRes")}</th><th>${t("thWgt")}</th><th>${t("thStR")}</th>`;
     for (let i = 0; i < nEl; i++) {
       const tr = document.createElement("tr"),
         v = levels[i],

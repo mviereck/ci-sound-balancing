@@ -25,6 +25,7 @@
           justify-content: center;
           gap: 10px;
           margin-bottom: 14px;
+          align-items: center;
         "
       >
         <button
@@ -65,6 +66,15 @@
         >
           RECHTS
         </button>
+        <div style="display:flex;align-items:center;gap:5px;margin-left:12px;">
+          <label for="toneTypeSel" id="toneTypeLabel" data-t="toneTypeLabel"
+            style="font-size:0.85em;color:var(--text-muted);white-space:nowrap;">Tonart</label>
+          <select id="toneTypeSel" class="lang-select">
+            <option value="sine" data-t="toneSine">Sinus</option>
+            <option value="complex" data-t="toneComplex">Komplexton</option>
+            <option value="noise" data-t="toneNoise" selected>Schmalbandrauschen</option>
+          </select>
+        </div>
       </div>
       <!-- hidden select kept for JS compatibility -->
       <select id="ciSideSelect" style="display: none">
@@ -365,6 +375,7 @@
             </div>
           </div>
           <div id="runExplain" class="info-box"></div>
+          <div id="toneHintBox" class="info-box" style="margin-top:8px;font-size:0.84em;"></div>
           <div class="controls-row">
             <div class="control-group">
               <label id="lblRef"></label
@@ -638,6 +649,7 @@
             Seiten mit Meßdaten angewandt. Ohne Meßdaten klingen die Töne
             unkorrigiert. Einsatz möglich z.B. für CI vs. gesundes Ohr.
           </div>
+          <div id="lrToneHintBox" class="info-box" style="margin-bottom:12px;font-size:0.84em;"></div>
 
           <div class="controls-row" style="margin-bottom: 12px">
             <div class="control-group">
