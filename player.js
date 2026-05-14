@@ -79,6 +79,11 @@ function getPlaybackBuffer() {
   const mode = getPlayerSide();
   if (!pSourceBuf) return null;
 
+  // Wenn Warp aktiv und vorberechnet: gewarpten Buffer zurückgeben
+  if (typeof pWarpOn !== "undefined" && pWarpOn && pWarpedBuf && !pWarpBusy) {
+    return pWarpedBuf;
+  }
+
   switch (mode) {
     case "left":
       if (!pLeftOnlyBuf) pLeftOnlyBuf = createLeftOnlyBuffer(pSourceBuf);
@@ -144,6 +149,11 @@ document
       pMonoBuf = null;
       pLeftOnlyBuf = null;
       pRightOnlyBuf = null;
+      // Warp-Buffer invalidieren – neue Datei erfordert neue Vorberechnung
+      if (typeof pWarpedBuf !== "undefined") {
+        pWarpedBuf = null;
+        if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+      }
       pBuf = getPlaybackBuffer();
       document.getElementById("plTot").textContent = pFmt(pBuf.duration);
       document.getElementById("plCur").textContent = "0:00";
@@ -153,6 +163,10 @@ document
       pDrawEQ();
       pBuildTbl();
       document.getElementById("plEqViz").style.display = "";
+      // Warp neu berechnen wenn aktiv
+      if (typeof pWarpOn !== "undefined" && pWarpOn) {
+        pWarpTrigger();
+      }
     } catch (err) {
       alert("Error: " + err.message);
     }
@@ -464,6 +478,14 @@ function plCheck() {
   document
     .getElementById("plNHInfo")
     .classList.toggle("hidden", !document.getElementById("plNHSim").checked);
+  // Deaf-Hinweis
+  const deafHint = document.getElementById("plDeafHintEl");
+  if (deafHint) {
+    const hasDeaf = (sideData.left.config || "ci") === "deaf"
+                 || (sideData.right.config || "ci") === "deaf";
+    deafHint.style.display = hasDeaf ? "" : "none";
+    if (hasDeaf) deafHint.textContent = t("cfgHintDeaf");
+  }
 }
 
 document.getElementById("plPlay").addEventListener("click", pToggle);
@@ -564,7 +586,7 @@ function pDrawEQ() {
     ctx.fillStyle = isAct ? "#666" : "#bbb";
     ctx.font = "8px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("E" + dEN(i), pad.left + j * gW + gW / 2, H - pad.bottom + 10);
+    ctx.fillText(dENPrefix() + dEN(i), pad.left + j * gW + gW / 2, H - pad.bottom + 10);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
     const ef_i = effFreq(i);
@@ -592,7 +614,7 @@ function pBuildTbl() {
   gn.innerHTML =
     '<td style="color:var(--text-muted);font-size:.78em">Gain</td>';
   for (let i = 0; i < nEl; i++) {
-    h.innerHTML += `<th>E${dEN(i)}</th>`;
+    h.innerHTML += `<th>${dENPrefix()}${dEN(i)}</th>`;
     const v = gains[i];
     lv.innerHTML += `<td style="color:${v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#666"}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>`;
     const g = plEqOn ? (nhSim ? v * str : -v * str) : 0;

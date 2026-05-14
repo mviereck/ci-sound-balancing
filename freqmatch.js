@@ -1,0 +1,453 @@
+// ============================================================
+// FREQUENZABGLEICH – FREQUENCY MATCHING TEST
+// ============================================================
+
+// --- State ---
+let fmRunning = false;
+let fmEls = null;
+let fmRefSide = "left";
+let fmVarSide = "right";
+let fmSeq = [];
+let fmSeqIdx = 0;
+let fmCurrentEl = null;
+let fmCentOffset = 0;
+const FM_SLIDER_RANGES = [100, 500, 1200];
+let fmSlRangeIdx = 0;
+let fmFirstSide = "ref";
+let fmIsPlay = false;
+let fmPlayTO = null;
+
+// --- Hilfsfunktionen ---
+function fmCents(refHz, hz) {
+  return 1200 * Math.log2(hz / refHz);
+}
+function fmFreqFromCents(refHz, c) {
+  return refHz * Math.pow(2, c / 1200);
+}
+
+function fmGVol() {
+  return fmEls ? Math.pow(parseInt(fmEls.volInput.value) / 100, 2) : 0.25;
+}
+function fmGDur() {
+  return fmEls ? (parseInt(fmEls.durInput.value) || 1000) : 1000;
+}
+function fmGPau() {
+  return fmEls ? (parseInt(fmEls.pauseInput.value) || 400) : 400;
+}
+function fmGAba() {
+  return (typeof globalSequence !== 'undefined') ? globalSequence === "aba" : true;
+}
+
+// Frequenz der variablen Seite (CI) für Elektrode elIdx
+function fmVarHz(elIdx) {
+  return withSide(fmVarSide, () => effFreq(elIdx));
+}
+// Anzeigenummer der Elektrode
+function fmDEN(elIdx) {
+  return withSide(fmVarSide, () => dEN(elIdx));
+}
+// Alle aktiven Elektroden der variablen Seite (aufsteigend nach Frequenz)
+function fmBuildSeq() {
+  const elList = withSide(fmVarSide, () => {
+    const result = [];
+    for (let i = 0; i < nEl; i++) {
+      if (elSt[i] === "deactivated") continue;
+      if (elExDur[i]) continue;
+      result.push({ idx: i, hz: effFreq(i) });
+    }
+    return result;
+  });
+  elList.sort((a, b) => a.hz - b.hz);
+  return elList.map((x) => x.idx);
+}
+
+// Vorherige Messung für diese Elektrode (in Cent), falls vorhanden
+function fmPrevCent(elIdx) {
+  const existing = fRes.find(
+    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx
+  );
+  if (!existing) return 0;
+  return Math.round(fmCents(existing.varFreq, existing.refFreq));
+}
+
+// --- UI-Update-Funktionen ---
+function fmUpdateSliderDisplay() {
+  if (!fmEls || fmCurrentEl === null) return;
+  const varHz = fmVarHz(fmCurrentEl);
+  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
+  const hzStr = Math.round(refHz);
+  const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
+  if (fmEls.sliderValue) {
+    fmEls.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
+  }
+  const refSideLabel = fmRefSide === "left" ? t("sideLeft") : t("sideRight");
+  if (fmEls.pairRight) {
+    fmEls.pairRight.textContent = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
+  }
+}
+
+function _fmCheckExtend() {
+  if (!fmEls) return;
+  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
+  const atLimit = Math.abs(fmCentOffset) >= lim - 1;
+  const hasNext = fmSlRangeIdx < FM_SLIDER_RANGES.length - 1;
+  fmEls.extendBtn.hidden = !(atLimit && hasNext);
+}
+
+function fmShowElectrode() {
+  if (!fmEls || fmCurrentEl === null) return;
+  const varHz = fmVarHz(fmCurrentEl);
+  const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
+  if (fmEls.pairLeft) {
+    fmEls.pairLeft.textContent =
+      withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
+      Math.round(varHz) + " Hz (" + varSideLabel + ")";
+  }
+  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
+  fmEls.slider.min = -lim;
+  fmEls.slider.max = lim;
+  fmEls.slider.value = Math.max(-lim, Math.min(lim, fmCentOffset));
+  fmUpdateSliderDisplay();
+  _fmCheckExtend();
+  if (fmEls.progressText) {
+    fmEls.progressText.textContent = (fmSeqIdx + 1) + " / " + fmSeq.length;
+  }
+  if (fmEls.progressFill) {
+    fmEls.progressFill.style.width = (fmSeq.length > 0 ? (fmSeqIdx / fmSeq.length * 100) : 0) + "%";
+  }
+  if (fmEls.undoBtn) fmEls.undoBtn.disabled = fmSeqIdx === 0;
+}
+
+// --- Tonwiedergabe ---
+async function fmPlayCurrent() {
+  if (fmCurrentEl === null) return;
+  if (fmIsPlay) {
+    fmIsPlay = false;
+    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+    await new Promise((r) => setTimeout(r, 60));
+  }
+  const varHz = fmVarHz(fmCurrentEl);
+  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  const vol = fmGVol();
+  const ms = fmGDur();
+  const pau = fmGPau();
+  const aba = fmGAba();
+  await playFreqPair(fmRefSide, refHz, fmVarSide, varHz, vol, ms, pau, aba, fmFirstSide);
+}
+
+async function fmPlaySimul() {
+  if (fmCurrentEl === null) return;
+  if (fmIsPlay) {
+    fmIsPlay = false;
+    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+    await new Promise((r) => setTimeout(r, 60));
+  }
+  const c = gAC();
+  const varHz = fmVarHz(fmCurrentEl);
+  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  const vol = fmGVol();
+  const ms = fmGDur();
+  const refPan = fmRefSide === "left" ? -1 : 1;
+  const varPan = fmVarSide === "left" ? -1 : 1;
+  isPlay = true;
+  await Promise.all([
+    playToneTyped(c, refHz, isDeaf(fmRefSide) ? 0 : vol, ms, refPan, globalToneType),
+    playToneTyped(c, varHz, isDeaf(fmVarSide) ? 0 : vol, ms, varPan, globalToneType)
+  ]);
+  isPlay = false;
+}
+
+// --- Testablauf ---
+function fmStart() {
+  if (!fmEls) return;
+  fmRefSide = fmEls.refSelect.value;
+  fmVarSide = fmRefSide === "left" ? "right" : "left";
+  fmSeq = fmBuildSeq();
+  if (fmSeq.length === 0) {
+    alert((typeof t === 'function' && t("fmNoActiveEl")) || "Keine aktiven Elektroden auf der variablen Seite.");
+    return;
+  }
+  fmSeqIdx = 0;
+  fmSlRangeIdx = 0;
+  fmRunning = true;
+  updateTabLockState();
+  fmEls.lockedHint.hidden = false;
+  fmEls.testBox.hidden = false;
+  fmEls.startBtn.disabled = true;
+  fmEls.stopBtn.disabled = false;
+  fmLoadElectrode();
+}
+
+function fmLoadElectrode() {
+  if (fmSeqIdx >= fmSeq.length) {
+    fmFinish();
+    return;
+  }
+  fmCurrentEl = fmSeq[fmSeqIdx];
+  fmCentOffset = fmPrevCent(fmCurrentEl);
+  fmSlRangeIdx = 0;
+  fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
+  fmShowElectrode();
+  if (fmEls && fmEls.confRadios && fmEls.confRadios.none) {
+    fmEls.confRadios.none.checked = true;
+  }
+  setTimeout(() => { if (fmRunning) fmPlayCurrent(); }, 100);
+}
+
+function fmConfirm() {
+  if (!fmRunning || fmCurrentEl === null) return;
+  const varHz = fmVarHz(fmCurrentEl);
+  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  const existingIdx = fRes.findIndex(
+    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === fmCurrentEl
+  );
+  const entry = {
+    varSide: fmVarSide,
+    refSide: fmRefSide,
+    elIdx: fmCurrentEl,
+    varFreq: varHz,
+    refFreq: refHz,
+    timestamp: Date.now(),
+  };
+  if (existingIdx >= 0) {
+    fRes[existingIdx] = entry;
+  } else {
+    fRes.push(entry);
+  }
+  fmSeqIdx++;
+  fmLoadElectrode();
+}
+
+function fmUndo() {
+  if (!fmRunning || fmSeqIdx === 0) return;
+  fmSeqIdx--;
+  const prevEl = fmSeq[fmSeqIdx];
+  const idx = fRes.findIndex(
+    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === prevEl
+  );
+  if (idx >= 0) fRes.splice(idx, 1);
+  fmLoadElectrode();
+}
+
+function fmSkip() {
+  if (!fmRunning) return;
+  fmSeqIdx++;
+  fmLoadElectrode();
+}
+
+function fmAbort() {
+  fmIsPlay = false;
+  if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+  fmRunning = false;
+  fmCurrentEl = null;
+  updateTabLockState();
+  if (fmEls) {
+    fmEls.testBox.hidden = true;
+    fmEls.lockedHint.hidden = true;
+    fmEls.startBtn.disabled = false;
+    fmEls.stopBtn.disabled = true;
+  }
+}
+
+function fmFinish() {
+  fmIsPlay = false;
+  fmRunning = false;
+  fmCurrentEl = null;
+  updateTabLockState();
+  if (fmEls) {
+    fmEls.testBox.hidden = true;
+    fmEls.lockedHint.hidden = true;
+    fmEls.startBtn.disabled = false;
+    fmEls.stopBtn.disabled = true;
+  }
+  if (typeof switchTab === "function") switchTab("ergebnisse");
+  if (typeof switchSubtab === "function") switchSubtab("ergebnisse", "freqmatch");
+  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+}
+
+// --- Elektroden-Ausschluss ---
+function _fmRequestExcl() {
+  if (!fmRunning || fmCurrentEl === null || !fmEls) return;
+  setTestExclConfirm(fmEls.exclOverlay, fmDEN(fmCurrentEl), function() {
+    withSide(fmVarSide, () => { elExDur[fmCurrentEl] = true; });
+    fmSkip();
+  });
+}
+
+// --- Slider-Handler ---
+function fmHandleSlider(val) {
+  fmCentOffset = parseFloat(val);
+  fmUpdateSliderDisplay();
+  _fmCheckExtend();
+}
+
+function _fmExtendRange() {
+  if (fmSlRangeIdx >= FM_SLIDER_RANGES.length - 1) return;
+  fmSlRangeIdx++;
+  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
+  if (fmEls) {
+    fmEls.slider.min = -lim;
+    fmEls.slider.max = lim;
+    fmEls.slider.value = fmCentOffset;
+  }
+  _fmCheckExtend();
+}
+
+// --- Tastatursteuerung ---
+function fmHandleKey(e) {
+  if (!fmRunning) return;
+  const activeEl = document.activeElement;
+  if (activeEl && fmEls && activeEl !== fmEls.slider &&
+      (activeEl.tagName === "INPUT" || activeEl.tagName === "SELECT" || activeEl.tagName === "TEXTAREA")) return;
+
+  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+    const dir = e.key === "ArrowRight" ? 1 : -1;
+    const step = e.shiftKey ? dir * 1 : dir * 5;
+    e.preventDefault();
+    const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
+    fmCentOffset = Math.max(-lim, Math.min(lim, fmCentOffset + step));
+    if (fmEls) fmEls.slider.value = fmCentOffset;
+    fmHandleSlider(fmCentOffset);
+  } else if (e.key === " ") {
+    e.preventDefault();
+    fmPlayCurrent();
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    fmConfirm();
+  } else if (e.key === "z" || e.key === "Z") {
+    e.preventDefault();
+    fmUndo();
+  }
+}
+
+// --- i18n-Aktualisierung ---
+function fmApplyLang() {
+  const subtabBtn = document.querySelector('.subtab[data-subtab="freqmatch"]');
+  if (subtabBtn) subtabBtn.textContent = t("fmSubtabLabel");
+  if (fmRunning) fmShowElectrode();
+  if (fmEls) {
+    const deafHint = fmEls.explainBox.querySelector('#fmDeafHintEl');
+    if (deafHint) {
+      const hasDeaf = (sideData.left.config || "ci") === "deaf"
+                   || (sideData.right.config || "ci") === "deaf";
+      deafHint.style.display = hasDeaf ? "" : "none";
+      if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
+    }
+  }
+}
+
+// --- DOMContentLoaded ---
+document.addEventListener("DOMContentLoaded", () => {
+  const parentEl = document.getElementById("subpanel-messungen-freqmatch");
+  if (!parentEl) return;
+
+  const fmCfg = {
+    id: 'freqmatch',
+    explain: {
+      titleKey: 'fmTitle',
+      paragraphs: [
+        { key: 'fmHintWarn',   kind: 'warn' },
+        { key: 'fmHintMethod' },
+        { key: 'toneHint'    }
+      ]
+    },
+    presets: {
+      rowMode:     { show: false },
+      rowFine:     { show: true, preCorrect: false,
+                     refSelect: { type: 'side', key: 'fmLblRef' } },
+      rowVolume:   { show: true },
+      rowSequence: {
+        sequence: { show: true, source: 'global' },
+        toneType: { show: true, source: 'global' },
+        target:   { show: false }
+      },
+      startStop:   { show: true, startKey: 'fmLblStart' }
+    },
+    test: {
+      subTitleKey:       'fmRunningTitle',
+      progressBar:       true,
+      progressFormat:    'simple',
+      swapButton:        { show: false },
+      pairDisplay:       { mode: 'electrode-vs-refside' },
+      excludeButtons:    { show: true, target: 'electrodes' },
+      actions:           ['undo', 'replay', 'simul'],
+      keyHintBox:        { show: true, unitKey: 'sliderHintCent' },
+      slider:            { unit: 'cent', ranges: [100, 500, 1200] },
+      sliderValue:       true,
+      cumulativeDisplay: { show: false },
+      confirmButton:     { show: true, key: 'btnConfirmOffset' },
+      confidence:        { show: true }
+    }
+  };
+
+  fmEls = buildTestPanel(parentEl, fmCfg);
+
+  // Taube-Seite Hinweis dynamisch ins Erklärungs-Block einfügen
+  const deafHint = _mkEl('p', 'explain explain-warn');
+  deafHint.id = 'fmDeafHintEl';
+  deafHint.style.display = 'none';
+  fmEls.explainBox.appendChild(deafHint);
+
+  // Referenzwechsel-Dialog
+  const fmRCDlg = _mkEl('div', 'modal-overlay');
+  fmRCDlg.hidden = true;
+  const fmRCCard = _mkEl('div', 'card');
+  const fmRCMsg = _mkEl('p');
+  fmRCMsg.dataset.t = 'fmRefChangeConfirm';
+  if (typeof t === 'function') fmRCMsg.textContent = t('fmRefChangeConfirm') || fmRCMsg.textContent;
+  const fmRCBtns = _mkEl('div', 'btn-group');
+  const fmRCOkBtn = _mkEl('button', 'btn btn-danger');
+  fmRCOkBtn.dataset.t = 'fmRefChangeConfirmOk';
+  if (typeof t === 'function') fmRCOkBtn.textContent = t('fmRefChangeConfirmOk') || fmRCOkBtn.textContent;
+  const fmRCCancelBtn = _mkEl('button', 'btn');
+  fmRCCancelBtn.dataset.t = 'fmRefChangeConfirmCancel';
+  if (typeof t === 'function') fmRCCancelBtn.textContent = t('fmRefChangeConfirmCancel') || fmRCCancelBtn.textContent;
+  fmRCBtns.append(fmRCOkBtn, fmRCCancelBtn);
+  fmRCCard.append(fmRCMsg, fmRCBtns);
+  fmRCDlg.appendChild(fmRCCard);
+  parentEl.appendChild(fmRCDlg);
+
+  // Events: Start / Stop
+  fmEls.startBtn.addEventListener('click', fmStart);
+  fmEls.stopBtn.addEventListener('click', fmAbort);
+
+  // Events: Test-Aktionen
+  if (fmEls.replayBtn) fmEls.replayBtn.addEventListener('click', () => fmPlayCurrent());
+  if (fmEls.simulBtn)  fmEls.simulBtn.addEventListener('click', () => fmPlaySimul());
+  if (fmEls.undoBtn)   fmEls.undoBtn.addEventListener('click', fmUndo);
+  if (fmEls.confirmBtn) fmEls.confirmBtn.addEventListener('click', fmConfirm);
+
+  // Events: Slider
+  fmEls.slider.addEventListener('input', (e) => fmHandleSlider(e.target.value));
+  if (fmEls.extendBtn) fmEls.extendBtn.addEventListener('click', _fmExtendRange);
+
+  // Events: Elektroden-Ausschluss
+  if (fmEls.excludeLeftBtn)  fmEls.excludeLeftBtn.addEventListener('click', _fmRequestExcl);
+  if (fmEls.excludeRightBtn) fmEls.excludeRightBtn.addEventListener('click', _fmRequestExcl);
+
+  // Event: Referenzohr-Wechsel (§6.10)
+  let _fmPrevRefVal = fmEls.refSelect.value;
+  fmEls.refSelect.addEventListener('change', function() {
+    if (fRes.length > 0) {
+      fmRCOkBtn.onclick = function() {
+        fmRCDlg.hidden = true;
+        fRes.splice(0, fRes.length);
+        _fmPrevRefVal = fmEls.refSelect.value;
+      };
+      fmRCCancelBtn.onclick = function() {
+        fmRCDlg.hidden = true;
+        fmEls.refSelect.value = _fmPrevRefVal;
+      };
+      fmRCDlg.hidden = false;
+    } else {
+      _fmPrevRefVal = fmEls.refSelect.value;
+    }
+  });
+
+  // Tastatursteuerung
+  document.addEventListener("keydown", fmHandleKey);
+
+  // Texte initial setzen
+  fmApplyLang();
+});

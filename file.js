@@ -4,12 +4,18 @@
 function expText() {
   const ls = [],
     now = new Date().toLocaleString(lang === "de" ? "de-DE" : "en-US"),
-    vol = document.getElementById("vol2").value;
+    vol = document.getElementById("vol1").value;
   ls.push(`CI Sound Balancing – ${now}`);
   ls.push(
-    `${MFR[mfr].name} (${nEl}) | ${t("lblVol")} ${vol}% | Ref: E${dEN(refEl)}`,
+    `${MFR[mfr].name} (${nEl}) | ${t("lblVol")} ${vol}% | Ref: ${dENPrefix()}${dEN(refEl)}`,
   );
-  const toneLabel = globalToneType === "complex" ? t("toneComplex") : globalToneType === "noise" ? t("toneNoise") : t("toneSine");
+  const TONE_LABEL_KEY = {
+    sine: "toneSine", complex: "toneComplex", noise: "toneNoise",
+    noiseAdaptive: "toneNoiseAdaptive", amSine: "toneAmSine",
+    warbleSine: "toneWarbleSine", burstSine: "toneBurstSine",
+    wobbleSweep: "toneWobbleSweep"
+  };
+  const toneLabel = t(TONE_LABEL_KEY[globalToneType] || "toneSine");
   ls.push(`${t("toneTypeLabel")}: ${toneLabel}`);
   ls.push("");
   if (bRes.length > 0) {
@@ -33,8 +39,35 @@ function expText() {
     ls.push("Levels:");
     for (let i = 0; i < nEl; i++)
       ls.push(
-        `  E${dEN(i)} (${Math.round(effFreq(i))} Hz): ${(eff[i] >= 0 ? "+" : "") + eff[i].toFixed(1)} dB`,
+        `  ${dENPrefix()}${dEN(i)} (${Math.round(effFreq(i))} Hz): ${(eff[i] >= 0 ? "+" : "") + eff[i].toFixed(1)} dB`,
       );
+  }
+  // Player-Warp-Einstellungen (nur wenn aktiv)
+  if (typeof pWarpOn !== "undefined" && pWarpOn && pWarpedBuf) {
+    ls.push("");
+    ls.push("Frequenz-Warping: " + t("pwStatusActive").replace("{n}", fRes ? fRes.length : 0));
+    const modeKey = pWarpMode === "ref_side" ? "pwModeRef" : pWarpMode === "var_side" ? "pwModeVar" : "pwModeSym";
+    ls.push("Modus: " + t(modeKey));
+    ls.push("Stärke: " + (typeof pWarpStrength !== "undefined" ? pWarpStrength : 100) + "%");
+  }
+  // Frequenzabgleich-Ergebnisse
+  if (typeof fRes !== "undefined" && fRes.length > 0) {
+    ls.push("");
+    ls.push(t("fmResultsTitle") + ":");
+    ls.push(
+      `${t("fmResColEl").padEnd(5)}  ${t("fmResColVarFreq").padStart(8)}  ${t("fmResColRefFreq").padStart(8)}  ${t("fmResColCent").padStart(10)}`
+    );
+    ls.push("─────  ────────  ────────  ──────────");
+    for (const r of fRes) {
+      const varSideLabel = r.varSide === "left" ? t("sideLeft") : t("sideRight");
+      const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
+      const centStr = (cent >= 0 ? "+" : "") + Math.round(cent) + " " + t("fmCentUnit");
+      const elNum = withSide(r.varSide, () => dEN(r.elIdx));
+      const elPfxExp = withSide(r.varSide, () => dENPrefix());
+      ls.push(
+        `${elPfxExp}${String(elNum).padEnd(4)}  ${String(Math.round(r.varFreq)).padStart(5)} Hz  ${String(Math.round(r.refFreq)).padStart(5)} Hz  ${centStr.padStart(10)}  (${varSideLabel})`
+      );
+    }
   }
   return ls.join("\n");
 }
@@ -57,6 +90,7 @@ function resetAll() {
   if (!ch) return;
   // Reset both sides completely
   for (const s of SIDES) {
+    sideData[s].config = "ci"; // vor initSideData setzen, damit es bewahrt wird
     sideData[s].manufacturer = "medel";
     sideData[s].nEl = MFR["medel"].n;
     sideData[s].freqs = [...MFR["medel"].freqs];
@@ -71,17 +105,21 @@ function resetAll() {
     sideData[s].presets = [];
     initSideData(s, "medel");
   }
+  defaultMfr = "medel";
   activeSide = "left";
   bindActiveSide();
   document.getElementById("ciSideSelect").value = "left";
   document.getElementById("mfrSelect").value = "medel";
+  const cfgSelR = document.getElementById("cfgSelect");
+  if (cfgSelR) cfgSelR.value = "ci";
+  const dfSelR = document.getElementById("defaultMfrSelect");
+  if (dfSelR) dfSelR.value = "medel";
   document.getElementById("vol1").value = "50";
-  document.getElementById("vol2").value = "50";
   document.getElementById("dur1").value = "1000";
-  document.getElementById("dur2").value = "1000";
   document.getElementById("pau1").value = "500";
-  document.getElementById("pau2").value = "500";
-  document.getElementById("paraI").value = "balance";
+  globalSequence = "aba";
+  slTarget_test = "balance";
+  slTarget_balance = "both";
   buildFreqTable();
   buildLvGrid();
   drawLvChart();
@@ -91,7 +129,7 @@ function resetAll() {
 
 async function saveJson() {
   const d = {
-    version: "2.6",
+    version: "2.7",
     date: new Date().toLocaleString(
       lang === "de"
         ? "de-DE"
@@ -101,8 +139,10 @@ async function saveJson() {
             ? "es-ES"
             : "en-US",
     ),
+    defaultMfr: defaultMfr,
     sides: {
       left: {
+        config: sideData.left.config || "ci",
         manufacturer: sideData.left.manufacturer,
         frequencies: sideData.left.freqs,
         electrodeFreqOwn: sideData.left.elFreqOwn,
@@ -119,6 +159,7 @@ async function saveJson() {
         implant: sideData.left.implant,
       },
       right: {
+        config: sideData.right.config || "ci",
         manufacturer: sideData.right.manufacturer,
         frequencies: sideData.right.freqs,
         electrodeFreqOwn: sideData.right.elFreqOwn,
@@ -137,10 +178,14 @@ async function saveJson() {
     },
     currentSide: activeSide,
     lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
-    paradigm: document.getElementById("paraI").value,
+    fRes: (typeof fRes !== "undefined") ? fRes : [],
+    paradigm: globalSequence,
     toneDuration: parseInt(document.getElementById("dur1").value),
     pauseDuration: parseInt(document.getElementById("pau1").value),
-    volume: document.getElementById("vol2").value,
+    volume: document.getElementById("vol1").value,
+    globalSequence: globalSequence,
+    slTarget_test: slTarget_test,
+    slTarget_balance: slTarget_balance,
     playerSource:
       plSrcMeas && plSrcLevels
         ? "both"
@@ -153,6 +198,9 @@ async function saveJson() {
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
     globalToneType: globalToneType,
+    warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
+    warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "ref_side",
+    warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -325,6 +373,8 @@ function loadJson(file) {
 }
 
 function applyLoadedData(d) {
+  // defaultMfr laden
+  if (d.defaultMfr && MFR[d.defaultMfr]) defaultMfr = d.defaultMfr;
   bindActiveSide();
   const gEl = (id) => document.getElementById(id);
   const setVal = (id, v) => {
@@ -333,27 +383,31 @@ function applyLoadedData(d) {
   };
   setVal("ciSideSelect", activeSide);
   setVal("mfrSelect", mfr);
-  if (d.paradigm) setVal("paraI", d.paradigm);
-  if (d.toneDuration) {
-    setVal("dur1", d.toneDuration);
-    setVal("dur2", d.toneDuration);
-  }
-  if (d.pauseDuration) {
-    setVal("pau1", d.pauseDuration);
-    setVal("pau2", d.pauseDuration);
-  }
-  if (d.volume) {
-    setVal("vol1", d.volume);
-    setVal("vol2", d.volume);
-  }
+  // cfgSelect für aktive Seite setzen
+  const cfgSel = gEl("cfgSelect");
+  if (cfgSel) cfgSel.value = sideData[activeSide].config || "ci";
+  // defaultMfrSelect setzen
+  const dfSel = gEl("defaultMfrSelect");
+  if (dfSel) dfSel.value = defaultMfr;
+  // paradigm/sequence
+  if (d.globalSequence) globalSequence = d.globalSequence;
+  else if (d.paradigm) globalSequence = (d.paradigm === "aba" || d.paradigm === "ab") ? d.paradigm : "aba";
+  if (d.slTarget_test) slTarget_test = d.slTarget_test;
+  if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
+  if (d.toneDuration) setVal("dur1", d.toneDuration);
+  if (d.pauseDuration) setVal("pau1", d.pauseDuration);
+  if (d.volume) setVal("vol1", d.volume);
   if (d.eqOn !== undefined) {
     plEqOn = d.eqOn;
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
-  globalToneType = (d.globalToneType === "complex" || d.globalToneType === "noise") ? d.globalToneType : "sine";
-  const ttSel = document.getElementById("toneTypeSel");
-  if (ttSel) ttSel.value = globalToneType;
+  const VALID_TONE_TYPES = ["sine", "complex", "noise",
+    "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
+  globalToneType = VALID_TONE_TYPES.includes(d.globalToneType)
+    ? d.globalToneType : "sine";
+  // Sync global dropdowns (alle drei Test-Instanzen)
+  if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   if (d.playerSource !== undefined) {
     plSrcMeas = d.playerSource === "measured" || d.playerSource === "both";
     plSrcLevels = d.playerSource === "levels" || d.playerSource === "both";
@@ -367,8 +421,34 @@ function applyLoadedData(d) {
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
   }
+  if (typeof fRes !== "undefined") {
+    if (Array.isArray(d.fRes)) {
+      fRes.splice(0, fRes.length, ...d.fRes);
+    } else {
+      fRes.splice(0, fRes.length); // keine fRes im JSON → zurücksetzen
+    }
+  }
+  // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
+  if (typeof pWarpOn !== "undefined") {
+    if (d.warpOn !== undefined) {
+      pWarpOn = false; // Warp beim Laden immer deaktiviert starten
+    }
+    if (d.warpMode !== undefined) pWarpMode = d.warpMode;
+    if (d.warpStrength !== undefined) {
+      pWarpStrength = d.warpStrength;
+      const ws = document.getElementById("plWarpStr");
+      if (ws) ws.value = pWarpStrength;
+    }
+    const warpCb = document.getElementById("plWarpOn");
+    if (warpCb) warpCb.checked = false;
+    const modeSel = document.getElementById("plWarpModeSelect");
+    if (modeSel) modeSel.value = pWarpMode;
+    pWarpedBuf = null;
+    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  }
   buildFreqTable();
   renderResults();
+  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   if (typeof buildLvGrid === "function") buildLvGrid();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof updFClearBtn === "function") updFClearBtn();

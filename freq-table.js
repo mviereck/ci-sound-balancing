@@ -3,6 +3,9 @@
 // ============================================================
 function buildFreqTable() {
   const im = sideData[activeSide].implant || {};
+  const cfg = sideData[activeSide].config || "ci";
+  const elPfx = cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
+  const elLbl = cfg === "ci" ? t("cfgLblElCI") : t("cfgLblElAcoustic");
   const isMedel = mfr === "medel",
     isAB = mfr === "ab",
     isCoch = mfr === "cochlear";
@@ -12,7 +15,7 @@ function buildFreqTable() {
       ? t("implCLvlHdr")
       : t("implMLvlHdr");
   document.getElementById("freqTH").innerHTML =
-    `<th>${t("thEl")}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+    `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
   const tb = document.getElementById("freqTB");
   tb.innerHTML = "";
   const so = `<option value="">ok</option><option value="noisyLess">${t("stNoisyLess")}</option><option value="noisyMore">${t("stNoisyMore")}</option><option value="noisyHeavy">${t("stNoisyHeavy")}</option><option value="almostMute">${t("stAlmMute")}</option><option value="mute">${t("stMute")}</option><option value="deactivated" style="font-weight:700;color:#dc2626;text-transform:uppercase">${t("stDeactivated").toUpperCase()}</option>`;
@@ -40,7 +43,7 @@ function buildFreqTable() {
         : "";
     if (isDeact || isExcl) tr.style.opacity = "0.55";
     tr.innerHTML =
-      `<td style="font-weight:600">${dEN(i)}${ex}</td>` +
+      `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
       `<td style="color:#999;font-family:var(--mono);font-size:.86em;padding:4px 6px">${stdHz}</td>` +
       `<td><input type="number" class="fo" data-i="${i}" value="${ownVal}" min="20" max="20000" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
@@ -158,31 +161,53 @@ function buildFreqTable() {
   updManSel();
 }
 function updRef() {
-  const s = document.getElementById("refEl"),
-    p = s.value;
+  const s = document.getElementById("refEl");
+  if (!s) return;
+  const p = s.value;
+  const pfx = dENPrefix();
   s.innerHTML = "";
   for (let i = 0; i < nEl; i++) {
     if (elExDur[i] !== null || elSt[i] === "mute") continue;
-    s.innerHTML += `<option value="${i}">E${dEN(i)}</option>`;
+    s.innerHTML += `<option value="${i}">${pfx}${dEN(i)}</option>`;
   }
   if (p && s.querySelector(`option[value="${p}"]`)) s.value = p;
   else s.value = String(Math.floor(nEl / 2));
   refEl = +s.value;
 }
 function updManSel() {
+  const pfx = dENPrefix();
   ["manA", "manB"].forEach((id) => {
     const s = document.getElementById(id);
+    if (!s) return;
     s.innerHTML = "";
     for (let i = 0; i < nEl; i++) {
       if (elExDur[i] !== null || elSt[i] === "mute") continue;
-      s.innerHTML += `<option value="${i}">E${dEN(i)}</option>`;
+      s.innerHTML += `<option value="${i}">${pfx}${dEN(i)}</option>`;
     }
   });
   const b = document.getElementById("manB");
-  if (b.options.length > 1) b.selectedIndex = 1;
+  if (b && b.options.length > 1) b.selectedIndex = 1;
 }
 function switchMfr(m) {
   const s = sideData[activeSide];
+  const oldMfr = s.manufacturer;
+  if (m === oldMfr) return;
+  // Prüfen ob Daten verloren gehen (eigene oder andere nicht-CI Seite)
+  const ownHasData = (s.bRes && s.bRes.length > 0)
+    || (s.jRes && s.jRes.length > 0)
+    || (s.manualLevels && s.manualLevels.some(v => v !== 0));
+  const other = activeSide === "left" ? "right" : "left";
+  const otherSync = (sideData[other].config || "ci") !== "ci";
+  const otherHasData = otherSync && (
+    (sideData[other].bRes && sideData[other].bRes.length > 0)
+    || (sideData[other].jRes && sideData[other].jRes.length > 0)
+  );
+  if (ownHasData || otherHasData) {
+    if (!confirm(t("cfgWarnMfrSwitch"))) {
+      document.getElementById("mfrSelect").value = oldMfr;
+      return;
+    }
+  }
   s.manufacturer = m;
   s.nEl = MFR[m].n;
   s.freqs = [...MFR[m].freqs];
@@ -219,6 +244,8 @@ function switchMfr(m) {
   jRes.splice(0, jRes.length);
   bRes.splice(0, bRes.length);
   refEl = Math.floor(nEl / 2);
+  // Sync akustische Seite wenn nötig
+  syncFreqsToAcoustic();
   buildFreqTable();
   buildImplantCard();
 }

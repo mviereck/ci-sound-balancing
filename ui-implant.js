@@ -17,6 +17,8 @@ function buildImplantCard() {
     };
   const im = s.implant;
   const m = s.manufacturer;
+  const cfg = s.config || "ci";
+  const isCiCfg = cfg === "ci";
 
   // i18n
   const implTitleEl = document.getElementById("implTitle");
@@ -32,6 +34,74 @@ function buildImplantCard() {
   document.getElementById("lblImplIIDR").textContent = t("lblImplIIDR");
   const genLbl = document.getElementById("lblImplGen");
   if (genLbl) genLbl.textContent = t("lblImplGen");
+
+  // Konfiguration-Dropdown setzen und beschriften
+  const cfgSel = document.getElementById("cfgSelect");
+  if (cfgSel) {
+    cfgSel.value = cfg;
+    const lbl = document.getElementById("lblCfg");
+    if (lbl) lbl.textContent = t("cfgLabel") + ":";
+    const opts = {
+      cfgOptCI: "cfgCI", cfgOptHG: "cfgHG",
+      cfgOptNormal: "cfgNormal", cfgOptSchwerh: "cfgSchwerh",
+      cfgOptTaub: "cfgTaub",
+    };
+    Object.entries(opts).forEach(([id, key]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = t(key);
+    });
+  }
+
+  // implMfrBlock ein-/ausblenden
+  const mfrBlock = document.getElementById("implMfrBlock");
+  if (mfrBlock) mfrBlock.style.display = isCiCfg ? "" : "none";
+
+  // Hinweise
+  const hintAc = document.getElementById("cfgHintAcousticEl");
+  const hintDeaf = document.getElementById("cfgHintDeafEl");
+  if (hintAc) {
+    const isAcoustic = ["hg","normal","shoh"].includes(cfg);
+    hintAc.style.display = isAcoustic ? "" : "none";
+    if (isAcoustic) {
+      const src = getFreqSource();
+      if (src) {
+        const srcLabel = src === "left" ? t("sideLeft") : t("sideRight");
+        hintAc.textContent = t("cfgHintAcoustic") + " (" + srcLabel + ")";
+      } else {
+        hintAc.textContent = t("cfgHintAcousticDefault");
+      }
+    }
+  }
+  if (hintDeaf) {
+    hintDeaf.style.display = cfg === "deaf" ? "" : "none";
+    if (cfg === "deaf") hintDeaf.textContent = t("cfgHintDeaf");
+  }
+
+  // Deaf-Hinweis im Test-Bereich
+  const deafTestHint = document.getElementById("cfgDeafTestHintEl");
+  if (deafTestHint) {
+    const hasDeaf = (sideData.left.config || "ci") === "deaf"
+                 || (sideData.right.config || "ci") === "deaf";
+    deafTestHint.style.display = hasDeaf ? "" : "none";
+    if (hasDeaf) deafTestHint.textContent = t("cfgHintDeafTest");
+  }
+
+  // Default-Frequenzraster-Dropdown
+  const dfGroup = document.getElementById("defaultMfrGroup");
+  if (dfGroup) {
+    const bothNonCI = (sideData.left.config || "ci") !== "ci"
+                   && (sideData.right.config || "ci") !== "ci";
+    dfGroup.style.display = bothNonCI ? "" : "none";
+    const lblDfMfr = document.getElementById("lblDefaultMfr");
+    if (lblDfMfr) lblDfMfr.textContent = t("cfgDefaultLabel") + ":";
+    const dfSel = document.getElementById("defaultMfrSelect");
+    if (dfSel) dfSel.value = defaultMfr;
+  }
+
+  if (!isCiCfg) {
+    // Kein Hersteller-spezifischer Block nötig – früh zurück
+    return;
+  }
 
   // Show/hide manufacturer-specific params
   document.getElementById("implMedelParams").style.display =

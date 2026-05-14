@@ -10,23 +10,71 @@ let lrCurrentEl = null; // current electrode index (left side numbering)
 let lrFlipped = false; // if true, first tone is R then L
 let lrRunning = false;
 let lrUndoStack = []; // [{el, prev}]
-let lrSliderMode = "right"; // 'right' | 'left' | 'both'
 let lrPlayTO = null;
 let lrIsPlay = false;
 
+// Element-Lookup (gebaut von buildTestPanel)
+let lrEls = null;
 
-// Tab- und Seitensperre während LR-Test
-function lrUpdateLockState(active) {
-  const tabs = document.querySelectorAll('.tab:not([data-tab="messungen"])');
-  const subtabs = document.querySelectorAll('.subtab[data-parent="messungen"]:not([data-subtab="balance"])');
-  const sideLeftBtn = document.getElementById("sideLeftBtn");
-  const sideRightBtn = document.getElementById("sideRightBtn");
-  tabs.forEach((t) => (t.disabled = active));
-  subtabs.forEach((t) => (t.disabled = active));
-  if (sideLeftBtn) sideLeftBtn.disabled = active;
-  if (sideRightBtn) sideRightBtn.disabled = active;
-  const lockInfo = document.getElementById("lrLockedInfo");
-  if (lockInfo) lockInfo.style.display = active ? "" : "none";
+// Slider-Extend-Stufen: [20, 40, 60] dB
+const LR_SLIDER_RANGES = [20, 40, 60];
+let lrSlRangeIdx = 0;
+
+// ---- Slider-Helfer ----
+function _lrRstSlR() {
+  if (!lrEls) return;
+  lrSlRangeIdx = 0;
+  const s = lrEls.slider;
+  const r = LR_SLIDER_RANGES[0];
+  s.min = String(-r); s.max = String(r); s.step = "0.1";
+  if (lrEls.extendBtn) lrEls.extendBtn.hidden = true;
+}
+
+function _lrExtSlider() {
+  if (!lrEls) return;
+  lrSlRangeIdx = Math.min(lrSlRangeIdx + 1, LR_SLIDER_RANGES.length - 1);
+  const r = LR_SLIDER_RANGES[lrSlRangeIdx];
+  lrEls.slider.min = String(-r);
+  lrEls.slider.max = String(r);
+  if (lrEls.extendBtn) {
+    lrEls.extendBtn.hidden = (lrSlRangeIdx >= LR_SLIDER_RANGES.length - 1);
+  }
+}
+
+function _lrCheckExtend(sv) {
+  if (!lrEls || !lrEls.extendBtn) return;
+  const r = LR_SLIDER_RANGES[lrSlRangeIdx];
+  const atLimit = Math.abs(sv) >= r - 0.5;
+  const canExtend = lrSlRangeIdx < LR_SLIDER_RANGES.length - 1;
+  lrEls.extendBtn.hidden = !(atLimit && canExtend);
+}
+
+function _lrSliderVal() {
+  return lrEls ? parseFloat(lrEls.slider.value) : 0;
+}
+
+function _lrUpdSliderDisplay(v) {
+  if (!lrEls) return;
+  if (lrEls.sliderValue)
+    lrEls.sliderValue.textContent = (v >= 0 ? "+" : "") + v.toFixed(1) + " dB";
+  _lrCheckExtend(v);
+}
+
+function _lrUpdCumulative(v) {
+  if (!lrEls || !lrEls.cumulativeDisplay) return;
+  const existing = lrCurrentEl !== null ? lrResults[lrCurrentEl] : undefined;
+  if (existing !== undefined) {
+    lrEls.cumulativeDisplay.textContent =
+      t("cumulativeDb") + ": " + (existing >= 0 ? "+" : "") + existing.toFixed(1) + " dB";
+    lrEls.cumulativeDisplay.style.display = "";
+  } else {
+    lrEls.cumulativeDisplay.style.display = "none";
+  }
+}
+
+// Get current slider mode from target dropdown
+function _lrGetMode() {
+  return slTarget_balance || "both";
 }
 
 function lrPlayTone(hz, vol, ms, pan) {
@@ -35,13 +83,16 @@ function lrPlayTone(hz, vol, ms, pan) {
 }
 
 function lrGVol() {
-  return Math.pow(parseInt(document.getElementById("lrVol").value) / 100, 2);
+  if (lrEls && lrEls.volInput) return Math.pow(parseInt(lrEls.volInput.value) / 100, 2);
+  return Math.pow(50 / 100, 2);
 }
 function lrGDur() {
-  return parseInt(document.getElementById("lrDur").value) || 1000;
+  if (lrEls && lrEls.durInput) return parseInt(lrEls.durInput.value) || 1000;
+  return 1000;
 }
 function lrGPau() {
-  return parseInt(document.getElementById("lrPau").value) || 400;
+  if (lrEls && lrEls.pauseInput) return parseInt(lrEls.pauseInput.value) || 400;
+  return 400;
 }
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
@@ -72,7 +123,7 @@ async function lrPlayCurrent() {
   }
 
   const el = lrCurrentEl;
-  const slOff = parseFloat(document.getElementById("lrSl").value); // positive = slider side louder
+  const slOff = _lrSliderVal(); // positive = slider side louder
   const vol = lrGVol();
   const dur = lrGDur();
   const pau = lrGPau();
@@ -85,11 +136,12 @@ async function lrPlayCurrent() {
   const corrR = lrCorrGain("right", rightEl);
 
   // Apply slider offset depending on mode
+  const mode = _lrGetMode();
   let volL, volR;
-  if (lrSliderMode === "right") {
+  if (mode === "right") {
     volL = vol * corrL;
     volR = vol * corrR * dB2G(slOff);
-  } else if (lrSliderMode === "left") {
+  } else if (mode === "left") {
     volL = vol * corrL * dB2G(slOff);
     volR = vol * corrR;
   } else {
@@ -121,11 +173,39 @@ async function lrPlayCurrent() {
   lrIsPlay = false;
 }
 
+function lrPlaySimul() {
+  if (lrCurrentEl === null) return;
+  lrStopPlay();
+  const el = lrCurrentEl;
+  const slOff = _lrSliderVal();
+  const vol = lrGVol();
+  const dur = lrGDur();
+  const rightNEl = sideData["right"].nEl;
+  const rightEl = el < rightNEl ? el : rightNEl - 1;
+  const hzL = lrEffFreq("left", el);
+  const hzR = lrEffFreq("right", rightEl);
+  const corrL = lrCorrGain("left", el);
+  const corrR = lrCorrGain("right", rightEl);
+  const mode = _lrGetMode();
+  let volL, volR;
+  if (mode === "right") {
+    volL = vol * corrL;
+    volR = vol * corrR * dB2G(slOff);
+  } else if (mode === "left") {
+    volL = vol * corrL * dB2G(slOff);
+    volR = vol * corrR;
+  } else {
+    volL = vol * corrL * dB2G(-slOff / 2);
+    volR = vol * corrR * dB2G(slOff / 2);
+  }
+  const ac = gAC();
+  playToneTyped(ac, hzL, volL, dur, -1, globalToneType);
+  playToneTyped(ac, hzR, volR, dur, 1, globalToneType);
+}
+
 function lrStopPlay() {
   if (curOsc) {
-    try {
-      curOsc.stop();
-    } catch (e) {}
+    try { curOsc.stop(); } catch (e) {}
     curOsc = null;
   }
   if (lrPlayTO) {
@@ -137,48 +217,32 @@ function lrStopPlay() {
 }
 
 function lrSetSideActive(side) {
-  const l = document.getElementById("lrIndL");
-  const r = document.getElementById("lrIndR");
+  if (!lrEls) return;
+  const l = lrEls.pairLeft;
+  const r = lrEls.pairRight;
   if (!l || !r) return;
-  const activeStyle =
-    "background:var(--accent-light);border-color:var(--accent);color:var(--accent)";
-  const inactiveStyle =
-    "background:transparent;border-color:var(--border);color:var(--text)";
-  l.style.cssText = l.style.cssText.replace(
-    /background:[^;]+;border-color:[^;]+;color:[^;]+/,
-    "",
-  );
-  r.style.cssText = r.style.cssText.replace(
-    /background:[^;]+;border-color:[^;]+;color:[^;]+/,
-    "",
-  );
   if (side === "left") {
     l.style.background = "var(--accent-light)";
     l.style.borderColor = "var(--accent)";
     l.style.color = "var(--accent)";
+    r.style.background = "";
+    r.style.borderColor = "";
+    r.style.color = "";
   } else if (side === "right") {
     r.style.background = "var(--accent-light)";
     r.style.borderColor = "var(--accent)";
     r.style.color = "var(--accent)";
+    l.style.background = "";
+    l.style.borderColor = "";
+    l.style.color = "";
+  } else {
+    l.style.background = "";
+    l.style.borderColor = "";
+    l.style.color = "";
+    r.style.background = "";
+    r.style.borderColor = "";
+    r.style.color = "";
   }
-}
-
-function lrUpdSliderMode(mode) {
-  lrSliderMode = mode;
-  document.querySelectorAll(".lrSlModeBtn").forEach((b) => {
-    const on = b.dataset.mode === mode;
-    b.style.background = on ? "var(--accent)" : "";
-    b.style.color = on ? "#fff" : "";
-    b.style.borderColor = on ? "var(--accent)" : "";
-  });
-  const hints = {
-    right:
-      "Rechts lauter → positiv · Links lauter → negativ · ◄► ±0.5 dB · Shift ±0.1 dB",
-    left: "Links lauter → positiv · Rechts lauter → negativ · ◄► ±0.5 dB · Shift ±0.1 dB",
-    both: "Balance: Rechts an/ab ↔ positiv/negativ · ◄► ±0.5 dB · Shift ±0.1 dB",
-  };
-  const h = document.getElementById("lrSlHint");
-  if (h) h.textContent = hints[mode] || "";
 }
 
 function lrBuildSequence() {
@@ -197,7 +261,7 @@ function lrBuildSequence() {
       sideData["right"].elSt[i] !== "mute";
     if (leftOk && rightOk) available.push(i);
   }
-  const mode = document.getElementById("lrOrderMode").value;
+  const mode = lrEls && lrEls.modeSelect ? lrEls.modeSelect.value : "random";
   if (mode === "ascending") {
     lrSeq = [...available];
   } else if (mode === "descending") {
@@ -215,7 +279,7 @@ function lrBuildSequence() {
 }
 
 function lrDetermineFlip() {
-  const mode = document.getElementById("lrSideMode").value;
+  const mode = lrEls && lrEls.runSelect ? lrEls.runSelect.value : "random";
   if (mode === "lr") return false;
   if (mode === "rl") return true;
   return Math.random() < 0.5;
@@ -229,50 +293,57 @@ function lrShowPair() {
   const el = lrSeq[lrSeqIdx];
   lrCurrentEl = el;
   lrFlipped = lrDetermineFlip();
+  lrSlRangeIdx = 0;
 
-  // Slider: load existing result if any
+  // Slider: load existing result if any, reset to 0
   const existing = lrResults[el];
-  const sl = document.getElementById("lrSl");
-  sl.value = existing !== undefined ? existing : 0;
-  document.getElementById("lrSlV").textContent =
-    (sl.value >= 0 ? "+" : "") + parseFloat(sl.value).toFixed(1) + " dB";
-  const ph = document.getElementById("lrPrevHint");
-  if (existing !== undefined) {
-    ph.textContent =
-      "Vorheriger Wert: " +
-      (existing >= 0 ? "+" : "") +
-      existing.toFixed(1) +
-      " dB";
-    ph.style.display = "";
-  } else {
-    ph.style.display = "none";
+  if (lrEls && lrEls.slider) {
+    _lrRstSlR();
+    lrEls.slider.value = "0";
+    _lrUpdSliderDisplay(0);
   }
 
-  // Update progress
-  document.getElementById("lrProgLbl").textContent =
-    "Elektrode " + (lrSeqIdx + 1) + " von " + lrSeq.length;
+  // Update cumulative display (previous value)
+  _lrUpdCumulative(0);
 
-  // Electrode label — show left side numbering
-  const leftLabel = withSide("left", () => "E" + dEN(el));
+  // Update progress
+  if (lrEls && lrEls.progressText) {
+    lrEls.progressText.textContent =
+      t("comp") + " " + (lrSeqIdx + 1) + " " + t("of") + " " + lrSeq.length;
+  }
+
+  // Electrode labels — show both sides
+  const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
   const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
-  const rightLabel = withSide("right", () => "E" + dEN(el));
-  document.getElementById("lrElLabel").textContent =
-    leftLabel + " / " + rightLabel;
+  const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
+  if (lrEls && lrEls.pairLeft) {
+    lrEls.pairLeft.textContent = "L: " + leftLabel;
+  }
+  if (lrEls && lrEls.pairRight) {
+    lrEls.pairRight.textContent = "R: " + rightLabel;
+  }
 
   const hzL = lrEffFreq("left", el);
   const hzR = lrEffFreq("right", rightEl);
-  document.getElementById("lrFreqLabel").textContent =
-    "Links: " + Math.round(hzL) + " Hz  ·  Rechts: " + Math.round(hzR) + " Hz";
+  if (lrEls && lrEls.pairFreq) {
+    lrEls.pairFreq.textContent =
+      Math.round(hzL) + " Hz  ·  " + Math.round(hzR) + " Hz";
+  }
 
-  document.getElementById("lrUndoBtn").disabled = lrUndoStack.length === 0;
+  // Undo button state
+  if (lrEls && lrEls.undoBtn) lrEls.undoBtn.disabled = lrUndoStack.length === 0;
+
+  // Reset confidence
+  if (lrEls && lrEls.confRadios && lrEls.confRadios['none'])
+    lrEls.confRadios['none'].checked = true;
 
   lrPlayCurrent();
 }
 
 function lrConfirm() {
-  if (lrCurrentEl === null) return;
+  if (lrCurrentEl === null || !lrRunning) return;
   const el = lrCurrentEl;
-  const val = parseFloat(document.getElementById("lrSl").value);
+  const val = _lrSliderVal();
   // Save undo
   lrUndoStack.push({ el, prev: lrResults[el] });
   lrResults[el] = val;
@@ -284,6 +355,7 @@ function lrConfirm() {
 
 function lrUndo() {
   if (!lrUndoStack.length) return;
+  lrStopPlay();
   const { el, prev } = lrUndoStack.pop();
   if (prev === undefined) delete lrResults[el];
   else lrResults[el] = prev;
@@ -293,14 +365,36 @@ function lrUndo() {
   lrShowPair();
 }
 
+function _lrRequestExcl(elIdx) {
+  if (!lrEls) return;
+  lrStopPlay();
+  const leftLabel = withSide("left", () => dENPrefix("left") + dEN(elIdx) + " (" + Math.round(lrEffFreq("left", elIdx)) + " Hz)");
+  setTestExclConfirm(lrEls.exclOverlay, leftLabel, function() {
+    // Exclude electrode on both sides
+    const now = Date.now();
+    if (sideData["left"].elExDur[elIdx] === null)
+      sideData["left"].elExDur[elIdx] = now;
+    if (sideData["right"].elExDur[elIdx] === null)
+      sideData["right"].elExDur[elIdx] = now;
+    // Remove remaining pairs with this electrode from sequence
+    lrSeq = lrSeq.filter(function(i) { return i !== elIdx; });
+    if (lrSeqIdx >= lrSeq.length) {
+      lrFinish();
+    } else {
+      lrShowPair();
+    }
+  });
+}
+
 function lrFinish() {
   lrStopPlay();
   lrRunning = false;
-  document.getElementById("lrTestArea").style.display = "none";
-  document.getElementById("lrActiveArea").style.display = "none";
-  document.getElementById("lrStartBtn").disabled = false;
-  document.getElementById("lrStopBtn").disabled = true;
-  lrUpdateLockState(false);
+  if (lrEls) {
+    lrEls.testBox.hidden = true;
+    lrEls.startBtn.disabled = false;
+    lrEls.stopBtn.disabled = true;
+  }
+  lockTestTabs(false, null);
   lrRenderResults();
   lrApplyMeanToBalance();
 }
@@ -308,11 +402,12 @@ function lrFinish() {
 function lrStop() {
   lrStopPlay();
   lrRunning = false;
-  document.getElementById("lrTestArea").style.display = "none";
-  document.getElementById("lrActiveArea").style.display = "none";
-  document.getElementById("lrStartBtn").disabled = false;
-  document.getElementById("lrStopBtn").disabled = true;
-  lrUpdateLockState(false);
+  if (lrEls) {
+    lrEls.testBox.hidden = true;
+    lrEls.startBtn.disabled = false;
+    lrEls.stopBtn.disabled = true;
+  }
+  lockTestTabs(false, null);
   lrRenderResults();
 }
 
@@ -323,7 +418,7 @@ function lrApplyMeanToBalance() {
   // Positive lrResult = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 
-  // Prominente Mean-Anzeige
+  // Mean-Anzeige
   const mvEl = document.getElementById("lrMedianValue");
   const mhEl = document.getElementById("lrMedianHint");
   if (mvEl) {
@@ -345,13 +440,6 @@ function lrApplyMeanToBalance() {
     else if (balOffset > 0)
       mhEl.textContent = "Links anheben oder Rechts absenken";
     else mhEl.textContent = "Rechts anheben oder Links absenken";
-  }
-
-  const balEl = document.getElementById("balBalance");
-  if (balEl) {
-    // balBalance wurde entfernt – kein Schreibzugriff mehr nötig
-    // balEl.value = balOffset;
-    // balEl.dispatchEvent(new Event("input"));
   }
 }
 
@@ -381,8 +469,8 @@ function lrRenderResults() {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const hzL = lrEffFreq("left", i);
     const hzR = lrEffFreq("right", rightEl);
-    const leftLabel = withSide("left", () => "E" + dEN(i));
-    const rightLabel = withSide("right", () => "E" + dEN(rightEl));
+    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
+    const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
     const meaning =
       v > 0.1 ? "Rechts lauter" : v < -0.1 ? "Links lauter" : "Gleich";
     const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#666";
@@ -463,8 +551,7 @@ function lrDrawChart() {
     ctx.fillRect(x, Math.min(zY, y), bW, bH || 1);
 
     // Label
-    const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
-    const leftLabel = withSide("left", () => "E" + dEN(el));
+    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
     ctx.fillStyle = "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
@@ -504,103 +591,216 @@ function lrCheckData() {
   const hasRight = sideData["right"].bRes.length > 0;
   const nd = document.getElementById("lrNoData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
+  // Deaf-Hinweis
+  const deafHint = document.getElementById("lrDeafHintEl");
+  if (deafHint) {
+    const hasDeaf = (sideData.left.config || "ci") === "deaf"
+                 || (sideData.right.config || "ci") === "deaf";
+    deafHint.style.display = hasDeaf ? "" : "none";
+    if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
+  }
 }
 
-// ---- Event listeners ----
-document.addEventListener("DOMContentLoaded", () => {
-  // Called after main DOMContentLoaded — use a small delay to let main init run first
-  setTimeout(() => {
-    lrCheckData();
+// ---- DOMContentLoaded — buildTestPanel + Event-Wiring ----
+document.addEventListener("DOMContentLoaded", function() {
+  var parentEl = document.getElementById("subpanel-messungen-balance");
+  if (!parentEl) return;
 
-    document.getElementById("lrStartBtn").addEventListener("click", () => {
-      lrBuildSequence();
-      if (!lrSeq.length) {
-        alert("Keine gemeinsamen aktiven Elektroden gefunden.");
-        return;
-      }
-      lrRunning = true;
-      lrUndoStack = [];
-      document.getElementById("lrTestArea").style.display = "";
-      document.getElementById("lrActiveArea").style.display = "";
-      document.getElementById("lrStartBtn").disabled = true;
-      document.getElementById("lrStopBtn").disabled = false;
-      lrUpdateLockState(true);
-      lrShowPair();
-    });
+  var balanceCfg = {
+    id: 'balance',
+    explain: {
+      titleKey: 'lrTitle',
+      paragraphs: [
+        { key: 'lrDesc' },
+        { key: 'lrPrereqHint', kind: 'warn' }
+      ]
+    },
+    presets: {
+      rowMode: {
+        show: true,
+        modeKey: 'lrOrderLbl',
+        modeOptions: [['random','optRandom'],['ascending','optAsc'],['descending','optDesc']],
+        runKey: 'lrSideLbl',
+        runOptions: [['random','optRandom'],['lr','optLR'],['rl','optRL']]
+      },
+      rowFine: { show: false },
+      rowVolume: { show: true },
+      rowSequence: {
+        sequence: { show: true, source: 'global' },
+        toneType: { show: true, source: 'global' },
+        target: {
+          show: true,
+          options: ['left','right','both'],
+          stateKey: 'slTarget_balance',
+          default: 'both'
+        }
+      },
+      startStop: { show: true, startKey: 'btnStartTest', resumable: false }
+    },
+    test: {
+      subTitleKey: 'lrRunningTitle',
+      progressBar: true,
+      progressFormat: 'simple',
+      swapButton: { show: true, labelKey: 'btnSwapLR' },
+      pairDisplay: { mode: 'side-vs-side', labelLeft: 'L', labelRight: 'R' },
+      excludeButtons: { show: true, target: 'electrodes' },
+      actions: ['undo','replay','simul'],
+      keyHintBox: { show: true, unitKey: 'sliderHintDb' },
+      slider: { unit: 'dB', ranges: [20, 40, 60] },
+      sliderValue: true,
+      cumulativeDisplay: { show: true, key: 'cumulativeDb' },
+      confirmButton: { show: true, key: 'btnConfirmOffset' },
+      confidence: { show: true }
+    }
+  };
 
-    document.getElementById("lrStopBtn").addEventListener("click", lrStop);
-    document.querySelectorAll(".lrSlModeBtn").forEach((b) => {
-      b.addEventListener("click", () => lrUpdSliderMode(b.dataset.mode));
-    });
-    lrUpdSliderMode("right");
-    document
-      .getElementById("lrReplayBtn")
-      .addEventListener("click", lrPlayCurrent);
-    document.getElementById("lrConfBtn").addEventListener("click", lrConfirm);
-    document.getElementById("lrUndoBtn").addEventListener("click", lrUndo);
-    document.getElementById("lrClearBtn").addEventListener("click", () => {
-      if (!confirm("LR-Vergleichsergebnisse löschen?")) return;
-      lrResults = {};
-      document.getElementById("lrResultsCard").style.display = "none";
-    });
+  lrEls = buildTestPanel(parentEl, balanceCfg);
 
-    document.getElementById("lrSwapBtn").addEventListener("click", () => {
+  // ---- Event-Listener ----
+
+  // Start
+  lrEls.startBtn.addEventListener('click', function() {
+    lrBuildSequence();
+    if (!lrSeq.length) {
+      alert(t("lrNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
+      return;
+    }
+    lrRunning = true;
+    lrUndoStack = [];
+    lrSlRangeIdx = 0;
+    lrEls.startBtn.disabled = true;
+    lrEls.stopBtn.disabled = false;
+    lrEls.testBox.hidden = false;
+    lockTestTabs(true, 'balance');
+    lrShowPair();
+  });
+
+  // Stop
+  lrEls.stopBtn.addEventListener('click', lrStop);
+
+  // Swap L↔R
+  if (lrEls.swapBtn) {
+    lrEls.swapBtn.addEventListener('click', function() {
       lrFlipped = !lrFlipped;
+      // Invert slider value
+      var v = _lrSliderVal();
+      if (lrEls.slider) {
+        lrEls.slider.value = String(-v);
+        _lrUpdSliderDisplay(-v);
+        _lrUpdCumulative(-v);
+      }
       lrPlayCurrent();
     });
+  }
 
-    document.getElementById("lrSl").addEventListener("input", (e) => {
-      const v = parseFloat(e.target.value);
-      document.getElementById("lrSlV").textContent =
-        (v >= 0 ? "+" : "") + v.toFixed(1) + " dB";
+  // Replay
+  if (lrEls.replayBtn) lrEls.replayBtn.addEventListener('click', lrPlayCurrent);
+
+  // Simul
+  if (lrEls.simulBtn) lrEls.simulBtn.addEventListener('click', lrPlaySimul);
+
+  // Confirm
+  if (lrEls.confirmBtn) lrEls.confirmBtn.addEventListener('click', lrConfirm);
+
+  // Undo
+  if (lrEls.undoBtn) lrEls.undoBtn.addEventListener('click', lrUndo);
+
+  // Exclude buttons
+  if (lrEls.excludeLeftBtn) {
+    lrEls.excludeLeftBtn.addEventListener('click', function() {
+      if (!lrRunning || lrCurrentEl === null) return;
+      _lrRequestExcl(lrCurrentEl);
     });
-
-    // Keyboard in balance subtab
-    document.addEventListener("keydown", (e) => {
-      const balSubpanel = document.getElementById("subpanel-messungen-balance");
-      if (!balSubpanel || !balSubpanel.classList.contains("active")) return;
-      const messPanel = document.getElementById("panel-messungen");
-      if (!messPanel || !messPanel.classList.contains("active")) return;
-      if (!lrRunning) return;
-      if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
-      const step = e.shiftKey ? 0.1 : 0.5;
-      const sl = document.getElementById("lrSl");
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        sl.value = Math.max(-60, parseFloat(sl.value) - step).toFixed(1);
-        document.getElementById("lrSlV").textContent =
-          (parseFloat(sl.value) >= 0 ? "+" : "") +
-          parseFloat(sl.value).toFixed(1) +
-          " dB";
-      }
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        sl.value = Math.min(60, parseFloat(sl.value) + step).toFixed(1);
-        document.getElementById("lrSlV").textContent =
-          (parseFloat(sl.value) >= 0 ? "+" : "") +
-          parseFloat(sl.value).toFixed(1) +
-          " dB";
-      }
-      if (e.key === " ") {
-        e.preventDefault();
-        lrPlayCurrent();
-      }
-      if (e.key === "Enter") {
-        e.preventDefault();
-        lrConfirm();
-      }
+  }
+  if (lrEls.excludeRightBtn) {
+    lrEls.excludeRightBtn.addEventListener('click', function() {
+      if (!lrRunning || lrCurrentEl === null) return;
+      _lrRequestExcl(lrCurrentEl);
     });
+  }
 
-    // Re-check when switching to balance tab
-    const origSwitchTab = window.switchTab;
-  }, 100);
+  // Extend button
+  if (lrEls.extendBtn) {
+    lrEls.extendBtn.addEventListener('click', function() {
+      _lrExtSlider();
+      _lrUpdSliderDisplay(_lrSliderVal());
+    });
+  }
+
+  // Slider input
+  if (lrEls.slider) {
+    lrEls.slider.addEventListener('input', function() {
+      var v = parseFloat(this.value);
+      _lrUpdSliderDisplay(v);
+      _lrUpdCumulative(v);
+    });
+    lrEls.slider.addEventListener('change', function() { this.blur(); });
+    lrEls.slider.addEventListener('mouseup', function() { this.blur(); });
+    lrEls.slider.addEventListener('touchend', function() { this.blur(); });
+  }
+
+  // Keyboard in balance subtab
+  document.addEventListener('keydown', function(e) {
+    var balSubpanel = document.getElementById('subpanel-messungen-balance');
+    if (!balSubpanel || !balSubpanel.classList.contains('active')) return;
+    var messPanel = document.getElementById('panel-messungen');
+    if (!messPanel || !messPanel.classList.contains('active')) return;
+    if (!lrRunning) return;
+    const activeEl = document.activeElement;
+    const isSlider = lrEls && lrEls.slider && activeEl === lrEls.slider;
+    if (!isSlider && activeEl &&
+        (activeEl.tagName === 'INPUT' || activeEl.tagName === 'SELECT' || activeEl.tagName === 'TEXTAREA')) return;
+
+    const step = e.shiftKey ? 0.1 : 0.5;
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var sl = lrEls ? lrEls.slider : null;
+      if (!sl) return;
+      var r = LR_SLIDER_RANGES[lrSlRangeIdx];
+      var nv = Math.max(-r, parseFloat(sl.value) - step);
+      sl.value = nv.toFixed(1);
+      _lrUpdSliderDisplay(nv);
+      _lrUpdCumulative(nv);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      var sl = lrEls ? lrEls.slider : null;
+      if (!sl) return;
+      var r = LR_SLIDER_RANGES[lrSlRangeIdx];
+      var nv = Math.min(r, parseFloat(sl.value) + step);
+      sl.value = nv.toFixed(1);
+      _lrUpdSliderDisplay(nv);
+      _lrUpdCumulative(nv);
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      lrPlayCurrent();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      lrConfirm();
+    } else if (e.key === 'z' || e.key === 'Z') {
+      e.preventDefault();
+      lrUndo();
+    }
+  });
+
+  // Clear results button (in results tab, static HTML)
+  var lrClearBtn = document.getElementById('lrClearBtn');
+  if (lrClearBtn) {
+    lrClearBtn.addEventListener('click', function() {
+      if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
+      lrResults = {};
+      var lrRC = document.getElementById("lrResultsCard");
+      if (lrRC) lrRC.style.display = "none";
+      var lrNR = document.getElementById("lrNoResults");
+      if (lrNR) lrNR.style.display = "";
+    });
+  }
 });
 
 // Hook into balance subtab activation
 document
   .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')
-  ?.addEventListener("click", () => {
-    setTimeout(() => {
+  ?.addEventListener('click', function() {
+    setTimeout(function() {
       lrCheckData();
     }, 0);
   });
@@ -608,8 +808,8 @@ document
 // Hook into lrresults subtab activation
 document
   .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
-  ?.addEventListener("click", () => {
-    setTimeout(() => {
+  ?.addEventListener('click', function() {
+    setTimeout(function() {
       lrCheckData();
       lrDrawChart();
     }, 0);

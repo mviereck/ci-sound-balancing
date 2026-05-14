@@ -15,12 +15,14 @@ let mfr,
   manualLevels,
   refEl,
   jRes,
-  bRes;
+  bRes,
+  config;
 // effFreq[i] = elFreqOwn[i] ?? freqs[i] (MFR default)
 function effFreq(i) {
   return elFreqOwn && elFreqOwn[i] != null ? elFreqOwn[i] : freqs[i];
 }
 let lvFocus = 0;
+let defaultMfr = "medel"; // Frequenzraster-Default wenn keine Seite CI ist
 
 let presets = [];
 let fullSweepRound = null,
@@ -52,11 +54,13 @@ function bindActiveSide() {
   refEl = s.refEl;
   jRes = s.jRes;
   bRes = s.bRes;
+  config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
   fullSweepDonePairs = s.fullSweepDonePairs || [];
 }
 function initSideData(side, m) {
   const s = sideData[side];
+  s.config = s.config || "ci"; // bewahren wenn schon gesetzt, sonst Default
   s.manufacturer = m || "medel";
   s.nEl = MFR[s.manufacturer].n;
   s.freqs = [...MFR[s.manufacturer].freqs];
@@ -131,6 +135,10 @@ function setActiveSide(side) {
   bindActiveSide();
   document.getElementById("ciSideSelect").value = side;
   document.getElementById("mfrSelect").value = mfr;
+  const cfgSel = document.getElementById("cfgSelect");
+  if (cfgSel) cfgSel.value = config;
+  const dfSel = document.getElementById("defaultMfrSelect");
+  if (dfSel) dfSel.value = defaultMfr;
   buildFreqTable();
   buildLvGrid();
   drawLvChart();
@@ -144,6 +152,7 @@ function setActiveSide(side) {
 }
 function loadSideData(side, d) {
   const s = sideData[side];
+  s.config = d.config || "ci";
   if (d.manufacturer && MFR[d.manufacturer]) {
     s.manufacturer = d.manufacturer;
     s.nEl = MFR[s.manufacturer].n;
@@ -253,6 +262,104 @@ function withSide(side, fn) {
 function dEN(i) {
   return MFR[mfr].apFirst ? i + 1 : nEl - i;
 }
+// Liefert das Präfix ("E" oder "B") für die aktive Seite
+function dENPrefix(side) {
+  const cfg = side ? (sideData[side].config || "ci") : (config || "ci");
+  return cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
+}
+// Liefert Seite, die als Frequenzraster-Quelle dient,
+// oder null wenn beide CI (unabhängig) oder beide nicht-CI (Default)
+function getFreqSource() {
+  const lCfg = sideData.left.config || "ci";
+  const rCfg = sideData.right.config || "ci";
+  if (lCfg === "ci" && rCfg !== "ci") return "left";
+  if (rCfg === "ci" && lCfg !== "ci") return "right";
+  return null; // beide CI (unabhängig) oder beide nicht-CI (Default)
+}
+let _syncInProgress = false;
+function syncFreqsToAcoustic() {
+  if (_syncInProgress) return;
+  _syncInProgress = true;
+  try {
+    const src = getFreqSource();
+    if (src) {
+      // Eine CI-Seite ist Quelle: andere Seite(n) spiegeln
+      const other = src === "left" ? "right" : "left";
+      if ((sideData[other].config || "ci") !== "ci") {
+        const srcData = sideData[src];
+        const otherData = sideData[other];
+        otherData.nEl = srcData.nEl;
+        otherData.freqs = [...srcData.freqs];
+        otherData.manufacturer = srcData.manufacturer;
+        // elFreqOwn auf neue Länge anpassen, nicht überschreiben
+        if (!otherData.elFreqOwn || otherData.elFreqOwn.length !== otherData.nEl) {
+          otherData.elFreqOwn = new Array(otherData.nEl).fill(null);
+        }
+        // Arrays auf neue Elektrodenzahl anpassen
+        ["elSt","elNt","elExDur","manualLevels"].forEach(k => {
+          if (!otherData[k] || otherData[k].length !== otherData.nEl) {
+            const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+            otherData[k] = new Array(otherData.nEl).fill(def);
+          }
+        });
+        if (!otherData.implant || !otherData.implant.mcl ||
+            otherData.implant.mcl.length !== otherData.nEl) {
+          otherData.implant = {
+            model: otherData.implant ? otherData.implant.model || "" : "",
+            processor: otherData.implant ? otherData.implant.processor || "" : "",
+            cValue: null, idr: null, iidr: null, generation: null,
+            mcl: new Array(otherData.nEl).fill(null),
+            thr: new Array(otherData.nEl).fill(null),
+            upperLevel: new Array(otherData.nEl).fill(null),
+          };
+        }
+      }
+    } else {
+      // Beide nicht-CI: Default-Raster setzen
+      const lCfg = sideData.left.config || "ci";
+      const rCfg = sideData.right.config || "ci";
+      if (lCfg !== "ci" && rCfg !== "ci") {
+        ["left","right"].forEach(side => {
+          const s = sideData[side];
+          if (s.config !== "ci") {
+            const defN = MFR[defaultMfr].n;
+            s.nEl = defN;
+            s.freqs = [...MFR[defaultMfr].freqs];
+            s.manufacturer = defaultMfr;
+            s.elFreqOwn = new Array(defN).fill(null);
+            ["elSt","elNt","elExDur","manualLevels"].forEach(k => {
+              if (!s[k] || s[k].length !== defN) {
+                const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
+                s[k] = new Array(defN).fill(def);
+              }
+            });
+          }
+        });
+      }
+    }
+    // Aktive Seite neu binden
+    bindActiveSide();
+  } finally {
+    _syncInProgress = false;
+  }
+}
+// Konfiguration einer Seite setzen und Sync auslösen
+function setSideConfig(side, cfg) {
+  sideData[side].config = cfg;
+  if (cfg !== "ci") {
+    // Wenn akustisch/taub: Daten dieser Seite bleiben, Frequenzen werden synchronisiert
+    syncFreqsToAcoustic();
+  } else {
+    // Wenn zurück zu CI: unabhängig werden – Frequenzen auf Default zurücksetzen
+    const s = sideData[side];
+    s.manufacturer = s.manufacturer || "medel";
+    s.nEl = MFR[s.manufacturer].n;
+    s.freqs = [...MFR[s.manufacturer].freqs];
+    // Andere nicht-CI-Seite ebenfalls sync
+    syncFreqsToAcoustic();
+  }
+  bindActiveSide();
+}
 initSideData("left", "medel");
 initSideData("right", "medel");
 activeSide = "left";
@@ -280,7 +387,14 @@ let curA = -1,
   compCnt = 0,
   convRnd = 0;
 
-let globalToneType = "noise"; // "sine" | "complex" | "noise"
+let globalToneType = "warbleSine"; // "sine" | "complex" | "noise" | ...
+let globalSequence = "aba";       // "aba" | "ab"
+let slTarget_test = "balance";    // "a" | "b" | "balance"
+let slTarget_balance = "both";    // "left" | "right" | "both"
+
+// Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
+// { varSide, refSide, elIdx, varFreq, refFreq, timestamp }
+let fRes = [];
 
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden

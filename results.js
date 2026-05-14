@@ -15,11 +15,13 @@ function renderResults() {
   if (noResEl) noResEl.style.display = "none";
   const resCEl = document.getElementById("resC");
   if (resCEl) resCEl.style.display = "";
-  const vol = document.getElementById("vol2").value;
+  const vol = (typeof testEls !== 'undefined' && testEls && testEls.volInput)
+    ? testEls.volInput.value
+    : (document.getElementById("vol1") ? document.getElementById("vol1").value : 50);
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
   if (hJ) meta += ` · ${jRes.length} jdg.`;
-  meta += ` · ${t("lblVol")} ${vol}% · Ref: E${dEN(refEl)} · ${MFR[mfr].name}`;
+  meta += ` · ${t("lblVol")} ${vol}% · Ref: ${dENPrefix()}${dEN(refEl)} · ${MFR[mfr].name}`;
   const rMeta = document.getElementById("resMeta");
   if (rMeta) rMeta.innerHTML = meta;
   const th = document.getElementById("resTH"),
@@ -102,7 +104,7 @@ function renderResults() {
         };
         txt = msgs[lang] || msgs.en;
         if (redEls.length) {
-          const names = redEls.map((i) => `E${dEN(i)}`).join(", ");
+          const names = redEls.map((i) => `${dENPrefix()}${dEN(i)}`).join(", ");
           const warn = {
             de: ` Unsichere Messung bei: ${names}. Weitere Testreihen empfohlen.`,
             en: ` Uncertain measurement for: ${names}. Further test runs recommended.`,
@@ -111,7 +113,7 @@ function renderResults() {
           };
           txt += warn[lang] || warn.en;
         } else if (yellEls.length) {
-          const names = yellEls.map((i) => `E${dEN(i)}`).join(", ");
+          const names = yellEls.map((i) => `${dENPrefix()}${dEN(i)}`).join(", ");
           const warn = {
             de: ` Grenzwertige Meßqualität bei: ${names}.`,
             en: ` Borderline measurement quality for: ${names}.`,
@@ -152,7 +154,7 @@ function renderResults() {
       if (ex) {
         tr.style.opacity = "0.4";
       }
-      tr.innerHTML = `<td style="font-weight:600">${dEN(i)}</td><td>${Math.round(effFreq(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#666"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : elColor(i) === "green" ? "#16a34a" : elColor(i) === "yellow" ? "#d97706" : elColor(i) === "red" ? "#dc2626" : "#999"}">${elRes[i] > 0 ? elRes[i].toFixed(1) : "—"}</td><td>${ex ? "—" : elWt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td>`;
+      tr.innerHTML = `<td style="font-weight:600">${dENPrefix()}${dEN(i)}</td><td>${Math.round(effFreq(i))}</td><td style="color:${ex ? "#999" : v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#666"}">${ex ? "—" : (v >= 0 ? "+" : "") + v.toFixed(1)}</td><td>${pc[i] || "—"}</td><td style="color:${ex ? "#999" : elColor(i) === "green" ? "#16a34a" : elColor(i) === "yellow" ? "#d97706" : elColor(i) === "red" ? "#dc2626" : "#999"}">${elRes[i] > 0 ? elRes[i].toFixed(1) : "—"}</td><td>${ex ? "—" : elWt[i].toFixed(1)}</td><td style="font-size:.78em">${st}</td>`;
       tb.appendChild(tr);
     }
     drawChart(
@@ -194,3 +196,100 @@ function renderResults() {
   if (typeof updFClearBtn === "function") updFClearBtn();
 }
 
+
+// ============================================================
+// FREQ MATCH RESULTS
+// ============================================================
+function renderFreqMatchResults() {
+  const noData = document.getElementById("fmrNoData");
+  const card = document.getElementById("fmrCard");
+  if (!noData || !card) return;
+
+  if (typeof fRes === "undefined" || fRes.length === 0) {
+    noData.style.display = "";
+    card.style.display = "none";
+    return;
+  }
+  noData.style.display = "none";
+  card.style.display = "";
+
+  // Titel
+  const titleEl = document.getElementById("fmrTitle");
+  if (titleEl) titleEl.textContent = t("fmrTitle");
+
+  // Methoden-Hinweis
+  const noteEl = document.getElementById("fmrMethodNote");
+  if (noteEl) noteEl.textContent = t("fmrMethodNote");
+
+  // Meta-Zeile
+  const metaEl = document.getElementById("fmrMeta");
+  if (metaEl) {
+    const last = fRes[fRes.length - 1];
+    const d = new Date(last.timestamp);
+    const dateStr = d.toLocaleString(
+      lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
+    );
+    const refLabel = last.refSide === "left" ? t("sideLeft") : t("sideRight");
+    metaEl.textContent = dateStr + " · " + fRes.length + " Messpunkte · Ref: " + refLabel;
+  }
+
+  // Tabellen-Header
+  const th = document.getElementById("fmrTH");
+  const tb = document.getElementById("fmrTB");
+  if (!th || !tb) return;
+  th.innerHTML =
+    "<th>" + t("fmrThEl") + "</th>" +
+    "<th>" + t("fmrThVarSide") + "</th>" +
+    "<th>" + t("fmrThVarHz") + "</th>" +
+    "<th>" + t("fmrThRefSide") + "</th>" +
+    "<th>" + t("fmrThRefHz") + "</th>" +
+    "<th>" + t("fmrThDiffHz") + "</th>" +
+    "<th>" + t("fmrThDiffCent") + "</th>";
+
+  // Tabellen-Body: sortiert nach elIdx
+  tb.innerHTML = "";
+  const sorted = [...fRes].sort((a, b) => a.elIdx - b.elIdx);
+  for (const r of sorted) {
+    const elNum = withSide(r.varSide, () => dEN(r.elIdx));
+    const elPfxFM = withSide(r.varSide, () => dENPrefix());
+    const varLabel = r.varSide === "left" ? t("sideLeft") : t("sideRight");
+    const refLabel = r.refSide === "left" ? t("sideLeft") : t("sideRight");
+    const diffHz = Math.round(r.refFreq - r.varFreq);
+    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
+    const centRound = Math.round(cent);
+    const diffColor = Math.abs(diffHz) < 20
+      ? "#666"
+      : diffHz > 0
+        ? "#2563eb"
+        : "#dc2626";
+    const tr = document.createElement("tr");
+    tr.innerHTML =
+      "<td style=\"font-weight:600\">" + elPfxFM + elNum + "</td>" +
+      "<td>" + varLabel + "</td>" +
+      "<td>" + Math.round(r.varFreq) + "</td>" +
+      "<td>" + refLabel + "</td>" +
+      "<td>" + Math.round(r.refFreq) + "</td>" +
+      "<td style=\"color:" + diffColor + "\">" + (diffHz >= 0 ? "+" : "") + diffHz + "</td>" +
+      "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>";
+    tb.appendChild(tr);
+  }
+
+  // Chart
+  const cv = document.getElementById("fmrChart");
+  if (cv) {
+    drawFreqMatchChart(cv, fRes);
+    // Tooltip-Listener einmalig anhängen
+    if (!cv._fmcListenerAttached) {
+      cv.addEventListener("mousemove", (e) => _fmcTooltipHandler(cv, e));
+      cv.addEventListener("mouseleave", () => {
+        const tip = document.getElementById("fmcTooltip");
+        if (tip) tip.style.display = "none";
+      });
+      cv._fmcListenerAttached = true;
+    }
+  }
+
+  // Chart-Hinweis
+  const hintEl = document.getElementById("fmrChartHint");
+  if (hintEl) hintEl.textContent = t("fmrChartHint");
+}

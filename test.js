@@ -646,26 +646,113 @@ function getConvPairs(fast) {
 // ============================================================
 function getPreCorrOffset(a, b) {
   // Returns the LS-predicted offset for pair a,b (level[a]-level[b])
-  if (!document.getElementById("preCorrect").checked || bRes.length === 0)
-    return 0;
+  const cb = testEls ? testEls.preCorrectCb : document.getElementById("preCorrect");
+  if (!cb || !cb.checked || bRes.length === 0) return 0;
   const { levels } = compWLS();
   return levels[a] - levels[b];
 }
 
 // ============================================================
-// TEST
+// TEST — Element-Lookup via testEls (gebaut von buildTestPanel)
 // ============================================================
+let testEls = null;
+// Slider-Extend-Stufen: [20,40,60] dB
+const TEST_SLIDER_RANGES = [20, 40, 60];
+let testSlRangeIdx = 0; // aktueller Stufen-Index
+
+// ---- Slider-Helfer ----
+function _testRstSlR() {
+  if (!testEls) return;
+  slExt = false;
+  testSlRangeIdx = 0;
+  const s = testEls.slider;
+  const r = TEST_SLIDER_RANGES[0];
+  s.min = String(-r); s.max = String(r); s.step = "0.1";
+  if (testEls.extendBtn) testEls.extendBtn.hidden = true;
+}
+function _testExtSlider() {
+  if (!testEls) return;
+  testSlRangeIdx = Math.min(testSlRangeIdx + 1, TEST_SLIDER_RANGES.length - 1);
+  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
+  testEls.slider.min = String(-r);
+  testEls.slider.max = String(r);
+  slExt = true;
+  if (testEls.extendBtn) {
+    testEls.extendBtn.hidden = (testSlRangeIdx >= TEST_SLIDER_RANGES.length - 1);
+  }
+}
+function _testCheckExtend(sv) {
+  if (!testEls || !testEls.extendBtn) return;
+  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
+  const atLimit = Math.abs(sv) >= r - 0.5;
+  const canExtend = testSlRangeIdx < TEST_SLIDER_RANGES.length - 1;
+  testEls.extendBtn.hidden = !(atLimit && canExtend && !slExt);
+}
+function _testUpdCumulative(sv) {
+  if (!testEls || !testEls.cumulativeDisplay) return;
+  if (curBase !== 0) {
+    const tot = curBase + sv;
+    testEls.cumulativeDisplay.textContent =
+      `${t("total")}: ${tot >= 0 ? "+" : ""}${tot.toFixed(1)} dB (${t("prev")}: ${curBase >= 0 ? "+" : ""}${curBase.toFixed(1)} dB)`;
+    testEls.cumulativeDisplay.style.display = "";
+  } else {
+    testEls.cumulativeDisplay.style.display = "none";
+  }
+  _testCheckExtend(sv);
+}
+function _testSliderVal() {
+  return testEls ? parseFloat(testEls.slider.value) : 0;
+}
+
+// ---- Ausschluss-Helfer ----
+function _testRequestExcl(elIdx) {
+  if (!testEls) return;
+  stopAll();
+  const label = `${dENPrefix()}${dEN(elIdx)} (${Math.round(effFreq(elIdx))} Hz)`;
+  setTestExclConfirm(testEls.exclOverlay, label, function() {
+    doExcl(elIdx);
+  });
+}
+
+// ---- Swap-Helfer ----
+function _testSwap() {
+  if (!testAct || testIdx >= testPairs.length || !testEls) return;
+  stopAll();
+  const slVal = _testSliderVal();
+  const totOff = curBase + slVal;
+  [curA, curB] = [curB, curA];
+  testPairs[testIdx] = [curA, curB];
+  curBase = 0;
+  _testRstSlR();
+  const newSlVal = -totOff;
+  const s = testEls.slider;
+  const absV = Math.abs(newSlVal);
+  // Expand range if needed
+  while (absV > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
+    testSlRangeIdx++;
+  }
+  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
+  s.min = String(-r); s.max = String(r);
+  s.value = String(newSlVal);
+  if (testEls.sliderValue) testEls.sliderValue.textContent = newSlVal.toFixed(1) + " dB";
+  _testUpdCumulative(newSlVal);
+  testEls.pairLeft.innerHTML = `<span class="aba-label">A (Ref)</span>${dENPrefix()}${dEN(curA)}`;
+  testEls.pairRight.innerHTML = `<span class="aba-label">B (Slider)</span>${dENPrefix()}${dEN(curB)}`;
+  testEls.pairFreq.textContent = `${Math.round(effFreq(curA))} Hz vs. ${Math.round(effFreq(curB))} Hz`;
+  playCur();
+}
+
 function startTest() {
-  const pt = document.getElementById("pairType").value;
-  testMode = document.getElementById("testMode").value;
-  refEl = +document.getElementById("refEl").value;
+  if (!testEls) return;
+  const pt = testEls.runSelect ? testEls.runSelect.value : "full";
+  testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
+  refEl = testEls.refSelect ? +testEls.refSelect.value : refEl;
   if (pt === "manual") return;
   let p;
   if (pt === "full") {
     // Round-Robin: persistentes Fortsetzen
     const s = sideData[activeSide];
     const rrTable = ROUND_ROBIN[nEl];
-    const maxRounds = rrTable ? rrTable.length : 0;
     if (!rrTable) {
       p = allPairs();
     } else {
@@ -676,11 +763,8 @@ function startTest() {
       fullSweepRound = s.fullSweepRound;
       fullSweepDonePairs = s.fullSweepDonePairs;
       const roundPairs = rrTable[fullSweepRound - 1];
-      // Nur Paare mit aktiven Elektroden
       const actSet = new Set(actEl());
-      const available = roundPairs.filter(
-        ([a, b]) => actSet.has(a) && actSet.has(b),
-      );
+      const available = roundPairs.filter(([a, b]) => actSet.has(a) && actSet.has(b));
       const doneSet = new Set(fullSweepDonePairs.map(([a, b]) => a + "-" + b));
       const open = available.filter(([a, b]) => !doneSet.has(a + "-" + b));
       p = open;
@@ -693,13 +777,12 @@ function startTest() {
     compCnt = 0;
     convRnd = 0;
     tStart = Date.now();
-    document.getElementById("startBtn").disabled = true;
-    document.getElementById("stopTBtn").disabled = false;
-    document.getElementById("testArea").style.display = "block";
-    document.getElementById("exclDlg").classList.add("hidden");
-    document.getElementById("roundInfo").classList.remove("hidden");
+    testEls.startBtn.disabled = true;
+    testEls.stopBtn.disabled = false;
+    testEls.testBox.hidden = false;
+    if (testEls.subTitle) testEls.subTitle.textContent = t("testRunningTitle") || "";
     updFullSweepInfo();
-    updateTabLockState();
+    lockTestTabs(true, 'test');
     startTmr();
     showMode();
     showCurPair();
@@ -715,16 +798,16 @@ function startTest() {
   compCnt = 0;
   convRnd = pt === "conv_fast" ? 1 : 0;
   tStart = Date.now();
-  document.getElementById("startBtn").disabled = true;
-  document.getElementById("stopTBtn").disabled = false;
-  document.getElementById("testArea").style.display = "block";
-  document.getElementById("exclDlg").classList.add("hidden");
+  testEls.startBtn.disabled = true;
+  testEls.stopBtn.disabled = false;
+  testEls.testBox.hidden = false;
   if (convRnd > 0) {
-    const ri = document.getElementById("roundInfo");
-    ri.textContent = `${t("round")} ${convRnd} – ${testPairs.length} ${t("comp")}`;
-    ri.classList.remove("hidden");
-  } else document.getElementById("roundInfo").classList.add("hidden");
-  updateTabLockState();
+    if (testEls.progressText)
+      testEls.progressText.textContent = `${t("round")} ${convRnd} – ${testPairs.length} ${t("comp")}`;
+  } else {
+    if (testEls.progressText) testEls.progressText.textContent = "";
+  }
+  lockTestTabs(true, 'test');
   startTmr();
   showMode();
   showCurPair();
@@ -733,24 +816,26 @@ function endTest() {
   stopAll();
   testAct = false;
   curPlayed = false;
-  document.getElementById("startBtn").disabled = false;
-  document.getElementById("stopTBtn").disabled = true;
-  document.getElementById("testArea").style.display = "none";
-  document.getElementById("exclDlg").classList.add("hidden");
-  updateTabLockState();
+  if (testEls) {
+    testEls.startBtn.disabled = false;
+    testEls.stopBtn.disabled = true;
+    testEls.testBox.hidden = true;
+  }
+  lockTestTabs(false, null);
   stopTmr();
 }
 function showMode() {
+  if (!testEls) return;
   const j = testMode === "judgment";
-  document.getElementById("jdgC").style.display = j ? "" : "none";
-  document.getElementById("balC").style.display = j ? "none" : "";
-  document.getElementById("swapBtn").style.display = j ? "none" : "";
+  if (testEls.jdgContainer) testEls.jdgContainer.style.display = j ? "" : "none";
+  if (testEls.confirmBtn) testEls.confirmBtn.style.display = j ? "none" : "";
+  if (testEls.swapBtn) testEls.swapBtn.style.display = j ? "none" : "";
 }
 function showCurPair() {
+  if (!testEls) return;
+  const pt = testEls.runSelect ? testEls.runSelect.value : "full";
   if (testIdx >= testPairs.length) {
-    if (document.getElementById("pairType").value === "full") {
-      return nextFullRound();
-    }
+    if (pt === "full") return nextFullRound();
     if (convRnd > 0) return nextConvRnd();
     endTest();
     switchTab("ergebnisse");
@@ -760,46 +845,31 @@ function showCurPair() {
   const [a, b] = testPairs[testIdx];
   curA = a;
   curB = b;
-  document.getElementById("progLbl").textContent =
-    `${t("comp")} ${testIdx + 1} ${t("of")} ${testPairs.length}${convRnd > 0 ? ` (${t("round")} ${convRnd})` : ""}`;
-  document.getElementById("tAL").innerHTML =
-    `<span class="aba-label">A (Ref)</span>E${dEN(a)}`;
-  document.getElementById("tBL").innerHTML =
-    `<span class="aba-label">B (Slider)</span>E${dEN(b)}`;
-  document.getElementById("pairF").textContent =
-    `${Math.round(effFreq(a))} Hz vs. ${Math.round(effFreq(b))} Hz`;
+  if (testEls.progressText)
+    testEls.progressText.textContent = `${t("comp")} ${testIdx + 1} ${t("of")} ${testPairs.length}${convRnd > 0 ? ` (${t("round")} ${convRnd})` : ""}`;
+  testEls.pairLeft.innerHTML = `<span class="aba-label">A (Ref)</span>${dENPrefix()}${dEN(a)}`;
+  testEls.pairRight.innerHTML = `<span class="aba-label">B (Slider)</span>${dENPrefix()}${dEN(b)}`;
+  testEls.pairFreq.textContent = `${Math.round(effFreq(a))} Hz vs. ${Math.round(effFreq(b))} Hz`;
   if (testMode === "balance") {
-    // Get existing offset for this pair
-    const ex = bRes.find(
-      (r) => (r.a === a && r.b === b) || (r.a === b && r.b === a),
-    );
+    const ex = bRes.find((r) => (r.a === a && r.b === b) || (r.a === b && r.b === a));
     const prevOff = ex ? (ex.a === a ? ex.offset : -ex.offset) : 0;
-    // Pre-correction: use LS values to pre-correct the tones
     const preCorr = getPreCorrOffset(a, b);
-    // Slider shows real offset: start at preCorr if pre-correction is on, else at prevOff's slider portion
-    if (document.getElementById("preCorrect").checked && bRes.length > 0) {
+    const pcCb = testEls.preCorrectCb;
+    if (pcCb && pcCb.checked && bRes.length > 0) {
       curBase = preCorr;
-      rstSlR();
-      document.getElementById("balSl").value = 0;
-      document.getElementById("balV").textContent = "0.0 dB";
-      // Hint: Abweichung vorheriger Wert vom Schätzwert
-      const hintEl = document.getElementById("balAbs");
-      if (ex && hintEl) {
-        const diff = prevOff - preCorr;
-        hintEl.textContent = t("preCorrHint").replace(
-          "{v}",
-          (diff >= 0 ? "+" : "") + diff.toFixed(1),
-        );
-        hintEl.style.display = "";
-      } else if (hintEl) hintEl.style.display = "none";
+      _testRstSlR();
+      testEls.slider.value = "0";
+      if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
     } else {
-      curBase = prevOff; // existing offset as base
-      rstSlR();
-      document.getElementById("balSl").value = 0;
-      document.getElementById("balV").textContent = "0.0 dB";
+      curBase = prevOff;
+      _testRstSlR();
+      testEls.slider.value = "0";
+      if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
     }
-    updBalAbs(0);
+    _testUpdCumulative(0);
   }
+  // Reset confidence
+  if (testEls.confRadios && testEls.confRadios['none']) testEls.confRadios['none'].checked = true;
   curPlayed = false;
   updUndo();
   playCur();
@@ -809,22 +879,14 @@ function playCur() {
   stopAll();
   isPlay = true;
   if (testMode === "balance")
-    playSeq(
-      curA,
-      curB,
-      curBase + parseFloat(document.getElementById("balSl").value),
-    );
+    playSeq(curA, curB, curBase + _testSliderVal());
   else playSeq(curA, curB, 0);
   curPlayed = true;
 }
 function recJdg(r) {
   if (!testAct || testIdx >= testPairs.length || !curPlayed) return;
-  const a = curA,
-    b = curB,
-    ne = { a, b, result: r, timestamp: Date.now() };
-  const ei = jRes.findIndex(
-    (x) => (x.a === a && x.b === b) || (x.a === b && x.b === a),
-  );
+  const a = curA, b = curB, ne = { a, b, result: r, timestamp: Date.now() };
+  const ei = jRes.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
     undoSt.push({ t: "j", a: "r", e: ne, p: { ...jRes[ei] } });
     jRes[ei] = ne;
@@ -839,13 +901,9 @@ function recJdg(r) {
 }
 function recBal() {
   if (!testAct || testIdx >= testPairs.length) return;
-  const a = curA,
-    b = curB,
-    tot = curBase + parseFloat(document.getElementById("balSl").value);
+  const a = curA, b = curB, tot = curBase + _testSliderVal();
   const ne = { a, b, offset: tot, timestamp: Date.now() };
-  const ei = bRes.findIndex(
-    (x) => (x.a === a && x.b === b) || (x.a === b && x.b === a),
-  );
+  const ei = bRes.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
     undoSt.push({ t: "b", a: "r", e: ne, p: { ...bRes[ei] } });
     bRes[ei] = ne;
@@ -854,9 +912,9 @@ function recBal() {
     bRes.push(ne);
   }
   // Vollständig: gemessenes Paar als erledigt markieren
-  if (document.getElementById("pairType").value === "full") {
-    const ka = Math.min(a, b),
-      kb = Math.max(a, b);
+  const pt = testEls ? testEls.runSelect.value : "";
+  if (pt === "full") {
+    const ka = Math.min(a, b), kb = Math.max(a, b);
     const s = sideData[activeSide];
     if (!s.fullSweepDonePairs.some(([x, y]) => x === ka && y === kb)) {
       s.fullSweepDonePairs.push([ka, kb]);
@@ -890,14 +948,26 @@ function undoL() {
       const i = bRes.findIndex((x) => x.a === u.e.a && x.b === u.e.b);
       if (i >= 0) bRes[i] = u.p;
     }
+    // Bug-Fix §6.9: Bei full-Modus auch aus fullSweepDonePairs entfernen
+    const pt = testEls ? testEls.runSelect.value : "";
+    if (pt === "full") {
+      const ka = Math.min(u.e.a, u.e.b);
+      const kb = Math.max(u.e.a, u.e.b);
+      const s = sideData[activeSide];
+      const idx = s.fullSweepDonePairs.findIndex(([x, y]) => x === ka && y === kb);
+      if (idx >= 0) s.fullSweepDonePairs.splice(idx, 1);
+      fullSweepDonePairs = s.fullSweepDonePairs;
+    }
   }
   updUndo();
   showCurPair();
 }
 function updUndo() {
-  document.getElementById("undoBtn").disabled = testIdx <= 0 || !undoSt.length;
+  if (testEls && testEls.undoBtn)
+    testEls.undoBtn.disabled = testIdx <= 0 || !undoSt.length;
 }
 function updFullSweepInfo() {
+  if (!testEls) return;
   const s = sideData[activeSide];
   const rrTable = ROUND_ROBIN[nEl];
   if (!rrTable) return;
@@ -908,15 +978,13 @@ function updFullSweepInfo() {
   const doneInRound = s.fullSweepDonePairs.length;
   const N = completedRounds * pairsPerRound + doneInRound;
   const M = pairsPerRound - doneInRound;
-  const ri = document.getElementById("roundInfo");
-  ri.textContent = `${t("comp")} ${N} ${t("of")} ${totalPairs} (${t("round")} ${s.fullSweepRound} ${t("of")} ${maxRounds}), ${M} ${t("pairsRem")}`;
-  ri.classList.remove("hidden");
+  if (testEls.progressText)
+    testEls.progressText.textContent = `${t("comp")} ${N} ${t("of")} ${totalPairs} (${t("round")} ${s.fullSweepRound} ${t("of")} ${maxRounds}), ${M} ${t("pairsRem")}`;
 }
 function nextFullRound() {
   const s = sideData[activeSide];
   const rrTable = ROUND_ROBIN[nEl];
   const maxRounds = rrTable ? rrTable.length : 0;
-  // Runde abgeschlossen
   s.fullSweepRound++;
   s.fullSweepDonePairs = [];
   fullSweepRound = s.fullSweepRound;
@@ -931,7 +999,6 @@ function nextFullRound() {
     renderResults();
     return;
   }
-  // Nächste Runde starten
   const actSet = new Set(actEl());
   const roundPairs = rrTable[s.fullSweepRound - 1].filter(
     ([a, b]) => actSet.has(a) && actSet.has(b),
@@ -959,80 +1026,31 @@ function nextConvRnd() {
     .slice(0, Math.max(5, Math.ceil(sr.length * 0.2)))
     .map((r) => [r.a, r.b]);
   const ap = allPairs(),
-    ex = shuffle(ap).slice(
-      0,
-      Math.min(Math.max(3, Math.floor(ap.length * 0.1)), 8),
-    );
-  const seen = new Set(),
-    mg = [];
+    ex = shuffle(ap).slice(0, Math.min(Math.max(3, Math.floor(ap.length * 0.1)), 8));
+  const seen = new Set(), mg = [];
   [...tp, ...ex].forEach((p) => {
     const k = Math.min(p[0], p[1]) + "-" + Math.max(p[0], p[1]);
-    if (!seen.has(k)) {
-      seen.add(k);
-      mg.push(p);
-    }
+    if (!seen.has(k)) { seen.add(k); mg.push(p); }
   });
   testPairs = randAB(shuffle(mg));
   testIdx = 0;
   undoSt = [];
-  document.getElementById("roundInfo").textContent =
-    `${t("round")} ${convRnd} – ${mg.length} (max res: ${mx.toFixed(1)} dB)`;
-  document.getElementById("roundInfo").classList.remove("hidden");
+  if (testEls && testEls.progressText)
+    testEls.progressText.textContent = `${t("round")} ${convRnd} – ${mg.length} (max res: ${mx.toFixed(1)} dB)`;
   showCurPair();
-}
-function showExclDlg() {
-  if (!testAct || testIdx >= testPairs.length) return;
-  stopAll();
-  document.getElementById("exclInfo").textContent =
-    `E${dEN(curA)} (${Math.round(effFreq(curA))} Hz) vs. E${dEN(curB)} (${Math.round(effFreq(curB))} Hz)`;
-  document.getElementById("exclA").textContent = `E${dEN(curA)} ${t("bExcl")}`;
-  document.getElementById("exclB").textContent = `E${dEN(curB)} ${t("bExcl")}`;
-  document.getElementById("exclA").onclick = () => doExcl(curA);
-  document.getElementById("exclB").onclick = () => doExcl(curB);
-  document.getElementById("exclDlg").classList.remove("hidden");
 }
 function doExcl(i) {
   elExDur[i] = Date.now();
   const rem = testPairs.slice(testIdx).filter(([a, b]) => a !== i && b !== i);
   testPairs = [...testPairs.slice(0, testIdx), ...rem];
-  document.getElementById("exclDlg").classList.add("hidden");
   buildFreqTable();
-  document.getElementById("roundInfo").textContent =
-    `E${dEN(i)} ${t("exclDuring")}. ${testPairs.length - testIdx} ${t("pairsRem")}.`;
-  document.getElementById("roundInfo").classList.remove("hidden");
+  if (testEls && testEls.progressText)
+    testEls.progressText.textContent = `${dENPrefix()}${dEN(i)} ${t("exclDuring")}. ${testPairs.length - testIdx} ${t("pairsRem")}.`;
   if (testIdx >= testPairs.length) {
     endTest();
     switchTab("ergebnisse");
     renderResults();
   } else showCurPair();
-}
-function updBalAbs(sv) {
-  const ae = document.getElementById("balAbs"),
-    ew = document.getElementById("extWrap");
-  if (curBase !== 0) {
-    const tot = curBase + sv;
-    ae.textContent = `${t("total")}: ${tot >= 0 ? "+" : ""}${tot.toFixed(1)} dB (${t("prev")}: ${curBase >= 0 ? "+" : ""}${curBase.toFixed(1)} dB)`;
-    ae.style.display = "";
-  } else ae.style.display = "none";
-  const s = document.getElementById("balSl");
-  ew.style.display =
-    !slExt && Math.abs(parseFloat(s.value)) >= parseFloat(s.max) - 0.5
-      ? ""
-      : "none";
-}
-function rstSlR() {
-  const s = document.getElementById("balSl");
-  slExt = false;
-  s.min = "-20";
-  s.max = "20";
-  s.step = "0.1";
-  document.getElementById("extWrap").style.display = "none";
-}
-function extSlR() {
-  document.getElementById("balSl").min = "-40";
-  document.getElementById("balSl").max = "40";
-  slExt = true;
-  document.getElementById("extWrap").style.display = "none";
 }
 function startTmr() {
   tStart = Date.now();
@@ -1040,49 +1058,41 @@ function startTmr() {
   updTmr();
 }
 function stopTmr() {
-  if (tInt) {
-    clearInterval(tInt);
-    tInt = null;
-  }
+  if (tInt) { clearInterval(tInt); tInt = null; }
 }
 function updTmr() {
   const e = Math.floor((Date.now() - tStart) / 1000);
-  document.getElementById("timerD").textContent =
-    `${Math.floor(e / 60)}:${String(e % 60).padStart(2, "0")}`;
+  if (testEls && testEls.timerDisplay)
+    testEls.timerDisplay.textContent = `${Math.floor(e / 60)}:${String(e % 60).padStart(2, "0")}`;
 }
 function playManPair() {
-  const a = parseInt(document.getElementById("manA").value),
-    b = parseInt(document.getElementById("manB").value);
+  if (!testEls) return;
+  const a = parseInt(testEls.manA.value), b = parseInt(testEls.manB.value);
   if (a === b) return;
   const [pa, pb] = Math.random() < 0.5 ? [a, b] : [b, a];
   testAct = true;
   testPairs = [[pa, pb]];
   testIdx = 0;
   undoSt = [];
-  testMode = document.getElementById("testMode").value;
+  testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
   convRnd = 0;
-  document.getElementById("testArea").style.display = "block";
-  document.getElementById("stopTBtn").disabled = false;
-  document.getElementById("roundInfo").classList.add("hidden");
+  testEls.testBox.hidden = false;
+  testEls.stopBtn.disabled = false;
+  if (testEls.progressText) testEls.progressText.textContent = "";
   showMode();
-  document.getElementById("progLbl").textContent = t("manComp");
+  if (testEls.progressText) testEls.progressText.textContent = t("manComp");
   curA = pa;
   curB = pb;
-  document.getElementById("tAL").innerHTML =
-    `<span class="aba-label">A</span>E${dEN(pa)}`;
-  document.getElementById("tBL").innerHTML =
-    `<span class="aba-label">B</span>E${dEN(pb)}`;
-  document.getElementById("pairF").textContent =
-    `${Math.round(effFreq(pa))} Hz vs. ${Math.round(effFreq(pb))} Hz`;
+  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(pa)}`;
+  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(pb)}`;
+  testEls.pairFreq.textContent = `${Math.round(effFreq(pa))} Hz vs. ${Math.round(effFreq(pb))} Hz`;
   if (testMode === "balance") {
-    const ex = bRes.find(
-      (r) => (r.a === pa && r.b === pb) || (r.a === pb && r.b === pa),
-    );
+    const ex = bRes.find((r) => (r.a === pa && r.b === pb) || (r.a === pb && r.b === pa));
     curBase = ex ? (ex.a === pa ? ex.offset : -ex.offset) : 0;
-    rstSlR();
-    document.getElementById("balSl").value = 0;
-    document.getElementById("balV").textContent = "0.0 dB";
-    updBalAbs(0);
+    _testRstSlR();
+    testEls.slider.value = "0";
+    if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
+    _testUpdCumulative(0);
   }
   curPlayed = false;
   startTmr();
@@ -1090,10 +1100,242 @@ function playManPair() {
 }
 function afterManRes() {
   stopTmr();
-  document.getElementById("testArea").style.display = "none";
+  if (testEls) testEls.testBox.hidden = true;
   testAct = false;
   curPlayed = false;
-  updateTabLockState();
+  lockTestTabs(false, null);
   renderResults();
 }
+
+// ============================================================
+// updateRunExplain — Erklärungstext für den Run-Modus
+// ============================================================
+function updateRunExplain() {
+  const box = testEls ? testEls.runExplainBox : document.getElementById("runExplain");
+  if (!box) return;
+  const pt = testEls ? (testEls.runSelect ? testEls.runSelect.value : "full") : "full";
+  const explain = {
+    full: t("runExplFull"),
+    conv_fast: t("runExplCF"),
+    manual: t("runExplMan"),
+  };
+  box.textContent = explain[pt] || "";
+}
+
+// ============================================================
+// DOMContentLoaded — buildTestPanel + Event-Wiring
+// ============================================================
+document.addEventListener("DOMContentLoaded", function() {
+  var parentEl = document.getElementById("subpanel-messungen-test");
+  if (!parentEl) return;
+
+  var testCfg = {
+    id: 'test',
+    explain: {
+      titleKey: 'testExplainTitle',
+      paragraphs: [
+        { key: 'testExplainRecommend' },
+        { key: 'testExplainVarious' }
+      ]
+    },
+    presets: {
+      rowMode: {
+        show: true,
+        modeKey: 'lblMode',
+        modeOptions: [['balance','optBal'],['judgment','optJdg']],
+        runKey: 'lblRun',
+        runOptions: [['full','optFull'],['conv_fast','optCF'],['manual','optMan']]
+      },
+      rowFine: {
+        show: true,
+        preCorrect: true,
+        refSelect: { type: 'electrode', key: 'lblRef' }
+      },
+      rowVolume: { show: true },
+      rowSequence: {
+        sequence: { show: true, source: 'global' },
+        toneType: { show: true, source: 'global' },
+        target: {
+          show: true,
+          options: ['a','b','balance'],
+          stateKey: 'slTarget_test',
+          default: 'balance'
+        }
+      },
+      startStop: { show: true, startKey: 'btnStartTest', resumable: true }
+    },
+    test: {
+      subTitleKey: 'testRunningTitle',
+      progressBar: true,
+      progressFormat: 'rounds',
+      swapButton: { show: true, labelKey: 'btnSwapAB' },
+      pairDisplay: { mode: 'electrode-vs-electrode', labelLeft: 'A', labelRight: 'B' },
+      excludeButtons: { show: true, target: 'electrodes' },
+      actions: ['undo','replay','simul'],
+      keyHintBox: { show: true, unitKey: 'sliderHintDb' },
+      slider: { unit: 'dB', ranges: [20, 40, 60] },
+      sliderValue: true,
+      cumulativeDisplay: { show: true, key: 'cumulativeDb' },
+      confirmButton: { show: true, key: 'btnConfirmOffset' },
+      confidence: { show: true }
+    }
+  };
+
+  testEls = buildTestPanel(parentEl, testCfg);
+
+  // refSelect mit Elektroden befüllen
+  function _fillRefSelect() {
+    if (!testEls.refSelect) return;
+    var sel = testEls.refSelect;
+    var prev = sel.value;
+    sel.innerHTML = '';
+    for (var i = 0; i < nEl; i++) {
+      var opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = dENPrefix() + dEN(i) + ' (' + Math.round(effFreq(i)) + ' Hz)';
+      sel.appendChild(opt);
+    }
+    if (prev && sel.querySelector('option[value="' + prev + '"]')) sel.value = prev;
+    else sel.value = String(refEl);
+  }
+  _fillRefSelect();
+  window._testFillRefSelect = _fillRefSelect;
+
+  // manA/manB befüllen
+  function _fillManSels() {
+    if (!testEls.manA || !testEls.manB) return;
+    [testEls.manA, testEls.manB].forEach(function(sel, idx) {
+      var prev = sel.value;
+      sel.innerHTML = '';
+      for (var i = 0; i < nEl; i++) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = dENPrefix() + dEN(i);
+        sel.appendChild(opt);
+      }
+      if (prev && sel.querySelector('option[value="' + prev + '"]')) sel.value = prev;
+      else sel.value = idx === 0 ? '0' : String(Math.min(1, nEl - 1));
+    });
+  }
+  _fillManSels();
+  window._testFillManSels = _fillManSels;
+
+  // runExplain initial
+  updateRunExplain();
+
+  // ---- Event-Listener ----
+  testEls.startBtn.addEventListener('click', function() {
+    var pt = testEls.runSelect ? testEls.runSelect.value : 'full';
+    if (pt === 'manual') {
+      playManPair();
+    } else {
+      startTest();
+    }
+  });
+  testEls.stopBtn.addEventListener('click', function() {
+    endTest();
+    renderResults();
+  });
+
+  if (testEls.runSelect) {
+    testEls.runSelect.addEventListener('change', function() {
+      if (testEls.manualSel)
+        testEls.manualSel.classList.toggle('hidden', this.value !== 'manual');
+      updateRunExplain();
+    });
+  }
+  if (testEls.refSelect) {
+    testEls.refSelect.addEventListener('change', function() {
+      refEl = +this.value;
+    });
+  }
+
+  if (testEls.swapBtn) testEls.swapBtn.addEventListener('click', _testSwap);
+  if (testEls.replayBtn) testEls.replayBtn.addEventListener('click', playCur);
+  if (testEls.undoBtn) testEls.undoBtn.addEventListener('click', undoL);
+  if (testEls.manPlayBtn) testEls.manPlayBtn.addEventListener('click', playManPair);
+
+  // Exclude buttons
+  if (testEls.excludeLeftBtn) {
+    testEls.excludeLeftBtn.addEventListener('click', function() {
+      if (!testAct) return;
+      _testRequestExcl(curA);
+    });
+  }
+  if (testEls.excludeRightBtn) {
+    testEls.excludeRightBtn.addEventListener('click', function() {
+      if (!testAct) return;
+      _testRequestExcl(curB);
+    });
+  }
+
+  // Confirm button
+  if (testEls.confirmBtn) {
+    testEls.confirmBtn.addEventListener('click', function() {
+      var pt = testEls.runSelect ? testEls.runSelect.value : '';
+      if (pt === 'manual') { recBal(); afterManRes(); } else recBal();
+    });
+  }
+
+  // Judgment buttons
+  var jH = function(r) {
+    return function() {
+      var pt = testEls.runSelect ? testEls.runSelect.value : '';
+      if (pt === 'manual') { recJdg(r); afterManRes(); } else recJdg(r);
+    };
+  };
+  if (testEls.jdgA) testEls.jdgA.addEventListener('click', jH('a'));
+  if (testEls.jdgEq) testEls.jdgEq.addEventListener('click', jH('equal'));
+  if (testEls.jdgB) testEls.jdgB.addEventListener('click', jH('b'));
+
+  // Extend button
+  if (testEls.extendBtn) {
+    testEls.extendBtn.addEventListener('click', function() {
+      _testExtSlider();
+      _testUpdCumulative(_testSliderVal());
+    });
+  }
+
+  // Slider input
+  if (testEls.slider) {
+    testEls.slider.addEventListener('input', function() {
+      var v = parseFloat(this.value);
+      if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
+      _testUpdCumulative(v);
+      if (testAct) {
+        var tot = curBase + v;
+        playSeq(curA, curB, tot);
+        curPlayed = true;
+      }
+    });
+    testEls.slider.addEventListener('change', function() { this.blur(); });
+    testEls.slider.addEventListener('mouseup', function() { this.blur(); });
+    testEls.slider.addEventListener('touchend', function() { this.blur(); });
+  }
+
+  // Simul button
+  if (testEls.simulBtn) {
+    testEls.simulBtn.addEventListener('click', function() {
+      if (!testAct || testIdx >= testPairs.length) return;
+      stopAll();
+      isPlay = true;
+      var tot = curBase + _testSliderVal();
+      // Simultan: beide Elektroden gleichzeitig
+      var ac = gAC();
+      var vol = gVol();
+      var dur = gDur();
+      playToneTyped(ac, effFreq(curA), vol * (tot < 0 ? dB2G(tot) : 1), dur, 0, globalToneType);
+      playToneTyped(ac, effFreq(curB), vol * (tot > 0 ? dB2G(-tot) : 1), dur, 0, globalToneType);
+      curPlayed = true;
+    });
+  }
+
+  // modeSelect → showMode
+  if (testEls.modeSelect) {
+    testEls.modeSelect.addEventListener('change', function() {
+      testMode = this.value;
+      showMode();
+    });
+  }
+});
 

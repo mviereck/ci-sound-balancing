@@ -110,7 +110,7 @@ function buildLvGrid() {
     const ex = false;
     const lbl = document.createElement("div");
     lbl.className = "lv-lbl";
-    lbl.textContent = `E${dEN(i)} (${Math.round(effFreq(i))} Hz)`;
+    lbl.textContent = `${dENPrefix()}${dEN(i)} (${Math.round(effFreq(i))} Hz)`;
     if (ex) lbl.style.opacity = ".4";
     lbl.dataset.i = i;
     lbl.addEventListener("click", () => {
@@ -247,17 +247,18 @@ function buildPrTbl() {
   tbl.innerHTML = "";
   const act = allEl();
   // Build center options with half positions
+  const pfx = dENPrefix();
   let ctrOpts = "";
   for (let i = 0; i < nEl; i++) {
-    ctrOpts += `<option value="${i}">E${dEN(i)}</option>`;
+    ctrOpts += `<option value="${i}">${pfx}${dEN(i)}</option>`;
     if (i < nEl - 1) {
       const halfVal = i + 0.5;
-      const lbl = `E${dEN(i)}–E${dEN(i + 1)}`;
+      const lbl = `${pfx}${dEN(i)}–${pfx}${dEN(i + 1)}`;
       ctrOpts += `<option value="${halfVal}">${lbl}</option>`;
     }
   }
   const elOpts = act
-    .map((i) => `<option value="${i}">E${dEN(i)}</option>`)
+    .map((i) => `<option value="${i}">${pfx}${dEN(i)}</option>`)
     .join("");
   const widthOpts = Array.from(
     { length: nEl },
@@ -457,7 +458,7 @@ function drawLvChart() {
     ctx.fillStyle = act[j] === refEl ? "#2563eb" : "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("E" + dEN(act[j]), tX(j), H - pad.bottom + 12);
+    ctx.fillText(dENPrefix() + dEN(act[j]), tX(j), H - pad.bottom + 12);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
     const lvF = effFreq(act[j]);

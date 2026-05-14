@@ -18,6 +18,7 @@ Code des jeweiligen Tabs liegt.
 | Levels | levels | levels.js |
 | Player | player | player.js |
 | Stereo-Balance | balance | lr-balance.js |
+| Frequenzabgleich | freqmatch (Sub-Tab unter messungen) | freqmatch.js |
 | Laden/Speichern | file | file.js |
 
 Zentrale Verdrahtung aller Tabs (Tab-Wechsel, Tab-Sperre während
@@ -35,19 +36,21 @@ Laden – normale Funktionsaufrufe erst zur Laufzeit.
 |---|---|---|
 | 1 | i18n.js | Übersetzungsobjekt L (de/en/fr/es), lang, t(), applyLang(), updateMfrSelectLabels(), updateRunExplain() |
 | 2 | core.js | IMPLANTS, PROCESSORS, MFR, SIDES, PR_*-Konstanten, SII_THIRD_OCT, calc*-Funktionen, siiWeightsForFreqs |
-| 3 | state-side.js | Globaler State (sideData, activeSide, mfr, nEl, freqs, presets...), Side-Logik, dEN, effFreq. Top-Level-Init am Dateiende. |
-| 4 | audio.js | AudioContext, playTone, playSweep, playSeq, gAC, dB2G, corrG, updInd |
+| 3 | state-side.js | Globaler State (sideData, activeSide, mfr, nEl, freqs, presets...), Side-Logik, dEN, effFreq. fRes (Frequenzabgleich). Top-Level-Init am Dateiende. |
+| 4 | audio.js | AudioContext, playTone, playSweep, playSeq, playFreqPair, gAC, dB2G, corrG, updInd |
 | 5 | ui-implant.js | buildImplantCard, updCochlearGen |
 | 6 | freq-table.js | buildFreqTable, switchMfr, resetFreqs, actEl, allEl, allPairs, shuffle, randAB, gWt |
 | 7 | test.js | ROUND_ROBIN-Tabelle, compWLS, startTest, alle Test-Sub-Funktionen |
-| 8 | results.js | renderResults |
-| 9 | chart.js | drawChart (für Meßergebnisse) |
-| 10 | file.js | saveJson, loadJson, applyLoadedData, resetAll, expText, copyRes, exportEasyEffects |
-| 11 | tabs-eq.js | switchTab, updateTabLockState, updPlSrcButtons, updEqToggleBtn, updBalApplyBtn |
-| 12 | levels.js | calcPresetCurve, getTotalPresetCurve, getEffectiveLevels, buildLvGrid, buildPrTbl, drawLvChart, lvOnChange |
-| 13 | player.js | Player-State, gPC, pBuildEQ, pUpdEQ, pPlay, pDrawEQ + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize |
-| 14 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für 'balance'. |
-| 15 | init.js | Der große DOMContentLoaded-Handler mit applyLang(), buildImplantCard(), allen Event-Verdrahtungen, Autosave-Setup |
+| 8 | freqmatch.js | Frequenzabgleich-Test (Sub-Tab "freqmatch"). fmStart, fmConfirm, fmSkip, fmAbort, fmApplyLang, fmPlayCurrent. Eigener DOMContentLoaded-Handler. |
+| 9 | results.js | renderResults, renderFreqMatchResults |
+| 10 | chart.js | drawChart (für Meßergebnisse), drawFreqMatchChart, _fmcTooltipHandler |
+| 11 | file.js | saveJson, loadJson, applyLoadedData, resetAll, expText, copyRes, exportEasyEffects |
+| 12 | tabs-eq.js | switchTab, updateTabLockState, updPlSrcButtons, updEqToggleBtn, updBalApplyBtn |
+| 13 | levels.js | calcPresetCurve, getTotalPresetCurve, getEffectiveLevels, buildLvGrid, buildPrTbl, drawLvChart, lvOnChange |
+| 14 | player.js | Player-State, gPC, pBuildEQ, pUpdEQ, pPlay, pDrawEQ + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize |
+| 15 | freq-warp.js | Offline-Frequenz-Warping. buildWarpPoints, centShift, pComputeWarpedBuffer, pWarpTrigger, pWarpUpdUI. State: pWarpedBuf, pWarpOn, pWarpMode, pWarpStrength, pWarpBusy |
+| 16 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für 'balance'. |
+| 17 | init.js | Der große DOMContentLoaded-Handler mit applyLang(), buildImplantCard(), allen Event-Verdrahtungen, Autosave-Setup |
 
 ## Datenfluss (nicht aus Namen ablesbar)
 
@@ -69,9 +72,8 @@ geändert werden.
 **applyLang ruft modulübergreifend:** `updEqToggleBtn`,
 `updBalApplyBtn` (beide tabs-eq.js), `updSideButtons` (state-side.js),
 `updateRunExplain` (i18n.js), `buildFreqTable` (freq-table.js),
-`buildImplantCard` (ui-implant.js), `renderResults` (results.js).
-Wenn nach einer Sprachänderung etwas nicht aktualisiert wird,
-fehlt der Aufruf hier.
+`buildImplantCard` (ui-implant.js), `renderResults` (results.js),
+`renderFreqMatchResults` (results.js, nur wenn freqmatch-Sub-Tab aktiv).
 
 **DOM-Listener nicht nur in init.js:** Player und LR-Balance haben
 eigene Top-Level-Listener bzw. eigene DOMContentLoaded-Handler in

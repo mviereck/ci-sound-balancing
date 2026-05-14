@@ -17,8 +17,14 @@ function switchSubtab(parent, subtab) {
     lrCheckData();
     lrDrawChart();
   }
+  if (parent === "ergebnisse" && subtab === "freqmatch") {
+    renderFreqMatchResults();
+  }
   if (parent === "messungen" && subtab === "balance") {
     lrCheckData();
+  }
+  if (parent === "messungen" && subtab === "freqmatch") {
+    if (typeof fmApplyLang === "function") fmApplyLang();
   }
 }
 
@@ -27,7 +33,10 @@ function switchSubtab(parent, subtab) {
 // ============================================================
 function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
-  if (testAct && n !== "messungen") {
+  const anyTestRunning = testAct
+    || (typeof lrRunning !== "undefined" && lrRunning)
+    || (typeof fmRunning !== "undefined" && fmRunning);
+  if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
   document
@@ -36,7 +45,24 @@ function switchTab(n) {
   document
     .querySelectorAll(".panel")
     .forEach((p) => p.classList.toggle("active", p.id === "panel-" + n));
-  if (n === "ergebnisse") renderResults();
+  if (n === "ergebnisse") {
+    // Aktiven Sub-Tab prüfen; falls keiner aktiv oder aktiver leer, sinnvollen wählen
+    const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
+    const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
+    const hasBal = typeof bRes !== "undefined" && bRes.length > 0;
+    const hasJdg = typeof jRes !== "undefined" && jRes.length > 0;
+    const hasFR = typeof fRes !== "undefined" && fRes.length > 0;
+    const hasLR = typeof lrResults !== "undefined" && Object.keys(lrResults).length > 0;
+    if (!currentName || currentName === "results") {
+      // Default-Auswahl: Tab mit Daten bevorzugen
+      if (!hasBal && !hasJdg && hasFR) {
+        switchSubtab("ergebnisse", "freqmatch");
+        return;
+      }
+    }
+    renderResults();
+    if (currentName === "freqmatch") renderFreqMatchResults();
+  }
   if (n === "player") plCheck();
   if (n === "levels") {
     buildLvGrid();
@@ -45,18 +71,28 @@ function switchTab(n) {
 }
 
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test
+// Delegiert an lockTestTabs (test-ui.js) für einheitliche Handhabung
 function updateTabLockState() {
-  const tabs = document.querySelectorAll('.tab:not([data-tab="messungen"])');
+  const locked = testAct || (typeof lrRunning !== "undefined" && lrRunning)
+                          || (typeof fmRunning !== "undefined" && fmRunning);
+  var activeTestId = null;
+  if (testAct) activeTestId = 'test';
+  else if (typeof lrRunning !== "undefined" && lrRunning) activeTestId = 'balance';
+  else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
+  lockTestTabs(locked, activeTestId);
+  // lockedHint im jeweiligen testEls-Objekt ein-/ausblenden
+  if (typeof testEls !== "undefined" && testEls && testEls.lockedHint) {
+    testEls.lockedHint.hidden = !testAct;
+  }
+  if (typeof lrEls !== "undefined" && lrEls && lrEls.lockedHint) {
+    lrEls.lockedHint.hidden = !(typeof lrRunning !== "undefined" && lrRunning);
+  }
+  if (typeof fmEls !== "undefined" && fmEls && fmEls.lockedHint) {
+    fmEls.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
+  }
+  // ciSideSelect auch sperren
   const sideSelect = document.getElementById("ciSideSelect");
-  const sideLeftBtn = document.getElementById("sideLeftBtn");
-  const sideRightBtn = document.getElementById("sideRightBtn");
-  tabs.forEach((tab) => (tab.disabled = testAct));
-  if (sideSelect) sideSelect.disabled = testAct;
-  if (sideLeftBtn) sideLeftBtn.disabled = testAct;
-  if (sideRightBtn) sideRightBtn.disabled = testAct;
-  // Hinweistext anzeigen/verstecken
-  const lockInfo = document.getElementById("testLockedInfo");
-  if (lockInfo) lockInfo.style.display = testAct ? "" : "none";
+  if (sideSelect) sideSelect.disabled = locked;
 }
 
 // ============================================================

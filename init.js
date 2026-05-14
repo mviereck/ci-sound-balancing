@@ -11,35 +11,73 @@ document.addEventListener("DOMContentLoaded", () => {
   updFClearBtn();
   updPlSrcButtons();
   buildImplantCard();
+  // Sub-Tab-Beschriftungen (werden auch von applyLang-Patch aktualisiert)
+  const _btnL = document.getElementById("subTabLoudnessBtn");
+  if (_btnL) _btnL.textContent = t("subTabLoudness");
+  const _btnF = document.getElementById("subTabFreqMatchBtn");
+  if (_btnF) _btnF.textContent = t("subTabFreqMatch");
+  const _nd = document.getElementById("fmrNoDataText");
+  if (_nd) _nd.textContent = t("fmrNoData");
   document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
-  // Tonart-Dropdown
-  document.getElementById("toneTypeSel").addEventListener("change", (e) => {
-    globalToneType = e.target.value;
-  });
-  // toneHint-Texte setzen (wird auch von applyLang erneut gesetzt)
+  // Tonart-Dropdown: global, keine feste DOM-ID mehr — syncAllGlobalDropdowns() übernimmt
+  // toneHint-Texte: keine separaten Boxen mehr — in buildTestPanel-Erklärungsblock
   function updToneHint() {
-    const h = t("toneHint");
-    const b1 = document.getElementById("toneHintBox");
-    const b2 = document.getElementById("lrToneHintBox");
-    if (b1) b1.textContent = h;
-    if (b2) b2.textContent = h;
-    // Dropdown-Option-Labels
-    const sel = document.getElementById("toneTypeSel");
-    if (sel) {
-      sel.options[0].text = t("toneSine");
-      sel.options[1].text = t("toneComplex");
-      sel.options[2].text = t("toneNoise");
-    }
-    const lbl = document.getElementById("toneTypeLabel");
-    if (lbl) lbl.textContent = t("toneTypeLabel");
+    // Platzhalter — keine eigenständigen toneHintBoxen mehr
   }
   // applyLang patchen, damit toneHint bei Sprachwechsel aktualisiert wird
   const _origApplyLang = applyLang;
   window.applyLang = function() {
     _origApplyLang();
     updToneHint();
+    if (typeof fmApplyLang === "function") fmApplyLang();
+    // Sub-Tab-Beschriftungen
+    const btnL = document.getElementById("subTabLoudnessBtn");
+    if (btnL) btnL.textContent = t("subTabLoudness");
+    const btnF = document.getElementById("subTabFreqMatchBtn");
+    if (btnF) btnF.textContent = t("subTabFreqMatch");
+    // fmrNoData-Text
+    const nd = document.getElementById("fmrNoDataText");
+    if (nd) nd.textContent = t("fmrNoData");
+    // Wenn Frequenzabgleich-Tab aktiv: neu rendern
+    const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
+    if (activeSubtab && activeSubtab.dataset.subtab === "freqmatch") {
+      renderFreqMatchResults();
+    }
+    // Warp-UI-Texte
+    _pWarpApplyLangTexts();
+    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   };
+
+  // ---- Warp i18n Hilfsfunktionen ----
+  function _pWarpApplyMethodLabels() {
+    const sel = document.getElementById("plWarpMethod");
+    if (!sel) return;
+    const keys = ["pwMethodOffline", "pwMethodLive", "pwMethodBandShift"];
+    for (let i = 0; i < sel.options.length; i++) {
+      if (keys[i]) sel.options[i].text = t(keys[i]);
+    }
+    const modeSel = document.getElementById("plWarpModeSelect");
+    if (!modeSel) return;
+    const modeKeys = ["pwModeRef", "pwModeVar", "pwModeSym"];
+    for (let i = 0; i < modeSel.options.length; i++) {
+      if (modeKeys[i]) modeSel.options[i].text = t(modeKeys[i]);
+    }
+  }
+  window._pWarpApplyMethodLabels = _pWarpApplyMethodLabels;
+
+  function _pWarpApplyLangTexts() {
+    // data-t-Elemente werden von applyLang() automatisch aktualisiert.
+    // Hier nur Dropdown-Optionen (haben kein data-t) und Warn-Text.
+    _pWarpApplyMethodLabels();
+    const warnEl = document.getElementById("plWarpWarning");
+    if (warnEl) warnEl.textContent = t("pwWarning");
+  }
+  window._pWarpApplyLangTexts = _pWarpApplyLangTexts;
+
   updToneHint();
+  // Warp-Warning-Text initial setzen
+  const _warnEl = document.getElementById("plWarpWarning");
+  if (_warnEl) _warnEl.textContent = t("pwWarning");
   document
     .querySelectorAll(".tab")
     .forEach((t) =>
@@ -56,6 +94,28 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("mfrSelect")
     .addEventListener("change", (e) => switchMfr(e.target.value));
+  // Konfiguration pro Seite
+  document.getElementById("cfgSelect").addEventListener("change", (e) => {
+    setSideConfig(activeSide, e.target.value);
+    buildFreqTable();
+    buildImplantCard();
+    buildLvGrid();
+    drawLvChart();
+    renderResults();
+    if (typeof lrCheckData === "function") lrCheckData();
+    if (typeof fmApplyLang === "function") fmApplyLang();
+    plCheck();
+  });
+  // Default-Frequenzraster (nur wenn keine Seite CI)
+  document.getElementById("defaultMfrSelect").addEventListener("change", (e) => {
+    defaultMfr = e.target.value;
+    syncFreqsToAcoustic();
+    buildFreqTable();
+    buildImplantCard();
+    buildLvGrid();
+    drawLvChart();
+    renderResults();
+  });
   // ciSideSelect hidden; side switching via sideLeftBtn/sideRightBtn onclick
   // Player: Beide-Seiten Checkbox
   document
@@ -73,92 +133,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePlayerForSideChange();
   });
   // Volume sync between setup and test (textboxes)
+  // vol1/dur1/pau1: Setup-Tab Inputs
   document.getElementById("vol1").addEventListener("change", (e) => {
     const v = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
     e.target.value = v;
-    document.getElementById("vol2").value = v;
   });
-  document.getElementById("vol2").addEventListener("change", (e) => {
-    const v = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
-    e.target.value = v;
-    document.getElementById("vol1").value = v;
-  });
-  document.getElementById("pairType").addEventListener("change", (e) => {
-    document
-      .getElementById("manualSel")
-      .classList.toggle("hidden", e.target.value !== "manual");
-    updateRunExplain();
-  });
-  document.getElementById("refEl").addEventListener("change", (e) => {
-    refEl = +e.target.value;
-  });
-  document.getElementById("startBtn").addEventListener("click", startTest);
-  document.getElementById("stopTBtn").addEventListener("click", () => {
-    endTest();
-    renderResults();
-  });
-  document.getElementById("repBtn").addEventListener("click", playCur);
-  document.getElementById("undoBtn").addEventListener("click", undoL);
-  document.getElementById("manPlayBtn").addEventListener("click", playManPair);
-  document.getElementById("exclBtn").addEventListener("click", showExclDlg);
-  document.getElementById("exclCanc").addEventListener("click", () => {
-    document.getElementById("exclDlg").classList.add("hidden");
-    playCur();
-  });
-  document.getElementById("swapBtn").addEventListener("click", () => {
-    if (!testAct || testIdx >= testPairs.length) return;
-    stopAll();
-    const slVal = parseFloat(document.getElementById("balSl").value);
-    const totOff = curBase + slVal;
-    [curA, curB] = [curB, curA];
-    testPairs[testIdx] = [curA, curB];
-    curBase = 0;
-    rstSlR();
-    const newSlVal = -totOff;
-    const s = document.getElementById("balSl");
-    s.min = Math.min(parseFloat(s.min), Math.floor(newSlVal) - 1).toString();
-    s.max = Math.max(parseFloat(s.max), Math.ceil(newSlVal) + 1).toString();
-    s.value = newSlVal;
-    document.getElementById("balV").textContent = newSlVal.toFixed(1) + " dB";
-    updBalAbs(newSlVal);
-    document.getElementById("tAL").innerHTML =
-      `<span class="aba-label">A (Ref)</span>E${dEN(curA)}`;
-    document.getElementById("tBL").innerHTML =
-      `<span class="aba-label">B (Slider)</span>E${dEN(curB)}`;
-    document.getElementById("pairF").textContent =
-      `${Math.round(effFreq(curA))} Hz vs. ${Math.round(effFreq(curB))} Hz`;
-    playCur();
-  });
-  const jH = (r) => () => {
-    if (document.getElementById("pairType").value === "manual") {
-      recJdg(r);
-      afterManRes();
-    } else recJdg(r);
-  };
-  document.getElementById("bAL").addEventListener("click", jH("a"));
-  document.getElementById("bEq").addEventListener("click", jH("equal"));
-  document.getElementById("bBL").addEventListener("click", jH("b"));
-  document.getElementById("balSl").addEventListener("input", (e) => {
-    const v = parseFloat(e.target.value);
-    document.getElementById("balV").textContent = v.toFixed(1) + " dB";
-    updBalAbs(v);
-  });
-  document
-    .getElementById("balSl")
-    .addEventListener("change", (e) => e.target.blur());
-  document
-    .getElementById("balSl")
-    .addEventListener("mouseup", (e) => e.target.blur());
-  document
-    .getElementById("balSl")
-    .addEventListener("touchend", (e) => e.target.blur());
-  document.getElementById("extBtn").addEventListener("click", extSlR);
-  document.getElementById("confBtn").addEventListener("click", () => {
-    if (document.getElementById("pairType").value === "manual") {
-      recBal();
-      afterManRes();
-    } else recBal();
-  });
+  // Test-Tab Event-Listener werden jetzt in test.js DOMContentLoaded verdrahtet
   // File
   document
     .getElementById("fLoadBtn")
@@ -316,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ctx.font = "8px Segoe UI,sans-serif";
           ctx.textAlign = "center";
           ctx.fillText(
-            "E" + dEN(i),
+            dENPrefix() + dEN(i),
             pad.left + j * gW + gW / 2,
             height - pad.bottom + 10,
           );
@@ -352,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }[src] || src;
     const strPercent = parseInt(document.getElementById("plStr").value) || 100;
     const hersteller = MFR[mfr].name;
-    const ref = `E${dEN(refEl)}`;
+    const ref = `${dENPrefix()}${dEN(refEl)}`;
 
     // Daten für eine Seite sammeln
     const collectSideData = (side) => {
@@ -796,6 +776,57 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  // ---- Frequenz-Warping Listener ----
+  // Warp-Checkbox
+  document.getElementById("plWarpOn").addEventListener("change", function () {
+    pWarpOn = this.checked;
+    pWarpUpdUI();
+    if (pWarpOn) {
+      pWarpTrigger();
+    } else {
+      const wasPlaying = pPlaying;
+      if (wasPlaying) pPause();
+      pWarpedBuf = null;
+      pBuf = getPlaybackBuffer();
+      pWarpUpdUI();
+      if (wasPlaying) pPlay();
+    }  });
+  // Verfahren-Dropdown
+  document.getElementById("plWarpMethod").addEventListener("change", function () {
+    // Methoden-Labels neu setzen (data-t-opt)
+    _pWarpApplyMethodLabels();
+    pWarpUpdUI();
+    if (pWarpOn && this.value === "offline") pWarpTrigger();
+  });
+  // Korrektur-Modus-Dropdown
+  document.getElementById("plWarpModeSelect").addEventListener("change", function () {
+    pWarpMode = this.value;
+    if (pWarpOn) pWarpTrigger();
+  });
+  // Stärke-Eingabe
+  document.getElementById("plWarpStr").addEventListener("change", function () {
+    let v = Math.max(0, Math.min(150, parseInt(this.value) || 0));
+    this.value = v;
+    pWarpStrength = v;
+    if (pWarpOn) pWarpTrigger();
+  });
+  // Stärke-Buttons
+  document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
+    b.addEventListener("click", function () {
+      const v = parseInt(this.dataset.v);
+      document.getElementById("plWarpStr").value = v;
+      pWarpStrength = v;
+      if (pWarpOn) pWarpTrigger();
+    })
+  );
+  // Neu-berechnen-Button
+  document.getElementById("plWarpRecalc").addEventListener("click", function () {
+    if (pWarpOn) pWarpTrigger();
+  });
+  // Warp-UI initialisieren
+  _pWarpApplyMethodLabels();
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+
   // Player volume textbox
   document.getElementById("plVol").addEventListener("change", function () {
     const v = Math.max(0, Math.min(100, parseInt(this.value) || 0));
@@ -837,14 +868,10 @@ document.addEventListener("DOMContentLoaded", () => {
       drawLvChart();
     }
   });
-  // Test keyboard
+  // Test keyboard — über testEls
   document.addEventListener("keydown", (e) => {
-    if (
-      !testAct ||
-      e.target.tagName === "INPUT" ||
-      e.target.tagName === "SELECT"
-    )
-      return;
+    if (!testAct || !testEls) return;
+    if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
     if (e.code === "Space") {
       e.preventDefault();
       playCur();
@@ -853,43 +880,29 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       undoL();
     }
-    if (e.key === "x" || e.key === "X") {
-      e.preventDefault();
-      showExclDlg();
-    }
+    // X-Shortcut für Ausschluss entfällt (§6.6)
     if (testMode === "judgment") {
-      if (e.key === "1") {
-        e.preventDefault();
-        document.getElementById("bAL").click();
-      }
-      if (e.key === "2") {
-        e.preventDefault();
-        document.getElementById("bEq").click();
-      }
-      if (e.key === "3") {
-        e.preventDefault();
-        document.getElementById("bBL").click();
-      }
+      if (e.key === "1") { e.preventDefault(); if (testEls.jdgA) testEls.jdgA.click(); }
+      if (e.key === "2") { e.preventDefault(); if (testEls.jdgEq) testEls.jdgEq.click(); }
+      if (e.key === "3") { e.preventDefault(); if (testEls.jdgB) testEls.jdgB.click(); }
     }
     if (testMode === "balance" && e.key === "Enter") {
       e.preventDefault();
-      document.getElementById("confBtn").click();
+      if (testEls.confirmBtn) testEls.confirmBtn.click();
     }
-    if (
-      testMode === "balance" &&
-      (e.key === "ArrowLeft" || e.key === "ArrowRight")
-    ) {
+    if (testMode === "balance" && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
       e.preventDefault();
-      const s = document.getElementById("balSl"),
-        st = e.shiftKey ? 0.1 : 0.5;
+      const s = testEls.slider;
+      if (!s) return;
+      const st = e.shiftKey ? 0.1 : 0.5;
       let v = parseFloat(s.value);
-      if (e.key === "ArrowLeft")
-        v = Math.max(parseFloat(s.min), +(v - st).toFixed(1));
-      if (e.key === "ArrowRight")
-        v = Math.min(parseFloat(s.max), +(v + st).toFixed(1));
+      if (e.key === "ArrowLeft") v = Math.max(parseFloat(s.min), +(v - st).toFixed(1));
+      if (e.key === "ArrowRight") v = Math.min(parseFloat(s.max), +(v + st).toFixed(1));
       s.value = v;
-      document.getElementById("balV").textContent = v.toFixed(1) + " dB";
-      updBalAbs(v);
+      if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
+      _testUpdCumulative(v);
+      playSeq(curA, curB, curBase + v);
+      curPlayed = true;
     }
   });
   // Load from localStorage
@@ -900,10 +913,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (d.sides) {
         if (d.sides.left) loadSideData("left", d.sides.left);
         if (d.sides.right) loadSideData("right", d.sides.right);
+        if (d.defaultMfr && MFR[d.defaultMfr]) defaultMfr = d.defaultMfr;
         activeSide = SIDES.includes(d.currentSide) ? d.currentSide : "left";
         bindActiveSide();
         document.getElementById("ciSideSelect").value = activeSide;
         document.getElementById("mfrSelect").value = mfr;
+        const cfgSel = document.getElementById("cfgSelect");
+        if (cfgSel) cfgSel.value = sideData[activeSide].config || "ci";
+        const dfSel = document.getElementById("defaultMfrSelect");
+        if (dfSel) dfSel.value = defaultMfr;
       } else {
         loadSideData("left", d);
         activeSide = "left";
@@ -926,11 +944,13 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
       }
-      if (d.globalToneType) {
-        globalToneType = d.globalToneType;
-        const ttSel = document.getElementById("toneTypeSel");
-        if (ttSel) ttSel.value = globalToneType;
+      if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
+        fRes.splice(0, fRes.length, ...d.fRes);
       }
+      if (d.globalToneType) globalToneType = d.globalToneType;
+      if (d.globalSequence) globalSequence = d.globalSequence;
+      if (d.slTarget_test) slTarget_test = d.slTarget_test;
+      if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
       buildFreqTable();
       updSideButtons();
     }
@@ -942,6 +962,7 @@ document.addEventListener("DOMContentLoaded", () => {
         JSON.stringify({
           sides: {
             left: {
+              config: sideData.left.config || "ci",
               manufacturer: sideData.left.manufacturer,
               frequencies: sideData.left.freqs,
               electrodeFreqOwn: sideData.left.elFreqOwn,
@@ -955,6 +976,7 @@ document.addEventListener("DOMContentLoaded", () => {
               presets: sideData.left.presets,
             },
             right: {
+              config: sideData.right.config || "ci",
               manufacturer: sideData.right.manufacturer,
               frequencies: sideData.right.freqs,
               electrodeFreqOwn: sideData.right.elFreqOwn,
@@ -968,8 +990,10 @@ document.addEventListener("DOMContentLoaded", () => {
               presets: sideData.right.presets,
             },
           },
+          defaultMfr: defaultMfr,
           currentSide: activeSide,
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+          fRes: (typeof fRes !== "undefined") ? fRes : [],
           playerSource:
             plSrcMeas && plSrcLevels
               ? "both"
@@ -981,6 +1005,9 @@ document.addEventListener("DOMContentLoaded", () => {
           eqOn: plEqOn,
           eqStrength: parseInt(document.getElementById("plStr").value),
           globalToneType: globalToneType,
+          globalSequence: globalSequence,
+          slTarget_test: slTarget_test,
+          slTarget_balance: slTarget_balance,
         }),
       );
     } catch (e) {}
