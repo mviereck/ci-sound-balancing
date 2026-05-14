@@ -746,7 +746,6 @@ function startTest() {
   if (!testEls) return;
   const pt = testEls.runSelect ? testEls.runSelect.value : "full";
   testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
-  refEl = testEls.refSelect ? +testEls.refSelect.value : refEl;
   if (pt === "manual") return;
   let p;
   if (pt === "full") {
@@ -1148,7 +1147,6 @@ document.addEventListener("DOMContentLoaded", function() {
       rowFine: {
         show: true,
         preCorrect: true,
-        refSelect: { type: 'electrode', key: 'lblRef', hidden: true }
       },
       rowVolume: { show: true },
       rowSequence: {
@@ -1182,24 +1180,6 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   testEls = buildTestPanel(parentEl, testCfg);
-
-  // refSelect mit Elektroden befüllen
-  function _fillRefSelect() {
-    if (!testEls.refSelect) return;
-    var sel = testEls.refSelect;
-    var prev = sel.value;
-    sel.innerHTML = '';
-    for (var i = 0; i < nEl; i++) {
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.textContent = dENPrefix() + dEN(i) + ' (' + Math.round(effFreq(i)) + ' Hz)';
-      sel.appendChild(opt);
-    }
-    if (prev && sel.querySelector('option[value="' + prev + '"]')) sel.value = prev;
-    else sel.value = String(refEl);
-  }
-  _fillRefSelect();
-  window._testFillRefSelect = _fillRefSelect;
 
   // manA/manB befüllen
   function _fillManSels() {
@@ -1244,12 +1224,6 @@ document.addEventListener("DOMContentLoaded", function() {
       updateRunExplain();
     });
   }
-  if (testEls.refSelect) {
-    testEls.refSelect.addEventListener('change', function() {
-      refEl = +this.value;
-    });
-  }
-
   if (testEls.swapBtn) testEls.swapBtn.addEventListener('click', _testSwap);
   if (testEls.replayBtn) testEls.replayBtn.addEventListener('click', playCur);
   if (testEls.undoBtn) testEls.undoBtn.addEventListener('click', undoL);

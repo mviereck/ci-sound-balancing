@@ -439,8 +439,19 @@ function lrStop() {
 }
 
 function lrApplyMeanToBalance() {
-  const vals = Object.values(lrResults).filter((v) => isFinite(v));
-  if (!vals.length) return;
+  // Mittelwert nur über aktive (nicht deaktivierte) Elektroden
+  const activeKeys = Object.keys(lrResults).filter((k) => {
+    const i = +k;
+    const v = lrResults[i];
+    if (!isFinite(v)) return false;
+    // Eine Stereo-Messung gilt als deaktiviert, wenn die Elektrode auf
+    // BEIDEN Seiten deaktiviert oder stumm-geschaltet ist
+    const exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === 'mute';
+    const exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === 'mute';
+    return !(exL && exR);
+  });
+  if (!activeKeys.length) return;
+  const vals = activeKeys.map((k) => lrResults[+k]);
   const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
   // Positive lrResult = right louder = right needs to be quieter = negative balance offset
   const balOffset = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
@@ -488,25 +499,42 @@ function lrRenderResults() {
     "<th>Elektrode</th><th>Hz Links</th><th>Hz Rechts</th><th>Offset (dB)</th><th>Bedeutung</th>";
   tb.innerHTML = "";
 
-  // Get all compared electrodes in order
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
   for (let i = 0; i < count; i++) {
-    const v = lrResults[i];
-    if (v === undefined) continue;
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
+    const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
+    const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
+    const isDisabled = exL && exR;
+    const v = lrResults[i];
     const hzL = lrEffFreq("left", i);
     const hzR = lrEffFreq("right", rightEl);
-    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
+    const leftLabel  = withSide("left",  () => dENPrefix("left")  + dEN(i));
     const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
-    const meaning =
-      v > 0.1 ? "Rechts lauter" : v < -0.1 ? "Links lauter" : "Gleich";
-    const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#666";
     const tr = document.createElement("tr");
-    tr.innerHTML =
-      `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
-      `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
-      `<td style="color:${color}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>` +
-      `<td style="font-size:.82em;color:${color}">${meaning}</td>`;
+
+    if (isDisabled) {
+      tr.style.opacity = "0.4";
+      tr.innerHTML =
+        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
+        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td>—</td>` +
+        `<td style="font-size:.82em">${t('excludedSkipped')}</td>`;
+    } else if (v === undefined) {
+      tr.innerHTML =
+        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
+        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td style="color:#9ca3af">—</td>` +
+        `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
+    } else {
+      const meaning =
+        v > 0.1 ? "Rechts lauter" : v < -0.1 ? "Links lauter" : "Gleich";
+      const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#666";
+      tr.innerHTML =
+        `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
+        `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +
+        `<td style="color:${color}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>` +
+        `<td style="font-size:.82em;color:${color}">${meaning}</td>`;
+    }
     tb.appendChild(tr);
   }
 
@@ -527,21 +555,36 @@ function lrDrawChart() {
   ctx.clearRect(0, 0, W, H);
 
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
-  const elIndices = [];
-  for (let i = 0; i < count; i++) {
-    if (lrResults[i] !== undefined) elIndices.push(i);
-  }
-  if (!elIndices.length) return;
+  if (count === 0) return;
 
-  const vals = elIndices.map((i) => lrResults[i]);
-  const absMax = Math.max(Math.ceil(Math.max(...vals.map(Math.abs), 2)), 3);
+  // Status pro Index ermitteln
+  const status = [];   // 'measured' | 'unmeasured' | 'disabled'
+  for (let i = 0; i < count; i++) {
+    const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
+    const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
+    const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
+    if (exL && exR) status[i] = 'disabled';
+    else if (lrResults[i] !== undefined) status[i] = 'measured';
+    else status[i] = 'unmeasured';
+  }
+
+  // Skala nur über gemessene aktive Werte
+  const measuredVals = [];
+  for (let i = 0; i < count; i++)
+    if (status[i] === 'measured') measuredVals.push(lrResults[i]);
+  if (!measuredVals.length && !status.includes('unmeasured')) return;
+  const absMax = measuredVals.length
+    ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
+    : 3;
 
   const pad = { top: 20, right: 16, bottom: 44, left: 52 };
   const pW = W - pad.left - pad.right;
   const pH = H - pad.top - pad.bottom;
-  const tX = (j) => pad.left + j * (pW / (elIndices.length - 1 || 1));
+  const tX = (j) => pad.left + j * (pW / (count - 1 || 1));
   const tY = (v) => pad.top + (absMax - v) * (pH / (2 * absMax));
   const zY = tY(0);
+  const yTop = pad.top, yBot = pad.top + pH;
+  const bW = Math.min((pW / (count - 1 || 1)) * 0.6, 28);
 
   // Grid
   ctx.strokeStyle = "#e5e5e5";
@@ -567,39 +610,66 @@ function lrDrawChart() {
   ctx.stroke();
   ctx.setLineDash([]);
 
-  // Bars
-  const bW = Math.min((pW / elIndices.length) * 0.6, 28);
-  elIndices.forEach((el, j) => {
-    const v = vals[j];
-    const x = tX(j) - bW / 2;
-    const bH = (Math.abs(v) / absMax) * (pH / 2);
-    const y = v >= 0 ? zY - bH : zY;
-    ctx.fillStyle = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#9ca3af";
-    ctx.fillRect(x, Math.min(zY, y), bW, bH || 1);
+  // Balken/Marker für alle Indizes
+  for (let i = 0; i < count; i++) {
+    const x = tX(i) - bW / 2;
+    if (status[i] === 'disabled') {
+      ctx.fillStyle = '#e5e7eb';
+      ctx.fillRect(x, yTop, bW, yBot - yTop);
+      ctx.strokeStyle = '#6b7280';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x, yTop);
+      ctx.lineTo(x + bW, yBot);
+      ctx.moveTo(x + bW, yTop);
+      ctx.lineTo(x, yBot);
+      ctx.stroke();
+    } else if (status[i] === 'unmeasured') {
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(x + bW / 2, yTop);
+      ctx.lineTo(x + bW / 2, yBot);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      // kleines Querstrich-Symbol auf der Null-Linie
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x + bW * 0.25, zY);
+      ctx.lineTo(x + bW * 0.75, zY);
+      ctx.stroke();
+    } else {
+      const v = lrResults[i];
+      const yV = tY(v);
+      const col = v > 0.1 ? '#dc2626' : v < -0.1 ? '#2563eb' : '#9ca3af';
+      ctx.fillStyle = col;
+      ctx.fillRect(x, Math.min(zY, yV), bW, Math.abs(yV - zY) || 2);
+    }
 
-    // Label
-    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
+    // X-Achsenbeschriftung pro Elektrode
+    const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
     ctx.fillStyle = "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(leftLabel, tX(j), H - pad.bottom + 12);
-    const hzL = lrEffFreq("left", el);
+    ctx.fillText(leftLabel, tX(i), H - pad.bottom + 12);
+    const hzL = lrEffFreq("left", i);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
-    ctx.fillText(Math.round(hzL), tX(j), H - pad.bottom + 23);
-  });
+    ctx.fillText(Math.round(hzL), tX(i), H - pad.bottom + 23);
+  }
 
-  // Line
+  // Verbindungslinie zwischen gemessenen Punkten
   ctx.strokeStyle = "#2563eb44";
   ctx.lineWidth = 2;
   ctx.beginPath();
   let first = true;
-  elIndices.forEach((el, j) => {
-    if (first) {
-      ctx.moveTo(tX(j), tY(vals[j]));
-      first = false;
-    } else ctx.lineTo(tX(j), tY(vals[j]));
-  });
+  for (let i = 0; i < count; i++) {
+    if (status[i] !== 'measured') continue;
+    if (first) { ctx.moveTo(tX(i), tY(lrResults[i])); first = false; }
+    else ctx.lineTo(tX(i), tY(lrResults[i]));
+  }
   ctx.stroke();
 
   // Axis label

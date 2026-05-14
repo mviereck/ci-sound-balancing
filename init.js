@@ -957,6 +957,17 @@ document.addEventListener("DOMContentLoaded", () => {
       updSideButtons();
     }
   } catch (e) {}
+  // Referenzelektroden-Dropdown im Ergebnis-Reiter
+  const _refSel = document.getElementById('refEl');
+  if (_refSel) {
+    _refSel.addEventListener('change', function() {
+      refEl = +this.value;
+      if (typeof renderResults === 'function') renderResults();
+      if (typeof drawLvChart    === 'function') drawLvChart();
+      if (typeof pUpdEQ         === 'function') pUpdEQ();
+    });
+  }
+
   setInterval(() => {
     try {
       localStorage.setItem(

@@ -15,13 +15,38 @@ function renderResults() {
   if (noResEl) noResEl.style.display = "none";
   const resCEl = document.getElementById("resC");
   if (resCEl) resCEl.style.display = "";
+
+  // Hinweis "Testreihe noch nicht abgeschlossen" — nur für Modus full
+  const ndBox    = document.getElementById('resNotDoneBox');
+  const ndTitle  = document.getElementById('resNotDoneTitle');
+  const ndDetail = document.getElementById('resNotDoneDetail');
+  if (ndBox && ndTitle && ndDetail) {
+    const s = sideData[activeSide];
+    const rrTable = (typeof ROUND_ROBIN !== 'undefined') ? ROUND_ROBIN[nEl] : null;
+    const inFullSweep = rrTable && s && s.fullSweepRound !== null && s.fullSweepRound !== undefined;
+    if (inFullSweep) {
+      const maxRounds = rrTable.length;
+      const pairsPerRound = rrTable[s.fullSweepRound - 1].length;
+      const done = (s.fullSweepDonePairs || []).length;
+      ndTitle.textContent  = t('resNotDoneTitle');
+      ndDetail.textContent = t('resNotDoneDetail')
+        .replace('{round}',     s.fullSweepRound)
+        .replace('{maxRounds}', maxRounds)
+        .replace('{done}',      done)
+        .replace('{total}',     pairsPerRound);
+      ndBox.style.display = '';
+    } else {
+      ndBox.style.display = 'none';
+    }
+  }
+
   const vol = (typeof testEls !== 'undefined' && testEls && testEls.volInput)
     ? testEls.volInput.value
     : (document.getElementById("vol1") ? document.getElementById("vol1").value : 50);
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
   if (hJ) meta += ` · ${jRes.length} jdg.`;
-  meta += ` · ${t("lblVol")} ${vol}% · Ref: ${dENPrefix()}${dEN(refEl)} · ${MFR[mfr].name}`;
+  meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
   const rMeta = document.getElementById("resMeta");
   if (rMeta) rMeta.innerHTML = meta;
   const th = document.getElementById("resTH"),
@@ -139,14 +164,14 @@ function renderResults() {
         v = levels[i],
         ex = elExDur[i] !== null || elSt[i] === "mute";
       let st = "";
-      if (elExDur[i] !== null) st = t("excluded");
-      else if (elSt[i]) {
+      if (ex) {
+        st = t("excludedSkipped");
+      } else if (elSt[i]) {
         const lb = {
           noisyHeavy: t("stNoisyHeavy"),
           noisyMore: t("stNoisyMore"),
           noisyLess: t("stNoisyLess"),
           almostMute: t("stAlmMute"),
-          mute: t("stMute"),
         };
         st = lb[elSt[i]] || "";
       }
@@ -246,31 +271,59 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>";
 
-  // Tabellen-Body: sortiert nach elIdx
+  // Tabellen-Body: alle Elektroden der CI-Seite
+  // Welche Seite ist die CI-Seite? Aus dem letzten fRes-Eintrag, sonst aus state
+  const ciSide = fRes.length > 0
+    ? fRes[fRes.length - 1].varSide
+    : (sideData.left.config === 'ci' ? 'left' : 'right');
+  const nCi = sideData[ciSide].nEl;
+  const byIdx = {};
+  for (const r of fRes) byIdx[r.elIdx] = r;
+
+  const varLabel = ciSide === 'left' ? t('sideLeft')  : t('sideRight');
+  const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
+
   tb.innerHTML = "";
-  const sorted = [...fRes].sort((a, b) => a.elIdx - b.elIdx);
-  for (const r of sorted) {
-    const elNum = withSide(r.varSide, () => dEN(r.elIdx));
-    const elPfxFM = withSide(r.varSide, () => dENPrefix());
-    const varLabel = r.varSide === "left" ? t("sideLeft") : t("sideRight");
-    const refLabel = r.refSide === "left" ? t("sideLeft") : t("sideRight");
-    const diffHz = Math.round(r.refFreq - r.varFreq);
-    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-    const centRound = Math.round(cent);
-    const diffColor = Math.abs(diffHz) < 20
-      ? "#666"
-      : diffHz > 0
-        ? "#2563eb"
-        : "#dc2626";
+  for (let i = 0; i < nCi; i++) {
+    const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
+    const r = byIdx[i];
     const tr = document.createElement("tr");
-    tr.innerHTML =
-      "<td style=\"font-weight:600\">" + elPfxFM + elNum + "</td>" +
-      "<td>" + varLabel + "</td>" +
-      "<td>" + Math.round(r.varFreq) + "</td>" +
-      "<td>" + refLabel + "</td>" +
-      "<td>" + Math.round(r.refFreq) + "</td>" +
-      "<td style=\"color:" + diffColor + "\">" + (diffHz >= 0 ? "+" : "") + diffHz + "</td>" +
-      "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>";
+    const elLabel = withSide(ciSide, () => dENPrefix() + dEN(i));
+
+    if (exCI) {
+      tr.style.opacity = "0.4";
+      tr.innerHTML =
+        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
+        "<td>" + varLabel + "</td>" +
+        "<td>—</td>" +
+        "<td>" + refLabel + "</td>" +
+        "<td>—</td>" +
+        "<td>—</td>" +
+        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
+    } else if (!r) {
+      tr.innerHTML =
+        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
+        "<td>" + varLabel + "</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
+        "<td>" + refLabel + "</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
+        "<td style=\"font-size:.82em;color:#9ca3af\">" + t('notMeasured') + "</td>";
+    } else {
+      const diffHzRaw = r.refFreq - r.varFreq;
+      const diffHz    = diffHzRaw.toFixed(2);
+      const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
+      const centRound = Math.round(cent);
+      const diffColor = Math.abs(diffHzRaw) < 20 ? "#666" : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
+      tr.innerHTML =
+        "<td style=\"font-weight:600\">" + elLabel + "</td>" +
+        "<td>" + varLabel + "</td>" +
+        "<td>" + r.varFreq.toFixed(2) + "</td>" +
+        "<td>" + refLabel + "</td>" +
+        "<td>" + r.refFreq.toFixed(2) + "</td>" +
+        "<td style=\"color:" + diffColor + "\">" + (diffHzRaw >= 0 ? "+" : "") + diffHz + "</td>" +
+        "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>";
+    }
     tb.appendChild(tr);
   }
 

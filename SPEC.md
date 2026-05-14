@@ -23,8 +23,8 @@ Modulübersicht steht in CODESTRUKTUR.md.
 - **Einführung** (intro)
 - **Implantat** (setup) — Hersteller-/Modell-Auswahl, Frequenztabelle
 - **Messungen** (messungen) — drei Sub-Tabs (siehe unten)
-- **Meßergebnisse** (ergebnisse) — drei Sub-Tabs für Lautstärke,
-  Stereo-Balance, Frequenzabgleich
+- **Meßergebnisse** (ergebnisse) — drei Sub-Tabs für
+  Elektrodenlautstärke-Balance, Stereo-Balance, Frequenzabgleich
 - **Levels** (levels)
 - **Player** (player)
 - **Laden/Speichern** (file)
@@ -107,8 +107,14 @@ Slider-Wert wird invertiert.
 - **Testverfahren**: vollständig (alle Paare) / Konvergenz schnell /
   manuell
 - A/B-Zuordnung und Paarreihenfolge immer randomisiert
-- Referenzelektroden-Auswahl
+- Referenzelektroden-Auswahl erfolgt im Ergebnis-Reiter
+  (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
+  wirkt nur auf die Anzeige und Anwendung der Ergebnisse, nicht auf
+  die Messung.
 - Vorkorrektur-Schalter (preCorrect)
+- Wenn Modus „Vollständig" angefangen aber nicht abgeschlossen wurde,
+  zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und
+  bestätigten Paaren des aktuellen Sweeps.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 
@@ -126,6 +132,19 @@ Slider-Wert wird invertiert.
 - Referenzseite-Auswahl (LINKS/RECHTS = welche Seite ist Restgehör)
 - Bei Wechsel des Referenzohrs nach vorhandenen Ergebnissen:
   Bestätigungsdialog, Verwerfen der bisherigen Ergebnisse
+- Ergebnis-Diagramm: X-Achse log-Hz (CI-Frequenz `varFreq`), Y-Achse
+  lineare Cent-Abweichung (positiv = subjektiv höher als CI-Frequenz,
+  negativ = tiefer). Null-Linie = perfekter Match.
+
+## Anzeige-Konvention
+
+Alle drei Ergebnis-Sub-Reiter zeigen *alle* Elektroden. Deaktivierte
+oder stumm-geschaltete Elektroden werden im Diagramm als hellgrauer
+Balken über die volle Y-Achsen-Höhe mit dunkelgrauem „X" Ecke-zu-Ecke
+dargestellt; in Tabellen erscheinen die Wertespalten als „—" und die
+Status-Spalte zeigt „deaktiviert/ausgelassen". Aktive, aber noch nicht
+gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
+02 für Stereo-Balance und Frequenzabgleich).
 
 ## Levels-Tab
 

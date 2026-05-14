@@ -76,34 +76,53 @@ function drawChart(cv, vals, res, isOff, elColor) {
       x = tX(j) - bW / 2,
       yZ = tY(0),
       yV = tY(v);
-    const col = elColor
-      ? colorMap[elColor(i) || "grey"]
-      : v > 0.05
-        ? "#2563eb"
-        : v < -0.05
-          ? "#dc2626"
-          : "#9ca3af";
-    ctx.fillStyle = col;
-    ctx.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
-    if (res && res[i] > 0 && act.includes(i)) {
-      const r = res[i],
-        yt = tY(v + r),
-        yb = tY(v - r);
-      ctx.strokeStyle = "#00000044";
+
+    const isDisabled = (typeof elExDur !== 'undefined' && elExDur[i] !== null)
+                    || (typeof elSt    !== 'undefined' && elSt[i] === 'mute');
+
+    if (isDisabled) {
+      const yTop = pad.top, yBot = pad.top + pH;
+      ctx.fillStyle = '#e5e7eb';
+      ctx.fillRect(x, yTop, bW, yBot - yTop);
+      ctx.strokeStyle = '#6b7280';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(tX(j), yt);
-      ctx.lineTo(tX(j), yb);
+      ctx.moveTo(x, yTop);
+      ctx.lineTo(x + bW, yBot);
+      ctx.moveTo(x + bW, yTop);
+      ctx.lineTo(x, yBot);
       ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(tX(j) - 4, yt);
-      ctx.lineTo(tX(j) + 4, yt);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(tX(j) - 4, yb);
-      ctx.lineTo(tX(j) + 4, yb);
-      ctx.stroke();
+    } else {
+      const col = elColor
+        ? colorMap[elColor(i) || "grey"]
+        : v > 0.05
+          ? "#2563eb"
+          : v < -0.05
+            ? "#dc2626"
+            : "#9ca3af";
+      ctx.fillStyle = col;
+      ctx.fillRect(x, Math.min(yZ, yV), bW, Math.abs(yV - yZ) || 2);
+      if (res && res[i] > 0 && act.includes(i)) {
+        const r = res[i],
+          yt = tY(v + r),
+          yb = tY(v - r);
+        ctx.strokeStyle = "#00000044";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(tX(j), yt);
+        ctx.lineTo(tX(j), yb);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(tX(j) - 4, yt);
+        ctx.lineTo(tX(j) + 4, yt);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(tX(j) - 4, yb);
+        ctx.lineTo(tX(j) + 4, yb);
+        ctx.stroke();
+      }
     }
+
     ctx.fillStyle = i === refEl ? "#2563eb" : "#555";
     ctx.font = (i === refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
     ctx.textAlign = "center";
@@ -176,66 +195,67 @@ function drawFreqMatchChart(cv, fResData) {
 
   if (!fResData || fResData.length === 0) return;
 
-  const allFreqs = fResData.flatMap((r) => [r.varFreq, r.refFreq]);
-  const rawMin = Math.min(...allFreqs),
-    rawMax = Math.max(...allFreqs);
-  const logMin = Math.log2(rawMin) - 0.15,
-    logMax = Math.log2(rawMax) + 0.15;
-  const logRange = logMax - logMin || 1;
-
+  // X-Achse: log-Hz über die CI-Frequenzen (varFreq)
+  const xMinHz = Math.min(...fResData.map((r) => r.varFreq));
+  const xMaxHz = Math.max(...fResData.map((r) => r.varFreq));
+  const logMin = Math.log2(xMinHz) - 0.15,
+        logMax = Math.log2(xMaxHz) + 0.15,
+        logRange = logMax - logMin || 1;
   const tX = (hz) => pad.left + ((Math.log2(hz) - logMin) / logRange) * pW;
-  const tY = (hz) => pad.top + ((logMax - Math.log2(hz)) / logRange) * pH;
 
+  // Y-Achse: lineare Cent-Abweichung, symmetrisch um 0
+  const cents = fResData.map((r) => 1200 * Math.log2(r.refFreq / r.varFreq));
+  const absC  = Math.max(Math.ceil(Math.max(...cents.map(Math.abs), 50) / 50) * 50, 50);
+  const yMin = -absC, yMax = absC;
+  const tY = (c) => pad.top + ((yMax - c) / (yMax - yMin)) * pH;
+
+  // X-Grid: Hz-Linien
   const gridFreqs = [100, 200, 300, 500, 700, 1000, 1500, 2000, 3000, 4000, 6000, 8000, 10000];
   const visibleGrid = gridFreqs.filter(
     (f) => Math.log2(f) >= logMin - 0.05 && Math.log2(f) <= logMax + 0.05,
   );
-
   ctx.strokeStyle = "#e5e5e5";
   ctx.lineWidth = 1;
   for (const f of visibleGrid) {
-    const x = tX(f), y = tY(f);
+    const x = tX(f);
     ctx.beginPath();
     ctx.moveTo(x, pad.top);
     ctx.lineTo(x, pad.top + pH);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(pad.left, y);
-    ctx.lineTo(pad.left + pW, y);
     ctx.stroke();
     ctx.fillStyle = "#999";
     ctx.font = "9px Consolas,monospace";
     ctx.textAlign = "center";
     const label = f >= 1000 ? (f / 1000) + "k" : String(f);
     ctx.fillText(label, x, pad.top + pH + 14);
-    ctx.textAlign = "right";
-    ctx.fillText(label, pad.left - 6, y + 4);
   }
 
-  // Diagonale: refFreq = varFreq
-  const dMin = Math.pow(2, logMin), dMax = Math.pow(2, logMax);
-  ctx.strokeStyle = "#aaaaaa";
-  ctx.lineWidth = 1.5;
-  ctx.setLineDash([5, 4]);
-  ctx.beginPath();
-  ctx.moveTo(tX(dMin), tY(dMin));
-  ctx.lineTo(tX(dMax), tY(dMax));
-  ctx.stroke();
-  ctx.setLineDash([]);
-  ctx.fillStyle = "#aaa";
-  ctx.font = "9px Segoe UI,sans-serif";
-  ctx.textAlign = "left";
-  const diagLabelX = Math.min(tX(dMax) - 70, pad.left + pW - 80);
-  ctx.fillText(t("fmrChartDiagonal"), diagLabelX, tY(dMax) - 6);
+  // Y-Grid: Cent-Linien (Schritte je nach absC)
+  const step = absC <= 100 ? 25 : absC <= 300 ? 50 : absC <= 600 ? 100 : 200;
+  for (let c = -absC; c <= absC; c += step) {
+    const y = tY(c);
+    ctx.strokeStyle = (c === 0) ? "#888" : "#e5e5e5";
+    ctx.lineWidth   = (c === 0) ? 1.5   : 1;
+    if (c === 0) ctx.setLineDash([5, 4]);
+    ctx.beginPath();
+    ctx.moveTo(pad.left,        y);
+    ctx.lineTo(pad.left + pW,   y);
+    ctx.stroke();
+    if (c === 0) ctx.setLineDash([]);
+    ctx.fillStyle = "#999";
+    ctx.font = "9px Consolas,monospace";
+    ctx.textAlign = "right";
+    ctx.fillText((c >= 0 ? "+" : "") + c, pad.left - 6, y + 3);
+  }
 
-  // Verbindungslinie
-  const sorted = [...fResData].sort((a, b) => a.elIdx - b.elIdx);
+  // Verbindungslinie zwischen Messpunkten (sortiert nach varFreq)
+  const sorted = [...fResData].sort((a, b) => a.varFreq - b.varFreq);
   ctx.strokeStyle = "#2563eb44";
   ctx.lineWidth = 1.5;
   ctx.beginPath();
   let first = true;
   for (const r of sorted) {
-    const x = tX(r.varFreq), y = tY(r.refFreq);
+    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
+    const x = tX(r.varFreq), y = tY(cent);
     if (first) { ctx.moveTo(x, y); first = false; }
     else ctx.lineTo(x, y);
   }
@@ -244,7 +264,8 @@ function drawFreqMatchChart(cv, fResData) {
   // Messpunkte + Hitboxen
   const hitboxes = [];
   for (const r of sorted) {
-    const x = tX(r.varFreq), y = tY(r.refFreq);
+    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
+    const x = tX(r.varFreq), y = tY(cent);
     ctx.beginPath();
     ctx.arc(x, y, 5, 0, Math.PI * 2);
     ctx.fillStyle = "#2563eb";
@@ -253,6 +274,43 @@ function drawFreqMatchChart(cv, fResData) {
     ctx.lineWidth = 2;
     ctx.stroke();
     hitboxes.push({ x, y, r });
+  }
+
+  // Aktiv-ungemessene und deaktivierte Elektroden der CI-Seite einzeichnen
+  if (fResData.length > 0) {
+    const ciSide = fResData[fResData.length - 1].varSide;
+    const nCi    = sideData[ciSide].nEl;
+    const measuredIdx = new Set(fResData.map((r) => r.elIdx));
+    for (let i = 0; i < nCi; i++) {
+      if (measuredIdx.has(i)) continue;
+      const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
+      const hzCi = withSide(ciSide, () => effFreq(i));
+      if (hzCi < Math.pow(2, logMin) || hzCi > Math.pow(2, logMax)) continue;
+      const x = tX(hzCi);
+      if (exCI) {
+        ctx.strokeStyle = '#e5e7eb';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, pad.top);
+        ctx.lineTo(x, pad.top + pH);
+        ctx.stroke();
+        ctx.strokeStyle = '#9ca3af';
+        ctx.lineWidth = 1.5;
+        const ySize = 5;
+        ctx.beginPath();
+        ctx.moveTo(x - ySize, tY(0) - ySize);
+        ctx.lineTo(x + ySize, tY(0) + ySize);
+        ctx.moveTo(x + ySize, tY(0) - ySize);
+        ctx.lineTo(x - ySize, tY(0) + ySize);
+        ctx.stroke();
+      } else {
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(x, tY(0), 4, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+    }
   }
 
   // Achsenbeschriftungen

@@ -422,6 +422,10 @@
             <p style="color: var(--text-muted)" data-t="noRes"></p>
           </div>
           <div id="resC" style="display: none">
+            <div id="resNotDoneBox" style="display:none;margin-bottom:14px;padding:12px 16px;background:#fef3c7;border-radius:8px;border-left:3px solid #d97706;font-size:0.88em;line-height:1.6">
+              <strong id="resNotDoneTitle"></strong>
+              <div id="resNotDoneDetail" style="margin-top:4px"></div>
+            </div>
             <div
               id="reliabilityText"
               style="
@@ -442,6 +446,10 @@
               "
               id="resMeta"
             ></p>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:0.88em">
+              <label for="refEl" data-t="lblRef" style="white-space:nowrap"></label>
+              <select id="refEl" style="font-family:var(--mono);padding:4px 8px"></select>
+            </div>
             <div class="chart-container">
               <canvas id="resChart" width="800" height="320"></canvas>
               <p
@@ -599,7 +607,7 @@
             </button>
           </div>
           <div class="explain" style="margin-top: 12px" id="lrResNote">
-            Der empfohlene Globalwert (Median) wird automatisch als
+            Der empfohlene Globalwert (Mittelwert) wird automatisch als
             Stereo-Balance-Offset oben eingetragen.
           </div>
         </div>
@@ -616,18 +624,18 @@
               style="margin-bottom:14px;padding:12px 16px;background:var(--accent-light);border-radius:8px;border-left:3px solid var(--accent);font-size:0.86em;line-height:1.6"
               id="fmrMethodNote"
             ></div>
-            <div style="overflow-x:auto;margin-bottom:16px">
-              <table class="results-table" id="fmrTable">
-                <thead><tr id="fmrTH"></tr></thead>
-                <tbody id="fmrTB"></tbody>
-              </table>
-            </div>
-            <div class="chart-container">
+            <div class="chart-container" style="margin-bottom:16px">
               <canvas id="fmrChart" width="800" height="360"></canvas>
               <p
                 style="font-size:0.82em;color:var(--text-muted);margin-top:10px;line-height:1.5"
                 id="fmrChartHint"
               ></p>
+            </div>
+            <div style="overflow-x:auto">
+              <table class="results-table" id="fmrTable">
+                <thead><tr id="fmrTH"></tr></thead>
+                <tbody id="fmrTB"></tbody>
+              </table>
             </div>
           </div>
         </div>

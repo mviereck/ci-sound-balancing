@@ -37,7 +37,7 @@ Code des jeweiligen Tabs liegt.
 
 | Sub-Tab-Beschriftung | data-subtab | Hauptmodul |
 |---|---|---|
-| Lautstärke (Default) | results | results.js |
+| Elektrodenlautstärke-Balance (Default) | results | results.js |
 | Stereo-Balance | lrresults | results.js, lr-balance.js |
 | Frequenzabgleich | freqmatch | results.js |
 
@@ -110,6 +110,17 @@ auf das zurückgelieferte Element-Lookup-Objekt zu. UI-Änderungen am
 einheitlichen Aufbau gehören in test-ui.js, nicht in die einzelnen
 Test-Module.
 
+**refEl-Wirkung:** `refEl` beeinflusst ausschließlich Anzeige und
+Anwendung der Ergebnisse — konkret: WLS-Eichung in `compWLS`
+(test.js), Highlight in `drawChart` (chart.js), Player-
+Korrekturgewicht via `corrG` (audio.js), `pUpdEQ` (player.js).
+`refEl` hat **keine** Wirkung auf die Messung selbst (rohe
+Vergleichspaare `bRes`/`jRes`). Das Dropdown zur Wahl der
+Referenzelektrode sitzt im Ergebnis-Reiter (`#refEl`, befüllt
+durch `updRef` in freq-table.js, Listener in init.js, triggert
+`renderResults`/`drawLvChart`/`pUpdEQ`). In test.js wird `refEl`
+nicht mehr beim Test-Start überschrieben.
+
 **Tab-Sperre während Test:** sobald ein Test in einem der drei
 Sub-Tabs läuft, sperrt `updateTabLockState` (tabs-eq.js) alle
 Top-Level-Tabs **und** alle Sub-Tabs in Messungen außer dem aktiven.
@@ -133,6 +144,27 @@ Bei Hersteller-spezifischer Logik immer alle drei Module prüfen.
 
 **i18n L-Objekt** ist die größte Datei. Code-Anteil davon ist klein.
 Bei reinen Textänderungen reicht es, i18n.js zu lesen.
+
+**drawFreqMatchChart (chart.js):** Zeichnet das Diagramm im Sub-Tab
+„Frequenzabgleich" unter Meßergebnisse. X-Achse: log-Hz der CI-Frequenz
+(`varFreq`). Y-Achse: lineare Cent-Abweichung (positiv = subjektiv höher
+als CI-Frequenz, negativ = tiefer). Null-Linie = perfekter Match.
+Zusätzlich: hohle graue Kreise (aktiv, ungemessen) und vertikale graue
+Striche mit „×" (deaktiviert) für CI-Elektroden ohne Meßwert.
+
+**lrDrawChart (lr-balance.js):** Zeichnet das Balken-Diagramm im Ergebnis-
+Sub-Tab „Stereo-Balance". Zeichnet alle Elektroden bis `count`: gemessene
+als farbige Balken, aktive ungemessene als gestrichelter Strich mit
+Querstrich-Symbol auf der Null-Linie, deaktivierte als hellgrauer voller
+Balken mit „X"-Diagonale.
+
+**Anzeige-Konvention für alle drei Ergebnis-Sub-Tabs** (deaktiviert =
+grauer Balken/Strich + X, aktiv-ungemessen = gestrichelter Umriss/Kreis,
+Status-Text per i18n) ist **nicht** über einen gemeinsamen Helper
+implementiert, sondern dreifach separat: in `drawChart` (chart.js) für
+Elektrodenlautstärke-Balance, in `lrDrawChart` + `lrRenderResults`
+(lr-balance.js) für Stereo-Balance, und in `drawFreqMatchChart` +
+`renderFreqMatchResults` (results.js) für Frequenzabgleich.
 
 **Historisches Relikt:** Der Tab mit `data-tab="setup"` wird mit dem
 i18n-Key `tabFreq` ("Implantat") beschriftet. Setup war der alte Name,

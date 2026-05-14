@@ -172,7 +172,14 @@ function updRef() {
   }
   if (p && s.querySelector(`option[value="${p}"]`)) s.value = p;
   else s.value = String(Math.floor(nEl / 2));
-  refEl = +s.value;
+  const newRef = +s.value;
+  const changed = (newRef !== refEl);
+  refEl = newRef;
+  if (changed) {
+    if (typeof renderResults === 'function') renderResults();
+    if (typeof drawLvChart    === 'function') drawLvChart();
+    if (typeof pUpdEQ         === 'function') pUpdEQ();
+  }
 }
 function updManSel() {
   const pfx = dENPrefix();
