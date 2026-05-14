@@ -3,7 +3,7 @@
 // ============================================================
 const L = {
   de: {
-    subtitle: "CI Sound Balancing Tool · v2.7",
+    subtitle: "CI Sound Balancing Tool · v2.8",
     sideLeft: "LINKS",
     sideRight: "RECHTS",
     tabIntro: "Einführung",
@@ -445,7 +445,7 @@ const L = {
     confQualityLabel: "Qualität der Messung:",
   },
   en: {
-    subtitle: "CI Sound Balancing Tool · v2.7",
+    subtitle: "CI Sound Balancing Tool · v2.8",
     sideLeft: "LEFT",
     sideRight: "RIGHT",
     tabIntro: "Introduction",
@@ -882,7 +882,7 @@ const L = {
     confQualityLabel: "Measurement quality:",
   },
   fr: {
-    subtitle: "CI Sound Balancing Tool · v2.7",
+    subtitle: "CI Sound Balancing Tool · v2.8",
     sideLeft: "LEFT",
     sideRight: "RIGHT",
     sideLeft: "GAUCHE",
@@ -1298,7 +1298,7 @@ const L = {
     confQualityLabel: "Qualité de la mesure :",
   },
   es: {
-    subtitle: "CI Sound Balancing Tool · v2.7",
+    subtitle: "CI Sound Balancing Tool · v2.8",
     sideLeft: "IZQUIERDA",
     sideRight: "DERECHA",
     tabIntro: "Introducción",
