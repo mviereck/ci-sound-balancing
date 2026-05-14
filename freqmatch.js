@@ -76,14 +76,17 @@ function fmUpdateSliderDisplay() {
   const varHz = fmVarHz(fmCurrentEl);
   const refHz = fmFreqFromCents(varHz, fmCentOffset);
   const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
-  const hzStr = Math.round(refHz);
+  const hzStr = refHz.toFixed(2);
   const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
   if (fmEls.sliderValue) {
     fmEls.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
   }
   const refSideLabel = fmRefSide === "left" ? t("sideLeft") : t("sideRight");
-  if (fmEls.pairRight) {
-    fmEls.pairRight.textContent = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
+  const refText = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
+  if (fmRefSide === "left") {
+    if (fmEls.pairLeft) fmEls.pairLeft.textContent = refText;
+  } else {
+    if (fmEls.pairRight) fmEls.pairRight.textContent = refText;
   }
 }
 
@@ -99,10 +102,12 @@ function fmShowElectrode() {
   if (!fmEls || fmCurrentEl === null) return;
   const varHz = fmVarHz(fmCurrentEl);
   const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
-  if (fmEls.pairLeft) {
-    fmEls.pairLeft.textContent =
-      withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
-      Math.round(varHz) + " Hz (" + varSideLabel + ")";
+  const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
+    varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
+  if (fmVarSide === "left") {
+    if (fmEls.pairLeft) fmEls.pairLeft.textContent = varText;
+  } else {
+    if (fmEls.pairRight) fmEls.pairRight.textContent = varText;
   }
   const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
   fmEls.slider.min = -lim;
@@ -133,7 +138,66 @@ async function fmPlayCurrent() {
   const ms = fmGDur();
   const pau = fmGPau();
   const aba = fmGAba();
-  await playFreqPair(fmRefSide, refHz, fmVarSide, varHz, vol, ms, pau, aba, fmFirstSide);
+
+  const c = gAC();
+  function playOne(side, hz) {
+    const pan = side === "left" ? -1 : 1;
+    const effectiveVol = isDeaf(side) ? 0 : vol;
+    return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType);
+  }
+  function indRef() {
+    const isLeft = fmRefSide === "left";
+    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.toggle('playing', isLeft);
+    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', !isLeft);
+  }
+  function indVar() {
+    const isLeft = fmVarSide === "left";
+    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.toggle('playing', isLeft);
+    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', !isLeft);
+  }
+  function indOff() {
+    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.remove('playing');
+    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
+  }
+
+  isPlay = true;
+  if (fmFirstSide === "ref") {
+    indRef();
+    await playOne(fmRefSide, refHz);
+    if (!isPlay) { indOff(); return; }
+    indOff();
+    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
+    if (!isPlay) return;
+    indVar();
+    await playOne(fmVarSide, varHz);
+    if (!isPlay) { indOff(); return; }
+    if (aba && isPlay) {
+      indOff();
+      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
+      if (!isPlay) return;
+      indRef();
+      await playOne(fmRefSide, refHz);
+    }
+  } else {
+    indVar();
+    await playOne(fmVarSide, varHz);
+    if (!isPlay) { indOff(); return; }
+    indOff();
+    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
+    if (!isPlay) return;
+    indRef();
+    await playOne(fmRefSide, refHz);
+    if (!isPlay) { indOff(); return; }
+    if (aba && isPlay) {
+      indOff();
+      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
+      if (!isPlay) return;
+      indVar();
+      await playOne(fmVarSide, varHz);
+    }
+  }
+  indOff();
+  isPlay = false;
 }
 
 async function fmPlaySimul() {
@@ -151,10 +215,14 @@ async function fmPlaySimul() {
   const refPan = fmRefSide === "left" ? -1 : 1;
   const varPan = fmVarSide === "left" ? -1 : 1;
   isPlay = true;
+  if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.add('playing');
+  if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.add('playing');
   await Promise.all([
     playToneTyped(c, refHz, isDeaf(fmRefSide) ? 0 : vol, ms, refPan, globalToneType),
     playToneTyped(c, varHz, isDeaf(fmVarSide) ? 0 : vol, ms, varPan, globalToneType)
   ]);
+  if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.remove('playing');
+  if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
   isPlay = false;
 }
 
@@ -261,8 +329,6 @@ function fmFinish() {
     fmEls.startBtn.disabled = false;
     fmEls.stopBtn.disabled = true;
   }
-  if (typeof switchTab === "function") switchTab("ergebnisse");
-  if (typeof switchSubtab === "function") switchSubtab("ergebnisse", "freqmatch");
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
 }
 
@@ -318,6 +384,9 @@ function fmHandleKey(e) {
   } else if (e.key === "z" || e.key === "Z") {
     e.preventDefault();
     fmUndo();
+  } else if (e.key === "b" || e.key === "B") {
+    e.preventDefault();
+    if (fmEls && fmEls.simulBtn) fmEls.simulBtn.click();
   }
 }
 
@@ -347,9 +416,8 @@ document.addEventListener("DOMContentLoaded", () => {
     explain: {
       titleKey: 'fmTitle',
       paragraphs: [
-        { key: 'fmHintWarn',   kind: 'warn' },
         { key: 'fmHintMethod' },
-        { key: 'toneHint'    }
+        { key: 'fmHintWarn', kind: 'warn' }
       ]
     },
     presets: {
@@ -366,11 +434,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     test: {
       subTitleKey:       'fmRunningTitle',
+      subHintKey:        'fmRunningHint',
       progressBar:       true,
       progressFormat:    'simple',
       swapButton:        { show: false },
       pairDisplay:       { mode: 'electrode-vs-refside' },
-      excludeButtons:    { show: true, target: 'electrodes' },
+      excludeButtons:    { show: false, target: 'electrodes' },
       actions:           ['undo', 'replay', 'simul'],
       keyHintBox:        { show: true, unitKey: 'sliderHintCent' },
       slider:            { unit: 'cent', ranges: [100, 500, 1200] },

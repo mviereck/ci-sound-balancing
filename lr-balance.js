@@ -170,6 +170,13 @@ async function lrPlayCurrent() {
   lrSetSideActive(secondSide);
   await lrPlayTone(secondHz, secondVol, dur, secondPan);
   lrSetSideActive(null);
+  if (globalSequence === "aba" && lrIsPlay) {
+    await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
+    if (!lrIsPlay) return;
+    lrSetSideActive(firstSide);
+    await lrPlayTone(firstHz, firstVol, dur, firstPan);
+    lrSetSideActive(null);
+  }
   lrIsPlay = false;
 }
 
@@ -199,8 +206,10 @@ function lrPlaySimul() {
     volR = vol * corrR * dB2G(slOff / 2);
   }
   const ac = gAC();
-  playToneTyped(ac, hzL, volL, dur, -1, globalToneType);
-  playToneTyped(ac, hzR, volR, dur, 1, globalToneType);
+  lrSetSideActive("both");
+  var p1 = playToneTyped(ac, hzL, volL, dur, -1, globalToneType);
+  var p2 = playToneTyped(ac, hzR, volR, dur, 1, globalToneType);
+  Promise.all([p1, p2]).then(function() { lrSetSideActive(null); });
 }
 
 function lrStopPlay() {
@@ -235,6 +244,13 @@ function lrSetSideActive(side) {
     l.style.background = "";
     l.style.borderColor = "";
     l.style.color = "";
+  } else if (side === "both") {
+    l.style.background = "var(--accent-light)";
+    l.style.borderColor = "var(--accent)";
+    l.style.color = "var(--accent)";
+    r.style.background = "var(--accent-light)";
+    r.style.borderColor = "var(--accent)";
+    r.style.color = "var(--accent)";
   } else {
     l.style.background = "";
     l.style.borderColor = "";
@@ -295,12 +311,23 @@ function lrShowPair() {
   lrFlipped = lrDetermineFlip();
   lrSlRangeIdx = 0;
 
-  // Slider: load existing result if any, reset to 0
+  // Slider: load existing result if any, otherwise reset to 0
   const existing = lrResults[el];
   if (lrEls && lrEls.slider) {
     _lrRstSlR();
-    lrEls.slider.value = "0";
-    _lrUpdSliderDisplay(0);
+    if (existing !== undefined && isFinite(existing)) {
+      // Extend range if existing value exceeds default range
+      const absEx = Math.abs(existing);
+      while (absEx > LR_SLIDER_RANGES[lrSlRangeIdx] - 0.5 &&
+             lrSlRangeIdx < LR_SLIDER_RANGES.length - 1) {
+        _lrExtSlider();
+      }
+      lrEls.slider.value = String(existing);
+      _lrUpdSliderDisplay(existing);
+    } else {
+      lrEls.slider.value = "0";
+      _lrUpdSliderDisplay(0);
+    }
   }
 
   // Update cumulative display (previous value)
@@ -611,8 +638,8 @@ document.addEventListener("DOMContentLoaded", function() {
     explain: {
       titleKey: 'lrTitle',
       paragraphs: [
-        { key: 'lrDesc' },
-        { key: 'lrPrereqHint', kind: 'warn' }
+        { key: 'lrDesc', kind: 'plain' },
+        { key: 'lrPrereqHint', kind: 'plain' }
       ]
     },
     presets: {
@@ -639,11 +666,12 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     test: {
       subTitleKey: 'lrRunningTitle',
+      subHintKey: 'lrRunningHint',
       progressBar: true,
       progressFormat: 'simple',
       swapButton: { show: true, labelKey: 'btnSwapLR' },
       pairDisplay: { mode: 'side-vs-side', labelLeft: 'L', labelRight: 'R' },
-      excludeButtons: { show: true, target: 'electrodes' },
+      excludeButtons: { show: false, target: 'electrodes' },
       actions: ['undo','replay','simul'],
       keyHintBox: { show: true, unitKey: 'sliderHintDb' },
       slider: { unit: 'dB', ranges: [20, 40, 60] },
@@ -682,13 +710,6 @@ document.addEventListener("DOMContentLoaded", function() {
   if (lrEls.swapBtn) {
     lrEls.swapBtn.addEventListener('click', function() {
       lrFlipped = !lrFlipped;
-      // Invert slider value
-      var v = _lrSliderVal();
-      if (lrEls.slider) {
-        lrEls.slider.value = String(-v);
-        _lrUpdSliderDisplay(-v);
-        _lrUpdCumulative(-v);
-      }
       lrPlayCurrent();
     });
   }
@@ -779,6 +800,9 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (e.key === 'z' || e.key === 'Z') {
       e.preventDefault();
       lrUndo();
+    } else if (e.key === 'b' || e.key === 'B') {
+      e.preventDefault();
+      if (lrEls && lrEls.simulBtn) lrEls.simulBtn.click();
     }
   });
 

@@ -736,8 +736,8 @@ function _testSwap() {
   s.value = String(newSlVal);
   if (testEls.sliderValue) testEls.sliderValue.textContent = newSlVal.toFixed(1) + " dB";
   _testUpdCumulative(newSlVal);
-  testEls.pairLeft.innerHTML = `<span class="aba-label">A (Ref)</span>${dENPrefix()}${dEN(curA)}`;
-  testEls.pairRight.innerHTML = `<span class="aba-label">B (Slider)</span>${dENPrefix()}${dEN(curB)}`;
+  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(curA)}`;
+  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(curB)}`;
   testEls.pairFreq.textContent = `${Math.round(effFreq(curA))} Hz vs. ${Math.round(effFreq(curB))} Hz`;
   playCur();
 }
@@ -838,17 +838,31 @@ function showCurPair() {
     if (pt === "full") return nextFullRound();
     if (convRnd > 0) return nextConvRnd();
     endTest();
-    switchTab("ergebnisse");
     renderResults();
     return;
   }
   const [a, b] = testPairs[testIdx];
   curA = a;
   curB = b;
-  if (testEls.progressText)
-    testEls.progressText.textContent = `${t("comp")} ${testIdx + 1} ${t("of")} ${testPairs.length}${convRnd > 0 ? ` (${t("round")} ${convRnd})` : ""}`;
-  testEls.pairLeft.innerHTML = `<span class="aba-label">A (Ref)</span>${dENPrefix()}${dEN(a)}`;
-  testEls.pairRight.innerHTML = `<span class="aba-label">B (Slider)</span>${dENPrefix()}${dEN(b)}`;
+  if (testEls.progressText) {
+    if (pt === "full") {
+      const s = sideData[activeSide];
+      const rrTable = ROUND_ROBIN[nEl];
+      if (rrTable) {
+        const maxRounds = rrTable.length;
+        const pairsPerRound = rrTable[0].length;
+        const completedRounds = s.fullSweepRound - 1;
+        const totalPairs = maxRounds * pairsPerRound;
+        const n = completedRounds * pairsPerRound + testIdx + 1;
+        testEls.progressText.textContent =
+          `${t("comp")} ${n} ${t("of")} ${totalPairs}. ${t("round")} ${s.fullSweepRound} ${t("of")} ${maxRounds}. ${t("testInRound")} ${testIdx + 1} ${t("of")} ${testPairs.length}`;
+      }
+    } else {
+      testEls.progressText.textContent = `${t("comp")} ${testIdx + 1} ${t("of")} ${testPairs.length}${convRnd > 0 ? ` (${t("round")} ${convRnd})` : ""}`;
+    }
+  }
+  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(a)}`;
+  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(b)}`;
   testEls.pairFreq.textContent = `${Math.round(effFreq(a))} Hz vs. ${Math.round(effFreq(b))} Hz`;
   if (testMode === "balance") {
     const ex = bRes.find((r) => (r.a === a && r.b === b) || (r.a === b && r.b === a));
@@ -966,21 +980,7 @@ function updUndo() {
   if (testEls && testEls.undoBtn)
     testEls.undoBtn.disabled = testIdx <= 0 || !undoSt.length;
 }
-function updFullSweepInfo() {
-  if (!testEls) return;
-  const s = sideData[activeSide];
-  const rrTable = ROUND_ROBIN[nEl];
-  if (!rrTable) return;
-  const maxRounds = rrTable.length;
-  const totalPairs = (nEl * (nEl - 1)) / 2;
-  const pairsPerRound = rrTable[0].length;
-  const completedRounds = s.fullSweepRound - 1;
-  const doneInRound = s.fullSweepDonePairs.length;
-  const N = completedRounds * pairsPerRound + doneInRound;
-  const M = pairsPerRound - doneInRound;
-  if (testEls.progressText)
-    testEls.progressText.textContent = `${t("comp")} ${N} ${t("of")} ${totalPairs} (${t("round")} ${s.fullSweepRound} ${t("of")} ${maxRounds}), ${M} ${t("pairsRem")}`;
-}
+function updFullSweepInfo() {}
 function nextFullRound() {
   const s = sideData[activeSide];
   const rrTable = ROUND_ROBIN[nEl];
@@ -995,7 +995,6 @@ function nextFullRound() {
     fullSweepRound = null;
     fullSweepDonePairs = [];
     endTest();
-    switchTab("ergebnisse");
     renderResults();
     return;
   }
@@ -1016,7 +1015,6 @@ function nextConvRnd() {
   const mx = vr.length ? Math.max(...vr.map((r) => r.residual)) : 0;
   if (mx < 1) {
     endTest();
-    switchTab("ergebnisse");
     renderResults();
     return;
   }
@@ -1048,7 +1046,6 @@ function doExcl(i) {
     testEls.progressText.textContent = `${dENPrefix()}${dEN(i)} ${t("exclDuring")}. ${testPairs.length - testIdx} ${t("pairsRem")}.`;
   if (testIdx >= testPairs.length) {
     endTest();
-    switchTab("ergebnisse");
     renderResults();
   } else showCurPair();
 }
@@ -1134,13 +1131,15 @@ document.addEventListener("DOMContentLoaded", function() {
     explain: {
       titleKey: 'testExplainTitle',
       paragraphs: [
+        { key: 'testIntro' },
         { key: 'testExplainRecommend' },
-        { key: 'testExplainVarious' }
+        { key: 'testExplainVarious', kind: 'plain' }
       ]
     },
     presets: {
       rowMode: {
         show: true,
+        hideModeControl: true,
         modeKey: 'lblMode',
         modeOptions: [['balance','optBal'],['judgment','optJdg']],
         runKey: 'lblRun',
@@ -1149,7 +1148,7 @@ document.addEventListener("DOMContentLoaded", function() {
       rowFine: {
         show: true,
         preCorrect: true,
-        refSelect: { type: 'electrode', key: 'lblRef' }
+        refSelect: { type: 'electrode', key: 'lblRef', hidden: true }
       },
       rowVolume: { show: true },
       rowSequence: {
@@ -1166,11 +1165,12 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     test: {
       subTitleKey: 'testRunningTitle',
+      subHintKey: 'testRunningHint',
       progressBar: true,
       progressFormat: 'rounds',
       swapButton: { show: true, labelKey: 'btnSwapAB' },
       pairDisplay: { mode: 'electrode-vs-electrode', labelLeft: 'A', labelRight: 'B' },
-      excludeButtons: { show: true, target: 'electrodes' },
+      excludeButtons: { show: false, target: 'electrodes' },
       actions: ['undo','replay','simul'],
       keyHintBox: { show: true, unitKey: 'sliderHintDb' },
       slider: { unit: 'dB', ranges: [20, 40, 60] },
@@ -1302,11 +1302,6 @@ document.addEventListener("DOMContentLoaded", function() {
       var v = parseFloat(this.value);
       if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
       _testUpdCumulative(v);
-      if (testAct) {
-        var tot = curBase + v;
-        playSeq(curA, curB, tot);
-        curPlayed = true;
-      }
     });
     testEls.slider.addEventListener('change', function() { this.blur(); });
     testEls.slider.addEventListener('mouseup', function() { this.blur(); });
@@ -1320,12 +1315,19 @@ document.addEventListener("DOMContentLoaded", function() {
       stopAll();
       isPlay = true;
       var tot = curBase + _testSliderVal();
-      // Simultan: beide Elektroden gleichzeitig
-      var ac = gAC();
       var vol = gVol();
       var dur = gDur();
-      playToneTyped(ac, effFreq(curA), vol * (tot < 0 ? dB2G(tot) : 1), dur, 0, globalToneType);
-      playToneTyped(ac, effFreq(curB), vol * (tot > 0 ? dB2G(-tot) : 1), dur, 0, globalToneType);
+      var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot) : 1), 1), 0);
+      var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
+      var p1 = playTone(effFreq(curA), vA, dur);
+      var p2 = playTone(effFreq(curB), vB, dur);
+      if (testEls.pairLeft) testEls.pairLeft.classList.add('playing');
+      if (testEls.pairRight) testEls.pairRight.classList.add('playing');
+      Promise.all([p1, p2]).then(function() {
+        if (testEls.pairLeft) testEls.pairLeft.classList.remove('playing');
+        if (testEls.pairRight) testEls.pairRight.classList.remove('playing');
+        isPlay = false;
+      });
       curPlayed = true;
     });
   }

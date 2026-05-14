@@ -880,6 +880,10 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       undoL();
     }
+    if (e.key === "b" || e.key === "B") {
+      e.preventDefault();
+      if (testEls.simulBtn) testEls.simulBtn.click();
+    }
     // X-Shortcut für Ausschluss entfällt (§6.6)
     if (testMode === "judgment") {
       if (e.key === "1") { e.preventDefault(); if (testEls.jdgA) testEls.jdgA.click(); }
@@ -901,8 +905,6 @@ document.addEventListener("DOMContentLoaded", () => {
       s.value = v;
       if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
       _testUpdCumulative(v);
-      playSeq(curA, curB, curBase + v);
-      curPlayed = true;
     }
   });
   // Load from localStorage

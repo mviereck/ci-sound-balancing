@@ -78,7 +78,10 @@ function buildTestPanel(parentEl, cfg) {
   h2.dataset.t = cfg.explain.titleKey;
   explainBox.appendChild(h2);
   (cfg.explain.paragraphs || []).forEach(function(p) {
-    var el = _mkEl('p', 'explain' + (p.kind === 'warn' ? ' explain-warn' : ''));
+    var cls;
+    if (p.kind === 'plain') cls = 'explain-plain';
+    else cls = 'explain' + (p.kind === 'warn' ? ' explain-warn' : '');
+    var el = _mkEl('p', cls);
     el.dataset.t = p.key;
     explainBox.appendChild(el);
   });
@@ -100,6 +103,7 @@ function buildTestPanel(parentEl, cfg) {
       opt.dataset.t = pair[1];
       modeSelect.appendChild(opt);
     });
+    if (rm.hideModeControl) cgMode.style.display = 'none';
     cgMode.append(lblMode, modeSelect);
     var cgRun = _mkEl('div', 'control-group');
     var lblRun = _mkEl('label'); lblRun.dataset.t = rm.runKey;
@@ -151,6 +155,7 @@ function buildTestPanel(parentEl, cfg) {
         });
       }
       // type === 'electrode': wird nach buildTestPanel durch aufrufendes Modul befüllt
+      if (rf.refSelect && rf.refSelect.hidden) cgRef.style.display = 'none';
       cgRef.append(lblRef, refSelect);
       rowFine.appendChild(cgRef);
     }
@@ -288,11 +293,17 @@ function buildTestPanel(parentEl, cfg) {
   // -------- BLOCK 3: Aktiver Test --------
   var testBox = _mkEl('div', 'card test-box');
   testBox.hidden = true;
+  testBox.style.textAlign = 'center';
 
   // Untertitel
   var subTitle = _mkEl('h3', 'test-subtitle');
   if (cfg.test.subTitleKey) subTitle.dataset.t = cfg.test.subTitleKey;
   testBox.appendChild(subTitle);
+  if (cfg.test.subHintKey) {
+    var subHint = _mkEl('p', 'test-hint');
+    subHint.dataset.t = cfg.test.subHintKey;
+    testBox.appendChild(subHint);
+  }
 
   // Fortschrittsbalken
   var progressFill = null, progressText = null, timerDisplay = null;
@@ -357,7 +368,7 @@ function buildTestPanel(parentEl, cfg) {
       btn.innerHTML = '&#9654; <span data-t="bReplay"></span> <span class="kbd" data-t="kSpace"></span>';
     } else if (act === 'simul') {
       simulBtn = btn;
-      btn.innerHTML = '&#x2016; <span data-t="bSimul"></span>';
+      btn.innerHTML = '&#x2016; <span data-t="bSimul"></span> <span class="kbd">B</span>';
     }
     actionRow.appendChild(btn);
   });
@@ -442,6 +453,9 @@ function buildTestPanel(parentEl, cfg) {
   // Confidence-Radios
   var confRadios = {};
   if (cfg.test.confidence && cfg.test.confidence.show) {
+    var qualLabel = _mkEl('p', 'conf-quality-label');
+    qualLabel.dataset.t = 'confQualityLabel';
+    testBox.appendChild(qualLabel);
     var confRow = _mkEl('div', 'confidence-row');
     [
       ['none', 'confidenceLabelNone'],
