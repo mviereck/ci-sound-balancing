@@ -20,6 +20,22 @@ REFERENZDATEIEN
   Konsolen-Befehle für den Nutzer. Wenn der Nutzer einen Fehler
   meldet oder Diagnose-Hilfe braucht: dorthin verweisen oder
   passende Schritte daraus zitieren.
+- **IDEEN.md** — Konzept-Skizzen und Erweiterungs-Ideen, die noch
+  nicht abgesegnet oder noch nicht reif sind. Abgrenzung zu SPEC.md:
+  SPEC.md beschreibt das, was gebaut wird oder fest zur Umsetzung
+  ansteht; IDEEN.md sammelt das, was diskutiert wird oder
+  langfristig denkbar ist. Bei neuen Ideen, die nicht sofort gebaut
+  werden, dort einen Eintrag anlegen. Beim Übergang in die
+  Umsetzung: Eintrag aus IDEEN.md entfernen und in SPEC.md
+  übernehmen.
+- **Berechnungsgrundlagen dB zu CI.md** — Mathematische Grundlagen
+  und Formeln für die Umrechnung von dB-Korrekturen in
+  herstellerspezifische Einheiten (MED-EL qu, Cochlear CL,
+  Advanced Bionics CU). Quellen, Vorbehalte und Hersteller-
+  spezifische Mapping-Funktionen. Wird bei jeder Arbeit am Druck,
+  am Levels-Tab im Absolutmodus oder an der MAPLAW-Simulation
+  benötigt. Implementierung der Formeln liegt in `core.js`
+  (`calcMedel`, `calcCochlear`, `calcAB`).
 
 NUTZERKONTEXT
 -------------

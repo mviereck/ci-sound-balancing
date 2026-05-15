@@ -21,7 +21,9 @@ Modulübersicht steht in CODESTRUKTUR.md.
 ## Tab-Übersicht
 
 - **Einführung** (intro)
-- **Implantat** (setup) — Hersteller-/Modell-Auswahl, Frequenztabelle
+- **Implantat** (setup) — Konfiguration, Hersteller-/Modell-Auswahl,
+  globale Implantat-Parameter, Frequenz- und Elektrodentabelle (siehe
+  „Implantat-Tab" unten)
 - **Messungen** (messungen) — drei Sub-Tabs (siehe unten)
 - **Meßergebnisse** (ergebnisse) — drei Sub-Tabs für
   Elektrodenlautstärke-Balance, Stereo-Balance, Frequenzabgleich
@@ -146,6 +148,42 @@ Status-Spalte zeigt „deaktiviert/ausgelassen". Aktive, aber noch nicht
 gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 02 für Stereo-Balance und Frequenzabgleich).
 
+## Implantat-Tab
+
+- **Konfigurations-Dropdown**: ci (Default), hg, normal, schwerhörig,
+  taub. Bestimmt, welche Eingabebereiche sichtbar sind.
+- **Hersteller-Auswahl**: MED-EL / Advanced Bionics / Cochlear.
+  Bestimmt Elektrodenzahl (12/16/22) und Einheit für Upper-Level
+  (MCL/qu / M-Level/CU / C-Level/CL).
+- **Audio-Prozessor-Modell**: Dropdown, herstellerspezifisch.
+- **Implantat-Modell + Generation**: Dropdown. Bei Cochlear bestimmt
+  das Modell automatisch die Generation A (alte Stromformel,
+  0.176 dB/CL) oder B (Freedom+, 0.157 dB/CL).
+- **Globale Implantat-Parameter**: c-Wert (MED-EL), IDR / IIDR
+  (Cochlear: IIDR Default 40 dB; AB: IDR Default 60 dB). Werden für
+  die Umrechnung dB → Hersteller-Einheit im Druck genutzt.
+- **Frequenz- und Elektrodentabelle** (`freq-table.js`), pro Elektrode:
+  - Beschriftung mit Elektrodennummer und (bei i=0/i=n−1) apikal/basal
+  - Hz Standard (Herstellervorgabe, nicht editierbar)
+  - Hz eigen (optionaler abweichender Wert)
+  - **THR** (Hörschwelle) in Hersteller-Einheit (qu/CL/CU)
+  - **Upper Level**: MCL bei MED-EL (qu), C-Level bei Cochlear (CL),
+    M-Level bei AB (CU)
+  - Play- und Hold-Buttons (Einzelton anhören)
+  - Status-Dropdown: ok, leicht/mittel/stark verrauscht, fast stumm,
+    stumm, deaktiviert
+  - Ausschluss-Checkbox (deaktivierte Elektroden automatisch
+    ausgeschlossen)
+  - Notiz-Feld
+- Werte stehen in `sideData[side].implant.thr[i]` und `.mcl[i]`
+  (MED-EL) bzw. `.upperLevel[i]` (Cochlear/AB).
+- Eingaben sind optional. Ohne THR/Upper-Level zeigt der Druck die
+  dB-Korrekturen nur als Relativwerte; mit eingetragenen Werten
+  werden zusätzlich absolute Audiologen-Empfehlungen (qu/CL/CU)
+  berechnet (`calcMedel`, `calcCochlear`, `calcAB` in `core.js`).
+- Berechnungsgrundlagen aller drei Hersteller-Umrechnungen siehe
+  `Berechnungsgrundlagen dB zu CI.md`.
+
 ## Levels-Tab
 
 - Manuelle dB-Offsets pro Elektrode (Balkenanzeige + Zahlenfeld +
@@ -171,7 +209,48 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen in Levels aktualisieren den Player-Equalizer live
-- Optionales Offline-Frequenz-Warping (freq-warp.js)
+- Frequenz-Warping mit drei Verfahren (freq-warp.js):
+  - **Offline-Vorberechnung** (Variante C): rendert gewarpten Buffer vor
+    dem Play; Recalc-Button bei Änderung von Modus/Stärke/fRes nötig
+  - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
+    × 2 Kanäle; wirkt sofort beim nächsten Play, keine Vorberechnung
+  - **Phasen-Vocoder** (Variante A): AudioWorklet mit FFT/IFFT; beste
+    Qualität bei größeren Shifts; ca. 46 ms Latenz; Worklet-Code liegt
+    inline als String in freq-warp.js und wird per Blob-URL geladen —
+    funktioniert daher auch unter `file://`
+  - Korrektur-Modus: ref_side / var_side / symmetric
+  - Defaults: Verfahren = Phasen-Vocoder, Korrektur-Modus = variable Seite
+    (gespeicherte JSON-Werte gewinnen weiter beim Laden)
+  - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
+  - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl
+  - pWarpMethod wird in JSON gespeichert und wiederhergestellt
+  - Druck-Export enthält aktives Verfahren wenn Warp aktiv
+  - Offline-Verfahren beachtet die gewählte Player-Seite: bei LINKS/RECHTS
+    ist nur diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist
+    auf der vom Korrektur-Modus nicht betroffenen Seite das Original zu
+    hören (klanglich unverändert, kein Bandpass-Artefakt)
+  - Vocoder-Graph beachtet ebenfalls die Player-Seite und mischt bei
+    „Beide Seiten" + einseitigem Korrektur-Modus die nicht betroffene
+    Seite aus einer zweiten Original-BufferSource ein, die per DelayNode
+    um die Vocoder-Latenz (ein FFT-Fenster) verzögert wird, damit L/R
+    synchron bleiben
+  - Warp-Toggle und Methoden-Wechsel wirken auch während laufender Wiedergabe:
+    Pfadwechsel erfolgt an aktueller Position mit kurzer Unterbrechung
+    (Offline regelt das in `pWarpTrigger`; Vocoder/Bandshift im Toggle-Handler
+    in init.js). Worklet des Vocoders wird beim Auswählen der Methode vorab
+    geladen, damit der spätere Pfadwechsel ohne erkennbare Verzögerung wirkt.
+  - Live-Änderung von Stärke und Korrektur-Modus während Wiedergabe:
+    - Offline → Neuberechnung via `pWarpTrigger` (längere Pause)
+    - Vocoder → knackfreier `postMessage` an den laufenden Worklet
+      (`pWarpLiveUpdate`), sofort wirksam
+    - Bandshift → Graph-Rebuild via pause/resume (kurzer hörbarer Knack)
+  - EQ-Toggle wirkt als Master-Bypass auch für das Frequenz-Warping: wenn
+    EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Checkbox-
+    Zustand bleibt als „Memory" erhalten und greift wieder, sobald EQ
+    wieder eingeschaltet wird. Bei Toggle während Wiedergabe erfolgt der
+    nötige Pfadwechsel an aktueller Position.
+  - Stop-Button greift auch in Zwischenzuständen, in denen `pPlaying` kurz
+    `false` ist, aber Audio-Sources aktiv sind (Race im async Vocoder-pPlay).
 
 ## Speichern und Laden
 
@@ -190,8 +269,6 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 
 Hinweis: regelmäßig prüfen, ob Punkte erledigt oder hinfällig sind.
 
-- MCL-Eingabefelder pro Elektrode + c-Wert im Frequenzen-Tab,
-  dB→qu Umrechnung, Ausdruck mit qu für Audiologen
 - MAPLAW-Simulation (korrekt: bandweise Hüllkurvenverarbeitung,
   zwei c-Werte Ist/Soll) — benötigt MCL-Feature
 - Bilaterale CIs: globaler Schalter Links/Rechts, separate

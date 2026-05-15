@@ -8,6 +8,8 @@ let pCtx = null,
   pLeftOnlyBuf = null,
   pRightOnlyBuf = null,
   pSrc = null,
+  pCurrentPlayback = null,   // { sources, stop() } für Variante B/A
+  pPlayGen = 0,              // erhöht sich bei jedem pPlay/pPause; schützt den Vocoder-Await
   pGain = null,
   pEqF = [],
   pEqFLeft = [],
@@ -75,13 +77,75 @@ function createMonoBuffer(buf) {
   return m;
 }
 
+// Baut den abzuspielenden Stereo-Buffer aus pWarpedBuf gemäß Player-Side.
+// - "left":  linker Kanal aus pWarpedBuf, rechter stumm
+// - "right": rechter Kanal aus pWarpedBuf, linker stumm
+// - "both":  betroffene Seite aus pWarpedBuf, andere Seite aus pSourceBuf
+// - "mono":  wie "both", aber Downmix
+function _buildWarpedPlaybackBuffer(mode) {
+  const c = gPC();
+  const len = pWarpedBuf.length;
+  const sr = pWarpedBuf.sampleRate;
+  const out = c.createBuffer(2, len, sr);
+  const outL = out.getChannelData(0);
+  const outR = out.getChannelData(1);
+  const warpL = pWarpedBuf.getChannelData(0);
+  const warpR = pWarpedBuf.numberOfChannels > 1
+    ? pWarpedBuf.getChannelData(1)
+    : pWarpedBuf.getChannelData(0);
+
+  if (mode === "left") {
+    outL.set(warpL);
+    // outR bleibt 0
+    return out;
+  }
+  if (mode === "right") {
+    outR.set(warpR);
+    // outL bleibt 0
+    return out;
+  }
+
+  // mode "both" oder "mono"
+  const affected = typeof pWarpAffected !== "undefined"
+    ? pWarpAffected
+    : { warpsLeft: true, warpsRight: true };
+
+  const srcL = pSourceBuf.getChannelData(0);
+  const srcR = pSourceBuf.numberOfChannels > 1
+    ? pSourceBuf.getChannelData(1)
+    : srcL;
+  const srcLen = pSourceBuf.length;
+  const copyLen = Math.min(len, srcLen);
+
+  if (affected.warpsLeft)  outL.set(warpL.subarray(0, len));
+  else                     outL.set(srcL.subarray(0, copyLen));
+
+  if (affected.warpsRight) outR.set(warpR.subarray(0, len));
+  else                     outR.set(srcR.subarray(0, copyLen));
+
+  if (mode === "mono") {
+    for (let i = 0; i < len; i++) {
+      const v = (outL[i] + outR[i]) * 0.5;
+      outL[i] = v;
+      outR[i] = v;
+    }
+  }
+  return out;
+}
+
 function getPlaybackBuffer() {
   const mode = getPlayerSide();
   if (!pSourceBuf) return null;
 
-  // Wenn Warp aktiv und vorberechnet: gewarpten Buffer zurückgeben
-  if (typeof pWarpOn !== "undefined" && pWarpOn && pWarpedBuf && !pWarpBusy) {
-    return pWarpedBuf;
+  const _warpMethodEl = document.getElementById("plWarpMethod");
+  const _warpMethod = _warpMethodEl ? _warpMethodEl.value : "offline";
+  // EQ-Toggle wirkt als Master: wenn EQ aus, ist auch der Warp-Pfad bypass.
+  const warpReady = typeof pWarpOn !== "undefined"
+                  && pWarpOn && plEqOn && pWarpedBuf && !pWarpBusy
+                  && _warpMethod === "offline";
+
+  if (warpReady) {
+    return _buildWarpedPlaybackBuffer(mode);
   }
 
   switch (mode) {
@@ -365,16 +429,21 @@ function pToggle() {
   else pPlay();
 }
 
-function pPlay() {
+async function pPlay() {
+  const gen = ++pPlayGen;
+
   if (pSrc) {
-    try {
-      pSrc.stop();
-    } catch (e) {}
+    try { pSrc.stop(); } catch (e) {}
+    pSrc = null;
   }
+  if (pCurrentPlayback) {
+    pCurrentPlayback.stop();
+    pCurrentPlayback = null;
+  }
+
   const c = gPC();
-  pSrc = c.createBufferSource();
   pBuf = getPlaybackBuffer();
-  pSrc.buffer = pBuf;
+
   const mode = getPlayerSide();
   const stereoMode =
     mode === "both" &&
@@ -391,22 +460,69 @@ function pPlay() {
     : pEqF.length > 0
       ? pEqF[pEqF.length - 1]
       : null;
-  if (pMapNode) {
-    pSrc.connect(pMapNode);
-    pMapNode.connect(firstNode);
-  } else {
-    pSrc.connect(firstNode);
-  }
   if (lastEq) lastEq.connect(pGain);
-  pSrc.onended = function () {
-    if (pPlaying) {
-      pPlaying = false;
-      pOff = 0;
-      pUpdBtn();
-      pUpdTL();
+
+  const methodSel = document.getElementById("plWarpMethod");
+  const method = methodSel ? methodSel.value : "offline";
+
+  let leadSrc = null;
+
+  // EQ-Toggle ist Master: Warp-Pfade nur, wenn EQ an. Warp-Checkbox-Zustand
+  // bleibt als User-Intent erhalten und greift wieder, sobald EQ wieder an.
+  if (pWarpOn && plEqOn && method === "bandshift" && fRes && fRes.length > 0 && pSourceBuf) {
+    // Variante B: Live Bandweise Pitch-Shift
+    pBuf = pSourceBuf;
+    const pb = pBuildWarpedGraph(
+      c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, fRes, 0, pOff
+    );
+    pCurrentPlayback = pb;
+    leadSrc = pb.sources[0] || null;
+
+  } else if (pWarpOn && plEqOn && method === "vocoder" && fRes && fRes.length > 0 && pSourceBuf) {
+    // Variante A: Phasen-Vocoder (async wegen erstem Worklet-Laden)
+    pBuf = pSourceBuf;
+    let pb;
+    try {
+      pb = await pBuildVocoderGraph(
+        c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, fRes, 0, pOff
+      );
+    } catch (err) {
+      console.error("Vocoder-Fehler:", err);
+      return;
     }
-  };
-  pSrc.start(0, pOff);
+    // Prüfen ob Pause/Stop während Worklet-Laden gedrückt wurde
+    if (gen !== pPlayGen) {
+      pb.stop();
+      return;
+    }
+    pCurrentPlayback = pb;
+    leadSrc = pb.sources[0] || null;
+
+  } else {
+    // Normal oder Offline-Warp (Variante C)
+    pSrc = c.createBufferSource();
+    pSrc.buffer = pBuf;
+    if (pMapNode) {
+      pSrc.connect(pMapNode);
+      pMapNode.connect(firstNode);
+    } else {
+      pSrc.connect(firstNode);
+    }
+    pSrc.start(0, pOff);
+    leadSrc = pSrc;
+  }
+
+  if (leadSrc) {
+    leadSrc.onended = function () {
+      if (pPlaying) {
+        pPlaying = false;
+        pOff = 0;
+        pUpdBtn();
+        pUpdTL();
+      }
+    };
+  }
+
   pT0 = c.currentTime - pOff;
   pPlaying = true;
   pUpdBtn();
@@ -414,20 +530,37 @@ function pPlay() {
 }
 
 function pPause() {
+  pPlayGen++;   // invalidiert laufenden Vocoder-Await in pPlay
   if (pSrc) {
     pSrc.onended = null;
-    try {
-      pSrc.stop();
-    } catch (e) {}
+    try { pSrc.stop(); } catch (e) {}
+    pSrc = null;
   }
-  pOff = pCtx.currentTime - pT0;
-  if (pOff > pBuf.duration) pOff = 0;
+  if (pCurrentPlayback) {
+    // onended der Vocoder/Bandshift-Sources nullen — sonst feuert der alte
+    // 'end-of-track'-Handler asynchron nach src.stop() und setzt pPlaying/pOff
+    // im neuen Zustand zurück (Slider auf 0, Ton spielt aber weiter).
+    if (pCurrentPlayback.sources) {
+      for (const s of pCurrentPlayback.sources) {
+        if (s) s.onended = null;
+      }
+    }
+    pCurrentPlayback.stop();
+    pCurrentPlayback = null;
+  }
+  if (pCtx && pBuf) {
+    pOff = pCtx.currentTime - pT0;
+    if (pOff > pBuf.duration) pOff = 0;
+  }
   pPlaying = false;
   pUpdBtn();
 }
 
 function pStopReset() {
-  if (pPlaying) pPause();
+  // Auch greifen, wenn pPlaying im Zwischenzustand false ist (z.B. während ein
+  // async Vocoder-pPlay im await hängt), aber Sources schon laufen — sonst
+  // bleibt der Ton hängen und der Stop-Button wirkt nicht.
+  if (pPlaying || pSrc || pCurrentPlayback) pPause();
   pOff = 0;
   pUpdBtn();
   pUpdTL();

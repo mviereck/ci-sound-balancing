@@ -43,12 +43,21 @@ function expText() {
       );
   }
   // Player-Warp-Einstellungen (nur wenn aktiv)
-  if (typeof pWarpOn !== "undefined" && pWarpOn && pWarpedBuf) {
-    ls.push("");
-    ls.push("Frequenz-Warping: " + t("pwStatusActive").replace("{n}", fRes ? fRes.length : 0));
-    const modeKey = pWarpMode === "ref_side" ? "pwModeRef" : pWarpMode === "var_side" ? "pwModeVar" : "pwModeSym";
-    ls.push("Modus: " + t(modeKey));
-    ls.push("Stärke: " + (typeof pWarpStrength !== "undefined" ? pWarpStrength : 100) + "%");
+  if (typeof pWarpOn !== "undefined" && pWarpOn) {
+    const _wm = (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline";
+    const _n  = fRes ? fRes.length : 0;
+    const _statusKey = _wm === "bandshift" ? "pwStatusActiveBandShift"
+                     : _wm === "vocoder"   ? "pwStatusActiveVocoder"
+                     : "pwStatusActiveOffline";
+    if (_wm === "offline" && !pWarpedBuf) {
+      // Offline ohne vorberechneten Buffer → nicht ausgeben
+    } else {
+      ls.push("");
+      ls.push("Frequenz-Warping: " + t(_statusKey).replace("{n}", _n));
+      const modeKey = pWarpMode === "ref_side" ? "pwModeRef" : pWarpMode === "var_side" ? "pwModeVar" : "pwModeSym";
+      ls.push("Modus: " + t(modeKey));
+      ls.push("Stärke: " + (typeof pWarpStrength !== "undefined" ? pWarpStrength : 100) + "%");
+    }
   }
   // Frequenzabgleich-Ergebnisse
   if (typeof fRes !== "undefined" && fRes.length > 0) {
@@ -129,7 +138,7 @@ function resetAll() {
 
 async function saveJson() {
   const d = {
-    version: "2.7",
+    version: APP_VERSION,
     date: new Date().toLocaleString(
       lang === "de"
         ? "de-DE"
@@ -201,6 +210,7 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "ref_side",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+    warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline",
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -214,7 +224,7 @@ async function saveJson() {
         hour12: false,
       })
       .replace(":", "");
-  const fn = `loudness-balancing-v2.6-${ds}-${ts}.json`;
+  const fn = `loudness-balancing-v${APP_VERSION}-${ds}-${ts}.json`;
   if (window.showSaveFilePicker) {
     try {
       const h = await window.showSaveFilePicker({
@@ -438,6 +448,11 @@ function applyLoadedData(d) {
       pWarpStrength = d.warpStrength;
       const ws = document.getElementById("plWarpStr");
       if (ws) ws.value = pWarpStrength;
+    }
+    if (d.warpMethod !== undefined && typeof pWarpMethod !== "undefined") {
+      pWarpMethod = d.warpMethod;
+      const methodSel = document.getElementById("plWarpMethod");
+      if (methodSel) methodSel.value = pWarpMethod;
     }
     const warpCb = document.getElementById("plWarpOn");
     if (warpCb) warpCb.checked = false;

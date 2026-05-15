@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function _pWarpApplyMethodLabels() {
     const sel = document.getElementById("plWarpMethod");
     if (!sel) return;
-    const keys = ["pwMethodOffline", "pwMethodLive", "pwMethodBandShift"];
+    const keys = ["pwMethodOffline", "pwMethodVocoder", "pwMethodBandShift"];
     for (let i = 0; i < sel.options.length; i++) {
       if (keys[i]) sel.options[i].text = t(keys[i]);
     }
@@ -601,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div style="page-break-after: always; margin-bottom: 20px; font-family: sans-serif;">
         <h1 style="font-size: 1.8em; margin-bottom: 8px;">CI Sound Balancing – ${data.sideLabel}</h1>
         <p style="color: #666; margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">
-          Ausgedruckt: ${new Date().toLocaleString()} &nbsp;·&nbsp; Tool: CI Sound Balancing v2.6
+          Ausgedruckt: ${new Date().toLocaleString()} &nbsp;·&nbsp; Tool: CI Sound Balancing v${APP_VERSION}
         </p>
 
         ${implHeaderHtml}
@@ -684,11 +684,30 @@ document.addEventListener("DOMContentLoaded", () => {
   ["lvChkMeas", "lvChkMan", "lvChkPre"].forEach((id) =>
     document.getElementById(id).addEventListener("change", drawLvChart),
   );
-  // Player EQ toggle
+  // Player EQ toggle — wirkt als Master-Bypass auch für Frequenz-Warping.
+  // Wenn pWarpOn=true und Wiedergabe läuft, muss der Audio-Graph gewechselt
+  // werden (Vocoder/Bandshift rein/raus), nicht nur EQ-Gains aktualisiert.
   document.getElementById("plEqToggle").addEventListener("click", function () {
     plEqOn = !plEqOn;
     updEqToggleBtn();
     pUpdEQ();
+    if (pWarpOn) {
+      const method = document.getElementById("plWarpMethod").value;
+      if (method === "vocoder" || method === "bandshift") {
+        const wasPlaying = pPlaying;
+        if (wasPlaying) pPause();
+        pBuf = getPlaybackBuffer();
+        pWarpUpdUI();
+        if (wasPlaying) pPlay();
+      } else if (method === "offline") {
+        // Offline: getPlaybackBuffer entscheidet anhand plEqOn neu beim nächsten Play.
+        // Bei laufender Wiedergabe Pfad an aktueller Position wechseln.
+        const wasPlaying = pPlaying;
+        if (wasPlaying) pPause();
+        pBuf = getPlaybackBuffer();
+        if (wasPlaying) pPlay();
+      }
+    }
   });
   document
     .getElementById("plBalApplyBtn")
@@ -781,34 +800,77 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plWarpOn").addEventListener("change", function () {
     pWarpOn = this.checked;
     pWarpUpdUI();
-    if (pWarpOn) {
+    const method = document.getElementById("plWarpMethod").value;
+    // Offline-Einschalten: pWarpTrigger regelt Vorberechnung + pause/resume selbst
+    if (pWarpOn && method === "offline") {
       pWarpTrigger();
-    } else {
-      const wasPlaying = pPlaying;
-      if (wasPlaying) pPause();
-      pWarpedBuf = null;
-      pBuf = getPlaybackBuffer();
-      pWarpUpdUI();
-      if (wasPlaying) pPlay();
-    }  });
+      return;
+    }
+    // Sonst (Vocoder/Bandshift ein oder beliebig aus): Pfadwechsel an aktueller
+    // Position. Symmetrisch in beide Toggle-Richtungen, damit Einschalten genauso
+    // wirkt wie Ausschalten.
+    const wasPlaying = pPlaying;
+    if (wasPlaying) pPause();
+    if (!pWarpOn) pWarpedBuf = null;
+    pBuf = getPlaybackBuffer();
+    pWarpUpdUI();
+    if (wasPlaying) pPlay();
+  });
   // Verfahren-Dropdown
   document.getElementById("plWarpMethod").addEventListener("change", function () {
     // Methoden-Labels neu setzen (data-t-opt)
     _pWarpApplyMethodLabels();
     pWarpUpdUI();
-    if (pWarpOn && this.value === "offline") pWarpTrigger();
+    // Vocoder vorab laden, damit das await im pPlay nach dem ersten Mal nicht
+    // mehr blockt — entkrampft den Toggle-Pfad.
+    if (this.value === "vocoder" && typeof pInitWarpWorklet === "function") {
+      try { pInitWarpWorklet(gPC()); } catch (e) {}
+    }
+    if (!pWarpOn) return;
+    if (this.value === "offline") {
+      pWarpTrigger();
+      return;
+    }
+    // Methodenwechsel bei aktivem Warp: laufende Wiedergabe auf neuen Pfad bringen
+    const wasPlaying = pPlaying;
+    if (wasPlaying) pPause();
+    pBuf = getPlaybackBuffer();
+    pWarpUpdUI();
+    if (wasPlaying) pPlay();
   });
+  // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
+  // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
+  // - Vocoder: knackfreier postMessage-Update an laufenden Worklet
+  // - Bandshift: Graph-Rebuild via pause/resume (kurze Unterbrechung)
+  function _pWarpParamsChanged() {
+    if (!pWarpOn) return;
+    const method = document.getElementById("plWarpMethod").value;
+    if (method === "offline") {
+      pWarpTrigger();
+      return;
+    }
+    if (method === "vocoder" && typeof pWarpLiveUpdate === "function") {
+      pWarpLiveUpdate();
+      return;
+    }
+    // bandshift: kein Worklet → Graph neu aufbauen
+    const wasPlaying = pPlaying;
+    if (wasPlaying) pPause();
+    pBuf = getPlaybackBuffer();
+    pWarpUpdUI();
+    if (wasPlaying) pPlay();
+  }
   // Korrektur-Modus-Dropdown
   document.getElementById("plWarpModeSelect").addEventListener("change", function () {
     pWarpMode = this.value;
-    if (pWarpOn) pWarpTrigger();
+    _pWarpParamsChanged();
   });
   // Stärke-Eingabe
   document.getElementById("plWarpStr").addEventListener("change", function () {
     let v = Math.max(0, Math.min(150, parseInt(this.value) || 0));
     this.value = v;
     pWarpStrength = v;
-    if (pWarpOn) pWarpTrigger();
+    _pWarpParamsChanged();
   });
   // Stärke-Buttons
   document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
@@ -816,7 +878,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const v = parseInt(this.dataset.v);
       document.getElementById("plWarpStr").value = v;
       pWarpStrength = v;
-      if (pWarpOn) pWarpTrigger();
+      _pWarpParamsChanged();
     })
   );
   // Neu-berechnen-Button

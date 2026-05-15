@@ -54,6 +54,7 @@ Funktionsaufrufe erst zur Laufzeit.
 
 | #  | Datei | Inhalt |
 |----|-------|--------|
+| 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()` |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs` |
 | 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `presets`, `globalToneType`, `globalSequence`, `slTarget_*`, ...). Side-Logik, `dEN`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
@@ -68,8 +69,8 @@ Funktionsaufrufe erst zur Laufzeit.
 | 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `expText`, `copyRes`, `exportEasyEffects` |
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
 | 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels`, `buildLvGrid`, `buildPrTbl`, `drawLvChart`, `lvOnChange` |
-| 15 | player.js | Player-State, `gPC`, `pBuildEQ`, `pUpdEQ`, `pPlay`, `pDrawEQ` + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize |
-| 16 | freq-warp.js | Offline-Frequenz-Warping. `buildWarpPoints`, `centShift`, `pComputeWarpedBuffer`, `pWarpTrigger`, `pWarpUpdUI`. State: `pWarpedBuf`, `pWarpOn`, `pWarpMode`, `pWarpStrength`, `pWarpBusy` |
+| 15 | player.js | Player-State, `gPC`, `pBuildEQ`, `pUpdEQ`, `pPlay` (async), `pDrawEQ` + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize. State: `pSrc` (Einzel-Quelle), `pCurrentPlayback` ({sources, stop()} für Variante B/A), `pPlayGen` (Generationszähler gegen Stale-Async) |
+| 16 | freq-warp.js | Frequenz-Warping (alle Verfahren). `buildWarpPoints`, `_warpAffectedSides`, `_warpSideGains`, `centShift`, `pComputeWarpedBuffer`, `pBuildWarpedGraph`, `pBuildVocoderGraph`, `pInitWarpWorklet`, `pWarpTrigger`, `pWarpUpdUI`, `pWarpLiveUpdate` (postMessage an laufenden Vocoder-Worklet ohne Pfadwechsel). State: `pWarpedBuf`, `pWarpOn`, `pWarpMode`, `pWarpStrength`, `pWarpBusy`, `pWarpMethod`, `pWarpWorkletReady`, `pWarpAffected`. Worklet-Code für den Phasen-Vocoder liegt als String-Konstante `_FREQ_WARP_PROCESSOR_CODE` im selben Modul; `pInitWarpWorklet` lädt ihn per Blob-URL, damit der Vocoder auch unter `file://` funktioniert. `_VOCODER_FFT_SIZE` (synchron mit `FFT_SIZE` im Worklet) wird für den L/R-Sync-Delay im Vocoder-Graph gebraucht. |
 | 17 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für `balance`. Bindet sich an die von test-ui.js erzeugte UI. |
 | 18 | init.js | Der große DOMContentLoaded-Handler mit `applyLang()`, `buildImplantCard()`, allen Event-Verdrahtungen, Autosave-Setup |
 
