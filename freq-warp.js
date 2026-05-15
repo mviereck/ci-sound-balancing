@@ -49,8 +49,33 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     this.lastPhase = [new Float32Array(FFT_SIZE / 2 + 1), new Float32Array(FFT_SIZE / 2 + 1)];
     this.sumPhase  = [new Float32Array(FFT_SIZE / 2 + 1), new Float32Array(FFT_SIZE / 2 + 1)];
 
+    // Scratch-Buffer für _processFrame — einmalig allokiert, jeden Frame
+    // wiederverwendet. Sonst entsteht GC-Druck mit ~10 MB/s Allokationen
+    // im Audio-Thread und der Worklet kommt nicht hinterher → Underrun.
+    const half = FFT_SIZE / 2;
+    this.scratchRe          = new Float32Array(FFT_SIZE);
+    this.scratchIm          = new Float32Array(FFT_SIZE);
+    this.scratchNewRe       = new Float32Array(FFT_SIZE);
+    this.scratchNewIm       = new Float32Array(FFT_SIZE);
+    this.scratchMags        = new Float32Array(half + 1);
+    this.scratchSrcPhases   = new Float32Array(half + 1);
+    this.scratchTargetBin   = new Int32Array(half + 1);
+    this.scratchNewFreq     = new Float32Array(half + 1);
+    this.scratchPeakBins    = new Int32Array(half + 1);
+    this.scratchNearestPeak = new Int32Array(half + 1);
+    this.scratchPhaseUpd    = new Uint8Array(half + 1);
+    this.scratchNewPhaseAt  = new Float32Array(half + 1);
+
+    // Beim ersten Frame nach Aktivierung muss sumPhase mit der Quell-Phase
+    // synchronisiert werden. Ohne das hat jedes Bin einen konstanten Phasen-
+    // Offset gegenüber der Quelle (= negative Anfangsphase), pro Bin
+    // unterschiedlich. Die relative Phasenbeziehung zwischen Grundton,
+    // Obertönen und Formanten geht verloren → heiserer, trockener Klang.
+    this.phaseSyncNeeded = [true, true];
+
     this.port.onmessage = (e) => {
       if (e.data.type === "params") {
+        const wasActive = this.active;
         this.warpPoints = e.data.points || [];
         this.strength   = e.data.strength ?? 1.0;
         this.active     = !!e.data.active;
@@ -60,6 +85,12 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
             this.lastPhase[ch].fill(0);
             this.sumPhase[ch].fill(0);
           }
+        }
+        if (this.active && !wasActive) {
+          // Bei (Re-)Aktivierung: sumPhase im nächsten Frame mit srcPhase
+          // synchronisieren.
+          this.phaseSyncNeeded[0] = true;
+          this.phaseSyncNeeded[1] = true;
         }
       }
     };
@@ -121,9 +152,29 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     const win = this.window;
     const halfFFT = FFT_SIZE / 2;
 
+    // Scratch-Buffer aus dem Konstruktor (keine Allokationen im Audio-Thread).
+    const re             = this.scratchRe;
+    const im             = this.scratchIm;
+    const newRe          = this.scratchNewRe;
+    const newIm          = this.scratchNewIm;
+    const mags           = this.scratchMags;
+    const srcPhases      = this.scratchSrcPhases;
+    const targetBinArr   = this.scratchTargetBin;
+    const newFreqArr     = this.scratchNewFreq;
+    const peakBins       = this.scratchPeakBins;
+    const nearestPeakIdx = this.scratchNearestPeak;
+    const phaseUpdated   = this.scratchPhaseUpd;
+    const newPhaseAt     = this.scratchNewPhaseAt;
+
+    // Vor jedem Frame zurücksetzen, was akkumulierend benutzt wird.
+    newRe.fill(0);
+    newIm.fill(0);
+    phaseUpdated.fill(0);
+    // re/im, mags/srcPhases/targetBinArr/newFreqArr/peakBins/nearestPeakIdx/
+    // newPhaseAt werden in der Schleife komplett überschrieben — kein fill nötig.
+    im.fill(0); // FFT erwartet im=0 für reelles Eingangssignal
+
     // Frame aus Ringpuffer extrahieren und fenstern
-    const re = new Float32Array(FFT_SIZE);
-    const im = new Float32Array(FFT_SIZE);
     const startIdx = (this.inWritePos[ch] - FFT_SIZE + RING * 2) % RING;
     for (let i = 0; i < FFT_SIZE; i++) {
       re[i] = this.inBuf[ch][(startIdx + i) % RING] * win[i];
@@ -131,48 +182,119 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
 
     _fft(re, im);
 
-    // Magnitude, Phase, Warp, Phase-Akkumulation
-    const newRe = new Float32Array(FFT_SIZE);
-    const newIm = new Float32Array(FFT_SIZE);
+    // Magnitude, Phase, Warp, Phase-Akkumulation mit Identity Phase Locking
+    // (Laroche/Dolson 1999): Peaks im Source-Spektrum tragen ihre Phase
+    // eigenständig vorwärts, die Bins dazwischen werden phasen-gelockt zum
+    // jeweils nächsten Peak. Hält den harmonischen Verband zusammen und
+    // reduziert die typischen Phasen-Vocoder-Artefakte (roboterhafter Klang,
+    // tremoloartiges Vibrieren).
     const side  = ch === 0 ? "left" : "right";
     const expectedPhaseDiff = (2 * Math.PI * HOP_SIZE) / FFT_SIZE;
-    // Pro Target-Bin nur einmal je Frame die Phase fortschreiben. Sonst wird
-    // sumPhase mehrfach inkrementiert, wenn mehrere Source-Bins auf dasselbe
-    // Target-Bin mappen — Folge sind Phasensprünge zwischen Frames.
-    const phaseUpdated = new Uint8Array(halfFFT + 1);
 
+    // Quell-Magnituden und -Phasen einmalig sammeln (werden in beiden Pässen
+    // gebraucht). lastPhase im selben Lauf aktualisieren.
     for (let bin = 0; bin <= halfFFT; bin++) {
-      const mag   = Math.sqrt(re[bin] * re[bin] + im[bin] * im[bin]);
-      const phase = Math.atan2(im[bin], re[bin]);
-
-      let pdiff = phase - this.lastPhase[ch][bin];
-      this.lastPhase[ch][bin] = phase;
-
+      mags[bin] = Math.sqrt(re[bin] * re[bin] + im[bin] * im[bin]);
+      const ph  = Math.atan2(im[bin], re[bin]);
+      srcPhases[bin] = ph;
+      let pdiff = ph - this.lastPhase[ch][bin];
+      this.lastPhase[ch][bin] = ph;
       const expectedDiff = bin * expectedPhaseDiff;
       let deviation = pdiff - expectedDiff;
-      // Auf -π..π normieren
       deviation -= 2 * Math.PI * Math.round(deviation / (2 * Math.PI));
-
       const binFreq  = bin * sampleRate / FFT_SIZE;
       const instFreq = binFreq + deviation * sampleRate / (2 * Math.PI * HOP_SIZE);
-
-      // Cent-Verschiebung aus Warp-Kurve
       const cs = _centShiftW(instFreq, side, this.warpPoints) * this.strength;
-      const newFreq   = instFreq * Math.pow(2, cs / 1200);
-      const targetBin = Math.round(newFreq * FFT_SIZE / sampleRate);
-      if (targetBin < 0 || targetBin > halfFFT) continue;
+      const newFreq = instFreq * Math.pow(2, cs / 1200);
+      const tb = Math.round(newFreq * FFT_SIZE / sampleRate);
+      targetBinArr[bin] = (tb < 0 || tb > halfFFT) ? -1 : tb;
+      newFreqArr[bin]   = newFreq;
+    }
 
-      // Phase mit der tatsächlichen Ziel-Frequenz akkumulieren, nicht mit der
-      // Bin-Mittenfrequenz — sonst entsteht systematische Phasenverschmierung
-      // durch die Bin-Quantisierung.
+    // Einmal pro Aktivierung: sumPhase mit der aktuellen Quell-Phase
+    // synchronisieren, damit der Vocoder kohärent zum Input startet.
+    // Ohne diesen Sync hat jedes Bin einen eigenen konstanten Phasen-Offset
+    // zur Quelle → spektrale Phasenbeziehungen zwischen Bins zerstört →
+    // heiserer Klang.
+    if (this.phaseSyncNeeded[ch]) {
+      for (let bin = 0; bin <= halfFFT; bin++) {
+        this.sumPhase[ch][bin] = srcPhases[bin];
+      }
+      this.phaseSyncNeeded[ch] = false;
+    }
+
+    // Peak-Detection: lokales Maximum über zwei Bins links/rechts macht die
+    // Peaks robuster gegen Rausch-Bumps als nur ein Bin Nachbarschaft.
+    let peakCount = 0;
+    for (let bin = 2; bin <= halfFFT - 2; bin++) {
+      const m = mags[bin];
+      if (m > mags[bin-1] && m > mags[bin+1] &&
+          m > mags[bin-2] && m > mags[bin+2]) {
+        peakBins[peakCount++] = bin;
+      }
+    }
+
+    // Nächster Peak pro Bin (Index in peakBins-Array). Ohne Peaks fallback
+    // auf -1 → Standard-Algorithmus pro Bin.
+    if (peakCount === 0) {
+      nearestPeakIdx.fill(-1);
+    } else {
+      let pi = 0;
+      for (let bin = 0; bin <= halfFFT; bin++) {
+        while (pi < peakCount - 1) {
+          const dCurr = bin - peakBins[pi];
+          const dNext = bin - peakBins[pi+1];
+          const aCurr = dCurr < 0 ? -dCurr : dCurr;
+          const aNext = dNext < 0 ? -dNext : dNext;
+          if (aNext <= aCurr) pi++;
+          else break;
+        }
+        nearestPeakIdx[bin] = pi;
+      }
+    }
+
+    // PASS 1 — Peaks: standard Phase-Vorwärts mit der jeweiligen newFreq.
+    for (let i = 0; i < peakCount; i++) {
+      const bin = peakBins[i];
+      const targetBin = targetBinArr[bin];
+      if (targetBin < 0) continue;
       if (!phaseUpdated[targetBin]) {
-        this.sumPhase[ch][targetBin] += 2 * Math.PI * newFreq * HOP_SIZE / sampleRate;
+        this.sumPhase[ch][targetBin] += 2 * Math.PI * newFreqArr[bin] * HOP_SIZE / sampleRate;
         phaseUpdated[targetBin] = 1;
       }
-      const newPhase = this.sumPhase[ch][targetBin];
+      const ph = this.sumPhase[ch][targetBin];
+      newPhaseAt[targetBin] = ph;
+      newRe[targetBin] += mags[bin] * Math.cos(ph);
+      newIm[targetBin] += mags[bin] * Math.sin(ph);
+    }
 
-      newRe[targetBin] += mag * Math.cos(newPhase);
-      newIm[targetBin] += mag * Math.sin(newPhase);
+    // PASS 2 — Non-Peaks: Phase relativ zum nächsten Peak. Ohne Peaks im
+    // Frame Fallback auf den alten Per-Bin-Algorithmus.
+    for (let bin = 0; bin <= halfFFT; bin++) {
+      const pi = nearestPeakIdx[bin];
+      const targetBin = targetBinArr[bin];
+      if (targetBin < 0) continue;
+      if (pi < 0) {
+        // Frame ohne Peaks (Stille, DC): per-Bin Standard-Akkumulation
+        if (!phaseUpdated[targetBin]) {
+          this.sumPhase[ch][targetBin] += 2 * Math.PI * newFreqArr[bin] * HOP_SIZE / sampleRate;
+          phaseUpdated[targetBin] = 1;
+          newPhaseAt[targetBin] = this.sumPhase[ch][targetBin];
+        }
+        const ph = newPhaseAt[targetBin];
+        newRe[targetBin] += mags[bin] * Math.cos(ph);
+        newIm[targetBin] += mags[bin] * Math.sin(ph);
+        continue;
+      }
+      const peakBin = peakBins[pi];
+      if (bin === peakBin) continue; // Peak schon in Pass 1 verarbeitet
+      const peakTarget = targetBinArr[peakBin];
+      if (peakTarget < 0) continue;
+      const peakNewPhase = newPhaseAt[peakTarget];
+      // Relative Phase zum Peak im Quellspektrum auf das neue Spektrum übertragen.
+      const lockedPhase = peakNewPhase + (srcPhases[bin] - srcPhases[peakBin]);
+      newRe[targetBin] += mags[bin] * Math.cos(lockedPhase);
+      newIm[targetBin] += mags[bin] * Math.sin(lockedPhase);
     }
 
     // Hermite-Symmetrie erst NACH der Schleife setzen. Vorher wurde sie pro

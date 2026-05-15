@@ -214,10 +214,13 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
     dem Play; Recalc-Button bei Änderung von Modus/Stärke/fRes nötig
   - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
     × 2 Kanäle; wirkt sofort beim nächsten Play, keine Vorberechnung
-  - **Phasen-Vocoder** (Variante A): AudioWorklet mit FFT/IFFT; beste
-    Qualität bei größeren Shifts; ca. 46 ms Latenz; Worklet-Code liegt
-    inline als String in freq-warp.js und wird per Blob-URL geladen —
-    funktioniert daher auch unter `file://`
+  - **Phasen-Vocoder** (Variante A): AudioWorklet mit FFT/IFFT und
+    Identity Phase Locking (Laroche/Dolson) — Spektrum-Peaks tragen ihre
+    Phase eigenständig fort, Non-Peak-Bins werden phasen-gelockt zum
+    jeweils nächsten Peak. Reduziert die typischen Phasen-Vocoder-Artefakte
+    (roboterhafter Klang, tremoloartiges Vibrieren). Ca. 46 ms Latenz;
+    Worklet-Code liegt inline als String in freq-warp.js und wird per
+    Blob-URL geladen — funktioniert daher auch unter `file://`
   - Korrektur-Modus: ref_side / var_side / symmetric
   - Defaults: Verfahren = Phasen-Vocoder, Korrektur-Modus = variable Seite
     (gespeicherte JSON-Werte gewinnen weiter beim Laden)
