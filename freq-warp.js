@@ -49,6 +49,13 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     this.lastPhase = [new Float32Array(FFT_SIZE / 2 + 1), new Float32Array(FFT_SIZE / 2 + 1)];
     this.sumPhase  = [new Float32Array(FFT_SIZE / 2 + 1), new Float32Array(FFT_SIZE / 2 + 1)];
 
+    // Sinusoidal Modeling: getrackte Peaks (Frequenz + Phase) pro Kanal.
+    this.algorithm = "phase_vocoder"; // "phase_vocoder" | "sinmodel"
+    this.smMaxPeaks      = 64;
+    this.smPrevPeakCount = [0, 0];
+    this.smPrevPeakFreq  = [new Float32Array(64), new Float32Array(64)];
+    this.smPrevPeakPhase = [new Float32Array(64), new Float32Array(64)];
+
     // Scratch-Buffer für _processFrame — einmalig allokiert, jeden Frame
     // wiederverwendet. Sonst entsteht GC-Druck mit ~10 MB/s Allokationen
     // im Audio-Thread und der Worklet kommt nicht hinterher → Underrun.
@@ -66,31 +73,18 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     this.scratchPhaseUpd    = new Uint8Array(half + 1);
     this.scratchNewPhaseAt  = new Float32Array(half + 1);
 
-    // Beim ersten Frame nach Aktivierung muss sumPhase mit der Quell-Phase
-    // synchronisiert werden. Ohne das hat jedes Bin einen konstanten Phasen-
-    // Offset gegenüber der Quelle (= negative Anfangsphase), pro Bin
-    // unterschiedlich. Die relative Phasenbeziehung zwischen Grundton,
-    // Obertönen und Formanten geht verloren → heiserer, trockener Klang.
-    this.phaseSyncNeeded = [true, true];
-
     this.port.onmessage = (e) => {
       if (e.data.type === "params") {
-        const wasActive = this.active;
         this.warpPoints = e.data.points || [];
         this.strength   = e.data.strength ?? 1.0;
         this.active     = !!e.data.active;
+        if (e.data.algorithm) this.algorithm = e.data.algorithm;
         if (!this.active) {
           // Zustand zurücksetzen, damit bei Reaktivierung kein Phasensprung
           for (let ch = 0; ch < 2; ch++) {
             this.lastPhase[ch].fill(0);
             this.sumPhase[ch].fill(0);
           }
-        }
-        if (this.active && !wasActive) {
-          // Bei (Re-)Aktivierung: sumPhase im nächsten Frame mit srcPhase
-          // synchronisieren.
-          this.phaseSyncNeeded[0] = true;
-          this.phaseSyncNeeded[1] = true;
         }
       }
     };
@@ -130,7 +124,11 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     while (this.samplesSinceHop >= HOP_SIZE) {
       this.samplesSinceHop -= HOP_SIZE;
       for (let ch = 0; ch < nChan; ch++) {
-        this._processFrame(ch);
+        if (this.algorithm === "sinmodel") {
+          this._processFrameSinModel(ch);
+        } else {
+          this._processFrame(ch);
+        }
       }
     }
 
@@ -209,18 +207,6 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
       const tb = Math.round(newFreq * FFT_SIZE / sampleRate);
       targetBinArr[bin] = (tb < 0 || tb > halfFFT) ? -1 : tb;
       newFreqArr[bin]   = newFreq;
-    }
-
-    // Einmal pro Aktivierung: sumPhase mit der aktuellen Quell-Phase
-    // synchronisieren, damit der Vocoder kohärent zum Input startet.
-    // Ohne diesen Sync hat jedes Bin einen eigenen konstanten Phasen-Offset
-    // zur Quelle → spektrale Phasenbeziehungen zwischen Bins zerstört →
-    // heiserer Klang.
-    if (this.phaseSyncNeeded[ch]) {
-      for (let bin = 0; bin <= halfFFT; bin++) {
-        this.sumPhase[ch][bin] = srcPhases[bin];
-      }
-      this.phaseSyncNeeded[ch] = false;
     }
 
     // Peak-Detection: lokales Maximum über zwei Bins links/rechts macht die
@@ -317,6 +303,149 @@ class FreqWarpProcessor extends AudioWorkletProcessor {
     }
     this.outWritePos[ch] = (this.outWritePos[ch] + HOP_SIZE) % RING;
   }
+
+  _processFrameSinModel(ch) {
+    const win = this.window;
+    const halfFFT = FFT_SIZE / 2;
+
+    const re        = this.scratchRe;
+    const im        = this.scratchIm;
+    const newRe     = this.scratchNewRe;
+    const newIm     = this.scratchNewIm;
+    const mags      = this.scratchMags;
+    const srcPhases = this.scratchSrcPhases;
+    const peakBins  = this.scratchPeakBins;
+
+    newRe.fill(0);
+    newIm.fill(0);
+    im.fill(0);
+
+    // 1. Frame aus Ringpuffer + Hann-Fenster
+    const startIdx = (this.inWritePos[ch] - FFT_SIZE + RING * 2) % RING;
+    for (let i = 0; i < FFT_SIZE; i++) {
+      re[i] = this.inBuf[ch][(startIdx + i) % RING] * win[i];
+    }
+    _fft(re, im);
+
+    // 2. Magnituden + Phasen sammeln
+    for (let bin = 0; bin <= halfFFT; bin++) {
+      mags[bin] = Math.sqrt(re[bin] * re[bin] + im[bin] * im[bin]);
+      srcPhases[bin] = Math.atan2(im[bin], re[bin]);
+    }
+
+    // 3. Peak-Detection (mind. 2 Bins Nachbarschaft)
+    let peakCount = 0;
+    for (let bin = 2; bin <= halfFFT - 2 && peakCount < this.smMaxPeaks; bin++) {
+      const m = mags[bin];
+      if (m > mags[bin-1] && m > mags[bin+1] &&
+          m > mags[bin-2] && m > mags[bin+2]) {
+        peakBins[peakCount++] = bin;
+      }
+    }
+
+    const side = ch === 0 ? "left" : "right";
+    const prevCount = this.smPrevPeakCount[ch];
+    const prevFreq  = this.smPrevPeakFreq[ch];
+    const prevPhase = this.smPrevPeakPhase[ch];
+
+    const curFreqArr  = new Float32Array(peakCount);
+    const curPhaseArr = new Float32Array(peakCount);
+
+    // 4. Residual: Source-Spektrum übernehmen, Peak-Anteile dämpfen
+    for (let bin = 0; bin <= halfFFT; bin++) {
+      newRe[bin] = re[bin];
+      newIm[bin] = im[bin];
+    }
+    for (let i = 0; i < peakCount; i++) {
+      const pb = peakBins[i];
+      newRe[pb] = 0;
+      newIm[pb] = 0;
+      if (pb > 0)         { newRe[pb-1] *= 0.5; newIm[pb-1] *= 0.5; }
+      if (pb < halfFFT)   { newRe[pb+1] *= 0.5; newIm[pb+1] *= 0.5; }
+    }
+
+    // 5. Pro Peak: Quadratic Interpolation, Pitch-Shift, Phase-Tracking, Synthese
+    const tolerance = 0.5 * sampleRate / FFT_SIZE;
+    for (let i = 0; i < peakCount; i++) {
+      const pb = peakBins[i];
+
+      // 5a) Quadratic Interpolation
+      const m_l = mags[pb-1];
+      const m_c = mags[pb];
+      const m_r = mags[pb+1];
+      const denom = m_l - 2*m_c + m_r;
+      const delta = (Math.abs(denom) > 1e-12) ? 0.5 * (m_l - m_r) / denom : 0;
+      const subBin   = pb + delta;
+      const magInterp = m_c - 0.25 * (m_l - m_r) * delta;
+      const peakFreq = subBin * sampleRate / FFT_SIZE;
+
+      // 5b) Cent-Verschiebung aus Warp-Kurve
+      const cs = _centShiftW(peakFreq, side, this.warpPoints) * this.strength;
+      const newFreq = peakFreq * Math.pow(2, cs / 1200);
+
+      // 5c) Phase-Tracking
+      let matchedPhase = NaN;
+      let bestDist = Infinity;
+      for (let j = 0; j < prevCount; j++) {
+        const d = Math.abs(peakFreq - prevFreq[j]);
+        if (d < tolerance && d < bestDist) {
+          bestDist = d;
+          matchedPhase = prevPhase[j];
+        }
+      }
+
+      let curPhase;
+      if (!isNaN(matchedPhase)) {
+        curPhase = matchedPhase + 2 * Math.PI * newFreq * HOP_SIZE / sampleRate;
+      } else {
+        curPhase = srcPhases[pb];
+      }
+      curPhase = curPhase - 2 * Math.PI * Math.round(curPhase / (2 * Math.PI));
+
+      curFreqArr[i]  = peakFreq;
+      curPhaseArr[i] = curPhase;
+
+      // 5d) Spectral Spread auf zwei nächste Integer-Bins
+      const newBinFloat = newFreq * FFT_SIZE / sampleRate;
+      const newBinLow   = Math.floor(newBinFloat);
+      const frac        = newBinFloat - newBinLow;
+      const newBinHigh  = newBinLow + 1;
+
+      if (newBinLow >= 0 && newBinLow <= halfFFT) {
+        const a = (1 - frac) * magInterp;
+        newRe[newBinLow] += a * Math.cos(curPhase);
+        newIm[newBinLow] += a * Math.sin(curPhase);
+      }
+      if (newBinHigh >= 0 && newBinHigh <= halfFFT) {
+        const a = frac * magInterp;
+        newRe[newBinHigh] += a * Math.cos(curPhase);
+        newIm[newBinHigh] += a * Math.sin(curPhase);
+      }
+    }
+
+    // 6. Tracking-State für nächsten Frame
+    for (let i = 0; i < peakCount; i++) {
+      prevFreq[i]  = curFreqArr[i];
+      prevPhase[i] = curPhaseArr[i];
+    }
+    this.smPrevPeakCount[ch] = peakCount;
+
+    // 7. Hermite-Symmetrie
+    for (let bin = 1; bin < halfFFT; bin++) {
+      newRe[FFT_SIZE - bin] = newRe[bin];
+      newIm[FFT_SIZE - bin] = -newIm[bin];
+    }
+
+    _ifft(newRe, newIm);
+
+    // 8. OLA
+    const OLA = 2.0 / 3.0;
+    for (let i = 0; i < FFT_SIZE; i++) {
+      const pos = (this.outWritePos[ch] + i) % RING;
+      this.outBuf[ch][pos] += newRe[i] * win[i] * OLA;
+    }
+    this.outWritePos[ch] = (this.outWritePos[ch] + HOP_SIZE) % RING;
+  }
 }
 
 // ---- Hilfsfunktionen (keine Importe im Worklet möglich) ----
@@ -400,26 +529,22 @@ let pWarpOn = false;
 let pWarpMode = "var_side";     // "ref_side" | "var_side" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
 let pWarpBusy = false;
-let pWarpMethod = "offline";    // "offline" | "bandshift" | "vocoder"
+let pWarpMethod = "sinmodel";   // "offline" | "bandshift" | "vocoder" | "sinmodel"
 let pWarpWorkletReady = false;
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 let _pWarpFResVersion = 0;
 
 // ---- Warp-Kurve aufbauen --------------------------------
 
-function buildWarpPoints(fResData, warpMode) {
+function buildWarpPoints(fResData, warpMode, invert = false) {
   // fResData: Array { varSide, refSide, elIdx, varFreq, refFreq }
-  // Gibt sortiertes Array { varFreq, csL, csR } zurück
+  // Gibt sortiertes Array { varFreq, csL, csR } zurück.
+  // invert: Cent-Werte umkehren (für NH-Simulation: Frequenzfehler zeigen statt korrigieren)
   const pts = [];
   for (const r of fResData) {
     const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
     let csL = 0, csR = 0;
-    // Vorzeichen-Konvention: positiver cent = refFreq > varFreq
-    // Für ref_side: ref bekommt negative Korrektur (nach unten zum varFreq hin)
-    // Für var_side: var bekommt positive Korrektur (nach oben zum refFreq hin)
-    // Für symmetric: beide halb
     if (warpMode === "ref_side") {
-      // Welche Seite ist die Referenzseite?
       if (r.refSide === "left")  csL = -cent;
       else                       csR = -cent;
     } else if (warpMode === "var_side") {
@@ -431,6 +556,7 @@ function buildWarpPoints(fResData, warpMode) {
       if (r.varSide === "left")  csL += cent / 2;
       else                       csR += cent / 2;
     }
+    if (invert) { csL = -csL; csR = -csR; }
     pts.push({ varFreq: r.varFreq, csL, csR });
   }
   pts.sort((a, b) => a.varFreq - b.varFreq);
@@ -477,7 +603,8 @@ async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
     return srcBuf;
   }
 
-  const points = buildWarpPoints(fResData, warpMode);
+  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const points = buildWarpPoints(fResData, warpMode, nhSim);
   pWarpAffected = _warpAffectedSides(points);
   const str = strength / 100;
 
@@ -568,7 +695,8 @@ function pBuildWarpedGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResD
     return { sources: [src], stop() { try { src.stop(); } catch(e) {} } };
   }
 
-  const points = buildWarpPoints(fResData, warpMode);
+  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const points = buildWarpPoints(fResData, warpMode, nhSim);
   const str = strength / 100;
   const bands = points.map(p => ({
     freq: p.varFreq,
@@ -650,7 +778,8 @@ async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength
     return { sources: [src], stop() { try { src.stop(); } catch(e) {} } };
   }
 
-  const points = buildWarpPoints(fResData, warpMode);
+  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const points = buildWarpPoints(fResData, warpMode, nhSim);
   const str = strength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -667,11 +796,16 @@ async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength
     outputChannelCount: [2],
   });
 
+  const methodEl = (typeof document !== "undefined")
+    ? document.getElementById("plWarpMethod") : null;
+  const alg = (methodEl && methodEl.value === "sinmodel")
+    ? "sinmodel" : "phase_vocoder";
   workletNode.port.postMessage({
     type: "params",
     points: adjPoints,
     strength: 1.0,   // Strength bereits in adjPoints eingerechnet
     active: true,
+    algorithm: alg,
   });
 
   src.connect(workletNode);
@@ -754,7 +888,8 @@ function pWarpLiveUpdate() {
   const wn = pCurrentPlayback.workletNode;
   if (!wn) return;
   if (!fRes || fRes.length === 0) return;
-  const points = buildWarpPoints(fRes, pWarpMode);
+  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const points = buildWarpPoints(fRes, pWarpMode, nhSim);
   const str = pWarpStrength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -762,11 +897,15 @@ function pWarpLiveUpdate() {
     csR: p.csR * str,
   }));
   // active=true; effektives Bypass passiert oben (pWarpOn / EQ-Master)
+  const methodEl = document.getElementById("plWarpMethod");
+  const alg = (methodEl && methodEl.value === "sinmodel")
+    ? "sinmodel" : "phase_vocoder";
   wn.port.postMessage({
     type: "params",
     points: adjPoints,
     strength: 1.0,
     active: !!pWarpOn,
+    algorithm: alg,
   });
 }
 
@@ -776,8 +915,6 @@ function pWarpUpdUI() {
   const cbEl      = document.getElementById("plWarpOn");
   const statusEl  = document.getElementById("plWarpStatus");
   const hintEl    = document.getElementById("plWarpHint");
-  const modeRow   = document.getElementById("plWarpModeRow");
-  const strRow    = document.getElementById("plWarpStrRow");
   const recalcBtn = document.getElementById("plWarpRecalc");
   const methodSel = document.getElementById("plWarpMethod");
 
@@ -809,6 +946,8 @@ function pWarpUpdUI() {
     statusText = t("pwStatusActiveBandShift").replace("{n}", n);
   } else if (method === "vocoder") {
     statusText = t("pwStatusActiveVocoder").replace("{n}", n);
+  } else if (method === "sinmodel") {
+    statusText = t("pwStatusActiveSinModel").replace("{n}", n);
   }
   if (statusEl) statusEl.textContent = statusText;
 
@@ -834,9 +973,6 @@ function pWarpUpdUI() {
   const playBtn = document.getElementById("plPlay");
   if (playBtn) playBtn.disabled = pWarpBusy && method === "offline";
 
-  // Mode/Strength-Row zeigen wenn Warp an
-  if (modeRow) modeRow.style.display = pWarpOn ? "" : "none";
-  if (strRow)  strRow.style.display  = pWarpOn ? "" : "none";
 }
 
 async function pWarpTrigger() {

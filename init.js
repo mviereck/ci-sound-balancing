@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function _pWarpApplyMethodLabels() {
     const sel = document.getElementById("plWarpMethod");
     if (!sel) return;
-    const keys = ["pwMethodOffline", "pwMethodVocoder", "pwMethodBandShift"];
+    const keys = ["pwMethodOffline", "pwMethodVocoder", "pwMethodSinModel", "pwMethodBandShift"];
     for (let i = 0; i < sel.options.length; i++) {
       if (keys[i]) sel.options[i].text = t(keys[i]);
     }
@@ -67,17 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function _pWarpApplyLangTexts() {
     // data-t-Elemente werden von applyLang() automatisch aktualisiert.
-    // Hier nur Dropdown-Optionen (haben kein data-t) und Warn-Text.
+    // Hier nur Dropdown-Optionen (haben kein data-t).
     _pWarpApplyMethodLabels();
-    const warnEl = document.getElementById("plWarpWarning");
-    if (warnEl) warnEl.textContent = t("pwWarning");
   }
   window._pWarpApplyLangTexts = _pWarpApplyLangTexts;
 
   updToneHint();
-  // Warp-Warning-Text initial setzen
-  const _warnEl = document.getElementById("plWarpWarning");
-  if (_warnEl) _warnEl.textContent = t("pwWarning");
   document
     .querySelectorAll(".tab")
     .forEach((t) =>
@@ -823,7 +818,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpUpdUI();
     // Vocoder vorab laden, damit das await im pPlay nach dem ersten Mal nicht
     // mehr blockt — entkrampft den Toggle-Pfad.
-    if (this.value === "vocoder" && typeof pInitWarpWorklet === "function") {
+    if ((this.value === "vocoder" || this.value === "sinmodel") &&
+        typeof pInitWarpWorklet === "function") {
       try { pInitWarpWorklet(gPC()); } catch (e) {}
     }
     if (!pWarpOn) return;

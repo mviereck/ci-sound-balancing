@@ -478,7 +478,7 @@ async function pPlay() {
     pCurrentPlayback = pb;
     leadSrc = pb.sources[0] || null;
 
-  } else if (pWarpOn && plEqOn && method === "vocoder" && fRes && fRes.length > 0 && pSourceBuf) {
+  } else if (pWarpOn && plEqOn && (method === "vocoder" || method === "sinmodel") && fRes && fRes.length > 0 && pSourceBuf) {
     // Variante A: Phasen-Vocoder (async wegen erstem Worklet-Laden)
     pBuf = pSourceBuf;
     let pb;

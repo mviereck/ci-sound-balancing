@@ -1018,6 +1018,7 @@
         <!-- ===== FREQUENZ-WARPING ===== -->
         <div class="card" id="plWarpCard">
           <h2 data-t="pwTitle"></h2>
+          <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="pwSubtitle"></div>
           <div class="controls-row" style="margin-bottom: 8px">
             <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
               <input type="checkbox" id="plWarpOn" />
@@ -1029,7 +1030,8 @@
               <label data-t="pwMethod" style="margin-right:6px"></label>
               <select id="plWarpMethod" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
                 <option value="offline" data-t-opt="pwMethodOffline"></option>
-                <option value="vocoder" data-t-opt="pwMethodVocoder" selected></option>
+                <option value="vocoder" data-t-opt="pwMethodVocoder"></option>
+                <option value="sinmodel" data-t-opt="pwMethodSinModel" selected></option>
                 <option value="bandshift" data-t-opt="pwMethodBandShift"></option>
               </select>
             </div>
@@ -1039,7 +1041,7 @@
             class="explain explain-warn"
             style="display:none;margin-bottom:6px"
           ></div>
-          <div id="plWarpModeRow" class="controls-row" style="display:none;margin-bottom:6px">
+          <div id="plWarpModeRow" class="controls-row" style="margin-bottom:6px">
             <div class="control-group">
               <label data-t="pwMode" style="margin-right:6px"></label>
               <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
@@ -1049,7 +1051,7 @@
               </select>
             </div>
           </div>
-          <div id="plWarpStrRow" class="controls-row" style="display:none;margin-bottom:6px">
+          <div id="plWarpStrRow" class="controls-row" style="margin-bottom:6px">
             <div class="control-group">
               <label data-t="pwStrength" style="margin-right:6px"></label>
               <input
@@ -1084,11 +1086,6 @@
             id="plWarpHint"
             class="explain explain-warn"
             style="display:none;margin-bottom:6px"
-          ></div>
-          <div
-            class="explain"
-            style="font-size:0.82em;color:var(--text-muted);margin-top:4px"
-            id="plWarpWarning"
           ></div>
         </div>
 

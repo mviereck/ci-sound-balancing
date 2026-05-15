@@ -102,11 +102,12 @@ function updPlSrcButtons() {
   const mBtn = document.getElementById("plSrcMeasBtn");
   const lBtn = document.getElementById("plSrcLevelsBtn");
   if (!mBtn || !lBtn) return;
-  const activeS =
-    "background:var(--success);color:#fff;border-color:var(--success)";
-  const inactS = "";
-  mBtn.style.cssText = plSrcMeas ? activeS : inactS;
-  lBtn.style.cssText = plSrcLevels ? activeS : inactS;
+  mBtn.style.background   = plSrcMeas   ? "var(--success)" : "";
+  mBtn.style.color        = plSrcMeas   ? "#fff"           : "";
+  mBtn.style.borderColor  = plSrcMeas   ? "var(--success)" : "";
+  lBtn.style.background   = plSrcLevels ? "var(--success)" : "";
+  lBtn.style.color        = plSrcLevels ? "#fff"           : "";
+  lBtn.style.borderColor  = plSrcLevels ? "var(--success)" : "";
   // Sync hidden select
   const sel = document.getElementById("plSrc");
   if (sel) {

@@ -209,7 +209,7 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen in Levels aktualisieren den Player-Equalizer live
-- Frequenz-Warping mit drei Verfahren (freq-warp.js):
+- Frequenz-Warping mit vier Verfahren (freq-warp.js):
   - **Offline-Vorberechnung** (Variante C): rendert gewarpten Buffer vor
     dem Play; Recalc-Button bei Änderung von Modus/Stärke/fRes nötig
   - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
@@ -221,10 +221,19 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
     (roboterhafter Klang, tremoloartiges Vibrieren). Ca. 46 ms Latenz;
     Worklet-Code liegt inline als String in freq-warp.js und wird per
     Blob-URL geladen — funktioniert daher auch unter `file://`
+  - **Sinusoidal Modeling** (Variante D): STFT-basiert wie der Phasen-Vocoder.
+    Peaks werden mit Quadratic Peak Interpolation sub-bin-genau lokalisiert
+    und über Frames getrackt (kontinuierliche Phase pro Oszillator). Residual-
+    Spektrum (nicht-tonale Anteile) bleibt unverschoben → Konsonanten und
+    Rauschen klingen natürlicher als beim Phasen-Vocoder. Pitch-Shift mit
+    Spectral Spread auf zwei benachbarte Bins. Defaults: Phasen-Vocoder bleibt
+    Default; Sinusoidal Modeling wahlweise im Dropdown.
   - Korrektur-Modus: ref_side / var_side / symmetric
-  - Defaults: Verfahren = Phasen-Vocoder, Korrektur-Modus = variable Seite
+  - Defaults: Verfahren = Sinusoidal Modeling, Korrektur-Modus = variable Seite
     (gespeicherte JSON-Werte gewinnen weiter beim Laden)
+  - Korrektur-Modus und Stärke sind immer sichtbar (nicht mehr von Checkbox abhängig)
   - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
+  - Untertitel-Zeile unter dem Box-Titel: „Experimentelle Option, Qualität noch mäßig: Audio gemäß Frequenzmessung umwandeln" (i18n-Key pwSubtitle)
   - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl
   - pWarpMethod wird in JSON gespeichert und wiederhergestellt
   - Druck-Export enthält aktives Verfahren wenn Warp aktiv
