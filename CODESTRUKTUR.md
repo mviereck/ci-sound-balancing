@@ -52,11 +52,32 @@ Test): tabs-eq.js (`switchTab`, `updateTabLockState`).
 
 ## Module im Ladeverlauf
 
-Die Reihenfolge der `<script>`-Tags in `index.html` ist fest. Module
-weiter unten dürfen Funktionen aus Modulen weiter oben aufrufen.
-Top-Level-Code in einem Modul (außerhalb von Funktionen und außerhalb
-DOMContentLoaded) braucht seine Abhängigkeiten beim Laden – normale
-Funktionsaufrufe erst zur Laufzeit.
+Die Reihenfolge der Module ist fest. Module weiter unten dürfen
+Funktionen aus Modulen weiter oben aufrufen. Top-Level-Code in einem
+Modul (außerhalb von Funktionen und außerhalb DOMContentLoaded)
+braucht seine Abhängigkeiten beim Laden – normale Funktionsaufrufe
+erst zur Laufzeit.
+
+**Einbindung in `index.html`:** Skripte und `style.css` werden nicht
+mehr per statischer `<script src=…>`-/`<link>`-Tags geladen, sondern
+über einen kleinen Inline-Loader im `<head>`. Der Loader hängt
+`<script>`- und `<link>`-Tags dynamisch an `document.head` und
+versieht jede URL mit einem Cachebuster-Parameter `?v=<wert>`. Wert
+ist beim ersten Pageload pro Browser-Session `Date.now()`, persistiert
+in `sessionStorage` unter dem Schlüssel `cacheBust`; weitere Reloads
+in derselben Session nutzen denselben Wert (Cache greift). Neuer
+Tab / Browser-Neustart → neuer Wert → alle Dateien frisch. Fallback
+ohne `sessionStorage` (z.B. einige `file://`-Modi): `Date.now()` bei
+jedem Reload. Zusätzlich stehen im `<head>` drei Meta-Tags
+(`Cache-Control: no-cache, no-store, must-revalidate`, `Pragma:
+no-cache`, `Expires: 0`) gegen das Caching der HTML selbst.
+
+Die Reihenfolge der Module liegt als Array im Loader-Block in
+`index.html` und muß bei neuen/entfernten Modulen dort gepflegt
+werden. Dynamisch erzeugte Scripts mit `s.async = false` werden in
+DOM-Einfüge­reihenfolge ausgeführt und blockieren das
+`DOMContentLoaded`-Event, bis alle ausgeführt sind — Verhalten wie
+zuvor mit statischen Tags.
 
 | #  | Datei | Inhalt |
 |----|-------|--------|
