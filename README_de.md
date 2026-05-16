@@ -60,20 +60,32 @@ Anzeige der errechneten Anpassung gemäß Ihrer Messungen.
 Spielen Sie eine Audiodatei ab, um die Auswirkung Ihrer Messungen zu simulieren. 
  - Der eingebaute Equalizer verändert den Ton annähernd so, wie er sich anhören würde, wenn der Audiologe Ihr CI gemäß Ihren Messungen neu einstellt.
  - Mit dem Ausgleich der Elektrodenlautstärke Ihres CI haben Sie eine wertvolle Grundlage geschaffen. Damit sollte sich bereits vieles klarer anhören als vorher.
- 
+ - Schalten Sie den Button *Messungen* mehrfach an und wieder aus, um den Unterschied zu hören.
+
 #### Im Reiter *Kurven*
 
 Im Reiter *Kurven* können Sie die Lautstärke aller Elektroden gemeinsam verändern. Dafür stehen verschiedene Kurvenberechnungen zur Verfügung.
 
- - Empfehlungen:
-   - Lassen Sie eine Audiodatei im Player laufen. Nehmen Sie ein Hörbuch.
-   - Aktivieren Sie *Sprache*. Ändern Sie die Einstellung mit den *Pfeiltasten hoch/runter* und hören Sie live, wie sich die Veränderung auf das Sprachverstehen auswirkt.
-   - Deaktivieren Sie *Sprache* und aktivieren Sie *Sinus*. Lassen Sie Musik um Player laufen. Verändern Sie mit den *Pfeiltasten hoch/runter* den Wert und hören Sie live, wie sich Högen und Bässe verändern.
-   - Deaktivieren Sie *Sinus* und probieren Sie auch anderen Kurven aus.
-   - Finden Sie eine Kurve oder eine Kombination von Kurven, die Ihnen zusagt.
+Empfehlungen:
+ - Lassen Sie eine Audiodatei im *Player* laufen. Nehmen Sie ein Hörbuch.
+ - Aktivieren Sie *Sprache*. Ändern Sie die Einstellung mit den *Pfeiltasten hoch/runter* und hören Sie live, wie sich die Veränderung auf das Sprachverstehen auswirkt.
+ - Deaktivieren Sie *Sprache* und aktivieren Sie *Sinus*. Lassen Sie Musik um *Player* laufen. Verändern Sie mit den *Pfeiltasten hoch/runter* den Wert und hören Sie live, wie sich Höhen und Bässe verändern.
+ - Deaktivieren Sie *Sinus* und probieren Sie auch anderen Kurven aus.
+ - Finden Sie eine Kurve oder eine Kombination von Kurven, die Ihnen zusagt.
+ - Gehen Sie in den Reiter *Player*, spielen Sie etwas ab, und schalten Sie den Button *Kurven* mehrfach an und wieder aus, um den Unterschied zu hören.
 
-#### Im Reiter Player
-Ein- und Ausschalten von Anpassungen während des Abspielens
- - Spielen Sie Musik oder Hörspiel ab.
- - Schalten Sie den *Equalizer* mehrfach an und wieder aus, um den Unterschied zu hören.
- - Schalten Sie *Kurven* mehrfach an und aus, um den Unterschied zu hören.
+
+## Weitere Möglichkeiten
+
+### Reiter *Messungen* -> *Stereo-Balance*
+Erlaubt Lautstärkenausgleich links und rechts.
+ - (Weitere Dokumentation folgt)
+ 
+### Reiter *Messungen* -> *Frequenzabgleich*
+Messung von Tonhöhenunterschieden links und rechts.
+ - (Weitere Dokumentation folgt)
+ - (Im *Player* kann eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden.)
+
+### Reiter *Schieber*
+Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
+ - (Weitere Dokumentation folgt)
