@@ -17,6 +17,12 @@ Modulübersicht steht in CODESTRUKTUR.md.
 - **4 Sprachen**: DE, EN, FR, ES
 - **Korrekturkurven-Berechnung**: Gewichtete Least Squares (sauber
   1.0, verrauscht 0.5, fast stumm 0.1)
+- **Bilateral**: separate Datensätze pro Seite (Implantat-
+  Konfiguration, Messungen, Levels, Presets, MCL/THR). Side-
+  Buttons LINKS/RECHTS oben im UI schalten zwischen den beiden
+  Datensätzen um. Jede Seite kann eine eigene Konfiguration haben
+  (CI, Hörgerät, Normal, Schwerhörig, Taub). Frequenzraster wird
+  von einer CI-Seite auf eine akustische Seite gespiegelt.
 
 ## Tab-Übersicht
 
@@ -355,6 +361,19 @@ Drei Cards untereinander:
   „Schieber" = nur manuelle Schieber-Werte. (Der DOM-/i18n-Key heißt
   weiterhin `plSrcLevels` aus historischen Gründen.)
 - Equalizer an/aus, Stärke 0–150%, Buttons für 50/75/100/150%
+- **Side-Modi** (durch Checkboxen „Beide Seiten" und „Mono-EQ"
+  in den Einstellungen, geliefert von `getPlayerSide()`):
+  - „Beide Seiten" aus → nur die aktive Seite hörbar, Gegenkanal
+    stumm (Modus `"left"` oder `"right"`).
+  - „Beide Seiten" an, „Mono-EQ" aus → Stereo mit getrennten EQ-
+    Ketten pro Kanal (`pEqFLeft` / `pEqFRight`), gespeist über
+    `pChannelSplitter` und `pChannelMerger` (Modus `"both"`).
+  - „Beide Seiten" an, „Mono-EQ" an → beide Kanäle hörbar, aber
+    mit identischem EQ (Durchschnitt der zwei Seiten-Korrekturen,
+    Modus `"mono"`).
+  - „Stereo-Balance anwenden" (`plApplyBalance`): zusätzlicher
+    L↔R-Gesamtoffset aus dem Mittelwert der gemessenen
+    `lrResults` (Stereo-Balance-Test).
 - Normalhörenden-Simulation (nicht-invertierter Equalizer)
 - MAPLAW-Simulation ausgeblendet (Code vorhanden, UI versteckt)
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
@@ -432,6 +451,33 @@ Drei Cards untereinander:
 - Meßergebnisse immer enthalten
 - Player-Einstellungen (Quelle, Stärke, NH-Simulation) zusätzlich
 - Levels-Werte und Equalizer-Gains im Ausdruck
+- Einzelne Tabs erhalten je einen eigenen Druck-Knopf, der nur
+  den Inhalt dieses Tabs (bzw. aktiven Sub-Tabs) für die aktuell
+  aktive Seite druckt. Jeder Einzeldruck trägt einen Mini-Kopf
+  mit App-Name, Tab-Titel, Datum, Seite und Implantat-
+  Identifikation. Der bestehende „Alles drucken"-Button in
+  Laden/Speichern bleibt unverändert und druckt weiterhin beide
+  Seiten mit allen Sektionen.
+  - **Implantat-Tab** (`#printImplantBtn`): implementiert.
+  - **Meßergebnisse-Sub-Tabs** (`#printErgebnisseBtn` in der
+    Sub-Tab-Leiste rechts): implementiert. Dispatcher
+    `printErgebnisseTab()` erkennt den aktiven Sub-Tab und ruft
+    `_printResLoudness`, `_printResLR` oder `_printResFreqmatch`
+    auf. Diagramme werden als PNG-Bild eingebettet (Canvas→img),
+    Buttons entfernt, Inputs/Selects als Text-Spans dargestellt
+    (Checkbox/Radio → „✓"/„—", Select → sichtbarer Optionstext).
+  - **Kurven-Tab** (`#printKurvenBtn` rechts neben Chart-Titel):
+    implementiert. Druckt Chart-Card (4-Linien-Chart als PNG)
+    und Kurvenfunktionen-Tabelle. Die Tabelle wird datengetrieben
+    aus `presets` gebaut (`_buildPresetCardPrint`): nur aktive
+    Kurven erscheinen, Stärke/Mitte/Breite/Cutoff als Text.
+  - **Schieber-Tab** (`#printSchieberBtn` rechts neben Tab-Titel):
+    implementiert. Druckt Info-Zeile (Modus + Variante), Canvas-Bild
+    des Schiebers als PNG und eine Werte-Tabelle pro Elektrode.
+    Im Relativmodus: Spalten „Nr." und „dB-Wert". Im Absolutmodus:
+    zusätzlich eine Hersteller-Einheit-Spalte (MCL qu / CL / CU)
+    berechnet über `calcMedel`/`calcCochlear`/`calcAB`; Elektroden
+    ohne eingetragenen Upper-Level zeigen „—".
 
 ## Offene Punkte (Warteliste, nicht im aktuellen Build)
 
@@ -439,9 +485,15 @@ Hinweis: regelmäßig prüfen, ob Punkte erledigt oder hinfällig sind.
 
 - MAPLAW-Simulation (korrekt: bandweise Hüllkurvenverarbeitung,
   zwei c-Werte Ist/Soll) — benötigt MCL-Feature
-- Bilaterale CIs: globaler Schalter Links/Rechts, separate
-  Datensätze, Stereo-Player, Inter-Ohr-Vergleich mit Gesamtoffset,
-  Levels wahlweise auf beide Seiten gleichzeitig
+- Bilaterale CIs — Grundgerüst ist gebaut (Side-Buttons,
+  separate Datensätze pro Seite inkl. Implantat/MCL/THR, Stereo-
+  Player mit getrennten EQ-Ketten, Inter-Ohr-Offset aus
+  `lrResults`). **Offen** sind noch: (a) sichtbare Anzeige des
+  berechneten Inter-Ohr-Offsets im Ergebnis-Reiter oder Player;
+  (b) Synchron-Anwendung von manuellen Levels oder Presets auf
+  beide Seiten gleichzeitig (heute nur pro aktiver Seite);
+  (c) Asymmetrie-Option im Stereo-Balance-Test (z.B. „nur
+  Restgehör-Seite justieren").
 - Cochlear/AB MAPLAW-Äquivalente
 - Hinweis im Ausdruck: Audiologe muß Klienten über
   MCL/Frequenz-Änderungen informieren

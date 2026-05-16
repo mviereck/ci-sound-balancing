@@ -539,6 +539,7 @@ function lrRenderResults() {
   }
 
   lrDrawChart();
+  lrApplyMeanToBalance();
 }
 
 function lrDrawChart() {
@@ -614,16 +615,7 @@ function lrDrawChart() {
   for (let i = 0; i < count; i++) {
     const x = tX(i) - bW / 2;
     if (status[i] === 'disabled') {
-      ctx.fillStyle = '#e5e7eb';
-      ctx.fillRect(x, yTop, bW, yBot - yTop);
-      ctx.strokeStyle = '#6b7280';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(x, yTop);
-      ctx.lineTo(x + bW, yBot);
-      ctx.moveTo(x + bW, yTop);
-      ctx.lineTo(x, yBot);
-      ctx.stroke();
+      drawDisabledBar(ctx, x, yTop, yBot, bW);
     } else if (status[i] === 'unmeasured') {
       ctx.strokeStyle = '#cbd5e1';
       ctx.lineWidth = 1;

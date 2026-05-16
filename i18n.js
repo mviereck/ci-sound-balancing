@@ -193,6 +193,11 @@ const L = {
     fLoad: "Laden",
     fSave: "Speichern",
     fPrint: "Ergebnisse drucken",
+    printBtn: "Drucken",
+    printPopupBlocked: "Druckfenster wurde vom Browser blockiert. Bitte Popups für diese Seite erlauben.",
+    printHeaderDate: "Datum",
+    printHeaderSide: "Seite",
+    printHeaderImpl: "Implantat",
     fCopy: "Tabelle kopieren",
     fResetAll: "Alles zurücksetzen",
     fExplain:
@@ -504,6 +509,7 @@ const L = {
       'The results can be printed out. The printout includes the measurement results, your requested corrections, and the resulting equalizer values. This allows your audiologist to see exactly where adjustments are needed.<br>Project Homepage: <a href="https://github.com/mviereck/ci-loudness-balancing" target="_blank" style="color:var(--accent)">https://github.com/mviereck/ci-loudness-balancing</a>',
     freqTitle: "Manufacturer, electrode frequencies & status",
     lblSide: "Side:",
+    plSideLabel: "Side:",
     lblMfr: "Manufacturer:",
     freqHint:
       'Select your CI manufacturer. Mark problematic electrodes under "Status". Status "Deactivated" = electrode switched off in the CI itself, will be automatically excluded. ▶ = single tone, ◼ = sustained tone.',
@@ -662,6 +668,11 @@ const L = {
     fLoad: "Load results",
     fSave: "Save results",
     fPrint: "Print results",
+    printBtn: "Print",
+    printPopupBlocked: "Print window was blocked by the browser. Please allow popups for this page.",
+    printHeaderDate: "Date",
+    printHeaderSide: "Side",
+    printHeaderImpl: "Implant",
     fCopy: "Copy table",
     fResetAll: "Reset everything",
     fExplain:
@@ -945,8 +956,6 @@ const L = {
   },
   fr: {
     subtitle: "CI Sound Balancing Tool · v" + APP_VERSION,
-    sideLeft: "LEFT",
-    sideRight: "RIGHT",
     sideLeft: "GAUCHE",
     sideRight: "DROITE",
     tabIntro: "Introduction",
@@ -973,6 +982,8 @@ const L = {
     introAudioDesc:
       'Les résultats peuvent être imprimés. Le document contient les résultats de mesure, vos corrections souhaitées et les valeurs égaliseur. Cela permet à votre audiologiste de voir directement où un ajustement est nécessaire.<br>Page d\'accueil du projet : <a href="https://github.com/mviereck/ci-loudness-balancing" target="_blank" style="color:var(--accent)">https://github.com/mviereck/ci-loudness-balancing</a>',
     freqTitle: "Fabricant, fréquences & statut",
+    lblSide: "Côté :",
+    plSideLabel: "Côté :",
     lblMfr: "Fabricant:",
     freqHint:
       "Sélectionnez le fabricant de votre IC. Marquez les électrodes problématiques sous «Statut». Statut «Désactivé» = électrode éteinte dans l’IC lui-même, sera automatiquement exclue. ▶ = son, ◼ = son continu.",
@@ -1078,6 +1089,9 @@ const L = {
     copyDone: "Copié.",
     fClear: "Supprimer résultats",
     delConfirmMeas: "Supprimer les mesures?",
+    resetConfirm:
+      "Vraiment tout réinitialiser ? Tous les paramètres, mesures et notes seront supprimés.",
+    resetDone: "Tout réinitialisé.",
     delConfirmAll: "Aussi réinitialiser?",
     manComp: "Manuel",
     pairsRem: "restantes",
@@ -1101,12 +1115,22 @@ const L = {
     plBalApplyOff: "Balance stéréo OFF",
     plMapLabel: "Simulation MAPLAW",
     plMapExpl: "Simulation compression MED-EL.",
+    balTitle: "Stéréo-balance",
+    balDesc:
+      "Règle le volume relatif entre la correction gauche et droite. Fonctionne dans le lecteur avec de l'audio stéréo.",
+    balLabel: "Balance :",
     fileTitle: "Charger / Sauver",
     fileDesc: "Paramètres et résultats en JSON.",
     fLoad: "Charger",
     fSave: "Sauver",
     fPrint: "Imprimer",
+    printBtn: "Imprimer",
+    printPopupBlocked: "La fenêtre d'impression a été bloquée par le navigateur. Veuillez autoriser les fenêtres contextuelles pour cette page.",
+    printHeaderDate: "Date",
+    printHeaderSide: "Côté",
+    printHeaderImpl: "Implant",
     fCopy: "Copier",
+    fResetAll: "Tout réinitialiser",
     fExplain: "Les réglages du lecteur sont inclus dans l'impression.",
     eeDesc: "Export EasyEffects pour PipeWire.",
     eeExport: "Exporter EasyEffects",
@@ -1418,6 +1442,8 @@ const L = {
     introAudioDesc:
       'Los resultados se pueden imprimir. El documento contiene los resultados de medición, sus correcciones deseadas y los valores de ecualizador resultantes. Esto permite al audiólogo ver exactamente dónde son necesarios los ajustes.<br>Página web del proyecto: <a href="https://github.com/mviereck/ci-loudness-balancing" target="_blank" style="color:var(--accent)">https://github.com/mviereck/ci-loudness-balancing</a>',
     freqTitle: "Fabricante, frecuencias y estado",
+    lblSide: "Lado:",
+    plSideLabel: "Lado:",
     lblMfr: "Fabricante:",
     freqHint:
       "Seleccione el fabricante de su IC. Marque los electrodos problemáticos en «Estado». Estado «Desactivado» = electrodo apagado en el propio IC, será excluido automáticamente. ▶ = tono, ◼ = tono continuo.",
@@ -1523,6 +1549,9 @@ const L = {
     copyDone: "Copiado.",
     fClear: "Eliminar resultados",
     delConfirmMeas: "¿Eliminar mediciones?",
+    resetConfirm:
+      "¿Restablecer todo? Se borrarán todos los ajustes, mediciones y notas.",
+    resetDone: "Todo restablecido.",
     delConfirmAll: "¿También restablecer?",
     manComp: "Manual",
     pairsRem: "restantes",
@@ -1546,12 +1575,22 @@ const L = {
     plBalApplyOff: "Balance estéreo OFF",
     plMapLabel: "Simulación MAPLAW",
     plMapExpl: "Simulación compresión MED-EL.",
+    balTitle: "Balance estéreo",
+    balDesc:
+      "Ajusta el volumen relativo entre la corrección izquierda y derecha. Funciona en el reproductor con audio estéreo.",
+    balLabel: "Balance:",
     fileTitle: "Cargar / Guardar",
     fileDesc: "Configuración y resultados en JSON.",
     fLoad: "Cargar",
     fSave: "Guardar",
     fPrint: "Imprimir",
+    printBtn: "Imprimir",
+    printPopupBlocked: "La ventana de impresión fue bloqueada por el navegador. Permita las ventanas emergentes para esta página.",
+    printHeaderDate: "Fecha",
+    printHeaderSide: "Lado",
+    printHeaderImpl: "Implante",
     fCopy: "Copiar",
+    fResetAll: "Restablecer todo",
     fExplain: "La configuración del reproductor se incluye en la impresión.",
     eeDesc: "Export EasyEffects para PipeWire.",
     eeExport: "Exportar EasyEffects",
@@ -1928,6 +1967,10 @@ function applyLang() {
   updateRunExplain();
   buildFreqTable();
   if (typeof buildImplantCard === "function") buildImplantCard();
+  const _pib = document.getElementById("printImplantBtn");
+  if (_pib) _pib.title = t("printBtn");
+  const _peb = document.getElementById("printErgebnisseBtn");
+  if (_peb) _peb.title = t("printBtn");
   if (document.getElementById("resC").style.display !== "none") renderResults();
   try {
     localStorage.setItem("ci-lb-lang", lang);

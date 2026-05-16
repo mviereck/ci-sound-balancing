@@ -28,7 +28,7 @@
       var scripts = [
         'version.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
-        'results.js', 'chart.js', 'file.js', 'tabs-eq.js', 'levels.js',
+        'results.js', 'chart.js', 'file.js', 'print.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
         'levels-tab.js', 'player.js', 'freq-warp.js', 'lr-balance.js', 'init.js'
       ];
       scripts.forEach(function (src) {
@@ -160,7 +160,14 @@
       <!-- ===== SETUP ===== -->
       <div id="panel-setup" class="panel">
         <div class="card">
-          <h2 id="freqTitle"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 id="freqTitle" style="margin:0;"></h2>
+            <button class="btn" id="printImplantBtn"
+                    title=""
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
           <p
             style="
               font-size: 0.84em;
@@ -456,6 +463,10 @@
           <button class="subtab active" data-subtab="results" data-parent="ergebnisse" id="subTabLoudnessBtn"></button>
           <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse">Stereo-Balance</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFreqMatchBtn"></button>
+          <button class="btn" id="printErgebnisseBtn"
+                  style="margin-left:auto;padding:4px 10px;font-size:0.9em;">
+            🖨 <span data-t="printBtn"></span>
+          </button>
         </div>
         <div id="subpanel-ergebnisse-results" class="subpanel active">
       <div id="panel-results-inner">
@@ -687,8 +698,14 @@
       <!-- ===== SCHIEBER (zukünftig „Levels") ===== -->
       <div id="panel-schieber" class="panel">
         <div class="card">
-          <h2 data-t="lvTabTitle"></h2>
-          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px" data-t="lvTabDesc"></p>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 data-t="lvTabTitle" style="margin:0;"></h2>
+            <button class="btn" id="printSchieberBtn"
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
+          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px;margin-top:6px;" data-t="lvTabDesc"></p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
             <!-- Hauptmodus -->
             <span style="font-weight:600" data-t="lvTabModeLabel"></span>
@@ -752,7 +769,13 @@
           <div class="explain-plain" data-t="lvIntroDesc"></div>
         </div>
         <div class="card">
-          <h2 data-t="lvChartTitle"></h2>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <h2 data-t="lvChartTitle" style="margin:0;"></h2>
+            <button class="btn" id="printKurvenBtn"
+                    style="padding:4px 10px;font-size:0.9em;">
+              🖨 <span data-t="printBtn"></span>
+            </button>
+          </div>
           <div
             style="
               margin-bottom: 8px;

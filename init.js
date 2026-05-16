@@ -46,6 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+    // Druck-Knöpfe Kurven- und Schieber-Tab
+    const _pkb = document.getElementById("printKurvenBtn");
+    if (_pkb) _pkb.title = t("printBtn");
+    const _psb = document.getElementById("printSchieberBtn");
+    if (_psb) _psb.title = t("printBtn");
   };
 
   // ---- Warp i18n Hilfsfunktionen ----
@@ -142,6 +147,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.files[0]) loadJson(e.target.files[0]);
   });
   document.getElementById("fSaveBtn").addEventListener("click", saveJson);
+  const printImplantBtn = document.getElementById("printImplantBtn");
+  if (printImplantBtn) {
+    printImplantBtn.title = t("printBtn");
+    printImplantBtn.addEventListener("click", printImplantTab);
+  }
+  const printErgebnisseBtn = document.getElementById("printErgebnisseBtn");
+  if (printErgebnisseBtn) {
+    printErgebnisseBtn.title = t("printBtn");
+    printErgebnisseBtn.addEventListener("click", printErgebnisseTab);
+  }
+  const printKurvenBtn = document.getElementById("printKurvenBtn");
+  if (printKurvenBtn) {
+    printKurvenBtn.title = t("printBtn");
+    printKurvenBtn.addEventListener("click", printKurvenTab);
+  }
+  const printSchieberBtn = document.getElementById("printSchieberBtn");
+  if (printSchieberBtn) {
+    printSchieberBtn.title = t("printBtn");
+    printSchieberBtn.addEventListener("click", printSchieberTab);
+  }
   document.getElementById("fPrintBtn").addEventListener("click", async () => {
     // Hilfsfunktionen
     const getStatusText = (i, excl, st) => {
@@ -365,7 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // HTML für eine Seite generieren
     const generatePage = (data, eqImage) => {
-      const isLevelsOnly = src === "levels";
+      const isLevelsOnly = plSrcMeas ? null : "levels";
       // Per-electrode unit conversion
       const im = data.implant || {};
       const isMedel = data.manufacturer === "medel";

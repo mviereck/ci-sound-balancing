@@ -84,7 +84,7 @@ zuvor mit statischen Tags.
 | 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
-| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `presets`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`). Side-Logik, `dEN`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
+| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"/"mono"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |
 | 5  | ui-implant.js | `buildImplantCard`, `updCochlearGen` |
 | 6  | freq-table.js | `buildFreqTable`, `switchMfr`, `resetFreqs`, `actEl`, `allEl`, `allPairs`, `shuffle`, `randAB`, `gWt` |
@@ -92,8 +92,10 @@ zuvor mit statischen Tags.
 | 8  | test.js | `ROUND_ROBIN`-Tabelle, `compWLS`, `startTest`, alle Test-Sub-Funktionen. Bindet sich an die von test-ui.js erzeugte UI. |
 | 9  | freqmatch.js | Frequenzabgleich-Test (Sub-Tab freqmatch). `fmStart`, `fmConfirm`, `fmAbort`, `fmApplyLang`, `fmPlayCurrent`. Eigener DOMContentLoaded-Handler. Bindet sich an die von test-ui.js erzeugte UI. |
 | 10 | results.js | `renderResults`, `renderFreqMatchResults` |
-| 11 | chart.js | `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
+| 11 | chart.js | `drawDisabledBar` (Helper, auch von lr-balance.js genutzt), `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
 | 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `expText`, `copyRes`, `exportEasyEffects` |
+| 12b | print.js | Druck-Infrastruktur: `buildPrintHeader` (Mini-Kopf für Einzelausdrucke), `openPrintWindow` (neues Fenster, HTML schreiben, drucken), `canvasToImg` (Canvas → `<img>` PNG-Daten-URL). Wird von den Tab-spezifischen Druck-Handlern in den jeweiligen Tab-Modulen aufgerufen. Der zentrale „Alles drucken"-Button (`fPrintBtn` in init.js) ist unabhängig davon. |
+| 12c | tab-print.js | Tab-spezifische Druck-Funktionen: `printImplantTab` (Implantat-Tab), `printErgebnisseTab` (Dispatcher Meßergebnisse-Sub-Tabs), `_printResLoudness`, `_printResLR`, `_printResFreqmatch`, `_printCloneSafe` (DOM-Klon mit Canvas→img-Ersatz), `printKurvenTab` (Kurven-Tab, Chart-Card + Kurvenfunktionen-Card), `_buildPresetCardPrint` (datengetriebene Preset-Tabelle für Druck: nur aktive Kurven, Werte als Text), `printSchieberTab` (Schieber-Tab: Canvas-Bild + Werte-Tabelle pro Elektrode, im Absolutmodus mit Hersteller-Einheit-Spalte). Nutzen die Helper aus `print.js`. |
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
 | 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels` (noch in expText/file.js genutzt), `buildPrTbl`, `drawLvChart`, `lvOnChange`, `applyPresetDeltaOtherSide`. `buildLvGrid`, `updLvFocus`, `updAllBars` sind entfernt. |
 | 14b | levels-tab.js | Schieber-Tab (sichtbar „Levels"): `lvTabDraw` (Dispatcher), `lvTabDrawRelative`, `lvTabDrawAbsolute`, diverse Helper-Zeichenfunktionen (`lvTabDrawExcludedColumn`, `lvTabDrawNoMclColumn`, `lvTabDrawStackRelative`, `lvTabDrawSumBarRelative`, `lvTabDrawStackAbsolute`, `lvTabDrawSumBarAbsolute`, `lvTabDrawFocusAndSum`, `lvTabDrawLabelsRelative`, `lvTabDrawCompareLinesRelative`, `lvTabDrawCompareLinesAbsolute`), `lvTabAbsoluteAvailable`, `lvTabUpdateModeAvailability`, `lvTabElHasMcl`, `lvTabNavigableEl`, `lvTabStepAbsolute`, `lvTabRebuild`, `lvTabOnSchieberChange`, `lvTabResetAll`. Eigener DOMContentLoaded-Handler mit focus/blur-Listenern auf dem Canvas. State: `lvTabFocus` (lokal), `lvTabHasFocus` (lokal, true wenn Canvas Tastatur-Fokus hat — steuert die Umrahmung der aktiven Elektrode), `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant` (alle in state-side.js). Canvas hat `tabindex="0"`, damit es per Klick oder Tab-Taste fokussierbar ist. |
@@ -111,6 +113,66 @@ Variablen, die globalen Test-Einstellungen (`globalToneType`,
 `globalSequence`, `slTarget_test`, `slTarget_balance`) oder die
 Levels-Tab-Anzeigestate (`lvTabShowMeas`, `lvTabShowCurves`,
 `lvTabMode`, `lvTabVariant`) zugreift, findet die Deklaration dort.
+
+**State pro Seite vs. globale Live-View:** Die persistierten
+Daten leben pro Seite in `sideData.left.*` / `sideData.right.*`
+(insbesondere `manufacturer`, `nEl`, `freqs`, `elFreqOwn`, `elSt`,
+`elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`,
+`presets`, `config`, `fullSweepRound`, `fullSweepDonePairs`,
+`implant`). Die gleichnamigen freistehenden Variablen (`mfr`, `nEl`,
+`freqs`, `manualLevels`, …) sind **Live-Views der aktiven Seite**:
+`bindActiveSide()` kopiert die Referenzen aus `sideData[activeSide]`
+in die globalen Variablen. Beim Side-Wechsel wird neu gebunden;
+Tab-Module greifen i.d.R. auf die globalen Variablen zu und sehen
+dadurch transparent die aktive Seite. Persistenz (JSON, localStorage)
+serialisiert immer `sideData.left` und `sideData.right` getrennt.
+
+**Bilaterale Konfiguration und Frequenzraster-Sync:** Jede Seite
+hat eine `config` (`"ci"` / `"hg"` / `"normal"` / `"schwerhörig"`
+/ `"taub"`). `setSideConfig(side, cfg)` setzt sie und ruft bei
+Nicht-CI-Konfig `syncFreqsToAcoustic()`. `getFreqSource()` liefert
+die Seite, deren CI-Frequenzraster auf eine akustische Seite
+gespiegelt wird: wenn nur eine Seite CI ist, ist sie die Quelle;
+sind beide CI (unabhängig) oder beide nicht-CI, liefert `null`.
+Bei beiden nicht-CI greift `defaultMfr` als Frequenzraster-
+Vorgabe (persistiert, `defaultMfrSelect` im Implantat-Tab). Beim
+Spiegeln werden auf der Ziel-Seite `nEl`, `freqs`, `manufacturer`,
+`elFreqOwn` und die pro-Elektroden-Arrays sowie `implant` auf
+korrekte Länge gebracht — bestehende Werte bleiben erhalten, soweit
+die Länge stimmt.
+
+**Side-Wechsel:** Sichtbare Buttons `sideLeftBtn` / `sideRightBtn`
+oben im UI rufen `setActiveSide(side)`. `setActiveSide` setzt
+`activeSide`, ruft `bindActiveSide`, spiegelt den Wert in den
+versteckten `ciSideSelect` (existiert aus historischen Gründen,
+wird heute nur als interner Mirror benutzt), aktualisiert die
+Dropdowns `mfrSelect`, `cfgSelect`, `defaultMfrSelect`, baut
+Frequenztabelle, Preset-Tabelle, Kurven-Chart, Schieber-Canvas,
+Ergebnisse und Implantat-Card neu und ruft `updSideButtons`
+(visuelle Markierung des aktiven Buttons), `updFClearBtn`
+(beschriftet den „Messergebnisse löschen"-Button mit der
+aktiven Seite), `updPlSrcButtons` und ggf.
+`updatePlayerForSideChange` (wenn ein Buffer geladen ist).
+
+**Player Side-Modi:** `getPlayerSide()` (state-side.js) liefert
+`"left"`, `"right"`, `"both"` oder `"mono"` abhängig von den
+Checkboxen `plBothSides` und `plMonoEQ`. „both" = Stereo mit
+getrennten EQ-Ketten pro Kanal (`pEqFLeft` / `pEqFRight`),
+gespeist über `pChannelSplitter` und `pChannelMerger`. „mono" =
+beide Seiten, aber identischer EQ (Durchschnitt der beiden
+Seiten-Korrekturen). „left"/"right" = nur die jeweilige Seite hörbar
+mit deren EQ-Kette; der Gegenkanal ist stumm. `updatePlayerForSideChange`
+(player.js) baut den Audio-Graph bei Side-Wechsel oder
+Modus-Änderung neu auf — auch während laufender Wiedergabe (mit
+kurzer Unterbrechung).
+
+**Inter-Ohr-Vergleich (Gesamtoffset L↔R):** `getPlayerBalance()`
+in state-side.js berechnet den Mittelwert über alle gemessenen
+`lrResults` (Stereo-Balance-Test) und liefert daraus ein
+symmetrisches Stereo-Balance-Offset (positiv = rechts louder →
+negativer Offset dämpft rechts ab). Wird im Player angewandt,
+wenn die Checkbox „Stereo-Balance anwenden" (`plApplyBalance`) an
+ist. Begrenzt auf ±60 dB.
 
 **Schieber-Tab-Modus und -Variante** (`lvTabMode`, `lvTabVariant`):
 `lvTabMode` steuert den Anzeigemodus (`"rel"` = relativ ±dB,
@@ -248,6 +310,12 @@ Elektrodenlautstärke-Balance, in `lrDrawChart` + `lrRenderResults`
 (lr-balance.js) für Stereo-Balance, und in `drawFreqMatchChart` +
 `renderFreqMatchResults` (results.js) für Frequenzabgleich.
 
+Der Deaktiviert-Balken (hellgrauer Vollbalken + X-Diagonale)
+wird über den gemeinsamen Helper `drawDisabledBar` aus
+`chart.js` gezeichnet und ist damit konsistent zwischen
+`drawChart` und `lrDrawChart`. `drawFreqMatchChart` nutzt einen
+eigenen Stil (Vertikallinie statt Balken) wegen der log-Hz-Achse.
+
 **Historisches Relikt:** Der Tab mit `data-tab="setup"` wird mit dem
 i18n-Key `tabFreq` ("Implantat") beschriftet. Setup war der alte Name,
 Implantat ist der aktuelle UI-Text. Wer nach „Frequenzen" sucht,
@@ -301,6 +369,12 @@ Großer Edit, mehrere Module:
 - file.js: saveJson + applyLoadedData für Persistenz erweitern
 - init.js: Autosave-Block für localStorage prüfen
 - CODESTRUKTUR.md: in der state-side.js-Zeile mit aufnehmen
+
+### Neuer Tab-Einzeldruck
+- Tab-Modul oder init.js: Druck-Knopf-Listener registrieren
+- print.js: nicht ändern (Infrastruktur ist stabil)
+- Bei neuen Druck-Header-Feldern: i18n.js (alle 4 Sprachen),
+  buildPrintHeader in print.js erweitern
 
 ### Neue JS-Datei hinzufügen oder bestehende entfernen
 - index.html: `<script>`-Tag an passender Position einfügen oder

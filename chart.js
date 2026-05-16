@@ -1,3 +1,20 @@
+// Zeichnet eine deaktivierte/gemute Elektrode als hellgrauen
+// Vollbalken mit dunkler X-Diagonale. Wird von chart.js
+// (drawChart) und lr-balance.js (lrDrawChart) genutzt. NICHT für
+// drawFreqMatchChart geeignet (dort log-Hz-Achse).
+function drawDisabledBar(ctx, x, yTop, yBot, bW) {
+  ctx.fillStyle = '#e5e7eb';
+  ctx.fillRect(x, yTop, bW, yBot - yTop);
+  ctx.strokeStyle = '#6b7280';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(x, yTop);
+  ctx.lineTo(x + bW, yBot);
+  ctx.moveTo(x + bW, yTop);
+  ctx.lineTo(x, yBot);
+  ctx.stroke();
+}
+
 // ============================================================
 // CHART
 // ============================================================
@@ -81,17 +98,7 @@ function drawChart(cv, vals, res, isOff, elColor) {
                     || (typeof elSt    !== 'undefined' && elSt[i] === 'mute');
 
     if (isDisabled) {
-      const yTop = pad.top, yBot = pad.top + pH;
-      ctx.fillStyle = '#e5e7eb';
-      ctx.fillRect(x, yTop, bW, yBot - yTop);
-      ctx.strokeStyle = '#6b7280';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(x, yTop);
-      ctx.lineTo(x + bW, yBot);
-      ctx.moveTo(x + bW, yTop);
-      ctx.lineTo(x, yBot);
-      ctx.stroke();
+      drawDisabledBar(ctx, x, pad.top, pad.top + pH, bW);
     } else {
       const col = elColor
         ? colorMap[elColor(i) || "grey"]
