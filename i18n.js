@@ -163,6 +163,7 @@ const L = {
     pairsRem: "Vergleiche verbleiben",
     exclDuring: "ausgeschlossen",
     plTitle: "Audioplayer mit Korrektur-Equalizer",
+    plSettingsTitle: "Einstellungen",
     plDesc:
       "Dieser Player simuliert, wie Musik oder Sprache klingen könnte, wenn die CI-Lautstärkekurve korrigiert würde. Er verändert das Signal vor der CI-Verarbeitung – nicht identisch mit einer MCL-Anpassung, aber ein Anhaltspunkt.",
     plNoData: "Noch keine Meßdaten. Erst einen Test durchführen.",
@@ -631,6 +632,7 @@ const L = {
     pairsRem: "pairs remaining",
     exclDuring: "excluded",
     plTitle: "Audio player with correction equalizer",
+    plSettingsTitle: "Settings",
     plDesc:
       "This player simulates how music or speech might sound if the CI loudness curve were corrected. It modifies the signal before CI processing – not identical to MCL adjustment, but an indication.",
     plNoData: "No measurement data yet. Run a test first.",
@@ -1078,6 +1080,7 @@ const L = {
     pairsRem: "restantes",
     exclDuring: "exclu",
     plTitle: "Lecteur audio avec correction",
+    plSettingsTitle: "Paramètres",
     plDesc:
       "Ce lecteur simule comment la musique ou la parole pourrait sonner si la courbe de volume IC était corrigée.",
     plNoData: "Pas de données.",
@@ -1521,6 +1524,7 @@ const L = {
     pairsRem: "restantes",
     exclDuring: "excluido",
     plTitle: "Reproductor con corrección",
+    plSettingsTitle: "Configuración",
     plDesc:
       "Este reproductor simula cómo podría sonar la música o el habla si se corrigiera la curva de volumen del IC.",
     plNoData: "Sin datos.",

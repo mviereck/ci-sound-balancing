@@ -707,7 +707,7 @@
       <div id="panel-levels" class="panel">
         <div class="card">
           <h2 data-t="lvIntroTitle"></h2>
-          <div class="explain" data-t="lvIntroDesc"></div>
+          <div class="explain-plain" data-t="lvIntroDesc"></div>
         </div>
         <div class="card">
           <h2 data-t="lvChartTitle"></h2>
@@ -777,7 +777,7 @@
         <div class="card">
           <h2 data-t="lvPresetTitle"></h2>
           <div
-            class="explain"
+            class="explain-plain"
             style="margin-bottom: 10px"
             data-t="lvPresetDesc"
           ></div>
@@ -800,16 +800,53 @@
 
       <!-- ===== PLAYER ===== -->
       <div id="panel-player" class="panel">
+        <!-- 1. Reine Textbox: Titel + Beschreibung -->
         <div class="card">
           <h2 data-t="plTitle"></h2>
           <p
             style="
               font-size: 0.84em;
               color: var(--text-muted);
-              margin-bottom: 10px;
+              margin: 0;
             "
             data-t="plDesc"
           ></p>
+        </div>
+
+        <!-- 2. Equalizer-Graph -->
+        <div id="plEqViz" class="card">
+          <h2 data-t="plEqTitle"></h2>
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 400px;
+              background: var(--bg);
+              border-radius: 8px;
+              overflow: hidden;
+            "
+          >
+            <canvas
+              id="plEqCv"
+              style="width: 100%; height: 100%; display: block"
+            ></canvas>
+          </div>
+          <div style="margin-top: 12px; overflow-x: auto">
+            <table class="results-table" style="font-size: 0.78em">
+              <thead>
+                <tr id="plEqH"></tr>
+              </thead>
+              <tbody>
+                <tr id="plEqLv"></tr>
+                <tr id="plEqGn"></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. Einstellungen -->
+        <div class="card">
+          <h2 data-t="plSettingsTitle"></h2>
           <div class="controls-row">
             <button
               class="btn"
@@ -931,6 +968,8 @@
             data-t="plNHExpl"
           ></div>
         </div>
+
+        <!-- 4. Audiodatei -->
         <div class="card">
           <h3 data-t="plFileTitle" style="margin-bottom: 8px"></h3>
           <div id="plNoD" class="hidden warning-bar" data-t="plNoData"></div>
@@ -1071,7 +1110,7 @@
           </div>
         </div>
 
-        <!-- ===== FREQUENZ-WARPING ===== -->
+        <!-- 5. Frequenz-Warping -->
         <div class="card" id="plWarpCard">
           <h2 data-t="pwTitle"></h2>
           <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="pwSubtitle"></div>
@@ -1143,36 +1182,6 @@
             class="explain explain-warn"
             style="display:none;margin-bottom:6px"
           ></div>
-        </div>
-
-        <div id="plEqViz" class="card">
-          <h2 data-t="plEqTitle"></h2>
-          <div
-            style="
-              position: relative;
-              width: 100%;
-              height: 400px;
-              background: var(--bg);
-              border-radius: 8px;
-              overflow: hidden;
-            "
-          >
-            <canvas
-              id="plEqCv"
-              style="width: 100%; height: 100%; display: block"
-            ></canvas>
-          </div>
-          <div style="margin-top: 12px; overflow-x: auto">
-            <table class="results-table" style="font-size: 0.78em">
-              <thead>
-                <tr id="plEqH"></tr>
-              </thead>
-              <tbody>
-                <tr id="plEqLv"></tr>
-                <tr id="plEqGn"></tr>
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
 

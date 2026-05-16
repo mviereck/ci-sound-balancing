@@ -334,6 +334,19 @@ Drei Cards untereinander:
 
 ## Player
 
+- Aufbau des Tabs in fünf Karten, in dieser Reihenfolge:
+  1. **Einleitung** — reine Textbox mit Titel „Audioplayer mit Korrektur-
+     Equalizer" und Beschreibung (`plTitle`, `plDesc`). Kein blauer
+     Hinweis-Strich, nur normaler Absatz.
+  2. **Equalizer-Graph** (`plEqViz`) — Kurven-Canvas plus Tabelle.
+  3. **Einstellungen** (`plSettingsTitle`) — Equalizer an/aus, Stärke,
+     Quellen-Buttons (Gemessen / Kurven / Schieber), Beide Seiten,
+     Mono-EQ, Normalhörenden-Simulation, „Stereo-Balance anwenden",
+     NH-Hinweisbox (`plNHInfo`).
+  4. **Audiodatei** (`plFileTitle`) — Datei-Picker, Transport-Controls
+     (Play/Stop, Zeitleiste, Lautstärke).
+  5. **Frequenz-Warping** (`pwTitle`) — Aktivierung, Verfahren, Modus,
+     Stärke, Status- und Hinweisbereich.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Gemessen · Kurven · Schieber**

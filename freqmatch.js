@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
     explain: {
       titleKey: 'fmTitle',
       paragraphs: [
-        { key: 'fmHintMethod' },
+        { key: 'fmHintMethod', kind: 'plain' },
         { key: 'fmHintWarn', kind: 'warn' }
       ]
     },
