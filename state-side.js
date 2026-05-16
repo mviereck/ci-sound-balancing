@@ -140,8 +140,9 @@ function setActiveSide(side) {
   const dfSel = document.getElementById("defaultMfrSelect");
   if (dfSel) dfSel.value = defaultMfr;
   buildFreqTable();
-  buildLvGrid();
+  buildPrTbl();
   drawLvChart();
+  if (typeof lvTabRebuild === "function") lvTabRebuild();
   renderResults();
   buildImplantCard();
   updSideButtons();
@@ -399,5 +400,11 @@ let fRes = [];
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden
 let plSrcMeas = true,
-  plSrcLevels = true; // EQ source toggles
+  plSrcLevels = true,
+  plSrcCurves = true; // EQ source toggles
+
+let lvTabShowMeas = false;
+let lvTabShowCurves = false;
+let lvTabMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)
+let lvTabVariant = "stack"; // "stack" = gestapelt, "sum" = nur Summe, "lines" = Summe + Vergleichslinien
 

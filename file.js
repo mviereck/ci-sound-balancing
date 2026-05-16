@@ -130,7 +130,7 @@ function resetAll() {
   slTarget_test = "balance";
   slTarget_balance = "both";
   buildFreqTable();
-  buildLvGrid();
+  buildPrTbl();
   drawLvChart();
   renderResults();
   alert(t("resetDone"));
@@ -195,14 +195,13 @@ async function saveJson() {
     globalSequence: globalSequence,
     slTarget_test: slTarget_test,
     slTarget_balance: slTarget_balance,
-    playerSource:
-      plSrcMeas && plSrcLevels
-        ? "both"
-        : plSrcMeas
-          ? "measured"
-          : plSrcLevels
-            ? "levels"
-            : "none",
+    playerSourceMeas: plSrcMeas,
+    playerSourceLevels: plSrcLevels,
+    playerSourceCurves: plSrcCurves,
+    levelsTabShowMeas: lvTabShowMeas,
+    levelsTabShowCurves: lvTabShowCurves,
+    levelsTabMode: lvTabMode,
+    levelsTabVariant: lvTabVariant,
     plSide: getPlayerSide(),
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
@@ -418,12 +417,18 @@ function applyLoadedData(d) {
     ? d.globalToneType : "sine";
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
-  if (d.playerSource !== undefined) {
+  if (typeof d.playerSourceMeas === "boolean") {
+    plSrcMeas = d.playerSourceMeas;
+    plSrcLevels = !!d.playerSourceLevels;
+    plSrcCurves = !!d.playerSourceCurves;
+  } else if (typeof d.playerSource === "string") {
     plSrcMeas = d.playerSource === "measured" || d.playerSource === "both";
     plSrcLevels = d.playerSource === "levels" || d.playerSource === "both";
+    plSrcCurves = d.playerSource === "levels" || d.playerSource === "both";
   } else {
     plSrcMeas = true;
     plSrcLevels = true;
+    plSrcCurves = true;
   }
   if (typeof lrResults !== "undefined" && d.lrResults) {
     Object.keys(lrResults).forEach((k) => delete lrResults[k]);
@@ -464,8 +469,17 @@ function applyLoadedData(d) {
   buildFreqTable();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
-  if (typeof buildLvGrid === "function") buildLvGrid();
+  if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;
+  if (typeof d.levelsTabShowCurves === "boolean") lvTabShowCurves = d.levelsTabShowCurves;
+  if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
+  if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
+  if (typeof lvTabUpdateModeAvailability === "function") lvTabUpdateModeAvailability();
+  if (typeof lvTabRebuild === "function" &&
+      document.getElementById("panel-schieber")?.classList.contains("active")) {
+    lvTabRebuild();
+  }
   if (typeof updFClearBtn === "function") updFClearBtn();
   if (typeof buildImplantCard === "function") buildImplantCard();
   if (pEqF && pEqF.length > 0) pUpdEQ();

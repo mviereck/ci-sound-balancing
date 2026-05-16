@@ -20,9 +20,15 @@ Code des jeweiligen Tabs liegt.
 | Implantat | setup | ui-implant.js, freq-table.js |
 | Messungen | messungen | mit drei Sub-Tabs (s.u.) |
 | Meßergebnisse | ergebnisse | results.js, chart.js (mit Sub-Tabs) |
-| Levels | levels | levels.js |
+| Kurven | levels | levels.js |
+| Schieber | schieber | levels-tab.js |
 | Player | player | player.js |
 | Laden/Speichern | file | file.js |
+
+Reihenfolge in `index.html` (`<button class="tab">`-Liste oben): Kurven
+steht vor Schieber. Die `<panel-…>`-Divs darunter haben weiterhin die
+historische Reihenfolge (schieber vor levels), das ist unkritisch — der
+Inhalt ist DOM-ID-adressiert.
 
 **Sub-Tabs in „Messungen"** (alle drei nutzen denselben Builder
 `buildTestPanel` aus test-ui.js):
@@ -56,8 +62,8 @@ Funktionsaufrufe erst zur Laufzeit.
 |----|-------|--------|
 | 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()` |
-| 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs` |
-| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `presets`, `globalToneType`, `globalSequence`, `slTarget_*`, ...). Side-Logik, `dEN`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
+| 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
+| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `presets`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`). Side-Logik, `dEN`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |
 | 5  | ui-implant.js | `buildImplantCard`, `updCochlearGen` |
 | 6  | freq-table.js | `buildFreqTable`, `switchMfr`, `resetFreqs`, `actEl`, `allEl`, `allPairs`, `shuffle`, `randAB`, `gWt` |
@@ -68,7 +74,8 @@ Funktionsaufrufe erst zur Laufzeit.
 | 11 | chart.js | `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
 | 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `expText`, `copyRes`, `exportEasyEffects` |
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
-| 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels`, `buildLvGrid`, `buildPrTbl`, `drawLvChart`, `lvOnChange` |
+| 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels` (noch in expText/file.js genutzt), `buildPrTbl`, `drawLvChart`, `lvOnChange`, `applyPresetDeltaOtherSide`. `buildLvGrid`, `updLvFocus`, `updAllBars` sind entfernt. |
+| 14b | levels-tab.js | Schieber-Tab (sichtbar „Levels"): `lvTabDraw` (Dispatcher), `lvTabDrawRelative`, `lvTabDrawAbsolute`, diverse Helper-Zeichenfunktionen (`lvTabDrawExcludedColumn`, `lvTabDrawNoMclColumn`, `lvTabDrawStackRelative`, `lvTabDrawSumBarRelative`, `lvTabDrawStackAbsolute`, `lvTabDrawSumBarAbsolute`, `lvTabDrawFocusAndSum`, `lvTabDrawLabelsRelative`, `lvTabDrawCompareLinesRelative`, `lvTabDrawCompareLinesAbsolute`), `lvTabAbsoluteAvailable`, `lvTabUpdateModeAvailability`, `lvTabElHasMcl`, `lvTabNavigableEl`, `lvTabStepAbsolute`, `lvTabRebuild`, `lvTabOnSchieberChange`, `lvTabResetAll`. Eigener DOMContentLoaded-Handler mit focus/blur-Listenern auf dem Canvas. State: `lvTabFocus` (lokal), `lvTabHasFocus` (lokal, true wenn Canvas Tastatur-Fokus hat — steuert die Umrahmung der aktiven Elektrode), `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant` (alle in state-side.js). Canvas hat `tabindex="0"`, damit es per Klick oder Tab-Taste fokussierbar ist. |
 | 15 | player.js | Player-State, `gPC`, `pBuildEQ`, `pUpdEQ`, `pPlay` (async), `pDrawEQ` + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize. State: `pSrc` (Einzel-Quelle), `pCurrentPlayback` ({sources, stop()} für Variante B/A), `pPlayGen` (Generationszähler gegen Stale-Async) |
 | 16 | freq-warp.js | Frequenz-Warping (alle Verfahren). `buildWarpPoints`, `_warpAffectedSides`, `_warpSideGains`, `centShift`, `pComputeWarpedBuffer`, `pBuildWarpedGraph`, `pBuildVocoderGraph`, `pInitWarpWorklet`, `pWarpTrigger`, `pWarpUpdUI`, `pWarpLiveUpdate` (postMessage an laufenden Vocoder-Worklet ohne Pfadwechsel). State: `pWarpedBuf`, `pWarpOn`, `pWarpMode`, `pWarpStrength`, `pWarpBusy`, `pWarpMethod`, `pWarpWorkletReady`, `pWarpAffected`. Worklet-Code liegt als String-Konstante `_FREQ_WARP_PROCESSOR_CODE` im selben Modul; `pInitWarpWorklet` lädt ihn per Blob-URL (funktioniert auch unter `file://`). Worklet-Methoden: `_processFrame` (Phasen-Vocoder mit Identity Phase Locking), `_processFrameSinModel` (Sinusoidal Modeling: Peak-Tracking + Quadratic Interpolation + Spectral Spread, Residual unverschoben). Worklet-State zusätzlich: `algorithm` ("phase_vocoder" | "sinmodel"), `smMaxPeaks`, `smPrevPeakCount`, `smPrevPeakFreq`, `smPrevPeakPhase`. `_VOCODER_FFT_SIZE` (synchron mit `FFT_SIZE` im Worklet) wird für den L/R-Sync-Delay im Vocoder-Graph gebraucht. |
 | 17 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für `balance`. Bindet sich an die von test-ui.js erzeugte UI. |
@@ -79,24 +86,77 @@ Funktionsaufrufe erst zur Laufzeit.
 **Globaler State** liegt komplett in `state-side.js`. Wer auf
 `sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `manualLevels`,
 `presets`, `bRes`, `lvFocus`, Audio-State-Variablen, Test-State-
-Variablen oder die globalen Test-Einstellungen (`globalToneType`,
-`globalSequence`, `slTarget_test`, `slTarget_balance`) zugreift,
-findet die Deklaration dort.
+Variablen, die globalen Test-Einstellungen (`globalToneType`,
+`globalSequence`, `slTarget_test`, `slTarget_balance`) oder die
+Levels-Tab-Anzeigestate (`lvTabShowMeas`, `lvTabShowCurves`,
+`lvTabMode`, `lvTabVariant`) zugreift, findet die Deklaration dort.
+
+**Schieber-Tab-Modus und -Variante** (`lvTabMode`, `lvTabVariant`):
+`lvTabMode` steuert den Anzeigemodus (`"rel"` = relativ ±dB,
+`"abs"` = absolut in Hersteller-Einheit). `lvTabVariant` steuert die
+Darstellungsvariante (`"stack"` = Diverging Stack — Default, `"sum"`
+= nur Summenbalken, `"lines"` = Summenbalken + Vergleichslinien —
+Radio ist im aktuellen Build per `display:none` ausgeblendet, Zeichen-
+Code und Persistenz bleiben aktiv). Die Variante bleibt beim Modus-
+Wechsel (rel ↔ abs) und beim MCL-Fallback **erhalten** — keine
+automatische Anpassung. Beide Werte sind in JSON + localStorage
+persistiert. `lvTabUpdateModeAvailability` prüft MCL-Verfügbarkeit
+und graut ggf. den „absolut"-Radio aus; wird bei `lvTabRebuild` (Tab-
+Wechsel, Side-Wechsel) und nach Datei-Laden aufgerufen.
+
+**Absolutmodus-Präzision von `manualLevels`:** Im Absolutmodus
+speichert `lvTabOnSchieberChange` die dB-Werte in `manualLevels[i]`
+**ohne Rundung** (volle Float-Präzision). Bei hohem MCL ist ein
+einzelner qu/CL/CU-Schritt eine sehr kleine dB-Änderung (z.B. +1 qu
+bei MCL=200 ≈ 0.022 dB); jede Rundung auf 0.1 dB würde Schritte
+schlucken und den Schieber blockieren. Im Relativmodus bleibt die
+Rundung auf 0.1 dB. Anzeige-Rundung (z.B. `.toFixed(1)` im Draw-Pfad)
+ist davon unabhängig.
+
+**Levels-Tab Fokus-Modell:** `lvTabHasFocus` (in levels-tab.js) ist
+nur dann `true`, wenn das Canvas (`#lvTabCv`) das fokussierte Element
+ist. Die schwarze Umrahmung der aktuell aktiven Elektrode wird nur
+gezeichnet, wenn `lvTabHasFocus === true`. Die globale Pfeiltasten-
+Navigation (init.js Z. 887) reagiert nur, wenn das Canvas der
+`document.activeElement` ist. `lvTabNavigableEl()` liefert die in der
+aktuellen Modus-Konfiguration anwählbaren Elektroden: im Relativmodus
+identisch zu `actEl()`, im Absolutmodus zusätzlich gefiltert auf
+Elektroden mit eingetragenem MCL (`lvTabElHasMcl`). Klick + ←/→
+springen daher im Absolutmodus über Elektroden ohne MCL hinweg.
 
 **Globale Test-Einstellungen** (`globalToneType`, `globalSequence`)
 gelten für alle drei Sub-Tabs in „Messungen". Änderung in einem
 Test wirkt live in den anderen, vermittelt durch
 `syncAllGlobalDropdowns` aus test-ui.js.
 
+**Historische Kreuzverdrahtung der Tab-IDs:** `panel-levels` /
+`tabLevels` gehört zum sichtbaren Tab „Kurven" (data-tab="levels",
+Hauptmodul levels.js). `panel-schieber` / `tabSchieber` gehört zum
+sichtbaren Tab „Schieber" (data-tab="schieber", Hauptmodul
+levels-tab.js — i18n-Key `tabLevels` liefert den aktuellen Text
+„Schieber"). Die DOM-IDs sind bewusst so belassen, um Diff-Aufwand zu
+minimieren. Der i18n-Key `lvTabTitle` (Panel-Überschrift im Schieber-
+Tab) und `plSrcLevels` (Player-Button-Label) liefern ebenfalls
+„Schieber" / Sliders / Curseurs / Deslizadores.
+
+**Player-Quellen-Toggles:** `plSrcMeas`, `plSrcLevels`, `plSrcCurves`
+(alle in state-side.js, alle Default `true`). In `computeGains`
+(player.js) werden drei unabhängige Summanden berechnet:
+`plSrcMeas` → Messwerte aus `compWLS()`, `plSrcLevels` → nur
+`manualLevels` (Schieber-Werte), `plSrcCurves` → nur
+`getTotalPresetCurve()` (Preset-Anteil). Alle drei haben eigene
+Buttons im Player-Panel.
+
 **Preset-Berechnung** (`calcPresetCurve`, `getTotalPresetCurve`,
-`getEffectiveLevels`) liegt in `levels.js`, nicht im Player oder
-Audio. Sie wird auch von `renderResults` (results.js), vom Player
-(player.js) und von `expText` (file.js) aufgerufen.
+`getEffectiveLevels`) liegt in `levels.js`. `getEffectiveLevels`
+wird nur noch von `expText` (file.js) genutzt; player.js greift
+seit Bauanleitung 04 direkt auf `getTotalPresetCurve()` zu.
 
 **Levels → Player Live-Update:** `lvOnChange` in levels.js ruft am
-Ende `pUpdEQ()` aus player.js auf. Dadurch aktualisiert sich der
-Player-Equalizer sofort, wenn manuelle Levels oder Presets geändert
-werden.
+Ende `pUpdEQ()` aus player.js auf. Außerdem ruft es `lvTabDraw()`
+auf, damit der Schieber-Canvas synchron bleibt. Dadurch aktualisiert
+sich der Player-Equalizer sofort, wenn manuelle Levels oder Presets
+geändert werden.
 
 **applyLang ruft modulübergreifend:** `updEqToggleBtn`,
 `updBalApplyBtn` (beide tabs-eq.js), `updSideButtons` (state-side.js),

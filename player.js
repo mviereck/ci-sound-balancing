@@ -168,7 +168,7 @@ function getPlaybackBuffer() {
 
 function computeGains() {
   const { levels } = compWLS();
-  const eff = getEffectiveLevels();
+  const presetCurve = getTotalPresetCurve();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
     const hd = bRes.some(
@@ -180,8 +180,9 @@ function computeGains() {
         elSt[r.b] !== "mute",
     );
     const addMeas = plSrcMeas && hd ? levels[i] : 0;
-    const addLvls = plSrcLevels ? -eff[i] : 0;
-    g[i] = addMeas + addLvls;
+    const addLvls = plSrcLevels ? -manualLevels[i] : 0;
+    const addCurves = plSrcCurves ? -presetCurve[i] : 0;
+    g[i] = addMeas + addLvls + addCurves;
   }
   return g;
 }
@@ -595,13 +596,15 @@ function pFmt(s) {
 
 function plCheck() {
   const hMeas = bRes.length > 0;
-  const hLv =
-    manualLevels.some((v) => v !== 0) ||
-    presets.some((p) => p.on && p.strength !== 0);
-  const hasData = (plSrcMeas && hMeas) || (plSrcLevels && hLv);
+  const hLv = manualLevels.some((v) => v !== 0);
+  const hCur = presets.some((p) => p.on && p.strength !== 0);
+  const hasData =
+    (plSrcMeas && hMeas) ||
+    (plSrcLevels && hLv) ||
+    (plSrcCurves && hCur);
   document
     .getElementById("plNoD")
-    .classList.toggle("hidden", hasData || hMeas || hLv);
+    .classList.toggle("hidden", hasData || hMeas || hLv || hCur);
   if (pEqF.length > 0) pUpdEQ();
   else {
     pDrawEQ();

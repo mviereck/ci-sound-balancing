@@ -134,6 +134,39 @@ function calcAB(dB, mOld, tOld, idr) {
   };
 }
 
+// Y-Achsen-Maxima für Absolutmodus-Skala im Levels-Tab.
+const LV_AXIS_MAX = {
+  medel: 300,
+  cochlear: 255,
+  ab: 600,
+};
+function lvAxisMaxFor(mfrId) {
+  return LV_AXIS_MAX[mfrId] || 300;
+}
+function lvUnitLabelFor(mfrId) {
+  if (mfrId === "medel") return "qu";
+  if (mfrId === "cochlear") return "CL";
+  if (mfrId === "ab") return "CU";
+  return "";
+}
+// Inverse Umrechnungen (Hersteller-Einheit → dB), Gegenstück zu calcMedel/calcCochlear/calcAB.
+function dbFromMedel(mclNew, mclOld) {
+  if (mclOld == null || mclNew == null || mclOld <= 0 || mclNew <= 0) return null;
+  return 20 * Math.log10(mclNew / mclOld);
+}
+function dbFromCochlear(cNew, cOld, generation) {
+  const step = generation === "A" ? 0.176 : generation === "B" ? 0.157 : null;
+  if (step === null || cOld == null || cNew == null) return null;
+  return step * (cNew - cOld);
+}
+function dbFromAB(mNew, mOld, tOld, idr) {
+  const idrUse = idr != null && !isNaN(idr) ? idr : 60;
+  if (mOld == null || tOld == null || mNew == null) return null;
+  const span = mOld - tOld;
+  if (span === 0) return null;
+  return (mNew - mOld) * idrUse / span;
+}
+
 // ============================================================
 // MANUFACTURERS
 // ============================================================

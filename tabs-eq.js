@@ -65,8 +65,11 @@ function switchTab(n) {
   }
   if (n === "player") plCheck();
   if (n === "levels") {
-    buildLvGrid();
+    buildPrTbl();
     drawLvChart();
+  }
+  if (n === "schieber") {
+    if (typeof lvTabRebuild === "function") lvTabRebuild();
   }
 }
 
@@ -101,32 +104,33 @@ function updateTabLockState() {
 function updPlSrcButtons() {
   const mBtn = document.getElementById("plSrcMeasBtn");
   const lBtn = document.getElementById("plSrcLevelsBtn");
-  if (!mBtn || !lBtn) return;
-  mBtn.style.background   = plSrcMeas   ? "var(--success)" : "";
-  mBtn.style.color        = plSrcMeas   ? "#fff"           : "";
-  mBtn.style.borderColor  = plSrcMeas   ? "var(--success)" : "";
-  lBtn.style.background   = plSrcLevels ? "var(--success)" : "";
-  lBtn.style.color        = plSrcLevels ? "#fff"           : "";
-  lBtn.style.borderColor  = plSrcLevels ? "var(--success)" : "";
-  // Sync hidden select
+  const cBtn = document.getElementById("plSrcCurvesBtn");
+  if (!mBtn || !lBtn || !cBtn) return;
+  const activeS =
+    "background:var(--success);color:#fff;border-color:var(--success)";
+  const inactS = "";
+  mBtn.style.cssText = plSrcMeas   ? activeS : inactS;
+  lBtn.style.cssText = plSrcLevels ? activeS : inactS;
+  cBtn.style.cssText = plSrcCurves ? activeS : inactS;
+  // Sync hidden legacy select (best effort)
   const sel = document.getElementById("plSrc");
   if (sel) {
-    if (plSrcMeas && plSrcLevels) sel.value = "both";
+    if (plSrcMeas && (plSrcLevels || plSrcCurves)) sel.value = "both";
     else if (plSrcMeas) sel.value = "measured";
-    else if (plSrcLevels) sel.value = "levels";
-    else sel.value = "measured"; // fallback
+    else if (plSrcLevels || plSrcCurves) sel.value = "levels";
+    else sel.value = "measured";
   }
   updEqToggleBtn();
 }
 function updEqToggleBtn() {
   const btn = document.getElementById("plEqToggle");
-  const bothOff = plEqOn && !plSrcMeas && !plSrcLevels;
-  if (plEqOn && !bothOff) {
+  const allOff = plEqOn && !plSrcMeas && !plSrcLevels && !plSrcCurves;
+  if (plEqOn && !allOff) {
     btn.textContent = t("plEqOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";
     btn.style.borderColor = "var(--success)";
-  } else if (bothOff) {
+  } else if (allOff) {
     btn.textContent = t("plEqOn");
     btn.style.background = "var(--warning)";
     btn.style.color = "#fff";

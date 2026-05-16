@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setSideConfig(activeSide, e.target.value);
     buildFreqTable();
     buildImplantCard();
-    buildLvGrid();
+    buildPrTbl();
     drawLvChart();
     renderResults();
     if (typeof lrCheckData === "function") lrCheckData();
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     syncFreqsToAcoustic();
     buildFreqTable();
     buildImplantCard();
-    buildLvGrid();
+    buildPrTbl();
     drawLvChart();
     renderResults();
   });
@@ -310,21 +310,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Aktuelle globale Einstellungen
-    const src =
-      plSrcMeas && plSrcLevels
-        ? "both"
-        : plSrcMeas
-          ? "measured"
-          : plSrcLevels
-            ? "levels"
-            : "measured";
-    const srcLabel =
-      {
-        measured: "Gemessen",
-        levels: "Levels",
-        both: "Beide (addiert)",
-        none: "Keine",
-      }[src] || src;
+    const parts = [];
+    if (plSrcMeas) parts.push("Gemessen");
+    if (plSrcLevels) parts.push("Levels");
+    if (plSrcCurves) parts.push("Kurven");
+    const srcLabel = parts.length ? parts.join(" + ") : "Keine";
     const strPercent = parseInt(document.getElementById("plStr").value) || 100;
     const hersteller = MFR[mfr].name;
     const ref = `${dENPrefix()}${dEN(refEl)}`;
@@ -670,12 +660,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("eeExportBtn")
     .addEventListener("click", exportEasyEffects);
-  // Levels tab
-  document.getElementById("lvResetBtn").addEventListener("click", function () {
-    manualLevels.splice(0, manualLevels.length, ...new Array(nEl).fill(0));
-    buildLvGrid();
-    lvOnChange();
-  });
   ["lvChkMeas", "lvChkMan", "lvChkPre"].forEach((id) =>
     document.getElementById(id).addEventListener("change", drawLvChart),
   );
@@ -726,6 +710,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("plSrcLevelsBtn")
     .addEventListener("click", function () {
       plSrcLevels = !plSrcLevels;
+      updPlSrcButtons();
+      if (pEqF.length > 0) pUpdEQ();
+      else plCheck();
+    });
+  document
+    .getElementById("plSrcCurvesBtn")
+    .addEventListener("click", function () {
+      plSrcCurves = !plSrcCurves;
       updPlSrcButtons();
       if (pEqF.length > 0) pUpdEQ();
       else plCheck();
@@ -891,39 +883,34 @@ document.addEventListener("DOMContentLoaded", () => {
     this.value = v;
     if (pGain) pGain.gain.value = v / 100;
   });
-  // Levels keyboard nav
+  // Schieber-Tab keyboard nav — wirkt nur, wenn das Canvas selbst
+  // den Fokus hat. Im Absolutmodus überspringen ←/→ Elektroden ohne MCL.
   document.addEventListener("keydown", function (e) {
-    const lvPanel = document.getElementById("panel-levels");
-    if (!lvPanel.classList.contains("active")) return;
-    if (e.target.tagName === "INPUT" && e.target.type !== "range") return;
-    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
-      e.preventDefault();
-      const act = actEl();
-      if (!act.length) return;
-      let ci = act.indexOf(lvFocus);
-      if (ci < 0) ci = 0;
-      if (e.key === "ArrowUp") ci = Math.max(0, ci - 1);
-      else ci = Math.min(act.length - 1, ci + 1);
-      lvFocus = act[ci];
-      updLvFocus();
-    }
+    const pan = document.getElementById("panel-schieber");
+    if (!pan || !pan.classList.contains("active")) return;
+    const cv = document.getElementById("lvTabCv");
+    if (!cv || document.activeElement !== cv) return;
+    const nav = (typeof lvTabNavigableEl === "function") ? lvTabNavigableEl() : actEl();
+    if (!nav.length) return;
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       e.preventDefault();
-      const st = e.shiftKey ? 0.1 : 0.5;
-      const mn = -20,
-        mx = 20;
-      if (e.key === "ArrowRight")
-        manualLevels[lvFocus] = Math.min(
-          mx,
-          +(manualLevels[lvFocus] + st).toFixed(1),
-        );
-      if (e.key === "ArrowLeft")
-        manualLevels[lvFocus] = Math.max(
-          mn,
-          +(manualLevels[lvFocus] - st).toFixed(1),
-        );
-      buildLvGrid();
-      drawLvChart();
+      let ci = nav.indexOf(lvTabFocus);
+      if (ci < 0) ci = 0;
+      if (e.key === "ArrowLeft") ci = Math.max(0, ci - 1);
+      else ci = Math.min(nav.length - 1, ci + 1);
+      lvTabFocus = nav[ci];
+      lvTabDraw();
+    }
+    if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+      e.preventDefault();
+      const dir = e.key === "ArrowUp" ? 1 : -1;
+      if (lvTabMode === "abs") {
+        lvTabStepAbsolute(lvTabFocus, dir, e.shiftKey);
+      } else {
+        const st = e.shiftKey ? 0.1 : 0.5;
+        const cur = manualLevels[lvTabFocus] || 0;
+        lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
+      }
     }
   });
   // Test keyboard — über testEls
@@ -989,9 +976,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("ciSideSelect").value = "left";
         document.getElementById("mfrSelect").value = mfr;
       }
-      if (d.playerSource) {
+      if (typeof d.playerSourceMeas === "boolean") {
+        plSrcMeas = d.playerSourceMeas;
+        plSrcLevels = !!d.playerSourceLevels;
+        plSrcCurves = !!d.playerSourceCurves;
+        updPlSrcButtons();
+      } else if (typeof d.playerSource === "string") {
         plSrcMeas = d.playerSource === "measured" || d.playerSource === "both";
         plSrcLevels = d.playerSource === "levels" || d.playerSource === "both";
+        plSrcCurves = d.playerSource === "levels" || d.playerSource === "both";
         updPlSrcButtons();
       }
       if (d.eqOn !== undefined) {
@@ -1011,6 +1004,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (d.globalSequence) globalSequence = d.globalSequence;
       if (d.slTarget_test) slTarget_test = d.slTarget_test;
       if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
+      if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
+      if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
       buildFreqTable();
       updSideButtons();
     }
@@ -1025,6 +1020,36 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pUpdEQ         === 'function') pUpdEQ();
     });
   }
+
+  // Modus-Toggle relativ/absolut
+  document.querySelectorAll('input[name="lvTabMode"]').forEach((r) => {
+    r.addEventListener("change", function () {
+      if (!this.checked) return;
+      const newMode = this.value;
+      if (newMode === "abs" && !lvTabAbsoluteAvailable()) {
+        this.checked = false;
+        const relBtn = document.getElementById("lvTabModeRel");
+        if (relBtn) relBtn.checked = true;
+        alert(t("lvTabAbsNotAvailable"));
+        return;
+      }
+      lvTabMode = newMode;
+      // lvTabVariant wird hier NICHT überschrieben — die vom Nutzer
+      // gewählte Anzeige-Variante (gestapelt / nur Summe) bleibt
+      // beim Modus-Wechsel erhalten.
+      // Fokus für den neuen Modus revalidieren (Absolutmodus überspringt
+      // Elektroden ohne MCL).
+      lvTabRebuild();
+    });
+  });
+  // Variante-Toggle
+  document.querySelectorAll('input[name="lvTabVariant"]').forEach((r) => {
+    r.addEventListener("change", function () {
+      if (!this.checked) return;
+      lvTabVariant = this.value;
+      lvTabDraw();
+    });
+  });
 
   setInterval(() => {
     try {
@@ -1045,6 +1070,9 @@ document.addEventListener("DOMContentLoaded", () => {
               balanceResults: sideData.left.bRes,
               manualLevels: sideData.left.manualLevels,
               presets: sideData.left.presets,
+              fullSweepRound: sideData.left.fullSweepRound,
+              fullSweepDonePairs: sideData.left.fullSweepDonePairs,
+              implant: sideData.left.implant,
             },
             right: {
               config: sideData.right.config || "ci",
@@ -1059,26 +1087,28 @@ document.addEventListener("DOMContentLoaded", () => {
               balanceResults: sideData.right.bRes,
               manualLevels: sideData.right.manualLevels,
               presets: sideData.right.presets,
+              fullSweepRound: sideData.right.fullSweepRound,
+              fullSweepDonePairs: sideData.right.fullSweepDonePairs,
+              implant: sideData.right.implant,
             },
           },
           defaultMfr: defaultMfr,
           currentSide: activeSide,
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
           fRes: (typeof fRes !== "undefined") ? fRes : [],
-          playerSource:
-            plSrcMeas && plSrcLevels
-              ? "both"
-              : plSrcMeas
-                ? "measured"
-                : plSrcLevels
-                  ? "levels"
-                  : "none",
+          playerSourceMeas: plSrcMeas,
+          playerSourceLevels: plSrcLevels,
+          playerSourceCurves: plSrcCurves,
           eqOn: plEqOn,
           eqStrength: parseInt(document.getElementById("plStr").value),
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,
+          levelsTabMode: lvTabMode,
+          levelsTabVariant: lvTabVariant,
+          levelsTabShowMeas: lvTabShowMeas,
+          levelsTabShowCurves: lvTabShowCurves,
         }),
       );
     } catch (e) {}

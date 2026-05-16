@@ -80,6 +80,7 @@
         <button class="tab" data-tab="messungen" id="tabTest">Messungen</button>
         <button class="tab" data-tab="ergebnisse" id="tabResults">Meßergebnisse</button>
         <button class="tab" data-tab="levels" id="tabLevels"></button>
+        <button class="tab" data-tab="schieber" id="tabSchieber"></button>
         <button class="tab" data-tab="player" id="tabPlayer"></button>
         <button class="tab" data-tab="file" id="tabFile"></button>
       </div>
@@ -641,6 +642,65 @@
         </div>
       </div>
 
+      <!-- ===== SCHIEBER (zukünftig „Levels") ===== -->
+      <div id="panel-schieber" class="panel">
+        <div class="card">
+          <h2 data-t="lvTabTitle"></h2>
+          <p style="font-size:.84em;color:var(--text-muted);margin-bottom:10px" data-t="lvTabDesc"></p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
+            <!-- Hauptmodus -->
+            <span style="font-weight:600" data-t="lvTabModeLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="lvTabMode" id="lvTabModeRel" value="rel" checked>
+              <span data-t="lvTabModeRelative"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="lvTabMode" id="lvTabModeAbs" value="abs">
+              <span data-t="lvTabModeAbsolute"></span>
+            </label>
+            <span style="color:var(--text-muted)">|</span>
+            <!-- Variante -->
+            <span style="font-weight:600" data-t="lvTabVariantLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="lvTabVariant" id="lvTabVarSum" value="sum">
+              <span data-t="lvTabVarSum"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="lvTabVariant" id="lvTabVarStack" value="stack" checked>
+              <span data-t="lvTabVarStack"></span>
+            </label>
+            <label style="display:none;align-items:center;gap:4px;cursor:pointer">
+              <input type="radio" name="lvTabVariant" id="lvTabVarLines" value="lines">
+              <span data-t="lvTabVarLines"></span>
+            </label>
+            <span style="color:var(--text-muted)">|</span>
+            <button class="btn btn-sm" id="lvTabResetBtn" data-t="lvTabReset"></button>
+          </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86em">
+            <!-- Quellen-Toggles (eigene Zeile) -->
+            <span style="font-weight:600" data-t="lvTabShowLabel"></span>
+            <label style="display:flex;align-items:center;gap:4px">
+              <span style="display:inline-block;width:12px;height:12px;background:#16a34a;border-radius:2px"></span>
+              <span data-t="lvTabSrcSlider"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="checkbox" id="lvTabChkMeas">
+              <span style="display:inline-block;width:12px;height:12px;background:#2563eb;border-radius:2px"></span>
+              <span data-t="lvTabSrcMeas"></span>
+            </label>
+            <label style="display:flex;align-items:center;gap:4px;cursor:pointer">
+              <input type="checkbox" id="lvTabChkCurves">
+              <span style="display:inline-block;width:12px;height:12px;background:#d97706;border-radius:2px"></span>
+              <span data-t="lvTabSrcCurves"></span>
+            </label>
+          </div>
+          <div style="position:relative;width:100%;height:620px;background:var(--bg);border-radius:8px;overflow:hidden">
+            <canvas id="lvTabCv" tabindex="0" style="width:100%;height:100%;display:block;outline:none"></canvas>
+          </div>
+          <p style="font-size:.78em;color:var(--text-muted);margin-top:8px" data-t="lvTabKeyHint"></p>
+        </div>
+      </div>
+
       <!-- ===== LEVELS ===== -->
       <div id="panel-levels" class="panel">
         <div class="card">
@@ -672,7 +732,7 @@
                 gap: 4px;
                 cursor: pointer;
               "
-              ><input type="checkbox" id="lvChkMan" checked />
+              ><input type="checkbox" id="lvChkMan" />
               <span style="color: #16a34a">&#9632;</span>
               <span data-t="lvChartMan"></span
             ></label>
@@ -729,22 +789,6 @@
             <span data-t="lvPresetBoth"></span
           ></label>
           <table class="pr-tbl" id="prTbl"></table>
-        </div>
-        <div class="card">
-          <h2 data-t="lvTitle"></h2>
-          <div
-            class="explain"
-            style="margin-bottom: 14px"
-            data-t="lvExpl"
-          ></div>
-          <div class="lv-grid" id="lvGrid"></div>
-          <div style="margin-top: 10px">
-            <button
-              class="btn btn-sm"
-              id="lvResetBtn"
-              data-t="lvReset"
-            ></button>
-          </div>
         </div>
       </div>
 
@@ -804,6 +848,12 @@
                 class="btn btn-sm"
                 style="min-width: 120px"
                 data-t="plSrcMeas"
+              ></button>
+              <button
+                id="plSrcCurvesBtn"
+                class="btn btn-sm"
+                style="min-width: 80px"
+                data-t="plSrcCurves"
               ></button>
               <button
                 id="plSrcLevelsBtn"
@@ -1218,6 +1268,7 @@
 <script src="file.js"></script>
 <script src="tabs-eq.js"></script>
 <script src="levels.js"></script>
+<script src="levels-tab.js"></script>
 <script src="player.js"></script>
 <script src="freq-warp.js"></script>
 <script src="lr-balance.js"></script>
