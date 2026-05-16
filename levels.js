@@ -77,6 +77,14 @@ function calcPresetCurve(pr) {
     for (let i = 0; i < n; i++) c[i] /= mx2;
     return c;
   }
+  if (pr.type === "volume") {
+    // Gleichmäßige Anhebung/Absenkung aller aktiven Elektroden.
+    // Inaktive (deaktiviert / mute / während Test ausgeschlossen)
+    // bleiben auf 0, damit die Stärke nicht stillschweigend auf
+    // ausgeblendete Kanäle wirkt.
+    for (const i of act) c[i] = 1;
+    return c;
+  }
   return c;
 }
 function getTotalPresetCurve() {

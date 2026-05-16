@@ -673,10 +673,8 @@
               <input type="radio" name="lvTabVariant" id="lvTabVarLines" value="lines">
               <span data-t="lvTabVarLines"></span>
             </label>
-            <span style="color:var(--text-muted)">|</span>
-            <button class="btn btn-sm" id="lvTabResetBtn" data-t="lvTabReset"></button>
           </div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86em">
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:6px;font-size:.86em">
             <!-- Quellen-Toggles (eigene Zeile) -->
             <span style="font-weight:600" data-t="lvTabShowLabel"></span>
             <label style="display:flex;align-items:center;gap:4px">
@@ -694,6 +692,10 @@
               <span data-t="lvTabSrcCurves"></span>
             </label>
           </div>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:.86em">
+            <!-- Reset-Button (eigene Zeile unter Anzeigen:) -->
+            <button class="btn btn-sm" id="lvTabResetBtn" data-t="lvTabReset"></button>
+          </div>
           <div style="position:relative;width:100%;height:620px;background:var(--bg);border-radius:8px;overflow:hidden">
             <canvas id="lvTabCv" tabindex="0" style="width:100%;height:100%;display:block;outline:none"></canvas>
           </div>
@@ -703,6 +705,10 @@
 
       <!-- ===== LEVELS ===== -->
       <div id="panel-levels" class="panel">
+        <div class="card">
+          <h2 data-t="lvIntroTitle"></h2>
+          <div class="explain" data-t="lvIntroDesc"></div>
+        </div>
         <div class="card">
           <h2 data-t="lvChartTitle"></h2>
           <div

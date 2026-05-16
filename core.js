@@ -199,6 +199,7 @@ const MFR = {
 const SIDES = ["left", "right"];
 const PR_TYPES = [
   "speech",
+  "volume",
   "tilt",
   "scurve",
   "pivot",
@@ -208,6 +209,7 @@ const PR_TYPES = [
 ];
 const PR_NAMES = {
   speech: "lvPrSpeech",
+  volume: "lvPrVolume",
   tilt: "lvPrTilt",
   scurve: "lvPrScurve",
   pivot: "lvPrPivot",
@@ -217,6 +219,7 @@ const PR_NAMES = {
 };
 const PR_EXPL = {
   speech: "lvPrExplSpeech",
+  volume: "lvPrExplVolume",
   tilt: "lvPrExplTilt",
   scurve: "lvPrExplScurve",
   pivot: "lvPrExplPivot",
@@ -232,6 +235,7 @@ const PR_HAS_CENTER = {
   bassboost: false,
   highboost: false,
   speech: false,
+  volume: false,
 };
 const PR_HAS_WIDTH = { gauss: true };
 const PR_HAS_CUTOFF = { bassboost: true, highboost: true };

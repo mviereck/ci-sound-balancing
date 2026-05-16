@@ -191,14 +191,20 @@ gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 - Berechnungsgrundlagen aller drei Hersteller-Umrechnungen siehe
   `Berechnungsgrundlagen dB zu CI.md`.
 
-## Schieber-Tab (sichtbar „Schieber", DOM: panel-schieber)
+## Schieber-Tab (sichtbar „Schieber: Manuelle Einzeljustierung von Elektroden", DOM: panel-schieber)
 
-Bedienleiste oberhalb des Canvas, zweizeilig:
+Panel-Überschrift (i18n-Key `lvTabTitle`) lautet
+„Schieber: Manuelle Einzeljustierung von Elektroden" (in der Tab-
+Leiste oben weiterhin kurz „Schieber").
+
+Bedienleiste oberhalb des Canvas, **dreizeilig**:
 
 - Zeile 1: **Modus** (relativ / absolut) · **Anzeige** (nur Summe /
-  gestapelt) · Reset-Button („Manuelle Werte zurücksetzen auf 0").
+  gestapelt).
 - Zeile 2: **Anzeigen** (Schieber-Legende, Messung, Kurven) — die
   Quellen-Toggles stehen in einer eigenen Zeile.
+- Zeile 3: Reset-Button („Manuelle Werte zurücksetzen auf 0") in
+  einer eigenen Zeile unterhalb der Anzeigen-Zeile.
 
 ### Modus A — relativ (Default)
 
@@ -300,15 +306,31 @@ beim App-Start ist „gestapelt".
 
 ## Kurven-Tab (sichtbar „Kurven", DOM: panel-levels)
 
-- 4-Linien-Chart: Messung (blau), Manuell (grün), Preset (orange),
-  Summe (schwarz). Checkboxen zur Auswahl. Manuell-Linie Default aus.
-- 7 Presets gleichzeitig aktivierbar: Sprache (SII), Tilt, S-Kurve,
-  Pivot, Gauß, Bass Boost, High Boost
-- Jedes Preset: Checkbox an/aus, Stärke (±20 dB), Mittelpunkt (wo
-  sinnvoll), Breite (Gauß), Grenzpunkt (Bass/High Boost)
-- Presets und manuelle Schieber-Werte sind unabhängig, werden addiert
+Drei Cards untereinander:
+
+1. **Intro-Box** (oberste Card, i18n-Keys `lvIntroTitle` / `lvIntroDesc`):
+   Überschrift „Kurven", Erklärtext: „Anpassung der Elektroden-
+   lautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen
+   Kurvenfunktionen und passen Sie die Werte live an."
+2. **Übersicht** (`lvChartTitle`): 4-Linien-Chart mit Messung (blau),
+   Manuell (grün), Preset (orange), Summe (schwarz). Checkboxen zur
+   Auswahl. Manuell-Linie Default aus.
+3. **Kurvenfunktionen** (`lvPresetTitle` — früher „Presets"):
+   Tabelle aller Kurvenfunktionen mit Stärke und Detail-Parametern.
+
+- 8 Kurvenfunktionen gleichzeitig aktivierbar: Sprache (SII),
+  **Lautstärke**, Tilt, S-Kurve, Pivot, Gauß, Bass Boost, High Boost.
+  Reihenfolge in der Tabelle = Reihenfolge in `PR_TYPES`.
+- Jede Kurvenfunktion: Checkbox an/aus, Stärke (±20 dB), Mittelpunkt
+  (wo sinnvoll), Breite (Gauß), Grenzpunkt (Bass/High Boost).
+- **Lautstärke**: gleichmäßiger dB-Offset auf allen aktiven
+  Elektroden. Hat **nur** das Stärke-Feld (keine Mitte, keine Breite,
+  kein Grenzpunkt). Wirkt wie eine zusätzliche Gesamtlautstärke
+  unabhängig vom Player-Gain.
+- Kurvenfunktionen und manuelle Schieber-Werte sind unabhängig, werden
+  addiert.
 - SII-Gewichte per log-linearer Interpolation des ANSI S3.5 auf
-  Herstellerfrequenzen
+  Herstellerfrequenzen.
 
 ## Player
 

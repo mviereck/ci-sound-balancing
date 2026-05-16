@@ -204,7 +204,7 @@ const L = {
       "Die Einstellungen im Player werden berücksichtigt. Achten Sie auf die Einstellungen zu Links/Rechts/Beide Seiten. WICHTIG: EasyEffects muß deaktiviert sein, wenn Sie dieses Tool zum Messen oder Hören verwenden!",
     tabLevels: "Schieber",
     tabCurves: "Kurven",
-    lvTabTitle: "Schieber",
+    lvTabTitle: "Schieber: Manuelle Einzeljustierung von Elektroden",
     lvTabDesc: "Senkrechte Balken pro Elektrode. Eine Elektrode durch Anklicken zur Bearbeitung auswählen. Anpassung mit Pfeiltasten ↑/↓ (±0.5 dB, Shift = ±0.1 dB). ←/→ wechselt zwischen Elektroden.",
     lvTabShowLabel: "Anzeigen:",
     lvTabSrcSlider: "Schieber",
@@ -228,6 +228,7 @@ const L = {
     lvPrTilt: "Tilt (Höhen/Tiefen)",
     lvPrPivot: "Pivot (Mitte betonen)",
     lvPrSpeech: "Sprache (SII)",
+    lvPrVolume: "Lautstärke",
     lvPrScurve: "S-Kurve",
     lvPrGauss: "Gauß",
     lvPrBass: "Bass Boost",
@@ -248,7 +249,12 @@ const L = {
       "Hohe Frequenzen anheben (positiv) oder absenken (negativ). Grenzpunkt bestimmt, ab welcher Elektrode der Effekt wirkt.",
     lvPrExplSpeech:
       "Gewichtung nach Sprachverständlichkeit (ANSI S3.5 Band Importance Function). Positive Werte heben sprachrelevante Frequenzen (ca. 800–4000 Hz) an, negative senken sie ab.",
-    lvPresetTitle: "Presets",
+    lvPrExplVolume:
+      "Hebt oder senkt alle aktiven Elektroden um den gleichen dB-Betrag. Wirkt wie eine zusätzliche Gesamtlautstärke unabhängig von der Player-Verstärkung.",
+    lvIntroTitle: "Kurven",
+    lvIntroDesc:
+      "Anpassung der Elektrodenlautstärke über alle Elektroden hinweg. Wählen Sie aus angebotenen Kurvenfunktionen und passen Sie die Werte live an.",
+    lvPresetTitle: "Kurvenfunktionen",
     lvPresetBoth: "Veränderung auf beide Seiten anwenden",
     lvPresetDesc:
       "Vordefinierte Kurvenformen. Tilt und Pivot entsprechen den gleichnamigen MAESTRO-Werkzeugen. Das Sprache-Preset gewichtet Frequenzen nach ihrer Bedeutung für die Sprachverständlichkeit (ANSI S3.5). Tastatur: ↑↓ justiert Werte im Eingabefeld.",
@@ -665,7 +671,7 @@ const L = {
       "Export uses the current player settings (equalizer source, strength, normal hearing simulation). Note the Left/Right/Both sides settings. IMPORTANT: EasyEffects must be disabled when using this tool for measurement or listening!",
     tabLevels: "Sliders",
     tabCurves: "Curves",
-    lvTabTitle: "Sliders",
+    lvTabTitle: "Sliders: manual fine-tuning of individual electrodes",
     lvTabDesc: "Vertical bars per electrode. Click a bar to select an electrode for editing. Adjust with arrow keys ↑/↓ (±0.5 dB, Shift = ±0.1 dB). ←/→ moves between electrodes.",
     lvTabShowLabel: "Show:",
     lvTabSrcSlider: "Slider",
@@ -689,6 +695,7 @@ const L = {
     lvPrTilt: "Tilt",
     lvPrPivot: "Pivot",
     lvPrSpeech: "Speech (SII)",
+    lvPrVolume: "Volume",
     lvPrScurve: "S-Curve",
     lvPrGauss: "Gaussian",
     lvPrBass: "Bass Boost",
@@ -708,7 +715,12 @@ const L = {
       "Boost high frequencies (positive) or cut them (negative). Cutoff sets where the effect starts.",
     lvPrExplSpeech:
       "Weighting by speech intelligibility (ANSI S3.5 Band Importance Function). Positive values boost speech-relevant frequencies (approx. 800–4000 Hz), negative values reduce them.",
-    lvPresetTitle: "Presets",
+    lvPrExplVolume:
+      "Raises or lowers all active electrodes by the same dB amount. Acts as an extra overall loudness independent of the player gain.",
+    lvIntroTitle: "Curves",
+    lvIntroDesc:
+      "Adjust electrode loudness across all electrodes. Choose from the available curve functions and tune values live.",
+    lvPresetTitle: "Curve Functions",
     lvPresetBoth: "Apply changes to both sides",
     lvPresetDesc:
       "Predefined curve shapes. Tilt and Pivot correspond to the MAESTRO tools of the same name. The Speech preset weights frequencies by their importance for speech intelligibility (ANSI S3.5). Keyboard: ↑↓ adjusts values in the input field.",
@@ -1096,7 +1108,7 @@ const L = {
     eePlayerHint: "L'export utilise les réglages actuels du lecteur.",
     tabLevels: "Curseurs",
     tabCurves: "Courbes",
-    lvTabTitle: "Curseurs",
+    lvTabTitle: "Curseurs : ajustement manuel des électrodes individuelles",
     lvTabDesc: "Barres verticales par électrode. Cliquer sur une barre pour sélectionner l'électrode à modifier. Ajuster avec les flèches ↑/↓ (±0.5 dB, Maj = ±0.1 dB). ←/→ change d'électrode.",
     lvTabShowLabel: "Afficher :",
     lvTabSrcSlider: "Curseur",
@@ -1120,6 +1132,7 @@ const L = {
     lvPrTilt: "Tilt",
     lvPrPivot: "Pivot",
     lvPrSpeech: "Parole (SII)",
+    lvPrVolume: "Volume",
     lvPrScurve: "Courbe S",
     lvPrGauss: "Gauss",
     lvPrBass: "Bass Boost",
@@ -1132,11 +1145,16 @@ const L = {
     lvPrExplTilt: "Pente linéaire. Correspond à Tilt MAESTRO.",
     lvPrExplPivot: "Centre accentué. Correspond à Pivot MAESTRO.",
     lvPrExplSpeech: "Pondération ANSI S3.5.",
+    lvPrExplVolume:
+      "Augmente ou diminue toutes les électrodes actives du même nombre de dB. Agit comme un volume global supplémentaire, indépendant du gain du lecteur.",
     lvPrExplScurve: "Transition douce au centre.",
     lvPrExplGauss: "Courbe en cloche.",
     lvPrExplBass: "Renforcer les basses.",
     lvPrExplHigh: "Renforcer les aigus.",
-    lvPresetTitle: "Presets",
+    lvIntroTitle: "Courbes",
+    lvIntroDesc:
+      "Ajustement du niveau des électrodes sur l'ensemble des électrodes. Choisissez parmi les fonctions de courbe proposées et ajustez les valeurs en direct.",
+    lvPresetTitle: "Fonctions de courbe",
     lvPresetBoth: "Appliquer les changements aux deux côtés",
     lvPresetDesc:
       "Courbes prédéfinies. Tilt/Pivot = outils MAESTRO. Le préréglage Parole pondère les fréquences selon leur importance pour la compréhension de la parole (ANSI S3.5). Clavier: ↑↓ ajuste les valeurs dans le champ de saisie.",
@@ -1533,7 +1551,7 @@ const L = {
     eePlayerHint: "El export usa la configuración actual.",
     tabLevels: "Deslizadores",
     tabCurves: "Curvas",
-    lvTabTitle: "Deslizadores",
+    lvTabTitle: "Deslizadores: ajuste manual de electrodos individuales",
     lvTabDesc: "Barras verticales por electrodo. Haga clic en una barra para seleccionar el electrodo a editar. Ajuste con las flechas ↑/↓ (±0.5 dB, Mayús = ±0.1 dB). ←/→ cambia de electrodo.",
     lvTabShowLabel: "Mostrar:",
     lvTabSrcSlider: "Deslizador",
@@ -1557,6 +1575,7 @@ const L = {
     lvPrTilt: "Tilt",
     lvPrPivot: "Pivot",
     lvPrSpeech: "Habla (SII)",
+    lvPrVolume: "Volumen",
     lvPrScurve: "Curva S",
     lvPrGauss: "Gauss",
     lvPrBass: "Bass Boost",
@@ -1569,11 +1588,16 @@ const L = {
     lvPrExplTilt: "Pendiente lineal. Corresponde a Tilt MAESTRO.",
     lvPrExplPivot: "Centro enfatizado. Corresponde a Pivot MAESTRO.",
     lvPrExplSpeech: "Ponderación ANSI S3.5.",
+    lvPrExplVolume:
+      "Sube o baja todos los electrodos activos en la misma cantidad de dB. Actúa como un volumen global adicional, independiente de la ganancia del reproductor.",
     lvPrExplScurve: "Transición suave en el centro.",
     lvPrExplGauss: "Curva gaussiana.",
     lvPrExplBass: "Reforzar graves.",
     lvPrExplHigh: "Reforzar agudos.",
-    lvPresetTitle: "Presets",
+    lvIntroTitle: "Curvas",
+    lvIntroDesc:
+      "Ajuste del nivel de los electrodos a través de todos los electrodos. Elija entre las funciones de curva disponibles y ajuste los valores en vivo.",
+    lvPresetTitle: "Funciones de curva",
     lvPresetBoth: "Aplicar cambios a ambos lados",
     lvPresetDesc:
       "Curvas predefinidas. Tilt/Pivot = herramientas MAESTRO. El preset Habla pondera las frecuencias según su importancia para la inteligibilidad del habla (ANSI S3.5). Teclado: ↑↓ ajusta valores en el campo de entrada.",
