@@ -16,7 +16,7 @@ Code des jeweiligen Tabs liegt.
 
 | Tab-Beschriftung (DE) | data-tab ID | Hauptmodul(e) |
 |---|---|---|
-| Einführung | intro | nur HTML, keine JS-Logik |
+| Einführung | intro | HTML; `applyLang()` setzt Text und href des Manual-Links (`#introManualLink`) anhand `README_URLS` in i18n.js |
 | Implantat | setup | ui-implant.js, freq-table.js |
 | Messungen | messungen | mit drei Sub-Tabs (s.u.) |
 | Meßergebnisse | ergebnisse | results.js, chart.js (mit Sub-Tabs) |
@@ -82,7 +82,7 @@ zuvor mit statischen Tags.
 | #  | Datei | Inhalt |
 |----|-------|--------|
 | 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
-| 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()` |
+| 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
 | 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `presets`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`). Side-Logik, `dEN`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |

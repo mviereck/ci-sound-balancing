@@ -1,19 +1,23 @@
 # CI Sound Balancing Tool
 
-You'll find the interactive version here:
-https://mviereck.github.io/ci-loudness-balancing/
+A browser-based tool that helps users of cochlear implants measure their perceived loudness and pitch, simulate fittings before going to the audiologist, and print out the requested changes for an appointment.
 
-The tool ist still in early development, but already quite useful.
+The tool runs online in your browser: **[CI Sound Balancing Tool](https://mviereck.github.io/ci-sound-balancing/)**
 
-Planned future features;
- - Support of bimodal support (partially implemented already)
- - MCL Values for offset calculation diectly useable for the audiologist (instead of dB offsets)
- - MAPLAW simulation
- 
-Feedack is quite appeciated!
+Supported manufacturers: MED-EL, Cochlear, Advanced Bionics.
 
-# Interesting links
- - Tinnitus toolbox: https://hearwell.life/
- - Binaural CI alignment: https://cito.github.io/bicial/
- - Pico ASHA Project: https://shermp.github.io/Pico-ASHA/
- - ASHA pipewire sink: https://github.com/thewierdnut/asha_pipewire_sink
+## User manual
+
+- 🇩🇪 [Deutsche Anleitung](README_de.md)
+- 🇬🇧 [English manual](README_en.md)
+- 🇫🇷 [Manuel en français](README_fr.md)
+- 🇪🇸 [Manual en español](README_es.md)
+
+## Related links
+
+- Tinnitus toolbox: <https://hearwell.life/>
+- Binaural CI alignment: <https://cito.github.io/bicial/>
+- Pico ASHA Project: <https://shermp.github.io/Pico-ASHA/>
+- ASHA pipewire sink: <https://github.com/thewierdnut/asha_pipewire_sink>
+
+Feedback is appreciated.

@@ -83,20 +83,20 @@ Grundsätzliche technische Angaben zu Ihrem CI.
 #### Im Reiter *Messungen*
 Vergleich der Lautstärken der Elektroden.
 - Für die Seite(n) mit CI machen Sie zunächst nur die Messung *Elektrodenlautstärke*.
-- In dieser Messung werden alle Elektroden paarweise miteinander verglichen, und Sie justieren mit den Pfeiltasten die Lautstärke, bis sich beide Seiten gleich laut anhören.
+- In dieser Messung werden alle Elektroden paarweise miteinander verglichen, und Sie justieren die Lautstärke, bis sich beide Seiten gleich laut anhören.
 - Nutzen Sie möglichst Bluetooth zum Streamen.
 - Stellen Sie die Lautstärke auf gefühlt 3/4 ein, nicht leise, aber auch noch nicht unangenehm laut.
 - Steuerung der Tests:
   - Justieren Sie mit den *Pfeiltasten* die Lautstärke. 
   - Mit der *Leertaste* Ton erneut abspielen.
-  - Mit *Enter* bestätigen.
+  - Sobald die Töne gleich laut sind, mit *Enter* bestätigen.
   - Optional: Anderen Ton zum Testen auswählen.
 - Empfohlenes Vorgehen: 
   - Erst Testverfahren *Vollständig*.
   - Dann Testverfahren *Konvergenz*, gerne mehrfach.
-  - Optional *Feintuning* auswählen und nochmal Konvergenz ausführen.
-  - Jeder Test kann jederzeit unterbrochen und später an gleicher Stelle weitergeführt werden.
-  - Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
+  - Optional: *Feintuning* auswählen und nochmal Konvergenz ausführen.
+- Jeder Test kann jederzeit unterbrochen und später an gleicher Stelle weitergeführt werden.
+- Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
 - Die Messungen *Stereo-Balance* und *Frequenzabgleich* zunächst auslassen.
  
 #### Im Reiter *Meßergebnisse*

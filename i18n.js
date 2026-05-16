@@ -23,6 +23,7 @@ const L = {
       "<b>1. Seite</b> - Wählen Sie oben rechts die Seite aus, auf der Sie das CI tragen. Wenn Sie 2 CI tragen, führen Sie die Messung (Punkt 3) für beide aus.<br><b>2. Implantat</b> – Wählen Sie Ihren Hersteller. Falls bekannt, korrigieren Sie die Frequenzeinträge pro Elektrode. Standardwerte sind voreingestellt.<br><b>Wichtig:</b> Deaktivierte Elektroden müssen unter „Status“ markiert werden.<br><b>3. Messung</b> – Starten Sie eine Testreihe. Das Tool spielt Tonpaare ab; Sie stellen ein, bis beide gleich laut klingen.<br><b>4. Player</b> – Laden Sie eine Musikdatei und hören Sie den Unterschied mit und ohne Korrektur.<br><b>5. Levels</b> – Optional: Gesamteinstellungen wie Sprachbetonung oder Baßverstärkung, live hörbar im Player.",
     introWarn:
       "Verwenden Sie möglichst ein CI-Programm ohne Sprachfilter, das ansonsten Ihrem Hauptprogramm entspricht. Sprachfilter neigen dazu, Töne zu verfälschen. Verbinden Sie Ihr CI mit Bluetooth für möglichst klare Töne.",
+    introManualLink: "→ Ausführliche Bedienungsanleitung",
     introAudio: "Für Ihren Audiologen",
     tabPlayer: "Player",
     tabBalance: "Stereo-Balance",
@@ -495,6 +496,7 @@ const L = {
       "<b>1. Side</b> – Select the side on which you wear your CI in the top right corner. If you wear two CIs, perform the measurement (Step 3) for both.<br><b>2. Implant</b> – Select your manufacturer. If known, adjust the frequency values listed for each electrode; standard values are pre-configured by default.<br><b>Important:</b> Deactivated electrodes must be marked under “Status”.<br><b>3. Measurement</b> – Start a test sequence. The tool plays pairs of tones; adjust the settings until both tones sound equally loud. Recommendation: Set the volume to a level that borders on being uncomfortable.<br><b>4. Player</b> – Load a music file and listen to the difference with and without the correction applied.<br><b>5. Levels</b> – Optional: Apply global settings (e.g., speech emphasis, bass boosting) and listen to the difference live in the player simultaneously.",
     introWarn:
       "Use a CI program without speech filters that otherwise matches your main program. Speech filters tend to distort tones. Connect your CI via Bluetooth for the clearest possible sound..",
+    introManualLink: "→ Detailed user manual",
     introAudio: "For your audiologist",
     tabPlayer: "Player",
     tabBalance: "Stereo-Balance",
@@ -964,6 +966,7 @@ const L = {
       "<b>1. Côté</b> – Sélectionnez, dans le coin supérieur droit, le côté sur lequel vous portez votre implant cochléaire. Si vous portez deux implants, effectuez la mesure (Étape 3) pour chacun d'eux.<br><b>2. Implant</b> – Sélectionnez le fabricant de votre implant cochléaire. Si vous les connaissez, ajustez les valeurs de fréquence indiquées pour chaque électrode ; des valeurs standard sont préconfigurées par défaut.<br><b>Important :</b> Les électrodes désactivées doivent être marquées sous «Statut».<br><b>3. Mesure</b> – Lancez une séquence de test. L'outil diffuse des paires de sons ; ajustez les réglages jusqu'à ce que les deux sons vous semblent avoir exactement le même volume. Recommandation : réglez le volume à un niveau frisant l'inconfort.<br><b>4. Lecteur</b> – Chargez un fichier musical et écoutez la différence, avec et sans l'application de la correction.<br><b>5. Niveaux</b> – Facultatif : Appliquez des réglages globaux (par ex. accentuation de la parole, renforcement des basses) et écoutez simultanément la différence en direct dans le lecteur.",
     introWarn:
       "Si possible, utilisez un programme d'implant cochléaire sans filtre vocal qui corresponde par ailleurs à votre programme principal. Les filtres vocaux ont tendance à déformer les sons. Connectez votre implant cochléaire via Bluetooth pour obtenir le son le plus clair possible.",
+    introManualLink: "→ Manuel d'utilisation détaillé",
     introAudio: "Pour votre audiologiste",
     tabPlayer: "Player",
     tabBalance: "Stereo-Balance",
@@ -1408,6 +1411,7 @@ const L = {
       "<b>1. Lado</b> – Seleccione, en la esquina superior derecha, el lado en el que lleva su IC. Si utiliza dos IC, realice la medición (Paso 3) para ambos.<br><b>2. Implante</b> – Seleccione su fabricante. Si conoce los datos específicos, ajuste los valores de frecuencia listados para cada electrodo; los valores estándar vienen preconfigurados por defecto.<br><b>Importante:</b> Los electrodos desactivados deben marcarse en «Estado».<br><b>3. Medición</b> – Inicie una secuencia de prueba. La herramienta reproduce pares de tonos; ajuste la configuración hasta que ambos tonos suenen con la misma intensidad. Recomendación: Ajuste el volumen a un nivel que roce lo incómodo.<br><b>4. Reproductor</b> – Cargue un archivo de música y escuche la diferencia con y sin la corrección aplicada.<br><b>5. Niveles</b> – Opcional: Aplique ajustes globales (p. ej., énfasis en el habla, refuerzo de graves) y escuche la diferencia en directo en el reproductor de forma simultánea.",
     introWarn:
       "Si es posible, utilice un programa de su implante coclear sin filtro de voz que, por lo demás, corresponda a su programa principal. Los filtros de voz tienden a distorsionar los sonidos. Conecte su implante coclear mediante Bluetooth para obtener el sonido más nítido posible.",
+    introManualLink: "→ Manual de uso detallado",
     introAudio: "Para su audiólogo",
     tabPlayer: "Player",
     tabBalance: "Balance Estéreo",
@@ -1850,6 +1854,13 @@ function updateMfrSelectLabels() {
   if (opts[1]) opts[1].text = "Advanced Bionics (16 " + lbl + ")";
   if (opts[2]) opts[2].text = "Cochlear (22 " + lbl + ")";
 }
+const README_URLS = {
+  de: "https://github.com/mviereck/ci-sound-balancing/blob/main/README_de.md",
+  en: "https://github.com/mviereck/ci-sound-balancing/blob/main/README_en.md",
+  fr: "https://github.com/mviereck/ci-sound-balancing/blob/main/README_fr.md",
+  es: "https://github.com/mviereck/ci-sound-balancing/blob/main/README_es.md",
+};
+
 function applyLang() {
   lang = document.getElementById("langSelect").value;
   document.querySelectorAll("[data-t]").forEach((el) => {
@@ -1857,6 +1868,11 @@ function applyLang() {
     if (v.includes("<")) el.innerHTML = v;
     else el.textContent = v;
   });
+  const manualLink = document.getElementById("introManualLink");
+  if (manualLink) {
+    manualLink.textContent = t("introManualLink");
+    manualLink.href = README_URLS[lang] || README_URLS.en;
+  }
   const s = (id, k) => {
     const e = document.getElementById(id);
     if (e) e.textContent = t(k);
