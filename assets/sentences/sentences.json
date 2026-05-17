@@ -1,63 +1,3104 @@
 {
   "speakers": {
-    "de_m": {
+    "thorsten": {
       "lang": "de",
-      "gender": "m",
-      "source": "thorsten-real",
       "label": "Thorsten",
-      "credit": "Thorsten Müller (Thorsten-Voice, https://www.thorsten-voice.de) – Trainingsdaten CC0"
+      "kind": "single",
+      "source": "Thorsten-Voice",
+      "license": "CC0-1.0",
+      "credit": "Thorsten Müller (Thorsten-Voice, https://www.thorsten-voice.de) – Trainingsdaten CC0",
+      "recordings": [
+        {
+          "id": "01",
+          "text": "Die Lufthansa hat mehrere Dreamliner bei Boeing bestellt.",
+          "audio": "thorsten/01.mp3"
+        },
+        {
+          "id": "02",
+          "text": "Spieleentwickler scheint für so manchen Jugendlichen ein Traumberuf zu sein.",
+          "audio": "thorsten/02.mp3"
+        },
+        {
+          "id": "03",
+          "text": "Was wiederum als Verschleißteil zählt, ist Auslegungssache.",
+          "audio": "thorsten/03.mp3"
+        },
+        {
+          "id": "04",
+          "text": "Was nun die Klägerin bestreitet, das habe er auch nie verbreitet.",
+          "audio": "thorsten/04.mp3"
+        },
+        {
+          "id": "05",
+          "text": "Meine Krankenkasse bekommt echt die einfachsten Dinge nicht gebacken.",
+          "audio": "thorsten/05.mp3"
+        },
+        {
+          "id": "06",
+          "text": "Er macht sich zum Handlanger von Inkasso-Unternehmen.",
+          "audio": "thorsten/06.mp3"
+        },
+        {
+          "id": "07",
+          "text": "Der Hubraum wird für gewöhnlich in Kubikzentimetern oder Litern angegeben.",
+          "audio": "thorsten/07.mp3"
+        },
+        {
+          "id": "08",
+          "text": "Stumpfe Messer können gefährlicher sein als scharfe, weil sie mehr Kraftaufwand erfordern.",
+          "audio": "thorsten/08.mp3"
+        },
+        {
+          "id": "09",
+          "text": "Valentin kam mit dem exzentrischen Verkäufer nicht klar.",
+          "audio": "thorsten/09.mp3"
+        },
+        {
+          "id": "10",
+          "text": "Weil das Gewinde kaputt ist, wird eine Kontermutter auf der Gegenseite benötigt.",
+          "audio": "thorsten/10.mp3"
+        },
+        {
+          "id": "11",
+          "text": "In der totalen Finsternis wurde Jerry ganz mulmig.",
+          "audio": "thorsten/11.mp3"
+        },
+        {
+          "id": "12",
+          "text": "Puh, das kann ich dir jetzt gar nicht sagen.",
+          "audio": "thorsten/12.mp3"
+        },
+        {
+          "id": "13",
+          "text": "Sie warf sich schnell etwas über und ging zur Wohnungstür.",
+          "audio": "thorsten/13.mp3"
+        },
+        {
+          "id": "14",
+          "text": "Schnell hatte Herr Jost gelernt, den Automaten zu überlisten.",
+          "audio": "thorsten/14.mp3"
+        },
+        {
+          "id": "15",
+          "text": "Vor der Grabbelkiste entsteht ein Gerangel um die begehrten Schnäppchen.",
+          "audio": "thorsten/15.mp3"
+        },
+        {
+          "id": "16",
+          "text": "Im Vorfeld hat er sich einiges überlegt, was er heute umsetzen will.",
+          "audio": "thorsten/16.mp3"
+        },
+        {
+          "id": "17",
+          "text": "Ein Hörbuch hält sich exakt an den Text des Originals.",
+          "audio": "thorsten/17.mp3"
+        },
+        {
+          "id": "18",
+          "text": "Flowcharts bilden sowohl virtuelle, als auch reelle Abläufe ab.",
+          "audio": "thorsten/18.mp3"
+        },
+        {
+          "id": "19",
+          "text": "Das lässt sie in einem ganz anderem Licht erscheinen.",
+          "audio": "thorsten/19.mp3"
+        },
+        {
+          "id": "20",
+          "text": "Steigert man den Strom weiter, wird es schmerzhaft.",
+          "audio": "thorsten/20.mp3"
+        },
+        {
+          "id": "21",
+          "text": "Mit so einer Erwartungshaltung kann man nur enttäuscht werden.",
+          "audio": "thorsten/21.mp3"
+        },
+        {
+          "id": "22",
+          "text": "Für die meisten Touristen ist der Besuch des Hamburger Hafens obligatorisch.",
+          "audio": "thorsten/22.mp3"
+        },
+        {
+          "id": "23",
+          "text": "Und drittens darf es in dem Gespräch nicht um Männer gehen.",
+          "audio": "thorsten/23.mp3"
+        },
+        {
+          "id": "24",
+          "text": "Wichtiger ist, ob man in dem Land gut leben kann.",
+          "audio": "thorsten/24.mp3"
+        },
+        {
+          "id": "25",
+          "text": "An der Kasse bildete sich bereits eine lange Warteschlange.",
+          "audio": "thorsten/25.mp3"
+        },
+        {
+          "id": "26",
+          "text": "Sollte sie auf den Kosten sitzen bleiben, wäre Marina praktisch sofort pleite.",
+          "audio": "thorsten/26.mp3"
+        },
+        {
+          "id": "27",
+          "text": "Sogar der Werfende selbst weiß nicht, wohin der Ball gehen wird.",
+          "audio": "thorsten/27.mp3"
+        },
+        {
+          "id": "28",
+          "text": "Über jene Nacht darf nicht gesprochen werden.",
+          "audio": "thorsten/28.mp3"
+        },
+        {
+          "id": "29",
+          "text": "Ein solcher Automatismus wurde noch nicht nachgewiesen.",
+          "audio": "thorsten/29.mp3"
+        },
+        {
+          "id": "30",
+          "text": "Auch im Privaten wird man immer wieder mit Neuem konfrontiert.",
+          "audio": "thorsten/30.mp3"
+        },
+        {
+          "id": "31",
+          "text": "Auf die neue Version umzusatteln, bedarf einiger Vorbereitung.",
+          "audio": "thorsten/31.mp3"
+        },
+        {
+          "id": "32",
+          "text": "Nein, der Beklagte muss mitnichten ein hohes Schmerzensgeld entrichten.",
+          "audio": "thorsten/32.mp3"
+        },
+        {
+          "id": "33",
+          "text": "Manche Ameisen können verschiedene Polarisationen des Lichtes unterscheiden.",
+          "audio": "thorsten/33.mp3"
+        },
+        {
+          "id": "34",
+          "text": "Lass uns lieber gleich einen dedizierten Server aufsetzen.",
+          "audio": "thorsten/34.mp3"
+        },
+        {
+          "id": "35",
+          "text": "Unsicher stöckelte sie auf den hochhackigen Schuhen an die Theke.",
+          "audio": "thorsten/35.mp3"
+        },
+        {
+          "id": "36",
+          "text": "Dadurch lässt sich ihre Bahn vorausberechnen und sie können abgefangen werden.",
+          "audio": "thorsten/36.mp3"
+        },
+        {
+          "id": "37",
+          "text": "Die extreme Vernetzung wird uns noch teuer zu stehen kommen.",
+          "audio": "thorsten/37.mp3"
+        },
+        {
+          "id": "38",
+          "text": "Jedoch entspricht es viel mehr dem Zeitgeist von damals.",
+          "audio": "thorsten/38.mp3"
+        },
+        {
+          "id": "39",
+          "text": "Wir können die Nerven mit Elektroden stimulieren.",
+          "audio": "thorsten/39.mp3"
+        },
+        {
+          "id": "40",
+          "text": "Längst nicht alles von dem, was hier steht, entspricht meiner Meinung.",
+          "audio": "thorsten/40.mp3"
+        },
+        {
+          "id": "41",
+          "text": "Auf dem Rückweg durchfließt das Blut die Venen.",
+          "audio": "thorsten/41.mp3"
+        },
+        {
+          "id": "42",
+          "text": "Die Flöte gilt als einfach zu erlernendes Instrument.",
+          "audio": "thorsten/42.mp3"
+        },
+        {
+          "id": "43",
+          "text": "Ja, das klang nach einem endgültigen Nein.",
+          "audio": "thorsten/43.mp3"
+        },
+        {
+          "id": "44",
+          "text": "Das wurde einfach über unsere Köpfe hinweg entschieden.",
+          "audio": "thorsten/44.mp3"
+        },
+        {
+          "id": "45",
+          "text": "Dummerweise hatte man vergessen, die Polizei zu schmieren.",
+          "audio": "thorsten/45.mp3"
+        },
+        {
+          "id": "46",
+          "text": "Der Autor charakterisiert den dunklen Lord als Inbegriff des Bösen.",
+          "audio": "thorsten/46.mp3"
+        },
+        {
+          "id": "47",
+          "text": "Erst gestern brachte der Paketbote ein neues.",
+          "audio": "thorsten/47.mp3"
+        },
+        {
+          "id": "48",
+          "text": "Folklore ist der sichtbare Ausdruck des immateriellen kulturellen Erbes.",
+          "audio": "thorsten/48.mp3"
+        },
+        {
+          "id": "49",
+          "text": "Als Entschädigung packte mir die Bäckerin noch zwei Apfeltaschen gratis ein.",
+          "audio": "thorsten/49.mp3"
+        },
+        {
+          "id": "50",
+          "text": "Wie Sie sehen, besteht das Getriebe aus drei konzentrischen Rädern.",
+          "audio": "thorsten/50.mp3"
+        }
+      ]
+    },
+    "cv-de": {
+      "lang": "de",
+      "label": "Common Voice",
+      "kind": "pool",
+      "source": "fsicoli/common_voice_17_0",
+      "license": "CC0-1.0",
+      "credit": "Mozilla Common Voice 17.0 via fsicoli/common_voice_17_0 (CC0-1.0)",
+      "recordings": [
+        {
+          "id": "001",
+          "text": "Der See ist die ideale Location für ein Picknick.",
+          "audio": "cv-de/001.mp3",
+          "client_hash": "4daa7529",
+          "gender": "u"
+        },
+        {
+          "id": "002",
+          "text": "Parallelität ließe sich auch ohne Multiprozess-Architektur erreichen.",
+          "audio": "cv-de/002.mp3",
+          "client_hash": "a1ec27e8",
+          "gender": "u"
+        },
+        {
+          "id": "003",
+          "text": "An der Wand hängen Porträts aller ehemaligen Bonzen des Hauses.",
+          "audio": "cv-de/003.mp3",
+          "client_hash": "2d86755b",
+          "gender": "u"
+        },
+        {
+          "id": "004",
+          "text": "Valerie wohnt in einem alten Plattenbau aus DDR-Zeiten.",
+          "audio": "cv-de/004.mp3",
+          "client_hash": "204dd892",
+          "gender": "u"
+        },
+        {
+          "id": "005",
+          "text": "Heute Mittag bin ich mit meinen Kollegen zum Döner um die Ecke gegangen.",
+          "audio": "cv-de/005.mp3",
+          "client_hash": "0ddc1a51",
+          "gender": "u"
+        },
+        {
+          "id": "006",
+          "text": "Wenn ich mich recht erinnere, war die erste Programmiersprache, die ich gelernt habe, Pascal.",
+          "audio": "cv-de/006.mp3",
+          "client_hash": "2aaf3c94",
+          "gender": "u"
+        },
+        {
+          "id": "007",
+          "text": "Beate denkt inzwischen ernsthaft über eine Scheidung nach.",
+          "audio": "cv-de/007.mp3",
+          "client_hash": "e9885f06",
+          "gender": "u"
+        },
+        {
+          "id": "008",
+          "text": "Jemand hat mir mein Portmonee geklaut.",
+          "audio": "cv-de/008.mp3",
+          "client_hash": "3b1c78ac",
+          "gender": "u"
+        },
+        {
+          "id": "009",
+          "text": "Schwarzfahren kostet sechzig Euro und wird in jedem Fall zur Anzeige gebracht.",
+          "audio": "cv-de/009.mp3",
+          "client_hash": "a9cfa700",
+          "gender": "u"
+        },
+        {
+          "id": "010",
+          "text": "Jetzt habe ich den Faden verloren.",
+          "audio": "cv-de/010.mp3",
+          "client_hash": "eaa0e974",
+          "gender": "u"
+        },
+        {
+          "id": "011",
+          "text": "Lukas kommt langsam in den Stimmbruch.",
+          "audio": "cv-de/011.mp3",
+          "client_hash": "f77100e9",
+          "gender": "u"
+        },
+        {
+          "id": "012",
+          "text": "Sein dunkles Haar war etwa schulterlang und er hatte Sommersprossen im Gesicht.",
+          "audio": "cv-de/012.mp3",
+          "client_hash": "c1c7f4c7",
+          "gender": "u"
+        },
+        {
+          "id": "013",
+          "text": "In Schritt zwei extrahieren wir die wichtigsten Features.",
+          "audio": "cv-de/013.mp3",
+          "client_hash": "c7bbe73e",
+          "gender": "u"
+        },
+        {
+          "id": "014",
+          "text": "Leider hast du nicht genau das gesagt, was da stand.",
+          "audio": "cv-de/014.mp3",
+          "client_hash": "a54446b8",
+          "gender": "u"
+        },
+        {
+          "id": "015",
+          "text": "Sag Bescheid, wenn du fertig bist.",
+          "audio": "cv-de/015.mp3",
+          "client_hash": "aaf902d0",
+          "gender": "u"
+        },
+        {
+          "id": "016",
+          "text": "Jetzt fängt es doch tatsächlich an zu hageln.",
+          "audio": "cv-de/016.mp3",
+          "client_hash": "494d13d2",
+          "gender": "u"
+        },
+        {
+          "id": "017",
+          "text": "Das ist eine typische Ausrede von Analphabeten.",
+          "audio": "cv-de/017.mp3",
+          "client_hash": "85c5a452",
+          "gender": "u"
+        },
+        {
+          "id": "018",
+          "text": "Regina hat ihre Flip-Flops aus Versehen kaputt gemacht.",
+          "audio": "cv-de/018.mp3",
+          "client_hash": "a52c0abd",
+          "gender": "u"
+        },
+        {
+          "id": "019",
+          "text": "Suche Züge nach München, die morgen um zwölf Uhr abfahren.",
+          "audio": "cv-de/019.mp3",
+          "client_hash": "8a570944",
+          "gender": "u"
+        },
+        {
+          "id": "020",
+          "text": "Bastian geht zum Amboss und hämmert auf ein Metallteil ein.",
+          "audio": "cv-de/020.mp3",
+          "client_hash": "bf107aa9",
+          "gender": "u"
+        },
+        {
+          "id": "021",
+          "text": "Mit einem Stück Alufolie überbrückte der Elektriker die Sicherung.",
+          "audio": "cv-de/021.mp3",
+          "client_hash": "ba662ed0",
+          "gender": "u"
+        },
+        {
+          "id": "022",
+          "text": "Gerhard lebt seit siebzehn Jahren im Exil in Südamerika.",
+          "audio": "cv-de/022.mp3",
+          "client_hash": "9465d336",
+          "gender": "u"
+        },
+        {
+          "id": "023",
+          "text": "Dora sucht noch eine Mitfahrgelegenheit nach Kiel.",
+          "audio": "cv-de/023.mp3",
+          "client_hash": "38b78649",
+          "gender": "u"
+        },
+        {
+          "id": "024",
+          "text": "Zumindest nicht die ganze Wahrheit.",
+          "audio": "cv-de/024.mp3",
+          "client_hash": "d4ea0c28",
+          "gender": "u"
+        },
+        {
+          "id": "025",
+          "text": "Die letzte Interaktion war erfolgreich.",
+          "audio": "cv-de/025.mp3",
+          "client_hash": "cda12ede",
+          "gender": "u"
+        },
+        {
+          "id": "026",
+          "text": "Er ging nie zur Vorsorgeuntersuchung, auch dann nicht, wenn die Krankenkasse die Kosten übernommen hätte.",
+          "audio": "cv-de/026.mp3",
+          "client_hash": "f149e083",
+          "gender": "u"
+        },
+        {
+          "id": "027",
+          "text": "Und wir haben noch Spielsachen für eure Kinder gefunden.",
+          "audio": "cv-de/027.mp3",
+          "client_hash": "79bcfcac",
+          "gender": "u"
+        },
+        {
+          "id": "028",
+          "text": "Es kommt nicht nur auf die Größe an.",
+          "audio": "cv-de/028.mp3",
+          "client_hash": "5c3ef9a0",
+          "gender": "u"
+        },
+        {
+          "id": "029",
+          "text": "Erwin möchte von Freitag auf Samstag bei Peer übernachten.",
+          "audio": "cv-de/029.mp3",
+          "client_hash": "27f74e94",
+          "gender": "u"
+        },
+        {
+          "id": "030",
+          "text": "Beim Soundcheck kümmert sich Adrian um die Tontechnik.",
+          "audio": "cv-de/030.mp3",
+          "client_hash": "dd2ad39d",
+          "gender": "u"
+        },
+        {
+          "id": "031",
+          "text": "Tabea setzte zum Endspurt an.",
+          "audio": "cv-de/031.mp3",
+          "client_hash": "4f16e463",
+          "gender": "u"
+        },
+        {
+          "id": "032",
+          "text": "Wer am dichtesten dran ist, darf beginnen.",
+          "audio": "cv-de/032.mp3",
+          "client_hash": "c1660541",
+          "gender": "u"
+        },
+        {
+          "id": "033",
+          "text": "Ich wusste gar nicht, dass du aus Castrop-Rauxel kommst",
+          "audio": "cv-de/033.mp3",
+          "client_hash": "23ae8467",
+          "gender": "u"
+        },
+        {
+          "id": "034",
+          "text": "Die Ofenform sollte zunächst eingefettet werden.",
+          "audio": "cv-de/034.mp3",
+          "client_hash": "91544087",
+          "gender": "u"
+        },
+        {
+          "id": "035",
+          "text": "Der Anblick auf die schneebedeckte Landschaft war märchenhaft.",
+          "audio": "cv-de/035.mp3",
+          "client_hash": "b6cad39b",
+          "gender": "u"
+        },
+        {
+          "id": "036",
+          "text": "Frustriert knallt der Verwalter seinem Vorgesetzten den Stapel Akten auf den Schreibtisch.",
+          "audio": "cv-de/036.mp3",
+          "client_hash": "9e875106",
+          "gender": "u"
+        },
+        {
+          "id": "037",
+          "text": "Ingrid hat so ein Wärmekissen gegen Halsschmerzen.",
+          "audio": "cv-de/037.mp3",
+          "client_hash": "7d859e6f",
+          "gender": "u"
+        },
+        {
+          "id": "038",
+          "text": "Die Havarie wird ein juristisches Nachspiel haben.",
+          "audio": "cv-de/038.mp3",
+          "client_hash": "3c21f178",
+          "gender": "u"
+        },
+        {
+          "id": "039",
+          "text": "In dieser Disziplin kann der Neuling durchaus Paroli bieten.",
+          "audio": "cv-de/039.mp3",
+          "client_hash": "bd44aef2",
+          "gender": "u"
+        },
+        {
+          "id": "040",
+          "text": "Egal, es ist echt lecker.",
+          "audio": "cv-de/040.mp3",
+          "client_hash": "3545717c",
+          "gender": "u"
+        },
+        {
+          "id": "041",
+          "text": "Ein Mann mittleren Alters schob einen Kinderwagen in den Supermarkt.",
+          "audio": "cv-de/041.mp3",
+          "client_hash": "3710319b",
+          "gender": "u"
+        },
+        {
+          "id": "042",
+          "text": "Doch sei gewarnt, das Pendel wird eines Tages mit voller Wucht zurückschwingen",
+          "audio": "cv-de/042.mp3",
+          "client_hash": "b420ac2c",
+          "gender": "u"
+        },
+        {
+          "id": "043",
+          "text": "Die Holztür des Gartenhauses hatte sich von der Kälte verzogen und war deshalb kaum aufzubekommen.",
+          "audio": "cv-de/043.mp3",
+          "client_hash": "a8463fd3",
+          "gender": "u"
+        },
+        {
+          "id": "044",
+          "text": "Seit Franziska kein Semesterticket mehr hat, kauft sie sich regelmäßig eine Monatskarte.",
+          "audio": "cv-de/044.mp3",
+          "client_hash": "2ab02fe0",
+          "gender": "u"
+        },
+        {
+          "id": "045",
+          "text": "Göttingen ist eine klassische Studentenstadt.",
+          "audio": "cv-de/045.mp3",
+          "client_hash": "a3a703ed",
+          "gender": "u"
+        },
+        {
+          "id": "046",
+          "text": "Der Zug nach Wetzlar fährt heute am Bahnsteig drei",
+          "audio": "cv-de/046.mp3",
+          "client_hash": "cb135548",
+          "gender": "u"
+        },
+        {
+          "id": "047",
+          "text": "Alle standen auf und legten im Chor den vereinbarten Schwur ab.",
+          "audio": "cv-de/047.mp3",
+          "client_hash": "cc548516",
+          "gender": "u"
+        },
+        {
+          "id": "048",
+          "text": "MetaGer ist die wohl bekannteste deutsche Meta-Suchmaschine.",
+          "audio": "cv-de/048.mp3",
+          "client_hash": "89d505ce",
+          "gender": "u"
+        },
+        {
+          "id": "049",
+          "text": "Holger hatte eine unbeschwerte Kindheit.",
+          "audio": "cv-de/049.mp3",
+          "client_hash": "b0146aac",
+          "gender": "u"
+        },
+        {
+          "id": "050",
+          "text": "Du hast eine Zecke am Rücken.",
+          "audio": "cv-de/050.mp3",
+          "client_hash": "08360e1d",
+          "gender": "u"
+        },
+        {
+          "id": "051",
+          "text": "Es ist schwierig, ohne Hilfe aus der Abwärtsspirale auszubrechen.",
+          "audio": "cv-de/051.mp3",
+          "client_hash": "f28e3ce6",
+          "gender": "u"
+        },
+        {
+          "id": "052",
+          "text": "Mir platzt gleich der Kragen.",
+          "audio": "cv-de/052.mp3",
+          "client_hash": "8a019f2d",
+          "gender": "u"
+        },
+        {
+          "id": "053",
+          "text": "Die Notaufnahmen von Krankenhäusern sind häufig überlastet.",
+          "audio": "cv-de/053.mp3",
+          "client_hash": "b0c1e7c7",
+          "gender": "u"
+        },
+        {
+          "id": "054",
+          "text": "Nach der Einführung des Alkoholverbots gingen Reinigungskosten und Vandalismusschäden signifikant zurück.",
+          "audio": "cv-de/054.mp3",
+          "client_hash": "1199038c",
+          "gender": "u"
+        },
+        {
+          "id": "055",
+          "text": "Dein Kleinwagen bietet im Prinzip alles, was man braucht, ist aber etwas schwach auf der Brust.",
+          "audio": "cv-de/055.mp3",
+          "client_hash": "b9a7563b",
+          "gender": "u"
+        },
+        {
+          "id": "056",
+          "text": "Sei Epsilon kleiner als Null.",
+          "audio": "cv-de/056.mp3",
+          "client_hash": "8539a739",
+          "gender": "u"
+        },
+        {
+          "id": "057",
+          "text": "Und einmal haben sie mich schon erwischt mit zwei Promille.",
+          "audio": "cv-de/057.mp3",
+          "client_hash": "b5cb89d6",
+          "gender": "u"
+        },
+        {
+          "id": "058",
+          "text": "Ich dachte, da lernt man nur Saufen.",
+          "audio": "cv-de/058.mp3",
+          "client_hash": "9b549284",
+          "gender": "u"
+        },
+        {
+          "id": "059",
+          "text": "Er bekleckert sich vielleicht mit Rum, aber bestimmt nicht mit Ruhm.",
+          "audio": "cv-de/059.mp3",
+          "client_hash": "f042f6b0",
+          "gender": "u"
+        },
+        {
+          "id": "060",
+          "text": "Wenn man sich die Muschel ans Ohr hält, hört man Meeresrauschen.",
+          "audio": "cv-de/060.mp3",
+          "client_hash": "4dac37be",
+          "gender": "u"
+        },
+        {
+          "id": "061",
+          "text": "Bea braucht mal wieder eine halbe Stunde, um sich zu schminken.",
+          "audio": "cv-de/061.mp3",
+          "client_hash": "7aaeecab",
+          "gender": "u"
+        },
+        {
+          "id": "062",
+          "text": "Weil die Tischklammer die Decke nicht halten konnte, ersetzte Andreas sie durch eine Schraubzwinge aus dem Werkkeller.",
+          "audio": "cv-de/062.mp3",
+          "client_hash": "01943dae",
+          "gender": "u"
+        },
+        {
+          "id": "063",
+          "text": "Man sollte den Länderfinanzausgleich durch einen Bundesliga-Soli ersetzen.",
+          "audio": "cv-de/063.mp3",
+          "client_hash": "6942d819",
+          "gender": "u"
+        },
+        {
+          "id": "064",
+          "text": "Kein Problem für einen Physiker, der experimentelle Erfahrung mit Doppelspalten hat.",
+          "audio": "cv-de/064.mp3",
+          "client_hash": "55a0d65d",
+          "gender": "u"
+        },
+        {
+          "id": "065",
+          "text": "Wäre doch schade, wenn Sie eines Tages nicht mehr erreichbar wäre.",
+          "audio": "cv-de/065.mp3",
+          "client_hash": "1e32ca7b",
+          "gender": "u"
+        },
+        {
+          "id": "066",
+          "text": "Diese Kurve ist eigentlich eine Gerade.",
+          "audio": "cv-de/066.mp3",
+          "client_hash": "3784188d",
+          "gender": "u"
+        },
+        {
+          "id": "067",
+          "text": "Was für ein Kaiserwetter, schwärmte der Österreicher.",
+          "audio": "cv-de/067.mp3",
+          "client_hash": "96881a74",
+          "gender": "u"
+        },
+        {
+          "id": "068",
+          "text": "Da müsste er schon beide Augen zudrücken.",
+          "audio": "cv-de/068.mp3",
+          "client_hash": "e8f6e2b5",
+          "gender": "u"
+        },
+        {
+          "id": "069",
+          "text": "Viele Kliniken haben mit multiresistenten Keimen zu kämpfen.",
+          "audio": "cv-de/069.mp3",
+          "client_hash": "4a2c144c",
+          "gender": "u"
+        },
+        {
+          "id": "070",
+          "text": "Ich hätte nicht gedacht, dass er so skrupellos ist.",
+          "audio": "cv-de/070.mp3",
+          "client_hash": "4cfd6612",
+          "gender": "u"
+        },
+        {
+          "id": "071",
+          "text": "Wer glaubt, dass der Verfassungsschutz die Verfassung schützt, glaubt auch dass Babybrei aus Babys gemacht wird.",
+          "audio": "cv-de/071.mp3",
+          "client_hash": "3afc9c92",
+          "gender": "u"
+        },
+        {
+          "id": "072",
+          "text": "Der nächste Zug nach Görlitz geht um zwölf Uhr dreißig",
+          "audio": "cv-de/072.mp3",
+          "client_hash": "9eb6ad42",
+          "gender": "u"
+        },
+        {
+          "id": "073",
+          "text": "Viele plattformspezifische Apps ließen sich auch ganz einfach als portable Webanwendung realisieren.",
+          "audio": "cv-de/073.mp3",
+          "client_hash": "b59078ae",
+          "gender": "u"
+        },
+        {
+          "id": "074",
+          "text": "Unsere wirtschaftliche Situation ist derzeit wirklich schwierig, wissen Sie.",
+          "audio": "cv-de/074.mp3",
+          "client_hash": "41158d39",
+          "gender": "u"
+        },
+        {
+          "id": "075",
+          "text": "Wir lassen niemanden allein zurück.",
+          "audio": "cv-de/075.mp3",
+          "client_hash": "088c219b",
+          "gender": "u"
+        },
+        {
+          "id": "076",
+          "text": "Als Rainer den Posten übernahm, musste er erst einmal für Zucht und Ordnung sorgen.",
+          "audio": "cv-de/076.mp3",
+          "client_hash": "2ed35e3e",
+          "gender": "u"
+        },
+        {
+          "id": "077",
+          "text": "Auf seinem Server betreibt Nikolai ein Debian-Derivat.",
+          "audio": "cv-de/077.mp3",
+          "client_hash": "cdc8e537",
+          "gender": "u"
+        },
+        {
+          "id": "078",
+          "text": "Julian findet das Ergebnis nicht befriedigend.",
+          "audio": "cv-de/078.mp3",
+          "client_hash": "004a9a18",
+          "gender": "u"
+        },
+        {
+          "id": "079",
+          "text": "Der Kronleuchter ging krachend zu Boden.",
+          "audio": "cv-de/079.mp3",
+          "client_hash": "52d726e9",
+          "gender": "u"
+        },
+        {
+          "id": "080",
+          "text": "Ich kann die Einstellung nirgendwo finden.",
+          "audio": "cv-de/080.mp3",
+          "client_hash": "59d24e18",
+          "gender": "u"
+        },
+        {
+          "id": "081",
+          "text": "Hier gilt rechts vor links.",
+          "audio": "cv-de/081.mp3",
+          "client_hash": "951f4583",
+          "gender": "u"
+        },
+        {
+          "id": "082",
+          "text": "Die Fahrt nach Reutlingen konnte er sich nicht leisten",
+          "audio": "cv-de/082.mp3",
+          "client_hash": "55d1e62e",
+          "gender": "u"
+        },
+        {
+          "id": "083",
+          "text": "Wenn Sauerstoff ionisiert wird, bleibt nach dem Abkühlen meist Ozon über.",
+          "audio": "cv-de/083.mp3",
+          "client_hash": "1b833a2f",
+          "gender": "u"
+        },
+        {
+          "id": "084",
+          "text": "Heute haben wir Windstärke fünf mit teils orkanartigen Böen.",
+          "audio": "cv-de/084.mp3",
+          "client_hash": "723b2f58",
+          "gender": "u"
+        },
+        {
+          "id": "085",
+          "text": "Im Allgäu fällt bereits erster Schnee.",
+          "audio": "cv-de/085.mp3",
+          "client_hash": "220d75d0",
+          "gender": "u"
+        },
+        {
+          "id": "086",
+          "text": "Sprengstoff macht den größten Teil der Masse eines Torpedos aus.",
+          "audio": "cv-de/086.mp3",
+          "client_hash": "c6b31f81",
+          "gender": "u"
+        },
+        {
+          "id": "087",
+          "text": "Es war mir eine Freude.",
+          "audio": "cv-de/087.mp3",
+          "client_hash": "2be172ed",
+          "gender": "u"
+        },
+        {
+          "id": "088",
+          "text": "Es wird nach defekten Sektoren gesucht.",
+          "audio": "cv-de/088.mp3",
+          "client_hash": "8a3bcd3b",
+          "gender": "u"
+        },
+        {
+          "id": "089",
+          "text": "Vielleicht ist es in die Ritze gerutscht.",
+          "audio": "cv-de/089.mp3",
+          "client_hash": "bdef3b8e",
+          "gender": "u"
+        },
+        {
+          "id": "090",
+          "text": "Mit der Mitgliedskarte erhalten Sie exklusiven Zugang zu unserem Webportal.",
+          "audio": "cv-de/090.mp3",
+          "client_hash": "1ee5fee9",
+          "gender": "u"
+        },
+        {
+          "id": "091",
+          "text": "Gegen Mittag muss der Frachter mit einer Nussschale kollidiert sein.",
+          "audio": "cv-de/091.mp3",
+          "client_hash": "d58eeecb",
+          "gender": "u"
+        },
+        {
+          "id": "092",
+          "text": "Nach dem Schlaganfall fällt es ihr schwer sich zu artikulieren.",
+          "audio": "cv-de/092.mp3",
+          "client_hash": "75581287",
+          "gender": "u"
+        },
+        {
+          "id": "093",
+          "text": "Wie töricht kann man sein, wenn man getrunken hat zu viel Wein",
+          "audio": "cv-de/093.mp3",
+          "client_hash": "f9c218fd",
+          "gender": "u"
+        },
+        {
+          "id": "094",
+          "text": "Wie wir hier sehen können, hat diese Landkarte einen Maßstab von eins zu einhunderttausend.",
+          "audio": "cv-de/094.mp3",
+          "client_hash": "92a4e1fd",
+          "gender": "u"
+        },
+        {
+          "id": "095",
+          "text": "Fast ein Fünftel der Bevölkerung ist offline-süchtig.",
+          "audio": "cv-de/095.mp3",
+          "client_hash": "26abda95",
+          "gender": "u"
+        },
+        {
+          "id": "096",
+          "text": "Beim diesjährigen Krippenspiel mussten Maria und Joseph improvisieren, weil sie den Text nicht gelernt hatten.",
+          "audio": "cv-de/096.mp3",
+          "client_hash": "e5dd8abc",
+          "gender": "u"
+        },
+        {
+          "id": "097",
+          "text": "Diesen perfekten Fall gibt es in der Realität nicht.",
+          "audio": "cv-de/097.mp3",
+          "client_hash": "8cb4fc88",
+          "gender": "u"
+        },
+        {
+          "id": "098",
+          "text": "Die zwei Jahre im Ausland haben dich sehr verändert.",
+          "audio": "cv-de/098.mp3",
+          "client_hash": "e166c92e",
+          "gender": "u"
+        },
+        {
+          "id": "099",
+          "text": "Jedes Jahr unternimmt die Biolehrerin mit den Schülern eine Exkursion ins Moor.",
+          "audio": "cv-de/099.mp3",
+          "client_hash": "46ad8d87",
+          "gender": "u"
+        },
+        {
+          "id": "100",
+          "text": "Es war schrecklich, immer Recht zu behalten.",
+          "audio": "cv-de/100.mp3",
+          "client_hash": "e9ab0c3c",
+          "gender": "u"
+        }
+      ]
+    },
+    "cv-en": {
+      "lang": "en",
+      "label": "Common Voice",
+      "kind": "pool",
+      "source": "fsicoli/common_voice_17_0",
+      "license": "CC0-1.0",
+      "credit": "Mozilla Common Voice 17.0 via fsicoli/common_voice_17_0 (CC0-1.0)",
+      "recordings": [
+        {
+          "id": "001",
+          "text": "I'm getting them for twelve dollars a night.",
+          "audio": "cv-en/001.mp3",
+          "client_hash": "e33635d2",
+          "gender": "u"
+        },
+        {
+          "id": "002",
+          "text": "The brake pedal was vibrating as the anti-skid system intervened.",
+          "audio": "cv-en/002.mp3",
+          "client_hash": "64ec3acd",
+          "gender": "u"
+        },
+        {
+          "id": "003",
+          "text": "It was due to her knowledge and experience that she solved the mystery first.",
+          "audio": "cv-en/003.mp3",
+          "client_hash": "6adfa06d",
+          "gender": "u"
+        },
+        {
+          "id": "004",
+          "text": "Drinking too much water in a short period of time can be lethal.",
+          "audio": "cv-en/004.mp3",
+          "client_hash": "ed47c1be",
+          "gender": "u"
+        },
+        {
+          "id": "005",
+          "text": "Please look up the painting, Modern times.",
+          "audio": "cv-en/005.mp3",
+          "client_hash": "7c2bd9cd",
+          "gender": "u"
+        },
+        {
+          "id": "006",
+          "text": "I tried one of the leading Dragon extensions to help with this, Voice Code.",
+          "audio": "cv-en/006.mp3",
+          "client_hash": "416f1eaa",
+          "gender": "u"
+        },
+        {
+          "id": "007",
+          "text": "In my book of memory",
+          "audio": "cv-en/007.mp3",
+          "client_hash": "b1f4f200",
+          "gender": "u"
+        },
+        {
+          "id": "008",
+          "text": "Sunday will not work for me.",
+          "audio": "cv-en/008.mp3",
+          "client_hash": "f3ef21fc",
+          "gender": "u"
+        },
+        {
+          "id": "009",
+          "text": "Access my Vimeo service to play music from Bernhard Fleischmann",
+          "audio": "cv-en/009.mp3",
+          "client_hash": "8704fa4d",
+          "gender": "u"
+        },
+        {
+          "id": "010",
+          "text": "I know everything about you.",
+          "audio": "cv-en/010.mp3",
+          "client_hash": "27057eaf",
+          "gender": "u"
+        },
+        {
+          "id": "011",
+          "text": "Children playing outside in a fountain.",
+          "audio": "cv-en/011.mp3",
+          "client_hash": "869e607d",
+          "gender": "u"
+        },
+        {
+          "id": "012",
+          "text": "I guess I've seen everything now.",
+          "audio": "cv-en/012.mp3",
+          "client_hash": "99244964",
+          "gender": "u"
+        },
+        {
+          "id": "013",
+          "text": "I need the weather in North Dakota in three hundred fifty one days",
+          "audio": "cv-en/013.mp3",
+          "client_hash": "ae0a6680",
+          "gender": "u"
+        },
+        {
+          "id": "014",
+          "text": "Look for the novel Behind closed doors",
+          "audio": "cv-en/014.mp3",
+          "client_hash": "eaf21ccc",
+          "gender": "u"
+        },
+        {
+          "id": "015",
+          "text": "He wasn't as good as I was expecting.",
+          "audio": "cv-en/015.mp3",
+          "client_hash": "f51399fe",
+          "gender": "u"
+        },
+        {
+          "id": "016",
+          "text": "Owls are always intellectual in fairy-tales.",
+          "audio": "cv-en/016.mp3",
+          "client_hash": "568d15da",
+          "gender": "u"
+        },
+        {
+          "id": "017",
+          "text": "The five French tourists stepped over the excited bulldogs.",
+          "audio": "cv-en/017.mp3",
+          "client_hash": "5f19c2e6",
+          "gender": "u"
+        },
+        {
+          "id": "018",
+          "text": "That's when he caught your cold.",
+          "audio": "cv-en/018.mp3",
+          "client_hash": "b54dcdb1",
+          "gender": "u"
+        },
+        {
+          "id": "019",
+          "text": "Here's a joke I like.",
+          "audio": "cv-en/019.mp3",
+          "client_hash": "5005a234",
+          "gender": "u"
+        },
+        {
+          "id": "020",
+          "text": "A waxed floor makes us lose balance.",
+          "audio": "cv-en/020.mp3",
+          "client_hash": "0471f653",
+          "gender": "u"
+        },
+        {
+          "id": "021",
+          "text": "Every one knows best where the shoe pinches him",
+          "audio": "cv-en/021.mp3",
+          "client_hash": "fe2902b4",
+          "gender": "u"
+        },
+        {
+          "id": "022",
+          "text": "It's as much my fault as yours.",
+          "audio": "cv-en/022.mp3",
+          "client_hash": "4abf749b",
+          "gender": "u"
+        },
+        {
+          "id": "023",
+          "text": "Strike while the iron is hot Make hay while the sun shines",
+          "audio": "cv-en/023.mp3",
+          "client_hash": "0cbc6937",
+          "gender": "u"
+        },
+        {
+          "id": "024",
+          "text": "I want to see Wenn Lucy springt now at a movie theatre.",
+          "audio": "cv-en/024.mp3",
+          "client_hash": "09b17013",
+          "gender": "u"
+        },
+        {
+          "id": "025",
+          "text": "Man works grill at carnival food stand.",
+          "audio": "cv-en/025.mp3",
+          "client_hash": "36c306f8",
+          "gender": "u"
+        },
+        {
+          "id": "026",
+          "text": "The board chairwoman happily announced increased revenues this quarter.",
+          "audio": "cv-en/026.mp3",
+          "client_hash": "9fb2be9c",
+          "gender": "u"
+        },
+        {
+          "id": "027",
+          "text": "To go to the dogs",
+          "audio": "cv-en/027.mp3",
+          "client_hash": "1606162d",
+          "gender": "u"
+        },
+        {
+          "id": "028",
+          "text": "A woman travels by a large octopus sand sculpture on the beach.",
+          "audio": "cv-en/028.mp3",
+          "client_hash": "6e7b7900",
+          "gender": "u"
+        },
+        {
+          "id": "029",
+          "text": "You certainly delivered the goods.",
+          "audio": "cv-en/029.mp3",
+          "client_hash": "d977621c",
+          "gender": "u"
+        },
+        {
+          "id": "030",
+          "text": "Four humans and four dogs lounging in the dining area",
+          "audio": "cv-en/030.mp3",
+          "client_hash": "1601e575",
+          "gender": "u"
+        },
+        {
+          "id": "031",
+          "text": "Now, I’m scared of what is inside of pies.",
+          "audio": "cv-en/031.mp3",
+          "client_hash": "31ce5587",
+          "gender": "u"
+        },
+        {
+          "id": "032",
+          "text": "Tell them to hold the wire.",
+          "audio": "cv-en/032.mp3",
+          "client_hash": "ed5e967d",
+          "gender": "u"
+        },
+        {
+          "id": "033",
+          "text": "A guy is communicating with someone in a car.",
+          "audio": "cv-en/033.mp3",
+          "client_hash": "ddeeda04",
+          "gender": "u"
+        },
+        {
+          "id": "034",
+          "text": "This puts me in a peculiar hole.",
+          "audio": "cv-en/034.mp3",
+          "client_hash": "91447d04",
+          "gender": "u"
+        },
+        {
+          "id": "035",
+          "text": "A fine bunch of reporters.",
+          "audio": "cv-en/035.mp3",
+          "client_hash": "e79846af",
+          "gender": "u"
+        },
+        {
+          "id": "036",
+          "text": "Experience is the best teacher.",
+          "audio": "cv-en/036.mp3",
+          "client_hash": "f4827d91",
+          "gender": "u"
+        },
+        {
+          "id": "037",
+          "text": "It takes heat to bring out the odor.",
+          "audio": "cv-en/037.mp3",
+          "client_hash": "8830bd7f",
+          "gender": "u"
+        },
+        {
+          "id": "038",
+          "text": "And don't bump into anything.",
+          "audio": "cv-en/038.mp3",
+          "client_hash": "ece5d5fb",
+          "gender": "u"
+        },
+        {
+          "id": "039",
+          "text": "I believe that this is not explained in the text.",
+          "audio": "cv-en/039.mp3",
+          "client_hash": "469b2561",
+          "gender": "u"
+        },
+        {
+          "id": "040",
+          "text": "Play my Women of Rock playlist.",
+          "audio": "cv-en/040.mp3",
+          "client_hash": "df30646c",
+          "gender": "u"
+        },
+        {
+          "id": "041",
+          "text": "He was such a jolly old bloke.",
+          "audio": "cv-en/041.mp3",
+          "client_hash": "d39578ee",
+          "gender": "u"
+        },
+        {
+          "id": "042",
+          "text": "It was a suicidal stunt.",
+          "audio": "cv-en/042.mp3",
+          "client_hash": "a87b7331",
+          "gender": "u"
+        },
+        {
+          "id": "043",
+          "text": "What films are playing at the nearest movie theatre",
+          "audio": "cv-en/043.mp3",
+          "client_hash": "bb1a5c0a",
+          "gender": "u"
+        },
+        {
+          "id": "044",
+          "text": "We were awaiting the guitar player to begin the concert.",
+          "audio": "cv-en/044.mp3",
+          "client_hash": "16bb4d81",
+          "gender": "u"
+        },
+        {
+          "id": "045",
+          "text": "Use the factory pattern and an iterator to step through the array.",
+          "audio": "cv-en/045.mp3",
+          "client_hash": "f5b78cf5",
+          "gender": "u"
+        },
+        {
+          "id": "046",
+          "text": "It was her manifest destiny to eat that chocolate bar.",
+          "audio": "cv-en/046.mp3",
+          "client_hash": "95716a0f",
+          "gender": "u"
+        },
+        {
+          "id": "047",
+          "text": "Play Ashita E by Ian Anderson",
+          "audio": "cv-en/047.mp3",
+          "client_hash": "0bbdc26c",
+          "gender": "u"
+        },
+        {
+          "id": "048",
+          "text": "Thanks ever so much for the bag.",
+          "audio": "cv-en/048.mp3",
+          "client_hash": "ce7fba2f",
+          "gender": "u"
+        },
+        {
+          "id": "049",
+          "text": "A child is looking at a red parking meter on the street.",
+          "audio": "cv-en/049.mp3",
+          "client_hash": "c2b04107",
+          "gender": "u"
+        },
+        {
+          "id": "050",
+          "text": "You hit my best friend.",
+          "audio": "cv-en/050.mp3",
+          "client_hash": "107a8dbe",
+          "gender": "u"
+        },
+        {
+          "id": "051",
+          "text": "This investment won't pay off.",
+          "audio": "cv-en/051.mp3",
+          "client_hash": "4d32b27f",
+          "gender": "u"
+        },
+        {
+          "id": "052",
+          "text": "A quart of milk is water for the most part.",
+          "audio": "cv-en/052.mp3",
+          "client_hash": "a2a1e3cb",
+          "gender": "u"
+        },
+        {
+          "id": "053",
+          "text": "They were racing down the streets with no regard for anyone.",
+          "audio": "cv-en/053.mp3",
+          "client_hash": "9764e86b",
+          "gender": "u"
+        },
+        {
+          "id": "054",
+          "text": "find me a restaurant in Pembine Montana",
+          "audio": "cv-en/054.mp3",
+          "client_hash": "27340b93",
+          "gender": "u"
+        },
+        {
+          "id": "055",
+          "text": "I just opened the link you sent to me.",
+          "audio": "cv-en/055.mp3",
+          "client_hash": "30b1847a",
+          "gender": "u"
+        },
+        {
+          "id": "056",
+          "text": "Christy has an engaging personality.",
+          "audio": "cv-en/056.mp3",
+          "client_hash": "3e558348",
+          "gender": "u"
+        },
+        {
+          "id": "057",
+          "text": "Mighty oaks from tiny acorns grow.",
+          "audio": "cv-en/057.mp3",
+          "client_hash": "a9c0d0b0",
+          "gender": "u"
+        },
+        {
+          "id": "058",
+          "text": "If you tackled these outliers that would reduce the artifacts.",
+          "audio": "cv-en/058.mp3",
+          "client_hash": "f17b0ac6",
+          "gender": "u"
+        },
+        {
+          "id": "059",
+          "text": "The millennium edition of the album contains multiple remixes and the lyrics.",
+          "audio": "cv-en/059.mp3",
+          "client_hash": "bd0135e7",
+          "gender": "u"
+        },
+        {
+          "id": "060",
+          "text": "We know that Mark does not like spicy food.",
+          "audio": "cv-en/060.mp3",
+          "client_hash": "ac79e5ad",
+          "gender": "u"
+        },
+        {
+          "id": "061",
+          "text": "We need to solve this problem fast.",
+          "audio": "cv-en/061.mp3",
+          "client_hash": "0c2797a1",
+          "gender": "u"
+        },
+        {
+          "id": "062",
+          "text": "I knew if I were drowning you'd try to save me.",
+          "audio": "cv-en/062.mp3",
+          "client_hash": "0514d6c4",
+          "gender": "u"
+        },
+        {
+          "id": "063",
+          "text": "A pencil with black lead writes best.",
+          "audio": "cv-en/063.mp3",
+          "client_hash": "bb31988c",
+          "gender": "u"
+        },
+        {
+          "id": "064",
+          "text": "A female soccer fan on the street with other soccer fans around.",
+          "audio": "cv-en/064.mp3",
+          "client_hash": "d55bb4e5",
+          "gender": "u"
+        },
+        {
+          "id": "065",
+          "text": "Heading out to table tennis and I won’t be able to make your talk.",
+          "audio": "cv-en/065.mp3",
+          "client_hash": "516d9e50",
+          "gender": "u"
+        },
+        {
+          "id": "066",
+          "text": "He woke up crying because he felt very dejected.",
+          "audio": "cv-en/066.mp3",
+          "client_hash": "ca23d7e6",
+          "gender": "u"
+        },
+        {
+          "id": "067",
+          "text": "These six people are walking outside a building with columns.",
+          "audio": "cv-en/067.mp3",
+          "client_hash": "b2d2a80d",
+          "gender": "u"
+        },
+        {
+          "id": "068",
+          "text": "Empty barrels make the most noise.",
+          "audio": "cv-en/068.mp3",
+          "client_hash": "175f6392",
+          "gender": "u"
+        },
+        {
+          "id": "069",
+          "text": "A gradual diminishing of time.",
+          "audio": "cv-en/069.mp3",
+          "client_hash": "6c04deed",
+          "gender": "u"
+        },
+        {
+          "id": "070",
+          "text": "The streets are narrow and full of sharp turns.",
+          "audio": "cv-en/070.mp3",
+          "client_hash": "069e7c8e",
+          "gender": "u"
+        },
+        {
+          "id": "071",
+          "text": "As a winner, Carlos give his acceptance speech in front of the stage.",
+          "audio": "cv-en/071.mp3",
+          "client_hash": "ef34f96b",
+          "gender": "u"
+        },
+        {
+          "id": "072",
+          "text": "Sometines, I need to clear my browser cache to save more storage space.",
+          "audio": "cv-en/072.mp3",
+          "client_hash": "dd99e855",
+          "gender": "u"
+        },
+        {
+          "id": "073",
+          "text": "He's a regular and he's connected, but then I expect you knew that much already.",
+          "audio": "cv-en/073.mp3",
+          "client_hash": "92307478",
+          "gender": "u"
+        },
+        {
+          "id": "074",
+          "text": "I think they're both looking for some sort of new work.",
+          "audio": "cv-en/074.mp3",
+          "client_hash": "9f0556dc",
+          "gender": "u"
+        },
+        {
+          "id": "075",
+          "text": "She is having a meeting with a business consultant.",
+          "audio": "cv-en/075.mp3",
+          "client_hash": "2e885f0b",
+          "gender": "u"
+        },
+        {
+          "id": "076",
+          "text": "Please wait a moment while I am investigating the issue.",
+          "audio": "cv-en/076.mp3",
+          "client_hash": "459b708b",
+          "gender": "u"
+        },
+        {
+          "id": "077",
+          "text": "You actually have to do proper work.",
+          "audio": "cv-en/077.mp3",
+          "client_hash": "e80ea9e9",
+          "gender": "u"
+        },
+        {
+          "id": "078",
+          "text": "I doubt they're upgrading without informing people first.",
+          "audio": "cv-en/078.mp3",
+          "client_hash": "2b45010b",
+          "gender": "u"
+        },
+        {
+          "id": "079",
+          "text": "Inline skates are like ice skates, but with wheels instead of blades.",
+          "audio": "cv-en/079.mp3",
+          "client_hash": "c8bb3639",
+          "gender": "u"
+        },
+        {
+          "id": "080",
+          "text": "Ready money is ready medicine.",
+          "audio": "cv-en/080.mp3",
+          "client_hash": "174b18dd",
+          "gender": "u"
+        },
+        {
+          "id": "081",
+          "text": "To save fuel, the Ariane rocket has been launched not far from the equator.",
+          "audio": "cv-en/081.mp3",
+          "client_hash": "c8bce435",
+          "gender": "u"
+        },
+        {
+          "id": "082",
+          "text": "Nara took a flight from South Africa to Japan.",
+          "audio": "cv-en/082.mp3",
+          "client_hash": "6775518b",
+          "gender": "u"
+        },
+        {
+          "id": "083",
+          "text": "He recorded everything with his camcorder to have a watertight proof.",
+          "audio": "cv-en/083.mp3",
+          "client_hash": "e548fbd7",
+          "gender": "u"
+        },
+        {
+          "id": "084",
+          "text": "Pork cutlet is also very tasty, but our religion does not allow us to eat it.",
+          "audio": "cv-en/084.mp3",
+          "client_hash": "c5079d85",
+          "gender": "u"
+        },
+        {
+          "id": "085",
+          "text": "Men that are not included in the line, the reserve, Militia Never mind, Farewell.",
+          "audio": "cv-en/085.mp3",
+          "client_hash": "e8990062",
+          "gender": "u"
+        },
+        {
+          "id": "086",
+          "text": "Please refrain from taking pictures in this area.",
+          "audio": "cv-en/086.mp3",
+          "client_hash": "b9f19cd2",
+          "gender": "u"
+        },
+        {
+          "id": "087",
+          "text": "Apparently, the autocomplete feature is not working temporarily.",
+          "audio": "cv-en/087.mp3",
+          "client_hash": "225cb3a3",
+          "gender": "u"
+        },
+        {
+          "id": "088",
+          "text": "Where God has his church, the devil will have his chapel.",
+          "audio": "cv-en/088.mp3",
+          "client_hash": "0c840a04",
+          "gender": "u"
+        },
+        {
+          "id": "089",
+          "text": "Conversely, a wave whose phase drifts quickly will have a short coherence time.",
+          "audio": "cv-en/089.mp3",
+          "client_hash": "0edae320",
+          "gender": "u"
+        },
+        {
+          "id": "090",
+          "text": "Joy shared is double joy; grief shared is only half grief.",
+          "audio": "cv-en/090.mp3",
+          "client_hash": "3cd8d045",
+          "gender": "u"
+        },
+        {
+          "id": "091",
+          "text": "He didn't feel so hungry though, not since he had heard the drawn-out scraping noise from upstairs.",
+          "audio": "cv-en/091.mp3",
+          "client_hash": "9d89e5ab",
+          "gender": "u"
+        },
+        {
+          "id": "092",
+          "text": "I had some problems in activating this coupon.",
+          "audio": "cv-en/092.mp3",
+          "client_hash": "93c9ad33",
+          "gender": "u"
+        },
+        {
+          "id": "093",
+          "text": "A group of motorcyclists drive around a parking lot",
+          "audio": "cv-en/093.mp3",
+          "client_hash": "8bd6f8e0",
+          "gender": "u"
+        },
+        {
+          "id": "094",
+          "text": "Songs are made to make you feel.",
+          "audio": "cv-en/094.mp3",
+          "client_hash": "af3245e6",
+          "gender": "u"
+        },
+        {
+          "id": "095",
+          "text": "The attraction between moon and earth goes both ways, which causes tides.",
+          "audio": "cv-en/095.mp3",
+          "client_hash": "7af5032a",
+          "gender": "u"
+        },
+        {
+          "id": "096",
+          "text": "It's easy to jump to a particular one.",
+          "audio": "cv-en/096.mp3",
+          "client_hash": "4532d411",
+          "gender": "u"
+        },
+        {
+          "id": "097",
+          "text": "In his youth my dad was a hooligan.",
+          "audio": "cv-en/097.mp3",
+          "client_hash": "238bfaf2",
+          "gender": "u"
+        },
+        {
+          "id": "098",
+          "text": "Member of an independent band harassing the enemy by irregular attacks.",
+          "audio": "cv-en/098.mp3",
+          "client_hash": "54515731",
+          "gender": "u"
+        },
+        {
+          "id": "099",
+          "text": "Right, well let's poke around his lab a little.",
+          "audio": "cv-en/099.mp3",
+          "client_hash": "85991370",
+          "gender": "u"
+        },
+        {
+          "id": "100",
+          "text": "In the first few centuries of the town's existence, it was a wooden bridge.",
+          "audio": "cv-en/100.mp3",
+          "client_hash": "08dc0c01",
+          "gender": "u"
+        }
+      ]
+    },
+    "cv-fr": {
+      "lang": "fr",
+      "label": "Common Voice",
+      "kind": "pool",
+      "source": "fsicoli/common_voice_17_0",
+      "license": "CC0-1.0",
+      "credit": "Mozilla Common Voice 17.0 via fsicoli/common_voice_17_0 (CC0-1.0)",
+      "recordings": [
+        {
+          "id": "001",
+          "text": "Elle va permettre de favoriser durablement une filière riche en emplois non délocalisables.",
+          "audio": "cv-fr/001.mp3",
+          "client_hash": "2e1b5b74",
+          "gender": "u"
+        },
+        {
+          "id": "002",
+          "text": "Je mets aux voix l’amendement numéro un.",
+          "audio": "cv-fr/002.mp3",
+          "client_hash": "3505f27d",
+          "gender": "u"
+        },
+        {
+          "id": "003",
+          "text": "Heureusement que c’est un amendement d’appel",
+          "audio": "cv-fr/003.mp3",
+          "client_hash": "1c302187",
+          "gender": "u"
+        },
+        {
+          "id": "004",
+          "text": "Je remercie tout d’abord les personnes qui m’ont accompagnée pendant la rédaction de rapport.",
+          "audio": "cv-fr/004.mp3",
+          "client_hash": "0bb4a654",
+          "gender": "u"
+        },
+        {
+          "id": "005",
+          "text": "La parole est à Monsieur Gérald Darmanin.",
+          "audio": "cv-fr/005.mp3",
+          "client_hash": "069e7c8e",
+          "gender": "u"
+        },
+        {
+          "id": "006",
+          "text": "J’avoue donc être un petit peu perdu.",
+          "audio": "cv-fr/006.mp3",
+          "client_hash": "de89d13b",
+          "gender": "u"
+        },
+        {
+          "id": "007",
+          "text": "Je citerai, d’abord, l’investissement productif et la croissance durable.",
+          "audio": "cv-fr/007.mp3",
+          "client_hash": "1cb2cbe7",
+          "gender": "u"
+        },
+        {
+          "id": "008",
+          "text": "Il y a là une forme d’inégalité.",
+          "audio": "cv-fr/008.mp3",
+          "client_hash": "496a9160",
+          "gender": "u"
+        },
+        {
+          "id": "009",
+          "text": "Non, c’est le fond qui compte.",
+          "audio": "cv-fr/009.mp3",
+          "client_hash": "776364fa",
+          "gender": "u"
+        },
+        {
+          "id": "010",
+          "text": "La croissance et l’emploi sont au cœur du projet de loi que nous examinons.",
+          "audio": "cv-fr/010.mp3",
+          "client_hash": "99b12821",
+          "gender": "u"
+        },
+        {
+          "id": "011",
+          "text": "La droite, c’est moins d’impôts.",
+          "audio": "cv-fr/011.mp3",
+          "client_hash": "66b2e3eb",
+          "gender": "u"
+        },
+        {
+          "id": "012",
+          "text": "La parole est à Monsieur Stéphane Peu, pour soutenir l’amendement numéro trois cent soixante-seize.",
+          "audio": "cv-fr/012.mp3",
+          "client_hash": "e1f28931",
+          "gender": "u"
+        },
+        {
+          "id": "013",
+          "text": "Nous avons terminé les questions au Gouvernement.",
+          "audio": "cv-fr/013.mp3",
+          "client_hash": "8702f973",
+          "gender": "u"
+        },
+        {
+          "id": "014",
+          "text": "Tu pourrais offrir un cadeau à ta soeur pour son anniversaire quand même.",
+          "audio": "cv-fr/014.mp3",
+          "client_hash": "b924d89f",
+          "gender": "u"
+        },
+        {
+          "id": "015",
+          "text": "Monsieur Paul a raison, il faut que cela serve d’exemple",
+          "audio": "cv-fr/015.mp3",
+          "client_hash": "a9919e0e",
+          "gender": "u"
+        },
+        {
+          "id": "016",
+          "text": "En contrepartie, certains secteurs non prioritaires ont vu leur budget diminuer.",
+          "audio": "cv-fr/016.mp3",
+          "client_hash": "78db93cc",
+          "gender": "u"
+        },
+        {
+          "id": "017",
+          "text": "Cette année, vous avez sorti l’idée consistant à prendre en compte l’excédent brut d’exploitation.",
+          "audio": "cv-fr/017.mp3",
+          "client_hash": "0c8a65ea",
+          "gender": "u"
+        },
+        {
+          "id": "018",
+          "text": "Nous en reparlerons dans les prochains jours.",
+          "audio": "cv-fr/018.mp3",
+          "client_hash": "e33126a5",
+          "gender": "u"
+        },
+        {
+          "id": "019",
+          "text": "Ou alors, vous simplifiez à la socialiste",
+          "audio": "cv-fr/019.mp3",
+          "client_hash": "c1f55bd5",
+          "gender": "u"
+        },
+        {
+          "id": "020",
+          "text": "Effectivement, elle rapportera, à terme, quatre cent cinquante millions d’euros à la CNAV.",
+          "audio": "cv-fr/020.mp3",
+          "client_hash": "81770543",
+          "gender": "u"
+        },
+        {
+          "id": "021",
+          "text": "C’est un atout considérable dans une Europe qui vieillit.",
+          "audio": "cv-fr/021.mp3",
+          "client_hash": "8bab92ff",
+          "gender": "u"
+        },
+        {
+          "id": "022",
+          "text": "Nous voulions donc un peu plus de lisibilité.",
+          "audio": "cv-fr/022.mp3",
+          "client_hash": "663fa664",
+          "gender": "u"
+        },
+        {
+          "id": "023",
+          "text": "Il y a là une vraie différence.",
+          "audio": "cv-fr/023.mp3",
+          "client_hash": "483d9dc7",
+          "gender": "u"
+        },
+        {
+          "id": "024",
+          "text": "N’oubliez pas Monsieur le ministre du budget",
+          "audio": "cv-fr/024.mp3",
+          "client_hash": "52b0acf4",
+          "gender": "u"
+        },
+        {
+          "id": "025",
+          "text": "Revenons donc aux choses sérieuses.",
+          "audio": "cv-fr/025.mp3",
+          "client_hash": "238884b3",
+          "gender": "u"
+        },
+        {
+          "id": "026",
+          "text": "Le monde change, les technologies changent, la demande de services va changer.",
+          "audio": "cv-fr/026.mp3",
+          "client_hash": "eac556f8",
+          "gender": "u"
+        },
+        {
+          "id": "027",
+          "text": "de votre intervention et pour la qualité des questions que vous avez posées.",
+          "audio": "cv-fr/027.mp3",
+          "client_hash": "d8cd34e7",
+          "gender": "u"
+        },
+        {
+          "id": "028",
+          "text": "La première, c’est le respect de la parole de la France.",
+          "audio": "cv-fr/028.mp3",
+          "client_hash": "fdcebc6c",
+          "gender": "u"
+        },
+        {
+          "id": "029",
+          "text": "Ils trouveraient juste que les missions des collectivités territoriales soient rationalisées.",
+          "audio": "cv-fr/029.mp3",
+          "client_hash": "df55b6dd",
+          "gender": "u"
+        },
+        {
+          "id": "030",
+          "text": "Ensuite durant un mois et demi nous avons pu profiter de notre permission",
+          "audio": "cv-fr/030.mp3",
+          "client_hash": "3b02b3ce",
+          "gender": "u"
+        },
+        {
+          "id": "031",
+          "text": "C’est pourquoi je voulais inscrire l’expression dans la loi.",
+          "audio": "cv-fr/031.mp3",
+          "client_hash": "b5ef03e8",
+          "gender": "u"
+        },
+        {
+          "id": "032",
+          "text": "Il est compatible avec les autres outils d'assurance qualité comme PHPUnit ou PHP CodeSniffer",
+          "audio": "cv-fr/032.mp3",
+          "client_hash": "d0765403",
+          "gender": "u"
+        },
+        {
+          "id": "033",
+          "text": "Aujourd’hui, la moitié des cotisantes sont couvertes par l’assurance vieillesse des parents au foyer.",
+          "audio": "cv-fr/033.mp3",
+          "client_hash": "1940c8af",
+          "gender": "u"
+        },
+        {
+          "id": "034",
+          "text": "Je mets aux voix l’amendement numéro mille trente-neuf rectifié.",
+          "audio": "cv-fr/034.mp3",
+          "client_hash": "c4667816",
+          "gender": "u"
+        },
+        {
+          "id": "035",
+          "text": "Je ne partage donc pas les inquiétudes de Monsieur Ollier et de Monsieur Laurent.",
+          "audio": "cv-fr/035.mp3",
+          "client_hash": "9a5ba34f",
+          "gender": "u"
+        },
+        {
+          "id": "036",
+          "text": "Il faut du sérieux et de la simplification.",
+          "audio": "cv-fr/036.mp3",
+          "client_hash": "a549f2b7",
+          "gender": "u"
+        },
+        {
+          "id": "037",
+          "text": "Et, le matin d'Athis, Napoleon m'a demande une prise de tabac.",
+          "audio": "cv-fr/037.mp3",
+          "client_hash": "ddd8aece",
+          "gender": "u"
+        },
+        {
+          "id": "038",
+          "text": "Mes collègues de l’UMP et de l’UDI et moi-même leur avons tendu la main.",
+          "audio": "cv-fr/038.mp3",
+          "client_hash": "c241dfa0",
+          "gender": "u"
+        },
+        {
+          "id": "039",
+          "text": "Vous avez deux minutes, monsieur le député.",
+          "audio": "cv-fr/039.mp3",
+          "client_hash": "6e782273",
+          "gender": "u"
+        },
+        {
+          "id": "040",
+          "text": "Vous créez une hydre à deux têtes",
+          "audio": "cv-fr/040.mp3",
+          "client_hash": "0226a323",
+          "gender": "u"
+        },
+        {
+          "id": "041",
+          "text": "Il y a une grande différence, chers collègues.",
+          "audio": "cv-fr/041.mp3",
+          "client_hash": "e2f0e852",
+          "gender": "u"
+        },
+        {
+          "id": "042",
+          "text": "Hier soir, les deux ministres ont fait un travail pédagogique important.",
+          "audio": "cv-fr/042.mp3",
+          "client_hash": "65508893",
+          "gender": "u"
+        },
+        {
+          "id": "043",
+          "text": "Vous ne serez pas étonnés que nous approuvions cette mesure.",
+          "audio": "cv-fr/043.mp3",
+          "client_hash": "2a9b754e",
+          "gender": "u"
+        },
+        {
+          "id": "044",
+          "text": "et que le sujet est réel.",
+          "audio": "cv-fr/044.mp3",
+          "client_hash": "fba68017",
+          "gender": "u"
+        },
+        {
+          "id": "045",
+          "text": "Vous voulez mettre les communes à votre botte.",
+          "audio": "cv-fr/045.mp3",
+          "client_hash": "c8520a12",
+          "gender": "u"
+        },
+        {
+          "id": "046",
+          "text": "Cette modification ne contribue pas à la clarté de nos débats.",
+          "audio": "cv-fr/046.mp3",
+          "client_hash": "d22bdf0b",
+          "gender": "u"
+        },
+        {
+          "id": "047",
+          "text": "Voilà pourquoi nous demandons ce rapport.",
+          "audio": "cv-fr/047.mp3",
+          "client_hash": "185db6be",
+          "gender": "u"
+        },
+        {
+          "id": "048",
+          "text": "Mais ceux-ci vont évidemment s’engager dès qu’elle sera votée.",
+          "audio": "cv-fr/048.mp3",
+          "client_hash": "b80fe938",
+          "gender": "u"
+        },
+        {
+          "id": "049",
+          "text": "La parole est à Monsieur Stéphane Peu, pour soutenir l’amendement numéro trois cent quatre-vingt-seize.",
+          "audio": "cv-fr/049.mp3",
+          "client_hash": "60e1f3a5",
+          "gender": "u"
+        },
+        {
+          "id": "050",
+          "text": "Ma question s’adresse au Ministre de l’écologie, du développement durable et de l’énergie.",
+          "audio": "cv-fr/050.mp3",
+          "client_hash": "110cb6ab",
+          "gender": "u"
+        },
+        {
+          "id": "051",
+          "text": "Depuis que Monsieur Hollande est aux responsabilités, tous les indicateurs sont au rouge.",
+          "audio": "cv-fr/051.mp3",
+          "client_hash": "cc48832c",
+          "gender": "u"
+        },
+        {
+          "id": "052",
+          "text": "Tel est l’enjeu de la surcotation des cinquante-deux premiers hectares",
+          "audio": "cv-fr/052.mp3",
+          "client_hash": "686838a1",
+          "gender": "u"
+        },
+        {
+          "id": "053",
+          "text": "couper les carottes en julienne et émincer l’oignon.",
+          "audio": "cv-fr/053.mp3",
+          "client_hash": "100a5947",
+          "gender": "u"
+        },
+        {
+          "id": "054",
+          "text": "et dans les domaines prévus par la loi",
+          "audio": "cv-fr/054.mp3",
+          "client_hash": "15b5f23f",
+          "gender": "u"
+        },
+        {
+          "id": "055",
+          "text": "Le coût des emplois précaires a été augmenté.",
+          "audio": "cv-fr/055.mp3",
+          "client_hash": "06c7719e",
+          "gender": "u"
+        },
+        {
+          "id": "056",
+          "text": "sur les bancs du groupe UMP, d’avoir une croissance forte.",
+          "audio": "cv-fr/056.mp3",
+          "client_hash": "eb8fb3c2",
+          "gender": "u"
+        },
+        {
+          "id": "057",
+          "text": "Tout cela est incohérent, quand le même gouvernement affirme entendre les entreprises.",
+          "audio": "cv-fr/057.mp3",
+          "client_hash": "c85f0513",
+          "gender": "u"
+        },
+        {
+          "id": "058",
+          "text": "L’universalité comprend aussi New York",
+          "audio": "cv-fr/058.mp3",
+          "client_hash": "feba8ce4",
+          "gender": "u"
+        },
+        {
+          "id": "059",
+          "text": "Je me flattais d'avoir fait la une découverte assez importante.",
+          "audio": "cv-fr/059.mp3",
+          "client_hash": "4105a2ed",
+          "gender": "u"
+        },
+        {
+          "id": "060",
+          "text": "La parole est à Monsieur Bruno Nestor Azerot.",
+          "audio": "cv-fr/060.mp3",
+          "client_hash": "649bf8c9",
+          "gender": "u"
+        },
+        {
+          "id": "061",
+          "text": "La parole est à Madame Véronique Massonneau, pour soutenir l’amendement numéro trois mille quarante-six.",
+          "audio": "cv-fr/061.mp3",
+          "client_hash": "d3a122b6",
+          "gender": "u"
+        },
+        {
+          "id": "062",
+          "text": "C’est bien le Parlement qui le précisera.",
+          "audio": "cv-fr/062.mp3",
+          "client_hash": "f2d6c7a1",
+          "gender": "u"
+        },
+        {
+          "id": "063",
+          "text": "Si l’on touche aux allocations, ils seront forcément affectés dans leurs conditions de vie",
+          "audio": "cv-fr/063.mp3",
+          "client_hash": "b6e12aef",
+          "gender": "u"
+        },
+        {
+          "id": "064",
+          "text": "Patience, votre supplice est bientôt terminé",
+          "audio": "cv-fr/064.mp3",
+          "client_hash": "e53e496b",
+          "gender": "u"
+        },
+        {
+          "id": "065",
+          "text": "J’y vois une raison supplémentaire de supprimer cet article.",
+          "audio": "cv-fr/065.mp3",
+          "client_hash": "532b0940",
+          "gender": "u"
+        },
+        {
+          "id": "066",
+          "text": "La parole est à Monsieur Sylvain Berrios, pour soutenir l’amendement numéro six cent trente-six.",
+          "audio": "cv-fr/066.mp3",
+          "client_hash": "1892fddd",
+          "gender": "u"
+        },
+        {
+          "id": "067",
+          "text": "Nous allons par ailleurs, madame Dufour-Tonini, lancer des concertations sur vos propositions.",
+          "audio": "cv-fr/067.mp3",
+          "client_hash": "8efc1a94",
+          "gender": "u"
+        },
+        {
+          "id": "068",
+          "text": "Je vais maintenant reprendre les quelques éléments évoqués par Monsieur Mariton.",
+          "audio": "cv-fr/068.mp3",
+          "client_hash": "b3e3a06f",
+          "gender": "u"
+        },
+        {
+          "id": "069",
+          "text": "Nous ne laisserons tomber personne, c’est l’engagement que je prends.",
+          "audio": "cv-fr/069.mp3",
+          "client_hash": "a834d6bd",
+          "gender": "u"
+        },
+        {
+          "id": "070",
+          "text": "Je prendrai un exemple pour montrer comment cela se passe dans les faits.",
+          "audio": "cv-fr/070.mp3",
+          "client_hash": "1146e5d4",
+          "gender": "u"
+        },
+        {
+          "id": "071",
+          "text": "La machine à café est tombée en panne ce matin",
+          "audio": "cv-fr/071.mp3",
+          "client_hash": "fa2d76f0",
+          "gender": "u"
+        },
+        {
+          "id": "072",
+          "text": "Vous défendez donc désormais ce que vous appelez un régime par points.",
+          "audio": "cv-fr/072.mp3",
+          "client_hash": "08666401",
+          "gender": "u"
+        },
+        {
+          "id": "073",
+          "text": "Ce qui était notre politique, vous l’avez faite vôtre.",
+          "audio": "cv-fr/073.mp3",
+          "client_hash": "0e27a1f8",
+          "gender": "u"
+        },
+        {
+          "id": "074",
+          "text": "Je lui propose par conséquent de retirer son amendement.",
+          "audio": "cv-fr/074.mp3",
+          "client_hash": "1a6b78b6",
+          "gender": "u"
+        },
+        {
+          "id": "075",
+          "text": "Mais arrêtons-nous pour l’instant à cette possibilité, nous reviendrons à ce sujet plus tard.",
+          "audio": "cv-fr/075.mp3",
+          "client_hash": "0bf1c619",
+          "gender": "u"
+        },
+        {
+          "id": "076",
+          "text": "Avec la technologie tout devient de plus en plus sans fil",
+          "audio": "cv-fr/076.mp3",
+          "client_hash": "42222fc3",
+          "gender": "u"
+        },
+        {
+          "id": "077",
+          "text": "Ce faisant, vous organisez le chaos",
+          "audio": "cv-fr/077.mp3",
+          "client_hash": "25616e20",
+          "gender": "u"
+        },
+        {
+          "id": "078",
+          "text": "Vous avez manqué l’occasion d’afficher une ambition élevée et d’entreprendre des réformes exigeantes.",
+          "audio": "cv-fr/078.mp3",
+          "client_hash": "a51c0beb",
+          "gender": "u"
+        },
+        {
+          "id": "079",
+          "text": "En conclusion, ce budget poursuit le redressement de nos finances publiques.",
+          "audio": "cv-fr/079.mp3",
+          "client_hash": "7c4cd8d5",
+          "gender": "u"
+        },
+        {
+          "id": "080",
+          "text": "Vous avez commis une triple faute, à la fois sociale, économique, et morale.",
+          "audio": "cv-fr/080.mp3",
+          "client_hash": "db72f492",
+          "gender": "u"
+        },
+        {
+          "id": "081",
+          "text": "Aujourd’hui, le CICE est particulièrement mal parti, ce qu’on peut regretter.",
+          "audio": "cv-fr/081.mp3",
+          "client_hash": "73b7a87d",
+          "gender": "u"
+        },
+        {
+          "id": "082",
+          "text": "Voici une clarification sur ce qu’un rapporteur peut faire ou non.",
+          "audio": "cv-fr/082.mp3",
+          "client_hash": "6032a8ff",
+          "gender": "u"
+        },
+        {
+          "id": "083",
+          "text": "Mon imagination commence à s'assécher",
+          "audio": "cv-fr/083.mp3",
+          "client_hash": "1875027d",
+          "gender": "u"
+        },
+        {
+          "id": "084",
+          "text": "La parole est à Madame Jacqueline Fraysse, première oratrice inscrite sur l’article.",
+          "audio": "cv-fr/084.mp3",
+          "client_hash": "ef8235e6",
+          "gender": "u"
+        },
+        {
+          "id": "085",
+          "text": "Vous le savez, rien n’a été fait pour protéger la population.",
+          "audio": "cv-fr/085.mp3",
+          "client_hash": "fe542e10",
+          "gender": "u"
+        },
+        {
+          "id": "086",
+          "text": "Mais il ne faudrait pas surestimer cette différence de traitement.",
+          "audio": "cv-fr/086.mp3",
+          "client_hash": "56c11f02",
+          "gender": "u"
+        },
+        {
+          "id": "087",
+          "text": "Il n’y a qu’en France que l’on pense que les taux d’intérêt resteront bas.",
+          "audio": "cv-fr/087.mp3",
+          "client_hash": "04c8437a",
+          "gender": "u"
+        },
+        {
+          "id": "088",
+          "text": "C’est encore mieux de l’écrire",
+          "audio": "cv-fr/088.mp3",
+          "client_hash": "a1265fbf",
+          "gender": "u"
+        },
+        {
+          "id": "089",
+          "text": "Tout est très fluide, même avec des applications complexes comme un Drupal par exemple",
+          "audio": "cv-fr/089.mp3",
+          "client_hash": "030254b9",
+          "gender": "u"
+        },
+        {
+          "id": "090",
+          "text": "La parole est à Monsieur Patrick Mignola, pour soutenir l’amendement numéro quatre cent quatorze.",
+          "audio": "cv-fr/090.mp3",
+          "client_hash": "7edce28d",
+          "gender": "u"
+        },
+        {
+          "id": "091",
+          "text": "Sur le fond de votre amendement, je souhaite entendre le Gouvernement.",
+          "audio": "cv-fr/091.mp3",
+          "client_hash": "f2190143",
+          "gender": "u"
+        },
+        {
+          "id": "092",
+          "text": "Et j’ai déjà eu la réponse à ces arguments.",
+          "audio": "cv-fr/092.mp3",
+          "client_hash": "b0800ab4",
+          "gender": "u"
+        },
+        {
+          "id": "093",
+          "text": "Elles sont donc l’un des principaux moteurs de l’économie.",
+          "audio": "cv-fr/093.mp3",
+          "client_hash": "f11e6b87",
+          "gender": "u"
+        },
+        {
+          "id": "094",
+          "text": "Aujourd’hui, plus d’une centaine de ces organismes sont implantés sur le territoire américain.",
+          "audio": "cv-fr/094.mp3",
+          "client_hash": "29d1ad09",
+          "gender": "u"
+        },
+        {
+          "id": "095",
+          "text": "Comme l’Europe, notre pays connaît depuis six ans une croissance nulle.",
+          "audio": "cv-fr/095.mp3",
+          "client_hash": "f4e5d5c7",
+          "gender": "u"
+        },
+        {
+          "id": "096",
+          "text": "Il suffit alors de sélectionner le projet souhaité pour lancer l’analyse",
+          "audio": "cv-fr/096.mp3",
+          "client_hash": "47f803e3",
+          "gender": "u"
+        },
+        {
+          "id": "097",
+          "text": "La parole est à Monsieur Patrice Martin-Lalande.",
+          "audio": "cv-fr/097.mp3",
+          "client_hash": "cad0ed1c",
+          "gender": "u"
+        },
+        {
+          "id": "098",
+          "text": "C’est un décret en Conseil d’État qui fixera les modalités de désignation.",
+          "audio": "cv-fr/098.mp3",
+          "client_hash": "7673e61e",
+          "gender": "u"
+        },
+        {
+          "id": "099",
+          "text": "C’est tout le débat sur le plafonnement de l’ISF.",
+          "audio": "cv-fr/099.mp3",
+          "client_hash": "76c50efc",
+          "gender": "u"
+        },
+        {
+          "id": "100",
+          "text": "Ce constat, nous pouvons assurément tous ensemble le dresser à propos de ce texte.",
+          "audio": "cv-fr/100.mp3",
+          "client_hash": "9e850bed",
+          "gender": "u"
+        }
+      ]
+    },
+    "cv-es": {
+      "lang": "es",
+      "label": "Common Voice",
+      "kind": "pool",
+      "source": "fsicoli/common_voice_17_0",
+      "license": "CC0-1.0",
+      "credit": "Mozilla Common Voice 17.0 via fsicoli/common_voice_17_0 (CC0-1.0)",
+      "recordings": [
+        {
+          "id": "001",
+          "text": "A mi profesora le importa demasiado la gramática y muy poco el contenido.",
+          "audio": "cv-es/001.mp3",
+          "client_hash": "00ef7ca6",
+          "gender": "u"
+        },
+        {
+          "id": "002",
+          "text": "A falta de pan, buenas son tortas.",
+          "audio": "cv-es/002.mp3",
+          "client_hash": "0379a1da",
+          "gender": "u"
+        },
+        {
+          "id": "003",
+          "text": "A caballo regalado no le mires el dentado.",
+          "audio": "cv-es/003.mp3",
+          "client_hash": "6016d81f",
+          "gender": "u"
+        },
+        {
+          "id": "004",
+          "text": "Una declaración de principios es exigible, en este caso.",
+          "audio": "cv-es/004.mp3",
+          "client_hash": "59165a49",
+          "gender": "u"
+        },
+        {
+          "id": "005",
+          "text": "yo , sin embargo , lo llevaba con paciencia .",
+          "audio": "cv-es/005.mp3",
+          "client_hash": "f98589ca",
+          "gender": "u"
+        },
+        {
+          "id": "006",
+          "text": "el campanario de la iglesia , con su enorme nido de zopilotes ,",
+          "audio": "cv-es/006.mp3",
+          "client_hash": "ff68a8a1",
+          "gender": "u"
+        },
+        {
+          "id": "007",
+          "text": "los españoles nos dividimos en dos grandes bandos :",
+          "audio": "cv-es/007.mp3",
+          "client_hash": "bd58d988",
+          "gender": "u"
+        },
+        {
+          "id": "008",
+          "text": "Cada uno en su casa, y Dios en la de todos.",
+          "audio": "cv-es/008.mp3",
+          "client_hash": "a8b9a74a",
+          "gender": "u"
+        },
+        {
+          "id": "009",
+          "text": "pero esos comentarios , duelen .",
+          "audio": "cv-es/009.mp3",
+          "client_hash": "5fb39535",
+          "gender": "u"
+        },
+        {
+          "id": "010",
+          "text": "a las voces del negro acudió toda la prole .",
+          "audio": "cv-es/010.mp3",
+          "client_hash": "612d8b87",
+          "gender": "u"
+        },
+        {
+          "id": "011",
+          "text": "burbuja , ve al huerto que hay en cubierta",
+          "audio": "cv-es/011.mp3",
+          "client_hash": "b90b6efb",
+          "gender": "u"
+        },
+        {
+          "id": "012",
+          "text": "borrar lo que ha sucedido y empezar de cero ...",
+          "audio": "cv-es/012.mp3",
+          "client_hash": "51387fc3",
+          "gender": "u"
+        },
+        {
+          "id": "013",
+          "text": "que conducían numerosos rebaños a las ferias de Grijalba .",
+          "audio": "cv-es/013.mp3",
+          "client_hash": "4cce7cec",
+          "gender": "u"
+        },
+        {
+          "id": "014",
+          "text": "La radio del móvil sólo coge emisoras evangelistas.",
+          "audio": "cv-es/014.mp3",
+          "client_hash": "78277d4d",
+          "gender": "u"
+        },
+        {
+          "id": "015",
+          "text": "vamos . venga . tranquilo .",
+          "audio": "cv-es/015.mp3",
+          "client_hash": "fb29c085",
+          "gender": "u"
+        },
+        {
+          "id": "016",
+          "text": "la sombrilla , Ricardo .",
+          "audio": "cv-es/016.mp3",
+          "client_hash": "d6660fe3",
+          "gender": "u"
+        },
+        {
+          "id": "017",
+          "text": "Instagram es la aplicación más usada por los jóvenes.",
+          "audio": "cv-es/017.mp3",
+          "client_hash": "c385cbf7",
+          "gender": "u"
+        },
+        {
+          "id": "018",
+          "text": "Más vale camino viejo que sendero nuevo.",
+          "audio": "cv-es/018.mp3",
+          "client_hash": "778cf852",
+          "gender": "u"
+        },
+        {
+          "id": "019",
+          "text": "porque quiero saberlo todo de ti , quiero que seamos novios .",
+          "audio": "cv-es/019.mp3",
+          "client_hash": "7a6fab11",
+          "gender": "u"
+        },
+        {
+          "id": "020",
+          "text": "he estado muerto dieciséis minutos .",
+          "audio": "cv-es/020.mp3",
+          "client_hash": "1feef3fe",
+          "gender": "u"
+        },
+        {
+          "id": "021",
+          "text": "Hay serpientes que son similares a otras para parecer más peligrosas.",
+          "audio": "cv-es/021.mp3",
+          "client_hash": "fd35e586",
+          "gender": "u"
+        },
+        {
+          "id": "022",
+          "text": "pero es que solo es para mayores .",
+          "audio": "cv-es/022.mp3",
+          "client_hash": "2fc33e1c",
+          "gender": "u"
+        },
+        {
+          "id": "023",
+          "text": "que aquellas apartadas de la vida mundana , también por su Gracia ...",
+          "audio": "cv-es/023.mp3",
+          "client_hash": "e24547cc",
+          "gender": "u"
+        },
+        {
+          "id": "024",
+          "text": "vamos , quiero decir , que no soy de citas especiales .",
+          "audio": "cv-es/024.mp3",
+          "client_hash": "0f6e3c99",
+          "gender": "u"
+        },
+        {
+          "id": "025",
+          "text": "es una historia muy larga . he dicho que llames a tu hermana .",
+          "audio": "cv-es/025.mp3",
+          "client_hash": "7408a156",
+          "gender": "u"
+        },
+        {
+          "id": "026",
+          "text": "que tampoco tengo la culpa . no me tienes que explicar nada .",
+          "audio": "cv-es/026.mp3",
+          "client_hash": "ab952bce",
+          "gender": "u"
+        },
+        {
+          "id": "027",
+          "text": "la mente puede ser muy excitante cuando uno tiene miedo .",
+          "audio": "cv-es/027.mp3",
+          "client_hash": "1048966e",
+          "gender": "u"
+        },
+        {
+          "id": "028",
+          "text": "dejaba caer la tenue sonrisa de su luz sobre la ruda y aulladora tribu .",
+          "audio": "cv-es/028.mp3",
+          "client_hash": "543d32d7",
+          "gender": "u"
+        },
+        {
+          "id": "029",
+          "text": "Y susurras en mi oído que me quieres, pero lejos.",
+          "audio": "cv-es/029.mp3",
+          "client_hash": "75c48cea",
+          "gender": "u"
+        },
+        {
+          "id": "030",
+          "text": "es tan evidente que tenemos que estar juntos ...",
+          "audio": "cv-es/030.mp3",
+          "client_hash": "32a7485c",
+          "gender": "u"
+        },
+        {
+          "id": "031",
+          "text": "Actualmente los alquileres están por las nubes.",
+          "audio": "cv-es/031.mp3",
+          "client_hash": "7975ef97",
+          "gender": "u"
+        },
+        {
+          "id": "032",
+          "text": "Amor por interés, se acaba en un dos por tres.",
+          "audio": "cv-es/032.mp3",
+          "client_hash": "534de1c4",
+          "gender": "u"
+        },
+        {
+          "id": "033",
+          "text": "Creo que las dos tienen demasiadas figuritas.",
+          "audio": "cv-es/033.mp3",
+          "client_hash": "7f3adb43",
+          "gender": "u"
+        },
+        {
+          "id": "034",
+          "text": "De cualquier manera mejor que le de una mirada.",
+          "audio": "cv-es/034.mp3",
+          "client_hash": "313eca86",
+          "gender": "u"
+        },
+        {
+          "id": "035",
+          "text": "En la boca del discreto lo público es secreto.",
+          "audio": "cv-es/035.mp3",
+          "client_hash": "ca838550",
+          "gender": "u"
+        },
+        {
+          "id": "036",
+          "text": "Deberías haberlos agarrado más tiempo.",
+          "audio": "cv-es/036.mp3",
+          "client_hash": "41d0a950",
+          "gender": "u"
+        },
+        {
+          "id": "037",
+          "text": "Aunque la mona se vista de seda, mona se queda.",
+          "audio": "cv-es/037.mp3",
+          "client_hash": "bbfb9f1d",
+          "gender": "u"
+        },
+        {
+          "id": "038",
+          "text": "Acabo de ver un jabalí cruzar por el paso de cebra.",
+          "audio": "cv-es/038.mp3",
+          "client_hash": "a06638ce",
+          "gender": "u"
+        },
+        {
+          "id": "039",
+          "text": "Despídete de tu mujer y de tus patatitas.",
+          "audio": "cv-es/039.mp3",
+          "client_hash": "d8810313",
+          "gender": "u"
+        },
+        {
+          "id": "040",
+          "text": "Cuando empiezas, no puedes parar.",
+          "audio": "cv-es/040.mp3",
+          "client_hash": "3bebec0f",
+          "gender": "u"
+        },
+        {
+          "id": "041",
+          "text": "Donde hay confianza, da asco.",
+          "audio": "cv-es/041.mp3",
+          "client_hash": "f4994192",
+          "gender": "u"
+        },
+        {
+          "id": "042",
+          "text": "Cualquier otro juguete daría sus partes por ser tú.",
+          "audio": "cv-es/042.mp3",
+          "client_hash": "d90a09e0",
+          "gender": "u"
+        },
+        {
+          "id": "043",
+          "text": "A grandes males, grandes remedios.",
+          "audio": "cv-es/043.mp3",
+          "client_hash": "428c32bf",
+          "gender": "u"
+        },
+        {
+          "id": "044",
+          "text": "Días de mucho, vísperas de nada.",
+          "audio": "cv-es/044.mp3",
+          "client_hash": "7fe84fd4",
+          "gender": "u"
+        },
+        {
+          "id": "045",
+          "text": "A la chita callando, hay quien se va aprovechando.",
+          "audio": "cv-es/045.mp3",
+          "client_hash": "3036fc50",
+          "gender": "u"
+        },
+        {
+          "id": "046",
+          "text": "Demasiados dulces y helados. Sólo es un error .",
+          "audio": "cv-es/046.mp3",
+          "client_hash": "fe1c5d31",
+          "gender": "u"
+        },
+        {
+          "id": "047",
+          "text": "Del antiguo camino no queda nada.",
+          "audio": "cv-es/047.mp3",
+          "client_hash": "76fc3282",
+          "gender": "u"
+        },
+        {
+          "id": "048",
+          "text": "El que no corre vuela.",
+          "audio": "cv-es/048.mp3",
+          "client_hash": "53f772b1",
+          "gender": "u"
+        },
+        {
+          "id": "049",
+          "text": "niña, no sé qué bebedizo me has dado que todo lo olvido...",
+          "audio": "cv-es/049.mp3",
+          "client_hash": "0c53f11c",
+          "gender": "u"
+        },
+        {
+          "id": "050",
+          "text": "gime la brisa, riela la luna , el cielo azul turquí se torna negro ,",
+          "audio": "cv-es/050.mp3",
+          "client_hash": "5832528c",
+          "gender": "u"
+        },
+        {
+          "id": "051",
+          "text": "debía ser cerca del amanecer, y me dormí.",
+          "audio": "cv-es/051.mp3",
+          "client_hash": "9241c8c6",
+          "gender": "u"
+        },
+        {
+          "id": "052",
+          "text": "Su cita es a las nueve de la mañana.",
+          "audio": "cv-es/052.mp3",
+          "client_hash": "db391be9",
+          "gender": "u"
+        },
+        {
+          "id": "053",
+          "text": "de un cabo al otro recorrimos la feria.",
+          "audio": "cv-es/053.mp3",
+          "client_hash": "fc18f134",
+          "gender": "u"
+        },
+        {
+          "id": "054",
+          "text": "esto no es por nosotros,",
+          "audio": "cv-es/054.mp3",
+          "client_hash": "0268f885",
+          "gender": "u"
+        },
+        {
+          "id": "055",
+          "text": "Vilma, Vilma... hay que encontrar corriente .",
+          "audio": "cv-es/055.mp3",
+          "client_hash": "c921f3dc",
+          "gender": "u"
+        },
+        {
+          "id": "056",
+          "text": "y el mar se tragaba la gente.",
+          "audio": "cv-es/056.mp3",
+          "client_hash": "85dc1e73",
+          "gender": "u"
+        },
+        {
+          "id": "057",
+          "text": "me he sentido traicionada por ella.",
+          "audio": "cv-es/057.mp3",
+          "client_hash": "d835112f",
+          "gender": "u"
+        },
+        {
+          "id": "058",
+          "text": "Esta emisora cada vez tiene más oyentes.",
+          "audio": "cv-es/058.mp3",
+          "client_hash": "569a5921",
+          "gender": "u"
+        },
+        {
+          "id": "059",
+          "text": "todo en mí clamaba por la Niña Chole.",
+          "audio": "cv-es/059.mp3",
+          "client_hash": "9f9bcdaf",
+          "gender": "u"
+        },
+        {
+          "id": "060",
+          "text": "pero ahora ni responde, solo delira.",
+          "audio": "cv-es/060.mp3",
+          "client_hash": "beb81614",
+          "gender": "u"
+        },
+        {
+          "id": "061",
+          "text": "pues me llamas con esto.",
+          "audio": "cv-es/061.mp3",
+          "client_hash": "2c769bce",
+          "gender": "u"
+        },
+        {
+          "id": "062",
+          "text": "Tú, sin tregua como un ciclón, haces que mi cabeza dé vueltas",
+          "audio": "cv-es/062.mp3",
+          "client_hash": "8959baf2",
+          "gender": "u"
+        },
+        {
+          "id": "063",
+          "text": "creo que es mucho mejor poco a poco,",
+          "audio": "cv-es/063.mp3",
+          "client_hash": "6b591fed",
+          "gender": "u"
+        },
+        {
+          "id": "064",
+          "text": "el mensaje romántico que le daban las rosas al deshojarse.",
+          "audio": "cv-es/064.mp3",
+          "client_hash": "322bcd91",
+          "gender": "u"
+        },
+        {
+          "id": "065",
+          "text": "alborozada me gritó al oído:",
+          "audio": "cv-es/065.mp3",
+          "client_hash": "f81b0a7d",
+          "gender": "u"
+        },
+        {
+          "id": "066",
+          "text": "Diez, nueve , ocho , siete...",
+          "audio": "cv-es/066.mp3",
+          "client_hash": "d3f467a8",
+          "gender": "u"
+        },
+        {
+          "id": "067",
+          "text": "las he encontrado en el bolsillo de tu chaqueta,",
+          "audio": "cv-es/067.mp3",
+          "client_hash": "55d87876",
+          "gender": "u"
+        },
+        {
+          "id": "068",
+          "text": "en el fondo del mar.",
+          "audio": "cv-es/068.mp3",
+          "client_hash": "72e811cf",
+          "gender": "u"
+        },
+        {
+          "id": "069",
+          "text": "Los recortes empiezan a tocar la pera de verdad.",
+          "audio": "cv-es/069.mp3",
+          "client_hash": "b144ebd3",
+          "gender": "u"
+        },
+        {
+          "id": "070",
+          "text": "Las noticias de la fábrica me empiezan a hacer sufrir.",
+          "audio": "cv-es/070.mp3",
+          "client_hash": "5e5b33d0",
+          "gender": "u"
+        },
+        {
+          "id": "071",
+          "text": "tengo las piernas como un hombre.",
+          "audio": "cv-es/071.mp3",
+          "client_hash": "7229e8ae",
+          "gender": "u"
+        },
+        {
+          "id": "072",
+          "text": "La música que más se escucha es del género reggaeton.",
+          "audio": "cv-es/072.mp3",
+          "client_hash": "bdf6b79b",
+          "gender": "u"
+        },
+        {
+          "id": "073",
+          "text": "es como si emitiera en onda corta.",
+          "audio": "cv-es/073.mp3",
+          "client_hash": "3c720b91",
+          "gender": "u"
+        },
+        {
+          "id": "074",
+          "text": "Trabajaba en la oficina del fiscal.",
+          "audio": "cv-es/074.mp3",
+          "client_hash": "9e3bd707",
+          "gender": "u"
+        },
+        {
+          "id": "075",
+          "text": "Esta semana estoy de un humor insuperable.",
+          "audio": "cv-es/075.mp3",
+          "client_hash": "632bb20d",
+          "gender": "u"
+        },
+        {
+          "id": "076",
+          "text": "en la piscina y nadie se escandaliza por eso.",
+          "audio": "cv-es/076.mp3",
+          "client_hash": "5465460d",
+          "gender": "u"
+        },
+        {
+          "id": "077",
+          "text": "y estar una semana andando como Robocop.",
+          "audio": "cv-es/077.mp3",
+          "client_hash": "d12ecfb2",
+          "gender": "u"
+        },
+        {
+          "id": "078",
+          "text": "y esperar que el problema desaparezca.",
+          "audio": "cv-es/078.mp3",
+          "client_hash": "4e82faa1",
+          "gender": "u"
+        },
+        {
+          "id": "079",
+          "text": "con eso que dice de que soy tu mujer en el barco.",
+          "audio": "cv-es/079.mp3",
+          "client_hash": "47d71a21",
+          "gender": "u"
+        },
+        {
+          "id": "080",
+          "text": "albo hipil recamado con sedas de colores, vestidura indígena semejante a una tunicela antigua",
+          "audio": "cv-es/080.mp3",
+          "client_hash": "08346fcf",
+          "gender": "u"
+        },
+        {
+          "id": "081",
+          "text": "no, no toques el agua.",
+          "audio": "cv-es/081.mp3",
+          "client_hash": "4b7f361e",
+          "gender": "u"
+        },
+        {
+          "id": "082",
+          "text": "en tu estado no te puedes poner ahora a meterte en obras",
+          "audio": "cv-es/082.mp3",
+          "client_hash": "d324b4c2",
+          "gender": "u"
+        },
+        {
+          "id": "083",
+          "text": "los encontramos ayer. los avistamos a seis millas .",
+          "audio": "cv-es/083.mp3",
+          "client_hash": "ca32eca0",
+          "gender": "u"
+        },
+        {
+          "id": "084",
+          "text": "y si estoy cabreado con alguien es conmigo mismo, Palomares.",
+          "audio": "cv-es/084.mp3",
+          "client_hash": "7edf5b58",
+          "gender": "u"
+        },
+        {
+          "id": "085",
+          "text": "huroneaba en el corro, arriesgaba un mísero tostón , y rezongando truhanerías se alejaba.",
+          "audio": "cv-es/085.mp3",
+          "client_hash": "a493c8fe",
+          "gender": "u"
+        },
+        {
+          "id": "086",
+          "text": "al vernos corrió ahuyentando con el rebenque la astrosa turba",
+          "audio": "cv-es/086.mp3",
+          "client_hash": "a12003fd",
+          "gender": "u"
+        },
+        {
+          "id": "087",
+          "text": "dos jinetes que asomaron encorvados bajo la puerta, refrenaron un momento sus cabalgaduras",
+          "audio": "cv-es/087.mp3",
+          "client_hash": "e8e8ced8",
+          "gender": "u"
+        },
+        {
+          "id": "088",
+          "text": "vale, yo me quedo contigo.",
+          "audio": "cv-es/088.mp3",
+          "client_hash": "a28a53bb",
+          "gender": "u"
+        },
+        {
+          "id": "089",
+          "text": "mala es la sazón, señor.",
+          "audio": "cv-es/089.mp3",
+          "client_hash": "e55d438c",
+          "gender": "u"
+        },
+        {
+          "id": "090",
+          "text": "La radio se ha estropeado.",
+          "audio": "cv-es/090.mp3",
+          "client_hash": "1b24c2af",
+          "gender": "u"
+        },
+        {
+          "id": "091",
+          "text": "eres un sol, de verdad , y me encanta tu regalo , te lo juro",
+          "audio": "cv-es/091.mp3",
+          "client_hash": "dd3f86c1",
+          "gender": "u"
+        },
+        {
+          "id": "092",
+          "text": "Los bosques de la Masieta no tienen sotobosque.",
+          "audio": "cv-es/092.mp3",
+          "client_hash": "a527c150",
+          "gender": "u"
+        },
+        {
+          "id": "093",
+          "text": "Oíase el ruido lejano de la lluvia.",
+          "audio": "cv-es/093.mp3",
+          "client_hash": "65d53de2",
+          "gender": "u"
+        },
+        {
+          "id": "094",
+          "text": "no, no , no. no funciona , no .",
+          "audio": "cv-es/094.mp3",
+          "client_hash": "4161bfed",
+          "gender": "u"
+        },
+        {
+          "id": "095",
+          "text": "el paraje era a propósito para tal linaje de asechanzas:",
+          "audio": "cv-es/095.mp3",
+          "client_hash": "2cd0e57e",
+          "gender": "u"
+        },
+        {
+          "id": "096",
+          "text": "después en voz baja y dulce, le dije:",
+          "audio": "cv-es/096.mp3",
+          "client_hash": "0c4e78ff",
+          "gender": "u"
+        },
+        {
+          "id": "097",
+          "text": "es mejor cortar. quince segundos .",
+          "audio": "cv-es/097.mp3",
+          "client_hash": "08f06068",
+          "gender": "u"
+        },
+        {
+          "id": "098",
+          "text": "viéndome ya en pie, huyó velozmente alborotando la casa con sus trinos.",
+          "audio": "cv-es/098.mp3",
+          "client_hash": "55d20724",
+          "gender": "u"
+        },
+        {
+          "id": "099",
+          "text": "Esta ciudad no es lo bastante grande",
+          "audio": "cv-es/099.mp3",
+          "client_hash": "ef0662bc",
+          "gender": "u"
+        },
+        {
+          "id": "100",
+          "text": "Si creyese que puedo volar",
+          "audio": "cv-es/100.mp3",
+          "client_hash": "a718efef",
+          "gender": "u"
+        }
+      ]
     }
-  },
-  "sentences": [
-    {"id":"01","de":"Die Lufthansa hat mehrere Dreamliner bei Boeing bestellt.","audio":{"de_m":"de-m/01.mp3"}},
-    {"id":"02","de":"Spieleentwickler scheint für so manchen Jugendlichen ein Traumberuf zu sein.","audio":{"de_m":"de-m/02.mp3"}},
-    {"id":"03","de":"Was wiederum als Verschleißteil zählt, ist Auslegungssache.","audio":{"de_m":"de-m/03.mp3"}},
-    {"id":"04","de":"Was nun die Klägerin bestreitet, das habe er auch nie verbreitet.","audio":{"de_m":"de-m/04.mp3"}},
-    {"id":"05","de":"Meine Krankenkasse bekommt echt die einfachsten Dinge nicht gebacken.","audio":{"de_m":"de-m/05.mp3"}},
-    {"id":"06","de":"Er macht sich zum Handlanger von Inkasso-Unternehmen.","audio":{"de_m":"de-m/06.mp3"}},
-    {"id":"07","de":"Der Hubraum wird für gewöhnlich in Kubikzentimetern oder Litern angegeben.","audio":{"de_m":"de-m/07.mp3"}},
-    {"id":"08","de":"Stumpfe Messer können gefährlicher sein als scharfe, weil sie mehr Kraftaufwand erfordern.","audio":{"de_m":"de-m/08.mp3"}},
-    {"id":"09","de":"Valentin kam mit dem exzentrischen Verkäufer nicht klar.","audio":{"de_m":"de-m/09.mp3"}},
-    {"id":"10","de":"Weil das Gewinde kaputt ist, wird eine Kontermutter auf der Gegenseite benötigt.","audio":{"de_m":"de-m/10.mp3"}},
-    {"id":"11","de":"In der totalen Finsternis wurde Jerry ganz mulmig.","audio":{"de_m":"de-m/11.mp3"}},
-    {"id":"12","de":"Puh, das kann ich dir jetzt gar nicht sagen.","audio":{"de_m":"de-m/12.mp3"}},
-    {"id":"13","de":"Sie warf sich schnell etwas über und ging zur Wohnungstür.","audio":{"de_m":"de-m/13.mp3"}},
-    {"id":"14","de":"Schnell hatte Herr Jost gelernt, den Automaten zu überlisten.","audio":{"de_m":"de-m/14.mp3"}},
-    {"id":"15","de":"Vor der Grabbelkiste entsteht ein Gerangel um die begehrten Schnäppchen.","audio":{"de_m":"de-m/15.mp3"}},
-    {"id":"16","de":"Im Vorfeld hat er sich einiges überlegt, was er heute umsetzen will.","audio":{"de_m":"de-m/16.mp3"}},
-    {"id":"17","de":"Ein Hörbuch hält sich exakt an den Text des Originals.","audio":{"de_m":"de-m/17.mp3"}},
-    {"id":"18","de":"Flowcharts bilden sowohl virtuelle, als auch reelle Abläufe ab.","audio":{"de_m":"de-m/18.mp3"}},
-    {"id":"19","de":"Das lässt sie in einem ganz anderem Licht erscheinen.","audio":{"de_m":"de-m/19.mp3"}},
-    {"id":"20","de":"Steigert man den Strom weiter, wird es schmerzhaft.","audio":{"de_m":"de-m/20.mp3"}},
-    {"id":"21","de":"Mit so einer Erwartungshaltung kann man nur enttäuscht werden.","audio":{"de_m":"de-m/21.mp3"}},
-    {"id":"22","de":"Für die meisten Touristen ist der Besuch des Hamburger Hafens obligatorisch.","audio":{"de_m":"de-m/22.mp3"}},
-    {"id":"23","de":"Und drittens darf es in dem Gespräch nicht um Männer gehen.","audio":{"de_m":"de-m/23.mp3"}},
-    {"id":"24","de":"Wichtiger ist, ob man in dem Land gut leben kann.","audio":{"de_m":"de-m/24.mp3"}},
-    {"id":"25","de":"An der Kasse bildete sich bereits eine lange Warteschlange.","audio":{"de_m":"de-m/25.mp3"}},
-    {"id":"26","de":"Sollte sie auf den Kosten sitzen bleiben, wäre Marina praktisch sofort pleite.","audio":{"de_m":"de-m/26.mp3"}},
-    {"id":"27","de":"Sogar der Werfende selbst weiß nicht, wohin der Ball gehen wird.","audio":{"de_m":"de-m/27.mp3"}},
-    {"id":"28","de":"Über jene Nacht darf nicht gesprochen werden.","audio":{"de_m":"de-m/28.mp3"}},
-    {"id":"29","de":"Ein solcher Automatismus wurde noch nicht nachgewiesen.","audio":{"de_m":"de-m/29.mp3"}},
-    {"id":"30","de":"Auch im Privaten wird man immer wieder mit Neuem konfrontiert.","audio":{"de_m":"de-m/30.mp3"}},
-    {"id":"31","de":"Auf die neue Version umzusatteln, bedarf einiger Vorbereitung.","audio":{"de_m":"de-m/31.mp3"}},
-    {"id":"32","de":"Nein, der Beklagte muss mitnichten ein hohes Schmerzensgeld entrichten.","audio":{"de_m":"de-m/32.mp3"}},
-    {"id":"33","de":"Manche Ameisen können verschiedene Polarisationen des Lichtes unterscheiden.","audio":{"de_m":"de-m/33.mp3"}},
-    {"id":"34","de":"Lass uns lieber gleich einen dedizierten Server aufsetzen.","audio":{"de_m":"de-m/34.mp3"}},
-    {"id":"35","de":"Unsicher stöckelte sie auf den hochhackigen Schuhen an die Theke.","audio":{"de_m":"de-m/35.mp3"}},
-    {"id":"36","de":"Dadurch lässt sich ihre Bahn vorausberechnen und sie können abgefangen werden.","audio":{"de_m":"de-m/36.mp3"}},
-    {"id":"37","de":"Die extreme Vernetzung wird uns noch teuer zu stehen kommen.","audio":{"de_m":"de-m/37.mp3"}},
-    {"id":"38","de":"Jedoch entspricht es viel mehr dem Zeitgeist von damals.","audio":{"de_m":"de-m/38.mp3"}},
-    {"id":"39","de":"Wir können die Nerven mit Elektroden stimulieren.","audio":{"de_m":"de-m/39.mp3"}},
-    {"id":"40","de":"Längst nicht alles von dem, was hier steht, entspricht meiner Meinung.","audio":{"de_m":"de-m/40.mp3"}},
-    {"id":"41","de":"Auf dem Rückweg durchfließt das Blut die Venen.","audio":{"de_m":"de-m/41.mp3"}},
-    {"id":"42","de":"Die Flöte gilt als einfach zu erlernendes Instrument.","audio":{"de_m":"de-m/42.mp3"}},
-    {"id":"43","de":"Ja, das klang nach einem endgültigen Nein.","audio":{"de_m":"de-m/43.mp3"}},
-    {"id":"44","de":"Das wurde einfach über unsere Köpfe hinweg entschieden.","audio":{"de_m":"de-m/44.mp3"}},
-    {"id":"45","de":"Dummerweise hatte man vergessen, die Polizei zu schmieren.","audio":{"de_m":"de-m/45.mp3"}},
-    {"id":"46","de":"Der Autor charakterisiert den dunklen Lord als Inbegriff des Bösen.","audio":{"de_m":"de-m/46.mp3"}},
-    {"id":"47","de":"Erst gestern brachte der Paketbote ein neues.","audio":{"de_m":"de-m/47.mp3"}},
-    {"id":"48","de":"Folklore ist der sichtbare Ausdruck des immateriellen kulturellen Erbes.","audio":{"de_m":"de-m/48.mp3"}},
-    {"id":"49","de":"Als Entschädigung packte mir die Bäckerin noch zwei Apfeltaschen gratis ein.","audio":{"de_m":"de-m/49.mp3"}},
-    {"id":"50","de":"Wie Sie sehen, besteht das Getriebe aus drei konzentrischen Rädern.","audio":{"de_m":"de-m/50.mp3"}}
-  ]
+  }
 }
