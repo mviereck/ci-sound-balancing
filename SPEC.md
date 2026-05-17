@@ -375,7 +375,16 @@ Drei Cards untereinander:
     L↔R-Gesamtoffset aus dem Mittelwert der gemessenen
     `lrResults` (Stereo-Balance-Test).
 - Normalhörenden-Simulation (nicht-invertierter Equalizer)
-- MAPLAW-Simulation ausgeblendet (Code vorhanden, UI versteckt)
+- MAPLAW-Simulation (MED-EL): bandweise Hüllkurven-Vorverzerrung
+  Ist⁻¹∘Soll als AudioWorklet im Tool. Eigene Card oberhalb der
+  Frequenz-Warping-Card. Ist-c kommt aus `implant.cValue` der
+  aktiven Seite (read-only), Soll-c per Quick-Buttons
+  (100/250/500/1000/1500/2000) oder Zahleneingabe (0–8000).
+  Master-Toggle „Simulation aktivieren". EQ-Toggle wirkt als
+  Master-Bypass auch für MAPLAW. Audio-Pfad-Position: nach Tool-EQ
+  und vor pGain. Bei Soll-c == Ist-c oder Card aus: Passthrough.
+  Bei aktiver Seite Cochlear oder AB: Card ausgegraut mit Hinweis.
+  Konzeptioneller Hintergrund: `.docs/MAPLAW_Konzept.md`.
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
@@ -483,8 +492,6 @@ Drei Cards untereinander:
 
 Hinweis: regelmäßig prüfen, ob Punkte erledigt oder hinfällig sind.
 
-- MAPLAW-Simulation (korrekt: bandweise Hüllkurvenverarbeitung,
-  zwei c-Werte Ist/Soll) — benötigt MCL-Feature
 - Bilaterale CIs — Grundgerüst ist gebaut (Side-Buttons,
   separate Datensätze pro Seite inkl. Implantat/MCL/THR, Stereo-
   Player mit getrennten EQ-Ketten, Inter-Ohr-Offset aus

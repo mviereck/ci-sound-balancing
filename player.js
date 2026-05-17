@@ -18,7 +18,9 @@ let pCtx = null,
   pChannelMerger = null,
   pChannelLeftGain = null,
   pChannelRightGain = null,
-  pMapNode = null,
+  pMaplawOn = false,
+  pMaplawSollC = 1000,
+  pMaplawNode = null,
   pPlaying = false,
   pOff = 0,
   pT0 = 0;
@@ -359,30 +361,6 @@ function pBuildEQ() {
     }
     for (let i = 0; i < pEqF.length - 1; i++) pEqF[i].connect(pEqF[i + 1]);
   }
-  pBuildMapNode();
-}
-
-function pBuildMapNode() {
-  const c = gPC();
-  if (pMapNode) {
-    pMapNode.disconnect();
-    pMapNode = null;
-  }
-  if (!document.getElementById("plMapOn").checked) return;
-  const cv = parseInt(document.getElementById("plMaplaw").value) || 500;
-  if (cv <= 0) return;
-  const ws = c.createWaveShaper();
-  const n = 4096,
-    curve = new Float32Array(n);
-  for (let i = 0; i < n; i++) {
-    const x = (i / (n - 1)) * 2 - 1;
-    const xn = (x + 1) / 2;
-    const yn = Math.log(1 + cv * xn) / Math.log(1 + cv);
-    curve[i] = yn * 2 - 1;
-  }
-  ws.curve = curve;
-  ws.oversample = "4x";
-  pMapNode = ws;
 }
 
 function pUpdEQ() {
@@ -418,7 +396,6 @@ function pUpdEQ() {
       }
     }
   }
-  pBuildMapNode();
   pDrawEQ();
   pBuildTbl();
 }
@@ -461,7 +438,25 @@ async function pPlay() {
     : pEqF.length > 0
       ? pEqF[pEqF.length - 1]
       : null;
-  if (lastEq) lastEq.connect(pGain);
+  // MAPLAW: zwischen letztem EQ-Knoten und pGain einhängen, wenn aktiv, EQ an und MED-EL.
+  // EQ-Toggle wirkt als Master-Bypass (analog Frequenz-Warping).
+  const mapApplies = pMaplawOn && plEqOn && pMaplawIsApplicable();
+  if (mapApplies) {
+    await pInitMaplawWorklet(c);
+    if (gen !== pPlayGen) {
+      return;
+    }
+    pMaplawNode = pBuildMaplawNode(c, {
+      istC: pMaplawGetIstC(),
+      sollC: pMaplawSollC,
+      active: true,
+    });
+    if (lastEq) lastEq.connect(pMaplawNode);
+    pMaplawNode.connect(pGain);
+  } else {
+    if (lastEq) lastEq.connect(pGain);
+    pMaplawNode = null;
+  }
 
   const methodSel = document.getElementById("plWarpMethod");
   const method = methodSel ? methodSel.value : "offline";
@@ -503,12 +498,7 @@ async function pPlay() {
     // Normal oder Offline-Warp (Variante C)
     pSrc = c.createBufferSource();
     pSrc.buffer = pBuf;
-    if (pMapNode) {
-      pSrc.connect(pMapNode);
-      pMapNode.connect(firstNode);
-    } else {
-      pSrc.connect(firstNode);
-    }
+    pSrc.connect(firstNode);
     pSrc.start(0, pOff);
     leadSrc = pSrc;
   }
@@ -548,6 +538,10 @@ function pPause() {
     }
     pCurrentPlayback.stop();
     pCurrentPlayback = null;
+  }
+  if (pMaplawNode) {
+    try { pMaplawNode.disconnect(); } catch (e) {}
+    pMaplawNode = null;
   }
   if (pCtx && pBuf) {
     pOff = pCtx.currentTime - pT0;
@@ -592,6 +586,24 @@ function pFmt(s) {
   const m = Math.floor(s / 60),
     sec = Math.floor(s % 60);
   return m + ":" + (sec < 10 ? "0" : "") + sec;
+}
+
+function pMaplawGetIstC() {
+  const s = sideData[activeSide];
+  if (s && s.implant && typeof s.implant.cValue === "number" && s.implant.cValue > 0) {
+    return s.implant.cValue;
+  }
+  return 1000;
+}
+
+function pMaplawIsApplicable() {
+  if (mfr === "medel") return true;
+  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
+  if (mode === "both" || mode === "mono") {
+    const other = activeSide === "left" ? "right" : "left";
+    if (sideData[other] && sideData[other].manufacturer === "medel") return true;
+  }
+  return false;
 }
 
 function plCheck() {
@@ -756,6 +768,59 @@ function pBuildTbl() {
     const g = plEqOn ? (nhSim ? v * str : -v * str) : 0;
     gn.innerHTML += `<td style="color:${g > 0.05 ? "#16a34a" : g < -0.05 ? "#dc2626" : "#666"}">${g >= 0 ? "+" : ""}${g.toFixed(1)}</td>`;
   }
+}
+
+function pMaplawTrigger() {
+  if (!pPlaying) return;
+
+  const shouldBeOn = pMaplawOn && plEqOn && pMaplawIsApplicable();
+  const isOn = !!pMaplawNode;
+
+  if (shouldBeOn && isOn) {
+    pMaplawApplyParams(pMaplawNode, {
+      istC: pMaplawGetIstC(),
+      sollC: pMaplawSollC,
+      active: true,
+    });
+    return;
+  }
+
+  if (shouldBeOn !== isOn) {
+    const offSec = pCtx ? Math.max(0, pCtx.currentTime - pT0) : 0;
+    pPause();
+    pOff = offSec;
+    pPlay();
+  }
+}
+
+function pMaplawUpdUI() {
+  const cardOn   = document.getElementById("plMaplawOn");
+  const sollIn   = document.getElementById("plMaplawSollInput");
+  const istEl    = document.getElementById("plMaplawIstVal");
+  const cfgBox   = document.getElementById("plMaplawConfig");
+  const hintBox  = document.getElementById("plMaplawNotApplicableHint");
+  if (!cardOn) return;
+
+  const applicable = (typeof pMaplawIsApplicable === "function")
+    ? pMaplawIsApplicable() : false;
+
+  cardOn.disabled = !applicable;
+  if (cfgBox) cfgBox.style.opacity = applicable ? "1" : "0.4";
+  if (cfgBox) {
+    cfgBox.querySelectorAll("button, input").forEach((el) => {
+      el.disabled = !applicable;
+    });
+  }
+  if (hintBox) hintBox.style.display = applicable ? "none" : "";
+
+  cardOn.checked = !!pMaplawOn;
+
+  if (istEl) {
+    const ist = (typeof pMaplawGetIstC === "function") ? pMaplawGetIstC() : null;
+    istEl.textContent = ist != null ? String(ist) : "—";
+  }
+
+  if (sollIn) sollIn.value = String(pMaplawSollC);
 }
 
 window.addEventListener("resize", () => {

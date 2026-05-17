@@ -182,6 +182,8 @@ function buildImplantCard() {
     ci.onchange = function () {
       sideData[activeSide].implant.cValue =
         this.value !== "" ? parseFloat(this.value) : null;
+      if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+      if (typeof pMaplawTrigger === "function" && pMaplawOn) pMaplawTrigger();
     };
   const ii = document.getElementById("implIDR");
   if (ii)
@@ -195,6 +197,7 @@ function buildImplantCard() {
       sideData[activeSide].implant.iidr =
         this.value !== "" ? parseFloat(this.value) : null;
     };
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
 
 function updCochlearGen() {

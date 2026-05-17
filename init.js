@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   } catch (e) {}
   applyLang();
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   updSideButtons();
   updFClearBtn();
   updPlSrcButtons();
@@ -712,6 +713,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (wasPlaying) pPlay();
       }
     }
+    if (typeof pMaplawTrigger === "function") pMaplawTrigger();
   });
   document
     .getElementById("plBalApplyBtn")
@@ -786,27 +788,41 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // balBalance wurde entfernt – kein Event-Listener nötig
   // document.getElementById("balBalance").addEventListener(...);
-  document.getElementById("plMapOn").addEventListener("change", function () {
-    document
-      .getElementById("plMapInfo")
-      .classList.toggle("hidden", !this.checked);
-    if (pBuf) {
-      pBuildEQ();
-      if (pPlaying) {
-        pPause();
-        pPlay();
+
+  // ========== MAPLAW-UI ==========
+  const plMaplawOnEl   = document.getElementById("plMaplawOn");
+  const plMaplawSollEl = document.getElementById("plMaplawSollInput");
+
+  if (plMaplawOnEl) {
+    plMaplawOnEl.addEventListener("change", function () {
+      pMaplawOn = this.checked;
+      pMaplawTrigger();
+    });
+  }
+
+  document.querySelectorAll('[data-maplaw-quick]').forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const v = parseInt(this.getAttribute("data-maplaw-quick"));
+      if (isFinite(v) && v >= 0) {
+        pMaplawSollC = v;
+        if (plMaplawSollEl) plMaplawSollEl.value = String(v);
+        pMaplawTrigger();
       }
-    }
+    });
   });
-  document.getElementById("plMaplaw").addEventListener("change", function () {
-    if (pBuf && document.getElementById("plMapOn").checked) {
-      pBuildMapNode();
-      if (pPlaying) {
-        pPause();
-        pPlay();
+
+  if (plMaplawSollEl) {
+    plMaplawSollEl.addEventListener("change", function () {
+      const v = parseInt(this.value);
+      if (isFinite(v) && v >= 0 && v <= 8000) {
+        pMaplawSollC = v;
+        pMaplawTrigger();
+      } else {
+        this.value = String(pMaplawSollC);
       }
-    }
-  });
+    });
+  }
+
   // ---- Frequenz-Warping Listener ----
   // Warp-Checkbox
   document.getElementById("plWarpOn").addEventListener("change", function () {
@@ -1018,6 +1034,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (d.eqStrength !== undefined)
         document.getElementById("plStr").value = d.eqStrength;
+      if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
+      if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
+      if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+      if (typeof pMaplawTrigger === "function") pMaplawTrigger();
       if (d.lrResults && typeof lrResults !== "undefined") {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
@@ -1126,6 +1146,8 @@ document.addEventListener("DOMContentLoaded", () => {
           playerSourceCurves: plSrcCurves,
           eqOn: plEqOn,
           eqStrength: parseInt(document.getElementById("plStr").value),
+          plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
+          plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,

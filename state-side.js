@@ -150,6 +150,7 @@ function setActiveSide(side) {
   updPlSrcButtons();
   if (pBuf) updatePlayerForSideChange();
   else plCheck();
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
 function loadSideData(side, d) {
   const s = sideData[side];

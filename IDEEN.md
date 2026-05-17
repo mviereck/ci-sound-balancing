@@ -47,32 +47,3 @@ Modus-Toggle. Default: passt zur Modus-Wahl wie bisher.
 Balken in beiden Einheiten gleichzeitig steht. Erst klären, ob das
 Bedarf abdeckt, bevor diese Idee umgesetzt wird.
 
----
-
-## MAPLAW-Simulation
-
-**Aufgenommen am**: 2026-05-16
-**Status**: **zurückgestellt** (Stand 2026-05-16). Saubere
-Variante (Phase 3 — eigene Filterbank, Hüllkurve pro Band,
-Vorverzerrung auf Hüllkurve, Resynthese) ist eine größere
-Bauaufgabe (~4–6h Sonnet-Zeit, 2–3 Bauanleitungen). Eine
-abgespeckte Phase-1-Variante (Wellenform-Vorverzerrung) klingt
-zwar anders, ist aber für eine ehrliche Validierung gegen das
-Hardware-Vergleichsprogramm zu ungenau — sie erzeugt Spektral-
-Verzerrung statt Hüllkurven-Charakteristik, und die AGC im CI
-dämpft den Effekt zusätzlich.
-
-**Geklärt**: Setup ist Bluetooth direkt aufs CI (Setup X), das
-Audio durchläuft im Prozessor dieselbe Kette wie ein
-Mikrofonsignal außer dem Frontend.
-
-**Bestehender Code**: `pBuildMapNode` in `player.js` und versteckte
-UI in `index.html` bleiben unangetastet. Beim nächsten Anfassen
-einen Hinweis-Kommentar dort anbringen.
-
-**Ausführliche Diskussion**: siehe `MAPLAW_Konzept.md` im Root.
-
-**Wiederaufnahme**: bei Bedarf — Sonnet-Zeit oder verschobene
-Anforderung. Dann offene Fragen 2–7 aus Abschnitt 8 des Konzept-
-Papiers klären und die Bauanleitungs-Serie aus Abschnitt 9
-schreiben.

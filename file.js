@@ -210,6 +210,8 @@ async function saveJson() {
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "ref_side",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline",
+    plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
+    plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -466,6 +468,10 @@ function applyLoadedData(d) {
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
+  if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
+  if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+  if (typeof pMaplawTrigger === "function") pMaplawTrigger();
   buildFreqTable();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();

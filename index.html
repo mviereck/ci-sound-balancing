@@ -26,7 +26,7 @@
         'version.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
         'results.js', 'chart.js', 'file.js', 'print.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
-        'levels-tab.js', 'player.js', 'freq-warp.js', 'lr-balance.js', 'init.js'
+        'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'init.js'
       ];
       scripts.forEach(function (src) {
         document.write('<script defer src="' + src + '?v=' + v + '"><\/script>');
@@ -1154,22 +1154,47 @@
               >
             </div>
           </div>
-          <!-- MAPLAW hidden -->
-          <div style="display: none">
-            <input
-              type="number"
-              id="plMaplaw"
-              value="500"
-              min="0"
-              max="8000"
-              step="50"
-            />
-            <input type="checkbox" id="plMapOn" />
-            <div id="plMapInfo"></div>
-          </div>
         </div>
 
-        <!-- 5. Frequenz-Warping -->
+        <!-- 5. MAPLAW-Simulation (oberhalb Frequenz-Warping) -->
+        <div class="card" id="plMaplawCard">
+          <h2 data-t="plMaplawTitle"></h2>
+          <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="plMaplawSubtitle"></div>
+
+          <div class="controls-row" style="margin-bottom:10px">
+            <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+              <input type="checkbox" id="plMaplawOn" />
+              <span data-t="plMaplawEnable"></span>
+            </label>
+          </div>
+
+          <div id="plMaplawConfig">
+            <div style="margin-bottom:8px;font-size:.9em;color:var(--text-muted)">
+              <span data-t="plMaplawIstLabel"></span>:
+              <strong id="plMaplawIstVal" style="font-family:var(--mono);color:var(--text)">—</strong>
+            </div>
+
+            <div style="margin-bottom:6px;font-size:.9em;font-weight:600">
+              <span data-t="plMaplawSollLabel"></span>:
+            </div>
+
+            <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-bottom:8px">
+              <button class="btn btn-sm" data-maplaw-quick="100" type="button">100</button>
+              <button class="btn btn-sm" data-maplaw-quick="250" type="button">250</button>
+              <button class="btn btn-sm" data-maplaw-quick="500" type="button">500</button>
+              <button class="btn btn-sm" data-maplaw-quick="1000" type="button">1000</button>
+              <button class="btn btn-sm" data-maplaw-quick="1500" type="button">1500</button>
+              <button class="btn btn-sm" data-maplaw-quick="2000" type="button">2000</button>
+              <input type="number" id="plMaplawSollInput"
+                     min="0" max="8000" step="50"
+                     style="width:90px;padding:4px 8px;margin-left:8px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono)" />
+            </div>
+          </div>
+
+          <div id="plMaplawNotApplicableHint" class="explain explain-warn" style="display:none;margin-top:8px;font-size:0.85em" data-t="plMaplawNotMedel"></div>
+        </div>
+
+        <!-- 6. Frequenz-Warping -->
         <div class="card" id="plWarpCard">
           <h2 data-t="pwTitle"></h2>
           <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="pwSubtitle"></div>
