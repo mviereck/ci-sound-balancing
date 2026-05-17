@@ -379,12 +379,19 @@ Drei Cards untereinander:
   Ist⁻¹∘Soll als AudioWorklet im Tool. Eigene Card oberhalb der
   Frequenz-Warping-Card. Ist-c kommt aus `implant.cValue` der
   aktiven Seite (read-only), Soll-c per Quick-Buttons
-  (100/250/500/1000/1500/2000) oder Zahleneingabe (0–8000).
+  (100/250/500/1000/1500/2000/3000/4000/6000/8000) oder Zahleneingabe (0–8000).
   Master-Toggle „Simulation aktivieren". EQ-Toggle wirkt als
   Master-Bypass auch für MAPLAW. Audio-Pfad-Position: nach Tool-EQ
   und vor pGain. Bei Soll-c == Ist-c oder Card aus: Passthrough.
   Bei aktiver Seite Cochlear oder AB: Card ausgegraut mit Hinweis.
   Konzeptioneller Hintergrund: `.docs/MAPLAW_Konzept.md`.
+- Experimentell-Toggle im Player: Checkbox „Experimentelle Optionen
+  einblenden" oberhalb der MAPLAW- und Frequenz-Warping-Cards.
+  **Default aus** — beide Cards sind initial verborgen. Wird der
+  Toggle aktiviert, erscheinen die zwei Cards plus ein Hinweistext,
+  daß diese Optionen klangliche Schwächen haben und nur eine grobe
+  Richtungsangabe liefern. Persistiert in JSON und localStorage
+  (`playerShowExperimental`).
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
@@ -442,6 +449,22 @@ Drei Cards untereinander:
     nötige Pfadwechsel an aktueller Position.
   - Stop-Button greift auch in Zwischenzuständen, in denen `pPlaying` kurz
     `false` ist, aber Audio-Sources aktiv sind (Race im async Vocoder-pPlay).
+
+- Sätze-Wiedergabe im Player: Card „Sätze abspielen" unterhalb der
+  Audiodatei-Card. Wiedergabe vorgesprochener Sätze, läuft durch denselben
+  Audiograph wie Musikdateien (EQ, MAPLAW, Korrektur, Lautstärke wirken).
+  UI: Sprecher-Auswahl (Mann/Frau/Zufällig — Verfügbarkeit hängt von
+  aktueller Tool-Sprache ab), Modus (1×/wiederholt/zufällig),
+  Pause-Buttons (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 —
+  Wartezeit zwischen Sätzen bei wiederholt/zufällig), Start/Stop,
+  Toggle „Text anzeigen" (zeigt aktuellen Satz). Sätze und Musikdatei
+  schließen sich gegenseitig aus: Sätze-Start pausiert laufende Musik;
+  Datei-Play-Button stoppt Sätze (erster Klick), zweiter startet Datei.
+  Datei-Upload und Seite-Wechsel stoppen Sätze ebenfalls. In Etappe 1 nur
+  Deutsch-Mann verfügbar (echte Aufnahmen von Thorsten Müller, 50 Sätze,
+  CC0); andere Sprachen zeigen Hinweis „noch keine Sätze verfügbar".
+  Sprachwechsel aktualisiert Verfügbarkeit sofort. Quellen: Thorsten-Voice
+  (CC0), Piper TTS (MIT, für spätere Etappen). Siehe README.
 
 ## Speichern und Laden
 

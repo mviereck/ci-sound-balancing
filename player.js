@@ -209,6 +209,10 @@ document
   .addEventListener("change", async function (e) {
     const f = e.target.files[0];
     if (!f) return;
+    if (typeof sActive !== "undefined" && sActive
+        && typeof sStop === "function") {
+      sStop();
+    }
     try {
       const c = gPC();
       const buf = await f.arrayBuffer();
@@ -240,6 +244,10 @@ document
   });
 
 function updatePlayerForSideChange() {
+  if (typeof sActive !== "undefined" && sActive
+      && typeof sStop === "function") {
+    sStop();
+  }
   if (pSourceBuf) {
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
@@ -403,6 +411,14 @@ function pUpdEQ() {
 function pToggle() {
   if (!pBuf) return;
   if (pCtx.state === "suspended") pCtx.resume();
+  // Wenn der User auf den Datei-Play-Button drückt, während Sätze
+  // laufen, ist das ein Wechsel zur Musikdatei. Sätze-Mode beenden,
+  // ohne pPause aufzurufen (das macht der normale Pfad).
+  if (typeof sActive !== "undefined" && sActive
+      && typeof sStop === "function") {
+    sStop();
+    return; // sStop hat bereits pausiert; User klickt erneut für Datei.
+  }
   if (pPlaying) pPause();
   else pPlay();
 }
@@ -438,6 +454,14 @@ async function pPlay() {
     : pEqF.length > 0
       ? pEqF[pEqF.length - 1]
       : null;
+  // Alte ausgehende Verbindung vom Ende der EQ-Chain trennen, bevor neu
+  // verdrahtet wird. Sonst überlagert eine frühere lastEq→pGain Direkt-
+  // verbindung das neue lastEq→pMaplawNode→pGain (Doppelpfad → MAPLAW-
+  // Effekt vom Originalsignal verschluckt).
+  if (lastEq) {
+    try { lastEq.disconnect(); } catch (e) {}
+  }
+
   // MAPLAW: zwischen letztem EQ-Knoten und pGain einhängen, wenn aktiv, EQ an und MED-EL.
   // EQ-Toggle wirkt als Master-Bypass (analog Frequenz-Warping).
   const mapApplies = pMaplawOn && plEqOn && pMaplawIsApplicable();
@@ -510,6 +534,10 @@ async function pPlay() {
         pOff = 0;
         pUpdBtn();
         pUpdTL();
+        if (typeof sActive !== "undefined" && sActive
+            && typeof sOnEnded === "function") {
+          sOnEnded();
+        }
       }
     };
   }
@@ -791,6 +819,21 @@ function pMaplawTrigger() {
     pOff = offSec;
     pPlay();
   }
+}
+
+// Wendet den Zustand von plShowExperimental auf die UI an: Checkbox-State,
+// Sichtbarkeit der MAPLAW- und Warping-Cards sowie des Hinweistexts.
+// Wird beim DOMContentLoaded, beim Checkbox-Change und nach JSON-Load aufgerufen.
+function pApplyShowExperimental() {
+  const on = !!plShowExperimental;
+  const cb = document.getElementById("plShowExperimental");
+  const ml = document.getElementById("plMaplawCard");
+  const wp = document.getElementById("plWarpCard");
+  const ht = document.getElementById("plExperimentalHint");
+  if (cb) cb.checked = on;
+  if (ml) ml.style.display = on ? "" : "none";
+  if (wp) wp.style.display = on ? "" : "none";
+  if (ht) ht.style.display = on ? "" : "none";
 }
 
 function pMaplawUpdUI() {

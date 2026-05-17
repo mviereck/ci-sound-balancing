@@ -403,6 +403,7 @@ let plApplyBalance = true; // Stereo-Balance anwenden
 let plSrcMeas = true,
   plSrcLevels = true,
   plSrcCurves = true; // EQ source toggles
+let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
 
 let lvTabShowMeas = false;
 let lvTabShowCurves = false;

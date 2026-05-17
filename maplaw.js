@@ -63,6 +63,10 @@ function maplawInv(y, c) {
   return (Math.exp(y * Math.log(1 + c)) - 1) / c;
 }
 
+// Maximale Kanalzahl mit eigenem Filterbank-State. Für L/R reicht 2.
+// Mehr Kanäle (z.B. 5.1) werden auf die ersten beiden Slots gemappt.
+const MAX_CH = 2;
+
 class MaplawProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
@@ -73,19 +77,29 @@ class MaplawProcessor extends AudioWorkletProcessor {
     this._coeffs = MAPLAW_FREQS.map(fc =>
       rbjBandpassCoeffs(fc, this._fs, Q_BANDPASS),
     );
-    // Biquad-State pro Band: x[-1], x[-2], y[-1], y[-2]
-    this._bp1 = new Float32Array(N_BANDS); // x[-1]
-    this._bp2 = new Float32Array(N_BANDS); // x[-2]
-    this._by1 = new Float32Array(N_BANDS); // y[-1]
-    this._by2 = new Float32Array(N_BANDS); // y[-2]
-    // Hüllkurven-IIR (1-pole-Tiefpaß)
+    // Hüllkurven-IIR (1-pole-Tiefpaß) und Max-Abklingrate
     const dt = 1 / this._fs;
     const rcEnv = 1 / (2 * Math.PI * ENV_LP_FREQ);
-    this._envAlpha = dt / (rcEnv + dt);   // Glättungsfaktor
-    this._env = new Float32Array(N_BANDS); // aktuelle geglättete Hüllkurve
-    // Lokales Maximum pro Band (geometrische Abklingrate)
+    this._envAlpha = dt / (rcEnv + dt);
     this._maxDecay = Math.exp(-1 / (this._fs * MAX_DECAY_TAU_SEC));
-    this._max = new Float32Array(N_BANDS).fill(EPS);
+    // Per-Channel-State: Biquad-State (x[-1], x[-2], y[-1], y[-2]),
+    // Hüllkurve, lokales Maximum. Jeweils ein Float32Array(N_BANDS)
+    // pro Kanal. So bleibt die Filterbank-History zwischen L und R
+    // sauber getrennt.
+    this._bp1 = [];
+    this._bp2 = [];
+    this._by1 = [];
+    this._by2 = [];
+    this._env = [];
+    this._max = [];
+    for (let ch = 0; ch < MAX_CH; ch++) {
+      this._bp1.push(new Float32Array(N_BANDS));
+      this._bp2.push(new Float32Array(N_BANDS));
+      this._by1.push(new Float32Array(N_BANDS));
+      this._by2.push(new Float32Array(N_BANDS));
+      this._env.push(new Float32Array(N_BANDS));
+      this._max.push(new Float32Array(N_BANDS).fill(EPS));
+    }
     this.port.onmessage = (e) => this._onMessage(e.data);
   }
 
@@ -96,80 +110,90 @@ class MaplawProcessor extends AudioWorkletProcessor {
     if (typeof d.active !== "undefined") this._active = d.active ? 1 : 0;
   }
 
-  process(inputs, outputs) {
-    const input  = inputs[0];
-    const output = outputs[0];
-    if (!input || input.length === 0) return true;
-
-    const inCh  = input[0];
-    const outCh = output[0];
-    if (!inCh || !outCh) return true;
-
+  _processChannel(inCh, outCh, ch) {
     const len = inCh.length;
-
-    // Passthrough wenn inaktiv oder c-Werte gleich (Identity)
-    if (!this._active || Math.abs(this._istC - this._sollC) < 0.5) {
-      outCh.set(inCh);
-      // Multikanal-Ausgang: Stereo bedienen, falls vorhanden
-      for (let k = 1; k < output.length; k++) {
-        const oc = output[k];
-        if (oc) oc.set(inCh);
-      }
-      return true;
-    }
-
     const istC = this._istC;
     const sollC = this._sollC;
     const decay = this._maxDecay;
     const aEnv = this._envAlpha;
+    const coeffs = this._coeffs;
+    const bp1 = this._bp1[ch];
+    const bp2 = this._bp2[ch];
+    const by1 = this._by1[ch];
+    const by2 = this._by2[ch];
+    const env_ = this._env[ch];
+    const max_ = this._max[ch];
 
     for (let n = 0; n < len; n++) {
       const x = inCh[n];
       let sumOut = 0;
-
       for (let b = 0; b < N_BANDS; b++) {
-        const c = this._coeffs[b];
+        const c = coeffs[b];
         // Biquad: y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2] - a1*y[n-1] - a2*y[n-2]
-        const y = c.b0 * x + c.b1 * this._bp1[b] + c.b2 * this._bp2[b]
-                - c.a1 * this._by1[b] - c.a2 * this._by2[b];
-        this._bp2[b] = this._bp1[b];
-        this._bp1[b] = x;
-        this._by2[b] = this._by1[b];
-        this._by1[b] = y;
+        const y = c.b0 * x + c.b1 * bp1[b] + c.b2 * bp2[b]
+                - c.a1 * by1[b] - c.a2 * by2[b];
+        bp2[b] = bp1[b];
+        bp1[b] = x;
+        by2[b] = by1[b];
+        by1[b] = y;
 
-        // Hüllkurve: Gleichrichtung + 1-pole-LP
         const rect = Math.abs(y);
-        this._env[b] = this._env[b] + aEnv * (rect - this._env[b]);
-        const env = this._env[b];
+        env_[b] = env_[b] + aEnv * (rect - env_[b]);
+        const envb = env_[b];
 
-        // Lokales Maximum: exponentieller Abfall plus aktueller Wert
-        let mx = this._max[b] * decay;
-        if (env > mx) mx = env;
-        this._max[b] = mx;
+        let mx = max_[b] * decay;
+        if (envb > mx) mx = envb;
+        max_[b] = mx;
 
-        // Normierte Hüllkurve auf 0..1
-        const envNorm = mx > EPS ? Math.min(1, env / mx) : 0;
-        if (envNorm < EPS) {
-          // Band praktisch stumm — Beitrag null
-          continue;
-        }
+        const envNorm = mx > EPS ? Math.min(1, envb / mx) : 0;
+        if (envNorm < EPS) continue;
 
-        // MAPLAW-Vorverzerrung: env so vorverzerren, daß nach
-        // CI-MAPLAW(ist) das Soll-c-Klangbild rauskommt.
         const mapped = maplaw(envNorm, sollC);
         const envCorrNorm = maplawInv(mapped, istC);
         const gain = envCorrNorm / envNorm;
 
-        sumOut += y * gain;
+        // Additive Korrektur: nur die Modifikation aufsummieren (gain-1),
+        // nicht die ganze Filterbank-Summe. Sonst klingt selbst der Fall
+        // gain≈1 verfärbt, weil Σ y_b ≠ x (12 Q=4-Bandpässe sind keine
+        // perfekte Rekonstruktion). Mit diesem Ansatz bleibt das Original
+        // x das Klanggerüst und MAPLAW addiert nur eine bandgefilterte
+        // Korrektur-Spur — bei istC≈sollC ist die Korrektur 0 und das
+        // Original durchläuft unverfärbt.
+        sumOut += y * (gain - 1);
       }
+      outCh[n] = x + sumOut;
+    }
+  }
 
-      outCh[n] = sumOut;
+  process(inputs, outputs) {
+    const input  = inputs[0];
+    const output = outputs[0];
+    if (!input || input.length === 0) return true;
+    if (!output || output.length === 0) return true;
+
+    const numIn  = input.length;
+    const numOut = output.length;
+
+    // Passthrough wenn inaktiv oder c-Werte gleich (Identity).
+    // Pro Output-Kanal jeweils den korrespondierenden Input-Kanal kopieren;
+    // wenn weniger Input-Kanäle als Output-Kanäle, letzten wiederverwenden.
+    if (!this._active || Math.abs(this._istC - this._sollC) < 0.5) {
+      for (let k = 0; k < numOut; k++) {
+        const inCh  = input[Math.min(k, numIn - 1)];
+        const outCh = output[k];
+        if (inCh && outCh) outCh.set(inCh);
+      }
+      return true;
     }
 
-    // Multikanal-Ausgang: gleicher Output auf weitere Kanäle
-    for (let k = 1; k < output.length; k++) {
-      const oc = output[k];
-      if (oc) oc.set(outCh);
+    // Aktiv: pro Kanal eigene Filterbank-Verarbeitung mit eigenem State.
+    // Channel-State-Index auf MAX_CH-1 begrenzen, falls mehr Kanäle als
+    // State-Slots vorhanden sind (sollte im Player-Setup nicht passieren).
+    for (let k = 0; k < numOut; k++) {
+      const inCh  = input[Math.min(k, numIn - 1)];
+      const outCh = output[k];
+      if (!inCh || !outCh) continue;
+      this._processChannel(inCh, outCh, Math.min(k, MAX_CH - 1));
     }
     return true;
   }
@@ -201,10 +225,19 @@ async function pInitMaplawWorklet(audioCtx) {
 // Setzt voraus, daß pInitMaplawWorklet(audioCtx) vorher abgewartet
 // wurde.
 function pBuildMaplawNode(audioCtx, params) {
+  // Stereo-Pipeline durch den Worklet: 2 Kanäle in, 2 Kanäle raus.
+  // `channelCountMode: 'explicit'` mit `channelCount: 2` zwingt Web Audio,
+  // Mono-Input vor dem Worklet auf 2 Kanäle aufzuteilen (L=R=mono) und
+  // Stereo-Input ohne Downmix durchzureichen. Andernfalls würde der
+  // Worklet bei mode='right' (pRightOnlyBuf, L=0/R=Signal) nur den
+  // stillen linken Kanal sehen und Stille ausgeben.
   const node = new AudioWorkletNode(audioCtx, "maplaw-processor", {
     numberOfInputs:  1,
     numberOfOutputs: 1,
-    outputChannelCount: [1],
+    outputChannelCount: [2],
+    channelCount: 2,
+    channelCountMode: "explicit",
+    channelInterpretation: "speakers",
   });
   pMaplawApplyParams(node, params);
   return node;

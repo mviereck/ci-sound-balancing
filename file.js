@@ -212,6 +212,7 @@ async function saveJson() {
     warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline",
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
+    playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -470,6 +471,8 @@ function applyLoadedData(d) {
   }
   if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
   if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
+  if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
+  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
   buildFreqTable();

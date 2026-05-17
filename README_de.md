@@ -161,3 +161,19 @@ Messung von Tonhöhenunterschieden links und rechts.
 ### Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
 - (Weitere Dokumentation folgt)
+
+
+## Sprachmaterial und Quellen
+
+Die Sätze im Player ("Sätze abspielen") nutzen Sprachaufnahmen und
+Sprachsynthese aus folgenden offenen Quellen:
+
+- **Thorsten-Voice** – deutsche Stimme von Thorsten Müller,
+  Trainingsdaten CC0. https://www.thorsten-voice.de
+- **Piper TTS** – neuronale Sprachsynthese, MIT-Lizenz. Wird in
+  späteren Etappen für weitere Sprachen und Sprecher genutzt.
+  https://github.com/rhasspy/piper
+
+Die ausgewählten Sätze stammen aus dem Trainings-Korpus von
+Thorsten-Voice und werden inhaltlich nicht weiterverbreitet — nur die
+hier explizit ausgewählten 50 Audio-Snippets liegen im Repo.

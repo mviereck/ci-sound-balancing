@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } catch (e) {}
   applyLang();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   updSideButtons();
   updFClearBtn();
   updPlSrcButtons();
@@ -823,6 +824,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ========== Experimentelle Optionen Toggle ==========
+  const plShowExpEl = document.getElementById("plShowExperimental");
+  if (plShowExpEl) {
+    plShowExpEl.addEventListener("change", function () {
+      plShowExperimental = this.checked;
+      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
+    });
+  }
+
   // ---- Frequenz-Warping Listener ----
   // Warp-Checkbox
   document.getElementById("plWarpOn").addEventListener("change", function () {
@@ -1036,6 +1046,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("plStr").value = d.eqStrength;
       if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
       if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
+      if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
+      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function") pMaplawTrigger();
       if (d.lrResults && typeof lrResults !== "undefined") {
@@ -1052,6 +1064,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
       if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
       buildFreqTable();
+      buildImplantCard();
       updSideButtons();
     }
   } catch (e) {}
@@ -1148,6 +1161,7 @@ document.addEventListener("DOMContentLoaded", () => {
           eqStrength: parseInt(document.getElementById("plStr").value),
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
+          playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
