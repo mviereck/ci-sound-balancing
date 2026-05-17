@@ -1,0 +1,711 @@
+{
+  "lang": "en",
+  "source": "fsicoli/common_voice_17_0",
+  "license": "CC0-1.0",
+  "n_speakers": 100,
+  "gender_distribution": {
+    "u": 100
+  },
+  "items": [
+    {
+      "id": "001",
+      "text": "I'm getting them for twelve dollars a night.",
+      "gender": "u",
+      "client_hash": "e33635d2",
+      "audio": "001.mp3"
+    },
+    {
+      "id": "002",
+      "text": "The brake pedal was vibrating as the anti-skid system intervened.",
+      "gender": "u",
+      "client_hash": "64ec3acd",
+      "audio": "002.mp3"
+    },
+    {
+      "id": "003",
+      "text": "It was due to her knowledge and experience that she solved the mystery first.",
+      "gender": "u",
+      "client_hash": "6adfa06d",
+      "audio": "003.mp3"
+    },
+    {
+      "id": "004",
+      "text": "Drinking too much water in a short period of time can be lethal.",
+      "gender": "u",
+      "client_hash": "ed47c1be",
+      "audio": "004.mp3"
+    },
+    {
+      "id": "005",
+      "text": "Please look up the painting, Modern times.",
+      "gender": "u",
+      "client_hash": "7c2bd9cd",
+      "audio": "005.mp3"
+    },
+    {
+      "id": "006",
+      "text": "I tried one of the leading Dragon extensions to help with this, Voice Code.",
+      "gender": "u",
+      "client_hash": "416f1eaa",
+      "audio": "006.mp3"
+    },
+    {
+      "id": "007",
+      "text": "In my book of memory",
+      "gender": "u",
+      "client_hash": "b1f4f200",
+      "audio": "007.mp3"
+    },
+    {
+      "id": "008",
+      "text": "Sunday will not work for me.",
+      "gender": "u",
+      "client_hash": "f3ef21fc",
+      "audio": "008.mp3"
+    },
+    {
+      "id": "009",
+      "text": "Access my Vimeo service to play music from Bernhard Fleischmann",
+      "gender": "u",
+      "client_hash": "8704fa4d",
+      "audio": "009.mp3"
+    },
+    {
+      "id": "010",
+      "text": "I know everything about you.",
+      "gender": "u",
+      "client_hash": "27057eaf",
+      "audio": "010.mp3"
+    },
+    {
+      "id": "011",
+      "text": "Children playing outside in a fountain.",
+      "gender": "u",
+      "client_hash": "869e607d",
+      "audio": "011.mp3"
+    },
+    {
+      "id": "012",
+      "text": "I guess I've seen everything now.",
+      "gender": "u",
+      "client_hash": "99244964",
+      "audio": "012.mp3"
+    },
+    {
+      "id": "013",
+      "text": "I need the weather in North Dakota in three hundred fifty one days",
+      "gender": "u",
+      "client_hash": "ae0a6680",
+      "audio": "013.mp3"
+    },
+    {
+      "id": "014",
+      "text": "Look for the novel Behind closed doors",
+      "gender": "u",
+      "client_hash": "eaf21ccc",
+      "audio": "014.mp3"
+    },
+    {
+      "id": "015",
+      "text": "He wasn't as good as I was expecting.",
+      "gender": "u",
+      "client_hash": "f51399fe",
+      "audio": "015.mp3"
+    },
+    {
+      "id": "016",
+      "text": "Owls are always intellectual in fairy-tales.",
+      "gender": "u",
+      "client_hash": "568d15da",
+      "audio": "016.mp3"
+    },
+    {
+      "id": "017",
+      "text": "The five French tourists stepped over the excited bulldogs.",
+      "gender": "u",
+      "client_hash": "5f19c2e6",
+      "audio": "017.mp3"
+    },
+    {
+      "id": "018",
+      "text": "That's when he caught your cold.",
+      "gender": "u",
+      "client_hash": "b54dcdb1",
+      "audio": "018.mp3"
+    },
+    {
+      "id": "019",
+      "text": "Here's a joke I like.",
+      "gender": "u",
+      "client_hash": "5005a234",
+      "audio": "019.mp3"
+    },
+    {
+      "id": "020",
+      "text": "A waxed floor makes us lose balance.",
+      "gender": "u",
+      "client_hash": "0471f653",
+      "audio": "020.mp3"
+    },
+    {
+      "id": "021",
+      "text": "Every one knows best where the shoe pinches him",
+      "gender": "u",
+      "client_hash": "fe2902b4",
+      "audio": "021.mp3"
+    },
+    {
+      "id": "022",
+      "text": "It's as much my fault as yours.",
+      "gender": "u",
+      "client_hash": "4abf749b",
+      "audio": "022.mp3"
+    },
+    {
+      "id": "023",
+      "text": "Strike while the iron is hot Make hay while the sun shines",
+      "gender": "u",
+      "client_hash": "0cbc6937",
+      "audio": "023.mp3"
+    },
+    {
+      "id": "024",
+      "text": "I want to see Wenn Lucy springt now at a movie theatre.",
+      "gender": "u",
+      "client_hash": "09b17013",
+      "audio": "024.mp3"
+    },
+    {
+      "id": "025",
+      "text": "Man works grill at carnival food stand.",
+      "gender": "u",
+      "client_hash": "36c306f8",
+      "audio": "025.mp3"
+    },
+    {
+      "id": "026",
+      "text": "The board chairwoman happily announced increased revenues this quarter.",
+      "gender": "u",
+      "client_hash": "9fb2be9c",
+      "audio": "026.mp3"
+    },
+    {
+      "id": "027",
+      "text": "To go to the dogs",
+      "gender": "u",
+      "client_hash": "1606162d",
+      "audio": "027.mp3"
+    },
+    {
+      "id": "028",
+      "text": "A woman travels by a large octopus sand sculpture on the beach.",
+      "gender": "u",
+      "client_hash": "6e7b7900",
+      "audio": "028.mp3"
+    },
+    {
+      "id": "029",
+      "text": "You certainly delivered the goods.",
+      "gender": "u",
+      "client_hash": "d977621c",
+      "audio": "029.mp3"
+    },
+    {
+      "id": "030",
+      "text": "Four humans and four dogs lounging in the dining area",
+      "gender": "u",
+      "client_hash": "1601e575",
+      "audio": "030.mp3"
+    },
+    {
+      "id": "031",
+      "text": "Now, I’m scared of what is inside of pies.",
+      "gender": "u",
+      "client_hash": "31ce5587",
+      "audio": "031.mp3"
+    },
+    {
+      "id": "032",
+      "text": "Tell them to hold the wire.",
+      "gender": "u",
+      "client_hash": "ed5e967d",
+      "audio": "032.mp3"
+    },
+    {
+      "id": "033",
+      "text": "A guy is communicating with someone in a car.",
+      "gender": "u",
+      "client_hash": "ddeeda04",
+      "audio": "033.mp3"
+    },
+    {
+      "id": "034",
+      "text": "This puts me in a peculiar hole.",
+      "gender": "u",
+      "client_hash": "91447d04",
+      "audio": "034.mp3"
+    },
+    {
+      "id": "035",
+      "text": "A fine bunch of reporters.",
+      "gender": "u",
+      "client_hash": "e79846af",
+      "audio": "035.mp3"
+    },
+    {
+      "id": "036",
+      "text": "Experience is the best teacher.",
+      "gender": "u",
+      "client_hash": "f4827d91",
+      "audio": "036.mp3"
+    },
+    {
+      "id": "037",
+      "text": "It takes heat to bring out the odor.",
+      "gender": "u",
+      "client_hash": "8830bd7f",
+      "audio": "037.mp3"
+    },
+    {
+      "id": "038",
+      "text": "And don't bump into anything.",
+      "gender": "u",
+      "client_hash": "ece5d5fb",
+      "audio": "038.mp3"
+    },
+    {
+      "id": "039",
+      "text": "I believe that this is not explained in the text.",
+      "gender": "u",
+      "client_hash": "469b2561",
+      "audio": "039.mp3"
+    },
+    {
+      "id": "040",
+      "text": "Play my Women of Rock playlist.",
+      "gender": "u",
+      "client_hash": "df30646c",
+      "audio": "040.mp3"
+    },
+    {
+      "id": "041",
+      "text": "He was such a jolly old bloke.",
+      "gender": "u",
+      "client_hash": "d39578ee",
+      "audio": "041.mp3"
+    },
+    {
+      "id": "042",
+      "text": "It was a suicidal stunt.",
+      "gender": "u",
+      "client_hash": "a87b7331",
+      "audio": "042.mp3"
+    },
+    {
+      "id": "043",
+      "text": "What films are playing at the nearest movie theatre",
+      "gender": "u",
+      "client_hash": "bb1a5c0a",
+      "audio": "043.mp3"
+    },
+    {
+      "id": "044",
+      "text": "We were awaiting the guitar player to begin the concert.",
+      "gender": "u",
+      "client_hash": "16bb4d81",
+      "audio": "044.mp3"
+    },
+    {
+      "id": "045",
+      "text": "Use the factory pattern and an iterator to step through the array.",
+      "gender": "u",
+      "client_hash": "f5b78cf5",
+      "audio": "045.mp3"
+    },
+    {
+      "id": "046",
+      "text": "It was her manifest destiny to eat that chocolate bar.",
+      "gender": "u",
+      "client_hash": "95716a0f",
+      "audio": "046.mp3"
+    },
+    {
+      "id": "047",
+      "text": "Play Ashita E by Ian Anderson",
+      "gender": "u",
+      "client_hash": "0bbdc26c",
+      "audio": "047.mp3"
+    },
+    {
+      "id": "048",
+      "text": "Thanks ever so much for the bag.",
+      "gender": "u",
+      "client_hash": "ce7fba2f",
+      "audio": "048.mp3"
+    },
+    {
+      "id": "049",
+      "text": "A child is looking at a red parking meter on the street.",
+      "gender": "u",
+      "client_hash": "c2b04107",
+      "audio": "049.mp3"
+    },
+    {
+      "id": "050",
+      "text": "You hit my best friend.",
+      "gender": "u",
+      "client_hash": "107a8dbe",
+      "audio": "050.mp3"
+    },
+    {
+      "id": "051",
+      "text": "This investment won't pay off.",
+      "gender": "u",
+      "client_hash": "4d32b27f",
+      "audio": "051.mp3"
+    },
+    {
+      "id": "052",
+      "text": "A quart of milk is water for the most part.",
+      "gender": "u",
+      "client_hash": "a2a1e3cb",
+      "audio": "052.mp3"
+    },
+    {
+      "id": "053",
+      "text": "They were racing down the streets with no regard for anyone.",
+      "gender": "u",
+      "client_hash": "9764e86b",
+      "audio": "053.mp3"
+    },
+    {
+      "id": "054",
+      "text": "find me a restaurant in Pembine Montana",
+      "gender": "u",
+      "client_hash": "27340b93",
+      "audio": "054.mp3"
+    },
+    {
+      "id": "055",
+      "text": "I just opened the link you sent to me.",
+      "gender": "u",
+      "client_hash": "30b1847a",
+      "audio": "055.mp3"
+    },
+    {
+      "id": "056",
+      "text": "Christy has an engaging personality.",
+      "gender": "u",
+      "client_hash": "3e558348",
+      "audio": "056.mp3"
+    },
+    {
+      "id": "057",
+      "text": "Mighty oaks from tiny acorns grow.",
+      "gender": "u",
+      "client_hash": "a9c0d0b0",
+      "audio": "057.mp3"
+    },
+    {
+      "id": "058",
+      "text": "If you tackled these outliers that would reduce the artifacts.",
+      "gender": "u",
+      "client_hash": "f17b0ac6",
+      "audio": "058.mp3"
+    },
+    {
+      "id": "059",
+      "text": "The millennium edition of the album contains multiple remixes and the lyrics.",
+      "gender": "u",
+      "client_hash": "bd0135e7",
+      "audio": "059.mp3"
+    },
+    {
+      "id": "060",
+      "text": "We know that Mark does not like spicy food.",
+      "gender": "u",
+      "client_hash": "ac79e5ad",
+      "audio": "060.mp3"
+    },
+    {
+      "id": "061",
+      "text": "We need to solve this problem fast.",
+      "gender": "u",
+      "client_hash": "0c2797a1",
+      "audio": "061.mp3"
+    },
+    {
+      "id": "062",
+      "text": "I knew if I were drowning you'd try to save me.",
+      "gender": "u",
+      "client_hash": "0514d6c4",
+      "audio": "062.mp3"
+    },
+    {
+      "id": "063",
+      "text": "A pencil with black lead writes best.",
+      "gender": "u",
+      "client_hash": "bb31988c",
+      "audio": "063.mp3"
+    },
+    {
+      "id": "064",
+      "text": "A female soccer fan on the street with other soccer fans around.",
+      "gender": "u",
+      "client_hash": "d55bb4e5",
+      "audio": "064.mp3"
+    },
+    {
+      "id": "065",
+      "text": "Heading out to table tennis and I won’t be able to make your talk.",
+      "gender": "u",
+      "client_hash": "516d9e50",
+      "audio": "065.mp3"
+    },
+    {
+      "id": "066",
+      "text": "He woke up crying because he felt very dejected.",
+      "gender": "u",
+      "client_hash": "ca23d7e6",
+      "audio": "066.mp3"
+    },
+    {
+      "id": "067",
+      "text": "These six people are walking outside a building with columns.",
+      "gender": "u",
+      "client_hash": "b2d2a80d",
+      "audio": "067.mp3"
+    },
+    {
+      "id": "068",
+      "text": "Empty barrels make the most noise.",
+      "gender": "u",
+      "client_hash": "175f6392",
+      "audio": "068.mp3"
+    },
+    {
+      "id": "069",
+      "text": "A gradual diminishing of time.",
+      "gender": "u",
+      "client_hash": "6c04deed",
+      "audio": "069.mp3"
+    },
+    {
+      "id": "070",
+      "text": "The streets are narrow and full of sharp turns.",
+      "gender": "u",
+      "client_hash": "069e7c8e",
+      "audio": "070.mp3"
+    },
+    {
+      "id": "071",
+      "text": "As a winner, Carlos give his acceptance speech in front of the stage.",
+      "gender": "u",
+      "client_hash": "ef34f96b",
+      "audio": "071.mp3"
+    },
+    {
+      "id": "072",
+      "text": "Sometines, I need to clear my browser cache to save more storage space.",
+      "gender": "u",
+      "client_hash": "dd99e855",
+      "audio": "072.mp3"
+    },
+    {
+      "id": "073",
+      "text": "He's a regular and he's connected, but then I expect you knew that much already.",
+      "gender": "u",
+      "client_hash": "92307478",
+      "audio": "073.mp3"
+    },
+    {
+      "id": "074",
+      "text": "I think they're both looking for some sort of new work.",
+      "gender": "u",
+      "client_hash": "9f0556dc",
+      "audio": "074.mp3"
+    },
+    {
+      "id": "075",
+      "text": "She is having a meeting with a business consultant.",
+      "gender": "u",
+      "client_hash": "2e885f0b",
+      "audio": "075.mp3"
+    },
+    {
+      "id": "076",
+      "text": "Please wait a moment while I am investigating the issue.",
+      "gender": "u",
+      "client_hash": "459b708b",
+      "audio": "076.mp3"
+    },
+    {
+      "id": "077",
+      "text": "You actually have to do proper work.",
+      "gender": "u",
+      "client_hash": "e80ea9e9",
+      "audio": "077.mp3"
+    },
+    {
+      "id": "078",
+      "text": "I doubt they're upgrading without informing people first.",
+      "gender": "u",
+      "client_hash": "2b45010b",
+      "audio": "078.mp3"
+    },
+    {
+      "id": "079",
+      "text": "Inline skates are like ice skates, but with wheels instead of blades.",
+      "gender": "u",
+      "client_hash": "c8bb3639",
+      "audio": "079.mp3"
+    },
+    {
+      "id": "080",
+      "text": "Ready money is ready medicine.",
+      "gender": "u",
+      "client_hash": "174b18dd",
+      "audio": "080.mp3"
+    },
+    {
+      "id": "081",
+      "text": "To save fuel, the Ariane rocket has been launched not far from the equator.",
+      "gender": "u",
+      "client_hash": "c8bce435",
+      "audio": "081.mp3"
+    },
+    {
+      "id": "082",
+      "text": "Nara took a flight from South Africa to Japan.",
+      "gender": "u",
+      "client_hash": "6775518b",
+      "audio": "082.mp3"
+    },
+    {
+      "id": "083",
+      "text": "He recorded everything with his camcorder to have a watertight proof.",
+      "gender": "u",
+      "client_hash": "e548fbd7",
+      "audio": "083.mp3"
+    },
+    {
+      "id": "084",
+      "text": "Pork cutlet is also very tasty, but our religion does not allow us to eat it.",
+      "gender": "u",
+      "client_hash": "c5079d85",
+      "audio": "084.mp3"
+    },
+    {
+      "id": "085",
+      "text": "Men that are not included in the line, the reserve, Militia Never mind, Farewell.",
+      "gender": "u",
+      "client_hash": "e8990062",
+      "audio": "085.mp3"
+    },
+    {
+      "id": "086",
+      "text": "Please refrain from taking pictures in this area.",
+      "gender": "u",
+      "client_hash": "b9f19cd2",
+      "audio": "086.mp3"
+    },
+    {
+      "id": "087",
+      "text": "Apparently, the autocomplete feature is not working temporarily.",
+      "gender": "u",
+      "client_hash": "225cb3a3",
+      "audio": "087.mp3"
+    },
+    {
+      "id": "088",
+      "text": "Where God has his church, the devil will have his chapel.",
+      "gender": "u",
+      "client_hash": "0c840a04",
+      "audio": "088.mp3"
+    },
+    {
+      "id": "089",
+      "text": "Conversely, a wave whose phase drifts quickly will have a short coherence time.",
+      "gender": "u",
+      "client_hash": "0edae320",
+      "audio": "089.mp3"
+    },
+    {
+      "id": "090",
+      "text": "Joy shared is double joy; grief shared is only half grief.",
+      "gender": "u",
+      "client_hash": "3cd8d045",
+      "audio": "090.mp3"
+    },
+    {
+      "id": "091",
+      "text": "He didn't feel so hungry though, not since he had heard the drawn-out scraping noise from upstairs.",
+      "gender": "u",
+      "client_hash": "9d89e5ab",
+      "audio": "091.mp3"
+    },
+    {
+      "id": "092",
+      "text": "I had some problems in activating this coupon.",
+      "gender": "u",
+      "client_hash": "93c9ad33",
+      "audio": "092.mp3"
+    },
+    {
+      "id": "093",
+      "text": "A group of motorcyclists drive around a parking lot",
+      "gender": "u",
+      "client_hash": "8bd6f8e0",
+      "audio": "093.mp3"
+    },
+    {
+      "id": "094",
+      "text": "Songs are made to make you feel.",
+      "gender": "u",
+      "client_hash": "af3245e6",
+      "audio": "094.mp3"
+    },
+    {
+      "id": "095",
+      "text": "The attraction between moon and earth goes both ways, which causes tides.",
+      "gender": "u",
+      "client_hash": "7af5032a",
+      "audio": "095.mp3"
+    },
+    {
+      "id": "096",
+      "text": "It's easy to jump to a particular one.",
+      "gender": "u",
+      "client_hash": "4532d411",
+      "audio": "096.mp3"
+    },
+    {
+      "id": "097",
+      "text": "In his youth my dad was a hooligan.",
+      "gender": "u",
+      "client_hash": "238bfaf2",
+      "audio": "097.mp3"
+    },
+    {
+      "id": "098",
+      "text": "Member of an independent band harassing the enemy by irregular attacks.",
+      "gender": "u",
+      "client_hash": "54515731",
+      "audio": "098.mp3"
+    },
+    {
+      "id": "099",
+      "text": "Right, well let's poke around his lab a little.",
+      "gender": "u",
+      "client_hash": "85991370",
+      "audio": "099.mp3"
+    },
+    {
+      "id": "100",
+      "text": "In the first few centuries of the town's existence, it was a wooden bridge.",
+      "gender": "u",
+      "client_hash": "08dc0c01",
+      "audio": "100.mp3"
+    }
+  ]
+}

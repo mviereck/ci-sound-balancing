@@ -1,0 +1,711 @@
+{
+  "lang": "es",
+  "source": "fsicoli/common_voice_17_0",
+  "license": "CC0-1.0",
+  "n_speakers": 100,
+  "gender_distribution": {
+    "u": 100
+  },
+  "items": [
+    {
+      "id": "001",
+      "text": "A mi profesora le importa demasiado la gramática y muy poco el contenido.",
+      "gender": "u",
+      "client_hash": "00ef7ca6",
+      "audio": "001.mp3"
+    },
+    {
+      "id": "002",
+      "text": "A falta de pan, buenas son tortas.",
+      "gender": "u",
+      "client_hash": "0379a1da",
+      "audio": "002.mp3"
+    },
+    {
+      "id": "003",
+      "text": "A caballo regalado no le mires el dentado.",
+      "gender": "u",
+      "client_hash": "6016d81f",
+      "audio": "003.mp3"
+    },
+    {
+      "id": "004",
+      "text": "Una declaración de principios es exigible, en este caso.",
+      "gender": "u",
+      "client_hash": "59165a49",
+      "audio": "004.mp3"
+    },
+    {
+      "id": "005",
+      "text": "yo , sin embargo , lo llevaba con paciencia .",
+      "gender": "u",
+      "client_hash": "f98589ca",
+      "audio": "005.mp3"
+    },
+    {
+      "id": "006",
+      "text": "el campanario de la iglesia , con su enorme nido de zopilotes ,",
+      "gender": "u",
+      "client_hash": "ff68a8a1",
+      "audio": "006.mp3"
+    },
+    {
+      "id": "007",
+      "text": "los españoles nos dividimos en dos grandes bandos :",
+      "gender": "u",
+      "client_hash": "bd58d988",
+      "audio": "007.mp3"
+    },
+    {
+      "id": "008",
+      "text": "Cada uno en su casa, y Dios en la de todos.",
+      "gender": "u",
+      "client_hash": "a8b9a74a",
+      "audio": "008.mp3"
+    },
+    {
+      "id": "009",
+      "text": "pero esos comentarios , duelen .",
+      "gender": "u",
+      "client_hash": "5fb39535",
+      "audio": "009.mp3"
+    },
+    {
+      "id": "010",
+      "text": "a las voces del negro acudió toda la prole .",
+      "gender": "u",
+      "client_hash": "612d8b87",
+      "audio": "010.mp3"
+    },
+    {
+      "id": "011",
+      "text": "burbuja , ve al huerto que hay en cubierta",
+      "gender": "u",
+      "client_hash": "b90b6efb",
+      "audio": "011.mp3"
+    },
+    {
+      "id": "012",
+      "text": "borrar lo que ha sucedido y empezar de cero ...",
+      "gender": "u",
+      "client_hash": "51387fc3",
+      "audio": "012.mp3"
+    },
+    {
+      "id": "013",
+      "text": "que conducían numerosos rebaños a las ferias de Grijalba .",
+      "gender": "u",
+      "client_hash": "4cce7cec",
+      "audio": "013.mp3"
+    },
+    {
+      "id": "014",
+      "text": "La radio del móvil sólo coge emisoras evangelistas.",
+      "gender": "u",
+      "client_hash": "78277d4d",
+      "audio": "014.mp3"
+    },
+    {
+      "id": "015",
+      "text": "vamos . venga . tranquilo .",
+      "gender": "u",
+      "client_hash": "fb29c085",
+      "audio": "015.mp3"
+    },
+    {
+      "id": "016",
+      "text": "la sombrilla , Ricardo .",
+      "gender": "u",
+      "client_hash": "d6660fe3",
+      "audio": "016.mp3"
+    },
+    {
+      "id": "017",
+      "text": "Instagram es la aplicación más usada por los jóvenes.",
+      "gender": "u",
+      "client_hash": "c385cbf7",
+      "audio": "017.mp3"
+    },
+    {
+      "id": "018",
+      "text": "Más vale camino viejo que sendero nuevo.",
+      "gender": "u",
+      "client_hash": "778cf852",
+      "audio": "018.mp3"
+    },
+    {
+      "id": "019",
+      "text": "porque quiero saberlo todo de ti , quiero que seamos novios .",
+      "gender": "u",
+      "client_hash": "7a6fab11",
+      "audio": "019.mp3"
+    },
+    {
+      "id": "020",
+      "text": "he estado muerto dieciséis minutos .",
+      "gender": "u",
+      "client_hash": "1feef3fe",
+      "audio": "020.mp3"
+    },
+    {
+      "id": "021",
+      "text": "Hay serpientes que son similares a otras para parecer más peligrosas.",
+      "gender": "u",
+      "client_hash": "fd35e586",
+      "audio": "021.mp3"
+    },
+    {
+      "id": "022",
+      "text": "pero es que solo es para mayores .",
+      "gender": "u",
+      "client_hash": "2fc33e1c",
+      "audio": "022.mp3"
+    },
+    {
+      "id": "023",
+      "text": "que aquellas apartadas de la vida mundana , también por su Gracia ...",
+      "gender": "u",
+      "client_hash": "e24547cc",
+      "audio": "023.mp3"
+    },
+    {
+      "id": "024",
+      "text": "vamos , quiero decir , que no soy de citas especiales .",
+      "gender": "u",
+      "client_hash": "0f6e3c99",
+      "audio": "024.mp3"
+    },
+    {
+      "id": "025",
+      "text": "es una historia muy larga . he dicho que llames a tu hermana .",
+      "gender": "u",
+      "client_hash": "7408a156",
+      "audio": "025.mp3"
+    },
+    {
+      "id": "026",
+      "text": "que tampoco tengo la culpa . no me tienes que explicar nada .",
+      "gender": "u",
+      "client_hash": "ab952bce",
+      "audio": "026.mp3"
+    },
+    {
+      "id": "027",
+      "text": "la mente puede ser muy excitante cuando uno tiene miedo .",
+      "gender": "u",
+      "client_hash": "1048966e",
+      "audio": "027.mp3"
+    },
+    {
+      "id": "028",
+      "text": "dejaba caer la tenue sonrisa de su luz sobre la ruda y aulladora tribu .",
+      "gender": "u",
+      "client_hash": "543d32d7",
+      "audio": "028.mp3"
+    },
+    {
+      "id": "029",
+      "text": "Y susurras en mi oído que me quieres, pero lejos.",
+      "gender": "u",
+      "client_hash": "75c48cea",
+      "audio": "029.mp3"
+    },
+    {
+      "id": "030",
+      "text": "es tan evidente que tenemos que estar juntos ...",
+      "gender": "u",
+      "client_hash": "32a7485c",
+      "audio": "030.mp3"
+    },
+    {
+      "id": "031",
+      "text": "Actualmente los alquileres están por las nubes.",
+      "gender": "u",
+      "client_hash": "7975ef97",
+      "audio": "031.mp3"
+    },
+    {
+      "id": "032",
+      "text": "Amor por interés, se acaba en un dos por tres.",
+      "gender": "u",
+      "client_hash": "534de1c4",
+      "audio": "032.mp3"
+    },
+    {
+      "id": "033",
+      "text": "Creo que las dos tienen demasiadas figuritas.",
+      "gender": "u",
+      "client_hash": "7f3adb43",
+      "audio": "033.mp3"
+    },
+    {
+      "id": "034",
+      "text": "De cualquier manera mejor que le de una mirada.",
+      "gender": "u",
+      "client_hash": "313eca86",
+      "audio": "034.mp3"
+    },
+    {
+      "id": "035",
+      "text": "En la boca del discreto lo público es secreto.",
+      "gender": "u",
+      "client_hash": "ca838550",
+      "audio": "035.mp3"
+    },
+    {
+      "id": "036",
+      "text": "Deberías haberlos agarrado más tiempo.",
+      "gender": "u",
+      "client_hash": "41d0a950",
+      "audio": "036.mp3"
+    },
+    {
+      "id": "037",
+      "text": "Aunque la mona se vista de seda, mona se queda.",
+      "gender": "u",
+      "client_hash": "bbfb9f1d",
+      "audio": "037.mp3"
+    },
+    {
+      "id": "038",
+      "text": "Acabo de ver un jabalí cruzar por el paso de cebra.",
+      "gender": "u",
+      "client_hash": "a06638ce",
+      "audio": "038.mp3"
+    },
+    {
+      "id": "039",
+      "text": "Despídete de tu mujer y de tus patatitas.",
+      "gender": "u",
+      "client_hash": "d8810313",
+      "audio": "039.mp3"
+    },
+    {
+      "id": "040",
+      "text": "Cuando empiezas, no puedes parar.",
+      "gender": "u",
+      "client_hash": "3bebec0f",
+      "audio": "040.mp3"
+    },
+    {
+      "id": "041",
+      "text": "Donde hay confianza, da asco.",
+      "gender": "u",
+      "client_hash": "f4994192",
+      "audio": "041.mp3"
+    },
+    {
+      "id": "042",
+      "text": "Cualquier otro juguete daría sus partes por ser tú.",
+      "gender": "u",
+      "client_hash": "d90a09e0",
+      "audio": "042.mp3"
+    },
+    {
+      "id": "043",
+      "text": "A grandes males, grandes remedios.",
+      "gender": "u",
+      "client_hash": "428c32bf",
+      "audio": "043.mp3"
+    },
+    {
+      "id": "044",
+      "text": "Días de mucho, vísperas de nada.",
+      "gender": "u",
+      "client_hash": "7fe84fd4",
+      "audio": "044.mp3"
+    },
+    {
+      "id": "045",
+      "text": "A la chita callando, hay quien se va aprovechando.",
+      "gender": "u",
+      "client_hash": "3036fc50",
+      "audio": "045.mp3"
+    },
+    {
+      "id": "046",
+      "text": "Demasiados dulces y helados. Sólo es un error .",
+      "gender": "u",
+      "client_hash": "fe1c5d31",
+      "audio": "046.mp3"
+    },
+    {
+      "id": "047",
+      "text": "Del antiguo camino no queda nada.",
+      "gender": "u",
+      "client_hash": "76fc3282",
+      "audio": "047.mp3"
+    },
+    {
+      "id": "048",
+      "text": "El que no corre vuela.",
+      "gender": "u",
+      "client_hash": "53f772b1",
+      "audio": "048.mp3"
+    },
+    {
+      "id": "049",
+      "text": "niña, no sé qué bebedizo me has dado que todo lo olvido...",
+      "gender": "u",
+      "client_hash": "0c53f11c",
+      "audio": "049.mp3"
+    },
+    {
+      "id": "050",
+      "text": "gime la brisa, riela la luna , el cielo azul turquí se torna negro ,",
+      "gender": "u",
+      "client_hash": "5832528c",
+      "audio": "050.mp3"
+    },
+    {
+      "id": "051",
+      "text": "debía ser cerca del amanecer, y me dormí.",
+      "gender": "u",
+      "client_hash": "9241c8c6",
+      "audio": "051.mp3"
+    },
+    {
+      "id": "052",
+      "text": "Su cita es a las nueve de la mañana.",
+      "gender": "u",
+      "client_hash": "db391be9",
+      "audio": "052.mp3"
+    },
+    {
+      "id": "053",
+      "text": "de un cabo al otro recorrimos la feria.",
+      "gender": "u",
+      "client_hash": "fc18f134",
+      "audio": "053.mp3"
+    },
+    {
+      "id": "054",
+      "text": "esto no es por nosotros,",
+      "gender": "u",
+      "client_hash": "0268f885",
+      "audio": "054.mp3"
+    },
+    {
+      "id": "055",
+      "text": "Vilma, Vilma... hay que encontrar corriente .",
+      "gender": "u",
+      "client_hash": "c921f3dc",
+      "audio": "055.mp3"
+    },
+    {
+      "id": "056",
+      "text": "y el mar se tragaba la gente.",
+      "gender": "u",
+      "client_hash": "85dc1e73",
+      "audio": "056.mp3"
+    },
+    {
+      "id": "057",
+      "text": "me he sentido traicionada por ella.",
+      "gender": "u",
+      "client_hash": "d835112f",
+      "audio": "057.mp3"
+    },
+    {
+      "id": "058",
+      "text": "Esta emisora cada vez tiene más oyentes.",
+      "gender": "u",
+      "client_hash": "569a5921",
+      "audio": "058.mp3"
+    },
+    {
+      "id": "059",
+      "text": "todo en mí clamaba por la Niña Chole.",
+      "gender": "u",
+      "client_hash": "9f9bcdaf",
+      "audio": "059.mp3"
+    },
+    {
+      "id": "060",
+      "text": "pero ahora ni responde, solo delira.",
+      "gender": "u",
+      "client_hash": "beb81614",
+      "audio": "060.mp3"
+    },
+    {
+      "id": "061",
+      "text": "pues me llamas con esto.",
+      "gender": "u",
+      "client_hash": "2c769bce",
+      "audio": "061.mp3"
+    },
+    {
+      "id": "062",
+      "text": "Tú, sin tregua como un ciclón, haces que mi cabeza dé vueltas",
+      "gender": "u",
+      "client_hash": "8959baf2",
+      "audio": "062.mp3"
+    },
+    {
+      "id": "063",
+      "text": "creo que es mucho mejor poco a poco,",
+      "gender": "u",
+      "client_hash": "6b591fed",
+      "audio": "063.mp3"
+    },
+    {
+      "id": "064",
+      "text": "el mensaje romántico que le daban las rosas al deshojarse.",
+      "gender": "u",
+      "client_hash": "322bcd91",
+      "audio": "064.mp3"
+    },
+    {
+      "id": "065",
+      "text": "alborozada me gritó al oído:",
+      "gender": "u",
+      "client_hash": "f81b0a7d",
+      "audio": "065.mp3"
+    },
+    {
+      "id": "066",
+      "text": "Diez, nueve , ocho , siete...",
+      "gender": "u",
+      "client_hash": "d3f467a8",
+      "audio": "066.mp3"
+    },
+    {
+      "id": "067",
+      "text": "las he encontrado en el bolsillo de tu chaqueta,",
+      "gender": "u",
+      "client_hash": "55d87876",
+      "audio": "067.mp3"
+    },
+    {
+      "id": "068",
+      "text": "en el fondo del mar.",
+      "gender": "u",
+      "client_hash": "72e811cf",
+      "audio": "068.mp3"
+    },
+    {
+      "id": "069",
+      "text": "Los recortes empiezan a tocar la pera de verdad.",
+      "gender": "u",
+      "client_hash": "b144ebd3",
+      "audio": "069.mp3"
+    },
+    {
+      "id": "070",
+      "text": "Las noticias de la fábrica me empiezan a hacer sufrir.",
+      "gender": "u",
+      "client_hash": "5e5b33d0",
+      "audio": "070.mp3"
+    },
+    {
+      "id": "071",
+      "text": "tengo las piernas como un hombre.",
+      "gender": "u",
+      "client_hash": "7229e8ae",
+      "audio": "071.mp3"
+    },
+    {
+      "id": "072",
+      "text": "La música que más se escucha es del género reggaeton.",
+      "gender": "u",
+      "client_hash": "bdf6b79b",
+      "audio": "072.mp3"
+    },
+    {
+      "id": "073",
+      "text": "es como si emitiera en onda corta.",
+      "gender": "u",
+      "client_hash": "3c720b91",
+      "audio": "073.mp3"
+    },
+    {
+      "id": "074",
+      "text": "Trabajaba en la oficina del fiscal.",
+      "gender": "u",
+      "client_hash": "9e3bd707",
+      "audio": "074.mp3"
+    },
+    {
+      "id": "075",
+      "text": "Esta semana estoy de un humor insuperable.",
+      "gender": "u",
+      "client_hash": "632bb20d",
+      "audio": "075.mp3"
+    },
+    {
+      "id": "076",
+      "text": "en la piscina y nadie se escandaliza por eso.",
+      "gender": "u",
+      "client_hash": "5465460d",
+      "audio": "076.mp3"
+    },
+    {
+      "id": "077",
+      "text": "y estar una semana andando como Robocop.",
+      "gender": "u",
+      "client_hash": "d12ecfb2",
+      "audio": "077.mp3"
+    },
+    {
+      "id": "078",
+      "text": "y esperar que el problema desaparezca.",
+      "gender": "u",
+      "client_hash": "4e82faa1",
+      "audio": "078.mp3"
+    },
+    {
+      "id": "079",
+      "text": "con eso que dice de que soy tu mujer en el barco.",
+      "gender": "u",
+      "client_hash": "47d71a21",
+      "audio": "079.mp3"
+    },
+    {
+      "id": "080",
+      "text": "albo hipil recamado con sedas de colores, vestidura indígena semejante a una tunicela antigua",
+      "gender": "u",
+      "client_hash": "08346fcf",
+      "audio": "080.mp3"
+    },
+    {
+      "id": "081",
+      "text": "no, no toques el agua.",
+      "gender": "u",
+      "client_hash": "4b7f361e",
+      "audio": "081.mp3"
+    },
+    {
+      "id": "082",
+      "text": "en tu estado no te puedes poner ahora a meterte en obras",
+      "gender": "u",
+      "client_hash": "d324b4c2",
+      "audio": "082.mp3"
+    },
+    {
+      "id": "083",
+      "text": "los encontramos ayer. los avistamos a seis millas .",
+      "gender": "u",
+      "client_hash": "ca32eca0",
+      "audio": "083.mp3"
+    },
+    {
+      "id": "084",
+      "text": "y si estoy cabreado con alguien es conmigo mismo, Palomares.",
+      "gender": "u",
+      "client_hash": "7edf5b58",
+      "audio": "084.mp3"
+    },
+    {
+      "id": "085",
+      "text": "huroneaba en el corro, arriesgaba un mísero tostón , y rezongando truhanerías se alejaba.",
+      "gender": "u",
+      "client_hash": "a493c8fe",
+      "audio": "085.mp3"
+    },
+    {
+      "id": "086",
+      "text": "al vernos corrió ahuyentando con el rebenque la astrosa turba",
+      "gender": "u",
+      "client_hash": "a12003fd",
+      "audio": "086.mp3"
+    },
+    {
+      "id": "087",
+      "text": "dos jinetes que asomaron encorvados bajo la puerta, refrenaron un momento sus cabalgaduras",
+      "gender": "u",
+      "client_hash": "e8e8ced8",
+      "audio": "087.mp3"
+    },
+    {
+      "id": "088",
+      "text": "vale, yo me quedo contigo.",
+      "gender": "u",
+      "client_hash": "a28a53bb",
+      "audio": "088.mp3"
+    },
+    {
+      "id": "089",
+      "text": "mala es la sazón, señor.",
+      "gender": "u",
+      "client_hash": "e55d438c",
+      "audio": "089.mp3"
+    },
+    {
+      "id": "090",
+      "text": "La radio se ha estropeado.",
+      "gender": "u",
+      "client_hash": "1b24c2af",
+      "audio": "090.mp3"
+    },
+    {
+      "id": "091",
+      "text": "eres un sol, de verdad , y me encanta tu regalo , te lo juro",
+      "gender": "u",
+      "client_hash": "dd3f86c1",
+      "audio": "091.mp3"
+    },
+    {
+      "id": "092",
+      "text": "Los bosques de la Masieta no tienen sotobosque.",
+      "gender": "u",
+      "client_hash": "a527c150",
+      "audio": "092.mp3"
+    },
+    {
+      "id": "093",
+      "text": "Oíase el ruido lejano de la lluvia.",
+      "gender": "u",
+      "client_hash": "65d53de2",
+      "audio": "093.mp3"
+    },
+    {
+      "id": "094",
+      "text": "no, no , no. no funciona , no .",
+      "gender": "u",
+      "client_hash": "4161bfed",
+      "audio": "094.mp3"
+    },
+    {
+      "id": "095",
+      "text": "el paraje era a propósito para tal linaje de asechanzas:",
+      "gender": "u",
+      "client_hash": "2cd0e57e",
+      "audio": "095.mp3"
+    },
+    {
+      "id": "096",
+      "text": "después en voz baja y dulce, le dije:",
+      "gender": "u",
+      "client_hash": "0c4e78ff",
+      "audio": "096.mp3"
+    },
+    {
+      "id": "097",
+      "text": "es mejor cortar. quince segundos .",
+      "gender": "u",
+      "client_hash": "08f06068",
+      "audio": "097.mp3"
+    },
+    {
+      "id": "098",
+      "text": "viéndome ya en pie, huyó velozmente alborotando la casa con sus trinos.",
+      "gender": "u",
+      "client_hash": "55d20724",
+      "audio": "098.mp3"
+    },
+    {
+      "id": "099",
+      "text": "Esta ciudad no es lo bastante grande",
+      "gender": "u",
+      "client_hash": "ef0662bc",
+      "audio": "099.mp3"
+    },
+    {
+      "id": "100",
+      "text": "Si creyese que puedo volar",
+      "gender": "u",
+      "client_hash": "a718efef",
+      "audio": "100.mp3"
+    }
+  ]
+}
