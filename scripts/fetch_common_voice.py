@@ -52,26 +52,28 @@ ALLOWED_RE = re.compile(
 
 
 def sentence_ok(text):
-    """True wenn Satz unseren Kriterien entspricht."""
+    """Liefert True oder einen String-Reason warum nicht."""
     if not text:
-        return False
+        return "empty"
     text = text.strip()
     n = len(text.split())
-    if n < 6 or n > 15:
-        return False
-    # Punkt am Ende; Fragen/Ausrufe lassen wir weg (zu prosodisch)
-    if not text.endswith("."):
-        return False
+    if n < 5:
+        return "too_short"
+    if n > 18:
+        return "too_long"
+    # Fragen/Ausrufe vermeiden (zu prosodisch); Punkt nicht zwingend
+    if text.endswith("?") or text.endswith("!"):
+        return "exclam_or_question"
     if not ALLOWED_RE.match(text):
-        return False
-    # 2+ aufeinanderfolgende ALL-CAPS-Wörter raus (Werbung, Akronymketten)
+        return "regex_fail"
+    # 2+ aufeinanderfolgende ALL-CAPS-Wörter raus
     words = text.split()
     caps_streak = 0
     for w in words:
         if len(w) >= 2 and w.isupper():
             caps_streak += 1
             if caps_streak >= 2:
-                return False
+                return "caps_streak"
         else:
             caps_streak = 0
     return True
@@ -98,45 +100,64 @@ def fetch(lang_code, count, out_dir, split="train"):
     selected = []
     seen_clients = set()
     gender_count = Counter()
-    target_per_gender = count // 2
-    cap_per_gender = target_per_gender + max(5, count // 10)
+    reject = Counter()
+    cap_per_gender = (count // 2) + max(5, count // 10)
 
     scanned = 0
     for row in ds:
         scanned += 1
         if scanned % 500 == 0:
+            top_reject = reject.most_common(5)
             print(f"  scanned={scanned}, kept={len(selected)}, "
-                  f"gender={dict(gender_count)}")
+                  f"gender={dict(gender_count)}, top_reject={top_reject}")
 
         text = (row.get("sentence") or "").strip()
-        if not sentence_ok(text):
+        ok = sentence_ok(text)
+        if ok is not True:
+            reject[ok] += 1
             continue
 
         client_id = row.get("client_id") or ""
-        if not client_id or client_id in seen_clients:
+        if not client_id:
+            reject["no_client"] += 1
+            continue
+        if client_id in seen_clients:
+            reject["client_dup"] += 1
             continue
 
         gender = (row.get("gender") or "").strip().lower()
-        if gender not in ("male", "female"):
-            continue
-        if gender_count[gender] >= cap_per_gender:
+        # Lockerer Filter: leer = unbekannt, zählt als "u"; für Pool OK.
+        if gender in ("male",):
+            gkey = "m"
+        elif gender in ("female",):
+            gkey = "f"
+        else:
+            gkey = "u"
+        # Cap nur auf m/f, "u" darf bis count
+        if gkey in ("m", "f") and gender_count[gkey] >= cap_per_gender:
+            reject["gender_cap"] += 1
             continue
 
         up = int(row.get("up_votes") or 0)
         down = int(row.get("down_votes") or 0)
-        if up < 2 or down > 0:
+        if up < 1:
+            reject["upvotes_low"] += 1
+            continue
+        if down > 1:
+            reject["downvotes_high"] += 1
             continue
 
         audio_data = row.get("audio") or {}
         audio_bytes = audio_data.get("bytes")
         if not audio_bytes:
+            reject["no_audio_bytes"] += 1
             continue
 
         seen_clients.add(client_id)
-        gender_count[gender] += 1
+        gender_count[gkey] += 1
         selected.append({
             "text": text,
-            "gender": gender,
+            "gender": gkey,
             "client_hash": short_hash(client_id),
             "audio_bytes": audio_bytes,
             "up_votes": up,
