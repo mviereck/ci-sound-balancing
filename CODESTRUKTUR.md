@@ -60,24 +60,36 @@ erst zur Laufzeit.
 
 **Einbindung in `index.html`:** Skripte und `style.css` werden nicht
 mehr per statischer `<script src=…>`-/`<link>`-Tags geladen, sondern
-über einen kleinen Inline-Loader im `<head>`. Der Loader hängt
-`<script>`- und `<link>`-Tags dynamisch an `document.head` und
-versieht jede URL mit einem Cachebuster-Parameter `?v=<wert>`. Wert
-ist beim ersten Pageload pro Browser-Session `Date.now()`, persistiert
-in `sessionStorage` unter dem Schlüssel `cacheBust`; weitere Reloads
-in derselben Session nutzen denselben Wert (Cache greift). Neuer
-Tab / Browser-Neustart → neuer Wert → alle Dateien frisch. Fallback
-ohne `sessionStorage` (z.B. einige `file://`-Modi): `Date.now()` bei
-jedem Reload. Zusätzlich stehen im `<head>` drei Meta-Tags
-(`Cache-Control: no-cache, no-store, must-revalidate`, `Pragma:
-no-cache`, `Expires: 0`) gegen das Caching der HTML selbst.
+über einen kleinen Inline-Loader im `<head>`. Der Loader schreibt
+`<link>`- und `<script defer src=…>`-Tags per `document.write` in den
+parser-laufenden HTML-Stream und versieht jede URL mit einem
+Cachebuster-Parameter `?v=<wert>`. Wert ist beim ersten Pageload pro
+Browser-Session `Date.now()`, persistiert in `sessionStorage` unter
+dem Schlüssel `cacheBust`; weitere Reloads in derselben Session
+nutzen denselben Wert (Cache greift). Neuer Tab / Browser-Neustart →
+neuer Wert → alle Dateien frisch. Fallback ohne `sessionStorage`
+(z.B. einige `file://`-Modi): `Date.now()` bei jedem Reload.
+Zusätzlich stehen im `<head>` drei Meta-Tags (`Cache-Control:
+no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires:
+0`) gegen das Caching der HTML selbst.
+
+Wichtig zur Loader-Wahl: Per `document.write` eingefügte
+`<script defer>`-Tags sind aus Browser-Sicht parser-eingefügt; `defer`
+greift, sie laden parallel, werden in Dokumentreihenfolge ausgeführt
+und blockieren `DOMContentLoaded`, bis alle ausgeführt sind. Eine
+frühere Variante mit `document.createElement('script')` +
+`appendChild` und `s.async = false` blockierte `DOMContentLoaded`
+nicht (HTML5-Spec für dynamisch eingefügte Skripte): auf `file://`
+fiel das nicht auf, weil das Dateisystem die Skripte praktisch instant
+liefert; über HTTP (z.B. GitHub Pages) feuerte `DOMContentLoaded`
+zwischen Loader und init.js, und sämtliche
+`DOMContentLoaded`-Handler (init.js, test.js, lr-balance.js,
+levels-tab.js, freqmatch.js) wurden nie aufgerufen → nur die zwei Tabs
+mit hartcodiertem Text waren sichtbar, kein Click reagierte.
 
 Die Reihenfolge der Module liegt als Array im Loader-Block in
 `index.html` und muß bei neuen/entfernten Modulen dort gepflegt
-werden. Dynamisch erzeugte Scripts mit `s.async = false` werden in
-DOM-Einfüge­reihenfolge ausgeführt und blockieren das
-`DOMContentLoaded`-Event, bis alle ausgeführt sind — Verhalten wie
-zuvor mit statischen Tags.
+werden.
 
 | #  | Datei | Inhalt |
 |----|-------|--------|

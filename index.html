@@ -20,10 +20,7 @@
         v = String(Date.now());
       }
 
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'style.css?v=' + v;
-      document.head.appendChild(link);
+      document.write('<link rel="stylesheet" href="style.css?v=' + v + '">');
 
       var scripts = [
         'version.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
@@ -32,10 +29,7 @@
         'levels-tab.js', 'player.js', 'freq-warp.js', 'lr-balance.js', 'init.js'
       ];
       scripts.forEach(function (src) {
-        var s = document.createElement('script');
-        s.src = src + '?v=' + v;
-        s.async = false;
-        document.head.appendChild(s);
+        document.write('<script defer src="' + src + '?v=' + v + '"><\/script>');
       });
     })();
     </script>
