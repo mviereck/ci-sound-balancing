@@ -489,6 +489,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Events: Slider
   fmEls.slider.addEventListener('input', (e) => fmHandleSlider(e.target.value));
+  buildSliderTouchCtrl(fmEls.slider, {
+    step: 5,
+    fineStep: 1,
+    replay: function () { if (typeof fmPlayCurrent === 'function') fmPlayCurrent(); },
+    labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
+  });
   if (fmEls.extendBtn) fmEls.extendBtn.addEventListener('click', _fmExtendRange);
 
   // Events: Elektroden-Ausschluss

@@ -96,6 +96,8 @@ werden.
 | #  | Datei | Inhalt |
 |----|-------|--------|
 | 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
+| 0b | mobile.js | `IS_TOUCH_ONLY` (Touch-Erkennung per `matchMedia('(hover: none) and (pointer: coarse)')`), `safeFocus(el)` (focus-Aufruf nur auf Nicht-Touch-Geräten), `applyMobileReadonly(root)` (setzt `readonly` und `inputmode="numeric"` auf allen `input[type="number"]` im übergebenen Wurzelelement, no-op auf Desktop). Eigener DOMContentLoaded-Handler, der `applyMobileReadonly(document)` einmalig nach Page-Load aufruft. Wird von freq-table.js, levels.js, test-ui.js nach dynamischen Rebuilds erneut aufgerufen. |
+| 0c | touch-ctrl.js | `attachLongPress(btn, onStep)` (Klick + Long-Press 400 ms initial / 100 ms repeat), `buildSliderTouchCtrl(slider, opts)` (Touch-Bedienleiste mit − / Fein / + / [Replay] direkt nach dem Slider, dispatcht `input`-Event auf den Slider), `buildStepperPair(opts)` (zwei Buttons mit Long-Press, Aufrufer hängt selbst ein). Kein eigener DOMContentLoaded-Handler; Aufrufer instanzieren wo gebraucht. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
 | 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"/"mono"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
@@ -122,6 +124,24 @@ werden.
 | 18 | init.js | Der große DOMContentLoaded-Handler mit `applyLang()`, `buildImplantCard()`, allen Event-Verdrahtungen, Autosave-Setup |
 
 ## Datenfluss (nicht aus Namen ablesbar)
+
+**Touch-Bedienleisten:** Pro Slider eine `.touch-ctrl`-Box mit
+Buttons − / Fein / + / [Replay] (`buildSliderTouchCtrl` aus
+touch-ctrl.js, aufgerufen in test.js, lr-balance.js, freqmatch.js,
+latency.js). Player-Stärke (`plStr`) und Schieber-Tab (Canvas) haben
+Sonder-Implementierungen mit `attachLongPress` direkt, weil sie nicht
+auf einem `<input type="range">` basieren. Die Bedienleisten sind
+dauerhaft sichtbar (Desktop und Mobile).
+
+**Mobile-Eingabe-Sperre:** Auf reinen Touch-Geräten (Smartphone)
+werden alle Number-Inputs read-only, damit die System-Tastatur nicht
+das Bild verdeckt. Eingabe läuft dort über die Touch-Buttons
+(Bauanleitung 33). Erkennung über `IS_TOUCH_ONLY` aus `mobile.js`.
+`applyMobileReadonly` wird nach jedem Rebuild dynamischer Tabellen
+(`buildFreqTable`, `buildPrTbl`, `buildTestPanel`) erneut aufgerufen,
+sonst greift das Flag nur auf den statischen HTML-Bestand.
+`safeFocus` ersetzt direkte `.focus()`-Aufrufe an Stellen, wo der
+Autofokus auf Touch-Geräten stören würde.
 
 **Globaler State** liegt komplett in `state-side.js`. Wer auf
 `sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `manualLevels`,

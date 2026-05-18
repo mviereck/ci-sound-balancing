@@ -193,7 +193,7 @@ function buildPrTbl() {
         const strInp = tbl.querySelector(
           `.prStr[data-pi="${this.dataset.pi}"]`,
         );
-        if (strInp) strInp.focus();
+        if (strInp) safeFocus(strInp);
       }
     }),
   );
@@ -250,6 +250,7 @@ function buildPrTbl() {
       lvOnChange();
     }),
   );
+  applyMobileReadonly(tbl);
 }
 function drawLvChart() {
   const cv = document.getElementById("lvChartCv");

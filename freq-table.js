@@ -159,6 +159,7 @@ function buildFreqTable() {
   }
   updRef();
   updManSel();
+  applyMobileReadonly(tb);
 }
 function updRef() {
   const s = document.getElementById("refEl");

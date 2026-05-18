@@ -548,6 +548,8 @@ function buildTestPanel(parentEl, cfg) {
     t2.blur();
   });
 
+  applyMobileReadonly(parentEl);
+
   return {
     id: id,
     explainBox: explainBox, presetsBox: presetsBox, testBox: testBox, exclOverlay: exclOverlay,

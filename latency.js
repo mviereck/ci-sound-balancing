@@ -289,7 +289,7 @@ function latStartTestUI() {
   latStartTest();
   latUpdateButtonStates();
   if (typeof updateTabLockState === "function") updateTabLockState();
-  if (latEls && latEls.slider) latEls.slider.focus();
+  if (latEls && latEls.slider) safeFocus(latEls.slider);
 }
 
 function latStopTestUI() {
@@ -327,6 +327,10 @@ document.addEventListener("DOMContentLoaded", function () {
   latEls.slider.addEventListener("input", function (e) {
     latSliderInput(e.target.value);
   });
+  buildSliderTouchCtrl(latEls.slider, {
+    step: 1,
+    fineStep: 0.1
+  });
   // Tastatur (Pfeile mit Modifiern). Wir überschreiben das Default-
   // Verhalten von <input type=range>, damit Schrittgrößen exakt
   // 1 / 0,1 / 10 ms sind.
@@ -338,7 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
       latUpdateButtonStates();
       latUpdateIntervalHint();
       latRestartIfActive();
-      latEls.slider.focus();
+      safeFocus(latEls.slider);
     });
   }
   for (const b of latEls.clickBtns) {
@@ -346,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
       latClickType = b.dataset.type;
       latUpdateButtonStates();
       latRestartIfActive();
-      latEls.slider.focus();
+      safeFocus(latEls.slider);
     });
   }
   if (latEls.startBtn) latEls.startBtn.addEventListener("click", latStartTestUI);

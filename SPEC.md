@@ -17,6 +17,10 @@ Modulübersicht steht in CODESTRUKTUR.md.
 - **4 Sprachen**: DE, EN, FR, ES
 - **Korrekturkurven-Berechnung**: Gewichtete Least Squares (sauber
   1.0, verrauscht 0.5, fast stumm 0.1)
+- **Mobile-Verhalten**: auf reinen Touch-Geräten sind alle
+  Number-Inputs read-only — Werte werden ausschließlich über die
+  sichtbaren Touch-Buttons (− / + / Fein) geändert. Auf Desktop und
+  Tablet-mit-Tastatur unverändert tippbar.
 - **Bilateral**: separate Datensätze pro Seite (Implantat-
   Konfiguration, Messungen, Levels, Presets, MCL/THR). Side-
   Buttons LINKS/RECHTS oben im UI schalten zwischen den beiden
@@ -84,6 +88,10 @@ Slider-Wert wird invertiert.
 
 - **Pfeiltasten ±0,5 dB**, Shift+Pfeil ±0,1 dB (Test 1 und 2)
 - **Pfeiltasten ±5 cent**, Shift+Pfeil ±1 cent (Test 3)
+- **Touch-Bedienleiste** direkt unter jedem Slider (auch auf
+  Desktop sichtbar): Buttons − / Fein / + und Replay (Wiederholen).
+  Long-Press = Auto-Repeat. Der Fein-Toggle ersetzt Shift+Pfeil und
+  bleibt aktiv, bis erneut getippt.
 - Slider-Bereich in 3 Stufen erweiterbar:
   - Test 1+2: ±20 dB → ±40 dB → ±60 dB
   - Test 3: ±100 cent → ±500 cent → ±1200 cent
@@ -153,7 +161,7 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 4 — Latenz (latency.js)
 
-- Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Shift) / 10 ms (Ctrl)
+- Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Fein-Toggle per Touch-Bedienleiste). Auf Desktop zusätzlich Ctrl+Pfeil = 10 ms wie bisher.
 - Schieber ist **nur während laufendem Test** bedienbar (sonst disabled)
 - Klick-Intervall manuell wählbar: 100 / 200 / 500 / 1000 / 2000 ms
 - 4 Klangvarianten: Klick (breitband), 500 Hz, 1500 Hz, 4 kHz Tone-Bursts
@@ -246,6 +254,9 @@ Bedienleiste oberhalb des Canvas, **dreizeilig**:
 - dB-Beschriftung oberhalb: Schieber-Wert groß; darunter Summenwert
   in Klammern, wenn mindestens ein Toggle aktiv.
 - Bedienung: ↑/↓ ±0,5 dB (Shift ±0,1 dB), ←/→ wechselt Elektrode.
+- Touch-Bedienleiste unter dem Canvas: Elektroden-Pfeile ◀/▶ und
+  Wert-Pfeile ▼/▲ plus Fein-Toggle. Long-Press = Auto-Repeat. Ersatz
+  für Pfeiltasten auf Geräten ohne Tastatur.
 
 ### Modus B — absolut
 

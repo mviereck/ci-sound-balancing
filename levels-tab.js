@@ -639,4 +639,80 @@ document.addEventListener("DOMContentLoaded", () => {
       lvTabDraw();
     }
   });
+
+  // Touch-Bedienleisten: Elektrode wechseln + dB ändern
+  (function () {
+    var cv = document.getElementById('lvTabCv');
+    if (!cv) return;
+    var host = cv.parentNode;
+    if (!host) return;
+
+    var ctrlRow = document.createElement('div');
+    ctrlRow.className = 'lv-tab-touch-row';
+    ctrlRow.style.cssText = 'display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:10px;';
+
+    var lblE = document.createElement('span');
+    lblE.textContent = (typeof t === 'function' ? t('lvTabElLabel') : 'Elektrode') + ':';
+    lblE.style.cssText = 'align-self:center;font-weight:600;';
+
+    var stepE = buildStepperPair({
+      labelDec: '◀',
+      labelInc: '▶',
+      onDec: function () { _lvTabTouchEl(-1); },
+      onInc: function () { _lvTabTouchEl(+1); }
+    });
+
+    var lblV = document.createElement('span');
+    lblV.textContent = (typeof t === 'function' ? t('lvTabVlLabel') : 'Wert') + ':';
+    lblV.style.cssText = 'align-self:center;font-weight:600;';
+
+    var fineMode = false;
+    var bFine = document.createElement('button');
+    bFine.type = 'button';
+    bFine.className = 'touch-btn';
+    bFine.innerHTML = 'Fein';
+    bFine.addEventListener('click', function () {
+      fineMode = !fineMode;
+      bFine.classList.toggle('fine-active', fineMode);
+    });
+
+    var stepV = buildStepperPair({
+      labelDec: '▼',
+      labelInc: '▲',
+      onDec: function () { _lvTabTouchVal(-1, fineMode); },
+      onInc: function () { _lvTabTouchVal(+1, fineMode); }
+    });
+
+    var groupE = document.createElement('div');
+    groupE.style.cssText = 'display:flex;gap:6px;align-items:center;';
+    groupE.append(lblE, stepE.box);
+
+    var groupV = document.createElement('div');
+    groupV.style.cssText = 'display:flex;gap:6px;align-items:center;';
+    groupV.append(lblV, stepV.box, bFine);
+
+    ctrlRow.append(groupE, groupV);
+    host.appendChild(ctrlRow);
+  })();
+
+  function _lvTabTouchEl(dir) {
+    var nav = (typeof lvTabNavigableEl === 'function') ? lvTabNavigableEl() : actEl();
+    if (!nav.length) return;
+    var ci = nav.indexOf(lvTabFocus);
+    if (ci < 0) ci = 0;
+    if (dir < 0) ci = Math.max(0, ci - 1);
+    else ci = Math.min(nav.length - 1, ci + 1);
+    lvTabFocus = nav[ci];
+    lvTabDraw();
+  }
+
+  function _lvTabTouchVal(dir, fine) {
+    if (lvTabMode === 'abs') {
+      lvTabStepAbsolute(lvTabFocus, dir, fine);
+    } else {
+      var st = fine ? 0.1 : 0.5;
+      var cur = manualLevels[lvTabFocus] || 0;
+      lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
+    }
+  }
 });

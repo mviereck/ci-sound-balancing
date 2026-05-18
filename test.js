@@ -1280,6 +1280,12 @@ document.addEventListener("DOMContentLoaded", function() {
     testEls.slider.addEventListener('change', function() { this.blur(); });
     testEls.slider.addEventListener('mouseup', function() { this.blur(); });
     testEls.slider.addEventListener('touchend', function() { this.blur(); });
+    buildSliderTouchCtrl(testEls.slider, {
+      step: 0.5,
+      fineStep: 0.1,
+      replay: function () { if (typeof playCur === 'function') playCur(); },
+      labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
+    });
   }
 
   // Simul button

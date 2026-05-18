@@ -820,6 +820,12 @@ document.addEventListener("DOMContentLoaded", function() {
     lrEls.slider.addEventListener('change', function() { this.blur(); });
     lrEls.slider.addEventListener('mouseup', function() { this.blur(); });
     lrEls.slider.addEventListener('touchend', function() { this.blur(); });
+    buildSliderTouchCtrl(lrEls.slider, {
+      step: 0.5,
+      fineStep: 0.1,
+      replay: function () { if (typeof lrPlayCurrent === 'function') lrPlayCurrent(); },
+      labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
+    });
   }
 
   // Keyboard in balance subtab
