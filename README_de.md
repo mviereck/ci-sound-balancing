@@ -1,5 +1,7 @@
 # CI Sound Balancing Tool
 
+![](favicon.png)
+
 Dieses Tool dient Trägern von Cochlea Implantaten zur Messung ihrer wahrgenommenen Lautstärken und Tonhöhen. 
 - Auf Basis der Meßergebnisse können Audiodateien mit simulierter Anpassung abgespielt werden. 
 - Sobald das für Sie gut klingt, können Sie für Ihren Audiologen eine Übersicht gewünschter Änderungen ausdrucken.

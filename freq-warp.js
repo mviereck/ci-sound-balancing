@@ -920,6 +920,18 @@ function pWarpUpdUI() {
 
   if (!cbEl) return;
 
+  if (pWarpOn) {
+    cbEl.textContent = t("pwEnableOn");
+    cbEl.style.background = "var(--success)";
+    cbEl.style.color = "#fff";
+    cbEl.style.borderColor = "var(--success)";
+  } else {
+    cbEl.textContent = t("pwEnableOff");
+    cbEl.style.background = "#e5e7eb";
+    cbEl.style.color = "var(--text)";
+    cbEl.style.borderColor = "var(--border)";
+  }
+
   const method = methodSel ? methodSel.value : "offline";
   pWarpMethod = method;
 

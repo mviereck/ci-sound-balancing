@@ -1,5 +1,7 @@
 # CI Sound Balancing Tool
 
+![](favicon.png)
+
 Esta herramienta sirve a los portadores de implantes cocleares para medir el volumen y la tonalidad percibidos.
 - Sobre la base de los resultados de la medición, pueden reproducirse archivos de audio con un ajuste simulado.
 - En cuanto suene bien para usted, puede imprimir un resumen de los cambios deseados para su audiólogo.

@@ -14,6 +14,7 @@ let sLoaded = false;
 let sLoading = false;
 let sActive = false;
 let sEndless = false;
+let sEndlessCount = 0;
 let sCurRec = null;     // aktuell laufende Recording {speakerKey, idx}
 let sShownText = "";
 let sPauseTimer = null;
@@ -224,6 +225,7 @@ function sEndlessStart() {
   sCurRec = sPickRandom(pool, sCurRec);
   sActive = true;
   sEndless = true;
+  sEndlessCount = 0;
   sUpdateButtons();
   sPlayCurrent();
 }
@@ -249,6 +251,8 @@ function sOnEnded() {
     sStop();
     return;
   }
+  sEndlessCount++;
+  if (sEndlessCount >= 100) { sStop(); return; }
   const spkSel = document.getElementById("plSentSpeaker").value;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sStop(); return; }

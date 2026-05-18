@@ -795,9 +795,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const plMaplawSollEl = document.getElementById("plMaplawSollInput");
 
   if (plMaplawOnEl) {
-    plMaplawOnEl.addEventListener("change", function () {
-      pMaplawOn = this.checked;
+    plMaplawOnEl.addEventListener("click", function () {
+      pMaplawOn = !pMaplawOn;
+      if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       pMaplawTrigger();
+      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
     });
   }
 
@@ -835,9 +837,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---- Frequenz-Warping Listener ----
   // Warp-Checkbox
-  document.getElementById("plWarpOn").addEventListener("change", function () {
-    pWarpOn = this.checked;
+  document.getElementById("plWarpOn").addEventListener("click", function () {
+    pWarpOn = !pWarpOn;
     pWarpUpdUI();
+    if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
     const method = document.getElementById("plWarpMethod").value;
     // Offline-Einschalten: pWarpTrigger regelt Vorberechnung + pause/resume selbst
     if (pWarpOn && method === "offline") {

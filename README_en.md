@@ -1,5 +1,7 @@
 # CI Sound Balancing Tool
 
+![](favicon.png)
+
 This tool helps users of cochlear implants measure their perceived loudness and pitch.
 - Based on the measurement results, audio files can be played back with a simulated fitting.
 - Once it sounds good to you, you can print an overview of the requested changes for your audiologist.

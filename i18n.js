@@ -187,7 +187,8 @@ const L = {
     plExpHint: "Diese Optionen sind experimentell. Das Klangerlebnis ist eine Simulation, die klangliche Schwächen hat, aber eventuell eine Idee davon geben kann, in welche Richtung die Einstellungen gehen.",
     plMaplawTitle: "MAPLAW-Simulation",
     plMaplawSubtitle: "Simuliert, wie sich Ihr Klangbild ändern würde, wenn der Audiologe Ihren MAPLAW-c-Wert ändert. Funktioniert nur für MED-EL-Implantate. Bluetooth-Wiedergabe direkt aufs CI empfohlen.",
-    plMaplawEnable: "Simulation aktivieren",
+    plMaplawEnableOn: "✓ MAPLAW Simulation AN",
+    plMaplawEnableOff: "MAPLAW Simulation AUS",
     plMaplawIstLabel: "Ihr aktueller c-Wert (aus Implantat-Tab)",
     plMaplawSollLabel: "Zu simulierender c-Wert",
     plMaplawNotMedel: "MAPLAW ist eine MED-EL-Funktion. Die aktive Seite ist nicht MED-EL — die Simulation ist deaktiviert.",
@@ -416,7 +417,8 @@ const L = {
     cfgLblEnAcoustic: "B",
     pwTitle: "Frequenz-Warping",
     pwSubtitle: "Experimentelle Option, Qualität noch mäßig: Audio gemäß Frequenzmessung umwandeln",
-    pwEnable: "Frequenz-Warping aktivieren",
+    pwEnableOn: "✓ Frequenz-Warping AN",
+    pwEnableOff: "Frequenz-Warping AUS",
     pwMethod: "Verfahren",
     pwMethodOffline: "Offline-Vorberechnung (beste Qualität)",
     pwMethodVocoder: "Phasen-Vocoder (Live, mit Latenz)",
@@ -686,7 +688,8 @@ const L = {
     plExpHint: "These options are experimental. The sound experience is a simulation with audible shortcomings, but it may give an impression of the direction the settings would take.",
     plMaplawTitle: "MAPLAW Simulation",
     plMaplawSubtitle: "Simulates how your sound would change if the audiologist set a different MAPLAW c-value. Works for MED-EL implants only. Bluetooth streaming directly to the CI is recommended.",
-    plMaplawEnable: "Enable simulation",
+    plMaplawEnableOn: "✓ MAPLAW Simulation ON",
+    plMaplawEnableOff: "MAPLAW Simulation OFF",
     plMaplawIstLabel: "Your current c-value (from Implant tab)",
     plMaplawSollLabel: "Target c-value to simulate",
     plMaplawNotMedel: "MAPLAW is a MED-EL function. The active side is not MED-EL — the simulation is disabled.",
@@ -913,7 +916,8 @@ const L = {
     cfgLblEnAcoustic: "B",
     pwTitle: "Frequency Warping",
     pwSubtitle: "Experimental option, quality still moderate: converts audio according to frequency measurement",
-    pwEnable: "Enable Frequency Warping",
+    pwEnableOn: "✓ Frequency Warping ON",
+    pwEnableOff: "Frequency Warping OFF",
     pwMethod: "Method",
     pwMethodOffline: "Offline Pre-computation (best quality)",
     pwMethodVocoder: "Phase Vocoder (Live, with latency)",
@@ -1165,7 +1169,8 @@ const L = {
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation présentant des défauts audibles, mais elle peut donner une idée de la direction dans laquelle vont les réglages.",
     plMaplawTitle: "Simulation MAPLAW",
     plMaplawSubtitle: "Simule comment votre son changerait si l'audiologiste réglait une autre valeur MAPLAW c. Fonctionne uniquement avec les implants MED-EL. Streaming Bluetooth direct vers l'IC recommandé.",
-    plMaplawEnable: "Activer la simulation",
+    plMaplawEnableOn: "✓ Simulation MAPLAW ON",
+    plMaplawEnableOff: "Simulation MAPLAW OFF",
     plMaplawIstLabel: "Votre valeur c actuelle (depuis l'onglet Implant)",
     plMaplawSollLabel: "Valeur c cible à simuler",
     plMaplawNotMedel: "MAPLAW est une fonction MED-EL. Le côté actif n'est pas MED-EL — la simulation est désactivée.",
@@ -1396,7 +1401,8 @@ const L = {
     cfgLblEnAcoustic: "B",
     pwTitle: "Distorsion de fréquences",
     pwSubtitle: "Option expérimentale, qualité encore modérée : convertit l'audio selon la mesure de fréquences",
-    pwEnable: "Activer la distorsion de fréquences",
+    pwEnableOn: "✓ Distorsion de fréquences ON",
+    pwEnableOff: "Distorsion de fréquences OFF",
     pwMethod: "Méthode",
     pwMethodOffline: "Précalcul hors ligne (meilleure qualité)",
     pwMethodVocoder: "Vocodeur de phase (en direct, avec latence)",
@@ -1648,7 +1654,8 @@ const L = {
     plExpHint: "Estas opciones son experimentales. La experiencia sonora es una simulación con deficiencias audibles, pero puede dar una idea de la dirección en la que van los ajustes.",
     plMaplawTitle: "Simulación MAPLAW",
     plMaplawSubtitle: "Simula cómo cambiaría su sonido si el audiólogo ajustase otro valor c de MAPLAW. Funciona solo con implantes MED-EL. Se recomienda streaming Bluetooth directamente al IC.",
-    plMaplawEnable: "Activar la simulación",
+    plMaplawEnableOn: "✓ Simulación MAPLAW ON",
+    plMaplawEnableOff: "Simulación MAPLAW OFF",
     plMaplawIstLabel: "Su valor c actual (del tab Implante)",
     plMaplawSollLabel: "Valor c objetivo a simular",
     plMaplawNotMedel: "MAPLAW es una función MED-EL. El lado activo no es MED-EL — la simulación está desactivada.",
@@ -1879,7 +1886,8 @@ const L = {
     cfgLblEnAcoustic: "B",
     pwTitle: "Distorsión de frecuencias",
     pwSubtitle: "Opción experimental, calidad aún moderada: convierte el audio según la medición de frecuencias",
-    pwEnable: "Activar distorsión de frecuencias",
+    pwEnableOn: "✓ Distorsión de frecuencias ON",
+    pwEnableOff: "Distorsión de frecuencias OFF",
     pwMethod: "Método",
     pwMethodOffline: "Precálculo fuera de línea (mejor calidad)",
     pwMethodVocoder: "Vocodificador de fase (en directo, con latencia)",
@@ -2058,6 +2066,8 @@ function applyLang() {
   s("resTitle", "resTitle");
   updEqToggleBtn();
   updBalApplyBtn();
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   updSideButtons();
   updateRunExplain();
   buildFreqTable();

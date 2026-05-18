@@ -380,18 +380,21 @@ Drei Cards untereinander:
   Frequenz-Warping-Card. Ist-c kommt aus `implant.cValue` der
   aktiven Seite (read-only), Soll-c per Quick-Buttons
   (100/250/500/1000/1500/2000/3000/4000/6000/8000) oder Zahleneingabe (0–8000).
-  Master-Toggle „Simulation aktivieren". EQ-Toggle wirkt als
-  Master-Bypass auch für MAPLAW. Audio-Pfad-Position: nach Tool-EQ
-  und vor pGain. Bei Soll-c == Ist-c oder Card aus: Passthrough.
-  Bei aktiver Seite Cochlear oder AB: Card ausgegraut mit Hinweis.
-  Konzeptioneller Hintergrund: `.docs/MAPLAW_Konzept.md`.
+  Master-Toggle „MAPLAW Simulation aktivieren" (Toggle-Button, grün
+  wenn aktiv). EQ-Toggle wirkt als Master-Bypass auch für MAPLAW.
+  Audio-Pfad-Position: nach Tool-EQ und vor pGain. Bei Soll-c == Ist-c
+  oder Card aus: Passthrough. Bei aktiver Seite Cochlear oder AB:
+  Card ausgegraut mit Hinweis. Konzeptioneller Hintergrund:
+  `.docs/MAPLAW_Konzept.md`.
 - Experimentell-Toggle im Player: Checkbox „Experimentelle Optionen
   einblenden" oberhalb der MAPLAW- und Frequenz-Warping-Cards.
   **Default aus** — beide Cards sind initial verborgen. Wird der
   Toggle aktiviert, erscheinen die zwei Cards plus ein Hinweistext,
   daß diese Optionen klangliche Schwächen haben und nur eine grobe
   Richtungsangabe liefern. Persistiert in JSON und localStorage
-  (`playerShowExperimental`).
+  (`playerShowExperimental`). **Solange MAPLAW Simulation oder
+  Frequenz-Warping aktiv ist, ist die Checkbox deaktiviert** (Ausblenden
+  nicht möglich).
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
@@ -442,8 +445,9 @@ Drei Cards untereinander:
     - Vocoder → knackfreier `postMessage` an den laufenden Worklet
       (`pWarpLiveUpdate`), sofort wirksam
     - Bandshift → Graph-Rebuild via pause/resume (kurzer hörbarer Knack)
+  - Aktivierung über Toggle-Button „Frequenz-Warping" (grün wenn aktiv).
   - EQ-Toggle wirkt als Master-Bypass auch für das Frequenz-Warping: wenn
-    EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Checkbox-
+    EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Toggle-
     Zustand bleibt als „Memory" erhalten und greift wieder, sobald EQ
     wieder eingeschaltet wird. Bei Toggle während Wiedergabe erfolgt der
     nötige Pfadwechsel an aktueller Position.
@@ -462,7 +466,8 @@ Drei Cards untereinander:
   Bedienung über drei Buttons: **Spielen** (aktueller Satz einmal,
   beim ersten Klick zufällig gewählt) — **Nächster Satz** (anderer
   zufälliger Satz, einmal) — **Endlosfolge** (zufällige Folge,
-  fortlaufend). Stop hält alles an. Sprecher-Auswahl folgt globaler
+  maximal 100 Sätze; danach automatischer Stop, Button-Klick startet
+  neue 100er-Folge). Stop hält alles an. Sprecher-Auswahl folgt globaler
   Tool-Sprache. Optionaler Text-Einblender. Pause-Buttons
   (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 ms —
   Wartezeit zwischen Sätzen bei Endlosfolge).

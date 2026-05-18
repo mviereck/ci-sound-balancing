@@ -1,5 +1,7 @@
 # CI Sound Balancing Tool
 
+![](favicon.png)
+
 A browser-based tool that helps users of cochlear implants measure their perceived loudness and pitch, simulate fittings before going to the audiologist, and print out the requested changes for an appointment.
 
 The tool runs online in your browser: **[CI Sound Balancing Tool](https://mviereck.github.io/ci-sound-balancing/)**

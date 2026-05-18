@@ -1,5 +1,7 @@
 # CI Sound Balancing Tool
 
+![](favicon.png)
+
 Cet outil aide les porteurs d'implants cochléaires à mesurer leurs perceptions de volume sonore et de hauteur tonale.
 - Sur la base des résultats de mesure, des fichiers audio peuvent être lus avec un réglage simulé.
 - Lorsque le résultat vous convient, vous pouvez imprimer un récapitulatif des modifications souhaitées pour votre audiologiste.

@@ -834,6 +834,8 @@ function pApplyShowExperimental() {
   if (ml) ml.style.display = on ? "" : "none";
   if (wp) wp.style.display = on ? "" : "none";
   if (ht) ht.style.display = on ? "" : "none";
+  const locked = !!(pMaplawOn || (typeof pWarpOn !== "undefined" && pWarpOn));
+  if (cb) cb.disabled = locked;
 }
 
 function pMaplawUpdUI() {
@@ -856,7 +858,17 @@ function pMaplawUpdUI() {
   }
   if (hintBox) hintBox.style.display = applicable ? "none" : "";
 
-  cardOn.checked = !!pMaplawOn;
+  if (pMaplawOn) {
+    cardOn.textContent = t("plMaplawEnableOn");
+    cardOn.style.background = "var(--success)";
+    cardOn.style.color = "#fff";
+    cardOn.style.borderColor = "var(--success)";
+  } else {
+    cardOn.textContent = t("plMaplawEnableOff");
+    cardOn.style.background = "#e5e7eb";
+    cardOn.style.color = "var(--text)";
+    cardOn.style.borderColor = "var(--border)";
+  }
 
   if (istEl) {
     const ist = (typeof pMaplawGetIstC === "function") ? pMaplawGetIstC() : null;
