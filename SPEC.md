@@ -151,6 +151,31 @@ Slider-Wert wird invertiert.
   lineare Cent-Abweichung (positiv = subjektiv höher als CI-Frequenz,
   negativ = tiefer). Null-Linie = perfekter Match.
 
+### Sub-Tab 4 — Latenz (latency.js)
+
+- Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Shift) / 10 ms (Ctrl)
+- Schieber ist **nur während laufendem Test** bedienbar (sonst disabled)
+- Klick-Intervall manuell wählbar: 100 / 200 / 500 / 1000 / 2000 ms
+- 4 Klangvarianten: Klick (breitband), 500 Hz, 1500 Hz, 4 kHz Tone-Bursts
+- **Nur mit Kabel-Kopfhörer durchführen** — Bluetooth verfälscht die Messung
+  (Hinweis-Box im Messpanel, nach der Überschrift)
+- Mess-Panel: Überschrift → kurze Beschreibung → Wichtig-Hinweis (BT) →
+  Schieber-Anleitung → Hinweis auf Ortungswahrnehmung als Anhaltspunkt
+- Beim **Stop** wird der aktuelle Schieberwert automatisch als `latencyResult`
+  übernommen (kein separater „Übernehmen"-Button)
+- Während des Tests: alle anderen Tabs und Sub-Tabs gesperrt (wie bei allen
+  anderen Tests — via `lockTestTabs` / `updateTabLockState`)
+- Wirkung live im Player (`latApplyToPlayer`), sofern `plApplyLatency` aktiv
+- Persistenz: `latencyResult` und `plApplyLatency` werden gespeichert/geladen
+  (beide Pfade: file.js-Download/Upload und localStorage-Auto-Restore in init.js)
+- Ergebnis-Sub-Tab „Latenz": zentrierte Highlight-Box (wie Stereo-Balance)
+  mit Label, großem Zahlenwert in Akzentfarbe + Monospace, kurzem Klartext;
+  Kontext (Klangtyp + Intervall) darunter; kein „Wird ausgeglichen."
+- Im Player: Toggle-Button „Latenzausgleich" (`plLatApplyBtn`) neben
+  „Stereo-Balance"-Button — aktiviert/deaktiviert `plApplyLatency`;
+  grün wenn aktiv, grau wenn inaktiv; Sync via `updLatApplyBtn()` in tabs-eq.js
+- Druck-Unterstützung via `_printResLatency` in tab-print.js
+
 ## Anzeige-Konvention
 
 Alle drei Ergebnis-Sub-Reiter zeigen *alle* Elektroden. Deaktivierte

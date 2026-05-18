@@ -45,6 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (activeSubtab && activeSubtab.dataset.subtab === "freqmatch") {
       renderFreqMatchResults();
     }
+    // Latenz-UI-Texte
+    if (typeof latRenderResults === "function") latRenderResults();
+    if (typeof latUpdateValueText === "function") latUpdateValueText();
+    if (typeof latUpdateIntervalHint === "function") latUpdateIntervalHint();
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
@@ -723,8 +727,16 @@ document.addEventListener("DOMContentLoaded", () => {
       updBalApplyBtn();
       pUpdEQ();
     });
+  document
+    .getElementById("plLatApplyBtn")
+    .addEventListener("click", function () {
+      plApplyLatency = !plApplyLatency;
+      latApplyToPlayer();
+      updLatApplyBtn();
+    });
   updEqToggleBtn();
   updBalApplyBtn();
+  updLatApplyBtn();
   // EQ source toggle buttons
   document
     .getElementById("plSrcMeasBtn")
@@ -1057,6 +1069,15 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
       }
+      if (typeof latencyResult !== "undefined") {
+        latencyResult = (d && d.latencyResult) ? d.latencyResult : null;
+      }
+      if (typeof plApplyLatency !== "undefined") {
+        plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
+          ? d.plApplyLatency : true;
+      }
+      if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+      if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
         fRes.splice(0, fRes.length, ...d.fRes);
       }
@@ -1156,6 +1177,8 @@ document.addEventListener("DOMContentLoaded", () => {
           defaultMfr: defaultMfr,
           currentSide: activeSide,
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+          latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
+          plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           fRes: (typeof fRes !== "undefined") ? fRes : [],
           playerSourceMeas: plSrcMeas,
           playerSourceLevels: plSrcLevels,

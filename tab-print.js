@@ -145,6 +145,7 @@ function printErgebnisseTab() {
   if (id === "subpanel-ergebnisse-results")  return _printResLoudness();
   if (id === "subpanel-ergebnisse-lrresults") return _printResLR();
   if (id === "subpanel-ergebnisse-freqmatch") return _printResFreqmatch();
+  if (id === "subpanel-ergebnisse-latenz")    return _printResLatency();
 }
 
 function _printCloneSafe(rootSelector) {
@@ -214,6 +215,46 @@ function _printResFreqmatch() {
     : '#fmrNoData';
   const body = _printCloneSafe(target);
   openPrintWindow(t("subTabFreqMatch") || "Frequenzabgleich", body);
+}
+
+function _printResLatency() {
+  if (!latencyResult || !isFinite(latencyResult.valueMs)) {
+    return openPrintWindow(t("latResTitle"),
+      `<div class="print-card"><h2>${t("latResTitle")}</h2>` +
+      `<p>${t("latResNoneText")}</p></div>`);
+  }
+  const v = latencyResult.valueMs;
+  const a = Math.abs(v).toFixed(1).replace(".", ",");
+  let mainTxt;
+  if (Math.abs(v) < 0.05) {
+    mainTxt = t("latResNoOffset");
+  } else if (v > 0) {
+    mainTxt = t("latResLeftFaster").replace("{ms}", a);
+  } else {
+    mainTxt = t("latResRightFaster").replace("{ms}", a);
+  }
+  const typeKey = {
+    "click":     "latTypeClick",
+    "burst500":  "latTypeBurst500",
+    "burst1500": "latTypeBurst1500",
+    "burst4000": "latTypeBurst4000",
+  }[latencyResult.clickType];
+  const typeLabel = typeKey ? t(typeKey) : (latencyResult.clickType || "");
+  const sign = v >= 0 ? "+" : "−";
+  const body = `
+    <div class="print-card">
+      <h2>${t("latResTitle")}</h2>
+      <p style="font-size:1.4em;font-weight:600;">${sign}${a} ms</p>
+      <p>${mainTxt}</p>
+      <p style="color:#666;font-size:0.9em;">
+        ${t("latResMeasuredWith")}: ${typeLabel},
+        ${t("latResInterval")} ${latencyResult.intervalMs} ms
+      </p>
+      <p style="color:#666;font-size:0.9em;">
+        ${t("latResApplied")}: ${plApplyLatency ? t("yes") : t("no")}
+      </p>
+    </div>`;
+  openPrintWindow(t("latResTitle"), body);
 }
 
 // --- Kurven-Tab ---

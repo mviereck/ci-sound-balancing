@@ -129,6 +129,10 @@ function resetAll() {
   globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
+  if (typeof latencyResult !== "undefined") latencyResult = null;
+  if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
+  if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+  if (typeof latRenderResults === "function") latRenderResults();
   buildFreqTable();
   buildPrTbl();
   drawLvChart();
@@ -187,6 +191,8 @@ async function saveJson() {
     },
     currentSide: activeSide,
     lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+    latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
+    plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     fRes: (typeof fRes !== "undefined") ? fRes : [],
     paradigm: globalSequence,
     toneDuration: parseInt(document.getElementById("dur1").value),
@@ -439,6 +445,15 @@ function applyLoadedData(d) {
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
   }
+  if (typeof latencyResult !== "undefined") {
+    latencyResult = (d && d.latencyResult) ? d.latencyResult : null;
+  }
+  if (typeof plApplyLatency !== "undefined") {
+    plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
+      ? d.plApplyLatency : true;
+  }
+  if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+  if (typeof latRenderResults === "function") latRenderResults();
   if (typeof fRes !== "undefined") {
     if (Array.isArray(d.fRes)) {
       fRes.splice(0, fRes.length, ...d.fRes);

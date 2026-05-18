@@ -303,7 +303,13 @@ function pBuildEQ() {
   if (!pGain) {
     pGain = c.createGain();
     pGain.gain.value = parseInt(document.getElementById("plVol").value) / 100;
-    pGain.connect(c.destination);
+    // Latenz-Kette zwischen pGain und destination einhängen
+    if (typeof latInitGraph === "function") {
+      latInitGraph(c);
+      pGain.connect(pLatSplitter);
+    } else {
+      pGain.connect(c.destination);
+    }
   }
   const mode = getPlayerSide();
   const str = parseInt(document.getElementById("plStr").value) / 100;

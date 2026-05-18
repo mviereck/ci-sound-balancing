@@ -82,7 +82,7 @@ Grundsätzliche technische Angaben zu Ihrem CI.
 - Idealerweise tragen Sie alle weiteren Ihnen bekannten Angaben und Werte ein, sofern bekannt. Sie können die Werte bei Ihrem Audiologen erfragen. Sie können das Tool aber auch ohne diese Werte nutzen.
 - Machen Sie alle Angaben auch für das andere Ohr. Auch *normalhörend* oder *schwerhörig* oder *taub* gegebenenfalls eintragen, wenn sie dort kein CI tragen.
 
-#### Im Reiter *Messungen*
+#### Im Reiter *Messungen* -> *Elektrodenlautstärke*
 Vergleich der Lautstärken der Elektroden.
 - Für die Seite(n) mit CI machen Sie zunächst nur die Messung *Elektrodenlautstärke*.
 - In dieser Messung werden alle Elektroden paarweise miteinander verglichen, und Sie justieren die Lautstärke, bis sich beide Seiten gleich laut anhören.
@@ -101,7 +101,7 @@ Vergleich der Lautstärken der Elektroden.
 - Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
 - Die Messungen *Stereo-Balance* und *Frequenzabgleich* zunächst auslassen.
  
-#### Im Reiter *Meßergebnisse*
+#### Im Reiter *Meßergebnisse* -> *Elektrodenlautstärke*
 Anzeige der errechneten Anpassung gemäß Ihrer Messungen.
 
 - Im Subreiter *Elektrodenlautstärke* sehen Sie die empfohlenen Veränderungen pro Elektrode dargestellt in einer Grafik.
@@ -149,19 +149,31 @@ Ausdrucke für Ihren Audiologen mit den gewünschten Änderungen.
 ### Einschränkung
 Wenn Sie im Tool die *MCL* Werte der Elektroden eingetragen haben, errechnet das Tool neben der Differenz in Dezibel (dB) außerdem eine Differenz in der Einheit des Audiologenprogrammes. Dies wird mit ausgedruckt. Diese errechneten Werte sind noch nicht auf Verläßlichkeit geprüft. Hinzu kommt, daß das Ohr als Organ etwas anders auf die Einstellungen reagiern könnte, als eine Berechnung vorhersagen kann.
 
-## Weitere Möglichkeiten
+## Weitere Anpassungen
 
 ### Reiter *Messungen* -> *Stereo-Balance*
 Lautstärkenvergleich links und rechts. 
+- Vor dieser Messung sollte die Messung *Elektrodenlautstärke* bereits durchgeführt worden sein.
 - Aus der Messung wird ein Mittelwert berechnet, der als Empfehlung für Lautstärkenanhebung  oder -absenkung für eine Seite empfohlen wird.
 - Der Ausgleich kann im Player per Button aktiviert werden.
+
+### Reiter *Messungen* -> *Latenz*
+Zeitversatz zwischen links und rechts messen.
+- Bei unterschiedlicher versorgung links und rechts können die Töne zeitversetzt eintreffen.
+- Mit diesem Test können Sie diese Latenz messen. Je nach Gerät kann eine Korrektur vpom Audiologen oder Akustiker vorgenommen werden.
+- Wenn die Lautsärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, "wo" Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.
+- Ein Ausgleich kann im Player aktiviert werden.
  
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
-- (Weitere Dokumentation folgt)
-- (Im *Player* kann eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden.)
+- Es ist vorteilhaft, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. 
+- Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
+- Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
 
 ### Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
-- (Weitere Dokumentation folgt)
+- Diese Funktion werden Sie in der Regel nicht benötigen. Sie gibt Ihnen Freiheit für Experimente.
+- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im reiter *Implantat* die MCL Werte eingegeben wurden.
+- Sie können die Veränderung durch *Elektrodenlautstärke* und *Kurven* mit einblenden lassen.
+- Sie können die Veränderungen live im Player hören.
 

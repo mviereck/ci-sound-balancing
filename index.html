@@ -27,7 +27,7 @@
         'version.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
         'results.js', 'chart.js', 'file.js', 'print.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
-        'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'sentences.js', 'init.js'
+        'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'latency.js', 'sentences.js', 'init.js'
       ];
       scripts.forEach(function (src) {
         document.write('<script defer src="' + src + '?v=' + v + '"><\/script>');
@@ -431,6 +431,7 @@
         <div class="subtabs">
           <button class="subtab active" data-subtab="test" data-parent="messungen">Elektrodenlautstärke-Balance</button>
           <button class="subtab" data-subtab="balance" data-parent="messungen">Stereo-Balance</button>
+          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latSubtabBtn">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn">Frequenzabgleich</button>
         </div>
         <div id="subpanel-messungen-test" class="subpanel active">
@@ -441,6 +442,82 @@
       <!-- ===== FREQUENZABGLEICH ===== -->
       <div id="subpanel-messungen-freqmatch" class="subpanel"></div>
 
+      <!-- ===== LATENZ ===== -->
+      <div id="subpanel-messungen-latenz" class="subpanel">
+        <div class="card">
+          <h2 data-t="latMeasTitle">Latenz-Messung</h2>
+          <p data-t="latMeasIntro2">Messung des Zeitversatzes von links und rechts, wann Töne ankommen.</p>
+
+          <div class="info-box" style="background:#fef3c7;border-color:#f59e0b;color:#78350f;margin-bottom:16px;"
+               data-t="latBTWarning">
+            <strong>⚠️ Wichtig: Diesen Test nur mit Kabel-Kopfhörern durchführen.</strong><br>
+            Bluetooth fügt eigene, unterschiedliche Latenzen pro Ohr hinzu und verfälscht die Messung.
+            Andere Tests funktionieren mit Bluetooth — dieser hier <em>nicht</em>.
+          </div>
+
+          <p style="color:var(--text-muted);font-size:0.95em;" data-t="latMeasIntro">
+            Stelle mit dem Schieber den Versatz ein, bei dem die Klicks gleichzeitig
+            wahrgenommen werden. Pfeiltasten: 1 ms — Shift+Pfeil: 0,1 ms —
+            Strg+Pfeil: 10 ms.
+          </p>
+          <div class="explain" style="margin-bottom:16px;" data-t="latLocHint">
+            Wenn die Lautstärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, ‚wo' Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.
+          </div>
+
+          <!-- Klick-Intervall -->
+          <div style="margin:18px 0;">
+            <div style="font-weight:600;margin-bottom:6px;" data-t="latIntervalLabel">Klick-Intervall</div>
+            <div id="latIntervalRow" class="btn-row" style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="btn lat-interval-btn" data-ms="100">100 ms</button>
+              <button class="btn lat-interval-btn" data-ms="200">200 ms</button>
+              <button class="btn lat-interval-btn" data-ms="500">500 ms</button>
+              <button class="btn lat-interval-btn active" data-ms="1000">1000 ms</button>
+              <button class="btn lat-interval-btn" data-ms="2000">2000 ms</button>
+            </div>
+            <div id="latIntervalHint" style="font-size:0.85em;color:var(--text-muted);margin-top:4px;">
+              Eindeutiger Bereich: ±50 ms
+            </div>
+          </div>
+
+          <!-- Klangtyp -->
+          <div style="margin:18px 0;">
+            <div style="font-weight:600;margin-bottom:6px;" data-t="latTypeLabel">Klangtyp</div>
+            <div id="latClickRow" class="btn-row" style="display:flex;gap:6px;flex-wrap:wrap;">
+              <button class="btn lat-click-btn active" data-type="click" data-t="latTypeClick">Klick (breitband)</button>
+              <button class="btn lat-click-btn" data-type="burst500" data-t="latTypeBurst500">Tieftöner 500 Hz</button>
+              <button class="btn lat-click-btn" data-type="burst1500" data-t="latTypeBurst1500">Mittelton 1500 Hz</button>
+              <button class="btn lat-click-btn" data-type="burst4000" data-t="latTypeBurst4000">Hochton 4 kHz</button>
+            </div>
+          </div>
+
+          <!-- Start/Stop -->
+          <div style="margin:24px 0 8px 0;">
+            <button class="btn btn-primary btn-large" id="latStartBtn" data-t="latStartBtn">▶ Test starten</button>
+            <button class="btn btn-large" id="latStopBtn" disabled data-t="latStopBtn">■ Stop</button>
+          </div>
+
+          <!-- Schieber — nur während Test sichtbar -->
+          <div id="latTestBox" hidden style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;">
+            <input type="range" id="latSlider" min="-200" max="200" step="0.1" value="0"
+                   style="width:100%;" />
+            <div style="display:flex;justify-content:space-between;font-size:0.85em;color:var(--text-muted);">
+              <span data-t="latSliderMinusLabel">−200 ms (rechts verzögern)</span>
+              <span data-t="latSliderZeroLabel">0</span>
+              <span data-t="latSliderPlusLabel">+200 ms (links verzögern)</span>
+            </div>
+            <div id="latValueText" style="text-align:center;margin-top:12px;font-size:1.1em;font-weight:500;">
+              0,0 ms — kein Versatz
+            </div>
+          </div>
+
+          <!-- Locked-Hint -->
+          <div id="latLockedHint" class="info-box tab-locked-hint" hidden
+               style="margin-top:16px;" data-t="latLockedHint">
+            Test läuft. Stoppe den Test, um die Tabs zu wechseln.
+          </div>
+        </div>
+      </div>
+
         </div><!-- /panel-messungen-wrapper -->
       </div><!-- /panel-messungen -->
 
@@ -450,6 +527,7 @@
         <div class="subtabs">
           <button class="subtab active" data-subtab="results" data-parent="ergebnisse" id="subTabLoudnessBtn"></button>
           <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse">Stereo-Balance</button>
+          <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLatenzBtn" data-t="tabLatenz">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFreqMatchBtn"></button>
           <button class="btn" id="printErgebnisseBtn"
                   style="margin-left:auto;padding:4px 10px;font-size:0.9em;">
@@ -678,6 +756,24 @@
                 <thead><tr id="fmrTH"></tr></thead>
                 <tbody id="fmrTB"></tbody>
               </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ERGEBNIS LATENZ ===== -->
+        <div id="subpanel-ergebnisse-latenz" class="subpanel">
+          <div class="card">
+            <h2 data-t="latResTitle">Latenz</h2>
+            <div id="latResNone" style="color:var(--text-muted);">
+              <p data-t="latResNoneText">Noch keine Latenz gemessen. Im Reiter „Messungen" → „Latenz" durchführen.</p>
+            </div>
+            <div id="latResContent" hidden>
+              <div style="text-align:center;margin:12px 0 16px;padding:14px;background:var(--accent-light);border-radius:8px;border:2px solid var(--accent);">
+                <div style="font-size:0.8em;color:var(--text-muted);margin-bottom:4px;" data-t="latResLabel">Gemessener Zeitversatz</div>
+                <div id="latResValueBig" style="font-size:2.2em;font-weight:700;font-family:var(--mono);color:var(--accent);">—</div>
+                <div id="latResText" style="font-size:0.85em;color:var(--text-muted);margin-top:4px;"></div>
+              </div>
+              <div id="latResContext" style="color:var(--text-muted);font-size:0.85em;margin:8px 0;text-align:center;"></div>
             </div>
           </div>
         </div>
@@ -1012,6 +1108,13 @@
                 class="btn btn-sm"
                 style="font-weight: 600; min-width: 180px; border-radius: 6px"
                 data-t="plBalApply"
+              ></button>
+            </div>
+            <div class="control-group">
+              <button
+                id="plLatApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
               ></button>
             </div>
           </div>

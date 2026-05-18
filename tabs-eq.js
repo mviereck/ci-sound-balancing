@@ -20,11 +20,23 @@ function switchSubtab(parent, subtab) {
   if (parent === "ergebnisse" && subtab === "freqmatch") {
     renderFreqMatchResults();
   }
+  if (parent === "ergebnisse" && subtab === "latenz") {
+    if (typeof latRenderResults === "function") latRenderResults();
+  }
   if (parent === "messungen" && subtab === "balance") {
     lrCheckData();
   }
   if (parent === "messungen" && subtab === "freqmatch") {
     if (typeof fmApplyLang === "function") fmApplyLang();
+  }
+  // Sub-Tab-Wechsel weg vom Latenz-Tab: Test stoppen
+  if (parent === "messungen" && subtab !== "latenz") {
+    if (typeof latActive !== "undefined" && latActive
+        && typeof latStopTest === "function") {
+      latStopTest();
+      if (typeof latUpdateButtonStates === "function") latUpdateButtonStates();
+      if (typeof updateTabLockState === "function") updateTabLockState();
+    }
   }
 }
 
@@ -35,7 +47,8 @@ function switchTab(n) {
   // Guard: Verhindere Tab-Wechsel während aktiver Test
   const anyTestRunning = testAct
     || (typeof lrRunning !== "undefined" && lrRunning)
-    || (typeof fmRunning !== "undefined" && fmRunning);
+    || (typeof fmRunning !== "undefined" && fmRunning)
+    || (typeof latActive !== "undefined" && latActive);
   if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
@@ -77,11 +90,13 @@ function switchTab(n) {
 // Delegiert an lockTestTabs (test-ui.js) für einheitliche Handhabung
 function updateTabLockState() {
   const locked = testAct || (typeof lrRunning !== "undefined" && lrRunning)
-                          || (typeof fmRunning !== "undefined" && fmRunning);
+                          || (typeof fmRunning !== "undefined" && fmRunning)
+                          || (typeof latActive !== "undefined" && latActive);
   var activeTestId = null;
   if (testAct) activeTestId = 'test';
   else if (typeof lrRunning !== "undefined" && lrRunning) activeTestId = 'balance';
   else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
+  else if (typeof latActive !== "undefined" && latActive) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
   // lockedHint im jeweiligen testEls-Objekt ein-/ausblenden
   if (typeof testEls !== "undefined" && testEls && testEls.lockedHint) {
@@ -92,6 +107,9 @@ function updateTabLockState() {
   }
   if (typeof fmEls !== "undefined" && fmEls && fmEls.lockedHint) {
     fmEls.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
+  }
+  if (typeof latEls !== "undefined" && latEls && latEls.lockedHint) {
+    latEls.lockedHint.hidden = !(typeof latActive !== "undefined" && latActive);
   }
   // ciSideSelect auch sperren
   const sideSelect = document.getElementById("ciSideSelect");
@@ -153,6 +171,22 @@ function updBalApplyBtn() {
     btn.style.borderColor = "var(--success)";
   } else {
     btn.textContent = t("plBalApplyOff");
+    btn.style.background = "#e5e7eb";
+    btn.style.color = "var(--text)";
+    btn.style.borderColor = "var(--border)";
+  }
+}
+
+function updLatApplyBtn() {
+  const btn = document.getElementById("plLatApplyBtn");
+  if (!btn) return;
+  if (plApplyLatency) {
+    btn.textContent = t("plLatApplyOn");
+    btn.style.background = "var(--success)";
+    btn.style.color = "#fff";
+    btn.style.borderColor = "var(--success)";
+  } else {
+    btn.textContent = t("plLatApplyOff");
     btn.style.background = "#e5e7eb";
     btn.style.color = "var(--text)";
     btn.style.borderColor = "var(--border)";
