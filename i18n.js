@@ -3,7 +3,7 @@
 // ============================================================
 const L = {
   de: {
-    subtitle: "CI Sound Balancing Tool · v" + APP_VERSION,
+    subtitle: "",
     sideLeft: "LINKS",
     sideRight: "RECHTS",
     tabIntro: "Einführung",
@@ -506,7 +506,7 @@ const L = {
     confQualityLabel: "Qualität der Messung:",
   },
   en: {
-    subtitle: "CI Sound Balancing Tool · v" + APP_VERSION,
+    subtitle: "",
     sideLeft: "LEFT",
     sideRight: "RIGHT",
     tabIntro: "Introduction",
@@ -1005,7 +1005,7 @@ const L = {
     confQualityLabel: "Measurement quality:",
   },
   fr: {
-    subtitle: "CI Sound Balancing Tool · v" + APP_VERSION,
+    subtitle: "",
     sideLeft: "GAUCHE",
     sideRight: "DROITE",
     tabIntro: "Introduction",
@@ -1490,7 +1490,7 @@ const L = {
     confQualityLabel: "Qualité de la mesure :",
   },
   es: {
-    subtitle: "CI Sound Balancing Tool · v" + APP_VERSION,
+    subtitle: "",
     sideLeft: "IZQUIERDA",
     sideRight: "DERECHA",
     tabIntro: "Introducción",
@@ -2020,7 +2020,8 @@ function applyLang() {
     if (e) e.textContent = t(k);
   };
   updateMfrSelectLabels();
-  s("subtitleText", "subtitle");
+  const vl = document.getElementById("versionLabel");
+  if (vl) vl.textContent = "v" + APP_VERSION;
   s("tabIntro", "tabIntro");
   s("tabSetup", "tabFreq");
   // tabTest und tabResults haben feste mehrsprachige Texte unten

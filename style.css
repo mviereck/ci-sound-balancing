@@ -43,10 +43,11 @@ h1 {
   gap: 8px;
   margin-bottom: 4px;
 }
-.subtitle {
+.version-tag {
+  font-size: 0.45em;
+  font-weight: normal;
   color: var(--text-muted);
-  font-size: 0.9em;
-  margin-bottom: 20px;
+  vertical-align: middle;
 }
 .tabs {
   display: flex;

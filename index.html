@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CI Sound Balancing Tool</title>
+    <title>CI Sound Balancing</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -38,7 +38,7 @@
   <body>
     <div class="container">
       <div class="header-row">
-        <h1>CI Sound Balancing Tool</h1>
+        <h1>CI Sound Balancing <span id="versionLabel" class="version-tag"></span></h1>
         <div style="display: flex; align-items: center; gap: 8px">
           <select class="lang-select" id="langSelect">
             <option value="de">🇩🇪 Deutsch</option>
@@ -48,15 +48,9 @@
           </select>
         </div>
       </div>
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-bottom: 14px;
-          align-items: center;
-        "
-      >
+      <div style="position: relative; display: flex; justify-content: center; align-items: center; min-height: 150px; margin-bottom: 14px;">
+        <img src="favicon.png" width="150" height="150" alt="" style="position: absolute; left: 25px; top: 50%; transform: translateY(-50%);">
+        <div style="display: flex; gap: 10px;">
         <button
           id="sideLeftBtn"
           data-t="sideLeft"
@@ -95,14 +89,13 @@
         >
           RECHTS
         </button>
+        </div>
       </div>
       <!-- hidden select kept for JS compatibility -->
       <select id="ciSideSelect" style="display: none">
         <option value="left">Links</option>
         <option value="right">Rechts</option>
       </select>
-      <p class="subtitle" id="subtitleText"></p>
-
       <div class="tabs">
         <button class="tab active" data-tab="intro" id="tabIntro"></button>
         <button class="tab" data-tab="setup" id="tabSetup"></button>
