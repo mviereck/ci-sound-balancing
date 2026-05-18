@@ -496,10 +496,13 @@ Drei Cards untereinander:
   Tool-Sprache. Optionaler Text-Einblender. Pause-Buttons
   (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 ms —
   Wartezeit zwischen Sätzen bei Endlosfolge).
-  Sätze und Musikdatei schließen sich gegenseitig aus: Sätze-Start
-  pausiert laufende Musik; Datei-Play-Button stoppt Sätze (erster
-  Klick), zweiter startet Datei. Datei-Upload und Seite-Wechsel
-  stoppen Sätze ebenfalls. Sprachwechsel aktualisiert
+  Sätze und Audiodatei haben getrennte Buffer und sind unabhängig
+  voneinander steuerbar. Sätze-Start pausiert eine laufende
+  Datei-Wiedergabe; Klick auf den Datei-Play-Button während laufender
+  Sätze stoppt diese und startet die Datei (ein Klick, vorher zwei).
+  Sätze-Stop und Sätze-Ende setzen den Player zurück in den Datei-
+  Modus, ohne die Datei-Auswahl zu verlieren. Datei-Upload und
+  Seite-Wechsel stoppen Sätze ebenfalls. Sprachwechsel aktualisiert
   Sprecher-Dropdown sofort. Schema: `assets/sentences/sentences.json`
   ist sprecher-zentriert, `speakers.<key>.recordings[]` mit Text +
   Audio-Pfad. Siehe README.
@@ -512,6 +515,39 @@ Drei Cards untereinander:
   ~5 Sätze pro Sprache verfügbar (de: Thorsten; en/fr/es: Common Voice).
   Spätere Sprachen, für die kein Embed existiert, sind offline nicht
   verfügbar (Block zeigt „keine Sätze verfügbar").
+
+  **Lokale Audio-Ordner:** Der User kann über „+ Lokalen Ordner laden"
+  in der Sätze-Card lokale Ordner mit Audiodateien hinzufügen. Erkennung:
+  - Freiburger Sprachtest (Pfad-Pattern Einsilbig|Mehrsilbig/Testliste_NN/
+    L<NN>_W<NN>_<text>.wav) → zwei Sprecher (Einsilbig, Mehrsilbig),
+    Text aus Dateiname.
+  - Oldenburger Satztest (Dateiname *_OLSA[female|male]_TTS.wav) → ein
+    Sprecher mit Label-Variante (female/male/generisch), Text aus
+    zugehöriger sentences_OLSA*.txt im Format `<datei.wav> : <text>`.
+  - Generisch: alle Audiodateien des Ordners als ein Sprecher in der
+    aktuellen Tool-Sprache; Manifest-Texte werden gelesen, wenn eine
+    .txt/.csv/.tsv ≥ 80 % der Audio-Dateien zuordnet (Separator
+    : , ; | Tab; Leerzeichen im Dateinamen werden beim Doppelpunkt-
+    Separator unterstützt: `datei mit leerzeichen.wav: Text`).
+  Audio wird lazy geladen (erst beim Abspielen, nicht beim Scan).
+  Entfernen über „×" neben dem Listeneintrag. Sprache der Sammlung
+  bestimmt, ob sie im Sprecher-Dropdown der aktuellen Tool-Sprache
+  erscheint.
+
+  **Persistenz:** Lokale Sammlungen werden mit ihren Metadaten in JSON
+  gespeichert. Audio-Daten selbst nicht. Beim Reload mit JSON-Restore:
+  - In Chromium/Edge (File System Access API verfügbar) nutzt der Picker
+    `showDirectoryPicker()`; der zurückgelieferte Handle wird in IndexedDB
+    persistiert (DB „ciSoundBalancing", Store „folderHandles"). Nach
+    JSON-Restore fragt der Browser nach Re-Permission für den
+    ursprünglichen Ordner (ein Dialog); nach Bestätigung ist die Sammlung
+    sofort wieder verfügbar. Künftige Re-Auswahlen öffnen an der
+    gespeicherten Stelle (`startIn`-Hint).
+  - In Firefox erscheint die Sammlung als „(nicht geladen)" im
+    Sprecher-Dropdown und in der Liste. Auswahl im Dropdown öffnet
+    einen Hinweis mit Ordnernamen und den webkitdirectory-Picker.
+  „×" entfernt die Sammlung dauerhaft (auch den IndexedDB-Handle,
+  sofern keine andere Sammlung ihn referenziert).
 
 ## Speichern und Laden
 

@@ -4,6 +4,8 @@
 let pCtx = null,
   pBuf = null,
   pSourceBuf = null,
+  pFileBuf = null,          // Audiodatei-Buffer (überlebt Sätze-Wiedergabe)
+  pPlaybackMode = "file",   // "file" | "sentence" — Aktiver Buffer-Slot
   pMonoBuf = null,
   pLeftOnlyBuf = null,
   pRightOnlyBuf = null,
@@ -135,6 +137,29 @@ function _buildWarpedPlaybackBuffer(mode) {
   return out;
 }
 
+function pSetPlaybackMode(mode) {
+  if (mode !== "file" && mode !== "sentence") return;
+  pPlaybackMode = mode;
+  if (mode === "file") {
+    pSourceBuf = pFileBuf;
+  } else {
+    pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
+  }
+  pMonoBuf = null;
+  pLeftOnlyBuf = null;
+  pRightOnlyBuf = null;
+  if (typeof pWarpedBuf !== "undefined") {
+    pWarpedBuf = null;
+    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  }
+  if (pSourceBuf) {
+    pBuf = getPlaybackBuffer();
+    pBuildEQ();
+  } else {
+    pBuf = null;
+  }
+}
+
 function getPlaybackBuffer() {
   const mode = getPlayerSide();
   if (!pSourceBuf) return null;
@@ -216,16 +241,8 @@ document
     try {
       const c = gPC();
       const buf = await f.arrayBuffer();
-      pSourceBuf = await c.decodeAudioData(buf);
-      pMonoBuf = null;
-      pLeftOnlyBuf = null;
-      pRightOnlyBuf = null;
-      // Warp-Buffer invalidieren – neue Datei erfordert neue Vorberechnung
-      if (typeof pWarpedBuf !== "undefined") {
-        pWarpedBuf = null;
-        if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-      }
-      pBuf = getPlaybackBuffer();
+      pFileBuf = await c.decodeAudioData(buf);
+      pSetPlaybackMode("file");
       document.getElementById("plTot").textContent = pFmt(pBuf.duration);
       document.getElementById("plCur").textContent = "0:00";
       document.getElementById("plTL").value = 0;
@@ -415,16 +432,19 @@ function pUpdEQ() {
 }
 
 function pToggle() {
-  if (!pBuf) return;
-  if (pCtx.state === "suspended") pCtx.resume();
-  // Wenn der User auf den Datei-Play-Button drückt, während Sätze
-  // laufen, ist das ein Wechsel zur Musikdatei. Sätze-Mode beenden,
-  // ohne pPause aufzurufen (das macht der normale Pfad).
+  if (pCtx && pCtx.state === "suspended") pCtx.resume();
+  // Wenn Sätze laufen: stoppen, in Datei-Modus wechseln, Datei starten.
+  // Ein Klick reicht (vorher waren zwei nötig).
   if (typeof sActive !== "undefined" && sActive
       && typeof sStop === "function") {
     sStop();
-    return; // sStop hat bereits pausiert; User klickt erneut für Datei.
+    if (!pFileBuf) return;          // keine Datei geladen → nichts zu spielen
+    pSetPlaybackMode("file");
+    pOff = 0;
+    pPlay();
+    return;
   }
+  if (!pBuf) return;                // kein Buffer → ignorieren
   if (pPlaying) pPause();
   else pPlay();
 }

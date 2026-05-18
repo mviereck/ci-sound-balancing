@@ -31,11 +31,12 @@ Wenn Sie schließlich eine Anpassung gefunden haben, die Ihnen gut erscheint, k�
 Das Tool arbeitet ausschließlich mit akustischen Signalen. Akustische Signale können auch benachbarte Elektroden mit aktivieren. Das macht die Messung ein Stück weit ungenau. Ideal wäre eine direkte Stimulation der einzelnen Elektroden, aber diese Möglichkeit bleibt dem Audiologen vorbehalten.
 
 ## Wichtige Empfehlung: Testprogramm ohne Filter
+
 Damit Sie die Lautstärke der einzelnen Elektroden möglichst unverfälscht beurteilen können, sollten alle automatischen Klangverarbeitungs-Filter im CI-Prozessor deaktiviert sein. Bitten Sie Ihren Audiologen, Ihnen dafür ein zusätzliches Testprogramm einzurichten.
 
 Folgenden Satz können Sie dazu nutzen (Begriffe gelten für MED-EL/MAESTRO; bei Cochlear und Advanced Bionics gibt es entsprechende Filter unter anderen Namen, der Audiologe weiß, was gemeint ist):
   
->„Bitte legen Sie mir auf einer freien Programm-Position eine Test-MAP an, in der >alle ASM-Filter deaktiviert sind: 
+>„Bitte legen Sie mir auf einer freien Programm-Position eine Test-MAP an, in der alle ASM-Filter deaktiviert sind: 
 >
 >- Microphone Directionality: Omni
 >- Adaptive Intelligence: Off
@@ -51,8 +52,7 @@ Im Reiter Implantat können Sie zahlreiche technische Werte zu Ihrem CI eintrage
 
 Folgender Satz hilft:
 
->„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen >MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem 
->CI-Sound-Balancing-Tool."
+>„Bitte drucken Sie mir einen Fitting-Report (alle Map-Parameter) meiner aktuellen MAP aus. Ich brauche die Werte für eine Lautheits-Messung zu Hause mit dem CI-Sound-Balancing-Tool."
 
 Falls Rückfragen kommen, welche Werte konkret gemeint sind:
 
@@ -159,8 +159,8 @@ Lautstärkenvergleich links und rechts.
 
 ### Reiter *Messungen* -> *Latenz*
 Zeitversatz zwischen links und rechts messen.
-- Bei unterschiedlicher versorgung links und rechts können die Töne zeitversetzt eintreffen.
-- Mit diesem Test können Sie diese Latenz messen. Je nach Gerät kann eine Korrektur vpom Audiologen oder Akustiker vorgenommen werden.
+- Bei unterschiedlicher Versorgung links und rechts können die Töne zeitversetzt eintreffen.
+- Mit diesem Test können Sie diese Latenz messen. Je nach Gerät kann eine Korrektur vom Audiologen oder Akustiker vorgenommen werden.
 - Wenn die Lautsärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, "wo" Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.
 - Ein Ausgleich kann im Player aktiviert werden.
  

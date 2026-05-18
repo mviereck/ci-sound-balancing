@@ -47,3 +47,102 @@ Modus-Toggle. Default: passt zur Modus-Wahl wie bisher.
 Balken in beiden Einheiten gleichzeitig steht. Erst klären, ob das
 Bedarf abdeckt, bevor diese Idee umgesetzt wird.
 
+---
+
+## Hersteller-Eintrag „Anderer Hersteller / Manuelle Angaben"
+
+**Aufgenommen am**: 2026-05-18
+**Status**: konzeptionell besprochen, nicht gebaut.
+
+**Hintergrund**: Das Tool kennt aktuell drei Hersteller (MED-EL,
+Cochlear, Advanced Bionics). Real existieren weitere Anbieter
+(Nurotron in China, Listent/Lisound, Oticon Medical/Neurelec,
+ehemalige Eigenentwicklungen in Rußland), außerdem ältere oder
+aufgekaufte Modelle, deren Mapping-Daten nicht gepflegt werden
+können. Ein generischer Slot soll diese Fälle nutzbar machen,
+ohne für jeden Anbieter eigene Hersteller-Daten zu erfassen.
+
+**Konzept**: Neuer Auswahlpunkt im Hersteller-Dropdown
+(`implMfrSelect`) mit Label „Anderer Hersteller / Manuelle
+Angaben". Bei Auswahl erscheint ein neuer Eingabe-Block.
+
+**Pflichteingaben**:
+- **Anzahl Elektroden** (`n`): hart zugelassen 1–40, mit Hinweis
+  bei >24 („ungewöhnliche Anzahl, bitte prüfen").
+- **FAT** (Frequenzzuordnungstabelle): genau `n` Einträge. Pro
+  Elektrode entweder eine Hz-Angabe oder Markierung als
+  „deaktiviert". Beides zählt als vollständiger Eintrag.
+  Reihenfolge der Eingabe = Anzeigereihenfolge im Tool; eine
+  Unterscheidung apikal/basal trifft das Tool nicht.
+
+**Optionale Eingaben** (Freitext, nur für Druck verwendet, kein
+Einfluß auf Funktionen):
+- Hersteller-Name
+- Implantat-Modell
+- Audio-Prozessor-Modell
+
+**Validierung der FAT** (Hinweise, **keine Sperre**, gelbes Banner
+unter dem Block):
+- Wert <50 Hz oder >10000 Hz → Hinweis
+- Reihenfolge nicht monoton steigend oder fallend → Hinweis
+- Doppelte Werte → Hinweis
+
+**Vollständigkeits-Zustand**:
+- Solange weniger als `n` Einträge gesetzt sind (Hz oder
+  „deaktiviert"): roter, dauerhaft sichtbarer Warnhinweis unter
+  der jeweiligen Seitenanzeige (LINKS/RECHTS) mit Text sinngemäß
+  „FAT unvollständig — Ergebnisse nicht belastbar".
+- Solange unvollständig: alle Tab-Tests (Stereo-Balance,
+  LR-Balance, Frequency-Matching, Levels) für diese Seite
+  **gesperrt**.
+
+**Optional anbietbar — Default-Verteilung**: Knopf „Default
+einfügen" mit logarithmisch verteilten Werten (z. B. 150 Hz bis
+8000 Hz) passend zur eingetragenen Elektrodenzahl. User kann
+nachbearbeiten. Klar als unverbindlicher Vorschlag kennzeichnen,
+nicht stillschweigend einsetzen.
+
+**Auswirkungen auf andere Funktionen**:
+- **Levels-Tab**: nur dB-Modus. Absolutmodus (qu/CL/CU) für diese
+  Seite deaktiviert.
+- **MAPLAW-Simulation**: für diese Seite deaktiviert.
+- **Druck**: Hersteller-Einheit-Spalte entfällt. Die freien
+  Textangaben (Hersteller, Implantat, Prozessor) werden in den
+  bestehenden Druck-Feldern angezeigt, sofern eingetragen.
+- **Cochlear-Generation-Block**: entfällt.
+- **Default-Frequenzraster-Dropdown** (`defaultMfrSelect`, aktiv
+  wenn beide Seiten Non-CI sind): „Manuell" ist dort **nicht**
+  wählbar — ohne reale Hersteller-Vorgabe gibt es keinen
+  sinnvollen Default-Raster.
+- **Bilateral mit Manuell + Non-CI**: das Non-CI-Ohr übernimmt
+  die FAT des Manuell-Ohrs. Das erlaubt Vergleichbarkeit bei
+  Tests wie Stereo-Balance.
+
+**Persistenz**: pro Seite in `sideData`, serialisiert wie die
+übrigen Implantat-Daten.
+
+**Interne Repräsentation**: `apFirst` im `MFR`-Datensatz auf einen
+festen Wert (z. B. `true`) — semantisch ohne Bedeutung, dient nur
+der internen Aufzählung.
+
+**Berührte Module** (grob, für spätere Bauanleitung):
+- `core.js`: `MFR` um Eintrag erweitern, leere Listen für
+  `IMPLANTS`/`PROCESSORS`, neuer Vollständigkeits-Helper.
+- `ui-implant.js`: neuer Block für manuelle Eingabe (n + FAT-
+  Tabelle + Textfelder), Show/Hide-Logik analog zu den anderen
+  Herstellern.
+- `levels-tab.js` / `levels.js`: Absolutmodus für „manual"
+  ausblenden.
+- `maplaw.js`: Sim deaktivieren.
+- `print.js` / `tab-print.js`: Hersteller-Einheit-Spalte bedingt
+  rendern, Freitext-Felder einbinden.
+- `tabs-eq.js` / `state-side.js`: Tab-Lock-Check um FAT-
+  Vollständigkeit erweitern.
+- `i18n.js`: neue Strings (DE/EN/ES/FR).
+
+**Bemerkung**: Größerer Eintrag als die übrigen IDEEN — berührt
+Core-Datenmodell, mehrere Tabs, Druck und i18n. Vor Bau in eine
+nummerierte Bauanleitung mit Akzeptanztest-Checkliste aufteilen,
+ggf. zwei Anleitungen (Datenmodell + UI; dann
+Tab-Sperren + Druck).
+

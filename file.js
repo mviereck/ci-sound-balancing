@@ -219,6 +219,17 @@ async function saveJson() {
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
+    localCollections: (typeof sLocalCollections !== "undefined")
+      ? Array.from(sLocalCollections.values()).map((c) => ({
+          id: c.id,
+          label: c.label,
+          lang: c.lang,
+          kind: c.kind,
+          folderName: c.folderName,
+          fileCount: c.recordings.length,
+          handleId: c.handleId || null,
+        }))
+      : [],
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -510,6 +521,10 @@ function applyLoadedData(d) {
   updSideButtons();
   const fi = gEl("fInput");
   if (fi) fi.value = "";
+  if (Array.isArray(d.localCollections)
+      && typeof sRestoreLocalCollections === "function") {
+    sRestoreLocalCollections(d.localCollections);
+  }
   const msgCount = (bRes && bRes.length) || 0;
   const sideLabel = activeSide === "left" ? "Links" : "Rechts";
   alert(`Geladen: ${msgCount} Messungen auf Seite ${sideLabel}`);

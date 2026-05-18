@@ -17,10 +17,28 @@ let sEndless = false;
 let sEndlessCount = 0;
 let sCurRec = null;     // aktuell laufende Recording {speakerKey, idx}
 let sShownText = "";
+let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
 let sPauseTimer = null;
 let sPauseMsVal = 2000;
 let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
 let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
+
+// ============================================================
+// LOKALE SAMMLUNGEN
+// ============================================================
+// Map: collectionId -> {
+//   id, label, lang, kind ("freiburger-mono"|"freiburger-poly"|
+//     "oldenburger-female"|"oldenburger-male"|"oldenburger"|"generic"),
+//   folderName (Wurzel-Ordnername, für UI),
+//   files: Map<relPath, File>,            // lazy ArrayBuffer-Quelle
+//   recordings: Array<{id, text, audioRel}>  // wird in sCorpus gespiegelt
+// }
+let sLocalCollections = new Map();
+let sLocalNextId = 1;
+
+function sNewCollectionId() {
+  return "local-" + (sLocalNextId++);
+}
 
 function sPauseMs() { return sPauseMsVal; }
 
@@ -151,6 +169,16 @@ async function sPlayCurrent() {
     let arrayBuf;
     if (audioRef.startsWith("data:")) {
       arrayBuf = sDataUrlToArrayBuffer(audioRef);
+    } else if (audioRef.startsWith("local:")) {
+      // Form: "local:<collectionId>:<relPath>"
+      const second = audioRef.indexOf(":", 6);
+      const cid = audioRef.substring(6, second);
+      const rel = audioRef.substring(second + 1);
+      const coll = sLocalCollections.get(cid);
+      if (!coll) throw new Error("Lokale Sammlung " + cid + " nicht (mehr) verfügbar");
+      const file = coll.files.get(rel);
+      if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
+      arrayBuf = await file.arrayBuffer();
     } else {
       const res = await fetch("assets/sentences/" + audioRef);
       if (!res.ok) throw new Error("HTTP " + res.status);
@@ -159,26 +187,12 @@ async function sPlayCurrent() {
     const c = gPC();
     const decoded = await c.decodeAudioData(arrayBuf);
     if (!sActive) return;
-    pSourceBuf = decoded;
-    pMonoBuf = null;
-    pLeftOnlyBuf = null;
-    pRightOnlyBuf = null;
-    if (typeof pWarpedBuf !== "undefined") {
-      pWarpedBuf = null;
-      if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-    }
+    sSentenceBuf = decoded;
+    pSetPlaybackMode("sentence");
     pOff = 0;
-    pBuf = getPlaybackBuffer();
-    pBuildEQ();
     pDrawEQ();
     pBuildTbl();
-    document.getElementById("plCtrl").style.display = "";
     document.getElementById("plEqViz").style.display = "";
-    document.getElementById("plTL").value = 0;
-    document.getElementById("plCur").textContent = "0:00";
-    if (typeof pFmt === "function") {
-      document.getElementById("plTot").textContent = pFmt(pBuf.duration);
-    }
     sShownText = sCurRec.rec.text || "";
     sUpdateTextBox();
     await pPlay();
@@ -236,9 +250,14 @@ function sStop() {
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
-    pOff = 0;
-    if (typeof pUpdTL === "function") pUpdTL();
   }
+  pOff = 0;
+  // Zurück in Datei-Modus, damit ein nachfolgender Klick auf den Audio-
+  // Play-Button die Datei spielt, nicht den letzten Satz.
+  if (typeof pSetPlaybackMode === "function") {
+    pSetPlaybackMode("file");
+  }
+  if (typeof pUpdTL === "function") pUpdTL();
   sShownText = "";
   sUpdateTextBox();
   sUpdateButtons();
@@ -294,6 +313,13 @@ function sRefreshSpeakerDropdown() {
   } else {
     sel.value = "any";
   }
+  sel.onchange = function () {
+    const v = sel.value;
+    const coll = sLocalCollections.get(v);
+    if (coll && coll.stub) {
+      sReloadStubCollection(v);
+    }
+  };
 }
 
 function sUpdateUI() {
@@ -362,6 +388,518 @@ function sUpdateTextBox() {
 }
 
 // ============================================================
+// LOKALE SAMMLUNGEN — HEURISTIK
+// ============================================================
+
+function sDetectFreiburger(audioFiles) {
+  let mono = [], poly = [];
+  for (const f of audioFiles) {
+    const parts = f.webkitRelativePath.split("/");
+    if (parts.length < 4) continue;
+    const sub = parts[1];
+    const listDir = parts[2];
+    const name = parts[parts.length - 1];
+    if (!/^Testliste_\d+$/i.test(listDir)) continue;
+    if (!/^L\d+_W\d+_/i.test(name)) continue;
+    if (/Einsilbig/i.test(sub)) mono.push(f);
+    else if (/Mehrsilbig/i.test(sub)) poly.push(f);
+  }
+  if (mono.length === 0 && poly.length === 0) return null;
+  return { mono, poly };
+}
+
+function sDetectOldenburger(audioFiles) {
+  const matched = [];
+  let femaleCount = 0, maleCount = 0;
+  for (const f of audioFiles) {
+    const name = f.name;
+    const m = /_OLSA(female|male)?_TTS\.wav$/i.exec(name);
+    if (!m) continue;
+    matched.push(f);
+    if (m[1] && m[1].toLowerCase() === "female") femaleCount++;
+    else if (m[1] && m[1].toLowerCase() === "male") maleCount++;
+  }
+  if (matched.length === 0) return null;
+  let variant = "generic";
+  if (femaleCount > 0 && maleCount === 0) variant = "female";
+  else if (maleCount > 0 && femaleCount === 0) variant = "male";
+  return { variant, files: matched };
+}
+
+async function sLoadOldenburgerManifest(allFiles) {
+  for (const f of allFiles) {
+    if (/sentences_OLSA.*\.txt$/i.test(f.name)) {
+      const txt = await f.text();
+      return sParseOldenburgerManifest(txt);
+    }
+  }
+  return new Map();
+}
+
+function sParseOldenburgerManifest(text) {
+  const map = new Map();
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.trim().replace(/^﻿/, "");
+    if (!line) continue;
+    const idx = line.indexOf(":");
+    if (idx < 0) continue;
+    const filename = line.substring(0, idx).trim();
+    const sentence = line.substring(idx + 1).trim();
+    if (filename && sentence) map.set(filename, sentence);
+  }
+  return map;
+}
+
+function sParseGenericManifest(text, audioFilenames) {
+  const audioSet = new Set(audioFilenames.map((n) => n.toLowerCase()));
+  const candidates = [
+    /^\s*([^\s,;:\t]+\.(?:wav|mp3|ogg|flac|m4a))\s*[:,;|\t]\s*(.+?)\s*$/i,
+    /^\s*"?([^"\s,;:\t]+\.(?:wav|mp3|ogg|flac|m4a))"?\s*[,;|\t:]\s*"?(.+?)"?\s*$/i,
+    /^(.+\.(?:wav|mp3|ogg|flac|m4a))\s*:\s*(.+?)\s*$/i,
+  ];
+  let best = new Map();
+  for (const re of candidates) {
+    const map = new Map();
+    for (const raw of text.split(/\r?\n/)) {
+      const line = raw.trim().replace(/^﻿/, "");
+      if (!line || line.startsWith("#")) continue;
+      const m = re.exec(line);
+      if (!m) continue;
+      const fn = m[1].trim();
+      const tx = m[2].trim();
+      if (audioSet.has(fn.toLowerCase())) map.set(fn, tx);
+    }
+    if (map.size > best.size) best = map;
+  }
+  const coverage = audioFilenames.length === 0
+    ? 0
+    : best.size / audioFilenames.length;
+  if (coverage < 0.8) return new Map();
+  return best;
+}
+
+async function sLoadGenericManifest(allFiles, audioFilenames) {
+  for (const f of allFiles) {
+    if (!/\.(txt|csv|tsv)$/i.test(f.name)) continue;
+    if (f.size > 5 * 1024 * 1024) continue;
+    try {
+      const txt = await f.text();
+      const map = sParseGenericManifest(txt, audioFilenames);
+      if (map.size > 0) return map;
+    } catch (e) { /* skip */ }
+  }
+  return new Map();
+}
+
+// ============================================================
+// INDEXEDDB FÜR ORDNER-HANDLES (Chromium/Edge)
+// ============================================================
+// Schema:
+//   DB "ciSoundBalancing", Store "folderHandles", key = handleId (String),
+//   value = { handle: FileSystemDirectoryHandle, meta: {...} }
+
+const S_IDB_NAME = "ciSoundBalancing";
+const S_IDB_STORE = "folderHandles";
+const S_IDB_VER = 1;
+
+function sIdbOpen() {
+  return new Promise((resolve, reject) => {
+    if (!window.indexedDB) { reject(new Error("no IndexedDB")); return; }
+    const req = indexedDB.open(S_IDB_NAME, S_IDB_VER);
+    req.onupgradeneeded = function () {
+      const db = req.result;
+      if (!db.objectStoreNames.contains(S_IDB_STORE)) {
+        db.createObjectStore(S_IDB_STORE);
+      }
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function sIdbPut(key, value) {
+  const db = await sIdbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(S_IDB_STORE, "readwrite");
+    tx.objectStore(S_IDB_STORE).put(value, key);
+    tx.oncomplete = () => { db.close(); resolve(); };
+    tx.onerror = () => { db.close(); reject(tx.error); };
+  });
+}
+
+async function sIdbGet(key) {
+  const db = await sIdbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(S_IDB_STORE, "readonly");
+    const req = tx.objectStore(S_IDB_STORE).get(key);
+    req.onsuccess = () => { db.close(); resolve(req.result); };
+    req.onerror = () => { db.close(); reject(req.error); };
+  });
+}
+
+async function sIdbDel(key) {
+  const db = await sIdbOpen();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(S_IDB_STORE, "readwrite");
+    tx.objectStore(S_IDB_STORE).delete(key);
+    tx.oncomplete = () => { db.close(); resolve(); };
+    tx.onerror = () => { db.close(); reject(tx.error); };
+  });
+}
+
+function sFsaaAvailable() {
+  return typeof window.showDirectoryPicker === "function";
+}
+
+function sMakeSpeaker(label, lang, kind, recordings) {
+  return {
+    lang: lang,
+    label: label,
+    kind: kind,
+    source: "local",
+    license: "",
+    credit: "",
+    recordings: recordings,
+  };
+}
+
+function sBuildFreiburgerRecordings(files, cid) {
+  const out = [];
+  let n = 0;
+  for (const f of files) {
+    const base = f.name.replace(/\.[^.]+$/, "");
+    const parts = base.split("_");
+    const text = parts.length >= 3 ? parts.slice(2).join(" ") : base;
+    out.push({
+      id: "fb-" + (++n),
+      text: text,
+      audio: "local:" + cid + ":" + f.webkitRelativePath,
+    });
+  }
+  return out;
+}
+
+function sBuildOldenburgerRecordings(files, textMap, cid) {
+  const out = [];
+  let n = 0;
+  for (const f of files) {
+    const text = textMap.get(f.name) || "";
+    out.push({
+      id: "olsa-" + (++n),
+      text: text,
+      audio: "local:" + cid + ":" + f.webkitRelativePath,
+    });
+  }
+  return out;
+}
+
+function sBuildGenericRecordings(files, textMap, cid) {
+  const out = [];
+  let n = 0;
+  for (const f of files) {
+    const text = textMap.get(f.name) || "";
+    out.push({
+      id: "loc-" + (++n),
+      text: text,
+      audio: "local:" + cid + ":" + f.webkitRelativePath,
+    });
+  }
+  return out;
+}
+
+async function sIngestLocalFolder(fileList) {
+  const all = Array.from(fileList);
+  if (all.length === 0) return;
+
+  const firstRel = all[0].webkitRelativePath || all[0].name;
+  const folderName = firstRel.split("/")[0] || "Ordner";
+
+  const audioFiles = all.filter((f) =>
+    /\.(wav|mp3|ogg|flac|m4a)$/i.test(f.name)
+  );
+  if (audioFiles.length === 0) {
+    alert(t("sentLocalNoAudio"));
+    return;
+  }
+
+  const fb = sDetectFreiburger(audioFiles);
+  const old = sDetectOldenburger(audioFiles);
+
+  const created = [];
+  const filesMap = new Map();
+  for (const f of audioFiles) filesMap.set(f.webkitRelativePath, f);
+
+  if (fb) {
+    if (fb.mono.length > 0) {
+      const cid = sNewCollectionId();
+      const recs = sBuildFreiburgerRecordings(fb.mono, cid);
+      const fmap = new Map();
+      for (const f of fb.mono) fmap.set(f.webkitRelativePath, f);
+      created.push({
+        id: cid, label: t("sentLocalSpkFreiburgerMono"),
+        lang: "de", kind: "freiburger-mono",
+        folderName, files: fmap, recordings: recs,
+      });
+    }
+    if (fb.poly.length > 0) {
+      const cid = sNewCollectionId();
+      const recs = sBuildFreiburgerRecordings(fb.poly, cid);
+      const fmap = new Map();
+      for (const f of fb.poly) fmap.set(f.webkitRelativePath, f);
+      created.push({
+        id: cid, label: t("sentLocalSpkFreiburgerPoly"),
+        lang: "de", kind: "freiburger-poly",
+        folderName, files: fmap, recordings: recs,
+      });
+    }
+  } else if (old) {
+    const textMap = await sLoadOldenburgerManifest(all);
+    const cid = sNewCollectionId();
+    const recs = sBuildOldenburgerRecordings(old.files, textMap, cid);
+    const fmap = new Map();
+    for (const f of old.files) fmap.set(f.webkitRelativePath, f);
+    const label =
+      old.variant === "female" ? t("sentLocalSpkOldenburgerFemale")
+      : old.variant === "male"  ? t("sentLocalSpkOldenburgerMale")
+      : t("sentLocalSpkOldenburger");
+    created.push({
+      id: cid, label, lang: "de",
+      kind: "oldenburger-" + old.variant,
+      folderName, files: fmap, recordings: recs,
+    });
+  } else {
+    const audioNames = audioFiles.map((f) => f.name);
+    const textMap = await sLoadGenericManifest(all, audioNames);
+    if (textMap.size === 0) {
+      console.log("[sentences/local] kein Manifest gefunden —", t("sentLocalUnknownFormat"));
+    }
+    const cid = sNewCollectionId();
+    const recs = sBuildGenericRecordings(audioFiles, textMap, cid);
+    const langCode = (typeof lang !== "undefined") ? lang : "de";
+    created.push({
+      id: cid, label: t("sentLocalSpkGenericPrefix") + ": " + folderName,
+      lang: langCode, kind: "generic",
+      folderName, files: filesMap, recordings: recs,
+    });
+  }
+
+  for (const c of created) {
+    sLocalCollections.set(c.id, c);
+    sCorpus.speakers[c.id] = sMakeSpeaker(c.label, c.lang, c.kind, c.recordings);
+  }
+
+  sRefreshLocalList();
+  sUpdateUI();
+}
+
+// Liest rekursiv alle Dateien aus einem FileSystemDirectoryHandle und ruft
+// sIngestLocalFolder mit einer FileList-ähnlichen Struktur auf. Setzt
+// webkitRelativePath analog zum webkitdirectory-Verhalten.
+async function sIngestFromHandle(rootHandle, handleId) {
+  const files = [];
+  async function walk(dirHandle, relPrefix) {
+    for await (const [name, entry] of dirHandle.entries()) {
+      if (entry.kind === "file") {
+        const f = await entry.getFile();
+        const rel = relPrefix + name;
+        try {
+          Object.defineProperty(f, "webkitRelativePath", {
+            value: rel, configurable: true,
+          });
+        } catch (e) {
+          const wrap = {
+            name: f.name,
+            size: f.size,
+            type: f.type,
+            lastModified: f.lastModified,
+            webkitRelativePath: rel,
+            arrayBuffer: () => f.arrayBuffer(),
+            text: () => f.text(),
+            slice: f.slice ? f.slice.bind(f) : undefined,
+          };
+          files.push(wrap);
+          continue;
+        }
+        files.push(f);
+      } else if (entry.kind === "directory") {
+        await walk(entry, relPrefix + name + "/");
+      }
+    }
+  }
+  const rootName = rootHandle.name || "Ordner";
+  await walk(rootHandle, rootName + "/");
+
+  const before = new Set(sLocalCollections.keys());
+  await sIngestLocalFolder(files);
+  const newCids = [];
+  for (const k of sLocalCollections.keys()) {
+    if (!before.has(k)) newCids.push(k);
+  }
+
+  const hid = handleId || ("h-" + Date.now() + "-" + Math.floor(Math.random() * 1e6));
+  try {
+    await sIdbPut(hid, { handle: rootHandle });
+  } catch (e) {
+    console.warn("[sentences/local] IDB put failed:", e);
+  }
+  for (const cid of newCids) {
+    const coll = sLocalCollections.get(cid);
+    if (coll) {
+      coll.handleId = hid;
+      coll.persistable = true;
+    }
+  }
+  sRefreshLocalList();
+}
+
+function sRefreshLocalList() {
+  const list = document.getElementById("plSentLocalList");
+  if (!list) return;
+  list.innerHTML = "";
+  if (sLocalCollections.size === 0) {
+    list.style.display = "";
+    const span = document.createElement("span");
+    span.style.color = "var(--text-muted)";
+    span.textContent = t("sentLocalNone");
+    list.appendChild(span);
+    return;
+  }
+  list.style.display = "";
+  for (const [cid, coll] of sLocalCollections) {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
+    const lbl = document.createElement("span");
+    let suffix;
+    if (coll.stub) {
+      suffix = "  " + t("sentLocalNotLoaded") + " · " + coll.folderName;
+    } else {
+      suffix = "  (" + coll.recordings.length + " · " + coll.folderName + ")";
+    }
+    lbl.textContent = coll.label + suffix;
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.type = "button";
+    btn.style.cssText = "padding:1px 8px;font-size:0.85em";
+    btn.title = t("sentLocalRemove");
+    btn.textContent = "×";
+    btn.addEventListener("click", function () {
+      sRemoveLocalCollection(cid);
+    });
+    row.appendChild(lbl);
+    row.appendChild(btn);
+    list.appendChild(row);
+  }
+}
+
+async function sRemoveLocalCollection(cid) {
+  const coll = sLocalCollections.get(cid);
+  if (!coll) return;
+  if (sActive && sCurRec && sCurRec.speakerKey === cid) {
+    sStop();
+  }
+  sLocalCollections.delete(cid);
+  delete sCorpus.speakers[cid];
+  if (coll.handleId) {
+    let stillReferenced = false;
+    for (const c of sLocalCollections.values()) {
+      if (c.handleId === coll.handleId) { stillReferenced = true; break; }
+    }
+    if (!stillReferenced) {
+      try { await sIdbDel(coll.handleId); } catch (e) { /* ignore */ }
+    }
+  }
+  sRefreshLocalList();
+  sUpdateUI();
+}
+
+// Wird nach JSON-Load aufgerufen. Versucht für jede Sammlung mit
+// handleId den FSAA-Handle aus IndexedDB zu holen und neu zu mounten.
+// Bei Erfolg: Sammlung ist sofort verfügbar.
+// Bei Mißerfolg (kein Handle, keine Permission, Firefox): Stub-Sprecher.
+async function sRestoreLocalCollections(metaArr) {
+  for (const meta of metaArr) {
+    if (sLocalCollections.has(meta.id)) continue;
+    let restored = false;
+    if (meta.handleId && sFsaaAvailable()) {
+      try {
+        const rec = await sIdbGet(meta.handleId);
+        if (rec && rec.handle) {
+          const perm = await rec.handle.queryPermission({ mode: "read" });
+          let granted = perm === "granted";
+          if (!granted) {
+            const req = await rec.handle.requestPermission({ mode: "read" });
+            granted = req === "granted";
+          }
+          if (granted) {
+            await sIngestFromHandle(rec.handle, meta.handleId);
+            restored = true;
+          }
+        }
+      } catch (e) {
+        console.warn("[sentences/local] restore failed for", meta.id, e);
+      }
+    }
+    if (!restored) {
+      sLocalCollections.set(meta.id, {
+        id: meta.id,
+        label: meta.label,
+        lang: meta.lang,
+        kind: meta.kind,
+        folderName: meta.folderName,
+        files: new Map(),
+        recordings: [],
+        handleId: meta.handleId || null,
+        stub: true,
+      });
+      sCorpus.speakers[meta.id] = sMakeSpeaker(
+        meta.label + " " + t("sentLocalNotLoaded"),
+        meta.lang, meta.kind + "-stub", []
+      );
+    }
+  }
+  sRefreshLocalList();
+  sUpdateUI();
+}
+
+async function sReloadStubCollection(cid) {
+  const coll = sLocalCollections.get(cid);
+  if (!coll || !coll.stub) return;
+  const hint = t("sentLocalReloadHint") + " " + coll.folderName;
+  if (coll.handleId && sFsaaAvailable()) {
+    try {
+      const rec = await sIdbGet(coll.handleId);
+      const opts = { id: "ci-sound-saetze", mode: "read" };
+      if (rec && rec.handle) opts.startIn = rec.handle;
+      const handle = await window.showDirectoryPicker(opts);
+      sLocalCollections.delete(cid);
+      delete sCorpus.speakers[cid];
+      await sIngestFromHandle(handle, coll.handleId);
+      return;
+    } catch (err) {
+      if (err && err.name === "AbortError") return;
+      console.warn("[sentences/local] FSAA reload failed, fallback:", err);
+    }
+  }
+  alert(hint);
+  const li = document.getElementById("plSentLocalInput");
+  if (li) {
+    li.value = "";
+    const oneShot = async function (e) {
+      li.removeEventListener("change", oneShot);
+      try {
+        sLocalCollections.delete(cid);
+        delete sCorpus.speakers[cid];
+        await sIngestLocalFolder(e.target.files);
+      } catch (err) {
+        console.error("[sentences/local] webkitdir reload failed:", err);
+      }
+    };
+    li.addEventListener("change", oneShot);
+    li.click();
+  }
+}
+
+// ============================================================
 // Verdrahtung
 // ============================================================
 document.addEventListener("DOMContentLoaded", function () {
@@ -386,6 +924,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     sPauseSetActive(sPauseMsVal);
   }
+
+  const localAdd = document.getElementById("plSentLocalAddBtn");
+  const localInput = document.getElementById("plSentLocalInput");
+  if (localAdd && localInput) {
+    localAdd.addEventListener("click", async function () {
+      if (sFsaaAvailable()) {
+        try {
+          const handle = await window.showDirectoryPicker({
+            id: "ci-sound-saetze",
+            mode: "read",
+            startIn: "music",
+          });
+          await sIngestFromHandle(handle, null);
+        } catch (err) {
+          if (err && err.name !== "AbortError") {
+            console.error("[sentences/local] picker failed:", err);
+            localInput.value = "";
+            localInput.click();
+          }
+        }
+      } else {
+        localInput.value = "";
+        localInput.click();
+      }
+    });
+    localInput.addEventListener("change", async function (e) {
+      try {
+        await sIngestLocalFolder(e.target.files);
+      } catch (err) {
+        console.error("[sentences/local] ingest failed:", err);
+        alert("Fehler beim Laden des Ordners: " + err.message);
+      }
+    });
+  }
+  sRefreshLocalList();
 
   sLoadIfNeeded();
 });
