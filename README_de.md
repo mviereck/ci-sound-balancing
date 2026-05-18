@@ -162,21 +162,3 @@ Messung von Tonhöhenunterschieden links und rechts.
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
 - (Weitere Dokumentation folgt)
 
-
-## Sprachmaterial und Quellen
-
-Die Sätze im Player ("Sätze abspielen") nutzen Sprachaufnahmen und
-Sprachsynthese aus folgenden offenen Quellen:
-
-- **Thorsten-Voice** – deutsche Stimme von Thorsten Müller,
-  Trainingsdaten CC0. https://www.thorsten-voice.de
-- **Mozilla Common Voice 17.0** – mehrsprachige Sprachdatensätze
-  (Deutsch, Englisch, Französisch, Spanisch), CC0-1.0. Bezogen über
-  den inoffiziellen Hugging-Face-Mirror
-  `fsicoli/common_voice_17_0`. Pro Sprache 100 unterschiedliche
-  Sprecher-Aufnahmen im Tool.
-  https://commonvoice.mozilla.org
-
-Die ausgewählten Sätze stammen aus dem Trainings-Korpus von
-Thorsten-Voice und werden inhaltlich nicht weiterverbreitet — nur die
-hier explizit ausgewählten 50 Audio-Snippets liegen im Repo.

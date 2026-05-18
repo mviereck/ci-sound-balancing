@@ -20,4 +20,19 @@ Supported manufacturers: MED-EL, Cochlear, Advanced Bionics.
 - Pico ASHA Project: <https://shermp.github.io/Pico-ASHA/>
 - ASHA pipewire sink: <https://github.com/thewierdnut/asha_pipewire_sink>
 
+## Speech material and sources
+
+The "Play sentences" feature in the Player tab uses voice recordings
+from the following open sources:
+
+- **Thorsten-Voice** — German studio voice by Thorsten Müller,
+  training data CC0. <https://www.thorsten-voice.de>
+- **Mozilla Common Voice 17.0** — multilingual crowd-sourced speech
+  datasets (CC0-1.0). Retrieved through the unofficial Hugging Face
+  mirror `fsicoli/common_voice_17_0`. About 100 different speaker
+  recordings per language are bundled with the tool.
+  <https://commonvoice.mozilla.org>
+
+Selected audio snippets are included in this repository.
+
 Feedback is appreciated.

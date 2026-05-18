@@ -13,10 +13,13 @@ let sCorpus = null;
 let sLoaded = false;
 let sLoading = false;
 let sActive = false;
+let sEndless = false;
 let sCurRec = null;     // aktuell laufende Recording {speakerKey, idx}
 let sShownText = "";
 let sPauseTimer = null;
 let sPauseMsVal = 2000;
+let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
+let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
 
 function sPauseMs() { return sPauseMsVal; }
 
@@ -39,12 +42,51 @@ async function sLoadIfNeeded() {
     if (!res.ok) throw new Error("HTTP " + res.status);
     sCorpus = await res.json();
     sLoaded = true;
+    sOfflineMode = false;
   } catch (err) {
-    console.error("[sentences] konnte sentences.json nicht laden:", err);
+    console.warn("[sentences] online fetch fehlgeschlagen, wechsle in Embed-Modus:", err);
+    sOfflineMode = true;
     sCorpus = { speakers: {} };
     sLoaded = true;
+    // Aktuelle Sprache als Embed nachladen
+    if (typeof lang !== "undefined") {
+      await sEnsureEmbedForLang(lang);
+    }
   } finally {
     sLoading = false;
+    sUpdateUI();
+  }
+}
+
+// Lädt assets/sentences/embed/<lang>.js per <script>-Tag (file://-kompatibel),
+// merged die Sprecher in sCorpus. No-op wenn online oder schon geladen.
+async function sEnsureEmbedForLang(langCode) {
+  if (!sOfflineMode) return;
+  if (!langCode) return;
+  if (sEmbedLoading.has(langCode)) return;
+  // Schon geladen? Wenn irgendein Sprecher in der Sprache existiert: ja.
+  for (const k in sCorpus.speakers) {
+    if (sCorpus.speakers[k].lang === langCode) return;
+  }
+  sEmbedLoading.add(langCode);
+  try {
+    await new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = "assets/sentences/embed/" + langCode + ".js";
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error("embed " + langCode + " nicht ladbar"));
+      document.head.appendChild(s);
+    });
+    const data = window.SENTENCES_EMBED && window.SENTENCES_EMBED[langCode];
+    if (data && data.speakers) {
+      for (const k in data.speakers) {
+        sCorpus.speakers[k] = data.speakers[k];
+      }
+    }
+  } catch (err) {
+    console.warn("[sentences] kein Embed für", langCode, ":", err.message);
+  } finally {
+    sEmbedLoading.delete(langCode);
     sUpdateUI();
   }
 }
@@ -76,29 +118,43 @@ function sBuildRecordingPool(spkSel) {
   return out;
 }
 
-function sPickNext(mode, pool, prev) {
+function sPickRandom(pool, exclude) {
   if (pool.length === 0) return null;
-  if (mode === "loop") return prev || pool[0];
-  if (mode === "random") {
-    if (pool.length === 1) return pool[0];
-    let pick;
-    do {
-      pick = pool[Math.floor(Math.random() * pool.length)];
-    } while (prev && pick.speakerKey === prev.speakerKey
-                  && pick.recIdx === prev.recIdx);
-    return pick;
-  }
-  // "once": nicht weiter
-  return null;
+  if (pool.length === 1) return pool[0];
+  let pick;
+  do {
+    pick = pool[Math.floor(Math.random() * pool.length)];
+  } while (
+    exclude
+    && pick.speakerKey === exclude.speakerKey
+    && pick.recIdx === exclude.recIdx
+  );
+  return pick;
+}
+
+function sDataUrlToArrayBuffer(url) {
+  // "data:audio/mp3;base64,XXXX" -> ArrayBuffer
+  const comma = url.indexOf(",");
+  const b64 = url.substring(comma + 1);
+  const bin = atob(b64);
+  const len = bin.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes.buffer;
 }
 
 async function sPlayCurrent() {
   if (!sActive || !sCurRec) return;
-  const url = "assets/sentences/" + sCurRec.rec.audio;
+  const audioRef = sCurRec.rec.audio;
   try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const arrayBuf = await res.arrayBuffer();
+    let arrayBuf;
+    if (audioRef.startsWith("data:")) {
+      arrayBuf = sDataUrlToArrayBuffer(audioRef);
+    } else {
+      const res = await fetch("assets/sentences/" + audioRef);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      arrayBuf = await res.arrayBuffer();
+    }
     const c = gPC();
     const decoded = await c.decodeAudioData(arrayBuf);
     if (!sActive) return;
@@ -131,29 +187,50 @@ async function sPlayCurrent() {
   }
 }
 
-function sStart() {
+function sPlay() {
   if (!sLoaded) return;
   const spkSel = document.getElementById("plSentSpeaker").value;
   const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) {
-    sUpdateUI();
-    return;
-  }
-  if (typeof pPlaying !== "undefined" && pPlaying) {
-    pPause();
+  if (pool.length === 0) { sUpdateUI(); return; }
+  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
+  if (!sCurRec) {
+    sCurRec = sPickRandom(pool, null);
   }
   sActive = true;
-  const mode = document.getElementById("plSentMode").value;
-  sCurRec = (mode === "once" || mode === "loop")
-    ? pool[0]
-    : pool[Math.floor(Math.random() * pool.length)];
+  sEndless = false;
+  sUpdateButtons();
+  sPlayCurrent();
+}
+
+function sNext() {
+  if (!sLoaded) return;
+  const spkSel = document.getElementById("plSentSpeaker").value;
+  const pool = sBuildRecordingPool(spkSel);
+  if (pool.length === 0) { sUpdateUI(); return; }
+  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
+  sCurRec = sPickRandom(pool, sCurRec);
+  sActive = true;
+  sEndless = false;
+  sUpdateButtons();
+  sPlayCurrent();
+}
+
+function sEndlessStart() {
+  if (!sLoaded) return;
+  const spkSel = document.getElementById("plSentSpeaker").value;
+  const pool = sBuildRecordingPool(spkSel);
+  if (pool.length === 0) { sUpdateUI(); return; }
+  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
+  sCurRec = sPickRandom(pool, sCurRec);
+  sActive = true;
+  sEndless = true;
   sUpdateButtons();
   sPlayCurrent();
 }
 
 function sStop() {
   sActive = false;
-  sCurRec = null;
+  sEndless = false;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
@@ -168,15 +245,14 @@ function sStop() {
 // Wird von player.js nach onended aufgerufen, falls sActive=true.
 function sOnEnded() {
   if (!sActive) return;
-  const mode = document.getElementById("plSentMode").value;
-  const spkSel = document.getElementById("plSentSpeaker").value;
-  const pool = sBuildRecordingPool(spkSel);
-  const next = sPickNext(mode, pool, sCurRec);
-  if (!next) {
+  if (!sEndless) {
     sStop();
     return;
   }
-  sCurRec = next;
+  const spkSel = document.getElementById("plSentSpeaker").value;
+  const pool = sBuildRecordingPool(spkSel);
+  if (pool.length === 0) { sStop(); return; }
+  sCurRec = sPickRandom(pool, sCurRec);
   const ms = sPauseMs();
   if (ms > 0) {
     sPauseTimer = setTimeout(function () {
@@ -220,6 +296,13 @@ function sUpdateUI() {
   if (typeof lang === "undefined") return;
   const card = document.getElementById("plSentencesCard");
   if (!card) return;
+
+  // Im Offline-Mode bei Sprachwechsel ggf. Embed nachladen.
+  // (fire-and-forget; sUpdateUI wird beim Embed-Load-Ende erneut gerufen.)
+  if (sOfflineMode && sLoaded) {
+    sEnsureEmbedForLang(lang);
+  }
+
   const ctrls = document.getElementById("plSentControls");
   const noMat = document.getElementById("plSentNoMaterial");
   const notReady = document.getElementById("plSentNotReady");
@@ -250,10 +333,15 @@ function sUpdateUI() {
 }
 
 function sUpdateButtons() {
-  const start = document.getElementById("plSentStart");
-  const stop  = document.getElementById("plSentStop");
-  if (start) start.disabled = sActive;
-  if (stop)  stop.disabled  = !sActive;
+  const play    = document.getElementById("plSentPlay");
+  const next    = document.getElementById("plSentNext");
+  const endless = document.getElementById("plSentEndless");
+  const stop    = document.getElementById("plSentStop");
+  const busy    = sActive;
+  if (play)    play.disabled    = busy;
+  if (next)    next.disabled    = busy;
+  if (endless) endless.disabled = busy;
+  if (stop)    stop.disabled    = !busy;
 }
 
 function sUpdateTextBox() {
@@ -273,11 +361,15 @@ function sUpdateTextBox() {
 // Verdrahtung
 // ============================================================
 document.addEventListener("DOMContentLoaded", function () {
-  const start = document.getElementById("plSentStart");
-  const stop  = document.getElementById("plSentStop");
-  const show  = document.getElementById("plSentShowText");
-  if (start) start.addEventListener("click", sStart);
-  if (stop)  stop.addEventListener("click",  sStop);
+  const play    = document.getElementById("plSentPlay");
+  const next    = document.getElementById("plSentNext");
+  const endless = document.getElementById("plSentEndless");
+  const stop    = document.getElementById("plSentStop");
+  const show    = document.getElementById("plSentShowText");
+  if (play)    play.addEventListener("click",    sPlay);
+  if (next)    next.addEventListener("click",    sNext);
+  if (endless) endless.addEventListener("click", sEndlessStart);
+  if (stop)    stop.addEventListener("click",    sStop);
   if (show)  show.addEventListener("change", sUpdateTextBox);
 
   // Pausen-Buttons (falls von Etappe 1 vorhanden) — Logik unverändert.

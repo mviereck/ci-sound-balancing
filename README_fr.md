@@ -162,18 +162,3 @@ Mesure des différences de hauteur tonale entre gauche et droite.
 Permet une modification manuelle du volume de chaque électrode.
 - (Documentation complémentaire à venir.)
 
-## Matériel vocal et sources
-
-Les phrases dans le lecteur (« Lire des phrases ») utilisent des
-enregistrements vocaux et de la synthèse vocale issus des sources
-ouvertes suivantes :
-
-- **Thorsten-Voice** – voix allemande de Thorsten Müller,
-  données d'entraînement CC0. https://www.thorsten-voice.de
-- **Piper TTS** – synthèse vocale neuronale, licence MIT. Sera utilisé
-  dans les étapes ultérieures pour d'autres langues et locuteurs.
-  https://github.com/rhasspy/piper
-
-Les phrases sélectionnées proviennent du corpus d'entraînement de
-Thorsten-Voice et ne sont pas redistribuées en tant que texte — seuls
-les 50 extraits audio explicitement choisis figurent dans le dépôt.

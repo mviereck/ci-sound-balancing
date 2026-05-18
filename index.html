@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CI Sound Balancing Tool</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -1171,14 +1172,6 @@
                   <!-- Optionen werden zur Laufzeit von sentences.js befüllt -->
                 </select>
               </div>
-              <div class="control-group">
-                <label data-t="sentMode" style="margin-right:6px"></label>
-                <select id="plSentMode" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                  <option value="once"   data-t-opt="sentModeOnce"></option>
-                  <option value="loop"   data-t-opt="sentModeLoop"></option>
-                  <option value="random" data-t-opt="sentModeRandom" selected></option>
-                </select>
-              </div>
               <div class="control-group" style="flex-wrap:wrap;gap:4px">
                 <label data-t="sentPauseLabel" style="margin-right:4px"></label>
                 <div id="plSentPauseBtns" style="display:flex;gap:3px;flex-wrap:wrap">
@@ -1193,9 +1186,15 @@
               </div>
             </div>
 
-            <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-              <button class="btn" id="plSentStart" type="button">
-                <span data-t="sentStart"></span>
+            <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
+              <button class="btn" id="plSentPlay" type="button">
+                <span data-t="sentBtnPlay"></span>
+              </button>
+              <button class="btn" id="plSentNext" type="button">
+                <span data-t="sentBtnNext"></span>
+              </button>
+              <button class="btn" id="plSentEndless" type="button">
+                <span data-t="sentBtnEndless"></span>
               </button>
               <button class="btn" id="plSentStop" type="button" disabled>
                 <span data-t="sentStop"></span>
@@ -1211,7 +1210,6 @@
             </div>
           </div>
 
-          <div class="explain" style="font-size:0.75em;color:var(--text-muted);margin-top:10px" data-t="sentCredits"></div>
         </div>
 
         <!-- Toggle: experimentelle Optionen (MAPLAW + Frequenz-Warping) -->

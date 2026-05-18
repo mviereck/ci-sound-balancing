@@ -451,20 +451,37 @@ Drei Cards untereinander:
     `false` ist, aber Audio-Sources aktiv sind (Race im async Vocoder-pPlay).
 
 - Sätze-Wiedergabe im Player: Card „Sätze abspielen" unterhalb der
-  Audiodatei-Card. Wiedergabe vorgesprochener Sätze, läuft durch denselben
+  Audiodatei-Card. Wiedergabe vorgesprochener Sätze durch denselben
   Audiograph wie Musikdateien (EQ, MAPLAW, Korrektur, Lautstärke wirken).
-  UI: Sprecher-Auswahl (Mann/Frau/Zufällig — Verfügbarkeit hängt von
-  aktueller Tool-Sprache ab), Modus (1×/wiederholt/zufällig),
-  Pause-Buttons (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 —
-  Wartezeit zwischen Sätzen bei wiederholt/zufällig), Start/Stop,
-  Toggle „Text anzeigen" (zeigt aktuellen Satz). Sätze und Musikdatei
-  schließen sich gegenseitig aus: Sätze-Start pausiert laufende Musik;
-  Datei-Play-Button stoppt Sätze (erster Klick), zweiter startet Datei.
-  Datei-Upload und Seite-Wechsel stoppen Sätze ebenfalls. In Etappe 1 nur
-  Deutsch-Mann verfügbar (echte Aufnahmen von Thorsten Müller, 50 Sätze,
-  CC0); andere Sprachen zeigen Hinweis „noch keine Sätze verfügbar".
-  Sprachwechsel aktualisiert Verfügbarkeit sofort. Quellen: Thorsten-Voice
-  (CC0), Piper TTS (MIT, für spätere Etappen). Siehe README.
+  Sprecher-Auswahl folgt der globalen Tool-Sprache und bietet immer
+  Option „Alle (zufällig)" plus einzelne Sprecher der jeweiligen Sprache:
+  - **Thorsten** (Deutsch, Studioqualität, 50 kuratierte Sätze;
+    Quelle: Thorsten-Voice, CC0)
+  - **Common Voice** (Pool aus 100 verschiedenen Sprechern pro
+    Sprache; Quelle: Mozilla Common Voice 17.0, CC0)
+  Bedienung über drei Buttons: **Spielen** (aktueller Satz einmal,
+  beim ersten Klick zufällig gewählt) — **Nächster Satz** (anderer
+  zufälliger Satz, einmal) — **Endlosfolge** (zufällige Folge,
+  fortlaufend). Stop hält alles an. Sprecher-Auswahl folgt globaler
+  Tool-Sprache. Optionaler Text-Einblender. Pause-Buttons
+  (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 ms —
+  Wartezeit zwischen Sätzen bei Endlosfolge).
+  Sätze und Musikdatei schließen sich gegenseitig aus: Sätze-Start
+  pausiert laufende Musik; Datei-Play-Button stoppt Sätze (erster
+  Klick), zweiter startet Datei. Datei-Upload und Seite-Wechsel
+  stoppen Sätze ebenfalls. Sprachwechsel aktualisiert
+  Sprecher-Dropdown sofort. Schema: `assets/sentences/sentences.json`
+  ist sprecher-zentriert, `speakers.<key>.recordings[]` mit Text +
+  Audio-Pfad. Siehe README.
+
+  **Offline-Modus**: Wenn `fetch("assets/sentences/sentences.json")`
+  fehlschlägt (z.B. weil das Tool als `file://` aus einem ZIP geöffnet
+  wurde), schaltet die Sätze-Wiedergabe automatisch in den Embed-Modus.
+  Pro Sprache wird `assets/sentences/embed/<lang>.js` per `<script>`-Tag
+  on-demand geladen — Audio liegt dort als `data:`-URL. Im Embed sind
+  ~5 Sätze pro Sprache verfügbar (de: Thorsten; en/fr/es: Common Voice).
+  Spätere Sprachen, für die kein Embed existiert, sind offline nicht
+  verfügbar (Block zeigt „keine Sätze verfügbar").
 
 ## Speichern und Laden
 

@@ -115,7 +115,7 @@ werden.
 | 16 | freq-warp.js | Frequenz-Warping (alle Verfahren). `buildWarpPoints`, `_warpAffectedSides`, `_warpSideGains`, `centShift`, `pComputeWarpedBuffer`, `pBuildWarpedGraph`, `pBuildVocoderGraph`, `pInitWarpWorklet`, `pWarpTrigger`, `pWarpUpdUI`, `pWarpLiveUpdate` (postMessage an laufenden Vocoder-Worklet ohne Pfadwechsel). State: `pWarpedBuf`, `pWarpOn`, `pWarpMode`, `pWarpStrength`, `pWarpBusy`, `pWarpMethod`, `pWarpWorkletReady`, `pWarpAffected`. Worklet-Code liegt als String-Konstante `_FREQ_WARP_PROCESSOR_CODE` im selben Modul; `pInitWarpWorklet` lädt ihn per Blob-URL (funktioniert auch unter `file://`). Worklet-Methoden: `_processFrame` (Phasen-Vocoder mit Identity Phase Locking), `_processFrameSinModel` (Sinusoidal Modeling: Peak-Tracking + Quadratic Interpolation + Spectral Spread, Residual unverschoben). Worklet-State zusätzlich: `algorithm` ("phase_vocoder" | "sinmodel"), `smMaxPeaks`, `smPrevPeakCount`, `smPrevPeakFreq`, `smPrevPeakPhase`. `_VOCODER_FFT_SIZE` (synchron mit `FFT_SIZE` im Worklet) wird für den L/R-Sync-Delay im Vocoder-Graph gebraucht. |
 | 16b | maplaw.js | MAPLAW-Simulation Phase 3 (bandweise Hüllkurven-Vorverzerrung Ist⁻¹∘Soll für MED-EL). `_MAPLAW_PROCESSOR_CODE` als Worklet-Inline-String mit Filterbank (12 Biquad-Bandpässe an MED-EL-Frequenzen, Q=4), Hüllkurven-Detektor (Gleichrichtung + IIR-Tiefpaß 50 Hz), lokale Normalisierung (gleitendes Maximum, τ=1 Sek), MAPLAW-Kennlinie + Inverse, **additive Korrektur** (out = x + Σ y_b·(gain_b−1), nicht out = Σ y_b·gain_b — sonst klingt schon der Identity-Fall verfärbt, weil die naive Bandpass-Summe keine perfekte Rekonstruktion ist). `pInitMaplawWorklet`, `pBuildMaplawNode`, `pMaplawApplyParams`. Bei `active=0` oder `istC == sollC`: Passthrough. **Stereo-fähig**: Worklet hält pro Kanal (L/R, `MAX_CH=2`) eigenen Filterbank-, Hüllkurven- und Max-State und verarbeitet jeden Kanal separat über `_processChannel`. `pBuildMaplawNode` konfiguriert den Node mit `channelCount: 2`, `channelCountMode: 'explicit'`, `outputChannelCount: [2]` — dadurch wird Mono-Input vor dem Worklet auf L=R aufgeteilt (sonst sähe der Worklet bei `mode='right'` nur den stillen linken Kanal von `pRightOnlyBuf`) und Stereo-Input ohne Downmix durchgereicht. Worklet wird in Bauanleitung 19 in den Player-Audio-Graph eingehängt; UI kommt in Bauanleitung 20. |
 | 17 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für `balance`. Bindet sich an die von test-ui.js erzeugte UI. |
-| 17b | sentences.js | Sätze-Wiedergabe im Player. Lädt `assets/sentences/sentences.json` (Korpus + Sprecher-Meta), hält State (`sActive`, `sCurIdx`, `sCurSpkKey`, `sCorpus`, `sLoaded`, `sLoading`, `sShownText`, `sPauseTimer`, `sPauseMsVal`). Wiedergabe nutzt denselben Audiograph wie Musikdateien: setzt `pSourceBuf` per fetch+decodeAudioData, ruft `pPlay()` aus `player.js`. `sOnEnded()` wird aus dem onended-Handler in `player.js` gerufen, wenn `sActive`, und wählt den nächsten Satz nach Modus; zwischen Sätzen wartet ein `setTimeout` (Dauer aus `sPauseMsVal`, Default 2000 ms, wählbar via Pause-Buttons 500/750/1000/2000/4000/8000 ms) — `sPauseTimer` speichert das Handle, `sStop()` bricht es ab. `sPauseSetActive(ms)` setzt `sPauseMsVal` und aktualisiert die Buttondarstellung. Mutual Exclusion zur Musikdatei: `sStart()` pausiert pPlaying; `pToggle()` und Datei-Upload rufen `sStop()`, wenn `sActive`. `sUpdateUI()` wird von `applyLang()` gerufen (Sprachwechsel). Eigener DOMContentLoaded-Handler. |
+| 17b | sentences.js | Sätze-Wiedergabe im Player. Hybrid-Loader: erst `fetch` auf `sentences.json` (online-Voll-Korpus); bei Fehlschlag Wechsel in `sOfflineMode` und Lazy-Load der Embed-Modul-Datei `assets/sentences/embed/<lang>.js` per dynamischem `<script>`-Tag (file://-kompatibel). Audio aus Embed-data:-URLs wird über `sDataUrlToArrayBuffer` direkt in den AudioContext geleitet. Schema: `speakers.<key> = {lang, label, kind, source, license, credit, recordings:[{id,text,audio,...}]}`. State: `sActive`, `sEndless` (true = Endlosfolge-Modus), `sCurRec` ({speakerKey, recIdx, rec}), `sCorpus`, `sLoaded`, `sLoading`, `sShownText`, `sPauseTimer`, `sPauseMsVal`, `sOfflineMode` (true = fetch hat versagt, Embed-Modus aktiv), `sEmbedLoading` (Set laufender Sprach-Ladevorgänge). `sEnsureEmbedForLang(langCode)` lädt on-demand `embed/<lang>.js` und mergt Sprecher in `sCorpus`. `sBuildRecordingPool(spkSel)` liefert das Pool-Array gemäß UI-Auswahl ("any" = alle Sprecher der aktuellen Sprache flach gemischt). Bedienung über drei Buttons: `sPlay` (aktueller Satz einmal), `sNext` (anderer zufälliger Satz, einmal), `sEndlessStart` (Endlosfolge). Hilfsfunktion `sPickRandom(pool, exclude)`. Wiedergabe setzt `pSourceBuf` via fetch+decodeAudioData (online) oder `sDataUrlToArrayBuffer` (offline/data:-URL) und ruft `pPlay()`. `sOnEnded()` wird aus dem onended-Handler in `player.js` getriggert; im Endlosmodus nächste Recording wählen, sonst stoppen. Mutual Exclusion zur Musikdatei unverändert. Sprecher-Dropdown wird dynamisch von `sRefreshSpeakerDropdown()` befüllt — ruft `sSpeakersForLang(lang)`. `sUpdateUI()` wird von `applyLang()` gerufen (Sprachwechsel) und triggert im Offline-Modus `sEnsureEmbedForLang`. Eigener DOMContentLoaded-Handler. Datenstruktur unter `assets/sentences/`: `thorsten/01.mp3…50.mp3`, `cv-de/`, `cv-en/`, `cv-fr/`, `cv-es/` je 100 MP3s + manifest.json. Offline-Embeds unter `assets/sentences/embed/<lang>.js`. |
 | 18 | init.js | Der große DOMContentLoaded-Handler mit `applyLang()`, `buildImplantCard()`, allen Event-Verdrahtungen, Autosave-Setup |
 
 ## Datenfluss (nicht aus Namen ablesbar)
@@ -404,6 +404,25 @@ Großer Edit, mehrere Module:
 ### Neuer Event-Listener
 - init.js (zentral) ODER direkt im jeweiligen Modul (siehe Player
   und LR-Balance als Vorbild)
+
+## Skripte und Hilfswerkzeuge
+
+### scripts/fetch_common_voice.py
+
+Pre-Fetch-Werkzeug für Common Voice 17.0 via `fsicoli/common_voice_17_0`
+auf Hugging Face. Streamt den `train`-Split, filtert auf
+Sprecher-Diversität und Wortlänge, schreibt kuratierte MP3-Auswahl nach
+`assets/sentences/cv-<lang>/`. Wird lokal/im Codespace mit
+`python scripts/fetch_common_voice.py --lang <iso> --count <n>`
+aufgerufen. Lizenz der erzeugten Daten: CC0-1.0.
+
+### scripts/build_embed.py
+
+Erzeugt aus `assets/sentences/sentences.json` und den vorhandenen
+MP3s pro Sprache eine kleine Lazy-Load-Datei
+`assets/sentences/embed/<lang>.js` für den Offline-Modus
+(5 Recordings pro Sprache, Audio als data:-URL). Lokal aufrufen nach
+Korpus-Aktualisierung: `python3 scripts/build_embed.py`.
 
 ## Strukturelle Eigenschaften
 

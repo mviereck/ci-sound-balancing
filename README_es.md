@@ -162,17 +162,3 @@ Medición de las diferencias de tonalidad entre izquierda y derecha.
 Permite la modificación manual del volumen de cada electrodo.
 - (Documentación adicional pendiente.)
 
-## Material de voz y fuentes
-
-Las frases en el reproductor («Reproducir frases») utilizan grabaciones
-de voz y síntesis de voz de las siguientes fuentes abiertas:
-
-- **Thorsten-Voice** – voz alemana de Thorsten Müller,
-  datos de entrenamiento CC0. https://www.thorsten-voice.de
-- **Piper TTS** – síntesis de voz neuronal, licencia MIT. Se usará en
-  etapas posteriores para más idiomas y locutores.
-  https://github.com/rhasspy/piper
-
-Las frases seleccionadas provienen del corpus de entrenamiento de
-Thorsten-Voice y no se redistribuyen como texto — solo los 50 fragmentos
-de audio explícitamente seleccionados se incluyen en el repositorio.

@@ -162,17 +162,3 @@ Measurement of pitch differences between left and right.
 Allows manual loudness adjustment of individual electrodes.
 - (Further documentation to follow.)
 
-## Speech Material and Sources
-
-The sentences in the Player ("Play sentences") use speech recordings and
-speech synthesis from the following open sources:
-
-- **Thorsten-Voice** – German voice by Thorsten Müller,
-  training data CC0. https://www.thorsten-voice.de
-- **Piper TTS** – neural text-to-speech, MIT licence. Will be used in
-  later stages for additional languages and speakers.
-  https://github.com/rhasspy/piper
-
-The selected sentences come from the Thorsten-Voice training corpus and
-are not redistributed as text — only the 50 explicitly selected audio
-snippets are included in the repo.
