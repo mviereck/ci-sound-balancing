@@ -790,10 +790,17 @@ async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength
   const src = audioCtx.createBufferSource();
   src.buffer = srcBuf;
 
+  // channelCount:2 + channelCountMode:'explicit' zwingt Web Audio, Mono-Input
+  // vor dem Worklet auf 2 Kanäle aufzuteilen (L=R=mono), analog MAPLAW.
+  // Ohne diese Einstellung würde ein mono Satz-MP3 nur Kanal 0 füllen;
+  // bei mode='right' käme das Signal dann auf dem stillen Kanal 1 an → Stille.
   const workletNode = new AudioWorkletNode(audioCtx, "freq-warp-processor", {
     numberOfInputs: 1,
     numberOfOutputs: 1,
     outputChannelCount: [2],
+    channelCount: 2,
+    channelCountMode: "explicit",
+    channelInterpretation: "speakers",
   });
 
   const methodEl = (typeof document !== "undefined")

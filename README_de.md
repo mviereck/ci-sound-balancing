@@ -152,8 +152,9 @@ Wenn Sie im Tool die *MCL* Werte der Elektroden eingetragen haben, errechnet das
 ## Weitere Möglichkeiten
 
 ### Reiter *Messungen* -> *Stereo-Balance*
-Erlaubt Lautstärkenausgleich links und rechts.
-- (Weitere Dokumentation folgt)
+Lautstärkenvergleich links und rechts. 
+- Aus der Messung wird ein Mittelwert berechnet, der als Empfehlung für Lautstärkenanhebung  oder -absenkung für eine Seite empfohlen wird.
+- Der Ausgleich kann im Player per Button aktiviert werden.
  
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
