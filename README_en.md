@@ -149,18 +149,31 @@ Printouts for your audiologist with the requested changes.
 ### Limitation
 If you have entered the *MCL* values of the electrodes in the tool, the tool calculates — in addition to the difference in decibels (dB) — also a difference in the unit of the audiologist's program. This is included in the printout. These calculated values have not yet been verified for reliability. In addition, the ear as an organ may react somewhat differently to the settings than a calculation can predict.
 
-## Further possibilities
+## Further Measurements
 
-### *Measurement* → *Stereo balance*
-Allows loudness balancing between left and right.
-- (Further documentation to follow.)
+### Tab *Measurements* → *Stereo Balance*
+Loudness comparison between left and right.
+- Before this measurement, the *Electrode Loudness* measurement should already have been completed.
+- An average is calculated from the measurement, which is recommended as a suggested loudness increase or decrease for one side.
+- The balancing can be activated in the Player via button.
 
-### *Measurement* → *Frequency matching*
+### Tab *Measurements* → *Latency*
+Measuring the time offset between left and right.
+- If left and right are supplied differently, sounds may arrive with a time offset.
+- With this test you can measure this latency. Depending on the device, a correction can be made by the audiologist or hearing care professional.
+- If the loudness on left and right is very well balanced, you can also pay attention to "where" you hear the sound as a reference point. More to the left, right, or in the center of your head.
+- A compensation can be activated in the Player.
+
+### Tab *Measurements* → *Frequency Matching*
 Measurement of pitch differences between left and right.
-- (Further documentation to follow.)
-- (The *Player* can play back a simulation of altered pitches, but the quality of the simulation is still modest.)
+- It is advantageous to have already completed *Electrode Loudness* and *Stereo Balance* before this measurement.
+- For each electrode, the same tone is played on the left and right. Adjust with the slider / with the arrow keys until the tones on the left and right sound equally high or low.
+- In the *Player*, under *Experimental*, a simulation of altered pitches can be played, but the quality of the simulation is still modest. It can however give an idea of how the change might work.
 
-### *Sliders* tab
+### Tab *Sliders*
 Allows manual loudness adjustment of individual electrodes.
-- (Further documentation to follow.)
+- You will generally not need this function. It gives you freedom for experiments.
+- There is a *relative* and an *absolute* mode. The *absolute* mode can only be used if the MCL values have been entered in the *Implant* tab.
+- You can show the changes from *Electrode Loudness* and *Curves*.
+- You can hear the changes live in the Player.
 

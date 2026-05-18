@@ -149,18 +149,31 @@ Impresiones para su audiólogo con los cambios deseados.
 ### Limitación
 Si en la herramienta ha introducido los valores *MCL* de los electrodos, la herramienta calcula — además de la diferencia en decibelios (dB) — también una diferencia en la unidad del programa del audiólogo. Esto aparece en la impresión. Estos valores calculados aún no han sido verificados en cuanto a su fiabilidad. Además, el oído como órgano puede reaccionar a los ajustes de manera algo distinta a lo que un cálculo puede predecir.
 
-## Otras posibilidades
+## Otras mediciones
 
-### *Medición* → *Balance estéreo*
-Permite el equilibrado del volumen entre izquierda y derecha.
-- (Documentación adicional pendiente.)
+### Pestaña *Medición* → *Balance estéreo*
+Comparación de volumen entre izquierda y derecha.
+- Antes de esta medición, la medición *Volumen de electrodos* ya debe haberse realizado.
+- A partir de la medición se calcula un promedio, que se recomienda como aumento o reducción de volumen para un lado.
+- El ajuste puede activarse en el Player mediante un botón.
 
-### *Medición* → *Coincidencia de frecuencias*
+### Pestaña *Medición* → *Latencia*
+Medir el desfase temporal entre izquierda y derecha.
+- Si el suministro izquierdo y derecho es diferente, los sonidos pueden llegar con un desfase temporal.
+- Con esta prueba puede medir esta latencia. Dependiendo del dispositivo, el audiólogo o audioprotesista puede realizar una corrección.
+- Si el volumen izquierdo y derecho está muy bien equilibrado, también puede tomar como referencia «dónde» escucha el sonido: más a la izquierda, a la derecha o en el centro de la cabeza.
+- Se puede activar un ajuste compensatorio en el Player.
+
+### Pestaña *Medición* → *Coincidencia de frecuencias*
 Medición de las diferencias de tonalidad entre izquierda y derecha.
-- (Documentación adicional pendiente.)
-- (En el *Player* puede reproducirse una simulación de tonalidades modificadas, aunque la calidad de la simulación es todavía modesta.)
+- Es ventajoso haber realizado ya *Volumen de electrodos* y *Balance estéreo* antes de esta medición.
+- Por cada electrodo, se reproduce el mismo tono por la izquierda y por la derecha. Corrija con el deslizador / con las teclas de flecha hasta que los tonos de la izquierda y la derecha suenen igual de agudos o graves.
+- En el *Player*, bajo *Experimental*, se puede reproducir una simulación de tonalidades modificadas, aunque la calidad de la simulación es todavía modesta. Sin embargo, puede dar una idea de cómo podría funcionar el cambio.
 
 ### Pestaña *Deslizadores*
 Permite la modificación manual del volumen de cada electrodo.
-- (Documentación adicional pendiente.)
+- Por lo general, no necesitará esta función. Le da libertad para hacer experimentos.
+- Hay un modo *relativo* y un modo *absoluto*. El modo *absoluto* solo se puede utilizar si se han introducido los valores MCL en la pestaña *Implante*.
+- Puede mostrar los cambios de *Volumen de electrodos* y *Curvas*.
+- Puede escuchar los cambios en directo en el Player.
 

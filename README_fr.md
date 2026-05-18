@@ -149,18 +149,31 @@ Impressions pour votre audiologiste avec les modifications souhaitées.
 ### Limitation
 Si vous avez saisi dans l'outil les valeurs *MCL* des électrodes, l'outil calcule — en plus de la différence en décibels (dB) — également une différence dans l'unité du programme de l'audiologiste. Cela est inclus dans l'impression. Ces valeurs calculées n'ont pas encore été vérifiées quant à leur fiabilité. De plus, l'oreille en tant qu'organe peut réagir aux réglages de manière un peu différente de ce qu'un calcul peut prédire.
 
-## Autres possibilités
+## Autres mesures
 
-### *Mesure* → *Balance stéréo*
-Permet l'équilibrage du volume entre gauche et droite.
-- (Documentation complémentaire à venir.)
+### Onglet *Mesure* → *Balance stéréo*
+Comparaison du volume entre gauche et droite.
+- Avant cette mesure, la mesure *Volume des électrodes* devrait déjà avoir été effectuée.
+- Une valeur moyenne est calculée à partir de la mesure, recommandée comme augmentation ou réduction du volume pour un côté.
+- L'équilibrage peut être activé dans le Player via un bouton.
 
-### *Mesure* → *Accord en fréquence*
+### Onglet *Mesure* → *Latence*
+Mesure du décalage temporel entre gauche et droite.
+- Si l'alimentation gauche et droite est différente, les sons peuvent arriver avec un décalage temporel.
+- Avec ce test, vous pouvez mesurer cette latence. Selon l'appareil, une correction peut être effectuée par l'audiologiste ou l'audioprothésiste.
+- Si le volume gauche et droite est très bien équilibré, vous pouvez également prêter attention à «où» vous entendez le son comme point de référence. Plutôt à gauche, à droite ou au centre de la tête.
+- Une compensation peut être activée dans le Player.
+
+### Onglet *Mesure* → *Accord en fréquence*
 Mesure des différences de hauteur tonale entre gauche et droite.
-- (Documentation complémentaire à venir.)
-- (Le *Player* peut diffuser une simulation de hauteurs modifiées, mais la qualité de la simulation reste modeste.)
+- Il est avantageux d'avoir déjà effectué *Volume des électrodes* et *Balance stéréo* avant cette mesure.
+- Pour chaque électrode, le même son est joué à gauche et à droite. Ajustez avec le curseur / avec les touches fléchées jusqu'à ce que les sons à gauche et à droite semblent également aigus ou graves.
+- Dans le *Player*, sous *Expérimental*, une simulation de hauteurs modifiées peut être diffusée, mais la qualité de la simulation reste modeste. Cela peut toutefois donner une idée de l'effet que le changement pourrait produire.
 
 ### Onglet *Curseurs*
 Permet une modification manuelle du volume de chaque électrode.
-- (Documentation complémentaire à venir.)
+- Vous n'aurez généralement pas besoin de cette fonction. Elle vous donne la liberté d'expérimenter.
+- Il existe un mode *relatif* et un mode *absolu*. Le mode *absolu* n'est utilisable que si les valeurs MCL ont été saisies dans l'onglet *Implant*.
+- Vous pouvez afficher les modifications apportées par *Volume des électrodes* et *Courbes*.
+- Vous pouvez entendre les modifications en direct dans le Player.
 

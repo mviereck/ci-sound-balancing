@@ -149,7 +149,7 @@ Ausdrucke für Ihren Audiologen mit den gewünschten Änderungen.
 ### Einschränkung
 Wenn Sie im Tool die *MCL* Werte der Elektroden eingetragen haben, errechnet das Tool neben der Differenz in Dezibel (dB) außerdem eine Differenz in der Einheit des Audiologenprogrammes. Dies wird mit ausgedruckt. Diese errechneten Werte sind noch nicht auf Verläßlichkeit geprüft. Hinzu kommt, daß das Ohr als Organ etwas anders auf die Einstellungen reagiern könnte, als eine Berechnung vorhersagen kann.
 
-## Weitere Anpassungen
+## Weitere Messungen
 
 ### Reiter *Messungen* -> *Stereo-Balance*
 Lautstärkenvergleich links und rechts. 
@@ -173,7 +173,7 @@ Messung von Tonhöhenunterschieden links und rechts.
 ### Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
 - Diese Funktion werden Sie in der Regel nicht benötigen. Sie gibt Ihnen Freiheit für Experimente.
-- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im reiter *Implantat* die MCL Werte eingegeben wurden.
+- Es gibt einen *relativ* und einen *absolut* Modus. Der *absolut* Modus ist nur verwendbar, wenn im Reiter *Implantat* die MCL Werte eingegeben wurden.
 - Sie können die Veränderung durch *Elektrodenlautstärke* und *Kurven* mit einblenden lassen.
 - Sie können die Veränderungen live im Player hören.
 
