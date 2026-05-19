@@ -356,7 +356,10 @@ Drei Cards untereinander:
    Kurvenfunktionen und passen Sie die Werte live an."
 2. **Übersicht** (`lvChartTitle`): 4-Linien-Chart mit Messung (blau),
    Manuell (grün), Preset (orange), Summe (schwarz). Checkboxen zur
-   Auswahl. Manuell-Linie Default aus.
+   Auswahl. Manuell-Linie Default aus. Die Chart-Card ist beim Scrollen
+   sticky (`position: sticky; top: 0`), damit der Graph beim Bedienen
+   der Preset-Tabelle sichtbar bleibt. Auf Mobile (≤768 px) wird die
+   Canvas-Höhe von 400 px auf 200 px reduziert.
 3. **Kurvenfunktionen** (`lvPresetTitle` — früher „Presets"):
    Tabelle aller Kurvenfunktionen mit Stärke und Detail-Parametern.
 

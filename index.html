@@ -830,7 +830,7 @@
           <h2 data-t="lvIntroTitle"></h2>
           <div class="explain-plain" data-t="lvIntroDesc"></div>
         </div>
-        <div class="card">
+        <div class="card lv-chart-card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
             <h2 data-t="lvChartTitle" style="margin:0;"></h2>
             <button class="btn" id="printKurvenBtn"
@@ -885,20 +885,8 @@
               >&#9644; <span data-t="lvChartSum"></span
             ></span>
           </div>
-          <div
-            style="
-              position: relative;
-              width: 100%;
-              height: 400px;
-              background: var(--bg);
-              border-radius: 8px;
-              overflow: hidden;
-            "
-          >
-            <canvas
-              id="lvChartCv"
-              style="width: 100%; height: 100%; display: block"
-            ></canvas>
+          <div class="lv-chart-wrap">
+            <canvas id="lvChartCv"></canvas>
           </div>
         </div>
         <div class="card">
