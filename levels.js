@@ -123,6 +123,51 @@ function applyPresetDeltaOtherSide(pi, delta, currentPr) {
     if (currentPr.cutoff !== undefined) op[pi].cutoff = currentPr.cutoff;
   }
 }
+function _prStrTouchCtrl(inp, pi) {
+  if (!inp) return null;
+  var box = document.createElement('div');
+  box.className = 'touch-ctrl prStr-touch';
+  box.style.cssText = 'display:inline-flex;gap:4px;margin-left:6px;vertical-align:middle;';
+
+  var fineMode = false;
+
+  function step(dir) {
+    var st = fineMode ? 0.1 : 0.5;
+    var oldVal = presets[pi].strength;
+    var newVal = Math.max(-20, Math.min(20, +(oldVal + dir * st).toFixed(1)));
+    presets[pi].strength = newVal;
+    inp.value = newVal.toFixed(1);
+    applyPresetDeltaOtherSide(pi, newVal - oldVal, presets[pi]);
+    lvOnChange();
+  }
+
+  function mkBtn(label, cls) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'touch-btn touch-btn-sm' + (cls ? ' ' + cls : '');
+    b.innerHTML = label;
+    return b;
+  }
+
+  var bMin  = mkBtn('−');
+  var bFine = mkBtn('Fein');
+  var bPlus = mkBtn('+');
+
+  attachLongPress(bMin,  function () { step(-1); });
+  attachLongPress(bPlus, function () { step(+1); });
+  bFine.addEventListener('click', function () {
+    fineMode = !fineMode;
+    bFine.classList.toggle('fine-active', fineMode);
+  });
+
+  box.append(bMin, bFine, bPlus);
+
+  if (inp.parentNode) {
+    if (inp.nextSibling) inp.parentNode.insertBefore(box, inp.nextSibling);
+    else inp.parentNode.appendChild(box);
+  }
+  return box;
+}
 function buildPrTbl() {
   const tbl = document.getElementById("prTbl");
   tbl.innerHTML = "";
@@ -231,6 +276,7 @@ function buildPrTbl() {
         lvOnChange();
       }
     });
+    _prStrTouchCtrl(inp, +inp.dataset.pi);
   });
   tbl.querySelectorAll(".prCtr").forEach((sel) =>
     sel.addEventListener("change", function () {

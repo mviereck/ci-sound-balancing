@@ -644,8 +644,9 @@ document.addEventListener("DOMContentLoaded", () => {
   (function () {
     var cv = document.getElementById('lvTabCv');
     if (!cv) return;
-    var host = cv.parentNode;
-    if (!host) return;
+    var canvasWrap = cv.parentNode;
+    var host = canvasWrap ? canvasWrap.parentNode : null; // die <div class="card">
+    if (!host || !canvasWrap) return;
 
     var ctrlRow = document.createElement('div');
     ctrlRow.className = 'lv-tab-touch-row';
@@ -692,7 +693,8 @@ document.addEventListener("DOMContentLoaded", () => {
     groupV.append(lblV, stepV.box, bFine);
 
     ctrlRow.append(groupE, groupV);
-    host.appendChild(ctrlRow);
+    // Direkt unter dem Canvas-Wrapper einfügen, vor dem lvTabKeyHint-<p>.
+    host.insertBefore(ctrlRow, canvasWrap.nextSibling);
   })();
 
   function _lvTabTouchEl(dir) {

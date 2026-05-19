@@ -363,8 +363,10 @@ Drei Cards untereinander:
 - 8 Kurvenfunktionen gleichzeitig aktivierbar: Sprache (SII),
   **Lautstärke**, Tilt, S-Kurve, Pivot, Gauß, Bass Boost, High Boost.
   Reihenfolge in der Tabelle = Reihenfolge in `PR_TYPES`.
-- Jede Kurvenfunktion: Checkbox an/aus, Stärke (±20 dB), Mittelpunkt
-  (wo sinnvoll), Breite (Gauß), Grenzpunkt (Bass/High Boost).
+- Jede Kurvenfunktion: Checkbox an/aus, Stärke (±20 dB) mit Touch-
+  Bedienleiste − / Fein / + neben dem Eingabefeld (auch auf Desktop
+  sichtbar), Mittelpunkt (wo sinnvoll), Breite (Gauß), Grenzpunkt
+  (Bass/High Boost).
 - **Lautstärke**: gleichmäßiger dB-Offset auf allen aktiven
   Elektroden. Hat **nur** das Stärke-Feld (keine Mitte, keine Breite,
   kein Grenzpunkt). Wirkt wie eine zusätzliche Gesamtlautstärke

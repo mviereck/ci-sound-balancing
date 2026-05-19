@@ -749,6 +749,12 @@ select:disabled {
     position: static;
     transform: none;
   }
+  .touch-btn-sm {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 4px 10px;
+    font-size: 1em;
+  }
 }
 
 .touch-ctrl {
@@ -788,3 +794,12 @@ select:disabled {
   border-color: var(--success);
 }
 .touch-btn.touch-replay:hover { background: #15803d; }
+.touch-btn-sm {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 2px 8px;
+  font-size: 0.95em;
+}
+.prStr-touch {
+  margin-left: 6px;
+}
