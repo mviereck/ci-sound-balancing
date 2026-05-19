@@ -629,6 +629,64 @@ Drei Cards untereinander:
     berechnet über `calcMedel`/`calcCochlear`/`calcAB`; Elektroden
     ohne eingetragenen Upper-Level zeigen „—".
 
+### Archiv-Box im Tab Laden/Speichern
+
+Karte „Archiv — Datensicherung des Tools" mit vier Aktionen: JSON
+laden, JSON speichern, Bericht drucken, Markdown Text exportieren.
+
+Markdown-Bericht: vollständige Tool-Sicht in einer festen
+Markdown-Struktur. Reihenfolge: Kopf, Konfiguration pro Seite,
+Implantat-Tabelle pro Seite (THR, MCL/Upper, Hz-eigen, Status,
+Notiz), globale Test-Einstellungen, pro Seite Messungen
+(mit Sweep-Resume-Stand falls vorhanden) / Schieber / Kurven /
+Frequenzabgleich, Bilateral (Stereo-Balance, Latenz), Player
+(vollständig), Sonstiges (Default-Hersteller, Schieber-Tab-
+Anzeige, lokale Satz-Sammlungen). Pro Seite werden Sektionen
+ohne Inhalt weggelassen. Der Bericht ist sprach-aktuell — der
+Sprachwechsel im Tool wechselt auch die Markdown-Sprache.
+
+Druck-Pfad: gemeinsamer Datensammler `collectArchivData()` plus
+`renderArchivPrintHtml(data)`. Der Bericht enthält dieselben
+Sektionen wie der Markdown-Export, ergänzt um eingebettete
+PNG-Grafiken zu jeder Sektion, in der Werte ≠ 0 vorliegen:
+Messungen Elektrodenlautstärke, Schieber, Kurven,
+Frequenzabgleich (pro Seite); Stereo-Balance bilateral; Player-EQ
+(pro Seite je nach Side-Modus). Latenz erscheint nur als
+Textsektion.
+
+Dateinamen: `ci-sound-balancing-<datum>-<zeit>.json` (JSON) und
+`ci-sound-balancing-archiv-<datum>-<zeit>.md` (Markdown).
+EasyEffects-Export: `ci-sound-balancing-easyeffects.json`.
+
+### Audiologen-Box im Tab Laden/Speichern
+
+Karte „Einstellungswünsche an den Audiologen" zwischen Archiv-Karte
+und EasyEffects-Karte. Zwei Aktionen: Drucken (mit Korrektur-Chart
+als Grafik), Markdown Text exportieren.
+
+Der ausgegebene Bericht spiegelt den Player-Zustand wider:
+- Korrekturwerte pro Elektrode in dB und Hersteller-Einheit
+  (qu/CL/CU), berücksichtigt EQ-Stärke und Quellen-Toggles.
+- MAPLAW-Änderung (nur MED-EL, nur wenn aktiv).
+- Empfohlene Mittenfrequenzen aus `fRes` (nur bei aktivem Warp).
+- Stereo-Balance als eigener Abschnitt; Hinweis, daß die
+  Korrekturen oben sie bereits enthalten, sofern beidseitig.
+- Inter-Ohr-Latenz; Umsetzung dem Akustiker überlassen.
+- Vermerk-Block am Ende: gemessene Werte, die nicht in den Hauptteil
+  einfließen (z.B. Latenz/Balance bei einseitigem Druck, andere
+  Seite bei sym-Warp).
+
+Side-Logik:
+- `getPlayerSide() === "left"` oder `"right"`: nur die jeweilige
+  Seite. Balance und Latenz werden bei einseitigem Druck nicht in
+  den Hauptteil, sondern in den Vermerk übernommen, sofern Werte
+  vorliegen.
+- `getPlayerSide() === "both"` oder `"mono"`: beide Seiten plus
+  Balance/Latenz (sofern aktiv).
+
+Dateinamen: `ci-sound-balancing-audiologe-<datum>-<zeit>-<seite>.md`
+mit `<seite>` ∈ {`links`, `rechts`, `beide`}.
+
 ## Offene Punkte (Warteliste, nicht im aktuellen Build)
 
 Hinweis: regelmäßig prüfen, ob Punkte erledigt oder hinfällig sind.

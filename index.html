@@ -26,7 +26,7 @@
       var scripts = [
         'version.js', 'mobile.js', 'touch-ctrl.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
-        'results.js', 'chart.js', 'file.js', 'print.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
+        'results.js', 'chart.js', 'file.js', 'print.js', 'print-md.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
         'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'latency.js', 'sentences.js', 'init.js', 'legal.js'
       ];
       scripts.forEach(function (src) {
@@ -1407,15 +1407,15 @@
 
       <!-- ===== FILE ===== -->
       <div id="panel-file" class="panel">
-        <div class="card">
-          <h2 data-t="fileTitle"></h2>
+        <div class="card" id="cardArchiv">
+          <h2 data-t="archivTitle"></h2>
           <p
             style="
               font-size: 0.84em;
               color: var(--text-muted);
               margin-bottom: 14px;
             "
-            data-t="fileDesc"
+            data-t="archivDesc"
           ></p>
           <div class="btn-group" style="margin-bottom: 16px">
             <button class="btn" id="fLoadBtn">
@@ -1425,21 +1425,44 @@
               &#128190; <span data-t="fSave"></span>
             </button>
             <button class="btn" id="fPrintBtn">
-              &#128424; <span data-t="fPrint"></span>
+              &#128424; <span data-t="archivPrint"></span>
             </button>
-            <button class="btn" id="fCopyBtn">
-              &#128203; <span data-t="fCopy"></span>
+            <button class="btn" id="fArchivMdBtn">
+              &#11015; <span data-t="archivDownloadMd"></span>
             </button>
           </div>
           <input type="file" id="fInput" accept=".json" class="hidden" />
-          <div class="explain" data-t="fExplain"></div>
-          <button
-            class="btn"
-            id="fResetBtn"
-            style="color: var(--danger); margin-top: 16px"
+        </div>
+        <div class="card" id="cardAudiolog">
+          <h2 data-t="audiologTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            data-t="audiologDesc"
+          ></p>
+          <ul
+            style="
+              font-size: 0.82em;
+              color: var(--text-muted);
+              margin: 0 0 14px 18px;
+              padding: 0;
+            "
           >
-            🔄 <span data-t="fResetAll"></span>
-          </button>
+            <li data-t="audiologHintSide"></li>
+            <li data-t="audiologHintWarp"></li>
+            <li data-t="audiologHintNote"></li>
+          </ul>
+          <div class="btn-group">
+            <button class="btn" id="fAudiologPrintBtn">
+              &#128424; <span data-t="audiologPrint"></span>
+            </button>
+            <button class="btn" id="fAudiologMdBtn">
+              &#11015; <span data-t="audiologDownloadMd"></span>
+            </button>
+          </div>
         </div>
         <div class="card">
           <h2>EasyEffects Export</h2>
@@ -1460,6 +1483,16 @@
             &#128190; <span data-t="eeExport"></span>
           </button>
           <div class="explain" style="margin-top: 10px" data-t="eeHowTo"></div>
+        </div>
+        <div class="card" id="cardReset">
+          <h2 data-t="cardResetTitle"></h2>
+          <button
+            class="btn"
+            id="fResetBtn"
+            style="color: var(--danger)"
+          >
+            🔄 <span data-t="fResetAll"></span>
+          </button>
         </div>
       </div>
 

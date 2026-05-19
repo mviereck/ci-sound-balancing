@@ -109,8 +109,9 @@ werden.
 | 9  | freqmatch.js | Frequenzabgleich-Test (Sub-Tab freqmatch). `fmStart`, `fmConfirm`, `fmAbort`, `fmApplyLang`, `fmPlayCurrent`. Eigener DOMContentLoaded-Handler. Bindet sich an die von test-ui.js erzeugte UI. |
 | 10 | results.js | `renderResults`, `renderFreqMatchResults` |
 | 11 | chart.js | `drawDisabledBar` (Helper, auch von lr-balance.js genutzt), `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
-| 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `expText`, `copyRes`, `exportEasyEffects` |
+| 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `exportEasyEffects` |
 | 12b | print.js | Druck-Infrastruktur: `buildPrintHeader` (Mini-Kopf für Einzelausdrucke), `openPrintWindow` (neues Fenster, HTML schreiben, drucken), `canvasToImg` (Canvas → `<img>` PNG-Daten-URL). Wird von den Tab-spezifischen Druck-Handlern in den jeweiligen Tab-Modulen aufgerufen. Der zentrale „Alles drucken"-Button (`fPrintBtn` in init.js) ist unabhängig davon. |
+| 12d | print-md.js | Markdown-Generatoren für Archiv-Box (Modus A) und Audiologen-Box (Modus B). Modus A: Datensammler `collectArchivData` plus Renderer `renderArchivMarkdown` und Sektion-Helfer `_archivMd*`. Interne Sammler-Helfer: `_collectGlobalTest`, `_collectSideData`, `_collectBilateral`, `_collectPlayer`, `_collectSaetze`, `_pickUpperLevel`, `_calcAbsDelta`. Druck-HTML: `renderArchivPrintHtml` (wandelt Markdown via `_mdToHtmlBasic` in HTML und injiziert PNG-Grafiken), `_archivInjectInserts` (HTML-Injektor per H2/H3-Anker), sechs Canvas-Renderer `_archivChartLoudness`, `_archivChartSchieber`, `_archivChartKurven`, `_archivChartFreqmatch`, `_archivChartLR`, `_archivChartPlayerEq`, Zeichenhelfer `_archivMkCanvas`, `_archivDrawAxis`, Konstanten `_ARCHIV_CHART_W`/`_H`. Modus B: `buildAudiologMarkdown`, `audiologPrint`, `mdAudiologFilename`, ein interner Mini-MD→HTML-Konverter `_mdToHtmlBasic` und ein Korrektur-Chart-Helfer `_audiologChartImg`. Gemeinsame Helfer: `mdCopyToClipboard`, `mdDownload`, `mdArchivFilename`, `mdDateStampFile`, `_mdEsc`, `_mdFmtDb`, `_mdFmtHz`, `_mdBilateralLabel`. Lädt zwischen `print.js` und `tab-print.js`. |
 | 12c | tab-print.js | Tab-spezifische Druck-Funktionen: `printImplantTab` (Implantat-Tab), `printErgebnisseTab` (Dispatcher Meßergebnisse-Sub-Tabs), `_printResLoudness`, `_printResLR`, `_printResFreqmatch`, `_printResLatency`, `_printCloneSafe` (DOM-Klon mit Canvas→img-Ersatz), `printKurvenTab` (Kurven-Tab, Chart-Card + Kurvenfunktionen-Card), `_buildPresetCardPrint` (datengetriebene Preset-Tabelle für Druck: nur aktive Kurven, Werte als Text), `printSchieberTab` (Schieber-Tab: Canvas-Bild + Werte-Tabelle pro Elektrode, im Absolutmodus mit Hersteller-Einheit-Spalte). Nutzen die Helper aus `print.js`. |
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`, `updLatApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
 | 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels` (noch in expText/file.js genutzt), `buildPrTbl`, `drawLvChart`, `lvOnChange`, `applyPresetDeltaOtherSide`. `buildLvGrid`, `updLvFocus`, `updAllBars` sind entfernt. |
@@ -395,6 +396,40 @@ i18n-Key `tabFreq` ("Implantat") beschriftet. Setup war der alte Name,
 Implantat ist der aktuelle UI-Text. Wer nach „Frequenzen" sucht,
 findet im aktuellen Build nichts mit diesem Namen.
 
+**Markdown-Export (Archiv-Box):** `collectArchivData` in
+print-md.js liest einmal alle relevanten State-Variablen ein
+(`sideData`, `lrResults`, `latencyResult`, `fRes`, alle
+`plApply*`/`plBalanceMode`/`pMaplaw*`/`pWarp*`-Werte sowie
+globale Test-/Levels-Tab-Werte) und liefert ein strukturiertes
+Objekt. `renderArchivMarkdown(data)` rendert daraus den
+Markdown-Bericht. Pro Seite wird `withSide(side, fn)` benutzt,
+um die seiten-spezifische Live-View korrekt zu binden. Die
+Aktionen „Markdown Text exportieren" und „Bericht drucken"
+sitzen in der Archiv-Karte (`#cardArchiv`). Druck (`fPrintBtn`)
+ruft `renderArchivPrintHtml(collectArchivData())`, wandelt den
+Markdown über `_mdToHtmlBasic` in HTML und hängt PNG-Grafiken
+pro Sektion ein (Messungen-Loudness, Schieber, Kurven,
+Frequenzabgleich, Stereo-Balance, Player-EQ — pro Seite je
+nach `*.has`-Gate). Der alte DOM-basierte Inline-Handler in
+init.js ist entfernt.
+
+**Audiologen-Auftrag (Modus B):** `buildAudiologMarkdown` in
+print-md.js leitet die CI-Einstellungen aus dem aktuellen Player-
+Zustand ab. Welche Seiten in den Hauptteil kommen, ergibt sich aus
+`getPlayerSide()`: bei `left`/`right` nur die jeweilige Seite, bei
+`both`/`mono` beide. EQ-Werte werden als `-computeGains() * plStr`
+berechnet (NH-Sim wird ignoriert), in dB ausgegeben und über
+`calcMedel`/`calcCochlear`/`calcAB` zusätzlich in der Hersteller-
+Einheit aufgeführt (sofern MCL pro Elektrode bekannt). Stereo-
+Balance, Latenz und Frequenz-Warping landen im Hauptteil, wenn
+ihre Player-Checkbox aktiv ist und der Side-Modus paßt. Daten,
+die gemessen wurden, aber im Hauptteil nicht eingeflossen sind,
+landen im Vermerk-Block am Ende — einschließlich der zweiten
+Seite bei symmetrischem Warping mit einseitigem Druck. Druck-Pfad
+nutzt `_mdToHtmlBasic` (Mini-Konverter) plus pro Seite ein
+Korrektur-Bar-Chart als PNG-Img, wird in `openPrintWindow` aus
+print.js gerendert.
+
 ## Edit-Szenarien
 
 ### Reine Textänderung (Übersetzung)
@@ -459,6 +494,14 @@ Großer Edit, mehrere Module:
 ### Neuer Event-Listener
 - init.js (zentral) ODER direkt im jeweiligen Modul (siehe Player
   und LR-Balance als Vorbild)
+
+### Markdown-Generator erweitern oder anpassen
+- `print-md.js`: Datensammler `collectArchivData` um neue Felder
+  erweitern, passenden `_archivMd*`-Sektion-Helfer hinzufügen
+  und in `renderArchivMarkdown` einbinden.
+- `i18n.js`: neue `archiv…`-Keys in allen vier Sprachen.
+- Bei Verweis auf neue Tool-State-Variablen: deren Modul muß
+  **vor** `print-md.js` im Loader stehen.
 
 ## Skripte und Hilfswerkzeuge
 

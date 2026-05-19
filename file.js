@@ -1,99 +1,6 @@
 // ============================================================
 // FILE OPERATIONS
 // ============================================================
-function expText() {
-  const ls = [],
-    now = new Date().toLocaleString(lang === "de" ? "de-DE" : "en-US"),
-    vol = document.getElementById("vol1").value;
-  ls.push(`CI Sound Balancing – ${now}`);
-  ls.push(
-    `${MFR[mfr].name} (${nEl}) | ${t("lblVol")} ${vol}% | Ref: ${dENPrefix()}${dEN(refEl)}`,
-  );
-  const TONE_LABEL_KEY = {
-    sine: "toneSine", complex: "toneComplex", noise: "toneNoise",
-    noiseAdaptive: "toneNoiseAdaptive", amSine: "toneAmSine",
-    warbleSine: "toneWarbleSine", burstSine: "toneBurstSine",
-    wobbleSweep: "toneWobbleSweep"
-  };
-  const toneLabel = t(TONE_LABEL_KEY[globalToneType] || "toneSine");
-  ls.push(`${t("toneTypeLabel")}: ${toneLabel}`);
-  ls.push("");
-  if (bRes.length > 0) {
-    const { levels, elRes } = compWLS();
-    ls.push(
-      `${t("thEl")}  ${t("thHz")}      ${t("thOff")}     ${t("thRes")}   ${t("thStR")}`,
-    );
-    ls.push("───  ────────  ─────────  ────────  ──────");
-    for (let i = 0; i < nEl; i++) {
-      const st = elSt[i] || "",
-        n = elNt[i] ? ` (${elNt[i]})` : "";
-      const hd = bRes.some((r) => r.a === i || r.b === i);
-      ls.push(
-        `${String(dEN(i)).padStart(3)}  ${String(Math.round(effFreq(i))).padStart(5)} Hz  ${!hd ? "    —    " : ((levels[i] >= 0 ? "+" : "") + levels[i].toFixed(1) + " dB").padStart(9)}  ${!hd ? "  —   " : (elRes[i].toFixed(1) + " dB").padStart(8)}  ${st}${n}`,
-      );
-    }
-  }
-  const eff = getEffectiveLevels();
-  if (eff.some((v) => v !== 0)) {
-    ls.push("");
-    ls.push("Levels:");
-    for (let i = 0; i < nEl; i++)
-      ls.push(
-        `  ${dENPrefix()}${dEN(i)} (${Math.round(effFreq(i))} Hz): ${(eff[i] >= 0 ? "+" : "") + eff[i].toFixed(1)} dB`,
-      );
-  }
-  // Player-Warp-Einstellungen (nur wenn aktiv)
-  if (typeof pWarpOn !== "undefined" && pWarpOn) {
-    const _wm = (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline";
-    const _n  = fRes ? fRes.length : 0;
-    const _statusKey = _wm === "bandshift" ? "pwStatusActiveBandShift"
-                     : _wm === "vocoder"   ? "pwStatusActiveVocoder"
-                     : "pwStatusActiveOffline";
-    if (_wm === "offline" && !pWarpedBuf) {
-      // Offline ohne vorberechneten Buffer → nicht ausgeben
-    } else {
-      ls.push("");
-      ls.push("Frequenz-Warping: " + t(_statusKey).replace("{n}", _n));
-      const modeKey = pWarpMode === "ref_side" ? "pwModeRef" : pWarpMode === "var_side" ? "pwModeVar" : "pwModeSym";
-      ls.push("Modus: " + t(modeKey));
-      ls.push("Stärke: " + (typeof pWarpStrength !== "undefined" ? pWarpStrength : 100) + "%");
-    }
-  }
-  // Frequenzabgleich-Ergebnisse
-  if (typeof fRes !== "undefined" && fRes.length > 0) {
-    ls.push("");
-    ls.push(t("fmResultsTitle") + ":");
-    ls.push(
-      `${t("fmResColEl").padEnd(5)}  ${t("fmResColVarFreq").padStart(8)}  ${t("fmResColRefFreq").padStart(8)}  ${t("fmResColCent").padStart(10)}`
-    );
-    ls.push("─────  ────────  ────────  ──────────");
-    for (const r of fRes) {
-      const varSideLabel = r.varSide === "left" ? t("sideLeft") : t("sideRight");
-      const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-      const centStr = (cent >= 0 ? "+" : "") + Math.round(cent) + " " + t("fmCentUnit");
-      const elNum = withSide(r.varSide, () => dEN(r.elIdx));
-      const elPfxExp = withSide(r.varSide, () => dENPrefix());
-      ls.push(
-        `${elPfxExp}${String(elNum).padEnd(4)}  ${String(Math.round(r.varFreq)).padStart(5)} Hz  ${String(Math.round(r.refFreq)).padStart(5)} Hz  ${centStr.padStart(10)}  (${varSideLabel})`
-      );
-    }
-  }
-  return ls.join("\n");
-}
-function copyRes() {
-  navigator.clipboard
-    .writeText(expText())
-    .then(() => alert(t("copyDone")))
-    .catch(() => {
-      const ta = document.createElement("textarea");
-      ta.value = expText();
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      alert(t("copyDone"));
-    });
-}
 function resetAll() {
   const ch = confirm(t("resetConfirm"));
   if (!ch) return;
@@ -245,7 +152,7 @@ async function saveJson() {
         hour12: false,
       })
       .replace(":", "");
-  const fn = `loudness-balancing-v${APP_VERSION}-${ds}-${ts}.json`;
+  const fn = `ci-sound-balancing-${ds}-${ts}.json`;
   if (window.showSaveFilePicker) {
     try {
       const h = await window.showSaveFilePicker({
@@ -628,7 +535,7 @@ function exportEasyEffects() {
     }),
     a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "ci-correction-easyeffects.json";
+  a.download = "ci-sound-balancing-easyeffects.json";
   a.click();
 }
 
