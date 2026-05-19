@@ -146,3 +146,270 @@ nummerierte Bauanleitung mit Akzeptanztest-Checkliste aufteilen,
 ggf. zwei Anleitungen (Datenmodell + UI; dann
 Tab-Sperren + Druck).
 
+---
+
+## Test-MAP zur Crosstalk-Reduktion bei Messungen
+
+**Aufgenommen am**: 2026-05-19
+**Status**: diskutiert, als Mittel zur Verbesserung der
+Korrekturkurve **verworfen**. Als Diagnose-Idee offen.
+
+**Ausgangsfrage**: Selbst wenn das Tool exakt die Mittenfrequenz
+einer Elektrode anspielt, werden Nachbar-Elektroden über die
+Filterbank-Flanken und die elektrische Feldausbreitung mit
+angeregt. Ließe sich beim Audiologen eine separate **Test-MAP**
+einrichten (eigener Programmplatz, z.B. P2), die diesen Crosstalk
+minimiert, um Einzel-Elektroden präziser zu messen?
+
+**Was eine solche Test-MAP MAP-seitig beeinflussen könnte**:
+- MAPLAW deutlich niedriger (z.B. 500 statt 1000) → weniger
+  Anhebung schwacher Filter-Schultern.
+- Strategie HDCIS statt FSP/FS4 → reine Hüllkurve, näher am
+  Lehrbuch-Modell, besser interpretierbar für Sinus-Töne.
+- Maxima-/n-of-m-Einstellung, falls bei MED-EL klinisch zugänglich
+  (unklar) → bei reinem Sinus feuert nur dominanter Kanal.
+- THR/MCL bewusst NICHT ändern → sonst verschiebt sich die
+  Lautstärkeskala und Sessions sind mit den bisherigen nicht mehr
+  vergleichbar.
+
+**Was eine Test-MAP NICHT auflöst**: die elektrische Feldausbreitung
+in der Cochlea (bei MED-EL monopolar, breit). Restliche
+Mitanregung von Nachbar-Nervenfasern bleibt physiologisch.
+
+**Warum als Korrekturgrundlage verworfen — Selbst-Konsistenz-
+Argument**: Die Tool-Korrektur wirkt als Pre-EQ *vor* dem CI. Boost
+und Messung laufen durch dieselbe Filterbank, denselben MAPLAW,
+dasselbe Feld. Eine Messung mit Alltags-MAP paßt zur Anwendung
+mit Alltags-MAP. Eine Messung mit Test-MAP (geringerer Crosstalk)
+würde Korrekturen produzieren, die im Alltagsbetrieb
+**überkompensieren**, weil die Nachbarn dort mithelfen, was die
+Test-MAP künstlich ausgeblendet hat. Analogie:
+Lautsprecher-Einmessung im schalltoten Raum wirkt im Wohnzimmer
+nicht.
+
+**Konsequenz für die Korrekturkurve**: Die Alltags-MAP ist die
+*richtige* Meßumgebung, nicht eine Notlösung. Eine vermeintlich
+„präzisere" Einzel-Elektroden-Messung liefert keine präzisere
+Korrektur, sondern eine Korrektur, die zur falschen MAP paßt.
+
+**Restwert der Test-MAP — als Diagnose-Werkzeug**:
+- Versteckte Defizite sichtbar machen: wenn E11 im Alltag nur
+  leicht schwach wirkt, im Test aber klar einbricht, ist die
+  Schwäche real und groß — Konsequenz wäre dann ein Gespräch mit
+  dem Audiologen über T/C-Level dieser Elektrode, nicht eine
+  größere Pre-EQ-Korrektur.
+- Cross-Check zweier Kurven (Alltag + Test) parallel: Stellen mit
+  starker Divergenz sind physiologisch interessant, Stellen mit
+  Übereinstimmung sichern die Alltagskurve ab.
+- „Wie wäre es ohne E12-Stummschaltung?" beantworten — separater
+  Use-Case.
+
+**Konsequenz fürs Tool**: aktuell keine. Das Tool mißt korrekt in
+der Umgebung, in der die Korrektur später wirkt. Die natürliche
+Glättung durch Crosstalk ist eine Eigenschaft des CI-Hörens, nicht
+ein Meßfehler des Tools.
+
+**Mögliche spätere Erweiterung** (eigenständige Idee, nicht zu
+diesem Eintrag dazugehörig): einen Hinweistext in SPEC.md oder
+Tool-Doku ergänzen, der erklärt, daß die Kurve die *Wahrnehmung
+im Alltagsbetrieb* abbildet und damit eine natürliche Glättung
+durch CI-interne Mitanregung enthält — also keine reine
+„Einzel-Elektroden-Diagnose" ist. Erst bei Bedarf einbauen.
+
+---
+
+## Druck/Export-Funktion umbauen — Archiv-Modus und Audiologen-Auftrag
+
+**Aufgenommen am**: 2026-05-19
+**Status**: konzeptionell abgeschlossen. Umsetzung in drei
+nummerierten Bauanleitungen, erst nach Bauauftrag.
+
+**Hintergrund**: Die aktuelle Clipboard-Funktion (`copyRes()` →
+`expText()` in `file.js`) erzeugt einen Monospace-padded Plain-Text-
+Block, der nur die aktive Seite enthält und Schlüsseldaten ausläßt
+(andere Seite, Stereo-Balance-Ergebnisse, Latenz, Implantat-Details,
+Player-Konfiguration, Schieber-Tab-Werte in Hersteller-Einheit). Der
+„Tabelle kopieren"-Button im Tab Laden/Speichern wird durch zwei
+deutlich unterscheidbare Boxen ersetzt, die je einem klar definierten
+Anwendungsfall dienen:
+
+- **Modus A — Archiv**: vollständige Tool-Sicht, für Selbst-Verlauf /
+  Übergabe.
+- **Modus B — Audiologen-Auftrag**: nur das, was der Audiologe am CI
+  ändern müßte, damit das Implantat nativ so klingt, wie es im Player
+  gerade simuliert wird.
+
+**Box-Layout** im Tab Laden/Speichern: Archiv-Box und Audiologen-Box
+nebeneinander, EasyEffects-Box unverändert separat. Jede der beiden
+neuen Boxen hat drei Aktionen: Drucken (mit Grafik), Kopieren (reines
+Markdown), `.md`-Datei herunterladen.
+
+**Format**: Markdown für beide Modi. Rendert in vielen Mail-/Wiki-
+Tools sauber und bleibt als Plain-Text lesbar.
+
+---
+
+### Teil 1 — Player-Fix (Voraussetzung für saubere Modus-B-Logik)
+
+Modus B leitet die Audiologen-Anweisungen aus dem aktuellen Player-
+Zustand ab. Damit das eindeutig funktioniert, müssen drei Player-
+Inkonsistenzen behoben werden:
+
+- **Latenz-Checkbox `plApplyLatency` in einseitigem Side-Modus
+  ausgrauen**. Bei einseitiger Wiedergabe wirkt die Inter-Ohr-Latenz
+  technisch nicht (`pLatDelayL`/`pLatDelayR` betreffen nur den
+  jeweiligen Kanal).
+- **Balance-Checkbox `plApplyBalance` in einseitigem Side-Modus
+  ausgrauen**. Aktueller Code wendet die Balance nur im „both"-Modus
+  an (`player.js` Z. 417–419); bei einseitig ist sie wirkungslos.
+- **Balance-Anwendungs-Modus als neuer Dropdown** im Player neben der
+  Balance-Checkbox, sichtbar/aktivierbar nur bei „both" + Balance an.
+  Optionen:
+  - „symmetrisch" (Default, deckt aktuelles Verhalten ±X dB ab),
+  - „links" (nur linke Seite anpassen, rechts bleibt 0 dB),
+  - „rechts" (nur rechte Seite anpassen, links bleibt 0 dB).
+
+  Persistenz in JSON und localStorage analog zu anderen Player-Flags
+  (neuer Key, z.B. `plBalanceMode`). Im EQ-Anwendungs-Pfad
+  (`player.js` ab Z. 410) werden `pChannelLeftGain` /
+  `pChannelRightGain` entsprechend des gewählten Modus gesetzt.
+
+---
+
+### Teil 2 — Dateinamen-Schema global umstellen
+
+Statt `loudness-balancing-…` einheitlich `ci-sound-balancing-…`.
+Tool-Versionsnummer entfällt im Dateinamen (steckt im JSON-Inhalt
+bzw. im Markdown-Header).
+
+- JSON-Save: `ci-sound-balancing-2026-05-19-1830.json`
+- Modus-A-Markdown: `ci-sound-balancing-archiv-2026-05-19-1830.md`
+  (ohne Seitenkennung, enthält beide Seiten)
+- Modus-B-Markdown:
+  `ci-sound-balancing-audiologe-2026-05-19-1830-links.md`
+  (Seitenkennung: `links` / `rechts` / `beide`)
+- EasyEffects-Export: `ci-sound-balancing-easyeffects.json`
+
+---
+
+### Teil 3 — Modus A (Archiv-Box)
+
+**Inhalte**: vollständige Tool-Sicht in einer festen Markdown-
+Struktur. Leere Abschnitte werden weggelassen, damit kurze Berichte
+kurz bleiben.
+
+- `# CI Sound Balancing — Archiv — <Datum>, v<APP_VERSION>`
+- **Konfiguration** pro Seite (links, rechts): Config-Modus
+  (`ci`/`hg`/`normal`/`schwerhörig`/`taub`), Hersteller, Implantat,
+  Prozessor, Implantat-Detailfelder (z.B. MAPLAW Ist-c bei MED-EL),
+  Defaults.
+- **Test-Einstellungen**: Tonart, Sequenz (ABA/AB), Ton-Dauer,
+  Pause, Lautstärke.
+- **Pro Seite**: Messungs-Tabelle (Elektrode | Hz | Korrektur | σ |
+  Status); Schieber-Werte (Modus-abhängig wie der Tab: relativ dB
+  oder absolut qu/CL/CU); Kurven-Liste (jeder Preset mit Stärke +
+  Center/Width/Cutoff); Frequenzabgleich-Tabelle, sofern Daten
+  vorliegen.
+- **Bilateral**: Stereo-Balance-Werte pro Elektrode (aus
+  `lrResults`), Inter-Ohr-Latenz-Ergebnis (`latencyResult`).
+- **Player**: Side-Modus, EQ on/off, EQ-Stärke `plStr`, NH-Sim,
+  Quellen-Toggles `plSrcMeas`/`plSrcLevels`/`plSrcCurves`, MAPLAW-
+  Status, Warping-Status, Latenz/Balance-Anwendung +
+  Balance-Anwendungs-Modus.
+
+**Aktionen** in der Box (drei nebeneinander):
+- **Drucken**: HTML-Druckfenster mit Grafiken (Chart der
+  Meßergebnisse, Schieber-Canvas, Frequenzabgleich-Chart,
+  Kurven-Chart). Mehrseitig.
+- **In Zwischenablage kopieren**: reines Markdown ohne Grafiken.
+- **Als `.md`-Datei herunterladen**: reines Markdown.
+
+**Erklär-Text in der Box**: „Für Ihr Archiv: vollständige
+Datensicherung des Tools."
+
+---
+
+### Teil 4 — Modus B (Audiologen-Box)
+
+**Inhalte**: Spiegel des aktuellen Player-Zustands, in CI-Sprache
+übersetzt.
+
+- `# CI Sound Balancing — Audiologen-Auftrag — <Datum>`
+- **Kopfzeile**: aktuelle Side-Auswahl des Players, Hersteller pro
+  betroffener Seite.
+- **Pro betroffener Seite eine Tabelle**: Elektrode | Hz | ΔdB
+  (relativ) | Δqu / ΔCL / ΔCU (absolut). Die absolute Spalte ist
+  leer mit Fußnote, wenn auf der jeweiligen Elektrode kein MCL
+  bekannt ist. Berücksichtigt `plStr`, Quellen-Toggles und
+  (bei „both"/„mono") den ggf. eingerechneten Balance-Anteil.
+- **MAPLAW-Änderung** (nur MED-EL, nur wenn `pMaplawOn` und
+  betroffene Seite MED-EL): „MAPLAW c von <Ist> auf <Soll>".
+- **Stereo-Balance-Abschnitt**: eigener kurzer Abschnitt mit
+  globalem Lautstärke-Offset L↔R in dB und qu/CL/CU.
+  Hinweis: „Korrekturwerte oben enthalten diese Anpassung bereits,
+  sofern beidseitig ausgegeben — Audiologe entscheidet einseitige
+  oder beidseitige Umsetzung."
+- **Frequenzbänder** (nur bei aktivem Player-Warp): empfohlene
+  Mittenfrequenzen pro Elektrode aus den `fRes`-Meßdaten.
+- **Vermerk-Block am Ende**: Daten, die nicht in den Hauptteil
+  eingeflossen sind, mit Erklärung warum. Erscheint **immer**, wenn
+  entsprechende Meßdaten vorliegen — auch wenn die zugehörigen
+  Player-Checkboxen aus sind. Beispiele:
+  - „Latenz wurde gemessen (+0.8 ms rechts). Nicht in obigen Auftrag
+    eingeflossen, da einseitiger Ausdruck."
+  - „Stereo-Balance wurde gemessen (Mittelwert +3 dB rechts). Nicht
+    in obigen Auftrag eingeflossen, da einseitiger Ausdruck."
+  - „Frequenz-Warping wirkt im Player symmetrisch. Empfehlungen für
+    die nicht-gedruckte Seite zur Information beigefügt."
+
+**Regeln für Modus B** (zusammengefaßt):
+
+| Aspekt | Eingerechnet in Hauptteil, wenn … |
+|---|---|
+| EQ pro Elektrode | Side-Modus deckt die Seite ab; `plStr` und Quellen-Toggles berücksichtigt |
+| MAPLAW | `pMaplawOn` an UND betroffene Seite MED-EL UND Side-Modus deckt sie ab |
+| Frequenz-Warping | `pWarpOn` an; bei `pWarpMode === "sym"` + einseitiger Ausdruck: nur gedruckte Seite, Rest in Vermerk |
+| Stereo-Balance | `plApplyBalance` an UND Side-Modus „both"/„mono" |
+| Latenz | `plApplyLatency` an UND Side-Modus „both"/„mono" |
+
+**Aktionen**: Drucken (mit Korrektur-Bar-Chart als Grafik, deutlich
+schlanker als Modus A), Kopieren (reines Markdown), `.md`-Download.
+
+**Erklär-Text in der Box** (zwei Absätze):
+1. „Einstellungswünsche an den Audiologen. Wiedergabe der
+   Einstellungen gemäß dem Player: Die Einstellungen sollen
+   bewirken, daß Sie genau so hören, wie wenn Sie etwas im Player
+   abspielen."
+2. Drei Hinweis-Zeilen (Aufzählung):
+   - „Bitte auf die Side-Auswahl im Player (Links/Rechts/Beide)
+     achten — der Auftrag enthält nur die ausgewählte(n) Seite(n)."
+   - „Frequenzkorrektur wird nur ausgegeben, wenn im Player
+     Frequenz-Warping aktiv ist."
+   - „Bei symmetrischem Frequenz-Warping und einseitigem Ausdruck
+     wird nur die ausgewählte Seite in die Korrekturtabelle
+     übernommen. Werte der anderen Seite werden als Vermerk
+     angehängt."
+
+---
+
+### Reihenfolge der Bauanleitungen
+
+In dieser Reihenfolge (jede Anleitung mit Akzeptanztest-Checkliste
+und Selbstprüfungs-Auftrag an Sonnet):
+
+1. **BAUANLEITUNG_37_player_balance_latenz_fix.md**: Latenz/Balance-
+   Checkboxen ausgrauen bei einseitig; Balance-Anwendungs-Dropdown
+   (links/rechts/symmetrisch); Persistenz in JSON + localStorage;
+   Anpassung der Audio-Graph-Aktualisierung in `player.js`.
+2. **BAUANLEITUNG_38_archiv_box.md**: Dateinamen-Schema global
+   umstellen (JSON, MD, EasyEffects); neue Archiv-Box im Tab
+   Laden/Speichern mit drei Aktionen; Markdown-Generator für
+   Modus A; Druck-Pfad mit Grafiken.
+3. **BAUANLEITUNG_39_audiologen_box.md**: Audiologen-Box mit drei
+   Aktionen; Markdown-Generator für Modus B inkl. Regel-Tabelle und
+   Vermerk-Block-Logik; Druck-Pfad mit Korrektur-Chart.
+
+Nach Abschluß aller drei Bauanleitungen: alten `copyRes()`-Pfad und
+`fCopyBtn` entfernen, Eintrag aus IDEEN.md streichen und in SPEC.md
+übernehmen.
+

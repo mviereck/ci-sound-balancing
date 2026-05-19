@@ -127,17 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("plBothSides")
     .addEventListener("change", function () {
-      const row = document.getElementById("plMonoEQRow");
-      if (row) row.style.display = this.checked ? "" : "none";
-      if (!this.checked) {
-        const mono = document.getElementById("plMonoEQ");
-        if (mono) mono.checked = false;
-      }
       updatePlayerForSideChange();
+      updBalApplyBtn();
+      updLatApplyBtn();
     });
-  document.getElementById("plMonoEQ").addEventListener("change", function () {
-    updatePlayerForSideChange();
-  });
   // Volume sync between setup and test (textboxes)
   // vol1/dur1/pau1: Setup-Tab Inputs
   document.getElementById("vol1").addEventListener("change", (e) => {
@@ -342,7 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aktuelle globale Einstellungen
     const parts = [];
-    if (plSrcMeas) parts.push("Gemessen");
+    if (plSrcMeas) parts.push("Elektrodenlautstärke");
     if (plSrcLevels) parts.push("Levels");
     if (plSrcCurves) parts.push("Kurven");
     const srcLabel = parts.length ? parts.join(" + ") : "Keine";
@@ -728,6 +721,12 @@ document.addEventListener("DOMContentLoaded", () => {
       pUpdEQ();
     });
   document
+    .getElementById("plBalModeSelect")
+    .addEventListener("change", function () {
+      plBalanceMode = this.value;
+      pUpdEQ();
+    });
+  document
     .getElementById("plLatApplyBtn")
     .addEventListener("click", function () {
       plApplyLatency = !plApplyLatency;
@@ -793,39 +792,6 @@ document.addEventListener("DOMContentLoaded", () => {
       pUpdEQ();
     }),
   );
-  // Touch-Bedienleiste für Player-Stärke
-  (function () {
-    var plStr = document.getElementById('plStr');
-    if (!plStr) return;
-    var box = document.createElement('div');
-    box.className = 'touch-ctrl';
-
-    function step(dir, fine) {
-      var v = parseInt(plStr.value) || 100;
-      var st = fine ? 1 : 5;
-      v = Math.max(0, Math.min(300, v + dir * st));
-      plStr.value = v;
-      pUpdEQ();
-    }
-    var fineMode = false;
-
-    var bMin  = document.createElement('button');
-    bMin.type = 'button'; bMin.className = 'touch-btn'; bMin.innerHTML = '−';
-    var bFine = document.createElement('button');
-    bFine.type = 'button'; bFine.className = 'touch-btn'; bFine.innerHTML = 'Fein';
-    var bPlus = document.createElement('button');
-    bPlus.type = 'button'; bPlus.className = 'touch-btn'; bPlus.innerHTML = '+';
-
-    attachLongPress(bMin,  function () { step(-1, fineMode); });
-    attachLongPress(bPlus, function () { step(+1, fineMode); });
-    bFine.addEventListener('click', function () {
-      fineMode = !fineMode;
-      bFine.classList.toggle('fine-active', fineMode);
-    });
-
-    box.append(bMin, bFine, bPlus);
-    if (plStr.parentNode) plStr.parentNode.insertBefore(box, plStr.nextSibling);
-  })();
   document.getElementById("plNHSim").addEventListener("change", function () {
     document
       .getElementById("plNHInfo")
@@ -885,7 +851,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plWarpOn").addEventListener("click", function () {
     pWarpOn = !pWarpOn;
     pWarpUpdUI();
-    if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
     const method = document.getElementById("plWarpMethod").value;
     // Offline-Einschalten: pWarpTrigger regelt Vorberechnung + pause/resume selbst
     if (pWarpOn && method === "offline") {
@@ -969,9 +934,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
   // Neu-berechnen-Button
-  document.getElementById("plWarpRecalc").addEventListener("click", function () {
-    if (pWarpOn) pWarpTrigger();
-  });
+  const _plWarpRecalcEl = document.getElementById("plWarpRecalc");
+  if (_plWarpRecalcEl) {
+    _plWarpRecalcEl.addEventListener("click", function () {
+      if (pWarpOn) pWarpTrigger();
+    });
+  }
   // Warp-UI initialisieren
   _pWarpApplyMethodLabels();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
@@ -1109,6 +1077,15 @@ document.addEventListener("DOMContentLoaded", () => {
         plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
           ? d.plApplyLatency : true;
       }
+      if (typeof plApplyBalance !== "undefined") {
+        plApplyBalance = (d && typeof d.plApplyBalance === "boolean")
+          ? d.plApplyBalance : true;
+      }
+      if (typeof plBalanceMode !== "undefined") {
+        plBalanceMode = (d && typeof d.plBalanceMode === "string"
+                         && ["sym", "left", "right"].includes(d.plBalanceMode))
+          ? d.plBalanceMode : "sym";
+      }
       if (typeof latApplyToPlayer === "function") latApplyToPlayer();
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
@@ -1212,6 +1189,8 @@ document.addEventListener("DOMContentLoaded", () => {
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
           latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
+          plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
+          plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
           fRes: (typeof fRes !== "undefined") ? fRes : [],
           playerSourceMeas: plSrcMeas,
           playerSourceLevels: plSrcLevels,

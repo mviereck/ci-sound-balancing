@@ -962,6 +962,7 @@
         <!-- 3. Einstellungen -->
         <div class="card">
           <h2 data-t="plSettingsTitle"></h2>
+          <!-- Zeile 1: EQ toggle + Stärke + Stärke-Buttons -->
           <div class="controls-row">
             <button
               class="btn"
@@ -998,25 +999,26 @@
               ><button class="btn btn-sm plStrBtn" data-v="300">300%</button>
             </div>
           </div>
+          <!-- Zeile 2: EQ-Quelle -->
           <div class="controls-row" style="margin-top: 8px">
             <div class="control-group" style="flex-wrap: wrap; gap: 6px">
               <label data-t="plSrcLabel" style="align-self: center"></label>
               <button
                 id="plSrcMeasBtn"
                 class="btn btn-sm"
-                style="min-width: 120px"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
                 data-t="plSrcMeas"
               ></button>
               <button
                 id="plSrcCurvesBtn"
                 class="btn btn-sm"
-                style="min-width: 80px"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
                 data-t="plSrcCurves"
               ></button>
               <button
                 id="plSrcLevelsBtn"
                 class="btn btn-sm"
-                style="min-width: 80px"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
                 data-t="plSrcLevels"
               ></button>
             </div>
@@ -1032,6 +1034,92 @@
               <option value="right">right</option>
               <option value="both">both</option>
             </select>
+          </div>
+          <!-- Zeile 3: Frequenz-Warping -->
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group" style="gap: 8px">
+              <button
+                class="btn btn-sm"
+                id="plWarpOn"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+              ></button>
+              <span data-t="plWarpExpNote" style="font-size:0.82em;color:var(--text-muted)"></span>
+            </div>
+          </div>
+          <div id="plWarpSettingsBox" style="display:none;margin-top:4px;margin-left:15px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
+            <div class="controls-row" style="margin-bottom:6px;flex-wrap:wrap;gap:10px">
+              <div class="control-group">
+                <label data-t="pwMethod" style="margin-right:6px"></label>
+                <select id="plWarpMethod" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                  <option value="offline" data-t-opt="pwMethodOffline"></option>
+                  <option value="vocoder" data-t-opt="pwMethodVocoder"></option>
+                  <option value="sinmodel" data-t-opt="pwMethodSinModel" selected></option>
+                  <option value="bandshift" data-t-opt="pwMethodBandShift"></option>
+                </select>
+              </div>
+              <div class="control-group">
+                <label data-t="pwMode" style="margin-right:6px"></label>
+                <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                  <option value="ref_side" data-t-opt="pwModeRef"></option>
+                  <option value="var_side" data-t-opt="pwModeVar" selected></option>
+                  <option value="symmetric" data-t-opt="pwModeSym"></option>
+                </select>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div class="control-group">
+                <label data-t="pwStrength" style="margin-right:6px"></label>
+                <input
+                  type="number"
+                  id="plWarpStr"
+                  value="100"
+                  min="0"
+                  max="150"
+                  step="1"
+                  style="width:60px;padding:3px 5px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:0.88em"
+                />%
+              </div>
+              <div class="btn-group" style="margin-left:6px">
+                <button class="btn btn-sm plWarpStrBtn" data-v="50">50%</button
+                ><button class="btn btn-sm plWarpStrBtn" data-v="75">75%</button
+                ><button class="btn btn-sm plWarpStrBtn" data-v="100">100%</button
+                ><button class="btn btn-sm plWarpStrBtn" data-v="150">150%</button>
+              </div>
+            </div>
+          </div>
+          <!-- Zeile 4: MAPLAW (nur bei MED-EL) -->
+          <div class="controls-row" id="plMaplawRow" style="margin-top:8px;display:none">
+            <div class="control-group" style="gap:8px">
+              <button class="btn btn-sm" id="plMaplawOn" style="font-weight:600;min-width:180px;border-radius:6px"></button>
+              <span data-t="plMaplawExpNote" style="font-size:0.82em;color:var(--text-muted)"></span>
+            </div>
+          </div>
+          <div id="plMaplawSettingsBox" style="display:none;margin-top:4px;margin-left:15px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
+            <div style="margin-bottom:6px;font-size:.9em;color:var(--text-muted)">
+              <span data-t="plMaplawIstLabel"></span>:
+              <strong id="plMaplawIstVal" style="font-family:var(--mono);color:var(--text)">—</strong>
+            </div>
+            <div style="margin-bottom:6px;font-size:.9em;font-weight:600">
+              <span data-t="plMaplawSollLabel"></span>:
+            </div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+              <button class="btn btn-sm" data-maplaw-quick="100" type="button">100</button>
+              <button class="btn btn-sm" data-maplaw-quick="250" type="button">250</button>
+              <button class="btn btn-sm" data-maplaw-quick="500" type="button">500</button>
+              <button class="btn btn-sm" data-maplaw-quick="1000" type="button">1000</button>
+              <button class="btn btn-sm" data-maplaw-quick="1500" type="button">1500</button>
+              <button class="btn btn-sm" data-maplaw-quick="2000" type="button">2000</button>
+              <button class="btn btn-sm" data-maplaw-quick="3000" type="button">3000</button>
+              <button class="btn btn-sm" data-maplaw-quick="4000" type="button">4000</button>
+              <button class="btn btn-sm" data-maplaw-quick="6000" type="button">6000</button>
+              <button class="btn btn-sm" data-maplaw-quick="8000" type="button">8000</button>
+              <input type="number" id="plMaplawSollInput"
+                     min="0" max="8000" step="50"
+                     style="width:90px;padding:4px 8px;margin-left:8px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono)" />
+            </div>
+          </div>
+          <!-- Zeile 5: Beide Seiten -->
+          <div class="controls-row" style="margin-top: 8px">
             <div class="control-group">
               <label
                 style="
@@ -1044,18 +1132,46 @@
                 <span data-t="plBothLabel"></span
               ></label>
             </div>
-            <div class="control-group" id="plMonoEQRow" style="display: none">
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 5px;
-                  cursor: pointer;
-                "
-                ><input type="checkbox" id="plMonoEQ" />
-                <span data-t="plMonoEQLabel"></span
-              ></label>
+          </div>
+          <!-- Zeile 6: Stereo-Balance + Dropdown -->
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plBalApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+                data-t="plBalApply"
+              ></button>
             </div>
+            <div class="control-group" id="plBalModeRow">
+              <label
+                for="plBalModeSelect"
+                style="font-size: 0.9em; color: var(--text-muted)"
+                data-t="plBalModeLabel"
+              ></label>
+              <select
+                id="plBalModeSelect"
+                class="btn btn-sm"
+                style="min-width: 130px"
+              >
+                <option value="sym" data-t-opt="plBalModeSym"></option>
+                <option value="left" data-t-opt="plBalModeLeft"></option>
+                <option value="right" data-t-opt="plBalModeRight"></option>
+              </select>
+            </div>
+          </div>
+          <!-- Zeile 7: Latenzausgleich -->
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plLatApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+              ></button>
+            </div>
+          </div>
+          <!-- Zeile 8: Normalhörende -->
+          <div class="controls-row" style="margin-top: 8px">
             <div class="control-group">
               <label
                 style="
@@ -1067,21 +1183,6 @@
                 ><input type="checkbox" id="plNHSim" />
                 <span data-t="plNHLabel"></span
               ></label>
-            </div>
-            <div class="control-group">
-              <button
-                id="plBalApplyBtn"
-                class="btn btn-sm"
-                style="font-weight: 600; min-width: 180px; border-radius: 6px"
-                data-t="plBalApply"
-              ></button>
-            </div>
-            <div class="control-group">
-              <button
-                id="plLatApplyBtn"
-                class="btn btn-sm"
-                style="font-weight: 600; min-width: 180px; border-radius: 6px"
-              ></button>
             </div>
           </div>
           <div
@@ -1293,8 +1394,8 @@
 
         </div>
 
-        <!-- Toggle: experimentelle Optionen (MAPLAW + Frequenz-Warping) -->
-        <div class="card" id="plExperimentalToggleCard">
+        <!-- experimentelle Optionen (ausgeblendet, wird vielleicht später genutzt) -->
+        <div class="card" id="plExperimentalToggleCard" style="display:none">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
             <input type="checkbox" id="plShowExperimental" />
             <span data-t="plShowExpLabel"></span>
@@ -1302,115 +1403,6 @@
           <div id="plExperimentalHint" class="explain" style="display:none;margin-top:8px;font-size:0.85em;color:var(--text-muted)" data-t="plExpHint"></div>
         </div>
 
-        <!-- 5. MAPLAW-Simulation (oberhalb Frequenz-Warping) -->
-        <div class="card" id="plMaplawCard" style="display:none">
-          <h2 data-t="plMaplawTitle"></h2>
-          <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="plMaplawSubtitle"></div>
-
-          <div class="controls-row" style="margin-bottom:10px">
-            <button class="btn btn-sm" id="plMaplawOn" style="font-weight:600;min-width:180px;border-radius:6px"></button>
-          </div>
-
-          <div id="plMaplawConfig">
-            <div style="margin-bottom:8px;font-size:.9em;color:var(--text-muted)">
-              <span data-t="plMaplawIstLabel"></span>:
-              <strong id="plMaplawIstVal" style="font-family:var(--mono);color:var(--text)">—</strong>
-            </div>
-
-            <div style="margin-bottom:6px;font-size:.9em;font-weight:600">
-              <span data-t="plMaplawSollLabel"></span>:
-            </div>
-
-            <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-bottom:8px">
-              <button class="btn btn-sm" data-maplaw-quick="100" type="button">100</button>
-              <button class="btn btn-sm" data-maplaw-quick="250" type="button">250</button>
-              <button class="btn btn-sm" data-maplaw-quick="500" type="button">500</button>
-              <button class="btn btn-sm" data-maplaw-quick="1000" type="button">1000</button>
-              <button class="btn btn-sm" data-maplaw-quick="1500" type="button">1500</button>
-              <button class="btn btn-sm" data-maplaw-quick="2000" type="button">2000</button>
-              <button class="btn btn-sm" data-maplaw-quick="3000" type="button">3000</button>
-              <button class="btn btn-sm" data-maplaw-quick="4000" type="button">4000</button>
-              <button class="btn btn-sm" data-maplaw-quick="6000" type="button">6000</button>
-              <button class="btn btn-sm" data-maplaw-quick="8000" type="button">8000</button>
-              <input type="number" id="plMaplawSollInput"
-                     min="0" max="8000" step="50"
-                     style="width:90px;padding:4px 8px;margin-left:8px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono)" />
-            </div>
-          </div>
-
-          <div id="plMaplawNotApplicableHint" class="explain explain-warn" style="display:none;margin-top:8px;font-size:0.85em" data-t="plMaplawNotMedel"></div>
-        </div>
-
-        <!-- 6. Frequenz-Warping -->
-        <div class="card" id="plWarpCard">
-          <h2 data-t="pwTitle"></h2>
-          <div class="explain" style="font-size:0.85em;color:var(--text-muted);margin-bottom:8px" data-t="pwSubtitle"></div>
-          <div class="controls-row" style="margin-bottom: 8px">
-            <button class="btn btn-sm" id="plWarpOn" style="font-weight:600;min-width:180px;border-radius:6px"></button>
-          </div>
-          <div class="controls-row" style="margin-bottom: 6px">
-            <div class="control-group">
-              <label data-t="pwMethod" style="margin-right:6px"></label>
-              <select id="plWarpMethod" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                <option value="offline" data-t-opt="pwMethodOffline"></option>
-                <option value="vocoder" data-t-opt="pwMethodVocoder"></option>
-                <option value="sinmodel" data-t-opt="pwMethodSinModel" selected></option>
-                <option value="bandshift" data-t-opt="pwMethodBandShift"></option>
-              </select>
-            </div>
-          </div>
-          <div
-            id="plWarpNotAvail"
-            class="explain explain-warn"
-            style="display:none;margin-bottom:6px"
-          ></div>
-          <div id="plWarpModeRow" class="controls-row" style="margin-bottom:6px">
-            <div class="control-group">
-              <label data-t="pwMode" style="margin-right:6px"></label>
-              <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                <option value="ref_side" data-t-opt="pwModeRef"></option>
-                <option value="var_side" data-t-opt="pwModeVar" selected></option>
-                <option value="symmetric" data-t-opt="pwModeSym"></option>
-              </select>
-            </div>
-          </div>
-          <div id="plWarpStrRow" class="controls-row" style="margin-bottom:6px">
-            <div class="control-group">
-              <label data-t="pwStrength" style="margin-right:6px"></label>
-              <input
-                type="number"
-                id="plWarpStr"
-                value="100"
-                min="0"
-                max="150"
-                step="1"
-                style="width:60px;padding:3px 5px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:0.88em"
-              />%
-            </div>
-            <div class="btn-group" style="margin-left:6px">
-              <button class="btn btn-sm plWarpStrBtn" data-v="50">50%</button
-              ><button class="btn btn-sm plWarpStrBtn" data-v="75">75%</button
-              ><button class="btn btn-sm plWarpStrBtn" data-v="100">100%</button
-              ><button class="btn btn-sm plWarpStrBtn" data-v="150">150%</button>
-            </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-            <span
-              id="plWarpStatus"
-              style="font-family:var(--mono);font-size:0.84em;color:var(--text-muted)"
-            ></span>
-            <button
-              id="plWarpRecalc"
-              class="btn btn-sm"
-              style="display:none"
-            ></button>
-          </div>
-          <div
-            id="plWarpHint"
-            class="explain explain-warn"
-            style="display:none;margin-bottom:6px"
-          ></div>
-        </div>
       </div>
 
       <!-- ===== FILE ===== -->

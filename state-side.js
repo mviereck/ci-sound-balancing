@@ -237,6 +237,25 @@ function getPlayerBalance() {
   // Positive mean = right louder → negative balance offset (rechts dämpfen)
   return Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
 }
+function getPlayerBalanceGains() {
+  // Liefert {left, right} dB-Werte für die beiden Channel-Gains
+  // im "both"-Modus. Berücksichtigt plBalanceMode.
+  // "sym" (Default): symmetrisch ±balance, wie bisher.
+  // "left":  Korrektur ausschließlich auf der linken Seite.
+  // "right": Korrektur ausschließlich auf der rechten Seite.
+  // Bei "left"/"right" wird der doppelte Wert auf eine Seite gelegt,
+  // damit der akustische L↔R-Unterschied derselbe ist wie symmetrisch.
+  const b = getPlayerBalance();
+  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  const clamp = (v) => Math.max(-60, Math.min(60, v));
+  if (mode === "left") {
+    return { left: clamp(2 * b), right: 0 };
+  }
+  if (mode === "right") {
+    return { left: 0, right: clamp(-2 * b) };
+  }
+  return { left: b, right: -b };
+}
 function withSide(side, fn) {
   const prevSide = activeSide;
   const prev = {
@@ -400,6 +419,7 @@ let fRes = [];
 
 let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden
+let plBalanceMode = "sym"; // "sym" | "left" | "right" — wie Stereo-Balance angewandt wird
 let plSrcMeas = true,
   plSrcLevels = true,
   plSrcCurves = true; // EQ source toggles

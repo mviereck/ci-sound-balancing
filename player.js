@@ -364,9 +364,9 @@ function pBuildEQ() {
     pChannelSplitter.connect(pEqFRight[0], 1);
     pChannelLeftGain = c.createGain();
     pChannelRightGain = c.createGain();
-    const balance = getPlayerBalance();
-    pChannelLeftGain.gain.value = dB2G(balance);
-    pChannelRightGain.gain.value = dB2G(-balance);
+    const balG = getPlayerBalanceGains();
+    pChannelLeftGain.gain.value = dB2G(balG.left);
+    pChannelRightGain.gain.value = dB2G(balG.right);
     pEqFLeft[pEqFLeft.length - 1].connect(pChannelLeftGain);
     pEqFRight[pEqFRight.length - 1].connect(pChannelRightGain);
     pChannelLeftGain.connect(pChannelMerger, 0, 0);
@@ -413,10 +413,11 @@ function pUpdEQ() {
           : -gains.right[i] * str
         : 0;
     }
-    if (pChannelLeftGain)
-      pChannelLeftGain.gain.value = dB2G(getPlayerBalance());
-    if (pChannelRightGain)
-      pChannelRightGain.gain.value = dB2G(-getPlayerBalance());
+    if (pChannelLeftGain || pChannelRightGain) {
+      const balG = getPlayerBalanceGains();
+      if (pChannelLeftGain) pChannelLeftGain.gain.value = dB2G(balG.left);
+      if (pChannelRightGain) pChannelRightGain.gain.value = dB2G(balG.right);
+    }
   } else {
     for (let i = 0; i < pEqF.length; i++) {
       const g = gains[i] || 0;
@@ -688,6 +689,7 @@ function plCheck() {
     deafHint.style.display = hasDeaf ? "" : "none";
     if (hasDeaf) deafHint.textContent = t("cfgHintDeaf");
   }
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
 
 document.getElementById("plPlay").addEventListener("click", pToggle);
@@ -853,38 +855,28 @@ function pMaplawTrigger() {
 function pApplyShowExperimental() {
   const on = !!plShowExperimental;
   const cb = document.getElementById("plShowExperimental");
-  const ml = document.getElementById("plMaplawCard");
-  const wp = document.getElementById("plWarpCard");
   const ht = document.getElementById("plExperimentalHint");
   if (cb) cb.checked = on;
-  if (ml) ml.style.display = on ? "" : "none";
-  if (wp) wp.style.display = on ? "" : "none";
   if (ht) ht.style.display = on ? "" : "none";
-  const locked = !!(pMaplawOn || (typeof pWarpOn !== "undefined" && pWarpOn));
+  const locked = !!pMaplawOn;
   if (cb) cb.disabled = locked;
 }
 
 function pMaplawUpdUI() {
-  const cardOn   = document.getElementById("plMaplawOn");
-  const sollIn   = document.getElementById("plMaplawSollInput");
-  const istEl    = document.getElementById("plMaplawIstVal");
-  const cfgBox   = document.getElementById("plMaplawConfig");
-  const hintBox  = document.getElementById("plMaplawNotApplicableHint");
+  const cardOn     = document.getElementById("plMaplawOn");
+  const sollIn     = document.getElementById("plMaplawSollInput");
+  const istEl      = document.getElementById("plMaplawIstVal");
+  const maplawRow  = document.getElementById("plMaplawRow");
+  const settingsBox = document.getElementById("plMaplawSettingsBox");
   if (!cardOn) return;
 
-  const applicable = (typeof pMaplawIsApplicable === "function")
-    ? pMaplawIsApplicable() : false;
+  const applicable = (typeof pMaplawIsApplicable === "function") ? pMaplawIsApplicable() : false;
+
+  if (maplawRow) maplawRow.style.display = applicable ? "" : "none";
+  if (settingsBox) settingsBox.style.display = (pMaplawOn && applicable) ? "" : "none";
 
   cardOn.disabled = !applicable;
-  if (cfgBox) cfgBox.style.opacity = applicable ? "1" : "0.4";
-  if (cfgBox) {
-    cfgBox.querySelectorAll("button, input").forEach((el) => {
-      el.disabled = !applicable;
-    });
-  }
-  if (hintBox) hintBox.style.display = applicable ? "none" : "";
-
-  if (pMaplawOn) {
+  if (pMaplawOn && applicable) {
     cardOn.textContent = t("plMaplawEnableOn");
     cardOn.style.background = "var(--success)";
     cardOn.style.color = "#fff";

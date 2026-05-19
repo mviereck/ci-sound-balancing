@@ -144,6 +144,7 @@ Ausdrucke für Ihren Audiologen mit den gewünschten Änderungen.
 ### Empfehlung für neue Programmbelegung
 - Behalten Sie unverändert das Programm, das Sie bisher gut gewohnt sind und im Alltag benutzen.
 - Belegen Sie einen Programmplatz als Testprogramm mit exakt gleich lauten Elektroden ohne Filter. Das wird Ihre Basis für zukünftige Messungen und Experimente.
+  - Dieses Testprogramm könnte auch ein Lieblingsprogramm für Musik oder Naturgeräusche für Sie werden.
 - Belegen Sie ein oder zwei Programmplätze mit Wunscheinstellungen, die Sie mit Hilfe des Tools ermittelt haben.
 
 ### Einschränkung

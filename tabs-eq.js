@@ -120,16 +120,24 @@ function updateTabLockState() {
 // EQ TOGGLE BUTTON
 // ============================================================
 function updPlSrcButtons() {
-  const mBtn = document.getElementById("plSrcMeasBtn");
-  const lBtn = document.getElementById("plSrcLevelsBtn");
-  const cBtn = document.getElementById("plSrcCurvesBtn");
-  if (!mBtn || !lBtn || !cBtn) return;
-  const activeS =
-    "background:var(--success);color:#fff;border-color:var(--success)";
-  const inactS = "";
-  mBtn.style.cssText = plSrcMeas   ? activeS : inactS;
-  lBtn.style.cssText = plSrcLevels ? activeS : inactS;
-  cBtn.style.cssText = plSrcCurves ? activeS : inactS;
+  const entries = [
+    { id: "plSrcMeasBtn",   active: plSrcMeas },
+    { id: "plSrcLevelsBtn", active: plSrcLevels },
+    { id: "plSrcCurvesBtn", active: plSrcCurves },
+  ];
+  for (const { id, active } of entries) {
+    const btn = document.getElementById(id);
+    if (!btn) continue;
+    if (active) {
+      btn.style.background   = "var(--success)";
+      btn.style.color        = "#fff";
+      btn.style.borderColor  = "var(--success)";
+    } else {
+      btn.style.background   = "#e5e7eb";
+      btn.style.color        = "var(--text)";
+      btn.style.borderColor  = "var(--border)";
+    }
+  }
   // Sync hidden legacy select (best effort)
   const sel = document.getElementById("plSrc");
   if (sel) {
@@ -142,17 +150,11 @@ function updPlSrcButtons() {
 }
 function updEqToggleBtn() {
   const btn = document.getElementById("plEqToggle");
-  const allOff = plEqOn && !plSrcMeas && !plSrcLevels && !plSrcCurves;
-  if (plEqOn && !allOff) {
+  if (plEqOn) {
     btn.textContent = t("plEqOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";
     btn.style.borderColor = "var(--success)";
-  } else if (allOff) {
-    btn.textContent = t("plEqOn");
-    btn.style.background = "var(--warning)";
-    btn.style.color = "#fff";
-    btn.style.borderColor = "var(--warning)";
   } else {
     btn.textContent = t("plEqOff");
     btn.style.background = "#e5e7eb";
@@ -164,7 +166,13 @@ function updEqToggleBtn() {
 function updBalApplyBtn() {
   const btn = document.getElementById("plBalApplyBtn");
   if (!btn) return;
-  if (plApplyBalance) {
+  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
+  const stereoActive = (mode === "both");
+  // Disabled, wenn nicht im echten Stereo-Modus
+  btn.disabled = !stereoActive;
+  btn.style.opacity = stereoActive ? "" : "0.4";
+  btn.style.cursor = stereoActive ? "" : "not-allowed";
+  if (plApplyBalance && stereoActive) {
     btn.textContent = t("plBalApplyOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";
@@ -175,12 +183,25 @@ function updBalApplyBtn() {
     btn.style.color = "var(--text)";
     btn.style.borderColor = "var(--border)";
   }
+  // Dropdown-Sichtbarkeit synchronisieren
+  const row = document.getElementById("plBalModeRow");
+  if (row) {
+    row.style.display = (stereoActive && plApplyBalance) ? "" : "none";
+  }
+  const sel = document.getElementById("plBalModeSelect");
+  if (sel) sel.value = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
 }
 
 function updLatApplyBtn() {
   const btn = document.getElementById("plLatApplyBtn");
   if (!btn) return;
-  if (plApplyLatency) {
+  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
+  const twoEarsActive = (mode === "both");
+  // Disabled, wenn nur eine Seite hörbar
+  btn.disabled = !twoEarsActive;
+  btn.style.opacity = twoEarsActive ? "" : "0.4";
+  btn.style.cursor = twoEarsActive ? "" : "not-allowed";
+  if (plApplyLatency && twoEarsActive) {
     btn.textContent = t("plLatApplyOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";
@@ -192,4 +213,5 @@ function updLatApplyBtn() {
     btn.style.borderColor = "var(--border)";
   }
 }
+
 

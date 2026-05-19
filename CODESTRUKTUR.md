@@ -100,7 +100,7 @@ werden.
 | 0c | touch-ctrl.js | `attachLongPress(btn, onStep)` (Klick + Long-Press 400 ms initial / 100 ms repeat), `buildSliderTouchCtrl(slider, opts)` (Touch-Bedienleiste mit − / Fein / + / [Replay] direkt nach dem Slider, dispatcht `input`-Event auf den Slider), `buildStepperPair(opts)` (zwei Buttons mit Long-Press, Aufrufer hängt selbst ein). Kein eigener DOMContentLoaded-Handler; Aufrufer instanzieren wo gebraucht. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
-| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"/"mono"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
+| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`, `plBalanceMode`). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`), `getPlayerBalanceGains` (liefert {left, right} dB unter Berücksichtigung von `plBalanceMode`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |
 | 5  | ui-implant.js | `buildImplantCard`, `updCochlearGen` |
 | 6  | freq-table.js | `buildFreqTable`, `switchMfr`, `resetFreqs`, `actEl`, `allEl`, `allPairs`, `shuffle`, `randAB`, `gWt` |
@@ -115,7 +115,7 @@ werden.
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`, `updLatApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
 | 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels` (noch in expText/file.js genutzt), `buildPrTbl`, `drawLvChart`, `lvOnChange`, `applyPresetDeltaOtherSide`. `buildLvGrid`, `updLvFocus`, `updAllBars` sind entfernt. |
 | 14b | levels-tab.js | Schieber-Tab (sichtbar „Levels"): `lvTabDraw` (Dispatcher), `lvTabDrawRelative`, `lvTabDrawAbsolute`, diverse Helper-Zeichenfunktionen (`lvTabDrawExcludedColumn`, `lvTabDrawNoMclColumn`, `lvTabDrawStackRelative`, `lvTabDrawSumBarRelative`, `lvTabDrawStackAbsolute`, `lvTabDrawSumBarAbsolute`, `lvTabDrawFocusAndSum`, `lvTabDrawLabelsRelative`, `lvTabDrawCompareLinesRelative`, `lvTabDrawCompareLinesAbsolute`), `lvTabAbsoluteAvailable`, `lvTabUpdateModeAvailability`, `lvTabElHasMcl`, `lvTabNavigableEl`, `lvTabStepAbsolute`, `lvTabRebuild`, `lvTabOnSchieberChange`, `lvTabResetAll`. Eigener DOMContentLoaded-Handler mit focus/blur-Listenern auf dem Canvas. State: `lvTabFocus` (lokal), `lvTabHasFocus` (lokal, true wenn Canvas Tastatur-Fokus hat — steuert die Umrahmung der aktiven Elektrode), `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant` (alle in state-side.js). Canvas hat `tabindex="0"`, damit es per Klick oder Tab-Taste fokussierbar ist. |
-| 15 | player.js | Player-State, `gPC`, `pBuildEQ`, `pUpdEQ`, `pPlay` (async), `pDrawEQ` + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize. State: `pSrc` (Einzel-Quelle), `pCurrentPlayback` ({sources, stop()} für Variante B/A), `pPlayGen` (Generationszähler gegen Stale-Async), `pMaplawOn`, `pMaplawSollC`, `pMaplawNode`, `pFileBuf` (Audiodatei-Buffer, überlebt Sätze-Wiedergabe), `pPlaybackMode` ("file"\|"sentence"). Buffer-Steuerung: `pSetPlaybackMode(mode)` setzt `pSourceBuf` auf den aktiven Slot und baut EQ neu. MAPLAW-Helfer: `pMaplawGetIstC`, `pMaplawIsApplicable`, `pMaplawTrigger`, `pMaplawUpdUI` (UI-Sync: Ist-c-Anzeige, Toggle-Zustand, Soll-c-Eingabe, Nicht-MED-EL-Hinweis). `pApplyShowExperimental` synchronisiert die Sichtbarkeit der MAPLAW- und Warping-Cards (`plMaplawCard`, `plWarpCard`) sowie des Hinweistexts (`plExperimentalHint`) anhand von `plShowExperimental`. |
+| 15 | player.js | Player-State, `gPC`, `pBuildEQ`, `pUpdEQ`, `pPlay` (async), `pDrawEQ` + eigene Top-Level-Listener für plAudio/plPlay/plStop/plTL und window.resize. State: `pSrc` (Einzel-Quelle), `pCurrentPlayback` ({sources, stop()} für Variante B/A), `pPlayGen` (Generationszähler gegen Stale-Async), `pMaplawOn`, `pMaplawSollC`, `pMaplawNode`, `pFileBuf` (Audiodatei-Buffer, überlebt Sätze-Wiedergabe), `pPlaybackMode` ("file"\|"sentence"). Buffer-Steuerung: `pSetPlaybackMode(mode)` setzt `pSourceBuf` auf den aktiven Slot und baut EQ neu. MAPLAW-Helfer: `pMaplawGetIstC`, `pMaplawIsApplicable`, `pMaplawTrigger`, `pMaplawUpdUI` (UI-Sync: Ist-c-Anzeige, Toggle-Zustand, Soll-c-Eingabe, Nicht-MED-EL-Hinweis). `pApplyShowExperimental` synchronisiert die Sichtbarkeit der MAPLAW-Card (`plMaplawCard`) sowie des Hinweistexts (`plExperimentalHint`) anhand von `plShowExperimental`. Frequenz-Warping ist nicht mehr experimentell (eigene Einstellungsbox `plWarpSettingsBox`, gesteuert durch `pWarpUpdUI`). |
 | 16 | freq-warp.js | Frequenz-Warping (alle Verfahren). `buildWarpPoints`, `_warpAffectedSides`, `_warpSideGains`, `centShift`, `pComputeWarpedBuffer`, `pBuildWarpedGraph`, `pBuildVocoderGraph`, `pInitWarpWorklet`, `pWarpTrigger`, `pWarpUpdUI`, `pWarpLiveUpdate` (postMessage an laufenden Vocoder-Worklet ohne Pfadwechsel). State: `pWarpedBuf`, `pWarpOn`, `pWarpMode`, `pWarpStrength`, `pWarpBusy`, `pWarpMethod`, `pWarpWorkletReady`, `pWarpAffected`. Worklet-Code liegt als String-Konstante `_FREQ_WARP_PROCESSOR_CODE` im selben Modul; `pInitWarpWorklet` lädt ihn per Blob-URL (funktioniert auch unter `file://`). Worklet-Methoden: `_processFrame` (Phasen-Vocoder mit Identity Phase Locking), `_processFrameSinModel` (Sinusoidal Modeling: Peak-Tracking + Quadratic Interpolation + Spectral Spread, Residual unverschoben). Worklet-State zusätzlich: `algorithm` ("phase_vocoder" | "sinmodel"), `smMaxPeaks`, `smPrevPeakCount`, `smPrevPeakFreq`, `smPrevPeakPhase`. `_VOCODER_FFT_SIZE` (synchron mit `FFT_SIZE` im Worklet) wird für den L/R-Sync-Delay im Vocoder-Graph gebraucht. |
 | 16b | maplaw.js | MAPLAW-Simulation Phase 3 (bandweise Hüllkurven-Vorverzerrung Ist⁻¹∘Soll für MED-EL). `_MAPLAW_PROCESSOR_CODE` als Worklet-Inline-String mit Filterbank (12 Biquad-Bandpässe an MED-EL-Frequenzen, Q=4), Hüllkurven-Detektor (Gleichrichtung + IIR-Tiefpaß 50 Hz), lokale Normalisierung (gleitendes Maximum, τ=1 Sek), MAPLAW-Kennlinie + Inverse, **additive Korrektur** (out = x + Σ y_b·(gain_b−1), nicht out = Σ y_b·gain_b — sonst klingt schon der Identity-Fall verfärbt, weil die naive Bandpass-Summe keine perfekte Rekonstruktion ist). `pInitMaplawWorklet`, `pBuildMaplawNode`, `pMaplawApplyParams`. Bei `active=0` oder `istC == sollC`: Passthrough. **Stereo-fähig**: Worklet hält pro Kanal (L/R, `MAX_CH=2`) eigenen Filterbank-, Hüllkurven- und Max-State und verarbeitet jeden Kanal separat über `_processChannel`. `pBuildMaplawNode` konfiguriert den Node mit `channelCount: 2`, `channelCountMode: 'explicit'`, `outputChannelCount: [2]` — dadurch wird Mono-Input vor dem Worklet auf L=R aufgeteilt (sonst sähe der Worklet bei `mode='right'` nur den stillen linken Kanal von `pRightOnlyBuf`) und Stereo-Input ohne Downmix durchgereicht. Worklet wird in Bauanleitung 19 in den Player-Audio-Graph eingehängt; UI kommt in Bauanleitung 20. |
 | 17 | lr-balance.js | Stereo-Balance-Tab. Eigener DOMContentLoaded-Handler und eigener Tab-Hook für `balance`. Bindet sich an die von test-ui.js erzeugte UI. |
@@ -201,16 +201,20 @@ aktiven Seite), `updPlSrcButtons` und ggf.
 `updatePlayerForSideChange` (wenn ein Buffer geladen ist).
 
 **Player Side-Modi:** `getPlayerSide()` (state-side.js) liefert
-`"left"`, `"right"`, `"both"` oder `"mono"` abhängig von den
-Checkboxen `plBothSides` und `plMonoEQ`. „both" = Stereo mit
-getrennten EQ-Ketten pro Kanal (`pEqFLeft` / `pEqFRight`),
-gespeist über `pChannelSplitter` und `pChannelMerger`. „mono" =
-beide Seiten, aber identischer EQ (Durchschnitt der beiden
-Seiten-Korrekturen). „left"/"right" = nur die jeweilige Seite hörbar
-mit deren EQ-Kette; der Gegenkanal ist stumm. `updatePlayerForSideChange`
-(player.js) baut den Audio-Graph bei Side-Wechsel oder
-Modus-Änderung neu auf — auch während laufender Wiedergabe (mit
-kurzer Unterbrechung).
+`"left"`, `"right"` oder `"both"` abhängig von Checkbox `plBothSides`.
+„both" = Stereo mit getrennten EQ-Ketten pro Kanal (`pEqFLeft` /
+`pEqFRight`), gespeist über `pChannelSplitter` und `pChannelMerger`.
+„left"/"right" = nur die jeweilige Seite hörbar mit deren EQ-Kette;
+der Gegenkanal ist stumm. `updatePlayerForSideChange` (player.js)
+baut den Audio-Graph bei Side-Wechsel neu auf — auch während laufender
+Wiedergabe (mit kurzer Unterbrechung).
+
+**Balance-Anwendungs-Modus** (`plBalanceMode`, state-side.js):
+"sym" (Default), "left" oder "right". Steuert, wie der Balance-Wert
+auf die beiden Channel-Gains verteilt wird (siehe
+`getPlayerBalanceGains`). UI sichtbar nur bei `getPlayerSide() ===
+"both"` und aktivierter Balance. Persistiert in JSON und
+localStorage.
 
 **MAPLAW-Simulation (Phase 3, MED-EL):** Bandweise Hüllkurven-Vorverzerrung Ist⁻¹∘Soll im AudioWorklet aus `maplaw.js`. Wird in `pPlay` zwischen letztem EQ-Knoten und `pGain` eingehängt, wenn `pMaplawOn` und `plEqOn` (EQ-Toggle als Master-Bypass) und `pMaplawIsApplicable()` (mindestens eine Seite MED-EL). Live-Updates von `pMaplawSollC` während Wiedergabe via `pMaplawTrigger` (postMessage an Worklet). Ist-c kommt aus `sideData[activeSide].implant.cValue`. Bilaterale Trennung mit zwei Worklets ist nicht implementiert — der unilaterale Standardfall ist abgedeckt.
 
@@ -237,7 +241,9 @@ in state-side.js berechnet den Mittelwert über alle gemessenen
 symmetrisches Stereo-Balance-Offset (positiv = rechts louder →
 negativer Offset dämpft rechts ab). Wird im Player angewandt,
 wenn die Checkbox „Stereo-Balance anwenden" (`plApplyBalance`) an
-ist. Begrenzt auf ±60 dB.
+ist. Begrenzt auf ±60 dB. Die tatsächliche Gain-Verteilung auf
+L/R erfolgt via `getPlayerBalanceGains()` unter Berücksichtigung
+von `plBalanceMode` ("sym"/"left"/"right").
 
 **Schieber-Tab-Modus und -Variante** (`lvTabMode`, `lvTabVariant`):
 `lvTabMode` steuert den Anzeigemodus (`"rel"` = relativ ±dB,

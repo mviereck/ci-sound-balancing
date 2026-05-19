@@ -193,6 +193,8 @@ async function saveJson() {
     lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
     latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
+    plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
+    plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
     fRes: (typeof fRes !== "undefined") ? fRes : [],
     paradigm: globalSequence,
     toneDuration: parseInt(document.getElementById("dur1").value),
@@ -463,6 +465,16 @@ function applyLoadedData(d) {
     plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
       ? d.plApplyLatency : true;
   }
+  if (typeof plApplyBalance !== "undefined") {
+    plApplyBalance = (d && typeof d.plApplyBalance === "boolean")
+      ? d.plApplyBalance : true;
+  }
+  if (typeof plBalanceMode !== "undefined") {
+    plBalanceMode = (d && typeof d.plBalanceMode === "string"
+                     && ["sym", "left", "right"].includes(d.plBalanceMode))
+      ? d.plBalanceMode : "sym";
+  }
+  if (typeof updBalApplyBtn === "function") updBalApplyBtn();
   if (typeof latApplyToPlayer === "function") latApplyToPlayer();
   if (typeof latRenderResults === "function") latRenderResults();
   if (typeof fRes !== "undefined") {

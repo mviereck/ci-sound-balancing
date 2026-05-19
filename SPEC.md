@@ -389,35 +389,52 @@ Drei Cards untereinander:
      Equalizer" und Beschreibung (`plTitle`, `plDesc`). Kein blauer
      Hinweis-Strich, nur normaler Absatz.
   2. **Equalizer-Graph** (`plEqViz`) — Kurven-Canvas plus Tabelle.
-  3. **Einstellungen** (`plSettingsTitle`) — Equalizer an/aus, Stärke,
-     Quellen-Buttons (Gemessen / Kurven / Schieber), Beide Seiten,
-     Mono-EQ, Normalhörenden-Simulation, „Stereo-Balance anwenden",
-     NH-Hinweisbox (`plNHInfo`).
+  3. **Einstellungen** (`plSettingsTitle`) — sieben Zeilen: (1) Equalizer
+     an/aus, Stärke, Stärke-Buttons; (2) Quellen-Buttons
+     (Elektrodenlautstärke / Kurven / Schieber); (3) „Beide Seiten mit
+     ihren jeweiligen Anpassungen abspielen"; (4) Stereo-Balance +
+     Dropdown; (5) Latenzausgleich; (6) Frequenz-Warping-Button +
+     ausklappbare Einstellungsbox (`plWarpSettingsBox`); (7) Normalhörenden-
+     Simulation; NH-Hinweisbox (`plNHInfo`).
   4. **Audiodatei** (`plFileTitle`) — Datei-Picker, Transport-Controls
      (Play/Stop, Zeitleiste, Lautstärke).
-  5. **Frequenz-Warping** (`pwTitle`) — Aktivierung, Verfahren, Modus,
-     Stärke, Status- und Hinweisbereich.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
-- Drei unabhängige Quellen-Toggles: **Gemessen · Kurven · Schieber**
+- Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**
   (in dieser Reihenfolge in der Button-Leiste; alle Default an).
   Addieren sich unabhängig im Player-EQ. „Kurven" = nur Preset-Anteil;
-  „Schieber" = nur manuelle Schieber-Werte. (Der DOM-/i18n-Key heißt
-  weiterhin `plSrcLevels` aus historischen Gründen.)
+  „Schieber" = nur manuelle Schieber-Werte. (DOM-/i18n-Keys:
+  `plSrcMeas`, `plSrcCurves`, `plSrcLevels`.)
 - Equalizer an/aus, Stärke 0–150%, Buttons für 50/75/100/150%
-- **Side-Modi** (durch Checkboxen „Beide Seiten" und „Mono-EQ"
-  in den Einstellungen, geliefert von `getPlayerSide()`):
-  - „Beide Seiten" aus → nur die aktive Seite hörbar, Gegenkanal
-    stumm (Modus `"left"` oder `"right"`).
-  - „Beide Seiten" an, „Mono-EQ" aus → Stereo mit getrennten EQ-
-    Ketten pro Kanal (`pEqFLeft` / `pEqFRight`), gespeist über
-    `pChannelSplitter` und `pChannelMerger` (Modus `"both"`).
-  - „Beide Seiten" an, „Mono-EQ" an → beide Kanäle hörbar, aber
-    mit identischem EQ (Durchschnitt der zwei Seiten-Korrekturen,
-    Modus `"mono"`).
+- **Side-Modi** (durch Checkbox „Beide Seiten mit ihren jeweiligen
+  Anpassungen abspielen" in den Einstellungen, geliefert von
+  `getPlayerSide()`):
+  - Checkbox aus → nur die aktive Seite hörbar, Gegenkanal stumm
+    (Modus `"left"` oder `"right"`).
+  - Checkbox an → Stereo mit getrennten EQ-Ketten pro Kanal
+    (`pEqFLeft` / `pEqFRight`), gespeist über `pChannelSplitter`
+    und `pChannelMerger` (Modus `"both"`).
+  - Stereo-Balance: nur im echten Stereo-Modus (`getPlayerSide() ===
+    "both"`) bedienbar. In `left`/`right`/`mono` ist die Balance-
+    Schaltfläche ausgegraut, weil die Korrektur dort akustisch
+    wirkungslos wäre.
   - „Stereo-Balance anwenden" (`plApplyBalance`): zusätzlicher
     L↔R-Gesamtoffset aus dem Mittelwert der gemessenen
     `lrResults` (Stereo-Balance-Test).
+  - Bei aktiver Balance erscheint ein Dropdown „Anwendung:":
+    symmetrisch (Default), nur links, nur rechts. Bei einseitiger
+    Anwendung wird der doppelte Wert auf eine Seite gelegt, damit
+    der akustische L↔R-Unterschied derselbe ist wie symmetrisch.
+  - Latenzausgleich: nur im Stereo-Modus (`both`) bedienbar. In
+    `left`/`right` ist die Schaltfläche ausgegraut, weil
+    Inter-Ohr-Verzögerung in einseitiger Wiedergabe akustisch
+    wirkungslos ist.
+  - Frequenz-Warping: nur im Stereo-Modus (`both`) bedienbar. In
+    `left`/`right` ist der Warp-Toggle-Button ausgegraut (`updWarpBtn`
+    in tabs-eq.js), weil die Korrektur frequenz-seitenspezifisch ist
+    und im einseitigen Modus nicht wirken kann. `pWarpOn` bleibt dabei
+    intern erhalten — beim Zurückschalten auf „Beide Seiten" ist der
+    Button wieder aktiv und zeigt den gemerkten Zustand.
 - Normalhörenden-Simulation (nicht-invertierter Equalizer)
 - MAPLAW-Simulation (MED-EL): bandweise Hüllkurven-Vorverzerrung
   Ist⁻¹∘Soll als AudioWorklet im Tool. Eigene Card oberhalb der
@@ -431,14 +448,13 @@ Drei Cards untereinander:
   Card ausgegraut mit Hinweis. Konzeptioneller Hintergrund:
   `.docs/MAPLAW_Konzept.md`.
 - Experimentell-Toggle im Player: Checkbox „Experimentelle Optionen
-  einblenden" oberhalb der MAPLAW- und Frequenz-Warping-Cards.
-  **Default aus** — beide Cards sind initial verborgen. Wird der
-  Toggle aktiviert, erscheinen die zwei Cards plus ein Hinweistext,
-  daß diese Optionen klangliche Schwächen haben und nur eine grobe
-  Richtungsangabe liefern. Persistiert in JSON und localStorage
-  (`playerShowExperimental`). **Solange MAPLAW Simulation oder
-  Frequenz-Warping aktiv ist, ist die Checkbox deaktiviert** (Ausblenden
-  nicht möglich).
+  einblenden" oberhalb der MAPLAW-Card. **Default aus** — MAPLAW-Card
+  initial verborgen. Wird der Toggle aktiviert, erscheint die Card plus
+  ein Hinweistext über klangliche Schwächen. Persistiert in JSON und
+  localStorage (`playerShowExperimental`). **Solange MAPLAW Simulation
+  aktiv ist, ist die Checkbox deaktiviert** (Ausblenden nicht möglich).
+  Frequenz-Warping ist nicht mehr experimentell — es erscheint direkt
+  im Einstellungs-Block (Zeile 6).
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
@@ -466,7 +482,7 @@ Drei Cards untereinander:
     (gespeicherte JSON-Werte gewinnen weiter beim Laden)
   - Korrektur-Modus und Stärke sind immer sichtbar (nicht mehr von Checkbox abhängig)
   - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
-  - Untertitel-Zeile unter dem Box-Titel: „Experimentelle Option, Qualität noch mäßig: Audio gemäß Frequenzmessung umwandeln" (i18n-Key pwSubtitle)
+  - Untertitel-Zeile oben in der Einstellungsbox (i18n-Key `pwSubtitle`), sichtbar wenn Box ausgeklappt
   - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl
   - pWarpMethod wird in JSON gespeichert und wiederhergestellt
   - Druck-Export enthält aktives Verfahren wenn Warp aktiv
@@ -489,7 +505,7 @@ Drei Cards untereinander:
     - Vocoder → knackfreier `postMessage` an den laufenden Worklet
       (`pWarpLiveUpdate`), sofort wirksam
     - Bandshift → Graph-Rebuild via pause/resume (kurzer hörbarer Knack)
-  - Aktivierung über Toggle-Button „Frequenz-Warping" (grün wenn aktiv).
+  - Aktivierung über Toggle-Button im Einstellungs-Block (Zeile 6), grün wenn aktiv. Bei Aktivierung klappt die Einstellungsbox (`plWarpSettingsBox`) auf; beim Deaktivieren wird sie ausgeblendet.
   - EQ-Toggle wirkt als Master-Bypass auch für das Frequenz-Warping: wenn
     EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Toggle-
     Zustand bleibt als „Memory" erhalten und greift wieder, sobald EQ

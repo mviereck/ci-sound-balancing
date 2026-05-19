@@ -938,6 +938,8 @@ function pWarpUpdUI() {
     cbEl.style.color = "var(--text)";
     cbEl.style.borderColor = "var(--border)";
   }
+  const settingsBox = document.getElementById("plWarpSettingsBox");
+  if (settingsBox) settingsBox.style.display = pWarpOn ? "" : "none";
 
   const method = methodSel ? methodSel.value : "offline";
   pWarpMethod = method;
