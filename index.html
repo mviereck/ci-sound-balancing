@@ -27,7 +27,7 @@
         'version.js', 'mobile.js', 'touch-ctrl.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
         'results.js', 'chart.js', 'file.js', 'print.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
-        'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'latency.js', 'sentences.js', 'init.js'
+        'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'latency.js', 'sentences.js', 'init.js', 'legal.js'
       ];
       scripts.forEach(function (src) {
         document.write('<script defer src="' + src + '?v=' + v + '"><\/script>');
@@ -1494,6 +1494,41 @@
           <div id="printPlayerInfo"></div>
         </div>
       </div>
+
+      <footer class="app-footer">
+        <span class="footer-version" id="footerVersion"></span>
+        <span class="footer-sep">·</span>
+        <a href="#" id="footerImprintLink" data-t="footerImprint"></a>
+        <span class="footer-sep">·</span>
+        <a href="#" id="footerLicenseLink" data-t="footerLicense"></a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/mviereck/ci-sound-balancing"
+           target="_blank" rel="noopener noreferrer">GitHub</a>
+      </footer>
+
+      <dialog id="imprintDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="footerImprint"></h2>
+            <button type="button" class="legal-close" data-close="imprintDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="imprintBody">
+            <!-- Wird in legal.js befüllt -->
+          </div>
+        </div>
+      </dialog>
+
+      <dialog id="licenseDialog" class="legal-dialog">
+        <div class="legal-dialog-inner">
+          <div class="legal-dialog-head">
+            <h2 data-t="footerLicense"></h2>
+            <button type="button" class="legal-close" data-close="licenseDialog" data-t="legalClose"></button>
+          </div>
+          <div class="legal-dialog-body" id="licenseBody">
+            <p data-t="legalLoading"></p>
+          </div>
+        </div>
+      </dialog>
     </div>
 
   </body>

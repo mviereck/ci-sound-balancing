@@ -47,6 +47,9 @@ Modulübersicht steht in CODESTRUKTUR.md.
   steht Schieber **nach** Kurven.
 - **Player** (player)
 - **Laden/Speichern** (file)
+- **Footer** — am Seitenende, immer sichtbar. Enthält Versions-Tag,
+  Impressum, MIT-Lizenz, GitHub-Link. Impressum-Inhalt fix deutsch
+  (rechtliche Pflicht); Footer-Labels in allen vier UI-Sprachen.
 
 ## Messungen — drei Sub-Tabs
 
