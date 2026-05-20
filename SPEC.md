@@ -413,7 +413,10 @@ Drei Cards untereinander:
     (Modus `"left"` oder `"right"`).
   - Checkbox an → Stereo mit getrennten EQ-Ketten pro Kanal
     (`pEqFLeft` / `pEqFRight`), gespeist über `pChannelSplitter`
-    und `pChannelMerger` (Modus `"both"`).
+    und `pChannelMerger` (Modus `"both"`). EQ-Graph und Werte-Tabelle
+    zeigen dabei die **aktive Seite** (`activeSide`), nicht fest „links"
+    — damit bei einseitigem CI-Nutzer immer die CI-Seite sichtbar ist.
+    Das Audio-Routing bleibt davon unberührt (weiterhin stereo).
   - Stereo-Balance: nur im echten Stereo-Modus (`getPlayerSide() ===
     "both"`) bedienbar. In `left`/`right`/`mono` ist die Balance-
     Schaltfläche ausgegraut, weil die Korrektur dort akustisch
@@ -484,7 +487,12 @@ Drei Cards untereinander:
   - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
   - Untertitel-Zeile oben in der Einstellungsbox (i18n-Key `pwSubtitle`), sichtbar wenn Box ausgeklappt
   - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl
-  - pWarpMethod wird in JSON gespeichert und wiederhergestellt
+  - **Persistenz:** `pWarpOn`, `pWarpMethod`, `pWarpMode`, `pWarpStrength` werden
+    vollständig in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert
+    und beim Laden wiederhergestellt. `pWarpedBuf` wird nicht gespeichert;
+    er wird bei Bedarf neu berechnet. Beim JSON-Load gibt es kein Force-Off
+    mehr — der Warp-Zustand erscheint nach Reload und JSON-Load genauso wie
+    beim Speichern. UI-Sync erfolgt über `pWarpUpdUI()` nach dem Setzen der Werte.
   - Druck-Export enthält aktives Verfahren wenn Warp aktiv
   - Offline-Verfahren beachtet die gewählte Player-Seite: bei LINKS/RECHTS
     ist nur diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist
@@ -661,30 +669,60 @@ EasyEffects-Export: `ci-sound-balancing-easyeffects.json`.
 ### Audiologen-Box im Tab Laden/Speichern
 
 Karte „Einstellungswünsche an den Audiologen" zwischen Archiv-Karte
-und EasyEffects-Karte. Zwei Aktionen: Drucken (mit Korrektur-Chart
-als Grafik), Markdown Text exportieren.
+und EasyEffects-Karte. Enthält ein optionales Notiz-Eingabefeld
+(`audiologUserNote`, top-level persistiert, für BA 43 Brief) und zwei
+Aktionen: Drucken (mit Grafik), Markdown-Export.
 
-Der ausgegebene Bericht spiegelt den Player-Zustand wider:
-- Korrekturwerte pro Elektrode in dB und Hersteller-Einheit
-  (qu/CL/CU), berücksichtigt EQ-Stärke und Quellen-Toggles.
-- MAPLAW-Änderung (nur MED-EL, nur wenn aktiv).
-- Empfohlene Mittenfrequenzen aus `fRes` (nur bei aktivem Warp).
-- Stereo-Balance als eigener Abschnitt; Hinweis, daß die
-  Korrekturen oben sie bereits enthalten, sofern beidseitig.
-- Inter-Ohr-Latenz; Umsetzung dem Akustiker überlassen.
-- Vermerk-Block am Ende: gemessene Werte, die nicht in den Hauptteil
-  einfließen (z.B. Latenz/Balance bei einseitigem Druck, andere
-  Seite bei sym-Warp).
+Der Korrektur-Bericht ist gegliedert in:
 
-Side-Logik:
-- `getPlayerSide() === "left"` oder `"right"`: nur die jeweilige
-  Seite. Balance und Latenz werden bei einseitigem Druck nicht in
-  den Hauptteil, sondern in den Vermerk übernommen, sofern Werte
-  vorliegen.
-- `getPlayerSide() === "both"` oder `"mono"`: beide Seiten plus
-  Balance/Latenz (sofern aktiv).
+1. Kopf (Datum, Side-Auswahl) + Tool-Version-Zeile (italic, mit Domain
+   www.ci-sound-balancing.org).
+2. Testprogramm-Hinweis (Blockquote, direkt unter Tool-Version-Zeile,
+   nur wenn Heuristik anschlägt).
+3. EQ-aus-Hinweis (Blockquote), falls Player-EQ deaktiviert.
+4. Bilateraler Block — Sektionen, die beide Seiten gleichermaßen
+   betreffen, in fester Reihenfolge (vor den Pro-Seite-Blöcken):
+   - „Hinweise für den Audiologen" (H2, 5 Bullets; letzter: Bitte um vollständiges Anpassungsprotokoll für den Klienten nach Ende der Sitzung).
+   - „Fehlende Implantat-Angaben" (H2) — falls Implantat-Daten
+     unvollständig (inkl. THR (T-Levels) und manuell eingetragene
+     Mittenfrequenzen). Direkt unter der H2 ein italic-Einleitungssatz
+     (i18n-Key `audiologMissingIntro`) mit der Bitte an den Audiologen,
+     dem Klienten die Daten mitzuteilen. Danach die Bullet-Liste.
+     Fehlt kein Wert, erscheint die Sektion gar nicht.
+   - Stereo-Balance (H2) — immer wenn gemessen. Mit Hinweis, ob die
+     Differenz eingerechnet ist.
+   - Inter-Ohr-Latenz (H2) — analog. Kein Hinweis zum Ausgleichs-
+     Status (weder „bereits ausgeglichen" noch „nicht ausgeglichen").
+5. Pro-Seite-Blöcke — erst LINKS komplett, dann RECHTS komplett,
+   kein Vermischen bei beidseitigem Druck. Innerhalb jedes Blocks:
+   - Seiten-H2 mit Meta-Zeile (Hersteller, Prozessor, Implantat-Modell,
+     Datum der letzten Messung).
+   - Bar-Chart der ΔdB-Werte mit Residuum-Fehlerbalken.
+   - H3 „Lautstärken-Korrektur": Tabelle aller Elektroden mit
+     **Δ dB** (fett), Residuum, MCL/Δ MCL/Neuer MCL (qu/CL/CU),
+     Status, Elektroden-Notiz. Legende darunter. (Keine Hz-Spalte.)
+   - H3 „MAPLAW-Änderung" (nur MED-EL, nur wenn MAPLAW aktiv und
+     c-Wert abweicht): Satz-Format „MAPLAW [Seite] ändern von
+     c=[Ist] auf c=**[Soll]**."
+   - H3 „Änderung der Mittenfrequenzen" (nur bei aktivem Warp):
+     Spalten Elektrode, Hz Default, Hz (manuell eingetragen), Δ cent,
+     Δ Hz, **Gewünschte Mittenfrequenz** (fett). Δ Hz = Wunschfrequenz
+     minus manuell eingetragene Frequenz, mit Vorzeichen. Bei sym-Warp
+     + einseitigem Druck: Zusatzspalten für die andere Seite (inkl.
+     Δ cent und Δ Hz der anderen Seite).
+6. Nach dem letzten Pro-Seite-Block folgt nichts mehr — kein Footer,
+   keine weiteren Sektionen.
 
-Dateinamen: `ci-sound-balancing-audiologe-<datum>-<zeit>-<seite>.md`
+Persönliche Notiz und Allgemeine Bitten (Fitting-Report) erscheinen
+**nicht** im Korrektur-Bericht — sie wandern in den Brief (BA 43).
+Kein Footer mit Tool-Version; Versions-Info steht im Kopf.
+
+Testprogramm-Heuristik: EQ aktiv, NH-Sim aus, und Standardabweichung
+des Schieber+Kurven-Beitrags pro aktiver Elektrode (mit EQ-Stärke
+skaliert, Mittelwert abgezogen) < 0,2 dB. Reine Pegelverschiebung
+wird damit nicht als „nicht-Testprogramm" gewertet.
+
+Dateinamen: `ci-sound-balancing-audiologe-<datum>-<seite>.md`
 mit `<seite>` ∈ {`links`, `rechts`, `beide`}.
 
 ## Offene Punkte (Warteliste, nicht im aktuellen Build)

@@ -718,7 +718,7 @@ function pDrawEQ() {
   ctx.clearRect(0, 0, W, H);
   let gains = getPlayerGains();
   if (typeof gains.left !== "undefined") {
-    gains = gains.left;
+    gains = (activeSide === "right") ? gains.right : gains.left;
   }
   const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
@@ -805,7 +805,7 @@ function pDrawEQ() {
 function pBuildTbl() {
   let gains = getPlayerGains();
   if (typeof gains.left !== "undefined") {
-    gains = gains.left;
+    gains = (activeSide === "right") ? gains.right : gains.left;
   }
   const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;

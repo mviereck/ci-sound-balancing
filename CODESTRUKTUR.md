@@ -100,7 +100,7 @@ werden.
 | 0c | touch-ctrl.js | `attachLongPress(btn, onStep)` (Klick + Long-Press 400 ms initial / 100 ms repeat), `buildSliderTouchCtrl(slider, opts)` (Touch-Bedienleiste mit − / Fein / + / [Replay] direkt nach dem Slider, dispatcht `input`-Event auf den Slider), `buildStepperPair(opts)` (zwei Buttons mit Long-Press, Aufrufer hängt selbst ein). Kein eigener DOMContentLoaded-Handler; Aufrufer instanzieren wo gebraucht. |
 | 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
-| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`, `plBalanceMode`). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`), `getPlayerBalanceGains` (liefert {left, right} dB unter Berücksichtigung von `plBalanceMode`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
+| 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`, `plBalanceMode`, `audiologUserNote` (top-level, beide Seiten gemeinsam)). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`), `getPlayerBalanceGains` (liefert {left, right} dB unter Berücksichtigung von `plBalanceMode`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |
 | 5  | ui-implant.js | `buildImplantCard`, `updCochlearGen` |
 | 6  | freq-table.js | `buildFreqTable`, `switchMfr`, `resetFreqs`, `actEl`, `allEl`, `allPairs`, `shuffle`, `randAB`, `gWt` |
@@ -111,7 +111,7 @@ werden.
 | 11 | chart.js | `drawDisabledBar` (Helper, auch von lr-balance.js genutzt), `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
 | 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `exportEasyEffects` |
 | 12b | print.js | Druck-Infrastruktur: `buildPrintHeader` (Mini-Kopf für Einzelausdrucke), `openPrintWindow` (neues Fenster, HTML schreiben, drucken), `canvasToImg` (Canvas → `<img>` PNG-Daten-URL). Wird von den Tab-spezifischen Druck-Handlern in den jeweiligen Tab-Modulen aufgerufen. Der zentrale „Alles drucken"-Button (`fPrintBtn` in init.js) ist unabhängig davon. |
-| 12d | print-md.js | Markdown-Generatoren für Archiv-Box (Modus A) und Audiologen-Box (Modus B). Modus A: Datensammler `collectArchivData` plus Renderer `renderArchivMarkdown` und Sektion-Helfer `_archivMd*`. Interne Sammler-Helfer: `_collectGlobalTest`, `_collectSideData`, `_collectBilateral`, `_collectPlayer`, `_collectSaetze`, `_pickUpperLevel`, `_calcAbsDelta`. Druck-HTML: `renderArchivPrintHtml` (wandelt Markdown via `_mdToHtmlBasic` in HTML und injiziert PNG-Grafiken), `_archivInjectInserts` (HTML-Injektor per H2/H3-Anker), sechs Canvas-Renderer `_archivChartLoudness`, `_archivChartSchieber`, `_archivChartKurven`, `_archivChartFreqmatch`, `_archivChartLR`, `_archivChartPlayerEq`, Zeichenhelfer `_archivMkCanvas`, `_archivDrawAxis`, Konstanten `_ARCHIV_CHART_W`/`_H`. Modus B: `buildAudiologMarkdown`, `audiologPrint`, `mdAudiologFilename`, ein interner Mini-MD→HTML-Konverter `_mdToHtmlBasic` und ein Korrektur-Chart-Helfer `_audiologChartImg`. Gemeinsame Helfer: `mdCopyToClipboard`, `mdDownload`, `mdArchivFilename`, `mdDateStampFile`, `_mdEsc`, `_mdFmtDb`, `_mdFmtHz`, `_mdBilateralLabel`. Lädt zwischen `print.js` und `tab-print.js`. |
+| 12d | print-md.js | Markdown-Generatoren für Archiv-Box (Modus A) und Audiologen-Box (Modus B). Modus A: Datensammler `collectArchivData` plus Renderer `renderArchivMarkdown` und Sektion-Helfer `_archivMd*`. Interne Sammler-Helfer: `_collectGlobalTest`, `_collectSideData`, `_collectBilateral`, `_collectPlayer`, `_collectSaetze`, `_pickUpperLevel`, `_calcAbsDelta`. Druck-HTML: `renderArchivPrintHtml` (wandelt Markdown via `_mdToHtmlBasic` in HTML und injiziert PNG-Grafiken), `_archivInjectInserts` (HTML-Injektor per H2/H3-Anker), sechs Canvas-Renderer `_archivChartLoudness`, `_archivChartSchieber`, `_archivChartKurven`, `_archivChartFreqmatch`, `_archivChartLR`, `_archivChartPlayerEq`, Zeichenhelfer `_archivMkCanvas`, `_archivDrawAxis`, Konstanten `_ARCHIV_CHART_W`/`_H`. Modus B: `buildAudiologMarkdown`, `audiologPrint`, `mdAudiologFilename`, Helfer `_audiologMainSides`, `_audiologSideLabel`, `_audiologDbForSide`, `_audiologResForSide`, `_audiologAbsDelta`, `_audiologLoudnessTable`, `_audiologFreqTable`, `_audiologMaplawSection`, `_audiologBalanceBlock`, `_audiologLatencyBlock`, `_audiologTestProgramHint`, `_audiologIsTestProgram`, `_audiologMissingImplantData`, `_audiologAdvice`, `_audiologLastMeas`, `_audiologConfigLabel`, `_audiologChartImg` (2×-Auflösung, Residuum-Fehlerbalken), Mini-MD→HTML-Konverter `_mdToHtmlBasic`. Entfernte i18n-Schlüssel: `audiologRequestsBody`, `audiologSecRequests`, `audiologSecUserNote`, `audColHzOld`, `audColHzNew`, `audiologToolVersion`. Neue i18n-Schlüssel: `audiologToolVersionLine`, `audColHzDefault`, `audColHzManual`, `audColHzWish`, `audMissThr`, `audMissFreqOwn`, `audiologMissingIntro`. Gemeinsame Helfer: `mdCopyToClipboard`, `mdDownload`, `mdArchivFilename`, `mdDateStampFile`, `_mdEsc`, `_mdFmtDb`, `_mdFmtHz`, `_mdBilateralLabel`. Lädt zwischen `print.js` und `tab-print.js`. |
 | 12c | tab-print.js | Tab-spezifische Druck-Funktionen: `printImplantTab` (Implantat-Tab), `printErgebnisseTab` (Dispatcher Meßergebnisse-Sub-Tabs), `_printResLoudness`, `_printResLR`, `_printResFreqmatch`, `_printResLatency`, `_printCloneSafe` (DOM-Klon mit Canvas→img-Ersatz), `printKurvenTab` (Kurven-Tab, Chart-Card + Kurvenfunktionen-Card), `_buildPresetCardPrint` (datengetriebene Preset-Tabelle für Druck: nur aktive Kurven, Werte als Text), `printSchieberTab` (Schieber-Tab: Canvas-Bild + Werte-Tabelle pro Elektrode, im Absolutmodus mit Hersteller-Einheit-Spalte). Nutzen die Helper aus `print.js`. |
 | 13 | tabs-eq.js | `switchTab`, `updateTabLockState`, `updPlSrcButtons`, `updEqToggleBtn`, `updBalApplyBtn`, `updLatApplyBtn`. Sperre umfaßt Top-Level-Tabs **und** Sub-Tabs in Messungen. |
 | 14 | levels.js | `calcPresetCurve`, `getTotalPresetCurve`, `getEffectiveLevels` (noch in expText/file.js genutzt), `buildPrTbl`, `drawLvChart`, `lvOnChange`, `applyPresetDeltaOtherSide`. `buildLvGrid`, `updLvFocus`, `updAllBars` sind entfernt. |
@@ -209,6 +209,12 @@ aktiven Seite), `updPlSrcButtons` und ggf.
 der Gegenkanal ist stumm. `updatePlayerForSideChange` (player.js)
 baut den Audio-Graph bei Side-Wechsel neu auf — auch während laufender
 Wiedergabe (mit kurzer Unterbrechung).
+EQ-Graph (`pDrawEQ`) und Werte-Tabelle (`pBuildTbl`) zeigen bei
+`getPlayerSide() === "both"` die **aktive Seite** (`activeSide`), nicht
+fest „left" — damit bei einseitigem CI die CI-Seite immer sichtbar ist.
+Audio bleibt stereo. Bei `getPlayerSide() === "left"/"right"` (mono)
+liefert `getPlayerGains()` ein flaches Array, kein `{left,right}`-Objekt
+— der `gains.left !== "undefined"`-Guard trifft diesen Fall nicht.
 
 **Balance-Anwendungs-Modus** (`plBalanceMode`, state-side.js):
 "sym" (Default), "left" oder "right". Steuert, wie der Balance-Wert
@@ -218,6 +224,8 @@ auf die beiden Channel-Gains verteilt wird (siehe
 localStorage.
 
 **MAPLAW-Simulation (Phase 3, MED-EL):** Bandweise Hüllkurven-Vorverzerrung Ist⁻¹∘Soll im AudioWorklet aus `maplaw.js`. Wird in `pPlay` zwischen letztem EQ-Knoten und `pGain` eingehängt, wenn `pMaplawOn` und `plEqOn` (EQ-Toggle als Master-Bypass) und `pMaplawIsApplicable()` (mindestens eine Seite MED-EL). Live-Updates von `pMaplawSollC` während Wiedergabe via `pMaplawTrigger` (postMessage an Worklet). Ist-c kommt aus `sideData[activeSide].implant.cValue`. Bilaterale Trennung mit zwei Worklets ist nicht implementiert — der unilaterale Standardfall ist abgedeckt.
+
+**Frequenz-Warping — Persistenz:** Der Warp-Zustand (`pWarpOn`, `pWarpMethod`, `pWarpMode`, `pWarpStrength`) wird analog zu MAPLAW in beiden Persistenz-Pfaden vollständig gespeichert und wiederhergestellt: localStorage-Autosave (init.js, 5-s-Intervall, Schlüssel `pWarpOn`/`pWarpMethod`/`pWarpMode`/`pWarpStrength`) und JSON-Save/Load (file.js, Schlüssel `warpOn`/`warpMethod`/`warpMode`/`warpStrength`). `pWarpedBuf` wird nicht gespeichert und bei Bedarf neu berechnet. Der JSON-Load-Pfad in `file.js` enthält kein Force-Off mehr (das frühere bewusste `pWarpOn = false` und `warpCb.checked = false` wurde in Bauanleitung 47 entfernt). UI-Sync nach dem Setzen über `pWarpUpdUI()`.
 
 **Lokale Sammlungen — Persistenz:** Sammlungen, die über FSAA
 (`showDirectoryPicker`) angelegt wurden, haben einen `handleId`,
@@ -414,21 +422,23 @@ nach `*.has`-Gate). Der alte DOM-basierte Inline-Handler in
 init.js ist entfernt.
 
 **Audiologen-Auftrag (Modus B):** `buildAudiologMarkdown` in
-print-md.js leitet die CI-Einstellungen aus dem aktuellen Player-
-Zustand ab. Welche Seiten in den Hauptteil kommen, ergibt sich aus
-`getPlayerSide()`: bei `left`/`right` nur die jeweilige Seite, bei
-`both`/`mono` beide. EQ-Werte werden als `-computeGains() * plStr`
-berechnet (NH-Sim wird ignoriert), in dB ausgegeben und über
-`calcMedel`/`calcCochlear`/`calcAB` zusätzlich in der Hersteller-
-Einheit aufgeführt (sofern MCL pro Elektrode bekannt). Stereo-
-Balance, Latenz und Frequenz-Warping landen im Hauptteil, wenn
-ihre Player-Checkbox aktiv ist und der Side-Modus paßt. Daten,
-die gemessen wurden, aber im Hauptteil nicht eingeflossen sind,
-landen im Vermerk-Block am Ende — einschließlich der zweiten
-Seite bei symmetrischem Warping mit einseitigem Druck. Druck-Pfad
-nutzt `_mdToHtmlBasic` (Mini-Konverter) plus pro Seite ein
-Korrektur-Bar-Chart als PNG-Img, wird in `openPrintWindow` aus
-print.js gerendert.
+print-md.js erzeugt einen strukturierten Korrektur-Bericht.
+Reihenfolge: Kopf (Datum, Side, Tool-Version), Testprogramm-Hinweis
+(falls erkannt), EQ-aus-Hinweis (falls EQ aus). Dann der bilaterale
+Block — Sektionen, die beide Seiten gleichermaßen betreffen, in fester
+Reihenfolge: Stereo-Balance, Latenz, Hinweise an den Audiologen,
+Fehlende Implantat-Angaben (mit italic Einleitungssatz aus i18n-Key
+`audiologMissingIntro`). Anschließend die Pro-Seite-Blöcke — erst
+LINKS komplett, dann RECHTS komplett, kein Vermischen: Seiten-H2 mit
+Meta-Zeile, dann H3 Lautstärken-Korrektur, H3 MAPLAW-Änderung (wenn
+applikabel), H3 Änderung der Mittenfrequenzen (wenn applikabel).
+`_audiologMaplawSection(mainSides, headerLevel)` unterstützt einen
+optionalen Header-Level-Parameter (Default "##"); aus dem Pro-Seite-
+Loop wird sie mit "###" aufgerufen, damit MAPLAW als H3 unter der
+Seiten-H2 erscheint. Druck-Pfad (`audiologPrint`): Chart-Injektion vor
+`<h3>audiologSecLoudness</h3>` per laufendem `searchFrom`-Offset
+(bilateral-korrekt; Reihenfolge der Seiten-Blöcke entspricht
+`mainSides`). Druck nutzt `openPrintWindow` aus print.js.
 
 ## Edit-Szenarien
 

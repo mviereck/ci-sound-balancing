@@ -183,6 +183,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("fAudiologMdBtn").addEventListener("click", () => {
     mdDownload(buildAudiologMarkdown(), mdAudiologFilename());
   });
+  const audiologNoteEl = document.getElementById("audiologNoteInput");
+  if (audiologNoteEl) {
+    audiologNoteEl.addEventListener("input", function () {
+      audiologUserNote = this.value;
+    });
+  }
   document.getElementById("fResetBtn").addEventListener("click", resetAll);
   document.getElementById("fClearBtn").addEventListener("click", clearRes);
   document
@@ -570,6 +576,26 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function") pMaplawTrigger();
+      // Warp-Zustand wiederherstellen
+      if (typeof pWarpOn !== "undefined") {
+        if (typeof d.pWarpOn === "boolean") pWarpOn = d.pWarpOn;
+        if (typeof d.pWarpMethod === "string") {
+          pWarpMethod = d.pWarpMethod;
+          const sel = document.getElementById("plWarpMethod");
+          if (sel) sel.value = pWarpMethod;
+        }
+        if (typeof d.pWarpMode === "string") {
+          pWarpMode = d.pWarpMode;
+          const sel = document.getElementById("plWarpModeSelect");
+          if (sel) sel.value = pWarpMode;
+        }
+        if (typeof d.pWarpStrength === "number") {
+          pWarpStrength = d.pWarpStrength;
+          const ws = document.getElementById("plWarpStr");
+          if (ws) ws.value = pWarpStrength;
+        }
+        if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+      }
       if (d.lrResults && typeof lrResults !== "undefined") {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
@@ -704,6 +730,10 @@ document.addEventListener("DOMContentLoaded", () => {
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
+          pWarpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
+          pWarpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
+          pWarpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "var_side",
+          pWarpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,

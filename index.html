@@ -1443,11 +1443,23 @@
             "
             data-t="audiologDesc"
           ></p>
+          <!-- Notiz-Eingabefeld -->
+          <label for="audiologNoteInput"
+                 style="display:block;font-size:0.84em;color:var(--text-muted);
+                        margin-top:10px;margin-bottom:4px;"
+                 data-t="audiologNoteLabel"></label>
+          <textarea id="audiologNoteInput" rows="3"
+                    style="width:100%;box-sizing:border-box;font-size:0.9em;
+                           padding:6px;border:1px solid var(--border);
+                           border-radius:4px;background:var(--surface);
+                           color:var(--text);resize:vertical;"
+                    data-t-placeholder="audiologNotePlaceholder"></textarea>
+
           <ul
             style="
               font-size: 0.82em;
               color: var(--text-muted);
-              margin: 0 0 14px 18px;
+              margin: 10px 0 14px 18px;
               padding: 0;
             "
           >

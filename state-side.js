@@ -23,6 +23,7 @@ function effFreq(i) {
 }
 let lvFocus = 0;
 let defaultMfr = "medel"; // Frequenzraster-Default wenn keine Seite CI ist
+let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 
 let presets = [];
 let fullSweepRound = null,

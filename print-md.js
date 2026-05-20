@@ -643,6 +643,12 @@ function _archivMdMisc(data) {
 // ============================================================
 // MODUS B — AUDIOLOGEN-AUFTRAG
 // ============================================================
+// Berichts-Aufbau: siehe Bauanleitung 42.
+// Hauptgenerator: buildAudiologMarkdown()
+// Druck-Variante:  audiologPrint()
+// Markdown-Export: mdAudiologFilename() + buildAudiologMarkdown()
+
+// ---------- Side-Modus ----------
 
 function mdAudiologFilename() {
   const side = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
@@ -659,10 +665,11 @@ function _audiologMainSides() {
   return ["left", "right"];
 }
 
-function _audiologIsTwoEar() {
-  const m = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  return (m === "both" || m === "mono");
+function _audiologSideLabel(side) {
+  return side === "left" ? t("sideLeft") : t("sideRight");
 }
+
+// ---------- Gewinne pro Seite (ΔdB, EQ-Stärke-skaliert) ----------
 
 function _audiologDbForSide(side) {
   return withSide(side, () => {
@@ -673,6 +680,21 @@ function _audiologDbForSide(side) {
     return g.map((v) => -v * str);
   });
 }
+
+// ---------- Residuum pro Elektrode (für Tabelle + Chart) ----------
+
+function _audiologResForSide(side) {
+  return withSide(side, () => {
+    try {
+      const { elRes } = compWLS();
+      return Array.from(elRes || []);
+    } catch (e) {
+      return new Array(nEl).fill(0);
+    }
+  });
+}
+
+// ---------- Implantat-Werte: MCL → neuer Wert (qu/CL/CU) ----------
 
 function _audiologAbsDelta(side, i, dB) {
   return withSide(side, () => {
@@ -689,165 +711,348 @@ function _audiologAbsDelta(side, i, dB) {
       res = calcAB(dB, mcl, thr, impl.idr);
     }
     if (res && res.delta != null && isFinite(res.delta)) {
-      return { value: res.delta, unit };
+      return { mcl: mcl, delta: res.delta, newVal: mcl + res.delta, unit };
     }
-    return { value: null, unit };
+    return { mcl: mcl, delta: null, newVal: null, unit };
   });
 }
 
-function _audiologDbCol(dB) {
-  if (!isFinite(dB)) return "—";
-  return `${dB >= 0 ? "+" : ""}${dB.toFixed(1)} dB`;
+// ---------- Hilfsformatierer ----------
+
+function _audDb(v) {
+  if (!isFinite(v) || v == null) return "—";
+  if (Math.abs(v) < 0.05) return "0.0 dB";
+  return `${v >= 0 ? "+" : ""}${v.toFixed(1)} dB`;
+}
+function _audUnit(v, unit) {
+  if (!isFinite(v) || v == null) return "—";
+  return `${v >= 0 ? "+" : ""}${v.toFixed(1)} ${unit}`;
+}
+function _audUnitAbs(v, unit) {
+  if (!isFinite(v) || v == null) return "—";
+  return `${v.toFixed(1)} ${unit}`;
+}
+function _audCent(varHz, refHz) {
+  if (!isFinite(varHz) || !isFinite(refHz) || varHz <= 0 || refHz <= 0) return "—";
+  const c = 1200 * Math.log2(refHz / varHz);
+  return `${c >= 0 ? "+" : ""}${Math.round(c)} cent`;
 }
 
-function _audiologAbsCol(absRes) {
-  if (absRes.value == null || !isFinite(absRes.value)) return "—";
-  return `${absRes.value >= 0 ? "+" : ""}${absRes.value.toFixed(1)} ${absRes.unit}`;
+function _audStatusText(side, i) {
+  return withSide(side, () => {
+    if (elExDur[i] !== null) return t("audStatExcluded");
+    if (elSt[i] === "mute") return t("audStatMute");
+    if (elSt[i]) {
+      const lb = {
+        noisyHeavy: t("stNoisyHeavy"),
+        noisyMore:  t("stNoisyMore"),
+        noisyLess:  t("stNoisyLess"),
+        almostMute: t("stAlmMute"),
+      };
+      return lb[elSt[i]] || "";
+    }
+    return "";
+  });
 }
 
-function _audiologSideTable(side) {
+// ---------- Testprogramm-Heuristik ----------
+// Erkennt: keine elektroden-spezifische Klangformung.
+// Schieber (getTotalPresetCurve) + Kurven (manualLevels) werden mit
+// EQ-Stärke skaliert; Mittelwert wird abgezogen (reine Pegelver-
+// schiebung ist erlaubt); Standardabweichung über aktive Elektroden
+// muß < 0.2 dB sein. Außerdem: EQ aktiv, NH-Sim aus.
+
+function _audiologIsTestProgram(side) {
+  const eqOn = (typeof plEqOn !== "undefined") ? plEqOn : true;
+  if (!eqOn) return false;
+  const nhSim = document.getElementById("plNHSim")?.checked;
+  if (nhSim) return false;
+  return withSide(side, () => {
+    const str = parseInt(document.getElementById("plStr").value) / 100;
+    const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
+      ? getTotalPresetCurve() : new Array(nEl).fill(0);
+    const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
+      ? manualLevels.slice() : new Array(nEl).fill(0);
+    const active = [];
+    for (let i = 0; i < nEl; i++) {
+      if (elSt[i] === "mute" || elExDur[i] !== null) continue;
+      active.push(i);
+    }
+    if (active.length === 0) return false;
+    const sums = active.map((i) => (presetC[i] + lvls[i]) * str);
+    const mean = sums.reduce((a, b) => a + b, 0) / sums.length;
+    const variance = sums.reduce((a, b) => a + (b - mean) ** 2, 0) / sums.length;
+    const sd = Math.sqrt(variance);
+    return sd < 0.2;
+  });
+}
+
+// ---------- Lautstärken-Tabelle pro Seite ----------
+
+function _audiologLoudnessTable(side) {
   return withSide(side, () => {
     const dBs = _audiologDbForSide(side);
-    const rows = [];
-    for (let i = 0; i < nEl; i++) {
-      if (elSt[i] === "mute" || elSt[i] === "excluded") continue;
-      const dB = dBs[i] || 0;
-      if (Math.abs(dB) < 0.05) continue;
-      const abs = _audiologAbsDelta(side, i, dB);
-      rows.push({
-        el: `${dENPrefix()}${dEN(i)}`,
-        hz: _mdFmtHz(effFreq(i)),
-        dB: _audiologDbCol(dB),
-        abs: _audiologAbsCol(abs),
-        unit: abs.unit,
-      });
-    }
-    if (rows.length === 0) return "";
-    const sideName = side === "left" ? t("sideLeft") : t("sideRight");
-    const mfrLabel = (MFR[mfr] && MFR[mfr].name) || mfr;
-    const unit = rows[0].unit || "qu/CL/CU";
+    const resArr = _audiologResForSide(side);
+    const unit = lvUnitLabelFor(mfr);
     const lines = [];
-    lines.push(`### ${sideName} (${mfrLabel})`);
-    lines.push("");
-    lines.push(`| ${t("thEl")} | ${t("thHz")} | ${t("audiologColDb")} | ${t("audiologColAbs")} (${unit}) |`);
-    lines.push("|---|---|---|---|");
-    for (const r of rows) lines.push(`| ${r.el} | ${r.hz} | ${r.dB} | ${r.abs} |`);
+    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("audColNote")} |`);
+    lines.push("|---|---|---|---|---|---|---|---|");
+    for (let i = 0; i < nEl; i++) {
+      const dB = dBs[i] || 0;
+      const r  = resArr[i] || 0;
+      const abs = _audiologAbsDelta(side, i, dB);
+      const status = _audStatusText(side, i);
+      const note = (elNt && elNt[i]) ? elNt[i] : "";
+      lines.push(
+        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : "—"} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status || "—"} | ${note || "—"} |`
+      );
+    }
+    return lines.join("\n");
+  });
+}
+
+// ---------- Frequenz-Tabelle pro Seite (mit sym-Warp-Zusatzspalten) ----------
+
+function _audiologFreqTable(side, mainSides) {
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
+  if (typeof plEqOn !== "undefined" && !plEqOn) return "";
+  if (typeof fRes === "undefined" || fRes.length === 0) return "";
+
+  const isSymSingle = (mainSides.length === 1
+                      && typeof pWarpMode !== "undefined"
+                      && pWarpMode === "sym");
+  const own = fRes.filter((r) => r.varSide === side);
+  if (own.length === 0 && !isSymSingle) return "";
+
+  const ownByEl = {};
+  for (const r of own) ownByEl[r.elIdx] = r;
+
+  let otherByEl = null;
+  let otherSide = null;
+  if (isSymSingle) {
+    otherSide = side === "left" ? "right" : "left";
+    const otherRows = fRes.filter((r) => r.varSide === otherSide);
+    otherByEl = {};
+    for (const r of otherRows) otherByEl[r.elIdx] = r;
+  }
+
+  return withSide(side, () => {
+    const lines = [];
+    const sd = sideData[side];
+    const defFreqs = (sd && sd.manufacturer && MFR[sd.manufacturer])
+      ? MFR[sd.manufacturer].freqs
+      : freqs;
+    const ownFreqOwn = (sd && sd.elFreqOwn) ? sd.elFreqOwn : null;
+
+    if (isSymSingle && otherByEl && Object.keys(otherByEl).length > 0) {
+      const otherLbl = otherSide === "left" ? t("sideLeft") : t("sideRight");
+      lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} || ${t("audColCent")} (${otherLbl}) | ${t("audColDeltaHz")} (${otherLbl}) | ${t("audColHzWish")} (${otherLbl}) |`);
+      lines.push("|---|---|---|---|---|---||---|---|---|");
+      for (let i = 0; i < nEl; i++) {
+        const r = ownByEl[i];
+        const o = otherByEl[i];
+        if (!r && !o) continue;
+        const hzDef = defFreqs[i] != null ? _mdFmtHz(defFreqs[i]) : "—";
+        const hzMan = (ownFreqOwn && ownFreqOwn[i] != null) ? _mdFmtHz(ownFreqOwn[i]) : "—";
+        const ownCent  = r ? _audCent(r.varFreq, r.refFreq) : "—";
+        const ownDHzV  = r && isFinite(r.refFreq) && isFinite(r.varFreq) ? r.refFreq - r.varFreq : null;
+        const ownDHz   = ownDHzV != null ? `${ownDHzV >= 0 ? "+" : ""}${Math.round(ownDHzV)} Hz` : "—";
+        const ownNew   = r ? `**${_mdFmtHz(r.refFreq)}**` : "—";
+        const othCent  = o ? _audCent(o.varFreq, o.refFreq) : "—";
+        const othDHzV  = o && isFinite(o.refFreq) && isFinite(o.varFreq) ? o.refFreq - o.varFreq : null;
+        const othDHz   = othDHzV != null ? `${othDHzV >= 0 ? "+" : ""}${Math.round(othDHzV)} Hz` : "—";
+        const othNew   = o ? `**${_mdFmtHz(o.refFreq)}**` : "—";
+        lines.push(`| ${dENPrefix()}${dEN(i)} | ${hzDef} | ${hzMan} | ${ownCent} | ${ownDHz} | ${ownNew} || ${othCent} | ${othDHz} | ${othNew} |`);
+      }
+    } else {
+      lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} |`);
+      lines.push("|---|---|---|---|---|---|");
+      for (let i = 0; i < nEl; i++) {
+        const r = ownByEl[i];
+        if (!r) continue;
+        const hzDef = defFreqs[i] != null ? _mdFmtHz(defFreqs[i]) : "—";
+        const hzMan = (ownFreqOwn && ownFreqOwn[i] != null) ? _mdFmtHz(ownFreqOwn[i]) : "—";
+        const dHzV  = isFinite(r.refFreq) && isFinite(r.varFreq) ? r.refFreq - r.varFreq : null;
+        const dHz   = dHzV != null ? `${dHzV >= 0 ? "+" : ""}${Math.round(dHzV)} Hz` : "—";
+        lines.push(`| ${dENPrefix()}${dEN(i)} | ${hzDef} | ${hzMan} | ${_audCent(r.varFreq, r.refFreq)} | ${dHz} | **${_mdFmtHz(r.refFreq)}** |`);
+      }
+    }
     return lines.join("\n") + "\n";
   });
 }
 
-function _audiologMaplawBlock(mainSides) {
+// ---------- MAPLAW — eigene H2-Sektion ----------
+
+function _audiologMaplawSection(mainSides, headerLevel) {
   if (typeof pMaplawOn === "undefined" || !pMaplawOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
   const sollC = (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : null;
+  if (sollC == null) return "";
   const rows = [];
   for (const side of mainSides) {
     const sd = sideData[side];
     if (!sd || sd.manufacturer !== "medel") continue;
     const istC = (sd.implant && sd.implant.cValue) ? sd.implant.cValue : null;
-    if (istC == null || sollC == null || istC === sollC) continue;
-    const sideName = side === "left" ? t("sideLeft") : t("sideRight");
-    rows.push(`- ${sideName}: MAPLAW c **${istC} → ${sollC}**`);
+    if (istC == null || istC === sollC) continue;
+    const sideName = _audiologSideLabel(side);
+    rows.push(`MAPLAW ${sideName} ändern von c=${istC} auf c=**${sollC}**.`);
   }
   if (rows.length === 0) return "";
-  const lines = [`### ${t("audiologSecMaplaw")}`, "", ...rows, ""];
+  const lvl = headerLevel || "##";
+  const lines = [`${lvl} ${t("audiologSecMaplaw")}`, "", ...rows, ""];
   return lines.join("\n");
 }
 
-function _audiologFreqBlock(side) {
-  if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
-  if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  if (typeof fRes === "undefined" || fRes.length === 0) return "";
-  const own = fRes.filter((r) => r.varSide === side);
-  if (own.length === 0) return "";
-  const sideName = side === "left" ? t("sideLeft") : t("sideRight");
-  const lines = [];
-  lines.push(`#### ${sideName}`);
-  lines.push("");
-  lines.push(`| ${t("thEl")} | ${t("audiologColFreqOld")} | ${t("audiologColFreqNew")} |`);
-  lines.push("|---|---|---|");
-  for (const r of own) {
-    const elTxt = withSide(side, () => `${dENPrefix()}${dEN(r.elIdx)}`);
-    lines.push(`| ${elTxt} | ${_mdFmtHz(r.varFreq)} | ${_mdFmtHz(r.refFreq)} |`);
-  }
-  return lines.join("\n") + "\n";
-}
+// ---------- Stereo-Balance (immer wenn gemessen, auch einseitig) ----------
 
-function _audiologBalanceBlock() {
-  if (typeof plApplyBalance === "undefined" || !plApplyBalance) return "";
-  if (!_audiologIsTwoEar()) return "";
-  if (typeof getPlayerBalance !== "function") return "";
-  const b = getPlayerBalance();
-  if (!isFinite(b) || b === 0) return "";
-  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
-  const modeTxt = t("plBalMode" + mode.charAt(0).toUpperCase() + mode.slice(1)) || mode;
-  const lines = [];
-  lines.push(`### ${t("audiologSecBalance")}`);
-  lines.push("");
-  lines.push(`- ${t("audiologBalValue")}: **${b > 0 ? "+" : ""}${b.toFixed(1)} dB** (${t("audiologBalDir")})`);
-  lines.push(`- ${t("audiologBalMode")}: ${modeTxt}`);
-  lines.push("");
-  lines.push(`_${t("audiologBalHint")}_`);
-  lines.push("");
-  return lines.join("\n");
-}
+function _audiologBalanceBlock(mainSides) {
+  if (typeof lrResults === "undefined") return "";
+  const keys = Object.keys(lrResults).filter((k) => isFinite(lrResults[k]));
+  if (keys.length === 0) return "";
+  const mean = keys.reduce((a, k) => a + lrResults[k], 0) / keys.length;
+  if (!isFinite(mean) || mean === 0) return "";
 
-function _audiologLatencyBlock() {
-  if (typeof plApplyLatency === "undefined" || !plApplyLatency) return "";
-  if (!_audiologIsTwoEar()) return "";
-  if (typeof latencyResult === "undefined" || !latencyResult
-      || !isFinite(latencyResult.valueMs)) return "";
-  const ms = latencyResult.valueMs;
-  const sideTxt = ms >= 0 ? t("sideRight") : t("sideLeft");
-  const lines = [];
-  lines.push(`### ${t("audiologSecLatency")}`);
-  lines.push("");
-  lines.push(`- ${t("audiologLatValue")}: **${Math.abs(ms).toFixed(2)} ms** (${sideTxt})`);
-  lines.push(`- _${t("audiologLatHint")}_`);
-  lines.push("");
-  return lines.join("\n");
-}
-
-function _audiologNoteBlock(mainSides) {
-  const out = [];
-  const isSingleSide = (mainSides.length === 1);
   const balActive = (typeof plApplyBalance !== "undefined") && plApplyBalance
-                 && _audiologIsTwoEar();
-  if (!balActive && typeof lrResults !== "undefined"
-      && Object.keys(lrResults).filter((k) => isFinite(lrResults[k])).length > 0) {
-    const keys = Object.keys(lrResults).filter((k) => isFinite(lrResults[k]));
-    const mean = keys.reduce((a, k) => a + lrResults[k], 0) / keys.length;
-    out.push(`- ${t("audiologNoteBal")}: ${mean >= 0 ? "+" : ""}${mean.toFixed(1)} dB. ${t("audiologNoteBalReason")}`);
-  }
+                 && (mainSides.length === 2);
+  const louderSide = mean > 0 ? t("sideRight") : t("sideLeft");
+  const quieterSide = mean > 0 ? t("sideLeft")  : t("sideRight");
+
+  const lines = [];
+  lines.push(`## ${t("audiologSecBalance")}`);
+  lines.push("");
+  lines.push(`- ${t("audiologBalDiff")}: **${Math.abs(mean).toFixed(1)} dB**`);
+  lines.push(`- ${t("audiologBalImpact")
+    .replace("{louder}", louderSide)
+    .replace("{quieter}", quieterSide)}`);
+  lines.push(`- ${balActive ? t("audiologBalIncluded") : t("audiologBalNotIncluded")}`);
+  lines.push("");
+  return lines.join("\n");
+}
+
+// ---------- Latenz (immer wenn gemessen, auch einseitig) ----------
+
+function _audiologLatencyBlock(mainSides) {
+  if (typeof latencyResult === "undefined" || !latencyResult) return "";
+  if (!isFinite(latencyResult.valueMs)) return "";
+  const ms = latencyResult.valueMs;
+  if (ms === 0) return "";
   const latActive = (typeof plApplyLatency !== "undefined") && plApplyLatency
-                 && _audiologIsTwoEar();
-  if (!latActive && typeof latencyResult !== "undefined" && latencyResult
-      && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0) {
-    const ms = latencyResult.valueMs;
-    const sideTxt = ms >= 0 ? t("sideRight") : t("sideLeft");
-    out.push(`- ${t("audiologNoteLat")}: ${Math.abs(ms).toFixed(2)} ms (${sideTxt}). ${t("audiologNoteLatReason")}`);
-  }
-  if (isSingleSide && typeof pWarpOn !== "undefined" && pWarpOn
-      && typeof pWarpMode !== "undefined" && pWarpMode === "sym"
-      && typeof fRes !== "undefined" && fRes.length > 0) {
-    const otherSide = mainSides[0] === "left" ? "right" : "left";
-    const otherFm = fRes.filter((r) => r.varSide === otherSide);
-    if (otherFm.length > 0) {
-      out.push(`- ${t("audiologNoteWarp")} (${otherSide === "left" ? t("sideLeft") : t("sideRight")}):`);
-      for (const r of otherFm) {
-        const elTxt = withSide(otherSide, () => `${dENPrefix()}${dEN(r.elIdx)}`);
-        out.push(`  - ${elTxt}: ${_mdFmtHz(r.varFreq)} → ${_mdFmtHz(r.refFreq)}`);
-      }
+                 && (mainSides.length === 2);
+  const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
+  const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");
+  const lines = [];
+  lines.push(`## ${t("audiologSecLatency")}`);
+  lines.push("");
+  lines.push(`- ${t("audiologLatValue")}: **${Math.abs(ms).toFixed(2)} ms**`);
+  lines.push(`- ${t("audiologLatImpact")
+    .replace("{earlier}", earlierSide)
+    .replace("{later}", laterSide)}`);
+  lines.push("");
+  return lines.join("\n");
+}
+
+// ---------- Testprogramm-Hinweis ----------
+
+function _audiologTestProgramHint(mainSides) {
+  let anyTP = false;
+  for (const s of mainSides) if (_audiologIsTestProgram(s)) anyTP = true;
+  if (!anyTP) return "";
+  return `\n> ${t("audiologTestProgramHint")}\n\n`;
+}
+
+// ---------- Fehlende Implantat-Angaben pro Seite ----------
+
+function _audiologMissingImplantData(mainSides) {
+  const out = [];
+  for (const side of mainSides) {
+    const sd = sideData[side];
+    const impl = (sd && sd.implant) || {};
+    const sideLbl = _audiologSideLabel(side);
+    const missing = [];
+    if (!impl.model)     missing.push(t("audMissImplantModel"));
+    if (!impl.processor) missing.push(t("audMissProcessor"));
+    const mclSet = (impl.mcl || []).some((v) => v != null && isFinite(v));
+    if (!mclSet) missing.push(t("audMissMcl"));
+    const thrSet = (impl.thr || []).some((v) => v != null && isFinite(v));
+    if (!thrSet) missing.push(t("audMissThr"));
+    const freqOwnSet = (sd && sd.elFreqOwn || []).some((v) => v != null && isFinite(v));
+    if (!freqOwnSet) missing.push(t("audMissFreqOwn"));
+    if (sd && sd.manufacturer === "medel" && !impl.cValue) missing.push(t("audMissCValue"));
+    if (sd && sd.manufacturer === "cochlear" && !impl.iidr) missing.push(t("audMissIidr"));
+    if (sd && sd.manufacturer === "ab" && !impl.idr) missing.push(t("audMissIdr"));
+    if (missing.length > 0) {
+      out.push(`- **${sideLbl}**: ${missing.join(", ")}`);
     }
   }
   if (out.length === 0) return "";
-  return `### ${t("audiologSecNote")}\n\n` + out.join("\n") + "\n";
+  const lines = [
+    `## ${t("audiologSecMissing")}`,
+    "",
+    `_${t("audiologMissingIntro")}_`,
+    "",
+    ...out,
+    "",
+  ];
+  return lines.join("\n");
 }
 
-function _audiologEqOffBlock() {
-  if (typeof plEqOn === "undefined" || plEqOn) return "";
-  return `> ${t("audiologEqOff")}\n\n`;
+// ---------- Hinweise für den Audiologen (4 Bullets) ----------
+
+function _audiologAdvice() {
+  const lines = [];
+  lines.push(`## ${t("audiologSecAdvice")}`);
+  lines.push("");
+  lines.push(`- ${t("audiologAdvice1")}`);
+  lines.push(`- ${t("audiologAdvice2")}`);
+  lines.push(`- ${t("audiologAdvice3")}`);
+  lines.push(`- ${t("audiologAdvice4")}`);
+  lines.push(`- ${t("audiologAdvice5")}`);
+  lines.push("");
+  return lines.join("\n");
 }
+
+// ---------- Letzte Messung pro Seite (max-Timestamp von jRes+bRes) ----------
+
+function _audiologLastMeas(side) {
+  const sd = sideData[side];
+  if (!sd) return null;
+  let max = 0;
+  const collect = (arr) => {
+    if (!Array.isArray(arr)) return;
+    for (const e of arr) if (e && e.timestamp && e.timestamp > max) max = e.timestamp;
+  };
+  collect(sd.jRes); collect(sd.bRes);
+  return max > 0 ? new Date(max) : null;
+}
+
+function _audiologDateStr(d) {
+  if (!d) return "—";
+  return d.toLocaleString(
+    lang === "de" ? "de-DE"
+    : lang === "fr" ? "fr-FR"
+    : lang === "es" ? "es-ES" : "en-US"
+  );
+}
+
+// ---------- Konfig-Beschriftung pro Seite ----------
+
+function _audiologConfigLabel(side) {
+  const sd = sideData[side];
+  const cfg = (sd && sd.config) || "ci";
+  const map = {
+    ci:     "cfgCI",
+    hg:     "cfgHG",
+    normal: "cfgNormal",
+    shoh:   "cfgSchwerh",
+    deaf:   "cfgTaub",
+  };
+  const key = map[cfg];
+  if (!key) return cfg;
+  const tr = t(key);
+  return (tr && tr !== key) ? tr : cfg;
+}
+
+// ---------- Haupt-Generator ----------
 
 function buildAudiologMarkdown() {
   const now = new Date();
@@ -859,39 +1064,88 @@ function buildAudiologMarkdown() {
   const mainSides = _audiologMainSides();
   const sideLabel = _mdBilateralLabel();
   const parts = [];
+
+  // ---- Kopf ----
   parts.push(`# CI Sound Balancing — ${t("audiologTitle")}\n`);
   parts.push(`**${t("archivHeaderDate")}**: ${dateStr}`);
-  parts.push(`**${t("audiologHeaderSide")}**: ${sideLabel}\n`);
-  parts.push(_audiologEqOffBlock());
-  parts.push(`## ${t("audiologSecCorrection")}\n`);
-  let anyTable = false;
-  for (const side of mainSides) {
-    const t1 = _audiologSideTable(side);
-    if (t1) { parts.push(t1); anyTable = true; }
+  parts.push(`**${t("audiologHeaderSide")}**: ${sideLabel}`);
+  if (typeof APP_VERSION !== "undefined") {
+    parts.push(`_${t("audiologToolVersionLine").replace("{VERSION}", APP_VERSION)}_`);
   }
-  if (!anyTable) {
-    parts.push(`_${t("audiologNoCorrection")}_\n`);
+  parts.push("");
+
+  // ---- Testprogramm-Hinweis FRÜH ----
+  const tp = _audiologTestProgramHint(mainSides);
+  if (tp) parts.push(tp);
+
+  // ---- EQ aus ----
+  if (typeof plEqOn !== "undefined" && !plEqOn) {
+    parts.push(`> ${t("audiologEqOff")}\n`);
   }
-  const ml = _audiologMaplawBlock(mainSides);
-  if (ml) parts.push(ml);
-  if (typeof pWarpOn !== "undefined" && pWarpOn
-      && typeof plEqOn !== "undefined" && plEqOn) {
-    const freqParts = [];
-    for (const side of mainSides) {
-      const fb = _audiologFreqBlock(side);
-      if (fb) freqParts.push(fb);
-    }
-    if (freqParts.length > 0) {
-      parts.push(`## ${t("audiologSecFreq")}\n`);
-      parts.push(freqParts.join("\n"));
-    }
-  }
-  const bal = _audiologBalanceBlock();
+
+  // ===========================================================
+  // BILATERAL-BLOCK — vor den Seiten-Blöcken.
+  // Reihenfolge: Balance → Latenz → Hinweise → Fehlende Angaben.
+  // ===========================================================
+  parts.push(_audiologAdvice());
+  const miss = _audiologMissingImplantData(mainSides);
+  if (miss) parts.push(miss);
+  const bal = _audiologBalanceBlock(mainSides);
   if (bal) parts.push(bal);
-  const lat = _audiologLatencyBlock();
+  const lat = _audiologLatencyBlock(mainSides);
   if (lat) parts.push(lat);
-  const note = _audiologNoteBlock(mainSides);
-  if (note) parts.push(note);
+
+  // ===========================================================
+  // PRO-SEITE-BLÖCKE — LINKS komplett, dann RECHTS komplett.
+  // Innerhalb einer Seite: alle Sub-Sektionen als H3.
+  // ===========================================================
+  for (const side of mainSides) {
+    const sd = sideData[side];
+    if (!sd) continue;
+    const impl = sd.implant || {};
+    const sideLbl = _audiologSideLabel(side);
+    const mfrLbl  = (MFR[sd.manufacturer] && MFR[sd.manufacturer].name) || sd.manufacturer;
+    const cfgLbl  = _audiologConfigLabel(side);
+    parts.push(`## ${sideLbl} — ${cfgLbl}`);
+    parts.push("");
+    const meta = [];
+    meta.push(`${t("audiologMfr")}: ${mfrLbl}`);
+    if (impl.processor) meta.push(`${t("audiologProcessor")}: ${impl.processor}`);
+    if (impl.model)     meta.push(`${t("audiologImplant")}: ${impl.model}`);
+    const lastM = _audiologLastMeas(side);
+    if (lastM) meta.push(`${t("audiologLastMeas")}: ${_audiologDateStr(lastM)}`);
+    parts.push(`_${meta.join(" · ")}_`);
+    parts.push("");
+
+    // H3 Lautstärken-Korrektur
+    parts.push(`### ${t("audiologSecLoudness")}`);
+    parts.push("");
+    parts.push(_audiologLoudnessTable(side));
+    parts.push("");
+    parts.push(`_${t("audiologLoudnessLegend")}_`);
+    parts.push("");
+
+    // H3 MAPLAW-Änderung — falls relevant für diese Seite
+    const mlSide = _audiologMaplawSection([side], "###");
+    if (mlSide) parts.push(mlSide);
+
+    // H3 Änderung der Mittenfrequenzen — falls relevant für diese Seite
+    if (typeof pWarpOn !== "undefined" && pWarpOn
+        && typeof plEqOn !== "undefined" && plEqOn
+        && typeof fRes !== "undefined" && fRes.length > 0) {
+      const ft = _audiologFreqTable(side, [side]);
+      if (ft) {
+        parts.push(`### ${t("audiologSecFreq")}`);
+        parts.push("");
+        if (typeof pWarpMode !== "undefined" && pWarpMode === "sym") {
+          parts.push(`_${t("audiologFreqSymHint")}_`);
+          parts.push("");
+        }
+        parts.push(ft);
+      }
+    }
+  }
+
   return parts.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n";
 }
 
@@ -920,10 +1174,14 @@ function _mdToHtmlBasic(md) {
         rows.push(lines[i].split("|").slice(1, -1).map((c) => c.trim()));
         i++;
       }
-      let tbl = '<table style="border-collapse:collapse;margin:8px 0;">';
-      tbl += "<thead><tr>" + head.map((c) => `<th style="border:1px solid #888;padding:4px 8px;background:#eee;">${esc(c)}</th>`).join("") + "</tr></thead>";
+      let tbl = '<table style="border-collapse:collapse;margin:8px 0;font-size:0.85em;">';
+      tbl += "<thead><tr>" + head.map((c) =>
+        `<th style="border:1px solid #000;padding:4px 10px;background:#eee;text-align:left;white-space:nowrap;">${esc(c)}</th>`
+      ).join("") + "</tr></thead>";
       tbl += "<tbody>" + rows.map((r) =>
-        "<tr>" + r.map((c) => `<td style="border:1px solid #888;padding:4px 8px;">${esc(c).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")}</td>`).join("") + "</tr>"
+        "<tr>" + r.map((c) =>
+          `<td style="border:1px solid #000;padding:4px 10px;white-space:nowrap;">${esc(c).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")}</td>`
+        ).join("") + "</tr>"
       ).join("") + "</tbody></table>";
       out.push(tbl);
       continue;
@@ -940,7 +1198,7 @@ function _mdToHtmlBasic(md) {
       continue;
     }
     if (/^\s*>\s+/.test(line)) {
-      out.push(`<blockquote style="border-left:3px solid #888;padding-left:8px;color:#555;">${esc(line.replace(/^\s*>\s+/, ""))}</blockquote>`);
+      out.push(`<blockquote style="border-left:3px solid #000;padding-left:8px;">${esc(line.replace(/^\s*>\s+/, ""))}</blockquote>`);
       i++; continue;
     }
     if (line.trim() === "") { i++; continue; }
@@ -953,53 +1211,102 @@ function _mdToHtmlBasic(md) {
   return out.join("\n");
 }
 
+// Bar-Chart pro Seite mit Residuum-Fehlerbalken.
+// 2× Auflösung, CSS-Width = logische Breite.
+
 function _audiologChartImg(side) {
   const dBs = _audiologDbForSide(side);
+  const resArr = _audiologResForSide(side);
   return withSide(side, () => {
+    const SCALE = 2;
+    const Wlog = 700, Hlog = 240;
     const canvas = document.createElement("canvas");
-    const W = 700, H = 220;
-    canvas.width = W; canvas.height = H;
+    canvas.width = Wlog * SCALE;
+    canvas.height = Hlog * SCALE;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
+    ctx.scale(SCALE, SCALE);
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, Wlog, Hlog);
+
     let maxAbs = 1;
-    for (let i = 0; i < nEl; i++) maxAbs = Math.max(maxAbs, Math.abs(dBs[i] || 0));
+    for (let i = 0; i < nEl; i++) {
+      const v = dBs[i] || 0;
+      const r = resArr[i] || 0;
+      maxAbs = Math.max(maxAbs, Math.abs(v) + r);
+    }
     maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
-    const pad = { l: 36, r: 14, t: 28, b: 28 };
-    const pW = W - pad.l - pad.r, pH = H - pad.t - pad.b;
+
+    const pad = { l: 40, r: 14, t: 30, b: 32 };
+    const pW = Wlog - pad.l - pad.r, pH = Hlog - pad.t - pad.b;
     const zY = pad.t + pH / 2;
     const gW = pW / nEl;
+
     ctx.strokeStyle = "#888"; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(pad.l, zY); ctx.lineTo(W - pad.r, zY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(pad.l, zY); ctx.lineTo(Wlog - pad.r, zY); ctx.stroke();
+
     ctx.fillStyle = "#444"; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
     ctx.fillText("+" + maxAbs, pad.l - 4, pad.t + 8);
     ctx.fillText("0", pad.l - 4, zY + 3);
-    ctx.fillText("-" + maxAbs, pad.l - 4, H - pad.b + 4);
+    ctx.fillText("-" + maxAbs, pad.l - 4, Hlog - pad.b + 4);
+
     for (let i = 0; i < nEl; i++) {
-      if (elSt[i] === "mute" || elSt[i] === "excluded") continue;
       const v = dBs[i] || 0;
-      if (Math.abs(v) < 0.05) continue;
-      const h = (Math.abs(v) / maxAbs) * (pH / 2);
+      const r = resArr[i] || 0;
       const x = pad.l + i * gW + 2;
       const w = Math.max(2, gW - 4);
-      ctx.fillStyle = v >= 0 ? "#3b82f6" : "#ef4444";
-      if (v >= 0) ctx.fillRect(x, zY - h, w, h);
-      else        ctx.fillRect(x, zY,    w, h);
+      const disabled = (elSt[i] === "mute") || (elExDur[i] !== null);
+      if (disabled) {
+        ctx.fillStyle = "#ccc";
+        ctx.fillRect(x, pad.t, w, pH);
+        ctx.fillStyle = "#444"; ctx.textAlign = "center";
+        ctx.fillText(`${dENPrefix()}${dEN(i)}`, x + w / 2, Hlog - pad.b + 16);
+        continue;
+      }
+      if (Math.abs(v) >= 0.05) {
+        const h = (Math.abs(v) / maxAbs) * (pH / 2);
+        ctx.fillStyle = v >= 0 ? "#3b82f6" : "#ef4444";
+        if (v >= 0) ctx.fillRect(x, zY - h, w, h);
+        else        ctx.fillRect(x, zY,    w, h);
+      }
+      if (r > 0) {
+        const yT = zY - ((v + r) / maxAbs) * (pH / 2);
+        const yB = zY - ((v - r) / maxAbs) * (pH / 2);
+        const xC = x + w / 2;
+        ctx.strokeStyle = "rgba(0,0,0,0.55)";
+        ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.moveTo(xC, yT); ctx.lineTo(xC, yB); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(xC - 4, yT); ctx.lineTo(xC + 4, yT); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(xC - 4, yB); ctx.lineTo(xC + 4, yB); ctx.stroke();
+      }
       ctx.fillStyle = "#444"; ctx.textAlign = "center";
-      ctx.fillText(`${dENPrefix()}${dEN(i)}`, x + w / 2, H - pad.b + 16);
+      ctx.font = "10px sans-serif";
+      ctx.fillText(`${dENPrefix()}${dEN(i)}`, x + w / 2, Hlog - pad.b + 16);
     }
     ctx.fillStyle = "#000"; ctx.font = "bold 12px sans-serif"; ctx.textAlign = "left";
     const sideName = side === "left" ? t("sideLeft") : t("sideRight");
-    ctx.fillText(`${t("audiologChartTitle")} — ${sideName}`, pad.l, 16);
-    return canvasToImg(canvas, 700);
+    ctx.fillText(`${t("audiologChartTitle")} — ${sideName}`, pad.l, 18);
+
+    return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;
   });
 }
 
 function audiologPrint() {
-  const md = buildAudiologMarkdown();
   const mainSides = _audiologMainSides();
   const eqOn = (typeof plEqOn === "undefined") ? true : plEqOn;
-  const charts = (eqOn ? mainSides.map((s) => _audiologChartImg(s)).filter(Boolean) : []);
-  const body = charts.join("") + _mdToHtmlBasic(md);
+  const md = buildAudiologMarkdown();
+  const html = _mdToHtmlBasic(md);
+  let body = html;
+  if (eqOn) {
+    let searchFrom = 0;
+    for (const s of mainSides) {
+      const chart = _audiologChartImg(s);
+      const marker = `<h3>${t("audiologSecLoudness")}</h3>`;
+      const idx = body.indexOf(marker, searchFrom);
+      if (idx >= 0) {
+        body = body.slice(0, idx) + chart + body.slice(idx);
+        searchFrom = idx + chart.length + marker.length;
+      }
+    }
+  }
   if (typeof openPrintWindow !== "function") {
     alert("openPrintWindow not available — print.js missing?");
     return;

@@ -22,6 +22,11 @@ function resetAll() {
     initSideData(s, "medel");
   }
   defaultMfr = "medel";
+  if (typeof audiologUserNote !== "undefined") {
+    audiologUserNote = "";
+    const aNoteEl = document.getElementById("audiologNoteInput");
+    if (aNoteEl) aNoteEl.value = "";
+  }
   activeSide = "left";
   bindActiveSide();
   document.getElementById("ciSideSelect").value = "left";
@@ -139,6 +144,7 @@ async function saveJson() {
           handleId: c.handleId || null,
         }))
       : [],
+    audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
@@ -393,9 +399,7 @@ function applyLoadedData(d) {
   }
   // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
   if (typeof pWarpOn !== "undefined") {
-    if (d.warpOn !== undefined) {
-      pWarpOn = false; // Warp beim Laden immer deaktiviert starten
-    }
+    if (typeof d.warpOn === "boolean") pWarpOn = d.warpOn;
     if (d.warpMode !== undefined) pWarpMode = d.warpMode;
     if (d.warpStrength !== undefined) {
       pWarpStrength = d.warpStrength;
@@ -407,8 +411,6 @@ function applyLoadedData(d) {
       const methodSel = document.getElementById("plWarpMethod");
       if (methodSel) methodSel.value = pWarpMethod;
     }
-    const warpCb = document.getElementById("plWarpOn");
-    if (warpCb) warpCb.checked = false;
     const modeSel = document.getElementById("plWarpModeSelect");
     if (modeSel) modeSel.value = pWarpMode;
     pWarpedBuf = null;
@@ -420,6 +422,11 @@ function applyLoadedData(d) {
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
+  if (typeof audiologUserNote !== "undefined") {
+    audiologUserNote = (typeof d.audiologUserNote === "string") ? d.audiologUserNote : "";
+    const aNoteEl = document.getElementById("audiologNoteInput");
+    if (aNoteEl) aNoteEl.value = audiologUserNote;
+  }
   buildFreqTable();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
