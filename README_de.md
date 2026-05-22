@@ -93,6 +93,10 @@ Vergleich der Lautstärken der Elektroden.
   - Mit der *Leertaste* Ton erneut abspielen.
   - Sobald die Töne gleich laut sind, mit *Enter* bestätigen.
   - Optional: Anderen Ton zum Testen auswählen.
+    - Anmerkung: Es stehen einige Töne zur Auswahl. 
+      - Sinus ist Standard. 
+      - Schmalbandrauschen kann zu erstaunlich großen Abweichungen in der Messung führen.
+        Diesen Ton erst einmal nur experimentell nutzen, oder als ganz eigene Testreihe unabhängig von einer Sinustonmessung.
 - Empfohlenes Vorgehen: 
   - Erst Testverfahren *Vollständig*.
   - Dann Testverfahren *Konvergenz*, gerne mehrfach.
@@ -164,12 +168,16 @@ Zeitversatz zwischen links und rechts messen.
 - Mit diesem Test können Sie diese Latenz messen. Je nach Gerät kann eine Korrektur vom Audiologen oder Akustiker vorgenommen werden.
 - Wenn die Lautsärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, "wo" Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.
 - Ein Ausgleich kann im Player aktiviert werden.
+
+Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Versionen verfeinert werden.
  
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
 - Es ist vorteilhaft, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. 
 - Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
 - Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+
+Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Versionen verfeinert werden.
 
 ### Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.
