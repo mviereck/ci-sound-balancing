@@ -55,7 +55,7 @@ function mdDateStampFile() {
 }
 
 function mdArchivFilename() {
-  return `ci-sound-balancing-archiv-${mdDateStampFile()}.md`;
+  return _applyUserFileSuffix(`ci-sound-balancing-archiv-${mdDateStampFile()}.md`);
 }
 
 function mdCopyToClipboard(text) {
@@ -654,7 +654,7 @@ function mdAudiologFilename() {
   const sideTag = (side === "left")  ? "links"
                 : (side === "right") ? "rechts"
                 : "beide";
-  return `ci-sound-balancing-audiologe-${mdDateStampFile()}-${sideTag}.md`;
+  return _applyUserFileSuffix(`ci-sound-balancing-audiologe-${mdDateStampFile()}-${sideTag}.md`);
 }
 
 function _audiologMainSides() {

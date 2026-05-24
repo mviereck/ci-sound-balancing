@@ -1,3 +1,17 @@
+## Globaler Dateinamen-Suffix
+
+Oberhalb der Karten Archiv-Box und Audiologen-Box steht eine globale
+Eingabezeile „Dateinamen ergänzen um eigenes Wort". Der eingegebene
+Wert wird beim Speichern aller exportierten Dateien (JSON-Save,
+EasyEffects-Export, Archiv-Markdown, Audiologen-Markdown) ans Ende
+des Dateinamens gehängt, vor die Datei-Endung, getrennt durch einen
+Unterstrich. Vorgeschlagen werden „MAP1" bis „MAP4" über ein Custom-Combobox
+(Textfeld + ▼-Button + aufklappende Liste); Freitext ist möglich. Dateinamen-feindliche
+Zeichen werden auf `_` reduziert. Persistenz: separater
+localStorage-Schlüssel `ci-lb-userFileSuffix` (sofort beim
+Eingabe-Change) plus Mitspeicherung im Haupt-Save (`ci-lb-v4`) und
+im JSON-Save/Load.
+
 ## Speichern und Laden
 
 - JSON mit allen Einstellungen, Meßergebnissen, manuellen Levels,

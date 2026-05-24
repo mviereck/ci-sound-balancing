@@ -1,6 +1,22 @@
 // ============================================================
 // FILE OPERATIONS
 // ============================================================
+
+function _safeUserFileSuffix() {
+  if (typeof userFileSuffix !== "string") return "";
+  const s = userFileSuffix.trim();
+  if (!s) return "";
+  return s.replace(/[\s\/\\:*?"<>|\x00-\x1F]/g, "_");
+}
+
+function _applyUserFileSuffix(name) {
+  const suf = _safeUserFileSuffix();
+  if (!suf) return name;
+  const dot = name.lastIndexOf(".");
+  if (dot < 0) return name + "_" + suf;
+  return name.slice(0, dot) + "_" + suf + name.slice(dot);
+}
+
 function resetAll() {
   const ch = confirm(t("resetConfirm"));
   if (!ch) return;
@@ -155,6 +171,7 @@ async function saveJson() {
           handleId: c.handleId || null,
         }))
       : [],
+    userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
     audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
@@ -169,7 +186,7 @@ async function saveJson() {
         hour12: false,
       })
       .replace(":", "");
-  const fn = `ci-sound-balancing-${ds}-${ts}.json`;
+  const fn = _applyUserFileSuffix(`ci-sound-balancing-${ds}-${ts}.json`);
   if (window.showSaveFilePicker) {
     try {
       const h = await window.showSaveFilePicker({
@@ -437,6 +454,11 @@ function applyLoadedData(d) {
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
+  if (typeof d.userFileSuffix === "string") {
+    userFileSuffix = d.userFileSuffix;
+    const _el = document.getElementById("userFileSuffix");
+    if (_el) _el.value = userFileSuffix;
+  }
   if (typeof audiologUserNote !== "undefined") {
     audiologUserNote = (typeof d.audiologUserNote === "string") ? d.audiologUserNote : "";
     const aNoteEl = document.getElementById("audiologNoteInput");
@@ -557,7 +579,7 @@ function exportEasyEffects() {
     }),
     a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "ci-sound-balancing-easyeffects.json";
+  a.download = _applyUserFileSuffix("ci-sound-balancing-easyeffects.json");
   a.click();
 }
 

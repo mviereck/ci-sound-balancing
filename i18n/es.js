@@ -209,6 +209,7 @@ Object.assign(L.es, {
     plMaplawEnableOff: "Simulación MAPLAW OFF",
     plMaplawIstLabel: "Su valor c actual (del tab Implante)",
     plMaplawSollLabel: "Valor c objetivo a simular",
+    plMaplawSollDisplayLabel: "Valor establecido",
     plMaplawNotMedel: "MAPLAW es una función MED-EL. El lado activo no es MED-EL — la simulación está desactivada.",
     sentTitle: "Reproducir frases",
     sentSpeaker: "Locutor:",
@@ -244,6 +245,7 @@ Object.assign(L.es, {
     balDesc:
       "Ajusta el volumen relativo entre la corrección izquierda y derecha. Funciona en el reproductor con audio estéreo.",
     balLabel: "Balance:",
+    userFileSuffixLabel: "Añadir palabra propia al nombre de archivo:",
     archivTitle: "Archivo — copia de seguridad completa",
     archivDesc: "Guarda o carga el estado completo de la herramienta.",
     archivPrint: "Imprimir informe",

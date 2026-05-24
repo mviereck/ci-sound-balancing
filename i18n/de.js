@@ -230,6 +230,7 @@ Object.assign(L.de, {
     plMaplawEnableOff: "MAPLAW Simulation AUS",
     plMaplawIstLabel: "Ihr aktueller c-Wert (aus Implantat-Tab)",
     plMaplawSollLabel: "Zu simulierender c-Wert",
+    plMaplawSollDisplayLabel: "Gesetzter Wert",
     plMaplawNotMedel: "MAPLAW ist eine MED-EL-Funktion. Die aktive Seite ist nicht MED-EL — die Simulation ist deaktiviert.",
     sentTitle: "Sätze abspielen",
     sentSpeaker: "Sprecher:",
@@ -265,6 +266,7 @@ Object.assign(L.de, {
     balDesc:
       "Stellt die relative Lautstärke zwischen linker und rechter Korrektur ein. Funktioniert im Player bei Stereo-Audio.",
     balLabel: "Balance:",
+    userFileSuffixLabel: "Dateinamen ergänzen um eigenes Wort:",
     archivTitle: "Archiv — Datensicherung des Tools",
     archivDesc: "Speichert oder lädt den vollständigen Tool-Zustand.",
     archivPrint: "Bericht drucken",

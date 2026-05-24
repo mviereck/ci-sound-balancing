@@ -1095,6 +1095,9 @@
             <div style="margin-bottom:6px;font-size:.9em;color:var(--text-muted)">
               <span data-t="plMaplawIstLabel"></span>:
               <strong id="plMaplawIstVal" style="font-family:var(--mono);color:var(--text)">—</strong>
+              &nbsp;—&nbsp;
+              <span data-t="plMaplawSollDisplayLabel"></span>:
+              <strong id="plMaplawSollDisplayVal" style="font-family:var(--mono);color:var(--text)">—</strong>
             </div>
             <div style="margin-bottom:6px;font-size:.9em;font-weight:600">
               <span data-t="plMaplawSollLabel"></span>:
@@ -1404,6 +1407,29 @@
 
       <!-- ===== FILE ===== -->
       <div id="panel-file" class="panel">
+        <!-- Globale Dateinamen-Ergänzung -->
+        <div class="card" id="cardFileSuffix">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+            <label for="userFileSuffix"
+                   style="font-weight:600"
+                   data-t="userFileSuffixLabel">Dateinamen ergänzen um eigenes Wort:</label>
+            <div style="position:relative;display:inline-flex">
+              <input type="text"
+                     id="userFileSuffix"
+                     maxlength="64"
+                     style="padding:6px 8px;border:1px solid var(--border);border-radius:4px 0 0 4px;min-width:120px;font-family:var(--mono)" />
+              <button id="userFileSuffixBtn" type="button"
+                      style="padding:6px 10px;border:1px solid var(--border);border-left:none;border-radius:0 4px 4px 0;background:var(--surface);cursor:pointer;font-size:0.8em;color:var(--text-muted)">▼</button>
+              <div id="userFileSuffixDrop"
+                   style="display:none;position:absolute;top:100%;left:0;z-index:200;background:var(--surface);border:1px solid var(--border);border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.18);min-width:100%;margin-top:2px">
+                <div data-suf="MAP1" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP1</div>
+                <div data-suf="MAP2" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP2</div>
+                <div data-suf="MAP3" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP3</div>
+                <div data-suf="MAP4" style="padding:6px 12px;cursor:pointer;font-family:var(--mono)">MAP4</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card" id="cardArchiv">
           <h2 data-t="archivTitle"></h2>
           <p

@@ -319,6 +319,52 @@ document.addEventListener("DOMContentLoaded", () => {
   // balBalance wurde entfernt – kein Event-Listener nötig
   // document.getElementById("balBalance").addEventListener(...);
 
+  // ========== Globale Dateinamen-Ergänzung ==========
+  const userFileSuffixEl   = document.getElementById("userFileSuffix");
+  const userFileSuffixBtn  = document.getElementById("userFileSuffixBtn");
+  const userFileSuffixDrop = document.getElementById("userFileSuffixDrop");
+
+  if (userFileSuffixEl) {
+    userFileSuffixEl.addEventListener("input", function () {
+      userFileSuffix = String(this.value || "");
+      try { localStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
+    });
+  }
+  if (userFileSuffixBtn && userFileSuffixDrop) {
+    userFileSuffixBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const open = userFileSuffixDrop.style.display !== "none";
+      userFileSuffixDrop.style.display = open ? "none" : "block";
+    });
+    userFileSuffixDrop.addEventListener("click", function (e) {
+      const opt = e.target.closest("[data-suf]");
+      if (!opt) return;
+      userFileSuffixEl.value = opt.dataset.suf;
+      userFileSuffix = opt.dataset.suf;
+      try { localStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
+      userFileSuffixDrop.style.display = "none";
+      userFileSuffixEl.focus();
+    });
+    userFileSuffixDrop.addEventListener("mouseover", function (e) {
+      const opt = e.target.closest("[data-suf]");
+      if (opt) opt.style.background = "rgba(0,0,0,0.08)";
+    });
+    userFileSuffixDrop.addEventListener("mouseout", function (e) {
+      const opt = e.target.closest("[data-suf]");
+      if (opt) opt.style.background = "";
+    });
+    document.addEventListener("click", function () {
+      userFileSuffixDrop.style.display = "none";
+    });
+  }
+  try {
+    const _sufSaved = localStorage.getItem("ci-lb-userFileSuffix");
+    if (_sufSaved !== null) {
+      userFileSuffix = String(_sufSaved);
+      if (userFileSuffixEl) userFileSuffixEl.value = userFileSuffix;
+    }
+  } catch (e) {}
+
   // ========== MAPLAW-UI ==========
   const plMaplawOnEl   = document.getElementById("plMaplawOn");
   const plMaplawSollEl = document.getElementById("plMaplawSollInput");
@@ -338,6 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isFinite(v) && v >= 0) {
         pMaplawSollC = v;
         if (plMaplawSollEl) plMaplawSollEl.value = String(v);
+        if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
         pMaplawTrigger();
       }
     });
@@ -348,6 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const v = parseInt(this.value);
       if (isFinite(v) && v >= 0 && v <= 8000) {
         pMaplawSollC = v;
+        if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
         pMaplawTrigger();
       } else {
         this.value = String(pMaplawSollC);
@@ -630,6 +678,11 @@ document.addEventListener("DOMContentLoaded", () => {
         fRes.splice(0, fRes.length, ...d.fRes);
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
+      if (typeof d.userFileSuffix === "string") {
+        userFileSuffix = d.userFileSuffix;
+        const _el = document.getElementById("userFileSuffix");
+        if (_el) _el.value = userFileSuffix;
+      }
       if (d.globalSequence) globalSequence = d.globalSequence;
       if (d.slTarget_test) slTarget_test = d.slTarget_test;
       if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
@@ -751,6 +804,7 @@ document.addEventListener("DOMContentLoaded", () => {
           pWarpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
           pWarpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "var_side",
           pWarpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+          userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
