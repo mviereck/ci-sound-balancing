@@ -342,18 +342,13 @@ function printSchieberTab() {
 
 function _buildPresetCardPrint() {
   const active = presets.filter(pr => pr.on);
-  const pfx = dENPrefix();
-  function centerLabel(c) {
-    if (c % 1 === 0) return `${pfx}${dEN(c)}`;
-    return `${pfx}${dEN(Math.floor(c))}–${pfx}${dEN(Math.ceil(c))}`;
-  }
   let rows = "";
   for (const pr of active) {
     let params = `${t("lvPrStr")}: <b>${pr.strength.toFixed(1)} dB</b>`;
     if (PR_HAS_CENTER[pr.type])
-      params += ` &nbsp; ${t("lvPrCenter")}: ${centerLabel(pr.center)}`;
+      params += ` &nbsp; ${t("lvPrCenter")}: ${Math.round(pr.center != null ? pr.center : CENT_REF_HZ)} ${t("lvPrUnitHz")}`;
     if (PR_HAS_WIDTH[pr.type])
-      params += ` &nbsp; ${t("lvPrWidth")}: ${pr.width}`;
+      params += ` &nbsp; ${t("lvPrWidth")}: ${Math.round(pr.width != null ? pr.width : 1200)} ${t("lvPrUnitCent")}`;
     if (PR_HAS_CUTOFF[pr.type])
       params += ` &nbsp; ${t("lvPrCutoff")}: ${pfx}${dEN(pr.cutoff)}`;
     rows += `<tr>

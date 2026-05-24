@@ -485,9 +485,17 @@ Object.assign(L.de, {
     lvChartTitle: "Übersicht",
     lvChartMan: "Manuell",
     lvChartSum: "Summe",
-    lvPrCenter: "Mitte:",
-    lvPrWidth: "Breite:",
+    lvPrCenter: "Mitte",
+    lvPrWidth: "Breite",
     lvPrCutoff: "Grenzpunkt:",
+    lvPrUnitHz: "Hz",
+    lvPrUnitCent: "¢",
+    loadMigratedCurves:
+      "Die Kurvenberechnung wurde mathematisch präzisiert " +
+      "(Frequenz-basiert statt elektroden-basiert). Deine alten " +
+      "Kurven-Einstellungen wurden bestmöglich umgerechnet, der " +
+      "vertraute Klang kann sich aber leicht ändern. Bitte die " +
+      "Kurven im Tab „Kurven“ prüfen und ggf. nachjustieren.",
     plSrcLabel: "Equalizer-Quelle:",
     plSideLabel: "Seite:",
     plSrcMeas: "Elektrodenlautstärke",

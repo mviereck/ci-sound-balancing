@@ -23,6 +23,18 @@ Drei Cards untereinander:
   Bedienleiste − / Fein / + neben dem Eingabefeld (auch auf Desktop
   sichtbar), Mittelpunkt (wo sinnvoll), Breite (Gauß), Grenzpunkt
   (Bass/High Boost).
+- **Pivot, Tilt, S-Kurve, Gauß** rechnen in **log(Hz)** (äquivalent zu
+  Cent, Referenz 1000 Hz = 0 ¢, eine Oktave = 1200 ¢).
+  - **Mittelpunkt** wird als **Hz-Wert** gespeichert (Number-Input,
+    50–20000 Hz, Default 1000 Hz). Anzeige-Einheit: `Hz`.
+  - **Gauß-Breite** wird als **Cent-Wert** gespeichert (Number-Input,
+    50–4800 ¢, Default 1200 ¢ = 1 Oktave). Anzeige-Einheit: `¢`.
+  - Die x-Achse des Charts bleibt gleichmäßig in Elektroden-Abständen;
+    Pivot erscheint dadurch optisch leicht schief — das ist Absicht
+    (Folge der Frequenz-Semantik; log-Achse kommt in späterer Anleitung).
+- **Bass Boost / High Boost**: Grenzpunkt bleibt eine Kanal-Anzahl
+  (Dropdown, unverändert).
+- **Sprache (SII)** und **Lautstärke** unverändert.
 - **Lautstärke**: gleichmäßiger dB-Offset auf allen aktiven
   Elektroden. Hat **nur** das Stärke-Feld (keine Mitte, keine Breite,
   kein Grenzpunkt). Wirkt wie eine zusätzliche Gesamtlautstärke
@@ -31,3 +43,7 @@ Drei Cards untereinander:
   addiert.
 - SII-Gewichte per log-linearer Interpolation des ANSI S3.5 auf
   Herstellerfrequenzen.
+- **JSON-Format**: `presetFormat: "freq-v3"` kennzeichnet Hz/Cent-Werte.
+  Beim Laden alter Dateien (ohne dieses Feld) werden `center`
+  (Elektroden-Index → Hz per log-Interpolation) und `width`
+  (Kanal-Anzahl → Cent) automatisch migriert; einmalige Popup-Warnung.

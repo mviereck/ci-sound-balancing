@@ -81,6 +81,7 @@ function resetAll() {
 async function saveJson() {
   const d = {
     version: APP_VERSION,
+    presetFormat: "freq-v3",
     date: new Date().toLocaleString(
       lang === "de"
         ? "de-DE"
@@ -268,14 +269,12 @@ function loadOldFormat(d, targetSide) {
   if (d.presets && Array.isArray(d.presets)) {
     s.presets = d.presets;
   } else {
-    const centerMap = { medel: 5.5, ab: 7.5, cochlear: 10.5 };
-    const defaultCenter = centerMap[s.manufacturer] || Math.floor(s.nEl / 2);
     s.presets = PR_TYPES.map((tp) => ({
       type: tp,
       on: false,
       strength: 0,
-      center: defaultCenter,
-      width: Math.max(2, Math.floor(s.nEl / 4)),
+      center: CENT_REF_HZ,
+      width: 1200,
       cutoff:
         tp === "bassboost"
           ? Math.floor(s.nEl / 3)
@@ -344,9 +343,51 @@ function loadJson(file) {
   r.readAsText(file);
 }
 
+function _migratePresetsFromIndexToFreq(rawPresets, fileFreqs, fileElFreqOwn) {
+  const effF = (i) =>
+    fileElFreqOwn && fileElFreqOwn[i] != null ? fileElFreqOwn[i] : fileFreqs[i];
+  const meanStep = meanCentStepOfFreqs(fileFreqs.map((_, i) => effF(i)));
+  return rawPresets.map((pr) => {
+    const np = { ...pr };
+    if (np.center != null) {
+      const idx = np.center;
+      const lo = Math.max(0, Math.min(fileFreqs.length - 1, Math.floor(idx)));
+      const hi = Math.max(0, Math.min(fileFreqs.length - 1, Math.ceil(idx)));
+      const t = idx - lo;
+      const f = lo === hi ? effF(lo) : logInterpHz(effF(lo), effF(hi), t);
+      np.center = +f.toFixed(1);
+    } else {
+      np.center = CENT_REF_HZ;
+    }
+    if (np.width != null) {
+      const newW = np.width * meanStep;
+      np.width = Math.max(50, Math.min(4800, Math.round(newW)));
+    } else {
+      np.width = 1200;
+    }
+    return np;
+  });
+}
+
 function applyLoadedData(d) {
   // defaultMfr laden
   if (d.defaultMfr && MFR[d.defaultMfr]) defaultMfr = d.defaultMfr;
+
+  // Preset-Migration für neue Dateien im alten Index-Format
+  if (d.sides && d.presetFormat !== "freq-v3") {
+    for (const side of SIDES) {
+      const s = sideData[side];
+      if (s.presets && Array.isArray(s.presets)) {
+        s.presets = _migratePresetsFromIndexToFreq(
+          s.presets,
+          [...s.freqs],
+          s.elFreqOwn,
+        );
+        s._presetsMigrated = true;
+      }
+    }
+  }
+
   bindActiveSide();
   const gEl = (id) => document.getElementById(id);
   const setVal = (id, v) => {
@@ -488,9 +529,14 @@ function applyLoadedData(d) {
       && typeof sRestoreLocalCollections === "function") {
     sRestoreLocalCollections(d.localCollections);
   }
-  const msgCount = (bRes && bRes.length) || 0;
-  const sideLabel = activeSide === "left" ? "Links" : "Rechts";
-  alert(`Geladen: ${msgCount} Messungen auf Seite ${sideLabel}`);
+  const migrated = ["left", "right"].some(
+    (side) => sideData[side]._presetsMigrated === true,
+  );
+  if (migrated) {
+    alert(t("loadMigratedCurves"));
+    sideData.left._presetsMigrated = false;
+    sideData.right._presetsMigrated = false;
+  }
 }
 function clearRes() {
   const ch = confirm(t("delConfirmMeas"));

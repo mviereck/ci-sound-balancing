@@ -7,23 +7,28 @@ function calcPresetCurve(pr) {
     n = nEl,
     c = new Array(n).fill(0);
   if (act.length < 2) return c;
-  // center can be fractional (half positions like 5.5)
-  const ctr =
-    pr.center != null
-      ? pr.center
-      : Math.floor((act[0] + act[act.length - 1]) / 2);
-  const mn = act[0],
-    mx = act[act.length - 1],
-    span = mx - mn || 1;
+  // Mittelpunkt in Hz (Default 1000 Hz)
+  const ctrHz = pr.center != null ? pr.center : CENT_REF_HZ;
+  const ctrC = hzToCent(ctrHz);
+  // Span in Cent über die aktiven Elektroden
+  const fMin = effFreq(act[0]);
+  const fMax = effFreq(act[act.length - 1]);
+  const cMin = hzToCent(fMin);
+  const cMax = hzToCent(fMax);
+  const halfSpanC = Math.max(1, (cMax - cMin) / 2);
+
   if (pr.type === "tilt") {
-    for (const i of act) c[i] = (i - ctr) / (span / 2);
+    for (const i of act) {
+      const xC = hzToCent(effFreq(i)) - ctrC;
+      c[i] = xC / halfSpanC;
+    }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
     for (const i of act) c[i] /= mx2;
     return c;
   }
   if (pr.type === "scurve") {
     for (const i of act) {
-      const x = (i - ctr) / (span / 2);
+      const x = (hzToCent(effFreq(i)) - ctrC) / halfSpanC;
       c[i] = Math.sign(x) * Math.pow(Math.abs(x), 0.6);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -32,7 +37,7 @@ function calcPresetCurve(pr) {
   }
   if (pr.type === "pivot") {
     for (const i of act) {
-      const d = Math.abs(i - ctr) / (span / 2);
+      const d = Math.abs(hzToCent(effFreq(i)) - ctrC) / halfSpanC;
       c[i] = -(d * d * 2 - 1);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -40,8 +45,12 @@ function calcPresetCurve(pr) {
     return c;
   }
   if (pr.type === "gauss") {
-    const sig = Math.max(0.5, pr.width || 2);
-    for (const i of act) c[i] = Math.exp(-0.5 * Math.pow((i - ctr) / sig, 2));
+    // Breite in Cent (Default 1200 ¢ = 1 Oktave)
+    const sigC = Math.max(50, pr.width || 1200);
+    for (const i of act) {
+      const dC = hzToCent(effFreq(i)) - ctrC;
+      c[i] = Math.exp(-0.5 * Math.pow(dC / sigC, 2));
+    }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
     for (const i of act) c[i] /= mx2;
     return c;
@@ -172,26 +181,12 @@ function buildPrTbl() {
   const tbl = document.getElementById("prTbl");
   tbl.innerHTML = "";
   const act = allEl();
-  // Build center options with half positions
   const pfx = dENPrefix();
-  let ctrOpts = "";
-  for (let i = 0; i < nEl; i++) {
-    ctrOpts += `<option value="${i}">${pfx}${dEN(i)}</option>`;
-    if (i < nEl - 1) {
-      const halfVal = i + 0.5;
-      const lbl = `${pfx}${dEN(i)}–${pfx}${dEN(i + 1)}`;
-      ctrOpts += `<option value="${halfVal}">${lbl}</option>`;
-    }
-  }
   const elOpts = act
     .map((i) => `<option value="${i}">${pfx}${dEN(i)}</option>`)
     .join("");
-  const widthOpts = Array.from(
-    { length: nEl },
-    (_, i) => `<option value="${i + 1}">${i + 1}</option>`,
-  ).join("");
-  const centerMap = { medel: 5.5, ab: 7.5, cochlear: 10.5 };
-  const defaultCenter = centerMap[mfr] || Math.floor(nEl / 2);
+  // Mittelpunkt: Number-Input in Hz (50–20000, Schritt 50).
+  // Breite (Gauß): Number-Input in Cent (50–4800, Schritt 50).
   for (let pi = 0; pi < presets.length; pi++) {
     const pr = presets[pi];
     const tr = document.createElement("tr");
@@ -199,19 +194,21 @@ function buildPrTbl() {
     let params = '<div class="pr-param">';
     params += `<label>${t("lvPrStr")}</label><input type="number" class="prStr" data-pi="${pi}" value="${pr.strength.toFixed(1)}" min="-20" max="20" step="0.5">`;
     if (PR_HAS_CENTER[pr.type])
-      params += ` <label>${t("lvPrCenter")}</label><select class="prCtr" data-pi="${pi}">${ctrOpts}</select>`;
+      params += ` <label>${t("lvPrCenter")}</label><input type="number" class="prCtr" data-pi="${pi}" min="50" max="20000" step="50" style="width:80px"> ${t("lvPrUnitHz")}`;
     if (PR_HAS_WIDTH[pr.type])
-      params += ` <label>${t("lvPrWidth")}</label><select class="prWid" data-pi="${pi}">${widthOpts}</select>`;
+      params += ` <label>${t("lvPrWidth")}</label><input type="number" class="prWid" data-pi="${pi}" min="50" max="4800" step="50" style="width:80px"> ${t("lvPrUnitCent")}`;
     if (PR_HAS_CUTOFF[pr.type])
       params += ` <label>${t("lvPrCutoff")}</label><select class="prCut" data-pi="${pi}">${elOpts}</select>`;
     params += "</div>";
     tr.innerHTML = `<td><input type="checkbox" class="prOn" data-pi="${pi}" ${pr.on ? "checked" : ""}></td><td class="pr-name">${t(PR_NAMES[pr.type])}</td><td>${params}</td>`;
     tbl.appendChild(tr);
-    const ctrSel = tr.querySelector(".prCtr");
-    if (ctrSel)
-      ctrSel.value = pr.center !== undefined ? pr.center : defaultCenter;
-    const widSel = tr.querySelector(".prWid");
-    if (widSel) widSel.value = pr.width;
+    const ctrInp = tr.querySelector(".prCtr");
+    if (ctrInp)
+      ctrInp.value = Math.round(
+        pr.center !== undefined ? pr.center : CENT_REF_HZ,
+      );
+    const widInp = tr.querySelector(".prWid");
+    if (widInp) widInp.value = Math.round(pr.width != null ? pr.width : 1200);
     const cutSel = tr.querySelector(".prCut");
     if (cutSel) cutSel.value = pr.cutoff;
     const tr2 = document.createElement("tr");
@@ -278,15 +275,39 @@ function buildPrTbl() {
     });
     _prStrTouchCtrl(inp, +inp.dataset.pi);
   });
-  tbl.querySelectorAll(".prCtr").forEach((sel) =>
-    sel.addEventListener("change", function () {
-      presets[+this.dataset.pi].center = parseFloat(this.value);
+  tbl.querySelectorAll(".prCtr").forEach((inp) =>
+    inp.addEventListener("change", function () {
+      const pi = +this.dataset.pi;
+      let v = parseFloat(this.value);
+      if (!isFinite(v) || v < 50) v = 50;
+      if (v > 20000) v = 20000;
+      presets[pi].center = v;
+      this.value = Math.round(v);
+      if (document.getElementById("prBothSides")?.checked) {
+        const otherSide = activeSide === "left" ? "right" : "left";
+        const op = sideData[otherSide].presets;
+        if (op && op[pi] && op[pi].type === presets[pi].type) {
+          op[pi].center = v;
+        }
+      }
       lvOnChange();
     }),
   );
-  tbl.querySelectorAll(".prWid").forEach((sel) =>
-    sel.addEventListener("change", function () {
-      presets[+this.dataset.pi].width = +this.value;
+  tbl.querySelectorAll(".prWid").forEach((inp) =>
+    inp.addEventListener("change", function () {
+      const pi = +this.dataset.pi;
+      let v = parseFloat(this.value);
+      if (!isFinite(v) || v < 50) v = 50;
+      if (v > 4800) v = 4800;
+      presets[pi].width = v;
+      this.value = Math.round(v);
+      if (document.getElementById("prBothSides")?.checked) {
+        const otherSide = activeSide === "left" ? "right" : "left";
+        const op = sideData[otherSide].presets;
+        if (op && op[pi] && op[pi].type === presets[pi].type) {
+          op[pi].width = v;
+        }
+      }
       lvOnChange();
     }),
   );

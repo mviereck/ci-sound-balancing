@@ -69,9 +69,13 @@ Pflichtbestandteile jeder Bauanleitung:
   nicht zur stillen Annahme.
 - **Versionsnummer hochzählen**: Jede Bauanleitung muß als
   expliziten Schritt enthalten, in `js/version.js` die Konstante
-  `APP_VERSION` auf `"2.<Bauanleitungsnummer>-beta"` zu setzen
-  (z.B. Bauanleitung 58 → `"2.58-beta"`). Ohne diesen Bump bleibt
+  `APP_VERSION` auf `"<Major>.<Minor>.<Bauanleitungsnummer>-beta"`
+  zu setzen. Die ersten beiden Stellen (`Major.Minor`) werden
+  **nur manuell** geändert (bei semantischen Brüchen). Die
+  Bauanleitungsnummer wird **immer** weitergezählt, unabhängig
+  von Major/Minor — z.B. Bauanleitung 62 → `"3.0.62-beta"`,
+  Bauanleitung 63 → `"3.0.63-beta"`. Ohne diesen Bump bleibt
   der Browser-Cache bei der alten Version hängen und die Nutzer
-  sehen die Änderung nicht. Der Schritt gehört an den Anfang oder
-  ans Ende der Anleitung, nicht in die Mitte (sonst leicht
+  sehen die Änderung nicht. Der Schritt gehört an den Anfang
+  oder ans Ende der Anleitung, nicht in die Mitte (sonst leicht
   übersehen).

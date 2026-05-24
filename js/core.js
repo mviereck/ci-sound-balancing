@@ -196,6 +196,36 @@ const MFR = {
     ],
   },
 };
+// ============================================================
+// FREQUENCY HELPERS (Cent, log-Interpolation)
+// ============================================================
+// Cent re 1000 Hz: 1000 Hz = 0 ¢, eine Oktave = 1200 ¢.
+const CENT_REF_HZ = 1000;
+function hzToCent(hz) {
+  if (!hz || hz <= 0) return 0;
+  return 1200 * Math.log2(hz / CENT_REF_HZ);
+}
+function centToHz(c) {
+  return CENT_REF_HZ * Math.pow(2, c / 1200);
+}
+// Log-Interpolation zwischen zwei Frequenzen, t in [0,1].
+function logInterpHz(f1, f2, t) {
+  if (!f1 || !f2 || f1 <= 0 || f2 <= 0) return f1 || f2 || CENT_REF_HZ;
+  return Math.exp(Math.log(f1) + t * (Math.log(f2) - Math.log(f1)));
+}
+// Mittlere Cent-Distanz pro Elektroden-Schritt einer Frequenzliste.
+// Für Migration alter Breite-Werte (Kanal-Anzahl → Cent) gebraucht.
+function meanCentStepOfFreqs(freqArr) {
+  if (!freqArr || freqArr.length < 2) return 600;
+  let sum = 0, n = 0;
+  for (let i = 0; i < freqArr.length - 1; i++) {
+    if (freqArr[i] > 0 && freqArr[i + 1] > 0) {
+      sum += Math.abs(1200 * Math.log2(freqArr[i + 1] / freqArr[i]));
+      n++;
+    }
+  }
+  return n > 0 ? sum / n : 600;
+}
 const SIDES = ["left", "right"];
 const PR_TYPES = [
   "speech",

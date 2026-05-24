@@ -30,14 +30,12 @@ let presets = [];
 let fullSweepRound = null,
   fullSweepDonePairs = [];
 function initPresets() {
-  const centerMap = { medel: 5.5, ab: 7.5, cochlear: 10.5 };
-  const defaultCenter = centerMap[mfr] || Math.floor(nEl / 2);
   presets = PR_TYPES.map((tp) => ({
     type: tp,
     on: false,
     strength: 0,
-    center: defaultCenter,
-    width: Math.max(2, Math.floor(nEl / 4)),
+    center: CENT_REF_HZ,
+    width: 1200,
     cutoff:
       tp === "bassboost" ? Math.floor(nEl / 3) : Math.floor((nEl * 2) / 3),
   }));
