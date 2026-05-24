@@ -45,8 +45,8 @@ function _legalAssembleEmail() {
   // E-Mail wird nicht im HTML-Klartext gehalten, sondern erst beim Öffnen zusammengebaut.
   var el = document.getElementById("imprintEmail");
   if (!el) return;
-  var user = "bachbaum24";
-  var domain = "gmx.de";
+  var user = "mviereck";
+  var domain = "ci-sound-balancing.org";
   var addr = user + "@" + domain;
   el.innerHTML = "";
   var a = document.createElement("a");
