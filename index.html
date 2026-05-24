@@ -9,22 +9,16 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <script>
+      document.write('<script src="js/version.js?t=' + Date.now() + '"><\/script>');
+    </script>
+    <script>
     (function () {
-      var v;
-      try {
-        v = sessionStorage.getItem('cacheBust');
-        if (!v) {
-          v = String(Date.now());
-          sessionStorage.setItem('cacheBust', v);
-        }
-      } catch (e) {
-        v = String(Date.now());
-      }
+      var v = (typeof APP_VERSION === "string") ? APP_VERSION : String(Date.now());
 
       document.write('<link rel="stylesheet" href="style.css?v=' + v + '">');
 
       var scripts = [
-        'js/version.js', 'js/mobile.js', 'js/touch-ctrl.js', 'js/i18n.js',
+        'js/mobile.js', 'js/touch-ctrl.js', 'js/i18n.js',
         'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js',
         'js/core.js', 'js/state-side.js', 'js/audio.js',
         'js/ui-implant.js', 'js/freq-table.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch.js',

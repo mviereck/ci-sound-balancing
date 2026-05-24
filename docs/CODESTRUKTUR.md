@@ -62,18 +62,33 @@ erst zur Laufzeit.
 
 **Einbindung in `index.html`:** Skripte und `style.css` werden nicht
 mehr per statischer `<script src=…>`-/`<link>`-Tags geladen, sondern
-über einen kleinen Inline-Loader im `<head>`. Der Loader schreibt
-`<link>`- und `<script defer src=…>`-Tags per `document.write` in den
-parser-laufenden HTML-Stream und versieht jede URL mit einem
-Cachebuster-Parameter `?v=<wert>`. Wert ist beim ersten Pageload pro
-Browser-Session `Date.now()`, persistiert in `sessionStorage` unter
-dem Schlüssel `cacheBust`; weitere Reloads in derselben Session
-nutzen denselben Wert (Cache greift). Neuer Tab / Browser-Neustart →
-neuer Wert → alle Dateien frisch. Fallback ohne `sessionStorage`
-(z.B. einige `file://`-Modi): `Date.now()` bei jedem Reload.
+über zwei kleine Inline-Loader im `<head>`. Der **erste Loader** lädt
+synchron `js/version.js` mit `?t=<Date.now()>` (immer frisch, ein
+kleiner Roundtrip). Damit ist `APP_VERSION` verfügbar, bevor der
+zweite Loader läuft. Der **zweite Loader** schreibt `<link>`- und
+`<script defer src=…>`-Tags per `document.write` in den
+parser-laufenden HTML-Stream und versieht jede URL mit dem
+Cachebuster-Parameter `?v=<APP_VERSION>`. Folge: Wenn die
+Versionsnummer sich nicht ändert, dürfen Browser CSS und JS aus dem
+Cache nehmen → schnell, akkuschonend. Bei jedem Versions-Bump in
+`js/version.js` wechselt der Query-String → alle Dateien werden
+frisch geholt. Bilder (favicon, Briefkopf-Logo) bekommen keinen
+Cachebuster; sie werden über ihren Dateinamen versioniert (neuer
+Inhalt = neuer Dateiname).
+
 Zusätzlich stehen im `<head>` drei Meta-Tags (`Cache-Control:
 no-cache, no-store, must-revalidate`, `Pragma: no-cache`, `Expires:
-0`) gegen das Caching der HTML selbst.
+0`) gegen das Caching der HTML selbst. Auf Mobile werden die meist
+ignoriert (gilt nur für echte HTTP-Header), schaden aber nicht.
+GitHub Pages cached HTML ohnehin ~10 Min — daher kann die
+Versionsnummer-Anhebung mit kurzer Verzögerung sichtbar werden,
+danach läuft der oben beschriebene Mechanismus.
+
+Frühere Variante mit `sessionStorage`-`cacheBust` (Wert =
+`Date.now()`, persistiert pro Browser-Session) ist seit Bauanleitung
+57 entfernt. Sie scheiterte auf Smartphones, weil Tabs dort tagelang
+im Hintergrund leben und `sessionStorage` mit der alten Buster-Zahl
+hängenbleibt → Updates wurden auf dem Handy oft nicht gezogen.
 
 Wichtig zur Loader-Wahl: Per `document.write` eingefügte
 `<script defer>`-Tags sind aus Browser-Sicht parser-eingefügt; `defer`
@@ -91,11 +106,15 @@ mit hartcodiertem Text waren sichtbar, kein Click reagierte.
 
 Die Reihenfolge der Module liegt als Array im Loader-Block in
 `index.html` und muß bei neuen/entfernten Modulen dort gepflegt
-werden.
+werden. Die Loader-Liste enthält seit Bauanleitung 56 `js/`-Pfade
+(z.B. `js/audio.js`).
+
+Alle Logik-JS-Dateien liegen unter `js/`. Die Sprachdaten in
+`i18n/de.js` etc. bleiben im Root-Ordner `i18n/` (kein `js/`-Prefix).
 
 | #  | Datei | Inhalt |
 |----|-------|--------|
-| 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
+| 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Wird vom ersten Inline-Loader in `index.html` synchron mit `?t=<Date.now()>` geladen (nicht über die Loader-Liste). Bei jeder Bauanleitung auf `"2.<Bauanleitungsnummer>-beta"` hochsetzen, sonst zieht der Browser-Cache keine neuen Dateien. |
 | 0b | mobile.js | `IS_TOUCH_ONLY` (Touch-Erkennung per `matchMedia('(hover: none) and (pointer: coarse)')`), `safeFocus(el)` (focus-Aufruf nur auf Nicht-Touch-Geräten), `applyMobileReadonly(root)` (setzt `readonly` und `inputmode="numeric"` auf allen `input[type="number"]` im übergebenen Wurzelelement, no-op auf Desktop). Eigener DOMContentLoaded-Handler, der `applyMobileReadonly(document)` einmalig nach Page-Load aufruft. Wird von freq-table.js, levels.js, test-ui.js nach dynamischen Rebuilds erneut aufgerufen. |
 | 0c | touch-ctrl.js | `attachLongPress(btn, onStep)` (Klick + Long-Press 400 ms initial / 100 ms repeat), `buildSliderTouchCtrl(slider, opts)` (Touch-Bedienleiste mit − / Fein / + / [Replay] direkt nach dem Slider, dispatcht `input`-Event auf den Slider), `buildStepperPair(opts)` (zwei Buttons mit Long-Press, Aufrufer hängt selbst ein). Kein eigener DOMContentLoaded-Handler; Aufrufer instanzieren wo gebraucht. |
 | 1  | i18n.js | **Core:** leeres Übersetzungsobjekt `L = { de: {}, en: {}, fr: {}, es: {} }`, `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS`. Sprachdaten liegen in `i18n/de.js` … `i18n/es.js`, die danach geladen werden. |

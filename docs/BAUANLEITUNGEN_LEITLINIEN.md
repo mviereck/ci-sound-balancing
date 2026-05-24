@@ -46,3 +46,11 @@ Pflichtbestandteile jeder Bauanleitung:
   mit Datei- und Zeilenangabe der relevanten Stelle. Wenn Sonnet
   selbst etwas als unklar markiert, ist das Signal zur Rückfrage,
   nicht zur stillen Annahme.
+- **Versionsnummer hochzählen**: Jede Bauanleitung muß als
+  expliziten Schritt enthalten, in `js/version.js` die Konstante
+  `APP_VERSION` auf `"2.<Bauanleitungsnummer>-beta"` zu setzen
+  (z.B. Bauanleitung 58 → `"2.58-beta"`). Ohne diesen Bump bleibt
+  der Browser-Cache bei der alten Version hängen und die Nutzer
+  sehen die Änderung nicht. Der Schritt gehört an den Anfang oder
+  ans Ende der Anleitung, nicht in die Mitte (sonst leicht
+  übersehen).
