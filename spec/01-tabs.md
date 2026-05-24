@@ -20,3 +20,18 @@
 - **Footer** — am Seitenende, immer sichtbar. Enthält Versions-Tag,
   Impressum, MIT-Lizenz, GitHub-Link. Impressum-Inhalt fix deutsch
   (rechtliche Pflicht); Footer-Labels in allen vier UI-Sprachen.
+
+## Tab/Subtab-Persistenz
+
+Der zuletzt aktive Top-Level-Tab und die zuletzt aktiven Sub-Tabs in
+„Messungen" und „Meßergebnisse" überleben einen Browser-Reload. Sie
+werden in `localStorage` gespeichert (separat vom JSON-Save):
+
+- `ci-lb-activeTab` — aktiver Top-Level-Tab
+- `ci-lb-subtab-messungen` — aktiver Sub-Tab in „Messungen"
+- `ci-lb-subtab-ergebnisse` — aktiver Sub-Tab in „Meßergebnisse"
+
+Schreiben: `switchTab` (tabs-eq.js) und `switchSubtab` (tabs-eq.js) nach
+jedem Wechsel. Restore: am Ende des DOMContentLoaded-Handlers in init.js,
+nach allen anderen Init-Schritten. Nicht mehr existierende Tab-Werte
+werden ignoriert, Default-Tab bleibt dann aktiv.

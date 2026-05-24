@@ -38,6 +38,7 @@ function switchSubtab(parent, subtab) {
       if (typeof updateTabLockState === "function") updateTabLockState();
     }
   }
+  try { localStorage.setItem("ci-lb-subtab-" + parent, subtab); } catch (e) {}
 }
 
 // ============================================================
@@ -84,6 +85,7 @@ function switchTab(n) {
   if (n === "schieber") {
     if (typeof lvTabRebuild === "function") lvTabRebuild();
   }
+  try { localStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
 }
 
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test

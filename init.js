@@ -764,4 +764,29 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     } catch (e) {}
   }, 5000);
+
+  // Tab/Subtab nach Reload wiederherstellen (Persistenz aus tabs-eq.js).
+  // Erst Top-Level-Tab, dann ggf. Sub-Tab für den jeweiligen Parent.
+  try {
+    const savedTab = localStorage.getItem("ci-lb-activeTab");
+    if (savedTab) {
+      const tabBtn = document.querySelector('.tab[data-tab="' + savedTab + '"]');
+      if (tabBtn && typeof switchTab === "function") {
+        switchTab(savedTab);
+      }
+    }
+    // Subtab pro Parent
+    const subtabParents = ["messungen", "ergebnisse"];
+    for (const parent of subtabParents) {
+      const savedSub = localStorage.getItem("ci-lb-subtab-" + parent);
+      if (!savedSub) continue;
+      const subBtn = document.querySelector('.subtab[data-parent="' + parent + '"][data-subtab="' + savedSub + '"]');
+      if (subBtn && typeof switchSubtab === "function") {
+        switchSubtab(parent, savedSub);
+      }
+    }
+  } catch (e) {
+    // localStorage nicht verfügbar oder gespeicherter Tab existiert nicht
+    // mehr — still durchfallen, Default-Tab bleibt aktiv.
+  }
 });

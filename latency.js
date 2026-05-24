@@ -378,6 +378,25 @@ document.addEventListener("DOMContentLoaded", function () {
   if (latEls.startBtn) latEls.startBtn.addEventListener("click", latStartTestUI);
   if (latEls.stopBtn)  latEls.stopBtn.addEventListener("click",  latStopTestUI);
 
+  // ENTER beendet den laufenden Latenztest (Äquivalent zum Stop-Button).
+  // Nur greifen, wenn der Test wirklich aktiv ist und der Fokus nicht
+  // in einem Eingabe-Element liegt (sonst würde ENTER in normalen
+  // Formularen abgefangen).
+  document.addEventListener("keydown", function (ev) {
+    if (!latActive) return;
+    if (ev.key !== "Enter") return;
+    const tgt = ev.target;
+    if (tgt && (tgt.tagName === "INPUT" || tgt.tagName === "TEXTAREA" || tgt.tagName === "SELECT")) {
+      // Ausnahme: der Latenz-Slider ist zwar ein input[type=range], aber
+      // ENTER soll dort dennoch stoppen — Range-Inputs erzeugen mit ENTER
+      // ohnehin keine sinnvolle Default-Aktion.
+      const isLatSlider = (latEls && latEls.slider && tgt === latEls.slider);
+      if (!isLatSlider) return;
+    }
+    ev.preventDefault();
+    latStopTestUI();
+  });
+
   // Initial-Update
   latSliderInput(0);
   latUpdateButtonStates();

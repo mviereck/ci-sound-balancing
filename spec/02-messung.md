@@ -149,6 +149,11 @@ Slider-Wert wird invertiert.
   Klicks breitband sind und keiner Elektrode zugeordnet werden.
 - Beim **Stop** wird der aktuelle Schieberwert automatisch als `latencyResult`
   übernommen (kein separater „Übernehmen"-Button)
+- **ENTER beendet den laufenden Test** — äquivalent zum Klick auf den
+  Stop-Button. Die Bindung läuft global auf `document`, greift aber nur,
+  wenn `latActive === true`. Inputs/Textareas/Selects werden ausgespart;
+  der Latenz-Slider selbst ist als bewußte Ausnahme eingeschlossen, weil
+  er die häufigste Fokus-Position während des Tests ist.
 - Während des Tests: alle anderen Tabs und Sub-Tabs gesperrt (wie bei allen
   anderen Tests — via `lockTestTabs` / `updateTabLockState`)
 - Wirkung live im Player (`latApplyToPlayer`), sofern `plApplyLatency` aktiv
