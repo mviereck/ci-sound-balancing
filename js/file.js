@@ -529,14 +529,17 @@ function applyLoadedData(d) {
       && typeof sRestoreLocalCollections === "function") {
     sRestoreLocalCollections(d.localCollections);
   }
-  const migrated = ["left", "right"].some(
-    (side) => sideData[side]._presetsMigrated === true,
-  );
-  if (migrated) {
+  const MIGR_TYPES = ["tilt", "scurve", "pivot", "gauss"];
+  const sideHasMeaningfulMigration = (side) =>
+    sideData[side]._presetsMigrated === true &&
+    (sideData[side].presets || []).some(
+      (p) => MIGR_TYPES.includes(p.type) && p.strength !== 0,
+    );
+  if (SIDES.some(sideHasMeaningfulMigration)) {
     alert(t("loadMigratedCurves"));
-    sideData.left._presetsMigrated = false;
-    sideData.right._presetsMigrated = false;
   }
+  sideData.left._presetsMigrated = false;
+  sideData.right._presetsMigrated = false;
 }
 function clearRes() {
   const ch = confirm(t("delConfirmMeas"));

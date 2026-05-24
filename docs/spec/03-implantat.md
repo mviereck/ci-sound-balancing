@@ -16,6 +16,9 @@
   - Beschriftung mit Elektrodennummer und (bei i=0/i=n−1) apikal/basal
   - Hz Standard (Herstellervorgabe, nicht editierbar)
   - Hz eigen (optionaler abweichender Wert)
+  - **Cent** re 1000 Hz: `Math.round(hzToCent(effFreq(i)))`, nicht
+    editierbar, mit Vorzeichen (`+135`, `−3670`). Aktualisiert sich
+    sofort, wenn Hz-eigen geändert wird.
   - **THR** (Hörschwelle) in Hersteller-Einheit (qu/CL/CU)
   - **Upper Level**: MCL bei MED-EL (qu), C-Level bei Cochlear (CL),
     M-Level bei AB (CU)

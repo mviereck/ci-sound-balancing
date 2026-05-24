@@ -71,6 +71,8 @@ Object.assign(L.de, {
     thEl: "El.",
     thHzStd: "Hz Standard",
     thHzOwn: "Hz eigene",
+    thCent: "Cent",
+    thCentTip: "Cent relativ zu 1000 Hz (Audiologie-Standard). Negativ für Frequenzen unter 1 kHz, positiv darüber.",
     thPlay: "▶",
     thHold: "◼",
     thSt: "Status",
