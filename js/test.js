@@ -642,14 +642,20 @@ function getConvPairs(fast) {
 }
 
 // ============================================================
-// PRE-CORRECTION for fine-tuning
+// LS-HINT: Schätzung und Unsicherheit für Paar (a, b)
 // ============================================================
-function getPreCorrOffset(a, b) {
-  // Returns the LS-predicted offset for pair a,b (level[a]-level[b])
-  const cb = testEls ? testEls.preCorrectCb : document.getElementById("preCorrect");
-  if (!cb || !cb.checked || bRes.length === 0) return 0;
-  const { levels } = compWLS();
-  return levels[a] - levels[b];
+function getLsEstimate(a, b) {
+  if (bRes.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  const { levels, elRes } = compWLS();
+  const wA = gWt(a), wB = gWt(b);
+  if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  const nA = bRes.filter(r => r.a === a || r.b === a).length;
+  const nB = bRes.filter(r => r.a === b || r.b === b).length;
+  const N = Math.min(nA, nB);
+  const resTerm = Math.max(elRes[a] || 0, elRes[b] || 0);
+  const prior = LS_HINT_BASIS_DB * LS_HINT_K / (LS_HINT_K + N);
+  const halfWidth = Math.sqrt(resTerm * resTerm + prior * prior);
+  return { estimate: levels[a] - levels[b], halfWidth, hasData: true };
 }
 
 // ============================================================
@@ -659,6 +665,9 @@ let testEls = null;
 // Slider-Extend-Stufen: [20,40,60] dB
 const TEST_SLIDER_RANGES = [20, 40, 60];
 let testSlRangeIdx = 0; // aktueller Stufen-Index
+// LS-Hint Parameter (Bauanleitung 61)
+const LS_HINT_BASIS_DB = 2.5;
+const LS_HINT_K = 3;
 
 // ---- Slider-Helfer ----
 function _testRstSlR() {
@@ -680,6 +689,7 @@ function _testExtSlider() {
   if (testEls.extendBtn) {
     testEls.extendBtn.hidden = (testSlRangeIdx >= TEST_SLIDER_RANGES.length - 1);
   }
+  _testUpdLsHint();
 }
 function _testCheckExtend(sv) {
   if (!testEls || !testEls.extendBtn) return;
@@ -699,6 +709,37 @@ function _testUpdCumulative(sv) {
     testEls.cumulativeDisplay.style.display = "none";
   }
   _testCheckExtend(sv);
+}
+function _testUpdLsHint() {
+  if (!testEls || !testEls.lsHint) return;
+  if (testMode !== "balance" || !testAct || testIdx >= testPairs.length) {
+    testEls.lsHint.style.display = "none";
+    return;
+  }
+  const lsEst = getLsEstimate(curA, curB);
+  if (!lsEst.hasData) {
+    testEls.lsHint.style.display = "none";
+    return;
+  }
+  const xLs = lsEst.estimate - curBase;
+  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
+  const markPct = ((xLs + r) / (2 * r)) * 100;
+  if (markPct < 0 || markPct > 100) {
+    testEls.lsHint.style.display = "none";
+    return;
+  }
+  testEls.lsHint.style.display = "";
+  testEls.lsHintMark.style.left = markPct + "%";
+  testEls.lsHintLabel.style.left = markPct + "%";
+  testEls.lsHintLabel.textContent =
+    (xLs >= 0 ? "+" : "") + xLs.toFixed(1) + " dB";
+  const hw = lsEst.halfWidth;
+  const bandLeft = Math.max(-r, xLs - hw);
+  const bandRight = Math.min(r, xLs + hw);
+  const bandLeftPct = ((bandLeft + r) / (2 * r)) * 100;
+  const bandWidthPct = ((bandRight - bandLeft) / (2 * r)) * 100;
+  testEls.lsHintBand.style.left = bandLeftPct + "%";
+  testEls.lsHintBand.style.width = bandWidthPct + "%";
 }
 function _testSliderVal() {
   return testEls ? parseFloat(testEls.slider.value) : 0;
@@ -865,21 +906,19 @@ function showCurPair() {
   testEls.pairFreq.textContent = `${Math.round(effFreq(a))} Hz vs. ${Math.round(effFreq(b))} Hz`;
   if (testMode === "balance") {
     const ex = bRes.find((r) => (r.a === a && r.b === b) || (r.a === b && r.b === a));
-    const prevOff = ex ? (ex.a === a ? ex.offset : -ex.offset) : 0;
-    const preCorr = getPreCorrOffset(a, b);
-    const pcCb = testEls.preCorrectCb;
-    if (pcCb && pcCb.checked && bRes.length > 0) {
-      curBase = preCorr;
-      _testRstSlR();
-      testEls.slider.value = "0";
-      if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
+    const lsEst = getLsEstimate(a, b);
+    if (ex) {
+      curBase = ex.a === a ? ex.offset : -ex.offset;
+    } else if (lsEst.hasData) {
+      curBase = lsEst.estimate;
     } else {
-      curBase = prevOff;
-      _testRstSlR();
-      testEls.slider.value = "0";
-      if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
+      curBase = 0;
     }
+    _testRstSlR();
+    testEls.slider.value = "0";
+    if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
     _testUpdCumulative(0);
+    _testUpdLsHint();
   }
   // Reset confidence
   if (testEls.confRadios && testEls.confRadios['none']) testEls.confRadios['none'].checked = true;
@@ -1146,7 +1185,6 @@ document.addEventListener("DOMContentLoaded", function() {
       },
       rowFine: {
         show: true,
-        preCorrect: true,
       },
       rowVolume: { show: true },
       rowSequence: {

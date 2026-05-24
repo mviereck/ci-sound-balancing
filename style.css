@@ -686,10 +686,16 @@ select:disabled {
 .test-box .slider-wrap {
   max-width: 440px;
   margin: 8px auto;
+  display: flex;
+  flex-direction: column;
 }
 .test-box .slider-wrap input[type="range"] {
   width: 100%;
+  order: 1;
 }
+.test-box .slider-wrap .ls-hint   { order: 2; }
+.test-box .slider-wrap .touch-ctrl { order: 3; }
+.test-box .slider-wrap .extend-btn { order: 4; }
 .test-box .info-box.key-hint {
   text-align: left;
   max-width: 440px;
@@ -789,6 +795,7 @@ select:disabled {
   margin-top: 8px;
   margin-bottom: 4px;
   align-items: center;
+  justify-content: center;
 }
 .touch-btn {
   min-width: 44px;
@@ -1105,4 +1112,43 @@ select:disabled {
 }
 .link-entry p:last-child {
   margin-bottom: 0;
+}
+
+/* LS-Hint Marke + Bandbereich unter dem Test-Slider (Bauanleitung 61) */
+.ls-hint {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  pointer-events: none;
+}
+.ls-hint-band {
+  position: absolute;
+  top: 0;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    rgba(70,130,180,0) 0%,
+    rgba(70,130,180,0.45) 30%,
+    rgba(70,130,180,0.45) 70%,
+    rgba(70,130,180,0) 100%
+  );
+  border-radius: 4px;
+}
+.ls-hint-mark {
+  position: absolute;
+  top: 0;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid #4682b4;
+  transform: translateX(-50%);
+}
+.ls-hint-label {
+  position: absolute;
+  top: 10px;
+  font-size: 0.8em;
+  color: #4682b4;
+  font-family: var(--mono);
+  transform: translateX(-50%);
+  white-space: nowrap;
 }

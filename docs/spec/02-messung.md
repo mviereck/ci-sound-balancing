@@ -89,7 +89,21 @@ Slider-Wert wird invertiert.
   zur bisherigen Hervorhebung als fettes blaues Achsen-Label. In
   der Loudness-Tabelle gibt es eine neue Spalte „Ref.El." am Ende;
   die Zeile der Referenzelektrode trägt ein großes `X`.
-- Vorkorrektur-Schalter (preCorrect)
+- **LS-Hint-Anzeige**: Unter dem Slider erscheint ein Dreieck mit
+  dB-Wert an der Position der LS-Schätzung des aktuellen Paares,
+  umgeben von einem semitransparenten Farbbereich, dessen halbe Breite
+  sich aus dem mittleren Residuum (`elRes` aus `compWLS`) und einem
+  Stichproben-Aufschlag (`basis · k/(k+N)`, basis = 2.5 dB, k = 3,
+  N = min. Mess-Anzahl der beiden Elektroden) als
+  `√(elRes² + prior²)` ergibt. Sichtbar nur, wenn beide Elektroden in
+  mindestens einer Messung vorkommen und die Marke innerhalb des
+  aktuellen Slider-Bereichs liegt.
+- **Slider-Startwert**: Bei bereits gemessenem Paar startet der
+  Slider so, daß der gespeicherte Wert exakt mittig sitzt
+  (`curBase = gespeicherter Offset`, `slider = 0`). Bei noch nicht
+  gemessenem Paar startet der Slider auf der LS-Schätzung
+  (`curBase = Schätzung`, `slider = 0`). Bei leerem Datensatz
+  `curBase = 0`.
 - Wenn Modus „Vollständig" angefangen aber nicht abgeschlossen wurde,
   zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und
   bestätigten Paaren des aktuellen Sweeps.

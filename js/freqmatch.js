@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     presets: {
       rowMode:     { show: false },
-      rowFine:     { show: true, preCorrect: false,
+      rowFine:     { show: true,
                      refSelect: { type: 'side', key: 'fmLblRef' } },
       rowVolume:   { show: true },
       rowSequence: {

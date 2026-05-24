@@ -126,22 +126,12 @@ function buildTestPanel(parentEl, cfg) {
     presetsBox.appendChild(runExplainBox);
   }
 
-  // Zeile 2: Feineinstellung (preCorrect + refSelect)
-  var preCorrectCb = null, refSelect = null;
+  // Zeile 2: refSelect (preCorrect entfernt — Bauanleitung 61)
+  var refSelect = null;
   if (cfg.presets.rowFine && cfg.presets.rowFine.show) {
     var rf = cfg.presets.rowFine;
     var rowFine = _mkEl('div', 'controls-row');
     rowFine.dataset.row = 'fine';
-    if (rf.preCorrect) {
-      var lbl = _mkEl('label', 'control-group');
-      lbl.style.cssText = 'font-size:0.85em;color:var(--text-muted);display:flex;align-items:center;gap:6px;cursor:pointer';
-      preCorrectCb = _mkEl('input');
-      preCorrectCb.type = 'checkbox';
-      preCorrectCb.id = 'preCorrect';
-      var span = _mkEl('span'); span.dataset.t = 'preCorrectLabel';
-      lbl.append(preCorrectCb, span);
-      rowFine.appendChild(lbl);
-    }
     if (rf.refSelect) {
       var cgRef = _mkEl('div', 'control-group');
       var lblRef = _mkEl('label'); lblRef.dataset.t = rf.refSelect.key;
@@ -426,6 +416,16 @@ function buildTestPanel(parentEl, cfg) {
   sliderWrap.append(slider, extendBtn);
   testBox.appendChild(sliderWrap);
 
+  // LS-Hint: Dreieck-Marke + Bandbereich für die LS-Schätzung (Bauanleitung 61)
+  // Hängt in sliderWrap; CSS-order bringt es optisch zwischen Slider und Touch-Buttons.
+  var lsHint = _mkEl('div', 'ls-hint');
+  lsHint.style.display = 'none';
+  var lsHintBand = _mkEl('div', 'ls-hint-band');
+  var lsHintMark = _mkEl('div', 'ls-hint-mark');
+  var lsHintLabel = _mkEl('div', 'ls-hint-label');
+  lsHint.append(lsHintBand, lsHintMark, lsHintLabel);
+  sliderWrap.appendChild(lsHint);
+
   // Slider-Wert-Anzeige
   var sliderValue = null;
   if (cfg.test.sliderValue) {
@@ -554,7 +554,7 @@ function buildTestPanel(parentEl, cfg) {
     id: id,
     explainBox: explainBox, presetsBox: presetsBox, testBox: testBox, exclOverlay: exclOverlay,
     // presets
-    modeSelect: modeSelect, runSelect: runSelect, preCorrectCb: preCorrectCb, refSelect: refSelect,
+    modeSelect: modeSelect, runSelect: runSelect, refSelect: refSelect,
     volInput: volInput, durInput: durInput, pauseInput: pauseInput,
     seqSelect: seqSelect, toneSelect: toneSelect, targetSelect: targetSelect,
     startBtn: startBtn, stopBtn: stopBtn, lockedHint: lockedHint,
@@ -569,6 +569,7 @@ function buildTestPanel(parentEl, cfg) {
     jdgContainer: jdgContainer, jdgA: jdgA, jdgEq: jdgEq, jdgB: jdgB,
     keyHintBox: keyHintBox, slider: slider, extendBtn: extendBtn,
     sliderValue: sliderValue, cumulativeDisplay: cumulativeDisplay,
+    lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel,
     confirmBtn: confirmBtn, confRadios: confRadios,
     // excl modal
     exclConfirmBtn: exclConfirmBtn, exclCancelBtn: exclCancelBtn,

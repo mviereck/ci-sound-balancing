@@ -100,7 +100,7 @@ Vergleich der Lautstärken der Elektroden.
 - Empfohlenes Vorgehen: 
   - Erst Testverfahren *Vollständig*.
   - Dann Testverfahren *Konvergenz*, gerne mehrfach.
-  - Optional: *Feintuning* auswählen und nochmal Konvergenz ausführen.
+  - Unter dem Slider wird eine Marke mit errechnetem Schätzwert und Ungenauigkeitbereich angezeigt. Darauf kann man sich nicht verlassen, es kann aber einen Anhaltspunkt bieten.
 - Jeder Test kann jederzeit unterbrochen und später an gleicher Stelle weitergeführt werden.
 - Jeder Test kann beliebig oft wiederholt werden, um die Ergebnisse zu verfeinern.
 - Die Messungen *Stereo-Balance* und *Frequenzabgleich* zunächst auslassen.

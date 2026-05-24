@@ -100,14 +100,13 @@ Object.assign(L.de, {
     lblVol2: "Lautstärke:",
     lblDur2: "Tondauer:",
     lblPau2: "Pause:",
-    preCorrectLabel: "Feinjustierung mit vorkorrigierten Werten",
     runExplFull:
       "Alle Elektrodenpaare werden in Runden verglichen. In jeder Runde wird jede Elektrode genau einmal verglichen. A und B werden pro Paar zufällig zugewiesen.",
     runExplCF:
       "Die Paare mit den größten Abweichungen werden erneut getestet, plus einige Zufallspaare. Erfordert vorhandene Ergebnisse. Kann beliebig oft wiederholt werden.",
     runExplMan: "Zwei Elektroden frei wählen und vergleichen.",
     recommend:
-      "Empfehlung: <br> - Stellen Sie den Ton so laut ein, daß es fast unangenehm ist.<br> - Nutzen Sie möglichst eine Bluetooth Verbindung zum Streamen.<br> - Erst Testverfahren „Vollständig“ durchführen, dann „Konvergenz“. Beides ist beliebig oft wiederholbar.<br> - „Vollständig“ gliedert sich in Runden. In jeder Runde wird jede Elektrode genau einmal verglichen. Erste brauchbare Schätzungen liegen ab etwa drei oder vier abgeschlossenen Runden vor; verläßliche Werte erst nach vollständigem Durchlauf aller Runden.<br> - Bei Abbruch wird beim nächsten Start von „Vollständig“ dort fortgesetzt, wo aufgehört wurde.<br> - Wenn die Einstellungen grundsätzlich stimmig sind, nach diesen beiden Testvarianten das Häkchen bei „Feinjustierung“ setzen und „Konvergenz“ erneut durchführen.<br> - Im Reiter Meßergebnisse kann die Qualität der Justierung anhand der Farben eingeschätzt werden.",
+      "Empfehlung: <br> - Stellen Sie den Ton so laut ein, daß es fast unangenehm ist.<br> - Nutzen Sie möglichst eine Bluetooth Verbindung zum Streamen.<br> - Erst Testverfahren „Vollständig“ durchführen, dann „Konvergenz“. Beides ist beliebig oft wiederholbar.<br> - „Vollständig“ gliedert sich in Runden. In jeder Runde wird jede Elektrode genau einmal verglichen. Erste brauchbare Schätzungen liegen ab etwa drei oder vier abgeschlossenen Runden vor; verläßliche Werte erst nach vollständigem Durchlauf aller Runden.<br> - Bei Abbruch wird beim nächsten Start von „Vollständig“ dort fortgesetzt, wo aufgehört wurde.<br> - Eine Marke unter dem Slider zeigt den aus allen bisherigen Messungen errechneten Wert; der farbige Bereich zeigt die Unsicherheit dieser Schätzung.<br> - Im Reiter Meßergebnisse kann die Qualität der Justierung anhand der Farben eingeschätzt werden.",
     startTest: "▶ Test starten",
     stopTest: "■ Test beenden",
     testLockedInfo:
@@ -502,7 +501,6 @@ Object.assign(L.de, {
       "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
     plFileTitle: "Audiodatei",
     printPlayerTitle: "Player-Einstellungen",
-    printPreCorrect: "Feinjustierung mit Vorkorrektur: aktiv",
     implTitle: "Implantat-Daten",
     implIntro:
       "Erfragen Sie bei Ihrem Audiologen die Werte der FAT (Frequency Allocation Table) mit Mittelfrequenzen (in Hz) für jede Elektrode und tragen Sie diese oben ein. Erfragen Sie auch MCL (MED-EL), T-Level/C-Level (Cochlear) oder T-Level/M-Level (Advanced Bionics) – diese Werte stehen in der Anpaß-Software des Audiologen und werden für die Berechnung der Anpassungswerte im Ausdruck benötigt. Sie können das Tool auch ohne diese Werte nutzen, mit den Werten werden die Ergebnisse aber präziser.",
@@ -697,7 +695,7 @@ Object.assign(L.de, {
     lrDesc: "Dieser Test vergleicht die wahrgenommene Lautstärke links und rechts für jedes Elektrodenpaar. Damit soll erreicht werden, daß Sie links und rechts gleich laut hören.",
     lrOrderLbl: "Reihenfolge:",
     lrSideLbl: "Seitenfolge:",
-    testExplainRecommend: "Empfehlungen:\n1. Stellen Sie die Lautstärke so ein, daß es etwa 3/4 laut ist. Also mehr als nur mittel, aber noch nicht unangenehm laut.\n2. Nutzen Sie möglichst Bluetooth zum Streamen.\n3. Machen Sie erst einen Test 'Vollständig', dann einmal oder mehrfach den Test 'Konvergenz'.\n4. Aktivieren Sie 'Feinjustierung' und machen Sie weitere Tests.",
+    testExplainRecommend: "Empfehlungen:\n1. Stellen Sie die Lautstärke so ein, daß es etwa 3/4 laut ist. Also mehr als nur mittel, aber noch nicht unangenehm laut.\n2. Nutzen Sie möglichst Bluetooth zum Streamen.\n3. Machen Sie erst einen Test 'Vollständig', dann einmal oder mehrfach den Test 'Konvergenz'.\n4. Eine Marke unter dem Slider zeigt den aus allen bisherigen Messungen errechneten Wert; der farbige Bereich zeigt die Unsicherheit dieser Schätzung.",
     testExplainVarious: " - Sie können die Tests jederzeit unterbrechen und später an gleicher Stelle weiterführen.\n - Der Test 'Vollständig' läuft über einige Runden. Nach etwa 3 bis 4 Runden können Sie im Reiter 'Meßergebnisse' schon grob einschätzen, wohin Ihre Messung führt.\n - Wenn eine Elektrode sich im Laufe des Tests als unmeßbar erweist (zu leise, inaktiv), markieren Sie sie entsprechend im Reiter 'Implantat'. Sie wird dann vom Test ausgeschlossen.",
     testInRound: "Test in dieser Runde:",
     confQualityLabel: "Qualität der Messung:",
