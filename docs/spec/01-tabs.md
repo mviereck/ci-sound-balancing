@@ -1,6 +1,6 @@
 ## Tab-Übersicht
 
-- **Einführung** (intro) — Begrüßung; unter der Einführungs-Beschreibung steht ein Link „Ausführliche Bedienungsanleitung", der je nach gewählter Oberflächen-Sprache auf README_de.md, README_en.md, README_fr.md oder README_es.md im GitHub-Repo zeigt (öffnet in neuem Tab). Sprachumschaltung aktualisiert sowohl Linktext als auch Ziel-URL. Der Ablauf-Block (`introFlowDesc`) umfaßt sechs Schritte: 1. Seite, 2. Implantat (mit eingebetteter „Wichtig"-Zeile zu deaktivierten Elektroden), 3. Lautstärke (neu: auf ~3/4 einstellen), 4. Messung (mit Pfad „Messungen → Elektrodenlautstärke"), 5. Player, 6. Levels. Am Ende des Tabs: zweite Karte `.support-card-call` mit Spendenaufruf und Link-Button zum Unterstützung-Tab (`switchTab('unterstuetzung')`).
+- **Einführung** (intro) — Begrüßung; unter der Einführungs-Beschreibung steht ein Link „Ausführliche Bedienungsanleitung", der je nach gewählter Oberflächen-Sprache auf README_de.md, README_en.md, README_fr.md oder README_es.md im GitHub-Repo zeigt (öffnet in neuem Tab). Sprachumschaltung aktualisiert sowohl Linktext als auch Ziel-URL. Der Ablauf-Block (`introFlowDesc`) umfaßt sechs Schritte: 1. Seite, 2. Implantat (mit eingebetteter „Wichtig"-Zeile zu deaktivierten Elektroden), 3. Lautstärke (neu: auf ~3/4 einstellen), 4. Messung (mit Pfad „Messungen → Elektrodenlautstärke"), 5. Player, 6. Levels. Am Ende des Tabs: zweite Karte `.card.support-card-call.card-support-hint` mit Spendenaufruf und Link-Button zum Unterstützung-Tab (`switchTab('unterstuetzung')`); orangefarbener Linksrand über `.card-support-hint`.
 - **Implantat** (setup) — Konfiguration, Hersteller-/Modell-Auswahl,
   globale Implantat-Parameter, Frequenz- und Elektrodentabelle (siehe
   „Implantat-Tab" unten)
@@ -17,7 +17,7 @@
   steht Schieber **nach** Kurven.
 - **Player** (player)
 - **Laden/Speichern** (file)
-- **Unterstützung** (unterstuetzung) — Spendenaufruf mit Bot-geschützten Dialogen für Bankverbindung und Kontakt-E-Mail; Finanz-Offenlegungstabelle (Vollausbau vs. aktueller Stand, automatisch aus `finanzen.js` berechnet); Zukunftspläne. Alle sensitiven Daten (IBAN, E-Mail) werden erst beim Öffnen des jeweiligen Dialogs aus Fragmenten zusammengebaut.
+- **Unterstützung** (unterstuetzung) — Letzter Top-Level-Tab. Drei Karten: (1) Spendenaufruf mit zwei Bot-geschützten Dialogen (Bankverbindung mit IBAN/BIC/QR-Code, Kontakt-E-Mail); sensible Daten werden erst beim Klick aus Fragmenten zusammengebaut, stehen nicht im HTML-Quelltext. (2) Offenlegung der Finanzierung: Vergleichstabelle Vollausbau vs. aktueller Stand, Einzelposten und Summen aus `finanzen.js` (`FINANZEN.posten`, `FINANZEN.donationsMonthly`), Summen-/Differenz-Berechnung in `finBerechne()`; darunter Liste „Geplant"/„In Erwägung". (3) Mehrsprachiger Slogan (per `data-t` in aktiver UI-Sprache). Tab wird wie alle Top-Level-Tabs während laufender Tests gesperrt. Nicht Teil des „Alles drucken"-Ablaufs.
 - **Slogan-Karte** — außerhalb aller Panels, immer sichtbar (unter jedem Tab). Enthält den kursiven Slogan-Text (`supportSlogan`). CSS-Klasse `.support-card-slogan`.
 - **Footer** — am Seitenende, immer sichtbar. Enthält Versions-Tag,
   Impressum, MIT-Lizenz, GitHub-Link. Impressum-Inhalt fix deutsch

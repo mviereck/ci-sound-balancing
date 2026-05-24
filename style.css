@@ -1067,3 +1067,13 @@ select:disabled {
   font-family: var(--mono, monospace);
   font-size: 1.05em;
 }
+
+.card-support-hint {
+  border-left: 4px solid var(--accent, #d97700);
+}
+.card-support-hint h3 {
+  margin-top: 0;
+}
+.card-support-hint p:last-child {
+  margin-bottom: 0;
+}

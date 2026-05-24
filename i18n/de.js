@@ -755,7 +755,7 @@ Object.assign(L.de, {
     supportGapToFull: "Zusätzlich nötige Spenden für Vollausbau:",
 
     supportFinanceGoal: "Um das Tool vollwertig weiterentwickeln und alle angestrebten Features anbieten zu können, ist der Vollausbau nötig.",
-    supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo erlaubt längere Arbeitssitzungen ohne Unterbrechung mitten in komplexen Änderungen, und Integration arbeitsintensiver Anteile wie saubere Emulation von eingestellten Änderungen im Player.",
+    supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo erlaubt längere Arbeitssitzungen ohne Unterbrechung mitten in komplexen Änderungen, und Integration arbeitsintensiver Anteile wie hochwertige Emulation von eingestellten Änderungen im Player.",
 
     supportFutureTitle: "Was mit Vollfinanzierung möglich wird:",
     supportFutureIntro: "Geplant, derzeit mangels Mitteln ausgebremst:",
