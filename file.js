@@ -45,10 +45,20 @@ function resetAll() {
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
   if (typeof latApplyToPlayer === "function") latApplyToPlayer();
   if (typeof latRenderResults === "function") latRenderResults();
+  if (typeof latSliderInput === "function") latSliderInput(0);
+  if (typeof lrResults !== "undefined") {
+    Object.keys(lrResults).forEach(k => delete lrResults[k]);
+    if (typeof lrUndoStack !== "undefined") lrUndoStack.splice(0, lrUndoStack.length);
+    if (typeof lrRenderResults === "function") lrRenderResults();
+    if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
+  }
+  if (typeof fRes !== "undefined") fRes.splice(0, fRes.length);
+  if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   buildFreqTable();
   buildPrTbl();
   drawLvChart();
   renderResults();
+  if (typeof buildImplantCard === "function") buildImplantCard();
   alert(t("resetDone"));
 }
 
@@ -123,6 +133,7 @@ async function saveJson() {
     levelsTabMode: lvTabMode,
     levelsTabVariant: lvTabVariant,
     plSide: getPlayerSide(),
+    plBothSides: document.getElementById("plBothSides").checked,
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
     globalToneType: globalToneType,
@@ -341,6 +352,10 @@ function applyLoadedData(d) {
   if (d.toneDuration) setVal("dur1", d.toneDuration);
   if (d.pauseDuration) setVal("pau1", d.pauseDuration);
   if (d.volume) setVal("vol1", d.volume);
+  if (typeof d.plBothSides === "boolean") {
+    const bsEl = document.getElementById("plBothSides");
+    if (bsEl) bsEl.checked = d.plBothSides;
+  }
   if (d.eqOn !== undefined) {
     plEqOn = d.eqOn;
     updEqToggleBtn();

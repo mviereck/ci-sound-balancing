@@ -448,7 +448,7 @@ function lrApplyMeanToBalance() {
     // BEIDEN Seiten deaktiviert oder stumm-geschaltet ist
     const exL = sideData.left.elExDur[i]  !== null || sideData.left.elSt[i]  === 'mute';
     const exR = sideData.right.elExDur[i] !== null || sideData.right.elSt[i] === 'mute';
-    return !(exL && exR);
+    return !(exL || exR);
   });
   if (!activeKeys.length) return;
   const vals = activeKeys.map((k) => lrResults[+k]);
@@ -474,10 +474,10 @@ function lrApplyMeanToBalance() {
   }
   if (mhEl) {
     if (Math.abs(balOffset) < 0.5)
-      mhEl.textContent = "Seiten nahezu gleich laut";
+      mhEl.textContent = t('lrBalEqual');
     else if (balOffset > 0)
-      mhEl.textContent = "Links anheben oder Rechts absenken";
-    else mhEl.textContent = "Rechts anheben oder Links absenken";
+      mhEl.textContent = t('lrRightLouder');
+    else mhEl.textContent = t('lrLeftLouder');
   }
 }
 
@@ -496,7 +496,7 @@ function lrRenderResults() {
   const th = document.getElementById("lrResTH");
   const tb = document.getElementById("lrResTB");
   th.innerHTML =
-    "<th>Elektrode</th><th>Hz Links</th><th>Hz Rechts</th><th>Offset (dB)</th><th>Bedeutung</th>";
+    `<th>${t('audColEl')}</th><th>${t('lrThHz1')}</th><th>${t('lrThHz2')}</th><th>Offset (dB)</th><th>${t('lrThMeaning')}</th>`;
   tb.innerHTML = "";
 
   const count = Math.min(sideData["left"].nEl, sideData["right"].nEl);
@@ -504,7 +504,7 @@ function lrRenderResults() {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
-    const isDisabled = exL && exR;
+    const isDisabled = exL || exR;
     const v = lrResults[i];
     const hzL = lrEffFreq("left", i);
     const hzR = lrEffFreq("right", rightEl);
@@ -527,7 +527,7 @@ function lrRenderResults() {
         `<td style="font-size:.82em;color:#9ca3af">${t('notMeasured')}</td>`;
     } else {
       const meaning =
-        v > 0.1 ? "Rechts lauter" : v < -0.1 ? "Links lauter" : "Gleich";
+        v > 0.1 ? t('lrMeaningRight') : v < -0.1 ? t('lrMeaningLeft') : t('lrMeaningEqual');
       const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#666";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
@@ -564,7 +564,7 @@ function lrDrawChart() {
     const rightEl = i < sideData["right"].nEl ? i : sideData["right"].nEl - 1;
     const exL = sideData.left.elExDur[i]        !== null || sideData.left.elSt[i]        === 'mute';
     const exR = sideData.right.elExDur[rightEl] !== null || sideData.right.elSt[rightEl] === 'mute';
-    if (exL && exR) status[i] = 'disabled';
+    if (exL || exR) status[i] = 'disabled';
     else if (lrResults[i] !== undefined) status[i] = 'measured';
     else status[i] = 'unmeasured';
   }

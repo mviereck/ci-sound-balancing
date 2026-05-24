@@ -201,9 +201,9 @@ function computeGains() {
     const hd = bRes.some(
       (r) =>
         (r.a === i || r.b === i) &&
-        elSt[r.a] !== "excluded" &&
+        elExDur[r.a] === null &&
         elSt[r.a] !== "mute" &&
-        elSt[r.b] !== "excluded" &&
+        elExDur[r.b] === null &&
         elSt[r.b] !== "mute",
     );
     const addMeas = plSrcMeas && hd ? levels[i] : 0;

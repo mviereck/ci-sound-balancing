@@ -174,8 +174,12 @@ Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Version
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
 - Es ist vorteilhaft, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. 
+  
 - Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
 - Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+- Anmerkungen:
+  - Wenn Sie auf dem anderen Ohr natürlich hören, aber schwerhörig sind, kann es helfen, sich das Hörgerät für den Test so einstellen zu lassen, daß es keine Frequenzverschiebung vornimmt, sondern nur die Lautstärke verbessert.
+  - Wenn Sie auf dem anderen Ohr ein Hörgerät tragen, daß Frequenzverschiebung macht, etwa hohe Töne als tiefere Töne wiederzugeben, ist es für den Test nicht geeignet. Sie würden mit den verschobenen Frequenzen testen.
 
 Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Versionen verfeinert werden.
 

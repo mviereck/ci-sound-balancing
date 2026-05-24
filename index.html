@@ -24,7 +24,9 @@
       document.write('<link rel="stylesheet" href="style.css?v=' + v + '">');
 
       var scripts = [
-        'version.js', 'mobile.js', 'touch-ctrl.js', 'i18n.js', 'core.js', 'state-side.js', 'audio.js',
+        'version.js', 'mobile.js', 'touch-ctrl.js', 'i18n.js',
+        'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js',
+        'core.js', 'state-side.js', 'audio.js',
         'ui-implant.js', 'freq-table.js', 'test-ui.js', 'test.js', 'freqmatch.js',
         'results.js', 'chart.js', 'file.js', 'print.js', 'print-md.js', 'tab-print.js', 'tabs-eq.js', 'levels.js',
         'levels-tab.js', 'player.js', 'freq-warp.js', 'maplaw.js', 'lr-balance.js', 'latency.js', 'sentences.js', 'init.js', 'legal.js'
@@ -407,10 +409,10 @@
       <div id="panel-messungen" class="panel">
         <div>
         <div class="subtabs">
-          <button class="subtab active" data-subtab="test" data-parent="messungen">Elektrodenlautstärke-Balance</button>
-          <button class="subtab" data-subtab="balance" data-parent="messungen">Stereo-Balance</button>
-          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latSubtabBtn">Latenz</button>
-          <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn">Frequenzabgleich</button>
+          <button class="subtab active" data-subtab="test" data-parent="messungen" data-t="subTabLoudness"></button>
+          <button class="subtab" data-subtab="balance" data-parent="messungen" data-t="tabBalance"></button>
+          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latSubtabBtn" data-t="tabLatenz"></button>
+          <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn" data-t="subTabFreqMatch"></button>
         </div>
         <div id="subpanel-messungen-test" class="subpanel active">
           <!-- Inhalt wird von test-ui.js / test.js erzeugt -->
@@ -504,7 +506,7 @@
       <div id="panel-ergebnisse" class="panel">
         <div class="subtabs">
           <button class="subtab active" data-subtab="results" data-parent="ergebnisse" id="subTabLoudnessBtn"></button>
-          <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse">Stereo-Balance</button>
+          <button class="subtab" data-subtab="lrresults" data-parent="ergebnisse" data-t="tabBalance"></button>
           <button class="subtab" data-subtab="latenz" data-parent="ergebnisse" id="subTabLatenzBtn" data-t="tabLatenz">Latenz</button>
           <button class="subtab" data-subtab="freqmatch" data-parent="ergebnisse" id="subTabFreqMatchBtn"></button>
           <button class="btn" id="printErgebnisseBtn"
@@ -614,10 +616,10 @@
         </div>
         <div id="subpanel-ergebnisse-lrresults" class="subpanel">
         <div id="lrNoResults" class="card">
-          <p style="color: var(--text-muted)">Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance" durch.</p>
+          <p style="color: var(--text-muted)" data-t="lrNoResultsMsg"></p>
         </div>
         <div class="card" id="lrResultsCard" style="display: none">
-          <h2 id="lrResTitle">Ergebnisse L/R-Vergleich</h2>
+          <h2 id="lrResTitle" data-t="lrResTitle"></h2>
           <div
             id="lrMedianDisplay"
             style="
@@ -636,9 +638,8 @@
                 margin-bottom: 4px;
               "
               id="lrMedianLabel"
-            >
-              Empfohlener Balance-Offset (Mittelwert)
-            </div>
+              data-t="lrMedianLabel"
+            ></div>
             <div
               id="lrMedianValue"
               style="
@@ -666,10 +667,8 @@
               margin-bottom: 8px;
             "
             id="lrResDesc"
-          >
-            Positiv = Rechts lauter als Links (rechts abschwächen oder links
-            anheben). Negativ = Links lauter.
-          </p>
+            data-t="lrResDesc"
+          ></p>
           <div
             id="lrResChartWrap"
             style="
@@ -700,14 +699,10 @@
               class="btn btn-sm"
               id="lrClearBtn"
               style="color: var(--danger)"
-            >
-              🗑 Ergebnisse löschen
-            </button>
+              data-t="lrClearBtnLabel"
+            ></button>
           </div>
-          <div class="explain" style="margin-top: 12px" id="lrResNote">
-            Der empfohlene Globalwert (Mittelwert) wird automatisch als
-            Stereo-Balance-Offset oben eingetragen.
-          </div>
+          <div class="explain" style="margin-top: 12px" id="lrResNote" data-t="lrResNote"></div>
         </div>
         </div>
 

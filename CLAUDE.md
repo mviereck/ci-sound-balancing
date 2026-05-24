@@ -13,9 +13,12 @@ REFERENZDATEIEN
 
 - **CODESTRUKTUR.md** — Modulübersicht, Ladereihenfolge,
   Querverweise, Edit-Szenarien. Vor jedem nicht-trivialen Edit lesen.
-- **SPEC.md** — vollständige Funktionsspezifikation (Tabs, Tests,
-  Levels, Player, Speichern, Drucken, Warteliste). Bei Fragen zum
-  Funktionsumfang dorthin.
+- **SPEC.md + spec/** — Funktionsspezifikation. SPEC.md ist
+  ein schlanker Index mit Eckdaten, Anzeige-Konvention und
+  Verweisen auf neun Kapitel unter `spec/` (Tabs, Messungen,
+  Implantat, Schieber, Kurven, Player, Laden/Speichern, Drucken,
+  Warteliste). **Bei Arbeiten an einem konkreten Bereich nur
+  das passende Kapitel aus spec/ lesen, nicht die ganze Spec.**
 - **DEBUG.md** — Browser-Konsole, Network-Tab, Bug-Report-Template,
   Konsolen-Befehle für den Nutzer. Wenn der Nutzer einen Fehler
   meldet oder Diagnose-Hilfe braucht: dorthin verweisen oder
@@ -36,6 +39,11 @@ REFERENZDATEIEN
   am Levels-Tab im Absolutmodus oder an der MAPLAW-Simulation
   benötigt. Implementierung der Formeln liegt in `core.js`
   (`calcMedel`, `calcCochlear`, `calcAB`).
+- **BAUANLEITUNGEN_LEITLINIEN.md** — Format-Vorgaben für
+  Sonnet-Bauanleitungen (Snippets, Skeleton, Akzeptanztest,
+  Selbstprüfung, Aufteilung in kleine Dateien). Nur lesen,
+  wenn tatsächlich eine Bauanleitung verfaßt wird, nicht
+  bei jedem Chat-Start.
 
 NUTZERKONTEXT
 -------------
@@ -102,41 +110,49 @@ Wenn der Nutzer ein Problem meldet:
 BAUANLEITUNGEN FÜR SONNET
 -------------------------
 
-Wenn der User eine Bauanleitung für Sonnet bestellt, gilt
-Anleitungs-Modus, nicht Spezifikations-Modus:
-- Aus Ausführungssicht schreiben. Jeder Schritt so konkret, daß
-  Sonnet nicht raten muß.
-- Konkrete before/after-Snippets statt nur Schemata.
-- Skeleton-Code für neue Module mitliefern, nicht nur das Schema.
-- Anforderungen pro Feature an EINEM Ort bündeln (Verhalten,
-  Persistenz, Akzeptanz zusammen), nicht über das Dokument verteilen.
-- Direkte Sprache: "in datei.js Z. X dieses durch jenes ersetzen"
-  statt "vorhandene Mechanik anpassen".
-- Explizite Sync-Patterns für globale Variablen vorgeben (zentraler
-  Setter + Listener-Pattern), nicht nur "bidirektional gebunden" sagen.
+Vor dem Verfassen einer Sonnet-Bauanleitung
+`BAUANLEITUNGEN_LEITLINIEN.md` lesen. Dort stehen Format-
+Vorgaben, Pflichtbestandteile (Akzeptanztest, Selbstprüfungs-
+Auftrag), Aufteilungs-Regeln und die Anweisung zum Volumen-
+Sparen durch kleine, nummerierte Anleitungs-Dateien.
 
-Volumen sparen, Sorgfalt erhöhen durch Aufteilung:
-- Lieber mehrere kleine Anleitungsdateien (durchnummeriert,
-  z.B. BAUANLEITUNG_01_<thema>.md, BAUANLEITUNG_02_<thema>.md)
-  als ein großes Dokument.
-- Eine Datei = ein Sonnet-Chat = ein begrenztes Thema. Sonnet
-  arbeitet sorgfältiger bei kleinem Kontext; und es spart Tokens,
-  wenn nicht jeder Sonnet-Chat das gesamte Vorhaben mitschleppt.
-- Reihenfolge der Dateien festlegen, am Ende jeder Anleitung eine
-  knappe Zwischenprüfung formulieren ("Nach Abschluß manuell
-  prüfen: X funktioniert, Y unverändert.").
-- Vor dem Schreiben überlegen, ob die Anleitung tatsächlich klein
-  genug ist — wenn nicht, von vornherein aufteilen.
+EFFIZIENTER UMGANG MIT DEM PRO-ABO
+----------------------------------
 
-Pflichtbestandteile jeder Bauanleitung:
-- **Akzeptanztest-Checkliste am Ende**: Klick-für-Klick-Schritte, die
-  der Nutzer ohne Code-Kenntnisse durchgehen kann, mit erwartetem
-  Verhalten pro Schritt. Beispiel: "Tab Messungen → Sub-Tab
-  Stereo-Balance → ‚Test starten‘ klicken → erwartet: roter Stop-
-  Button aktiv, Voreinstellungen ausgegraut, Test-Block sichtbar."
-- **Selbstprüfungs-Auftrag an Sonnet**: am Ende jedes Builds soll
-  Sonnet **vor der Fertig-Meldung** jede Akzeptanz-Kriterie einzeln
-  durchgehen und für jede melden: erfüllt / nicht erfüllt / unklar,
-  mit Datei- und Zeilenangabe der relevanten Stelle. Wenn Sonnet
-  selbst etwas als unklar markiert, ist das Signal zur Rückfrage,
-  nicht zur stillen Annahme.
+Der Nutzer hat ein begrenztes Wochen-Volumen. Folgende Regeln helfen,
+es nicht unnötig zu verbrauchen:
+
+- **Circuit Breaker bei Suche/Debugging.** Wenn nach drei erfolglosen
+  Such- oder Tool-Schritten kein klarer Hinweis gefunden ist:
+  anhalten, bisherigen Stand kurz zusammenfassen, den Nutzer um
+  Eingrenzung bitten. Nicht blind weitergraben.
+- **Referenz-Dateien nur lesen, wenn nötig.** CODESTRUKTUR.md,
+  SPEC.md, DEBUG.md etc. nicht vorsorglich öffnen. Bei trivialen
+  Edits (String ersetzen, Tippfehler, eine bekannte Funktion ändern)
+  reicht der Direkt-Edit. Die "vor jedem nicht-trivialen Edit lesen"-
+  Regel aus REFERENZDATEIEN gilt streng — bei trivialen Edits eben
+  nicht.
+- **Gezielte File-Reads bei großen Dateien.** `lr-balance.js`,
+  `i18n.js`, `index.html` nicht pauschal von oben lesen. Erst per
+  `grep` die relevante Zeile finden, dann mit `offset`/`limit` nur
+  den nötigen Ausschnitt einziehen.
+- **Sonnet als Agent nutzen** für isolierte Subtasks mit klarem
+  Scope (parallele Code-Suche, Aufzählungs-Aufgaben, mechanische
+  Refactorings). Nicht für Kleinaufgaben — das Briefing kostet
+  dann mehr Tokens als die Aufgabe selbst. Aufruf: `Agent`-Tool
+  mit `model: "sonnet"`.
+- **DeepSeek vorschlagen bei reinen Wissensfragen.** Hersteller-
+  Mechaniken, Audiologie-Theorie, allgemeine Web-Recherche kann der
+  Nutzer auf DeepSeek auslagern. Aktiv anbieten, statt Claude-
+  Volumen für reine Recherche zu verbrauchen. Bei Code- und
+  Projektfragen bleibt es bei Claude.
+- **Opus und Sonnet nicht im selben Chat mischen.** Hat Opus eine
+  Bauanleitung geschrieben, übernimmt einen neuen Sonnet-Chat das
+  Bauen. Den Opus-Chat schließen.
+- **Bei Bug-Diagnose erst Konsolen-Ausgabe holen.** Bevor Claude
+  selbst durch den Code wandert, den Nutzer um die Konsolen-Meldung
+  bitten (Bug-Report-Template in DEBUG.md). Spart oft eine ganze
+  Such-Schleife.
+- **Nach abgeschlossenem Thema `/clear` empfehlen.** Lange Chats
+  werden teuer, weil ältere Nachrichten mit jeder neuen mitgeschickt
+  werden. Ein frischer Chat pro Thema spart Volumen.

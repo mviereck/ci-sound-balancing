@@ -434,19 +434,18 @@ function _archivMdImplantTables(data) {
     out.push(`### ${sd.label} (${sd.manufacturerLabel})`);
     out.push("");
     const unit = sd.implant.unit || "qu";
-    out.push(`| ${t("thEl")} | ${t("archivImplHzStd")} | ${t("archivImplHzOwn")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplNote")} |`);
-    out.push("|---|---|---|---|---|---|---|");
+    out.push(`| ${t("thEl")} | ${t("archivImplHzStd")} | ${t("archivImplHzOwn")} | ${t("archivImplThr")} (${unit}) | ${t("archivImplUpper")} (${unit}) | ${t("archivImplStatus")} | ${t("archivImplExcl")} | ${t("archivImplNote")} |`);
+    out.push("|---|---|---|---|---|---|---|---|");
     for (const e of sd.implant.electrodes) {
       const hzStd  = _mdFmtHz(e.hzStandard);
-      const hzOwn  = (e.hzOwn != null) ? _mdFmtHz(e.hzOwn) : "—";
-      const thrTxt = (e.thr   != null) ? e.thr   : "—";
-      const upTxt  = (e.upper != null) ? e.upper : "—";
+      const hzOwn  = (e.hzOwn != null) ? _mdFmtHz(e.hzOwn) : "";
+      const thrTxt = (e.thr   != null) ? e.thr   : "";
+      const upTxt  = (e.upper != null) ? e.upper : "";
       const _ST_KEY = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" };
-      const stTxt  = e.excluded
-        ? t("excluded")
-        : (e.status ? (t(_ST_KEY[e.status] || "") || e.status) : "");
+      const stTxt  = e.status ? (t(_ST_KEY[e.status] || "") || e.status) : "";
+      const exclTxt = e.excluded ? "**X**" : "";
       const note = _mdEsc(e.note || "");
-      out.push(`| ${e.label} | ${hzStd} | ${hzOwn} | ${thrTxt} | ${upTxt} | ${stTxt} | ${note} |`);
+      out.push(`| ${e.label} | ${hzStd} | ${hzOwn} | ${thrTxt} | ${upTxt} | ${stTxt} | ${exclTxt} | ${note} |`);
     }
     out.push("");
   }
@@ -740,7 +739,6 @@ function _audCent(varHz, refHz) {
 
 function _audStatusText(side, i) {
   return withSide(side, () => {
-    if (elExDur[i] !== null) return t("audStatExcluded");
     if (elSt[i] === "mute") return t("audStatMute");
     if (elSt[i]) {
       const lb = {
@@ -795,16 +793,17 @@ function _audiologLoudnessTable(side) {
     const resArr = _audiologResForSide(side);
     const unit = lvUnitLabelFor(mfr);
     const lines = [];
-    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("audColNote")} |`);
-    lines.push("|---|---|---|---|---|---|---|---|");
+    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} |`);
+    lines.push("|---|---|---|---|---|---|---|---|---|");
     for (let i = 0; i < nEl; i++) {
       const dB = dBs[i] || 0;
       const r  = resArr[i] || 0;
       const abs = _audiologAbsDelta(side, i, dB);
       const status = _audStatusText(side, i);
+      const excl = (elExDur[i] !== null && elExDur[i] !== undefined) ? "**X**" : "";
       const note = (elNt && elNt[i]) ? elNt[i] : "";
       lines.push(
-        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : "—"} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status || "—"} | ${note || "—"} |`
+        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${note} |`
       );
     }
     return lines.join("\n");
@@ -1074,10 +1073,6 @@ function buildAudiologMarkdown() {
   }
   parts.push("");
 
-  // ---- Testprogramm-Hinweis FRÜH ----
-  const tp = _audiologTestProgramHint(mainSides);
-  if (tp) parts.push(tp);
-
   // ---- EQ aus ----
   if (typeof plEqOn !== "undefined" && !plEqOn) {
     parts.push(`> ${t("audiologEqOff")}\n`);
@@ -1116,6 +1111,7 @@ function buildAudiologMarkdown() {
     if (lastM) meta.push(`${t("audiologLastMeas")}: ${_audiologDateStr(lastM)}`);
     parts.push(`_${meta.join(" · ")}_`);
     parts.push("");
+    if (_audiologIsTestProgram(side)) parts.push(`> ${t("audiologTestProgramHint")}\n`);
 
     // H3 Lautstärken-Korrektur
     parts.push(`### ${t("audiologSecLoudness")}`);

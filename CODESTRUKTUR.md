@@ -98,7 +98,11 @@ werden.
 | 0  | version.js | `APP_VERSION` — einzige Stelle für die Versionsnummer. Muss vor allen anderen Skripten geladen werden. |
 | 0b | mobile.js | `IS_TOUCH_ONLY` (Touch-Erkennung per `matchMedia('(hover: none) and (pointer: coarse)')`), `safeFocus(el)` (focus-Aufruf nur auf Nicht-Touch-Geräten), `applyMobileReadonly(root)` (setzt `readonly` und `inputmode="numeric"` auf allen `input[type="number"]` im übergebenen Wurzelelement, no-op auf Desktop). Eigener DOMContentLoaded-Handler, der `applyMobileReadonly(document)` einmalig nach Page-Load aufruft. Wird von freq-table.js, levels.js, test-ui.js nach dynamischen Rebuilds erneut aufgerufen. |
 | 0c | touch-ctrl.js | `attachLongPress(btn, onStep)` (Klick + Long-Press 400 ms initial / 100 ms repeat), `buildSliderTouchCtrl(slider, opts)` (Touch-Bedienleiste mit − / Fein / + / [Replay] direkt nach dem Slider, dispatcht `input`-Event auf den Slider), `buildStepperPair(opts)` (zwei Buttons mit Long-Press, Aufrufer hängt selbst ein). Kein eigener DOMContentLoaded-Handler; Aufrufer instanzieren wo gebraucht. |
-| 1  | i18n.js | Übersetzungsobjekt L (de/en/fr/es), `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS` (Sprach→README-URL für Manual-Link im Intro) |
+| 1  | i18n.js | **Core:** leeres Übersetzungsobjekt `L = { de: {}, en: {}, fr: {}, es: {} }`, `lang`, `t()`, `applyLang()`, `updateMfrSelectLabels()`, `updateRunExplain()`, Konstante `README_URLS`. Sprachdaten liegen in `i18n/de.js` … `i18n/es.js`, die danach geladen werden. |
+| 1a | i18n/de.js | Deutsche Übersetzungen — befüllt `L.de` via `Object.assign(L.de, { … })`. Muss nach `i18n.js` geladen werden (nutzt `L`). |
+| 1b | i18n/en.js | Englische Übersetzungen — befüllt `L.en` via `Object.assign(L.en, { … })`. |
+| 1c | i18n/fr.js | Französische Übersetzungen — befüllt `L.fr` via `Object.assign(L.fr, { … })`. |
+| 1d | i18n/es.js | Spanische Übersetzungen — befüllt `L.es` via `Object.assign(L.es, { … })`. |
 | 2  | core.js | `IMPLANTS`, `PROCESSORS`, `MFR`, `SIDES`, `PR_*`-Konstanten, `SII_THIRD_OCT`, `calc*`-Funktionen, `siiWeightsForFreqs`. Absolutmodus-Hilfsfunktionen: `LV_AXIS_MAX`, `lvAxisMaxFor`, `lvUnitLabelFor`, `dbFromMedel`, `dbFromCochlear`, `dbFromAB`. |
 | 3  | state-side.js | Globaler State (`sideData`, `activeSide`, `mfr`, `nEl`, `freqs`, `elFreqOwn`, `elSt`, `elNt`, `elExDur`, `manualLevels`, `refEl`, `jRes`, `bRes`, `config`, `presets`, `defaultMfr`, `globalToneType`, `globalSequence`, `slTarget_*`, `plSrcMeas`, `plSrcLevels`, `plSrcCurves`, `lvTabShowMeas`, `lvTabShowCurves`, `lvTabMode`, `lvTabVariant`, `plShowExperimental`, `plBalanceMode`, `audiologUserNote` (top-level, beide Seiten gemeinsam)). Side-Logik: `bindActiveSide`, `setActiveSide`, `withSide` (temporärer Side-Wechsel ohne UI-Update, für Druck/Export), `initSideData`, `loadSideData`. Konfig pro Seite: `setSideConfig`, `getFreqSource`, `syncFreqsToAcoustic`. Player-Side: `getPlayerSide` (liefert "left"/"right"/"both"), `getPlayerBalance` (Inter-Ohr-Offset aus Mittelwert von `lrResults`), `getPlayerBalanceGains` (liefert {left, right} dB unter Berücksichtigung von `plBalanceMode`). UI-Helper: `updSideButtons`, `updFClearBtn`, `dEN`, `dENPrefix`, `effFreq`, `fRes`. Top-Level-Init am Dateiende. |
 | 4  | audio.js | AudioContext, `playTone`, `playSweep`, `playSeq`, `playFreqPair`, `gAC`, `dB2G`, `corrG`, `updInd` |
@@ -369,8 +373,7 @@ dritte Datei.
 auf, vor allem freq-table.js, ui-implant.js, core.js, levels.js.
 Bei Hersteller-spezifischer Logik immer alle drei Module prüfen.
 
-**i18n L-Objekt** ist die größte Datei. Code-Anteil davon ist klein.
-Bei reinen Textänderungen reicht es, i18n.js zu lesen.
+**i18n-Split:** Sprachdaten liegen jetzt in `i18n/de.js`, `i18n/en.js`, `i18n/fr.js`, `i18n/es.js`. Bei reinen Textänderungen reicht es, nur die betroffene Sprachdatei zu lesen (je ~700 Zeilen statt 2900).
 
 **drawFreqMatchChart (chart.js):** Zeichnet das Diagramm im Sub-Tab
 „Frequenzabgleich" unter Meßergebnisse. X-Achse: log-Hz der CI-Frequenz

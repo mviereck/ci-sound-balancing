@@ -130,6 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
       updatePlayerForSideChange();
       updBalApplyBtn();
       updLatApplyBtn();
+      try {
+        const _sv = localStorage.getItem("ci-lb-v4");
+        if (_sv) {
+          const _d = JSON.parse(_sv);
+          _d.plBothSides = this.checked;
+          localStorage.setItem("ci-lb-v4", JSON.stringify(_d));
+        }
+      } catch (_e) {}
     });
   // Volume sync between setup and test (textboxes)
   // vol1/dur1/pau1: Setup-Tab Inputs
@@ -627,6 +635,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
       if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
       if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
+      if (typeof d.plBothSides === "boolean") {
+        const bsEl = document.getElementById("plBothSides");
+        if (bsEl) {
+          bsEl.checked = d.plBothSides;
+          if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+          if (typeof updBalApplyBtn === "function") updBalApplyBtn();
+          if (typeof updLatApplyBtn === "function") updLatApplyBtn();
+        }
+      }
       buildFreqTable();
       buildImplantCard();
       updSideButtons();
@@ -742,6 +759,7 @@ document.addEventListener("DOMContentLoaded", () => {
           levelsTabVariant: lvTabVariant,
           levelsTabShowMeas: lvTabShowMeas,
           levelsTabShowCurves: lvTabShowCurves,
+          plBothSides: document.getElementById("plBothSides").checked,
         }),
       );
     } catch (e) {}
