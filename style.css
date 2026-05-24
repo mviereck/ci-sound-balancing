@@ -929,3 +929,141 @@ select:disabled {
     display: none;
   }
 }
+
+/* ===== Unterstützung-Tab ===== */
+
+.support-card-call h2,
+.support-card-call h3 {
+  margin-top: 0;
+}
+
+.card h3.support-section-title {
+  margin-top: 1.5em;
+  margin-bottom: 8px;
+  color: var(--text, #1a1a1a);
+  font-weight: 700;
+  font-size: 1em;
+}
+.card h3.intro-support-title {
+  margin-bottom: 8px;
+  color: var(--text, #1a1a1a);
+  font-weight: 700;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  text-decoration: underline;
+}
+.link-btn:hover {
+  color: var(--accent-hover);
+}
+
+.support-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 10px;
+}
+
+.support-zweck {
+  font-size: 0.88em;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.support-finance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0 10px;
+}
+.support-finance-table th,
+.support-finance-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.support-finance-table th.num,
+.support-finance-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.support-finance-table tfoot tr.sum td {
+  font-weight: 700;
+  border-top: 2px solid var(--text);
+}
+.support-finance-table tfoot td {
+  background: var(--surface-alt, rgba(0,0,0,0.03));
+}
+
+.support-gap-hints {
+  margin: 12px 0 18px;
+  padding: 10px 14px;
+  background: var(--surface-alt, rgba(0,0,0,0.04));
+  border-left: 4px solid var(--accent, #d97700);
+  border-radius: 0 4px 4px 0;
+}
+.support-gap-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.95em;
+}
+.support-gap-emph {
+  margin-top: 4px;
+  font-size: 1.05em;
+  font-weight: 700;
+}
+.support-gap-row strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.support-card-slogan {
+  text-align: center;
+}
+.support-slogan {
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.support-iban-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 0 0 14px;
+}
+.support-iban-list dt {
+  font-weight: 600;
+}
+.support-iban-list dd {
+  margin: 0;
+}
+.support-iban-list .mono {
+  font-family: var(--mono, monospace);
+}
+.support-iban-qr {
+  display: block;
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  margin: 6px 0 0;
+}
+.support-iban-qr-label {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin: 8px 0 4px;
+}
+
+.support-mail-addr {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--mono, monospace);
+  font-size: 1.05em;
+}

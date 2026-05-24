@@ -723,4 +723,60 @@ Object.assign(L.de, {
     lrMeaningRight: "Rechts lauter",
     lrMeaningLeft: "Links lauter",
     lrMeaningEqual: "Gleich",
+
+    introSupportTitle: "Unterstützer für das Projekt gesucht",
+    introSupportText: "Dieses Projekt braucht Unterstützung, um weiter entwickelt zu werden. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",
+    introSupportLinkIntro: "Alle Informationen dazu finden Sie hier:",
+    introSupportLinkBtn: "Tab Unterstützung",
+
+    tabSupport: "Unterstützung",
+
+    supportTitle: "Unterstützer für die Weiterentwicklung gesucht",
+    supportIntro1: "Dieses Tool hilft Cochlea Implantat-Trägern, die Einstellungen ihres CI zu überprüfen und zu verbessern und Korrekturvorschläge an den Audiologen zu machen. Es ist kostenlos, werbefrei und als Open-Source-Projekt auf GitHub veröffentlicht.",
+    supportIntro2: "Damit das so bleibt und das Tool weiter wachsen kann, braucht es regelmäßige Unterstützung. Schon 1 oder 2 Euro pro Monat helfen spürbar. Wenn 50 Nutzer mitmachen, ist der monatliche Vollbedarf gedeckt. Auch einmalige Spenden sind willkommen.",
+    supportShowIban: "Bankverbindung anzeigen",
+    supportShowMail: "Kontakt-E-Mail anzeigen",
+    supportZweckHint: "Im Verwendungszweck bitte angeben: „Zweckbindung: Kostendeckung CI-Tool-Entwicklung\" — das hilft bei der sauberen Abrechnung.",
+
+    supportFinanceTitle: "Offenlegung der Finanzierung",
+    supportFinanceIntro: "Das Projekt wird privat und nicht-kommerziell betrieben, ohne institutionelle Förderung.",
+
+    supportTableHeadPosten: "Posten",
+    supportTableHeadFull: "Vollausbau",
+    supportTableHeadCurrent: "Aktueller Stand",
+    supportPosten_kiPro: "KI Claude (Entwicklungs-Assistenz)",
+    supportPosten_vps: "Virtueller Server",
+    supportPosten_space: "Webspace",
+    supportPosten_domain: "Domain",
+    supportSumLabel: "Bedarf gesamt",
+    supportDonationsLabel: "Durch Spenden gedeckt",
+    supportSelfLabel: "Aus eigener Tasche",
+    supportGapCurrent: "Differenz Stand → Vollausbau:",
+    supportGapToFull: "Zusätzlich nötige Spenden für Vollausbau:",
+
+    supportFinanceGoal: "Um das Tool vollwertig weiterentwickeln und alle angestrebten Features anbieten zu können, ist der Vollausbau nötig.",
+    supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo erlaubt längere Arbeitssitzungen ohne Unterbrechung mitten in komplexen Änderungen, und Integration arbeitsintensiver Anteile wie saubere Emulation von eingestellten Änderungen im Player.",
+
+    supportFutureTitle: "Was mit Vollfinanzierung möglich wird:",
+    supportFutureIntro: "Geplant, derzeit mangels Mitteln ausgebremst:",
+    supportFuturePlan1: "bessere Simulation veränderter Frequenzanpassung",
+    supportFuturePlan2: "Unterstützung weiterer Sprachen",
+    supportFuturePlan3: "umfangreichere Audiobibliothek (mehr Sätze, Hörbücher, Musik)",
+    supportFuturePlan4: "verbesserte Testverfahren",
+    supportFutureConsider: "In Erwägung:",
+    supportFutureConsider1: "Hör-Trainingsbereich",
+    supportFutureConsider2: "Tinnitus-Analyse mit Maskierungs- und Notch-Tönen",
+
+    supportGithubHint: "Wer mehr über den Stand erfahren oder Funktionen vorschlagen möchte, ist auf <a href=\"https://github.com/mviereck/ci-sound-balancing/issues\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub-Issues</a> willkommen.",
+
+    supportSlogan: "Bitte nutzen Sie dieses Tool, um die Welt zu einem besseren Ort für alle Menschen zu machen.",
+
+    supportIbanTitle: "Bankverbindung",
+    supportIbanName: "Empfänger",
+    supportIbanBank: "Bank",
+    supportIbanBetreff: "Verwendungszweck",
+    supportQrLabel: "Überweisungsvorlage als QR-Code für Banking-Apps:",
+
+    supportMailTitle: "Kontakt-E-Mail",
+    supportMailIntro: "Für Rückfragen, Hinweise oder Diskussion:",
 });

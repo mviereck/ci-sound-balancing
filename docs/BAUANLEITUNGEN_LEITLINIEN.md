@@ -34,6 +34,27 @@ Volumen sparen, Sorgfalt erhöhen durch Aufteilung:
 - Vor dem Schreiben überlegen, ob die Anleitung tatsächlich klein
   genug ist — wenn nicht, von vornherein aufteilen.
 
+i18n / Übersetzungen — nur Deutsch in Bauanleitungen:
+- Bauanleitungen, die UI-Texte einführen oder ändern, legen **nur
+  die deutschen Strings** in `i18n/de.js` an. Englisch, Französisch
+  und Spanisch werden **nicht** in derselben Anleitung ergänzt.
+- Grund: GUI-Texte werden während der Iteration mehrfach umformuliert,
+  bis die deutsche Vorlage steht. Jede Iteration, bei der die anderen
+  drei Sprachen mitgeführt werden, kostet Volumen für Bauen und
+  Nachpflegen, ohne daß der Nutzer den Mehrwert sieht. Die anderen
+  Sprachen werden in einer eigenen kleinen Anleitung nachgezogen,
+  wenn die deutsche GUI-Vorlage durch ist.
+- **Was trotzdem in der Bauanleitung gemacht wird:** Der Code muß
+  von Anfang an i18n-fähig sein. Heißt: `data-t="someKey"` im HTML,
+  `t("someKey")` im JS, `applyLang()`-Aufruf nach dynamischen Renders.
+  Die anderen Sprachdateien (`en.js`, `fr.js`, `es.js`) bleiben
+  unverändert — fehlende Keys fallen dann auf die deutschen
+  Defaults zurück (Verhalten in `js/i18n.js` prüfen, falls
+  unklar).
+- **Hinweis am Ende der Bauanleitung** auf eine künftige Mini-
+  Anleitung „Übersetzungen für XYZ" — nicht als Pflicht-Folge, der
+  Nutzer entscheidet wann.
+
 Pflichtbestandteile jeder Bauanleitung:
 - **Akzeptanztest-Checkliste am Ende**: Klick-für-Klick-Schritte, die
   der Nutzer ohne Code-Kenntnisse durchgehen kann, mit erwartetem
