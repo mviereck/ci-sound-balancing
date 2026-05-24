@@ -69,6 +69,12 @@
   oder Card aus: Passthrough. Bei aktiver Seite Cochlear oder AB:
   Card ausgegraut mit Hinweis. Konzeptioneller Hintergrund:
   `.docs/MAPLAW_Konzept.md`.
+  Die Ist-c-Anzeige im Einstellungs-Block wird um den gesetzten
+  Soll-c-Wert verlängert. Beide Werte stehen fett auf derselben
+  Zeile, getrennt durch einen Gedankenstrich. Der Soll-Wert
+  aktualisiert sich live, wenn der User ihn per Quick-Button oder
+  Zahleneingabe ändert (die jeweiligen Listener rufen
+  `pMaplawUpdUI` zusätzlich zu `pMaplawTrigger`).
 - Experimentell-Toggle im Player: Checkbox „Experimentelle Optionen
   einblenden" oberhalb der MAPLAW-Card. **Default aus** — MAPLAW-Card
   initial verborgen. Wird der Toggle aktiviert, erscheint die Card plus

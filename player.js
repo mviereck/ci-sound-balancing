@@ -893,6 +893,11 @@ function pMaplawUpdUI() {
     istEl.textContent = ist != null ? String(ist) : "—";
   }
 
+  const sollDisplay = document.getElementById("plMaplawSollDisplayVal");
+  if (sollDisplay) {
+    sollDisplay.textContent = (typeof pMaplawSollC === "number") ? String(pMaplawSollC) : "—";
+  }
+
   if (sollIn) sollIn.value = String(pMaplawSollC);
 }
 
