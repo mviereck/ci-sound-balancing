@@ -779,4 +779,41 @@ Object.assign(L.de, {
 
     supportMailTitle: "Kontakt-E-Mail",
     supportMailIntro: "Für Rückfragen, Hinweise oder Diskussion:",
+
+    tabLinks: "Links",
+
+    linksTitle: "Ressourcen rund um CI und Hören",
+    linksIntro: "Eine Sammlung von Tools, Projekten und Ressourcen, die für Cochlea-Implantat-Träger und Hörgeschädigte hilfreich sind. Alle externen Links öffnen in einem neuen Tab.",
+
+    linksHomepageLabel: "Homepage",
+    linksProjectLabel: "Projektseite",
+    linksWebsiteLabel: "Webseite",
+    linksMirrorLabel: "Inoffizieller Mirror",
+
+    linksEiraDesc: "Einseitig Hörversorgte leben in zwei Welten — besonders deutlich wird das beim Streamen. eira verbindet diese beiden Welten: Ein Mono- oder Stereo-Audiostream wird an eira geschickt, dort aufgeteilt und gleichzeitig an die Hörgeräte-Versorgung und an einen normalen Kopfhörer gesendet. Beide Geräte haben unterschiedliche Latenzen und Lautstärken — mit eira lassen sich diese aufeinander abstimmen. So wird ein gestreamtes Audiosignal auf beiden „Ohren\" ohne Latenzversatz und mit harmonisierter Lautstärke genießbar.",
+
+    linksPicoAshaDesc: "Pico ASHA streamt Audio von einem Computer oder anderem USB-Audio-fähigen Gerät an Hörhilfen. Besonders nützlich für Nutzer ohne LE-Audio-kompatible Hörgeräte (was auf die meisten zutrifft). Verwendet wird ein Raspberry Pi Pico W Mikrocontroller, der sich als USB-Kopfhörer ausgibt und über das ASHA-Protokoll an Hörgeräte streamt — dasselbe Verfahren, mit dem Android-Smartphones Hörgeräte ansteuern.",
+
+    linksHearwellDesc: "Umfassende Hörgesundheits-Tools für Tinnitus-Management und Hörtests.",
+
+    linksBicialDesc: "Center-Frequenzen des Cochlea-Implantats mit dem anderen Ohr abgleichen. Ein kleines Single-Page-Tool für Menschen mit einseitiger Taubheit (SSD), die auf einer Seite ein Cochlea-Implantat tragen: Es vergleicht die konfigurierten Mittenfrequenzen des Implantats mit Tönen, die auf das akustische (Nicht-CI-)Ohr gespielt werden. Diese tonhöhenbasierte Anpassung versteht sich als Alternative zur anatomiebasierten Anpassung.",
+
+    linksAshaPwDesc: "Beispielhafte ASHA-Implementierung für Linux, die mit Pipewire und Bluez zusammenarbeitet. Erkennt ASHA-kompatible Hörgeräte, die per Bluetooth verbunden sind, und legt virtuelle Pipewire-Sinks an, die der Nutzer auswählen kann, um Audio an die Hörgeräte zu streamen.",
+
+    linksMusicRehabDesc: "Wieder Freude an Musik durch das Cochlea-Implantat zu finden, ist für fast jeden Träger das eigentliche Hörziel: Musik soll wieder so natürlich klingen, wie man sie in Erinnerung hat. Wer sein Gehirn auf das Musikerleben von einst zurückführen möchte, findet im Music-Rehab-Bereich ein weiteres Werkzeug. Zusammen mit den Reha-Programmen der CI-Hersteller, Radio- und Musik-Apps, YouTube-Musikvideos (mit Songtext) und vielen weiteren Techniken kann Musik wieder zum Genuß werden. Musik ist komplexer als Sprache und braucht entsprechend mehr Zeit und Übung — das Ziel lohnt sich. Solomusiker aus aller Welt präsentieren ihr Instrument jeweils einzeln, damit das Gehirn jedes Instrument neu kennenlernen kann.",
+
+    linksToneGenDesc: "Kostenlos, einfach und unkompliziert in der Bedienung.",
+
+    linksHoerwikiDesc: "Wiki zu Hörversorgung, Hörgeräten, Cochlea-Implantaten und verwandten Themen.",
+
+    linksGutenbergDesc: "Project Gutenberg ist eine Online-Bibliothek mit über 75.000 kostenlosen eBooks.",
+
+    linksAudioTitle: "Quellen für verwendete Audiodateien",
+    linksAudioIntro: "Herkunft der Sprachaufnahmen, die im Player verwendet werden.",
+
+    linksThorstenDesc: "Thorsten-Voice bringt künstliche Intelligenz (KI) und Sprache zusammen — ein kostenloses Projekt, das künstliche deutsche TTS-Sprachausgabe für jedermann entwickelt. Die Stimmen lassen sich ohne Internetverbindung und ohne Kosten nutzen, sozusagen eine Sprachspende für die Welt.",
+
+    linksCommonVoiceDesc: "Sammlung von Sätzen samt Transkription aus über 100 Sprachen der Welt, eingesprochen von natürlichen Sprechern.",
+
+    linksOpenSlrDesc: "OpenSLR sammelt Sprach- und Sprachverarbeitungs-Ressourcen — etwa Trainingskorpora für Spracherkennung und zugehörige Software. Ziel ist ein zentraler, unkomplizierter Ablageort, an dem Forscher ihre eigenen Ressourcen öffentlich zugänglich machen können. Zusätzlich werden Programme von anderswo gespiegelt, um eine Ausfallsicherung zu bieten.",
 });

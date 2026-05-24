@@ -719,4 +719,41 @@ Object.assign(L.en, {
     lrMeaningRight: "Right louder",
     lrMeaningLeft: "Left louder",
     lrMeaningEqual: "Equal",
+
+    tabLinks: "Links",
+
+    linksTitle: "Resources around CI and hearing",
+    linksIntro: "A collection of tools, projects and resources useful for cochlear implant users and people with hearing loss. All external links open in a new tab.",
+
+    linksHomepageLabel: "Homepage",
+    linksProjectLabel: "Project page",
+    linksWebsiteLabel: "Website",
+    linksMirrorLabel: "Unofficial mirror",
+
+    linksEiraDesc: "People with single-sided hearing provision live in two worlds — especially apparent when streaming. Eira aims to bridge those worlds: a mono or stereo audio stream is sent to eira, where it is split and forwarded simultaneously to the hearing-aid provision and to a regular pair of headphones. Both devices have different latencies and loudness — with eira these can be aligned. This makes it possible to enjoy a streamed audio signal on both \"ears\" without latency offset and with harmonised loudness.",
+
+    linksPicoAshaDesc: "Pico ASHA is a project to stream audio to hearing devices from a computer or other devices which supports USB audio. It is most useful for users who do not have LE Audio compatible hearing devices (which is most of them!). It uses a Raspberry Pi Pico W microcontroller, which appears as a USB headphone device, and streams to hearing aids using ASHA, which is how Android phones stream audio to hearing aids.",
+
+    linksHearwellDesc: "Comprehensive hearing health tools for tinnitus management and hearing tests.",
+
+    linksBicialDesc: "Align the center frequencies of your cochlear implant with your other ear. This is a small, single-page tool for people with single-sided deafness (SSD) who use a cochlear implant (CI) in one ear to compare the implant's configured center frequencies with tones played to the acoustic (non-CI) ear. This pitch-based fitting can be considered an alternative to anatomy-based fitting.",
+
+    linksAshaPwDesc: "A sample ASHA implementation for Linux designed to work with pipewire and bluez. This project will recognize ASHA-compatible hearing devices that have been connected via bluetooth, and it will create virtual pipewire sinks that the user can select to stream audio to the hearing devices.",
+
+    linksMusicRehabDesc: "Learning to enjoy music through a cochlear implant is the ultimate hearing goal for almost every recipient. We would like music to sound as natural as we remember it. If you are working on getting your brain to remember music as you once did, this Music Rehab section is one more tool. Along with the various music rehabilitation programs offered by the major manufacturers of cochlear implants, listening to radio or music apps, YouTube music videos (with lyrics) and a host of other techniques, music should become enjoyable once more. The complexity of music will require more time and effort than with speech. Keep your eyes on the prize. By collaborating with the best musicians from around the world, each of whom present an example of these instruments in a solo presentation, your brain can re-learn to identify each one.",
+
+    linksToneGenDesc: "Free, simple and easy to use.",
+
+    linksHoerwikiDesc: "Wiki on hearing care, hearing aids, cochlear implants and related topics (German).",
+
+    linksGutenbergDesc: "Project Gutenberg is an online library of more than 75,000 free eBooks.",
+
+    linksAudioTitle: "Sources for audio files used",
+    linksAudioIntro: "Origin of the speech recordings used in the player.",
+
+    linksThorstenDesc: "Thorsten-Voice brings artificial intelligence (AI) and speech together — a free project developing artificial German TTS speech output for everyone. The voices can be used without an internet connection and without cost, a voice donation to the world, so to speak.",
+
+    linksCommonVoiceDesc: "A collection of sentences with transcription from more than 100 languages around the world, recorded by natural speakers.",
+
+    linksOpenSlrDesc: "OpenSLR is a site devoted to hosting speech and language resources, such as training corpora for speech recognition, and software related to speech recognition. We intend to be a convenient place for anyone to put resources that they have created, so that they can be downloaded publicly. Part of our goal is to mirror software available elsewhere, in order to provide a failover location.",
 });

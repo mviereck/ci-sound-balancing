@@ -1077,3 +1077,32 @@ select:disabled {
 .card-support-hint p:last-child {
   margin-bottom: 0;
 }
+
+.link-entry {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.link-entry:first-of-type {
+  margin-top: 8px;
+  padding-top: 0;
+  border-top: none;
+}
+.link-entry h3 {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text, inherit);
+  margin: 0 0 4px;
+}
+.link-entry-urls {
+  margin: 0 0 8px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+.link-entry-urls a {
+  word-break: break-word;
+}
+.link-entry p:last-child {
+  margin-bottom: 0;
+}
