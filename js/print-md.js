@@ -1334,6 +1334,25 @@ function _archivMkCanvas(w, h) {
   return { canvas: c, ctx };
 }
 
+// Gemeinsame Beschriftung für Archiv-Charts mit Cent-x-Achse:
+// E-Label, Hz, Cent (ausgedünnt nach axis.step). Hz wird kompakt
+// dargestellt (z.B. "1.0k"), Cent mit Vorzeichen.
+function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
+  ctx.fillStyle = "#555";
+  ctx.font = "9px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(elLabel, cx, H - padB + 12);
+  const hz = axis.hzArr[j];
+  const fTxt = hz >= 1000 ? (hz / 1000).toFixed(1) + "k" : Math.round(hz);
+  ctx.fillStyle = "#888";
+  ctx.font = "8px sans-serif";
+  ctx.fillText(fTxt, cx, H - padB + 23);
+  if (j % axis.step === 0 || j === 0 || j === axis.hzArr.length - 1) {
+    const c = Math.round(axis.centArr[j]);
+    ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", cx, H - padB + 34);
+  }
+}
+
 function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
   const pW = W - pad.l - pad.r;
   const pH = H - pad.t - pad.b;
@@ -1364,83 +1383,80 @@ function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
 // 1. Loudness-Balance (Meßergebnis-Sub-Tab 1)
 function _archivChartLoudness(sideBlock) {
   if (!sideBlock.meas.hasNonZero) return "";
-  const { canvas, ctx } = _archivMkCanvas();
-  const W = canvas.width, H = canvas.height;
-  const pad = { l: 36, r: 14, t: 22, b: 28 };
-  const rows = sideBlock.meas.rows;
-  let maxAbs = 1;
-  for (const r of rows) if (r.offsetDb != null) maxAbs = Math.max(maxAbs, Math.abs(r.offsetDb));
-  maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
-  const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-    title: `${t("archivSecMeas")} — ${sideBlock.label}`,
+  return withSide(sideBlock.side, () => {
+    const { canvas, ctx } = _archivMkCanvas();
+    const W = canvas.width, H = canvas.height;
+    const pad = { l: 36, r: 14, t: 22, b: 46 };
+    const rows = sideBlock.meas.rows;
+    let maxAbs = 1;
+    for (const r of rows) if (r.offsetDb != null) maxAbs = Math.max(maxAbs, Math.abs(r.offsetDb));
+    maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
+    const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
+      title: `${t("archivSecMeas")} — ${sideBlock.label}`,
+    });
+    const idxArr = rows.map((r) => r.idx);
+    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
+    const refIdx = sideBlock.meas.refEl;
+    if (refIdx != null) {
+      const jRef = idxArr.indexOf(refIdx);
+      if (jRef >= 0) _drawRefElLabel(ctx, axis.tX(jRef), pad.t - 4);
+    }
+    for (let j = 0; j < rows.length; j++) {
+      const r = rows[j];
+      const cx = axis.tX(j);
+      const x = cx - w / 2;
+      if (r.offsetDb == null) {
+        ctx.fillStyle = "#d1d5db";
+        ctx.fillRect(x, zY - 1, w, 2);
+      } else {
+        const h = (Math.abs(r.offsetDb) / maxAbs) * (pH / 2);
+        ctx.fillStyle = (r.idx === sideBlock.meas.refEl) ? "#a855f7"
+                      : r.offsetDb >= 0 ? "#16a34a" : "#dc2626";
+        if (r.offsetDb >= 0) ctx.fillRect(x, zY - h, w, h);
+        else                 ctx.fillRect(x, zY,    w, h);
+      }
+      _archivDrawElCentLabel(ctx, r.label, cx, H, pad.b, axis, j);
+    }
+    return canvas.toDataURL("image/png");
   });
-  const gW = pW / rows.length;
-  const refIdx = sideBlock.meas.refEl;
-  if (refIdx != null) {
-    let jRef = -1;
-    for (let k = 0; k < rows.length; k++) {
-      if (rows[k].idx === refIdx) { jRef = k; break; }
-    }
-    if (jRef >= 0) {
-      _drawRefElLabel(ctx, pad.l + jRef * gW + gW / 2, pad.t - 4);
-    }
-  }
-  for (let j = 0; j < rows.length; j++) {
-    const r = rows[j];
-    const x = pad.l + j * gW + 2;
-    const w = Math.max(2, gW - 4);
-    if (r.offsetDb == null) {
-      ctx.fillStyle = "#d1d5db";
-      ctx.fillRect(x, zY - 1, w, 2);
-    } else {
-      const h = (Math.abs(r.offsetDb) / maxAbs) * (pH / 2);
-      ctx.fillStyle = (r.idx === sideBlock.meas.refEl) ? "#a855f7"
-                    : r.offsetDb >= 0 ? "#16a34a" : "#dc2626";
-      if (r.offsetDb >= 0) ctx.fillRect(x, zY - h, w, h);
-      else                 ctx.fillRect(x, zY,    w, h);
-    }
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(r.label, x + w / 2, H - pad.b + 14);
-  }
-  return canvas.toDataURL("image/png");
 }
 
 // 2. Schieber (Schieber-Tab, relative dB-Werte)
 function _archivChartSchieber(sideBlock) {
   if (!sideBlock.schieber.has) return "";
-  const { canvas, ctx } = _archivMkCanvas();
-  const W = canvas.width, H = canvas.height;
-  const pad = { l: 36, r: 14, t: 22, b: 28 };
-  const rows = sideBlock.schieber.rows;
-  let maxAbs = 1;
-  for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.relDb || 0));
-  maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
-  const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-    title: `${t("archivSecSchieber")} — ${sideBlock.label}`,
-  });
-  const gW = pW / rows.length;
-  for (let j = 0; j < rows.length; j++) {
-    const r = rows[j];
-    const x = pad.l + j * gW + 2;
-    const w = Math.max(2, gW - 4);
-    const v = r.relDb || 0;
-    if (Math.abs(v) < 0.05) {
-      ctx.fillStyle = "#d1d5db";
-      ctx.fillRect(x, zY - 1, w, 2);
-    } else {
-      const h = (Math.abs(v) / maxAbs) * (pH / 2);
-      ctx.fillStyle = "#16a34a";
-      if (v >= 0) ctx.fillRect(x, zY - h, w, h);
-      else        ctx.fillRect(x, zY,    w, h);
+  return withSide(sideBlock.side, () => {
+    const { canvas, ctx } = _archivMkCanvas();
+    const W = canvas.width, H = canvas.height;
+    const pad = { l: 36, r: 14, t: 22, b: 46 };
+    const rows = sideBlock.schieber.rows;
+    let maxAbs = 1;
+    for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.relDb || 0));
+    maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
+    const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
+      title: `${t("archivSecSchieber")} — ${sideBlock.label}`,
+    });
+    const idxArr = rows.map((r) => r.idx != null ? r.idx : 0);
+    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
+    for (let j = 0; j < rows.length; j++) {
+      const r = rows[j];
+      const cx = axis.tX(j);
+      const x = cx - w / 2;
+      const v = r.relDb || 0;
+      if (Math.abs(v) < 0.05) {
+        ctx.fillStyle = "#d1d5db";
+        ctx.fillRect(x, zY - 1, w, 2);
+      } else {
+        const h = (Math.abs(v) / maxAbs) * (pH / 2);
+        ctx.fillStyle = "#16a34a";
+        if (v >= 0) ctx.fillRect(x, zY - h, w, h);
+        else        ctx.fillRect(x, zY,    w, h);
+      }
+      _archivDrawElCentLabel(ctx, r.label, cx, H, pad.b, axis, j);
     }
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(r.label, x + w / 2, H - pad.b + 14);
-  }
-  return canvas.toDataURL("image/png");
+    return canvas.toDataURL("image/png");
+  });
 }
 
 // 3. Kurven (4-Linien-Chart, vereinfacht — eine Linie pro aktive Kurvenfunktion + Summe)
@@ -1449,7 +1465,7 @@ function _archivChartKurven(sideBlock) {
   return withSide(sideBlock.side, () => {
     const { canvas, ctx } = _archivMkCanvas();
     const W = canvas.width, H = canvas.height;
-    const pad = { l: 36, r: 14, t: 22, b: 28 };
+    const pad = { l: 36, r: 14, t: 22, b: 46 };
     const n = nEl;
     const total = getTotalPresetCurve();
     let maxAbs = 1;
@@ -1458,7 +1474,9 @@ function _archivChartKurven(sideBlock) {
     const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
       title: `${t("archivSecKurven")} — ${sideBlock.label}`,
     });
-    const gW = pW / Math.max(1, n - 1);
+    const idxArr = [];
+    for (let i = 0; i < n; i++) idxArr.push(i);
+    const axis = buildCentAxis(idxArr, pad.l, pW);
     const yFor = (v) => zY - (v / maxAbs) * (pH / 2);
     const COLORS = ["#3b82f6", "#f97316", "#a855f7", "#06b6d4", "#84cc16", "#eab308", "#ec4899", "#14b8a6"];
     let ci = 0;
@@ -1469,7 +1487,7 @@ function _archivChartKurven(sideBlock) {
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       for (let i = 0; i < n; i++) {
-        const x = pad.l + i * gW;
+        const x = axis.tX(i);
         const y = yFor(curve[i] || 0);
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       }
@@ -1480,18 +1498,14 @@ function _archivChartKurven(sideBlock) {
     ctx.lineWidth = 2;
     ctx.beginPath();
     for (let i = 0; i < n; i++) {
-      const x = pad.l + i * gW;
+      const x = axis.tX(i);
       const y = yFor(total[i] || 0);
       if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
     }
     ctx.stroke();
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
     for (let i = 0; i < n; i++) {
-      if (i % 2 !== 0 && n > 8) continue;
-      const x = pad.l + i * gW;
-      ctx.fillText(sideBlock.implant.electrodes[i].label, x, H - pad.b + 14);
+      _archivDrawElCentLabel(ctx, sideBlock.implant.electrodes[i].label,
+                             axis.tX(i), H, pad.b, axis, i);
     }
     return canvas.toDataURL("image/png");
   });
@@ -1531,67 +1545,71 @@ function _archivChartFreqmatch(sideBlock) {
 // 5. Stereo-Balance (bilateral)
 function _archivChartLR(bilateral) {
   if (!bilateral.lr.has) return "";
-  const { canvas, ctx } = _archivMkCanvas();
-  const W = canvas.width, H = canvas.height;
-  const pad = { l: 36, r: 14, t: 22, b: 28 };
-  const rows = bilateral.lr.rows;
-  let maxAbs = 1;
-  for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.value));
-  maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
-  const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-    title: `${t("balTitle")}`,
+  return withSide("left", () => {
+    const { canvas, ctx } = _archivMkCanvas();
+    const W = canvas.width, H = canvas.height;
+    const pad = { l: 36, r: 14, t: 22, b: 46 };
+    const rows = bilateral.lr.rows;
+    let maxAbs = 1;
+    for (const r of rows) maxAbs = Math.max(maxAbs, Math.abs(r.value));
+    maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
+    const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
+      title: `${t("balTitle")}`,
+    });
+    const idxArr = rows.map((r) => r.elIdx);
+    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
+    for (let j = 0; j < rows.length; j++) {
+      const r = rows[j];
+      const cx = axis.tX(j);
+      const x = cx - w / 2;
+      const h = (Math.abs(r.value) / maxAbs) * (pH / 2);
+      ctx.fillStyle = r.value >= 0 ? "#3b82f6" : "#dc2626";
+      if (r.value >= 0) ctx.fillRect(x, zY - h, w, h);
+      else              ctx.fillRect(x, zY,    w, h);
+      _archivDrawElCentLabel(ctx, `E${r.elIdx + 1}`, cx, H, pad.b, axis, j);
+    }
+    return canvas.toDataURL("image/png");
   });
-  const gW = pW / rows.length;
-  for (let j = 0; j < rows.length; j++) {
-    const r = rows[j];
-    const x = pad.l + j * gW + 2;
-    const w = Math.max(2, gW - 4);
-    const h = (Math.abs(r.value) / maxAbs) * (pH / 2);
-    ctx.fillStyle = r.value >= 0 ? "#3b82f6" : "#dc2626";
-    if (r.value >= 0) ctx.fillRect(x, zY - h, w, h);
-    else              ctx.fillRect(x, zY,    w, h);
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(`E${r.elIdx + 1}`, x + w / 2, H - pad.b + 14);
-  }
-  return canvas.toDataURL("image/png");
 }
 
 // 6. Player-EQ pro Seite (nutzt eqGains aus data.player)
 function _archivChartPlayerEq(sideBlock, playerEqArr) {
   if (!playerEqArr || playerEqArr.length === 0) return "";
   if (!playerEqArr.some((v) => Math.abs(v) > 0)) return "";
-  const { canvas, ctx } = _archivMkCanvas();
-  const W = canvas.width, H = canvas.height;
-  const pad = { l: 36, r: 14, t: 22, b: 28 };
-  let maxAbs = 1;
-  for (const v of playerEqArr) maxAbs = Math.max(maxAbs, Math.abs(v));
-  maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
-  const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
-    title: `${t("archivSecPlayer")} EQ — ${sideBlock.label}`,
-  });
-  const gW = pW / playerEqArr.length;
-  for (let j = 0; j < playerEqArr.length; j++) {
-    const v = playerEqArr[j];
-    const x = pad.l + j * gW + 2;
-    const w = Math.max(2, gW - 4);
-    if (Math.abs(v) < 0.05) {
-      ctx.fillStyle = "#d1d5db";
-      ctx.fillRect(x, zY - 1, w, 2);
-    } else {
-      const h = (Math.abs(v) / maxAbs) * (pH / 2);
-      ctx.fillStyle = v >= 0 ? "#16a34a" : "#dc2626";
-      if (v >= 0) ctx.fillRect(x, zY - h, w, h);
-      else        ctx.fillRect(x, zY,    w, h);
+  return withSide(sideBlock.side, () => {
+    const { canvas, ctx } = _archivMkCanvas();
+    const W = canvas.width, H = canvas.height;
+    const pad = { l: 36, r: 14, t: 22, b: 46 };
+    let maxAbs = 1;
+    for (const v of playerEqArr) maxAbs = Math.max(maxAbs, Math.abs(v));
+    maxAbs = Math.ceil(maxAbs / 2) * 2 + 2;
+    const { pW, pH, zY } = _archivDrawAxis(ctx, pad, W, H, maxAbs, {
+      title: `${t("archivSecPlayer")} EQ — ${sideBlock.label}`,
+    });
+    const idxArr = [];
+    for (let i = 0; i < playerEqArr.length; i++) idxArr.push(i);
+    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
+    for (let j = 0; j < playerEqArr.length; j++) {
+      const v = playerEqArr[j];
+      const cx = axis.tX(j);
+      const x = cx - w / 2;
+      if (Math.abs(v) < 0.05) {
+        ctx.fillStyle = "#d1d5db";
+        ctx.fillRect(x, zY - 1, w, 2);
+      } else {
+        const h = (Math.abs(v) / maxAbs) * (pH / 2);
+        ctx.fillStyle = v >= 0 ? "#16a34a" : "#dc2626";
+        if (v >= 0) ctx.fillRect(x, zY - h, w, h);
+        else        ctx.fillRect(x, zY,    w, h);
+      }
+      const el = sideBlock.implant.electrodes[j];
+      _archivDrawElCentLabel(ctx, el ? el.label : ("E" + (j + 1)),
+                             cx, H, pad.b, axis, j);
     }
-    ctx.fillStyle = "#555";
-    ctx.font = "9px sans-serif";
-    ctx.textAlign = "center";
-    const el = sideBlock.implant.electrodes[j];
-    ctx.fillText(el ? el.label : ("E" + (j + 1)), x + w / 2, H - pad.b + 14);
-  }
-  return canvas.toDataURL("image/png");
+    return canvas.toDataURL("image/png");
+  });
 }
 
 // ----------------------------------------------------------------

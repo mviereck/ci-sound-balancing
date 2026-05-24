@@ -737,12 +737,13 @@ function pDrawEQ() {
     if (g > mxA) mxA = g;
   }
   mxA = Math.ceil(mxA / 2) * 2 + 2;
-  const pad = { left: 40, right: 14, top: 14, bottom: 26 },
+  const pad = { left: 40, right: 14, top: 14, bottom: 38 },
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom,
     zY = pad.top + pH / 2;
-  const bW = Math.max(5, (pW / allE.length) * 0.6),
-    gW = pW / allE.length;
+  const axis = buildCentAxis(allE, pad.left, pW);
+  const tX = axis.tX;
+  const bW = Math.max(5, Math.min((axis.minDx || 12) * 0.6, 22));
   ctx.strokeStyle = "#ddd";
   ctx.lineWidth = 1;
   ctx.setLineDash([2, 4]);
@@ -778,12 +779,14 @@ function pDrawEQ() {
   if (typeof refEl !== "undefined" && refEl !== null) {
     const jRef = allE.indexOf(refEl);
     if (jRef >= 0) {
-      _drawRefElLabel(ctx, pad.left + jRef * gW + gW / 2, pad.top - 3, 10);
+      _drawRefElLabel(ctx, tX(jRef), pad.top - 3, 10);
     }
   }
+  cv._axisHits = [];
   for (let j = 0; j < allE.length; j++) {
     const i = allE[j],
-      x = pad.left + j * gW + (gW - bW) / 2;
+      cx = tX(j),
+      x = cx - bW / 2;
     const isAct = act.has(i);
     let ag = isAct && plEqOn ? (nhSim ? gains[i] * str : -gains[i] * str) : 0;
     const bH = (Math.abs(ag) / mxA) * (pH / 2),
@@ -802,16 +805,30 @@ function pDrawEQ() {
     ctx.fillStyle = isAct ? "#666" : "#bbb";
     ctx.font = "8px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(dENPrefix() + dEN(i), pad.left + j * gW + gW / 2, H - pad.bottom + 10);
+    const lbl = dENPrefix() + dEN(i);
+    ctx.fillText(lbl, cx, H - pad.bottom + 10);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
-    const ef_i = effFreq(i);
+    const ef_i = axis.hzArr[j];
     ctx.fillText(
-      ef_i >= 1000 ? (ef_i / 1000).toFixed(1) + "k" : ef_i,
-      pad.left + j * gW + gW / 2,
+      ef_i >= 1000 ? (ef_i / 1000).toFixed(1) + "k" : Math.round(ef_i),
+      cx,
       H - pad.bottom + 20,
     );
+    if (j % axis.step === 0 || j === 0 || j === allE.length - 1) {
+      const c = Math.round(axis.centArr[j]);
+      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", cx, H - pad.bottom + 30);
+    }
+    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
+    cv._axisHits.push({
+      x0: cx - halfDx, x1: cx + halfDx,
+      y0: H - pad.bottom + 2, y1: H - pad.bottom + 36,
+      label: lbl,
+      hz: axis.hzArr[j],
+      cent: axis.centArr[j],
+    });
   }
+  _attachAxisTooltip(cv);
 }
 
 function pBuildTbl() {

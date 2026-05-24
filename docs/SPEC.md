@@ -43,6 +43,17 @@ Status-Spalte zeigt „deaktiviert/ausgelassen". Aktive, aber noch nicht
 gemessene Elektroden bekommen ihren eigenen Marker (siehe Bauanleitung
 02 für Stereo-Balance und Frequenzabgleich).
 
+**x-Achse aller Elektroden-Charts**: cent-skaliert (lineare Cent-Achse
+re 1000 Hz). Elektroden sitzen an ihrer Cent-Position; Abstände
+entsprechen den Cent-Differenzen, nicht dem Index. Beschriftung pro
+Elektrode dreizeilig: E-Bezeichnung, Hz-Wert, Cent-Wert (`+N ¢`/`−N ¢`).
+Cent-Zeile wird bei engen Pixel-Abständen ausgedünnt (jedes 2. oder
+3. Label); E-Bezeichnung bleibt vollständig. Hover über die
+Achsen-Labels zeigt einen Tooltip „Elektrode N / Hz / ¢". Gilt für
+Meßergebnisse, Stereo-Balance, Kurven-Tab, Schieber-Tab, Player-EQ
+und alle Archiv-Druck-Charts. Ausgenommen ist der Frequenzabgleich,
+dessen x-Achse seit jeher log-Hz ist (cent-äquivalent).
+
 ## Kapitel
 
 - [Tab-Übersicht](spec/01-tabs.md)

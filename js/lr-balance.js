@@ -578,14 +578,19 @@ function lrDrawChart() {
     ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
     : 3;
 
-  const pad = { top: 20, right: 16, bottom: 44, left: 52 };
+  const pad = { top: 20, right: 16, bottom: 56, left: 52 };
   const pW = W - pad.left - pad.right;
   const pH = H - pad.top - pad.bottom;
-  const tX = (j) => pad.left + j * (pW / (count - 1 || 1));
+  const idxArr = [];
+  for (let i = 0; i < count; i++) idxArr.push(i);
+  const axis = buildCentAxis(idxArr, pad.left, pW, function (i) {
+    return lrEffFreq("left", i);
+  });
+  const tX = axis.tX;
   const tY = (v) => pad.top + (absMax - v) * (pH / (2 * absMax));
   const zY = tY(0);
   const yTop = pad.top, yBot = pad.top + pH;
-  const bW = Math.min((pW / (count - 1 || 1)) * 0.6, 28);
+  const bW = Math.min((axis.minDx || 12) * 0.6, 28);
 
   // Grid
   ctx.strokeStyle = "#e5e5e5";
@@ -640,17 +645,33 @@ function lrDrawChart() {
       ctx.fillRect(x, Math.min(zY, yV), bW, Math.abs(yV - zY) || 2);
     }
 
-    // X-Achsenbeschriftung pro Elektrode
+    // X-Achsenbeschriftung pro Elektrode (E / Hz / Cent re 1000 Hz)
     const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
     ctx.fillStyle = "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
     ctx.fillText(leftLabel, tX(i), H - pad.bottom + 12);
-    const hzL = lrEffFreq("left", i);
+    const hzL = axis.hzArr[i];
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
     ctx.fillText(Math.round(hzL), tX(i), H - pad.bottom + 23);
+    if (i % axis.step === 0 || i === 0 || i === count - 1) {
+      const c = Math.round(axis.centArr[i]);
+      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(i), H - pad.bottom + 33);
+    }
   }
+  cv._axisHits = [];
+  for (let i = 0; i < count; i++) {
+    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
+    cv._axisHits.push({
+      x0: tX(i) - halfDx, x1: tX(i) + halfDx,
+      y0: H - pad.bottom + 2, y1: H - pad.bottom + 42,
+      label: withSide("left", () => dENPrefix("left") + dEN(i)),
+      hz: axis.hzArr[i],
+      cent: axis.centArr[i],
+    });
+  }
+  _attachAxisTooltip(cv);
 
   // Verbindungslinie zwischen gemessenen Punkten
   ctx.strokeStyle = "#2563eb44";

@@ -30,8 +30,9 @@ function _drawRefElLabel(ctx, x, y, size) {
 // (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
 // Elektroden, sonst lineare Notlösung.
 // ============================================================
-function buildCentAxis(electrodes, padLeft, plotW) {
-  const hzArr = electrodes.map(function (i) { return effFreq(i); });
+function buildCentAxis(electrodes, padLeft, plotW, hzGetter) {
+  const getHz = hzGetter || effFreq;
+  const hzArr = electrodes.map(function (i) { return getHz(i); });
   const centArr = hzArr.map(hzToCent);
   let cMin = Math.min.apply(null, centArr),
       cMax = Math.max.apply(null, centArr);
