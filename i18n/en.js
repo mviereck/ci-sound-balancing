@@ -19,7 +19,7 @@ Object.assign(L.en, {
     introWhatDesc: "",
     introFlow: "",
     introFlowDesc:
-      "<b>1. Side</b> – Select the side on which you wear your CI in the top right corner. If you wear two CIs, perform the measurement (Step 3) for both.<br><b>2. Implant</b> – Select your manufacturer. If known, adjust the frequency values listed for each electrode; standard values are pre-configured by default.<br><b>Important:</b> Deactivated electrodes must be marked under “Status”.<br><b>3. Measurement</b> – Start a test sequence. The tool plays pairs of tones; adjust the settings until both tones sound equally loud. Recommendation: Set the volume to a level that borders on being uncomfortable.<br><b>4. Player</b> – Load a music file and listen to the difference with and without the correction applied.<br><b>5. Levels</b> – Optional: Apply global settings (e.g., speech emphasis, bass boosting) and listen to the difference live in the player simultaneously.",
+      "<b>1. Side</b> – Select the side on which you wear your CI in the top right corner. If you wear two CIs, perform the measurement (Step 4) for both.<br><b>2. Implant</b> – Select your manufacturer. If known, adjust the frequency values listed for each electrode; standard values are pre-configured by default. <b>Important:</b> Deactivated electrodes must be marked under “Status”.<br><b>3. Volume</b> – Set the playback volume to roughly 3/4 of your comfortable range. Not quiet, but not yet uncomfortably loud.<br><b>4. Measurement</b> – Start a test sequence under “Measurements” → “Electrode loudness”. The tool plays pairs of tones; adjust the settings until both tones sound equally loud.<br><b>5. Player</b> – Load a music file and listen to the difference with and without the correction applied.<br><b>6. Levels</b> – Optional: Apply global settings (e.g., speech emphasis, bass boosting) and listen to the difference live in the player simultaneously.",
     introWarn:
       "Use a CI program without speech filters that otherwise matches your main program. Speech filters tend to distort tones. Connect your CI via Bluetooth for the clearest possible sound..",
     introManualLink: "→ Detailed user manual",
@@ -635,7 +635,9 @@ Object.assign(L.en, {
     testRunningHint: "Adjust the loudness of both tones until they sound equally loud.",
     lrRunningTitle: "Stereo balance test running",
     lrRunningHint: "Adjust the loudness until both sides sound equally loud.",
-    lrPrereqHint: "Please run the electrode loudness test for both sides first.",
+    lrPrereqHint: "Please run the electrode loudness measurement for both sides first.",
+    latPrereqHint: "Please run the electrode loudness and stereo balance measurements for both sides first.",
+    fmPrereqHint: "Please run the electrode loudness and stereo balance measurements for both sides first.",
     fmRunningTitle: "Frequency matching running",
     fmRunningHint: "Adjust the tones until they sound equally high or low.",
     btnStartTest: "▶ Start test",

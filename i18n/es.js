@@ -19,7 +19,7 @@ Object.assign(L.es, {
     introWhatDesc: "",
     introFlow: "",
     introFlowDesc:
-      "<b>1. Lado</b> – Seleccione, en la esquina superior derecha, el lado en el que lleva su IC. Si utiliza dos IC, realice la medición (Paso 3) para ambos.<br><b>2. Implante</b> – Seleccione su fabricante. Si conoce los datos específicos, ajuste los valores de frecuencia listados para cada electrodo; los valores estándar vienen preconfigurados por defecto.<br><b>Importante:</b> Los electrodos desactivados deben marcarse en «Estado».<br><b>3. Medición</b> – Inicie una secuencia de prueba. La herramienta reproduce pares de tonos; ajuste la configuración hasta que ambos tonos suenen con la misma intensidad. Recomendación: Ajuste el volumen a un nivel que roce lo incómodo.<br><b>4. Reproductor</b> – Cargue un archivo de música y escuche la diferencia con y sin la corrección aplicada.<br><b>5. Niveles</b> – Opcional: Aplique ajustes globales (p. ej., énfasis en el habla, refuerzo de graves) y escuche la diferencia en directo en el reproductor de forma simultánea.",
+      "<b>1. Lado</b> – Seleccione, en la esquina superior derecha, el lado en el que lleva su IC. Si utiliza dos IC, realice la medición (Paso 4) para ambos.<br><b>2. Implante</b> – Seleccione su fabricante. Si conoce los datos específicos, ajuste los valores de frecuencia listados para cada electrodo; los valores estándar vienen preconfigurados por defecto. <b>Importante:</b> Los electrodos desactivados deben marcarse en «Estado».<br><b>3. Volumen</b> – Ajuste el volumen de reproducción aproximadamente a 3/4 de su rango cómodo. Ni bajo, ni todavía incómodamente alto.<br><b>4. Medición</b> – Inicie una secuencia de prueba en «Mediciones» → «Volumen de electrodos». La herramienta reproduce pares de tonos; ajuste la configuración hasta que ambos tonos suenen con la misma intensidad.<br><b>5. Reproductor</b> – Cargue un archivo de música y escuche la diferencia con y sin la corrección aplicada.<br><b>6. Niveles</b> – Opcional: Aplique ajustes globales (p. ej., énfasis en el habla, refuerzo de graves) y escuche la diferencia en directo en el reproductor de forma simultánea.",
     introWarn:
       "Si es posible, utilice un programa de su implante coclear sin filtro de voz que, por lo demás, corresponda a su programa principal. Los filtros de voz tienden a distorsionar los sonidos. Conecte su implante coclear mediante Bluetooth para obtener el sonido más nítido posible.",
     introManualLink: "→ Manual de uso detallado",
@@ -622,7 +622,9 @@ Object.assign(L.es, {
     testRunningHint: "Ajuste el volumen de los dos tonos hasta que suenen igual de fuertes.",
     lrRunningTitle: "Prueba de balance estéreo en curso",
     lrRunningHint: "Ajuste el volumen hasta que ambos lados suenen igual de fuertes.",
-    lrPrereqHint: "Realice primero la prueba de volumen de electrodos para ambos lados.",
+    lrPrereqHint: "Realice primero la medición de volumen de electrodos para ambos lados.",
+    latPrereqHint: "Realice primero las mediciones de volumen de electrodos y balance estéreo para ambos lados.",
+    fmPrereqHint: "Realice primero las mediciones de volumen de electrodos y balance estéreo para ambos lados.",
     fmRunningTitle: "Correspondencia de frecuencias en curso",
     fmRunningHint: "Ajuste los tonos hasta que suenen igual de agudos o graves.",
     btnStartTest: "▶ Iniciar prueba",

@@ -19,7 +19,7 @@ Object.assign(L.de, {
     introWhatDesc: "",
     introFlow: "",
     introFlowDesc:
-      "<b>1. Seite</b> - Wählen Sie oben rechts die Seite aus, auf der Sie das CI tragen. Wenn Sie 2 CI tragen, führen Sie die Messung (Punkt 3) für beide aus.<br><b>2. Implantat</b> – Wählen Sie Ihren Hersteller. Falls bekannt, korrigieren Sie die Frequenzeinträge pro Elektrode. Standardwerte sind voreingestellt.<br><b>Wichtig:</b> Deaktivierte Elektroden müssen unter „Status“ markiert werden.<br><b>3. Messung</b> – Starten Sie eine Testreihe. Das Tool spielt Tonpaare ab; Sie stellen ein, bis beide gleich laut klingen.<br><b>4. Player</b> – Laden Sie eine Musikdatei und hören Sie den Unterschied mit und ohne Korrektur.<br><b>5. Levels</b> – Optional: Gesamteinstellungen wie Sprachbetonung oder Baßverstärkung, live hörbar im Player.",
+      "<b>1. Seite</b> – Wählen Sie oben rechts die Seite aus, auf der Sie das CI tragen. Wenn Sie 2 CI tragen, führen Sie die Messung (Punkt 4) für beide aus.<br><b>2. Implantat</b> – Wählen Sie Ihren Hersteller. Falls bekannt, korrigieren Sie die Frequenzeinträge pro Elektrode. Standardwerte sind voreingestellt. <b>Wichtig:</b> Deaktivierte Elektroden müssen unter „Status” markiert werden.<br><b>3. Lautstärke</b> – Stellen Sie die Lautstärke auf gefühlt 3/4 ein. Nicht leise, noch nicht unangenehm laut.<br><b>4. Messung</b> – Starten Sie eine Testreihe in „Messungen” → „Elektrodenlautstärke”. Das Tool spielt Tonpaare ab; Sie stellen ein, bis beide gleich laut klingen.<br><b>5. Player</b> – Laden Sie eine Musikdatei und hören Sie den Unterschied mit und ohne Korrektur.<br><b>6. Levels</b> – Optional: Gesamteinstellungen wie Sprachbetonung oder Baßverstärkung, live hörbar im Player.",
     introWarn:
       "Verwenden Sie möglichst ein CI-Programm ohne Sprachfilter, das ansonsten Ihrem Hauptprogramm entspricht. Sprachfilter neigen dazu, Töne zu verfälschen. Verbinden Sie Ihr CI mit Bluetooth für möglichst klare Töne.",
     introManualLink: "→ Ausführliche Bedienungsanleitung",
@@ -639,7 +639,9 @@ Object.assign(L.de, {
     testRunningHint: "Passen Sie die Lautstärke der beiden Töne an, bis sie sich gleich laut anhören.",
     lrRunningTitle: "Stereo-Balance-Test läuft",
     lrRunningHint: "Passen Sie die Lautstärke an, bis sich beide Seiten gleich laut anhören.",
-    lrPrereqHint: "Führen Sie zuerst den Test Elektrodenlautstärke für beide Seiten aus.",
+    lrPrereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
+    latPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
+    fmPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmRunningTitle: "Frequenzabgleich läuft",
     fmRunningHint: "Gleichen Sie die Töne an, bis sie sich gleich hoch oder tief anhören.",
     btnStartTest: "▶ Test starten",

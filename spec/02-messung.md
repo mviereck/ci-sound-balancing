@@ -94,11 +94,15 @@ Slider-Wert wird invertiert.
 - Reihenfolge der Elektroden: zufällig / apikal→basal / basal→apikal
 - Seitenfolge: zufällig / L→R / R→L
 - Vergleicht gleiche Frequenz auf beiden Ohren
-- Vorbedingung „erst Test 1 ausführen" ist nicht zwingend, sondern
-  reiner Hinweis
+- Vorbedingungs-Hinweis (`lrPrereqHint`): „Führen Sie zuerst die
+  Messung Elektrodenlautstärke für beide Seiten aus." — reiner Hinweis,
+  nicht zwingend
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 
+- Vorbedingungs-Hinweis (`fmPrereqHint`) im Erklärungsblock: „Führen
+  Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für
+  beide Seiten aus." — erscheint zwischen `fmHintMethod` und `fmHintWarn`
 - Cent-Slider (statt dB)
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite
@@ -131,8 +135,11 @@ Slider-Wert wird invertiert.
 - 4 Klangvarianten: Klick (breitband), 500 Hz, 1500 Hz, 4 kHz Tone-Bursts
 - **Nur mit Kabel-Kopfhörer durchführen** — Bluetooth verfälscht die Messung
   (Hinweis-Box im Messpanel, nach der Überschrift)
+- Vorbedingungs-Hinweis (`latPrereqHint`): „Führen Sie zuerst die
+  Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten
+  aus." — erscheint nach der BT-Warnbox, vor der Schieber-Anleitung
 - Mess-Panel: Überschrift → kurze Beschreibung → Wichtig-Hinweis (BT) →
-  Schieber-Anleitung → Hinweis auf Ortungswahrnehmung als Anhaltspunkt
+  Vorbedingungs-Hinweis → Schieber-Anleitung → Hinweis auf Ortungswahrnehmung als Anhaltspunkt
 - **Audio-Pfad:** Klick-Buffer → ChannelSplitter → L/R-Gain (aus
   `getRawBalanceGains`, ignoriert `plApplyBalance`) → ChannelMerger → `pGain` →
   `pLatSplitter` → `pLatDelayL`/`pLatDelayR` → `pLatMerger` →

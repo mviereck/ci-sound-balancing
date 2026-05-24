@@ -1,6 +1,6 @@
 ## Tab-Übersicht
 
-- **Einführung** (intro) — Begrüßung; unter der Einführungs-Beschreibung steht ein Link „Ausführliche Bedienungsanleitung", der je nach gewählter Oberflächen-Sprache auf README_de.md, README_en.md, README_fr.md oder README_es.md im GitHub-Repo zeigt (öffnet in neuem Tab). Sprachumschaltung aktualisiert sowohl Linktext als auch Ziel-URL.
+- **Einführung** (intro) — Begrüßung; unter der Einführungs-Beschreibung steht ein Link „Ausführliche Bedienungsanleitung", der je nach gewählter Oberflächen-Sprache auf README_de.md, README_en.md, README_fr.md oder README_es.md im GitHub-Repo zeigt (öffnet in neuem Tab). Sprachumschaltung aktualisiert sowohl Linktext als auch Ziel-URL. Der Ablauf-Block (`introFlowDesc`) umfaßt sechs Schritte: 1. Seite, 2. Implantat (mit eingebetteter „Wichtig"-Zeile zu deaktivierten Elektroden), 3. Lautstärke (neu: auf ~3/4 einstellen), 4. Messung (mit Pfad „Messungen → Elektrodenlautstärke"), 5. Player, 6. Levels.
 - **Implantat** (setup) — Konfiguration, Hersteller-/Modell-Auswahl,
   globale Implantat-Parameter, Frequenz- und Elektrodentabelle (siehe
   „Implantat-Tab" unten)

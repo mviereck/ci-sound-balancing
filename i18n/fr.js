@@ -19,7 +19,7 @@ Object.assign(L.fr, {
     introWhatDesc: "",
     introFlow: "",
     introFlowDesc:
-      "<b>1. Côté</b> – Sélectionnez, dans le coin supérieur droit, le côté sur lequel vous portez votre implant cochléaire. Si vous portez deux implants, effectuez la mesure (Étape 3) pour chacun d'eux.<br><b>2. Implant</b> – Sélectionnez le fabricant de votre implant cochléaire. Si vous les connaissez, ajustez les valeurs de fréquence indiquées pour chaque électrode ; des valeurs standard sont préconfigurées par défaut.<br><b>Important :</b> Les électrodes désactivées doivent être marquées sous «Statut».<br><b>3. Mesure</b> – Lancez une séquence de test. L'outil diffuse des paires de sons ; ajustez les réglages jusqu'à ce que les deux sons vous semblent avoir exactement le même volume. Recommandation : réglez le volume à un niveau frisant l'inconfort.<br><b>4. Lecteur</b> – Chargez un fichier musical et écoutez la différence, avec et sans l'application de la correction.<br><b>5. Niveaux</b> – Facultatif : Appliquez des réglages globaux (par ex. accentuation de la parole, renforcement des basses) et écoutez simultanément la différence en direct dans le lecteur.",
+      "<b>1. Côté</b> – Sélectionnez, dans le coin supérieur droit, le côté sur lequel vous portez votre implant cochléaire. Si vous portez deux implants, effectuez la mesure (Étape 4) pour chacun d'eux.<br><b>2. Implant</b> – Sélectionnez le fabricant de votre implant cochléaire. Si vous les connaissez, ajustez les valeurs de fréquence indiquées pour chaque électrode ; des valeurs standard sont préconfigurées par défaut. <b>Important :</b> Les électrodes désactivées doivent être marquées sous «Statut».<br><b>3. Volume</b> – Réglez le volume de lecture à environ 3/4 de votre plage confortable. Ni faible, ni encore inconfortablement fort.<br><b>4. Mesure</b> – Lancez une séquence de test dans «Mesures» → «Volume des électrodes». L'outil diffuse des paires de sons ; ajustez les réglages jusqu'à ce que les deux sons vous semblent avoir exactement le même volume.<br><b>5. Lecteur</b> – Chargez un fichier musical et écoutez la différence, avec et sans l'application de la correction.<br><b>6. Niveaux</b> – Facultatif : Appliquez des réglages globaux (par ex. accentuation de la parole, renforcement des basses) et écoutez simultanément la différence en direct dans le lecteur.",
     introWarn:
       "Si possible, utilisez un programme d'implant cochléaire sans filtre vocal qui corresponde par ailleurs à votre programme principal. Les filtres vocaux ont tendance à déformer les sons. Connectez votre implant cochléaire via Bluetooth pour obtenir le son le plus clair possible.",
     introManualLink: "→ Manuel d'utilisation détaillé",
@@ -622,7 +622,9 @@ Object.assign(L.fr, {
     testRunningHint: "Ajustez le volume des deux sons jusqu'à ce qu'ils paraissent également forts.",
     lrRunningTitle: "Test de balance stéréo en cours",
     lrRunningHint: "Ajustez le volume jusqu'à ce que les deux côtés semblent également forts.",
-    lrPrereqHint: "Veuillez d'abord effectuer le test d'équilibre du volume des électrodes pour les deux côtés.",
+    lrPrereqHint: "Veuillez d'abord effectuer la mesure du volume des électrodes pour les deux côtés.",
+    latPrereqHint: "Veuillez d'abord effectuer les mesures du volume des électrodes et de balance stéréo pour les deux côtés.",
+    fmPrereqHint: "Veuillez d'abord effectuer les mesures du volume des électrodes et de balance stéréo pour les deux côtés.",
     fmRunningTitle: "Correspondance de fréquences en cours",
     fmRunningHint: "Ajustez les sons jusqu'à ce qu'ils semblent également hauts ou bas.",
     btnStartTest: "▶ Démarrer le test",
