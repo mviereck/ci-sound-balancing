@@ -147,6 +147,11 @@ Sonder-Implementierungen mit `attachLongPress` direkt, weil sie nicht
 auf einem `<input type="range">` basieren. Die Bedienleisten sind
 dauerhaft sichtbar (Desktop und Mobile).
 
+**Kurven-Chart-Pinning:** Die `.lv-chart-card` im Kurven-Tab ist
+nur auf Mobile-Breite (`max-width: 768px`) `position: sticky`.
+Auf Desktop scrollt sie als normale Karte mit. Der Breakpoint
+passt zu den anderen Mobile-Regeln in `style.css`.
+
 **Mobile-Eingabe-Sperre:** Auf reinen Touch-Geräten (Smartphone)
 werden alle Number-Inputs read-only, damit die System-Tastatur nicht
 das Bild verdeckt. Eingabe läuft dort über die Touch-Buttons

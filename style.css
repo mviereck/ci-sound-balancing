@@ -736,13 +736,15 @@ select:disabled {
   display: block;
 }
 .lv-chart-card {
-  position: sticky;
-  top: 0;
-  z-index: 5;
   background: var(--surface);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 @media (max-width: 768px) {
+  .lv-chart-card {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  }
   .container {
     padding: 12px;
   }
