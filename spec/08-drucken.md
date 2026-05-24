@@ -1,5 +1,13 @@
 ## Drucken
 
+- Beide Berichts-Ausdrucke (Archiv und Audiologen-Auftrag) zeigen
+  rechts oben im Briefkopf das App-Logo
+  `assets/images/logo_briefkopf6.png`, voll deckend, Höhe 150 px,
+  Breite proportional. Das Logo erscheint auch in den Tab-Einzeldrucken
+  (Implantat, Meßergebnisse, Kurven, Schieber), weil diese denselben
+  `buildPrintHeader` aus `print.js` verwenden. Pfadauflösung über
+  `new URL(..., window.location.href).href`, damit auch im
+  `about:blank`-Druckfenster eine vollständige URL steht.
 - Meßergebnisse immer enthalten
 - Player-Einstellungen (Quelle, Stärke, NH-Simulation) zusätzlich
 - Levels-Werte und Equalizer-Gains im Ausdruck

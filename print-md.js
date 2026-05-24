@@ -1655,9 +1655,12 @@ function renderArchivPrintHtml(data) {
     h3 { margin-top: 14px; }
     table { font-size: 0.85em; }
     img.archiv-chart { display: block; max-width: 100%; margin: 6px 0 10px 0; }
-    @media print { body { margin: 0; padding: 0; } }
+    img.archiv-logo { float: right; height: 150px; width: auto; margin: 0 0 8px 12px; }
+    @media print { body { margin: 0; padding: 0; } img.archiv-logo { height: 150px; } }
   `;
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${t("archivTitle")}</title><style>${styles}</style></head><body>${enrichedHtml}</body></html>`;
+  const logoUrl = new URL("assets/images/logo_briefkopf6.png", window.location.href).href;
+  const logoHtml = `<img src="${logoUrl}" alt="CI Sound Balancing" class="archiv-logo" />`;
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${t("archivTitle")}</title><style>${styles}</style></head><body>${logoHtml}${enrichedHtml}</body></html>`;
 }
 
 function _archivInjectInserts(html, inserts) {
