@@ -29,9 +29,18 @@ Drei Cards untereinander:
     50–20000 Hz, Default 1000 Hz). Anzeige-Einheit: `Hz`.
   - **Gauß-Breite** wird als **Cent-Wert** gespeichert (Number-Input,
     50–4800 ¢, Default 1200 ¢ = 1 Oktave). Anzeige-Einheit: `¢`.
-  - Die x-Achse des Charts bleibt gleichmäßig in Elektroden-Abständen;
-    Pivot erscheint dadurch optisch leicht schief — das ist Absicht
-    (Folge der Frequenz-Semantik; log-Achse kommt in späterer Anleitung).
+  - Die x-Achse des Charts ist **cent-skaliert** (lineare Cent-Achse re
+    1000 Hz). Elektroden sitzen an ihrer Cent-Position; Abstände
+    entsprechen den Cent-Differenzen, nicht dem Index. Tiefe Elektroden
+    (große Cent-Sprünge) stehen weiter auseinander, hohe enger zusammen.
+    Pivot/Tilt/S-Kurve/Gauß erscheinen damit unverzerrt.
+  - **x-Achsen-Beschriftung** pro Elektrode dreizeilig: E-Bezeichnung,
+    Hz-Wert (klein), Cent-Wert (`+N ¢` / `−N ¢` re 1000 Hz). Bei engen
+    Pixel-Abständen (< 22 px / < 14 px) wird die Cent-Zeile ausgedünnt
+    (jedes 2. bzw. 3. Label); die E-Bezeichnung bleibt vollständig.
+  - **Hover-Tooltip** über der x-Achsen-Beschriftung zeigt
+    „Elektrode N / Hz / ¢" dreizeilig. Gleiches Verhalten im
+    Meßergebnisse-Chart.
 - **Bass Boost / High Boost**: Grenzpunkt bleibt eine Kanal-Anzahl
   (Dropdown, unverändert).
 - **Sprache (SII)** und **Lautstärke** unverändert.

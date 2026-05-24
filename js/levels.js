@@ -351,12 +351,12 @@ function drawLvChart() {
       (showPre ? preV[j] : 0),
   );
   const yMx = 20;
-  const pad = { left: 42, right: 16, top: 16, bottom: 32 },
+  const pad = { left: 42, right: 16, top: 16, bottom: 44 },
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom;
   const zY = pad.top + pH / 2;
-  const xS = pW / (act.length - 1 || 1);
-  const tX = (j) => pad.left + j * xS;
+  const axis = buildCentAxis(act, pad.left, pW);
+  const tX = axis.tX;
   const tY = (v) => pad.top + (yMx - v) * (pH / (2 * yMx));
   ctx.strokeStyle = "#e5e5e5";
   ctx.lineWidth = 1;
@@ -403,18 +403,36 @@ function drawLvChart() {
   if (showMan) drawLine(manV, "#16a34a", 1.5, [4, 3]);
   if (showPre) drawLine(preV, "#d97706", 1.5, [4, 3]);
   drawLine(sumV, "#1a1a1a", 2.5, null);
+  cv._axisHits = [];
   for (let j = 0; j < act.length; j++) {
     ctx.fillStyle = act[j] === refEl ? "#2563eb" : "#555";
     ctx.font = "9px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(dENPrefix() + dEN(act[j]), tX(j), H - pad.bottom + 12);
+    const yE = H - pad.bottom + 12,
+          yHz = H - pad.bottom + 22,
+          yCent = H - pad.bottom + 32;
+    const lbl = dENPrefix() + dEN(act[j]);
+    ctx.fillText(lbl, tX(j), yE);
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
-    const lvF = effFreq(act[j]);
+    const lvF = axis.hzArr[j];
     ctx.fillText(
-      lvF >= 1000 ? (lvF / 1000).toFixed(1) + "k" : lvF,
+      lvF >= 1000 ? (lvF / 1000).toFixed(1) + "k" : Math.round(lvF),
       tX(j),
-      H - pad.bottom + 22,
+      yHz,
     );
+    if (j % axis.step === 0 || j === 0 || j === act.length - 1) {
+      const c = Math.round(axis.centArr[j]);
+      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(j), yCent);
+    }
+    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
+    cv._axisHits.push({
+      x0: tX(j) - halfDx, x1: tX(j) + halfDx,
+      y0: H - pad.bottom + 2, y1: H - pad.bottom + 40,
+      label: lbl,
+      hz: axis.hzArr[j],
+      cent: axis.centArr[j],
+    });
   }
+  _attachAxisTooltip(cv);
 }

@@ -25,6 +25,84 @@ function _drawRefElLabel(ctx, x, y, size) {
 }
 
 // ============================================================
+// Cent-x-Achse — Hilfsfunktionen (gemeinsam für drawChart und
+// drawLvChart). Elektroden werden nach ihrer Cent-Position
+// (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
+// Elektroden, sonst lineare Notlösung.
+// ============================================================
+function buildCentAxis(electrodes, padLeft, plotW) {
+  const hzArr = electrodes.map(function (i) { return effFreq(i); });
+  const centArr = hzArr.map(hzToCent);
+  let cMin = Math.min.apply(null, centArr),
+      cMax = Math.max.apply(null, centArr);
+  if (!isFinite(cMin) || !isFinite(cMax) || cMin === cMax) {
+    cMin = (cMin || 0) - 600;
+    cMax = (cMax || 0) + 600;
+  }
+  const span = cMax - cMin || 1;
+  const tX = function (j) {
+    return padLeft + ((centArr[j] - cMin) / span) * plotW;
+  };
+  let minDx = Infinity;
+  for (let j = 1; j < electrodes.length; j++) {
+    minDx = Math.min(minDx, tX(j) - tX(j - 1));
+  }
+  if (!isFinite(minDx)) minDx = plotW;
+  const step = minDx < 14 ? 3 : minDx < 22 ? 2 : 1;
+  return { tX: tX, centArr: centArr, hzArr: hzArr, minDx: minDx, step: step };
+}
+
+// Tooltip-Anbindung für die x-Achse. Hitboxes werden vom Caller
+// pro Draw in cv._axisHits gesetzt (Array von
+// { x0,x1,y0,y1, label, hz, cent }). Der Handler wird pro Canvas
+// nur einmal registriert.
+function _attachAxisTooltip(cv) {
+  if (cv._axisHoverInit) return;
+  cv._axisHoverInit = true;
+  cv.addEventListener("mousemove", function (e) { _axisTooltipHandler(cv, e); });
+  cv.addEventListener("mouseleave", function () {
+    const tip = document.getElementById("axisTooltip");
+    if (tip) tip.style.display = "none";
+  });
+}
+
+function _axisTooltipHandler(cv, e) {
+  if (!cv._axisHits || !cv._axisHits.length) return;
+  const rect = cv.getBoundingClientRect();
+  if (rect.width <= 0 || rect.height <= 0) return;
+  const dpr = window.devicePixelRatio || 1;
+  const scaleX = (cv.width / dpr) / rect.width;
+  const scaleY = (cv.height / dpr) / rect.height;
+  const mx = (e.clientX - rect.left) * scaleX;
+  const my = (e.clientY - rect.top) * scaleY;
+  let tip = document.getElementById("axisTooltip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "axisTooltip";
+    tip.style.cssText =
+      "position:fixed;background:#1e293b;color:#f8fafc;padding:6px 10px;" +
+      "border-radius:6px;font-size:0.82em;pointer-events:none;display:none;" +
+      "z-index:1000;line-height:1.5;white-space:nowrap;";
+    document.body.appendChild(tip);
+  }
+  const hit = cv._axisHits.find(function (h) {
+    return mx >= h.x0 && mx <= h.x1 && my >= h.y0 && my <= h.y1;
+  });
+  if (hit) {
+    const elLbl = (typeof t === "function" ? t("lvTabElLabel") : "Elektrode");
+    tip.innerHTML =
+      "<b>" + elLbl + " " + hit.label + "</b><br>" +
+      Math.round(hit.hz) + " Hz<br>" +
+      (hit.cent >= 0 ? "+" : "") + Math.round(hit.cent) + " ¢";
+    tip.style.display = "block";
+    tip.style.left = (e.clientX + 14) + "px";
+    tip.style.top = (e.clientY - 10) + "px";
+  } else {
+    tip.style.display = "none";
+  }
+}
+
+// ============================================================
 // CHART
 // ============================================================
 function drawChart(cv, vals, res, isOff, elColor) {
@@ -37,7 +115,7 @@ function drawChart(cv, vals, res, isOff, elColor) {
   cv.style.width = w + "px";
   cv.style.height = h + "px";
   ctx.scale(dpr, dpr);
-  const pad = { top: 30, right: 20, bottom: 55, left: 55 },
+  const pad = { top: 30, right: 20, bottom: 67, left: 55 },
     pW = w - pad.left - pad.right,
     pH = h - pad.top - pad.bottom;
   ctx.clearRect(0, 0, w, h);
@@ -62,8 +140,9 @@ function drawChart(cv, vals, res, isOff, elColor) {
     yMn -= r * 0.1;
     yMx += r * 0.1;
   }
-  const xS = pW / (allE.length - 1 || 1),
-    tX = (i) => pad.left + i * xS,
+  const axis = buildCentAxis(allE, pad.left, pW),
+    tX = axis.tX,
+    xS = axis.minDx,
     tY = (v) => pad.top + (yMx - v) * (pH / (yMx - yMn || 1));
   ctx.strokeStyle = "#e5e5e5";
   ctx.lineWidth = 1;
@@ -148,19 +227,41 @@ function drawChart(cv, vals, res, isOff, elColor) {
     ctx.fillStyle = i === refEl ? "#2563eb" : "#555";
     ctx.font = (i === refEl ? "bold " : "") + "10px Segoe UI,sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText(dENPrefix() + dEN(i), tX(j), h - pad.bottom + 14);
+    const yE = h - pad.bottom + 14,
+          yHz = h - pad.bottom + 25,
+          yCent = h - pad.bottom + 36,
+          yAB = h - pad.bottom + 48;
+    ctx.fillText(dENPrefix() + dEN(i), tX(j), yE);
     ctx.font = "8px Consolas,monospace";
     ctx.fillStyle = "#999";
-    ctx.fillText(Math.round(effFreq(i)), tX(j), h - pad.bottom + 25);
+    ctx.fillText(Math.round(axis.hzArr[j]), tX(j), yHz);
+    if (j % axis.step === 0 || j === 0 || j === allE.length - 1) {
+      const c = Math.round(axis.centArr[j]);
+      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(j), yCent);
+    }
     if (j === 0) {
       ctx.font = "8px Segoe UI,sans-serif";
-      ctx.fillText(t("apikal"), tX(j), h - pad.bottom + 36);
+      ctx.fillText(t("apikal"), tX(j), yAB);
     }
     if (j === allE.length - 1) {
       ctx.font = "8px Segoe UI,sans-serif";
-      ctx.fillText(t("basal"), tX(j), h - pad.bottom + 36);
+      ctx.fillText(t("basal"), tX(j), yAB);
     }
   }
+  cv._axisHits = [];
+  for (let j = 0; j < allE.length; j++) {
+    const i = allE[j];
+    const cx = tX(j);
+    const halfDx = Math.max(8, (axis.minDx || 12) / 2);
+    cv._axisHits.push({
+      x0: cx - halfDx, x1: cx + halfDx,
+      y0: h - pad.bottom + 2, y1: h - pad.bottom + 44,
+      label: dENPrefix() + dEN(i),
+      hz: axis.hzArr[j],
+      cent: axis.centArr[j],
+    });
+  }
+  _attachAxisTooltip(cv);
   ctx.strokeStyle = "#2563eb44";
   ctx.lineWidth = 2;
   ctx.beginPath();
