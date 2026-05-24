@@ -84,6 +84,11 @@ Slider-Wert wird invertiert.
   (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
   wirkt nur auf die Anzeige und Anwendung der Ergebnisse, nicht auf
   die Messung.
+- Die Referenzelektrode ist im Loudness-Graph durch ein fettes
+  schwarzes „Ref.-El."-Label am oberen Rand markiert — zusätzlich
+  zur bisherigen Hervorhebung als fettes blaues Achsen-Label. In
+  der Loudness-Tabelle gibt es eine neue Spalte „Ref.El." am Ende;
+  die Zeile der Referenzelektrode trägt ein großes `X`.
 - Vorkorrektur-Schalter (preCorrect)
 - Wenn Modus „Vollständig" angefangen aber nicht abgeschlossen wurde,
   zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und

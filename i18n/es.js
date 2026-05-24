@@ -147,6 +147,7 @@ Object.assign(L.es, {
     toneHint: "Los diferentes tipos de tonos pueden producir resultados distintos. Un buen resultado se reconoce objetivamente por un residuo bajo en la medición, y subjetivamente por la experiencia sonora en el reproductor. La curva resultante puede variar según el tipo de tono. Comience con el tipo de tono con el que se sienta más seguro al comparar. El tipo de tono se puede cambiar en la parte superior derecha. Para comparar, guarde varias series de mediciones bajo distintos nombres.",
     thWgt: "Peso",
     thStR: "Estado",
+    thRefEl: "El. ref.",
     thSc: "Punt.",
     thComp: "Comp.",
     resExplain: "",

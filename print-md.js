@@ -499,15 +499,16 @@ function _archivMdMeas(sd) {
       .replace("{total}", sd.meas.sweep.totalPairs)}_`);
     out.push("");
   }
-  out.push(`| ${t("thEl")} | ${t("thHz")} | ${t("thOff")} | ${t("thRes")} | ${t("thStR")} |`);
-  out.push("|---|---|---|---|---|");
+  out.push(`| ${t("thEl")} | ${t("thHz")} | ${t("thOff")} | ${t("thRes")} | ${t("thStR")} | ${t("thRefEl")} |`);
+  out.push("|---|---|---|---|---|---|");
   for (const r of sd.meas.rows) {
     const offTxt = (r.offsetDb   != null) ? _mdFmtDb(r.offsetDb, true)  : "—";
     const resTxt = (r.residualDb != null) ? _mdFmtDb(r.residualDb, false) : "—";
     const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" };
     const stTxt  = r.status ? (t(_ST_KEY2[r.status] || "") || r.status) : "";
     const noteTxt = r.note ? ` (${_mdEsc(r.note)})` : "";
-    out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt}${noteTxt} |`);
+    const refMark = (sd.meas.refEl != null && r.idx === sd.meas.refEl) ? "**X**" : "";
+    out.push(`| ${r.label} | ${_mdFmtHz(r.hz)} | ${offTxt} | ${resTxt} | ${stTxt}${noteTxt} | ${refMark} |`);
   }
   return out.join("\n") + "\n";
 }
@@ -793,8 +794,8 @@ function _audiologLoudnessTable(side) {
     const resArr = _audiologResForSide(side);
     const unit = lvUnitLabelFor(mfr);
     const lines = [];
-    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} |`);
-    lines.push("|---|---|---|---|---|---|---|---|---|");
+    lines.push(`| ${t("thEl")} | ${t("audColDb")} | ${t("audColRes")} | ${t("audColMcl")} (${unit}) | ${t("audColMclDelta")} (${unit}) | ${t("audColMclNew")} (${unit}) | ${t("audColStatus")} | ${t("archivImplExcl")} | ${t("audColNote")} | ${t("thRefEl")} |`);
+    lines.push("|---|---|---|---|---|---|---|---|---|---|");
     for (let i = 0; i < nEl; i++) {
       const dB = dBs[i] || 0;
       const r  = resArr[i] || 0;
@@ -802,8 +803,9 @@ function _audiologLoudnessTable(side) {
       const status = _audStatusText(side, i);
       const excl = (elExDur[i] !== null && elExDur[i] !== undefined) ? "**X**" : "";
       const note = (elNt && elNt[i]) ? elNt[i] : "";
+      const refMark = (typeof refEl !== "undefined" && refEl != null && i === refEl) ? "**X**" : "";
       lines.push(
-        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${note} |`
+        `| ${dENPrefix()}${dEN(i)} | **${_audDb(dB)}** | ${r > 0 ? r.toFixed(1) + " dB" : ""} | ${_audUnitAbs(abs.mcl, abs.unit)} | ${_audUnit(abs.delta, abs.unit)} | ${_audUnitAbs(abs.newVal, abs.unit)} | ${status} | ${excl} | ${note} | ${refMark} |`
       );
     }
     return lines.join("\n");
@@ -1244,6 +1246,9 @@ function _audiologChartImg(side) {
     ctx.fillText("0", pad.l - 4, zY + 3);
     ctx.fillText("-" + maxAbs, pad.l - 4, Hlog - pad.b + 4);
 
+    if (typeof refEl !== "undefined" && refEl !== null && refEl >= 0 && refEl < nEl) {
+      _drawRefElLabel(ctx, pad.l + refEl * gW + gW / 2, pad.t - 4);
+    }
     for (let i = 0; i < nEl; i++) {
       const v = dBs[i] || 0;
       const r = resArr[i] || 0;
@@ -1370,6 +1375,16 @@ function _archivChartLoudness(sideBlock) {
     title: `${t("archivSecMeas")} — ${sideBlock.label}`,
   });
   const gW = pW / rows.length;
+  const refIdx = sideBlock.meas.refEl;
+  if (refIdx != null) {
+    let jRef = -1;
+    for (let k = 0; k < rows.length; k++) {
+      if (rows[k].idx === refIdx) { jRef = k; break; }
+    }
+    if (jRef >= 0) {
+      _drawRefElLabel(ctx, pad.l + jRef * gW + gW / 2, pad.t - 4);
+    }
+  }
   for (let j = 0; j < rows.length; j++) {
     const r = rows[j];
     const x = pad.l + j * gW + 2;

@@ -5,6 +5,8 @@
      Equalizer" und Beschreibung (`plTitle`, `plDesc`). Kein blauer
      Hinweis-Strich, nur normaler Absatz.
   2. **Equalizer-Graph** (`plEqViz`) — Kurven-Canvas plus Tabelle.
+     Die Referenzelektrode wird im EQ-Graph durch ein fettes schwarzes
+     „Ref.-El."-Label am oberen Rand markiert.
   3. **Einstellungen** (`plSettingsTitle`) — sieben Zeilen: (1) Equalizer
      an/aus, Stärke, Stärke-Buttons; (2) Quellen-Buttons
      (Elektrodenlautstärke / Kurven / Schieber); (3) „Beide Seiten mit

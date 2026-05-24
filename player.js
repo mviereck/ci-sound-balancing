@@ -769,6 +769,12 @@ function pDrawEQ() {
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   ctx.fillText("0", pad.left - 4, zY + 3);
+  if (typeof refEl !== "undefined" && refEl !== null) {
+    const jRef = allE.indexOf(refEl);
+    if (jRef >= 0) {
+      _drawRefElLabel(ctx, pad.left + jRef * gW + gW / 2, pad.top - 3, 10);
+    }
+  }
   for (let j = 0; j < allE.length; j++) {
     const i = allE[j],
       x = pad.left + j * gW + (gW - bW) / 2;

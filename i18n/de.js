@@ -150,6 +150,7 @@ Object.assign(L.de, {
     toneHint: "Verschiedene Tonarten können zu verschiedenen Ergebnissen führen. Das beste Ergebnis ist einerseits objektiv am geringen Residuum im Meßergebnis erkennbar, zum anderen subjektiv am Klangerleben im Player. Die resultierende Verlaufskurve kann bei verschiedenen Tönen anders ausfallen. Wählen Sie zunächst den Ton, mit dem Sie das Gefühl haben, den Vergleich am sichersten durchführen zu können. Tonart oben rechts wechselbar. Zum Vergleichen mehrere Meßreihen unter verschiedenen Namen speichern.",
     thWgt: "Gewicht",
     thStR: "Status",
+    thRefEl: "Ref.El.",
     thSc: "Score",
     thComp: "Vergl.",
     resExplain:

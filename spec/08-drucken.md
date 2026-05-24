@@ -92,10 +92,14 @@ Der Korrektur-Bericht ist gegliedert in:
      Datum der letzten Messung).
    - Testprogramm-Hinweis (Blockquote, direkt unter der Meta-Zeile,
      nur wenn Heuristik für diese Seite anschlägt).
-   - Bar-Chart der ΔdB-Werte mit Residuum-Fehlerbalken.
+   - Bar-Chart der ΔdB-Werte mit Residuum-Fehlerbalken. Die
+     Referenzelektrode ist im Chart durch ein fettes schwarzes
+     „Ref.-El."-Label am oberen Rand markiert.
    - H3 „Lautstärken-Korrektur": Tabelle aller Elektroden mit
      **Δ dB** (fett), Residuum, MCL/Δ MCL/Neuer MCL (qu/CL/CU),
-     Status, Ausgeschlossen, Elektroden-Notiz. Legende darunter. (Keine Hz-Spalte.)
+     Status, Ausgeschlossen, Elektroden-Notiz, **Ref.El.** (neues
+     Feld ganz rechts; `X` in der Zeile der Referenzelektrode).
+     Legende darunter. (Keine Hz-Spalte.)
    - H3 „MAPLAW-Änderung" (nur MED-EL, nur wenn MAPLAW aktiv und
      c-Wert abweicht): Satz-Format „MAPLAW [Seite] ändern von
      c=[Ist] auf c=**[Soll]**."

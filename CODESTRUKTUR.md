@@ -112,7 +112,7 @@ werden.
 | 8  | test.js | `ROUND_ROBIN`-Tabelle, `compWLS`, `startTest`, alle Test-Sub-Funktionen. Bindet sich an die von test-ui.js erzeugte UI. |
 | 9  | freqmatch.js | Frequenzabgleich-Test (Sub-Tab freqmatch). `fmStart`, `fmConfirm`, `fmAbort`, `fmApplyLang`, `fmPlayCurrent`, `fmCorrGain` (Korrektur-Gain pro Seite/Frequenz, interpoliert). Nutzt `getRawBalanceGains()` statt `getPlayerBalanceGains()` — Balance wird immer angewendet, unabhängig von `plApplyBalance`. Eigener DOMContentLoaded-Handler. Bindet sich an die von test-ui.js erzeugte UI. |
 | 10 | results.js | `renderResults`, `renderFreqMatchResults` |
-| 11 | chart.js | `drawDisabledBar` (Helper, auch von lr-balance.js genutzt), `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
+| 11 | chart.js | `drawDisabledBar` (Helper, auch von lr-balance.js genutzt), `_drawRefElLabel` (Helper, auch von player.js und print-md.js genutzt — zeichnet fettes „Ref.-El."-Label an der Referenzelektroden-Position), `drawChart` (Meßergebnisse), `drawFreqMatchChart`, `_fmcTooltipHandler` |
 | 12 | file.js | `saveJson`, `loadJson`, `applyLoadedData`, `resetAll`, `exportEasyEffects`, `_safeUserFileSuffix`, `_applyUserFileSuffix` |
 | 12b | print.js | Druck-Infrastruktur: `buildPrintHeader` (Mini-Kopf für Einzelausdrucke), `openPrintWindow` (neues Fenster, HTML schreiben, drucken), `canvasToImg` (Canvas → `<img>` PNG-Daten-URL). Wird von den Tab-spezifischen Druck-Handlern in den jeweiligen Tab-Modulen aufgerufen. Der zentrale „Alles drucken"-Button (`fPrintBtn` in init.js) ist unabhängig davon. |
 | 12d | print-md.js | Markdown-Generatoren für Archiv-Box (Modus A) und Audiologen-Box (Modus B). Modus A: Datensammler `collectArchivData` plus Renderer `renderArchivMarkdown` und Sektion-Helfer `_archivMd*`. Interne Sammler-Helfer: `_collectGlobalTest`, `_collectSideData`, `_collectBilateral`, `_collectPlayer`, `_collectSaetze`, `_pickUpperLevel`, `_calcAbsDelta`. Druck-HTML: `renderArchivPrintHtml` (wandelt Markdown via `_mdToHtmlBasic` in HTML und injiziert PNG-Grafiken), `_archivInjectInserts` (HTML-Injektor per H2/H3-Anker), sechs Canvas-Renderer `_archivChartLoudness`, `_archivChartSchieber`, `_archivChartKurven`, `_archivChartFreqmatch`, `_archivChartLR`, `_archivChartPlayerEq`, Zeichenhelfer `_archivMkCanvas`, `_archivDrawAxis`, Konstanten `_ARCHIV_CHART_W`/`_H`. Modus B: `buildAudiologMarkdown`, `audiologPrint`, `mdAudiologFilename`, Helfer `_audiologMainSides`, `_audiologSideLabel`, `_audiologDbForSide`, `_audiologResForSide`, `_audiologAbsDelta`, `_audiologLoudnessTable`, `_audiologFreqTable`, `_audiologMaplawSection`, `_audiologBalanceBlock`, `_audiologLatencyBlock`, `_audiologTestProgramHint`, `_audiologIsTestProgram`, `_audiologMissingImplantData`, `_audiologAdvice`, `_audiologLastMeas`, `_audiologConfigLabel`, `_audiologChartImg` (2×-Auflösung, Residuum-Fehlerbalken), Mini-MD→HTML-Konverter `_mdToHtmlBasic`. Entfernte i18n-Schlüssel: `audiologRequestsBody`, `audiologSecRequests`, `audiologSecUserNote`, `audColHzOld`, `audColHzNew`, `audiologToolVersion`. Neue i18n-Schlüssel: `audiologToolVersionLine`, `audColHzDefault`, `audColHzManual`, `audColHzWish`, `audMissThr`, `audMissFreqOwn`, `audiologMissingIntro`. Gemeinsame Helfer: `mdCopyToClipboard`, `mdDownload`, `mdArchivFilename`, `mdDateStampFile`, `_mdEsc`, `_mdFmtDb`, `_mdFmtHz`, `_mdBilateralLabel`. Lädt zwischen `print.js` und `tab-print.js`. |
@@ -351,6 +351,16 @@ Referenzelektrode sitzt im Ergebnis-Reiter (`#refEl`, befüllt
 durch `updRef` in freq-table.js, Listener in init.js, triggert
 `renderResults`/`drawLvChart`/`pUpdEQ`). In test.js wird `refEl`
 nicht mehr beim Test-Start überschrieben.
+
+Die Markierung der Referenzelektrode in den Loudness-Darstellungen
+wird in `drawChart` (chart.js), `pDrawEQ` (player.js),
+`_archivChartLoudness` und `_audiologChartImg` (beide in print-md.js)
+als fettes schwarzes „Ref.-El."-Label am oberen Rand gezeichnet;
+in den Loudness-Tabellen (`renderResults`, `_archivMdMeas`,
+`_audiologLoudnessTable`) als neue Endspalte mit `X` in der
+Referenzzeile. In Stereo-Balance-, Schieber- und
+Frequenzabgleich-Darstellungen wird **nicht** markiert (kein
+direkter `refEl`-Effekt im jeweiligen Inhalt).
 
 **Tab-Sperre während Test:** sobald ein Test in einem der drei
 Sub-Tabs läuft, sperrt `updateTabLockState` (tabs-eq.js) alle

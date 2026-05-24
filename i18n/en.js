@@ -148,6 +148,7 @@ Object.assign(L.en, {
     toneHint: "Different tone types may lead to different results. A good result is recognizable objectively by a low residual in the measurement, and subjectively by the sound experience in the player. The resulting curve may differ between tone types. Start with the tone type that feels most reliable for your comparison. Tone type can be changed at the top right. To compare, save several measurement runs under different names.",
     thWgt: "Weight",
     thStR: "Status",
+    thRefEl: "Ref. el.",
     thSc: "Score",
     thComp: "Comp.",
     resExplain: "",

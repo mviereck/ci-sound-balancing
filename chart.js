@@ -15,6 +15,15 @@ function drawDisabledBar(ctx, x, yTop, yBot, bW) {
   ctx.stroke();
 }
 
+function _drawRefElLabel(ctx, x, y, size) {
+  ctx.save();
+  ctx.fillStyle = "#000";
+  ctx.font = "bold " + (size || 11) + "px Segoe UI,sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("Ref.-El.", x, y);
+  ctx.restore();
+}
+
 // ============================================================
 // CHART
 // ============================================================
@@ -87,6 +96,12 @@ function drawChart(cv, vals, res, isOff, elColor) {
     red: "#dc2626",
     grey: "#9ca3af",
   };
+  if (typeof refEl !== "undefined" && refEl !== null) {
+    const jRef = allE.indexOf(refEl);
+    if (jRef >= 0) {
+      _drawRefElLabel(ctx, tX(jRef), pad.top - 4);
+    }
+  }
   for (let j = 0; j < allE.length; j++) {
     const i = allE[j],
       v = vals[i] || 0,

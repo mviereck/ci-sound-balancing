@@ -147,6 +147,7 @@ Object.assign(L.fr, {
     toneHint: "Différents types de sons peuvent conduire à des résultats différents. Un bon résultat se reconnaît objectivement à un faible résidu dans la mesure, et subjectivement à l'écoute dans le lecteur. La courbe obtenue peut varier selon le type de son. Commencez par le type de son avec lequel la comparaison vous semble la plus sûre. Le type de son peut être modifié en haut à droite. Pour comparer, enregistrez plusieurs séries de mesures sous des noms différents.",
     thWgt: "Poids",
     thStR: "Statut",
+    thRefEl: "Réf. él.",
     thSc: "Score",
     thComp: "Comp.",
     resExplain: "",
