@@ -24,6 +24,7 @@ let pCtx = null,
   pMaplawSollC = 1000,
   pMaplawNode = null,
   pPlaying = false,
+  pSeeking = false,
   pOff = 0,
   pT0 = 0;
 
@@ -627,7 +628,7 @@ function pUpdTL() {
   const c = pPlaying ? pCtx.currentTime - pT0 : pOff,
     cl = Math.min(c, pBuf.duration);
   document.getElementById("plCur").textContent = pFmt(cl);
-  document.getElementById("plTL").value = (cl / pBuf.duration) * 1000;
+  if (!pSeeking) document.getElementById("plTL").value = (cl / pBuf.duration) * 1000;
 }
 
 function pUpdBtn() {
@@ -694,12 +695,17 @@ function plCheck() {
 
 document.getElementById("plPlay").addEventListener("click", pToggle);
 document.getElementById("plStop").addEventListener("click", pStopReset);
+document.getElementById("plTL").addEventListener("pointerdown", () => { pSeeking = true; });
+document.getElementById("plTL").addEventListener("pointerup",   () => { pSeeking = false; });
+document.getElementById("plTL").addEventListener("pointercancel", () => { pSeeking = false; });
 document.getElementById("plTL").addEventListener("input", function () {
   if (!pBuf) return;
   pOff = (this.value / 1000) * pBuf.duration;
   document.getElementById("plCur").textContent = pFmt(pOff);
   if (pPlaying) {
+    const seekTo = pOff;
     pPause();
+    pOff = seekTo;
     pPlay();
   }
 });
