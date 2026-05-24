@@ -1,0 +1,48 @@
+# Leitlinien für Bauanleitungen an Sonnet
+
+Diese Datei nur lesen, wenn eine Sonnet-Bauanleitung verfaßt
+werden soll. Sie ist aus CLAUDE.md ausgelagert, damit CLAUDE.md
+bei jedem Chat-Start nicht 40 Zeilen mitschleppt, die nur in
+einem schmalen Teil der Arbeit gebraucht werden.
+
+BAUANLEITUNGEN FÜR SONNET
+-------------------------
+
+Wenn der User eine Bauanleitung für Sonnet bestellt, gilt
+Anleitungs-Modus, nicht Spezifikations-Modus:
+- Aus Ausführungssicht schreiben. Jeder Schritt so konkret, daß
+  Sonnet nicht raten muß.
+- Konkrete before/after-Snippets statt nur Schemata.
+- Skeleton-Code für neue Module mitliefern, nicht nur das Schema.
+- Anforderungen pro Feature an EINEM Ort bündeln (Verhalten,
+  Persistenz, Akzeptanz zusammen), nicht über das Dokument verteilen.
+- Direkte Sprache: "in datei.js Z. X dieses durch jenes ersetzen"
+  statt "vorhandene Mechanik anpassen".
+- Explizite Sync-Patterns für globale Variablen vorgeben (zentraler
+  Setter + Listener-Pattern), nicht nur "bidirektional gebunden" sagen.
+
+Volumen sparen, Sorgfalt erhöhen durch Aufteilung:
+- Lieber mehrere kleine Anleitungsdateien (durchnummeriert,
+  z.B. BAUANLEITUNG_01_<thema>.md, BAUANLEITUNG_02_<thema>.md)
+  als ein großes Dokument.
+- Eine Datei = ein Sonnet-Chat = ein begrenztes Thema. Sonnet
+  arbeitet sorgfältiger bei kleinem Kontext; und es spart Tokens,
+  wenn nicht jeder Sonnet-Chat das gesamte Vorhaben mitschleppt.
+- Reihenfolge der Dateien festlegen, am Ende jeder Anleitung eine
+  knappe Zwischenprüfung formulieren ("Nach Abschluß manuell
+  prüfen: X funktioniert, Y unverändert.").
+- Vor dem Schreiben überlegen, ob die Anleitung tatsächlich klein
+  genug ist — wenn nicht, von vornherein aufteilen.
+
+Pflichtbestandteile jeder Bauanleitung:
+- **Akzeptanztest-Checkliste am Ende**: Klick-für-Klick-Schritte, die
+  der Nutzer ohne Code-Kenntnisse durchgehen kann, mit erwartetem
+  Verhalten pro Schritt. Beispiel: "Tab Messungen → Sub-Tab
+  Stereo-Balance → ‚Test starten' klicken → erwartet: roter Stop-
+  Button aktiv, Voreinstellungen ausgegraut, Test-Block sichtbar."
+- **Selbstprüfungs-Auftrag an Sonnet**: am Ende jedes Builds soll
+  Sonnet **vor der Fertig-Meldung** jede Akzeptanz-Kriterie einzeln
+  durchgehen und für jede melden: erfüllt / nicht erfüllt / unklar,
+  mit Datei- und Zeilenangabe der relevanten Stelle. Wenn Sonnet
+  selbst etwas als unklar markiert, ist das Signal zur Rückfrage,
+  nicht zur stillen Annahme.

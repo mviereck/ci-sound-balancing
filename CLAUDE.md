@@ -11,25 +11,25 @@ eine Korrekturkurve zu erstellen.
 REFERENZDATEIEN
 ---------------
 
-- **CODESTRUKTUR.md** — Modulübersicht, Ladereihenfolge,
+- **docs/CODESTRUKTUR.md** — Modulübersicht, Ladereihenfolge,
   Querverweise, Edit-Szenarien. Vor jedem nicht-trivialen Edit lesen.
-- **SPEC.md + spec/** — Funktionsspezifikation. SPEC.md ist
+- **docs/SPEC.md + docs/spec/** — Funktionsspezifikation. docs/SPEC.md ist
   ein schlanker Index mit Eckdaten, Anzeige-Konvention und
-  Verweisen auf neun Kapitel unter `spec/` (Tabs, Messungen,
+  Verweisen auf neun Kapitel unter `docs/spec/` (Tabs, Messungen,
   Implantat, Schieber, Kurven, Player, Laden/Speichern, Drucken,
   Warteliste). **Bei Arbeiten an einem konkreten Bereich nur
-  das passende Kapitel aus spec/ lesen, nicht die ganze Spec.**
+  das passende Kapitel aus docs/spec/ lesen, nicht die ganze Spec.**
 - **DEBUG.md** — Browser-Konsole, Network-Tab, Bug-Report-Template,
   Konsolen-Befehle für den Nutzer. Wenn der Nutzer einen Fehler
   meldet oder Diagnose-Hilfe braucht: dorthin verweisen oder
   passende Schritte daraus zitieren.
-- **IDEEN.md** — Konzept-Skizzen und Erweiterungs-Ideen, die noch
-  nicht abgesegnet oder noch nicht reif sind. Abgrenzung zu SPEC.md:
-  SPEC.md beschreibt das, was gebaut wird oder fest zur Umsetzung
-  ansteht; IDEEN.md sammelt das, was diskutiert wird oder
+- **docs/IDEEN.md** — Konzept-Skizzen und Erweiterungs-Ideen, die noch
+  nicht abgesegnet oder noch nicht reif sind. Abgrenzung zu docs/SPEC.md:
+  docs/SPEC.md beschreibt das, was gebaut wird oder fest zur Umsetzung
+  ansteht; docs/IDEEN.md sammelt das, was diskutiert wird oder
   langfristig denkbar ist. Bei neuen Ideen, die nicht sofort gebaut
   werden, dort einen Eintrag anlegen. Beim Übergang in die
-  Umsetzung: Eintrag aus IDEEN.md entfernen und in SPEC.md
+  Umsetzung: Eintrag aus docs/IDEEN.md entfernen und in docs/SPEC.md
   übernehmen.
 - **Berechnungsgrundlagen dB zu CI.md** — Mathematische Grundlagen
   und Formeln für die Umrechnung von dB-Korrekturen in
@@ -39,7 +39,7 @@ REFERENZDATEIEN
   am Levels-Tab im Absolutmodus oder an der MAPLAW-Simulation
   benötigt. Implementierung der Formeln liegt in `core.js`
   (`calcMedel`, `calcCochlear`, `calcAB`).
-- **BAUANLEITUNGEN_LEITLINIEN.md** — Format-Vorgaben für
+- **docs/BAUANLEITUNGEN_LEITLINIEN.md** — Format-Vorgaben für
   Sonnet-Bauanleitungen (Snippets, Skeleton, Akzeptanztest,
   Selbstprüfung, Aufteilung in kleine Dateien). Nur lesen,
   wenn tatsächlich eine Bauanleitung verfaßt wird, nicht
@@ -59,13 +59,13 @@ ARBEITSWEISE
 ------------
 
 Bauen NUR auf explizite Aufforderung "bauen". Sonst besprechen.
-Vor Bauarbeiten zuerst CODESTRUKTUR.md lesen.
+Vor Bauarbeiten zuerst docs/CODESTRUKTUR.md lesen.
 
 Bei strukturellen Änderungen (neue/entfernte JS-Datei, neue zentrale
 Funktion, neue globale Variable, neuer Tab oder Sub-Tab, verschobener
-DOMContentLoaded-Handler) **CODESTRUKTUR.md im selben Arbeitsschritt
+DOMContentLoaded-Handler) **docs/CODESTRUKTUR.md im selben Arbeitsschritt
 mit aktualisieren**, nicht nachträglich. Bei Funktionsänderungen
-**SPEC.md im selben Arbeitsschritt mit aktualisieren**.
+**docs/SPEC.md im selben Arbeitsschritt mit aktualisieren**.
 
 Ein PostToolUse-Hook (`.claude/hooks/post-edit-reminder.sh`) feuert
 nach jedem Edit/Write auf `.js`/`.html`/`.css` und blendet einen
@@ -111,7 +111,7 @@ BAUANLEITUNGEN FÜR SONNET
 -------------------------
 
 Vor dem Verfassen einer Sonnet-Bauanleitung
-`BAUANLEITUNGEN_LEITLINIEN.md` lesen. Dort stehen Format-
+`docs/BAUANLEITUNGEN_LEITLINIEN.md` lesen. Dort stehen Format-
 Vorgaben, Pflichtbestandteile (Akzeptanztest, Selbstprüfungs-
 Auftrag), Aufteilungs-Regeln und die Anweisung zum Volumen-
 Sparen durch kleine, nummerierte Anleitungs-Dateien.
@@ -126,8 +126,8 @@ es nicht unnötig zu verbrauchen:
   Such- oder Tool-Schritten kein klarer Hinweis gefunden ist:
   anhalten, bisherigen Stand kurz zusammenfassen, den Nutzer um
   Eingrenzung bitten. Nicht blind weitergraben.
-- **Referenz-Dateien nur lesen, wenn nötig.** CODESTRUKTUR.md,
-  SPEC.md, DEBUG.md etc. nicht vorsorglich öffnen. Bei trivialen
+- **Referenz-Dateien nur lesen, wenn nötig.** docs/CODESTRUKTUR.md,
+  docs/SPEC.md, DEBUG.md etc. nicht vorsorglich öffnen. Bei trivialen
   Edits (String ersetzen, Tippfehler, eine bekannte Funktion ändern)
   reicht der Direkt-Edit. Die "vor jedem nicht-trivialen Edit lesen"-
   Regel aus REFERENZDATEIEN gilt streng — bei trivialen Edits eben
