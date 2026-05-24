@@ -34,6 +34,10 @@ let latIntervalMs = 1000;
 
 let latTestSource = null;      // BufferSource für Test-Klicks
 let latTestBuf = null;         // aktuell verwendeter Loop-Buffer
+let latBalSplitter = null;
+let latBalGainL    = null;
+let latBalGainR    = null;
+let latBalMerger   = null;
 
 let pLatSplitter = null;
 let pLatDelayL = null;
@@ -146,15 +150,29 @@ function latStartTest() {
   latTestSource = ctx.createBufferSource();
   latTestSource.buffer = latTestBuf;
   latTestSource.loop = true;
-  // Direkt an pGain — geht durch Lautstärke-Regler und durch die
-  // Latenz-Delays. Falls pGain noch nicht existiert, an die
-  // Latenz-Kette direkt anschließen (Fallback).
+
+  // Stereo-Balance-Gains (vor pGain). Splitter + L/R-Gains + Merger
+  // entstehen pro Test und werden beim Stop wieder verworfen.
+  const balG = (typeof getRawBalanceGains === "function")
+    ? getRawBalanceGains() : { left: 0, right: 0 };
+  latBalSplitter = ctx.createChannelSplitter(2);
+  latBalMerger   = ctx.createChannelMerger(2);
+  latBalGainL    = ctx.createGain();
+  latBalGainR    = ctx.createGain();
+  latBalGainL.gain.value = dB2G(balG.left);
+  latBalGainR.gain.value = dB2G(balG.right);
+  latTestSource.connect(latBalSplitter);
+  latBalSplitter.connect(latBalGainL, 0);
+  latBalSplitter.connect(latBalGainR, 1);
+  latBalGainL.connect(latBalMerger, 0, 0);
+  latBalGainR.connect(latBalMerger, 0, 1);
+
   if (typeof pGain !== "undefined" && pGain) {
-    latTestSource.connect(pGain);
+    latBalMerger.connect(pGain);
   } else if (pLatSplitter) {
-    latTestSource.connect(pLatSplitter);
+    latBalMerger.connect(pLatSplitter);
   } else {
-    latTestSource.connect(ctx.destination);
+    latBalMerger.connect(ctx.destination);
   }
   latTestSource.start();
   latActive = true;
@@ -166,6 +184,10 @@ function latStopTest() {
     try { latTestSource.disconnect(); } catch (e) {}
     latTestSource = null;
   }
+  if (latBalSplitter) { try { latBalSplitter.disconnect(); } catch (e) {} latBalSplitter = null; }
+  if (latBalGainL)    { try { latBalGainL.disconnect();    } catch (e) {} latBalGainL = null; }
+  if (latBalGainR)    { try { latBalGainR.disconnect();    } catch (e) {} latBalGainR = null; }
+  if (latBalMerger)   { try { latBalMerger.disconnect();   } catch (e) {} latBalMerger = null; }
   latTestBuf = null;
   latActive = false;
 }

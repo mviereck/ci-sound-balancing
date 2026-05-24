@@ -257,6 +257,24 @@ function getPlayerBalanceGains() {
   }
   return { left: b, right: -b };
 }
+function getRawBalanceGains() {
+  // Wie getPlayerBalanceGains(), aber ignoriert plApplyBalance.
+  // Für Meßtests (Frequenzabgleich, Latenz): Balance immer anwenden.
+  if (typeof lrResults === "undefined") return { left: 0, right: 0 };
+  const vals = Object.values(lrResults).filter((v) => isFinite(v));
+  if (!vals.length) return { left: 0, right: 0 };
+  const mean = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const b = Math.max(-60, Math.min(60, parseFloat((-mean).toFixed(1))));
+  const mode = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  const clamp = (v) => Math.max(-60, Math.min(60, v));
+  if (mode === "left") {
+    return { left: clamp(2 * b), right: 0 };
+  }
+  if (mode === "right") {
+    return { left: 0, right: clamp(-2 * b) };
+  }
+  return { left: b, right: -b };
+}
 function withSide(side, fn) {
   const prevSide = activeSide;
   const prev = {

@@ -108,6 +108,20 @@ Slider-Wert wird invertiert.
 - Ergebnis-Diagramm: X-Achse log-Hz (CI-Frequenz `varFreq`), Y-Achse
   lineare Cent-Abweichung (positiv = subjektiv höher als CI-Frequenz,
   negativ = tiefer). Null-Linie = perfekter Match.
+- **Audio-Pfad:** jeder Ton wird vor `playToneTyped` mit der Korrektur-
+  Lautstärke der Seite und der Stereo-Balance-Korrektur
+  (`getRawBalanceGains`) multipliziert. Die Korrektur-Lautstärke
+  kommt aus `compWLS` der jeweiligen Seite: bei der variablen Seite
+  für die explizit gewählte Elektrode, bei der Referenzseite anteilig
+  zwischen den beiden umgebenden Elektroden interpoliert (dB linear
+  auf log-Hz-Achse). Beide Korrekturen werden nur angewendet, wenn die
+  jeweilige Quelle Daten hat (Elektrodenlautstärke nur, wenn `bRes`
+  der Seite gefüllt ist; Balance nur, wenn `plApplyBalance` an und
+  `lrResults` gefüllt ist). Kurven und Schieber bleiben
+  unberücksichtigt — bewußt, weil die Messung nur die Roh-Korrektur
+  abbilden soll. Bei akustischen Seiten wirkt die Korrektur genauso
+  wie bei CI-Seiten, weil die Messung dort Pseudo-Elektroden
+  verwendet.
 
 ### Sub-Tab 4 — Latenz (latency.js)
 
@@ -119,6 +133,13 @@ Slider-Wert wird invertiert.
   (Hinweis-Box im Messpanel, nach der Überschrift)
 - Mess-Panel: Überschrift → kurze Beschreibung → Wichtig-Hinweis (BT) →
   Schieber-Anleitung → Hinweis auf Ortungswahrnehmung als Anhaltspunkt
+- **Audio-Pfad:** Klick-Buffer → ChannelSplitter → L/R-Gain (aus
+  `getRawBalanceGains`, ignoriert `plApplyBalance`) → ChannelMerger → `pGain` →
+  `pLatSplitter` → `pLatDelayL`/`pLatDelayR` → `pLatMerger` →
+  `destination`. Die Stereo-Balance-Gains werden beim Test-Start
+  aus dem aktuellen Stand übernommen und beim Test-Ende wieder
+  verworfen. Elektrodenlautstärke wird nicht angewendet, weil die
+  Klicks breitband sind und keiner Elektrode zugeordnet werden.
 - Beim **Stop** wird der aktuelle Schieberwert automatisch als `latencyResult`
   übernommen (kein separater „Übernehmen"-Button)
 - Während des Tests: alle anderen Tabs und Sub-Tabs gesperrt (wie bei allen

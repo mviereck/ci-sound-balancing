@@ -38,6 +38,62 @@ function fmGAba() {
   return (typeof globalSequence !== 'undefined') ? globalSequence === "aba" : true;
 }
 
+function fmCorrGain(side, hz) {
+  return withSide(side, () => {
+    if (typeof bRes === "undefined" || !bRes || bRes.length === 0) return 1;
+    if (typeof compWLS !== "function") return 1;
+    const f = (typeof freqs !== "undefined" && freqs) ? freqs : null;
+    if (!f || f.length === 0) return 1;
+    const { levels } = compWLS();
+    if (!levels || !levels.length) return 1;
+
+    const n = f.length;
+    const lg = Math.log(hz);
+
+    if (n === 1) {
+      return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+    }
+    const lgFirst = Math.log(f[0]);
+    const lgLast  = Math.log(f[n - 1]);
+    const ascending = lgLast > lgFirst;
+    if (ascending) {
+      if (lg <= lgFirst) {
+        return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+      }
+      if (lg >= lgLast) {
+        return isFinite(levels[n - 1]) ? dB2G(-levels[n - 1]) : 1;
+      }
+    } else {
+      if (lg >= lgFirst) {
+        return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+      }
+      if (lg <= lgLast) {
+        return isFinite(levels[n - 1]) ? dB2G(-levels[n - 1]) : 1;
+      }
+    }
+
+    for (let i = 0; i < n - 1; i++) {
+      const lgA = Math.log(f[i]);
+      const lgB = Math.log(f[i + 1]);
+      const lo = Math.min(lgA, lgB);
+      const hi = Math.max(lgA, lgB);
+      if (lg >= lo && lg <= hi) {
+        const lvA = levels[i];
+        const lvB = levels[i + 1];
+        if (!isFinite(lvA) && !isFinite(lvB)) return 1;
+        if (!isFinite(lvA)) return dB2G(-lvB);
+        if (!isFinite(lvB)) return dB2G(-lvA);
+        const tNum = lg - lgA;
+        const tDen = lgB - lgA;
+        const tt = (tDen === 0) ? 0 : (tNum / tDen);
+        const lv = lvA + (lvB - lvA) * tt;
+        return dB2G(-lv);
+      }
+    }
+    return 1;
+  });
+}
+
 // Frequenz der variablen Seite (CI) für Elektrode elIdx
 function fmVarHz(elIdx) {
   return withSide(fmVarSide, () => effFreq(elIdx));
@@ -139,10 +195,15 @@ async function fmPlayCurrent() {
   const pau = fmGPau();
   const aba = fmGAba();
 
+  const balG = (typeof getRawBalanceGains === "function")
+    ? getRawBalanceGains() : { left: 0, right: 0 };
+
   const c = gAC();
   function playOne(side, hz) {
     const pan = side === "left" ? -1 : 1;
-    const effectiveVol = isDeaf(side) ? 0 : vol;
+    const corr = fmCorrGain(side, hz);
+    const balDb = side === "left" ? balG.left : balG.right;
+    const effectiveVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
     return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType);
   }
   function indRef() {
@@ -214,12 +275,22 @@ async function fmPlaySimul() {
   const ms = fmGDur();
   const refPan = fmRefSide === "left" ? -1 : 1;
   const varPan = fmVarSide === "left" ? -1 : 1;
+
+  const balG = (typeof getRawBalanceGains === "function")
+    ? getRawBalanceGains() : { left: 0, right: 0 };
+  const refCorr = fmCorrGain(fmRefSide, refHz);
+  const varCorr = fmCorrGain(fmVarSide, varHz);
+  const refBalDb = fmRefSide === "left" ? balG.left : balG.right;
+  const varBalDb = fmVarSide === "left" ? balG.left : balG.right;
+  const refVol = isDeaf(fmRefSide) ? 0 : vol * refCorr * dB2G(refBalDb);
+  const varVol = isDeaf(fmVarSide) ? 0 : vol * varCorr * dB2G(varBalDb);
+
   isPlay = true;
   if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.add('playing');
   if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.add('playing');
   await Promise.all([
-    playToneTyped(c, refHz, isDeaf(fmRefSide) ? 0 : vol, ms, refPan, globalToneType),
-    playToneTyped(c, varHz, isDeaf(fmVarSide) ? 0 : vol, ms, varPan, globalToneType)
+    playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
+    playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
   ]);
   if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.remove('playing');
   if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
