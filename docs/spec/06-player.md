@@ -120,6 +120,7 @@
     er wird bei Bedarf neu berechnet. Beim JSON-Load gibt es kein Force-Off
     mehr — der Warp-Zustand erscheint nach Reload und JSON-Load genauso wie
     beim Speichern. UI-Sync erfolgt über `pWarpUpdUI()` nach dem Setzen der Werte.
+  - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des EQ-Graphen und die im Audio-Pfad eingehängten Biquad-Filter den gewarpten Wahrnehmungs-Frequenzen der Elektroden. Die Filter im Stereo-Modus werden pro Channel mit der jeweiligen Seiten-Warp-Verschiebung gesetzt (`effFreqDisplay(i, "left"/"right")`); im Mono-Modus bindet `effFreqDisplay(i)` an `activeSide`.
   - Druck-Export enthält aktives Verfahren wenn Warp aktiv
   - Offline-Verfahren beachtet die gewählte Player-Seite: bei LINKS/RECHTS
     ist nur diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist

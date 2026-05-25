@@ -422,6 +422,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pWarpOn && method === "offline") {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof pDrawEQ === "function") pDrawEQ();
       return;
     }
     // Sonst (Vocoder/Bandshift ein oder beliebig aus): Pfadwechsel an aktueller
@@ -433,7 +434,9 @@ document.addEventListener("DOMContentLoaded", () => {
     pBuf = getPlaybackBuffer();
     pWarpUpdUI();
     if (wasPlaying) pPlay();
+    else if (typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
+    if (typeof pDrawEQ === "function") pDrawEQ();
   });
   // Verfahren-Dropdown
   document.getElementById("plWarpMethod").addEventListener("change", function () {
@@ -484,7 +487,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plWarpModeSelect").addEventListener("change", function () {
     pWarpMode = this.value;
     _pWarpParamsChanged();
+    if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
+    if (typeof pDrawEQ === "function") pDrawEQ();
   });
   // Stärke-Eingabe
   document.getElementById("plWarpStr").addEventListener("change", function () {
@@ -492,7 +497,9 @@ document.addEventListener("DOMContentLoaded", () => {
     this.value = v;
     pWarpStrength = v;
     _pWarpParamsChanged();
+    if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
+    if (typeof pDrawEQ === "function") pDrawEQ();
   });
   // Stärke-Buttons
   document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
@@ -501,7 +508,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("plWarpStr").value = v;
       pWarpStrength = v;
       _pWarpParamsChanged();
+      if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
       if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof pDrawEQ === "function") pDrawEQ();
     })
   );
   // Neu-berechnen-Button
@@ -706,6 +715,8 @@ document.addEventListener("DOMContentLoaded", () => {
       buildImplantCard();
       updSideButtons();
       if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof pBuildEQ === "function") pBuildEQ();
+      if (typeof pDrawEQ === "function") pDrawEQ();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter

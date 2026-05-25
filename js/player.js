@@ -282,11 +282,11 @@ function updatePlayerForSideChange() {
 }
 
 function pCompQ(i) {
-  const ef = effFreq(i),
-    ef0 = effFreq(0),
-    ef1 = effFreq(Math.min(1, nEl - 1)),
-    efN = effFreq(nEl - 1),
-    efNm1 = effFreq(Math.max(0, nEl - 2));
+  const ef = effFreqDisplay(i),
+    ef0 = effFreqDisplay(0),
+    ef1 = effFreqDisplay(Math.min(1, nEl - 1)),
+    efN = effFreqDisplay(nEl - 1),
+    efNm1 = effFreqDisplay(Math.max(0, nEl - 2));
   let fL, fH;
   if (i === 0) {
     fL = (ef0 * ef0) / (ef1 || ef0);
@@ -295,8 +295,8 @@ function pCompQ(i) {
     fL = efNm1;
     fH = (ef * ef) / efNm1;
   } else {
-    fL = effFreq(i - 1);
-    fH = effFreq(i + 1);
+    fL = effFreqDisplay(i - 1);
+    fH = effFreqDisplay(i + 1);
   }
   const bw = Math.log2(Math.sqrt(ef * fH)) - Math.log2(Math.sqrt(fL * ef));
   return ef / (ef * (Math.pow(2, bw / 2) - Math.pow(2, -bw / 2)));
@@ -340,7 +340,7 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const lf = c.createBiquadFilter();
       lf.type = "peaking";
-      lf.frequency.value = effFreq(i);
+      lf.frequency.value = effFreqDisplay(i, "left");
       lf.Q.value = pCompQ(i);
       lf.gain.value = 0;
       if (plEqOn) {
@@ -349,7 +349,7 @@ function pBuildEQ() {
       pEqFLeft.push(lf);
       const rf = c.createBiquadFilter();
       rf.type = "peaking";
-      rf.frequency.value = effFreq(i);
+      rf.frequency.value = effFreqDisplay(i, "right");
       rf.Q.value = pCompQ(i);
       rf.gain.value = 0;
       if (plEqOn) {
@@ -383,7 +383,7 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const f = c.createBiquadFilter();
       f.type = "peaking";
-      f.frequency.value = effFreq(i);
+      f.frequency.value = effFreqDisplay(i);
       f.Q.value = pCompQ(i);
       f.gain.value = 0;
       if (plEqOn) {
@@ -741,7 +741,9 @@ function pDrawEQ() {
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom,
     zY = pad.top + pH / 2;
-  const axis = buildCentAxis(allE, pad.left, pW);
+  const axis = buildCentAxis(allE, pad.left, pW, function (i) {
+    return effFreqDisplay(i);
+  });
   const tX = axis.tX;
   const bW = Math.max(5, Math.min((axis.minDx || 12) * 0.6, 22));
   ctx.strokeStyle = "#ddd";
