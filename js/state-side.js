@@ -21,6 +21,32 @@ let mfr,
 function effFreq(i) {
   return elFreqOwn && elFreqOwn[i] != null ? elFreqOwn[i] : freqs[i];
 }
+// Effektive Anzeige-/Berechnungs-Frequenz unter Berücksichtigung des
+// aktuellen Frequenz-Warping-Zustands. Verwendet von Kurven-Tab
+// (drawLvChart, calcPresetCurve) und Player (pDrawEQ, pBuildEQ) für
+// die Cent-basierte x-Achse und die Frequenz-Interpolation.
+//
+// Andere Module (Tests, Audio-Pfad, Schieber-Tab, Meßergebnisse,
+// Implantat-Tabelle, MAPLAW) verwenden weiterhin effFreq() — die
+// Elektroden bewegen sich physisch nicht, Warp ist eine
+// Anzeige-/Berechnungs-Schicht für die wahrgenommene Frequenz.
+//
+// Parameter side optional: wenn gesetzt, wird temporär die andere
+// Seite gebunden (für seitenspezifische Aufrufe wie im Druck).
+function effFreqDisplay(i, side) {
+  const baseHz = (side != null && typeof withSide === "function")
+    ? withSide(side, function () { return effFreq(i); })
+    : effFreq(i);
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return baseHz;
+  if (typeof fRes === "undefined" || !fRes || !fRes.length) return baseHz;
+  if (typeof buildWarpPoints !== "function" ||
+      typeof centShift !== "function") return baseHz;
+  const points = buildWarpPoints(fRes, pWarpMode);
+  const sideKey = side || activeSide;
+  const str = (typeof pWarpStrength === "number" ? pWarpStrength : 100) / 100;
+  const cs = centShift(baseHz, sideKey, points) * str;
+  return baseHz * Math.pow(2, cs / 1200);
+}
 let lvFocus = 0;
 let defaultMfr = "medel"; // Frequenzraster-Default wenn keine Seite CI ist
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
@@ -186,7 +212,15 @@ function loadSideData(side, d) {
   s.jRes = d.judgmentResults || [];
   s.bRes = d.balanceResults || [];
   s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
-  s.presets = d.presets || s.presets;
+  if (d.presets && Array.isArray(d.presets)) {
+    s.presets = PR_TYPES.map((tp) => {
+      const found = d.presets.find((p) => p.type === tp);
+      return found || {
+        type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
+        cutoff: tp === "bassboost" ? Math.floor(s.nEl / 3) : Math.floor((s.nEl * 2) / 3),
+      };
+    });
+  }
   s.fullSweepRound = d.fullSweepRound !== undefined ? d.fullSweepRound : null;
   s.fullSweepDonePairs =
     d.fullSweepDonePairs !== undefined ? d.fullSweepDonePairs : [];

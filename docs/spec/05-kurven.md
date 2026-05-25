@@ -52,6 +52,15 @@ Drei Cards untereinander:
   addiert.
 - SII-Gewichte per log-linearer Interpolation des ANSI S3.5 auf
   Herstellerfrequenzen.
+- **Frequenz-Warping:** Bei aktivem Frequenz-Warping (Player-Toggle)
+  folgen die geometrischen Kurven (tilt, scurve, pivot, gauss) und die
+  SII-Sprachgewichtung den **gewarpten Wahrnehmungs-Frequenzen** der
+  Elektroden. Die x-Achse des Charts verschiebt sich entsprechend.
+  Bass-/High-Boost und Volume sind elektrodennummern-basiert und ändern
+  sich durch Warping nicht. Unter dem Chart stehen zwei permanente
+  Hinweiszeilen: „Die Frequenzabstände der Elektroden werden in diesem
+  Graphen berücksichtigt." und „Bei aktiviertem Frequenz-Warping
+  verschiebt sich die Auswirkung der Kurven pro Elektrode etwas."
 - **JSON-Format**: `presetFormat: "freq-v3"` kennzeichnet Hz/Cent-Werte.
   Beim Laden alter Dateien (ohne dieses Feld) werden `center`
   (Elektroden-Index → Hz per log-Interpolation) und `width`

@@ -7,19 +7,20 @@ function calcPresetCurve(pr) {
     n = nEl,
     c = new Array(n).fill(0);
   if (act.length < 2) return c;
+  const mn = act[0], mx = act[act.length - 1];
   // Mittelpunkt in Hz (Default 1000 Hz)
   const ctrHz = pr.center != null ? pr.center : CENT_REF_HZ;
   const ctrC = hzToCent(ctrHz);
   // Span in Cent über die aktiven Elektroden
-  const fMin = effFreq(act[0]);
-  const fMax = effFreq(act[act.length - 1]);
+  const fMin = effFreqDisplay(act[0]);
+  const fMax = effFreqDisplay(act[act.length - 1]);
   const cMin = hzToCent(fMin);
   const cMax = hzToCent(fMax);
   const halfSpanC = Math.max(1, (cMax - cMin) / 2);
 
   if (pr.type === "tilt") {
     for (const i of act) {
-      const xC = hzToCent(effFreq(i)) - ctrC;
+      const xC = hzToCent(effFreqDisplay(i)) - ctrC;
       c[i] = xC / halfSpanC;
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -28,7 +29,7 @@ function calcPresetCurve(pr) {
   }
   if (pr.type === "scurve") {
     for (const i of act) {
-      const x = (hzToCent(effFreq(i)) - ctrC) / halfSpanC;
+      const x = (hzToCent(effFreqDisplay(i)) - ctrC) / halfSpanC;
       c[i] = Math.sign(x) * Math.pow(Math.abs(x), 0.6);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -37,7 +38,7 @@ function calcPresetCurve(pr) {
   }
   if (pr.type === "pivot") {
     for (const i of act) {
-      const d = Math.abs(hzToCent(effFreq(i)) - ctrC) / halfSpanC;
+      const d = Math.abs(hzToCent(effFreqDisplay(i)) - ctrC) / halfSpanC;
       c[i] = -(d * d * 2 - 1);
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -48,7 +49,7 @@ function calcPresetCurve(pr) {
     // Breite in Cent (Default 1200 ¢ = 1 Oktave)
     const sigC = Math.max(50, pr.width || 1200);
     for (const i of act) {
-      const dC = hzToCent(effFreq(i)) - ctrC;
+      const dC = hzToCent(effFreqDisplay(i)) - ctrC;
       c[i] = Math.exp(-0.5 * Math.pow(dC / sigC, 2));
     }
     const mx2 = Math.max(...c.map(Math.abs)) || 1;
@@ -78,7 +79,7 @@ function calcPresetCurve(pr) {
     return c;
   }
   if (pr.type === "speech") {
-    const effF = Array.from({ length: n }, (_, i) => effFreq(i));
+    const effF = Array.from({ length: n }, (_, i) => effFreqDisplay(i));
     const w = siiWeightsForFreqs(effF);
     const mean = w.reduce((a, b) => a + b, 0) / n;
     for (let i = 0; i < n; i++) c[i] = w[i] - mean;
@@ -355,7 +356,9 @@ function drawLvChart() {
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom;
   const zY = pad.top + pH / 2;
-  const axis = buildCentAxis(act, pad.left, pW);
+  const axis = buildCentAxis(act, pad.left, pW, function (i) {
+    return effFreqDisplay(i);
+  });
   const tX = axis.tX;
   const tY = (v) => pad.top + (yMx - v) * (pH / (2 * yMx));
   ctx.strokeStyle = "#e5e5e5";

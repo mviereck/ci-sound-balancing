@@ -421,6 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Offline-Einschalten: pWarpTrigger regelt Vorberechnung + pause/resume selbst
     if (pWarpOn && method === "offline") {
       pWarpTrigger();
+      if (typeof drawLvChart === "function") drawLvChart();
       return;
     }
     // Sonst (Vocoder/Bandshift ein oder beliebig aus): Pfadwechsel an aktueller
@@ -432,6 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pBuf = getPlaybackBuffer();
     pWarpUpdUI();
     if (wasPlaying) pPlay();
+    if (typeof drawLvChart === "function") drawLvChart();
   });
   // Verfahren-Dropdown
   document.getElementById("plWarpMethod").addEventListener("change", function () {
@@ -482,6 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plWarpModeSelect").addEventListener("change", function () {
     pWarpMode = this.value;
     _pWarpParamsChanged();
+    if (typeof drawLvChart === "function") drawLvChart();
   });
   // Stärke-Eingabe
   document.getElementById("plWarpStr").addEventListener("change", function () {
@@ -489,6 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
     this.value = v;
     pWarpStrength = v;
     _pWarpParamsChanged();
+    if (typeof drawLvChart === "function") drawLvChart();
   });
   // Stärke-Buttons
   document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
@@ -497,6 +501,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("plWarpStr").value = v;
       pWarpStrength = v;
       _pWarpParamsChanged();
+      if (typeof drawLvChart === "function") drawLvChart();
     })
   );
   // Neu-berechnen-Button
@@ -700,6 +705,7 @@ document.addEventListener("DOMContentLoaded", () => {
       buildFreqTable();
       buildImplantCard();
       updSideButtons();
+      if (typeof drawLvChart === "function") drawLvChart();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter

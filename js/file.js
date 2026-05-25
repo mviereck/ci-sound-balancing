@@ -267,7 +267,13 @@ function loadOldFormat(d, targetSide) {
 
   // Presets
   if (d.presets && Array.isArray(d.presets)) {
-    s.presets = d.presets;
+    s.presets = PR_TYPES.map((tp) => {
+      const found = d.presets.find((p) => p.type === tp);
+      return found || {
+        type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
+        cutoff: tp === "bassboost" ? Math.floor(s.nEl / 3) : Math.floor((s.nEl * 2) / 3),
+      };
+    });
   } else {
     s.presets = PR_TYPES.map((tp) => ({
       type: tp,
@@ -349,21 +355,26 @@ function _migratePresetsFromIndexToFreq(rawPresets, fileFreqs, fileElFreqOwn) {
   const meanStep = meanCentStepOfFreqs(fileFreqs.map((_, i) => effF(i)));
   return rawPresets.map((pr) => {
     const np = { ...pr };
-    if (np.center != null) {
-      const idx = np.center;
-      const lo = Math.max(0, Math.min(fileFreqs.length - 1, Math.floor(idx)));
-      const hi = Math.max(0, Math.min(fileFreqs.length - 1, Math.ceil(idx)));
-      const t = idx - lo;
-      const f = lo === hi ? effF(lo) : logInterpHz(effF(lo), effF(hi), t);
-      np.center = +f.toFixed(1);
-    } else {
+    if (!np.strength) {
       np.center = CENT_REF_HZ;
-    }
-    if (np.width != null) {
-      const newW = np.width * meanStep;
-      np.width = Math.max(50, Math.min(4800, Math.round(newW)));
-    } else {
       np.width = 1200;
+    } else {
+      if (np.center != null) {
+        const idx = np.center;
+        const lo = Math.max(0, Math.min(fileFreqs.length - 1, Math.floor(idx)));
+        const hi = Math.max(0, Math.min(fileFreqs.length - 1, Math.ceil(idx)));
+        const t = idx - lo;
+        const f = lo === hi ? effF(lo) : logInterpHz(effF(lo), effF(hi), t);
+        np.center = +f.toFixed(1);
+      } else {
+        np.center = CENT_REF_HZ;
+      }
+      if (np.width != null) {
+        const newW = np.width * meanStep;
+        np.width = Math.max(50, Math.min(4800, Math.round(newW)));
+      } else {
+        np.width = 1200;
+      }
     }
     return np;
   });

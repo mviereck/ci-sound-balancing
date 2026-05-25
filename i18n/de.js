@@ -487,6 +487,10 @@ Object.assign(L.de, {
     lvChartTitle: "Übersicht",
     lvChartMan: "Manuell",
     lvChartSum: "Summe",
+    lvChartWarpHint:
+      "Die Frequenzabstände der Elektroden werden in diesem Graphen berücksichtigt.<br>" +
+      "Bei aktiviertem Frequenz-Warping verschiebt sich die Auswirkung der Kurven " +
+      "pro Elektrode etwas.",
     lvPrCenter: "Mitte",
     lvPrWidth: "Breite",
     lvPrCutoff: "Grenzpunkt:",
