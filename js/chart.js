@@ -324,150 +324,441 @@ function drawFreqMatchChart(cv, fResData) {
   const ctx = cv.getContext("2d"),
     dpr = window.devicePixelRatio || 1,
     w = cv.parentElement.clientWidth - 32,
-    h = 360;
+    h = 420;
   cv.width = w * dpr;
   cv.height = h * dpr;
   cv.style.width = w + "px";
   cv.style.height = h + "px";
   ctx.scale(dpr, dpr);
 
-  const pad = { top: 30, right: 30, bottom: 60, left: 70 },
+  // pad.bottom hat Platz für: Y-Titel-Padding (10) + 6 Label-Zeilen × ~11px (66) + Achsentitel (14) = ~90
+  const pad = { top: 80, right: 30, bottom: 54, left: 70 },
     pW = w - pad.left - pad.right,
     pH = h - pad.top - pad.bottom;
   ctx.clearRect(0, 0, w, h);
 
+  cv._fmcFResData = fResData;
   if (!fResData || fResData.length === 0) return;
+  const fmcArrowPos = {}, fmcLabelPos = {};
 
-  // X-Achse: log-Hz über die CI-Frequenzen (varFreq)
-  const xMinHz = Math.min(...fResData.map((r) => r.varFreq));
-  const xMaxHz = Math.max(...fResData.map((r) => r.varFreq));
-  const logMin = Math.log2(xMinHz) - 0.15,
-        logMax = Math.log2(xMaxHz) + 0.15,
-        logRange = logMax - logMin || 1;
-  const tX = (hz) => pad.left + ((Math.log2(hz) - logMin) / logRange) * pW;
+  // i18n mit Fallback (andere Sprachen reichen "Ist"/"Soll" als Key zurück, bis übersetzt)
+  const tt = (k, fb) => {
+    if (typeof t !== 'function') return fb;
+    const v = t(k);
+    return (v && v !== k) ? v : fb;
+  };
+  const lblIst  = tt('fmrLblIst',  'Ist');
+  const lblSoll = tt('fmrLblSoll', 'Soll');
 
-  // Y-Achse: lineare Cent-Abweichung, symmetrisch um 0
-  const cents = fResData.map((r) => 1200 * Math.log2(r.refFreq / r.varFreq));
-  const absC  = Math.max(Math.ceil(Math.max(...cents.map(Math.abs), 50) / 50) * 50, 50);
+  // Cent gegenüber 1 kHz
+  const REF_HZ = 1000;
+  const hzToCt = (hz) => 1200 * Math.log2(hz / REF_HZ);
+
+  // CI-Seite und alle Elektroden
+  const ciSide = fResData[fResData.length - 1].varSide;
+  const nCi    = sideData[ciSide].nEl;
+  const measuredByIdx = {};
+  for (const r of fResData) measuredByIdx[r.elIdx] = r;
+
+  // Liste aller Elektroden (alle bekommen mindestens einen Ist-Strich)
+  const allEls = [];
+  for (let i = 0; i < nCi; i++) {
+    const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
+    const hzIst = withSide(ciSide, () => effFreq(i));
+    const r = measuredByIdx[i];
+    allEls.push({
+      elIdx: i,
+      elNum: withSide(ciSide, () => dEN(i)),
+      hzIst: hzIst,
+      cIst:  hzToCt(hzIst),
+      hzSoll: r ? r.refFreq : null,
+      cSoll:  r ? hzToCt(r.refFreq) : null,
+      dCent:  r ? (hzToCt(r.refFreq) - hzToCt(hzIst)) : null,
+      isMeasured: !!r,
+      isExcluded: exCI,
+      r: r,
+    });
+  }
+
+  // X-Range: Cent-Werte aller Ist- und Soll-Positionen, plus Puffer
+  const allCents = [];
+  for (const el of allEls) {
+    allCents.push(el.cIst);
+    if (el.cSoll !== null) allCents.push(el.cSoll);
+  }
+  const cMinRaw = Math.min(...allCents);
+  const cMaxRaw = Math.max(...allCents);
+  const cPad = Math.max(100, (cMaxRaw - cMinRaw) * 0.08);
+  const cMin = cMinRaw - cPad, cMax = cMaxRaw + cPad;
+  const cRange = cMax - cMin || 1;
+  const tX = (ct) => pad.left + ((ct - cMin) / cRange) * pW;
+
+  // Y-Range: ΔCent, symmetrisch um 0
+  const dCents = allEls.filter(e => e.dCent !== null).map(e => e.dCent);
+  const absC = Math.max(Math.ceil(Math.max(...dCents.map(Math.abs), 50) / 50) * 50, 50);
   const yMin = -absC, yMax = absC;
   const tY = (c) => pad.top + ((yMax - c) / (yMax - yMin)) * pH;
 
-  // X-Grid: Hz-Linien
-  const gridFreqs = [100, 200, 300, 500, 700, 1000, 1500, 2000, 3000, 4000, 6000, 8000, 10000];
-  const visibleGrid = gridFreqs.filter(
-    (f) => Math.log2(f) >= logMin - 0.05 && Math.log2(f) <= logMax + 0.05,
-  );
-  ctx.strokeStyle = "#e5e5e5";
-  ctx.lineWidth = 1;
-  for (const f of visibleGrid) {
-    const x = tX(f);
+  // --- Y-Grid (Cent-Linien, ohne Nullinie hier) ---
+  const step = 100;
+  const yLabels = [0];
+  for (let c = step; c <= absC; c += step) yLabels.push(c, -c);
+  ctx.font = "10px Consolas,monospace";
+  ctx.textAlign = "right";
+  for (const c of yLabels) {
+    const y = tY(c);
+    if (c !== 0) {
+      ctx.strokeStyle = "#e5e5e5";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(pad.left, y);
+      ctx.lineTo(pad.left + pW, y);
+      ctx.stroke();
+    }
+    ctx.fillStyle = (c === 0) ? "#000" : "#999";
+    const lbl = c === 0 ? "0" : ((c > 0 ? "+" : "") + c);
+    ctx.fillText(lbl, pad.left - 6, y + 3);
+  }
+
+  // --- Ist-Striche für ALLE Elektroden (grau) ---
+  for (const el of allEls) {
+    const x = tX(el.cIst);
+    if (el.isMeasured) {
+      // Gemessen: durchgezogen
+      ctx.strokeStyle = "#9ca3af";
+      ctx.lineWidth = 1;
+      ctx.setLineDash([]);
+    } else {
+      // Ungemessen/ausgeschlossen: durchgezogen, etwas heller
+      ctx.strokeStyle = "#cbd5e1";
+      ctx.lineWidth = 1.25;
+      ctx.setLineDash([]);
+    }
     ctx.beginPath();
     ctx.moveTo(x, pad.top);
     ctx.lineTo(x, pad.top + pH);
     ctx.stroke();
-    ctx.fillStyle = "#999";
-    ctx.font = "9px Consolas,monospace";
-    ctx.textAlign = "center";
-    const label = f >= 1000 ? (f / 1000) + "k" : String(f);
-    ctx.fillText(label, x, pad.top + pH + 14);
   }
+  ctx.setLineDash([]);
 
-  // Y-Grid: Cent-Linien (Schritte je nach absC)
-  const step = absC <= 100 ? 25 : absC <= 300 ? 50 : absC <= 600 ? 100 : 200;
-  for (let c = -absC; c <= absC; c += step) {
-    const y = tY(c);
-    ctx.strokeStyle = (c === 0) ? "#888" : "#e5e5e5";
-    ctx.lineWidth   = (c === 0) ? 1.5   : 1;
-    if (c === 0) ctx.setLineDash([5, 4]);
+  // --- Soll-Striche für gemessene Elektroden (schwarz, kräftig) ---
+  for (const el of allEls) {
+    if (!el.isMeasured) continue;
+    const x = tX(el.cSoll);
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 1.75;
     ctx.beginPath();
-    ctx.moveTo(pad.left,        y);
-    ctx.lineTo(pad.left + pW,   y);
+    ctx.moveTo(x, pad.top);
+    ctx.lineTo(x, pad.top + pH);
     ctx.stroke();
-    if (c === 0) ctx.setLineDash([]);
-    ctx.fillStyle = "#999";
-    ctx.font = "9px Consolas,monospace";
-    ctx.textAlign = "right";
-    ctx.fillText((c >= 0 ? "+" : "") + c, pad.left - 6, y + 3);
   }
 
-  // Verbindungslinie zwischen Messpunkten (sortiert nach varFreq)
-  const sorted = [...fResData].sort((a, b) => a.varFreq - b.varFreq);
-  ctx.strokeStyle = "#2563eb44";
-  ctx.lineWidth = 1.5;
+  // --- Nullinie (schwarz, kräftig, oberhalb der Striche) ---
+  ctx.strokeStyle = "#000";
+  ctx.lineWidth = 2;
   ctx.beginPath();
-  let first = true;
-  for (const r of sorted) {
-    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-    const x = tX(r.varFreq), y = tY(cent);
-    if (first) { ctx.moveTo(x, y); first = false; }
-    else ctx.lineTo(x, y);
-  }
+  ctx.moveTo(pad.left, tY(0));
+  ctx.lineTo(pad.left + pW, tY(0));
   ctx.stroke();
 
-  // Messpunkte + Hitboxen
-  const hitboxes = [];
-  for (const r of sorted) {
-    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-    const x = tX(r.varFreq), y = tY(cent);
+
+  // --- Verbindungslinie durch Soll-Punkte (blau) ---
+  const measSorted = allEls.filter(e => e.isMeasured).sort((a, b) => a.cSoll - b.cSoll);
+  if (measSorted.length > 1) {
+    ctx.strokeStyle = "#3b82f6";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([]);
     ctx.beginPath();
-    ctx.arc(x, y, 5, 0, Math.PI * 2);
-    ctx.fillStyle = "#2563eb";
-    ctx.fill();
-    ctx.strokeStyle = "#fff";
-    ctx.lineWidth = 2;
+    ctx.moveTo(tX(measSorted[0].cSoll), tY(measSorted[0].dCent));
+    for (let i = 1; i < measSorted.length; i++)
+      ctx.lineTo(tX(measSorted[i].cSoll), tY(measSorted[i].dCent));
     ctx.stroke();
-    hitboxes.push({ x, y, r });
   }
 
-  // Aktiv-ungemessene und deaktivierte Elektroden der CI-Seite einzeichnen
-  if (fResData.length > 0) {
-    const ciSide = fResData[fResData.length - 1].varSide;
-    const nCi    = sideData[ciSide].nEl;
-    const measuredIdx = new Set(fResData.map((r) => r.elIdx));
-    for (let i = 0; i < nCi; i++) {
-      if (measuredIdx.has(i)) continue;
-      const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
-      const hzCi = withSide(ciSide, () => effFreq(i));
-      if (hzCi < Math.pow(2, logMin) || hzCi > Math.pow(2, logMax)) continue;
-      const x = tX(hzCi);
-      if (exCI) {
-        ctx.strokeStyle = '#e5e7eb';
-        ctx.lineWidth = 2;
+  // --- Punkte und Marker ---
+  const hitboxes = [];
+  for (const el of allEls) {
+    if (el.isMeasured) {
+      // Ist-Punkt (klein, grau) bei (cIst, 0)
+      const xi = tX(el.cIst), yi = tY(0);
+      ctx.beginPath();
+      ctx.arc(xi, yi, 3, 0, Math.PI * 2);
+      ctx.fillStyle = "#6b7280";
+      ctx.fill();
+      // Soll-Punkt = Messpunkt (kräftig schwarz) bei (cSoll, ΔC)
+      const xs = tX(el.cSoll), ys = tY(el.dCent);
+      ctx.beginPath();
+      ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = "#000";
+      ctx.fill();
+      ctx.strokeStyle = "#fff";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      hitboxes.push({ x: xs, y: ys, el: el });
+    } else {
+      // Ungemessen/ausgeschlossen: nur Marker bei (cIst, 0)
+      const x = tX(el.cIst), y = tY(0);
+      if (el.isExcluded) {
+        // ✕
+        ctx.strokeStyle = "#9ca3af";
+        ctx.lineWidth = 1.75;
+        const s = 5;
         ctx.beginPath();
-        ctx.moveTo(x, pad.top);
-        ctx.lineTo(x, pad.top + pH);
-        ctx.stroke();
-        ctx.strokeStyle = '#9ca3af';
-        ctx.lineWidth = 1.5;
-        const ySize = 5;
-        ctx.beginPath();
-        ctx.moveTo(x - ySize, tY(0) - ySize);
-        ctx.lineTo(x + ySize, tY(0) + ySize);
-        ctx.moveTo(x + ySize, tY(0) - ySize);
-        ctx.lineTo(x - ySize, tY(0) + ySize);
+        ctx.moveTo(x - s, y - s); ctx.lineTo(x + s, y + s);
+        ctx.moveTo(x + s, y - s); ctx.lineTo(x - s, y + s);
         ctx.stroke();
       } else {
-        ctx.strokeStyle = '#cbd5e1';
-        ctx.lineWidth = 1.5;
+        // kleiner Kreis (offen)
+        ctx.strokeStyle = "#9ca3af";
+        ctx.fillStyle = "#fff";
+        ctx.lineWidth = 1.25;
         ctx.beginPath();
-        ctx.arc(x, tY(0), 4, 0, Math.PI * 2);
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
         ctx.stroke();
       }
     }
   }
 
-  // Achsenbeschriftungen
+  // --- X-Skala: Hz und Cent ---
+  const yScaleTop = pad.top + pH + 2;
+  {
+    const hzBase = [125, 250, 500, 1000, 2000, 4000, 8000];
+    let tks = hzBase.map(hz => ({ hz, c: hzToCt(hz) })).filter(tk => tk.c > cMin && tk.c < cMax);
+    if (tks.length < 2) {
+      [188, 375, 750, 1500, 3000, 6000].forEach(hz => {
+        const c = hzToCt(hz);
+        if (c > cMin && c < cMax) tks.push({ hz, c });
+      });
+      tks.sort((a, b) => a.c - b.c);
+    }
+    const shown = [];
+    for (const tk of tks)
+      if (!shown.length || tX(tk.c) - tX(shown[shown.length - 1].c) >= 44) shown.push(tk);
+
+    ctx.strokeStyle = "#cbd5e1";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, yScaleTop); ctx.lineTo(pad.left + pW, yScaleTop);
+    ctx.stroke();
+
+    ctx.textAlign = "center";
+    for (const tk of shown) {
+      const x = tX(tk.c);
+      ctx.strokeStyle = "#9ca3af";
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x, yScaleTop); ctx.lineTo(x, yScaleTop + 4); ctx.stroke();
+      ctx.font = "9px Segoe UI,sans-serif";
+      ctx.fillStyle = "#374151";
+      ctx.fillText(tk.hz + " Hz", x, yScaleTop + 14);
+      const ctLbl = (tk.c >= 0 ? "+" : "") + Math.round(tk.c) + " ct";
+      ctx.fillText(ctLbl, x, yScaleTop + 25);
+    }
+  }
+
+  // --- Achsentitel ---
   ctx.fillStyle = "#666";
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText(t("fmrChartXLabel"), pad.left + pW / 2, h - pad.bottom + 36);
+  ctx.fillText(t("fmrChartXLabel"), pad.left + pW / 2, h - 6);
   ctx.save();
   ctx.translate(13, pad.top + pH / 2);
   ctx.rotate(-Math.PI / 2);
   ctx.fillText(t("fmrChartYLabel"), 0, 0);
   ctx.restore();
 
+  // --- Horizontale Pfeile oben: Ist → Soll ---
+  let arrowLaneCount = 0;
+  const crossingEls = new Set();
+  {
+    const laneH = 12, yBase = pad.top - 6;
+
+    const hArrows = allEls
+      .filter(e => e.isMeasured && Math.abs(tX(e.cSoll) - tX(e.cIst)) >= 6)
+      .map(e => ({ x1: tX(e.cIst), x2: tX(e.cSoll), el: e }));
+
+    const crossSet = new Set();
+    for (let i = 0; i < hArrows.length; i++)
+      for (let j = i + 1; j < hArrows.length; j++)
+        if ((hArrows[i].x1 - hArrows[j].x1) * (hArrows[i].x2 - hArrows[j].x2) < 0)
+          { crossSet.add(i); crossSet.add(j); }
+    for (const i of crossSet) crossingEls.add(hArrows[i].el.elIdx);
+
+    const sorted = hArrows
+      .map((a, idx) => ({ ...a, idx, left: Math.min(a.x1, a.x2), right: Math.max(a.x1, a.x2) }))
+      .sort((a, b) => a.left - b.left);
+    const laneRight = [];
+    const laneOf = new Array(hArrows.length);
+    for (const a of sorted) {
+      let lane = laneRight.findIndex(r => r < a.left - 2);
+      if (lane === -1) { lane = laneRight.length; laneRight.push(0); }
+      laneRight[lane] = a.right;
+      laneOf[a.idx] = lane;
+    }
+    arrowLaneCount = Math.max(1, laneRight.length);
+
+    for (let i = 0; i < hArrows.length; i++) {
+      const { x1, x2 } = hArrows[i];
+      const y = yBase - laneOf[i] * laneH;
+      const color = crossSet.has(i) ? "#ef4444" : "#22c55e";
+      fmcArrowPos[hArrows[i].el.elIdx] = { x1, x2, y, color };
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(x1, y - 5); ctx.lineTo(x1, y + 5);
+      ctx.stroke();
+      drawArrow(ctx, x1, y, x2, y, color, true);
+    }
+  }
+
+  // --- Elektrodennummern oben: über den Pfeilen, gestapelt bei Kollision ---
+  {
+    const lineH = 11, laneH = 12, laneGap = 2;
+    const yBase = pad.top - 6;                          // unterste Pfeil-Lane
+    const yLblBottom = yBase - arrowLaneCount * laneH - 4; // unterste Label-Lane
+
+    // Alle Labels (Ist grau + Soll schwarz) in einem Pool
+    const lblItems = [];
+    for (const el of allEls) {
+      const cross = crossingEls.has(el.elIdx);
+      lblItems.push({ x: tX(el.cIst), text: "E" + el.elNum, color: cross ? "#ef4444" : "#6b7280", el });
+      if (el.isMeasured && !el.isExcluded)
+        lblItems.push({ x: tX(el.cSoll), text: "E" + el.elNum, color: cross ? "#ef4444" : "#000", el });
+    }
+
+    // Greedy Lane-Zuweisung nach x sortiert (Breite ≈ 7px/Zeichen)
+    const byX = lblItems.map((lbl, idx) => {
+      const hw = lbl.text.length * 3.5 + 2;
+      return { ...lbl, idx, left: lbl.x - hw, right: lbl.x + hw };
+    }).sort((a, b) => a.left - b.left);
+    const laneRight = [];
+    const laneOf = new Array(lblItems.length);
+    for (const lbl of byX) {
+      let lane = laneRight.findIndex(r => r < lbl.left - 2);
+      if (lane === -1) { lane = laneRight.length; laneRight.push(0); }
+      laneRight[lane] = lbl.right;
+      laneOf[lbl.idx] = lane;
+    }
+
+    ctx.font = "10px Segoe UI,sans-serif";
+    ctx.textAlign = "center";
+    for (let i = 0; i < lblItems.length; i++) {
+      const { x, text, color, el } = lblItems[i];
+      const y = yLblBottom - laneOf[i] * (lineH + laneGap);
+      (fmcLabelPos[el.elIdx] = fmcLabelPos[el.elIdx] || []).push({ x, y, text });
+      ctx.fillStyle = color;
+      ctx.fillText(text, x, y);
+      if (el.isMeasured)
+        hitboxes.push({ x, y, el });
+    }
+  }
+
+  // --- Mini-Legende oben rechts ---
+  const legX = pad.left + pW - 80, legY = pad.top + 4;
+  ctx.font = "10px Segoe UI,sans-serif";
+  ctx.textAlign = "left";
+  // Ist (grau)
+  ctx.strokeStyle = "#9ca3af";
+  ctx.lineWidth = 1;
+  ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(legX, legY + 6); ctx.lineTo(legX + 14, legY + 6);
+  ctx.stroke();
+  ctx.fillStyle = "#6b7280";
+  ctx.fillText(lblIst, legX + 18, legY + 9);
+  // Soll (schwarz)
+  ctx.strokeStyle = "#000";
+  ctx.lineWidth = 1.75;
+  ctx.beginPath();
+  ctx.moveTo(legX, legY + 20); ctx.lineTo(legX + 14, legY + 20);
+  ctx.stroke();
+  ctx.fillStyle = "#000";
+  ctx.fillText(lblSoll, legX + 18, legY + 23);
+
   cv._fmcHitboxes = hitboxes;
+  cv._fmcState = { ctx, tX, tY, pad, pH, allEls, arrowPos: fmcArrowPos, labelPos: fmcLabelPos };
+}
+
+// Pfeil mit gefüllter Spitze; headAtEnd=false → Spitze in der Mitte, true → Spitze am Ende
+function drawArrow(ctx, x1, y1, x2, y2, color, headAtEnd = false, lineWidth = 1.5) {
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.lineWidth = lineWidth;
+  const angle = Math.atan2(y2 - y1, x2 - x1);
+  const headLen = 8;
+  if (headAtEnd) {
+    // Schaft bis kurz vor Spitze
+    const xEnd = x2 - (headLen * 0.6) * Math.cos(angle);
+    const yEnd = y2 - (headLen * 0.6) * Math.sin(angle);
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(xEnd, yEnd);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - headLen * Math.cos(angle - Math.PI / 5), y2 - headLen * Math.sin(angle - Math.PI / 5));
+    ctx.lineTo(x2 - headLen * Math.cos(angle + Math.PI / 5), y2 - headLen * Math.sin(angle + Math.PI / 5));
+  } else {
+    // Schaft (durchgehend), Spitze in der Mitte
+    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(mx, my);
+    ctx.lineTo(mx - headLen * Math.cos(angle - Math.PI / 5), my - headLen * Math.sin(angle - Math.PI / 5));
+    ctx.lineTo(mx - headLen * Math.cos(angle + Math.PI / 5), my - headLen * Math.sin(angle + Math.PI / 5));
+  }
+  ctx.closePath();
+  ctx.fill();
+}
+
+function _fmcDrawHighlight(cv, el) {
+  const s = cv._fmcState;
+  if (!s || !el || !el.isMeasured) return;
+  const { ctx, tX, tY, pad, pH, arrowPos, labelPos } = s;
+  const HL = "#22c55e";
+  const GLOW = "rgba(34,197,94,0.35)";
+
+  // Senkrechte Striche: Glow-Hintergrund
+  ctx.setLineDash([]);
+  for (const cx of [tX(el.cIst), tX(el.cSoll)]) {
+    ctx.strokeStyle = GLOW;
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo(cx, pad.top); ctx.lineTo(cx, pad.top + pH);
+    ctx.stroke();
+  }
+
+  // Ringe um Ist- und Soll-Punkt
+  ctx.strokeStyle = HL;
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.arc(tX(el.cIst),  tY(0),        9, 0, Math.PI * 2); ctx.stroke();
+  ctx.beginPath(); ctx.arc(tX(el.cSoll), tY(el.dCent), 9, 0, Math.PI * 2); ctx.stroke();
+
+  // Horizontaler Pfeil: dicker neu zeichnen
+  const ap = arrowPos[el.elIdx];
+  if (ap) {
+    const c = ap.color === "#ef4444" ? "#ef4444" : "#22c55e";
+    ctx.strokeStyle = c; ctx.lineWidth = 2.5; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(ap.x1, ap.y - 6); ctx.lineTo(ap.x1, ap.y + 6); ctx.stroke();
+    drawArrow(ctx, ap.x1, ap.y, ap.x2, ap.y, c, true, 2.5);
+  }
+
+  // Elektrodennummern: hinterlegte Highlight-Labels
+  const lp = labelPos[el.elIdx];
+  if (lp) {
+    ctx.font = "bold 10px Segoe UI,sans-serif";
+    ctx.textAlign = "center";
+    for (const lbl of lp) {
+      ctx.fillStyle = GLOW;
+      ctx.fillRect(lbl.x - 13, lbl.y - 9, 26, 12);
+      ctx.fillStyle = HL;
+      ctx.fillText(lbl.text, lbl.x, lbl.y);
+    }
+  }
 }
 
 function _fmcTooltipHandler(cv, e) {
@@ -488,21 +779,26 @@ function _fmcTooltipHandler(cv, e) {
       "z-index:1000;line-height:1.6;white-space:nowrap;";
     document.body.appendChild(tip);
   }
-  const hit = cv._fmcHitboxes.find((h) => Math.hypot(h.x - mx, h.y - my) <= 10);
+  const hit = cv._fmcHitboxes.find((h) => Math.hypot(h.x - mx, h.y - my) <= 12);
+  const newEl = hit ? hit.el : null;
+  if (newEl !== cv._fmcHighEl) {
+    cv._fmcHighEl = newEl;
+    drawFreqMatchChart(cv, cv._fmcFResData);
+    if (newEl) _fmcDrawHighlight(cv, newEl);
+  }
   if (hit) {
-    const r = hit.r;
-    const elNum = withSide(r.varSide, () => dEN(r.elIdx));
-    const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-    const varLabel = r.varSide === "left" ? t("sideLeft") : t("sideRight");
-    const refLabel = r.refSide === "left" ? t("sideLeft") : t("sideRight");
+    const el = hit.el;
+    const hzIst  = Math.round(el.hzIst);
+    const hzSoll = Math.round(el.hzSoll);
+    const cIst   = (el.cIst  >= 0 ? "+" : "") + Math.round(el.cIst)  + "\u202fct";
+    const cSoll  = (el.cSoll >= 0 ? "+" : "") + Math.round(el.cSoll) + "\u202fct";
     tip.innerHTML =
-      "<b>E" + elNum + "</b> (" + varLabel + ")<br>" +
-      "CI: " + Math.round(r.varFreq) + " Hz<br>" +
-      "Subj.: " + Math.round(r.refFreq) + " Hz (" + refLabel + ")<br>" +
-      "Diff: " + (cent >= 0 ? "+" : "") + Math.round(cent) + "\u202f" + t("fmCentUnit");
+      "<b>E" + el.elNum + "</b><br>" +
+      hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
+      cIst + " \u2192 " + cSoll;
     tip.style.display = "block";
     tip.style.left = (e.clientX + 14) + "px";
-    tip.style.top = (e.clientY - 10) + "px";
+    tip.style.top  = (e.clientY - 10) + "px";
   } else {
     tip.style.display = "none";
   }
