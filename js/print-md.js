@@ -1353,6 +1353,30 @@ function _archivDrawElCentLabel(ctx, elLabel, cx, H, padB, axis, j) {
   }
 }
 
+// Variante für elektrodennummern-basierte Charts mit Hz-Zeile
+// (ohne Cent) — verwendet von _archivChartLoudness und
+// _archivChartLR seit Bauanleitung 71.
+function _archivDrawElHzLabel(ctx, elLabel, cx, H, padB, axis, j) {
+  ctx.fillStyle = "#555";
+  ctx.font = "9px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(elLabel, cx, H - padB + 12);
+  const hz = axis.hzArr[j];
+  const fTxt = hz >= 1000 ? (hz / 1000).toFixed(1) + "k" : Math.round(hz);
+  ctx.fillStyle = "#888";
+  ctx.font = "8px sans-serif";
+  ctx.fillText(fTxt, cx, H - padB + 23);
+}
+
+// Variante nur mit Elektroden-Label (kein Hz, kein Cent) —
+// verwendet von _archivChartSchieber seit Bauanleitung 71.
+function _archivDrawElLabel(ctx, elLabel, cx, H, padB) {
+  ctx.fillStyle = "#555";
+  ctx.font = "9px sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(elLabel, cx, H - padB + 12);
+}
+
 function _archivDrawAxis(ctx, pad, W, H, maxAbs, opts) {
   const pW = W - pad.l - pad.r;
   const pH = H - pad.t - pad.b;
@@ -1395,7 +1419,7 @@ function _archivChartLoudness(sideBlock) {
       title: `${t("archivSecMeas")} — ${sideBlock.label}`,
     });
     const idxArr = rows.map((r) => r.idx);
-    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const axis = buildLinearAxis(idxArr, pad.l, pW);
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
     const refIdx = sideBlock.meas.refEl;
     if (refIdx != null) {
@@ -1416,7 +1440,7 @@ function _archivChartLoudness(sideBlock) {
         if (r.offsetDb >= 0) ctx.fillRect(x, zY - h, w, h);
         else                 ctx.fillRect(x, zY,    w, h);
       }
-      _archivDrawElCentLabel(ctx, r.label, cx, H, pad.b, axis, j);
+      _archivDrawElHzLabel(ctx, r.label, cx, H, pad.b, axis, j);
     }
     return canvas.toDataURL("image/png");
   });
@@ -1437,7 +1461,7 @@ function _archivChartSchieber(sideBlock) {
       title: `${t("archivSecSchieber")} — ${sideBlock.label}`,
     });
     const idxArr = rows.map((r) => r.idx != null ? r.idx : 0);
-    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const axis = buildLinearAxis(idxArr, pad.l, pW);
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
     for (let j = 0; j < rows.length; j++) {
       const r = rows[j];
@@ -1453,7 +1477,7 @@ function _archivChartSchieber(sideBlock) {
         if (v >= 0) ctx.fillRect(x, zY - h, w, h);
         else        ctx.fillRect(x, zY,    w, h);
       }
-      _archivDrawElCentLabel(ctx, r.label, cx, H, pad.b, axis, j);
+      _archivDrawElLabel(ctx, r.label, cx, H, pad.b);
     }
     return canvas.toDataURL("image/png");
   });
@@ -1476,7 +1500,9 @@ function _archivChartKurven(sideBlock) {
     });
     const idxArr = [];
     for (let i = 0; i < n; i++) idxArr.push(i);
-    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const axis = buildCentAxis(idxArr, pad.l, pW, function (i) {
+      return effFreqDisplay(i);
+    });
     const yFor = (v) => zY - (v / maxAbs) * (pH / 2);
     const COLORS = ["#3b82f6", "#f97316", "#a855f7", "#06b6d4", "#84cc16", "#eab308", "#ec4899", "#14b8a6"];
     let ci = 0;
@@ -1557,7 +1583,7 @@ function _archivChartLR(bilateral) {
       title: `${t("balTitle")}`,
     });
     const idxArr = rows.map((r) => r.elIdx);
-    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const axis = buildLinearAxis(idxArr, pad.l, pW);
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
     for (let j = 0; j < rows.length; j++) {
       const r = rows[j];
@@ -1567,7 +1593,7 @@ function _archivChartLR(bilateral) {
       ctx.fillStyle = r.value >= 0 ? "#3b82f6" : "#dc2626";
       if (r.value >= 0) ctx.fillRect(x, zY - h, w, h);
       else              ctx.fillRect(x, zY,    w, h);
-      _archivDrawElCentLabel(ctx, `E${r.elIdx + 1}`, cx, H, pad.b, axis, j);
+      _archivDrawElHzLabel(ctx, `E${r.elIdx + 1}`, cx, H, pad.b, axis, j);
     }
     return canvas.toDataURL("image/png");
   });
@@ -1589,7 +1615,9 @@ function _archivChartPlayerEq(sideBlock, playerEqArr) {
     });
     const idxArr = [];
     for (let i = 0; i < playerEqArr.length; i++) idxArr.push(i);
-    const axis = buildCentAxis(idxArr, pad.l, pW);
+    const axis = buildCentAxis(idxArr, pad.l, pW, function (i) {
+      return effFreqDisplay(i);
+    });
     const w = Math.max(2, Math.min((axis.minDx || 12) * 0.6, 30));
     for (let j = 0; j < playerEqArr.length; j++) {
       const v = playerEqArr[j];

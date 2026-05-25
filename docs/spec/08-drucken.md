@@ -64,6 +64,16 @@ Frequenzabgleich (pro Seite); Stereo-Balance bilateral; Player-EQ
 (pro Seite je nach Side-Modus). Latenz erscheint nur als
 Textsektion.
 
+Die Diagramme im Archiv-Druck folgen dem GUI-Zustand: Kurven-Chart
+und Player-EQ sind cent-skaliert und folgen dem Frequenz-Warping
+(sofern aktiv). Loudness- und Stereo-Balance-Diagramme sind
+elektrodennummern-basiert mit Hz unter der Achse. Der Schieber-
+Druck zeigt nur die Elektroden-Bezeichnung unter der Achse. Der
+Frequenzabgleich-Druck behält seine log-Hz-Achse.
+
+Der Audiologen-Druck bleibt davon unberührt — er nutzt eine
+bewußt vereinfachte Darstellung und ist nicht warp-bewußt.
+
 Dateinamen: `ci-sound-balancing-<datum>-<zeit>.json` (JSON) und
 `ci-sound-balancing-archiv-<datum>-<zeit>.md` (Markdown).
 EasyEffects-Export: `ci-sound-balancing-easyeffects.json`.
