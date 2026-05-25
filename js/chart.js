@@ -30,6 +30,26 @@ function _drawRefElLabel(ctx, x, y, size) {
 // (re 1000 Hz) auf der x-Achse plaziert; mindestens zwei
 // Elektroden, sonst lineare Notlösung.
 // ============================================================
+
+// Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
+// (elektrodennummern-basiert). Verwendet von drawChart (Meßergebnisse
+// Loudness) und lrDrawChart (Stereo-Balance) seit Bauanleitung 67.
+// Liefert zusätzlich hzArr (per effFreq oder optionalem hzGetter) für
+// die Hz-Beschriftung unter der x-Achse.
+function buildLinearAxis(electrodes, padLeft, plotW, hzGetter) {
+  const getHz = hzGetter || effFreq;
+  const hzArr = electrodes.map(function (i) { return getHz(i); });
+  const n = electrodes.length;
+  if (n === 0) return { tX: function () { return padLeft; }, minDx: 0, hzArr: hzArr };
+  if (n === 1) return {
+    tX: function () { return padLeft + plotW / 2; },
+    minDx: plotW, hzArr: hzArr,
+  };
+  const dx = plotW / n;
+  const tX = function (j) { return padLeft + dx * (j + 0.5); };
+  return { tX: tX, minDx: dx, hzArr: hzArr };
+}
+
 function buildCentAxis(electrodes, padLeft, plotW, hzGetter) {
   const getHz = hzGetter || effFreq;
   const hzArr = electrodes.map(function (i) { return getHz(i); });
@@ -91,10 +111,14 @@ function _axisTooltipHandler(cv, e) {
   });
   if (hit) {
     const elLbl = (typeof t === "function" ? t("lvTabElLabel") : "Elektrode");
-    tip.innerHTML =
-      "<b>" + elLbl + " " + hit.label + "</b><br>" +
-      Math.round(hit.hz) + " Hz<br>" +
-      (hit.cent >= 0 ? "+" : "") + Math.round(hit.cent) + " ¢";
+    let html = "<b>" + elLbl + " " + hit.label + "</b>";
+    if (hit.hz != null && isFinite(hit.hz)) {
+      html += "<br>" + Math.round(hit.hz) + " Hz";
+    }
+    if (hit.cent != null && isFinite(hit.cent)) {
+      html += "<br>" + (hit.cent >= 0 ? "+" : "") + Math.round(hit.cent) + " ¢";
+    }
+    tip.innerHTML = html;
     tip.style.display = "block";
     tip.style.left = (e.clientX + 14) + "px";
     tip.style.top = (e.clientY - 10) + "px";
@@ -116,7 +140,7 @@ function drawChart(cv, vals, res, isOff, elColor) {
   cv.style.width = w + "px";
   cv.style.height = h + "px";
   ctx.scale(dpr, dpr);
-  const pad = { top: 30, right: 20, bottom: 67, left: 55 },
+  const pad = { top: 30, right: 20, bottom: 57, left: 55 },
     pW = w - pad.left - pad.right,
     pH = h - pad.top - pad.bottom;
   ctx.clearRect(0, 0, w, h);
@@ -141,7 +165,7 @@ function drawChart(cv, vals, res, isOff, elColor) {
     yMn -= r * 0.1;
     yMx += r * 0.1;
   }
-  const axis = buildCentAxis(allE, pad.left, pW),
+  const axis = buildLinearAxis(allE, pad.left, pW),
     tX = axis.tX,
     xS = axis.minDx,
     tY = (v) => pad.top + (yMx - v) * (pH / (yMx - yMn || 1));
@@ -230,16 +254,11 @@ function drawChart(cv, vals, res, isOff, elColor) {
     ctx.textAlign = "center";
     const yE = h - pad.bottom + 14,
           yHz = h - pad.bottom + 25,
-          yCent = h - pad.bottom + 36,
-          yAB = h - pad.bottom + 48;
+          yAB = h - pad.bottom + 38;
     ctx.fillText(dENPrefix() + dEN(i), tX(j), yE);
     ctx.font = "8px Consolas,monospace";
     ctx.fillStyle = "#999";
     ctx.fillText(Math.round(axis.hzArr[j]), tX(j), yHz);
-    if (j % axis.step === 0 || j === 0 || j === allE.length - 1) {
-      const c = Math.round(axis.centArr[j]);
-      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(j), yCent);
-    }
     if (j === 0) {
       ctx.font = "8px Segoe UI,sans-serif";
       ctx.fillText(t("apikal"), tX(j), yAB);
@@ -256,10 +275,10 @@ function drawChart(cv, vals, res, isOff, elColor) {
     const halfDx = Math.max(8, (axis.minDx || 12) / 2);
     cv._axisHits.push({
       x0: cx - halfDx, x1: cx + halfDx,
-      y0: h - pad.bottom + 2, y1: h - pad.bottom + 44,
+      y0: h - pad.bottom + 2, y1: h - pad.bottom + 34,
       label: dENPrefix() + dEN(i),
       hz: axis.hzArr[j],
-      cent: axis.centArr[j],
+      // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
     });
   }
   _attachAxisTooltip(cv);

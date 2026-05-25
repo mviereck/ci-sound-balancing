@@ -578,12 +578,12 @@ function lrDrawChart() {
     ? Math.max(Math.ceil(Math.max(...measuredVals.map(Math.abs), 2)), 3)
     : 3;
 
-  const pad = { top: 20, right: 16, bottom: 56, left: 52 };
+  const pad = { top: 20, right: 16, bottom: 46, left: 52 };
   const pW = W - pad.left - pad.right;
   const pH = H - pad.top - pad.bottom;
   const idxArr = [];
   for (let i = 0; i < count; i++) idxArr.push(i);
-  const axis = buildCentAxis(idxArr, pad.left, pW, function (i) {
+  const axis = buildLinearAxis(idxArr, pad.left, pW, function (i) {
     return lrEffFreq("left", i);
   });
   const tX = axis.tX;
@@ -645,7 +645,7 @@ function lrDrawChart() {
       ctx.fillRect(x, Math.min(zY, yV), bW, Math.abs(yV - zY) || 2);
     }
 
-    // X-Achsenbeschriftung pro Elektrode (E / Hz / Cent re 1000 Hz)
+    // X-Achsenbeschriftung pro Elektrode (E / Hz)
     const leftLabel = withSide("left", () => dENPrefix("left") + dEN(i));
     ctx.fillStyle = "#555";
     ctx.font = "9px Segoe UI,sans-serif";
@@ -655,20 +655,16 @@ function lrDrawChart() {
     ctx.font = "7px Consolas,monospace";
     ctx.fillStyle = "#999";
     ctx.fillText(Math.round(hzL), tX(i), H - pad.bottom + 23);
-    if (i % axis.step === 0 || i === 0 || i === count - 1) {
-      const c = Math.round(axis.centArr[i]);
-      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", tX(i), H - pad.bottom + 33);
-    }
   }
   cv._axisHits = [];
   for (let i = 0; i < count; i++) {
     const halfDx = Math.max(8, (axis.minDx || 12) / 2);
     cv._axisHits.push({
       x0: tX(i) - halfDx, x1: tX(i) + halfDx,
-      y0: H - pad.bottom + 2, y1: H - pad.bottom + 42,
+      y0: H - pad.bottom + 2, y1: H - pad.bottom + 32,
       label: withSide("left", () => dENPrefix("left") + dEN(i)),
       hz: axis.hzArr[i],
-      cent: axis.centArr[i],
+      // cent fehlt absichtlich — Tooltip zeigt seit BA 67 nur noch Hz
     });
   }
   _attachAxisTooltip(cv);
