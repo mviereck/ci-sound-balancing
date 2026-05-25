@@ -128,9 +128,39 @@ Slider-Wert wird invertiert.
 - Referenzseite-Auswahl (LINKS/RECHTS = welche Seite ist Restgehör)
 - Bei Wechsel des Referenzohrs nach vorhandenen Ergebnissen:
   Bestätigungsdialog, Verwerfen der bisherigen Ergebnisse
-- Ergebnis-Diagramm: X-Achse log-Hz (CI-Frequenz `varFreq`), Y-Achse
-  lineare Cent-Abweichung (positiv = subjektiv höher als CI-Frequenz,
-  negativ = tiefer). Null-Linie = perfekter Match.
+- Ergebnis-Diagramm (`drawFreqMatchChart` in `chart.js`):
+  - **Begriffe:** *Ist* = die im Implantat einprogrammierte Frequenz der
+    Elektrode (`varFreq`, vom Implantat-Tab, ohne Warp). *Soll* = die
+    Frequenz, an der die Elektrode laut Messung wahrgenommen wird
+    (`refFreq`, das Ziel). Der Pfeil zeigt die nötige Korrektur von Ist
+    nach Soll.
+  - **X-Achse:** linear in Cent gegenüber 1 kHz (entspricht log-Hz, nur
+    mit anderer Skalenkonvention). Keine Hz-Grid-Linien — die senkrechten
+    Striche der Elektroden bilden das Raster.
+  - **Y-Achse:** lineare Cent-Abweichung ΔC = Cent(Soll) − Cent(Ist),
+    symmetrisch um 0, mit deutlich gezeichneter „0"-Beschriftung.
+    Positiv = Soll liegt höher als Ist (Elektrode muß nach oben), negativ
+    = umgekehrt.
+  - **Nullinie:** schwarz, durchgezogen, ca. 2 px.
+  - **Pro gemessener Elektrode:**
+    - Ist-Strich an X=`C_ist` (grau, gestrichelt, vertikal durch den Plot)
+    - Soll-Strich an X=`C_soll` (schwarz, durchgezogen, vertikal)
+    - Ist-Punkt (klein, grau) bei `(C_ist, 0)` — auf der Nullinie
+    - Soll-Punkt = Messpunkt (kräftig schwarz, mit Tooltip-Hitbox) bei
+      `(C_soll, ΔC)` — auf der Soll-Linie
+    - Pfeil schräg vom Ist-Punkt zum Soll-Punkt (Korrektur-Vektor)
+  - **Ungemessene Elektroden:** nur ein durchgezogener heller Ist-Strich
+    an `C_ist` + offener Kreis bei `(C_ist, 0)`.
+  - **Ausgeschlossene Elektroden** (`elExDur` gesetzt oder `elSt='mute'`):
+    nur Ist-Strich + ✕ bei `(C_ist, 0)`.
+  - **X-Beschriftung unter dem Plot** (zwei Blöcke übereinander, je drei
+    Zeilen pro Elektrode):
+    - oben grau (Ist): „E*n*" / „*xxx* Hz" / „±*yyy* ct"
+    - unten schwarz (Soll): „E*n*" / „*xxx* Hz" / „±*yyy* ct"
+    - bei ungemessenen/ausgeschlossenen: nur die Ist-Elektrodennummer in
+      der oberen Zeile, restliche Zeilen leer
+  - **Mini-Legende** oben rechts: gestrichelter grauer Strich = „Ist",
+    durchgezogener schwarzer Strich = „Soll".
 - **Audio-Pfad:** jeder Ton wird vor `playToneTyped` mit der Korrektur-
   Lautstärke der Seite und der Stereo-Balance-Korrektur
   (`getRawBalanceGains`) multipliziert. Die Korrektur-Lautstärke
