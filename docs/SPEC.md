@@ -58,6 +58,7 @@ dessen x-Achse seit jeher log-Hz ist (cent-äquivalent).
 
 - [Tab-Übersicht](spec/01-tabs.md)
 - [Messungen — Sub-Tabs](spec/02-messung.md)
+- [Frequenzabgleich — Adaptiver Modus](spec/02b-freqmatch-adaptiv.md)
 - [Implantat-Tab](spec/03-implantat.md)
 - [Schieber-Tab](spec/04-schieber.md)
 - [Kurven-Tab](spec/05-kurven.md)
