@@ -317,6 +317,73 @@ function fmDisableHeightButtons() {
   if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = true;
 }
 
+// --- Persistenz (Bauanleitung 02b/5) ---
+
+function _fmPersist() {
+  if (!fmVarSide || !sideData[fmVarSide]) return;
+  const ids = Object.keys(fmTracks).map(function(k) { return parseInt(k, 10); });
+  sideData[fmVarSide].freqmatchAdaptive = {
+    varSide:          fmVarSide,
+    refSide:          fmRefSide,
+    startedAt:        (sideData[fmVarSide].freqmatchAdaptive
+                       && sideData[fmVarSide].freqmatchAdaptive.startedAt) || Date.now(),
+    completedAt:      null,
+    electrodeIdxList: ids.slice().sort(function(a, b) {
+      const fa = withSide(fmVarSide, function() { return effFreq(a); });
+      const fb = withSide(fmVarSide, function() { return effFreq(b); });
+      return fa - fb;
+    }),
+    tracks:           fmTracks
+  };
+}
+
+function _fmMarkCompleted() {
+  if (!fmVarSide || !sideData[fmVarSide]) return;
+  const fa = sideData[fmVarSide].freqmatchAdaptive;
+  if (fa) fa.completedAt = Date.now();
+}
+
+function _fmClearPersist(side) {
+  side = side || fmVarSide;
+  if (side && sideData[side]) sideData[side].freqmatchAdaptive = null;
+}
+
+function _fmTryRestore(currentElIdxList) {
+  if (!sideData[fmVarSide]) return false;
+  const fa = sideData[fmVarSide].freqmatchAdaptive;
+  if (!fa) return false;
+  if (fa.completedAt != null) return false;
+  if (fa.varSide !== fmVarSide || fa.refSide !== fmRefSide) return false;
+  if (!fa.tracks) return false;
+
+  const saved = (fa.electrodeIdxList || []).slice().sort(function(a, b) { return a - b; });
+  const now   = currentElIdxList.slice().sort(function(a, b) { return a - b; });
+  if (saved.length !== now.length) return false;
+  for (let i = 0; i < saved.length; i++) if (saved[i] !== now[i]) return false;
+
+  const hasActive = Object.keys(fa.tracks).some(function(k) {
+    return fa.tracks[k].status === 'active';
+  });
+  if (!hasActive) return false;
+
+  fmTracks = fa.tracks;
+  return true;
+}
+
+function fmRefreshResumeHint() {
+  if (!fmEls) return;
+  const startBtn = fmEls.startBtn;
+  if (!startBtn) return;
+  const fa = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
+  const resumable = fa && fa.completedAt == null
+    && Object.keys(fa.tracks || {}).some(function(k) { return fa.tracks[k].status === 'active'; });
+  if (resumable) {
+    startBtn.textContent = (typeof t === 'function' && t('fmLblResume')) || 'Test fortsetzen';
+  } else {
+    startBtn.textContent = (typeof t === 'function' && t('fmLblStart')) || 'Test starten';
+  }
+}
+
 function fmStartAdaptive() {
   if (!fmEls) return;
   fmRefSide = fmEls.refSelect.value;
@@ -328,12 +395,18 @@ function fmStartAdaptive() {
     return;
   }
 
-  fmTracks = {};
-  elIdxList.forEach(function(idx) {
-    const prev = fmPrevCent(idx);
-    const prevOrNull = (prev !== 0) ? prev : null;
-    fmTracks[idx] = fmCreateTrack(idx, prevOrNull);
-  });
+  if (_fmTryRestore(elIdxList)) {
+    console.log('[freqmatch] Adaptiver Lauf fortgesetzt:',
+                Object.keys(fmTracks).length, 'Tracks');
+  } else {
+    fmTracks = {};
+    elIdxList.forEach(function(idx) {
+      const prev = fmPrevCent(idx);
+      const prevOrNull = (prev !== 0) ? prev : null;
+      fmTracks[idx] = fmCreateTrack(idx, prevOrNull);
+    });
+    _fmPersist();
+  }
 
   fmRunning           = true;
   fmAdaptiveActive    = true;
@@ -443,6 +516,7 @@ function fmHandleHeight(userChoice) {
     _fmWriteResult(track);
   }
 
+  _fmPersist();
   fmRenderStatusGrid();
 
   setTimeout(function() {
@@ -498,6 +572,7 @@ function fmReplayCurrent() {
 }
 
 function fmFinishAdaptive() {
+  _fmMarkCompleted();
   fmAdaptiveActive   = false;
   fmAwaitingResponse = false;
   fmIsPlay           = false;
@@ -512,6 +587,7 @@ function fmFinishAdaptive() {
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
+  fmRefreshResumeHint();
 }
 
 function fmRenderStatusGrid() {
@@ -686,6 +762,7 @@ function fmSkip() {
 
 function fmAbort() {
   if (fmAdaptiveActive) {
+    _fmPersist();
     fmAdaptiveActive   = false;
     fmAwaitingResponse = false;
     fmIsPlay           = false;
@@ -700,6 +777,7 @@ function fmAbort() {
       fmEls.stopBtn.disabled  = true;
       if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
     }
+    fmRefreshResumeHint();
     return;
   }
   fmIsPlay = false;
@@ -714,6 +792,7 @@ function fmAbort() {
     fmEls.stopBtn.disabled = true;
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
+  fmRefreshResumeHint();
 }
 
 function fmFinish() {
@@ -894,6 +973,7 @@ function fmLoadModeFromSide() {
   const wanted = (sd.fmMode === 'slider' || sd.fmMode === 'adaptive')
     ? sd.fmMode : 'adaptive';
   fmSetMode(wanted, { force: true });
+  fmRefreshResumeHint();
 }
 
 // --- DOMContentLoaded ---
@@ -1025,6 +1105,8 @@ document.addEventListener("DOMContentLoaded", () => {
       fmRCOkBtn.onclick = function() {
         fmRCDlg.hidden = true;
         fRes.splice(0, fRes.length);
+        _fmClearPersist('left');
+        _fmClearPersist('right');
         _fmPrevRefVal = fmEls.refSelect.value;
       };
       fmRCCancelBtn.onclick = function() {
@@ -1044,4 +1126,5 @@ document.addEventListener("DOMContentLoaded", () => {
   fmApplyLang();
 
   fmLoadModeFromSide();   // initialer Modus aus sideData lesen (Bauanleitung 02b/2)
+  fmRefreshResumeHint();
 });
