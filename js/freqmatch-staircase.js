@@ -14,6 +14,13 @@ const FM_RESIDUAL_OK   = 10;                   // Residuum für saubere Konverge
 const FM_STABLE_DELTA  = 2;                    // Residuums-Stabilität für noisy (cent)
 const FM_TRIAL_CAP     = 80;                   // Hard cap pro Track
 
+// Catch-Trial-Konstanten (Bauanleitung 02b/6)
+const FM_CATCH_PROBABILITY  = 0.10;   // Anteil Catch-Trials pro Track
+const FM_CATCH_MAGNITUDE    = 500;    // cent — Auslenkung in Catch
+const FM_NOT_PERC_MIN_CATCH = 6;      // mind. Catch-Trials für Klassifikation
+const FM_NOT_PERC_ERR_RATE  = 0.5;    // Catch-Fehlerrate für not-perceivable
+const FM_NOT_PERC_MIN_TRIAL = 30;     // mind. Trials für Klassifikation
+
 // --- Track-State erzeugen ---
 //
 // electrodeIdx: Elektroden-Index in nEl der variablen Seite
@@ -164,12 +171,21 @@ function fmComputeResidual(track) {
 // Schreibt status / match / residual auf den Track, wenn ein Endzustand
 // erreicht ist. Gibt den (ggf. aktualisierten) status zurück.
 //
-// HINWEIS: Die "not-perceivable"-Erkennung (Catch-basiert) wird in dieser
-// Anleitung NICHT komplett — sie kommt zusammen mit den Catch-Trials in
-// Bauanleitung 02b/6. Hier ist nur das Grundgerüst angelegt:
-// catchTotal/catchErrors werden geführt, aber nicht ausgewertet.
 function _fmCheckAndUpdateStatus(track) {
   if (track.status !== 'active') return track.status;
+
+  // --- "Nicht wahrnehmbar"-Check (Bauanleitung 02b/6) ---
+  if (track.catchTotal >= FM_NOT_PERC_MIN_CATCH
+      && track.trialCount >= FM_NOT_PERC_MIN_TRIAL
+      && track.reversals.length < FM_REVERSALS_REQ) {
+    const errRate = track.catchErrors / track.catchTotal;
+    if (errRate >= FM_NOT_PERC_ERR_RATE) {
+      track.status   = 'not-perceivable';
+      track.match    = null;
+      track.residual = null;
+      return track.status;
+    }
+  }
 
   // Saubere Konvergenz: ≥6 Umkehrungen, Schrittweite am Minimum,
   // Residuum klein.

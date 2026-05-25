@@ -25,6 +25,8 @@ let fmTracks           = {};
 let fmCurTrackId       = null;
 let fmCurFirstSide     = 'ref';
 let fmTrialStartTs     = 0;
+// Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
+let fmCurCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
 // --- Hilfsfunktionen ---
 function fmCents(refHz, hz) {
@@ -436,6 +438,17 @@ function fmNextAdaptiveTrial() {
   fmCurFirstSide     = (Math.random() < 0.5) ? 'ref' : 'var';
   fmAwaitingResponse = false;
 
+  // --- Catch-Entscheidung (Bauanleitung 02b/6) ---
+  if (Math.random() < FM_CATCH_PROBABILITY) {
+    const dir = (Math.random() < 0.5) ? +FM_CATCH_MAGNITUDE : -FM_CATCH_MAGNITUDE;
+    fmCurCatchInfo = {
+      direction:        dir,
+      expectedResponse: (dir > 0) ? 'var-higher' : 'var-lower'
+    };
+  } else {
+    fmCurCatchInfo = null;
+  }
+
   if (fmEls.pairLeft)  fmEls.pairLeft.textContent  = (typeof t === 'function' && t('fmTone1')) || 'Ton 1';
   if (fmEls.pairRight) fmEls.pairRight.textContent = (typeof t === 'function' && t('fmTone2')) || 'Ton 2';
   if (fmEls.pairFreq)  fmEls.pairFreq.textContent  = '';
@@ -444,7 +457,7 @@ function fmNextAdaptiveTrial() {
   fmDisableHeightButtons();
 
   const track = fmTracks[fmCurTrackId];
-  fmPlayAdaptiveTrial(track, fmCurFirstSide).then(function() {
+  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
     if (!fmAdaptiveActive) return;
     fmAwaitingResponse = true;
     fmEnableHeightButtons();
@@ -452,15 +465,20 @@ function fmNextAdaptiveTrial() {
   });
 }
 
-async function fmPlayAdaptiveTrial(track, firstSide) {
+async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
   if (fmIsPlay) {
     fmIsPlay = false;
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise(function(r) { setTimeout(r, 60); });
   }
 
-  const varHz = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
-  const refHz = varHz * Math.pow(2, track.currentOffset / 1200);
+  const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+  const refHz  = elFreq * Math.pow(2, track.currentOffset / 1200);
+  // normaler Trial: varHz = elFreq (CI-Elektrode statisch)
+  // Catch-Trial:    varHz = refHz * 2^(±500/1200) — ±500 cent von ref
+  const varHz  = catchInfo
+    ? refHz * Math.pow(2, catchInfo.direction / 1200)
+    : elFreq;
 
   const vol = fmGVol();
   const ms  = fmGDur();
@@ -510,10 +528,18 @@ function fmHandleHeight(userChoice) {
   const response = _fmConvertHeight(userChoice, fmCurFirstSide);
   const track    = fmTracks[fmCurTrackId];
 
-  fmApplyResponse(track, response, false, false, fmCurFirstSide);
+  const isCatch      = !!fmCurCatchInfo;
+  const catchCorrect = isCatch && (response === fmCurCatchInfo.expectedResponse);
+
+  fmApplyResponse(track, response, isCatch, catchCorrect, fmCurFirstSide);
+
+  // Catch-Info aufräumen (vor nächstem Trial)
+  fmCurCatchInfo = null;
 
   if (track.status === 'converged' || track.status === 'converged-noisy') {
     _fmWriteResult(track);
+  } else if (track.status === 'not-perceivable') {
+    _fmRemoveResult(track.electrodeIdx);
   }
 
   _fmPersist();
@@ -532,6 +558,13 @@ function _fmConvertHeight(userChoice, firstSide) {
   } else {
     return (userChoice === 'up') ? 'var-lower' : 'var-higher';
   }
+}
+
+function _fmRemoveResult(elIdx) {
+  const idx = fRes.findIndex(function(r) {
+    return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+  });
+  if (idx >= 0) fRes.splice(idx, 1);
 }
 
 function _fmWriteResult(track) {
@@ -564,7 +597,7 @@ function fmReplayCurrent() {
   const track = fmTracks[fmCurTrackId];
   fmDisableHeightButtons();
   fmAwaitingResponse = false;
-  fmPlayAdaptiveTrial(track, fmCurFirstSide).then(function() {
+  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
     if (!fmAdaptiveActive) return;
     fmAwaitingResponse = true;
     fmEnableHeightButtons();
