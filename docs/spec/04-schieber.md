@@ -118,3 +118,11 @@ beim App-Start ist „gestapelt".
 - `lvTabMode` und `lvTabVariant` werden in JSON und localStorage
   persistiert; beim Laden wird MCL-Verfügbarkeit geprüft und ggf.
   auf Modus A zurückgefallen.
+- **Hinweis bei Frequenz-Warping:** Wenn im Player das Frequenz-Warping
+  aktiv ist und die Kurven-Anzeige (`lvTabShowCurves`) eingeschaltet
+  ist, erscheint unter dem Canvas der dezente graue Hinweis:
+  „Frequenz-Warping aktiv — die eingeblendeten Kurven verschieben sich
+  pro Elektrode geringfügig." Die x-Achse des Schieber-Tabs ist
+  elektrodennummern-basiert und folgt dem Warp nicht — der Hinweis
+  bezieht sich ausschließlich auf die numerische Verschiebung der
+  orangefarbenen Kurven-Anteile im Stack.

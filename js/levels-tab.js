@@ -30,6 +30,15 @@ function lvTabNavigableEl() {
   return base;
 }
 
+function lvTabUpdateWarpHint() {
+  const el = document.getElementById("lvTabWarpHint");
+  if (!el) return;
+  const warpActive = (typeof pWarpOn !== "undefined") && pWarpOn === true;
+  const curvesShown = (typeof lvTabShowCurves !== "undefined")
+    && lvTabShowCurves === true;
+  el.style.display = (warpActive && curvesShown) ? "" : "none";
+}
+
 function lvTabRebuild() {
   lvTabUpdateModeAvailability();
   const meas = document.getElementById("lvTabChkMeas");
@@ -39,6 +48,7 @@ function lvTabRebuild() {
   const nav = lvTabNavigableEl();
   if (nav.length && !nav.includes(lvTabFocus)) lvTabFocus = nav[0];
   lvTabDraw();
+  lvTabUpdateWarpHint();
 }
 
 function lvTabDraw() {
@@ -632,6 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lvTabChkCurves")?.addEventListener("change", function () {
     lvTabShowCurves = this.checked;
     lvTabDraw();
+    lvTabUpdateWarpHint();
   });
   document.getElementById("lvTabResetBtn")?.addEventListener("click", lvTabResetAll);
   window.addEventListener("resize", () => {

@@ -438,6 +438,9 @@ Object.assign(L.de, {
     lvTabElLabel: "Elektrode",
     lvTabVlLabel: "Wert",
     lvTabKeyHint: "Tipp: Pfeiltasten links/rechts wechseln die Elektrode, hoch/runter ändern den Wert. Mit Shift kleinerer Schritt.",
+    lvTabWarpHint:
+      "Frequenz-Warping aktiv — die eingeblendeten Kurven verschieben " +
+      "sich pro Elektrode geringfügig.",
     lvTabModeLabel: "Modus:",
     lvTabModeRelative: "relativ (dB)",
     lvTabModeAbsolute: "absolut (qu/CL/CU)",

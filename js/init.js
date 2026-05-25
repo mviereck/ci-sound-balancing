@@ -423,6 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
+      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       return;
     }
     // Sonst (Vocoder/Bandshift ein oder beliebig aus): Pfadwechsel an aktueller
@@ -437,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
     if (typeof pDrawEQ === "function") pDrawEQ();
+    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
   // Verfahren-Dropdown
   document.getElementById("plWarpMethod").addEventListener("change", function () {
@@ -490,6 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
     if (typeof pDrawEQ === "function") pDrawEQ();
+    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
   // Stärke-Eingabe
   document.getElementById("plWarpStr").addEventListener("change", function () {
@@ -500,6 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
     if (typeof drawLvChart === "function") drawLvChart();
     if (typeof pDrawEQ === "function") pDrawEQ();
+    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
   // Stärke-Buttons
   document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
@@ -511,6 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
+      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
     })
   );
   // Neu-berechnen-Button
@@ -717,6 +722,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
+      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter
@@ -860,4 +866,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // localStorage nicht verfügbar oder gespeicherter Tab existiert nicht
     // mehr — still durchfallen, Default-Tab bleibt aktiv.
   }
+  if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
 });
