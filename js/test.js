@@ -915,6 +915,10 @@ function showCurPair() {
       curBase = 0;
     }
     _testRstSlR();
+    const absBase = Math.abs(curBase);
+    while (absBase > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
+      testSlRangeIdx++;
+    }
     testEls.slider.value = "0";
     if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
     _testUpdCumulative(0);
@@ -1125,6 +1129,10 @@ function playManPair() {
     const ex = bRes.find((r) => (r.a === pa && r.b === pb) || (r.a === pb && r.b === pa));
     curBase = ex ? (ex.a === pa ? ex.offset : -ex.offset) : 0;
     _testRstSlR();
+    const absBaseM = Math.abs(curBase);
+    while (absBaseM > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
+      testSlRangeIdx++;
+    }
     testEls.slider.value = "0";
     if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
     _testUpdCumulative(0);

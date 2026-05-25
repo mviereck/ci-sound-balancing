@@ -326,6 +326,10 @@ function fmLoadElectrode() {
   fmCurrentEl = fmSeq[fmSeqIdx];
   fmCentOffset = fmPrevCent(fmCurrentEl);
   fmSlRangeIdx = 0;
+  const absEx = Math.abs(fmCentOffset);
+  while (absEx > FM_SLIDER_RANGES[fmSlRangeIdx] && fmSlRangeIdx < FM_SLIDER_RANGES.length - 1) {
+    fmSlRangeIdx++;
+  }
   fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
   if (fmEls && fmEls.confRadios && fmEls.confRadios.none) {
