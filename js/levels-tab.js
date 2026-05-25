@@ -60,6 +60,19 @@ function lvTabDraw() {
   }
 }
 
+// Gleichmäßige x-Verteilung der Elektroden über die Plot-Breite
+// (elektrodennummern-basiert). Ersetzt buildCentAxis im Schieber-Tab:
+// hier soll die x-Achse keinerlei Frequenzbezug haben, weil der
+// Schieber nur dB-Korrekturen pro Elektrode verändert.
+function _lvTabBuildAxis(electrodes, padLeft, plotW) {
+  const n = electrodes.length;
+  if (n === 0) return { tX: () => padLeft, minDx: 0 };
+  if (n === 1) return { tX: () => padLeft + plotW / 2, minDx: plotW };
+  const dx = plotW / n;
+  const tX = (j) => padLeft + dx * (j + 0.5);
+  return { tX: tX, minDx: dx };
+}
+
 // ---------- Modus A: relativ (±dB) ----------
 
 function lvTabDrawRelative(ctx, W, H) {
@@ -81,12 +94,12 @@ function lvTabDrawRelative(ctx, W, H) {
   });
 
   const padTop = 56;
-  const padBot = 56;
+  const padBot = 36;
   const padL = 28, padR = 14;
   const plotW = W - padL - padR;
   const plotH = H - padTop - padBot;
   const zeroY = padTop + plotH / 2;
-  const axis = buildCentAxis(all, padL, plotW);
+  const axis = _lvTabBuildAxis(all, padL, plotW);
   cols.forEach((c, idx) => { c.xMid = axis.tX(idx); c._axisIdx = idx; });
   const barW = Math.max(8, Math.min(40, (axis.minDx || 24) * 0.6));
   const yPerDb = plotH / (2 * LV_TAB_RANGE);
@@ -124,13 +137,12 @@ function lvTabDrawRelative(ctx, W, H) {
       lvTabDrawSumBarRelative(ctx, xMid, barW, zeroY, yPerDb, col);
     }
     lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col);
-    lvTabDrawLabelsRelative(ctx, xMid, padTop, H, padBot, col, axis);
+    lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col);
   });
 
   if (lvTabVariant === "lines") {
     lvTabDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols);
   }
-  _lvTabSetAxisHits(ctx.canvas, cols, axis, H, padBot);
 }
 
 // ---------- Modus B: absolut (qu/CL/CU) ----------
@@ -183,11 +195,11 @@ function lvTabDrawAbsolute(ctx, W, H) {
   });
 
   const padTop = 56;
-  const padBot = 56;
+  const padBot = 36;
   const padL = 36, padR = 14;
   const plotW = W - padL - padR;
   const plotH = H - padTop - padBot;
-  const axis = buildCentAxis(all, padL, plotW);
+  const axis = _lvTabBuildAxis(all, padL, plotW);
   cols.forEach((c, idx) => { c.xMid = axis.tX(idx); c._axisIdx = idx; });
   const barW = Math.max(8, Math.min(40, (axis.minDx || 24) * 0.6));
   const yPerUnit = plotH / yMax;
@@ -282,13 +294,12 @@ function lvTabDrawAbsolute(ctx, W, H) {
     const dbTxt = "(" + (col.sumDb >= 0 ? "+" : "") + col.sumDb.toFixed(1) + " dB)";
     ctx.fillText(dbTxt, xMid, padTop - 12);
     // Beschriftung unten
-    lvTabDrawLabelsRelative(ctx, xMid, padTop, H, padBot, col, axis);
+    lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col);
   });
 
   if (lvTabVariant === "lines") {
     lvTabDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols);
   }
-  _lvTabSetAxisHits(ctx.canvas, cols, axis, H, padBot);
 }
 
 // ---------- Helper-Zeichenfunktionen ----------
@@ -308,10 +319,6 @@ function lvTabDrawExcludedColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   ctx.fillStyle = "#9ca3af";
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.fillText(dENPrefix() + dEN(i), xMid, H - padBot + 14);
-  ctx.font = "9px Consolas,monospace";
-  const f = effFreq(i);
-  const fTxt = f >= 1000 ? (f / 1000).toFixed(1) + "k" : Math.round(f);
-  ctx.fillText(fTxt, xMid, H - padBot + 28);
 }
 
 function lvTabDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
@@ -325,10 +332,6 @@ function lvTabDrawNoMclColumn(ctx, xMid, barW, padTop, plotH, H, padBot, i) {
   ctx.textAlign = "center";
   ctx.fillText("—", xMid, padTop + plotH / 2);
   ctx.fillText(dENPrefix() + dEN(i), xMid, H - padBot + 14);
-  const f = effFreq(i);
-  ctx.font = "9px Consolas,monospace";
-  const fTxt = f >= 1000 ? (f / 1000).toFixed(1) + "k" : Math.round(f);
-  ctx.fillText(fTxt, xMid, H - padBot + 28);
 }
 
 function lvTabDrawStackRelative(ctx, xMid, barW, zeroY, yPerDb, col) {
@@ -439,21 +442,11 @@ function lvTabDrawFocusAndSum(ctx, xMid, barW, padTop, plotH, zeroY, yPerDb, col
   }
 }
 
-function lvTabDrawLabelsRelative(ctx, xMid, padTop, H, padBot, col, axis) {
-  const j = col._axisIdx;
-  const hz = axis.hzArr[j];
+function lvTabDrawLabelsRelative(ctx, xMid, H, padBot, col) {
   ctx.fillStyle = "#333";
   ctx.font = "10px Segoe UI,sans-serif";
   ctx.textAlign = "center";
   ctx.fillText(dENPrefix() + dEN(col.i), xMid, H - padBot + 14);
-  ctx.fillStyle = "#888";
-  ctx.font = "9px Consolas,monospace";
-  const fTxt = hz >= 1000 ? (hz / 1000).toFixed(1) + "k" : Math.round(hz);
-  ctx.fillText(fTxt, xMid, H - padBot + 26);
-  if (j % axis.step === 0 || j === 0 || j === axis.hzArr.length - 1) {
-    const c = Math.round(axis.centArr[j]);
-    ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", xMid, H - padBot + 38);
-  }
 }
 
 function lvTabDrawCompareLinesRelative(ctx, zeroY, yPerDb, cols) {
@@ -499,21 +492,6 @@ function lvTabDrawCompareLinesAbsolute(ctx, baseY, yPerUnit, cols) {
   drawLine("mclSch", "#16a34a");
   if (lvTabShowMeas) drawLine("mesMclAbs", "#2563eb");
   if (lvTabShowCurves) drawLine("curMclAbs", "#d97706");
-}
-
-function _lvTabSetAxisHits(cv, cols, axis, H, padBot) {
-  cv._axisHits = [];
-  const halfDx = Math.max(8, (axis.minDx || 24) / 2);
-  cols.forEach((col, idx) => {
-    cv._axisHits.push({
-      x0: col.xMid - halfDx, x1: col.xMid + halfDx,
-      y0: H - padBot + 2, y1: H - padBot + 42,
-      label: dENPrefix() + dEN(col.i),
-      hz: axis.hzArr[idx],
-      cent: axis.centArr[idx],
-    });
-  });
-  _attachAxisTooltip(cv);
 }
 
 // ---------- Verfügbarkeit Absolutmodus ----------

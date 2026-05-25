@@ -4,6 +4,11 @@ Panel-Überschrift (i18n-Key `lvTabTitle`) lautet
 „Schieber: Manuelle Einzeljustierung von Elektroden" (in der Tab-
 Leiste oben weiterhin kurz „Schieber").
 
+Die x-Achse ist rein elektrodennummern-basiert (gleichmäßige Verteilung
+über die Plot-Breite). Frequenzbezug (Hz, Cent) wird in diesem Tab nicht
+angezeigt — der Schieber verändert ausschließlich dB-Korrekturen pro
+Elektrode.
+
 Bedienleiste oberhalb des Canvas, **dreizeilig**:
 
 - Zeile 1: **Modus** (relativ / absolut) · **Anzeige** (nur Summe /
