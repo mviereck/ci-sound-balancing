@@ -407,13 +407,43 @@ canvas {
   font-size: 1.2em;
 }
 
-/* Adaptiver Frequenzabgleich — Status-Übersicht (Bauanleitung 02b/1) */
+/* Adaptiver Frequenzabgleich — Status-Grid (Bauanleitung 02b/4) */
 .fm-status-grid {
+  display: grid;
+  grid-template-columns: minmax(60px, 1.2fr) 40px minmax(70px, 1fr) minmax(70px, 1fr) 60px 60px;
+  gap: 0;
   margin: 12px 0;
-  padding: 8px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  font-size: 0.9em;
+  overflow: hidden;
+  font-size: 0.88em;
+}
+.fm-status-row {
+  display: contents;
+}
+.fm-status-row > .fm-status-cell {
+  padding: 4px 8px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  background: var(--bg);
+}
+.fm-status-row.fm-status-head > .fm-status-cell {
+  background: #f0f0f0;
+  font-weight: bold;
+  border-top: none;
+}
+.fm-status-row.fm-status-current > .fm-status-cell {
+  background: #ffeaa7;
+}
+.fm-status-row.fm-status-converged > .fm-status-cell {
+  background: #d4edda;
+}
+.fm-status-row.fm-status-converged-noisy > .fm-status-cell {
+  background: #fff3cd;
+}
+.fm-status-row.fm-status-not-perceivable > .fm-status-cell {
+  background: #f8d7da;
+  color: var(--text-muted);
 }
 
 .warning-bar {

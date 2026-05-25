@@ -18,6 +18,14 @@ let fmFirstSide = "ref";
 let fmIsPlay = false;
 let fmPlayTO = null;
 
+// Adaptiver Modus (Bauanleitung 02b/4)
+let fmAdaptiveActive   = false;
+let fmAwaitingResponse = false;
+let fmTracks           = {};
+let fmCurTrackId       = null;
+let fmCurFirstSide     = 'ref';
+let fmTrialStartTs     = 0;
+
 // --- Hilfsfunktionen ---
 function fmCents(refHz, hz) {
   return 1200 * Math.log2(hz / refHz);
@@ -298,20 +306,292 @@ async function fmPlaySimul() {
   isPlay = false;
 }
 
-// --- Adaptiver Modus (Bauanleitung 02b/2: Stub, voller Build in 02b/3+) ---
-function fmStartAdaptive() {
-  console.log('[freqmatch] fmStartAdaptive() — Implementierung kommt mit Bauanleitung 02b/3 und 02b/4');
-  const msg = (typeof t === 'function' && t('fmAdaptiveNotImpl'))
-    || 'Adaptiver Modus noch nicht implementiert. Wird mit den nächsten Bauanleitungen geliefert.';
-  alert(msg);
+// --- Adaptiver Modus (Bauanleitung 02b/4) ---
+
+function fmEnableHeightButtons() {
+  if (fmEls && fmEls.hjHigher) fmEls.hjHigher.disabled = false;
+  if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = false;
+}
+function fmDisableHeightButtons() {
+  if (fmEls && fmEls.hjHigher) fmEls.hjHigher.disabled = true;
+  if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = true;
 }
 
-function fmHandleHeight(dir) {
-  console.log('[freqmatch] fmHandleHeight', dir, '— Stub');
+function fmStartAdaptive() {
+  if (!fmEls) return;
+  fmRefSide = fmEls.refSelect.value;
+  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+
+  const elIdxList = fmBuildSeq();
+  if (elIdxList.length === 0) {
+    alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+    return;
+  }
+
+  fmTracks = {};
+  elIdxList.forEach(function(idx) {
+    const prev = fmPrevCent(idx);
+    const prevOrNull = (prev !== 0) ? prev : null;
+    fmTracks[idx] = fmCreateTrack(idx, prevOrNull);
+  });
+
+  fmRunning           = true;
+  fmAdaptiveActive    = true;
+  fmAwaitingResponse  = false;
+  fmCurTrackId        = null;
+
+  updateTabLockState();
+  fmEls.lockedHint.hidden = false;
+  fmEls.testBox.hidden    = false;
+  fmEls.startBtn.disabled = true;
+  fmEls.stopBtn.disabled  = false;
+  if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
+
+  fmRenderStatusGrid();
+  fmNextAdaptiveTrial();
+}
+
+function fmNextAdaptiveTrial() {
+  if (!fmAdaptiveActive) return;
+
+  fmCurTrackId = fmPickNextTrack(fmTracks);
+  if (fmCurTrackId === null) {
+    fmFinishAdaptive();
+    return;
+  }
+
+  fmCurFirstSide     = (Math.random() < 0.5) ? 'ref' : 'var';
+  fmAwaitingResponse = false;
+
+  if (fmEls.pairLeft)  fmEls.pairLeft.textContent  = (typeof t === 'function' && t('fmTone1')) || 'Ton 1';
+  if (fmEls.pairRight) fmEls.pairRight.textContent = (typeof t === 'function' && t('fmTone2')) || 'Ton 2';
+  if (fmEls.pairFreq)  fmEls.pairFreq.textContent  = '';
+
+  fmUpdateAdaptiveProgress();
+  fmDisableHeightButtons();
+
+  const track = fmTracks[fmCurTrackId];
+  fmPlayAdaptiveTrial(track, fmCurFirstSide).then(function() {
+    if (!fmAdaptiveActive) return;
+    fmAwaitingResponse = true;
+    fmEnableHeightButtons();
+    fmTrialStartTs = Date.now();
+  });
+}
+
+async function fmPlayAdaptiveTrial(track, firstSide) {
+  if (fmIsPlay) {
+    fmIsPlay = false;
+    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+    await new Promise(function(r) { setTimeout(r, 60); });
+  }
+
+  const varHz = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+  const refHz = varHz * Math.pow(2, track.currentOffset / 1200);
+
+  const vol = fmGVol();
+  const ms  = fmGDur();
+  const pau = fmGPau();
+
+  const balG = (typeof getRawBalanceGains === 'function')
+    ? getRawBalanceGains() : { left: 0, right: 0 };
+
+  const c = gAC();
+
+  function playOne(side, hz) {
+    const pan    = (side === 'left') ? -1 : 1;
+    const corr   = fmCorrGain(side, hz);
+    const balDb  = (side === 'left') ? balG.left : balG.right;
+    const effVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
+    return playToneTyped(c, hz, effVol, ms, pan, globalToneType);
+  }
+
+  fmIsPlay = true;
+  isPlay   = true;
+
+  if (firstSide === 'ref') {
+    await playOne(fmRefSide, refHz);
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    await playOne(fmVarSide, varHz);
+  } else {
+    await playOne(fmVarSide, varHz);
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    await playOne(fmRefSide, refHz);
+  }
+
+  fmIsPlay = false;
+  isPlay   = false;
+}
+
+// userChoice: 'up' | 'down' — was der User über höher/tiefer-Buttons
+//             oder ↑/↓-Tasten gewählt hat (bezogen auf den zweiten Ton)
+function fmHandleHeight(userChoice) {
+  if (!fmAdaptiveActive || !fmAwaitingResponse) return;
+  fmAwaitingResponse = false;
+  fmDisableHeightButtons();
+
+  const response = _fmConvertHeight(userChoice, fmCurFirstSide);
+  const track    = fmTracks[fmCurTrackId];
+
+  fmApplyResponse(track, response, false, false, fmCurFirstSide);
+
+  if (track.status === 'converged' || track.status === 'converged-noisy') {
+    _fmWriteResult(track);
+  }
+
+  fmRenderStatusGrid();
+
+  setTimeout(function() {
+    if (fmAdaptiveActive) fmNextAdaptiveTrial();
+  }, 200);
+}
+
+// firstSide='ref': Ton2=var. 'up'→var-higher, 'down'→var-lower
+// firstSide='var': Ton2=ref. 'up'→var-lower,  'down'→var-higher
+function _fmConvertHeight(userChoice, firstSide) {
+  if (firstSide === 'ref') {
+    return (userChoice === 'up') ? 'var-higher' : 'var-lower';
+  } else {
+    return (userChoice === 'up') ? 'var-lower' : 'var-higher';
+  }
+}
+
+function _fmWriteResult(track) {
+  const elIdx = track.electrodeIdx;
+  const varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
+  const refHz = (track.match != null)
+    ? varHz * Math.pow(2, track.match / 1200)
+    : varHz;
+
+  const existingIdx = fRes.findIndex(function(r) {
+    return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+  });
+  const entry = {
+    varSide:    fmVarSide,
+    refSide:    fmRefSide,
+    elIdx:      elIdx,
+    varFreq:    varHz,
+    refFreq:    refHz,
+    timestamp:  Date.now(),
+    fmStatus:   track.status,
+    fmResidual: track.residual
+  };
+  if (existingIdx >= 0) fRes[existingIdx] = entry;
+  else                  fRes.push(entry);
 }
 
 function fmReplayCurrent() {
-  console.log('[freqmatch] fmReplayCurrent — Stub');
+  if (!fmAdaptiveActive) return;
+  if (fmCurTrackId === null) return;
+  const track = fmTracks[fmCurTrackId];
+  fmDisableHeightButtons();
+  fmAwaitingResponse = false;
+  fmPlayAdaptiveTrial(track, fmCurFirstSide).then(function() {
+    if (!fmAdaptiveActive) return;
+    fmAwaitingResponse = true;
+    fmEnableHeightButtons();
+  });
+}
+
+function fmFinishAdaptive() {
+  fmAdaptiveActive   = false;
+  fmAwaitingResponse = false;
+  fmIsPlay           = false;
+  fmRunning          = false;
+  fmCurTrackId       = null;
+  updateTabLockState();
+  if (fmEls) {
+    fmEls.testBox.hidden    = true;
+    fmEls.lockedHint.hidden = true;
+    fmEls.startBtn.disabled = false;
+    fmEls.stopBtn.disabled  = true;
+    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
+  }
+  if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
+}
+
+function fmRenderStatusGrid() {
+  if (!fmEls || !fmEls.statusGrid) return;
+  const grid = fmEls.statusGrid;
+  grid.innerHTML = '';
+
+  const head = _mkEl('div', 'fm-status-row fm-status-head');
+  ['fmGridEl', 'fmGridStatus', 'fmGridMatch', 'fmGridResid', 'fmGridTrials', 'fmGridCatch']
+    .forEach(function(key) {
+      const c = _mkEl('div', 'fm-status-cell');
+      c.dataset.t = key;
+      head.appendChild(c);
+    });
+  grid.appendChild(head);
+
+  const ids = Object.keys(fmTracks).map(function(k) { return parseInt(k, 10); });
+  ids.sort(function(a, b) {
+    const fa = withSide(fmVarSide, function() { return effFreq(a); });
+    const fb = withSide(fmVarSide, function() { return effFreq(b); });
+    return fa - fb;
+  });
+
+  ids.forEach(function(idx) {
+    const track = fmTracks[idx];
+    const row = _mkEl('div', 'fm-status-row fm-status-' + track.status);
+    if (idx === fmCurTrackId) row.classList.add('fm-status-current');
+
+    const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(idx); });
+    row.appendChild(_mkCell(elName));
+
+    const iconMap = {
+      'active':          '⏳',
+      'converged':       '✓',
+      'converged-noisy': '◐',
+      'not-perceivable': '✗'
+    };
+    row.appendChild(_mkCell(iconMap[track.status] || '?'));
+
+    let matchTxt = '—';
+    if (track.match != null) {
+      const sign = track.match >= 0 ? '+' : '';
+      matchTxt = sign + Math.round(track.match) + ' ct';
+    }
+    row.appendChild(_mkCell(matchTxt));
+
+    let residTxt = '—';
+    if (track.residual != null) {
+      residTxt = '±' + Math.round(track.residual) + ' ct';
+    }
+    row.appendChild(_mkCell(residTxt));
+
+    row.appendChild(_mkCell(String(track.trialCount)));
+    row.appendChild(_mkCell(track.catchErrors + '/' + track.catchTotal));
+
+    grid.appendChild(row);
+  });
+
+  // i18n manuell anwenden (applyLang hat keinen root-Parameter)
+  if (typeof t === 'function') {
+    grid.querySelectorAll('[data-t]').forEach(function(el) {
+      const v = t(el.dataset.t);
+      if (v && v !== el.dataset.t) el.textContent = v;
+    });
+  }
+}
+
+function _mkCell(text) {
+  const c = _mkEl('div', 'fm-status-cell');
+  c.textContent = text;
+  return c;
+}
+
+function fmUpdateAdaptiveProgress() {
+  if (!fmEls || !fmEls.progressText || !fmEls.progressFill) return;
+  const ids  = Object.keys(fmTracks);
+  const done = ids.filter(function(k) { return fmTracks[k].status !== 'active'; }).length;
+  const totalTrials = ids.reduce(function(s, k) { return s + fmTracks[k].trialCount; }, 0);
+  fmEls.progressText.textContent = done + ' / ' + ids.length + ' (' + totalTrials + ' trials)';
+  fmEls.progressFill.style.width = (ids.length > 0 ? (done / ids.length * 100) : 0) + '%';
 }
 
 // --- Testablauf ---
@@ -405,6 +685,23 @@ function fmSkip() {
 }
 
 function fmAbort() {
+  if (fmAdaptiveActive) {
+    fmAdaptiveActive   = false;
+    fmAwaitingResponse = false;
+    fmIsPlay           = false;
+    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+    fmRunning          = false;
+    fmCurTrackId       = null;
+    updateTabLockState();
+    if (fmEls) {
+      fmEls.testBox.hidden    = true;
+      fmEls.lockedHint.hidden = true;
+      fmEls.startBtn.disabled = false;
+      fmEls.stopBtn.disabled  = true;
+      if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
+    }
+    return;
+  }
   fmIsPlay = false;
   if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
   fmRunning = false;
