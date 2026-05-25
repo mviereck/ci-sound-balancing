@@ -176,6 +176,14 @@ Slider-Wert wird invertiert.
   wie bei CI-Seiten, weil die Messung dort Pseudo-Elektroden
   verwendet.
 
+- **Modus-Schalter** (Bauanleitung 02b/2): Ein zweiter Mess-Modus
+  (adaptiv, 2I-2AFC) ist in `docs/spec/02b-freqmatch-adaptiv.md`
+  beschrieben und wird über den Modus-Schalter im Sub-Tab gewählt.
+  Default ist der adaptive Modus. Im adaptiven Modus werden Slider,
+  Übernehmen-Button, Confidence-Radios und Tonfolge-Dropdown
+  ausgeblendet; stattdessen erscheinen Höher/Tiefer-Buttons und das
+  Status-Grid. Im Slider-Modus bleibt das bisherige Verhalten erhalten.
+
 ### Sub-Tab 4 — Latenz (latency.js)
 
 - Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Fein-Toggle per Touch-Bedienleiste). Auf Desktop zusätzlich Ctrl+Pfeil = 10 ms wie bisher.

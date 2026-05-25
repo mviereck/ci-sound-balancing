@@ -105,16 +105,19 @@ function buildTestPanel(parentEl, cfg) {
     });
     if (rm.hideModeControl) cgMode.style.display = 'none';
     cgMode.append(lblMode, modeSelect);
-    var cgRun = _mkEl('div', 'control-group');
-    var lblRun = _mkEl('label'); lblRun.dataset.t = rm.runKey;
-    runSelect = _mkEl('select');
-    (rm.runOptions || []).forEach(function(pair) {
-      var opt = new Option('', pair[0]);
-      opt.dataset.t = pair[1];
-      runSelect.appendChild(opt);
-    });
-    cgRun.append(lblRun, runSelect);
-    rowMode.append(cgMode, cgRun);
+    rowMode.appendChild(cgMode);
+    if (rm.runOptions && rm.runOptions.length) {
+      var cgRun = _mkEl('div', 'control-group');
+      var lblRun = _mkEl('label'); lblRun.dataset.t = rm.runKey;
+      runSelect = _mkEl('select');
+      rm.runOptions.forEach(function(pair) {
+        var opt = new Option('', pair[0]);
+        opt.dataset.t = pair[1];
+        runSelect.appendChild(opt);
+      });
+      cgRun.append(lblRun, runSelect);
+      rowMode.appendChild(cgRun);
+    }
     presetsBox.appendChild(rowMode);
   }
 

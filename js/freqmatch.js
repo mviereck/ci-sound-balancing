@@ -7,6 +7,7 @@ let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
 let fmVarSide = "right";
+let fmMode = 'adaptive';   // 'slider' | 'adaptive', Bauanleitung 02b/2
 let fmSeq = [];
 let fmSeqIdx = 0;
 let fmCurrentEl = null;
@@ -297,11 +298,34 @@ async function fmPlaySimul() {
   isPlay = false;
 }
 
+// --- Adaptiver Modus (Bauanleitung 02b/2: Stub, voller Build in 02b/3+) ---
+function fmStartAdaptive() {
+  console.log('[freqmatch] fmStartAdaptive() — Implementierung kommt mit Bauanleitung 02b/3 und 02b/4');
+  const msg = (typeof t === 'function' && t('fmAdaptiveNotImpl'))
+    || 'Adaptiver Modus noch nicht implementiert. Wird mit den nächsten Bauanleitungen geliefert.';
+  alert(msg);
+}
+
+function fmHandleHeight(dir) {
+  console.log('[freqmatch] fmHandleHeight', dir, '— Stub');
+}
+
+function fmReplayCurrent() {
+  console.log('[freqmatch] fmReplayCurrent — Stub');
+}
+
 // --- Testablauf ---
 function fmStart() {
   if (!fmEls) return;
   fmRefSide = fmEls.refSelect.value;
   fmVarSide = fmRefSide === "left" ? "right" : "left";
+
+  // Modus-Dispatch (Bauanleitung 02b/2)
+  if (fmMode === 'adaptive') {
+    fmStartAdaptive();
+    return;
+  }
+
   fmSeq = fmBuildSeq();
   if (fmSeq.length === 0) {
     alert((typeof t === 'function' && t("fmNoActiveEl")) || "Keine aktiven Elektroden auf der variablen Seite.");
@@ -315,6 +339,7 @@ function fmStart() {
   fmEls.testBox.hidden = false;
   fmEls.startBtn.disabled = true;
   fmEls.stopBtn.disabled = false;
+  if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
   fmLoadElectrode();
 }
 
@@ -390,6 +415,7 @@ function fmAbort() {
     fmEls.lockedHint.hidden = true;
     fmEls.startBtn.disabled = false;
     fmEls.stopBtn.disabled = true;
+    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
 }
 
@@ -403,6 +429,7 @@ function fmFinish() {
     fmEls.lockedHint.hidden = true;
     fmEls.startBtn.disabled = false;
     fmEls.stopBtn.disabled = true;
+    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
 }
@@ -442,6 +469,25 @@ function fmHandleKey(e) {
   if (activeEl && fmEls && activeEl !== fmEls.slider &&
       (activeEl.tagName === "INPUT" || activeEl.tagName === "SELECT" || activeEl.tagName === "TEXTAREA")) return;
 
+  if (fmMode === 'adaptive') {
+    // Adaptiv-Tasten (Bauanleitung 02b/2: Stubs, vollständig verdrahtet in 02b/4)
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      fmHandleHeight('up');
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      fmHandleHeight('down');
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      fmReplayCurrent();
+    } else if (e.key === 'Escape') {
+      e.preventDefault();
+      fmAbort();
+    }
+    return;
+  }
+
+  // Slider-Tasten (bestehend, unverändert)
   if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
     const dir = e.key === "ArrowRight" ? 1 : -1;
     const step = e.shiftKey ? dir * 1 : dir * 5;
@@ -481,6 +527,78 @@ function fmApplyLang() {
   }
 }
 
+// --- Modus-Switch (Bauanleitung 02b/2) ---
+function fmApplyMode() {
+  if (!fmEls) return;
+
+  const isSlider = (fmMode === 'slider');
+  if (fmEls.slider)            fmEls.slider.hidden            = !isSlider;
+  if (fmEls.extendBtn)         fmEls.extendBtn.hidden         = !isSlider || fmEls.extendBtn.hidden;
+  if (fmEls.sliderValue)       fmEls.sliderValue.hidden       = !isSlider;
+  if (fmEls.confirmBtn)        fmEls.confirmBtn.hidden        = !isSlider;
+  if (fmEls.keyHintBox)        fmEls.keyHintBox.hidden        = !isSlider;
+  const confRow = fmEls.testBox.querySelector('.confidence-row');
+  const confLbl = fmEls.testBox.querySelector('.conf-quality-label');
+  if (confRow) confRow.hidden = !isSlider;
+  if (confLbl) confLbl.hidden = !isSlider;
+  if (fmEls.seqSelect && fmEls.seqSelect.parentElement) {
+    fmEls.seqSelect.parentElement.style.display = isSlider ? '' : 'none';
+  }
+
+  const isAdaptive = !isSlider;
+  if (fmEls.hjContainer) fmEls.hjContainer.hidden = !isAdaptive;
+  if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
+}
+
+let _fmDurStash_slider  = 1000;
+let _fmPauStash_slider  = 500;
+
+function fmSetMode(newMode, opts) {
+  opts = opts || {};
+  if (newMode !== 'slider' && newMode !== 'adaptive') return;
+  if (newMode === fmMode && !opts.force) return;
+  if (fmRunning) return;
+
+  if (fmEls && fmEls.durInput && fmEls.pauseInput) {
+    if (fmMode === 'slider') {
+      _fmDurStash_slider = parseInt(fmEls.durInput.value)   || 1000;
+      _fmPauStash_slider = parseInt(fmEls.pauseInput.value) || 500;
+    } else {
+      const varSd = sideData[fmVarSide] || sideData.left;
+      varSd.fmAdaptiveDur = parseInt(fmEls.durInput.value)   || 400;
+      varSd.fmAdaptivePau = parseInt(fmEls.pauseInput.value) || 400;
+    }
+  }
+
+  fmMode = newMode;
+
+  if (sideData[fmVarSide]) sideData[fmVarSide].fmMode = newMode;
+
+  if (fmEls && fmEls.durInput && fmEls.pauseInput) {
+    if (newMode === 'slider') {
+      fmEls.durInput.value   = _fmDurStash_slider;
+      fmEls.pauseInput.value = _fmPauStash_slider;
+    } else {
+      const varSd = sideData[fmVarSide] || sideData.left;
+      fmEls.durInput.value   = (varSd.fmAdaptiveDur != null) ? varSd.fmAdaptiveDur : 400;
+      fmEls.pauseInput.value = (varSd.fmAdaptivePau != null) ? varSd.fmAdaptivePau : 400;
+    }
+  }
+
+  fmApplyMode();
+  if (fmEls && fmEls.modeSelect) fmEls.modeSelect.value = newMode;
+}
+
+function fmLoadModeFromSide() {
+  const varSide = (fmEls && fmEls.refSelect)
+    ? (fmEls.refSelect.value === 'left' ? 'right' : 'left')
+    : 'right';
+  const sd = sideData[varSide] || {};
+  const wanted = (sd.fmMode === 'slider' || sd.fmMode === 'adaptive')
+    ? sd.fmMode : 'adaptive';
+  fmSetMode(wanted, { force: true });
+}
+
 // --- DOMContentLoaded ---
 document.addEventListener("DOMContentLoaded", () => {
   const parentEl = document.getElementById("subpanel-messungen-freqmatch");
@@ -497,7 +615,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ]
     },
     presets: {
-      rowMode:     { show: false },
+      rowMode: {
+        show: true,
+        modeKey: 'fmLblMode',
+        modeOptions: [
+          ['adaptive', 'fmModeAdaptive'],
+          ['slider',   'fmModeSlider']
+        ]
+        // kein runOptions → kein runSelect
+      },
       rowFine:     { show: true,
                      refSelect: { type: 'side', key: 'fmLblRef' } },
       rowVolume:   { show: true },
@@ -529,6 +655,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
+
+  // Modus-Switch (Bauanleitung 02b/2)
+  if (fmEls.modeSelect) {
+    fmEls.modeSelect.addEventListener('change', function() {
+      fmSetMode(fmEls.modeSelect.value);
+    });
+  }
 
   // Taube-Seite Hinweis dynamisch ins Erklärungs-Block einfügen
   const deafHint = _mkEl('p', 'explain explain-warn');
@@ -579,6 +712,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (fmEls.excludeLeftBtn)  fmEls.excludeLeftBtn.addEventListener('click', _fmRequestExcl);
   if (fmEls.excludeRightBtn) fmEls.excludeRightBtn.addEventListener('click', _fmRequestExcl);
 
+  // Adaptiv: Höher/Tiefer-Buttons (Bauanleitung 02b/2, Stubs)
+  if (fmEls.hjHigher) fmEls.hjHigher.addEventListener('click', () => fmHandleHeight('up'));
+  if (fmEls.hjLower)  fmEls.hjLower.addEventListener('click',  () => fmHandleHeight('down'));
+
+  // Beim Wechsel der Referenzseite auch Modus der NEUEN var-Seite laden (Bauanleitung 02b/2)
+  fmEls.refSelect.addEventListener('change', function() {
+    setTimeout(fmLoadModeFromSide, 0);
+  });
+
   // Event: Referenzohr-Wechsel (§6.10)
   let _fmPrevRefVal = fmEls.refSelect.value;
   fmEls.refSelect.addEventListener('change', function() {
@@ -603,4 +745,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Texte initial setzen
   fmApplyLang();
+
+  fmLoadModeFromSide();   // initialer Modus aus sideData lesen (Bauanleitung 02b/2)
 });

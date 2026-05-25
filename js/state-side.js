@@ -98,6 +98,9 @@ function initSideData(side, m) {
   s.refEl = Math.floor(s.nEl / 2);
   s.jRes = [];
   s.bRes = [];
+  s.fmMode = 'adaptive';
+  s.fmAdaptiveDur = 400;
+  s.fmAdaptivePau = 400;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -211,6 +214,9 @@ function loadSideData(side, d) {
       : Math.floor(s.nEl / 2);
   s.jRes = d.judgmentResults || [];
   s.bRes = d.balanceResults || [];
+  s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
+  s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 400;
+  s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 400;
   s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.presets = PR_TYPES.map((tp) => {
