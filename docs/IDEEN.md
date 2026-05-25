@@ -215,3 +215,103 @@ Tool-Doku ergänzen, der erklärt, daß die Kurve die *Wahrnehmung
 im Alltagsbetrieb* abbildet und damit eine natürliche Glättung
 durch CI-interne Mitanregung enthält — also keine reine
 „Einzel-Elektroden-Diagnose" ist. Erst bei Bedarf einbauen.
+
+---
+
+## MAPLAW-Filterbank an Implantat-Frequenzen statt MED-EL-Standard
+
+**Aufgenommen am**: 2026-05-25
+**Status**: konzeptionell besprochen, vertagt mangels akutem
+Bedarf.
+
+**Hintergrund**: Die MAPLAW-Simulation in `js/maplaw.js` arbeitet
+mit einer Filterbank aus 12 Biquad-Bandpässen, deren
+Mittenfrequenzen als Konstante `MAPLAW_FREQS` hartcodiert sind
+(`[120, 235, 384, 579, 836, 1175, 1624, 2222, 3019, 4084, 5507,
+7410]`). Diese entsprechen dem MED-EL-Standardraster. Trägt der
+User abweichende Implantat-Frequenzen (`elFreqOwn`) ein, läuft
+die Filterbank auf den falschen Mittenfrequenzen — bei Q=4
+äußert sich das in subtiler Unter-Korrektur einzelner Bänder
+(realistische Größenordnung: Bandbreite ~250 Hz bei 1 kHz, 50 Hz
+Versatz ≈ 20 % Bandbreiten-Fehler → wahrnehmbar, aber nicht
+dramatisch).
+
+**Konzept**: Filterbank-Frequenzen dynamisch aus dem
+Implantat-State (`effFreq(i)` bzw. `elFreqOwn[i]`) der aktiven
+Seite ableiten, statt Konstante. Bei Wechsel von Side oder
+Implantat-Eintrag neue Koeffizienten an den Worklet schicken
+(`postMessage` oder `AudioParam`-Bündel). Der Worklet-Code in
+`_MAPLAW_PROCESSOR_CODE` muß so umgebaut werden, daß die
+Filterkoeffizienten dynamisch berechenbar sind statt im
+Konstruktor einmalig.
+
+**Wichtig — Warp ist orthogonal**: Frequenz-Warping verändert
+die Filterbank-Frequenzen **nicht**. Die MAPLAW-Sim emuliert
+die CI-interne Verarbeitung, die auf den physisch festen
+Elektroden-Frequenzen sitzt. Das (vorab gewarpte) Audio läuft
+durch die statische Filterbank, die Hüllkurven entstehen
+automatisch auf den verschobenen Spektren — genau wie im echten
+CI.
+
+**Voraussetzung**: keine.
+
+**Aufwand-Einschätzung**: mittlerer Umbau. Der Worklet-Code muß
+Frequenzparameter empfangen können (heute hartcodiert in der
+`constructor`-Schleife). Hauptthread muß bei `setActiveSide`,
+`switchMfr` und Implantat-Eingaben den Worklet neu
+parametrisieren.
+
+**Bemerkung**: Solange der User MED-EL-Standardfrequenzen nutzt
+(üblicher Fall), bleibt das Verhalten identisch. Erst bei
+abweichenden FATs (z. B. user-spezifische Anpassung oder „Anderer
+Hersteller / Manuelle Angaben" aus dem Eintrag oben) wird der
+Umbau relevant. Daher: in dem Moment angehen, in dem entweder
+ein konkreter Nutzer-Bedarf entsteht oder der manuelle
+Hersteller-Slot gebaut wird.
+
+---
+
+## Zweiter Schieber-Tab: Frequenz-Warping pro Elektrode
+
+**Aufgenommen am**: 2026-05-25
+**Status**: konzeptionell skizziert, nicht gebaut.
+
+**Hintergrund**: Frequenz-Warping wird aktuell nur als globale
+Verschiebung aus den Frequenzabgleich-Daten abgeleitet
+(`buildWarpPoints` in `freq-warp.js`). Es gibt keine
+Möglichkeit, die Cent-Verschiebung pro Elektrode manuell
+einzustellen — etwa zum experimentellen Vergleich, zum
+Feinjustieren über die Freqmatch-Vorgabe hinaus oder als
+Alternative für Nutzer, die den Freqmatch-Test nicht
+durchgeführt haben.
+
+**Konzept**: Ein zweiter Schieber-Tab (Beschriftung etwa
+„Frequenz-Schieber"), analog zum bestehenden dB-Schieber, mit
+einem Schieber pro Elektrode für eine Cent-Verschiebung. Die
+Werte werden als weitere Warp-Punkt-Quelle in
+`buildWarpPoints` eingespeist und mit den
+Freqmatch-abgeleiteten Punkten kombiniert (Reihenfolge, ob
+ersetzend oder additiv, ist offen).
+
+**Offene Design-Fragen**:
+- Eigener Tab oder Modus-Umschalter im bestehenden Schieber-Tab?
+- Verhältnis zu den Freqmatch-Daten: ersetzen, additiv addieren,
+  XOR mit Wahl?
+- Wertebereich pro Elektrode (z. B. ±600 ¢) und Schrittweite.
+- Sollen die manuellen Werte ebenfalls als Stützpunkte in das
+  Warping eingehen, oder unabhängig?
+
+**Berührte Module** (grob):
+- neue Datei `js/freq-shift-tab.js` oder Erweiterung
+  `levels-tab.js`.
+- `state-side.js`: neuer State `elFreqShift` pro Seite,
+  Persistenz wie `manualLevels`.
+- `freq-warp.js`: `buildWarpPoints` um manuelle Stützpunkte
+  erweitern.
+- `file.js`: Save/Load.
+- `index.html` + Tab-Verdrahtung.
+
+**Bemerkung**: Erst sinnvoll, wenn Frequenz-Warping als Feature
+genug Nutzer-Feedback erfahren hat, daß ein manueller Override
+als spürbare Verbesserung erscheint. Bis dahin reicht die
+automatische Ableitung aus Freqmatch.
