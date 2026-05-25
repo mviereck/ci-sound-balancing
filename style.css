@@ -394,6 +394,28 @@ canvas {
   background: rgba(59, 130, 246, 0.18) !important;
   box-shadow: 0 0 10px rgba(59, 130, 246, 0.35);
 }
+
+/* Adaptiver Frequenzabgleich — Antwort-Buttons (Bauanleitung 02b/1) */
+.hj-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0;
+}
+.hj-up, .hj-down {
+  min-width: 140px;
+  font-size: 1.2em;
+}
+
+/* Adaptiver Frequenzabgleich — Status-Übersicht (Bauanleitung 02b/1) */
+.fm-status-grid {
+  margin: 12px 0;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
 .warning-bar {
   background: #fef3c7;
   color: var(--warning);

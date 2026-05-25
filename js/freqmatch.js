@@ -522,7 +522,9 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderValue:       true,
       cumulativeDisplay: { show: false },
       confirmButton:     { show: true, key: 'btnConfirmOffset' },
-      confidence:        { show: true }
+      confidence:        { show: true },
+      heightJudgment:    { show: true },   // Bauanleitung 02b/1
+      statusGrid:        { show: true }    // Bauanleitung 02b/1
     }
   };
 

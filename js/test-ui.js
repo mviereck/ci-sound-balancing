@@ -320,6 +320,15 @@ function buildTestPanel(parentEl, cfg) {
     testBox.appendChild(swapRow);
   }
 
+  // Status-Grid (Bauanleitung 02b/1, für adaptiven Frequenzabgleich)
+  // Befüllung zur Laufzeit durch freqmatch.js (Bauanleitung 02b/4)
+  var statusGrid = null;
+  if (cfg.test.statusGrid && cfg.test.statusGrid.show) {
+    statusGrid = _mkEl('div', 'fm-status-grid');
+    statusGrid.hidden = true;
+    testBox.appendChild(statusGrid);
+  }
+
   // Paar-Anzeige
   var pairIndicator = _mkEl('div', 'pair-indicator');
   var pairLeft = _mkEl('span', 'tone-label-left');
@@ -363,6 +372,25 @@ function buildTestPanel(parentEl, cfg) {
     actionRow.appendChild(btn);
   });
   testBox.appendChild(actionRow);
+
+  // Height-Judgment-Buttons (Bauanleitung 02b/1, für adaptiven Frequenzabgleich)
+  var hjContainer = null, hjHigher = null, hjLower = null;
+  if (cfg.test.heightJudgment && cfg.test.heightJudgment.show) {
+    hjContainer = _mkEl('div', 'hj-buttons');
+    hjContainer.hidden = true;
+    hjHigher = _mkEl('button', 'btn btn-large hj-up');
+    hjHigher.dataset.action = 'hj-up';
+    hjHigher.innerHTML =
+      '&uarr; <span data-t="bHigher"></span> ' +
+      '<span class="kbd">&uarr;</span>';
+    hjLower = _mkEl('button', 'btn btn-large hj-down');
+    hjLower.dataset.action = 'hj-down';
+    hjLower.innerHTML =
+      '&darr; <span data-t="bLower"></span> ' +
+      '<span class="kbd">&darr;</span>';
+    hjContainer.append(hjHigher, hjLower);
+    testBox.appendChild(hjContainer);
+  }
 
   // Judgment-Buttons (nur wenn modeOptions judgment enthält)
   var jdgContainer = null, jdgA = null, jdgEq = null, jdgB = null;
@@ -571,6 +599,9 @@ function buildTestPanel(parentEl, cfg) {
     sliderValue: sliderValue, cumulativeDisplay: cumulativeDisplay,
     lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel,
     confirmBtn: confirmBtn, confRadios: confRadios,
+    // Adaptiver Frequenzabgleich (Bauanleitung 02b/1)
+    hjContainer: hjContainer, hjHigher: hjHigher, hjLower: hjLower,
+    statusGrid: statusGrid,
     // excl modal
     exclConfirmBtn: exclConfirmBtn, exclCancelBtn: exclCancelBtn,
   };
