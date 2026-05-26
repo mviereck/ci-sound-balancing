@@ -438,6 +438,92 @@ nötig.
 - **offen** — eventuelle Klassifikations-Korrektur (E10/E11, nach
   Diagnose-Lauf mit BA-87-Fixed-Version).
 
+---
+
+## Frequenzabgleich — Zweiter Staircase-Lauf als Reliabilitätsmaß
+
+**Aufgenommen am**: 2026-05-26
+**Status**: konzeptionell besprochen, Beziehung zum Konvergenz-Modus
+oben noch zu klären (teils Überschneidung, teils Ersatz).
+
+**Problem**: Das Residuum des Staircase ist kein zuverlässiges Maß für
+Meßgenauigkeit — es mißt Staircase-Stabilität bei Minimalschrittweite,
+nicht Wahrnehmungsschärfe. Ein Zufallsantworter am PSE sieht identisch
+aus wie ein präziser Hörer am PSE. Auch die geplante Catch-Trial-Prüfung
+unterscheidet nur „hört gar nichts" von „hört etwas", nicht
+„scharfes PSE" von „breitem PSE".
+
+**Lösung**: Zweiter vollständiger Staircase-Lauf, integriert in den
+adaptiven Test (nicht als separater Modus).
+
+- Zwei Fortschrittsbalken im Test-Panel, beschriftet „Staircase 1"
+  und „Staircase 2".
+- Test endet erst wenn beide Läufe abgeschlossen sind (jederzeit
+  unterbrechbar wie bisher).
+- Staircase 2 startet mit `prevMatchCent` = Ergebnis Staircase 1
+  (Startstreuung ±50 ct statt ±100 ct → ~halb so lang).
+- Reliabilitätsmaß pro Elektrode: |Δ| = |Match1 − Match2|.
+  Ampelfarbe: Δ ≤ 10 ct grün, 11–25 ct gelb, > 25 ct rot.
+- Bestes Ergebnis (exportierter Match): Mittelwert beider Läufe.
+
+**Hinweis-Text nach Staircase 1 (Formulierung abgestimmt)**:
+
+> „Erster Messdurchlauf abgeschlossen. Der zweite Durchlauf ist
+> empfohlen und startet nahe am gemessenen Wert — er dauert typisch
+> halb so lang wie der erste. Er dient zwei Zwecken: Der Mittelwert
+> beider Läufe ist eine zuverlässigere Schätzung des Frequenz-
+> unterschieds. Und die Differenz zwischen den Läufen zeigt pro
+> Elektrode, wie reproduzierbar das Ergebnis ist. Wenn die meisten
+> Elektroden in beiden Läufen übereinstimmend ähnlich abweichen,
+> ist das ein Hinweis auf eine systematische Verschiebung im
+> CI-Mapping — ein Befund, der für den Audiologen besonders
+> relevant ist."
+
+**Verhältnis zum Konvergenz-Modus (oben)**
+
+Der zweite Staircase-Lauf übernimmt einen Teil der Funktion des
+Konvergenz-Modus (Verfeinerungs- und Validierungs-Aufgabe). Bevor
+Konvergenz-Modus (BA 88–90) gebaut wird, klären: was bleibt noch
+sinnvoll, wenn ein zweiter Lauf bereits Δ-Information liefert?
+
+---
+
+## Frequenzabgleich — Verhaltenssignale für Unsicherheit
+
+**Aufgenommen am**: 2026-05-26
+**Status**: Idee, nicht gebaut.
+
+Zwei Verhaltenssignale, die ergänzend zur Catch-Statistik die
+Qualität einer Messung einschätzen:
+
+**1. Replay-Zähler pro Trial**
+
+Anzahl der Wiedergaben vor einer Antwort erfassen. Auswertung:
+- Hoher Replay-Schnitt in der Endphase (Trials bei Minimalschritt-
+  weite): positives Zeichen — Nutzer ist an seiner Wahrnehmungsgrenze,
+  die Messung ist echt.
+- Niedriger Replay-Schnitt + zufällige Antworten: Warnsignal (raten
+  ohne nachzuhören).
+- Kombination Catch-Fehlerrate + Replay-Schnitt = stärkerer
+  Qualitätsindikator als beide allein.
+
+Replay-Lücke > 5 Sekunden gilt als Pause (Ablenkung) und wird nicht
+als Replay gewertet.
+
+**2. Reaktionszeit pro Trial**
+
+Kurze Reaktionszeit nach Ton-Ende = hohe Entscheidungssicherheit.
+Lange Reaktionszeit = ambivalent (Pause, Ablenkung, echte Unsicher-
+heit nicht unterscheidbar). Deshalb: nur kurze Reaktionszeiten als
+positives Qualitätssignal verwenden, lange Zeiten ignorieren.
+
+**Hinweis-Text vor dem adaptiven Test**:
+
+> „Wenn Sie unsicher sind, spielen Sie die Töne so oft ab wie nötig.
+> Wenn Sie sich auch dann nicht entscheiden können: Wählen Sie, ob
+> der zweite Ton sich höher oder tiefer anfühlt — auch ein Gefühl
+> zählt."
+
 **Offener Punkt — Klassifikations-Auffälligkeit E10/E11**
 
 Beim ersten ernsthaften vollständigen Lauf (2026-05-26) wurde E11

@@ -29,6 +29,10 @@ let fmTrialStartTs     = 0;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
 let fmCurCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
+// Undo-Support für adaptiven Modus
+let _fmUndoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
+let _fmNextTrialTO  = null;  // Timeout-Handle für fmNextAdaptiveTrial (canceln bei Undo)
+
 // Debug-Simulation
 let _fmSimActive  = false;
 let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
@@ -438,6 +442,8 @@ function fmStartAdaptive() {
   fmAdaptiveActive    = true;
   fmAwaitingResponse  = false;
   fmCurTrackId        = null;
+  _fmUndoSnapshot     = null;
+  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
 
   updateTabLockState();
   fmEls.lockedHint.hidden = false;
@@ -454,6 +460,8 @@ function fmStartAdaptive() {
 
 function fmNextAdaptiveTrial() {
   if (!fmAdaptiveActive) return;
+  _fmUndoSnapshot = null;
+  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
 
   const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
   fmCurTrackId = fmPickNextTrack(_rrState, undefined);
@@ -466,8 +474,10 @@ function fmNextAdaptiveTrial() {
   fmCurFirstSide     = (Math.random() < 0.5) ? 'ref' : 'var';
   fmAwaitingResponse = false;
 
-  // --- Catch-Entscheidung (Bauanleitung 02b/6) ---
-  if (Math.random() < FM_CATCH_PROBABILITY) {
+  // --- Catch-Entscheidung: deterministisch pro Track ---
+  // Jeder FM_CATCH_INTERVAL-te Trial eines Tracks ist ein Catch-Trial
+  // (Trial-Indizes 5, 13, 21, … — gleichmäßige Verteilung je Elektrode).
+  if ((fmTracks[fmCurTrackId].trialCount % FM_CATCH_INTERVAL) === FM_CATCH_PHASE) {
     const dir = (Math.random() < 0.5) ? +FM_CATCH_MAGNITUDE : -FM_CATCH_MAGNITUDE;
     fmCurCatchInfo = {
       direction:        dir,
@@ -576,6 +586,27 @@ function fmHandleHeight(userChoice) {
   const catchCorrect = isCatch && (response === fmCurCatchInfo.expectedResponse);
   const _prevStatus  = track.status;
 
+  // Snapshot vor Staircase-Mutation — ermöglicht Undo bei Fehleingabe
+  _fmUndoSnapshot = {
+    trackId:    fmCurTrackId,
+    trackState: {
+      currentOffset:   track.currentOffset,
+      stepSize:        track.stepSize,
+      pendingResponse: track.pendingResponse,
+      lastMoveDir:     track.lastMoveDir,
+      trialCount:      track.trialCount,
+      catchTotal:      track.catchTotal,
+      catchErrors:     track.catchErrors,
+      status:          track.status,
+      match:           track.match,
+      residual:        track.residual
+    },
+    reversals:    track.reversals.slice(),
+    trialHistory: track.trialHistory.slice(),
+    firstSide:    fmCurFirstSide,
+    catchInfo:    fmCurCatchInfo
+  };
+
   fmApplyResponse(track, response, isCatch, catchCorrect, fmCurFirstSide);
 
   // Hook C: Response-Log
@@ -601,8 +632,10 @@ function fmHandleHeight(userChoice) {
 
   _fmPersist();
   fmRenderStatusGrid();
+  if (fmEls.undoBtn) fmEls.undoBtn.disabled = false;
 
-  setTimeout(function() {
+  _fmNextTrialTO = setTimeout(function() {
+    _fmNextTrialTO = null;
     if (fmAdaptiveActive) fmNextAdaptiveTrial();
   }, _fmSimActive ? 30 : 200);
 }
@@ -903,7 +936,34 @@ function fmConfirm() {
   fmLoadElectrode();
 }
 
+function fmUndoAdaptive() {
+  if (!_fmUndoSnapshot) return;
+  if (_fmNextTrialTO) { clearTimeout(_fmNextTrialTO); _fmNextTrialTO = null; }
+
+  const snap      = _fmUndoSnapshot;
+  _fmUndoSnapshot = null;
+
+  const track = fmTracks[snap.trackId];
+  Object.assign(track, snap.trackState);
+  track.reversals    = snap.reversals.slice();
+  track.trialHistory = snap.trialHistory.slice();
+
+  fmCurTrackId   = snap.trackId;
+  fmCurFirstSide = snap.firstSide;
+  fmCurCatchInfo = snap.catchInfo;
+
+  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
+  fmDisableHeightButtons();
+  fmAwaitingResponse = false;
+  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
+    if (!fmAdaptiveActive) return;
+    fmAwaitingResponse = true;
+    fmEnableHeightButtons();
+  });
+}
+
 function fmUndo() {
+  if (fmAdaptiveActive) { fmUndoAdaptive(); return; }
   if (!fmRunning || fmSeqIdx === 0) return;
   fmSeqIdx--;
   const prevEl = fmSeq[fmSeqIdx];
@@ -1004,7 +1064,10 @@ function _fmSimStep() {
     const simOff = _fmSimOffsets[track.electrodeIdx];
     const gap    = track.currentOffset - simOff;
     const absGap = Math.abs(gap);
-    const errProb = absGap < 30 ? 0.40 : absGap < 60 ? 0.20 : 0.02;
+    let errProb;
+    if (track.electrodeIdx === 0)      errProb = 0.50;   // E1: immer zufällig
+    else if (track.electrodeIdx === 5) errProb = 0.25;   // E6: 75 % richtig
+    else errProb = absGap < 30 ? 0.40 : absGap < 60 ? 0.20 : 0.02;
     let varResp = gap > 0 ? 'var-lower' : 'var-higher';
     if (Math.random() < errProb) varResp = varResp === 'var-higher' ? 'var-lower' : 'var-higher';
     choiceUD = (fmCurFirstSide === 'ref')

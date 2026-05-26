@@ -15,13 +15,13 @@ const FM_STABLE_DELTA  = 2;                    // Residuums-Stabilität für noi
 const FM_TRIAL_CAP     = 80;                   // Hard cap pro Track
 
 // Catch-Trial-Konstanten (Bauanleitung 02b/6)
-const FM_CATCH_PROBABILITY  = 0.10;   // Anteil Catch-Trials pro Track
-const FM_CATCH_MAGNITUDE    = 500;    // cent — Auslenkung in Catch
-const FM_NOT_PERC_MIN_CATCH = 6;      // mind. Catch-Trials für Klassifikation
-const FM_NOT_PERC_ERR_RATE  = 0.5;    // Catch-Fehlerrate für not-perceivable
-const FM_NOT_PERC_MIN_TRIAL = 30;     // mind. Trials für Klassifikation
-const FM_PROVISIONAL_MATCH_MIN = 2;  // ab so vielen Umkehrungen Schätz-Match
-const FM_PROVISIONAL_RESID_MIN = 4;  // ab so vielen Umkehrungen Schätz-Residuum
+const FM_CATCH_INTERVAL     = 8;     // Catch-Trial-Abstand pro Track (deterministisch)
+const FM_CATCH_PHASE        = 5;     // Track-Trial-Index des ersten Catch (0-basiert: Trial 5, 13, 21 …)
+const FM_CATCH_MAGNITUDE    = 500;   // cent — Auslenkung in Catch
+const FM_NOT_PERC_MIN_CATCH = 3;     // mind. Catch-Trials vor Konvergenz-Freigabe
+const FM_NOT_PERC_ERR_RATE  = 0.5;  // Catch-Fehlerrate für not-perceivable
+const FM_PROVISIONAL_MATCH_MIN = 2; // ab so vielen Umkehrungen Schätz-Match
+const FM_PROVISIONAL_RESID_MIN = 4; // ab so vielen Umkehrungen Schätz-Residuum
 
 // --- Track-State erzeugen ---
 //
@@ -209,15 +209,25 @@ function fmComputeResidual(track) {
 function _fmCheckAndUpdateStatus(track) {
   if (track.status !== 'active') return track.status;
 
-  // --- "Nicht wahrnehmbar"-Check (Bauanleitung 02b/6) ---
-  if (track.catchTotal >= FM_NOT_PERC_MIN_CATCH
-      && track.trialCount >= FM_NOT_PERC_MIN_TRIAL
-      && track.reversals.length < FM_REVERSALS_REQ) {
+  // Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl und Konvergenz-Status.
+  // Verhindert, daß Zufallsantworten trotz hoher Catch-Fehlerrate als Ergebnis
+  // durchgehen.
+  if (track.catchTotal >= FM_NOT_PERC_MIN_CATCH) {
     const errRate = track.catchErrors / track.catchTotal;
     if (errRate >= FM_NOT_PERC_ERR_RATE) {
       track.status = 'not-perceivable';
       return track.status;
     }
+  }
+
+  // Konvergenz erst erlauben, wenn mind. FM_NOT_PERC_MIN_CATCH Catch-Trials
+  // für diesen Track absolviert wurden. Verhindert Früh-Konvergenz bei
+  // Zufallsantworten (die Catch-Statistik muß aussagekräftig sein).
+  if (track.catchTotal < FM_NOT_PERC_MIN_CATCH) {
+    if (track.trialCount < FM_TRIAL_CAP) return 'active';
+    // Hard-Cap erreicht, aber Catch-Daten fehlen → unbrauchbar
+    track.status = 'not-perceivable';
+    return track.status;
   }
 
   // Saubere Konvergenz: ≥6 Umkehrungen, Schrittweite am Minimum,
@@ -230,9 +240,6 @@ function _fmCheckAndUpdateStatus(track) {
       track.residual = residual;
       return track.status;
     }
-    // Stabilitäts-Check für "converged-noisy":
-    // letzte 4 Umkehr-Residuen (rolling über 6 Umkehrungen) ändern sich
-    // jeweils um < FM_STABLE_DELTA cent
     if (_fmResidualStable(track)) {
       track.status   = 'converged-noisy';
       track.match    = fmComputeMatch(track);
@@ -243,18 +250,12 @@ function _fmCheckAndUpdateStatus(track) {
 
   // Hard cap: ≥80 Trials ohne Konvergenz
   if (track.trialCount >= FM_TRIAL_CAP) {
-    // "not-perceivable"-Klassifikation wird in 02b/6 ergänzt. Hier:
-    // Wenn ausreichend Umkehrungen vorhanden → noisy. Sonst bleibt active,
-    // 02b/6 entscheidet anhand catch-Statistik.
     if (track.reversals.length >= FM_REVERSALS_REQ) {
       track.status   = 'converged-noisy';
       track.match    = fmComputeMatch(track);
       track.residual = fmComputeResidual(track);
       return track.status;
     }
-    // Notfall-Klassifikation: keine ausreichenden Umkehrungen → noisy mit
-    // null-Werten (Track ist faktisch unbrauchbar; 02b/6 entscheidet,
-    // ob "not-perceivable" greift)
     track.status   = 'converged-noisy';
     track.match    = (track.reversals.length > 0) ? fmComputeMatch(track) : track.currentOffset;
     track.residual = fmComputeResidual(track);

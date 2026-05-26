@@ -92,13 +92,19 @@ Pro Track gibt es genau drei mögliche Endzustände:
   Balken, Höhe = Residuum) plus I-Träger-Marker (wie bei converged)
 
 **3. Nicht wahrnehmbar**
-- Mindestens 6 Catch-Trials des Tracks abgeschlossen
+- Mindestens 3 Catch-Trials des Tracks abgeschlossen
 - Catch-Fehlerrate ≥ 50 %
-- Keine 6 Umkehrungen erreicht
-- Trial-Anzahl an diesem Track ≥ 30
+- Gilt unabhängig von Umkehr-Zahl und Konvergenz-Status (überschreibt
+  auch eine bereits ermittelte Konvergenz)
 - Kein Match-Wert
 - Im Chart: durchgekreuztes Symbol am Ist-Strich (Vorschlag: hohles
   Quadrat mit ✕), kein Soll-Punkt
+
+**Konvergenz-Sperre**: Ein Track kann erst als konvergiert erklärt werden,
+wenn mindestens 3 Catch-Trials für diesen Track absolviert wurden.
+Dadurch ist die Catch-Statistik aussagekräftig, bevor ein Ergebnis
+akzeptiert wird. Sind beim Hard Cap (80 Trials) noch keine 3 Catch-Trials
+vorhanden, wird der Track als `not-perceivable` klassifiziert.
 
 **Hard Cap**: 80 Trials pro Track als Safety Net. Wird er erreicht ohne
 Konvergenz und ohne „Nicht wahrnehmbar"-Klassifikation, wird der Track
@@ -172,7 +178,10 @@ Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
 
 ### Catch-Trials
 
-- **Anteil**: ~10 % der Trials, pro Track separat eingestreut.
+- **Verteilung**: deterministisch, jeder 8. Trial eines Tracks ist ein
+  Catch-Trial (Track-Trial-Indizes 5, 13, 21, … — konstante `FM_CATCH_INTERVAL=8`,
+  `FM_CATCH_PHASE=5`). Damit erhält jede Elektrode gleichmäßig Catch-Trials,
+  unabhängig von Gesamtlaufzeit oder Reihenfolge.
 - **Design**: in einem Catch-Trial wird der variable Ton nicht aus dem
   Staircase-Algorithmus geholt, sondern um ±500 cent von der Referenz
   verschoben (Richtung zufällig). Die richtige Antwort ist eindeutig
@@ -189,6 +198,14 @@ Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
 - **Keine globale Aufmerksamkeits-Warnung**: Catch-Fehler triggern
   keine UI-Warnung; sie fließen nur in die per-Elektroden-Klassifikation
   ein.
+
+### Zurück / Undo
+
+Nach jeder beantworteten Frage ist der Zurück-Button (Taste Z) für
+genau eine Aktion aktiv. Er stellt den Track-State vor der letzten
+Antwort wieder her und spielt den Trial erneut ab — für den Fall
+einer Fehleingabe (Fingerreflex). Sobald der nächste Trial startet,
+verfällt die Undo-Möglichkeit.
 
 ### Pause und Resume
 
