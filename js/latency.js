@@ -401,6 +401,15 @@ document.addEventListener("DOMContentLoaded", function () {
   latSliderInput(0);
   latUpdateButtonStates();
   latUpdateIntervalHint();
+
+  const latClearBtn = document.getElementById("latClearBtn");
+  if (latClearBtn) {
+    latClearBtn.addEventListener("click", function() {
+      if (!confirm(t("latClearConfirm") || "Latenz-Meßergebnis löschen?")) return;
+      latencyResult = null;
+      latRenderResults();
+    });
+  }
 });
 
 // =====================================================================
@@ -458,3 +467,4 @@ function latRenderResults() {
   latResEls.context.textContent =
     `${t("latResMeasuredWith")}: ${typeLabel}, ${t("latResInterval")} ${latencyResult.intervalMs} ms`;
 }
+

@@ -583,3 +583,18 @@ function renderFreqMatchResults() {
       : t("fmrChartHint");
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const fmrClearBtn = document.getElementById("fmrClearBtn");
+  if (fmrClearBtn) {
+    fmrClearBtn.addEventListener("click", function() {
+      if (!confirm(t("fmrClearConfirm") || "Alle Frequenzabgleich-Ergebnisse löschen?")) return;
+      fRes.splice(0, fRes.length);
+      if (typeof sideData !== "undefined") {
+        if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
+        if (sideData.right) sideData.right.freqmatchAdaptive = null;
+      }
+      renderFreqMatchResults();
+    });
+  }
+});

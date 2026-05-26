@@ -146,6 +146,10 @@ Die Tabelle enthält eine **Restunsicherheits-Spalte** (zwischen
 - ≤10 cent grün, 11–25 cent gelb-orange, >25 cent rot.
 Bei Tracks mit <2 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
 
+Unterhalb der Tabelle: Button „Frequenzabgleich-Ergebnisse löschen"
+(`fmrClearBtn`, rot) — löscht `fRes` und `freqmatchAdaptive` beider
+Seiten vollständig und aktualisiert die Anzeige.
+
 Oberhalb der Tabelle (nur bei laufender Messung):
 - **Fortschrittsbalken** — Formel siehe „Fortschritt".
 - **Qualitätstext** in drei Stufen (erste Messungen / teilweise /

@@ -218,7 +218,9 @@ Slider-Wert wird invertiert.
   (beide Pfade: file.js-Download/Upload und localStorage-Auto-Restore in init.js)
 - Ergebnis-Sub-Tab „Latenz": zentrierte Highlight-Box (wie Stereo-Balance)
   mit Label, großem Zahlenwert in Akzentfarbe + Monospace, kurzem Klartext;
-  Kontext (Klangtyp + Intervall) darunter; kein „Wird ausgeglichen."
+  Kontext (Klangtyp + Intervall) darunter; kein „Wird ausgeglichen.";
+  Button „Latenz-Ergebnis löschen" (`latClearBtn`, rot) unterhalb der Box —
+  setzt `latencyResult = null` und aktualisiert die Anzeige.
 - Im Player: Toggle-Button „Latenzausgleich" (`plLatApplyBtn`) neben
   „Stereo-Balance"-Button — aktiviert/deaktiviert `plApplyLatency`;
   grün wenn aktiv, grau wenn inaktiv; Sync via `updLatApplyBtn()` in tabs-eq.js
