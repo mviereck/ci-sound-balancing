@@ -14,7 +14,25 @@
   const _autoFields = Object.create(null);   // vom Polling befüllt
   const _userFields = Object.create(null);   // via dbg.set(...) befüllt
   const _log    = [];                        // {ts, level, msg}
-  const _tests  = [];                        // {name, opts, fn}  — BA 82
+
+  const _testReg     = new Map();            // name → { name, opts, fn, status, last }
+  const _testSelect  = new Set();            // names der angehakten Tests
+  const _flags       = Object.create(null);  // flag-name → bool
+  const FLAG_KEY     = 'ciSb.debugFlags';
+
+  try {
+    const raw = localStorage.getItem(FLAG_KEY);
+    if (raw) {
+      const obj = JSON.parse(raw);
+      if (obj && typeof obj === 'object') {
+        for (const k in obj) _flags[k] = !!obj[k];
+      }
+    }
+  } catch (_) {}
+
+  function _persistFlags() {
+    try { localStorage.setItem(FLAG_KEY, JSON.stringify(_flags)); } catch (_) {}
+  }
 
   function _allFields() {
     const out = Object.create(null);
@@ -57,6 +75,8 @@
     _ensurePanel();
     _renderAll();
     _startRefreshLoop();
+    _applyDefaultSelection();
+    _renderTests();
   }
 
   function _deactivate() {
@@ -92,8 +112,11 @@
       +     '<table class="dbg-fields-tbl"><tbody></tbody></table>'
       +   '</div>'
       +   '<div class="dbg-section" id="dbgTestsSec">'
-      +     '<h4>Tests <button class="dbg-btn-mini dbg-copy-sec" data-sec="tests" title="Tests kopieren">kopieren</button></h4>'
-      +     '<div class="dbg-tests-list dbg-empty">— in BA 82 —</div>'
+      +     '<h4>Tests '
+      +        '<button class="dbg-btn-mini" id="dbgRunAll" title="Alles testen">▶ alle</button> '
+      +        '<button class="dbg-btn-mini dbg-copy-sec" data-sec="tests" title="Tests kopieren">kopieren</button>'
+      +     '</h4>'
+      +     '<div class="dbg-tests-list"></div>'
       +   '</div>'
       +   '<div class="dbg-section" id="dbgLogSec">'
       +     '<h4>Log '
@@ -117,12 +140,145 @@
         _copyText(_buildSectionMarkdown(sec));
       });
     });
+    const runAllBtn = _panel.querySelector('#dbgRunAll');
+    if (runAllBtn) runAllBtn.addEventListener('click', _runAllTests);
+  }
+
+  // ---------- Test-Run-Logik ----------
+
+  async function _runTest(t) {
+    t.status = 'running';
+    t.last = null;
+    _renderTests();
+    try {
+      const out = await Promise.resolve(t.fn());
+      if (out === true) {
+        t.last = { ok: true, msg: '' };
+      } else if (out === false) {
+        t.last = { ok: false, msg: '' };
+      } else if (out && typeof out === 'object') {
+        t.last = { ok: !!out.ok, msg: String(out.msg || '') };
+      } else {
+        t.last = { ok: true, msg: out == null ? '' : String(out) };
+      }
+      t.status = t.last.ok ? 'pass' : 'fail';
+    } catch (err) {
+      t.status = 'fail';
+      t.last = { ok: false, msg: 'Error: ' + (err && err.message ? err.message : String(err)) };
+    }
+    _renderTests();
+  }
+
+  async function _runAllTests() {
+    const list = Array.from(_testReg.values());
+    for (const t of list) await _runTest(t);
+  }
+
+  async function _runSelectedTests() {
+    const list = Array.from(_testReg.values()).filter(function (t) { return _testSelect.has(t.name); });
+    for (const t of list) await _runTest(t);
+  }
+
+  // ---------- Test-Rendering ----------
+
+  function _testCurrentTab() {
+    const f = _allFields();
+    return f['tab'] || '';
+  }
+
+  function _testStatusIcon(t) {
+    if (t.status === 'running') return '⏳';
+    if (t.status === 'pass')    return '✓';
+    if (t.status === 'fail')    return '✗';
+    return '○';
+  }
+
+  function _testStatusClass(t) {
+    if (t.status === 'pass')    return 'dbg-test-pass';
+    if (t.status === 'fail')    return 'dbg-test-fail';
+    if (t.status === 'running') return 'dbg-test-running';
+    return 'dbg-test-pending';
+  }
+
+  function _renderTests() {
+    if (!_panel) return;
+    const sec = _panel.querySelector('#dbgTestsSec .dbg-tests-list');
+    if (!sec) return;
+    const tests = Array.from(_testReg.values()).sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
+    if (!tests.length) {
+      sec.innerHTML = '<div class="dbg-empty">— keine Tests registriert —</div>';
+      return;
+    }
+    sec.innerHTML = tests.map(function (t) {
+      const selected = _testSelect.has(t.name);
+      const icon     = _testStatusIcon(t);
+      const cls      = _testStatusClass(t);
+      const label    = t.opts.label || t.name;
+      const tabLabel = t.opts.tab
+        ? '<span class="dbg-test-tab">' + _esc(t.opts.tab) + '</span>' : '';
+      const lastMsg  = (t.last && t.last.msg)
+        ? '<div class="dbg-test-msg">' + _esc(t.last.msg) + '</div>' : '';
+      let liveBtn = '';
+      if (t.opts.liveLogFor) {
+        const on = !!_flags[t.opts.liveLogFor];
+        liveBtn = '<button class="dbg-btn-mini dbg-test-flag' + (on ? ' dbg-flag-on' : '')
+                + '" data-flag="' + _esc(t.opts.liveLogFor) + '" title="Live-Log: '
+                + (on ? 'an' : 'aus') + '">⌚</button>';
+      }
+      return ''
+        + '<div class="dbg-test-row ' + cls + '" data-name="' + _esc(t.name) + '">'
+        +   '<label class="dbg-test-head">'
+        +     '<input type="checkbox" class="dbg-test-cb"' + (selected ? ' checked' : '') + '>'
+        +     '<span class="dbg-test-icon">' + icon + '</span>'
+        +     tabLabel
+        +     '<span class="dbg-test-label">' + _esc(label) + '</span>'
+        +   '</label>'
+        +   liveBtn
+        +   '<button class="dbg-btn-mini dbg-test-run" title="Test erneut ausführen">↻</button>'
+        +   lastMsg
+        + '</div>';
+    }).join('');
+
+    sec.querySelectorAll('.dbg-test-row').forEach(function (row) {
+      const name = row.dataset.name;
+      const cb = row.querySelector('.dbg-test-cb');
+      cb.addEventListener('change', function () {
+        if (cb.checked) _testSelect.add(name);
+        else _testSelect.delete(name);
+      });
+      const runBtn = row.querySelector('.dbg-test-run');
+      runBtn.addEventListener('click', function () {
+        const t = _testReg.get(name);
+        if (t) _runTest(t);
+      });
+      const flagBtn = row.querySelector('.dbg-test-flag');
+      if (flagBtn) {
+        flagBtn.addEventListener('click', function () {
+          const flag = flagBtn.dataset.flag;
+          _flags[flag] = !_flags[flag];
+          _persistFlags();
+          _renderTests();
+        });
+      }
+    });
+  }
+
+  function _applyDefaultSelection() {
+    const curTab = _testCurrentTab();
+    for (const t of _testReg.values()) {
+      if (_testSelect.has(t.name)) continue;
+      const tab = t.opts.tab || 'global';
+      if (tab === 'global' || tab === curTab) _testSelect.add(t.name);
+    }
   }
 
   // ---------- Rendering ----------
 
   function _renderAll() {
     _renderFields();
+    _renderTests();
     _renderLog();
   }
 
@@ -293,7 +449,17 @@
   }
 
   function _mdTestsBlock() {
-    return '## Tests\n\n_(in BA 82)_\n';
+    const list = Array.from(_testReg.values()).sort(function (a, b) {
+      return a.name.localeCompare(b.name);
+    });
+    let md = '## Tests\n\n';
+    if (!list.length) { md += '_(keine registriert)_\n'; return md; }
+    md += list.map(function (t) {
+      const sym = t.status === 'pass' ? '✓' : t.status === 'fail' ? '✗' : '○';
+      const msg = (t.last && t.last.msg) ? ' — ' + t.last.msg : '';
+      return '- ' + sym + ' `' + t.name + '`' + msg;
+    }).join('\n') + '\n';
+    return md;
   }
 
   function _mdLogBlock() {
@@ -381,10 +547,31 @@
       if (_active) _renderFields();
     },
 
-    // Platzhalter für BA 82 — nimmt Eintrag entgegen, rendert noch nicht.
     test: function (name, opts, fn) {
       if (typeof opts === 'function') { fn = opts; opts = {}; }
-      _tests.push({ name: name, opts: opts || {}, fn: fn });
+      opts = opts || {};
+      _testReg.set(name, { name: name, opts: opts, fn: fn, status: 'pending', last: null });
+      if (_active) {
+        _applyDefaultSelection();
+        _renderTests();
+      }
+    },
+
+    runTest: function (name) {
+      const t = _testReg.get(name);
+      if (t) return _runTest(t);
+    },
+
+    runAllTests: _runAllTests,
+
+    flag: function (name) {
+      return !!_flags[name];
+    },
+
+    setFlag: function (name, v) {
+      _flags[name] = !!v;
+      _persistFlags();
+      if (_active) _renderTests();
     }
   };
 

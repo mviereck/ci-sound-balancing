@@ -28,6 +28,13 @@ let fmTrialStartTs     = 0;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
 let fmCurCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
+// Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
+function _fmDbg(msg) {
+  if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
+    dbg.log(msg, 'info');
+  }
+}
+
 // --- Hilfsfunktionen ---
 function fmCents(refHz, hz) {
   return 1200 * Math.log2(hz / refHz);
@@ -337,6 +344,7 @@ function _fmPersist() {
     }),
     tracks:           fmTracks
   };
+  _fmDbg('persist: tracks=' + Object.keys(fmTracks).length);
 }
 
 function _fmMarkCompleted() {
@@ -369,6 +377,7 @@ function _fmTryRestore(currentElIdxList) {
   if (!hasActive) return false;
 
   fmTracks = fa.tracks;
+  _fmDbg('restore: ' + Object.keys(fmTracks).length + ' tracks geladen');
   return true;
 }
 
@@ -423,6 +432,8 @@ function fmStartAdaptive() {
   if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
 
   fmRenderStatusGrid();
+  _fmDbg('start: ref=' + fmRefSide + ' var=' + fmVarSide
+       + ', tracks=' + Object.keys(fmTracks).length);
   fmNextAdaptiveTrial();
 }
 
@@ -457,6 +468,13 @@ function fmNextAdaptiveTrial() {
   fmDisableHeightButtons();
 
   const track = fmTracks[fmCurTrackId];
+  const _dbgVarHz = (typeof withSide === 'function' && typeof effFreq === 'function')
+    ? withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); }) : 0;
+  _fmDbg('trial #' + (track.trialCount + 1)
+       + ' track=' + fmCurTrackId
+       + ' varHz=' + Math.round(_dbgVarHz)
+       + ' offset=' + Math.round(track.currentOffset) + 'ct'
+       + (fmCurCatchInfo ? ' [CATCH dir=' + fmCurCatchInfo.direction + ']' : ''));
   fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
     if (!fmAdaptiveActive) return;
     fmAwaitingResponse = true;
@@ -530,8 +548,21 @@ function fmHandleHeight(userChoice) {
 
   const isCatch      = !!fmCurCatchInfo;
   const catchCorrect = isCatch && (response === fmCurCatchInfo.expectedResponse);
+  const _prevStatus  = track.status;
 
   fmApplyResponse(track, response, isCatch, catchCorrect, fmCurFirstSide);
+
+  // Hook C: Response-Log
+  _fmDbg('response: ' + response
+       + (isCatch ? ' catch=' + (catchCorrect ? 'ok' : 'miss') : '')
+       + ' step=' + track.stepSize + ' reversals=' + (track.reversals || []).length);
+  // Hook D: Status-Wechsel-Log
+  if (track.status !== _prevStatus) {
+    _fmDbg('status: track=' + fmCurTrackId + ' ' + _prevStatus + '→' + track.status
+         + (track.status === 'not-perceivable'
+              ? ' (catchErrors=' + (track.catchErrors || 0) + '/' + (track.catchTotal || 0) + ')'
+              : ''));
+  }
 
   // Catch-Info aufräumen (vor nächstem Trial)
   fmCurCatchInfo = null;
@@ -565,6 +596,7 @@ function _fmRemoveResult(elIdx) {
     return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
   });
   if (idx >= 0) fRes.splice(idx, 1);
+  _fmDbg('fRes remove: side=' + fmVarSide + ' el=' + elIdx + ' (not-perceivable)');
 }
 
 function _fmWriteResult(track) {
@@ -589,6 +621,9 @@ function _fmWriteResult(track) {
   };
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
+  _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx
+       + ' varHz=' + Math.round(varHz)
+       + ' residCt=' + (track.residual != null ? track.residual.toFixed(1) : '—'));
 }
 
 function fmReplayCurrent() {
@@ -605,6 +640,14 @@ function fmReplayCurrent() {
 }
 
 function fmFinishAdaptive() {
+  let _cv = 0, _nv = 0, _np = 0;
+  Object.keys(fmTracks).forEach(function(k) {
+    const st = fmTracks[k].status;
+    if (st === 'converged')        _cv++;
+    else if (st === 'converged-noisy') _nv++;
+    else if (st === 'not-perceivable') _np++;
+  });
+  _fmDbg('finish: ' + _cv + ' converged, ' + _nv + ' noisy, ' + _np + ' not-perceivable');
   _fmMarkCompleted();
   fmAdaptiveActive   = false;
   fmAwaitingResponse = false;
