@@ -630,7 +630,7 @@ function _fmWriteResult(track) {
   const varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
   const refHz = (track.match != null)
     ? varHz * Math.pow(2, track.match / 1200)
-    : varHz;
+    : null;
 
   const existingIdx = fRes.findIndex(function(r) {
     return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;

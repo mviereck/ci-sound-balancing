@@ -428,6 +428,12 @@ function renderFreqMatchResults() {
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
         residCell  = "<span style=\"color:#9ca3af\">—</span>";
+      } else if (r.refFreq == null) {
+        varHzCell  = r.varFreq.toFixed(2);
+        refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
+        diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
+        diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
+        residCell  = "<span style=\"color:#9ca3af\">—</span>";
       } else {
         const diffHzRaw = r.refFreq - r.varFreq;
         const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
