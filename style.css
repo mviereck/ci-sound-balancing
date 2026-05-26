@@ -456,6 +456,7 @@ canvas {
 .fm-badge-ok    { background: #d1fae5; color: #065f46; }
 .fm-badge-noisy { background: #fef3c7; color: #92400e; }
 .fm-badge-err   { background: #fee2e2; color: #991b1b; }
+.fm-badge-prov  { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
 
 .warning-bar {
   background: #fef3c7;

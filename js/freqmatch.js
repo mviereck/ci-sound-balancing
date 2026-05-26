@@ -22,6 +22,7 @@ let fmPlayTO = null;
 let fmAdaptiveActive   = false;
 let fmAwaitingResponse = false;
 let fmTracks           = {};
+let fmRoundQueue       = [];   // geshuffelter Round-Robin-State, Bauanleitung 84
 let fmCurTrackId       = null;
 let fmCurFirstSide     = 'ref';
 let fmTrialStartTs     = 0;
@@ -342,7 +343,8 @@ function _fmPersist() {
       const fb = withSide(fmVarSide, function() { return effFreq(b); });
       return fa - fb;
     }),
-    tracks:           fmTracks
+    tracks:           fmTracks,
+    roundQueue:       fmRoundQueue.slice()    // Bauanleitung 84
   };
   _fmDbg('persist: tracks=' + Object.keys(fmTracks).length);
 }
@@ -377,6 +379,7 @@ function _fmTryRestore(currentElIdxList) {
   if (!hasActive) return false;
 
   fmTracks = fa.tracks;
+  fmRoundQueue = Array.isArray(fa.roundQueue) ? fa.roundQueue.slice() : [];
   _fmDbg('restore: ' + Object.keys(fmTracks).length + ' tracks geladen');
   return true;
 }
@@ -411,6 +414,7 @@ function fmStartAdaptive() {
                 Object.keys(fmTracks).length, 'Tracks');
   } else {
     fmTracks = {};
+    fmRoundQueue = [];                                 // Bauanleitung 84
     elIdxList.forEach(function(idx) {
       const prev = fmPrevCent(idx);
       const prevOrNull = (prev !== 0) ? prev : null;
@@ -440,7 +444,9 @@ function fmStartAdaptive() {
 function fmNextAdaptiveTrial() {
   if (!fmAdaptiveActive) return;
 
-  fmCurTrackId = fmPickNextTrack(fmTracks);
+  const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
+  fmCurTrackId = fmPickNextTrack(_rrState, undefined);
+  fmRoundQueue = _rrState.roundQueue;
   if (fmCurTrackId === null) {
     fmFinishAdaptive();
     return;
@@ -654,6 +660,7 @@ function fmFinishAdaptive() {
   fmIsPlay           = false;
   fmRunning          = false;
   fmCurTrackId       = null;
+  fmRoundQueue       = [];
   updateTabLockState();
   if (fmEls) {
     fmEls.testBox.hidden    = true;
@@ -740,10 +747,45 @@ function _mkCell(text) {
 function fmUpdateAdaptiveProgress() {
   if (!fmEls || !fmEls.progressText || !fmEls.progressFill) return;
   const ids  = Object.keys(fmTracks);
-  const done = ids.filter(function(k) { return fmTracks[k].status !== 'active'; }).length;
-  const totalTrials = ids.reduce(function(s, k) { return s + fmTracks[k].trialCount; }, 0);
-  fmEls.progressText.textContent = done + ' / ' + ids.length + ' (' + totalTrials + ' trials)';
-  fmEls.progressFill.style.width = (ids.length > 0 ? (done / ids.length * 100) : 0) + '%';
+  if (ids.length === 0) {
+    fmEls.progressText.textContent = '0 / 0';
+    fmEls.progressFill.style.width = '0%';
+    return;
+  }
+  const stats = fmComputeProgressStats(fmTracks);
+  fmEls.progressText.textContent =
+    stats.done + ' / ' + stats.total +
+    ' (' + stats.totalTrials + ' trials, ' + Math.round(stats.percent) + ' %)';
+  fmEls.progressFill.style.width = stats.percent + '%';
+}
+
+// Wiederverwendbare Fortschritts-Statistik. Auch genutzt von
+// renderFreqMatchResults für den Ergebnis-Reiter-Balken.
+//
+// Pro Track:
+//   - Endzustand    → Beitrag 1.0
+//   - aktiv         → Beitrag min(reversals.length / FM_REVERSALS_REQ, 0.95)
+function fmComputeProgressStats(tracks) {
+  const ids = Object.keys(tracks);
+  const total = ids.length;
+  let done = 0, totalTrials = 0, contrib = 0;
+  ids.forEach(function(k) {
+    const tr = tracks[k];
+    totalTrials += tr.trialCount || 0;
+    if (tr.status !== 'active') {
+      done++;
+      contrib += 1.0;
+    } else {
+      const rev = (tr.reversals && tr.reversals.length) || 0;
+      contrib += Math.min(rev / FM_REVERSALS_REQ, 0.95);
+    }
+  });
+  return {
+    total:       total,
+    done:        done,
+    totalTrials: totalTrials,
+    percent:     total > 0 ? (contrib / total) * 100 : 0
+  };
 }
 
 // --- Testablauf ---

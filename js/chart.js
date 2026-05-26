@@ -469,8 +469,12 @@ function drawFreqMatchChart(cv, fResData, opts) {
   ctx.stroke();
 
 
-  // --- Verbindungslinie durch Soll-Punkte (blau) ---
-  const measSorted = allEls.filter(e => e.isMeasured).sort((a, b) => a.cSoll - b.cSoll);
+  // --- Verbindungslinie durch Soll-Punkte (blau) — nur konvergierte ---
+  const measSorted = allEls
+    .filter(e => e.isMeasured
+              && e.fmStatus !== 'in-progress'
+              && e.fmStatus !== 'in-progress-early')
+    .sort((a, b) => a.cSoll - b.cSoll);
   if (measSorted.length > 1) {
     ctx.strokeStyle = "#3b82f6";
     ctx.lineWidth = 1.5;
@@ -492,22 +496,57 @@ function drawFreqMatchChart(cv, fResData, opts) {
       ctx.arc(xi, yi, 3, 0, Math.PI * 2);
       ctx.fillStyle = "#6b7280";
       ctx.fill();
+
+      if (el.fmStatus === 'in-progress-early') {
+        // <4 Umkehrungen: hohler blauer Kreis am Ist-Strich mit "?"
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth   = 1.5;
+        ctx.fillStyle   = '#fff';
+        ctx.beginPath();
+        ctx.arc(xi, yi, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#3b82f6';
+        ctx.font = 'bold 11px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('?', xi + 8, yi + 4);
+        hitboxes.push({ x: xi, y: yi, el: el });
+        continue;
+      }
+
       // Soll-Punkt = Messpunkt bei (cSoll, ΔC)
       const xs = tX(el.cSoll), ys = tY(el.dCent);
-      // Restunsicherheits-Band (converged-noisy) hinter dem Punkt
-      if (el.fmStatus === 'converged-noisy' && el.fmResidual > 0) {
+
+      // Restunsicherheits-Band hinter dem Punkt
+      const showBand = (el.fmStatus === 'converged-noisy' && el.fmResidual > 0)
+                    || (el.fmStatus === 'in-progress'     && el.fmResidual > 0);
+      if (showBand) {
         const halfH = Math.abs(tY(0) - tY(el.fmResidual));
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+        ctx.fillStyle = (el.fmStatus === 'in-progress')
+          ? 'rgba(59, 130, 246, 0.18)'
+          : 'rgba(245, 158, 11, 0.25)';
         ctx.fillRect(xs - 6, ys - halfH, 12, 2 * halfH);
       }
-      // Soll-Punkt (kräftig schwarz) darüber
-      ctx.beginPath();
-      ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
-      ctx.fillStyle = "#000";
-      ctx.fill();
-      ctx.strokeStyle = "#fff";
-      ctx.lineWidth = 2;
-      ctx.stroke();
+
+      if (el.fmStatus === 'in-progress') {
+        // hohler blauer Kreis (vorläufig)
+        ctx.beginPath();
+        ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      } else {
+        // konvergiert: voller schwarzer Kreis mit weißem Rand
+        ctx.beginPath();
+        ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
       hitboxes.push({ x: xs, y: ys, el: el });
     } else if (el.isNotPerceivable) {
       // Hohles rotes Quadrat mit ✕ auf y=0-Linie am Ist-Strich

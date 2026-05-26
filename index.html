@@ -838,6 +838,16 @@
           <div class="card" id="fmrCard" style="display:none">
             <h2 id="fmrTitle"></h2>
             <p style="font-size:0.84em;color:var(--text-muted);margin-bottom:10px" id="fmrMeta"></p>
+            <div id="fmrProgressBox" style="display:none;margin:10px 0;">
+              <div style="display:flex;justify-content:space-between;font-size:.85em;color:#555;margin-bottom:4px;">
+                <span data-t="fmrProgressLabel">Fortschritt laufende Messung</span>
+                <span id="fmrProgressText">—</span>
+              </div>
+              <div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">
+                <div id="fmrProgressFill" style="background:#3b82f6;height:100%;width:0%;transition:width .3s ease;"></div>
+              </div>
+            </div>
+            <div id="fmrQualityText" data-t="" style="margin:10px 0;padding:8px 10px;background:#f9fafb;border-left:3px solid #cbd5e1;font-size:.9em;color:#374151;border-radius:0 4px 4px 0;display:none;"></div>
             <div
               style="margin-bottom:14px;padding:12px 16px;background:var(--accent-light);border-radius:8px;border-left:3px solid var(--accent);font-size:0.86em;line-height:1.6"
               id="fmrMethodNote"

@@ -27,11 +27,14 @@ Fallstricke siehe Pieper et al. 2022 (im `.manuals/`-Ordner).
 ### Verfahren im Überblick
 
 - Pro nicht ausgeschlossener Elektrode der variablen Seite läuft ein
-  eigener adaptiver Staircase („Track"). Tracks laufen verschränkt:
-  jeder einzelne Trial zieht zufällig eine Elektrode aus dem Pool der
-  noch nicht abgeschlossenen Tracks. Der User weiß nicht, welche
-  Elektrode gerade dran ist — das minimiert Anker- und
-  Adaptations-Effekte.
+  eigener adaptiver Staircase („Track"). Tracks laufen verschränkt
+  **als geshuffelter Round-Robin**: pro Runde wird jede aktive Elektrode
+  in zufälliger Reihenfolge genau einmal getestet, am Ende der Runde
+  wird neu gemischt. Tracks, die innerhalb der Runde konvergieren,
+  fallen aus dem Rest der Runde raus. Damit ist die Trial-Verteilung
+  gleichmäßig (jeder Track hat nach N Runden ≈ N Trials), während die
+  Reihenfolge für den User unvorhersagbar bleibt — Anker- und
+  Adaptations-Effekte werden weiter minimiert.
 - Pro Trial werden zwei kurze Töne nacheinander gespielt (AB-Sequenz,
   kein ABA): einer auf der Referenzseite, einer auf der variablen Seite.
   Reihenfolge (ref-erst oder var-erst) wird pro Trial zufällig gewählt.
@@ -108,11 +111,53 @@ Die Ergebnis-Tabelle im Frequenzabgleich-Sub-Tab erhält eine
 | Zustand | Badge |
 |---|---|
 | `converged` | ✓ (grünes Badge) |
-| `converged-noisy` | ±N ct (gelb-oranges Badge, N = gerundetes Residuum) |
+| `converged-noisy` | Restunsicherheit (gelb-oranges Badge) |
 | `not-perceivable` | ✗ nicht wahrnehmbar (rotes Badge in der Zeile, die sonst „nicht gemessen" zeigt) |
+| `in-progress-early` | läuft · N Trials (blaues Badge, kursive Zeile) |
+| `in-progress` | in Arbeit · M Umkehrungen (blaues Badge, kursive Zeile) |
 | Slider-Modus (kein `fmStatus`) | — |
 
 Deaktivierte/ausgeschlossene Elektroden: Status-Zelle leer (—).
+
+### Anzeige im Reiter Meßergebnisse → Frequenzabgleich
+
+Der Ergebnis-Reiter zeigt nicht nur abgeschlossene Tracks, sondern auch
+laufende. Pro aktivem Track wird ein vorläufiger Zwischenstand
+angezeigt:
+
+- **<4 Umkehrungen** (`in-progress-early`): kein Schätzwert.
+  Status-Badge „läuft · N Trials". Zahlen-Spalten leer. Im Chart:
+  hohler blauer Kreis am Ist-Strich mit „?".
+- **≥4 Umkehrungen** (`in-progress`): vorläufiger Match = Mittelwert
+  aller bisherigen Umkehrungen, vorläufiges Residuum = halbe Spanne
+  aller bisherigen Umkehrungen. Status-Badge „in Arbeit · M
+  Umkehrungen". Zahlen-Spalten gefüllt, Zeile kursiv und gedämpft.
+  Im Chart: hohler blauer Kreis mit Restunsicherheits-Band
+  (blau, transparent), keine Verbindungslinie zu anderen Punkten.
+
+Die Tabelle enthält eine **Restunsicherheits-Spalte** (zwischen
+„Diff. (Cent)" und „Status"). Werte mit Ampelfarbe:
+- ≤10 cent grün, 11–25 cent gelb-orange, >25 cent rot.
+Bei Tracks mit <4 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
+
+Oberhalb der Tabelle (nur bei laufender Messung):
+- **Fortschrittsbalken** — Formel siehe „Fortschritt".
+- **Qualitätstext** in drei Stufen (erste Messungen / teilweise /
+  vollständig), mit mittlerem Residuum und Hinweis auf besonders
+  unsichere Elektroden.
+
+### Fortschritt
+
+Pro Track:
+- Endzustand (`converged`, `converged-noisy`, `not-perceivable`)
+  zählt als 1,0.
+- Aktiver Track zählt als `min(reversals / 6, 0,95)` — damit ist
+  garantiert, daß ein aktiver Track nie wie ein abgeschlossener
+  aussieht.
+
+Gesamtfortschritt = Mittelwert über alle Tracks, in Prozent. Der
+Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
+(`fmComputeProgressStats`).
 
 ### Catch-Trials
 
@@ -261,6 +306,7 @@ Per-Seite gespeichert in `sideData[side]`:
         trialCount: number
       }
     },
+    roundQueue: [electrodeIdx, ...],    // aktuelle Round-Robin-Reihenfolge
     startedAt: timestamp,
     completedAt: timestamp | null
   }

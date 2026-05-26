@@ -240,12 +240,86 @@ function _fmrCollectNotPerceivable() {
   return result;
 }
 
+// Liefert Pseudo-fRes-Einträge für aktive Tracks (Bauanleitung 84).
+// Wird nicht in das globale fRes geschrieben — nur temporär für Anzeige.
+//
+// Status-Konvention:
+//   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
+//                          Residuum aus halber Spanne der bisherigen Umkehrungen
+//   'in-progress-early'  : <4 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
+const FMR_PROVISIONAL_REV_MIN = 4;
+
+function _fmrBuildInProgressEntries(side) {
+  const out = [];
+  const sd = sideData[side];
+  if (!sd) return out;
+  const fa = sd.freqmatchAdaptive;
+  if (!fa || !fa.tracks) return out;
+  const refSide = fa.refSide || (side === 'left' ? 'right' : 'left');
+
+  Object.keys(fa.tracks).forEach(function(k) {
+    const tr = fa.tracks[k];
+    if (tr.status !== 'active') return;
+    const elIdx = parseInt(k, 10);
+    const varHz = withSide(side, function() { return effFreq(elIdx); });
+    const revCount = (tr.reversals && tr.reversals.length) || 0;
+
+    if (revCount >= FMR_PROVISIONAL_REV_MIN) {
+      let sum = 0;
+      for (let i = 0; i < tr.reversals.length; i++) sum += tr.reversals[i];
+      const match = sum / tr.reversals.length;
+      let max = -Infinity, min = Infinity;
+      for (let i = 0; i < tr.reversals.length; i++) {
+        if (tr.reversals[i] > max) max = tr.reversals[i];
+        if (tr.reversals[i] < min) min = tr.reversals[i];
+      }
+      const residual = (max - min) / 2;
+      out.push({
+        varSide: side, refSide: refSide, elIdx: elIdx,
+        varFreq: varHz,
+        refFreq: varHz * Math.pow(2, match / 1200),
+        timestamp: Date.now(),
+        fmStatus: 'in-progress',
+        fmResidual: residual,
+        fmTrialCount: tr.trialCount || 0,
+        fmReversals: revCount,
+        _provisional: true
+      });
+    } else {
+      out.push({
+        varSide: side, refSide: refSide, elIdx: elIdx,
+        varFreq: varHz,
+        refFreq: varHz,
+        timestamp: Date.now(),
+        fmStatus: 'in-progress-early',
+        fmResidual: null,
+        fmTrialCount: tr.trialCount || 0,
+        fmReversals: revCount,
+        _provisional: true
+      });
+    }
+  });
+  return out;
+}
+
 function renderFreqMatchResults() {
   const noData = document.getElementById("fmrNoData");
   const card = document.getElementById("fmrCard");
   if (!noData || !card) return;
 
-  if (typeof fRes === "undefined" || fRes.length === 0) {
+  // CI-Seite bestimmen: fRes hat Vorrang, dann freqmatchAdaptive.varSide, dann Config-Fallback
+  const ciSide = (fRes.length > 0)
+    ? fRes[fRes.length - 1].varSide
+    : (sideData.left.freqmatchAdaptive
+        ? sideData.left.freqmatchAdaptive.varSide
+        : sideData.right.freqmatchAdaptive
+          ? sideData.right.freqmatchAdaptive.varSide
+          : (sideData.left.config === 'ci' ? 'left' : 'right'));
+
+  // Aktive Tracks → Zwischenstand-Einträge
+  const provisional = _fmrBuildInProgressEntries(ciSide);
+
+  if ((typeof fRes === "undefined" || fRes.length === 0) && provisional.length === 0) {
     noData.style.display = "";
     card.style.display = "none";
     return;
@@ -264,13 +338,23 @@ function renderFreqMatchResults() {
   // Meta-Zeile
   const metaEl = document.getElementById("fmrMeta");
   if (metaEl) {
-    const last = fRes[fRes.length - 1];
-    const d = new Date(last.timestamp);
-    const dateStr = d.toLocaleString(
-      lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
-    );
-    const refLabel = last.refSide === "left" ? t("sideLeft") : t("sideRight");
-    metaEl.textContent = dateStr + " · " + fRes.length + " Messpunkte · Ref: " + refLabel;
+    const finalCount = fRes.length;
+    const provCount  = provisional.length;
+    let metaText = '';
+    if (finalCount > 0) {
+      const last = fRes[fRes.length - 1];
+      const d = new Date(last.timestamp);
+      const dateStr = d.toLocaleString(
+        lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
+      );
+      const refLabelMeta = last.refSide === "left" ? t("sideLeft") : t("sideRight");
+      metaText = dateStr + " · " + finalCount + " Messpunkte · Ref: " + refLabelMeta;
+    }
+    if (provCount > 0) {
+      const provStr = t('fmrProvisionalCount').replace('{n}', provCount);
+      metaText += (metaText ? ' · ' : '') + provStr;
+    }
+    metaEl.textContent = metaText;
   }
 
   // Tabellen-Header
@@ -285,16 +369,23 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThRefHz") + "</th>" +
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
+    "<th title=\"" + t("fmrThResidualTip") + "\">" + t("fmrThResidual") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
 
+  // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
+  const displayData = fRes.slice();
+  const haveFinal = {};
+  for (const r of fRes) {
+    if (r.varSide === ciSide) haveFinal[r.elIdx] = true;
+  }
+  for (const p of provisional) {
+    if (!haveFinal[p.elIdx]) displayData.push(p);
+  }
+
   // Tabellen-Body: alle Elektroden der CI-Seite
-  // Welche Seite ist die CI-Seite? Aus dem letzten fRes-Eintrag, sonst aus state
-  const ciSide = fRes.length > 0
-    ? fRes[fRes.length - 1].varSide
-    : (sideData.left.config === 'ci' ? 'left' : 'right');
   const nCi = sideData[ciSide].nEl;
   const byIdx = {};
-  for (const r of fRes) byIdx[r.elIdx] = r;
+  for (const r of displayData) byIdx[r.elIdx] = r;
 
   const varLabel = ciSide === 'left' ? t('sideLeft')  : t('sideRight');
   const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
@@ -315,6 +406,7 @@ function renderFreqMatchResults() {
         "<td>" + refLabel + "</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
+        "<td>—</td>" +
         "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>" +
         "<td>—</td>";
     } else if (!r) {
@@ -331,39 +423,155 @@ function renderFreqMatchResults() {
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
-      const diffHzRaw = r.refFreq - r.varFreq;
-      const diffHz    = diffHzRaw.toFixed(2);
-      const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
-      const centRound = Math.round(cent);
-      const diffColor = Math.abs(diffHzRaw) < 20 ? "#666" : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
-      let statusBadge = '';
-      if (r.fmStatus === 'converged-noisy') {
-        statusBadge = '<span class="fm-badge fm-badge-noisy" data-t="fmrStatusNoisy">±' + Math.round(r.fmResidual || 0) + ' ct</span>';
+      const isProvEarly = (r.fmStatus === 'in-progress-early');
+      const isProvLate  = (r.fmStatus === 'in-progress');
+      const isProv      = isProvEarly || isProvLate;
+
+      let varHzCell, refHzCell, diffHzCell, diffCtCell, residCell;
+      if (isProvEarly) {
+        varHzCell  = r.varFreq.toFixed(2);
+        refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
+        diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
+        diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
+        residCell  = "<span style=\"color:#9ca3af\">—</span>";
+      } else {
+        const diffHzRaw = r.refFreq - r.varFreq;
+        const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
+        const centRound = Math.round(cent);
+        const diffColor = isProv ? "#6b7280"
+                        : Math.abs(diffHzRaw) < 20 ? "#666"
+                        : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
+        varHzCell  = r.varFreq.toFixed(2);
+        refHzCell  = r.refFreq.toFixed(2);
+        diffHzCell = "<span style=\"color:" + diffColor + "\">"
+                   + (diffHzRaw >= 0 ? "+" : "") + diffHzRaw.toFixed(2) + "</span>";
+        diffCtCell = "<span style=\"color:" + diffColor + "\">"
+                   + (centRound >= 0 ? "+" : "") + centRound + "</span>";
+
+        if (r.fmResidual == null) {
+          residCell = "<span style=\"color:#9ca3af\">—</span>";
+        } else {
+          const res = Math.round(r.fmResidual);
+          const resColor = res <= 10 ? "#16a34a"
+                         : res <= 25 ? "#d97706"
+                         :             "#dc2626";
+          residCell = "<span style=\"color:" + resColor + ";font-weight:600\">±"
+                    + res + " ct</span>";
+        }
+      }
+
+      let statusBadge;
+      if (isProvEarly) {
+        statusBadge = '<span class="fm-badge fm-badge-prov">'
+                    + t('fmrStatusProvEarly').replace('{n}', r.fmTrialCount || 0)
+                    + '</span>';
+      } else if (isProvLate) {
+        statusBadge = '<span class="fm-badge fm-badge-prov">'
+                    + t('fmrStatusProvLate').replace('{n}', r.fmReversals || 0)
+                    + '</span>';
+      } else if (r.fmStatus === 'converged-noisy') {
+        statusBadge = '<span class="fm-badge fm-badge-noisy" data-t="fmrStatusNoisy">'
+                    + t('fmrStatusNoisy') + '</span>';
       } else if (r.fmStatus === 'converged') {
-        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="fmrStatusOk">✓</span>';
+        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="fmrStatusOk">'
+                    + t('fmrStatusOk') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
+
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td>" + varLabel + "</td>" +
-        "<td>" + r.varFreq.toFixed(2) + "</td>" +
+        "<td>" + varHzCell + "</td>" +
         "<td>" + refLabel + "</td>" +
-        "<td>" + r.refFreq.toFixed(2) + "</td>" +
-        "<td style=\"color:" + diffColor + "\">" + (diffHzRaw >= 0 ? "+" : "") + diffHz + "</td>" +
-        "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>" +
+        "<td>" + refHzCell + "</td>" +
+        "<td>" + diffHzCell + "</td>" +
+        "<td>" + diffCtCell + "</td>" +
+        "<td>" + residCell + "</td>" +
         "<td>" + statusBadge + "</td>";
+      if (isProv) tr.style.fontStyle = 'italic';
     }
     tb.appendChild(tr);
+  }
+
+  // Fortschrittsbalken: nur sichtbar bei laufendem adaptivem Track
+  const faActive = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
+  const pBox  = document.getElementById('fmrProgressBox');
+  const pText = document.getElementById('fmrProgressText');
+  const pFill = document.getElementById('fmrProgressFill');
+  if (pBox) {
+    const hasActive = faActive && faActive.tracks && Object.keys(faActive.tracks)
+      .some(function(k) { return faActive.tracks[k].status === 'active'; });
+    if (hasActive && typeof fmComputeProgressStats === 'function') {
+      const stats = fmComputeProgressStats(faActive.tracks);
+      pBox.style.display = '';
+      if (pText) pText.textContent =
+        stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';
+      if (pFill) pFill.style.width = stats.percent + '%';
+    } else {
+      pBox.style.display = 'none';
+    }
+  }
+
+  // Qualitätstext
+  const qEl = document.getElementById('fmrQualityText');
+  if (qEl) {
+    const finalEntries = fRes.filter(function(r) { return r.varSide === ciSide; });
+    const provEntries  = provisional;
+    const nElTotal = sideData[ciSide].nEl;
+    const nExcluded = sideData[ciSide].elExDur.filter(function(v) { return v !== null; }).length
+                    + sideData[ciSide].elSt.filter(function(s) { return s === 'mute'; }).length;
+    const totalActive = nElTotal - nExcluded;
+
+    let txt = '';
+    if (finalEntries.length === 0 && provEntries.length === 0) {
+      txt = '';
+    } else if (finalEntries.length === 0) {
+      txt = t('fmrQualEarly')
+        .replace('{n}', provEntries.length)
+        .replace('{t}', totalActive);
+    } else if (finalEntries.length < totalActive) {
+      const resVals = finalEntries
+        .filter(function(r) { return r.fmResidual != null; })
+        .map(function(r) { return r.fmResidual; });
+      const meanRes = resVals.length > 0
+        ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
+        : 0;
+      txt = t('fmrQualPartial')
+        .replace('{done}', finalEntries.length)
+        .replace('{total}', totalActive)
+        .replace('{res}', meanRes.toFixed(1));
+    } else {
+      const noisy = finalEntries.filter(function(r) { return r.fmStatus === 'converged-noisy'; });
+      const resVals = finalEntries
+        .filter(function(r) { return r.fmResidual != null; })
+        .map(function(r) { return r.fmResidual; });
+      const meanRes = resVals.length > 0
+        ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
+        : 0;
+      if (noisy.length > 0) {
+        const names = noisy.map(function(r) {
+          return withSide(ciSide, function() { return dENPrefix() + dEN(r.elIdx); });
+        }).join(', ');
+        txt = t('fmrQualOkWithNoisy')
+          .replace('{res}', meanRes.toFixed(1))
+          .replace('{names}', names);
+      } else {
+        txt = t('fmrQualOk').replace('{res}', meanRes.toFixed(1));
+      }
+    }
+    qEl.textContent = txt;
+    qEl.style.display = txt ? '' : 'none';
   }
 
   // Chart
   const cv = document.getElementById("fmrChart");
   if (cv) {
     const notPerc = _fmrCollectNotPerceivable();
-    drawFreqMatchChart(cv, fRes, { notPerceivable: notPerc });
+    drawFreqMatchChart(cv, displayData, { notPerceivable: notPerc });
     // Tooltip-Listener einmalig anhängen
     if (!cv._fmcListenerAttached) {
       cv.addEventListener("mousemove", (e) => _fmcTooltipHandler(cv, e));

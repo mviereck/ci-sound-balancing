@@ -52,19 +52,52 @@ function fmCreateTrack(electrodeIdx, prevMatchCent, rng) {
   };
 }
 
-// --- Trial-Reihenfolge: zufällig aus den aktiven Tracks ---
+// --- Trial-Reihenfolge: geshuffelter Round-Robin ---
 //
-// tracks: { [electrodeIdx]: trackState }
-// rng: optionale Random-Funktion
+// state.roundQueue: aktuell laufende Runde (Restliste an Elektroden-IDs,
+//                   die in dieser Runde noch drankommen).
+// state.tracks:     wie bisher { [electrodeIdx]: trackState }
+// rng:              optionale Random-Funktion (default Math.random)
+//
+// Ablauf: solange `roundQueue` Einträge hat, wird der erste
+// genommen (FIFO). Beim Übergang einer neuen Runde wird die
+// Liste aller aktiven Track-IDs gezogen und in zufälliger
+// Reihenfolge in `roundQueue` geschrieben. Tracks, die innerhalb
+// der laufenden Runde konvergieren, werden beim Pop übersprungen.
+//
 // returns: electrodeIdx (Number) oder null wenn alle abgeschlossen
-function fmPickNextTrack(tracks, rng) {
+function fmPickNextTrack(state, rng) {
+  // Rückwärtskompatibilität: alter Aufruf mit tracks-Objekt direkt
+  // statt Wrapper-State. In dem Fall wird ein flüchtiger Wrapper
+  // benutzt; State des Aufrufers geht verloren.
+  if (state && state.electrodeIdx === undefined && state.tracks === undefined) {
+    state = { tracks: state, roundQueue: [] };
+  }
+
   const r = rng || Math.random;
-  const activeIds = Object.keys(tracks).filter(function(k) {
-    return tracks[k].status === 'active';
-  });
+  const tracks = state.tracks || {};
+  const activeIds = Object.keys(tracks)
+    .filter(function(k) { return tracks[k].status === 'active'; })
+    .map(function(k) { return parseInt(k, 10); });
   if (activeIds.length === 0) return null;
-  const pick = activeIds[Math.floor(r() * activeIds.length)];
-  return parseInt(pick, 10);
+
+  // Aus der Restliste die nächste noch aktive ID nehmen.
+  while (state.roundQueue && state.roundQueue.length > 0) {
+    const cand = state.roundQueue.shift();
+    if (tracks[cand] && tracks[cand].status === 'active') {
+      return cand;
+    }
+  }
+
+  // Neue Runde: aktive IDs in zufälliger Reihenfolge in die Queue
+  // schreiben. Fisher-Yates-Shuffle.
+  const shuffled = activeIds.slice();
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(r() * (i + 1));
+    const tmp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = tmp;
+  }
+  state.roundQueue = shuffled;
+  return state.roundQueue.shift();
 }
 
 // --- Antwort verarbeiten (2-down-1-up, transformed) ---
