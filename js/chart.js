@@ -320,7 +320,9 @@ function drawChart(cv, vals, res, isOff, elColor) {
 // ============================================================
 // FREQ MATCH CHART
 // ============================================================
-function drawFreqMatchChart(cv, fResData) {
+function drawFreqMatchChart(cv, fResData, opts) {
+  opts = opts || {};
+  const notPerc = opts.notPerceivable || {};
   const ctx = cv.getContext("2d"),
     dpr = window.devicePixelRatio || 1,
     w = cv.parentElement.clientWidth - 32,
@@ -338,6 +340,7 @@ function drawFreqMatchChart(cv, fResData) {
   ctx.clearRect(0, 0, w, h);
 
   cv._fmcFResData = fResData;
+  cv._fmcOpts = opts;
   if (!fResData || fResData.length === 0) return;
   const fmcArrowPos = {}, fmcLabelPos = {};
 
@@ -366,6 +369,7 @@ function drawFreqMatchChart(cv, fResData) {
     const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
     const hzIst = withSide(ciSide, () => effFreq(i));
     const r = measuredByIdx[i];
+    const notPercFlag = !!notPerc[ciSide + ':' + i];
     allEls.push({
       elIdx: i,
       elNum: withSide(ciSide, () => dEN(i)),
@@ -376,6 +380,9 @@ function drawFreqMatchChart(cv, fResData) {
       dCent:  r ? (hzToCt(r.refFreq) - hzToCt(hzIst)) : null,
       isMeasured: !!r,
       isExcluded: exCI,
+      isNotPerceivable: notPercFlag,
+      fmStatus:   r ? (r.fmStatus   || 'converged') : null,
+      fmResidual: r ? (r.fmResidual || 0)           : null,
       r: r,
     });
   }
@@ -485,8 +492,15 @@ function drawFreqMatchChart(cv, fResData) {
       ctx.arc(xi, yi, 3, 0, Math.PI * 2);
       ctx.fillStyle = "#6b7280";
       ctx.fill();
-      // Soll-Punkt = Messpunkt (kräftig schwarz) bei (cSoll, ΔC)
+      // Soll-Punkt = Messpunkt bei (cSoll, ΔC)
       const xs = tX(el.cSoll), ys = tY(el.dCent);
+      // Restunsicherheits-Band (converged-noisy) hinter dem Punkt
+      if (el.fmStatus === 'converged-noisy' && el.fmResidual > 0) {
+        const halfH = Math.abs(tY(0) - tY(el.fmResidual));
+        ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+        ctx.fillRect(xs - 6, ys - halfH, 12, 2 * halfH);
+      }
+      // Soll-Punkt (kräftig schwarz) darüber
       ctx.beginPath();
       ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
       ctx.fillStyle = "#000";
@@ -495,11 +509,25 @@ function drawFreqMatchChart(cv, fResData) {
       ctx.lineWidth = 2;
       ctx.stroke();
       hitboxes.push({ x: xs, y: ys, el: el });
+    } else if (el.isNotPerceivable) {
+      // Hohles rotes Quadrat mit ✕ auf y=0-Linie am Ist-Strich
+      const x = tX(el.cIst), y = tY(0);
+      const size = 12;
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth   = 1.5;
+      ctx.strokeRect(x - size / 2, y - size / 2, size, size);
+      ctx.beginPath();
+      ctx.moveTo(x - size / 2, y - size / 2);
+      ctx.lineTo(x + size / 2, y + size / 2);
+      ctx.moveTo(x + size / 2, y - size / 2);
+      ctx.lineTo(x - size / 2, y + size / 2);
+      ctx.stroke();
+      hitboxes.push({ x, y, el });
     } else {
       // Ungemessen/ausgeschlossen: nur Marker bei (cIst, 0)
       const x = tX(el.cIst), y = tY(0);
       if (el.isExcluded) {
-        // ✕
+        // ✕ (grau)
         ctx.strokeStyle = "#9ca3af";
         ctx.lineWidth = 1.75;
         const s = 5;
@@ -783,19 +811,33 @@ function _fmcTooltipHandler(cv, e) {
   const newEl = hit ? hit.el : null;
   if (newEl !== cv._fmcHighEl) {
     cv._fmcHighEl = newEl;
-    drawFreqMatchChart(cv, cv._fmcFResData);
+    drawFreqMatchChart(cv, cv._fmcFResData, cv._fmcOpts || {});
     if (newEl) _fmcDrawHighlight(cv, newEl);
   }
   if (hit) {
     const el = hit.el;
-    const hzIst  = Math.round(el.hzIst);
-    const hzSoll = Math.round(el.hzSoll);
-    const cIst   = (el.cIst  >= 0 ? "+" : "") + Math.round(el.cIst)  + "\u202fct";
-    const cSoll  = (el.cSoll >= 0 ? "+" : "") + Math.round(el.cSoll) + "\u202fct";
-    tip.innerHTML =
-      "<b>E" + el.elNum + "</b><br>" +
-      hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
-      cIst + " \u2192 " + cSoll;
+    const tipT = (k, fb) => {
+      if (typeof t !== 'function') return fb;
+      const v = t(k);
+      return (v && v !== k) ? v : fb;
+    };
+    let tipHtml;
+    if (el.isNotPerceivable) {
+      tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('fmrTipNotPerc', 'nicht wahrnehmbar');
+    } else {
+      const hzIst  = Math.round(el.hzIst);
+      const hzSoll = Math.round(el.hzSoll);
+      const cIst   = (el.cIst  >= 0 ? "+" : "") + Math.round(el.cIst)  + "\u202fct";
+      const cSoll  = (el.cSoll >= 0 ? "+" : "") + Math.round(el.cSoll) + "\u202fct";
+      tipHtml = "<b>E" + el.elNum + "</b><br>" +
+        hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
+        cIst + " \u2192 " + cSoll;
+      if (el.fmStatus === 'converged-noisy' && el.fmResidual > 0) {
+        tipHtml += "<br>" + tipT('fmrTipResidual', 'Restunsicherheit') +
+          " \u00b1" + Math.round(el.fmResidual) + "\u202fct";
+      }
+    }
+    tip.innerHTML = tipHtml;
     tip.style.display = "block";
     tip.style.left = (e.clientX + 14) + "px";
     tip.style.top  = (e.clientY - 10) + "px";

@@ -100,6 +100,20 @@ Konvergenz und ohne „Nicht wahrnehmbar"-Klassifikation, wird der Track
 als „Konvergiert mit Restunsicherheit" abgeschlossen — Wert bleibt
 verwertbar, Residuum wird groß sein.
 
+### Ergebnis-Tabelle (Status-Spalte)
+
+Die Ergebnis-Tabelle im Frequenzabgleich-Sub-Tab erhält eine
+**Status-Spalte** (rechts):
+
+| Zustand | Badge |
+|---|---|
+| `converged` | ✓ (grünes Badge) |
+| `converged-noisy` | ±N ct (gelb-oranges Badge, N = gerundetes Residuum) |
+| `not-perceivable` | ✗ nicht wahrnehmbar (rotes Badge in der Zeile, die sonst „nicht gemessen" zeigt) |
+| Slider-Modus (kein `fmStatus`) | — |
+
+Deaktivierte/ausgeschlossene Elektroden: Status-Zelle leer (—).
+
 ### Catch-Trials
 
 - **Anteil**: ~10 % der Trials, pro Track separat eingestreut.

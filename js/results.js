@@ -225,6 +225,21 @@ function renderResults() {
 // ============================================================
 // FREQ MATCH RESULTS
 // ============================================================
+function _fmrCollectNotPerceivable() {
+  const result = {};
+  ['left', 'right'].forEach(function(side) {
+    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+    if (!fa || !fa.tracks) return;
+    Object.keys(fa.tracks).forEach(function(k) {
+      const tr = fa.tracks[k];
+      if (tr.status === 'not-perceivable') {
+        result[side + ':' + k] = true;
+      }
+    });
+  });
+  return result;
+}
+
 function renderFreqMatchResults() {
   const noData = document.getElementById("fmrNoData");
   const card = document.getElementById("fmrCard");
@@ -269,7 +284,8 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThRefSide") + "</th>" +
     "<th>" + t("fmrThRefHz") + "</th>" +
     "<th>" + t("fmrThDiffHz") + "</th>" +
-    "<th>" + t("fmrThDiffCent") + "</th>";
+    "<th>" + t("fmrThDiffCent") + "</th>" +
+    "<th>" + t("fmrThStatus") + "</th>";
 
   // Tabellen-Body: alle Elektroden der CI-Seite
   // Welche Seite ist die CI-Seite? Aus dem letzten fRes-Eintrag, sonst aus state
@@ -299,8 +315,14 @@ function renderFreqMatchResults() {
         "<td>" + refLabel + "</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
-        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
+        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>" +
+        "<td>—</td>";
     } else if (!r) {
+      const fa = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
+      const notPercTrack = fa && fa.tracks && fa.tracks[i] && fa.tracks[i].status === 'not-perceivable';
+      const note = notPercTrack
+        ? '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">✗ nicht wahrnehmbar</span>'
+        : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td>" + varLabel + "</td>" +
@@ -308,13 +330,22 @@ function renderFreqMatchResults() {
         "<td>" + refLabel + "</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"font-size:.82em;color:#9ca3af\">" + t('notMeasured') + "</td>";
+        "<td style=\"color:#9ca3af\">—</td>" +
+        "<td>" + note + "</td>";
     } else {
       const diffHzRaw = r.refFreq - r.varFreq;
       const diffHz    = diffHzRaw.toFixed(2);
       const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
       const centRound = Math.round(cent);
       const diffColor = Math.abs(diffHzRaw) < 20 ? "#666" : diffHzRaw > 0 ? "#2563eb" : "#dc2626";
+      let statusBadge = '';
+      if (r.fmStatus === 'converged-noisy') {
+        statusBadge = '<span class="fm-badge fm-badge-noisy" data-t="fmrStatusNoisy">±' + Math.round(r.fmResidual || 0) + ' ct</span>';
+      } else if (r.fmStatus === 'converged') {
+        statusBadge = '<span class="fm-badge fm-badge-ok" data-t="fmrStatusOk">✓</span>';
+      } else {
+        statusBadge = '<span class="muted">—</span>';
+      }
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td>" + varLabel + "</td>" +
@@ -322,7 +353,8 @@ function renderFreqMatchResults() {
         "<td>" + refLabel + "</td>" +
         "<td>" + r.refFreq.toFixed(2) + "</td>" +
         "<td style=\"color:" + diffColor + "\">" + (diffHzRaw >= 0 ? "+" : "") + diffHz + "</td>" +
-        "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>";
+        "<td style=\"color:" + diffColor + "\">" + (centRound >= 0 ? "+" : "") + centRound + "</td>" +
+        "<td>" + statusBadge + "</td>";
     }
     tb.appendChild(tr);
   }
@@ -330,7 +362,8 @@ function renderFreqMatchResults() {
   // Chart
   const cv = document.getElementById("fmrChart");
   if (cv) {
-    drawFreqMatchChart(cv, fRes);
+    const notPerc = _fmrCollectNotPerceivable();
+    drawFreqMatchChart(cv, fRes, { notPerceivable: notPerc });
     // Tooltip-Listener einmalig anhängen
     if (!cv._fmcListenerAttached) {
       cv.addEventListener("mousemove", (e) => _fmcTooltipHandler(cv, e));
@@ -344,5 +377,10 @@ function renderFreqMatchResults() {
 
   // Chart-Hinweis
   const hintEl = document.getElementById("fmrChartHint");
-  if (hintEl) hintEl.textContent = t("fmrChartHint");
+  if (hintEl) {
+    const hintAdaptive = t("fmrChartHintAdaptive");
+    hintEl.textContent = (hintAdaptive && hintAdaptive !== "fmrChartHintAdaptive")
+      ? hintAdaptive
+      : t("fmrChartHint");
+  }
 }

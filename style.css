@@ -410,7 +410,7 @@ canvas {
 /* Adaptiver Frequenzabgleich — Status-Grid (Bauanleitung 02b/4) */
 .fm-status-grid {
   display: grid;
-  grid-template-columns: minmax(60px, 1.2fr) 40px minmax(70px, 1fr) minmax(70px, 1fr) 60px 60px;
+  grid-template-columns: minmax(60px, 1.2fr) minmax(50px, 1fr) minmax(70px, 1fr) minmax(70px, 1fr) 60px 60px;
   gap: 0;
   margin: 12px 0;
   border: 1px solid var(--border);
@@ -445,6 +445,17 @@ canvas {
   background: #f8d7da;
   color: var(--text-muted);
 }
+
+.fm-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.82em;
+  font-weight: 600;
+}
+.fm-badge-ok    { background: #d1fae5; color: #065f46; }
+.fm-badge-noisy { background: #fef3c7; color: #92400e; }
+.fm-badge-err   { background: #fee2e2; color: #991b1b; }
 
 .warning-bar {
   background: #fef3c7;
