@@ -113,7 +113,7 @@ Die Ergebnis-Tabelle im Frequenzabgleich-Sub-Tab erhält eine
 | `converged` | ✓ (grünes Badge) |
 | `converged-noisy` | Restunsicherheit (gelb-oranges Badge) |
 | `not-perceivable` | ✗ nicht wahrnehmbar (rotes Badge in der Zeile, die sonst „nicht gemessen" zeigt) |
-| `in-progress-early` | läuft · N Trials (blaues Badge, kursive Zeile) |
+| `in-progress-early` | läuft · N Vergleiche (blaues Badge, kursive Zeile) |
 | `in-progress` | in Arbeit · M Umkehrungen (blaues Badge, kursive Zeile) |
 | Slider-Modus (kein `fmStatus`) | — |
 
@@ -125,20 +125,24 @@ Der Ergebnis-Reiter zeigt nicht nur abgeschlossene Tracks, sondern auch
 laufende. Pro aktivem Track wird ein vorläufiger Zwischenstand
 angezeigt:
 
-- **<4 Umkehrungen** (`in-progress-early`): kein Schätzwert.
-  Status-Badge „läuft · N Trials". Zahlen-Spalten leer. Im Chart:
+- **<2 Umkehrungen** (`in-progress-early`): kein Schätzwert.
+  Status-Badge „läuft · N Vergleiche". Zahlen-Spalten leer. Im Chart:
   hohler blauer Kreis am Ist-Strich mit „?".
-- **≥4 Umkehrungen** (`in-progress`): vorläufiger Match = Mittelwert
-  aller bisherigen Umkehrungen, vorläufiges Residuum = halbe Spanne
-  aller bisherigen Umkehrungen. Status-Badge „in Arbeit · M
-  Umkehrungen". Zahlen-Spalten gefüllt, Zeile kursiv und gedämpft.
-  Im Chart: hohler blauer Kreis mit Restunsicherheits-Band
-  (blau, transparent), keine Verbindungslinie zu anderen Punkten.
+- **≥2 Umkehrungen** (`in-progress`): vorläufiger Match = Mittelwert
+  aller bisherigen Umkehrungen. Residuum erst **ab 4 Umkehrungen**
+  (halbe Spanne aller bisherigen Umkehrungen). Status-Badge
+  „in Arbeit · M Umkehrungen". Match-Spalte gefüllt; Residuum-Spalte
+  bei 2–3 Umkehrungen leer. Im Chart: hohler blauer Kreis an
+  geschätzter Soll-Position, Restunsicherheits-Band nur ab 4 Umkehrungen.
+
+Dieselbe Logik gilt auch im Status-Grid des Test-Panels: vorläufige
+Match- und Residuum-Werte erscheinen dort kursiv und in gedämpfter
+Farbe (`fm-status-provisional`), sobald die Schwellen erreicht sind.
 
 Die Tabelle enthält eine **Restunsicherheits-Spalte** (zwischen
 „Diff. (Cent)" und „Status"). Werte mit Ampelfarbe:
 - ≤10 cent grün, 11–25 cent gelb-orange, >25 cent rot.
-Bei Tracks mit <4 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
+Bei Tracks mit <2 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
 
 Oberhalb der Tabelle (nur bei laufender Messung):
 - **Fortschrittsbalken** — Formel siehe „Fortschritt".
@@ -157,7 +161,8 @@ Pro Track:
 
 Gesamtfortschritt = Mittelwert über alle Tracks, in Prozent. Der
 Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
-(`fmComputeProgressStats`).
+(`fmComputeProgressStats`). Der Fortschrittstext lautet:
+„X von Y Elektroden konvergiert · N Vergleiche · P % Fortschritt".
 
 ### Catch-Trials
 
@@ -218,11 +223,12 @@ Der adaptive Modus nutzt `buildTestPanel` aus `test-ui.js` und braucht
    Statusanzeige. Zur Laufzeit vom freqmatch.js-Modul mit einer Zeile
    pro Elektrode befüllt:
    - Elektroden-Bezeichnung (apikal→basal sortiert, feste Reihenfolge)
-   - Status-Icon: ⏳ aktiv, ✓ konvergiert, ◐ konvergiert mit
-     Restunsicherheit, ✗ nicht wahrnehmbar
+   - Status-Text: „⏳ läuft" (noch keine Schätzwerte), „⏳ vorläufig"
+     (Schätzwerte vorhanden, kursiv angezeigt), „✓ konvergiert",
+     „◐ unsicher", „✗ nicht wahrnehmbar"
    - Aktueller Match in cent (oder „—" für nicht wahrnehmbar)
    - Residuum „±N ct"
-   - Trial-Zahl klein
+   - Anzahl Vergleiche (Spalte „Vergleiche")
    - Catch-Statistik klein (z. B. „0/2")
 
 Übrige `buildTestPanel`-Sektionen werden im adaptiven Modus wie folgt

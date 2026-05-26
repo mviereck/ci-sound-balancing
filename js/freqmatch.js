@@ -323,8 +323,15 @@ function fmEnableHeightButtons() {
   if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = false;
 }
 function fmDisableHeightButtons() {
+  setPlayingIndicator(null);
   if (fmEls && fmEls.hjHigher) fmEls.hjHigher.disabled = true;
   if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = true;
+}
+
+function setPlayingIndicator(which) {
+  if (!fmEls) return;
+  if (fmEls.pairLeft)  fmEls.pairLeft.classList.toggle('playing',  which === 'left');
+  if (fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', which === 'right');
 }
 
 // --- Persistenz (Bauanleitung 02b/5) ---
@@ -525,17 +532,25 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
   isPlay   = true;
 
   if (firstSide === 'ref') {
+    setPlayingIndicator('left');
     await playOne(fmRefSide, refHz);
+    setPlayingIndicator(null);
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
     await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    setPlayingIndicator('right');
     await playOne(fmVarSide, varHz);
+    setPlayingIndicator(null);
   } else {
+    setPlayingIndicator('left');
     await playOne(fmVarSide, varHz);
+    setPlayingIndicator(null);
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
     await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    setPlayingIndicator('right');
     await playOne(fmRefSide, refHz);
+    setPlayingIndicator(null);
   }
 
   fmIsPlay = false;
@@ -669,6 +684,7 @@ function fmFinishAdaptive() {
     fmEls.stopBtn.disabled  = true;
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
+  setPlayingIndicator(null);
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   fmRefreshResumeHint();
 }
@@ -702,26 +718,46 @@ function fmRenderStatusGrid() {
     const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(idx); });
     row.appendChild(_mkCell(elName));
 
+    const prov = (typeof fmComputeProvisional === 'function')
+      ? fmComputeProvisional(track)
+      : { status: null, match: null, residual: null };
+
     const iconMap = {
-      'active':          '⏳',
-      'converged':       '✓',
-      'converged-noisy': '◐',
-      'not-perceivable': '✗'
+      'converged':       '✓ konvergiert',
+      'converged-noisy': '◐ unsicher',
+      'not-perceivable': '✗ nicht wahrnehmbar'
     };
-    row.appendChild(_mkCell(iconMap[track.status] || '?'));
-
-    let matchTxt = '—';
-    if (track.match != null) {
-      const sign = track.match >= 0 ? '+' : '';
-      matchTxt = sign + Math.round(track.match) + ' ct';
+    let statusTxt;
+    if (track.status !== 'active') {
+      statusTxt = iconMap[track.status] || '?';
+    } else if (prov.status === 'in-progress') {
+      statusTxt = '⏳ vorläufig';
+    } else {
+      statusTxt = '⏳ läuft';
     }
-    row.appendChild(_mkCell(matchTxt));
+    row.appendChild(_mkCell(statusTxt));
 
-    let residTxt = '—';
+    let matchTxt = '—', matchProv = false;
+    if (track.match != null) {
+      matchTxt = (track.match >= 0 ? '+' : '') + Math.round(track.match) + ' ct';
+    } else if (prov.match != null) {
+      matchTxt = (prov.match >= 0 ? '+' : '') + Math.round(prov.match) + ' ct';
+      matchProv = true;
+    }
+    const matchCell = _mkCell(matchTxt);
+    if (matchProv) matchCell.classList.add('fm-status-provisional');
+    row.appendChild(matchCell);
+
+    let residTxt = '—', residProv = false;
     if (track.residual != null) {
       residTxt = '±' + Math.round(track.residual) + ' ct';
+    } else if (prov.residual != null) {
+      residTxt = '±' + Math.round(prov.residual) + ' ct';
+      residProv = true;
     }
-    row.appendChild(_mkCell(residTxt));
+    const residCell = _mkCell(residTxt);
+    if (residProv) residCell.classList.add('fm-status-provisional');
+    row.appendChild(residCell);
 
     row.appendChild(_mkCell(String(track.trialCount)));
     row.appendChild(_mkCell(track.catchErrors + '/' + track.catchTotal));
@@ -754,8 +790,9 @@ function fmUpdateAdaptiveProgress() {
   }
   const stats = fmComputeProgressStats(fmTracks);
   fmEls.progressText.textContent =
-    stats.done + ' / ' + stats.total +
-    ' (' + stats.totalTrials + ' trials, ' + Math.round(stats.percent) + ' %)';
+    stats.done + ' von ' + stats.total +
+    ' Elektroden konvergiert · ' + stats.totalTrials +
+    ' Vergleiche · ' + Math.round(stats.percent) + ' % Fortschritt';
   fmEls.progressFill.style.width = stats.percent + '%';
 }
 

@@ -297,6 +297,26 @@ button:disabled {
   color: var(--text-muted);
   font-size: 0.9em;
 }
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.progress-text {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-align: center;
+}
 .judgment-buttons {
   display: flex;
   gap: 10px;
@@ -444,6 +464,10 @@ canvas {
 .fm-status-row.fm-status-not-perceivable > .fm-status-cell {
   background: #f8d7da;
   color: var(--text-muted);
+}
+.fm-status-provisional {
+  font-style: italic;
+  color: #4b5563;
 }
 
 .fm-badge {

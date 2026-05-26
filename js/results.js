@@ -246,8 +246,8 @@ function _fmrCollectNotPerceivable() {
 // Status-Konvention:
 //   'in-progress'        : ≥4 Umkehrungen, Match aus Mittelwert,
 //                          Residuum aus halber Spanne der bisherigen Umkehrungen
-//   'in-progress-early'  : <4 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
-const FMR_PROVISIONAL_REV_MIN = 4;
+//   'in-progress-early'  : <2 Umkehrungen, kein Match, refFreq = varFreq (Platzhalter)
+// Schwellen kommen aus fmComputeProvisional in freqmatch-staircase.js.
 
 function _fmrBuildInProgressEntries(side) {
   const out = [];
@@ -262,27 +262,18 @@ function _fmrBuildInProgressEntries(side) {
     if (tr.status !== 'active') return;
     const elIdx = parseInt(k, 10);
     const varHz = withSide(side, function() { return effFreq(elIdx); });
-    const revCount = (tr.reversals && tr.reversals.length) || 0;
+    const prov  = fmComputeProvisional(tr);
 
-    if (revCount >= FMR_PROVISIONAL_REV_MIN) {
-      let sum = 0;
-      for (let i = 0; i < tr.reversals.length; i++) sum += tr.reversals[i];
-      const match = sum / tr.reversals.length;
-      let max = -Infinity, min = Infinity;
-      for (let i = 0; i < tr.reversals.length; i++) {
-        if (tr.reversals[i] > max) max = tr.reversals[i];
-        if (tr.reversals[i] < min) min = tr.reversals[i];
-      }
-      const residual = (max - min) / 2;
+    if (prov.status === 'in-progress') {
       out.push({
         varSide: side, refSide: refSide, elIdx: elIdx,
         varFreq: varHz,
-        refFreq: varHz * Math.pow(2, match / 1200),
+        refFreq: varHz * Math.pow(2, prov.match / 1200),
         timestamp: Date.now(),
         fmStatus: 'in-progress',
-        fmResidual: residual,
-        fmTrialCount: tr.trialCount || 0,
-        fmReversals: revCount,
+        fmResidual: prov.residual,
+        fmTrialCount: prov.trials,
+        fmReversals: prov.reversals,
         _provisional: true
       });
     } else {
@@ -293,8 +284,8 @@ function _fmrBuildInProgressEntries(side) {
         timestamp: Date.now(),
         fmStatus: 'in-progress-early',
         fmResidual: null,
-        fmTrialCount: tr.trialCount || 0,
-        fmReversals: revCount,
+        fmTrialCount: prov.trials,
+        fmReversals: prov.reversals,
         _provisional: true
       });
     }

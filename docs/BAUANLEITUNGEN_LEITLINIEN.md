@@ -152,3 +152,44 @@ IIFE im selben Format wie ein Block in
 Reaktivierung: Inhalt in `js/debug-tests-current.js`
 zurückkopieren, neu laden, fertig. Die Archiv-Datei bleibt
 unverändert liegen.
+
+Häufige Fallen in Anleitungs-Snippets (Lessons learned ab BA 84)
+-----------------------------------------------------------------
+
+Diese vier Klassen von Anleitungs-Fehlern haben in BA 84 jeweils
+einen Bug verursacht. Vor Versand jeder Bauanleitung gegenchecken:
+
+- **State-Mutation vs. Reassignment in Funktions-Parametern**:
+  Wenn eine Funktion einen State-Parameter erhält und dessen
+  Properties verändern soll, NIE per Reassignment (`state.foo = bar`)
+  ersetzen, wenn der Aufrufer die Änderung sehen soll. Reassignment
+  ändert nur die Property im übergebenen Wrapper-Objekt, nicht das
+  Original-Array/Objekt des Aufrufers. Entweder konsequent in-place
+  mutieren (`state.foo.length = 0; state.foo.push(...neu)` für
+  Arrays) oder eine Rückgabewert-API wählen, bei der der Aufrufer
+  explizit zurückschreibt. Anleitungs-Kommentare wie „wird in-place
+  mutiert" müssen tatsächlich stimmen — sie decken sonst den Bug zu.
+
+- **Edge-Cases bei neuen Code-Pfaden explizit benennen**:
+  Wenn ein neuer Anwendungsfall (z.B. „Adaptiv-Lauf ohne fertige
+  `fRes`-Einträge") Heuristiken aus dem Altcode unter ungewohnte
+  Eingangsbedingungen stellt, in der Anleitung den Edge-Case
+  ausdrücklich erwähnen und prüfen, ob die alte Heuristik dort
+  noch greift. Nicht stillschweigend übernehmen.
+
+- **Anführungszeichen in i18n-Strings**:
+  In Snippets für `i18n/de.js`-Strings entweder durchgängig
+  typographische Anführungszeichen („…") verwenden oder das ASCII-
+  `"` mit `\"` escapen. Mischformen wie `"...mit „?" ..."` brechen
+  den JS-Parser, weil das innere `"` als Stringterminator gelesen
+  wird. Vor Versand der Anleitung jeden i18n-String einmal per
+  Auge auf reine `"`-Zähl-Konsistenz durchsehen.
+
+- **Zwei Schwellen aus zwei Fragerunden = zwei Konstanten**:
+  Wenn der User in getrennten Klärungsrunden zwei verwandte aber
+  unterschiedliche Schwellen festlegt (z.B. „Schätzwert ab N",
+  „Residuum ab M"), MÜSSEN in der Anleitung zwei separate Konstanten
+  und zwei separate Code-Pfade auftauchen. Sammeln in einer
+  Konstante verschleiert die Entscheidung und löscht eine der
+  beiden Schwellen still aus. Vor Versand prüfen: jede in den
+  Fragerunden gefallene Zahl im Code/Snippet wiederfinden.

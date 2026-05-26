@@ -605,7 +605,7 @@ Object.assign(L.de, {
     fmGridStatus:      "Status",
     fmGridMatch:       "Match",
     fmGridResid:       "Residuum",
-    fmGridTrials:      "Trials",
+    fmGridTrials:      "Vergleiche",
     fmGridCatch:       "Catch",
     fmExplainAdaptiveIntro:
       "Sie hören zwei kurze Töne hintereinander. Beantworten Sie nur: war der zweite Ton höher oder tiefer als der erste? — mit Pfeil hoch oder Pfeil runter.",
@@ -630,7 +630,7 @@ Object.assign(L.de, {
     fmrStatusOk: "✓ konvergiert",
     fmrStatusNoisy: "Restunsicherheit",
     fmrStatusNotPerc: "✗ nicht wahrnehmbar",
-    fmrStatusProvEarly:   "läuft · {n} Trials",
+    fmrStatusProvEarly:   "läuft · {n} Vergleiche",
     fmrStatusProvLate:    "in Arbeit · {n} Umkehrungen",
     fmrProvisionalCount:  "{n} laufend",
     fmrProgressLabel:     "Fortschritt laufende Messung",

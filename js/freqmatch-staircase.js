@@ -20,6 +20,8 @@ const FM_CATCH_MAGNITUDE    = 500;    // cent — Auslenkung in Catch
 const FM_NOT_PERC_MIN_CATCH = 6;      // mind. Catch-Trials für Klassifikation
 const FM_NOT_PERC_ERR_RATE  = 0.5;    // Catch-Fehlerrate für not-perceivable
 const FM_NOT_PERC_MIN_TRIAL = 30;     // mind. Trials für Klassifikation
+const FM_PROVISIONAL_MATCH_MIN = 2;  // ab so vielen Umkehrungen Schätz-Match
+const FM_PROVISIONAL_RESID_MIN = 4;  // ab so vielen Umkehrungen Schätz-Residuum
 
 // --- Track-State erzeugen ---
 //
@@ -303,4 +305,31 @@ function fmTrackSummary(track) {
     stepSize:     track.stepSize,
     currentOffset: track.currentOffset
   };
+}
+
+// --- Vorläufige Schätzung für laufende Tracks (Bauanleitung 85) ---
+function fmComputeProvisional(track) {
+  const revCount = (track.reversals && track.reversals.length) || 0;
+  const trials   = track.trialCount || 0;
+  if (track.status !== 'active') {
+    return { status: null, match: null, residual: null, reversals: revCount, trials: trials };
+  }
+  if (revCount < FM_PROVISIONAL_MATCH_MIN) {
+    return { status: 'in-progress-early', match: null, residual: null,
+             reversals: revCount, trials: trials };
+  }
+  let sum = 0;
+  for (let i = 0; i < track.reversals.length; i++) sum += track.reversals[i];
+  const match = sum / track.reversals.length;
+  let residual = null;
+  if (revCount >= FM_PROVISIONAL_RESID_MIN) {
+    let max = -Infinity, min = Infinity;
+    for (let i = 0; i < track.reversals.length; i++) {
+      if (track.reversals[i] > max) max = track.reversals[i];
+      if (track.reversals[i] < min) min = track.reversals[i];
+    }
+    residual = (max - min) / 2;
+  }
+  return { status: 'in-progress', match: match, residual: residual,
+           reversals: revCount, trials: trials };
 }
