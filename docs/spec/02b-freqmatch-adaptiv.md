@@ -409,3 +409,50 @@ Vorgesehen in mehreren kleinen Schritten gemäß
 7. Ergebnis-Chart-Anpassung für die drei Kategorien (Restunsicherheits-
    Band, „nicht wahrnehmbar"-Symbol)
 8. i18n DE (en/fr/es separat als Mini-Anleitung danach)
+
+---
+
+## Zweiter Staircase-Lauf (Reliabilitätsmaß)
+
+Erweiterung des adaptiven Modus: nach Lauf 1 folgt optional ein zweiter
+vollständiger Staircase-Lauf. Zweck: Reliabilitätsprüfung (Reproduzier-
+barkeit) und genauerer Mittelwert.
+
+### Verfahren
+
+- Nach Abschluss von Lauf 1 zeigt der Start-Button „Zweiten Lauf starten".
+  Lauf 1-Ergebnisse stehen sofort in `fRes` — Einzellauf-User bekommen
+  ein Ergebnis, auch ohne Lauf 2.
+- Lauf 2 startet mit `prevMatchCent` = Match aus Lauf 1 →
+  Startstreuung ±50 ct statt ±100 ct → ca. halb so lang.
+- Endgültiges Ergebnis in `fRes`: Mittelwert beider Läufe.
+  Bei `not-perceivable` in einem Lauf: Lauf-1-Ergebnis wird beibehalten,
+  wenn Lauf 2 den Bereich als nicht wahrnehmbar klassifiziert.
+
+### Reliabilitätsmaß
+
+- `fmDelta` = |Match1 − Match2| in Cent, gespeichert im `fRes`-Eintrag.
+- Null bei Einzellauf oder wenn eine der beiden Seiten `not-perceivable`.
+- Ampelfarbe in der Ergebnistabelle: ≤ 10 ct grün, 11–25 ct gelb-orange,
+  >25 ct rot.
+
+### Storage-Erweiterung
+
+`freqmatchAdaptive` bekommt zwei neue Felder:
+- `currentLauf: 1 | 2` — welcher Lauf gerade aktiv (oder zuletzt abgeschlossen) ist.
+- `lauf1Result: { [String(electrodeIdx)]: centMatch | null } | null` —
+  per-Elektrode-Match nach Lauf 1. `null` bis Lauf 1 abgeschlossen.
+
+### UI-Elemente
+
+- Zweiter beschrifteter Fortschrittsbalken „Lauf 1" / „Lauf 2" im Test-Panel.
+- Hinweistext nach Lauf-1-Abschluss (erklärt Zweck und Dauer von Lauf 2).
+- Δ-Spalte in der Frequenzabgleich-Ergebnistabelle (BA 90).
+
+### Bauanleitungen
+
+- **BA 88** — freqmatch.js Logik: State-Vars, Persist/Restore, `fmFinishAdaptive`-
+  Branching, Lauf-2-Start, `_fmWriteResult`-Mittelwert, `fmDelta`.
+- **BA 89** — freqmatch.js UI + i18n/de.js: zweiter Fortschrittsbalken,
+  Hinweistext, `fmUpdateAdaptiveProgress`, Version-Bump.
+- **BA 90** — results.js: Δ-Spalte mit Ampelfarbe.

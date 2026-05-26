@@ -424,67 +424,12 @@ Existiert bereits über den Löschen-Button im Reiter Meßergebnisse
 (Commit 8b3a068). Kein separater Reset-Knopf im Frequenzabgleich-Tab
 nötig.
 
-**Aufteilung in Bauanleitungen**
-
-- **87** — Persistenz-Fix (gebaut 2026-05-26): Auto-Save, Datei-Save,
-  not-perceivable-Null-Bug. Voraussetzung für alle folgenden.
-- **88** — Konvergenz-Modus Grundgerüst: `modeSelect` erweitern,
-  Sperrlogik, Auswahl-Grid (Hybrid c), kumulative Datenfortschreibung,
-  i18n DE.
-- **89** — chronicNoisy-Flag mit 10%-Schwelle, Hinweis-Banner,
-  Grid-Markierung.
-- **90** — neu aktivierte Elektrode im Konvergenz-Pool, Tonvariation-
-  Warnung, Persistenz bei Deaktivieren.
-- **offen** — eventuelle Klassifikations-Korrektur (E10/E11, nach
-  Diagnose-Lauf mit BA-87-Fixed-Version).
-
----
-
-## Frequenzabgleich — Zweiter Staircase-Lauf als Reliabilitätsmaß
-
-**Aufgenommen am**: 2026-05-26
-**Status**: konzeptionell besprochen, Beziehung zum Konvergenz-Modus
-oben noch zu klären (teils Überschneidung, teils Ersatz).
-
-**Problem**: Das Residuum des Staircase ist kein zuverlässiges Maß für
-Meßgenauigkeit — es mißt Staircase-Stabilität bei Minimalschrittweite,
-nicht Wahrnehmungsschärfe. Ein Zufallsantworter am PSE sieht identisch
-aus wie ein präziser Hörer am PSE. Auch die geplante Catch-Trial-Prüfung
-unterscheidet nur „hört gar nichts" von „hört etwas", nicht
-„scharfes PSE" von „breitem PSE".
-
-**Lösung**: Zweiter vollständiger Staircase-Lauf, integriert in den
-adaptiven Test (nicht als separater Modus).
-
-- Zwei Fortschrittsbalken im Test-Panel, beschriftet „Staircase 1"
-  und „Staircase 2".
-- Test endet erst wenn beide Läufe abgeschlossen sind (jederzeit
-  unterbrechbar wie bisher).
-- Staircase 2 startet mit `prevMatchCent` = Ergebnis Staircase 1
-  (Startstreuung ±50 ct statt ±100 ct → ~halb so lang).
-- Reliabilitätsmaß pro Elektrode: |Δ| = |Match1 − Match2|.
-  Ampelfarbe: Δ ≤ 10 ct grün, 11–25 ct gelb, > 25 ct rot.
-- Bestes Ergebnis (exportierter Match): Mittelwert beider Läufe.
-
-**Hinweis-Text nach Staircase 1 (Formulierung abgestimmt)**:
-
-> „Erster Messdurchlauf abgeschlossen. Der zweite Durchlauf ist
-> empfohlen und startet nahe am gemessenen Wert — er dauert typisch
-> halb so lang wie der erste. Er dient zwei Zwecken: Der Mittelwert
-> beider Läufe ist eine zuverlässigere Schätzung des Frequenz-
-> unterschieds. Und die Differenz zwischen den Läufen zeigt pro
-> Elektrode, wie reproduzierbar das Ergebnis ist. Wenn die meisten
-> Elektroden in beiden Läufen übereinstimmend ähnlich abweichen,
-> ist das ein Hinweis auf eine systematische Verschiebung im
-> CI-Mapping — ein Befund, der für den Audiologen besonders
-> relevant ist."
-
-**Verhältnis zum Konvergenz-Modus (oben)**
-
-Der zweite Staircase-Lauf übernimmt einen Teil der Funktion des
-Konvergenz-Modus (Verfeinerungs- und Validierungs-Aufgabe). Bevor
-Konvergenz-Modus (BA 88–90) gebaut wird, klären: was bleibt noch
-sinnvoll, wenn ein zweiter Lauf bereits Δ-Information liefert?
+**Status (2026-05-26)**: BA 88–90 wurden statt dessen für den
+**Zweiten Staircase-Lauf** verwendet (ein zweiter vollständiger Lauf
+liefert das gleiche Reliabilitäts- und Verfeinerungsziel mit deutlich
+weniger Implementierungsaufwand). Der Konvergenz-Modus bleibt als
+langfristige Idee erhalten, ist aber vorerst nicht geplant. BA-Nummern
+91+ stehen für eine eventuelle spätere Umsetzung zur Verfügung.
 
 ---
 
