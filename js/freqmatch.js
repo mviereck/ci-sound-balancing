@@ -443,6 +443,15 @@ function fmRefreshResumeHint() {
   }
 }
 
+function _fmShowLauf2Hint(visible) {
+  const el = document.getElementById('fmLauf2HintEl');
+  if (!el) return;
+  el.hidden = !visible;
+  if (visible && typeof t === 'function') {
+    el.textContent = t('fmLblRun2Hint') || el.textContent;
+  }
+}
+
 function fmStartAdaptive() {
   if (!fmEls) return;
   fmRefSide = fmEls.refSelect.value;
@@ -790,9 +799,11 @@ function fmFinishAdaptive() {
     fmTracks      = {};
     fmRoundQueue  = [];
     _fmPersist();   // currentLauf:2, lauf1Result gesetzt, tracks:{}, completedAt:null
+    _fmShowLauf2Hint(true);   // Hinweistext einblenden
   } else {
     // --- Lauf 2 abgeschlossen: Sitzung vollständig ---
     _fmMarkCompleted();
+    _fmShowLauf2Hint(false);  // Hinweistext ausblenden
   }
 
   // UI-Reset (identisch in beiden Pfaden)
@@ -899,19 +910,43 @@ function _mkCell(text) {
 }
 
 function fmUpdateAdaptiveProgress() {
-  if (!fmEls || !fmEls.progressText || !fmEls.progressFill) return;
-  const ids  = Object.keys(fmTracks);
-  if (ids.length === 0) {
-    fmEls.progressText.textContent = '0 / 0';
-    fmEls.progressFill.style.width = '0%';
-    return;
+  if (!fmEls) return;
+  const ids = Object.keys(fmTracks);
+
+  // Lauf-1-Balken (immer vorhanden: fmEls.progressFill / progressText)
+  if (fmCurrentLauf === 2 && fmLauf1Result) {
+    // Lauf 1 abgeschlossen → Balken voll zeigen
+    if (fmEls.progressFill)  fmEls.progressFill.style.width  = '100%';
+    if (fmEls.progressText)  fmEls.progressText.textContent  =
+      (typeof t === 'function' && t('fmLblLauf1') || 'Lauf 1') +
+      ': ' + Object.keys(fmLauf1Result).length + ' / ' + Object.keys(fmLauf1Result).length;
+  } else if (ids.length > 0) {
+    const stats = fmComputeProgressStats(fmTracks);
+    if (fmEls.progressFill)  fmEls.progressFill.style.width  = stats.percent + '%';
+    if (fmEls.progressText)  fmEls.progressText.textContent  =
+      (typeof t === 'function' && t('fmLblLauf1') || 'Lauf 1') +
+      ': ' + stats.done + ' / ' + stats.total +
+      ' · ' + Math.round(stats.percent) + ' %';
+  } else {
+    if (fmEls.progressFill)  fmEls.progressFill.style.width  = '0%';
+    if (fmEls.progressText)  fmEls.progressText.textContent  =
+      (typeof t === 'function' && t('fmLblLauf1') || 'Lauf 1') + ': 0 / 0';
   }
-  const stats = fmComputeProgressStats(fmTracks);
-  fmEls.progressText.textContent =
-    stats.done + ' von ' + stats.total +
-    ' Elektroden konvergiert · ' + stats.totalTrials +
-    ' Vergleiche · ' + Math.round(stats.percent) + ' % Fortschritt';
-  fmEls.progressFill.style.width = stats.percent + '%';
+
+  // Lauf-2-Balken (nur wenn vorhanden — aus DOMContentLoaded eingefügt)
+  if (!fmEls.progressFill2 || !fmEls.progressText2) return;
+  if (fmCurrentLauf === 2 && ids.length > 0) {
+    const stats2 = fmComputeProgressStats(fmTracks);
+    fmEls.progressFill2.style.width = stats2.percent + '%';
+    fmEls.progressText2.textContent =
+      (typeof t === 'function' && t('fmLblLauf2') || 'Lauf 2') +
+      ': ' + stats2.done + ' / ' + stats2.total +
+      ' · ' + Math.round(stats2.percent) + ' %';
+  } else {
+    fmEls.progressFill2.style.width = '0%';
+    fmEls.progressText2.textContent =
+      (typeof t === 'function' && t('fmLblLauf2') || 'Lauf 2') + ': —';
+  }
 }
 
 // Wiederverwendbare Fortschritts-Statistik. Auch genutzt von
@@ -1064,6 +1099,7 @@ function fmAbort() {
   _fmSimActive = false;
   if (fmAdaptiveActive) {
     _fmPersist();
+    _fmShowLauf2Hint(false);
     fmAdaptiveActive   = false;
     fmAwaitingResponse = false;
     fmIsPlay           = false;
@@ -1384,6 +1420,39 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
+
+  // Hinweistext für Lauf-2-Empfehlung (nach Lauf-1-Abschluss)
+  const _lauf2Hint = _mkEl('p', 'explain explain-info');
+  _lauf2Hint.id = 'fmLauf2HintEl';
+  _lauf2Hint.hidden = true;
+  if (typeof t === 'function') _lauf2Hint.textContent = t('fmLblRun2Hint') || '';
+  // Einfügen nach explainBox (vor testBox)
+  fmEls.explainBox.insertAdjacentElement('afterend', _lauf2Hint);
+
+  // Zweiter Fortschrittsbalken für Lauf 2
+  const _lauf1Label = _mkEl('span', 'fm-lauf-label');
+  _lauf1Label.dataset.t = 'fmLblLauf1';
+  _lauf1Label.textContent = (typeof t === 'function' && t('fmLblLauf1')) || 'Lauf 1';
+  _lauf1Label.style.cssText = 'font-size:.82em;color:#6b7280;display:block;margin-top:.4rem';
+
+  const _lauf2Label = _mkEl('span', 'fm-lauf-label');
+  _lauf2Label.dataset.t = 'fmLblLauf2';
+  _lauf2Label.textContent = (typeof t === 'function' && t('fmLblLauf2')) || 'Lauf 2';
+  _lauf2Label.style.cssText = 'font-size:.82em;color:#6b7280;display:block;margin-top:.6rem';
+
+  const _pb2 = _mkEl('div', 'progress-bar');
+  fmEls.progressFill2 = _mkEl('div', 'progress-fill');
+  _pb2.appendChild(fmEls.progressFill2);
+  fmEls.progressText2 = _mkEl('div', 'progress-text');
+  fmEls.progressText2.textContent = (typeof t === 'function' && t('fmLblLauf2')) || 'Lauf 2';
+
+  // Lauf-1-Label vor dem vorhandenen Balken einfügen
+  const _existingBar = fmEls.progressFill.parentElement;
+  _existingBar.insertAdjacentElement('beforebegin', _lauf1Label);
+  // Lauf-2 nach dem vorhandenen Balken + progressText einfügen
+  fmEls.progressText.insertAdjacentElement('afterend', fmEls.progressText2);
+  fmEls.progressText.insertAdjacentElement('afterend', _pb2);
+  fmEls.progressText.insertAdjacentElement('afterend', _lauf2Label);
 
   // Modus-Switch (Bauanleitung 02b/2)
   if (fmEls.modeSelect) {

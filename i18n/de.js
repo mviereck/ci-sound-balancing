@@ -601,6 +601,16 @@ Object.assign(L.de, {
     fmModeSlider:      "Klassisch (Slider)",
     fmAdaptiveNotImpl: "Adaptiver Modus noch nicht implementiert.",
     fmLblResume:       "Test fortsetzen",
+    fmLblLauf1:        'Lauf 1',
+    fmLblLauf2:        'Lauf 2',
+    fmLblRun2Start:    'Zweiten Lauf starten',
+    fmLblResumeL2:     'Zweiten Lauf fortsetzen',
+    fmLblRun2Hint:     'Erster Messdurchlauf abgeschlossen. Der zweite Durchlauf ist empfohlen ' +
+                       'und startet nahe am gemessenen Wert — er dauert typisch halb so lang ' +
+                       'wie der erste. Er dient zwei Zwecken: Der Mittelwert beider Läufe ist ' +
+                       'eine zuverlässigere Schätzung des Frequenzunterschieds. Und die ' +
+                       'Differenz zwischen den Läufen zeigt pro Elektrode, wie reproduzierbar ' +
+                       'das Ergebnis ist.',
     fmTone1:           "Ton 1",
     fmTone2:           "Ton 2",
     fmGridEl:          "Elektrode",
