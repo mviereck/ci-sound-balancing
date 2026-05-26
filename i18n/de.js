@@ -651,7 +651,7 @@ Object.assign(L.de, {
     fmrChartHint: "Grauer (gestrichelter) Strich = Ist-Frequenz, wie im Implantat einprogrammiert. Schwarzer Strich = Soll-Frequenz, an der die Elektrode laut Messung wahrgenommen wird. Der Pfeil zeigt die nötige Korrektur; die Y-Achse zeigt deren Größe in Cent. Ungemessene Elektroden: nur Ist-Strich + Kreis. Ausgeschlossene Elektroden: nur Ist-Strich + ✕.",
     fmrNoData: "Noch keine Frequenzabgleich-Ergebnisse.",
     fmrClearBtnLabel: "🗑 Frequenzabgleich-Ergebnisse löschen",
-    fmrClearConfirm: "Alle Frequenzabgleich-Ergebnisse löschen?",
+    fmrClearConfirm: "Alle Frequenzabgleich-Ergebnisse und Track-Rohdaten löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
     cfgLabel: "Konfiguration",
     cfgCI: "Cochlea-Implantat",
     cfgHG: "Hörgerät",

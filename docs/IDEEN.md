@@ -315,3 +315,153 @@ ersetzend oder additiv, ist offen).
 genug Nutzer-Feedback erfahren hat, daß ein manueller Override
 als spürbare Verbesserung erscheint. Bis dahin reicht die
 automatische Ableitung aus Freqmatch.
+
+---
+
+## Frequenzabgleich — Konvergenz-Modus (zweiter Test-Modus)
+
+**Aufgenommen am**: 2026-05-26
+**Status**: konzeptionell abgesegnet, Bauanleitungen aufgeschoben
+bis zur Klärung der E10/E11-Klassifikations-Auffälligkeit (siehe
+unten).
+
+**Problem, das gelöst werden soll**
+Nach einem vollständigen adaptiven Lauf zerstört ein Neustart aktuell
+alle Track-Daten (`fmTracks = {}` in `js/freqmatch.js`, Z. 427).
+Reversals, Residuum, trialHistory, catchErrors gehen verloren; nur
+der grobe Match-Wert überlebt indirekt über `fmPrevCent`. Bei hoher
+Hörgenauigkeit (Martins Größenordnung: 50% < 1 ct, 100% < 2 ct
+Residuum) ist das verschenkte Information.
+
+**Idee**: zwei Test-Modi statt einem
+
+- **Adaptive** (bisherig): erstmalige Vermessung mit großem
+  Suchbereich (±100 ct um 0).
+- **Konvergenz** (neu): Verfeinerungs-Modus, der gezielt unsichere
+  Werte nachmisst, beliebig wiederholbar.
+
+Sperrlogik im `modeSelect`:
+- Solange Adaptive nicht vollständig: Konvergenz ausgegraut.
+- Sobald Adaptive vollständig: Adaptive ausgegraut, Konvergenz wird
+  Default.
+- `slider` (manueller Modus) bleibt unabhängig wählbar.
+
+**Auswahl der Elektroden im Konvergenz-Lauf (Hybrid c)**
+
+Auswahl-Grid mit Checkbox pro Elektrode, zeigt aktuellen Match und
+aktuelles Residuum. Vorbelegung automatisch:
+- ausgewählt: Tracks mit `residual > FM_RESIDUAL_OK` (= 10 ct)
+  oder `status === 'converged-noisy'`
+- nicht ausgewählt, aber wählbar: `converged` (saubere Werte) und
+  `not-perceivable` (Nutzer kann manuell erneut probieren — bei
+  erneutem Konvergenz-Test wird Track wieder `active` und neu
+  klassifiziert)
+- Markierung `chronicNoisy` (siehe unten): nicht vorgewählt, grau,
+  Tooltip.
+
+**Datenfortschreibung — kumulativ, klein starten**
+
+Beim Start eines Konvergenz-Laufs werden ausgewählte Tracks wieder
+auf `status: 'active'` gesetzt. Reversals, trialHistory, trialCount,
+catchTotal, catchErrors bleiben erhalten und werden fortgeschrieben.
+`stepSize` startet nicht bei `FM_STEP_SEQUENCE[0]`, sondern beim
+vorletzten Element (Match ist grob bekannt → fein anfangen, sonst
+zerstreut die Staircase die schon erreichte Genauigkeit). Residuum
+schrumpft kumulativ mit mehr Reversals.
+
+**chronicNoisy-Flag — 10%-Schwelle**
+
+Vor jedem Konvergenz-Lauf für jeden ausgewählten Track ein Residuum-
+Snapshot ablegen. Nach Lauf-Ende vergleichen:
+- Verbesserung = `(residualVor - residualNach) / residualVor`
+- Wenn `Verbesserung < 0.10` (10%): Lauf-Zähler `noImprovementRuns++`.
+- Wenn `noImprovementRuns >= 2`: `track.chronicNoisy = true`.
+- Bei jeder echten Verbesserung (≥ 10%): Zähler zurück auf 0.
+
+Wichtig: feste cent-Schwellen wären falsch — Martins eigene
+Unterscheidungsschwelle ist nicht bekannt. Prozentuale Schwelle
+skaliert mit dem aktuellen Datenstand.
+
+**Hinweis-Banner — Formulierung steht fest**
+
+Sobald alle ausgewählten Tracks (außer bereits-chronicNoisy) das Flag
+neu bekommen, im Test-Panel:
+
+> „Auch bei wiederholter Messung werden die Ergebnisse nicht weiter
+> verbessert. Ende des Konvergenztests empfohlen, oder andere
+> Elektroden auswählen."
+
+(NICHT: „bleiben unsicher" — falsche Formulierung, kann auch im gut
+konvergierten Bereich greifen.)
+
+**Konvergenz hat kein automatisches Ende**
+
+Stop-Knopf bleibt jederzeit aktiv, Nutzer entscheidet. Kein
+automatisches „Konvergenz erreicht, weitermachen optional"-Signal.
+
+**Neu aktivierte Elektrode auf var-Seite — Variante α**
+
+Wenn eine vorher inaktive Elektrode nach Adaptive-Abschluss
+aktiviert wird:
+- Kein separater Mini-Adaptive-Lauf (würde denselben Ton 20+ mal
+  hintereinander spielen → Gewöhnung, Bias).
+- Stattdessen: frischer Track ohne Vorwert (Startbereich ±100 ct)
+  geht in die Vorbelegung des nächsten Konvergenz-Laufs.
+- Round-Robin sorgt automatisch für Tonvariation mit anderen
+  ausgewählten Elektroden.
+- Hinweis im Grid: „Für Elektrode X liegt kein Vorwert vor — wird
+  neu vermessen. Bitte mehrere andere Elektroden zur Variation
+  mitwählen."
+- Adaptive-Modus bleibt gesperrt.
+
+Deaktivieren einer Elektrode auf var-Seite verwirft **keine**
+Track-Daten — nur die Auswertung ignoriert sie. Reaktivierung bringt
+die alten Daten zurück.
+
+**Reset-Weg**
+
+Existiert bereits über den Löschen-Button im Reiter Meßergebnisse
+(Commit 8b3a068). Kein separater Reset-Knopf im Frequenzabgleich-Tab
+nötig.
+
+**Aufteilung in Bauanleitungen**
+
+- **87** — Persistenz-Fix (gebaut 2026-05-26): Auto-Save, Datei-Save,
+  not-perceivable-Null-Bug. Voraussetzung für alle folgenden.
+- **88** — Konvergenz-Modus Grundgerüst: `modeSelect` erweitern,
+  Sperrlogik, Auswahl-Grid (Hybrid c), kumulative Datenfortschreibung,
+  i18n DE.
+- **89** — chronicNoisy-Flag mit 10%-Schwelle, Hinweis-Banner,
+  Grid-Markierung.
+- **90** — neu aktivierte Elektrode im Konvergenz-Pool, Tonvariation-
+  Warnung, Persistenz bei Deaktivieren.
+- **offen** — eventuelle Klassifikations-Korrektur (E10/E11, nach
+  Diagnose-Lauf mit BA-87-Fixed-Version).
+
+**Offener Punkt — Klassifikations-Auffälligkeit E10/E11**
+
+Beim ersten ernsthaften vollständigen Lauf (2026-05-26) wurde E11
+(stark verrauscht, links faktisch unhörbar) als sauber konvergiert
+ausgewiesen, während E10 (halb verrauscht, auf dem Restgehör-Ohr
+etwas hörbar) als `not-perceivable` klassifiziert wurde — erwartet
+wäre umgekehrt. Verdacht: `not-perceivable` greift bei hoher Catch-
+Fehlerrate (≥ 0.5) auch dort, wo die Elektrode wahrnehmbar ist,
+die Tonhöhen-Unterscheidung aber nicht zuverlässig. Das ist
+konzeptionell ein anderer Zustand („wahrnehmbar, aber nicht
+unterscheidbar") und müsste evtl. eine eigene Klassifikation
+bekommen, bevor das Auswahl-Grid in Anleitung 87 Defaults aus diesen
+Status-Werten zieht.
+
+Diagnose-Schritt vor Build: Track-State aus dem aktuellen Lauf
+ansehen — `catchTotal`, `catchErrors`, `reversals.length`,
+`trialCount` für E10 und E11. Konsolen-Befehl:
+
+```
+console.log(JSON.stringify(
+  sideData.right.freqmatchAdaptive.tracks[10], null, 2));
+console.log(JSON.stringify(
+  sideData.right.freqmatchAdaptive.tracks[11], null, 2));
+```
+
+(Seite `right` annehmen, weil CI rechts ist und damit `varSide`;
+ggf. anpassen.)

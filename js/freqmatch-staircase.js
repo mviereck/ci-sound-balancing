@@ -215,9 +215,7 @@ function _fmCheckAndUpdateStatus(track) {
       && track.reversals.length < FM_REVERSALS_REQ) {
     const errRate = track.catchErrors / track.catchTotal;
     if (errRate >= FM_NOT_PERC_ERR_RATE) {
-      track.status   = 'not-perceivable';
-      track.match    = null;
-      track.residual = null;
+      track.status = 'not-perceivable';
       return track.status;
     }
   }

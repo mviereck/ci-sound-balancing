@@ -112,6 +112,7 @@ async function saveJson() {
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
+        freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -132,6 +133,7 @@ async function saveJson() {
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
+        freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
       },
     },
     currentSide: activeSide,

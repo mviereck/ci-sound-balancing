@@ -788,6 +788,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepRound: sideData.left.fullSweepRound,
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
               implant: sideData.left.implant,
+              freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
             },
             right: {
               config: sideData.right.config || "ci",
@@ -805,6 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepRound: sideData.right.fullSweepRound,
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,
               implant: sideData.right.implant,
+              freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
             },
           },
           defaultMfr: defaultMfr,
