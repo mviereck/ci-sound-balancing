@@ -63,11 +63,20 @@ erst zur Laufzeit.
 
 **Einbindung in `index.html`:** Skripte und `style.css` werden nicht
 mehr per statischer `<script src=…>`-/`<link>`-Tags geladen, sondern
-über zwei kleine Inline-Loader im `<head>`. Der **erste Loader** lädt
-synchron `js/version.js` mit `?t=<Date.now()>` (immer frisch, ein
-kleiner Roundtrip). Damit ist `APP_VERSION` verfügbar, bevor der
-zweite Loader läuft. Der **zweite Loader** schreibt `<link>`- und
-`<script defer src=…>`-Tags per `document.write` in den
+über drei kleine Inline-Skript-Blöcke im `<head>`. Der **erste Block**
+lädt synchron `js/version.js` mit `?t=<Date.now()>` (immer frisch,
+ein kleiner Roundtrip). Damit ist `APP_VERSION` verfügbar, bevor der
+dritte Block läuft. Der **zweite Block** (ab BA 83b) ist der
+Konsolen-Fehler-Collector: er richtet `window._dbgErrors` (Array) ein,
+patcht `console.error`, hört auf `window.error` und
+`unhandledrejection` und zeigt bei Treffer einen roten Banner oberhalb
+der Tab-Leiste an (→ `#dbgErrorBanner`). `window.error`- und
+`unhandledrejection`-Events werden gefiltert: nur Dateien, die
+`/js/` oder `index.html` im Pfad tragen, lösen den Banner aus.
+Der Banner ist klickbar (öffnet das Debug-Panel via
+`window.dbg.activate()`) und hat einen ×-Schließer. Mehrfach-Fehler
+zählen im bestehenden Banner hoch. Der **dritte Block** schreibt
+`<link>`- und `<script defer src=…>`-Tags per `document.write` in den
 parser-laufenden HTML-Stream und versieht jede URL mit dem
 Cachebuster-Parameter `?v=<APP_VERSION>`. Folge: Wenn die
 Versionsnummer sich nicht ändert, dürfen Browser CSS und JS aus dem

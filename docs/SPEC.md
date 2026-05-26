@@ -66,3 +66,31 @@ dessen x-Achse seit jeher log-Hz ist (cent-äquivalent).
 - [Speichern und Laden](spec/07-laden-speichern.md)
 - [Drucken](spec/08-drucken.md)
 - [Offene Punkte (Warteliste)](spec/09-warteliste.md)
+
+## Debug-Panel und Konsolen-Fehler-Banner
+
+Das **Debug-Panel** (ab BA 80) ist ein Entwickler-Werkzeug ohne
+i18n-Übersetzungen. Öffnen: Doppelklick aufs Logo, oder
+`window.dbg.activate()` in der Konsole. Enthält Felder, Logs
+und einen Selbsttest-Bereich (ab BA 82).
+
+Der **Konsolen-Fehler-Banner** (ab BA 83b) läuft passiv im
+Hintergrund, auch wenn das Debug-Panel geschlossen ist:
+- Überwacht `console.error`, `window.error` und
+  `unhandledrejection`.
+- `window.error` und `unhandledrejection` werden gefiltert —
+  nur Fehler aus eigenen Dateien (Pfad enthält `/js/` oder
+  `index.html`) lösen den Banner aus. `console.error` ist
+  immer aktiv (Browser-Extensions rufen ihn nicht durch).
+- Bei Treffer erscheint ein roter Banner (`#dbgErrorBanner`)
+  direkt oberhalb der Tab-Leiste mit dem Fehlertext (max. 140
+  Zeichen). Mehrfach-Fehler zählen im bestehenden Banner hoch
+  (z.B. „+2 weitere").
+- Klick auf den Banner öffnet das Debug-Panel.
+- ×-Button schließt den Banner (ohne Panel zu öffnen).
+- Im Druckmodus ausgeblendet.
+- Alle gefangenen Fehler landen zusätzlich in `window._dbgErrors`
+  (Array mit `{type, msg, ts}`), zugänglich für Debug-Tests.
+- Fehler werden auch in den Debug-Panel-Log (`dbg.log(...)`) eingetragen
+  (Level `'error'`, Präfix `[type]`). Fehler, die vor dem Laden von
+  `debug.js` auftreten, werden beim `window.load`-Event nachgereicht.

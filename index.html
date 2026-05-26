@@ -12,6 +12,121 @@
       document.write('<script src="js/version.js?t=' + Date.now() + '"><\/script>');
     </script>
     <script>
+    /* Konsolen-Fehler-Collector — läuft vor dem Loader, fängt alles ab */
+    (function () {
+      'use strict';
+      window._dbgErrors = [];
+
+      function _isOwnFile(filename) {
+        if (!filename) return false;
+        var origin = (window.location.origin !== 'null') ? window.location.origin : '';
+        return filename.indexOf('/js/') !== -1 ||
+               filename.indexOf('index.html') !== -1 ||
+               (origin && filename.indexOf(origin) !== -1);
+      }
+
+      var _bannerPending = null;
+
+      function _showBanner(msg) {
+        var insert = function () {
+          var existing = document.getElementById('dbgErrorBanner');
+          if (existing) {
+            var countEl = existing.querySelector('.dbg-err-count');
+            if (countEl) {
+              var n = (parseInt(countEl.dataset.n || '1', 10) + 1);
+              countEl.dataset.n = n;
+              countEl.textContent = ' (+' + (n - 1) + ' weitere)';
+              countEl.style.display = '';
+            }
+            return;
+          }
+          var banner = document.createElement('div');
+          banner.id = 'dbgErrorBanner';
+          banner.title = 'Debug-Panel öffnen';
+          var msgEl = document.createElement('span');
+          msgEl.className = 'dbg-err-msg';
+          msgEl.textContent = msg.length > 140 ? msg.slice(0, 140) + '…' : msg;
+          var countEl = document.createElement('span');
+          countEl.className = 'dbg-err-count';
+          countEl.dataset.n = '1';
+          countEl.style.display = 'none';
+          var closeBtn = document.createElement('button');
+          closeBtn.className = 'dbg-err-close';
+          closeBtn.textContent = '×';
+          closeBtn.title = 'Warnung schließen';
+          closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            banner.remove();
+          });
+          banner.appendChild(msgEl);
+          banner.appendChild(countEl);
+          banner.appendChild(closeBtn);
+          banner.addEventListener('click', function () {
+            if (window.dbg && typeof window.dbg.activate === 'function') {
+              window.dbg.activate();
+            }
+          });
+          var tabs = document.querySelector('.tabs');
+          if (tabs && tabs.parentNode) {
+            tabs.parentNode.insertBefore(banner, tabs);
+          } else {
+            document.body.appendChild(banner);
+          }
+        };
+        if (document.readyState === 'loading') {
+          if (!_bannerPending) {
+            _bannerPending = msg;
+            document.addEventListener('DOMContentLoaded', function () { insert(); });
+          }
+        } else {
+          insert();
+        }
+      }
+
+      function _dbgLog(type, msg) {
+        window._dbgErrors.push({ type: type, msg: msg, ts: Date.now() });
+        if (window.dbg && typeof window.dbg.log === 'function') {
+          window.dbg.log('[' + type + '] ' + msg, 'error');
+        }
+      }
+
+      window.addEventListener('load', function () {
+        if (!window._dbgErrors.length) return;
+        if (!window.dbg || typeof window.dbg.log !== 'function') return;
+        window._dbgErrors.forEach(function (e) {
+          window.dbg.log('[' + e.type + '] ' + e.msg, 'error');
+        });
+      });
+
+      var _origError = console.error;
+      console.error = function () {
+        _origError.apply(console, arguments);
+        var msg = Array.prototype.slice.call(arguments).map(function (a) {
+          return (a instanceof Error) ? (a.message || String(a)) : String(a);
+        }).join(' ');
+        _dbgLog('console.error', msg);
+        _showBanner(msg);
+      };
+
+      window.addEventListener('error', function (e) {
+        if (!_isOwnFile(e.filename)) return;
+        var loc = e.filename ? ' (' + e.filename.replace(/^.*\/js\//, 'js/') + ':' + e.lineno + ')' : '';
+        var msg = (e.message || 'Unbekannter Fehler') + loc;
+        _dbgLog('error', msg);
+        _showBanner(msg);
+      });
+
+      window.addEventListener('unhandledrejection', function (e) {
+        var reason = e.reason;
+        var msg = 'Promise-Fehler: ' + ((reason && reason.message) ? reason.message : String(reason));
+        var stack = (reason && reason.stack) ? reason.stack : '';
+        if (stack && stack.indexOf('/js/') === -1 && stack.indexOf('index.html') === -1) return;
+        window._dbgErrors.push({ type: 'unhandledrejection', msg: msg, ts: Date.now() });
+        _showBanner(msg);
+      });
+    })();
+    </script>
+    <script>
     (function () {
       var v = (typeof APP_VERSION === "string") ? APP_VERSION : String(Date.now());
 

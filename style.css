@@ -1432,3 +1432,47 @@ body.dbg-active {
   .dbg-panel { display: none !important; }
   body.dbg-active { padding-right: 0 !important; }
 }
+
+/* Konsolen-Fehler-Banner */
+#dbgErrorBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  background: #8b0000;
+  color: #fff;
+  font-family: monospace;
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+#dbgErrorBanner:hover {
+  background: #a00;
+}
+#dbgErrorBanner .dbg-err-msg {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#dbgErrorBanner .dbg-err-count {
+  white-space: nowrap;
+  opacity: 0.8;
+}
+#dbgErrorBanner .dbg-err-close {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 5px;
+  cursor: pointer;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+#dbgErrorBanner .dbg-err-close:hover {
+  background: rgba(255,255,255,0.15);
+}
+@media print {
+  #dbgErrorBanner { display: none !important; }
+}
