@@ -79,15 +79,17 @@ Pro Track gibt es genau drei mögliche Endzustände:
 - Schrittweite am Minimum (3 cent)
 - Residuum (halbe Spanne der letzten 6 Umkehrungen) ≤ 10 cent
 - Match = Mittelwert der letzten 6 Umkehrungen
-- Im Chart: voller schwarzer Soll-Punkt mit Pfeil (wie heute)
+- Im Chart: voller blauer Soll-Punkt (#2563eb) mit schwarzen I-Träger-Markern
+  obendrüber (senkrecht: waagerechte Striche oben/unten; waagerecht:
+  horizontaler Strich mit senkrechten Begrenzungsstrichen); kein farbiger Balken
 
 **2. Konvergiert mit Restunsicherheit**
 - Schrittweite am Minimum
 - Residuum > 10 cent, aber stabil (letzte 4 Umkehr-Residuen ändern sich
   um < 2 cent)
 - Match wird trotzdem als Mittelwert der letzten 6 Umkehrungen übernommen
-- Im Chart: Soll-Punkt mit sichtbarem Cent-Unsicherheits-Band
-  (semitransparenter Balken um den Punkt, Höhe = Residuum)
+- Im Chart: Soll-Punkt mit farbigem Cent-Unsicherheits-Band (semitransparenter
+  Balken, Höhe = Residuum) plus I-Träger-Marker (wie bei converged)
 
 **3. Nicht wahrnehmbar**
 - Mindestens 6 Catch-Trials des Tracks abgeschlossen

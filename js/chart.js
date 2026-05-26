@@ -517,9 +517,11 @@ function drawFreqMatchChart(cv, fResData, opts) {
       // Soll-Punkt = Messpunkt bei (cSoll, ΔC)
       const xs = tX(el.cSoll), ys = tY(el.dCent);
 
-      // Restunsicherheits-Band hinter dem Punkt
+      // Restunsicherheits-Band (nur bei noisy/in-progress, hinter dem Punkt)
       const showBand = (el.fmStatus === 'converged-noisy' && el.fmResidual > 0)
                     || (el.fmStatus === 'in-progress'     && el.fmResidual > 0);
+      const showResidual = showBand
+                        || (el.fmStatus === 'converged' && el.fmResidual > 0);
       if (showBand) {
         const halfH = Math.abs(tY(0) - tY(el.fmResidual));
         ctx.fillStyle = (el.fmStatus === 'in-progress')
@@ -528,8 +530,8 @@ function drawFreqMatchChart(cv, fResData, opts) {
         ctx.fillRect(xs - 6, ys - halfH, 12, 2 * halfH);
       }
 
+      // Punkt — blau (konvergiert: gefüllt; in-progress: hohl)
       if (el.fmStatus === 'in-progress') {
-        // hohler blauer Kreis (vorläufig)
         ctx.beginPath();
         ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
         ctx.fillStyle = '#fff';
@@ -538,16 +540,37 @@ function drawFreqMatchChart(cv, fResData, opts) {
         ctx.lineWidth = 2;
         ctx.stroke();
       } else {
-        // konvergiert: voller schwarzer Kreis mit weißem Rand
         ctx.beginPath();
         ctx.arc(xs, ys, 5.5, 0, Math.PI * 2);
-        ctx.fillStyle = "#000";
+        ctx.fillStyle = '#2563eb';
         ctx.fill();
-        ctx.strokeStyle = "#fff";
+        ctx.strokeStyle = '#fff';
         ctx.lineWidth = 2;
         ctx.stroke();
       }
       hitboxes.push({ x: xs, y: ys, el: el });
+
+      // I-Träger über dem Punkt
+      if (showResidual) {
+        const halfH = Math.abs(tY(0) - tY(el.fmResidual));
+        const halfW = Math.abs(tX(el.cSoll + el.fmResidual) - tX(el.cSoll));
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([]);
+        // Senkrecht: waagerechte Striche oben und unten
+        ctx.beginPath();
+        ctx.moveTo(xs - 4, ys - halfH); ctx.lineTo(xs + 4, ys - halfH);
+        ctx.moveTo(xs - 4, ys + halfH); ctx.lineTo(xs + 4, ys + halfH);
+        ctx.stroke();
+        // Waagerecht: horizontaler Strich mit senkrechten Begrenzungsstrichen
+        ctx.beginPath();
+        ctx.moveTo(xs - halfW, ys); ctx.lineTo(xs + halfW, ys);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(xs - halfW, ys - 4); ctx.lineTo(xs - halfW, ys + 4);
+        ctx.moveTo(xs + halfW, ys - 4); ctx.lineTo(xs + halfW, ys + 4);
+        ctx.stroke();
+      }
     } else if (el.isNotPerceivable) {
       // Hohles rotes Quadrat mit ✕ auf y=0-Linie am Ist-Strich
       const x = tX(el.cIst), y = tY(0);
