@@ -1,4 +1,4 @@
-/* Debug-Panel (Bauanleitung 80)
+/* Debug-Panel (Bauanleitung 80/81)
  * Aktivierung: Doppelklick aufs Logo, ?debug=1 in der URL,
  * oder window.dbg.activate(). Deaktivierung analog.
  * Status persistiert in localStorage.
@@ -11,9 +11,17 @@
   const DBG_KEY  = 'ciSb.debugActive';
   const LOG_MAX  = 200;
 
-  const _fields = Object.create(null);   // key → value
-  const _log    = [];                    // {ts, level, msg}
-  const _tests  = [];                    // {name, opts, fn}  — BA 82
+  const _autoFields = Object.create(null);   // vom Polling befüllt
+  const _userFields = Object.create(null);   // via dbg.set(...) befüllt
+  const _log    = [];                        // {ts, level, msg}
+  const _tests  = [];                        // {name, opts, fn}  — BA 82
+
+  function _allFields() {
+    const out = Object.create(null);
+    for (const k in _autoFields) out[k] = _autoFields[k];
+    for (const k in _userFields) out[k] = _userFields[k];   // user gewinnt bei Konflikt
+    return out;
+  }
 
   let _active = false;
   let _panel  = null;
@@ -48,10 +56,12 @@
     document.body.classList.add('dbg-active');
     _ensurePanel();
     _renderAll();
+    _startRefreshLoop();
   }
 
   function _deactivate() {
     if (!_active) return;
+    _stopRefreshLoop();
     _active = false;
     _writePersistedActive(false);
     document.body.classList.remove('dbg-active');
@@ -78,15 +88,18 @@
       + '</header>'
       + '<section class="dbg-body">'
       +   '<div class="dbg-section" id="dbgFieldsSec">'
-      +     '<h4>Felder</h4>'
+      +     '<h4>Felder <button class="dbg-btn-mini dbg-copy-sec" data-sec="fields" title="Felder kopieren">kopieren</button></h4>'
       +     '<table class="dbg-fields-tbl"><tbody></tbody></table>'
       +   '</div>'
       +   '<div class="dbg-section" id="dbgTestsSec">'
-      +     '<h4>Tests</h4>'
+      +     '<h4>Tests <button class="dbg-btn-mini dbg-copy-sec" data-sec="tests" title="Tests kopieren">kopieren</button></h4>'
       +     '<div class="dbg-tests-list dbg-empty">— in BA 82 —</div>'
       +   '</div>'
       +   '<div class="dbg-section" id="dbgLogSec">'
-      +     '<h4>Log <button class="dbg-btn-mini" id="dbgClearLog">leeren</button></h4>'
+      +     '<h4>Log '
+      +        '<button class="dbg-btn-mini dbg-copy-sec" data-sec="log" title="Log kopieren">kopieren</button> '
+      +        '<button class="dbg-btn-mini" id="dbgClearLog">leeren</button>'
+      +     '</h4>'
       +     '<pre class="dbg-log-pre"></pre>'
       +   '</div>'
       + '</section>';
@@ -97,6 +110,12 @@
     _panel.querySelector('#dbgClearLog').addEventListener('click', function () {
       _log.length = 0;
       _renderLog();
+    });
+    _panel.querySelectorAll('.dbg-copy-sec').forEach(function (btn) {
+      btn.addEventListener('click', function (ev) {
+        const sec = ev.currentTarget.dataset.sec;
+        _copyText(_buildSectionMarkdown(sec));
+      });
     });
   }
 
@@ -111,13 +130,14 @@
     if (!_panel) return;
     const tbody = _panel.querySelector('.dbg-fields-tbl tbody');
     if (!tbody) return;
-    const keys = Object.keys(_fields).sort();
+    const f = _allFields();
+    const keys = Object.keys(f).sort();
     if (!keys.length) {
       tbody.innerHTML = '<tr><td colspan="2" class="dbg-empty">— leer —</td></tr>';
       return;
     }
     tbody.innerHTML = keys.map(function (k) {
-      return '<tr><th>' + _esc(k) + '</th><td>' + _esc(_fmtValue(_fields[k])) + '</td></tr>';
+      return '<tr><th>' + _esc(k) + '</th><td>' + _esc(_fmtValue(f[k])) + '</td></tr>';
     }).join('');
   }
 
@@ -154,48 +174,162 @@
       .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // ---------- Copy ----------
+  // ---------- Auto-Felder (Polling) ----------
 
-  function _buildSnapshotMarkdown() {
-    const ts = new Date().toISOString();
-    const ver = (typeof APP_VERSION === 'string') ? APP_VERSION : '?';
-    let md = '';
-    md += '# Debug-Snapshot — ' + ts + '\n';
-    md += 'Version: ' + ver + '\n';
-    md += 'URL: ' + location.href + '\n';
-    md += 'UA: ' + navigator.userAgent + '\n\n';
+  let _refreshTimer = null;
+  const REFRESH_MS = 500;
 
-    md += '## Felder\n\n';
-    const keys = Object.keys(_fields).sort();
-    if (keys.length) {
-      md += '| Schlüssel | Wert |\n|---|---|\n';
-      md += keys.map(function (k) {
-        return '| ' + k + ' | ' + _fmtValue(_fields[k]) + ' |';
-      }).join('\n') + '\n';
-    } else {
-      md += '_(leer)_\n';
+  function _safe(fn) {
+    try { return fn(); } catch (_) { return undefined; }
+  }
+
+  function _truncate(s, max) {
+    s = String(s);
+    return s.length > max ? s.slice(0, max) + '…' : s;
+  }
+
+  function _collectFields() {
+    for (const k in _autoFields) delete _autoFields[k];
+
+    if (typeof APP_VERSION === 'string') _autoFields['app.version'] = APP_VERSION;
+
+    if (typeof lang === 'string') _autoFields['lang'] = lang;
+
+    const tabEl = document.querySelector('.tab.active');
+    if (tabEl && tabEl.dataset.tab) _autoFields['tab'] = tabEl.dataset.tab;
+    const subEl = document.querySelector('.subtab.active');
+    if (subEl && subEl.dataset.subtab) _autoFields['tab.sub'] = subEl.dataset.subtab;
+
+    if (typeof activeSide === 'string') _autoFields['side'] = activeSide;
+
+    if (typeof mfr === 'string') _autoFields['implant.mfr'] = mfr;
+    const sd = _safe(function () { return sideData && sideData[activeSide]; });
+    if (sd) {
+      if (typeof sd.nEl === 'number') _autoFields['implant.electrodes'] = sd.nEl;
+      if (sd.implant) {
+        if (sd.implant.model)     _autoFields['implant.model']     = sd.implant.model;
+        if (sd.implant.processor) _autoFields['implant.processor'] = sd.implant.processor;
+      }
     }
 
-    md += '\n## Log (letzte ' + Math.min(_log.length, LOG_MAX) + ')\n\n';
-    md += '```\n';
-    md += _log.slice(-LOG_MAX).map(function (e) {
-      return '[' + e.ts + '] ' + e.level + ': ' + e.msg;
-    }).join('\n');
-    md += '\n```\n';
+    if (typeof pPlaying === 'boolean')       _autoFields['player.state'] = pPlaying ? 'playing' : 'stopped';
+    if (typeof pPlaybackMode === 'string')   _autoFields['player.mode']  = pPlaybackMode;
+    if (typeof pOff === 'number')            _autoFields['player.pos']   = pOff.toFixed(2) + ' s';
+    const volEl = document.getElementById('plVol');
+    if (volEl)                               _autoFields['player.vol']   = volEl.value + ' %';
+    if (typeof plEqOn === 'boolean')         _autoFields['player.eqOn']       = plEqOn;
+    if (typeof plApplyBalance === 'boolean') _autoFields['player.balanceOn']  = plApplyBalance;
 
+    const pc = _safe(function () { return pCtx; });
+    if (pc) {
+      _autoFields['audio.sampleRate'] = pc.sampleRate + ' Hz';
+      _autoFields['audio.state']      = pc.state;
+    }
+
+    if (typeof pMaplawOn === 'boolean') _autoFields['maplaw.on'] = pMaplawOn;
+    if (typeof pMaplawOn !== 'undefined' && pMaplawOn) {
+      const ist = _safe(function () { return (typeof pMaplawGetIstC === 'function') ? pMaplawGetIstC() : null; });
+      if (ist != null) _autoFields['maplaw.istC'] = ist;
+      if (typeof pMaplawSollC === 'number') _autoFields['maplaw.sollC'] = pMaplawSollC;
+    }
+
+    if (typeof pWarpOn === 'boolean') {
+      _autoFields['warp.on'] = pWarpOn;
+      if (pWarpOn) {
+        if (typeof pWarpMode === 'string')     _autoFields['warp.mode']     = pWarpMode;
+        if (typeof pWarpStrength === 'number') _autoFields['warp.strength'] = pWarpStrength;
+      }
+    }
+
+    if (typeof sActive === 'boolean')      _autoFields['sentence.active']  = sActive;
+    if (typeof sEndless === 'boolean')     _autoFields['sentence.endless'] = sEndless;
+    if (typeof sOfflineMode === 'boolean') _autoFields['sentence.corpus']  = sOfflineMode ? 'embed (offline)' : 'fetch (online)';
+    const curRec = _safe(function () { return sCurRec; });
+    if (curRec && curRec.rec) {
+      if (curRec.speakerKey) _autoFields['sentence.speaker'] = curRec.speakerKey;
+      if (curRec.rec.text)   _autoFields['sentence.text']    = _truncate(curRec.rec.text, 80);
+    }
+  }
+
+  function _startRefreshLoop() {
+    if (_refreshTimer) return;
+    _collectFields();
+    _renderFields();
+    _refreshTimer = setInterval(function () {
+      if (!_active) return;
+      _collectFields();
+      _renderFields();
+    }, REFRESH_MS);
+  }
+
+  function _stopRefreshLoop() {
+    if (_refreshTimer) {
+      clearInterval(_refreshTimer);
+      _refreshTimer = null;
+    }
+  }
+
+  // ---------- Copy ----------
+
+  function _mdHeader() {
+    const ts = new Date().toISOString();
+    const ver = (typeof APP_VERSION === 'string') ? APP_VERSION : '?';
+    return '# Debug-Snapshot — ' + ts + '\n'
+         + 'Version: ' + ver + '\n'
+         + 'URL: ' + location.href + '\n'
+         + 'UA: ' + navigator.userAgent + '\n\n';
+  }
+
+  function _mdFieldsBlock() {
+    const f = _allFields();
+    const keys = Object.keys(f).sort();
+    let md = '## Felder\n\n';
+    if (!keys.length) { md += '_(leer)_\n'; return md; }
+    md += '| Schlüssel | Wert |\n|---|---|\n';
+    md += keys.map(function (k) {
+      return '| ' + k + ' | ' + _fmtValue(f[k]) + ' |';
+    }).join('\n') + '\n';
     return md;
   }
 
-  function _copyAll() {
-    const md = _buildSnapshotMarkdown();
+  function _mdTestsBlock() {
+    return '## Tests\n\n_(in BA 82)_\n';
+  }
+
+  function _mdLogBlock() {
+    const slice = _log.slice(-LOG_MAX);
+    let md = '## Log (letzte ' + slice.length + ')\n\n```\n';
+    md += slice.map(function (e) {
+      return '[' + e.ts + '] ' + e.level + ': ' + e.msg;
+    }).join('\n');
+    md += '\n```\n';
+    return md;
+  }
+
+  function _buildSnapshotMarkdown() {
+    return _mdHeader() + _mdFieldsBlock() + '\n' + _mdTestsBlock() + '\n' + _mdLogBlock();
+  }
+
+  function _buildSectionMarkdown(sec) {
+    if (sec === 'fields') return _mdHeader() + _mdFieldsBlock();
+    if (sec === 'tests')  return _mdHeader() + _mdTestsBlock();
+    if (sec === 'log')    return _mdHeader() + _mdLogBlock();
+    return _buildSnapshotMarkdown();
+  }
+
+  function _copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(md).then(
+      navigator.clipboard.writeText(text).then(
         function () { _toast('Kopiert'); },
-        function () { _fallbackCopy(md); }
+        function () { _fallbackCopy(text); }
       );
     } else {
-      _fallbackCopy(md);
+      _fallbackCopy(text);
     }
+  }
+
+  function _copyAll() {
+    _copyText(_buildSnapshotMarkdown());
   }
 
   function _fallbackCopy(text) {
@@ -238,12 +372,12 @@
     },
 
     set: function (key, value) {
-      _fields[key] = value;
+      _userFields[key] = value;
       if (_active) _renderFields();
     },
 
     unset: function (key) {
-      delete _fields[key];
+      delete _userFields[key];
       if (_active) _renderFields();
     },
 
@@ -259,7 +393,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const urlSays = _readUrlParam();
     if (urlSays === true)       _activate();
-    else if (urlSays === false) _writePersistedActive(false);  // löscht localStorage auch wenn Panel nicht aktiv war
+    else if (urlSays === false) _writePersistedActive(false);
     else if (_readPersistedActive()) _activate();
 
     const logo = document.querySelector('.brand-logo');
