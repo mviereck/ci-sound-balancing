@@ -33,6 +33,9 @@ let fmCurCatchInfo = null;   // null | { direction: +500|-500, expectedResponse:
 let _fmUndoSnapshot = null;  // Track-State-Snapshot vor letzter Antwort
 let _fmNextTrialTO  = null;  // Timeout-Handle für fmNextAdaptiveTrial (canceln bei Undo)
 
+let fmCurrentLauf  = 1;     // 1 oder 2 — welcher Staircase-Lauf gerade aktiv ist
+let fmLauf1Result  = null;  // { [String(electrodeIdx)]: centMatch|null } nach Lauf-1-Abschluss
+
 // Debug-Simulation
 let _fmSimActive  = false;
 let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
@@ -353,6 +356,8 @@ function _fmPersist() {
     startedAt:        (sideData[fmVarSide].freqmatchAdaptive
                        && sideData[fmVarSide].freqmatchAdaptive.startedAt) || Date.now(),
     completedAt:      null,
+    currentLauf:      fmCurrentLauf,
+    lauf1Result:      fmLauf1Result,
     electrodeIdxList: ids.slice().sort(function(a, b) {
       const fa = withSide(fmVarSide, function() { return effFreq(a); });
       const fb = withSide(fmVarSide, function() { return effFreq(b); });
@@ -378,6 +383,17 @@ function _fmClearPersist(side) {
 function _fmTryRestore(currentElIdxList) {
   if (!sideData[fmVarSide]) return false;
   const fa = sideData[fmVarSide].freqmatchAdaptive;
+
+  // Lauf-State immer laden, damit fmStartAdaptive weiß, ob Lauf 1 oder 2 startet.
+  // Bei null/abgeschlossenem fa → Reset auf Lauf 1.
+  if (fa && fa.completedAt == null) {
+    fmCurrentLauf = fa.currentLauf || 1;
+    fmLauf1Result = fa.lauf1Result || null;
+  } else {
+    fmCurrentLauf = 1;
+    fmLauf1Result = null;
+  }
+
   if (!fa) return false;
   if (fa.completedAt != null) return false;
   if (fa.varSide !== fmVarSide || fa.refSide !== fmRefSide) return false;
@@ -404,9 +420,23 @@ function fmRefreshResumeHint() {
   const startBtn = fmEls.startBtn;
   if (!startBtn) return;
   const fa = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
-  const resumable = fa && fa.completedAt == null
-    && Object.keys(fa.tracks || {}).some(function(k) { return fa.tracks[k].status === 'active'; });
-  if (resumable) {
+
+  if (!fa || fa.completedAt != null) {
+    startBtn.textContent = (typeof t === 'function' && t('fmLblStart')) || 'Test starten';
+    return;
+  }
+  const tracks = fa.tracks || {};
+  const hasActive = Object.keys(tracks).some(function(k) {
+    return tracks[k].status === 'active';
+  });
+
+  if (fa.currentLauf === 2 && hasActive) {
+    startBtn.textContent = (typeof t === 'function' && t('fmLblResumeL2'))
+      || 'Zweiten Lauf fortsetzen';
+  } else if (fa.currentLauf === 2 && !hasActive) {
+    startBtn.textContent = (typeof t === 'function' && t('fmLblRun2Start'))
+      || 'Zweiten Lauf starten';
+  } else if (hasActive) {
     startBtn.textContent = (typeof t === 'function' && t('fmLblResume')) || 'Test fortsetzen';
   } else {
     startBtn.textContent = (typeof t === 'function' && t('fmLblStart')) || 'Test starten';
@@ -425,15 +455,23 @@ function fmStartAdaptive() {
   }
 
   if (_fmTryRestore(elIdxList)) {
-    console.log('[freqmatch] Adaptiver Lauf fortgesetzt:',
+    console.log('[freqmatch] Adaptiver Lauf', fmCurrentLauf, 'fortgesetzt:',
                 Object.keys(fmTracks).length, 'Tracks');
   } else {
     fmTracks = {};
-    fmRoundQueue = [];                                 // Bauanleitung 84
+    fmRoundQueue = [];
     elIdxList.forEach(function(idx) {
-      const prev = fmPrevCent(idx);
-      const prevOrNull = (prev !== 0) ? prev : null;
-      fmTracks[idx] = fmCreateTrack(idx, prevOrNull);
+      let prevCent;
+      if (fmCurrentLauf === 2) {
+        // Lauf 2: Startwert aus Lauf-1-Ergebnis (→ ±50 ct Streuung in fmCreateTrack)
+        const k = String(idx);
+        prevCent = (fmLauf1Result && fmLauf1Result[k] != null) ? fmLauf1Result[k] : null;
+      } else {
+        // Lauf 1: alter gespeicherter Match aus fRes (bisheriges Verhalten)
+        const prev = fmPrevCent(idx);
+        prevCent = (prev !== 0) ? prev : null;
+      }
+      fmTracks[idx] = fmCreateTrack(idx, prevCent);
     });
     _fmPersist();
   }
@@ -651,6 +689,12 @@ function _fmConvertHeight(userChoice, firstSide) {
 }
 
 function _fmRemoveResult(elIdx) {
+  // Lauf 2: Lauf-1-Ergebnis behalten, falls vorhanden
+  const k = String(elIdx);
+  if (fmCurrentLauf === 2 && fmLauf1Result && fmLauf1Result[k] != null) {
+    _fmDbg('fRes keep L1: side=' + fmVarSide + ' el=' + elIdx + ' (L2 not-perceivable)');
+    return;
+  }
   const idx = fRes.findIndex(function(r) {
     return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
   });
@@ -661,8 +705,22 @@ function _fmRemoveResult(elIdx) {
 function _fmWriteResult(track) {
   const elIdx = track.electrodeIdx;
   const varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
-  const refHz = (track.match != null)
-    ? varHz * Math.pow(2, track.match / 1200)
+
+  // Lauf 2: Mittelwert (Lauf1 + Lauf2) / 2 berechnen und |Delta| ermitteln
+  const k    = String(elIdx);
+  const l1m  = (fmCurrentLauf === 2 && fmLauf1Result) ? fmLauf1Result[k] : null;
+  const raw  = track.match;
+  let finalMatch, fmDelta;
+  if (l1m != null && raw != null) {
+    finalMatch = (l1m + raw) / 2;
+    fmDelta    = Math.abs(l1m - raw);
+  } else {
+    finalMatch = raw;
+    fmDelta    = null;
+  }
+
+  const refHz = (finalMatch != null)
+    ? varHz * Math.pow(2, finalMatch / 1200)
     : null;
 
   const existingIdx = fRes.findIndex(function(r) {
@@ -676,11 +734,13 @@ function _fmWriteResult(track) {
     refFreq:    refHz,
     timestamp:  Date.now(),
     fmStatus:   track.status,
-    fmResidual: track.residual
+    fmResidual: track.residual,
+    fmDelta:    fmDelta
   };
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
   _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx
+       + (fmDelta != null ? ' Δ=' + fmDelta.toFixed(1) + 'ct' : ' (L1)')
        + ' varHz=' + Math.round(varHz)
        + ' residCt=' + (track.residual != null ? track.residual.toFixed(1) : '—'));
 }
@@ -702,12 +762,13 @@ function fmFinishAdaptive() {
   let _cv = 0, _nv = 0, _np = 0;
   Object.keys(fmTracks).forEach(function(k) {
     const st = fmTracks[k].status;
-    if (st === 'converged')        _cv++;
+    if (st === 'converged')            _cv++;
     else if (st === 'converged-noisy') _nv++;
     else if (st === 'not-perceivable') _np++;
   });
-  _fmDbg('finish: ' + _cv + ' converged, ' + _nv + ' noisy, ' + _np + ' not-perceivable');
-  _fmMarkCompleted();
+  _fmDbg('finish lauf' + fmCurrentLauf + ': ' + _cv + ' converged, ' + _nv +
+         ' noisy, ' + _np + ' not-perceivable');
+
   fmAdaptiveActive   = false;
   fmAwaitingResponse = false;
   fmIsPlay           = false;
@@ -715,6 +776,26 @@ function fmFinishAdaptive() {
   fmCurTrackId       = null;
   fmRoundQueue       = [];
   updateTabLockState();
+  setPlayingIndicator(null);
+
+  if (fmCurrentLauf === 1) {
+    // --- Lauf 1 abgeschlossen ---
+    // Lauf-1-Matches sichern (fRes wurde schon track-by-track via _fmWriteResult gefüllt)
+    fmLauf1Result = {};
+    Object.keys(fmTracks).forEach(function(k) {
+      const track = fmTracks[parseInt(k, 10)];
+      fmLauf1Result[k] = (track.match != null) ? track.match : null;
+    });
+    fmCurrentLauf = 2;
+    fmTracks      = {};
+    fmRoundQueue  = [];
+    _fmPersist();   // currentLauf:2, lauf1Result gesetzt, tracks:{}, completedAt:null
+  } else {
+    // --- Lauf 2 abgeschlossen: Sitzung vollständig ---
+    _fmMarkCompleted();
+  }
+
+  // UI-Reset (identisch in beiden Pfaden)
   if (fmEls) {
     fmEls.testBox.hidden    = true;
     fmEls.lockedHint.hidden = true;
@@ -722,9 +803,8 @@ function fmFinishAdaptive() {
     fmEls.stopBtn.disabled  = true;
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
-  setPlayingIndicator(null);
-  if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   fmRefreshResumeHint();
+  if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
 }
 
 function fmRenderStatusGrid() {
