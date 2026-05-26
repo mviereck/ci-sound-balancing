@@ -1250,6 +1250,9 @@ body.dbg-active {
   padding-right: 360px;
 }
 
+.dbg-only { display: none; }
+body.dbg-active .dbg-only { display: inline-block; }
+
 .dbg-panel {
   position: fixed;
   top: 0;

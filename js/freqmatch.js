@@ -29,6 +29,10 @@ let fmTrialStartTs     = 0;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
 let fmCurCatchInfo = null;   // null | { direction: +500|-500, expectedResponse: 'var-higher'|'var-lower' }
 
+// Debug-Simulation
+let _fmSimActive  = false;
+let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
+
 // Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
 function _fmDbg(msg) {
   if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
@@ -497,6 +501,7 @@ function fmNextAdaptiveTrial() {
 }
 
 async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
+  if (_fmSimActive) { fmIsPlay = false; isPlay = false; return; }
   if (fmIsPlay) {
     fmIsPlay = false;
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
@@ -599,7 +604,7 @@ function fmHandleHeight(userChoice) {
 
   setTimeout(function() {
     if (fmAdaptiveActive) fmNextAdaptiveTrial();
-  }, 200);
+  }, _fmSimActive ? 30 : 200);
 }
 
 // firstSide='ref': Ton2=var. 'up'→var-higher, 'down'→var-lower
@@ -916,6 +921,7 @@ function fmSkip() {
 }
 
 function fmAbort() {
+  _fmSimActive = false;
   if (fmAdaptiveActive) {
     _fmPersist();
     fmAdaptiveActive   = false;
@@ -963,6 +969,54 @@ function fmFinish() {
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+}
+
+// --- Debug-Simulation ---
+
+function fmRunDebugSim() {
+  if (_fmSimActive) return;
+  if (fmMode !== 'adaptive') return;
+  _fmSimActive  = true;
+  _fmSimOffsets = {};
+  if (!fmAdaptiveActive) fmStart();
+  _fmSimStep();
+}
+
+function _fmSimStep() {
+  if (!_fmSimActive || !fmAdaptiveActive) { _fmSimActive = false; return; }
+  if (!fmAwaitingResponse) { setTimeout(_fmSimStep, 80); return; }
+
+  const track = fmTracks[fmCurTrackId];
+  if (!track) { _fmSimActive = false; return; }
+
+  if (_fmSimOffsets[track.electrodeIdx] === undefined) {
+    const mag  = 20 + Math.random() * 130;
+    _fmSimOffsets[track.electrodeIdx] = (Math.random() < 0.5 ? 1 : -1) * mag;
+  }
+
+  let choiceUD;
+  if (fmCurCatchInfo) {
+    const exp = fmCurCatchInfo.expectedResponse;
+    choiceUD = (fmCurFirstSide === 'ref')
+      ? (exp === 'var-higher' ? 'up' : 'down')
+      : (exp === 'var-higher' ? 'down' : 'up');
+  } else {
+    const simOff = _fmSimOffsets[track.electrodeIdx];
+    const gap    = track.currentOffset - simOff;
+    const absGap = Math.abs(gap);
+    const errProb = absGap < 30 ? 0.40 : absGap < 60 ? 0.20 : 0.02;
+    let varResp = gap > 0 ? 'var-lower' : 'var-higher';
+    if (Math.random() < errProb) varResp = varResp === 'var-higher' ? 'var-lower' : 'var-higher';
+    choiceUD = (fmCurFirstSide === 'ref')
+      ? (varResp === 'var-higher' ? 'up' : 'down')
+      : (varResp === 'var-higher' ? 'down' : 'up');
+  }
+
+  setTimeout(function() {
+    if (!_fmSimActive || !fmAdaptiveActive) { _fmSimActive = false; return; }
+    fmHandleHeight(choiceUD);
+    setTimeout(_fmSimStep, 50);
+  }, 60 + Math.random() * 60);
 }
 
 // --- Elektroden-Ausschluss ---
@@ -1276,6 +1330,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Tastatursteuerung
   document.addEventListener("keydown", fmHandleKey);
+
+  // DEBUG: Testlauf-Button (nur im Debug-Modus sichtbar)
+  const _simBtn = _mkEl('button', 'btn dbg-only');
+  _simBtn.style.marginTop = '1.5rem';
+  _simBtn.textContent = 'DEBUG: Testlauf';
+  _simBtn.addEventListener('click', fmRunDebugSim);
+  parentEl.appendChild(_simBtn);
 
   // Texte initial setzen
   fmApplyLang();
