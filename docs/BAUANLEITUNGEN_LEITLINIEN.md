@@ -79,3 +79,76 @@ Pflichtbestandteile jeder Bauanleitung:
   sehen die Änderung nicht. Der Schritt gehört an den Anfang
   oder ans Ende der Anleitung, nicht in die Mitte (sonst leicht
   übersehen).
+
+Bau-Diagnose-Tests (optional, ab Bauanleitung 83)
+-------------------------------------------------
+
+Eine Bauanleitung darf einen temporären Test registrieren, mit dem
+Sonnet das Laufzeit-Verhalten im Browser indirekt prüfen kann.
+Workflow: Sonnet legt den Test ab, der Nutzer öffnet das
+Debug-Panel und führt den Test aus, kopiert die Markdown-Ausgabe
+über den Sektion-Copy-Knopf zurück an Sonnet. Sonnet vergleicht
+mit der Erwartung und meldet Befund.
+
+**Wann sinnvoll:**
+- Wenn die Akzeptanz nicht offensichtlich aus dem Diff hervorgeht
+  (z.B. Init-Reihenfolge, dynamisches DOM, Werte globaler
+  Variablen zu einem Zeitpunkt).
+- Wenn ein UI-Schritt sich programmatisch ohne Maus/Tastatur
+  prüfen läßt (Existenz von Elementen, Klassen-Zustände, State-
+  Werte).
+
+**Wann NICHT:**
+- Bei reinen UI-Anpassungen (Layout, Farben, Texte): die Akzeptanz-
+  Checkliste der Bauanleitung reicht.
+- Bei Tests, deren grünes Ergebnis nur den Bau selbst bestätigt
+  und nichts über das Laufzeit-Verhalten aussagt (z.B. „Funktion
+  X existiert"). Solche Tests sind selbstbestätigend und gehören
+  in Sonnets Selbstprüfungs-Auftrag, nicht ins Panel.
+
+**Konvention für Bau-Diagnose-Tests:**
+- Test-Name beginnt mit `build/BAxx/`, gefolgt von einem kurzen
+  Topic, z.B. `build/BA84/maplaw-init`.
+- `opts.tab` setzt die Tab-Zuordnung, damit der Test bei aktivem
+  Tab automatisch angehakt ist (siehe BA 82).
+- `opts.label` als kurzes deutsches Label, das den Test im Panel
+  beschriftet.
+- Die Test-Definition liegt als eigener IIFE-Block in
+  `js/debug-tests-current.js`. Klar kommentiert mit
+  Bauanleitungs-Nummer am Anfang des Blocks.
+
+**Workflow zwischen Sonnet und Nutzer:**
+1. Sonnet baut die Bauanleitung um und legt parallel den Bau-
+   Diagnose-Test in `js/debug-tests-current.js` an.
+2. In seinem Build-Bericht weist Sonnet auf den Test hin und
+   bittet den Nutzer, das Debug-Panel zu öffnen, den Test
+   auszuführen (▶ alle oder ↻ einzeln) und den Sektion-Copy
+   „Tests" zurückzuschicken.
+3. Sonnet wertet die Markdown-Ausgabe aus und meldet Befund.
+4. Bei Akzeptanz fragt Sonnet **aktiv** nach, ob der Test:
+   (a) ersatzlos entfernt werden soll, oder
+   (b) ins Archiv unter `archive/debug-tests/BAxx_<topic>.js`
+       verschoben werden soll.
+5. Sonnet führt die gewählte Aktion aus, bevor die Bauanleitung
+   final geschlossen wird.
+
+**Aufräum-Regel:** `js/debug-tests-current.js` darf am Ende
+einer abgenommenen Bauanleitung **keinen** Test aus eben dieser
+Bauanleitung mehr enthalten. Tests aus laufenden, noch nicht
+abgenommenen Bauanleitungen dürfen parallel drin liegen.
+
+**Archivierung:** Eine archivierte Test-Datei ist ein eigenständiger
+IIFE im selben Format wie ein Block in
+`js/debug-tests-current.js`, ergänzt um einen Kommentarkopf:
+
+```js
+/* archiviert YYYY-MM-DD aus Bauanleitung BAxx — kurze
+ * Begründung, warum der Test aufgehoben wurde (z.B.
+ * „nochmal nützlich, falls Init-Reihenfolge wieder
+ * umgestellt werden sollte").
+ */
+```
+
+Reaktivierung: Inhalt in `js/debug-tests-current.js`
+zurückkopieren, neu laden, fertig. Die Archiv-Datei bleibt
+unverändert liegen.

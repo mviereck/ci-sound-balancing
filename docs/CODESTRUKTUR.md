@@ -153,6 +153,7 @@ Alle Logik-JS-Dateien liegen unter `js/`. Die Sprachdaten in
 | 20 | finanzen.js | Reine Datenhaltung für den Unterstützung-Tab. Globale Variable `FINANZEN` (Objekt mit `posten`-Array und `donationsMonthly`). Berechnungs-Helfer `finBerechne()` (liefert Summen, Eigenanteil, Lücken als Objekt) und `finFmtEuro(n)` (Zahl → „1,23 €"). Keine DOM-Manipulation, keine DOMContentLoaded-Handler. Muß vor `unterstuetzung.js` geladen werden. |
 | 21 | unterstuetzung.js | Rendert den Unterstützung-Tab. Befüllt `#untFinanzBody` / `#untFinanzFoot` / `#untGapHints` per `_untRenderFinanzTable()`. Bot-Schutz: IBAN (`_untBuildIban`) und E-Mail (`_untBuildMail`) werden erst beim Öffnen des jeweiligen Dialogs aus Fragmenten zusammengebaut. Dialog-Öffner `_untOpenDialog(id, builderFn)`. Eigener DOMContentLoaded-Handler verdrahtet `#untShowIbanBtn`, `#untShowMailBtn` und alle `[data-close-support]`-Buttons. Kein globaler State. |
 | 22 | debug-tests.js | Selbsttest-Registrierung für das Debug-Panel (Bauanleitung 82). Lädt zuletzt, registriert via `dbg.test(...)` die vier Tests `global/player`, `global/i18n`, `global/sentence`, `frequenzabgleich/adaptiv`. Der Adaptiv-Test trägt `liveLogFor: "adaptiv.live"` — das Flag schaltet die `_fmDbg(...)`-Aufrufe in `freqmatch.js` an. Keine eigene UI, kein DOMContentLoaded-Handler. |
+| 23 | debug-tests-current.js | Temporäre Bau-Diagnose-Tests aus laufenden Bauanleitungen (Bauanleitung 83). Lädt nach `debug-tests.js`. Tests heißen per Konvention `build/BAxx/<topic>` und tragen `opts.tab` der jeweiligen Bauanleitung. Pro Test ein eigener IIFE-Block mit Bauanleitungs-Nummer im Kopfkommentar. Nach Bau-Abnahme entscheidet Sonnet auf Nachfrage beim Nutzer: löschen oder verschieben nach `archive/debug-tests/BAxx_<topic>.js`. Beim Start (vor erster Nutzung) leer bis auf Header. |
 
 ## Datenfluss (nicht aus Namen ablesbar)
 
@@ -627,3 +628,8 @@ Ordner-Upload automatisch. Erzeugt mit `pypdf` aus dem beigelegten
 - Keine Typprüfung, kein Lint-Setup
 - Build oder Bundling gibt es nicht – Browser lädt alle Module einzeln
 - Keine automatisierten Tests; Prüfung manuell im Browser mit DevTools
+
+Archiv-Ordner `archive/debug-tests/` (ab BA 83): hält
+archivierte Bau-Diagnose-Tests aus abgenommenen Bauanleitungen.
+Nicht Teil des aktiven Codes — wird vom Loader **nicht** geholt.
+Reaktivierung via Zurück-Kopieren nach `js/debug-tests-current.js`.
