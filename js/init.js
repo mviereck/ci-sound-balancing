@@ -844,29 +844,49 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (e) {}
   }, 5000);
 
-  // Tab/Subtab nach Reload wiederherstellen (Persistenz aus tabs-eq.js).
-  // Erst Top-Level-Tab, dann ggf. Sub-Tab für den jeweiligen Parent.
+  // Tab/Subtab nach Reload wiederherstellen — URL-Hash hat Vorrang vor localStorage.
   try {
-    const savedTab = localStorage.getItem("ci-lb-activeTab");
-    if (savedTab) {
-      const tabBtn = document.querySelector('.tab[data-tab="' + savedTab + '"]');
-      if (tabBtn && typeof switchTab === "function") {
-        switchTab(savedTab);
+    _suppressHashPush = true;
+    const hashMatch = location.hash.slice(1).match(/^([^:]+)(?::(.+))?$/);
+    if (hashMatch) {
+      const [, hashTab, hashSub] = hashMatch;
+      const tabBtn = document.querySelector('.tab[data-tab="' + hashTab + '"]');
+      if (tabBtn && typeof switchTab === "function") switchTab(hashTab);
+      if (hashSub) {
+        const subBtn = document.querySelector('.subtab[data-parent="' + hashTab + '"][data-subtab="' + hashSub + '"]');
+        if (subBtn && typeof switchSubtab === "function") switchSubtab(hashTab, hashSub);
+      }
+    } else {
+      const savedTab = localStorage.getItem("ci-lb-activeTab");
+      if (savedTab) {
+        const tabBtn = document.querySelector('.tab[data-tab="' + savedTab + '"]');
+        if (tabBtn && typeof switchTab === "function") {
+          switchTab(savedTab);
+        }
+      }
+      // Subtab pro Parent
+      const subtabParents = ["messungen", "ergebnisse"];
+      for (const parent of subtabParents) {
+        const savedSub = localStorage.getItem("ci-lb-subtab-" + parent);
+        if (!savedSub) continue;
+        const subBtn = document.querySelector('.subtab[data-parent="' + parent + '"][data-subtab="' + savedSub + '"]');
+        if (subBtn && typeof switchSubtab === "function") {
+          switchSubtab(parent, savedSub);
+        }
       }
     }
-    // Subtab pro Parent
-    const subtabParents = ["messungen", "ergebnisse"];
-    for (const parent of subtabParents) {
-      const savedSub = localStorage.getItem("ci-lb-subtab-" + parent);
-      if (!savedSub) continue;
-      const subBtn = document.querySelector('.subtab[data-parent="' + parent + '"][data-subtab="' + savedSub + '"]');
-      if (subBtn && typeof switchSubtab === "function") {
-        switchSubtab(parent, savedSub);
-      }
+    // Hash auf aktuell aktiven Tab setzen (replaceState — kein History-Eintrag)
+    const activeTabBtn = document.querySelector(".tab.active");
+    if (activeTabBtn) {
+      const at = activeTabBtn.dataset.tab;
+      const asb = document.querySelector('.subtab[data-parent="' + at + '"].active');
+      history.replaceState(null, "", "#" + (asb ? at + ":" + asb.dataset.subtab : at));
     }
   } catch (e) {
     // localStorage nicht verfügbar oder gespeicherter Tab existiert nicht
     // mehr — still durchfallen, Default-Tab bleibt aktiv.
+  } finally {
+    _suppressHashPush = false;
   }
   if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
 });

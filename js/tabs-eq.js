@@ -1,3 +1,6 @@
+// Unterdrückt history.pushState während Initialisierung und popstate-Restaurierung
+let _suppressHashPush = false;
+
 // ============================================================
 // SUBTABS
 // ============================================================
@@ -40,6 +43,7 @@ function switchSubtab(parent, subtab) {
     }
   }
   try { localStorage.setItem("ci-lb-subtab-" + parent, subtab); } catch (e) {}
+  if (!_suppressHashPush) history.pushState(null, "", "#" + parent + ":" + subtab);
 }
 
 // ============================================================
@@ -87,6 +91,7 @@ function switchTab(n) {
     if (typeof lvTabRebuild === "function") lvTabRebuild();
   }
   try { localStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
+  if (!_suppressHashPush) history.pushState(null, "", "#" + n);
 }
 
 // Funktion zum Sperren/Entsperren der Tabs und Side-Select während Test
@@ -216,5 +221,18 @@ function updLatApplyBtn() {
     btn.style.borderColor = "var(--border)";
   }
 }
+
+// ============================================================
+// URL-HASH: BACK/FORWARD-NAVIGATION
+// ============================================================
+window.addEventListener("popstate", () => {
+  const hash = location.hash.slice(1);
+  if (!hash) return;
+  const [tab, sub] = hash.split(":");
+  _suppressHashPush = true;
+  if (tab) switchTab(tab);
+  if (sub) switchSubtab(tab, sub);
+  _suppressHashPush = false;
+});
 
 

@@ -38,3 +38,15 @@ Schreiben: `switchTab` (tabs-eq.js) und `switchSubtab` (tabs-eq.js) nach
 jedem Wechsel. Restore: am Ende des DOMContentLoaded-Handlers in init.js,
 nach allen anderen Init-Schritten. Nicht mehr existierende Tab-Werte
 werden ignoriert, Default-Tab bleibt dann aktiv.
+
+## URL-Hash / Deep Linking
+
+Jeder Tab-Wechsel aktualisiert den URL-Hash per `history.pushState`:
+
+- Top-Level-Tab: `#<tab>` (z. B. `#messungen`)
+- Tab + Sub-Tab: `#<tab>:<subtab>` (z. B. `#messungen:freqmatch`)
+
+Ein direkter Link auf einen Tab öffnet diesen beim Laden — der Hash hat
+Vorrang vor dem localStorage-Wert. Der Browser-Zurück/Vor-Button
+navigiert zwischen Tab-Zuständen. Beim ersten Laden setzt
+`history.replaceState` den Hash ohne zusätzlichen History-Eintrag.
