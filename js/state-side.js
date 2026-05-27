@@ -182,6 +182,72 @@ function setActiveSide(side) {
   else plCheck();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
+function _fmMigrateAdaptive(fa) {
+  if (!fa) return null;
+  if (Array.isArray(fa.runs)) return fa;   // schon neues Schema
+
+  // Altes Schema: { currentLauf, lauf1Result, tracks, roundQueue,
+  //                 varSide, refSide, electrodeIdxList, startedAt, completedAt }
+  const out = { runs: [], currentRunIdx: null };
+
+  if (fa.lauf1Result) {
+    const lauf1Tracks = {};
+    Object.keys(fa.lauf1Result).forEach(function(k) {
+      const m = fa.lauf1Result[k];
+      lauf1Tracks[k] = {
+        electrodeIdx: parseInt(k, 10),
+        status:       (m != null) ? 'converged' : 'not-perceivable',
+        match:        m,
+        residual:     null,
+        reversals:    [],
+        trialHistory: [],
+        stepSize:     3,
+        catchTotal:   0,
+        catchErrors:  0,
+        trialCount:   0,
+        _migrated:    true
+      };
+    });
+    out.runs.push({
+      runId:            'migrated-lauf-1',
+      startedAt:        fa.startedAt || 0,
+      completedAt:      fa.startedAt || 0,
+      varSide:          fa.varSide,
+      refSide:          fa.refSide,
+      electrodeIdxList: fa.electrodeIdxList || [],
+      tracks:           lauf1Tracks,
+      roundQueue:       []
+    });
+  }
+
+  if (fa.tracks && fa.currentLauf === 2) {
+    out.runs.push({
+      runId:            'migrated-lauf-2',
+      startedAt:        fa.startedAt || 0,
+      completedAt:      fa.completedAt,
+      varSide:          fa.varSide,
+      refSide:          fa.refSide,
+      electrodeIdxList: fa.electrodeIdxList || [],
+      tracks:           fa.tracks,
+      roundQueue:       Array.isArray(fa.roundQueue) ? fa.roundQueue.slice() : []
+    });
+  } else if (fa.tracks && fa.currentLauf !== 2) {
+    out.runs.push({
+      runId:            'migrated-lauf-1',
+      startedAt:        fa.startedAt || 0,
+      completedAt:      fa.completedAt,
+      varSide:          fa.varSide,
+      refSide:          fa.refSide,
+      electrodeIdxList: fa.electrodeIdxList || [],
+      tracks:           fa.tracks,
+      roundQueue:       Array.isArray(fa.roundQueue) ? fa.roundQueue.slice() : []
+    });
+  }
+
+  out.currentRunIdx = out.runs.length > 0 ? out.runs.length - 1 : null;
+  return out;
+}
+
 function loadSideData(side, d) {
   const s = sideData[side];
   s.config = d.config || "ci";
@@ -218,7 +284,7 @@ function loadSideData(side, d) {
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
-  s.freqmatchAdaptive = d.freqmatchAdaptive || null;
+  s.freqmatchAdaptive = _fmMigrateAdaptive(d.freqmatchAdaptive);
   s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.presets = PR_TYPES.map((tp) => {

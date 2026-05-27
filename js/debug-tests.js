@@ -82,7 +82,9 @@
       if (!sd) return { ok: false, msg: 'Keine Daten für Seite ' + activeSide };
       const adapt = sd.freqmatchAdaptive;
       if (!adapt) return { ok: true, msg: 'Kein Adaptiv-Lauf für ' + activeSide };
-      const tracks = adapt.tracks || {};
+      const _adaptRun = Array.isArray(adapt.runs) && adapt.currentRunIdx != null
+        ? adapt.runs[adapt.currentRunIdx] : null;
+      const tracks = (_adaptRun && _adaptRun.tracks) ? _adaptRun.tracks : {};
       const tkeys = Object.keys(tracks);
       if (!tkeys.length) return { ok: false, msg: 'Lauf vorhanden, aber keine Tracks' };
       let conv = 0, noisy = 0, notp = 0, active = 0;

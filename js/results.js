@@ -229,9 +229,11 @@ function _fmrCollectNotPerceivable() {
   const result = {};
   ['left', 'right'].forEach(function(side) {
     const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-    if (!fa || !fa.tracks) return;
-    Object.keys(fa.tracks).forEach(function(k) {
-      const tr = fa.tracks[k];
+    if (!fa || !Array.isArray(fa.runs) || fa.currentRunIdx == null) return;
+    const run = fa.runs[fa.currentRunIdx];
+    if (!run || !run.tracks) return;
+    Object.keys(run.tracks).forEach(function(k) {
+      const tr = run.tracks[k];
       if (tr.status === 'not-perceivable') {
         result[side + ':' + k] = true;
       }
@@ -254,11 +256,13 @@ function _fmrBuildInProgressEntries(side) {
   const sd = sideData[side];
   if (!sd) return out;
   const fa = sd.freqmatchAdaptive;
-  if (!fa || !fa.tracks) return out;
-  const refSide = fa.refSide || (side === 'left' ? 'right' : 'left');
+  if (!fa || !Array.isArray(fa.runs) || fa.currentRunIdx == null) return out;
+  const run = fa.runs[fa.currentRunIdx];
+  if (!run || !run.tracks) return out;
+  const refSide = run.refSide || (side === 'left' ? 'right' : 'left');
 
-  Object.keys(fa.tracks).forEach(function(k) {
-    const tr = fa.tracks[k];
+  Object.keys(run.tracks).forEach(function(k) {
+    const tr = run.tracks[k];
     if (tr.status !== 'active') return;
     const elIdx = parseInt(k, 10);
     const varHz = withSide(side, function() { return effFreq(elIdx); });
@@ -298,14 +302,17 @@ function renderFreqMatchResults() {
   const card = document.getElementById("fmrCard");
   if (!noData || !card) return;
 
-  // CI-Seite bestimmen: fRes hat Vorrang, dann freqmatchAdaptive.varSide, dann Config-Fallback
+  // CI-Seite bestimmen: fRes hat Vorrang, dann runs[]-varSide, dann Config-Fallback
+  function _fmrVarSide(fa) {
+    if (!fa || !Array.isArray(fa.runs) || fa.runs.length === 0) return null;
+    const r = fa.runs[fa.currentRunIdx != null ? fa.currentRunIdx : fa.runs.length - 1];
+    return r ? r.varSide : null;
+  }
   const ciSide = (fRes.length > 0)
     ? fRes[fRes.length - 1].varSide
-    : (sideData.left.freqmatchAdaptive
-        ? sideData.left.freqmatchAdaptive.varSide
-        : sideData.right.freqmatchAdaptive
-          ? sideData.right.freqmatchAdaptive.varSide
-          : (sideData.left.config === 'ci' ? 'left' : 'right'));
+    : (_fmrVarSide(sideData.left.freqmatchAdaptive)
+        || _fmrVarSide(sideData.right.freqmatchAdaptive)
+        || (sideData.left.config === 'ci' ? 'left' : 'right'));
 
   // Aktive Tracks → Zwischenstand-Einträge
   const provisional = _fmrBuildInProgressEntries(ciSide);
@@ -404,7 +411,8 @@ function renderFreqMatchResults() {
         "<td>—</td>";
     } else if (!r) {
       const fa = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
-      const notPercTrack = fa && fa.tracks && fa.tracks[i] && fa.tracks[i].status === 'not-perceivable';
+      const _faRun = fa && Array.isArray(fa.runs) && fa.currentRunIdx != null ? fa.runs[fa.currentRunIdx] : null;
+      const notPercTrack = _faRun && _faRun.tracks && _faRun.tracks[i] && _faRun.tracks[i].status === 'not-perceivable';
       const note = notPercTrack
         ? '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">✗ nicht wahrnehmbar</span>'
         : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
@@ -516,10 +524,12 @@ function renderFreqMatchResults() {
   const pText = document.getElementById('fmrProgressText');
   const pFill = document.getElementById('fmrProgressFill');
   if (pBox) {
-    const hasActive = faActive && faActive.tracks && Object.keys(faActive.tracks)
-      .some(function(k) { return faActive.tracks[k].status === 'active'; });
+    const _faActiveRun = faActive && Array.isArray(faActive.runs) && faActive.currentRunIdx != null
+      ? faActive.runs[faActive.currentRunIdx] : null;
+    const _activeTracks = (_faActiveRun && _faActiveRun.tracks) ? _faActiveRun.tracks : {};
+    const hasActive = Object.keys(_activeTracks).some(function(k) { return _activeTracks[k].status === 'active'; });
     if (hasActive && typeof fmComputeProgressStats === 'function') {
-      const stats = fmComputeProgressStats(faActive.tracks);
+      const stats = fmComputeProgressStats(_activeTracks);
       pBox.style.display = '';
       if (pText) pText.textContent =
         stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';

@@ -604,6 +604,9 @@ Object.assign(L.de, {
     fmLblResume:       "Test fortsetzen",
     fmLblLauf1:        'Lauf 1',
     fmLblLauf2:        'Lauf 2',
+    fmLblNewRun:       'Weiteren Lauf starten',
+    fmAntiOverwriteMsg: 'Sie haben bereits {N} Läufe gespeichert. Ein weiterer Lauf wird zum Datensatz hinzugefügt und in die kombinierte Auswertung einbezogen. Wenn Sie ganz neu beginnen wollen, drücken Sie „Messungen löschen".',
+    fmAgeWarnMsg:      'Ihre letzte Messung ist {D} Tage alt. Pitch-Wahrnehmung kann sich durch Plastizität verschoben haben.',
     fmLblRun2Start:    'Zweiten Lauf starten',
     fmLblResumeL2:     'Zweiten Lauf fortsetzen',
     fmLblRun2Hint:     'Erster Messdurchlauf abgeschlossen. Der zweite Durchlauf ist empfohlen ' +
