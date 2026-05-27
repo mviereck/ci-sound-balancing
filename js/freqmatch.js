@@ -507,7 +507,6 @@ function fmStartAdaptive() {
 
 function fmNextAdaptiveTrial() {
   if (!fmAdaptiveActive) return;
-  _fmUndoSnapshot = null;
   if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
 
   const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
@@ -553,6 +552,7 @@ function fmNextAdaptiveTrial() {
     if (!fmAdaptiveActive) return;
     fmAwaitingResponse = true;
     fmEnableHeightButtons();
+    if (fmEls.undoBtn) fmEls.undoBtn.disabled = !_fmUndoSnapshot;
     fmTrialStartTs = Date.now();
   });
 }
