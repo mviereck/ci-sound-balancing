@@ -212,6 +212,17 @@ function fmShowElectrode() {
 
 // --- Tonwiedergabe ---
 async function fmPlayCurrent() {
+  // --- Adaptive-Modus: Replay des aktuellen Trials über fmPlayAdaptiveTrial ---
+  if (fmAdaptiveActive) {
+    if (fmCurTrackId === null || !fmTracks || !fmTracks[fmCurTrackId]) return;
+    const track = fmTracks[fmCurTrackId];
+    // fmPlayAdaptiveTrial mutiert KEINEN Track-State — pure Wiedergabe-Routine.
+    // fmAwaitingResponse bleibt true, Antwort-Buttons bleiben aktiv.
+    await fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo);
+    return;
+  }
+
+  // --- Slider-Modus: unverändertes Altverhalten ---
   if (fmCurrentEl === null) return;
   if (fmIsPlay) {
     fmIsPlay = false;
@@ -292,6 +303,49 @@ async function fmPlayCurrent() {
 }
 
 async function fmPlaySimul() {
+  // --- Adaptive-Modus: Ref- und Var-Ton gleichzeitig mit aktuellem Track-Offset ---
+  if (fmAdaptiveActive) {
+    if (fmCurTrackId === null || !fmTracks || !fmTracks[fmCurTrackId]) return;
+    if (fmIsPlay) {
+      fmIsPlay = false;
+      if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+      await new Promise((r) => setTimeout(r, 60));
+    }
+    const track  = fmTracks[fmCurTrackId];
+    const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+    const refHz  = elFreq * Math.pow(2, track.currentOffset / 1200);
+    const varHz  = fmCurCatchInfo
+      ? refHz * Math.pow(2, fmCurCatchInfo.direction / 1200)
+      : elFreq;
+    const vol    = fmGVol();
+    const ms     = fmGDur();
+    const refPan = fmRefSide === "left" ? -1 : 1;
+    const varPan = fmVarSide === "left" ? -1 : 1;
+
+    const balG = (typeof getRawBalanceGains === "function")
+      ? getRawBalanceGains() : { left: 0, right: 0 };
+    const refCorr  = fmCorrGain(fmRefSide, refHz);
+    const varCorr  = fmCorrGain(fmVarSide, varHz);
+    const refBalDb = fmRefSide === "left" ? balG.left : balG.right;
+    const varBalDb = fmVarSide === "left" ? balG.left : balG.right;
+    const refVol   = isDeaf(fmRefSide) ? 0 : vol * refCorr * dB2G(refBalDb);
+    const varVol   = isDeaf(fmVarSide) ? 0 : vol * varCorr * dB2G(varBalDb);
+
+    const c = gAC();
+    isPlay = true;
+    if (fmEls && fmEls.pairLeft)  fmEls.pairLeft.classList.add('playing');
+    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.add('playing');
+    await Promise.all([
+      playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
+      playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
+    ]);
+    if (fmEls && fmEls.pairLeft)  fmEls.pairLeft.classList.remove('playing');
+    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
+    isPlay = false;
+    return;
+  }
+
+  // --- Slider-Modus: unverändertes Altverhalten ---
   if (fmCurrentEl === null) return;
   if (fmIsPlay) {
     fmIsPlay = false;
