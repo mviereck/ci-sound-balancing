@@ -468,7 +468,7 @@ let curA = -1,
   compCnt = 0,
   convRnd = 0;
 
-let globalToneType = "warbleSine"; // "sine" | "complex" | "noise" | ...
+let globalToneType = "sine"; // "sine" | "complex" | "noise" | ...
 let globalSequence = "aba";       // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

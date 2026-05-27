@@ -1314,8 +1314,8 @@ function fmApplyMode() {
   if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
 }
 
-let _fmDurStash_slider  = 1000;
-let _fmPauStash_slider  = 500;
+let _fmDurStash_slider  = 400;
+let _fmPauStash_slider  = 400;
 
 function fmSetMode(newMode, opts) {
   opts = opts || {};
@@ -1420,6 +1420,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
+  fmEls.durInput.value   = 400;
+  fmEls.pauseInput.value = 400;
 
   // Hinweistext für Lauf-2-Empfehlung (nach Lauf-1-Abschluss)
   const _lauf2Hint = _mkEl('p', 'explain explain-info');

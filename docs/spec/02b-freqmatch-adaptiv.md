@@ -267,8 +267,8 @@ verwendet:
   `adaptive`. Bei Wechsel wird der Test-Block-Inhalt entsprechend
   umgeschaltet (Slider ausblenden / heightJudgment einblenden, etc.).
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
-- `rowVolume`: Default Burst-Dauer 400 ms (statt 1000 ms im
-  Slider-Modus), Pause 400 ms.
+- `rowVolume`: Default Burst-Dauer 400 ms, Pause 400 ms (gilt für
+  Slider- und adaptiven Modus).
 - `rowSequence.toneType`: wie heute, global.
 - `rowSequence.sequence`: im adaptiven Modus ausgeblendet (AB fest).
 - `progressBar`: Befüllung „Trial N / X von Y Elektroden abgeschlossen /
