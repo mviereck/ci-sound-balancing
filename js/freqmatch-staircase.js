@@ -24,6 +24,7 @@ const FM_NOT_PERC_MIN_CATCH = 3;     // mind. Catch-Trials vor Konvergenz-Freiga
 const FM_NOT_PERC_ERR_RATE  = 2/3;  // Catch-Fehlerrate für not-perceivable (BA 96)
 const FM_PROVISIONAL_MATCH_MIN = 2; // ab so vielen Umkehrungen Schätz-Match
 const FM_PROVISIONAL_RESID_MIN = 4; // ab so vielen Umkehrungen Schätz-Residuum
+const FM_ANCHOR_SMALL_POOL = 4;     // ab so wenigen aktiven Tracks Anker-Randomisierung statt Round-Robin
 
 // --- Track-State erzeugen ---
 //
@@ -67,7 +68,7 @@ function fmCreateTrack(electrodeIdx, startDirection) {
 // der laufenden Runde konvergieren, werden beim Pop übersprungen.
 //
 // returns: electrodeIdx (Number) oder null wenn alle abgeschlossen
-function fmPickNextTrack(state, rng) {
+function fmPickNextTrack(state, rng, lastPickedKey) {
   // Rückwärtskompatibilität: alter Aufruf mit tracks-Objekt direkt
   // statt Wrapper-State. In dem Fall wird ein flüchtiger Wrapper
   // benutzt; State des Aufrufers geht verloren.
@@ -81,7 +82,21 @@ function fmPickNextTrack(state, rng) {
     .filter(function(k) { return tracks[k].status === 'active'; });
   if (activeIds.length === 0) return null;
 
-  // Aus der Restliste die nächste noch aktive ID nehmen.
+  // --- Anker-Randomisierung im Restpool (BA 97) ---
+  if (activeIds.length < FM_ANCHOR_SMALL_POOL) {
+    // Roundqueue wird im kleinen Pool ignoriert. Echte Random-Wahl
+    // mit Wiederholungs-Sperre.
+    state.roundQueue = [];
+
+    let candidates = activeIds;
+    if (lastPickedKey != null && activeIds.length > 1) {
+      const filtered = activeIds.filter(function(k) { return k !== lastPickedKey; });
+      if (filtered.length > 0) candidates = filtered;
+    }
+    return candidates[Math.floor(r() * candidates.length)];
+  }
+
+  // --- Normaler Modus: geshuffelter Round-Robin ---
   while (state.roundQueue && state.roundQueue.length > 0) {
     const cand = state.roundQueue.shift();
     if (tracks[cand] && tracks[cand].status === 'active') {

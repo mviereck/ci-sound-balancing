@@ -24,6 +24,7 @@ let fmAwaitingResponse = false;
 let fmTracks           = {};
 let fmRoundQueue       = [];   // geshuffelter Round-Robin-State, Bauanleitung 84
 let fmCurTrackId       = null;
+let fmLastPickedTrackId = null;   // BA 97: Wiederholungs-Sperre für Anker-Randomisierung
 let fmCurFirstSide     = 'ref';
 let fmTrialStartTs     = 0;
 // Catch-Trial-Info des aktuellen Trials (Bauanleitung 02b/6)
@@ -569,6 +570,7 @@ function fmStartAdaptive() {
   fmAdaptiveActive    = true;
   fmAwaitingResponse  = false;
   fmCurTrackId        = null;
+  fmLastPickedTrackId = null;
   _fmUndoSnapshot     = null;
   if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
 
@@ -590,7 +592,8 @@ function fmNextAdaptiveTrial() {
   if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
 
   const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
-  fmCurTrackId = fmPickNextTrack(_rrState, undefined);
+  fmCurTrackId = fmPickNextTrack(_rrState, undefined, fmLastPickedTrackId);
+  if (fmCurTrackId !== null) fmLastPickedTrackId = fmCurTrackId;
   fmRoundQueue = _rrState.roundQueue;
   if (fmCurTrackId === null) {
     fmFinishAdaptive();
