@@ -644,6 +644,8 @@ Object.assign(L.de, {
     fmrThResidualTip:     "Halbe Spanne der bisherigen Umkehrungen, in Cent. Niedrig = präzises Ergebnis, hoch = unsichere Wahrnehmung oder zu wenig Daten.",
     fmrThDelta:    'Δ Lauf',
     fmrThDeltaTip: 'Differenz der Matches zwischen Lauf 1 und Lauf 2 — Maß für Reproduzierbarkeit',
+    fmrThCombined:    "Unsicherheit (ges.)",
+    fmrThCombinedTip: "Kombinierte Messunsicherheit: Mittel aus Restunsicherheit pro Lauf und Streuung über alle Läufe.",
     fmrThStatus: "Status",
     fmrStatusOk: "✓ konvergiert",
     fmrStatusNoisy: "Restunsicherheit",

@@ -595,5 +595,6 @@ Kombination über alle Läufe.
 
 - BA 88–90 (überholt): erste Lauf-1/Lauf-2-Architektur mit `prevMatchCent`,
   `fmDelta`. Wurde durch BA 93/94 ersetzt (zwei verschränkte Staircases im
-  selben Lauf + `runs[]`-Array). `fmDelta` lebt fort als Δ-Spalten-Anzeige,
-  speist sich aber jetzt aus der Streuung über alle Läufe.
+  selben Lauf + `runs[]`-Array). `fmDelta` wird in `fRes`-Einträgen weiter
+  gesetzt (= `null`), aber seit BA 95 nicht mehr angezeigt; die Tabellenspalte
+  zeigt stattdessen `fmCombinedUncertainty` als „Unsicherheit (ges.)".

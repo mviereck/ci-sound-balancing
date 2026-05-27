@@ -319,6 +319,7 @@ function _fmrBuildInProgressEntries(side) {
         timestamp: Date.now(),
         fmStatus: 'in-progress',
         fmResidual: residCount > 0 ? sumResid / residCount : null,
+        fmCombinedUncertainty: null,
         fmTrialCount: totalTrials,
         fmReversals: maxReversals,
         _provisional: true
@@ -331,6 +332,7 @@ function _fmrBuildInProgressEntries(side) {
         timestamp: Date.now(),
         fmStatus: 'in-progress-early',
         fmResidual: null,
+        fmCombinedUncertainty: null,
         fmTrialCount: totalTrials,
         fmReversals: maxReversals,
         _provisional: true
@@ -411,7 +413,7 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
     "<th title=\"" + t("fmrThResidualTip") + "\">" + t("fmrThResidual") + "</th>" +
-    "<th title=\"" + t("fmrThDeltaTip") + "\">" + t("fmrThDelta") + "</th>" +
+    "<th title=\"" + t("fmrThCombinedTip") + "\">" + t("fmrThCombined") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
 
   // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
@@ -514,16 +516,18 @@ function renderFreqMatchResults() {
         }
       }
 
-      let deltaCell;
-      if (r.fmDelta == null) {
-        deltaCell = "<span style=\"color:#9ca3af\">—</span>";
+      let combinedCell;
+      // not-perceivable und kein Wert → "—"
+      const isNotPerc = (r.fmStatus === 'not-perceivable');
+      if (isNotPerc || r.fmCombinedUncertainty == null) {
+        combinedCell = "<span style=\"color:#9ca3af\">—</span>";
       } else {
-        const delta = Math.round(r.fmDelta);
-        const dColor = delta <= 10  ? '#16a34a'
-                     : delta <= 25  ? '#d97706'
-                     :                '#dc2626';
-        deltaCell = "<span style=\"color:" + dColor + ";font-weight:600\">"
-                  + delta + " ct</span>";
+        const cu = Math.round(r.fmCombinedUncertainty);
+        const cuColor = cu <= 10 ? '#16a34a'
+                      : cu <= 25 ? '#d97706'
+                      :            '#dc2626';
+        combinedCell = "<span style=\"color:" + cuColor + ";font-weight:600\">±"
+                     + cu + " ct</span>";
       }
 
       let statusBadge;
@@ -554,7 +558,7 @@ function renderFreqMatchResults() {
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
         "<td>" + residCell + "</td>" +
-        "<td>" + deltaCell + "</td>" +
+        "<td>" + combinedCell + "</td>" +
         "<td>" + statusBadge + "</td>";
       if (isProv) tr.style.fontStyle = 'italic';
     }
