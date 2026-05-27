@@ -25,32 +25,28 @@ const FM_PROVISIONAL_RESID_MIN = 4; // ab so vielen Umkehrungen Schätz-Residuum
 
 // --- Track-State erzeugen ---
 //
-// electrodeIdx: Elektroden-Index in nEl der variablen Seite
-// prevMatchCent: vorhandener Cent-Offset aus alter Messung, oder null
-// rng: optionale Random-Funktion (default Math.random) — für Tests
-function fmCreateTrack(electrodeIdx, prevMatchCent, rng) {
-  const r = rng || Math.random;
-  // Startwert: ±50 cent um alten Match, oder ±100 cent um 0 (Soll)
-  const base = (prevMatchCent != null && isFinite(prevMatchCent)) ? prevMatchCent : 0;
-  const spread = (prevMatchCent != null && isFinite(prevMatchCent)) ? 50 : 100;
-  const startOffset = base + (r() * 2 - 1) * spread;
+// electrodeIdx:   Elektroden-Index in nEl der variablen Seite
+// startDirection: 'up'   → Track startet oberhalb (+100 ct), sucht Match von oben
+//                 'down' → Track startet unterhalb (−100 ct), sucht Match von unten
+function fmCreateTrack(electrodeIdx, startDirection) {
+  const START_MAG  = 100;
+  const startOffset = (startDirection === 'up') ? +START_MAG : -START_MAG;
   return {
-    electrodeIdx:     electrodeIdx,
-    // currentOffset: cent-Offset der REF-Frequenz relativ zur var-Soll-Frequenz.
-    // Positiv = ref liegt höher als var. Var-Seite bleibt statisch auf effFreq(i),
-    // damit die CI-Elektrode unverändert angeregt wird.
-    currentOffset:    startOffset,
-    stepSize:         FM_STEP_SEQUENCE[0],
-    pendingResponse:  null,           // 'var-higher' | 'var-lower' | null
-    lastMoveDir:      null,           // 'up' | 'down' | null (Richtung der letzten BEWEGUNG)
-    reversals:        [],             // cent-Werte an Umkehrpunkten
-    trialHistory:     [],             // [{ trial, varOffset, response, isCatch, catchCorrect, firstSide }]
-    trialCount:       0,
-    catchTotal:       0,
-    catchErrors:      0,
-    status:           'active',       // 'active' | 'converged' | 'converged-noisy' | 'not-perceivable'
-    match:            null,           // cent (nur wenn konvergiert)
-    residual:         null            // cent (nur wenn konvergiert)
+    electrodeIdx:    electrodeIdx,
+    direction:       startDirection,
+    startOffset:     startOffset,
+    currentOffset:   startOffset,
+    stepSize:        FM_STEP_SEQUENCE[0],
+    pendingResponse: null,
+    lastMoveDir:     null,
+    reversals:       [],
+    trialHistory:    [],
+    trialCount:      0,
+    catchTotal:      0,
+    catchErrors:     0,
+    status:          'active',
+    match:           null,
+    residual:        null
   };
 }
 
@@ -79,8 +75,7 @@ function fmPickNextTrack(state, rng) {
   const r = rng || Math.random;
   const tracks = state.tracks || {};
   const activeIds = Object.keys(tracks)
-    .filter(function(k) { return tracks[k].status === 'active'; })
-    .map(function(k) { return parseInt(k, 10); });
+    .filter(function(k) { return tracks[k].status === 'active'; });
   if (activeIds.length === 0) return null;
 
   // Aus der Restliste die nächste noch aktive ID nehmen.

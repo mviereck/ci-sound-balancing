@@ -45,6 +45,15 @@ function _fmDbg(msg) {
   }
 }
 
+// --- Track-Key-Schema (BA 94): "<electrodeIdx>:up" oder "<electrodeIdx>:down" ---
+function fmTrackKey(electrodeIdx, direction) {
+  return String(electrodeIdx) + ':' + direction;
+}
+function fmParseTrackKey(key) {
+  const parts = String(key).split(':');
+  return { electrodeIdx: parseInt(parts[0], 10), direction: parts[1] };
+}
+
 // --- Hilfsfunktionen ---
 function fmCents(refHz, hz) {
   return 1200 * Math.log2(hz / refHz);
@@ -416,9 +425,11 @@ function _fmPersist() {
       completedAt:      null,
       varSide:          fmVarSide,
       refSide:          fmRefSide,
-      electrodeIdxList: Object.keys(fmTracks).map(function(k) {
-        return parseInt(k, 10);
-      }).sort(function(a, b) {
+      electrodeIdxList: Array.from(new Set(
+        Object.keys(fmTracks).map(function(k) {
+          return fmParseTrackKey(k).electrodeIdx;
+        })
+      )).sort(function(a, b) {
         const fa_ = withSide(fmVarSide, function() { return effFreq(a); });
         const fb_ = withSide(fmVarSide, function() { return effFreq(b); });
         return fa_ - fb_;
@@ -548,8 +559,8 @@ function fmStartAdaptive() {
     fmTracks = {};
     fmRoundQueue = [];
     elIdxList.forEach(function(idx) {
-      // SPEC: kein Warmstart. Jeder Lauf startet symmetrisch ±100 cent.
-      fmTracks[idx] = fmCreateTrack(idx, null);
+      fmTracks[fmTrackKey(idx, 'up')]   = fmCreateTrack(idx, 'up');
+      fmTracks[fmTrackKey(idx, 'down')] = fmCreateTrack(idx, 'down');
     });
     _fmPersist();
   }
@@ -766,30 +777,91 @@ function _fmConvertHeight(userChoice, firstSide) {
   }
 }
 
-// Aggregiert pro-Elektrode-Matches aus allen Läufen einer Seite.
+// Pro Lauf: Mittelwert von Track-up und Track-down einer Elektrode.
+function _fmCombineTwoTracks(trackUp, trackDown) {
+  if (!trackUp && !trackDown) {
+    return { match: null, residual: null, status: 'aborted' };
+  }
+  const upSt   = trackUp   ? trackUp.status   : 'aborted';
+  const downSt = trackDown ? trackDown.status : 'aborted';
+  if (upSt === 'aborted' && downSt === 'aborted') {
+    return { match: null, residual: null, status: 'aborted' };
+  }
+  // Noch aktive Tracks → Elektrode in-progress
+  if (upSt === 'active' || downSt === 'active') {
+    return { match: null, residual: null, status: 'in-progress' };
+  }
+  // Einer not-perceivable → Elektrode not-perceivable (SPEC)
+  if (upSt === 'not-perceivable' || downSt === 'not-perceivable') {
+    return { match: null, residual: null, status: 'not-perceivable' };
+  }
+  // Mindestens einer unstable → Elektrode unstable
+  if (upSt === 'unstable' || downSt === 'unstable') {
+    const ms = [trackUp, trackDown]
+      .filter(function(t) { return t && t.match != null; })
+      .map(function(t) { return t.match; });
+    const m = ms.length ? ms.reduce(function(s, x) { return s + x; }, 0) / ms.length : null;
+    const rs = [trackUp, trackDown]
+      .filter(function(t) { return t && t.residual != null; })
+      .map(function(t) { return t.residual; });
+    const r = rs.length ? rs.reduce(function(s, x) { return s + x; }, 0) / rs.length : null;
+    return { match: m, residual: r, status: 'unstable' };
+  }
+  // Beide haben Match
+  const mu = trackUp   ? trackUp.match    : null;
+  const md = trackDown ? trackDown.match  : null;
+  const ru = trackUp   ? trackUp.residual  : null;
+  const rd = trackDown ? trackDown.residual : null;
+  const match    = (mu != null && md != null) ? (mu + md) / 2 : (mu != null ? mu : md);
+  const residual = (ru != null && rd != null) ? (ru + rd) / 2 : (ru != null ? ru : rd);
+  const RANK   = { 'converged': 0, 'converged-fair': 1, 'converged-wide': 2,
+                   'unstable': 3, 'not-perceivable': 4, 'aborted': 5 };
+  const STAGES = ['converged', 'converged-fair', 'converged-wide', 'unstable',
+                  'not-perceivable', 'aborted'];
+  let stage = STAGES[Math.max(RANK[upSt] || 0, RANK[downSt] || 0)];
+  if (mu != null && md != null && Math.abs(mu - md) > 25 && RANK[stage] < 2) {
+    stage = 'converged-wide';
+  }
+  return { match: match, residual: residual, status: stage };
+}
+
+// Aggregiert pro-Elektrode-Matches über alle Läufe einer Seite.
+// In jedem Lauf werden zuerst die zwei Tracks (up + down) gemittelt.
+// Gibt: { cent, meanResidual, combinedUncertainty, runsCount, status }
 function _fmAggregateRunsForElectrode(side, electrodeIdx) {
   const fa = (sideData[side] && sideData[side].freqmatchAdaptive) || null;
   if (!fa || !Array.isArray(fa.runs)) {
-    return { cent: null, combinedUncertainty: 0, runsCount: 0, status: null };
+    return { cent: null, meanResidual: null, combinedUncertainty: 0, runsCount: 0, status: null };
   }
   const matches   = [];
   const residuals = [];
-  let statusAcc = null;
+  let worstStatus = null;
+  const RANK = { 'converged': 0, 'converged-fair': 1, 'converged-wide': 2,
+                 'unstable': 3, 'not-perceivable': 4, 'aborted': 5 };
+
   fa.runs.forEach(function(run) {
-    const tr = run.tracks && run.tracks[electrodeIdx];
-    if (!tr || tr.status === 'aborted') return;
-    if (tr.match != null) {
-      matches.push(tr.match);
-      if (typeof tr.residual === 'number') residuals.push(tr.residual);
+    const tu = run.tracks && run.tracks[fmTrackKey(electrodeIdx, 'up')];
+    const td = run.tracks && run.tracks[fmTrackKey(electrodeIdx, 'down')];
+    const combo = _fmCombineTwoTracks(tu, td);
+    if (combo.match != null) {
+      matches.push(combo.match);
+      if (combo.residual != null) residuals.push(combo.residual);
     }
-    if (tr.status === 'not-perceivable' && !statusAcc) statusAcc = 'not-perceivable';
+    if (combo.status &&
+        (worstStatus == null || (RANK[combo.status] || 0) > (RANK[worstStatus] || 0))) {
+      worstStatus = combo.status;
+    }
   });
 
+  const meanRes = residuals.length
+    ? residuals.reduce(function(s, x) { return s + x; }, 0) / residuals.length
+    : null;
+
   if (matches.length === 0) {
-    return { cent: null, combinedUncertainty: 0, runsCount: 0, status: statusAcc || null };
+    return { cent: null, meanResidual: meanRes, combinedUncertainty: 0,
+             runsCount: 0, status: worstStatus || null };
   }
 
-  // 1 Lauf → Wert; 2 Läufe → Mittel; 3+ → Median
   let cent;
   if (matches.length === 1) {
     cent = matches[0];
@@ -801,21 +873,20 @@ function _fmAggregateRunsForElectrode(side, electrodeIdx) {
     cent = (sorted.length & 1) ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   }
 
-  const meanRes = residuals.length
-    ? residuals.reduce(function(s, x) { return s + x; }, 0) / residuals.length
-    : 0;
   const matchSpread = (matches.length >= 2)
     ? Math.max.apply(null, matches) - Math.min.apply(null, matches)
     : 0;
+  const meanResForCombined = (meanRes != null) ? meanRes : 0;
   const combinedUncertainty = Math.sqrt(
-    meanRes * meanRes + (matchSpread / 2) * (matchSpread / 2)
+    meanResForCombined * meanResForCombined + (matchSpread / 2) * (matchSpread / 2)
   );
 
   return {
     cent:                cent,
+    meanResidual:        meanRes,
     combinedUncertainty: combinedUncertainty,
     runsCount:           matches.length,
-    status:              statusAcc || null
+    status:              worstStatus || null
   };
 }
 
@@ -830,15 +901,16 @@ function _fmRemoveResult(elIdx) {
       return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
     });
     const entry = {
-      varSide:    fmVarSide,
-      refSide:    fmRefSide,
-      elIdx:      elIdx,
-      varFreq:    varHz,
-      refFreq:    refHz,
-      timestamp:  Date.now(),
-      fmStatus:   'converged',
-      fmResidual: agg.combinedUncertainty,
-      fmDelta:    null
+      varSide:               fmVarSide,
+      refSide:               fmRefSide,
+      elIdx:                 elIdx,
+      varFreq:               varHz,
+      refFreq:               refHz,
+      timestamp:             Date.now(),
+      fmStatus:              agg.status || 'converged',
+      fmResidual:            agg.meanResidual,
+      fmCombinedUncertainty: agg.combinedUncertainty,
+      fmDelta:               null
     };
     if (existingIdx >= 0) fRes[existingIdx] = entry;
     else                  fRes.push(entry);
@@ -866,15 +938,16 @@ function _fmWriteResult(track) {
     return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
   });
   const entry = {
-    varSide:    fmVarSide,
-    refSide:    fmRefSide,
-    elIdx:      elIdx,
-    varFreq:    varHz,
-    refFreq:    refHz,
-    timestamp:  Date.now(),
-    fmStatus:   track.status,
-    fmResidual: agg.combinedUncertainty,
-    fmDelta:    null    // BA 95 füllt dieses Feld
+    varSide:               fmVarSide,
+    refSide:               fmRefSide,
+    elIdx:                 elIdx,
+    varFreq:               varHz,
+    refFreq:               refHz,
+    timestamp:             Date.now(),
+    fmStatus:              agg.status || track.status,
+    fmResidual:            agg.meanResidual,
+    fmCombinedUncertainty: agg.combinedUncertainty,
+    fmDelta:               null
   };
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
@@ -949,7 +1022,9 @@ function fmRenderStatusGrid() {
     });
   grid.appendChild(head);
 
-  const ids = Object.keys(fmTracks).map(function(k) { return parseInt(k, 10); });
+  const ids = Array.from(new Set(
+    Object.keys(fmTracks).map(function(k) { return fmParseTrackKey(k).electrodeIdx; })
+  ));
   ids.sort(function(a, b) {
     const fa = withSide(fmVarSide, function() { return effFreq(a); });
     const fb = withSide(fmVarSide, function() { return effFreq(b); });
@@ -957,56 +1032,88 @@ function fmRenderStatusGrid() {
   });
 
   ids.forEach(function(idx) {
-    const track = fmTracks[idx];
-    const row = _mkEl('div', 'fm-status-row fm-status-' + track.status);
-    if (idx === fmCurTrackId) row.classList.add('fm-status-current');
+    const tu = fmTracks[fmTrackKey(idx, 'up')];
+    const td = fmTracks[fmTrackKey(idx, 'down')];
+    const combo = _fmCombineTwoTracks(tu, td);
+    const comboStatus = combo.status || 'active';
+
+    // CSS-Klasse: neue Stati auf vorhandene Klassen mappen
+    const cssClass = (comboStatus === 'active' || comboStatus === 'in-progress') ? 'active'
+      : (comboStatus === 'converged' || comboStatus === 'converged-fair') ? 'converged'
+      : (comboStatus === 'converged-wide' || comboStatus === 'converged-noisy'
+         || comboStatus === 'unstable') ? 'converged-noisy'
+      : 'not-perceivable';
+    const row = _mkEl('div', 'fm-status-row fm-status-' + cssClass);
+    if (fmCurTrackId != null && fmParseTrackKey(fmCurTrackId).electrodeIdx === idx) {
+      row.classList.add('fm-status-current');
+    }
 
     const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(idx); });
     row.appendChild(_mkCell(elName));
 
-    const prov = (typeof fmComputeProvisional === 'function')
-      ? fmComputeProvisional(track)
-      : { status: null, match: null, residual: null };
-
     const iconMap = {
       'converged':       '✓ konvergiert',
+      'converged-fair':  '✓ konvergiert',
+      'converged-wide':  '◐ unsicher',
       'converged-noisy': '◐ unsicher',
-      'not-perceivable': '✗ nicht wahrnehmbar'
+      'unstable':        '◐ unsicher',
+      'not-perceivable': '✗ nicht wahrnehmbar',
+      'aborted':         '✗ abgebrochen'
     };
     let statusTxt;
-    if (track.status !== 'active') {
-      statusTxt = iconMap[track.status] || '?';
-    } else if (prov.status === 'in-progress') {
+    if (comboStatus === 'in-progress') {
       statusTxt = '⏳ vorläufig';
-    } else {
+    } else if (comboStatus === 'active') {
       statusTxt = '⏳ läuft';
+    } else {
+      statusTxt = iconMap[comboStatus] || '?';
     }
     row.appendChild(_mkCell(statusTxt));
 
+    // Match: aus combo, sonst vorläufig aus aktivem Track
     let matchTxt = '—', matchProv = false;
-    if (track.match != null) {
-      matchTxt = (track.match >= 0 ? '+' : '') + Math.round(track.match) + ' ct';
-    } else if (prov.match != null) {
-      matchTxt = (prov.match >= 0 ? '+' : '') + Math.round(prov.match) + ' ct';
-      matchProv = true;
+    if (combo.match != null) {
+      matchTxt = (combo.match >= 0 ? '+' : '') + Math.round(combo.match) + ' ct';
+    } else if (typeof fmComputeProvisional === 'function') {
+      const provTrack = (tu && tu.status === 'active') ? tu
+        : (td && td.status === 'active') ? td : null;
+      if (provTrack) {
+        const prov = fmComputeProvisional(provTrack);
+        if (prov.match != null) {
+          matchTxt = (prov.match >= 0 ? '+' : '') + Math.round(prov.match) + ' ct';
+          matchProv = true;
+        }
+      }
     }
     const matchCell = _mkCell(matchTxt);
     if (matchProv) matchCell.classList.add('fm-status-provisional');
     row.appendChild(matchCell);
 
+    // Residuum: aus combo, sonst vorläufig aus aktivem Track
     let residTxt = '—', residProv = false;
-    if (track.residual != null) {
-      residTxt = '±' + Math.round(track.residual) + ' ct';
-    } else if (prov.residual != null) {
-      residTxt = '±' + Math.round(prov.residual) + ' ct';
-      residProv = true;
+    if (combo.residual != null) {
+      residTxt = '±' + Math.round(combo.residual) + ' ct';
+    } else if (typeof fmComputeProvisional === 'function') {
+      const provTrack = (tu && tu.status === 'active') ? tu
+        : (td && td.status === 'active') ? td : null;
+      if (provTrack) {
+        const prov = fmComputeProvisional(provTrack);
+        if (prov.residual != null) {
+          residTxt = '±' + Math.round(prov.residual) + ' ct';
+          residProv = true;
+        }
+      }
     }
     const residCell = _mkCell(residTxt);
     if (residProv) residCell.classList.add('fm-status-provisional');
     row.appendChild(residCell);
 
-    row.appendChild(_mkCell(String(track.trialCount)));
-    row.appendChild(_mkCell(track.catchErrors + '/' + track.catchTotal));
+    // Trials und Catch: Summe beider Tracks
+    const totalTrials    = (tu ? tu.trialCount   || 0 : 0) + (td ? td.trialCount   || 0 : 0);
+    const totalCatchErr  = (tu ? tu.catchErrors  || 0 : 0) + (td ? td.catchErrors  || 0 : 0);
+    const totalCatchAll  = (tu ? tu.catchTotal   || 0 : 0) + (td ? td.catchTotal   || 0 : 0);
+    row.appendChild(_mkCell(String(totalTrials)));
+    row.appendChild(_mkCell(totalCatchErr + '/' + totalCatchAll));
 
     grid.appendChild(row);
   });
@@ -1076,18 +1183,48 @@ function fmUpdateAdaptiveProgress() {
 //   - Endzustand    → Beitrag 1.0
 //   - aktiv         → Beitrag min(reversals.length / FM_REVERSALS_REQ, 0.95)
 function fmComputeProgressStats(tracks) {
-  const ids = Object.keys(tracks);
-  const total = ids.length;
+  const allKeys = Object.keys(tracks);
+  // Neues Key-Schema (BA 94) erkennen: Keys enthalten ':'
+  const hasNewSchema = allKeys.some(function(k) { return k.indexOf(':') >= 0; });
+
+  if (!hasNewSchema) {
+    // Altes Schema (Slider-Modus oder alte gespeicherte Läufe): per-Track
+    const total = allKeys.length;
+    let done = 0, totalTrials = 0, contrib = 0;
+    allKeys.forEach(function(k) {
+      const tr = tracks[k];
+      totalTrials += tr.trialCount || 0;
+      if (tr.status !== 'active') { done++; contrib += 1.0; }
+      else {
+        const rev = (tr.reversals && tr.reversals.length) || 0;
+        contrib += Math.min(rev / FM_REVERSALS_REQ, 0.95);
+      }
+    });
+    return { total: total, done: done, totalTrials: totalTrials,
+             percent: total > 0 ? (contrib / total) * 100 : 0 };
+  }
+
+  // Neues 2-Track-Schema: Elektroden-Ebene
+  const elIdxSet = new Set();
+  allKeys.forEach(function(k) { elIdxSet.add(fmParseTrackKey(k).electrodeIdx); });
+  const elIdxList = Array.from(elIdxSet);
+  const total = elIdxList.length;
   let done = 0, totalTrials = 0, contrib = 0;
-  ids.forEach(function(k) {
-    const tr = tracks[k];
-    totalTrials += tr.trialCount || 0;
-    if (tr.status !== 'active') {
+  elIdxList.forEach(function(idx) {
+    const tu = tracks[fmTrackKey(idx, 'up')];
+    const td = tracks[fmTrackKey(idx, 'down')];
+    totalTrials += (tu ? tu.trialCount || 0 : 0) + (td ? td.trialCount || 0 : 0);
+    const tuDone = tu && tu.status !== 'active';
+    const tdDone = td && td.status !== 'active';
+    if (tuDone && tdDone) {
       done++;
       contrib += 1.0;
     } else {
-      const rev = (tr.reversals && tr.reversals.length) || 0;
-      contrib += Math.min(rev / FM_REVERSALS_REQ, 0.95);
+      const revU = (tu && tu.reversals) ? tu.reversals.length : 0;
+      const revD = (td && td.reversals) ? td.reversals.length : 0;
+      const cU = tuDone ? 1.0 : Math.min(revU / FM_REVERSALS_REQ, 0.95);
+      const cD = tdDone ? 1.0 : Math.min(revD / FM_REVERSALS_REQ, 0.95);
+      contrib += (cU + cD) / 2;
     }
   });
   return {

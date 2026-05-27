@@ -232,11 +232,25 @@ function _fmrCollectNotPerceivable() {
     if (!fa || !Array.isArray(fa.runs) || fa.currentRunIdx == null) return;
     const run = fa.runs[fa.currentRunIdx];
     if (!run || !run.tracks) return;
-    Object.keys(run.tracks).forEach(function(k) {
-      const tr = run.tracks[k];
-      if (tr.status === 'not-perceivable') {
-        result[side + ':' + k] = true;
+
+    // Eindeutige Elektroden-Indizes (parseInt stoppt bei ':', "3:up" → 3)
+    const elIdxSet = new Set();
+    Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
+
+    elIdxSet.forEach(function(elIdx) {
+      const tu = run.tracks[fmTrackKey(elIdx, 'up')];
+      const td = run.tracks[fmTrackKey(elIdx, 'down')];
+      let isNotPerc = false;
+      if (tu || td) {
+        // Neues 2-Track-Schema
+        const combo = _fmCombineTwoTracks(tu || null, td || null);
+        isNotPerc = (combo.status === 'not-perceivable');
+      } else {
+        // Altes Einzel-Track-Schema
+        const tr = run.tracks[String(elIdx)];
+        if (tr && tr.status === 'not-perceivable') isNotPerc = true;
       }
+      if (isNotPerc) result[side + ':' + elIdx] = true;
     });
   });
   return result;
@@ -261,23 +275,52 @@ function _fmrBuildInProgressEntries(side) {
   if (!run || !run.tracks) return out;
   const refSide = run.refSide || (side === 'left' ? 'right' : 'left');
 
-  Object.keys(run.tracks).forEach(function(k) {
-    const tr = run.tracks[k];
-    if (tr.status !== 'active') return;
-    const elIdx = parseInt(k, 10);
-    const varHz = withSide(side, function() { return effFreq(elIdx); });
-    const prov  = fmComputeProvisional(tr);
+  // Eindeutige Elektroden-Indizes (parseInt stoppt bei ':', "3:up" → 3)
+  const elIdxSet = new Set();
+  Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
-    if (prov.status === 'in-progress') {
+  elIdxSet.forEach(function(elIdx) {
+    const tu = run.tracks[fmTrackKey(elIdx, 'up')];
+    const td = run.tracks[fmTrackKey(elIdx, 'down')];
+
+    // Aktive Tracks für diese Elektrode bestimmen
+    let activeTracks;
+    if (tu || td) {
+      // Neues 2-Track-Schema
+      activeTracks = [tu, td].filter(function(tr) { return tr && tr.status === 'active'; });
+    } else {
+      // Altes Einzel-Track-Schema
+      const tr = run.tracks[String(elIdx)];
+      if (!tr || tr.status !== 'active') return;
+      activeTracks = [tr];
+    }
+    if (activeTracks.length === 0) return;
+
+    const varHz = withSide(side, function() { return effFreq(elIdx); });
+
+    // Vorläufige Werte über aktive Tracks mitteln
+    let sumMatch = 0, matchCount = 0;
+    let sumResid = 0, residCount = 0;
+    let totalTrials = 0, maxReversals = 0;
+    activeTracks.forEach(function(tr) {
+      const prov = fmComputeProvisional(tr);
+      if (prov.match != null)   { sumMatch += prov.match;   matchCount++; }
+      if (prov.residual != null) { sumResid += prov.residual; residCount++; }
+      totalTrials  += tr.trialCount || 0;
+      maxReversals  = Math.max(maxReversals, (tr.reversals && tr.reversals.length) || 0);
+    });
+
+    if (matchCount > 0) {
+      const provMatch = sumMatch / matchCount;
       out.push({
         varSide: side, refSide: refSide, elIdx: elIdx,
         varFreq: varHz,
-        refFreq: varHz * Math.pow(2, prov.match / 1200),
+        refFreq: varHz * Math.pow(2, provMatch / 1200),
         timestamp: Date.now(),
         fmStatus: 'in-progress',
-        fmResidual: prov.residual,
-        fmTrialCount: prov.trials,
-        fmReversals: prov.reversals,
+        fmResidual: residCount > 0 ? sumResid / residCount : null,
+        fmTrialCount: totalTrials,
+        fmReversals: maxReversals,
         _provisional: true
       });
     } else {
@@ -288,8 +331,8 @@ function _fmrBuildInProgressEntries(side) {
         timestamp: Date.now(),
         fmStatus: 'in-progress-early',
         fmResidual: null,
-        fmTrialCount: prov.trials,
-        fmReversals: prov.reversals,
+        fmTrialCount: totalTrials,
+        fmReversals: maxReversals,
         _provisional: true
       });
     }
