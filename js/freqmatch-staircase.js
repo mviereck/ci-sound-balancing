@@ -10,8 +10,10 @@
 const FM_STEP_SEQUENCE = [50, 25, 12, 6, 3];   // Schrittweiten in cent
 const FM_STEP_MIN      = 3;                    // Minimale Schrittweite
 const FM_REVERSALS_REQ = 6;                    // Umkehrungen für Match
-const FM_RESIDUAL_OK   = 10;                   // Residuum für saubere Konvergenz (cent)
-const FM_STABLE_DELTA  = 2;                    // Residuums-Stabilität für noisy (cent)
+const FM_RESIDUAL_OK   = 10;          // converged-Schwelle (cent)
+const FM_RESIDUAL_FAIR = 25;          // converged-fair-Schwelle (cent)
+const FM_RESIDUAL_WIDE = 50;          // converged-wide-Schwelle (cent)
+const FM_STABLE_DELTA  = 2;                    // Residuums-Stabilität (cent)
 const FM_TRIAL_CAP     = 80;                   // Hard cap pro Track
 
 // Catch-Trial-Konstanten (Bauanleitung 02b/6)
@@ -19,7 +21,7 @@ const FM_CATCH_INTERVAL     = 8;     // Catch-Trial-Abstand pro Track (determini
 const FM_CATCH_PHASE        = 5;     // Track-Trial-Index des ersten Catch (0-basiert: Trial 5, 13, 21 …)
 const FM_CATCH_MAGNITUDE    = 500;   // cent — Auslenkung in Catch
 const FM_NOT_PERC_MIN_CATCH = 3;     // mind. Catch-Trials vor Konvergenz-Freigabe
-const FM_NOT_PERC_ERR_RATE  = 0.5;  // Catch-Fehlerrate für not-perceivable
+const FM_NOT_PERC_ERR_RATE  = 2/3;  // Catch-Fehlerrate für not-perceivable (BA 96)
 const FM_PROVISIONAL_MATCH_MIN = 2; // ab so vielen Umkehrungen Schätz-Match
 const FM_PROVISIONAL_RESID_MIN = 4; // ab so vielen Umkehrungen Schätz-Residuum
 
@@ -44,7 +46,8 @@ function fmCreateTrack(electrodeIdx, startDirection) {
     trialCount:      0,
     catchTotal:      0,
     catchErrors:     0,
-    status:          'active',
+    status:          'active',       // 'active' | 'converged' | 'converged-fair' | 'converged-wide'
+                                     //  | 'unstable' | 'not-perceivable' | 'aborted'
     match:           null,
     residual:        null
   };
@@ -204,9 +207,7 @@ function fmComputeResidual(track) {
 function _fmCheckAndUpdateStatus(track) {
   if (track.status !== 'active') return track.status;
 
-  // Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl und Konvergenz-Status.
-  // Verhindert, daß Zufallsantworten trotz hoher Catch-Fehlerrate als Ergebnis
-  // durchgehen.
+  // Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl.
   if (track.catchTotal >= FM_NOT_PERC_MIN_CATCH) {
     const errRate = track.catchErrors / track.catchTotal;
     if (errRate >= FM_NOT_PERC_ERR_RATE) {
@@ -215,45 +216,60 @@ function _fmCheckAndUpdateStatus(track) {
     }
   }
 
-  // Konvergenz erst erlauben, wenn mind. FM_NOT_PERC_MIN_CATCH Catch-Trials
-  // für diesen Track absolviert wurden. Verhindert Früh-Konvergenz bei
-  // Zufallsantworten (die Catch-Statistik muß aussagekräftig sein).
+  // Konvergenz erst erlauben, wenn mind. FM_NOT_PERC_MIN_CATCH Catches da sind.
   if (track.catchTotal < FM_NOT_PERC_MIN_CATCH) {
     if (track.trialCount < FM_TRIAL_CAP) return 'active';
-    // Hard-Cap erreicht, aber Catch-Daten fehlen → unbrauchbar
+    // Hard-Cap ohne genug Catches → unbrauchbar
     track.status = 'not-perceivable';
     return track.status;
   }
 
-  // Saubere Konvergenz: ≥6 Umkehrungen, Schrittweite am Minimum,
-  // Residuum klein.
+  // Saubere Konvergenz: ≥6 Umkehrungen, Schrittweite am Minimum.
   if (track.reversals.length >= FM_REVERSALS_REQ && track.stepSize === FM_STEP_MIN) {
     const residual = fmComputeResidual(track);
-    if (residual != null && residual <= FM_RESIDUAL_OK) {
-      track.status   = 'converged';
-      track.match    = fmComputeMatch(track);
-      track.residual = residual;
-      return track.status;
-    }
-    if (_fmResidualStable(track)) {
-      track.status   = 'converged-noisy';
-      track.match    = fmComputeMatch(track);
-      track.residual = residual;
-      return track.status;
+    if (residual != null) {
+      if (residual <= FM_RESIDUAL_OK) {
+        track.status   = 'converged';
+        track.match    = fmComputeMatch(track);
+        track.residual = residual;
+        return track.status;
+      }
+      if (residual <= FM_RESIDUAL_FAIR) {
+        track.status   = 'converged-fair';
+        track.match    = fmComputeMatch(track);
+        track.residual = residual;
+        return track.status;
+      }
+      if (residual <= FM_RESIDUAL_WIDE && _fmResidualStable(track)) {
+        // Stabile, aber breit gestreute Konvergenz
+        track.status   = 'converged-wide';
+        track.match    = fmComputeMatch(track);
+        track.residual = residual;
+        return track.status;
+      }
+      // Residuum > FM_RESIDUAL_WIDE oder nicht stabil → noch aktiv (bis Hard-Cap)
     }
   }
 
-  // Hard cap: ≥80 Trials ohne Konvergenz
+  // Hard-Cap erreicht ohne Konvergenz: als unstable klassifizieren,
+  // Match-Wert mit Vorbehalt aus bisherigen Umkehrungen mitteln.
   if (track.trialCount >= FM_TRIAL_CAP) {
     if (track.reversals.length >= FM_REVERSALS_REQ) {
-      track.status   = 'converged-noisy';
+      const residual = fmComputeResidual(track);
       track.match    = fmComputeMatch(track);
-      track.residual = fmComputeResidual(track);
+      track.residual = residual;
+      track.status   = (residual != null && residual <= FM_RESIDUAL_WIDE)
+                       ? 'converged-wide'
+                       : 'unstable';
       return track.status;
     }
-    track.status   = 'converged-noisy';
-    track.match    = (track.reversals.length > 0) ? fmComputeMatch(track) : track.currentOffset;
-    track.residual = fmComputeResidual(track);
+    // Nicht mal 6 Umkehrungen → kein Match möglich, als unstable mit currentOffset
+    track.status   = 'unstable';
+    track.match    = track.reversals.length > 0
+                     ? fmComputeMatch(track)
+                     : track.currentOffset;
+    track.residual = (track.reversals.length >= 2)
+                     ? fmComputeResidual(track) : null;
     return track.status;
   }
 

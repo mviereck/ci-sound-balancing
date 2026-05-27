@@ -477,10 +477,14 @@ canvas {
   font-size: 0.82em;
   font-weight: 600;
 }
-.fm-badge-ok    { background: #d1fae5; color: #065f46; }
-.fm-badge-noisy { background: #fef3c7; color: #92400e; }
-.fm-badge-err   { background: #fee2e2; color: #991b1b; }
-.fm-badge-prov  { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
+.fm-badge-ok       { background: #d1fae5; color: #065f46; }
+.fm-badge-noisy    { background: #fef3c7; color: #92400e; }
+.fm-badge-fair     { background: #fef3c7; color: #92400e; }   /* gelb */
+.fm-badge-wide     { background: #fed7aa; color: #9a3412; }   /* orange */
+.fm-badge-unstable { background: #fecaca; color: #9a3412; }   /* rot-orange */
+.fm-badge-aborted  { background: #e5e7eb; color: #374151; }   /* grau */
+.fm-badge-err      { background: #fee2e2; color: #991b1b; }
+.fm-badge-prov     { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
 
 .warning-bar {
   background: #fef3c7;

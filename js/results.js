@@ -539,12 +539,28 @@ function renderFreqMatchResults() {
         statusBadge = '<span class="fm-badge fm-badge-prov">'
                     + t('fmrStatusProvLate').replace('{n}', r.fmReversals || 0)
                     + '</span>';
-      } else if (r.fmStatus === 'converged-noisy') {
-        statusBadge = '<span class="fm-badge fm-badge-noisy" data-t="fmrStatusNoisy">'
-                    + t('fmrStatusNoisy') + '</span>';
       } else if (r.fmStatus === 'converged') {
         statusBadge = '<span class="fm-badge fm-badge-ok" data-t="fmrStatusOk">'
                     + t('fmrStatusOk') + '</span>';
+      } else if (r.fmStatus === 'converged-fair') {
+        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="fmrStatusFair">'
+                    + t('fmrStatusFair') + '</span>';
+      } else if (r.fmStatus === 'converged-wide') {
+        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="fmrStatusWide">'
+                    + t('fmrStatusWide') + '</span>';
+      } else if (r.fmStatus === 'unstable') {
+        statusBadge = '<span class="fm-badge fm-badge-unstable" data-t="fmrStatusUnstable">'
+                    + t('fmrStatusUnstable') + '</span>';
+      } else if (r.fmStatus === 'aborted') {
+        statusBadge = '<span class="fm-badge fm-badge-aborted" data-t="fmrStatusAborted">'
+                    + t('fmrStatusAborted') + '</span>';
+      } else if (r.fmStatus === 'converged-noisy') {
+        // Backwards-Compat: alte Status-Werte als converged-fair anzeigen
+        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="fmrStatusFair">'
+                    + t('fmrStatusFair') + '</span>';
+      } else if (r.fmStatus === 'not-perceivable') {
+        statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">'
+                    + t('fmrStatusNotPerc') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
@@ -615,7 +631,10 @@ function renderFreqMatchResults() {
         .replace('{total}', totalActive)
         .replace('{res}', meanRes.toFixed(1));
     } else {
-      const noisy = finalEntries.filter(function(r) { return r.fmStatus === 'converged-noisy'; });
+      const noisy = finalEntries.filter(function(r) {
+        return r.fmStatus === 'converged-fair' || r.fmStatus === 'converged-wide'
+            || r.fmStatus === 'unstable' || r.fmStatus === 'converged-noisy';
+      });
       const resVals = finalEntries
         .filter(function(r) { return r.fmResidual != null; })
         .map(function(r) { return r.fmResidual; });

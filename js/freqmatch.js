@@ -604,7 +604,20 @@ function fmNextAdaptiveTrial() {
   // Jeder FM_CATCH_INTERVAL-te Trial eines Tracks ist ein Catch-Trial
   // (Trial-Indizes 5, 13, 21, … — gleichmäßige Verteilung je Elektrode).
   if ((fmTracks[fmCurTrackId].trialCount % FM_CATCH_INTERVAL) === FM_CATCH_PHASE) {
-    const dir = (Math.random() < 0.5) ? +FM_CATCH_MAGNITUDE : -FM_CATCH_MAGNITUDE;
+    // Adaptive Spreizung: bei großem Residuum wird ±500 ct nicht mehr
+    // eindeutig hörbar. Spreizung mit dem Residuum mitwachsen lassen.
+    const _t = fmTracks[fmCurTrackId];
+    let _resForCatch = 0;
+    if (_t.reversals && _t.reversals.length >= 2) {
+      let _max = -Infinity, _min = Infinity;
+      for (let _i = 0; _i < _t.reversals.length; _i++) {
+        if (_t.reversals[_i] > _max) _max = _t.reversals[_i];
+        if (_t.reversals[_i] < _min) _min = _t.reversals[_i];
+      }
+      _resForCatch = (_max - _min) / 2;
+    }
+    const _mag = Math.max(FM_CATCH_MAGNITUDE, 2 * _resForCatch);
+    const dir = (Math.random() < 0.5) ? +_mag : -_mag;
     fmCurCatchInfo = {
       direction:        dir,
       expectedResponse: (dir > 0) ? 'var-higher' : 'var-lower'
@@ -751,7 +764,9 @@ function fmHandleHeight(userChoice) {
   // Catch-Info aufräumen (vor nächstem Trial)
   fmCurCatchInfo = null;
 
-  if (track.status === 'converged' || track.status === 'converged-noisy') {
+  if (track.status === 'converged' || track.status === 'converged-fair'
+      || track.status === 'converged-wide' || track.status === 'unstable'
+      || track.status === 'converged-noisy') {
     _fmWriteResult(track);
   } else if (track.status === 'not-perceivable') {
     _fmRemoveResult(track.electrodeIdx);
@@ -1053,12 +1068,12 @@ function fmRenderStatusGrid() {
 
     const iconMap = {
       'converged':       '✓ konvergiert',
-      'converged-fair':  '✓ konvergiert',
-      'converged-wide':  '◐ unsicher',
-      'converged-noisy': '◐ unsicher',
-      'unstable':        '◐ unsicher',
+      'converged-fair':  '◐ leichte Streuung',
+      'converged-wide':  '◐ breite Streuung',
+      'unstable':        '⚠ unstabil',
+      'aborted':         '∅ abgebrochen',
       'not-perceivable': '✗ nicht wahrnehmbar',
-      'aborted':         '✗ abgebrochen'
+      'converged-noisy': '◐ leichte Streuung'   // Backwards-Compat
     };
     let statusTxt;
     if (comboStatus === 'in-progress') {
