@@ -146,6 +146,7 @@ Object.assign(L.de, {
     toneTypeLabel: "Tonart",
     toneSine: "Sinus",
     toneComplex: "Komplexton",
+    tonePulsedComplex: "Komplexton gepulst (100 Hz)",
     toneNoise: "Schmalbandrauschen",
     toneNoiseAdaptive: "Schmalbandrauschen adaptiv",
     toneAmSine: "AM-Sinus (4 Hz)",

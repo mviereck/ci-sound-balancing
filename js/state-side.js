@@ -99,8 +99,8 @@ function initSideData(side, m) {
   s.jRes = [];
   s.bRes = [];
   s.fmMode = 'adaptive';
-  s.fmAdaptiveDur = 400;
-  s.fmAdaptivePau = 400;
+  s.fmAdaptiveDur = 200;
+  s.fmAdaptivePau = 200;
   s.freqmatchAdaptive = null;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
@@ -216,8 +216,8 @@ function loadSideData(side, d) {
   s.jRes = d.judgmentResults || [];
   s.bRes = d.balanceResults || [];
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
-  s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 400;
-  s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 400;
+  s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
+  s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
   s.freqmatchAdaptive = d.freqmatchAdaptive || null;
   s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
@@ -468,7 +468,7 @@ let curA = -1,
   compCnt = 0,
   convRnd = 0;
 
-let globalToneType = "sine"; // "sine" | "complex" | "noise" | ...
+let globalToneType = "complex"; // "sine" | "complex" | "pulsedComplex" | "noise" | ...
 let globalSequence = "aba";       // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

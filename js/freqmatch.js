@@ -1383,8 +1383,8 @@ function fmSetMode(newMode, opts) {
       _fmPauStash_slider = parseInt(fmEls.pauseInput.value) || 500;
     } else {
       const varSd = sideData[fmVarSide] || sideData.left;
-      varSd.fmAdaptiveDur = parseInt(fmEls.durInput.value)   || 400;
-      varSd.fmAdaptivePau = parseInt(fmEls.pauseInput.value) || 400;
+      varSd.fmAdaptiveDur = parseInt(fmEls.durInput.value)   || 200;
+      varSd.fmAdaptivePau = parseInt(fmEls.pauseInput.value) || 200;
     }
   }
 
@@ -1398,8 +1398,8 @@ function fmSetMode(newMode, opts) {
       fmEls.pauseInput.value = _fmPauStash_slider;
     } else {
       const varSd = sideData[fmVarSide] || sideData.left;
-      fmEls.durInput.value   = (varSd.fmAdaptiveDur != null) ? varSd.fmAdaptiveDur : 400;
-      fmEls.pauseInput.value = (varSd.fmAdaptivePau != null) ? varSd.fmAdaptivePau : 400;
+      fmEls.durInput.value   = (varSd.fmAdaptiveDur != null) ? varSd.fmAdaptiveDur : 200;
+      fmEls.pauseInput.value = (varSd.fmAdaptivePau != null) ? varSd.fmAdaptivePau : 200;
     }
   }
 

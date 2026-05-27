@@ -105,8 +105,8 @@ async function saveJson() {
         judgmentResults: sideData.left.jRes,
         balanceResults: sideData.left.bRes,
         fmMode: sideData.left.fmMode || 'adaptive',
-        fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 400,
-        fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 400,
+        fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
+        fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
         manualLevels: sideData.left.manualLevels,
         presets: sideData.left.presets,
         fullSweepRound: sideData.left.fullSweepRound,
@@ -126,8 +126,8 @@ async function saveJson() {
         judgmentResults: sideData.right.jRes,
         balanceResults: sideData.right.bRes,
         fmMode: sideData.right.fmMode || 'adaptive',
-        fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 400,
-        fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 400,
+        fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
+        fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
         manualLevels: sideData.right.manualLevels,
         presets: sideData.right.presets,
         fullSweepRound: sideData.right.fullSweepRound,
@@ -438,10 +438,10 @@ function applyLoadedData(d) {
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
-  const VALID_TONE_TYPES = ["sine", "complex", "noise",
+  const VALID_TONE_TYPES = ["sine", "complex", "pulsedComplex", "noise",
     "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
   globalToneType = VALID_TONE_TYPES.includes(d.globalToneType)
-    ? d.globalToneType : "sine";
+    ? d.globalToneType : "complex";
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   if (typeof d.playerSourceMeas === "boolean") {

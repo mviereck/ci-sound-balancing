@@ -162,6 +162,73 @@ function playComplexTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
+function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 20) {
+  // Harmonischer Komplexton (wie playComplexTone) zusätzlich AM-moduliert
+  // mit 100 Hz. Simuliert die Pulsraten-Hüllkurve aller CI-Strategien,
+  // ohne die Pitch-Wahrnehmung zu zerstören.
+  return new Promise((r) => {
+    const PULSE_RATE = 100;           // Hz
+    const MOD_DEPTH  = 0.7;           // 0 = keine Modulation, 1 = volle Tiefe
+    const oscs = [],
+      g = c.createGain(),
+      p = c.createStereoPanner();
+    const partials = [
+      { mult: 1, amp: 1.0 },
+      { mult: 2, amp: 0.5 },
+      { mult: 3, amp: 0.33 },
+      { mult: 4, amp: 0.25 },
+      { mult: 5, amp: 0.2 },
+    ];
+    const total = partials.reduce((s, x) => s + x.amp, 0);
+    const nyquist = c.sampleRate / 2 - 100;
+
+    const carrierMix = c.createGain();
+    carrierMix.gain.value = 1 - MOD_DEPTH / 2;
+
+    for (const part of partials) {
+      const freq = hz * part.mult;
+      if (freq < nyquist) {
+        const o = c.createOscillator();
+        const og = c.createGain();
+        o.type = "sine";
+        o.frequency.value = freq;
+        og.gain.value = part.amp / total;
+        o.connect(og);
+        og.connect(carrierMix);
+        o.start();
+        o.stop(c.currentTime + ms / 1000 + 0.01);
+        oscs.push(o);
+      }
+    }
+
+    const lfo     = c.createOscillator();
+    const lfoGain = c.createGain();
+    lfo.type            = "sine";
+    lfo.frequency.value = PULSE_RATE;
+    lfoGain.gain.value  = MOD_DEPTH / 2;
+    lfo.connect(lfoGain);
+    lfoGain.connect(carrierMix.gain);
+    lfo.start();
+    lfo.stop(c.currentTime + ms / 1000 + 0.01);
+
+    carrierMix.connect(g);
+
+    p.pan.value = pan;
+    g.gain.setValueAtTime(0, c.currentTime);
+    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + ramp / 1000);
+    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
+    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
+    g.connect(p);
+    p.connect(c.destination);
+    curOsc = oscs[0] || null;
+    if (oscs.length > 0) {
+      oscs[0].onended = () => { curOsc = null; r(); };
+    } else {
+      r();
+    }
+  });
+}
+
 function playNoiseTone(c, hz, vol, ms, pan, ramp = 20) {
   return new Promise((r) => {
     const bufLen = Math.ceil(c.sampleRate * (ms / 1000 + 0.05));
@@ -336,13 +403,14 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 20) {
 }
 
 function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 20) {
-  if (toneType === "complex")       return playComplexTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "noise")         return playNoiseTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "noiseAdaptive") return playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "amSine")        return playAmSineTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "warbleSine")    return playWarbleSineTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "burstSine")     return playBurstSineTone(c, hz, vol, ms, pan, ramp);
-  if (toneType === "wobbleSweep")   return playWobbleSweepTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "complex")        return playComplexTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "pulsedComplex")  return playPulsedComplexTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "noise")          return playNoiseTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "noiseAdaptive")  return playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "amSine")         return playAmSineTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "warbleSine")     return playWarbleSineTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "burstSine")      return playBurstSineTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "wobbleSweep")    return playWobbleSweepTone(c, hz, vol, ms, pan, ramp);
   return playSineTone(c, hz, vol, ms, pan, ramp);
 }
 
@@ -363,7 +431,7 @@ function playHold(hz, vol) {
   g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + 0.02);
   g.connect(p);
   p.connect(c.destination);
-  if (globalToneType === "complex") {
+  if (globalToneType === "complex" || globalToneType === "pulsedComplex") {
     const partials = [
       { mult: 1, amp: 1.0 }, { mult: 2, amp: 0.5 }, { mult: 3, amp: 0.33 },
       { mult: 4, amp: 0.25 }, { mult: 5, amp: 0.2 },
@@ -371,6 +439,23 @@ function playHold(hz, vol) {
     const total = partials.reduce((s, x) => s + x.amp, 0);
     const nyquist = c.sampleRate / 2 - 100;
     const oscs = [];
+    let carrierMix = g;
+    let lfo = null;
+    if (globalToneType === "pulsedComplex") {
+      const PULSE_RATE = 100;
+      const MOD_DEPTH  = 0.7;
+      carrierMix = c.createGain();
+      carrierMix.gain.value = 1 - MOD_DEPTH / 2;
+      lfo = c.createOscillator();
+      const lfoGain = c.createGain();
+      lfo.type            = "sine";
+      lfo.frequency.value = PULSE_RATE;
+      lfoGain.gain.value  = MOD_DEPTH / 2;
+      lfo.connect(lfoGain);
+      lfoGain.connect(carrierMix.gain);
+      carrierMix.connect(g);
+      lfo.start();
+    }
     for (const part of partials) {
       const freq = hz * part.mult;
       if (freq < nyquist) {
@@ -380,13 +465,16 @@ function playHold(hz, vol) {
         o.frequency.value = freq;
         og.gain.value = part.amp / total;
         o.connect(og);
-        og.connect(g);
+        og.connect(carrierMix);
         o.start();
         oscs.push(o);
       }
     }
     curOsc = {
-      stop: () => { oscs.forEach(o => { try { o.stop(); } catch(e) {} }); }
+      stop: () => {
+        oscs.forEach(o => { try { o.stop(); } catch(e) {} });
+        if (lfo) { try { lfo.stop(); } catch(e) {} }
+      }
     };
   } else if (globalToneType === "noise") {
     const bufLen = Math.ceil(c.sampleRate * 2);

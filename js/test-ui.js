@@ -210,7 +210,8 @@ function buildTestPanel(parentEl, cfg) {
       toneSelect = _mkEl('select');
       toneSelect.dataset.global = 'toneType';
       [
-        ['sine','toneSine'],['complex','toneComplex'],['noise','toneNoise'],
+        ['sine','toneSine'],['complex','toneComplex'],
+        ['pulsedComplex','tonePulsedComplex'],['noise','toneNoise'],
         ['noiseAdaptive','toneNoiseAdaptive'],['amSine','toneAmSine'],
         ['warbleSine','toneWarbleSine'],['burstSine','toneBurstSine'],
         ['wobbleSweep','toneWobbleSweep']
@@ -562,6 +563,7 @@ function buildTestPanel(parentEl, cfg) {
     toneSelect.addEventListener('change', function() {
       globalToneType = toneSelect.value;
       _syncGlobalDropdowns('toneType', toneSelect.value);
+      playTone(1000, gVol(), 750);
     });
   }
   if (targetSelect) {

@@ -12,11 +12,13 @@ Builder `buildTestPanel` aus test-ui.js. Drei Blöcke pro Test:
 
 In `state-side.js` und persistiert in JSON und localStorage:
 
-- **Tonart** (`globalToneType`) — Sinus / Komplexton / Rauschen /
-  Schmalbandrauschen adaptiv / AM-Sinus / Warble-Sinus / Sinus-Bursts
-  / Wobble-Sweep. Default `'sine'` (Sinus). Dropdown im
-  Voreinstellungs-Block aller drei Tests sichtbar; alle Instanzen an
-  dieselbe Variable gebunden.
+- **Tonart** (`globalToneType`) — Sinus / Komplexton / Komplexton gepulst
+  (100 Hz AM) / Rauschen / Schmalbandrauschen adaptiv / AM-Sinus /
+  Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default `'complex'`
+  (Komplexton). Dropdown im Voreinstellungs-Block aller drei Tests
+  sichtbar; alle Instanzen an dieselbe Variable gebunden. Bei Auswahl
+  einer neuen Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz,
+  aktuelle Messlautstärke) abgespielt.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'aba'`. Vor dem Test wählbar, während des Tests fest.
 
