@@ -320,6 +320,14 @@ function _fmrBuildInProgressEntries(side) {
         fmStatus: 'in-progress',
         fmResidual: residCount > 0 ? sumResid / residCount : null,
         fmCombinedUncertainty: null,
+        fmConvUp:     null,
+        fmConvDown:   null,
+        fmTrackDiff:  null,
+        fmRunSpread:  null,
+        fmResiduum:   null,
+        fmRunsCount:  0,
+        fmStatusUpLast:   null,
+        fmStatusDownLast: null,
         fmTrialCount: totalTrials,
         fmReversals: maxReversals,
         _provisional: true
@@ -333,6 +341,14 @@ function _fmrBuildInProgressEntries(side) {
         fmStatus: 'in-progress-early',
         fmResidual: null,
         fmCombinedUncertainty: null,
+        fmConvUp:     null,
+        fmConvDown:   null,
+        fmTrackDiff:  null,
+        fmRunSpread:  null,
+        fmResiduum:   null,
+        fmRunsCount:  0,
+        fmStatusUpLast:   null,
+        fmStatusDownLast: null,
         fmTrialCount: totalTrials,
         fmReversals: maxReversals,
         _provisional: true
@@ -412,8 +428,9 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThRefHz") + "</th>" +
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
-    "<th title=\"" + t("fmrThResidualTip") + "\">" + t("fmrThResidual") + "</th>" +
-    "<th title=\"" + t("fmrThCombinedTip") + "\">" + t("fmrThCombined") + "</th>" +
+    "<th title=\"" + t("fmrThConvUdTip") + "\">" + t("fmrThConvUd") + "</th>" +
+    "<th title=\"" + t("fmrThTrackDiffTip") + "\">" + t("fmrThTrackDiff") + "</th>" +
+    "<th title=\"" + t("fmrThResiduumTip") + "\">" + t("fmrThResiduum") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
 
   // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
@@ -451,9 +468,10 @@ function renderFreqMatchResults() {
         "<td>—</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
-        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>" +
         "<td>—</td>" +
-        "<td>—</td>";
+        "<td>—</td>" +
+        "<td>—</td>" +
+        "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
     } else if (!r) {
       const fa = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
       const _faRun = fa && Array.isArray(fa.runs) && fa.currentRunIdx != null ? fa.runs[fa.currentRunIdx] : null;
@@ -471,25 +489,24 @@ function renderFreqMatchResults() {
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
       const isProvEarly = (r.fmStatus === 'in-progress-early');
       const isProvLate  = (r.fmStatus === 'in-progress');
       const isProv      = isProvEarly || isProvLate;
 
-      let varHzCell, refHzCell, diffHzCell, diffCtCell, residCell;
+      let varHzCell, refHzCell, diffHzCell, diffCtCell;
       if (isProvEarly) {
         varHzCell  = r.varFreq.toFixed(2);
         refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
-        residCell  = "<span style=\"color:#9ca3af\">—</span>";
       } else if (r.refFreq == null) {
         varHzCell  = r.varFreq.toFixed(2);
         refHzCell  = "<span style=\"color:#9ca3af\">—</span>";
         diffHzCell = "<span style=\"color:#9ca3af\">—</span>";
         diffCtCell = "<span style=\"color:#9ca3af\">—</span>";
-        residCell  = "<span style=\"color:#9ca3af\">—</span>";
       } else {
         const diffHzRaw = r.refFreq - r.varFreq;
         const cent      = 1200 * Math.log2(r.refFreq / r.varFreq);
@@ -503,31 +520,66 @@ function renderFreqMatchResults() {
                    + (diffHzRaw >= 0 ? "+" : "") + diffHzRaw.toFixed(2) + "</span>";
         diffCtCell = "<span style=\"color:" + diffColor + "\">"
                    + (centRound >= 0 ? "+" : "") + centRound + "</span>";
-
-        if (r.fmResidual == null) {
-          residCell = "<span style=\"color:#9ca3af\">—</span>";
-        } else {
-          const res = Math.round(r.fmResidual);
-          const resColor = res <= 10 ? "#16a34a"
-                         : res <= 25 ? "#d97706"
-                         :             "#dc2626";
-          residCell = "<span style=\"color:" + resColor + ";font-weight:600\">±"
-                    + res + " ct</span>";
-        }
       }
 
-      let combinedCell;
-      // not-perceivable und kein Wert → "—"
+      // BA 99: drei Spalten — Konvergenz u/d, Track-Differenz, Residuum
       const isNotPerc = (r.fmStatus === 'not-perceivable');
-      if (isNotPerc || r.fmCombinedUncertainty == null) {
-        combinedCell = "<span style=\"color:#9ca3af\">—</span>";
+      const statusUpLast   = r.fmStatusUpLast   || null;
+      const statusDownLast = r.fmStatusDownLast || null;
+
+      function _fmCellRoh(v, statusLast) {
+        if (statusLast === 'not-perceivable') return '<span style="color:#9ca3af">✗</span>';
+        if (statusLast === 'aborted')         return '<span style="color:#9ca3af">—</span>';
+        if (v == null)                        return '<span style="color:#9ca3af">—</span>';
+        return '<span style="color:#374151">±' + Math.round(v) + '</span>';
+      }
+
+      let convUdCell;
+      if (isProv || (statusUpLast == null && statusDownLast == null
+                     && r.fmConvUp == null && r.fmConvDown == null)) {
+        convUdCell = '<span style="color:#9ca3af">—</span>';
       } else {
-        const cu = Math.round(r.fmCombinedUncertainty);
-        const cuColor = cu <= 10 ? '#16a34a'
-                      : cu <= 25 ? '#d97706'
+        convUdCell = _fmCellRoh(r.fmConvUp, statusUpLast)
+                   + ' / '
+                   + _fmCellRoh(r.fmConvDown, statusDownLast);
+      }
+
+      let trackDiffCell;
+      if (isProv || r.fmTrackDiff == null
+          || statusUpLast === 'not-perceivable' || statusDownLast === 'not-perceivable'
+          || statusUpLast === 'aborted'         || statusDownLast === 'aborted') {
+        trackDiffCell = '<span style="color:#9ca3af">—</span>';
+      } else {
+        trackDiffCell = '<span style="color:#374151">' + Math.round(r.fmTrackDiff) + '</span>';
+      }
+
+      let residuumCell;
+      if (isProv || r.fmResiduum == null || isNotPerc) {
+        residuumCell = '<span style="color:#9ca3af">—</span>';
+      } else {
+        const re      = Math.round(r.fmResiduum);
+        const reColor = re <= 10 ? '#16a34a'
+                      : re <= 25 ? '#d97706'
                       :            '#dc2626';
-        combinedCell = "<span style=\"color:" + cuColor + ";font-weight:600\">±"
-                     + cu + " ct</span>";
+        const tipParts = [];
+        if (r.fmConvUp != null || r.fmConvDown != null) {
+          const ku = r.fmConvUp   != null ? Math.round(r.fmConvUp)   : '?';
+          const kd = r.fmConvDown != null ? Math.round(r.fmConvDown) : '?';
+          tipParts.push('Konvergenz ±' + ku + ' / ±' + kd + ' ct');
+        }
+        if (r.fmTrackDiff != null) {
+          tipParts.push('Track-Differenz ' + Math.round(r.fmTrackDiff) + ' ct');
+        }
+        if (r.fmRunSpread != null) {
+          tipParts.push('Run-Spannweite ' + Math.round(r.fmRunSpread) + ' ct');
+        }
+        const runsLabel = (r.fmRunsCount === 1) ? '1 Lauf'
+                        : (r.fmRunsCount != null && r.fmRunsCount > 1) ? r.fmRunsCount + ' Läufe'
+                        : '';
+        if (runsLabel) tipParts.push('(' + runsLabel + ')');
+        const tipText = tipParts.join(' · ');
+        residuumCell = '<span style="color:' + reColor + ';font-weight:600" title="'
+                     + tipText + '">±' + re + ' ct</span>';
       }
 
       let statusBadge;
@@ -573,8 +625,9 @@ function renderFreqMatchResults() {
         "<td>" + refHzCell + "</td>" +
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
-        "<td>" + residCell + "</td>" +
-        "<td>" + combinedCell + "</td>" +
+        "<td>" + convUdCell + "</td>" +
+        "<td>" + trackDiffCell + "</td>" +
+        "<td>" + residuumCell + "</td>" +
         "<td>" + statusBadge + "</td>";
       if (isProv) tr.style.fontStyle = 'italic';
     }

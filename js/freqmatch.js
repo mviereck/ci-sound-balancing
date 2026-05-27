@@ -792,38 +792,58 @@ function _fmConvertHeight(userChoice, firstSide) {
 // Pro Lauf: Mittelwert von Track-up und Track-down einer Elektrode.
 function _fmCombineTwoTracks(trackUp, trackDown) {
   if (!trackUp && !trackDown) {
-    return { match: null, residual: null, status: 'aborted' };
+    return { match: null, residual: null, status: 'aborted',
+             matchUp: null, matchDown: null,
+             residualUp: null, residualDown: null,
+             trackDiff: null,
+             statusUp: 'aborted', statusDown: 'aborted' };
   }
   const upSt   = trackUp   ? trackUp.status   : 'aborted';
   const downSt = trackDown ? trackDown.status : 'aborted';
-  if (upSt === 'aborted' && downSt === 'aborted') {
-    return { match: null, residual: null, status: 'aborted' };
-  }
-  // Noch aktive Tracks → Elektrode in-progress
-  if (upSt === 'active' || downSt === 'active') {
-    return { match: null, residual: null, status: 'in-progress' };
-  }
-  // Einer not-perceivable → Elektrode not-perceivable (SPEC)
-  if (upSt === 'not-perceivable' || downSt === 'not-perceivable') {
-    return { match: null, residual: null, status: 'not-perceivable' };
-  }
-  // Mindestens einer unstable → Elektrode unstable
-  if (upSt === 'unstable' || downSt === 'unstable') {
-    const ms = [trackUp, trackDown]
-      .filter(function(t) { return t && t.match != null; })
-      .map(function(t) { return t.match; });
-    const m = ms.length ? ms.reduce(function(s, x) { return s + x; }, 0) / ms.length : null;
-    const rs = [trackUp, trackDown]
-      .filter(function(t) { return t && t.residual != null; })
-      .map(function(t) { return t.residual; });
-    const r = rs.length ? rs.reduce(function(s, x) { return s + x; }, 0) / rs.length : null;
-    return { match: m, residual: r, status: 'unstable' };
-  }
-  // Beide haben Match
+
+  // Roh-Werte pro Track (immer mit zurückgeben, auch bei sonstigen Status)
   const mu = trackUp   ? trackUp.match    : null;
   const md = trackDown ? trackDown.match  : null;
   const ru = trackUp   ? trackUp.residual  : null;
   const rd = trackDown ? trackDown.residual : null;
+  const trackDiff = (mu != null && md != null) ? Math.abs(mu - md) : null;
+
+  if (upSt === 'aborted' && downSt === 'aborted') {
+    return { match: null, residual: null, status: 'aborted',
+             matchUp: mu, matchDown: md,
+             residualUp: ru, residualDown: rd,
+             trackDiff: trackDiff,
+             statusUp: upSt, statusDown: downSt };
+  }
+  // Noch aktive Tracks → Elektrode in-progress
+  if (upSt === 'active' || downSt === 'active') {
+    return { match: null, residual: null, status: 'in-progress',
+             matchUp: mu, matchDown: md,
+             residualUp: ru, residualDown: rd,
+             trackDiff: trackDiff,
+             statusUp: upSt, statusDown: downSt };
+  }
+  // Einer not-perceivable → Elektrode not-perceivable (SPEC)
+  if (upSt === 'not-perceivable' || downSt === 'not-perceivable') {
+    return { match: null, residual: null, status: 'not-perceivable',
+             matchUp: mu, matchDown: md,
+             residualUp: ru, residualDown: rd,
+             trackDiff: trackDiff,
+             statusUp: upSt, statusDown: downSt };
+  }
+  // Mindestens einer unstable → Elektrode unstable
+  if (upSt === 'unstable' || downSt === 'unstable') {
+    const ms = [mu, md].filter(function(x) { return x != null; });
+    const m = ms.length ? ms.reduce(function(s, x) { return s + x; }, 0) / ms.length : null;
+    const rs = [ru, rd].filter(function(x) { return x != null; });
+    const r = rs.length ? rs.reduce(function(s, x) { return s + x; }, 0) / rs.length : null;
+    return { match: m, residual: r, status: 'unstable',
+             matchUp: mu, matchDown: md,
+             residualUp: ru, residualDown: rd,
+             trackDiff: trackDiff,
+             statusUp: upSt, statusDown: downSt };
+  }
+  // Beide haben Match (irgendeine converged-Variante)
   const match    = (mu != null && md != null) ? (mu + md) / 2 : (mu != null ? mu : md);
   const residual = (ru != null && rd != null) ? (ru + rd) / 2 : (ru != null ? ru : rd);
   const RANK   = { 'converged': 0, 'converged-fair': 1, 'converged-wide': 2,
@@ -834,19 +854,34 @@ function _fmCombineTwoTracks(trackUp, trackDown) {
   if (mu != null && md != null && Math.abs(mu - md) > 25 && RANK[stage] < 2) {
     stage = 'converged-wide';
   }
-  return { match: match, residual: residual, status: stage };
+  return { match: match, residual: residual, status: stage,
+           matchUp: mu, matchDown: md,
+           residualUp: ru, residualDown: rd,
+           trackDiff: trackDiff,
+           statusUp: upSt, statusDown: downSt };
 }
 
 // Aggregiert pro-Elektrode-Matches über alle Läufe einer Seite.
-// In jedem Lauf werden zuerst die zwei Tracks (up + down) gemittelt.
-// Gibt: { cent, meanResidual, combinedUncertainty, runsCount, status }
+// In jedem Lauf werden zuerst die zwei Tracks (up + down) kombiniert.
+// Gibt aggregierte Werte zurück inkl. neuer Konvergenz-/Track-Diff.-
+// Größen (BA 99).
 function _fmAggregateRunsForElectrode(side, electrodeIdx) {
   const fa = (sideData[side] && sideData[side].freqmatchAdaptive) || null;
-  if (!fa || !Array.isArray(fa.runs)) {
-    return { cent: null, meanResidual: null, combinedUncertainty: 0, runsCount: 0, status: null };
-  }
-  const matches   = [];
-  const residuals = [];
+  const empty = {
+    cent: null, meanResidual: null, combinedUncertainty: 0, runsCount: 0, status: null,
+    convUpMean: null, convDownMean: null,
+    trackDiffMean: null, runSpread: 0, residuum: null,
+    statusUpRuns: [], statusDownRuns: []
+  };
+  if (!fa || !Array.isArray(fa.runs)) return empty;
+
+  const matches   = [];      // pro Lauf: combo.match (Mittel beider Tracks)
+  const residuals = [];      // pro Lauf: combo.residual
+  const ups       = [];      // pro Lauf: combo.residualUp (für convUpMean)
+  const downs     = [];      // pro Lauf: combo.residualDown
+  const diffs     = [];      // pro Lauf: combo.trackDiff
+  const statusesUp   = [];   // pro Lauf: combo.statusUp
+  const statusesDown = [];   // pro Lauf: combo.statusDown
   let worstStatus = null;
   const RANK = { 'converged': 0, 'converged-fair': 1, 'converged-wide': 2,
                  'unstable': 3, 'not-perceivable': 4, 'aborted': 5 };
@@ -859,46 +894,82 @@ function _fmAggregateRunsForElectrode(side, electrodeIdx) {
       matches.push(combo.match);
       if (combo.residual != null) residuals.push(combo.residual);
     }
+    if (combo.residualUp   != null) ups.push(combo.residualUp);
+    if (combo.residualDown != null) downs.push(combo.residualDown);
+    if (combo.trackDiff    != null) diffs.push(combo.trackDiff);
+    statusesUp.push(combo.statusUp);
+    statusesDown.push(combo.statusDown);
     if (combo.status &&
         (worstStatus == null || (RANK[combo.status] || 0) > (RANK[worstStatus] || 0))) {
       worstStatus = combo.status;
     }
   });
 
-  const meanRes = residuals.length
-    ? residuals.reduce(function(s, x) { return s + x; }, 0) / residuals.length
-    : null;
-
-  if (matches.length === 0) {
-    return { cent: null, meanResidual: meanRes, combinedUncertainty: 0,
-             runsCount: 0, status: worstStatus || null };
+  function meanOf(arr) {
+    if (!arr.length) return null;
+    let s = 0;
+    for (let i = 0; i < arr.length; i++) s += arr[i];
+    return s / arr.length;
   }
 
-  let cent;
+  const meanRes      = meanOf(residuals);
+  const convUpMean   = meanOf(ups);
+  const convDownMean = meanOf(downs);
+  const trackDiffMean = meanOf(diffs);
+
+  // cent aus matches (Median ab 3 Läufen, sonst Mittel/Direkt)
+  let cent = null;
   if (matches.length === 1) {
     cent = matches[0];
   } else if (matches.length === 2) {
     cent = (matches[0] + matches[1]) / 2;
-  } else {
+  } else if (matches.length >= 3) {
     const sorted = matches.slice().sort(function(a, b) { return a - b; });
     const mid = sorted.length >> 1;
     cent = (sorted.length & 1) ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
   }
 
-  const matchSpread = (matches.length >= 2)
+  const runSpread = (matches.length >= 2)
     ? Math.max.apply(null, matches) - Math.min.apply(null, matches)
     : 0;
-  const meanResForCombined = (meanRes != null) ? meanRes : 0;
-  const combinedUncertainty = Math.sqrt(
-    meanResForCombined * meanResForCombined + (matchSpread / 2) * (matchSpread / 2)
-  );
+
+  // Konvergenz σ_konv = Mittel beider Track-Residuum-Mittel
+  let sigmaKonv = null;
+  if (convUpMean != null && convDownMean != null) {
+    sigmaKonv = (convUpMean + convDownMean) / 2;
+  } else if (convUpMean != null) {
+    sigmaKonv = convUpMean;
+  } else if (convDownMean != null) {
+    sigmaKonv = convDownMean;
+  }
+
+  // Residuum (Gesamtunsicherheit) — quadratisch kombiniert.
+  // Anmerkung: additive Kombination wäre konservativer und ist ebenfalls vertretbar
+  // (siehe Spec). Hier quadratisch (übliche Annahme für unabhängige Fehlerquellen).
+  let residuum = null;
+  if (sigmaKonv != null) {
+    const sK2 = sigmaKonv * sigmaKonv;
+    const sT2 = (trackDiffMean != null) ? (trackDiffMean / 2) * (trackDiffMean / 2) : 0;
+    const sR2 = (runSpread / 2) * (runSpread / 2);
+    residuum = Math.sqrt(sK2 + sT2 + sR2);
+  }
+
+  // Altes Feld combinedUncertainty bleibt befüllt (= residuum), damit Übergangs-Aufrufer nicht brechen.
+  const combinedUncertainty = (residuum != null) ? residuum : 0;
 
   return {
     cent:                cent,
     meanResidual:        meanRes,
     combinedUncertainty: combinedUncertainty,
     runsCount:           matches.length,
-    status:              worstStatus || null
+    status:              worstStatus || null,
+    convUpMean:          convUpMean,
+    convDownMean:        convDownMean,
+    trackDiffMean:       trackDiffMean,
+    runSpread:           runSpread,
+    residuum:            residuum,
+    statusUpRuns:        statusesUp,
+    statusDownRuns:      statusesDown
   };
 }
 
@@ -922,7 +993,16 @@ function _fmRemoveResult(elIdx) {
       fmStatus:              agg.status || 'converged',
       fmResidual:            agg.meanResidual,
       fmCombinedUncertainty: agg.combinedUncertainty,
-      fmDelta:               null
+      fmDelta:               null,
+      // BA 99
+      fmConvUp:              agg.convUpMean,
+      fmConvDown:            agg.convDownMean,
+      fmTrackDiff:           agg.trackDiffMean,
+      fmRunSpread:           agg.runSpread,
+      fmResiduum:            agg.residuum,
+      fmRunsCount:           agg.runsCount,
+      fmStatusUpLast:        (agg.statusUpRuns.length   ? agg.statusUpRuns[agg.statusUpRuns.length - 1]     : null),
+      fmStatusDownLast:      (agg.statusDownRuns.length ? agg.statusDownRuns[agg.statusDownRuns.length - 1] : null)
     };
     if (existingIdx >= 0) fRes[existingIdx] = entry;
     else                  fRes.push(entry);
@@ -959,7 +1039,16 @@ function _fmWriteResult(track) {
     fmStatus:              agg.status || track.status,
     fmResidual:            agg.meanResidual,
     fmCombinedUncertainty: agg.combinedUncertainty,
-    fmDelta:               null
+    fmDelta:               null,
+    // BA 99
+    fmConvUp:              agg.convUpMean,
+    fmConvDown:            agg.convDownMean,
+    fmTrackDiff:           agg.trackDiffMean,
+    fmRunSpread:           agg.runSpread,
+    fmResiduum:            agg.residuum,
+    fmRunsCount:           agg.runsCount,
+    fmStatusUpLast:        (agg.statusUpRuns.length   ? agg.statusUpRuns[agg.statusUpRuns.length - 1]     : null),
+    fmStatusDownLast:      (agg.statusDownRuns.length ? agg.statusDownRuns[agg.statusDownRuns.length - 1] : null)
   };
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);

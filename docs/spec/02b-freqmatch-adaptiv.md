@@ -181,24 +181,45 @@ Dieselbe Logik gilt auch im Status-Grid des Test-Panels: vorläufige
 Match- und Residuum-Werte erscheinen dort kursiv und in gedämpfter
 Farbe (`fm-status-provisional`), sobald die Schwellen erreicht sind.
 
-Die Tabelle enthält 10 Spalten. Zwischen „Diff. (Cent)" und „Status"
-liegen zwei Qualitätsspalten:
+Die Tabelle enthält 11 Spalten. Zwischen „Diff. (Cent)" und „Status"
+liegen drei Qualitätsspalten:
 
-**Restunsicherheit** — mittlere halbe Umkehr-Spanne (über beide Tracks
-einer Elektrode) in Cent, Ampelfarbe:
-- ≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot.
-Bei Tracks mit <2 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
+**Konvergenz u/d (Cent)** — mittlere halbe Umkehr-Spanne der beiden
+Staircases pro Elektrode, getrennt für Track-up (Start +100 ct) und
+Track-down (Start −100 ct). Anzeige im Format `±N / ±M`. Farbneutral,
+ohne Ampelung — eine Roh-Größe für den Nutzer.
+Bei einem Track `not-perceivable`: `✗` an dessen Stelle. Bei
+`aborted`: `—`.
 
-**Unsicherheit (gesamt)** — `combinedUncertainty` aus `fRes`-Eintrag:
-quadrierter Mittelwert aus interner Konsistenz (Residuum) und
-Wiederhol-Konsistenz (Streuung über alle Läufe):
+**Track-Differenz (Cent)** — gemittelte `|Match_up − Match_down|`
+über alle Läufe einer Elektrode. Großer Wert = die beiden Staircases
+konvergieren weit auseinander, Hinweis auf breite oder mehrdeutige
+Pitch-Wahrnehmung. Farbneutral. Bei einem Track
+`not-perceivable`/`aborted`: `—`.
+
+**Residuum (Cent)** — Gesamtmessunsicherheit, quadratisch kombiniert:
 ```
-combinedUncertainty = sqrt(meanResidual² + (matchSpread/2)²)
+σ_konv      = (residual_up_mean + residual_down_mean) / 2
+σ_trackHalf = trackDiff_mean / 2
+σ_runHalf   = runSpread / 2
+
+residuum = sqrt(σ_konv² + σ_trackHalf² + σ_runHalf²)
 ```
-Dabei ist `matchSpread` = max−min der pro-Lauf-Match-Werte (bei nur
-einem Lauf = 0, also `combinedUncertainty = meanResidual`).
-Ampelfarbe: ≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot.
-Bei `not-perceivable`: „—" (grau).
+Bei einem Lauf ist `runSpread = 0`, der Wert besteht nur aus
+Konvergenz und halber Track-Differenz. Ampelfarbe:
+≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot. Tooltip zeigt
+Aufschlüsselung: Konvergenz u/d · Track-Differenz · Run-Spannweite
+(N Lauf/Läufe). Bei `not-perceivable`: „—" (grau).
+
+Hinweis: Die quadratische Kombination ist die übliche Annahme
+für unabhängige Fehlerquellen. Eine **additive** Kombination
+(`σ_konv + σ_trackHalf + σ_runHalf`) wäre konservativer
+(pessimistischer) und ist ebenfalls vertretbar — der Wechsel
+würde sich auf eine einzelne Code-Stelle in
+`_fmAggregateRunsForElectrode` beschränken.
+
+Das Chart-Unsicherheitsband liest ebenfalls `fmResiduum` (mit
+Fallback auf `fmResidual` für gespeicherte Altdaten).
 
 Unterhalb der Tabelle: Button „Frequenzabgleich-Ergebnisse löschen"
 (`fmrClearBtn`, rot) — löscht `fRes` und `freqmatchAdaptive` beider
@@ -441,10 +462,20 @@ Per-Seite gespeichert in `sideData[side]`:
     cent:                 centOffset | null,   // Median über runs[].perElectrode[i].finalMatch
                                                 // (bei 1 Lauf: einfach der Wert; bei 2: Mittelwert;
                                                 // bei 3+: echter Median, robust gegen Ausreißer-Läufe)
-    combinedUncertainty:  cents,               // sqrt(meanResidual² + (matchSpread/2)²)
-                                                // wobei matchSpread = max−min der pro-Lauf-Matches
     runsCount:            number,              // Anzahl der Läufe, die beigetragen haben
-    status:               // siehe Elektroden-Status, robust kombiniert über Läufe
+    status,                                    // siehe Elektroden-Status, robust kombiniert über Läufe
+    timestamp,
+    varSide, refSide, varFreq, refFreq,
+    // Konvergenz-Detail (BA 99)
+    fmConvUp, fmConvDown,    // mittlere halbe Umkehr-Spannen je Track (über Läufe)
+    fmTrackDiff,             // mittlere |Match_up − Match_down| (über Läufe)
+    fmRunSpread,             // max−min der pro-Lauf-Match-Mittelwerte
+    fmResiduum,              // Gesamtmessunsicherheit quadratisch: sqrt(σ_konv²+σ_trackHalf²+σ_runHalf²)
+    fmStatusUpLast, fmStatusDownLast,  // Status des letzten Track-Laufs je Direction
+    // Übergangsfelder (für Chart, Druck, Altdaten-Kompat)
+    fmResidual,              // = meanResidual (Konvergenz-Mittel, für Qualitätstext)
+    fmCombinedUncertainty,   // = fmResiduum (Brücke für Chart-Aufrufer)
+    fmDelta:    null          // ungenutzt seit BA 93
   }
   ```
 
@@ -559,6 +590,9 @@ Konzept-Überarbeitung 2026-05 (neu, BA 91–97):
 - **BA 97** — Anker-Randomisierung im Restpool
 - **BA 98** — Cleanup: zweiter Fortschrittsbalken und Lauf-2-Reste entfernen,
   Anti-Überschreib-Dialog ab `runs.length ≥ 1`
+- **BA 99** — Drei Ergebnis-Spalten (Konvergenz u/d, Track-Differenz,
+  Residuum) statt zwei. Tooltip mit Run-Spannweite. Chart-Band liest
+  künftig fmResiduum statt fmResidual.
 
 i18n en/fr/es bleibt als separate Mini-Anleitung am Ende der Reihe.
 
@@ -581,8 +615,8 @@ Kombination über alle Läufe.
   Match-liefernde Lauf zählt mit; bei Mehrheit `not-perceivable` →
   finale Elektrode `not-perceivable`.
 
-`combinedUncertainty` ist die kombinierte Unsicherheit über alle Läufe
-(siehe „Storage" und Tabellenspalte „Unsicherheit (gesamt)").
+`fmResiduum` ist die Gesamtmessunsicherheit über alle Läufe
+(siehe „Storage" und Tabellenspalte „Residuum").
 
 ### UI
 
@@ -602,4 +636,5 @@ Kombination über alle Läufe.
   `fmDelta`. Wurde durch BA 93/94 ersetzt (zwei verschränkte Staircases im
   selben Lauf + `runs[]`-Array). `fmDelta` wird in `fRes`-Einträgen weiter
   gesetzt (= `null`), aber seit BA 95 nicht mehr angezeigt; die Tabellenspalte
-  zeigt stattdessen `fmCombinedUncertainty` als „Unsicherheit (ges.)".
+  zeigte stattdessen `fmCombinedUncertainty` als „Unsicherheit (ges.)" (BA 95–98).
+  Ab BA 99 drei Spalten: Konvergenz u/d, Track-Differenz, Residuum.

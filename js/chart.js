@@ -382,7 +382,7 @@ function drawFreqMatchChart(cv, fResData, opts) {
       isExcluded: exCI,
       isNotPerceivable: notPercFlag,
       fmStatus:   r ? (r.fmStatus   || 'converged') : null,
-      fmResidual: r ? (r.fmResidual || 0)           : null,
+      fmResidual: r ? (r.fmResiduum != null ? r.fmResiduum : (r.fmResidual || 0)) : null,
       r: r,
     });
   }
