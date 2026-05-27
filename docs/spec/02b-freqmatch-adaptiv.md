@@ -452,11 +452,13 @@ Per-Seite gespeichert in `sideData[side]`:
   Chart). „Nicht wahrnehmbar" in allen Läufen → `cent = null`.
 
 **Anti-Überschreib-Logik** beim Start eines neuen Laufs:
-- Bei `runs.length ≥ 2`: Bestätigungs-Dialog
-  „Sie haben bereits N Läufe gespeichert. Ein weiterer Lauf wird zum
-  Datensatz hinzugefügt und in die kombinierte Auswertung einbezogen.
-  Wenn Sie ganz neu beginnen wollen, drücken Sie [Messungen löschen]."
+- Bei `runs.length ≥ 1` und letztem Lauf abgeschlossen: Bestätigungs-Dialog
+  „Eine vorherige Messung ist bereits gespeichert (bisher N Lauf/Läufe).
+  Ein weiterer Lauf wird zum Datensatz hinzugefügt und in die kombinierte
+  Auswertung einbezogen. Die bisherigen Werte bleiben erhalten. Wenn Sie
+  ganz neu beginnen wollen, drücken Sie [Messungen löschen]."
   Buttons: [Hinzufügen] (default), [Abbrechen].
+  Pausierter (nicht abgeschlossener) Lauf → kein Dialog, Resume statt Neu.
 - Bei `runs[last].completedAt > 7 Tage`: zusätzlicher Hinweis
   „Ihre letzte Messung ist X Tage alt. Pitch-Wahrnehmung kann sich
   durch Plastizität verschoben haben. Empfehlung: vor neuem Lauf
@@ -555,6 +557,8 @@ Konzept-Überarbeitung 2026-05 (neu, BA 91–97):
 - **BA 96** — Konvergenz-Verfeinerung (5 Status-Kategorien, Catch-Schwelle 67 %,
   adaptive Catch-Spreizung)
 - **BA 97** — Anker-Randomisierung im Restpool
+- **BA 98** — Cleanup: zweiter Fortschrittsbalken und Lauf-2-Reste entfernen,
+  Anti-Überschreib-Dialog ab `runs.length ≥ 1`
 
 i18n en/fr/es bleibt als separate Mini-Anleitung am Ende der Reihe.
 
@@ -588,8 +592,9 @@ Kombination über alle Läufe.
   - `runs.length ≥ 1` und kein laufender Test → „Weiteren Lauf starten"
     (`fmLblNewRun`)
 - Fortschrittsbalken zeigt aktuellen Lauf (z. B. „Lauf 3").
-- Anti-Überschreib-Dialog beim Start eines neuen Laufs bei `runs.length ≥ 2`
-  oder bei letztem Lauf älter als 7 Tage (siehe „Storage").
+- Anti-Überschreib-Dialog beim Start eines neuen Laufs bei `runs.length ≥ 1`
+  (letzter Lauf abgeschlossen) oder bei letztem Lauf älter als 7 Tage
+  (siehe „Storage").
 
 ### Historie der Bauanleitungen (zur Orientierung)
 

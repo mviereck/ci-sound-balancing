@@ -512,12 +512,6 @@ function fmRefreshResumeHint() {
   }
 }
 
-function _fmShowLauf2Hint(_visible) {
-  // BA 93: Lauf-1-Hinweis entfällt im N-Läufe-System. Element bleibt im DOM, wird immer versteckt.
-  const el = document.getElementById('fmLauf2HintEl');
-  if (el) el.hidden = true;
-}
-
 function fmStartAdaptive() {
   if (!fmEls) return;
 
@@ -525,7 +519,7 @@ function fmStartAdaptive() {
   const _refVal  = fmEls.refSelect.value;
   const _varSide = _refVal === 'left' ? 'right' : 'left';
   const _fa = (sideData[_varSide] && sideData[_varSide].freqmatchAdaptive) || null;
-  if (_fa && Array.isArray(_fa.runs) && _fa.runs.length >= 2) {
+  if (_fa && Array.isArray(_fa.runs) && _fa.runs.length >= 1) {
     const lastRun  = _fa.runs[_fa.runs.length - 1];
     const lastDone = lastRun && lastRun.completedAt != null;
     if (lastDone) {
@@ -1011,7 +1005,6 @@ function fmFinishAdaptive() {
 
   _fmPersist();       // finale Tracks in runs[currentRunIdx] sichern
   _fmMarkCompleted(); // completedAt setzen
-  _fmShowLauf2Hint(false);
   fmTracks     = {};
   fmRoundQueue = [];
 
@@ -1169,29 +1162,6 @@ function fmUpdateAdaptiveProgress() {
     if (fmEls.progressText)  fmEls.progressText.textContent  = laufPfx + ': 0 / 0';
   }
 
-  // Zweiter Balken: letzter abgeschlossener Lauf (falls vorhanden)
-  if (!fmEls.progressFill2 || !fmEls.progressText2) return;
-  let prevRun = null;
-  let prevRunIdx = -1;
-  if (fa && Array.isArray(fa.runs)) {
-    for (let _i = fa.runs.length - 2; _i >= 0; _i--) {
-      if (fa.runs[_i] && fa.runs[_i].completedAt != null) {
-        prevRun = fa.runs[_i];
-        prevRunIdx = _i;
-        break;
-      }
-    }
-  }
-  if (prevRun) {
-    const pStats = fmComputeProgressStats(prevRun.tracks || {});
-    fmEls.progressFill2.style.width = '100%';
-    fmEls.progressText2.textContent =
-      'Lauf ' + (prevRunIdx + 1) + ': ' + pStats.done + ' / ' + pStats.total + ' · 100 %';
-  } else {
-    fmEls.progressFill2.style.width = '0%';
-    fmEls.progressText2.textContent =
-      (typeof t === 'function' && t('fmLblLauf2') || 'Lauf 2') + ': —';
-  }
 }
 
 // Wiederverwendbare Fortschritts-Statistik. Auch genutzt von
@@ -1374,7 +1344,6 @@ function fmAbort() {
   _fmSimActive = false;
   if (fmAdaptiveActive) {
     _fmPersist();
-    _fmShowLauf2Hint(false);
     fmAdaptiveActive   = false;
     fmAwaitingResponse = false;
     fmIsPlay           = false;
@@ -1697,39 +1666,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fmEls = buildTestPanel(parentEl, fmCfg);
   fmEls.durInput.value   = 400;
   fmEls.pauseInput.value = 400;
-
-  // Hinweistext für Lauf-2-Empfehlung (nach Lauf-1-Abschluss)
-  const _lauf2Hint = _mkEl('p', 'explain explain-info');
-  _lauf2Hint.id = 'fmLauf2HintEl';
-  _lauf2Hint.hidden = true;
-  if (typeof t === 'function') _lauf2Hint.textContent = t('fmLblRun2Hint') || '';
-  // Einfügen nach explainBox (vor testBox)
-  fmEls.explainBox.insertAdjacentElement('afterend', _lauf2Hint);
-
-  // Zweiter Fortschrittsbalken für Lauf 2
-  const _lauf1Label = _mkEl('span', 'fm-lauf-label');
-  _lauf1Label.dataset.t = 'fmLblLauf1';
-  _lauf1Label.textContent = (typeof t === 'function' && t('fmLblLauf1')) || 'Lauf 1';
-  _lauf1Label.style.cssText = 'font-size:.82em;color:#6b7280;display:block;margin-top:.4rem';
-
-  const _lauf2Label = _mkEl('span', 'fm-lauf-label');
-  _lauf2Label.dataset.t = 'fmLblLauf2';
-  _lauf2Label.textContent = (typeof t === 'function' && t('fmLblLauf2')) || 'Lauf 2';
-  _lauf2Label.style.cssText = 'font-size:.82em;color:#6b7280;display:block;margin-top:.6rem';
-
-  const _pb2 = _mkEl('div', 'progress-bar');
-  fmEls.progressFill2 = _mkEl('div', 'progress-fill');
-  _pb2.appendChild(fmEls.progressFill2);
-  fmEls.progressText2 = _mkEl('div', 'progress-text');
-  fmEls.progressText2.textContent = (typeof t === 'function' && t('fmLblLauf2')) || 'Lauf 2';
-
-  // Lauf-1-Label vor dem vorhandenen Balken einfügen
-  const _existingBar = fmEls.progressFill.parentElement;
-  _existingBar.insertAdjacentElement('beforebegin', _lauf1Label);
-  // Lauf-2 nach dem vorhandenen Balken + progressText einfügen
-  fmEls.progressText.insertAdjacentElement('afterend', fmEls.progressText2);
-  fmEls.progressText.insertAdjacentElement('afterend', _pb2);
-  fmEls.progressText.insertAdjacentElement('afterend', _lauf2Label);
 
   // Modus-Switch (Bauanleitung 02b/2)
   if (fmEls.modeSelect) {
