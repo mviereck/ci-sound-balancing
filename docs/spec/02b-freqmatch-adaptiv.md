@@ -147,10 +147,16 @@ Dieselbe Logik gilt auch im Status-Grid des Test-Panels: vorläufige
 Match- und Residuum-Werte erscheinen dort kursiv und in gedämpfter
 Farbe (`fm-status-provisional`), sobald die Schwellen erreicht sind.
 
-Die Tabelle enthält eine **Restunsicherheits-Spalte** (zwischen
-„Diff. (Cent)" und „Status"). Werte mit Ampelfarbe:
-- ≤10 cent grün, 11–25 cent gelb-orange, >25 cent rot.
+Die Tabelle enthält 10 Spalten. Zwischen „Diff. (Cent)" und „Status"
+liegen zwei Qualitätsspalten:
+
+**Restunsicherheit** — halbe Umkehr-Spanne in Cent, Ampelfarbe:
+- ≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot.
 Bei Tracks mit <2 Umkehrungen oder bei nicht-wahrnehmbaren: „—".
+
+**Δ Lauf** — |Match1 − Match2| in Cent (nur nach zweitem Lauf),
+Ampelfarbe: ≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot.
+Bei Einzellauf oder `not-perceivable`: „—" (grau).
 
 Unterhalb der Tabelle: Button „Frequenzabgleich-Ergebnisse löschen"
 (`fmrClearBtn`, rot) — löscht `fRes` und `freqmatchAdaptive` beider

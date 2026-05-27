@@ -361,6 +361,7 @@ function renderFreqMatchResults() {
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
     "<th title=\"" + t("fmrThResidualTip") + "\">" + t("fmrThResidual") + "</th>" +
+    "<th title=\"" + t("fmrThDeltaTip") + "\">" + t("fmrThDelta") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
 
   // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
@@ -399,6 +400,7 @@ function renderFreqMatchResults() {
         "<td>—</td>" +
         "<td>—</td>" +
         "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>" +
+        "<td>—</td>" +
         "<td>—</td>";
     } else if (!r) {
       const fa = sideData[ciSide] && sideData[ciSide].freqmatchAdaptive;
@@ -411,6 +413,7 @@ function renderFreqMatchResults() {
         "<td>" + varLabel + "</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + refLabel + "</td>" +
+        "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
@@ -460,6 +463,18 @@ function renderFreqMatchResults() {
         }
       }
 
+      let deltaCell;
+      if (r.fmDelta == null) {
+        deltaCell = "<span style=\"color:#9ca3af\">—</span>";
+      } else {
+        const delta = Math.round(r.fmDelta);
+        const dColor = delta <= 10  ? '#16a34a'
+                     : delta <= 25  ? '#d97706'
+                     :                '#dc2626';
+        deltaCell = "<span style=\"color:" + dColor + ";font-weight:600\">"
+                  + delta + " ct</span>";
+      }
+
       let statusBadge;
       if (isProvEarly) {
         statusBadge = '<span class="fm-badge fm-badge-prov">'
@@ -488,6 +503,7 @@ function renderFreqMatchResults() {
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
         "<td>" + residCell + "</td>" +
+        "<td>" + deltaCell + "</td>" +
         "<td>" + statusBadge + "</td>";
       if (isProv) tr.style.fontStyle = 'italic';
     }
