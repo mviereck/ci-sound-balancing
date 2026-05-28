@@ -1702,7 +1702,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cumulativeDisplay: { show: false },
       confirmButton:     { show: true, key: 'btnConfirmOffset' },
       confidence:        { show: true },
-      heightJudgment:    { show: true },   // Bauanleitung 02b/1
+      heightJudgment:    { show: true, labelKey: 'hjPrompt' },   // Bauanleitung 02b/1
       statusGrid:        { show: true }    // Bauanleitung 02b/1
     }
   };

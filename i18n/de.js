@@ -124,6 +124,7 @@ Object.assign(L.de, {
     bLoud2: "lauter",
     bHigher: "höher",
     bLower:  "tiefer",
+    hjPrompt: "Geben Sie an, ob der zweite Ton höher oder tiefer war als der erste Ton.",
     bEqual: "Gleich",
     slHint: "Mittleren Ton (B) anpassen. ◀▶ ±0.5 dB · Shift+◀▶ ±0.1 dB",
     bExtend: "Bereich erweitern (±40 dB)",

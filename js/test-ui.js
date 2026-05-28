@@ -382,6 +382,11 @@ function buildTestPanel(parentEl, cfg) {
   if (cfg.test.heightJudgment && cfg.test.heightJudgment.show) {
     hjContainer = _mkEl('div', 'hj-buttons');
     hjContainer.hidden = true;
+    if (cfg.test.heightJudgment.labelKey) {
+      var hjLabel = _mkEl('p', 'hj-prompt');
+      hjLabel.dataset.t = cfg.test.heightJudgment.labelKey;
+      hjContainer.appendChild(hjLabel);
+    }
     hjHigher = _mkEl('button', 'btn btn-large hj-up');
     hjHigher.dataset.action = 'hj-up';
     hjHigher.innerHTML =
