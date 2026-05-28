@@ -615,6 +615,7 @@ Object.assign(L.fr, {
     pwStatusActiveBandShift: "Actif – Par bandes ({n} points d'ancrage)",
     pwStatusActiveVocoder: "Actif – Vocodeur de phase ({n} points d'ancrage)",
     pwStatusActiveSinModel: "Sinusoïdal actif ({n} points)",
+    pwStatusProvisional: "(dont {prov} provisoires du test en cours, {fin} finaux)",
     pwHintNoFRes: "Veuillez d'abord effectuer le test de correspondance de fréquences.",
     pwHintRecompute: "Données de correspondance modifiées. Recalculer ?",
     pwBtnRecompute: "Recalculer",

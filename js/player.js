@@ -517,22 +517,26 @@ async function pPlay() {
 
   // EQ-Toggle ist Master: Warp-Pfade nur, wenn EQ an. Warp-Checkbox-Zustand
   // bleibt als User-Intent erhalten und greift wieder, sobald EQ wieder an.
-  if (pWarpOn && plEqOn && method === "bandshift" && fRes && fRes.length > 0 && pSourceBuf) {
+  // Warp-Datenquelle ist _warpFResSource() (fRes + laufende Tracks); diese
+  // liefert auch dann Punkte, wenn fRes noch leer ist, aber ein Test läuft.
+  const _warpHasData = (typeof _warpFResSource === "function")
+    && _warpFResSource().length > 0;
+  if (pWarpOn && plEqOn && method === "bandshift" && _warpHasData && pSourceBuf) {
     // Variante B: Live Bandweise Pitch-Shift
     pBuf = pSourceBuf;
     const pb = pBuildWarpedGraph(
-      c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, fRes, 0, pOff
+      c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, null, 0, pOff
     );
     pCurrentPlayback = pb;
     leadSrc = pb.sources[0] || null;
 
-  } else if (pWarpOn && plEqOn && (method === "vocoder" || method === "sinmodel") && fRes && fRes.length > 0 && pSourceBuf) {
+  } else if (pWarpOn && plEqOn && (method === "vocoder" || method === "sinmodel") && _warpHasData && pSourceBuf) {
     // Variante A: Phasen-Vocoder (async wegen erstem Worklet-Laden)
     pBuf = pSourceBuf;
     let pb;
     try {
       pb = await pBuildVocoderGraph(
-        c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, fRes, 0, pOff
+        c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, null, 0, pOff
       );
     } catch (err) {
       console.error("Vocoder-Fehler:", err);

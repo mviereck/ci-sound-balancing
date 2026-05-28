@@ -534,6 +534,44 @@ let pWarpWorkletReady = false;
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 let _pWarpFResVersion = 0;
 
+// Quelle der Warp-Punkte: fRes (final) + laufende Tracks (vorläufig), exakt
+// dieselbe Vereinigung wie die Meßergebnis-Tabelle in results.js. So sieht
+// das Warping immer das, was der Nutzer in der Tabelle sieht — keine
+// abweichende Logik. fmStatus 'in-progress' und 'in-progress-early'
+// (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro
+// (varSide, elIdx).
+function _warpFResSource() {
+  const out = (typeof fRes !== "undefined" && Array.isArray(fRes))
+    ? fRes.slice() : [];
+  if (typeof _fmrBuildInProgressEntries !== "function") return out;
+  const sides = ["left", "right"];
+  for (const side of sides) {
+    let prov;
+    try { prov = _fmrBuildInProgressEntries(side) || []; }
+    catch (e) { prov = []; }
+    if (!prov.length) continue;
+    const finalsBySide = new Set();
+    for (const r of out) {
+      if (r && r.varSide === side) finalsBySide.add(r.elIdx);
+    }
+    for (const p of prov) {
+      if (!finalsBySide.has(p.elIdx)) out.push(p);
+    }
+  }
+  return out;
+}
+
+// Zählt die Quelle für UI-Anzeige.
+function _warpFResStats() {
+  const all = _warpFResSource();
+  let finals = 0, provisional = 0;
+  for (const r of all) {
+    if (r && r._provisional) provisional++;
+    else if (r) finals++;
+  }
+  return { total: all.length, finals, provisional };
+}
+
 // ---- Warp-Kurve aufbauen --------------------------------
 
 function buildWarpPoints(fResData, warpMode, invert = false) {
@@ -599,12 +637,15 @@ function centShift(f, side, points) {
 // ---- Offline-Vorberechnung ------------------------------
 
 async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
-  if (warpMode === "off" || !fResData || fResData.length === 0 || strength === 0) {
+  // fResData wird ignoriert — Warp-Quelle ist immer _warpFResSource(),
+  // damit fRes + laufende Tracks 1:1 wie in der Meßergebnis-Tabelle einfließen.
+  const src = _warpFResSource();
+  if (warpMode === "off" || src.length === 0 || strength === 0) {
     return srcBuf;
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fResData, warpMode, nhSim);
+  const points = buildWarpPoints(src, warpMode, nhSim);
   pWarpAffected = _warpAffectedSides(points);
   const str = strength / 100;
 
@@ -687,7 +728,9 @@ async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
 // ---- Variante B: Live Bandweise Pitch-Shift -------------
 
 function pBuildWarpedGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResData, startTime, offsetSec) {
-  if (warpMode === "off" || !fResData || fResData.length === 0 || strength === 0) {
+  // fResData wird ignoriert — Quelle ist immer _warpFResSource() (siehe pComputeWarpedBuffer).
+  const fSrc = _warpFResSource();
+  if (warpMode === "off" || fSrc.length === 0 || strength === 0) {
     const src = audioCtx.createBufferSource();
     src.buffer = srcBuf;
     src.connect(destNode);
@@ -696,7 +739,7 @@ function pBuildWarpedGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResD
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fResData, warpMode, nhSim);
+  const points = buildWarpPoints(fSrc, warpMode, nhSim);
   const str = strength / 100;
   const bands = points.map(p => ({
     freq: p.varFreq,
@@ -770,7 +813,9 @@ async function pInitWarpWorklet(audioCtx) {
 async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResData, startTime, offsetSec) {
   await pInitWarpWorklet(audioCtx);
 
-  if (warpMode === "off" || !fResData || fResData.length === 0 || strength === 0) {
+  // fResData wird ignoriert — Quelle ist immer _warpFResSource() (siehe pComputeWarpedBuffer).
+  const fSrc = _warpFResSource();
+  if (warpMode === "off" || fSrc.length === 0 || strength === 0) {
     const src = audioCtx.createBufferSource();
     src.buffer = srcBuf;
     src.connect(destNode);
@@ -779,7 +824,7 @@ async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fResData, warpMode, nhSim);
+  const points = buildWarpPoints(fSrc, warpMode, nhSim);
   const str = strength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -894,9 +939,10 @@ function pWarpLiveUpdate() {
   if (typeof pCurrentPlayback === "undefined" || !pCurrentPlayback) return;
   const wn = pCurrentPlayback.workletNode;
   if (!wn) return;
-  if (!fRes || fRes.length === 0) return;
+  const fSrc = _warpFResSource();
+  if (fSrc.length === 0) return;
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fRes, pWarpMode, nhSim);
+  const points = buildWarpPoints(fSrc, pWarpMode, nhSim);
   const str = pWarpStrength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -948,8 +994,9 @@ function pWarpUpdUI() {
   const notAvailEl = document.getElementById("plWarpNotAvail");
   if (notAvailEl) notAvailEl.style.display = "none";
 
-  const noFRes = !fRes || fRes.length === 0;
-  const n = fRes ? fRes.length : 0;
+  const stats = _warpFResStats();
+  const noData = stats.total === 0;
+  const n = stats.total;
 
   // Status
   let statusText = "";
@@ -957,7 +1004,7 @@ function pWarpUpdUI() {
     statusText = t("pwStatusReady");
   } else if (pWarpBusy) {
     statusText = t("pwStatusBusy");
-  } else if (noFRes) {
+  } else if (noData) {
     statusText = t("pwStatusReady");
   } else if (method === "offline") {
     statusText = pWarpedBuf
@@ -970,11 +1017,17 @@ function pWarpUpdUI() {
   } else if (method === "sinmodel") {
     statusText = t("pwStatusActiveSinModel").replace("{n}", n);
   }
+  // Provisorischer Punkte-Anteil hinten anhängen, wenn welche dabei sind.
+  if (statusText && stats.provisional > 0) {
+    statusText += " " + t("pwStatusProvisional")
+      .replace("{prov}", stats.provisional)
+      .replace("{fin}", stats.finals);
+  }
   if (statusEl) statusEl.textContent = statusText;
 
-  // Hinweis bei fehlenden fRes-Daten
+  // Hinweis bei fehlenden Daten (weder final noch laufend)
   if (hintEl) {
-    if (pWarpOn && noFRes) {
+    if (pWarpOn && noData) {
       hintEl.textContent = t("pwHintNoFRes");
       hintEl.style.display = "";
     } else {
@@ -1003,7 +1056,7 @@ async function pWarpTrigger() {
     pWarpUpdUI();
     return;
   }
-  if (!fRes || fRes.length === 0) {
+  if (_warpFResSource().length === 0) {
     pWarpUpdUI();
     return;
   }
@@ -1022,7 +1075,8 @@ async function pWarpTrigger() {
     return;
   }
 
-  // Variante C: Offline-Vorberechnung
+  // Variante C: Offline-Vorberechnung. fRes-Argument ist nur Legacy-API —
+  // pComputeWarpedBuffer ignoriert es und liest _warpFResSource() selbst.
   const wasPlaying = pPlaying;
   if (wasPlaying) pPause();
 
@@ -1034,7 +1088,7 @@ async function pWarpTrigger() {
       pSourceBuf,
       pWarpMode,
       pWarpStrength,
-      fRes
+      null
     );
   } catch (err) {
     console.error("Warp-Fehler:", err);

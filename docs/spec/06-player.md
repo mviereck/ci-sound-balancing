@@ -113,7 +113,9 @@
   - Korrektur-Modus und Stärke sind immer sichtbar (nicht mehr von Checkbox abhängig)
   - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
   - Untertitel-Zeile oben in der Einstellungsbox (i18n-Key `pwSubtitle`), sichtbar wenn Box ausgeklappt
-  - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl
+  - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl. Sind vorläufige Punkte aus einem laufenden Frequenzabgleich-Test dabei, wird ein Zusatztext „(davon N vorläufig aus laufendem Test, M final)" angehängt (i18n-Key `pwStatusProvisional`).
+  - **Daten-Quelle der Warp-Stützpunkte:** identisch zur Meßergebnis-Tabelle — `_warpFResSource()` vereint `fRes` (finale Konvergenz-Punkte) mit den Provisionals aus `_fmrBuildInProgressEntries(side)` beider Seiten (aktive Tracks mit ≥1 Reversal liefern einen vorläufigen Match, Status `in-progress`; früher Stand mit cent=0 als Platzhalter, Status `in-progress-early`). Final hat Vorrang pro (varSide, elIdx). Folge: Warping wirkt bereits während eines laufenden Tests, sobald die Tabelle vorläufige Werte zeigt — und gibt genau dasselbe wieder, was die Tabelle anzeigt.
+  - Hinweis-Zeile in der Einstellungsbox (`#plWarpHint`): wird eingeblendet, wenn Warp eingeschaltet ist, aber weder finale noch vorläufige Daten vorliegen — sagt „Bitte zuerst den Frequenzabgleich-Test durchführen" (i18n-Key `pwHintNoFRes`).
   - **Persistenz:** `pWarpOn`, `pWarpMethod`, `pWarpMode`, `pWarpStrength` werden
     vollständig in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert
     und beim Laden wiederhergestellt. `pWarpedBuf` wird nicht gespeichert;

@@ -722,6 +722,7 @@ Object.assign(L.de, {
     pwStatusActiveBandShift: "Aktiv – Bandweise ({n} Stützpunkte)",
     pwStatusActiveVocoder: "Aktiv – Phasen-Vocoder ({n} Stützpunkte)",
     pwStatusActiveSinModel: "Sinusoidal aktiv ({n} Stützpunkte)",
+    pwStatusProvisional: "(davon {prov} vorläufig aus laufendem Test, {fin} final)",
     pwHintNoFRes: "Bitte zuerst den Frequenzabgleich-Test durchführen.",
     pwHintRecompute: "Frequenzabgleich-Daten geändert. Neu berechnen?",
     pwBtnRecompute: "Neu berechnen",

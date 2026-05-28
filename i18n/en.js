@@ -628,6 +628,7 @@ Object.assign(L.en, {
     pwStatusActiveBandShift: "Active – Band-wise ({n} anchor points)",
     pwStatusActiveVocoder: "Active – Phase Vocoder ({n} anchor points)",
     pwStatusActiveSinModel: "Sinusoidal active ({n} points)",
+    pwStatusProvisional: "(of which {prov} provisional from running test, {fin} final)",
     pwHintNoFRes: "Please run the frequency matching test first.",
     pwHintRecompute: "Frequency matching data changed. Recompute?",
     pwBtnRecompute: "Recompute",
