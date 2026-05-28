@@ -820,7 +820,7 @@ Object.assign(L.de, {
     lrMeaningEqual: "Gleich",
 
     introSupportTitle: "Unterstützer für das Projekt gesucht",
-    introSupportText: "Dieses Projekt braucht Unterstützung, um weiter entwickelt zu werden. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",
+    introSupportText: "Dieses Projekt ist kein fertiges Produkt, sondern in aktiver Entwicklung — manche Funktion ist erst rudimentär implementiert, und vieles wird noch verbessert oder neu hinzukommen. Es braucht Unterstützung, um diesen Weg fortzusetzen. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",
     introSupportLinkIntro: "Alle Informationen dazu finden Sie hier:",
     introSupportLinkBtn: "Tab Unterstützung",
 
