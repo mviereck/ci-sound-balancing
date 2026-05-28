@@ -1176,6 +1176,10 @@ select:disabled {
 .card-support-hint p:last-child {
   margin-bottom: 0;
 }
+.card-feedback-hint h3 {
+  color: var(--text, #1a1a1a);
+  margin-top: 0;
+}
 
 .link-entry {
   margin: 18px 0 0;

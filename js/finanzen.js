@@ -6,12 +6,13 @@ var FINANZEN = {
   // Wert 0 bei current heißt „derzeit nicht im Setup enthalten".
   posten: [
     { key: "kiPro",  full: 107.20, current: 44.00 },
+    { key: "hosting",full:   0,    current:  5.00 },
     { key: "vps",    full:   5.34, current:  0    },
-    { key: "space",  full:   3.81, current:  5.00 },
+    { key: "space",  full:   3.81, current:  0    },
     { key: "domain", full:   1.78, current:  0    }
   ],
   // Aktuell durch Spenden gedeckter Anteil pro Monat (Euro).
-  donationsMonthly: 25.00
+  donationsMonthly: 35.00
 };
 
 function finBerechne() {

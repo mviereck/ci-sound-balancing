@@ -823,6 +823,8 @@ Object.assign(L.de, {
     introSupportText: "Dieses Projekt ist kein fertiges Produkt, sondern in aktiver Entwicklung — manche Funktion ist erst rudimentär implementiert, und vieles wird noch verbessert oder neu hinzukommen. Es braucht Unterstützung, um diesen Weg fortzusetzen. Bitte ziehen Sie eine kleine monatliche Spende in Betracht.",
     introSupportLinkIntro: "Alle Informationen dazu finden Sie hier:",
     introSupportLinkBtn: "Tab Unterstützung",
+    introFeedbackTitle: "Feedback",
+    introFeedbackText: "Wie läuft es mit dem Tool? Rückmeldungen sind willkommen: womit Sie Erfolg haben, wo es hakt, was Sie sich wünschen. Kontakt über <a href=\"https://github.com/mviereck/ci-sound-balancing/issues\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub Issues</a> (öffentliches Gespräch) oder per E-Mail →",
 
     tabSupport: "Unterstützung",
 
@@ -843,6 +845,7 @@ Object.assign(L.de, {
     supportPosten_vps: "Virtueller Server",
     supportPosten_space: "Webspace",
     supportPosten_domain: "Domain",
+    supportPosten_hosting: "Hostingpaket",
     supportSumLabel: "Monatlicher Bedarf gesamt",
     supportDonationsLabel: "Monatlich durch Spenden gedeckt",
     supportSelfLabel: "Aus eigener Tasche",
@@ -850,15 +853,15 @@ Object.assign(L.de, {
     supportGapToFull: "Zusätzlich nötige monatliche Spenden für Vollausbau:",
 
     supportFinanceGoal: "Um das Tool vollwertig weiterentwickeln und alle angestrebten Features anbieten zu können, ist der Vollausbau nötig.",
-    supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo erlaubt längere Arbeitssitzungen ohne Unterbrechung mitten in komplexen Änderungen, und Integration arbeitsintensiver Anteile wie hochwertige Emulation von eingestellten Änderungen im Player.",
+    supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo ermöglicht es mir, arbeitsintensive Features schneller zu entwickeln und nicht durch wöchentliche Nutzungslimits mitten in der Arbeit gestoppt zu werden.",
 
     supportFutureTitle: "Was mit Vollfinanzierung möglich wird:",
-    supportFutureIntro: "Geplant, derzeit mangels Mitteln ausgebremst:",
-    supportFuturePlan1: "bessere Simulation veränderter Frequenzanpassung",
-    supportFuturePlan2: "Unterstützung weiterer Sprachen",
-    supportFuturePlan3: "umfangreichere Audiobibliothek (mehr Sätze, Hörbücher, Musik)",
-    supportFuturePlan4: "verbesserte Testverfahren",
-    supportFutureConsider: "In Erwägung:",
+    supportFutureIntro: "<em>Geplant, derzeit mangels Mitteln ausgebremst:</em>",
+    supportFuturePlan1: "verbesserte Testverfahren",
+    supportFuturePlan2: "bessere Simulation veränderter Frequenzanpassung",
+    supportFuturePlan3: "Unterstützung weiterer Sprachen",
+    supportFuturePlan4: "umfangreichere Audiobibliothek (mehr Sätze, Hörbücher, Musik)",
+    supportFutureConsider: "<em>In Erwägung:</em>",
     supportFutureConsider1: "Hör-Trainingsbereich",
     supportFutureConsider2: "Tinnitus-Analyse mit Maskierungs- und Notch-Tönen",
 

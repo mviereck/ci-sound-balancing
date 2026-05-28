@@ -15,11 +15,12 @@ function _untRenderFinanzTable() {
   for (var i = 0; i < FINANZEN.posten.length; i++) {
     var p = FINANZEN.posten[i];
     var labelKey = "supportPosten_" + p.key;
+    var fullCell    = p.full    > 0 ? finFmtEuro(p.full)    : "–";
     var currentCell = p.current > 0 ? finFmtEuro(p.current) : "–";
     html +=
       '<tr>' +
         '<td data-t="' + labelKey + '"></td>' +
-        '<td class="num">' + finFmtEuro(p.full) + '</td>' +
+        '<td class="num">' + fullCell    + '</td>' +
         '<td class="num">' + currentCell + '</td>' +
       '</tr>';
   }
