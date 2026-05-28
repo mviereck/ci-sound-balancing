@@ -1,0 +1,15 @@
+# Lokale Sprach-Datensätze (Thorsten-Voice WAVs, Freiburger, Oldenburger).
+# NIE committen — mehrere GB.
+Sprachdatensätze/
+
+# Backups und Lokales
+.backup/
+.docs/
+archive/debug-tests/
+
+# Editor / OS
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

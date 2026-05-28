@@ -19,7 +19,7 @@ REFERENZDATEIEN
   Implantat, Schieber, Kurven, Player, Laden/Speichern, Drucken,
   Warteliste). **Bei Arbeiten an einem konkreten Bereich nur
   das passende Kapitel aus docs/spec/ lesen, nicht die ganze Spec.**
-- **DEBUG.md** — Browser-Konsole, Network-Tab, Bug-Report-Template,
+- **docs/DEBUG.md** — Browser-Konsole, Network-Tab, Bug-Report-Template,
   Konsolen-Befehle für den Nutzer. Wenn der Nutzer einen Fehler
   meldet oder Diagnose-Hilfe braucht: dorthin verweisen oder
   passende Schritte daraus zitieren.
@@ -99,7 +99,7 @@ FEHLERMELDUNGEN UND DEBUGGING
 
 Wenn der Nutzer ein Problem meldet:
 - Knapp nachfragen mit Verweis auf das Bug-Report-Template in
-  DEBUG.md, falls die Beschreibung Lücken hat (Wo / Aktion /
+  docs/DEBUG.md, falls die Beschreibung Lücken hat (Wo / Aktion /
   Erwartet / Tatsächlich / Konsole).
 - Wenn ein Konsole-Befehl die Diagnose abkürzen kann, ihn dem
   Nutzer als kopierbaren Einzeiler geben statt ihn klicken zu lassen.
@@ -127,7 +127,7 @@ es nicht unnötig zu verbrauchen:
   anhalten, bisherigen Stand kurz zusammenfassen, den Nutzer um
   Eingrenzung bitten. Nicht blind weitergraben.
 - **Referenz-Dateien nur lesen, wenn nötig.** docs/CODESTRUKTUR.md,
-  docs/SPEC.md, DEBUG.md etc. nicht vorsorglich öffnen. Bei trivialen
+  docs/SPEC.md, docs/DEBUG.md etc. nicht vorsorglich öffnen. Bei trivialen
   Edits (String ersetzen, Tippfehler, eine bekannte Funktion ändern)
   reicht der Direkt-Edit. Die "vor jedem nicht-trivialen Edit lesen"-
   Regel aus REFERENZDATEIEN gilt streng — bei trivialen Edits eben
@@ -151,7 +151,7 @@ es nicht unnötig zu verbrauchen:
   Bauen. Den Opus-Chat schließen.
 - **Bei Bug-Diagnose erst Konsolen-Ausgabe holen.** Bevor Claude
   selbst durch den Code wandert, den Nutzer um die Konsolen-Meldung
-  bitten (Bug-Report-Template in DEBUG.md). Spart oft eine ganze
+  bitten (Bug-Report-Template in docs/DEBUG.md). Spart oft eine ganze
   Such-Schleife.
 - **Nach abgeschlossenem Thema `/clear` empfehlen.** Lange Chats
   werden teuer, weil ältere Nachrichten mit jeder neuen mitgeschickt
