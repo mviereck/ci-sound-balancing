@@ -38,10 +38,13 @@ function effFreqDisplay(i, side) {
     ? withSide(side, function () { return effFreq(i); })
     : effFreq(i);
   if (typeof pWarpOn === "undefined" || !pWarpOn) return baseHz;
-  if (typeof fRes === "undefined" || !fRes || !fRes.length) return baseHz;
+  const src = (typeof _warpFResSource === "function")
+    ? _warpFResSource()
+    : (typeof fRes !== "undefined" && Array.isArray(fRes) ? fRes : []);
+  if (!src.length) return baseHz;
   if (typeof buildWarpPoints !== "function" ||
       typeof centShift !== "function") return baseHz;
-  const points = buildWarpPoints(fRes, pWarpMode);
+  const points = buildWarpPoints(src, pWarpMode);
   const sideKey = side || activeSide;
   const str = (typeof pWarpStrength === "number" ? pWarpStrength : 100) / 100;
   const cs = centShift(baseHz, sideKey, points) * str;

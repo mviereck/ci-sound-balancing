@@ -71,8 +71,23 @@ elektrodennummern-basiert mit Hz unter der Achse. Der Schieber-
 Druck zeigt nur die Elektroden-Bezeichnung unter der Achse. Der
 Frequenzabgleich-Druck behält seine log-Hz-Achse.
 
-Der Audiologen-Druck bleibt davon unberührt — er nutzt eine
-bewußt vereinfachte Darstellung und ist nicht warp-bewußt.
+Frequenzabgleich-Datenquelle (Tabelle und Graph im Archiv,
+Tabelle „Änderung der Mittenfrequenzen" im Audiologen-Druck):
+`_warpFResSource()` — vereint `fRes` mit den Provisionals aus
+laufendem Frequenzabgleich-Test (identisch zur Meßergebnis-
+Tabelle und zum Player-EQ-Graph). Vorläufige Punkte sind
+markiert: in den Markdown-Tabellen mit Sternchen `*` am
+Elektroden-Label plus Fußnote `archivFmProvNote`; im Archiv-
+Graph als offener Kreis statt gefüllter Kreis mit Legende
+`archivFmProvLegend` oben rechts. Folge: bei laufendem Test
+erscheinen Frequenzabgleich-Sektionen in beiden Druckmodi
+bereits mit Zwischenstand, klar als vorläufig erkennbar.
+
+Der Audiologen-Druck bleibt von den Achs-Skalierungen unberührt
+— er nutzt eine bewußt vereinfachte, nicht cent-warp-skalierte
+Darstellung. Die Frequenzabgleich-Sektion „Änderung der
+Mittenfrequenzen" (Graph und Tabelle) verwendet jedoch dieselbe
+`_warpFResSource()` und denselben Provisional-Marker.
 
 Dateinamen: `ci-sound-balancing-<datum>-<zeit>.json` (JSON) und
 `ci-sound-balancing-archiv-<datum>-<zeit>.md` (Markdown).
@@ -122,11 +137,34 @@ Der Korrektur-Bericht ist gegliedert in:
      c-Wert abweicht): Satz-Format „MAPLAW [Seite] ändern von
      c=[Ist] auf c=**[Soll]**."
    - H3 „Änderung der Mittenfrequenzen" (nur bei aktivem Warp):
-     Spalten Elektrode, Hz Default, Hz (manuell eingetragen), Δ cent,
-     Δ Hz, **Gewünschte Mittenfrequenz** (fett). Δ Hz = Wunschfrequenz
-     minus manuell eingetragene Frequenz, mit Vorzeichen. Bei sym-Warp
-     + einseitigem Druck: Zusatzspalten für die andere Seite (inkl.
-     Δ cent und Δ Hz der anderen Seite).
+     Direkt unter der H3-Überschrift ein Punktdiagramm
+     (`_audiologFreqChartImg`): log-Hz x-Achse, Cent-Versatz y-Achse,
+     Punkte grün/rot je nach Cent-Vorzeichen mit Elektrodenlabel
+     unter dem Punkt. Vorläufige Punkte aus laufendem Test als
+     offene Kreise mit Legende `archivFmProvLegend`. Darunter die
+     Tabelle: Spalten Elektrode, Hz Default, Hz (manuell eingetragen),
+     Δ cent, Δ Hz, **Gewünschte Mittenfrequenz** (fett). Δ Hz =
+     Wunschfrequenz minus aktuelle Mittenfrequenz, mit Vorzeichen.
+     Datenquelle (Tabelle und Graph) ist `_audiologFmRowsForSide(side)`:
+     der Helper berechnet pro Elektrode auf der jeweiligen Seite die
+     effektive Cent-Verschiebung über `buildWarpPoints` + `centShift`
+     aus `_warpFResSource()` — also exakt die Mathematik, die der
+     Player im Audio-Pfad anwendet. Daraus folgt: im var_side-Modus
+     hat nur die varSide Einträge (refSide bekommt keine Sektion);
+     im ref_side-Modus ist es spiegelbildlich; im symmetric-Modus
+     bekommen **beide** Seiten Einträge mit je cent/2. Vorläufige
+     Werte aus einem laufenden Frequenzabgleich-Test fließen mit ein
+     — vorläufige Zeilen mit Sternchen am Elektrodenlabel und
+     Fußnote `archivFmProvNote`; eine Elektrode gilt als vorläufig,
+     sobald mindestens ein zugehöriger Quell-Eintrag vorläufig ist.
+     Bei symmetrischem Warping (`pWarpMode === "symmetric"`,
+     entspricht HTML-`<option value="symmetric">`) + einseitigem
+     Druck erscheinen **zwei** vollständige H3-Sektionen pro Pro-
+     Seite-Block — eine für die gedruckte Seite (Graph + Tabelle),
+     eine für die andere Seite (Graph + Tabelle) — beide mit Side-
+     Suffix in der Überschrift („— Links" / „— Rechts"). Vor der
+     ersten H3 erscheint ein kursiver Hinweissatz
+     (`audiologFreqSymHint`), der die Doppelung erklärt.
 5. Nach dem letzten Pro-Seite-Block folgt nichts mehr — kein Footer,
    keine weiteren Sektionen.
 

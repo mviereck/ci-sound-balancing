@@ -222,20 +222,23 @@ function _collectSideData(side) {
       cutoff: (p.cutoff !== undefined) ? p.cutoff : null,
     }));
 
-    // Frequenzabgleich
+    // Frequenzabgleich — Quelle ist _warpFResSource() (fRes + Provisionals
+    // aus laufendem Test), identisch zu Player/Equalizer-Graph.
     const fmRows = [];
-    if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
-      for (const r of fRes) {
-        if (r.varSide !== side) continue;
-        const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
-        fmRows.push({
-          elIdx: r.elIdx,
-          elLabel: `${dENPrefix()}${dEN(r.elIdx)}`,
-          varFreq: r.varFreq,
-          refFreq: r.refFreq,
-          cent,
-        });
-      }
+    const fmSrc = (typeof _warpFResSource === "function")
+      ? _warpFResSource()
+      : ((typeof fRes !== "undefined" && Array.isArray(fRes)) ? fRes : []);
+    for (const r of fmSrc) {
+      if (r.varSide !== side) continue;
+      const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
+      fmRows.push({
+        elIdx: r.elIdx,
+        elLabel: `${dENPrefix()}${dEN(r.elIdx)}`,
+        varFreq: r.varFreq,
+        refFreq: r.refFreq,
+        cent,
+        provisional: !!r._provisional,
+      });
     }
 
     return {
@@ -557,9 +560,16 @@ function _archivMdFreqmatch(sd) {
   const out = [`### ${t("fmResultsTitle")}`, ""];
   out.push(`| ${t("fmResColEl")} | ${t("fmResColVarFreq")} | ${t("fmResColRefFreq")} | ${t("fmResColCent")} |`);
   out.push("|---|---|---|---|");
+  let hasProv = false;
   for (const r of sd.freqmatch.rows) {
     const centStr = `${r.cent >= 0 ? "+" : ""}${Math.round(r.cent)} ¢`;
-    out.push(`| ${r.elLabel} | ${_mdFmtHz(r.varFreq)} | ${_mdFmtHz(r.refFreq)} | ${centStr} |`);
+    const lbl = r.provisional ? `${r.elLabel} *` : r.elLabel;
+    if (r.provisional) hasProv = true;
+    out.push(`| ${lbl} | ${_mdFmtHz(r.varFreq)} | ${_mdFmtHz(r.refFreq)} | ${centStr} |`);
+  }
+  if (hasProv) {
+    out.push("");
+    out.push(`_${t("archivFmProvNote")}_`);
   }
   return out.join("\n") + "\n";
 }
@@ -814,28 +824,57 @@ function _audiologLoudnessTable(side) {
 
 // ---------- Frequenz-Tabelle pro Seite (mit sym-Warp-Zusatzspalten) ----------
 
-function _audiologFreqTable(side, mainSides) {
+// Liefert pro Elektrode auf `side` die effektive Frequenzabgleich-Zeile
+// (varFreq=aktuelle Mittenfrequenz, refFreq=Wunsch nach Warp,
+// cent=tatsächliche Cent-Verschiebung dieser Seite, _provisional).
+// Quelle ist `_warpFResSource()` + `buildWarpPoints/centShift` — also
+// exakt dieselbe Mathematik, die der Player im Audio-Pfad anwendet.
+// var_side: nur Einträge mit varSide===side; andere Seite bleibt leer.
+// ref_side: nur Einträge mit refSide===side (Verschiebung gespiegelt).
+// symmetric: beide Seiten haben je cent/2 — Tabelle/Graph für die andere
+// Seite erscheinen daher auch bei einseitigem Druck mit Daten.
+function _audiologFmRowsForSide(side) {
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return [];
+  if (typeof buildWarpPoints !== "function" || typeof centShift !== "function") return [];
+  const fmSrc = (typeof _warpFResSource === "function")
+    ? _warpFResSource()
+    : ((typeof fRes !== "undefined" && Array.isArray(fRes)) ? fRes : []);
+  if (fmSrc.length === 0) return [];
+
+  const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "var_side";
+  const points = buildWarpPoints(fmSrc, mode);
+
+  const elIdxSet = new Set();
+  const provByEl = {};
+  for (const r of fmSrc) {
+    elIdxSet.add(r.elIdx);
+    if (r._provisional) provByEl[r.elIdx] = true;
+  }
+
+  const rows = [];
+  const elIdxList = Array.from(elIdxSet).sort((a, b) => a - b);
+  for (const elIdx of elIdxList) {
+    const fSelf = withSide(side, () => effFreq(elIdx));
+    if (!isFinite(fSelf) || fSelf <= 0) continue;
+    const cs = centShift(fSelf, side, points);
+    if (Math.abs(cs) < 1e-9) continue;
+    const fWish = fSelf * Math.pow(2, cs / 1200);
+    rows.push({
+      elIdx,
+      varFreq: fSelf,
+      refFreq: fWish,
+      cent: cs,
+      _provisional: !!provByEl[elIdx],
+    });
+  }
+  return rows;
+}
+
+function _audiologFreqTable(side) {
   if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
   if (typeof plEqOn !== "undefined" && !plEqOn) return "";
-  if (typeof fRes === "undefined" || fRes.length === 0) return "";
-
-  const isSymSingle = (mainSides.length === 1
-                      && typeof pWarpMode !== "undefined"
-                      && pWarpMode === "sym");
-  const own = fRes.filter((r) => r.varSide === side);
-  if (own.length === 0 && !isSymSingle) return "";
-
-  const ownByEl = {};
-  for (const r of own) ownByEl[r.elIdx] = r;
-
-  let otherByEl = null;
-  let otherSide = null;
-  if (isSymSingle) {
-    otherSide = side === "left" ? "right" : "left";
-    const otherRows = fRes.filter((r) => r.varSide === otherSide);
-    otherByEl = {};
-    for (const r of otherRows) otherByEl[r.elIdx] = r;
-  }
+  const rows = _audiologFmRowsForSide(side);
+  if (rows.length === 0) return "";
 
   return withSide(side, () => {
     const lines = [];
@@ -845,38 +884,21 @@ function _audiologFreqTable(side, mainSides) {
       : freqs;
     const ownFreqOwn = (sd && sd.elFreqOwn) ? sd.elFreqOwn : null;
 
-    if (isSymSingle && otherByEl && Object.keys(otherByEl).length > 0) {
-      const otherLbl = otherSide === "left" ? t("sideLeft") : t("sideRight");
-      lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} || ${t("audColCent")} (${otherLbl}) | ${t("audColDeltaHz")} (${otherLbl}) | ${t("audColHzWish")} (${otherLbl}) |`);
-      lines.push("|---|---|---|---|---|---||---|---|---|");
-      for (let i = 0; i < nEl; i++) {
-        const r = ownByEl[i];
-        const o = otherByEl[i];
-        if (!r && !o) continue;
-        const hzDef = defFreqs[i] != null ? _mdFmtHz(defFreqs[i]) : "—";
-        const hzMan = (ownFreqOwn && ownFreqOwn[i] != null) ? _mdFmtHz(ownFreqOwn[i]) : "—";
-        const ownCent  = r ? _audCent(r.varFreq, r.refFreq) : "—";
-        const ownDHzV  = r && isFinite(r.refFreq) && isFinite(r.varFreq) ? r.refFreq - r.varFreq : null;
-        const ownDHz   = ownDHzV != null ? `${ownDHzV >= 0 ? "+" : ""}${Math.round(ownDHzV)} Hz` : "—";
-        const ownNew   = r ? `**${_mdFmtHz(r.refFreq)}**` : "—";
-        const othCent  = o ? _audCent(o.varFreq, o.refFreq) : "—";
-        const othDHzV  = o && isFinite(o.refFreq) && isFinite(o.varFreq) ? o.refFreq - o.varFreq : null;
-        const othDHz   = othDHzV != null ? `${othDHzV >= 0 ? "+" : ""}${Math.round(othDHzV)} Hz` : "—";
-        const othNew   = o ? `**${_mdFmtHz(o.refFreq)}**` : "—";
-        lines.push(`| ${dENPrefix()}${dEN(i)} | ${hzDef} | ${hzMan} | ${ownCent} | ${ownDHz} | ${ownNew} || ${othCent} | ${othDHz} | ${othNew} |`);
-      }
-    } else {
-      lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} |`);
-      lines.push("|---|---|---|---|---|---|");
-      for (let i = 0; i < nEl; i++) {
-        const r = ownByEl[i];
-        if (!r) continue;
-        const hzDef = defFreqs[i] != null ? _mdFmtHz(defFreqs[i]) : "—";
-        const hzMan = (ownFreqOwn && ownFreqOwn[i] != null) ? _mdFmtHz(ownFreqOwn[i]) : "—";
-        const dHzV  = isFinite(r.refFreq) && isFinite(r.varFreq) ? r.refFreq - r.varFreq : null;
-        const dHz   = dHzV != null ? `${dHzV >= 0 ? "+" : ""}${Math.round(dHzV)} Hz` : "—";
-        lines.push(`| ${dENPrefix()}${dEN(i)} | ${hzDef} | ${hzMan} | ${_audCent(r.varFreq, r.refFreq)} | ${dHz} | **${_mdFmtHz(r.refFreq)}** |`);
-      }
+    let hasProv = false;
+    lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} |`);
+    lines.push("|---|---|---|---|---|---|");
+    for (const r of rows) {
+      if (r._provisional) hasProv = true;
+      const elLabel = r._provisional ? `${dENPrefix()}${dEN(r.elIdx)} *` : `${dENPrefix()}${dEN(r.elIdx)}`;
+      const hzDef = defFreqs[r.elIdx] != null ? _mdFmtHz(defFreqs[r.elIdx]) : "—";
+      const hzMan = (ownFreqOwn && ownFreqOwn[r.elIdx] != null) ? _mdFmtHz(ownFreqOwn[r.elIdx]) : "—";
+      const dHzV  = r.refFreq - r.varFreq;
+      const dHz   = isFinite(dHzV) ? `${dHzV >= 0 ? "+" : ""}${Math.round(dHzV)} Hz` : "—";
+      lines.push(`| ${elLabel} | ${hzDef} | ${hzMan} | ${_audCent(r.varFreq, r.refFreq)} | ${dHz} | **${_mdFmtHz(r.refFreq)}** |`);
+    }
+    if (hasProv) {
+      lines.push("");
+      lines.push(`_${t("archivFmProvNote")}_`);
     }
     return lines.join("\n") + "\n";
   });
@@ -1127,18 +1149,38 @@ function buildAudiologMarkdown() {
     const mlSide = _audiologMaplawSection([side], "###");
     if (mlSide) parts.push(mlSide);
 
-    // H3 Änderung der Mittenfrequenzen — falls relevant für diese Seite
+    // H3 Änderung der Mittenfrequenzen — falls relevant für diese Seite.
+    // Quelle ist _warpFResSource() (fRes + Provisionals aus laufendem Test).
+    // Bei sym-Warp + einseitigem Druck: zusätzlich eigene H3-Sektion
+    // (Graph + Tabelle) für die andere Seite, da sym auf beide Seiten wirkt.
     if (typeof pWarpOn !== "undefined" && pWarpOn
         && typeof plEqOn !== "undefined" && plEqOn
-        && typeof fRes !== "undefined" && fRes.length > 0) {
-      const ft = _audiologFreqTable(side, [side]);
-      if (ft) {
+        && ((typeof _warpFResSource === "function" && _warpFResSource().length > 0)
+            || (typeof fRes !== "undefined" && fRes.length > 0))) {
+      const isSymSingle = (mainSides.length === 1
+                          && typeof pWarpMode !== "undefined"
+                          && pWarpMode === "symmetric");
+      const sideLbl = side === "left" ? t("sideLeft") : t("sideRight");
+      const ft = _audiologFreqTable(side);
+      if (isSymSingle) {
+        parts.push(`_${t("audiologFreqSymHint")}_`);
+        parts.push("");
+        if (ft) {
+          parts.push(`### ${t("audiologSecFreq")} — ${sideLbl}`);
+          parts.push("");
+          parts.push(ft);
+        }
+        const otherSide = side === "left" ? "right" : "left";
+        const otherLbl  = otherSide === "left" ? t("sideLeft") : t("sideRight");
+        const ftOther = _audiologFreqTable(otherSide);
+        if (ftOther) {
+          parts.push(`### ${t("audiologSecFreq")} — ${otherLbl}`);
+          parts.push("");
+          parts.push(ftOther);
+        }
+      } else if (ft) {
         parts.push(`### ${t("audiologSecFreq")}`);
         parts.push("");
-        if (typeof pWarpMode !== "undefined" && pWarpMode === "sym") {
-          parts.push(`_${t("audiologFreqSymHint")}_`);
-          parts.push("");
-        }
         parts.push(ft);
       }
     }
@@ -1290,6 +1332,84 @@ function _audiologChartImg(side) {
   });
 }
 
+// Frequenzabgleich-Graph für Audiologen-Druck. Selbe Datenquelle wie
+// _audiologFreqTable: _audiologFmRowsForSide(side) — modus-bewußte
+// effektive Cent-Verschiebung pro Seite. Punkte grün/rot je Cent-
+// Vorzeichen mit Elektrodenlabel; provisorische Punkte (laufender Test)
+// als offener Kreis statt gefüllt, mit Legende `archivFmProvLegend`.
+// Rückgabe "" wenn keine Punkte für die Seite vorliegen.
+function _audiologFreqChartImg(side) {
+  if (typeof pWarpOn === "undefined" || !pWarpOn) return "";
+  if (typeof plEqOn !== "undefined" && !plEqOn) return "";
+  const rows = _audiologFmRowsForSide(side);
+  if (rows.length === 0) return "";
+
+  return withSide(side, () => {
+    const SCALE = 2;
+    const Wlog = 700, Hlog = 240;
+    const canvas = document.createElement("canvas");
+    canvas.width = Wlog * SCALE;
+    canvas.height = Hlog * SCALE;
+    const ctx = canvas.getContext("2d");
+    ctx.scale(SCALE, SCALE);
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, Wlog, Hlog);
+
+    let maxAbsCent = 50;
+    for (const r of rows) maxAbsCent = Math.max(maxAbsCent, Math.abs(r.cent));
+    maxAbsCent = Math.ceil(maxAbsCent / 50) * 50;
+
+    const pad = { l: 50, r: 14, t: 30, b: 32 };
+    const pW = Wlog - pad.l - pad.r, pH = Hlog - pad.t - pad.b;
+    const zY = pad.t + pH / 2;
+
+    const freqs = rows.map((r) => r.varFreq);
+    const fMin = Math.min.apply(null, freqs.concat([100]));
+    const fMax = Math.max.apply(null, freqs.concat([8000]));
+    const xFor = (hz) => pad.l + (Math.log2(hz / fMin) / Math.log2(fMax / fMin)) * pW;
+
+    ctx.strokeStyle = "#888"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.l, zY); ctx.lineTo(Wlog - pad.r, zY); ctx.stroke();
+
+    ctx.fillStyle = "#444"; ctx.font = "10px sans-serif"; ctx.textAlign = "right";
+    ctx.fillText("+" + maxAbsCent + " ¢", pad.l - 4, pad.t + 8);
+    ctx.fillText("0", pad.l - 4, zY + 3);
+    ctx.fillText("-" + maxAbsCent + " ¢", pad.l - 4, Hlog - pad.b + 4);
+
+    let hasProv = false;
+    for (const r of rows) {
+      const x = xFor(r.varFreq);
+      const y = zY - (r.cent / maxAbsCent) * (pH / 2);
+      const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      if (r._provisional) {
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        hasProv = true;
+      } else {
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      ctx.fillStyle = "#444";
+      ctx.font = "10px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(`${dENPrefix()}${dEN(r.elIdx)}`, x, Hlog - pad.b + 16);
+    }
+
+    ctx.fillStyle = "#000"; ctx.font = "bold 12px sans-serif"; ctx.textAlign = "left";
+    const sideName = side === "left" ? t("sideLeft") : t("sideRight");
+    ctx.fillText(`${t("audiologSecFreq")} — ${sideName}`, pad.l, 18);
+
+    if (hasProv) {
+      ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
+      ctx.fillText(t("archivFmProvLegend"), Wlog - pad.r, 18);
+    }
+
+    return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;
+  });
+}
+
 function audiologPrint() {
   const mainSides = _audiologMainSides();
   const eqOn = (typeof plEqOn === "undefined") ? true : plEqOn;
@@ -1305,6 +1425,32 @@ function audiologPrint() {
       if (idx >= 0) {
         body = body.slice(0, idx) + chart + body.slice(idx);
         searchFrom = idx + chart.length + marker.length;
+      }
+    }
+  }
+  if (eqOn && typeof pWarpOn !== "undefined" && pWarpOn) {
+    const isSymSingle = (mainSides.length === 1
+                        && typeof pWarpMode !== "undefined"
+                        && pWarpMode === "symmetric");
+    const injectChart = (sideToDraw, marker, from) => {
+      const chart = _audiologFreqChartImg(sideToDraw);
+      if (!chart) return from;
+      const idx = body.indexOf(marker, from);
+      if (idx < 0) return from;
+      const insertAt = idx + marker.length;
+      body = body.slice(0, insertAt) + chart + body.slice(insertAt);
+      return insertAt + chart.length;
+    };
+    let searchFrom = 0;
+    for (const s of mainSides) {
+      if (isSymSingle) {
+        const sideLbl = s === "left" ? t("sideLeft") : t("sideRight");
+        searchFrom = injectChart(s, `<h3>${t("audiologSecFreq")} — ${sideLbl}</h3>`, searchFrom);
+        const otherSide = s === "left" ? "right" : "left";
+        const otherLbl  = otherSide === "left" ? t("sideLeft") : t("sideRight");
+        searchFrom = injectChart(otherSide, `<h3>${t("audiologSecFreq")} — ${otherLbl}</h3>`, searchFrom);
+      } else {
+        searchFrom = injectChart(s, `<h3>${t("audiologSecFreq")}</h3>`, searchFrom);
       }
     }
   }
@@ -1553,17 +1699,32 @@ function _archivChartFreqmatch(sideBlock) {
   const freqs = rows.map((r) => r.varFreq);
   const fMin = Math.min(...freqs, 100), fMax = Math.max(...freqs, 8000);
   const xFor = (hz) => pad.l + (Math.log2(hz / fMin) / Math.log2(fMax / fMin)) * pW;
+  let hasProv = false;
   for (const r of rows) {
     const x = xFor(r.varFreq);
     const y = zY - (r.cent / maxAbsCent) * (pH / 2);
+    const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
     ctx.beginPath();
-    ctx.fillStyle = r.cent >= 0 ? "#16a34a" : "#dc2626";
     ctx.arc(x, y, 4, 0, Math.PI * 2);
-    ctx.fill();
+    if (r.provisional) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      hasProv = true;
+    } else {
+      ctx.fillStyle = color;
+      ctx.fill();
+    }
     ctx.fillStyle = "#555";
     ctx.font = "9px sans-serif";
     ctx.textAlign = "center";
     ctx.fillText(r.elLabel, x, H - pad.b + 14);
+  }
+  if (hasProv) {
+    ctx.fillStyle = "#555";
+    ctx.font = "9px sans-serif";
+    ctx.textAlign = "right";
+    ctx.fillText(t("archivFmProvLegend"), W - pad.r, pad.t - 6);
   }
   return canvas.toDataURL("image/png");
 }
