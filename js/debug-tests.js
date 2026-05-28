@@ -87,16 +87,17 @@
       const tracks = (_adaptRun && _adaptRun.tracks) ? _adaptRun.tracks : {};
       const tkeys = Object.keys(tracks);
       if (!tkeys.length) return { ok: false, msg: 'Lauf vorhanden, aber keine Tracks' };
-      let conv = 0, noisy = 0, notp = 0, active = 0;
+      let conv = 0, fair = 0, wide = 0, unst = 0, notp = 0, active = 0;
       tkeys.forEach(function (k) {
         const st = tracks[k] && tracks[k].status;
-        if (st === 'converged')        conv++;
-        else if (st === 'converged-noisy') noisy++;
-        else if (st === 'not-perceivable') notp++;
+        if      (st === 'converged')        conv++;
+        else if (st === 'converged-fair')   fair++;
+        else if (st === 'converged-wide')   wide++;
+        else if (st === 'unstable')         unst++;
+        else if (st === 'not-perceivable')  notp++;
         else active++;
       });
-      // Konsistenz: konvergierte/noisy-Tracks müssen einen fRes-Eintrag haben.
-      // fRes-Einträge: { varSide, refSide, elIdx, ... }
+      // Konsistenz: alle Tracks mit Match müssen einen fRes-Eintrag haben.
       let missingInFres = 0;
       if (typeof fRes !== 'undefined' && Array.isArray(fRes)) {
         const fresMap = Object.create(null);
@@ -107,14 +108,16 @@
         tkeys.forEach(function (k) {
           const tr = tracks[k];
           const st = tr && tr.status;
-          if ((st === 'converged' || st === 'converged-noisy') && !fresMap[tr.electrodeIdx]) {
+          const isMatched = (st === 'converged' || st === 'converged-fair'
+                          || st === 'converged-wide' || st === 'unstable');
+          if (isMatched && tr.match != null && !fresMap[tr.electrodeIdx]) {
             missingInFres++;
           }
         });
       }
       let msg = tkeys.length + ' Tracks: '
-              + conv + ' conv, ' + noisy + ' noisy, '
-              + notp + ' notp, ' + active + ' aktiv';
+              + conv + ' conv, ' + fair + ' fair, ' + wide + ' wide, '
+              + unst + ' unstable, ' + notp + ' notp, ' + active + ' aktiv';
       if (missingInFres > 0) {
         return { ok: false, msg: msg + ' — ' + missingInFres + ' konvergierte Tracks fehlen in fRes!' };
       }

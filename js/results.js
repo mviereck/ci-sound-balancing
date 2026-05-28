@@ -233,24 +233,14 @@ function _fmrCollectNotPerceivable() {
     const run = fa.runs[fa.currentRunIdx];
     if (!run || !run.tracks) return;
 
-    // Eindeutige Elektroden-Indizes (parseInt stoppt bei ':', "3:up" → 3)
     const elIdxSet = new Set();
     Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
     elIdxSet.forEach(function(elIdx) {
-      const tu = run.tracks[fmTrackKey(elIdx, 'up')];
-      const td = run.tracks[fmTrackKey(elIdx, 'down')];
-      let isNotPerc = false;
-      if (tu || td) {
-        // Neues 2-Track-Schema
-        const combo = _fmCombineTwoTracks(tu || null, td || null);
-        isNotPerc = (combo.status === 'not-perceivable');
-      } else {
-        // Altes Einzel-Track-Schema
-        const tr = run.tracks[String(elIdx)];
-        if (tr && tr.status === 'not-perceivable') isNotPerc = true;
+      const tr = run.tracks[fmTrackKey(elIdx)];
+      if (tr && tr.status === 'not-perceivable') {
+        result[side + ':' + elIdx] = true;
       }
-      if (isNotPerc) result[side + ':' + elIdx] = true;
     });
   });
   return result;
@@ -275,61 +265,34 @@ function _fmrBuildInProgressEntries(side) {
   if (!run || !run.tracks) return out;
   const refSide = run.refSide || (side === 'left' ? 'right' : 'left');
 
-  // Eindeutige Elektroden-Indizes (parseInt stoppt bei ':', "3:up" → 3)
   const elIdxSet = new Set();
   Object.keys(run.tracks).forEach(function(k) { elIdxSet.add(parseInt(k, 10)); });
 
   elIdxSet.forEach(function(elIdx) {
-    const tu = run.tracks[fmTrackKey(elIdx, 'up')];
-    const td = run.tracks[fmTrackKey(elIdx, 'down')];
-
-    // Aktive Tracks für diese Elektrode bestimmen
-    let activeTracks;
-    if (tu || td) {
-      // Neues 2-Track-Schema
-      activeTracks = [tu, td].filter(function(tr) { return tr && tr.status === 'active'; });
-    } else {
-      // Altes Einzel-Track-Schema
-      const tr = run.tracks[String(elIdx)];
-      if (!tr || tr.status !== 'active') return;
-      activeTracks = [tr];
-    }
-    if (activeTracks.length === 0) return;
+    const tr = run.tracks[fmTrackKey(elIdx)];
+    if (!tr || tr.status !== 'active') return;
 
     const varHz = withSide(side, function() { return effFreq(elIdx); });
+    const prov  = fmComputeProvisional(tr);
+    const totalTrials  = tr.trialCount || 0;
+    const maxReversals = (tr.reversals && tr.reversals.length) || 0;
 
-    // Vorläufige Werte über aktive Tracks mitteln
-    let sumMatch = 0, matchCount = 0;
-    let sumResid = 0, residCount = 0;
-    let totalTrials = 0, maxReversals = 0;
-    activeTracks.forEach(function(tr) {
-      const prov = fmComputeProvisional(tr);
-      if (prov.match != null)   { sumMatch += prov.match;   matchCount++; }
-      if (prov.residual != null) { sumResid += prov.residual; residCount++; }
-      totalTrials  += tr.trialCount || 0;
-      maxReversals  = Math.max(maxReversals, (tr.reversals && tr.reversals.length) || 0);
-    });
-
-    if (matchCount > 0) {
-      const provMatch = sumMatch / matchCount;
+    if (prov.match != null) {
       out.push({
         varSide: side, refSide: refSide, elIdx: elIdx,
         varFreq: varHz,
-        refFreq: varHz * Math.pow(2, provMatch / 1200),
+        refFreq: varHz * Math.pow(2, prov.match / 1200),
         timestamp: Date.now(),
-        fmStatus: 'in-progress',
-        fmResidual: residCount > 0 ? sumResid / residCount : null,
+        fmStatus:     'in-progress',
+        fmResidual:   prov.residual,
         fmCombinedUncertainty: null,
-        fmConvUp:     null,
-        fmConvDown:   null,
-        fmTrackDiff:  null,
+        fmConv:       null,
         fmRunSpread:  null,
         fmResiduum:   null,
         fmRunsCount:  0,
-        fmStatusUpLast:   null,
-        fmStatusDownLast: null,
+        fmStatusLast: null,
         fmTrialCount: totalTrials,
-        fmReversals: maxReversals,
+        fmReversals:  maxReversals,
         _provisional: true
       });
     } else {
@@ -338,19 +301,16 @@ function _fmrBuildInProgressEntries(side) {
         varFreq: varHz,
         refFreq: varHz,
         timestamp: Date.now(),
-        fmStatus: 'in-progress-early',
-        fmResidual: null,
+        fmStatus:     'in-progress-early',
+        fmResidual:   null,
         fmCombinedUncertainty: null,
-        fmConvUp:     null,
-        fmConvDown:   null,
-        fmTrackDiff:  null,
+        fmConv:       null,
         fmRunSpread:  null,
         fmResiduum:   null,
         fmRunsCount:  0,
-        fmStatusUpLast:   null,
-        fmStatusDownLast: null,
+        fmStatusLast: null,
         fmTrialCount: totalTrials,
-        fmReversals: maxReversals,
+        fmReversals:  maxReversals,
         _provisional: true
       });
     }
@@ -416,22 +376,34 @@ function renderFreqMatchResults() {
     metaEl.textContent = metaText;
   }
 
+  const varLabel = ciSide === 'left' ? t('sideLeft')  : t('sideRight');
+  const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
+
   // Tabellen-Header
   const th = document.getElementById("fmrTH");
   const tb = document.getElementById("fmrTB");
   if (!th || !tb) return;
+
   th.innerHTML =
     "<th>" + t("fmrThEl") + "</th>" +
-    "<th>" + t("fmrThVarSide") + "</th>" +
-    "<th>" + t("fmrThVarHz") + "</th>" +
-    "<th>" + t("fmrThRefSide") + "</th>" +
-    "<th>" + t("fmrThRefHz") + "</th>" +
+    "<th>" + t("fmrThVarHz").replace('{side}', varLabel) + "</th>" +
+    "<th>" + t("fmrThRefHz").replace('{side}', varLabel) + "</th>" +
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
-    "<th title=\"" + t("fmrThConvUdTip") + "\">" + t("fmrThConvUd") + "</th>" +
-    "<th title=\"" + t("fmrThTrackDiffTip") + "\">" + t("fmrThTrackDiff") + "</th>" +
+    "<th title=\"" + t("fmrThConvTip") + "\">" + t("fmrThConv") + "</th>" +
+    "<th title=\"" + t("fmrThRunSpreadTip") + "\">" + t("fmrThRunSpread") + "</th>" +
     "<th title=\"" + t("fmrThResiduumTip") + "\">" + t("fmrThResiduum") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
+
+  // Beschreibungstext über der Tabelle
+  const descEl = document.getElementById("fmrSidesDesc");
+  if (descEl) {
+    const line1 = t("fmrSidesDesc1").replace('{ref}', refLabel).replace('{var}', varLabel);
+    const line2 = t("fmrSidesDesc2").replace('{ref}', refLabel).replace('{var}', varLabel);
+    descEl.innerHTML =
+      "<p style=\"font-weight:600;margin:0 0 6px\">" + line1 + "</p>" +
+      "<p style=\"margin:0\">" + line2 + "</p>";
+  }
 
   // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
   const displayData = fRes.slice();
@@ -448,9 +420,6 @@ function renderFreqMatchResults() {
   const byIdx = {};
   for (const r of displayData) byIdx[r.elIdx] = r;
 
-  const varLabel = ciSide === 'left' ? t('sideLeft')  : t('sideRight');
-  const refLabel = ciSide === 'left' ? t('sideRight') : t('sideLeft');
-
   tb.innerHTML = "";
   for (let i = 0; i < nCi; i++) {
     const exCI = sideData[ciSide].elExDur[i] !== null || sideData[ciSide].elSt[i] === 'mute';
@@ -462,9 +431,7 @@ function renderFreqMatchResults() {
       tr.style.opacity = "0.4";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>" + varLabel + "</td>" +
         "<td>—</td>" +
-        "<td>" + refLabel + "</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
@@ -481,9 +448,7 @@ function renderFreqMatchResults() {
         : '<span style="font-size:.82em;color:#9ca3af">' + t('notMeasured') + '</span>';
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>" + varLabel + "</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
-        "<td>" + refLabel + "</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
@@ -522,35 +487,33 @@ function renderFreqMatchResults() {
                    + (centRound >= 0 ? "+" : "") + centRound + "</span>";
       }
 
-      // BA 99: drei Spalten — Konvergenz u/d, Track-Differenz, Residuum
+      // Drei Spalten: Konvergenz σ_konv, Lauf-Streuung σ_run, Residuum
       const isNotPerc = (r.fmStatus === 'not-perceivable');
-      const statusUpLast   = r.fmStatusUpLast   || null;
-      const statusDownLast = r.fmStatusDownLast || null;
+      const runs      = r.fmRunsCount || 0;
 
-      function _fmCellRoh(v, statusLast) {
-        if (statusLast === 'not-perceivable') return '<span style="color:#9ca3af">✗</span>';
-        if (statusLast === 'aborted')         return '<span style="color:#9ca3af">—</span>';
-        if (v == null)                        return '<span style="color:#9ca3af">—</span>';
-        return '<span style="color:#374151">±' + Math.round(v) + '</span>';
+      let convCell;
+      if (isNotPerc) {
+        convCell = '<span style="color:#9ca3af">—</span>';
+      } else if (isProv) {
+        const provKW = r.fmResidual != null ? Math.round(r.fmResidual) : null;
+        convCell = provKW != null
+          ? '<span style="color:#9ca3af">±' + provKW + '</span>'
+          : '<span style="color:#9ca3af">—</span>';
+      } else if (r.fmConv == null) {
+        convCell = '<span style="color:#9ca3af">—</span>';
+      } else {
+        convCell = '<span style="color:#374151">±' + Math.round(r.fmConv) + '</span>';
       }
 
-      let convUdCell;
-      if (isProv || (statusUpLast == null && statusDownLast == null
-                     && r.fmConvUp == null && r.fmConvDown == null)) {
-        convUdCell = '<span style="color:#9ca3af">—</span>';
+      let runSpreadCell;
+      if (isProv || isNotPerc) {
+        runSpreadCell = '<span style="color:#9ca3af">—</span>';
+      } else if (runs < 2) {
+        runSpreadCell = '<span style="color:#9ca3af" title="erst ab 2 Läufen">— (1. Lauf)</span>';
+      } else if (r.fmRunSpread == null) {
+        runSpreadCell = '<span style="color:#9ca3af">—</span>';
       } else {
-        convUdCell = _fmCellRoh(r.fmConvUp, statusUpLast)
-                   + ' / '
-                   + _fmCellRoh(r.fmConvDown, statusDownLast);
-      }
-
-      let trackDiffCell;
-      if (isProv || r.fmTrackDiff == null
-          || statusUpLast === 'not-perceivable' || statusDownLast === 'not-perceivable'
-          || statusUpLast === 'aborted'         || statusDownLast === 'aborted') {
-        trackDiffCell = '<span style="color:#9ca3af">—</span>';
-      } else {
-        trackDiffCell = '<span style="color:#374151">' + Math.round(r.fmTrackDiff) + '</span>';
+        runSpreadCell = '<span style="color:#374151">±' + Math.round(r.fmRunSpread) + '</span>';
       }
 
       let residuumCell;
@@ -562,19 +525,14 @@ function renderFreqMatchResults() {
                       : re <= 25 ? '#d97706'
                       :            '#dc2626';
         const tipParts = [];
-        if (r.fmConvUp != null || r.fmConvDown != null) {
-          const ku = r.fmConvUp   != null ? Math.round(r.fmConvUp)   : '?';
-          const kd = r.fmConvDown != null ? Math.round(r.fmConvDown) : '?';
-          tipParts.push('Konvergenz ±' + ku + ' / ±' + kd + ' ct');
+        if (r.fmConv != null) {
+          tipParts.push('Konvergenzweite ±' + Math.round(r.fmConv) + ' ct');
         }
-        if (r.fmTrackDiff != null) {
-          tipParts.push('Track-Differenz ' + Math.round(r.fmTrackDiff) + ' ct');
+        if (runs >= 2 && r.fmRunSpread != null) {
+          tipParts.push('Lauf-Streuung ±' + Math.round(r.fmRunSpread) + ' ct');
         }
-        if (r.fmRunSpread != null) {
-          tipParts.push('Run-Spannweite ' + Math.round(r.fmRunSpread) + ' ct');
-        }
-        const runsLabel = (r.fmRunsCount === 1) ? '1 Lauf'
-                        : (r.fmRunsCount != null && r.fmRunsCount > 1) ? r.fmRunsCount + ' Läufe'
+        const runsLabel = (runs === 1) ? '1 Lauf'
+                        : (runs > 1)   ? runs + ' Läufe'
                         : '';
         if (runsLabel) tipParts.push('(' + runsLabel + ')');
         const tipText = tipParts.join(' · ');
@@ -606,10 +564,6 @@ function renderFreqMatchResults() {
       } else if (r.fmStatus === 'aborted') {
         statusBadge = '<span class="fm-badge fm-badge-aborted" data-t="fmrStatusAborted">'
                     + t('fmrStatusAborted') + '</span>';
-      } else if (r.fmStatus === 'converged-noisy') {
-        // Backwards-Compat: alte Status-Werte als converged-fair anzeigen
-        statusBadge = '<span class="fm-badge fm-badge-fair" data-t="fmrStatusFair">'
-                    + t('fmrStatusFair') + '</span>';
       } else if (r.fmStatus === 'not-perceivable') {
         statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">'
                     + t('fmrStatusNotPerc') + '</span>';
@@ -619,14 +573,12 @@ function renderFreqMatchResults() {
 
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
-        "<td>" + varLabel + "</td>" +
         "<td>" + varHzCell + "</td>" +
-        "<td>" + refLabel + "</td>" +
         "<td>" + refHzCell + "</td>" +
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
-        "<td>" + convUdCell + "</td>" +
-        "<td>" + trackDiffCell + "</td>" +
+        "<td>" + convCell + "</td>" +
+        "<td>" + runSpreadCell + "</td>" +
         "<td>" + residuumCell + "</td>" +
         "<td>" + statusBadge + "</td>";
       if (isProv) tr.style.fontStyle = 'italic';
@@ -686,7 +638,7 @@ function renderFreqMatchResults() {
     } else {
       const noisy = finalEntries.filter(function(r) {
         return r.fmStatus === 'converged-fair' || r.fmStatus === 'converged-wide'
-            || r.fmStatus === 'unstable' || r.fmStatus === 'converged-noisy';
+            || r.fmStatus === 'unstable';
       });
       const resVals = finalEntries
         .filter(function(r) { return r.fmResidual != null; })
@@ -707,6 +659,19 @@ function renderFreqMatchResults() {
     }
     qEl.textContent = txt;
     qEl.style.display = txt ? '' : 'none';
+  }
+
+  // Hinweis: Residuum erst ab 2 Läufen zuverlässig
+  const runHintEl = document.getElementById('fmrRunHint');
+  if (runHintEl) {
+    const finalEntries = fRes.filter(function(r) { return r.varSide === ciSide; });
+    const hasData = finalEntries.length > 0 || provisional.length > 0;
+    const allComplete2 = provisional.length === 0
+      && finalEntries.length > 0
+      && finalEntries.every(function(r) { return (r.fmRunsCount || 0) >= 2; });
+    const show = hasData && !allComplete2;
+    runHintEl.textContent = show ? t('fmrRunHint') : '';
+    runHintEl.style.display = show ? '' : 'none';
   }
 
   // Chart
@@ -746,6 +711,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sideData.right) sideData.right.freqmatchAdaptive = null;
       }
       renderFreqMatchResults();
+      if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
     });
   }
 });

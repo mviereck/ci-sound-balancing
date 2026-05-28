@@ -1,9 +1,10 @@
 ## Frequenzabgleich — Adaptiver Modus (2I-2AFC)
 
 Ergänzung zum bestehenden Sub-Tab Frequenzabgleich (`02-messung.md`,
-Abschnitt „Sub-Tab 3"). Beschreibt einen zweiten Mess-Modus neben dem
-heutigen Slider-Verfahren. Der adaptive Modus ist Default; der
-Slider-Modus bleibt als Alternative verfügbar.
+Abschnitt „Sub-Tab 3"). Der adaptive Modus ist der aktive Modus; der
+Slider-Modus ist im Dropdown deaktiviert (Option `disabled`) und wird
+bei gespeichertem Slider-Zustand beim Laden automatisch auf Adaptiv
+zurückgesetzt.
 
 ### Motivation
 
@@ -21,31 +22,23 @@ der Tonhöhe übereinstimmen, und drückt „Übernehmen". Bekannte Probleme:
 
 Der adaptive Modus löst diese Probleme durch eine 2-Intervall-2-Alternative-
 Forced-Choice-Aufgabe (2I-2AFC) mit verschränkt randomisierten adaptiven
-Staircases nach Levitt (1971). Methodische Grundlage und CI-spezifische
-Fallstricke siehe Pieper et al. 2022 (im `.manuals/`-Ordner).
+Staircases. Methoden-Wahl und Quellen siehe Abschnitt „Wissenschaftliche
+Grundlage und Grenzen" am Ende.
 
 ### Verfahren im Überblick
 
-- Pro nicht ausgeschlossener Elektrode der variablen Seite laufen
-  **zwei verschränkte adaptive Staircases („Tracks")**: Track-up startet
-  oberhalb der Soll-Frequenz (positiver Cent-Offset), Track-down
-  unterhalb (negativer Cent-Offset). Beide konvergieren unabhängig
-  auf den Match-Punkt. Der elektroden-finale Match ist der
-  **Mittelwert der beiden Konvergenzpunkte**.
-  Begründung (siehe auch „Bekannte Einschränkungen"): die 2-down-1-up-Regel
-  konvergiert nicht exakt auf den Match-Punkt, sondern systematisch
-  daneben (sie sucht den 70,7-%-Punkt einer Antwort). Bei einem Match
-  ist die Antwort 50/50, sodass eine einzelne Staircase systematisch
-  in eine Richtung verschoben ist. Zwei Staircases von gegenüberliegenden
-  Startpunkten kompensieren diese Verschiebung gegenseitig und eliminieren
-  zugleich den Bracketing-Effekt (Jensen et al. 2021).
+- Pro nicht ausgeschlossener Elektrode der variablen Seite läuft pro
+  Messdurchgang **eine adaptive Staircase**. Mehrere Durchgänge können
+  optional aneinandergereiht werden (siehe „Mehrere Läufe und
+  Reliabilität"); über Läufe hinweg wird der Startwert **gepaart
+  alterniert**, um einen Bracketing-Check zu erhalten.
 - Tracks laufen verschränkt **als geshuffelter Round-Robin**: pro Runde
   wird jeder aktive Track in zufälliger Reihenfolge genau einmal getestet,
   am Ende der Runde wird neu gemischt. Tracks, die innerhalb der Runde
   konvergieren, fallen aus dem Rest der Runde raus. Damit ist die
   Trial-Verteilung gleichmäßig (jeder Track hat nach N Runden ≈ N Trials),
   während die Reihenfolge für den User unvorhersagbar bleibt. Bei 12
-  Elektroden hat der Pool 24 Tracks im Vollausbau, bei 22 Elektroden 44.
+  Elektroden hat der Pool 12 Tracks im Vollausbau, bei 22 Elektroden 22.
 - **Anker-Schutz am Test-Ende**: sobald nur noch wenige Tracks aktiv sind
   (Schwelle: < 4), wird die Round-Robin-Reihenfolge durch echte
   Randomisierung mit Wiederholungs-Sperre ersetzt — derselbe Track darf
@@ -58,35 +51,45 @@ Fallstricke siehe Pieper et al. 2022 (im `.manuals/`-Ordner).
   tiefer?" Antwort über Pfeil-hoch / Pfeil-runter (oder Buttons).
 - Der Algorithmus übersetzt die Antwort intern zurück auf „ref höher /
   var höher" und schiebt die **Referenz-Seiten-Frequenz** per
-  2-down-1-up-Regel. Die variable Seite (CI) bleibt jeden Trial auf
+  1-down-1-up-Regel. Die variable Seite (CI) bleibt jeden Trial auf
   der Soll-Frequenz `effFreq(i)` der jeweiligen Elektrode — eine
   Pitch-Variation auf der CI-Seite würde benachbarte Elektroden
   anregen und die Messung verfälschen. Damit ist das Vorzeichen
   des resultierenden Match-Werts konsistent zum Slider-Modus und
   zur fRes-Speicherkonvention `cent = 1200 · log2(refFreq/varFreq)`.
 - Konvergiert ein Track, wird er aus dem Pool entfernt. Eine Elektrode
-  gilt als fertig, wenn beide ihrer Tracks fertig sind. Test endet,
+  gilt als fertig, wenn ihr Track fertig ist. Test endet,
   wenn alle Tracks konvergiert, als „kein Fortschritt" oder als „nicht
   wahrnehmbar" abgeschlossen sind.
 
 ### Staircase-Parameter
 
-- **Adaptive Regel**: transformed 2-down-1-up. Zwei aufeinanderfolgende
-  Antworten in dieselbe Richtung → Frequenz wird in dieser Richtung
-  verschoben; eine Antwort in die andere Richtung → sofortige Umkehr.
-  Konvergiert auf den 70,7 %-Punkt der psychometrischen Funktion.
+- **Adaptive Regel**: 1-down-1-up. Nach **jeder** Antwort wird die
+  Referenz-Frequenz in Antwort-Richtung verschoben (var höher → ref
+  anheben; var tiefer → ref senken). Konvergiert direkt auf den Punkt
+  subjektiver Pitch-Gleichheit (PSE = 50%-Punkt der psychometrischen
+  Funktion).
 - **Schrittweiten-Folge**: 50 → 25 → 12 → 6 → 3 cent. Schrittweite wird
   bei jeder Umkehrung halbiert, bis das Minimum erreicht ist; danach
   bleibt sie bei 3 cent.
-- **Startwerte pro Elektrode (zwei Tracks)**:
-  - **Track-up** startet bei `+100 cent` (Ref-Frequenz oberhalb der
-    CI-Soll-Frequenz). Der Track wandert von oben in Richtung Match.
-  - **Track-down** startet bei `−100 cent` (Ref unterhalb). Wandert von
-    unten in Richtung Match.
-  - Symmetrische Startabstände sind essentiell — asymmetrische Startweiten
-    erzeugen Bracketing-Bias (Jensen et al. 2021). Daher **kein**
-    Warmstart aus alten Matches; jeder Lauf startet frisch mit
-    ±100 cent.
+- **Startwert pro Elektrode**: `±100 cent` Cent-Offset gegenüber der
+  CI-Soll-Frequenz. Vorzeichen ergibt sich aus der gepaarten
+  Bracketing-Strategie über Läufe:
+  - **Erster Lauf nach Reset (oder ungepaarter Vorgänger)**: pro
+    Elektrode unabhängig zufällig `+100` oder `−100` cent.
+  - **Folgelauf mit ungepaartem Vorgänger**: pro Elektrode wird **das
+    jeweils andere Vorzeichen** des Vorgänger-Laufs verwendet. Damit
+    bilden je zwei aufeinanderfolgende Läufe ein vollständiges
+    Bracketing-Paar pro Elektrode.
+  - **Lauf nach abgeschlossenem Paar**: gilt wieder als „erster Lauf",
+    pro Elektrode neu gewürfelt — er wird zum ersten Lauf des
+    nächsten Paares.
+  - Implementierung: jeder Lauf speichert `startSigns: { [elIdx]: +1 | -1 }`
+    und ein Flag `pairedToPrevious: bool`. Beim Start eines neuen Laufs
+    wird der letzte abgeschlossene Lauf konsultiert und entschieden,
+    ob dieser Lauf der zweite eines Paares wird oder ein neues Paar
+    beginnt.
+  - **Kein Warmstart aus alten Matches**; jeder Lauf startet aus ±100 cent.
 - **Antwort-Interpretation**: Bei „var höher wahrgenommen als ref" →
   ref-Frequenz war zu tief → ref in Richtung höher verschieben
   (positiver cent-Schritt). Und umgekehrt. Bei reflektierter Reihenfolge
@@ -96,19 +99,23 @@ Fallstricke siehe Pieper et al. 2022 (im `.manuals/`-Ordner).
 ### Konvergenz und Ergebnis-Kategorien
 
 Pro Track gibt es sechs mögliche Endzustände, gestaffelt nach Qualität.
-Die elektroden-finale Klassifikation kombiniert die Status beider Tracks
-(siehe „Elektroden-Status aus zwei Tracks" unten).
 
 **Track-Status:**
 
 | Key | Bedingung | Match-Wert |
 |---|---|---|
-| `converged`        | Min-Schritt + ≥6 Umkehr. + Residuum ≤ 10 ct | Mittelwert der letzten 6 Umkehr. |
-| `converged-fair`   | Min-Schritt + ≥6 Umkehr. + Residuum 11–25 ct | Mittelwert der letzten 6 Umkehr. |
-| `converged-wide`   | Min-Schritt + ≥6 Umkehr. + Residuum 26–50 ct | Mittelwert der letzten 6 Umkehr. |
-| `unstable`         | Hard Cap erreicht + Residuum > 50 ct       | Mittelwert aller Umkehr. (mit Vorbehalt) |
+| `converged`        | Min-Schritt + ≥8 Umkehr. + Residuum ≤ 10 ct | Mittelwert der letzten 6 Umkehr. |
+| `converged-fair`   | Min-Schritt + ≥8 Umkehr. + Residuum 11–25 ct | Mittelwert der letzten 6 Umkehr. |
+| `converged-wide`   | Min-Schritt + ≥8 Umkehr. + Residuum 26–50 ct | Mittelwert der letzten 6 Umkehr. |
+| `unstable`         | Hard Cap erreicht + Residuum > 50 ct       | Mittelwert der letzten 6 Umkehr. (mit Vorbehalt) |
 | `not-perceivable`  | Catch-Fehlerrate ≥ 67 % (mind. 3 Catches)    | kein Wert |
 | `aborted`          | User-Abbruch / Test-Reset                    | kein Wert |
+
+Hinweis zu ≥8 Umkehrungen statt 6: 1-down-1-up hat höhere Trial-zu-Trial-
+Varianz als 2-down-1-up, weil jede Antwort einen Schritt erzeugt. Mit
+8 Umkehrungen ist die Schätzung stabiler; die Residuums-Berechnung
+verwendet weiterhin die **letzten 6** Umkehrungen als Fenster (so bleibt
+die Skala mit früheren Daten und der Literatur vergleichbar).
 
 **Chart-Darstellung pro Track-Status:**
 - `converged`: voller blauer Soll-Punkt (#2563eb) + schwarze I-Träger-Marker,
@@ -119,20 +126,12 @@ Die elektroden-finale Klassifikation kombiniert die Status beider Tracks
 - `not-perceivable`: durchgekreuztes hohles Quadrat am Ist-Strich, kein Soll-Punkt
 - `aborted`: leerer Strich (wie nicht gemessen)
 
-**Elektroden-Status aus zwei Tracks** (Track-up + Track-down):
-- Beide `converged` → Elektrode `converged`
-- Beide konvergiert, aber mindestens einer in `-fair`/`-wide` → Elektrode bekommt
-  den schlechteren der beiden Stati (`converged-fair` oder `converged-wide`).
-  Zusätzlich: wenn |Match_up − Match_down| > 25 ct → Status um eine Stufe
-  herabgesetzt (mindestens `converged-wide`), weil die beiden Staircases
-  systematisch divergent sind.
-- Mindestens einer `unstable` → Elektrode `unstable`
-- Mindestens einer `not-perceivable` → Elektrode `not-perceivable`
-  (kein Match-Wert, auch wenn der andere Track konvergiert wäre)
-- Beide `aborted` → Elektrode `aborted`
+**Verbindungslinie:** Blaue Linie durch alle Soll-Punkte mit bekanntem Match
+(alle Status außer `in-progress-early`). Solid wenn alle Punkte konvergiert;
+gestrichelt (`[5, 4]`) wenn mindestens ein `in-progress`-Punkt enthalten ist.
 
-**Match-Wert pro Elektrode** = Mittelwert der Match-Werte beider Tracks
-(falls beide einen Match liefern).
+**Match-Wert pro Elektrode (pro Lauf)** = direkt der Track-Match
+(Mittelwert der letzten 6 Umkehrungen).
 
 **Konvergenz-Sperre**: Ein Track kann erst als konvergiert (in beliebiger
 Qualitätsstufe) erklärt werden, wenn mindestens 3 Catch-Trials für diesen
@@ -144,8 +143,8 @@ Catch-Trials vorhanden, wird der Track als `not-perceivable` klassifiziert.
 
 ### Ergebnis-Tabelle (Status-Spalte)
 
-Die Ergebnis-Tabelle zeigt den **Elektroden-Status** (kombiniert aus
-beiden Tracks):
+Die Ergebnis-Tabelle zeigt den **Elektroden-Status** (kombiniert über
+Läufe, siehe „Mehrere Läufe und Reliabilität"):
 
 | Zustand | Badge |
 |---|---|
@@ -181,45 +180,58 @@ Dieselbe Logik gilt auch im Status-Grid des Test-Panels: vorläufige
 Match- und Residuum-Werte erscheinen dort kursiv und in gedämpfter
 Farbe (`fm-status-provisional`), sobald die Schwellen erreicht sind.
 
-Die Tabelle enthält 11 Spalten. Zwischen „Diff. (Cent)" und „Status"
+Oberhalb der Tabelle steht ein Beschreibungstext mit den tatsächlichen
+Seitennamen (dynamisch aus `varLabel`/`refLabel`):
+- Zeile 1: „Referenzseite: [REF] · Zielseite: [ZIEL]"
+- Zeile 2: Erläuterung der Messlogik und Tabelleninterpretation
+
+Die Tabelle enthält **9 Spalten** (Elektrode, Freq. [ZIEL] Einstellung,
+Freq. [ZIEL] Wahrnehmung, Diff. Hz, Diff. Cent, Konvergenzweite, Lauf-Streuung,
+Residuum, Status). Die ehemaligen Spalten „Var.-Seite" und „Ref.-Seite"
+entfallen; stattdessen sind die Seitennamen in den Spaltenköpfen
+„Freq. [ZIEL] Einstellung (Hz)" und „Freq. [ZIEL] Wahrnehmung (Hz)"
+direkt enthalten. Zwischen „Diff. (Cent)" und „Status"
 liegen drei Qualitätsspalten:
 
-**Konvergenz u/d (Cent)** — mittlere halbe Umkehr-Spanne der beiden
-Staircases pro Elektrode, getrennt für Track-up (Start +100 ct) und
-Track-down (Start −100 ct). Anzeige im Format `±N / ±M`. Farbneutral,
-ohne Ampelung — eine Roh-Größe für den Nutzer.
-Bei einem Track `not-perceivable`: `✗` an dessen Stelle. Bei
-`aborted`: `—`.
+**Konvergenzweite (Cent)** — halbe Spanne der letzten 6 Umkehrungen,
+gemittelt über alle abgeschlossenen Läufe. Für laufende Tracks
+(`in-progress`): vorläufiger Wert aus `fmResidual` ab 4 Umkehrungen
+(gedämpft grau), darunter `—`. Farbneutral, ohne Ampelung.
+Bei `not-perceivable`: `—`.
 
-**Track-Differenz (Cent)** — gemittelte `|Match_up − Match_down|`
-über alle Läufe einer Elektrode. Großer Wert = die beiden Staircases
-konvergieren weit auseinander, Hinweis auf breite oder mehrdeutige
-Pitch-Wahrnehmung. Farbneutral. Bei einem Track
-`not-perceivable`/`aborted`: `—`.
+**Lauf-Streuung (Cent)** — Standardabweichung der pro-Lauf-Matches.
+Bei N=1 Lauf: `—` (nicht definiert). Bei N≥2 Läufen: σ über die
+Match-Werte. Großer Wert = die Läufe konvergieren weit auseinander,
+Hinweis auf instabile Pitch-Wahrnehmung (Tagesform, Plastizität,
+mehrdeutige Stelle). Farbneutral.
 
 **Residuum (Cent)** — Gesamtmessunsicherheit, quadratisch kombiniert:
 ```
-σ_konv      = (residual_up_mean + residual_down_mean) / 2
-σ_trackHalf = trackDiff_mean / 2
-σ_runHalf   = runSpread / 2
+σ_konv    = Konvergenzweite (mittlere halbe Spanne über Läufe)
+σ_runHalf = Lauf-Streuung (Standardabweichung der Lauf-Matches)
 
-residuum = sqrt(σ_konv² + σ_trackHalf² + σ_runHalf²)
+residuum  = sqrt(σ_konv² + σ_runHalf²)
 ```
-Bei einem Lauf ist `runSpread = 0`, der Wert besteht nur aus
-Konvergenz und halber Track-Differenz. Ampelfarbe:
-≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot. Tooltip zeigt
-Aufschlüsselung: Konvergenz u/d · Track-Differenz · Run-Spannweite
+Bei nur einem Lauf entfällt der σ_runHalf-Term (= 0); Residuum =
+σ_konv. Ampelfarbe: ≤10 ct grün, 11–25 ct gelb-orange, >25 ct rot.
+Tooltip zeigt Aufschlüsselung: Konvergenz · Lauf-Streuung
 (N Lauf/Läufe). Bei `not-perceivable`: „—" (grau).
 
 Hinweis: Die quadratische Kombination ist die übliche Annahme
 für unabhängige Fehlerquellen. Eine **additive** Kombination
-(`σ_konv + σ_trackHalf + σ_runHalf`) wäre konservativer
-(pessimistischer) und ist ebenfalls vertretbar — der Wechsel
-würde sich auf eine einzelne Code-Stelle in
-`_fmAggregateRunsForElectrode` beschränken.
+(`σ_konv + σ_runHalf`) wäre konservativer (pessimistischer) und ist
+ebenfalls vertretbar — der Wechsel würde sich auf eine einzelne
+Code-Stelle in `_fmAggregateRunsForElectrode` beschränken.
 
-Das Chart-Unsicherheitsband liest ebenfalls `fmResiduum` (mit
-Fallback auf `fmResidual` für gespeicherte Altdaten).
+Das Chart-Unsicherheitsband liest ebenfalls `fmResiduum`.
+
+**Hinweis `fmrRunHint`** (gelber Streifen zwischen Chart und Tabelle):
+Wird angezeigt, sobald Messdaten vorhanden sind (laufend oder abgeschlossen)
+und kein `fRes`-Eintrag `fmRunsCount ≥ 2` hat. Text: „Die Restunsicherheit
+der Messung kann erst nach 2 vollständigen Testdurchläufen zuverlässig
+eingeschätzt werden …". Verschwindet erst wenn **alle** `fRes`-Einträge `fmRunsCount ≥ 2` haben
+und kein Track mehr läuft — d.h. der zweite Lauf ist vollständig
+abgeschlossen.
 
 Unterhalb der Tabelle: Button „Frequenzabgleich-Ergebnisse löschen"
 (`fmrClearBtn`, rot) — löscht `fRes` und `freqmatchAdaptive` beider
@@ -234,11 +246,11 @@ Oberhalb der Tabelle (nur bei laufender Messung):
 ### Fortschritt
 
 Pro Track:
-- Endzustand (`converged`, `converged-noisy`, `not-perceivable`)
-  zählt als 1,0.
-- Aktiver Track zählt als `min(reversals / 6, 0,95)` — damit ist
+- Endzustand (`converged`, `converged-fair`, `converged-wide`,
+  `unstable`, `not-perceivable`, `aborted`) zählt als 1,0.
+- Aktiver Track zählt als `min(reversals / 8, 0,95)` — damit ist
   garantiert, daß ein aktiver Track nie wie ein abgeschlossener
-  aussieht.
+  aussieht. Der Nenner 8 entspricht der neuen Mindest-Reversal-Zahl.
 
 Gesamtfortschritt = Mittelwert über alle Tracks, in Prozent. Der
 Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
@@ -260,10 +272,12 @@ Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
   ```
   catchSpread = max(FM_CATCH_MAGNITUDE, 2 * currentTrackResidual)
   ```
-  mit `FM_CATCH_MAGNITUDE = 500 ct` als Untergrenze. Bei sehr unsicheren
-  Tracks (großes Residuum) wäre ±500 ct kein eindeutig hörbarer Unterschied
-  mehr — die Spreizung wächst dann mit dem Residuum mit. Beim ersten
-  Catch-Trial (noch kein Residuum) gilt die Untergrenze.
+  mit `FM_CATCH_MAGNITUDE = 500 ct` als Untergrenze. `currentTrackResidual`
+  ist hier explizit das **lokale** Residuum (halbe Spanne der letzten
+  6 Umkehrungen, via `fmComputeResidual`), nicht die Spanne über alle
+  Reversals — sonst skaliert die Spreizung mit der Track-Historie und
+  wird unrealistisch groß. Beim ersten Catch-Trial (noch keine 6
+  Umkehrungen) gilt die Untergrenze.
 - **Schwelle „nicht wahrnehmbar"**: Catch-Fehlerrate **≥ 67 %**
   (nicht 50 %). Begründung: bei 50 % Schwelle ist die Falsch-Positiv-Rate
   auf 3 Catch-Trials hoch (P[≥2 falsch | guter User] ≈ 12,5 %).
@@ -294,12 +308,15 @@ verfällt die Undo-Möglichkeit.
 - Test ist jederzeit pausierbar (Stop-Button, Esc).
 - Bei Pause wird der vollständige Track-State persistiert:
   Trial-Historie pro Track (Frequenz, Antwort, Catch-Marker),
-  Umkehrpunkte, aktuelle Schrittweite, aktuelle Richtung, Status.
+  Umkehrpunkte, aktuelle Schrittweite, aktuelle Richtung, Status,
+  `startSign` pro Track.
 - Beim erneuten Start: alle nicht abgeschlossenen Tracks gehen zurück
   in den Pool, der Test setzt nahtlos fort.
 - Der Start-Button zeigt „Test fortsetzen" (i18n-Key `fmLblResume`),
-  solange ein pausierter Lauf vorliegt; sonst „Test starten" (`fmLblStart`).
-- Sobald alle Tracks abgeschlossen sind (alle drei Kategorien zählen
+  solange ein pausierter Lauf vorliegt; sonst „Test starten" (`fmLblStart`)
+  bei `runs.length == 0` und „Weiteren Lauf starten" (`fmLblNewRun`)
+  bei abgeschlossenen Läufen.
+- Sobald alle Tracks abgeschlossen sind (alle Endzustände zählen
   als abgeschlossen), gilt der Lauf als vollständig.
 - **Tab-Sperrung während aktivem Test**: alle anderen Tabs und
   Sub-Tabs gesperrt, wie bei den übrigen Tests (`lockTestTabs`).
@@ -330,18 +347,23 @@ Der adaptive Modus nutzt `buildTestPanel` aus `test-ui.js` und braucht
    - Elektroden-Bezeichnung (apikal→basal sortiert, feste Reihenfolge)
    - Status-Text: „⏳ läuft" (noch keine Schätzwerte), „⏳ vorläufig"
      (Schätzwerte vorhanden, kursiv angezeigt), „✓ konvergiert",
-     „◐ unsicher", „✗ nicht wahrnehmbar"
+     „◐ leichte Streuung", „◐ breite Streuung", „⚠ unstabil",
+     „✗ nicht wahrnehmbar"
    - Aktueller Match in cent (oder „—" für nicht wahrnehmbar)
    - Residuum „±N ct"
-   - Anzahl Vergleiche (Spalte „Vergleiche")
+   - Anzahl Vergleiche
    - Catch-Statistik klein (z. B. „0/2")
+
+Eine Zeile pro Elektrode, **keine** Aufsplittung in Sub-Tracks (es gibt
+pro Lauf nur einen Track pro Elektrode).
 
 Übrige `buildTestPanel`-Sektionen werden im adaptiven Modus wie folgt
 verwendet:
 
 - `rowMode.modeSelect`: zwei Optionen `slider` / `adaptive`. Default
-  `adaptive`. Bei Wechsel wird der Test-Block-Inhalt entsprechend
-  umgeschaltet (Slider ausblenden / heightJudgment einblenden, etc.).
+  `adaptive`. Option `slider` ist `disabled` (ausgegraut, nicht wählbar).
+  Bei Wechsel wird der Test-Block-Inhalt entsprechend umgeschaltet
+  (Slider ausblenden / heightJudgment einblenden, etc.).
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
 - `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
   Slider- und adaptiven Modus). Kürzere Töne erzwingen Bauch-Antworten
@@ -350,7 +372,7 @@ verwendet:
 - `rowSequence.toneType`: global. Default-Stimulus ist **`complex`**
   (harmonischer Komplexton, Grundton + 4 Harmonische). Begründung: starke
   Pitch-Wahrnehmung durch residue pitch + reichhaltigeres Timbre als
-  reiner Sinus, näher am CI-Klang. Alternativ verfügbar (neu): `pulsedComplex`
+  reiner Sinus, näher am CI-Klang. Alternativ verfügbar: `pulsedComplex`
   — wie `complex`, aber mit zusätzlicher 100 Hz AM-Hüllkurve, die die
   Pulsraten-Hüllkurve aller CI-Strategien grob simuliert.
 - `rowSequence.sequence`: im adaptiven Modus ausgeblendet (AB fest).
@@ -369,8 +391,8 @@ verwendet:
 
 ### Erklärungstext (i18n DE)
 
-Vorschlag für die zentralen i18n-Keys (en/fr/es kommen separat nach
-[[feedback_bauanleitungen_i18n]]):
+Zentrale i18n-Keys (en/fr/es werden nicht mehr geführt, der Test ist
+nur in deutscher Sprache):
 
 - `fmExplainAdaptiveIntro`: „Sie hören zwei kurze Töne hintereinander.
   Beantworten Sie nur: war der zweite Ton höher oder tiefer als der
@@ -382,7 +404,8 @@ Vorschlag für die zentralen i18n-Keys (en/fr/es kommen separat nach
   „unsicher" ein."
 - `fmExplainAdaptivePause`: „Der Test läuft, bis alle Elektroden
   ausreichend genau gemessen sind. Sie können jederzeit pausieren und
-  später fortsetzen."
+  später fortsetzen. Weitere Messdurchgänge verbessern die
+  Zuverlässigkeit des Ergebnisses."
 - `bHigher`: „höher"
 - `bLower`: „tiefer"
 
@@ -415,18 +438,23 @@ Per-Seite gespeichert in `sideData[side]`:
         runId:       string,        // z.B. ISO-Timestamp
         startedAt:   timestamp,
         completedAt: timestamp | null,
+        electrodeIdxList: number[],
+        startSigns:  { [electrodeIdx]: +1 | -1 },   // Startvorzeichen pro Elektrode
+        pairedToPrevious: bool,     // true = dieser Lauf ist der zweite eines
+                                     // Bracketing-Paares (Startsigns invertiert
+                                     // zum Vorgänger)
         tracks: {
-          // Pro Elektrode zwei Tracks: '<idx>:up' und '<idx>:down'
-          [trackKey]: {
+          // Pro Elektrode genau ein Track. Key = String(electrodeIdx)
+          [electrodeIdx]: {
             electrodeIdx: number,
-            direction:    'up' | 'down',   // Start oberhalb/unterhalb
-            startOffset:  +100 | -100,     // cent
+            startSign:    +1 | -1,             // = startSigns[electrodeIdx]
+            startOffset:  +100 | -100,          // cent (= startSign * 100)
             currentOffset: number,
-            trialHistory: [{ trial, varFreq, response, isCatch,
+            trialHistory: [{ trial, varOffset, response, isCatch,
                              catchCorrect, firstSide }],
             reversals:    [centValues],
             stepSize:     number,
-            stepDir:      'up' | 'down',
+            lastMoveDir:  'up' | 'down' | null,
             status:       'active' | 'converged' | 'converged-fair' |
                           'converged-wide' | 'unstable' |
                           'not-perceivable' | 'aborted',
@@ -437,15 +465,13 @@ Per-Seite gespeichert in `sideData[side]`:
             trialCount:   number
           }
         },
-        roundQueue:    [trackKey, ...],   // aktuelle Round-Robin-Reihenfolge
+        roundQueue:    [electrodeIdx, ...],   // aktuelle Round-Robin-Reihenfolge
         perElectrode: {
           [electrodeIdx]: {
-            matchUp:     centOffset | null,
-            matchDown:   centOffset | null,
-            finalMatch:  centOffset | null,   // Mittelwert beider Tracks
-            residual:    cents | null,        // Mittel der beiden Residuen
-            status:      'converged' | 'converged-fair' | 'converged-wide' |
-                         'unstable' | 'not-perceivable' | 'aborted'
+            match:    centOffset | null,
+            residual: cents | null,
+            status:   'converged' | 'converged-fair' | 'converged-wide' |
+                      'unstable' | 'not-perceivable' | 'aborted'
           }
         }
       }
@@ -459,28 +485,41 @@ Per-Seite gespeichert in `sideData[side]`:
 - `fRes[electrodeIdx]` — robust kombiniertes Ergebnis über alle Läufe:
   ```
   {
-    cent:                 centOffset | null,   // Median über runs[].perElectrode[i].finalMatch
+    cent:                 centOffset | null,   // Median über runs[].perElectrode[i].match
                                                 // (bei 1 Lauf: einfach der Wert; bei 2: Mittelwert;
                                                 // bei 3+: echter Median, robust gegen Ausreißer-Läufe)
     runsCount:            number,              // Anzahl der Läufe, die beigetragen haben
-    status,                                    // siehe Elektroden-Status, robust kombiniert über Läufe
+    status,                                    // Aggregierter Status, match-priorisierend:
+                                                //   - bei N≥1 Match-liefernden Läufen: schlechtester
+                                                //     Status DIESER Läufe
+                                                //   - sonst: schlechtester Status aller Läufe
     timestamp,
     varSide, refSide, varFreq, refFreq,
-    // Konvergenz-Detail (BA 99)
-    fmConvUp, fmConvDown,    // mittlere halbe Umkehr-Spannen je Track (über Läufe)
-    fmTrackDiff,             // mittlere |Match_up − Match_down| (über Läufe)
-    fmRunSpread,             // max−min der pro-Lauf-Match-Mittelwerte
-    fmResiduum,              // Gesamtmessunsicherheit quadratisch: sqrt(σ_konv²+σ_trackHalf²+σ_runHalf²)
-    fmStatusUpLast, fmStatusDownLast,  // Status des letzten Track-Laufs je Direction
+    fmConv,                  // mittleres Konvergenz-Residuum über Läufe
+    fmRunSpread,             // Standardabweichung der pro-Lauf-Matches; null bei N=1
+    fmResiduum,              // Gesamtmessunsicherheit quadratisch: sqrt(σ_konv² + σ_runHalf²)
+    fmStatusLast,            // Status des letzten Laufs (für Diagnose)
     // Übergangsfelder (für Chart, Druck, Altdaten-Kompat)
-    fmResidual,              // = meanResidual (Konvergenz-Mittel, für Qualitätstext)
+    fmResidual,              // = fmConv (für Altdaten-Aufrufer)
     fmCombinedUncertainty,   // = fmResiduum (Brücke für Chart-Aufrufer)
-    fmDelta:    null          // ungenutzt seit BA 93
+    fmDelta:    null         // ungenutzt
   }
   ```
 
   Der `cent`-Wert ist die Quelle für Folge-Systeme (Frequenz-Warp, Druck,
   Chart). „Nicht wahrnehmbar" in allen Läufen → `cent = null`.
+
+  **Altdaten-Behandlung**: vorhandene `freqmatchAdaptive`-Objekte mit
+  Zwei-Track-Schema (Keys `<idx>:up`, `<idx>:down`) werden beim Laden
+  **verworfen** (Sub-Objekt auf `null` gesetzt). Es gibt keine Migration.
+  Alte `fRes`-Einträge, die noch Felder wie `fmConvUp`, `fmConvDown`,
+  `fmTrackDiff` enthalten, werden ignoriert; die neue Aggregat-Logik
+  schreibt die neuen Felder beim nächsten Lauf.
+  **Slider-fRes-Einträge** (kein `fmStatus`-Feld) werden beim Laden
+  stillschweigend herausgefiltert — sie sind mit dem adaptiven
+  Auswertungsmodell nicht kompatibel. Begründung: bisherige
+  Daten stammen aus Test-Läufen ohne klinischen Wert, ein sauberer
+  Neustart ist einfacher und vermeidet Format-Übersetzung.
 
 **Anti-Überschreib-Logik** beim Start eines neuen Laufs:
 - Bei `runs.length ≥ 1` und letztem Lauf abgeschlossen: Bestätigungs-Dialog
@@ -508,7 +547,8 @@ Per-Seite gespeichert in `sideData[side]`:
   oben).
 - Bestehende gespeicherte Dateien (JSON-Export, localStorage) bleiben
   ohne Migration weiter ladbar — das neue Sub-Objekt fehlt bei Altdaten
-  einfach und der Test startet im adaptiven Modus „frisch".
+  einfach (oder wird mit altem Schema verworfen) und der Test startet
+  im adaptiven Modus „frisch".
 
 ### Multi-User-Tauglichkeit
 
@@ -525,101 +565,40 @@ unterstützten Hörkonfigurationen:
   „akustische Wahrheit", sondern die Relation der beiden CI-Maps
   zueinander. Auswahl der Referenzseite per `refSelect` wie bisher.
 
-### Bekannte Einschränkungen
+### Mehrere Läufe und Reliabilität
 
-Die Pitch-Match-Methode hat fundamentale Bias-Quellen, die selbst durch
-sorgfältige Methodik nur teilweise zu eliminieren sind. Pieper et al. 2022
-listet sie systematisch auf (Abschnitt „Frequency Mismatch Measurements"):
+Die `runs[]`-Architektur erlaubt beliebig viele vollständige
+Staircase-Läufe pro Seite. Jeder Lauf wird an `runs[]` angehängt; der
+aktuelle `fRes`-Eintrag pro Elektrode ist die robuste Kombination über
+alle Läufe.
 
-- **Klangfarben-/Stimulus-Spezifität** (Adel et al. 2019; Lazard et al. 2012):
-  Pitch hängt von akustischem Stimulustyp ab; reiner Sinus vs. CI-Pulsstimulation
-  klingt fundamental anders, der User vergleicht implizit auch Timbre. Wir
-  mindern das durch **harmonischen Komplexton als Default** und kurze
-  Töne (200 ms), die Bauch-Antworten erzwingen.
-- **Pegelabhängigkeit** (Sagi & Svirsky 2021): Lautere Töne werden als höher
-  wahrgenommen. Pegelkorrektur (`fmCorrGain`) und vorgelagertes
-  Loudness-Balancing minimieren das, hängen aber an der Hardware-Kapazität
-  (z. B. genügend Lautsprecher-Headroom).
-- **2-down-1-up konvergiert nicht exakt auf Match**: einzelne Staircase
-  konvergiert auf die 70,7-%-Schwelle, was bei einer Match-Aufgabe
-  systematisch neben dem Match-Punkt liegt. **Zwei verschränkte Staircases
-  pro Elektrode** (von oben und unten) kompensieren das.
-- **Bracketing-/Range-Effekt** (Jensen et al. 2021): Mittelwerte verschieben
-  sich weg vom Rand des Antwortbereichs. Symmetrische, gleichweite Startwerte
-  (±100 cent) für beide Staircases halten das in Schach; kein Warmstart aus
-  alten Matches.
-- **Plastizität** (Reiss et al. 2015; Pieper et al. 2022): Bei erfahrenen
-  CI-Trägern hat sich die Pitch-Wahrnehmung schon nach wenigen Monaten an
-  die programmierten Frequenzbänder angepaßt. Der Test mißt die *aktuelle*
-  Wahrnehmung, nicht eine objektive anatomische Wahrheit. Für ein
-  Self-Balancing-Tool ist das das richtige Maß. Im Erklärungstext sollte
-  offen kommuniziert werden, daß sich Match-Werte über Wochen und Monate
-  verschieben können und bei größeren MAP-Änderungen neu gemessen werden
-  sollten. Der Anti-Überschreib-Dialog warnt automatisch bei Daten >7 Tage.
-- **Pitch-Match-Plastizität innerhalb einer Sitzung**: Pitch-Wahrnehmungen
-  können sich auch kurzfristig verschieben. Mehrere Läufe mit Median-Bildung
-  fangen das auf (siehe „Mehrere Läufe und Reliabilität").
-- **Konvergenz-Schwelle 10 cent**: Sportlich; CI-Pitch-Match-Streuungen
-  liegen in der Literatur oft bei 20-100 cent. Die abgestuften Qualitäts-
-  Kategorien (`converged` / `-fair` / `-wide`) machen sichtbar, welche
-  Elektroden die strenge Schwelle erreichen.
-
-Pieper kommt zum Schluß, daß Pitch-Matching für die rein binaurale
-Frequenz-Mismatch-Bestimmung nicht ideal sei (er empfiehlt CT-Imaging
-oder ITD-Sensitivität). Beides ist im Browser nicht machbar; Pitch-Matching
-bleibt für ein Self-Service-Tool das einzig praktikable Verfahren. Die
-oben genannten Maßnahmen drücken die Bias-Quellen so weit wie methodisch
-möglich.
-
-### Aufteilung der Bauanleitungen
-
-Grund-Architektur (umgesetzt, BA 72–82): `buildTestPanel`-Erweiterung,
-Mode-Switch, Staircase-Kern, Status-Grid, Pause/Resume, Catch-Trials,
-Ergebnis-Chart, i18n DE.
-
-Konzept-Überarbeitung 2026-05 (neu, BA 91–97):
-
-- **BA 91** — Bugfix Replay/Simul-Buttons im Adaptive-Modus
-- **BA 92** — Audio-Defaults (Stimulus `complex`, Dauer/Pause 200 ms) +
-  neue Tonart `pulsedComplex`
-- **BA 93** — `runs[]`-Architektur + Anti-Überschreib-Dialog
-- **BA 94** — Zwei verschränkte Staircases pro Elektrode (Track-up + Track-down)
-- **BA 95** — `combinedUncertainty` in `fRes`, Tabellen-Spalte verallgemeinern
-- **BA 96** — Konvergenz-Verfeinerung (5 Status-Kategorien, Catch-Schwelle 67 %,
-  adaptive Catch-Spreizung)
-- **BA 97** — Anker-Randomisierung im Restpool
-- **BA 98** — Cleanup: zweiter Fortschrittsbalken und Lauf-2-Reste entfernen,
-  Anti-Überschreib-Dialog ab `runs.length ≥ 1`
-- **BA 99** — Drei Ergebnis-Spalten (Konvergenz u/d, Track-Differenz,
-  Residuum) statt zwei. Tooltip mit Run-Spannweite. Chart-Band liest
-  künftig fmResiduum statt fmResidual.
-
-i18n en/fr/es bleibt als separate Mini-Anleitung am Ende der Reihe.
-
----
-
-## Mehrere Läufe und Reliabilität
-
-Die `runs[]`-Architektur (siehe „Storage") erlaubt beliebig viele
-vollständige Staircase-Läufe pro Seite. Jeder Lauf wird an `runs[]`
-angehängt; der aktuelle `fRes`-Eintrag pro Elektrode ist die robuste
-Kombination über alle Läufe.
-
-### Kombination über mehrere Läufe
-
-- **1 Lauf**: `cent` = `runs[0].perElectrode[i].finalMatch`.
-- **2 Läufe**: `cent` = Mittelwert beider Lauf-Matches.
+**Kombination über mehrere Läufe:**
+- **1 Lauf**: `cent` = `runs[0].perElectrode[i].match`.
+- **2 Läufe**: `cent` = Mittelwert beider Lauf-Matches. (Da die beiden
+  Läufe gepaartes Bracketing bilden, ist das auch der zentrale
+  Anti-Bias-Schritt — die ±100-ct-Anker werden gemittelt.)
 - **3+ Läufe**: `cent` = **Median** der Lauf-Matches. Median ist robust
   gegen einen einzelnen ausreißenden Lauf (z. B. schlechte Tagesform).
 - `not-perceivable` in einem Lauf, aber Match in einem anderen: der
   Match-liefernde Lauf zählt mit; bei Mehrheit `not-perceivable` →
   finale Elektrode `not-perceivable`.
 
+**Status-Aggregation match-priorisierend:**
+Wenn mindestens ein Lauf einen Match liefert, wird der Status aus den
+Match-liefernden Läufen bestimmt (schlechtester Status davon).
+Andernfalls wird der schlechteste Status aller Läufe verwendet.
+Dadurch entstehen keine inkonsistenten `fRes`-Einträge mit Status
+„not-perceivable" und gleichzeitig gültigem `cent`-Wert.
+
 `fmResiduum` ist die Gesamtmessunsicherheit über alle Läufe
-(siehe „Storage" und Tabellenspalte „Residuum").
+(siehe „Storage" und Tabellenspalte „Residuum"):
+```
+σ_konv    = mittleres Konvergenz-Residuum über Läufe (fmConv)
+σ_runHalf = Standardabweichung der Lauf-Matches (fmRunSpread)
+fmResiduum = sqrt(σ_konv² + σ_runHalf²)
+```
 
-### UI
-
+**UI:**
 - Start-Button-Beschriftung:
   - kein laufender Test, `runs.length == 0` → „Test starten" (`fmLblStart`)
   - pausierter Lauf → „Test fortsetzen" (`fmLblResume`)
@@ -630,11 +609,145 @@ Kombination über alle Läufe.
   (letzter Lauf abgeschlossen) oder bei letztem Lauf älter als 7 Tage
   (siehe „Storage").
 
-### Historie der Bauanleitungen (zur Orientierung)
+---
 
-- BA 88–90 (überholt): erste Lauf-1/Lauf-2-Architektur mit `prevMatchCent`,
-  `fmDelta`. Wurde durch BA 93/94 ersetzt (zwei verschränkte Staircases im
-  selben Lauf + `runs[]`-Array). `fmDelta` wird in `fRes`-Einträgen weiter
-  gesetzt (= `null`), aber seit BA 95 nicht mehr angezeigt; die Tabellenspalte
-  zeigte stattdessen `fmCombinedUncertainty` als „Unsicherheit (ges.)" (BA 95–98).
-  Ab BA 99 drei Spalten: Konvergenz u/d, Track-Differenz, Residuum.
+## Wissenschaftliche Grundlage und Grenzen
+
+Dieser Abschnitt erscheint im UI als **eingeklapptes Akkordeon am Ende
+des Test-Tabs** unter der Überschrift „Wissenschaftliche Grundlage und
+Grenzen" (i18n-Key `fmExplainAdaptiveScience`). Er ist für User
+gedacht, die die Methodik verstehen möchten — Pflicht-Lektüre ist er
+nicht.
+
+### Verwendete Methode
+
+Sequentielle 2-Intervall-2-Alternative-Forced-Choice-Aufgabe (2I-2AFC)
+mit adaptiver **1-down-1-up**-Regel nach Levitt (1971). Die
+Referenz-Frequenz wird nach jeder Antwort in Antwort-Richtung
+verschoben; die Schrittweite halbiert sich nach jeder Umkehrung der
+Bewegungsrichtung (Sequenz 50 → 25 → 12 → 6 → 3 cent). Das Verfahren
+konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE,
+50 %-Punkt der psychometrischen Funktion).
+
+### Bekannte Bias-Quellen und Gegenmaßnahmen
+
+- **Range-Bias** (Carlyon, Macherey et al. 2010; Jensen et al. 2021):
+  Die Wahl der getesteten Frequenzen beeinflußt das Ergebnis, weil
+  Antworten unbewußt am Mittelpunkt des Antwortbereichs zentrieren.
+  Wir mindern das durch Coverage **aller** aktiven Elektroden in
+  randomisierter Reihenfolge — der „Antwortbereich" entspricht dem
+  realen Elektroden-Bereich, nicht einem künstlichen Test-Range.
+- **Startpunkt-Bias** (Carlyon, Macherey et al. 2010; Schatzer et al.
+  2014): Der Startwert eines adaptiven Tracks beeinflußt das Ergebnis,
+  weil die ersten Antworten den Erwartungsraum aufspannen. Gegenmaßnahme
+  hier: **gepaartes Bracketing über Läufe** — jeder Lauf wählt pro
+  Elektrode einen zufälligen Startwert ±100 cent; der direkt folgende
+  Lauf nimmt jeweils das andere Vorzeichen. Nach zwei Läufen ist jede
+  Elektrode aus beiden Richtungen angepeilt, der Bias mittelt sich
+  heraus.
+- **Stimulus-Spezifität** (Adel et al. 2019; Lazard et al. 2012): Pitch
+  hängt vom akustischen Stimulustyp ab; reiner Sinuston vs.
+  CI-Pulsstimulation klingt fundamental unterschiedlich. Wir verwenden
+  als Default einen **harmonischen Komplexton** (Grundton + 4
+  Harmonische), der näher am CI-Klang ist als ein reiner Sinus.
+- **Pegelabhängigkeit** (Sagi & Svirsky 2021): Lautere Töne werden als
+  höher wahrgenommen. Pegelkorrektur über `fmCorrGain` und vorgelagertes
+  Loudness-Balancing minimieren das. Die Kompensation hängt von der
+  Hardware-Kapazität ab (Lautsprecher-Headroom).
+- **Plastizität** (Reiss et al. 2015; Pieper et al. 2022): Bei erfahrenen
+  CI-Trägern paßt sich die Pitch-Wahrnehmung schon nach wenigen Monaten
+  an die programmierten Frequenzbänder an. Der Test mißt die *aktuelle*
+  Wahrnehmung, nicht eine objektive anatomische Wahrheit. Für ein
+  Self-Balancing-Tool ist das das richtige Maß. Match-Werte können sich
+  über Wochen und Monate verschieben und sollten bei größeren
+  MAP-Änderungen neu gemessen werden. Der Anti-Überschreib-Dialog warnt
+  automatisch bei Daten älter als 7 Tage.
+- **Pitch-Match-Plastizität innerhalb einer Sitzung**: Pitch-Wahrnehmung
+  kann sich auch kurzfristig verschieben (z. B. durch Aufmerksamkeit,
+  Tagesform). Mehrere Läufe mit Median-Bildung fangen das auf.
+- **Konvergenz-Schwelle 10 cent**: Sportlich; CI-Pitch-Match-Streuungen
+  liegen in der Literatur oft bei 20–100 cent. Die abgestuften
+  Qualitäts-Kategorien (`converged` / `-fair` / `-wide`) machen sichtbar,
+  welche Elektroden die strenge Schwelle erreichen und welche nicht.
+
+### Fundamentale Grenze der Methode
+
+Es gibt **kein als zuverlässig anerkanntes Verfahren** zur
+binauralen Frequenz-Mismatch-Bestimmung, das im Browser durchführbar
+wäre. Pieper et al. 2022 (S. 11) schreiben wörtlich:
+
+> „Overall pitch matching does not appear to be suitable to estimate the
+> mismatch for the purpose of improving binaural hearing."
+
+Pieper empfiehlt stattdessen CT-Bildgebung der Elektroden-Position oder
+ITD-Sensitivitäts-Messungen — beides klinische Verfahren, die ein
+Browser-Tool nicht leisten kann.
+
+Jensen et al. 2021 vergleichen drei Pitch-Vergleichs-Methoden bei
+bilateralen CI-Trägern (Discrimination, Ranking, Matching) und finden,
+daß **Ranking** (binäre Suche über alle Elektroden) die methodisch
+robusteste ist — Matching ist „second-best", aber mit kleinen, in der
+Größenordnung tolerierbaren Bias-Effekten (Range-Slope 0,24;
+Referenz-Slope 0,59; Startpunkt-Slope 0,11 — alle unter dem
+Carlyon-Kriterium 0,5). Dieses Tool verwendet bewußt Matching, weil
+nur Matching absolute Cent-Werte liefert, die für die
+Frequenz-Korrekturkurve gebraucht werden; ein Ranking-Verfahren würde
+nur eine relative Pitch-Reihenfolge ohne absolute Frequenz-Werte
+erzeugen.
+
+### Was die Messung kann — und was nicht
+
+**Sie kann**: einen reproduzierbaren Anhaltspunkt liefern, in welche
+Richtung und mit welcher Größenordnung die wahrgenommene Pitch-Zuordnung
+einzelner Elektroden von der programmierten Frequenz-Allokation
+abweicht. Sie ist genauer als die alleinige Method-of-Adjustment per
+Slider und liefert mit `Residuum` und `Lauf-Streuung` Maße für die
+eigene Zuverlässigkeit.
+
+**Sie kann nicht** entscheiden, ob eine gemessene Korrektur am CI
+tatsächlich zu besserem Sprachverstehen oder angenehmerem Klang führt.
+Die endgültige Bewertung muß durch **eigenes Hören** erfolgen — im
+Player dieses Tools (Sprachdatensätze und Musik mit und ohne Korrektur),
+in einem vom Audiologen eingestellten Frequenz-Experimentier-Programm,
+und vor allem im Alltag. Das CI-Sound-Balancing-Tool stellt die
+Werkzeuge dafür bereit; die Entscheidung über die richtige Korrektur
+liegt beim User und seinem Audiologen.
+
+### Quellen
+
+- **Adel, Y., Nagel, S., Weissgerber, T., Baumann, U., & Macherey, O.
+  (2019).** Pitch matching in cochlear implant users with single-sided
+  deafness: Effects of electrode position and acoustic stimulus type.
+  *Frontiers in Neuroscience, 13*, 1119.
+- **Carlyon, R. P., Macherey, O., Frijns, J. H., Axon, P. R., Kalkman,
+  R. K., Boyle, P., … Dauman, R. (2010).** Pitch comparisons between
+  electrical stimulation of a cochlear implant and acoustic stimuli
+  presented to a normal-hearing contralateral ear. *Journal of the
+  Association for Research in Otolaryngology, 11*(4), 625–640.
+- **Jensen, K. K., Cosentino, S., Bernstein, J. G. W., Stakhovskaya,
+  O. A., & Goupell, M. J. (2021).** A comparison of place-pitch-based
+  interaural electrode matching methods for bilateral cochlear-implant
+  users. *Trends in Hearing, 25*, 1–21.
+- **Lazard, D. S., Marozeau, J., & McDermott, H. J. (2012).** The sound
+  sensation of apical electric stimulation in cochlear implant recipients
+  with contralateral residual hearing. *PLoS One, 7*(6), e38687.
+- **Levitt, H. (1971).** Transformed up-down methods in psychoacoustics.
+  *Journal of the Acoustical Society of America, 49*(2), 467–477.
+- **Pieper, S. H., Hamze, N., Brill, S., Hochmuth, S., Exter, M., Polak,
+  M., … Dietz, M. (2022).** Considerations for fitting cochlear implants
+  bimodally and to the single-sided deaf. *Trends in Hearing, 26*, 1–25.
+- **Reiss, L. A., Ito, R. A., Eggleston, J. L., Liao, S., Becker, J. J.,
+  Lakin, C. E., … McMenomey, S. O. (2015).** Pitch adaptation patterns
+  in bimodal cochlear implant users: Over time and after experience.
+  *Ear and Hearing, 36*(2), e23–e34.
+- **Sagi, E., & Svirsky, M. A. (2021).** A possible level correction to
+  the cochlear frequency-to-place map: Implications for cochlear
+  implants. *20th Conference on Implantable Auditory Prosthesis, Lake
+  Tahoe, CA.*
+- **Schatzer, R., Vermeire, K., Visser, D., Krenmayr, A., Kals, M.,
+  Voormolen, M., … Zierhofer, C. (2014).** Electric-acoustic pitch
+  comparisons in single-sided-deaf cochlear implant users: Frequency-place
+  functions and rate pitch. *Hearing Research, 309*, 26–35.
+
+Pieper und Jensen liegen vollständig im Ordner `.manuals/` vor; die
+übrigen Quellen sind über die genannten DOIs/Journals zugänglich.

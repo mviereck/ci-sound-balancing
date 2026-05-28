@@ -182,70 +182,42 @@ function setActiveSide(side) {
   else plCheck();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
+// Alt-Daten verwerfen: das neue Schema (1 Track je Elektrode je Lauf) ist nicht
+// kompatibel mit den älteren Speicherständen (2-Track-Schema mit ':up'/':down'
+// Keys, oder noch älterem lauf1Result-Format). Statt einer riskanten Migration
+// werden alte Frequenzabgleichs-Daten beim Laden verworfen; alle übrigen
+// Mess-Datentypen (Slider, Vergleich, …) bleiben erhalten.
+//
+// Korrespondierend dazu räumt _fmCleanupLegacyFRes() Einträge aus fRes weg,
+// die noch die alten Detail-Felder tragen (sie stammen sicher aus dem alten
+// 2-Track-Schema und sind mit der neuen Auswertung nicht vereinbar). Wird in
+// file.js und init.js nach dem fRes-Load aufgerufen.
+function _fmCleanupLegacyFRes() {
+  if (typeof fRes === 'undefined' || !Array.isArray(fRes)) return;
+  for (let i = fRes.length - 1; i >= 0; i--) {
+    const r = fRes[i];
+    if (!r) continue;
+    if (r.fmConvUp != null || r.fmConvDown != null || r.fmTrackDiff != null
+        || r.fmStatusUpLast != null || r.fmStatusDownLast != null) {
+      fRes.splice(i, 1);
+    }
+  }
+}
 function _fmMigrateAdaptive(fa) {
   if (!fa) return null;
-  if (Array.isArray(fa.runs)) return fa;   // schon neues Schema
+  if (!Array.isArray(fa.runs)) return null;   // Vor-runs[]-Schemas → weg
 
-  // Altes Schema: { currentLauf, lauf1Result, tracks, roundQueue,
-  //                 varSide, refSide, electrodeIdxList, startedAt, completedAt }
-  const out = { runs: [], currentRunIdx: null };
-
-  if (fa.lauf1Result) {
-    const lauf1Tracks = {};
-    Object.keys(fa.lauf1Result).forEach(function(k) {
-      const m = fa.lauf1Result[k];
-      lauf1Tracks[k] = {
-        electrodeIdx: parseInt(k, 10),
-        status:       (m != null) ? 'converged' : 'not-perceivable',
-        match:        m,
-        residual:     null,
-        reversals:    [],
-        trialHistory: [],
-        stepSize:     3,
-        catchTotal:   0,
-        catchErrors:  0,
-        trialCount:   0,
-        _migrated:    true
-      };
-    });
-    out.runs.push({
-      runId:            'migrated-lauf-1',
-      startedAt:        fa.startedAt || 0,
-      completedAt:      fa.startedAt || 0,
-      varSide:          fa.varSide,
-      refSide:          fa.refSide,
-      electrodeIdxList: fa.electrodeIdxList || [],
-      tracks:           lauf1Tracks,
-      roundQueue:       []
-    });
+  // Wenn irgendein Lauf noch das alte 2-Track-Key-Schema ':up'/':down' hat,
+  // ist das gesamte Aggregat nicht mehr verlässlich aggregierbar → verwerfen.
+  for (let i = 0; i < fa.runs.length; i++) {
+    const r = fa.runs[i];
+    if (!r || !r.tracks) continue;
+    const keys = Object.keys(r.tracks);
+    for (let j = 0; j < keys.length; j++) {
+      if (keys[j].indexOf(':') >= 0) return null;
+    }
   }
-
-  if (fa.tracks && fa.currentLauf === 2) {
-    out.runs.push({
-      runId:            'migrated-lauf-2',
-      startedAt:        fa.startedAt || 0,
-      completedAt:      fa.completedAt,
-      varSide:          fa.varSide,
-      refSide:          fa.refSide,
-      electrodeIdxList: fa.electrodeIdxList || [],
-      tracks:           fa.tracks,
-      roundQueue:       Array.isArray(fa.roundQueue) ? fa.roundQueue.slice() : []
-    });
-  } else if (fa.tracks && fa.currentLauf !== 2) {
-    out.runs.push({
-      runId:            'migrated-lauf-1',
-      startedAt:        fa.startedAt || 0,
-      completedAt:      fa.completedAt,
-      varSide:          fa.varSide,
-      refSide:          fa.refSide,
-      electrodeIdxList: fa.electrodeIdxList || [],
-      tracks:           fa.tracks,
-      roundQueue:       Array.isArray(fa.roundQueue) ? fa.roundQueue.slice() : []
-    });
-  }
-
-  out.currentRunIdx = out.runs.length > 0 ? out.runs.length - 1 : null;
-  return out;
+  return fa;
 }
 
 function loadSideData(side, d) {

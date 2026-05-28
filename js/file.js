@@ -484,10 +484,12 @@ function applyLoadedData(d) {
   if (typeof latRenderResults === "function") latRenderResults();
   if (typeof fRes !== "undefined") {
     if (Array.isArray(d.fRes)) {
-      fRes.splice(0, fRes.length, ...d.fRes);
+      const adaptiveOnly = d.fRes.filter(function(r) { return r.fmStatus != null; });
+      fRes.splice(0, fRes.length, ...adaptiveOnly);
     } else {
       fRes.splice(0, fRes.length); // keine fRes im JSON → zurücksetzen
     }
+    if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
   }
   // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
   if (typeof pWarpOn !== "undefined") {
@@ -527,6 +529,7 @@ function applyLoadedData(d) {
   buildFreqTable();
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+  if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
   if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;

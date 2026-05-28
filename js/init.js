@@ -695,6 +695,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
         fRes.splice(0, fRes.length, ...d.fRes);
+        if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
       if (typeof d.userFileSuffix === "string") {
@@ -723,6 +724,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pBuildEQ === "function") pBuildEQ();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+      if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter

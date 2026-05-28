@@ -610,7 +610,7 @@ Object.assign(L.de, {
     fmGridEl:          "Elektrode",
     fmGridStatus:      "Status",
     fmGridMatch:       "Match",
-    fmGridResid:       "Residuum",
+    fmGridResid:       "Konvergenzweite (ct)",
     fmGridTrials:      "Vergleiche",
     fmGridCatch:       "Catch",
     fmExplainAdaptiveIntro:
@@ -618,24 +618,42 @@ Object.assign(L.de, {
     fmExplainAdaptiveGuess:
       "Wenn Sie keinen oder nur einen der Töne hören: einfach raten. Falsche Antworten in einem Bereich, in dem Sie wenig hören, sind kein Fehler — die Messung erkennt das selbst und stuft die Elektrode in diesem Bereich als „nicht wahrnehmbar“ oder „unsicher“ ein.",
     fmExplainAdaptivePause:
-      "Der Test läuft, bis alle Elektroden ausreichend genau gemessen sind. Sie können jederzeit pausieren und später fortsetzen.",
+      "Der Test läuft, bis alle Elektroden ausreichend genau gemessen sind. Sie können jederzeit pausieren und später fortsetzen. Weitere Meßdurchgänge verbessern die Zuverlässigkeit des Ergebnisses.",
+    fmExplainAdaptiveScienceTitle:
+      "Wissenschaftliche Grundlage und Grenzen",
+    fmExplainAdaptiveScience:
+      "<p><strong>Verwendete Methode.</strong> Sequentielle 2-Intervall-2-Alternative-Forced-Choice-Aufgabe (2I-2AFC) mit adaptiver 1-down-1-up-Regel nach Levitt (1971). Die Referenz-Frequenz wird nach jeder Antwort in Antwort-Richtung verschoben; die Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung (50 → 25 → 12 → 6 → 3 cent). Das Verfahren konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE, 50 %-Punkt).</p>"
+      + "<p><strong>Bekannte Bias-Quellen und Gegenmaßnahmen.</strong></p>"
+      + "<ul>"
+      + "<li><em>Range-Bias</em> (Carlyon et al. 2010; Jensen et al. 2021): Antworten zentrieren unbewußt am Mittelpunkt des Antwortbereichs. Wir mindern das durch Coverage aller aktiven Elektroden in randomisierter Reihenfolge.</li>"
+      + "<li><em>Startpunkt-Bias</em> (Carlyon et al. 2010; Schatzer et al. 2014): Der Startwert eines adaptiven Tracks beeinflußt das Ergebnis. Gegenmaßnahme: gepaartes Bracketing über Läufe — jeder Lauf wählt pro Elektrode einen zufälligen Startwert ±100 cent; der direkt folgende Lauf nimmt jeweils das andere Vorzeichen. Nach zwei Läufen mittelt sich der Bias heraus.</li>"
+      + "<li><em>Stimulus-Spezifität</em> (Adel et al. 2019; Lazard et al. 2012): Pitch hängt vom akustischen Stimulustyp ab. Default ist ein harmonischer Komplexton, der näher am CI-Klang ist als ein reiner Sinus.</li>"
+      + "<li><em>Pegelabhängigkeit</em> (Sagi &amp; Svirsky 2021): Lautere Töne werden als höher wahrgenommen. Pegelkorrektur und vorgelagertes Loudness-Balancing minimieren das.</li>"
+      + "<li><em>Plastizität</em> (Reiss et al. 2015; Pieper et al. 2022): Pitch-Wahrnehmung paßt sich nach Monaten an die programmierten Frequenzbänder an. Der Test mißt die aktuelle Wahrnehmung, nicht eine objektive anatomische Wahrheit — für ein Self-Balancing-Tool genau das richtige Maß. Bei größeren MAP-Änderungen neu messen.</li>"
+      + "<li><em>Konvergenz-Schwelle 10 cent</em>: sportlich; CI-Pitch-Match-Streuungen liegen in der Literatur oft bei 20–100 cent. Abgestufte Qualitäts-Kategorien (konvergiert / Streuung / starke Streuung) machen sichtbar, welche Elektroden die strenge Schwelle erreichen.</li>"
+      + "</ul>"
+      + "<p><strong>Fundamentale Grenze der Methode.</strong> Es gibt kein als zuverlässig anerkanntes Verfahren zur binauralen Frequenz-Mismatch-Bestimmung, das im Browser durchführbar wäre. Pieper et al. 2022 (S. 11) schreiben: <em>„Overall pitch matching does not appear to be suitable to estimate the mismatch for the purpose of improving binaural hearing.\"</em> Pieper empfiehlt stattdessen CT-Bildgebung oder ITD-Sensitivitäts-Messungen — beides klinische Verfahren, die ein Browser-Tool nicht leisten kann.</p>"
+      + "<p>Jensen et al. 2021 vergleichen drei Pitch-Vergleichs-Methoden (Discrimination, Ranking, Matching) bei bilateralen CI-Trägern und finden Ranking als methodisch robusteste; Matching ist „second-best\", aber mit tolerierbaren Bias-Effekten (alle unter dem Carlyon-Kriterium 0,5). Dieses Tool verwendet bewußt Matching, weil nur Matching absolute Cent-Werte liefert, die für die Frequenz-Korrekturkurve gebraucht werden.</p>"
+      + "<p><strong>Was die Messung kann — und was nicht.</strong> Sie liefert einen reproduzierbaren Anhaltspunkt, in welche Richtung und mit welcher Größenordnung die wahrgenommene Pitch-Zuordnung einzelner Elektroden von der programmierten Frequenz-Allokation abweicht. Sie ist genauer als die alleinige Slider-Methode und liefert mit Residuum und Lauf-Streuung Maße für die eigene Zuverlässigkeit.</p>"
+      + "<p>Sie kann <em>nicht</em> entscheiden, ob eine gemessene Korrektur am CI zu besserem Sprachverstehen oder angenehmerem Klang führt. Die endgültige Bewertung muß durch eigenes Hören erfolgen — im Player dieses Tools, in einem vom Audiologen eingestellten Frequenz-Experimentier-Programm, und im Alltag. Das CI-Sound-Balancing-Tool stellt die Werkzeuge bereit; die Entscheidung über die richtige Korrektur liegt beim User und seinem Audiologen.</p>"
+      + "<p><strong>Quellen.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Vollständige bibliographische Angaben siehe Spec-Dokument <code>docs/spec/02b-freqmatch-adaptiv.md</code>. Die Arbeiten von Pieper und Jensen liegen im Projektordner <code>.manuals/</code> vor.</p>",
     subTabLoudness: "Elektrodenlautstärke-Balance",
     subTabFreqMatch: "Frequenzabgleich",
     fmrTitle: "Ergebnis der Frequenzabgleich-Messung",
     fmrMethodNote: "Die Tonhöhenwahrnehmung beim CI ist plastisch und schwankt zwischen Messungen. Diese Werte sind eine subjektive Momentaufnahme. Sie eignen sich als Grundlage für ein Gespräch mit dem Audiologen über mögliche FAT-Anpassungen.",
     fmrThEl: "Elektrode",
-    fmrThVarSide: "Var.-Seite",
-    fmrThVarHz: "CI-Freq. (Hz)",
-    fmrThRefSide: "Ref.-Seite",
-    fmrThRefHz: "Subj. Freq. (Hz)",
+    fmrThVarHz: "Freq. {side} Einstellung (Hz)",
+    fmrThRefHz: "Freq. {side} Wahrnehmung (Hz)",
+    fmrSidesDesc1: "Referenzseite: {ref} · Zielseite: {var}",
+    fmrSidesDesc2: "Während der Messung wurde die Frequenz auf der Referenzseite verschoben, bis beide Seiten gleich klangen. Die Tabelle zeigt die nötige Änderung für die Zielseite {var}, damit sie so klingt wie die Referenzseite {ref}.",
     fmrThDiffHz: "Diff. (Hz)",
     fmrThDiffCent: "Diff. (Cent)",
-    fmrThConvUd:        "Konvergenz u/d (ct)",
-    fmrThConvUdTip:     "Halbe Spanne der letzten 6 Umkehrungen je Staircase, gemittelt über alle Läufe. Erste Zahl: Track startet bei +100 ct (von oben). Zweite Zahl: Track startet bei −100 ct (von unten). Niedrig = enge Konvergenz, hoch = unsichere Wahrnehmung.",
-    fmrThTrackDiff:     "Track-Differenz (ct)",
-    fmrThTrackDiffTip:  "Abstand zwischen den Match-Punkten der beiden Staircases (oben minus unten, gemittelt über alle Läufe). Großer Wert = die beiden Tracks landen weit auseinander — Hinweis auf breite oder uneindeutige Pitch-Wahrnehmung in diesem Frequenzbereich.",
+    fmrThConv:          "Konvergenzweite (ct)",
+    fmrThConvTip:       "Halbe Spanne der letzten 6 Umkehrungen der Staircase, gemittelt über alle Läufe. Niedrig = enge Konvergenzweite innerhalb eines Laufs, hoch = unsichere Wahrnehmung.",
+    fmrThRunSpread:     "Lauf-Streuung (ct)",
+    fmrThRunSpreadTip:  "Standardabweichung der Match-Punkte zwischen den einzelnen Läufen. Großer Wert = die Läufe landen unterschiedlich weit auseinander — Hinweis auf Restbias durch Startwerte oder schwankende Wahrnehmung. Erfordert ≥2 Läufe.",
     fmrThResiduum:      "Residuum (ct)",
-    fmrThResiduumTip:   "Gesamtmessunsicherheit, quadratisch kombiniert aus Konvergenz, Track-Differenz und Streuung über Läufe. Ampel: ≤10 ct grün, 11–25 ct gelb, >25 ct rot.",
+    fmrThResiduumTip:   "Gesamtmessunsicherheit, quadratisch kombiniert aus Konvergenzweite (innerhalb eines Laufs) und Lauf-Streuung (zwischen Läufen). Ampel: ≤10 ct grün, 11–25 ct gelb, >25 ct rot.",
     fmrThStatus: "Status",
     fmrStatusOk: "✓ konvergiert",
     fmrStatusFair: "Streuung",
@@ -648,6 +666,7 @@ Object.assign(L.de, {
     fmrStatusProvLate:    "in Arbeit · {n} Umkehrungen",
     fmrProvisionalCount:  "{n} laufend",
     fmrProgressLabel:     "Fortschritt laufende Messung",
+    fmrRunHint:           "Die Restunsicherheit der Messung kann erst nach 2 vollständigen Testdurchläufen zuverlässig eingeschätzt werden. Mit nur einem Lauf fehlt die Lauf-Streuung als zweite Fehlerquelle — die im Graph gezeigte Unsicherheit ist daher vorläufig.",
     fmrQualEarly:         "Erste Messungen laufen ({n} von {t} Elektroden). Werte sind vorläufig, bitte den Test bis zum Ende durchführen.",
     fmrQualPartial:       "Teilweise gemessen ({done} von {total} Elektroden konvergiert, mittlere Restunsicherheit {res} Cent). Werte sind grob brauchbar, der Test sollte für ein verläßliches Ergebnis abgeschlossen werden.",
     fmrQualOk:            "Messung vollständig (mittlere Restunsicherheit {res} Cent). Werte sind als Anhalt für eine FAT-Anpassung tauglich.",

@@ -469,21 +469,23 @@ function drawFreqMatchChart(cv, fResData, opts) {
   ctx.stroke();
 
 
-  // --- Verbindungslinie durch Soll-Punkte (blau) — nur konvergierte ---
+  // --- Verbindungslinie durch Soll-Punkte (blau) ---
+  // in-progress-early hat noch keinen Match → ausschließen
+  // in-progress hat einen vorläufigen Match → gestrichelt einschließen
   const measSorted = allEls
-    .filter(e => e.isMeasured
-              && e.fmStatus !== 'in-progress'
-              && e.fmStatus !== 'in-progress-early')
+    .filter(e => e.isMeasured && e.fmStatus !== 'in-progress-early')
     .sort((a, b) => a.cSoll - b.cSoll);
   if (measSorted.length > 1) {
+    const hasProv = measSorted.some(e => e.fmStatus === 'in-progress');
     ctx.strokeStyle = "#3b82f6";
     ctx.lineWidth = 1.5;
-    ctx.setLineDash([]);
+    ctx.setLineDash(hasProv ? [5, 4] : []);
     ctx.beginPath();
     ctx.moveTo(tX(measSorted[0].cSoll), tY(measSorted[0].dCent));
     for (let i = 1; i < measSorted.length; i++)
       ctx.lineTo(tX(measSorted[i].cSoll), tY(measSorted[i].dCent));
     ctx.stroke();
+    ctx.setLineDash([]);
   }
 
   // --- Punkte und Marker ---
@@ -517,9 +519,12 @@ function drawFreqMatchChart(cv, fResData, opts) {
       // Soll-Punkt = Messpunkt bei (cSoll, ΔC)
       const xs = tX(el.cSoll), ys = tY(el.dCent);
 
-      // Restunsicherheits-Band (nur bei noisy/in-progress, hinter dem Punkt)
-      const showBand = (el.fmStatus === 'converged-noisy' && el.fmResidual > 0)
-                    || (el.fmStatus === 'in-progress'     && el.fmResidual > 0);
+      // Restunsicherheits-Band (bei Streuung oder in-progress, hinter dem Punkt)
+      const _isStreuung = el.fmStatus === 'converged-fair'
+                       || el.fmStatus === 'converged-wide'
+                       || el.fmStatus === 'unstable';
+      const showBand = (_isStreuung                       && el.fmResidual > 0)
+                    || (el.fmStatus === 'in-progress'    && el.fmResidual > 0);
       const showResidual = showBand
                         || (el.fmStatus === 'converged' && el.fmResidual > 0);
       if (showBand) {
@@ -894,7 +899,10 @@ function _fmcTooltipHandler(cv, e) {
       tipHtml = "<b>E" + el.elNum + "</b><br>" +
         hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
         cIst + " \u2192 " + cSoll;
-      if (el.fmStatus === 'converged-noisy' && el.fmResidual > 0) {
+      const _streu = el.fmStatus === 'converged-fair'
+                  || el.fmStatus === 'converged-wide'
+                  || el.fmStatus === 'unstable';
+      if (_streu && el.fmResidual > 0) {
         tipHtml += "<br>" + tipT('fmrTipResidual', 'Restunsicherheit') +
           " \u00b1" + Math.round(el.fmResidual) + "\u202fct";
       }

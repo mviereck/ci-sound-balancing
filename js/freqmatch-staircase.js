@@ -3,52 +3,62 @@
 // ============================================================
 // Pure-Function-Modul ohne DOM-Bezug.
 // Methodik nach docs/spec/02b-freqmatch-adaptiv.md
-// (Bauanleitung 02b/3 = Bauanleitung 74)
+//
+// Verfahren: 2I-2AFC mit adaptiver 1-down-1-up-Regel nach Levitt (1971).
+// Konvergiert direkt auf den PSE (50%-Punkt) = Match-Punkt. Eine
+// Staircase pro Elektrode pro Lauf; Bracketing über mehrere Läufe
+// (gepaarte alternierende Startwerte ±100 ct) — wird im Aufrufer
+// (freqmatch.js) verwaltet, nicht hier.
 // ============================================================
 
 // --- Konstanten ---
 const FM_STEP_SEQUENCE = [50, 25, 12, 6, 3];   // Schrittweiten in cent
 const FM_STEP_MIN      = 3;                    // Minimale Schrittweite
-const FM_REVERSALS_REQ = 6;                    // Umkehrungen für Match
-const FM_RESIDUAL_OK   = 10;          // converged-Schwelle (cent)
-const FM_RESIDUAL_FAIR = 25;          // converged-fair-Schwelle (cent)
-const FM_RESIDUAL_WIDE = 50;          // converged-wide-Schwelle (cent)
-const FM_STABLE_DELTA  = 2;                    // Residuums-Stabilität (cent)
+const FM_REVERSALS_REQ = 8;                    // Umkehrungen für Match (1-down-1-up: erhöht)
+const FM_REVERSALS_WIN = 6;                    // Fenstergröße für Match/Residuum (letzte 6)
+const FM_RESIDUAL_OK   = 10;                   // converged-Schwelle (cent)
+const FM_RESIDUAL_FAIR = 25;                   // converged-fair-Schwelle (cent)
+const FM_RESIDUAL_WIDE = 50;                   // converged-wide-Schwelle (cent)
 const FM_TRIAL_CAP     = 80;                   // Hard cap pro Track
 
-// Catch-Trial-Konstanten (Bauanleitung 02b/6)
+// Catch-Trial-Konstanten
 const FM_CATCH_INTERVAL     = 8;     // Catch-Trial-Abstand pro Track (deterministisch)
-const FM_CATCH_PHASE        = 5;     // Track-Trial-Index des ersten Catch (0-basiert: Trial 5, 13, 21 …)
-const FM_CATCH_MAGNITUDE    = 500;   // cent — Auslenkung in Catch
+const FM_CATCH_PHASE        = 5;     // Track-Trial-Index des ersten Catch (Trial 5, 13, 21 …)
+const FM_CATCH_MAGNITUDE    = 500;   // cent — Untergrenze der Catch-Spreizung
 const FM_NOT_PERC_MIN_CATCH = 3;     // mind. Catch-Trials vor Konvergenz-Freigabe
-const FM_NOT_PERC_ERR_RATE  = 2/3;  // Catch-Fehlerrate für not-perceivable (BA 96)
-const FM_PROVISIONAL_MATCH_MIN = 2; // ab so vielen Umkehrungen Schätz-Match
-const FM_PROVISIONAL_RESID_MIN = 4; // ab so vielen Umkehrungen Schätz-Residuum
-const FM_ANCHOR_SMALL_POOL = 4;     // ab so wenigen aktiven Tracks Anker-Randomisierung statt Round-Robin
+const FM_NOT_PERC_ERR_RATE  = 2/3;   // Catch-Fehlerrate für not-perceivable (≥ 67 %)
+
+// Vorläufige Anzeige
+const FM_PROVISIONAL_MATCH_MIN = 2;  // ab so vielen Umkehrungen Schätz-Match
+const FM_PROVISIONAL_RESID_MIN = 4;  // ab so vielen Umkehrungen Schätz-Residuum
+
+// Anker-Randomisierung statt Round-Robin, wenn Pool klein
+const FM_ANCHOR_SMALL_POOL = 4;
 
 // --- Track-State erzeugen ---
 //
-// electrodeIdx:   Elektroden-Index in nEl der variablen Seite
-// startDirection: 'up'   → Track startet oberhalb (+100 ct), sucht Match von oben
-//                 'down' → Track startet unterhalb (−100 ct), sucht Match von unten
-function fmCreateTrack(electrodeIdx, startDirection) {
+// electrodeIdx: Elektroden-Index in nEl der variablen Seite
+// startSign:    +1 → Track startet bei +100 ct (ref oberhalb)
+//              −1 → Track startet bei −100 ct (ref unterhalb)
+function fmCreateTrack(electrodeIdx, startSign) {
   const START_MAG  = 100;
-  const startOffset = (startDirection === 'up') ? +START_MAG : -START_MAG;
+  const sign       = (startSign === -1) ? -1 : +1;
+  const startOffset = sign * START_MAG;
   return {
     electrodeIdx:    electrodeIdx,
-    direction:       startDirection,
+    startSign:       sign,
     startOffset:     startOffset,
     currentOffset:   startOffset,
     stepSize:        FM_STEP_SEQUENCE[0],
-    pendingResponse: null,
     lastMoveDir:     null,
     reversals:       [],
     trialHistory:    [],
     trialCount:      0,
     catchTotal:      0,
     catchErrors:     0,
-    status:          'active',       // 'active' | 'converged' | 'converged-fair' | 'converged-wide'
-                                     //  | 'unstable' | 'not-perceivable' | 'aborted'
+    status:          'active',       // 'active' | 'converged' | 'converged-fair' |
+                                     // 'converged-wide' | 'unstable' |
+                                     // 'not-perceivable' | 'aborted'
     match:           null,
     residual:        null
   };
@@ -56,22 +66,14 @@ function fmCreateTrack(electrodeIdx, startDirection) {
 
 // --- Trial-Reihenfolge: geshuffelter Round-Robin ---
 //
-// state.roundQueue: aktuell laufende Runde (Restliste an Elektroden-IDs,
-//                   die in dieser Runde noch drankommen).
-// state.tracks:     wie bisher { [electrodeIdx]: trackState }
+// state.roundQueue: aktuell laufende Runde (Restliste an Track-Keys).
+// state.tracks:     { [trackKey]: trackState }
 // rng:              optionale Random-Funktion (default Math.random)
+// lastPickedKey:    für Wiederholungs-Sperre im kleinen Pool
 //
-// Ablauf: solange `roundQueue` Einträge hat, wird der erste
-// genommen (FIFO). Beim Übergang einer neuen Runde wird die
-// Liste aller aktiven Track-IDs gezogen und in zufälliger
-// Reihenfolge in `roundQueue` geschrieben. Tracks, die innerhalb
-// der laufenden Runde konvergieren, werden beim Pop übersprungen.
-//
-// returns: electrodeIdx (Number) oder null wenn alle abgeschlossen
+// returns: trackKey (String) oder null wenn alle abgeschlossen
 function fmPickNextTrack(state, rng, lastPickedKey) {
   // Rückwärtskompatibilität: alter Aufruf mit tracks-Objekt direkt
-  // statt Wrapper-State. In dem Fall wird ein flüchtiger Wrapper
-  // benutzt; State des Aufrufers geht verloren.
   if (state && state.electrodeIdx === undefined && state.tracks === undefined) {
     state = { tracks: state, roundQueue: [] };
   }
@@ -82,10 +84,8 @@ function fmPickNextTrack(state, rng, lastPickedKey) {
     .filter(function(k) { return tracks[k].status === 'active'; });
   if (activeIds.length === 0) return null;
 
-  // --- Anker-Randomisierung im Restpool (BA 97) ---
+  // --- Anker-Randomisierung im kleinen Restpool ---
   if (activeIds.length < FM_ANCHOR_SMALL_POOL) {
-    // Roundqueue wird im kleinen Pool ignoriert. Echte Random-Wahl
-    // mit Wiederholungs-Sperre.
     state.roundQueue = [];
 
     let candidates = activeIds;
@@ -115,7 +115,7 @@ function fmPickNextTrack(state, rng, lastPickedKey) {
   return state.roundQueue.shift();
 }
 
-// --- Antwort verarbeiten (2-down-1-up, transformed) ---
+// --- Antwort verarbeiten (1-down-1-up) ---
 //
 // track:    mutable Track-State (wird in-place verändert)
 // response: 'var-higher' | 'var-lower'
@@ -123,7 +123,10 @@ function fmPickNextTrack(state, rng, lastPickedKey) {
 // catchCorrect: bei isCatch=true: hat der User korrekt geantwortet?
 // firstSide:    'ref' | 'var' — welche Seite zuerst gespielt wurde
 //
-// Rückgabe: aktualisierter status (siehe checkConvergence)
+// Bewegt nach jeder Antwort die Referenz-Frequenz in Antwort-Richtung.
+// Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung.
+//
+// Rückgabe: aktualisierter status
 function fmApplyResponse(track, response, isCatch, catchCorrect, firstSide) {
   if (track.status !== 'active') return track.status;
 
@@ -142,74 +145,77 @@ function fmApplyResponse(track, response, isCatch, catchCorrect, firstSide) {
     // Catch-Trials zählen NICHT für Staircase-Bewegung
     track.catchTotal++;
     if (!catchCorrect) track.catchErrors++;
-    // Convergence-Check (für "not-perceivable" relevant, kommt in 02b/6)
     return _fmCheckAndUpdateStatus(track);
   }
 
   // Antwort-Interpretation (REF-Frequenz wird geschoben, var bleibt fest):
   //   'var-higher' → User hört var höher als ref → ref-Frequenz war zu tief
-  //                  → wir wollen ref ANHEBEN (up, positive cent-Bewegung)
+  //                  → wir wollen ref ANHEBEN (positive cent-Bewegung)
   //   'var-lower'  → User hört var tiefer als ref → ref-Frequenz war zu hoch
-  //                  → wir wollen ref SENKEN (down, negative cent-Bewegung)
+  //                  → wir wollen ref SENKEN (negative cent-Bewegung)
   const adjustDir = (response === 'var-higher') ? 'up' : 'down';
 
-  if (track.pendingResponse === null) {
-    // Erste Antwort der Sequenz: nur speichern, nicht bewegen.
-    track.pendingResponse = response;
-    return _fmCheckAndUpdateStatus(track);
-  }
-
-  // Zweite Antwort der Sequenz: bewegen
-  // — bei "2 gleiche":   bewege in Antwort-Richtung (= adjustDir)
-  // — bei "1 abweichende": bewege in NEUE Antwort-Richtung (= adjustDir)
-  // Beide Fälle: Bewegung in adjustDir, Umkehr-Erkennung über lastMoveDir.
-
-  // Umkehrungs-Erkennung: Bewegung wechselt die Richtung
+  // 1-down-1-up: nach JEDER Antwort Bewegung in Antwort-Richtung.
+  // Umkehr-Erkennung über lastMoveDir.
   if (track.lastMoveDir && track.lastMoveDir !== adjustDir) {
     track.reversals.push(track.currentOffset);
-    // Schrittweite halbieren bis Minimum
     track.stepSize = _fmHalfStep(track.stepSize);
   }
 
-  // Schritt ausführen
   const sign = (adjustDir === 'up') ? +1 : -1;
   track.currentOffset += sign * track.stepSize;
   track.lastMoveDir = adjustDir;
-  track.pendingResponse = null;
 
   return _fmCheckAndUpdateStatus(track);
 }
 
 // --- Schrittweiten-Halbierung gemäß Sequenz 50→25→12→6→3 ---
 function _fmHalfStep(currentStep) {
-  // FM_STEP_SEQUENCE ist die kanonische Folge. Wir suchen das nächstkleinere
-  // Element, gefloort auf das nächste in der Folge.
   const idx = FM_STEP_SEQUENCE.indexOf(currentStep);
   if (idx >= 0 && idx < FM_STEP_SEQUENCE.length - 1) {
     return FM_STEP_SEQUENCE[idx + 1];
   }
-  // Falls der aktuelle Wert nicht in der Folge ist (sollte nicht passieren):
-  // halbieren, mindestens FM_STEP_MIN
+  // Falls aktueller Wert nicht in der Folge (sollte nicht passieren):
+  // halbieren, mindestens FM_STEP_MIN.
   return Math.max(FM_STEP_MIN, Math.floor(currentStep / 2));
 }
 
 // --- Match (Mittel der letzten 6 Umkehrungen) ---
 function fmComputeMatch(track) {
-  if (track.reversals.length < FM_REVERSALS_REQ) return null;
-  const last6 = track.reversals.slice(-FM_REVERSALS_REQ);
+  if (!track.reversals || track.reversals.length < FM_REVERSALS_WIN) return null;
+  const tail = track.reversals.slice(-FM_REVERSALS_WIN);
   let sum = 0;
-  for (let i = 0; i < last6.length; i++) sum += last6[i];
-  return sum / last6.length;
+  for (let i = 0; i < tail.length; i++) sum += tail[i];
+  return sum / tail.length;
 }
 
 // --- Residuum (halbe Spanne der letzten 6 Umkehrungen) ---
 function fmComputeResidual(track) {
-  if (track.reversals.length < FM_REVERSALS_REQ) return null;
-  const last6 = track.reversals.slice(-FM_REVERSALS_REQ);
+  if (!track.reversals || track.reversals.length < FM_REVERSALS_WIN) return null;
+  const tail = track.reversals.slice(-FM_REVERSALS_WIN);
   let max = -Infinity, min = Infinity;
-  for (let i = 0; i < last6.length; i++) {
-    if (last6[i] > max) max = last6[i];
-    if (last6[i] < min) min = last6[i];
+  for (let i = 0; i < tail.length; i++) {
+    if (tail[i] > max) max = tail[i];
+    if (tail[i] < min) min = tail[i];
+  }
+  return (max - min) / 2;
+}
+
+// --- Match-Fallback aus beliebig vielen Reversals (für unstable) ---
+function _fmMeanReversals(track) {
+  if (!track.reversals || track.reversals.length === 0) return null;
+  let sum = 0;
+  for (let i = 0; i < track.reversals.length; i++) sum += track.reversals[i];
+  return sum / track.reversals.length;
+}
+
+// --- Halbe Spanne aus beliebig vielen Reversals (für unstable) ---
+function _fmHalfSpanReversals(track) {
+  if (!track.reversals || track.reversals.length < 2) return null;
+  let max = -Infinity, min = Infinity;
+  for (let i = 0; i < track.reversals.length; i++) {
+    if (track.reversals[i] > max) max = track.reversals[i];
+    if (track.reversals[i] < min) min = track.reversals[i];
   }
   return (max - min) / 2;
 }
@@ -239,7 +245,8 @@ function _fmCheckAndUpdateStatus(track) {
     return track.status;
   }
 
-  // Saubere Konvergenz: ≥6 Umkehrungen, Schrittweite am Minimum.
+  // Saubere Konvergenz: ≥8 Umkehrungen, Schrittweite am Minimum.
+  // Match/Residuum werden aus den letzten 6 berechnet (FM_REVERSALS_WIN).
   if (track.reversals.length >= FM_REVERSALS_REQ && track.stepSize === FM_STEP_MIN) {
     const residual = fmComputeResidual(track);
     if (residual != null) {
@@ -255,21 +262,20 @@ function _fmCheckAndUpdateStatus(track) {
         track.residual = residual;
         return track.status;
       }
-      if (residual <= FM_RESIDUAL_WIDE && _fmResidualStable(track)) {
-        // Stabile, aber breit gestreute Konvergenz
+      if (residual <= FM_RESIDUAL_WIDE) {
         track.status   = 'converged-wide';
         track.match    = fmComputeMatch(track);
         track.residual = residual;
         return track.status;
       }
-      // Residuum > FM_RESIDUAL_WIDE oder nicht stabil → noch aktiv (bis Hard-Cap)
+      // Residuum > FM_RESIDUAL_WIDE → noch aktiv (bis Hard-Cap)
     }
   }
 
-  // Hard-Cap erreicht ohne Konvergenz: als unstable klassifizieren,
-  // Match-Wert mit Vorbehalt aus bisherigen Umkehrungen mitteln.
+  // Hard-Cap erreicht ohne Konvergenz: als unstable klassifizieren.
   if (track.trialCount >= FM_TRIAL_CAP) {
-    if (track.reversals.length >= FM_REVERSALS_REQ) {
+    if (track.reversals.length >= FM_REVERSALS_WIN) {
+      // Genug für 6er-Fenster: Standard-Match/Residuum
       const residual = fmComputeResidual(track);
       track.match    = fmComputeMatch(track);
       track.residual = residual;
@@ -278,61 +284,35 @@ function _fmCheckAndUpdateStatus(track) {
                        : 'unstable';
       return track.status;
     }
-    // Nicht mal 6 Umkehrungen → kein Match möglich, als unstable mit currentOffset
+    // Weniger als 6 Reversals: Fallback auf Mittel aller Reversals.
+    track.match    = _fmMeanReversals(track);
+    if (track.match == null) track.match = track.currentOffset;
+    track.residual = _fmHalfSpanReversals(track);
     track.status   = 'unstable';
-    track.match    = track.reversals.length > 0
-                     ? fmComputeMatch(track)
-                     : track.currentOffset;
-    track.residual = (track.reversals.length >= 2)
-                     ? fmComputeResidual(track) : null;
     return track.status;
   }
 
   return 'active';
 }
 
-// --- Residuums-Stabilität für "converged-noisy" ---
-//
-// Spec: "letzte 4 Umkehr-Residuen ändern sich um < FM_STABLE_DELTA cent".
-// Interpretation: 4 rollende Residuen über je 6 aufeinanderfolgende
-// Umkehrungen. Wir brauchen also mindestens 9 Umkehrungen, um 4 rollende
-// Fenster zu haben.
-function _fmResidualStable(track) {
-  const need = FM_REVERSALS_REQ + 3;   // 9 Umkehrungen für 4 rollende Fenster
-  if (track.reversals.length < need) return false;
-  const rs = [];
-  for (let i = track.reversals.length - 4; i < track.reversals.length; i++) {
-    const window = track.reversals.slice(i - FM_REVERSALS_REQ + 1, i + 1);
-    let max = -Infinity, min = Infinity;
-    for (let j = 0; j < window.length; j++) {
-      if (window[j] > max) max = window[j];
-      if (window[j] < min) min = window[j];
-    }
-    rs.push((max - min) / 2);
-  }
-  for (let i = 1; i < rs.length; i++) {
-    if (Math.abs(rs[i] - rs[i - 1]) >= FM_STABLE_DELTA) return false;
-  }
-  return true;
-}
-
 // --- Statistik-Helfer für UI/Storage ---
 function fmTrackSummary(track) {
   return {
-    electrodeIdx: track.electrodeIdx,
-    status:       track.status,
-    match:        track.match,
-    residual:     track.residual,
-    trialCount:   track.trialCount,
-    catchTotal:   track.catchTotal,
-    catchErrors:  track.catchErrors,
+    electrodeIdx:  track.electrodeIdx,
+    status:        track.status,
+    match:         track.match,
+    residual:      track.residual,
+    trialCount:    track.trialCount,
+    catchTotal:    track.catchTotal,
+    catchErrors:   track.catchErrors,
     reversalCount: track.reversals.length,
-    stepSize:     track.stepSize,
-    currentOffset: track.currentOffset
+    stepSize:      track.stepSize,
+    currentOffset: track.currentOffset,
+    startSign:     track.startSign
   };
 }
 
-// --- Vorläufige Schätzung für laufende Tracks (Bauanleitung 85) ---
+// --- Vorläufige Schätzung für laufende Tracks ---
 function fmComputeProvisional(track) {
   const revCount = (track.reversals && track.reversals.length) || 0;
   const trials   = track.trialCount || 0;
