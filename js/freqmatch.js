@@ -42,11 +42,42 @@ let _fmNextTrialTO  = null;  // Timeout-Handle für fmNextAdaptiveTrial (canceln
 let _fmSimActive  = false;
 let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
 
+// Kopfhörer-Check-Dialog
+let _fmHpEls = null;
+
 // Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
 function _fmDbg(msg) {
   if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
     dbg.log(msg, 'info');
   }
+}
+
+// --- Kopfhörer-Check ---
+
+function _fmHpPlayTone() {
+  const c = gAC();
+  const pan = activeSide === 'left' ? -1 : 1;
+  playToneTyped(c, 1000, 0.25, 1000, pan, 'complex');
+}
+
+function _fmShowHpCheck(callback) {
+  if (!_fmHpEls) { callback(); return; }
+  const { dlg, msgEl, btnLeft, btnReplay, btnRight, btnCancel } = _fmHpEls;
+  const checkSide = activeSide;
+
+  function show(isRetry) {
+    msgEl.textContent = isRetry
+      ? ((typeof t === 'function' && t('fmHpMsg2')) || 'Sie tragen Ihren Kopfhörer möglicherweise falsch herum. Bitte setzen Sie ihn anders herum auf und antworten Sie erneut.')
+      : ((typeof t === 'function' && t('fmHpMsg1')) || 'Auf welcher Seite hören Sie den Ton?');
+    dlg.classList.add('active');
+    _fmHpPlayTone();
+    btnReplay.onclick = () => _fmHpPlayTone();
+    btnCancel.onclick = () => { dlg.classList.remove('active'); };
+    btnLeft.onclick  = () => { if (checkSide === 'left')  { dlg.classList.remove('active'); callback(); } else show(true); };
+    btnRight.onclick = () => { if (checkSide === 'right') { dlg.classList.remove('active'); callback(); } else show(true); };
+  }
+
+  show(false);
 }
 
 // --- Track-Key-Schema: Key = String(electrodeIdx). Pro Lauf eine
@@ -1235,7 +1266,10 @@ function fmStart() {
   if (!fmEls) return;
   fmRefSide = fmEls.refSelect.value;
   fmVarSide = fmRefSide === "left" ? "right" : "left";
+  _fmShowHpCheck(_fmDoStart);
+}
 
+function _fmDoStart() {
   // Modus-Dispatch (Bauanleitung 02b/2)
   if (fmMode === 'adaptive') {
     fmStartAdaptive();
@@ -1711,6 +1745,31 @@ document.addEventListener("DOMContentLoaded", () => {
   fmRCCard.append(fmRCMsg, fmRCBtns);
   fmRCDlg.appendChild(fmRCCard);
   parentEl.appendChild(fmRCDlg);
+
+  // Kopfhörer-Check-Dialog
+  const fmHpDlg = _mkEl('div', 'modal-overlay');
+  const fmHpBox = _mkEl('div', 'modal-box');
+  const fmHpMsgEl = _mkEl('p');
+  fmHpMsgEl.style.marginBottom = '1em';
+  const fmHpBtns = _mkEl('div', 'btn-group');
+  const fmHpBtnLeft = _mkEl('button', 'btn');
+  fmHpBtnLeft.dataset.t = 'targetLeft';
+  if (typeof t === 'function') fmHpBtnLeft.textContent = t('targetLeft') || 'Links';
+  const fmHpBtnReplay = _mkEl('button', 'btn');
+  fmHpBtnReplay.dataset.t = 'fmHpBtnReplay';
+  if (typeof t === 'function') fmHpBtnReplay.textContent = t('fmHpBtnReplay') || 'Ton wiederholen';
+  const fmHpBtnRight = _mkEl('button', 'btn');
+  fmHpBtnRight.dataset.t = 'targetRight';
+  if (typeof t === 'function') fmHpBtnRight.textContent = t('targetRight') || 'Rechts';
+  const fmHpBtnCancel = _mkEl('button', 'btn');
+  fmHpBtnCancel.dataset.t = 'fmHpBtnCancel';
+  fmHpBtnCancel.style.marginLeft = '1em';
+  if (typeof t === 'function') fmHpBtnCancel.textContent = t('fmHpBtnCancel') || 'Abbrechen';
+  fmHpBtns.append(fmHpBtnLeft, fmHpBtnReplay, fmHpBtnRight, fmHpBtnCancel);
+  fmHpBox.append(fmHpMsgEl, fmHpBtns);
+  fmHpDlg.appendChild(fmHpBox);
+  parentEl.appendChild(fmHpDlg);
+  _fmHpEls = { dlg: fmHpDlg, msgEl: fmHpMsgEl, btnLeft: fmHpBtnLeft, btnReplay: fmHpBtnReplay, btnRight: fmHpBtnRight, btnCancel: fmHpBtnCancel };
 
   // --- Akkordeon „Wissenschaftliche Grundlage und Grenzen" (nur adaptiv) ---
   const fmSciDetails = document.createElement('details');

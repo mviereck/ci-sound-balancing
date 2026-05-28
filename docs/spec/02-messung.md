@@ -186,6 +186,19 @@ Slider-Wert wird invertiert.
   ausgeblendet; stattdessen erscheinen Höher/Tiefer-Buttons und das
   Status-Grid. Im Slider-Modus bleibt das bisherige Verhalten erhalten.
 
+- **Kopfhörer-Check** (Bauanleitung 101): Bei jedem Klick auf
+  Starten/Fortsetzen erscheint vor dem Test-Start ein Modal-Dialog.
+  Ein 1000-Hz-Komplexton (1 s, mittlere Lautstärke) wird auf der
+  global eingestellten Seite (`activeSide`) abgespielt. Frage:
+  „Auf welcher Seite hören Sie den Ton?" Buttons: [Links]
+  [Ton wiederholen] [Rechts] [Abbrechen]. Richtige Antwort →
+  Dialog schließt, Test startet. Falsche Antwort → gleicher Dialog
+  mit Text „Sie tragen Ihren Kopfhörer möglicherweise falsch herum.
+  Bitte setzen Sie ihn anders herum auf und antworten Sie erneut."
+  + erneuter Ton (Loop bis richtige Antwort oder Abbrechen).
+  Abbrechen → Dialog schließt, Test startet nicht. Gilt für
+  Slider- und adaptiven Modus.
+
 ### Sub-Tab 4 — Latenz (latency.js)
 
 - Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Fein-Toggle per Touch-Bedienleiste). Auf Desktop zusätzlich Ctrl+Pfeil = 10 ms wie bisher.
