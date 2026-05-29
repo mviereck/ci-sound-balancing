@@ -716,6 +716,10 @@ function fmStartAdaptive() {
   updateTabLockState();
   fmEls.lockedHint.hidden = false;
   fmEls.testBox.hidden    = false;
+  if (fmEls.instructionEl && typeof t === 'function') {
+    fmEls.instructionEl.dataset.t     = 'hjPrompt';
+    fmEls.instructionEl.textContent   = t('hjPrompt');
+  }
   fmEls.startBtn.disabled = true;
   fmEls.stopBtn.disabled  = false;
   if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
@@ -1375,7 +1379,11 @@ function _fmDoStart() {
   updateTabLockState();
   fmEls.lockedHint.hidden = false;
   fmEls.testBox.hidden = false;
-  fmApplyMode();   // Slider-UI-Zustand sicherstellen (hjContainer, subHint)
+  fmApplyMode();   // Slider-UI-Zustand sicherstellen (hjContainer)
+  if (fmEls.instructionEl && typeof t === 'function') {
+    fmEls.instructionEl.dataset.t   = 'fmSliderRunHint';
+    fmEls.instructionEl.textContent = t('fmSliderRunHint');
+  }
   fmEls.startBtn.disabled = true;
   fmEls.stopBtn.disabled = false;
   if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
@@ -1686,11 +1694,6 @@ function fmApplyMode() {
   if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
   const _sciAcc = document.getElementById('fmScienceAccordion');
   if (_sciAcc) _sciAcc.hidden = !isAdaptive;
-  if (fmEls.instructionEl) {
-    const _key = isSlider ? 'fmSliderRunHint' : 'hjPrompt';
-    fmEls.instructionEl.dataset.t = _key;
-    if (typeof t === 'function') fmEls.instructionEl.textContent = t(_key) || fmEls.instructionEl.textContent;
-  }
   fmUpdateSliderModeAvail();
 }
 
