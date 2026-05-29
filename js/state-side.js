@@ -229,6 +229,80 @@ function _fmMigrateAdaptive(fa) {
   return fa;
 }
 
+// Migriert Alt-Slider-Einträge aus fRes nach
+// sideData[varSide].freqmatchAdaptive.sliderEstimates.
+//
+// Hintergrund: bis BA 102 schrieb der klassische Slider-Modus seine
+// Werte direkt in fRes — ohne fmStatus-Feld, weil der Eintrag als
+// finaler Wert galt. Ab BA 102 lebt der Slider-Modus als Vor-Schätzung
+// in freqmatchAdaptive.sliderEstimates; fRes enthält nur noch adaptive
+// Mess-Ergebnisse (mit fmStatus). Alte fRes-Einträge ohne fmStatus sind
+// Klassisch-Slider-Werte und werden hier in die neue Datenstruktur
+// überführt, damit sie als Startwerte für einen anschließenden adaptiven
+// Test wieder zur Verfügung stehen.
+//
+// Vorrang-Regel: wenn für eine (varSide, elIdx)-Kombination bereits ein
+// sliderEstimate existiert (neuere Daten, BA 102+), bleibt dieser
+// erhalten — der Alt-Eintrag wird verworfen.
+//
+// Wird in file.js (JSON-Load) und init.js (Autosave-Load) NACH
+// _fmCleanupLegacyFRes() aufgerufen.
+function _fmMigrateAltSliderFRes() {
+  if (typeof fRes === 'undefined' || !Array.isArray(fRes)) return;
+  if (typeof sideData === 'undefined') return;
+
+  for (let i = fRes.length - 1; i >= 0; i--) {
+    const r = fRes[i];
+    if (!r) continue;
+    if (r.fmStatus != null) continue;   // adaptive Einträge bleiben unangetastet
+
+    const side = r.varSide;
+    if (side !== 'left' && side !== 'right') {
+      fRes.splice(i, 1);   // korrupte Seite: still verwerfen
+      continue;
+    }
+    const sd = sideData[side];
+    if (!sd) { fRes.splice(i, 1); continue; }
+
+    const elIdx = r.elIdx;
+    if (typeof elIdx !== 'number') { fRes.splice(i, 1); continue; }
+    const nElSide = sd.nEl || 22;
+    if (elIdx < 0 || elIdx >= nElSide) { fRes.splice(i, 1); continue; }
+
+    if (typeof r.varFreq !== 'number' || typeof r.refFreq !== 'number'
+        || r.varFreq <= 0 || r.refFreq <= 0) {
+      fRes.splice(i, 1); continue;
+    }
+
+    // freqmatchAdaptive-Container ggf. anlegen
+    if (!sd.freqmatchAdaptive) {
+      sd.freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} };
+    }
+    if (!sd.freqmatchAdaptive.sliderEstimates
+        || typeof sd.freqmatchAdaptive.sliderEstimates !== 'object'
+        || Array.isArray(sd.freqmatchAdaptive.sliderEstimates)) {
+      sd.freqmatchAdaptive.sliderEstimates = {};
+    }
+    const store = sd.freqmatchAdaptive.sliderEstimates;
+
+    // Vorrang: existierender neuer sliderEstimate gewinnt.
+    if (store[String(elIdx)] != null) {
+      fRes.splice(i, 1);
+      continue;
+    }
+
+    const cent = Math.round(1200 * Math.log2(r.refFreq / r.varFreq));
+    store[String(elIdx)] = {
+      cent:      cent,
+      varSide:   r.varSide,
+      refSide:   r.refSide || (side === 'left' ? 'right' : 'left'),
+      varFreq:   r.varFreq,
+      timestamp: (typeof r.timestamp === 'number') ? r.timestamp : Date.now()
+    };
+    fRes.splice(i, 1);
+  }
+}
+
 function loadSideData(side, d) {
   const s = sideData[side];
   s.config = d.config || "ci";

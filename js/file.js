@@ -484,12 +484,18 @@ function applyLoadedData(d) {
   if (typeof latRenderResults === "function") latRenderResults();
   if (typeof fRes !== "undefined") {
     if (Array.isArray(d.fRes)) {
-      const adaptiveOnly = d.fRes.filter(function(r) { return r.fmStatus != null; });
-      fRes.splice(0, fRes.length, ...adaptiveOnly);
+      // BA 106: KEIN fmStatus-Filter mehr — alle Einträge übernehmen.
+      // _fmCleanupLegacyFRes() entfernt Alt-Adaptive-Schema-Einträge
+      // (mit fmConvUp etc.). _fmMigrateAltSliderFRes() überführt
+      // Alt-Slider-Einträge (ohne fmStatus) nach
+      // freqmatchAdaptive.sliderEstimates, damit sie als Startwerte
+      // für den adaptiven Test verfügbar sind.
+      fRes.splice(0, fRes.length, ...d.fRes);
     } else {
       fRes.splice(0, fRes.length); // keine fRes im JSON → zurücksetzen
     }
     if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
+    if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
   }
   // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
   if (typeof pWarpOn !== "undefined") {

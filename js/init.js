@@ -694,8 +694,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof latApplyToPlayer === "function") latApplyToPlayer();
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
+        // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         fRes.splice(0, fRes.length, ...d.fRes);
         if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
+        if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
       if (typeof d.userFileSuffix === "string") {

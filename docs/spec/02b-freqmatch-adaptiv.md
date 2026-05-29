@@ -547,17 +547,24 @@ Per-Seite gespeichert in `sideData[side]`:
   Der `cent`-Wert ist die Quelle für Folge-Systeme (Frequenz-Warp, Druck,
   Chart). „Nicht wahrnehmbar" in allen Läufen → `cent = null`.
 
-  **Altdaten-Behandlung**: vorhandene `freqmatchAdaptive`-Objekte mit
-  Zwei-Track-Schema (Keys `<idx>:up`, `<idx>:down`) werden beim Laden
-  **verworfen** (Sub-Objekt auf `null` gesetzt). Es gibt keine Migration.
-  Alte `fRes`-Einträge, die noch Felder wie `fmConvUp`, `fmConvDown`,
-  `fmTrackDiff` enthalten, werden ignoriert; die neue Aggregat-Logik
-  schreibt die neuen Felder beim nächsten Lauf.
-  **Slider-fRes-Einträge** (kein `fmStatus`-Feld) werden beim Laden
-  stillschweigend herausgefiltert — sie sind mit dem adaptiven
-  Auswertungsmodell nicht kompatibel. Begründung: bisherige
-  Daten stammen aus Test-Läufen ohne klinischen Wert, ein sauberer
-  Neustart ist einfacher und vermeidet Format-Übersetzung.
+  **Altdaten-Behandlung (BA 100 + 106):**
+  - Vorhandene `freqmatchAdaptive`-Objekte ohne `runs[]`-Array oder mit
+    dem alten 2-Track-Schema (Keys `<idx>:up`, `<idx>:down`) werden beim
+    Laden **verworfen** (Sub-Objekt auf `null` gesetzt). Es gibt keine
+    Migration dieser Adaptive-Daten.
+  - Alte `fRes`-Einträge mit den Detail-Feldern `fmConvUp`/`fmConvDown`/
+    `fmTrackDiff`/`fmStatusUpLast`/`fmStatusDownLast` stammen aus dem
+    alten 2-Track-Adaptive-Schema und werden über `_fmCleanupLegacyFRes()`
+    entfernt.
+  - **`fRes`-Einträge ohne `fmStatus`-Feld** stammen aus dem klassischen
+    Slider-Modus (vor BA 102) und werden ab BA 106 **als Vor-Schätzungen
+    übernommen**: `_fmMigrateAltSliderFRes()` schreibt sie nach
+    `sideData[varSide].freqmatchAdaptive.sliderEstimates[elIdx]` und
+    entfernt sie aus `fRes`. Damit stehen die Werte als Startwerte für
+    den adaptiven Test bereit (siehe BA 104). Vorrang-Regel: wenn ein
+    neuerer `sliderEstimates`-Eintrag (BA 102+) für dieselbe Elektrode
+    bereits existiert, bleibt dieser erhalten und der Alt-Eintrag wird
+    verworfen.
 
 **Anti-Überschreib-Logik** beim Start eines neuen Laufs:
 - Bei `runs.length ≥ 1` und letztem Lauf abgeschlossen: Bestätigungs-Dialog
@@ -591,9 +598,9 @@ und Nutzung in Messtabelle, Player und Druck: BA 103.
 - Vor dem ersten adaptiven Start (wenn noch keine Schätzungen vorliegen)
   erscheint ein Empfehlungs-Dialog mit drei Optionen: „Erst
   Slider-Schätzung" / „Direkt adaptiv starten" / „Abbrechen".
-- **Slider-fRes-Einträge** (kein `fmStatus`-Feld) werden beim Laden
-  stillschweigend herausgefiltert — sie sind mit dem adaptiven
-  Auswertungsmodell nicht kompatibel (BA 100, unverändert).
+- **Slider-fRes-Einträge** (kein `fmStatus`-Feld) werden ab BA 106
+  beim Laden nach `sliderEstimates` migriert (siehe Altdaten-Behandlung
+  oben) — nicht mehr herausgefiltert.
 
 ### Verhältnis zum bestehenden Slider-Modus
 
