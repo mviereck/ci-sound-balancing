@@ -377,16 +377,19 @@ function buildTestPanel(parentEl, cfg) {
   });
   testBox.appendChild(actionRow);
 
+  // Optionaler Instruktionstext über den Entscheidungsbuttons (cfg.test.instructionKey)
+  var instructionEl = null;
+  if (cfg.test.instructionKey) {
+    instructionEl = _mkEl('p', 'test-instruction');
+    instructionEl.dataset.t = cfg.test.instructionKey;
+    testBox.appendChild(instructionEl);
+  }
+
   // Height-Judgment-Buttons (Bauanleitung 02b/1, für adaptiven Frequenzabgleich)
   var hjContainer = null, hjHigher = null, hjLower = null;
   if (cfg.test.heightJudgment && cfg.test.heightJudgment.show) {
     hjContainer = _mkEl('div', 'hj-buttons');
     hjContainer.hidden = true;
-    if (cfg.test.heightJudgment.labelKey) {
-      var hjLabel = _mkEl('p', 'hj-prompt');
-      hjLabel.dataset.t = cfg.test.heightJudgment.labelKey;
-      hjContainer.appendChild(hjLabel);
-    }
     hjHigher = _mkEl('button', 'btn btn-large hj-up');
     hjHigher.dataset.action = 'hj-up';
     hjHigher.innerHTML =
@@ -610,6 +613,7 @@ function buildTestPanel(parentEl, cfg) {
     lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel,
     confirmBtn: confirmBtn, confRadios: confRadios,
     // Adaptiver Frequenzabgleich (Bauanleitung 02b/1)
+    instructionEl: instructionEl,
     hjContainer: hjContainer, hjHigher: hjHigher, hjLower: hjLower,
     statusGrid: statusGrid,
     // excl modal

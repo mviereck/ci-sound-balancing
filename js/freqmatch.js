@@ -1686,11 +1686,10 @@ function fmApplyMode() {
   if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
   const _sciAcc = document.getElementById('fmScienceAccordion');
   if (_sciAcc) _sciAcc.hidden = !isAdaptive;
-  const _subHint = fmEls.testBox && fmEls.testBox.querySelector('.test-hint');
-  if (_subHint) {
-    const _hintKey = isSlider ? 'fmSliderRunHint' : 'fmRunningHint';
-    _subHint.dataset.t = _hintKey;
-    if (typeof t === 'function') _subHint.textContent = t(_hintKey) || _subHint.textContent;
+  if (fmEls.instructionEl) {
+    const _key = isSlider ? 'fmSliderRunHint' : 'hjPrompt';
+    fmEls.instructionEl.dataset.t = _key;
+    if (typeof t === 'function') fmEls.instructionEl.textContent = t(_key) || fmEls.instructionEl.textContent;
   }
   fmUpdateSliderModeAvail();
 }
@@ -1800,7 +1799,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     test: {
       subTitleKey:       'fmRunningTitle',
-      subHintKey:        'fmRunningHint',
+      instructionKey:    'hjPrompt',   // Initialwert für adaptiven Modus; fmApplyMode schaltet um
       progressBar:       true,
       progressFormat:    'simple',
       swapButton:        { show: false },
@@ -1813,7 +1812,7 @@ document.addEventListener("DOMContentLoaded", () => {
       cumulativeDisplay: { show: false },
       confirmButton:     { show: true, key: 'btnConfirmOffset' },
       confidence:        { show: true },
-      heightJudgment:    { show: true, labelKey: 'hjPrompt' },   // Bauanleitung 02b/1
+      heightJudgment:    { show: true },   // Bauanleitung 02b/1; kein labelKey — Text in instructionEl
       statusGrid:        { show: true }    // Bauanleitung 02b/1
     }
   };
