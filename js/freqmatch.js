@@ -1375,6 +1375,7 @@ function _fmDoStart() {
   updateTabLockState();
   fmEls.lockedHint.hidden = false;
   fmEls.testBox.hidden = false;
+  fmApplyMode();   // Slider-UI-Zustand sicherstellen (hjContainer, subHint)
   fmEls.startBtn.disabled = true;
   fmEls.stopBtn.disabled = false;
   if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
@@ -1685,6 +1686,12 @@ function fmApplyMode() {
   if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
   const _sciAcc = document.getElementById('fmScienceAccordion');
   if (_sciAcc) _sciAcc.hidden = !isAdaptive;
+  const _subHint = fmEls.testBox && fmEls.testBox.querySelector('.test-hint');
+  if (_subHint) {
+    const _hintKey = isSlider ? 'fmSliderRunHint' : 'fmRunningHint';
+    _subHint.dataset.t = _hintKey;
+    if (typeof t === 'function') _subHint.textContent = t(_hintKey) || _subHint.textContent;
+  }
   fmUpdateSliderModeAvail();
 }
 

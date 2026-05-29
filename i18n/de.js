@@ -751,6 +751,7 @@ Object.assign(L.de, {
     fmPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmRunningTitle: "Frequenzabgleich läuft",
     fmRunningHint: "Gleichen Sie die Töne an, bis sie sich gleich hoch oder tief anhören.",
+    fmSliderRunHint: "Passen Sie die Position des Sliders an, bis sich beide Töne annähernd oder genau gleich hoch anhören.",
     btnStartTest: "▶ Test starten",
     btnStopTest: "■ Test pausieren",
     btnSwapAB: "⇄ A↔B",
