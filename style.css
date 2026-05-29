@@ -490,6 +490,7 @@ canvas {
 .fm-badge-aborted  { background: #e5e7eb; color: #374151; }   /* grau */
 .fm-badge-err      { background: #fee2e2; color: #991b1b; }
 .fm-badge-prov     { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
+.fm-badge-slider   { background: #f3f4f6; color: #4b5563; border: 1px solid #d1d5db; }
 
 .warning-bar {
   background: #fef3c7;

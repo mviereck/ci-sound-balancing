@@ -499,6 +499,33 @@ function drawFreqMatchChart(cv, fResData, opts) {
       ctx.fillStyle = "#6b7280";
       ctx.fill();
 
+      if (el.fmStatus === 'slider-estimate') {
+        // Hohle graue Raute am Soll-Punkt, gestrichelte Verbindung zur Nullinie.
+        const xs = tX(el.cSoll), ys = tY(el.dCent), y0 = tY(0);
+        ctx.save();
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = '#6b7280';
+        ctx.lineWidth = 1.5;
+        const sz = 6;
+        ctx.beginPath();
+        ctx.moveTo(xs, ys - sz);
+        ctx.lineTo(xs + sz, ys);
+        ctx.lineTo(xs, ys + sz);
+        ctx.lineTo(xs - sz, ys);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.moveTo(xs, ys);
+        ctx.lineTo(xs, y0);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+        hitboxes.push({ x: xs, y: ys, el: el });
+        continue;
+      }
+
       if (el.fmStatus === 'in-progress-early') {
         // <4 Umkehrungen: hohler blauer Kreis am Ist-Strich mit "?"
         ctx.strokeStyle = '#3b82f6';
@@ -891,6 +918,11 @@ function _fmcTooltipHandler(cv, e) {
     let tipHtml;
     if (el.isNotPerceivable) {
       tipHtml = "<b>E" + el.elNum + "</b><br>" + tipT('fmrTipNotPerc', 'nicht wahrnehmbar');
+    } else if (el.fmStatus === 'slider-estimate') {
+      const cent = el.dCent != null ? Math.round(el.dCent) : 0;
+      const centStr = (cent >= 0 ? "+" : "") + cent + " ct";
+      tipHtml = "<b>E" + el.elNum + "</b><br>"
+              + tipT('fmrTipSliderEst', 'Vor-Schätzung') + ": " + centStr;
     } else {
       const hzIst  = Math.round(el.hzIst);
       const hzSoll = Math.round(el.hzSoll);

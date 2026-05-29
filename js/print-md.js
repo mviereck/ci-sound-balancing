@@ -846,9 +846,11 @@ function _audiologFmRowsForSide(side) {
 
   const elIdxSet = new Set();
   const provByEl = {};
+  const sliderByEl = {};
   for (const r of fmSrc) {
     elIdxSet.add(r.elIdx);
-    if (r._provisional) provByEl[r.elIdx] = true;
+    if (r._sliderEstimate)   sliderByEl[r.elIdx] = true;
+    else if (r._provisional) provByEl[r.elIdx]   = true;
   }
 
   const rows = [];
@@ -864,7 +866,8 @@ function _audiologFmRowsForSide(side) {
       varFreq: fSelf,
       refFreq: fWish,
       cent: cs,
-      _provisional: !!provByEl[elIdx],
+      _provisional:    !!provByEl[elIdx],
+      _sliderEstimate: !!sliderByEl[elIdx],
     });
   }
   return rows;
@@ -885,11 +888,15 @@ function _audiologFreqTable(side) {
     const ownFreqOwn = (sd && sd.elFreqOwn) ? sd.elFreqOwn : null;
 
     let hasProv = false;
+    let hasSliderEst = false;
     lines.push(`| ${t("thEl")} | ${t("audColHzDefault")} | ${t("audColHzManual")} | ${t("audColCent")} | ${t("audColDeltaHz")} | ${t("audColHzWish")} |`);
     lines.push("|---|---|---|---|---|---|");
     for (const r of rows) {
-      if (r._provisional) hasProv = true;
-      const elLabel = r._provisional ? `${dENPrefix()}${dEN(r.elIdx)} *` : `${dENPrefix()}${dEN(r.elIdx)}`;
+      if (r._sliderEstimate)      hasSliderEst = true;
+      else if (r._provisional)    hasProv = true;
+      let elLabel = `${dENPrefix()}${dEN(r.elIdx)}`;
+      if (r._sliderEstimate)      elLabel += " †";
+      else if (r._provisional)    elLabel += " *";
       const hzDef = defFreqs[r.elIdx] != null ? _mdFmtHz(defFreqs[r.elIdx]) : "—";
       const hzMan = (ownFreqOwn && ownFreqOwn[r.elIdx] != null) ? _mdFmtHz(ownFreqOwn[r.elIdx]) : "—";
       const dHzV  = r.refFreq - r.varFreq;
@@ -899,6 +906,10 @@ function _audiologFreqTable(side) {
     if (hasProv) {
       lines.push("");
       lines.push(`_${t("archivFmProvNote")}_`);
+    }
+    if (hasSliderEst) {
+      lines.push("");
+      lines.push(`_${t("audFmSliderEstNote")}_`);
     }
     return lines.join("\n") + "\n";
   });
@@ -1376,20 +1387,38 @@ function _audiologFreqChartImg(side) {
     ctx.fillText("-" + maxAbsCent + " ¢", pad.l - 4, Hlog - pad.b + 4);
 
     let hasProv = false;
+    let hasSliderEst = false;
     for (const r of rows) {
       const x = xFor(r.varFreq);
       const y = zY - (r.cent / maxAbsCent) * (pH / 2);
-      const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
-      ctx.beginPath();
-      ctx.arc(x, y, 4, 0, Math.PI * 2);
-      if (r._provisional) {
-        ctx.strokeStyle = color;
+      if (r._sliderEstimate) {
+        hasSliderEst = true;
+        // Hohle graue Raute
+        const sz = 5;
+        ctx.fillStyle = '#ffffff';
+        ctx.strokeStyle = '#6b7280';
         ctx.lineWidth = 1.5;
-        ctx.stroke();
-        hasProv = true;
-      } else {
-        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(x, y - sz);
+        ctx.lineTo(x + sz, y);
+        ctx.lineTo(x, y + sz);
+        ctx.lineTo(x - sz, y);
+        ctx.closePath();
         ctx.fill();
+        ctx.stroke();
+      } else {
+        const color = r.cent >= 0 ? "#16a34a" : "#dc2626";
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        if (r._provisional) {
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+          hasProv = true;
+        } else {
+          ctx.fillStyle = color;
+          ctx.fill();
+        }
       }
       ctx.fillStyle = "#444";
       ctx.font = "10px sans-serif";
@@ -1404,6 +1433,11 @@ function _audiologFreqChartImg(side) {
     if (hasProv) {
       ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
       ctx.fillText(t("archivFmProvLegend"), Wlog - pad.r, 18);
+    }
+    if (hasSliderEst) {
+      ctx.fillStyle = "#555"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
+      const legendY = hasProv ? 30 : 18;
+      ctx.fillText("◇ " + t("fmrStatusSliderEst"), Wlog - pad.r, legendY);
     }
 
     return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;

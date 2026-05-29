@@ -543,33 +543,59 @@ let _pWarpFResVersion = 0;
 function _warpFResSource() {
   const out = (typeof fRes !== "undefined" && Array.isArray(fRes))
     ? fRes.slice() : [];
-  if (typeof _fmrBuildInProgressEntries !== "function") return out;
   const sides = ["left", "right"];
-  for (const side of sides) {
-    let prov;
-    try { prov = _fmrBuildInProgressEntries(side) || []; }
-    catch (e) { prov = []; }
-    if (!prov.length) continue;
-    const finalsBySide = new Set();
-    for (const r of out) {
-      if (r && r.varSide === side) finalsBySide.add(r.elIdx);
-    }
-    for (const p of prov) {
-      if (!finalsBySide.has(p.elIdx)) out.push(p);
+
+  // Stufe 2: in-progress-Pseudo-Einträge aus aktiven Tracks.
+  // Vorrang: nur einreihen, wenn kein finaler fRes-Eintrag pro (side, elIdx).
+  if (typeof _fmrBuildInProgressEntries === "function") {
+    for (const side of sides) {
+      let prov;
+      try { prov = _fmrBuildInProgressEntries(side) || []; }
+      catch (e) { prov = []; }
+      if (!prov.length) continue;
+      const finalsBySide = new Set();
+      for (const r of out) {
+        if (r && r.varSide === side) finalsBySide.add(r.elIdx);
+      }
+      for (const p of prov) {
+        if (!finalsBySide.has(p.elIdx)) out.push(p);
+      }
     }
   }
+
+  // Stufe 3: Slider-Vor-Schätzungen.
+  // Vorrang: nur einreihen, wenn weder finaler fRes-Eintrag noch
+  // in-progress-Eintrag pro (side, elIdx) vorhanden.
+  if (typeof _fmrBuildSliderEntries === "function") {
+    for (const side of sides) {
+      let ests;
+      try { ests = _fmrBuildSliderEntries(side) || []; }
+      catch (e) { ests = []; }
+      if (!ests.length) continue;
+      const covered = new Set();
+      for (const r of out) {
+        if (r && r.varSide === side) covered.add(r.elIdx);
+      }
+      for (const e of ests) {
+        if (!covered.has(e.elIdx)) out.push(e);
+      }
+    }
+  }
+
   return out;
 }
 
 // Zählt die Quelle für UI-Anzeige.
 function _warpFResStats() {
   const all = _warpFResSource();
-  let finals = 0, provisional = 0;
+  let finals = 0, provisional = 0, sliderEst = 0;
   for (const r of all) {
-    if (r && r._provisional) provisional++;
-    else if (r) finals++;
+    if (!r) continue;
+    if (r._sliderEstimate)   sliderEst++;
+    else if (r._provisional) provisional++;
+    else                     finals++;
   }
-  return { total: all.length, finals, provisional };
+  return { total: all.length, finals, provisional, sliderEst };
 }
 
 // ---- Warp-Kurve aufbauen --------------------------------
@@ -1017,11 +1043,19 @@ function pWarpUpdUI() {
   } else if (method === "sinmodel") {
     statusText = t("pwStatusActiveSinModel").replace("{n}", n);
   }
-  // Provisorischer Punkte-Anteil hinten anhängen, wenn welche dabei sind.
-  if (statusText && stats.provisional > 0) {
-    statusText += " " + t("pwStatusProvisional")
-      .replace("{prov}", stats.provisional)
-      .replace("{fin}", stats.finals);
+  // Provisorische und Vor-Schätzungs-Anteile hinten anhängen.
+  if (statusText && (stats.provisional > 0 || stats.sliderEst > 0)) {
+    const parts = [];
+    if (stats.provisional > 0) {
+      parts.push(t("pwStatusProvisional")
+        .replace("{prov}", stats.provisional)
+        .replace("{fin}", stats.finals));
+    }
+    if (stats.sliderEst > 0) {
+      parts.push(t("pwStatusSliderEst")
+        .replace("{est}", stats.sliderEst));
+    }
+    statusText += " " + parts.join(" · ");
   }
   if (statusEl) statusEl.textContent = statusText;
 

@@ -156,6 +156,7 @@ Läufe, siehe „Mehrere Läufe und Reliabilität"):
 | `aborted`          | ∅ (graues Badge) |
 | `in-progress-early` | läuft · N Vergleiche (blaues Badge, kursive Zeile) |
 | `in-progress`      | in Arbeit · M Umkehrungen (blaues Badge, kursive Zeile) |
+| `slider-estimate`  | 🎚 Vor-Schätzung (graues Badge, kursive Zeile) |
 | Slider-Modus (kein `fmStatus`) | — |
 
 Deaktivierte/ausgeschlossene Elektroden: Status-Zelle leer (—).
@@ -175,6 +176,17 @@ angezeigt:
   „in Arbeit · M Umkehrungen". Match-Spalte gefüllt; Residuum-Spalte
   bei 2–3 Umkehrungen leer. Im Chart: hohler blauer Kreis an
   geschätzter Soll-Position, Restunsicherheits-Band nur ab 4 Umkehrungen.
+
+**`slider-estimate`** (neu, BA 103): die Tabelle zeigt eine
+Slider-Vor-Schätzung an. Status-Badge „🎚 Vor-Schätzung" (graues
+Badge, `fm-badge-slider`), Zeile kursiv. Konv./Lauf-Streuung/Residuum
+leer („—"). Im Chart als hohle graue Raute mit gestricheltem Senkrechtstrich
+zur Nullinie. Quelle: `freqmatchAdaptive.sliderEstimates[elIdx]`, wird nicht
+in `fRes` geschrieben. Sobald für die Elektrode ein adaptiver Track aktiv wird
+(≥0 Umkehrungen), tritt der Schätzungs-Eintrag zugunsten von `in-progress`
+bzw. `in-progress-early` zurück (Vorrang-Logik in `_warpFResSource` und
+`displayData`-Aufbau). Wird auch im Frequenz-Warp (Player-Audio-Pfad) und im
+Audiologen-Druck als dritte Datenquelle verwendet (mit `†`-Markierung).
 
 Dieselbe Logik gilt auch im Status-Grid des Test-Panels: vorläufige
 Match- und Residuum-Werte erscheinen dort kursiv und in gedämpfter
@@ -563,6 +575,10 @@ und Nutzung in Messtabelle, Player und Druck: BA 103.
 - Der Slider-Modus dient jetzt als optionaler Vor-Schätz-Schritt.
 - Slider-Schätzwerte landen in `freqmatchAdaptive.sliderEstimates`,
   nicht in `fRes` (Trennung von Schätzung und adaptivem Ergebnis).
+- Seit BA 103 werden Slider-Schätzwerte in Meßergebnis-Tabelle,
+  Frequenzabgleich-Chart, Player-Frequenz-Warp und Audiologen-Druck
+  als dritte Datenquelle (`slider-estimate`) angezeigt — mit eigener
+  Badge-Farbe und Druck-Markierung (`†`).
 - Der adaptive Modus speichert zusätzlich `freqmatchAdaptive` (siehe
   oben).
 - Bestehende gespeicherte Dateien (JSON-Export, localStorage) bleiben

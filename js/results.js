@@ -318,6 +318,58 @@ function _fmrBuildInProgressEntries(side) {
   return out;
 }
 
+// Pseudo-fRes-Einträge aus sliderEstimates (Bauanleitung 103).
+//
+// Slider-Vor-Schätzungen leben in
+// sideData[side].freqmatchAdaptive.sliderEstimates[elIdx] und werden
+// nicht ins globale fRes geschrieben (siehe BA 102). Diese Funktion
+// macht sie für Anzeige und Warp verfügbar — als dritte Datenquelle
+// unter fRes (final) und unter den 'in-progress'-Pseudo-Einträgen
+// aus aktiven Tracks.
+function _fmrBuildSliderEntries(side) {
+  const out = [];
+  const sd = sideData[side];
+  if (!sd) return out;
+  const fa = sd.freqmatchAdaptive;
+  if (!fa || !fa.sliderEstimates || typeof fa.sliderEstimates !== 'object') return out;
+  const ests = fa.sliderEstimates;
+  const keys = Object.keys(ests);
+  for (var i = 0; i < keys.length; i++) {
+    const elIdx = parseInt(keys[i], 10);
+    if (!isFinite(elIdx)) continue;
+    const est = ests[keys[i]];
+    if (!est || typeof est.cent !== 'number') continue;
+    // varFreq aus der gespeicherten Schätzung; falls fehlend, aktuell rechnen.
+    const varHz = (typeof est.varFreq === 'number' && est.varFreq > 0)
+      ? est.varFreq
+      : withSide(side, function() { return effFreq(elIdx); });
+    if (!isFinite(varHz) || varHz <= 0) continue;
+    const refSide = est.refSide || (side === 'left' ? 'right' : 'left');
+    const refHz   = varHz * Math.pow(2, est.cent / 1200);
+    out.push({
+      varSide:      side,
+      refSide:      refSide,
+      elIdx:        elIdx,
+      varFreq:      varHz,
+      refFreq:      refHz,
+      timestamp:    est.timestamp || Date.now(),
+      fmStatus:     'slider-estimate',
+      fmResidual:   null,
+      fmCombinedUncertainty: null,
+      fmConv:       null,
+      fmRunSpread:  null,
+      fmResiduum:   null,
+      fmRunsCount:  0,
+      fmStatusLast: null,
+      fmTrialCount: 0,
+      fmReversals:  0,
+      _provisional:    true,
+      _sliderEstimate: true
+    });
+  }
+  return out;
+}
+
 function renderFreqMatchResults() {
   const noData = document.getElementById("fmrNoData");
   const card = document.getElementById("fmrCard");
@@ -337,8 +389,11 @@ function renderFreqMatchResults() {
 
   // Aktive Tracks → Zwischenstand-Einträge
   const provisional = _fmrBuildInProgressEntries(ciSide);
+  const sliderEsts  = _fmrBuildSliderEntries(ciSide);
 
-  if ((typeof fRes === "undefined" || fRes.length === 0) && provisional.length === 0) {
+  if ((typeof fRes === "undefined" || fRes.length === 0)
+      && provisional.length === 0
+      && sliderEsts.length === 0) {
     noData.style.display = "";
     card.style.display = "none";
     return;
@@ -373,6 +428,11 @@ function renderFreqMatchResults() {
       const provStr = t('fmrProvisionalCount').replace('{n}', provCount);
       metaText += (metaText ? ' · ' : '') + provStr;
     }
+    const sliderCount = sliderEsts.length;
+    if (sliderCount > 0) {
+      const sliderStr = t('fmrSliderEstimateCount').replace('{n}', sliderCount);
+      metaText += (metaText ? ' · ' : '') + sliderStr;
+    }
     metaEl.textContent = metaText;
   }
 
@@ -405,14 +465,23 @@ function renderFreqMatchResults() {
       "<p style=\"margin:0\">" + line2 + "</p>";
   }
 
-  // Vereinigte Anzeige-Daten (fRes hat Vorrang, dann provisorisch)
+  // Vereinigte Anzeige-Daten: fRes > in-progress > slider-estimate
   const displayData = fRes.slice();
-  const haveFinal = {};
+  const haveCovered = {};
   for (const r of fRes) {
-    if (r.varSide === ciSide) haveFinal[r.elIdx] = true;
+    if (r.varSide === ciSide) haveCovered[r.elIdx] = true;
   }
   for (const p of provisional) {
-    if (!haveFinal[p.elIdx]) displayData.push(p);
+    if (!haveCovered[p.elIdx]) {
+      displayData.push(p);
+      haveCovered[p.elIdx] = true;
+    }
+  }
+  for (const e of sliderEsts) {
+    if (!haveCovered[e.elIdx]) {
+      displayData.push(e);
+      haveCovered[e.elIdx] = true;
+    }
   }
 
   // Tabellen-Body: alle Elektroden der CI-Seite
@@ -457,9 +526,10 @@ function renderFreqMatchResults() {
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
-      const isProvEarly = (r.fmStatus === 'in-progress-early');
-      const isProvLate  = (r.fmStatus === 'in-progress');
-      const isProv      = isProvEarly || isProvLate;
+      const isProvEarly  = (r.fmStatus === 'in-progress-early');
+      const isProvLate   = (r.fmStatus === 'in-progress');
+      const isSliderEst  = (r.fmStatus === 'slider-estimate');
+      const isProv       = isProvEarly || isProvLate || isSliderEst;
 
       let varHzCell, refHzCell, diffHzCell, diffCtCell;
       if (isProvEarly) {
@@ -567,6 +637,9 @@ function renderFreqMatchResults() {
       } else if (r.fmStatus === 'not-perceivable') {
         statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusNotPerc">'
                     + t('fmrStatusNotPerc') + '</span>';
+      } else if (r.fmStatus === 'slider-estimate') {
+        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusSliderEst">'
+                    + t('fmrStatusSliderEst') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
