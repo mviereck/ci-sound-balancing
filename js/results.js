@@ -712,6 +712,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       renderFreqMatchResults();
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+      if (typeof fmUpdateSliderModeAvail === "function") fmUpdateSliderModeAvail();
     });
   }
 });

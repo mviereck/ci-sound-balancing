@@ -80,6 +80,22 @@ function _fmShowHpCheck(callback) {
   show(false);
 }
 
+// Liefert true, wenn der Empfehlungs-Dialog vor dem adaptiven Start
+// gezeigt werden soll: noch kein Lauf, keine sliderEstimates vorhanden.
+function _fmShouldOfferSliderEstimate() {
+  const sd = sideData[fmVarSide];
+  if (!sd) return false;
+  const fa = sd.freqmatchAdaptive;
+  if (fa && Array.isArray(fa.runs) && fa.runs.length > 0) return false;
+  const store = _fmEnsureSliderStore(fmVarSide);
+  if (!store) return false;
+  const seq = fmBuildSeq();
+  for (var i = 0; i < seq.length; i++) {
+    if (store[String(seq[i])] != null) return false;
+  }
+  return seq.length > 0;
+}
+
 // --- Track-Key-Schema: Key = String(electrodeIdx). Pro Lauf eine
 // Staircase je Elektrode (Bracketing über Läufe statt parallel).
 function fmTrackKey(electrodeIdx) {
@@ -87,6 +103,21 @@ function fmTrackKey(electrodeIdx) {
 }
 function fmParseTrackKey(key) {
   return { electrodeIdx: parseInt(String(key), 10) };
+}
+
+// Stellt sicher, daß sideData[side].freqmatchAdaptive existiert und
+// ein gültiges sliderEstimates-Feld hat.
+function _fmEnsureSliderStore(side) {
+  const sd = sideData[side];
+  if (!sd) return null;
+  if (!sd.freqmatchAdaptive) {
+    sd.freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} };
+  }
+  if (!sd.freqmatchAdaptive.sliderEstimates ||
+      typeof sd.freqmatchAdaptive.sliderEstimates !== 'object') {
+    sd.freqmatchAdaptive.sliderEstimates = {};
+  }
+  return sd.freqmatchAdaptive.sliderEstimates;
 }
 
 // --- Hilfsfunktionen ---
@@ -191,6 +222,14 @@ function fmBuildSeq() {
 
 // Vorherige Messung für diese Elektrode (in Cent), falls vorhanden
 function fmPrevCent(elIdx) {
+  // 1) Vorhandene Slider-Vor-Schätzung hat höchste Priorität.
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  if (store && store[String(elIdx)] != null) {
+    const c = store[String(elIdx)].cent;
+    if (typeof c === 'number' && isFinite(c)) return Math.round(c);
+  }
+  // 2) Sonst fRes-Eintrag.
   const existing = fRes.find(
     (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx
   );
@@ -447,8 +486,12 @@ function _fmPersist() {
   if (!fmVarSide || !sideData[fmVarSide]) return;
   let fa = sideData[fmVarSide].freqmatchAdaptive;
   if (!fa || !Array.isArray(fa.runs)) {
-    fa = { runs: [], currentRunIdx: null };
+    const prevEst = (fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates) ? fa.sliderEstimates : {};
+    fa = { runs: [], currentRunIdx: null, sliderEstimates: prevEst };
     sideData[fmVarSide].freqmatchAdaptive = fa;
+  }
+  if (!fa.sliderEstimates || typeof fa.sliderEstimates !== 'object') {
+    fa.sliderEstimates = {};
   }
 
   let run = (fa.currentRunIdx != null) ? fa.runs[fa.currentRunIdx] : null;
@@ -499,6 +542,7 @@ function _fmMarkCompleted() {
   if (!fa || fa.currentRunIdx == null) return;
   const run = fa.runs[fa.currentRunIdx];
   if (run) run.completedAt = Date.now();
+  fmUpdateSliderModeAvail();
 }
 
 function _fmClearPersist(side) {
@@ -1098,6 +1142,7 @@ function fmFinishAdaptive() {
     fmEls.stopBtn.disabled  = true;
     if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
   }
+  fmUpdateSliderModeAvail();
   fmRefreshResumeHint();
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
 }
@@ -1266,6 +1311,14 @@ function fmStart() {
   if (!fmEls) return;
   fmRefSide = fmEls.refSelect.value;
   fmVarSide = fmRefSide === "left" ? "right" : "left";
+
+  // Empfehlungs-Dialog nur vor adaptivem Erststart, nicht im Slider-Modus.
+  if (fmMode === 'adaptive' && _fmShouldOfferSliderEstimate()) {
+    if (fmEls.sliderEstimateDlg) {
+      fmEls.sliderEstimateDlg.hidden = false;
+      return;
+    }
+  }
   _fmShowHpCheck(_fmDoStart);
 }
 
@@ -1316,25 +1369,21 @@ function fmLoadElectrode() {
 function fmConfirm() {
   if (!fmRunning || fmCurrentEl === null) return;
   const varHz = fmVarHz(fmCurrentEl);
-  const refHz = fmFreqFromCents(varHz, fmCentOffset);
-  const existingIdx = fRes.findIndex(
-    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === fmCurrentEl
-  );
-  const entry = {
-    varSide: fmVarSide,
-    refSide: fmRefSide,
-    elIdx: fmCurrentEl,
-    varFreq: varHz,
-    refFreq: refHz,
-    timestamp: Date.now(),
-  };
-  if (existingIdx >= 0) {
-    fRes[existingIdx] = entry;
-  } else {
-    fRes.push(entry);
+  const store = _fmEnsureSliderStore(fmVarSide);
+  if (store) {
+    store[String(fmCurrentEl)] = {
+      cent:    Math.round(fmCentOffset),
+      varSide: fmVarSide,
+      refSide: fmRefSide,
+      varFreq: varHz,
+      timestamp: Date.now(),
+    };
   }
   fmSeqIdx++;
   fmLoadElectrode();
+  if (typeof renderFreqMatchResults === 'function') {
+    try { renderFreqMatchResults(); } catch (e) {}
+  }
 }
 
 function fmUndoAdaptive() {
@@ -1368,11 +1417,13 @@ function fmUndo() {
   if (!fmRunning || fmSeqIdx === 0) return;
   fmSeqIdx--;
   const prevEl = fmSeq[fmSeqIdx];
-  const idx = fRes.findIndex(
-    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === prevEl
-  );
-  if (idx >= 0) fRes.splice(idx, 1);
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  if (store) delete store[String(prevEl)];
   fmLoadElectrode();
+  if (typeof renderFreqMatchResults === 'function') {
+    try { renderFreqMatchResults(); } catch (e) {}
+  }
 }
 
 function fmSkip() {
@@ -1599,6 +1650,22 @@ function fmApplyMode() {
   if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
   const _sciAcc = document.getElementById('fmScienceAccordion');
   if (_sciAcc) _sciAcc.hidden = !isAdaptive;
+  fmUpdateSliderModeAvail();
+}
+
+// Sperrt die 'slider'-Option im Mode-Dropdown, sobald für die aktuell
+// gewählte var-Seite mindestens ein adaptiver Lauf existiert.
+function fmUpdateSliderModeAvail() {
+  if (!fmEls || !fmEls.modeSelect) return;
+  const sd = sideData[fmVarSide] || {};
+  const fa = sd.freqmatchAdaptive;
+  const hasRuns = !!(fa && Array.isArray(fa.runs) && fa.runs.length > 0);
+  Array.from(fmEls.modeSelect.options).forEach(function(opt) {
+    if (opt.value === 'slider') opt.disabled = hasRuns;
+  });
+  if (hasRuns && fmMode === 'slider' && !fmRunning) {
+    fmSetMode('adaptive', { force: true });
+  }
 }
 
 let _fmDurStash_slider  = 400;
@@ -1647,9 +1714,11 @@ function fmLoadModeFromSide() {
   const sd = sideData[varSide] || {};
   const saved = (sd.fmMode === 'slider' || sd.fmMode === 'adaptive')
     ? sd.fmMode : 'adaptive';
-  const wanted = saved === 'slider' ? 'adaptive' : saved;
-  fmSetMode(wanted, { force: true });
+  // Wenn 'slider' gespeichert war, aber bereits ein adaptiver Lauf
+  // existiert, fällt fmUpdateSliderModeAvail später auf adaptive zurück.
+  fmSetMode(saved, { force: true });
   fmRefreshResumeHint();
+  fmUpdateSliderModeAvail();
 }
 
 // --- DOMContentLoaded ---
@@ -1711,11 +1780,8 @@ document.addEventListener("DOMContentLoaded", () => {
   fmEls.durInput.value   = 400;
   fmEls.pauseInput.value = 400;
 
-  // Modus-Switch (Bauanleitung 02b/2)
+  // Modus-Switch — 'slider'-Option wird dynamisch in fmUpdateSliderModeAvail() gesperrt.
   if (fmEls.modeSelect) {
-    Array.from(fmEls.modeSelect.options).forEach(function(opt) {
-      if (opt.value === 'slider') opt.disabled = true;
-    });
     fmEls.modeSelect.addEventListener('change', function() {
       fmSetMode(fmEls.modeSelect.value);
     });
@@ -1726,6 +1792,40 @@ document.addEventListener("DOMContentLoaded", () => {
   deafHint.id = 'fmDeafHintEl';
   deafHint.style.display = 'none';
   fmEls.explainBox.appendChild(deafHint);
+
+  // --- Slider-Empfehlungs-Dialog (BA 102) ---
+  const fmSEDlg = _mkEl('div', 'modal-overlay');
+  fmSEDlg.hidden = true;
+  const fmSECard = _mkEl('div', 'card');
+  const fmSETitle = _mkEl('h3');
+  fmSETitle.dataset.t = 'fmSliderEstimateTitle';
+  const fmSEMsg = _mkEl('p');
+  fmSEMsg.dataset.t = 'fmSliderEstimateMsg';
+  const fmSEBtnRow = _mkEl('div', 'controls-row');
+  const fmSEBtnSlider = _mkEl('button', 'btn btn-primary');
+  fmSEBtnSlider.dataset.t = 'fmSliderEstimateBtnSlider';
+  const fmSEBtnSkip = _mkEl('button', 'btn');
+  fmSEBtnSkip.dataset.t = 'fmSliderEstimateBtnSkip';
+  const fmSEBtnCancel = _mkEl('button', 'btn');
+  fmSEBtnCancel.dataset.t = 'fmSliderEstimateBtnCancel';
+  fmSEBtnRow.append(fmSEBtnSlider, fmSEBtnSkip, fmSEBtnCancel);
+  fmSECard.append(fmSETitle, fmSEMsg, fmSEBtnRow);
+  fmSEDlg.appendChild(fmSECard);
+  document.body.appendChild(fmSEDlg);
+
+  fmSEBtnSlider.addEventListener('click', function() {
+    fmSEDlg.hidden = true;
+    fmSetMode('slider');
+  });
+  fmSEBtnSkip.addEventListener('click', function() {
+    fmSEDlg.hidden = true;
+    _fmShowHpCheck(_fmDoStart);
+  });
+  fmSEBtnCancel.addEventListener('click', function() {
+    fmSEDlg.hidden = true;
+  });
+
+  fmEls.sliderEstimateDlg = fmSEDlg;
 
   // Referenzwechsel-Dialog
   const fmRCDlg = _mkEl('div', 'modal-overlay');
@@ -1838,6 +1938,7 @@ document.addEventListener("DOMContentLoaded", () => {
         _fmClearPersist('left');
         _fmClearPersist('right');
         _fmPrevRefVal = fmEls.refSelect.value;
+        fmUpdateSliderModeAvail();
       };
       fmRCCancelBtn.onclick = function() {
         fmRCDlg.hidden = true;

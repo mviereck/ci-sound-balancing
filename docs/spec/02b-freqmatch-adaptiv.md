@@ -1,10 +1,10 @@
 ## Frequenzabgleich — Adaptiver Modus (2I-2AFC)
 
 Ergänzung zum bestehenden Sub-Tab Frequenzabgleich (`02-messung.md`,
-Abschnitt „Sub-Tab 3"). Der adaptive Modus ist der aktive Modus; der
-Slider-Modus ist im Dropdown deaktiviert (Option `disabled`) und wird
-bei gespeichertem Slider-Zustand beim Laden automatisch auf Adaptiv
-zurückgesetzt.
+Abschnitt „Sub-Tab 3"). Der adaptive Modus ist der Haupt-Modus; der
+Slider-Modus dient als optionale Vor-Schätzung und ist im Dropdown
+verfügbar, solange noch kein adaptiver Lauf für die aktuelle Seite
+existiert.
 
 ### Motivation
 
@@ -361,8 +361,9 @@ pro Lauf nur einen Track pro Elektrode).
 verwendet:
 
 - `rowMode.modeSelect`: zwei Optionen `slider` / `adaptive`. Default
-  `adaptive`. Option `slider` ist `disabled` (ausgegraut, nicht wählbar).
-  Bei Wechsel wird der Test-Block-Inhalt entsprechend umgeschaltet
+  `adaptive`. Option `slider` ist verfügbar, solange `runs.length === 0`
+  für die aktuelle Seite; danach wird sie durch `fmUpdateSliderModeAvail`
+  deaktiviert. Bei Wechsel wird der Test-Block-Inhalt umgeschaltet
   (Slider ausblenden / heightJudgment einblenden, etc.).
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
 - `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
@@ -537,18 +538,36 @@ Per-Seite gespeichert in `sideData[side]`:
 - Der bestehende „Frequenzabgleich-Ergebnisse löschen"-Button bleibt der
   einzige Weg, Läufe tatsächlich zu verlieren.
 
+### Optionale Vor-Schätzung (Slider)
+
+Vor dem ersten adaptiven Lauf einer Seite kann der Nutzer pro Elektrode
+eine grobe Schieber-Einstellung als Vor-Schätzung vornehmen. Diese Werte
+werden separat von `fRes` in
+`sideData[side].freqmatchAdaptive.sliderEstimates[elIdx]` gespeichert
+und dienen dem adaptiven Track als Startwert (siehe BA 104). Anzeige
+und Nutzung in Messtabelle, Player und Druck: BA 103.
+
+- Sobald `runs.length >= 1` für die Seite ist der Slider-Modus gesperrt;
+  bestehende Schätzungen bleiben gespeichert.
+- `fmConfirm` schreibt ins `sliderEstimates`-Objekt, nicht in `fRes`.
+- `fmUndo` löscht den letzten Eintrag aus `sliderEstimates`.
+- Vor dem ersten adaptiven Start (wenn noch keine Schätzungen vorliegen)
+  erscheint ein Empfehlungs-Dialog mit drei Optionen: „Erst
+  Slider-Schätzung" / „Direkt adaptiv starten" / „Abbrechen".
+- **Slider-fRes-Einträge** (kein `fmStatus`-Feld) werden beim Laden
+  stillschweigend herausgefiltert — sie sind mit dem adaptiven
+  Auswertungsmodell nicht kompatibel (BA 100, unverändert).
+
 ### Verhältnis zum bestehenden Slider-Modus
 
-- Der Slider-Modus bleibt unverändert in `freqmatch.js` als zweite
-  Mode-Option erhalten.
-- Beide Modi schreiben dasselbe Cent-Offset-Feld pro Elektrode —
-  Ergebnisse sind über die Modi hinweg austauschbar.
+- Der Slider-Modus dient jetzt als optionaler Vor-Schätz-Schritt.
+- Slider-Schätzwerte landen in `freqmatchAdaptive.sliderEstimates`,
+  nicht in `fRes` (Trennung von Schätzung und adaptivem Ergebnis).
 - Der adaptive Modus speichert zusätzlich `freqmatchAdaptive` (siehe
   oben).
 - Bestehende gespeicherte Dateien (JSON-Export, localStorage) bleiben
-  ohne Migration weiter ladbar — das neue Sub-Objekt fehlt bei Altdaten
-  einfach (oder wird mit altem Schema verworfen) und der Test startet
-  im adaptiven Modus „frisch".
+  ohne Migration weiter ladbar — `sliderEstimates` fehlt bei Altdaten
+  und wird von `_fmMigrateAdaptive` als `{}` initialisiert.
 
 ### Multi-User-Tauglichkeit
 

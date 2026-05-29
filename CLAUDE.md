@@ -74,6 +74,45 @@ keine Nachricht an den User. Wenn der Reminder erscheint und tatsächlich
 strukturell oder funktional etwas geändert wurde: Referenzdateien
 sofort anpassen, nicht aufschieben.
 
+KONZEPTBESPRECHUNG
+------------------
+
+Konzeptbesprechung hat höchste Priorität im Projekt. Sie ist die
+Grundlage für alles, was später gebaut wird; Fehler in der Konzept-
+phase werden in der Bauphase in Code zementiert und kosten dort
+mehrfach mehr als die Lese- und Denkzeit, die sie vorher gekostet
+hätten.
+
+Daher gilt in Konzeptbesprechungen:
+
+- **Sorgfalt schlägt Sparsamkeit.** Die Token-Sparregeln aus dem
+  Abschnitt EFFIZIENTER UMGANG MIT DEM PRO-ABO gelten für triviale
+  Edits, Routinearbeit und Bug-Diagnose. In der Konzeptphase ist
+  das Verhältnis umgekehrt: gründliches Lesen der relevanten Code-
+  Bereiche, der Quellen und ggf. der Manuals geht vor Volumen-
+  Schonung. Eine unsichere Empfehlung kostet später mehr.
+- **Code-Quellen sind zuverlässiger als die SPEC.** docs/SPEC.md und
+  docs/spec/ sind Stand der bisherigen Überlegungen, nicht
+  Naturgesetz. In Konzeptbesprechungen wird die Spec selbst oft
+  hinterfragt — es ist falsch, mit Spec-Argumenten gegen Konzept-
+  Ideen zu argumentieren, ohne den tatsächlichen Code, die
+  zugrundeliegenden Quellen (Papers in `.manuals/`, Hersteller-
+  Manuale) oder verwandte Implementierungen im Repo zu prüfen.
+  Wenn die Spec etwas behauptet, das im Konzeptkontext relevant
+  ist, ist das ein Hinweis auf eine frühere Entscheidung mit
+  Begründung — die Begründung selbst gehört nachgeprüft.
+- **Vermutungen klar markieren oder nachsehen.** „aus dem Kopf",
+  „vermutlich", „so wie ich es in Erinnerung habe" sind in der
+  Konzeptphase nicht ausreichend. Entweder nachsehen oder die
+  Unsicherheit explizit benennen, bevor sie in Empfehlungen
+  einfließt.
+- **Auf Irrtümer des Nutzers aktiv hinweisen.** Wenn eine vom
+  Nutzer verfolgte Idee problematisch, in sich widersprüchlich
+  oder im Konflikt mit gemessenen Daten ist: klar sagen, mit
+  Begründung. Nicht stillschweigend mitlaufen, weil die Idee
+  vom Nutzer kommt. Ehrliche Reibung ist wertvoller als
+  reflexhafte Zustimmung.
+
 AKTIVE RÜCKFRAGEN
 -----------------
 

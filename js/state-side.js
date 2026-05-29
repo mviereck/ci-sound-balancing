@@ -212,14 +212,20 @@ function _fmMigrateAdaptive(fa) {
 
   // Wenn irgendein Lauf noch das alte 2-Track-Key-Schema ':up'/':down' hat,
   // ist das gesamte Aggregat nicht mehr verlässlich aggregierbar → verwerfen.
+  // sliderEstimates bleibt jedoch erhalten.
+  const savedEstimates = (fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates)
+    ? fa.sliderEstimates : {};
   for (let i = 0; i < fa.runs.length; i++) {
     const r = fa.runs[i];
     if (!r || !r.tracks) continue;
     const keys = Object.keys(r.tracks);
     for (let j = 0; j < keys.length; j++) {
-      if (keys[j].indexOf(':') >= 0) return null;
+      if (keys[j].indexOf(':') >= 0) {
+        return { runs: [], currentRunIdx: null, sliderEstimates: savedEstimates };
+      }
     }
   }
+  fa.sliderEstimates = savedEstimates;
   return fa;
 }
 
