@@ -35,20 +35,42 @@ const FM_PROVISIONAL_RESID_MIN = 4;  // ab so vielen Umkehrungen Schätz-Residuu
 // Anker-Randomisierung statt Round-Robin, wenn Pool klein
 const FM_ANCHOR_SMALL_POOL = 4;
 
+// Catch-up-Priorisierung (BA 105): Tracks mit weniger als
+// FM_CATCHUP_REVERSALS_THRESHOLD Umkehrungen werden pro Runde mit einem
+// zusätzlichen Bonus-Trial bedacht (falls es andere Tracks gibt, die
+// bereits weiter sind). Schwelle 2 entspricht der `in-progress`-Grenze:
+// wer noch <2 Umkehrungen hat, liefert noch kein Zwischenergebnis.
+const FM_CATCHUP_REVERSALS_THRESHOLD = 2;
+
+// Folgelauf-Bracketing (BA 104): bei Lauf 2+ startet jeder Track aus
+// Vorlauf-Match ± FM_FOLLOWUP_BRACKET_OFFSET (cent), Vorzeichen gepaart
+// alternierend. Liegt deutlich enger als ±100, weil der Vorlauf-Match
+// selbst schon nahe am echten PSE ist.
+const FM_FOLLOWUP_BRACKET_OFFSET = 25;
+
 // --- Track-State erzeugen ---
 //
 // electrodeIdx: Elektroden-Index in nEl der variablen Seite
-// startSign:    +1 → Track startet bei +100 ct (ref oberhalb)
-//              −1 → Track startet bei −100 ct (ref unterhalb)
-function fmCreateTrack(electrodeIdx, startSign) {
-  const START_MAG  = 100;
-  const sign       = (startSign === -1) ? -1 : +1;
-  const startOffset = sign * START_MAG;
+// startSign:    +1 oder −1 (Bracketing-Vorzeichen pro Lauf).
+// startOffset:  optionaler Override des Startoffsets (cent). Wenn
+//               angegeben, wird er direkt als startOffset/currentOffset
+//               verwendet. Wenn nicht angegeben, ergibt sich startOffset
+//               aus startSign · 100 cent (alte Voreinstellung).
+//               Verwendung in freqmatch.js fmStartAdaptive:
+//                 - Lauf 1 mit Slider-Schätzung: startOffset = schätzung.cent
+//                 - Lauf 2+ mit Vorlauf-Match:   startOffset = match ± FM_FOLLOWUP_BRACKET_OFFSET
+//                 - Sonst: kein Override, klassisches ±100.
+function fmCreateTrack(electrodeIdx, startSign, startOffset) {
+  const START_MAG = 100;
+  const sign      = (startSign === -1) ? -1 : +1;
+  const effOffset = (typeof startOffset === 'number' && isFinite(startOffset))
+    ? Math.round(startOffset)
+    : sign * START_MAG;
   return {
     electrodeIdx:    electrodeIdx,
     startSign:       sign,
-    startOffset:     startOffset,
-    currentOffset:   startOffset,
+    startOffset:     effOffset,
+    currentOffset:   effOffset,
     stepSize:        FM_STEP_SEQUENCE[0],
     lastMoveDir:     null,
     reversals:       [],
@@ -112,6 +134,38 @@ function fmPickNextTrack(state, rng, lastPickedKey) {
     const tmp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = tmp;
   }
   state.roundQueue = shuffled;
+
+  // --- Catch-up-Priorisierung (BA 105) ---
+  // Tracks mit <FM_CATCHUP_REVERSALS_THRESHOLD Umkehrungen sind „lagging"
+  // (liefern noch kein Zwischenergebnis). Wenn es solche gibt UND
+  // mindestens ein anderer Track schon weiter ist, wird einer der
+  // lagging Tracks per Bonus-Trial der Runde vorangestellt.
+  //
+  // Anti-Wiederholungs-Sperre: der Bonus-Track darf nicht unmittelbar
+  // vor seinem regulären Runden-Eintrag liegen. Wenn er nach dem
+  // Shuffle zufällig schon an Position 0 steht, tausche ihn mit
+  // Position 1, bevor der Bonus vorangestellt wird.
+  const lagging = activeIds.filter(function(k) {
+    const tr = tracks[k];
+    return tr && (tr.reversals.length || 0) < FM_CATCHUP_REVERSALS_THRESHOLD;
+  });
+  const hasAdvanced = activeIds.some(function(k) {
+    const tr = tracks[k];
+    return tr && (tr.reversals.length || 0) >= FM_CATCHUP_REVERSALS_THRESHOLD;
+  });
+  if (lagging.length > 0 && hasAdvanced) {
+    const bonusKey = lagging[Math.floor(r() * lagging.length)];
+    // Wenn Bonus-Track aktuell an Index 0 der Runde steht: mit Index 1
+    // tauschen, damit nach dem Bonus ein anderer Track kommt.
+    if (state.roundQueue.length >= 2 && state.roundQueue[0] === bonusKey) {
+      const tmp = state.roundQueue[0];
+      state.roundQueue[0] = state.roundQueue[1];
+      state.roundQueue[1] = tmp;
+    }
+    // Bonus voranstellen.
+    state.roundQueue.unshift(bonusKey);
+  }
+
   return state.roundQueue.shift();
 }
 

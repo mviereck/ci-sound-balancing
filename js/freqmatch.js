@@ -657,7 +657,13 @@ function fmStartAdaptive() {
 
     fmTracks = {};
     fmRoundQueue = [];
+
+    // Slider-Estimate-Quelle für Lauf 1 (kein vorheriger Lauf).
+    const _slStore = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive
+                      && sideData[fmVarSide].freqmatchAdaptive.sliderEstimates) || {};
+
     elIdxList.forEach(function(idx) {
+      // --- 1) Bracketing-Vorzeichen wie bisher ---
       let sign;
       if (fmCurPairedToPrevious && prevRun && prevRun.startSigns
           && prevRun.startSigns[idx] != null) {
@@ -665,7 +671,36 @@ function fmStartAdaptive() {
       } else {
         sign = (Math.random() < 0.5) ? +1 : -1;
       }
-      fmTracks[fmTrackKey(idx)] = fmCreateTrack(idx, sign);
+
+      // --- 2) Startoffset bestimmen ---
+      // Priorität (hoch → niedrig):
+      //   (a) Folgelauf mit vorhandenem Vorlauf-Match für diese Elektrode:
+      //       startOffset = prevMatch + sign · FM_FOLLOWUP_BRACKET_OFFSET
+      //   (b) Lauf 1 ohne Vorlauf, mit Slider-Vor-Schätzung:
+      //       startOffset = sliderEstimate.cent (sign bleibt für späteres
+      //       Bracketing in Lauf 2 gespeichert, beeinflußt Lauf 1 nicht)
+      //   (c) Sonst: startOffset = sign · 100 cent (klassisch)
+      let startOffset;
+      let prevMatchForIdx = null;
+      if (prevRun && prevRun.perElectrode && prevRun.perElectrode[idx]
+          && typeof prevRun.perElectrode[idx].match === 'number'
+          && isFinite(prevRun.perElectrode[idx].match)) {
+        prevMatchForIdx = prevRun.perElectrode[idx].match;
+      }
+      if (prevMatchForIdx != null) {
+        // (a) Folgelauf-Bracketing um Vorlauf-Match.
+        startOffset = prevMatchForIdx + sign * FM_FOLLOWUP_BRACKET_OFFSET;
+      } else if (_slStore[String(idx)] != null
+                 && typeof _slStore[String(idx)].cent === 'number'
+                 && isFinite(_slStore[String(idx)].cent)) {
+        // (b) Slider-Vor-Schätzung als Startwert.
+        startOffset = _slStore[String(idx)].cent;
+      } else {
+        // (c) Klassisches ±100 cent.
+        startOffset = sign * 100;
+      }
+
+      fmTracks[fmTrackKey(idx)] = fmCreateTrack(idx, sign, startOffset);
     });
     _fmPersist();
   }

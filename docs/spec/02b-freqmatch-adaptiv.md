@@ -44,6 +44,21 @@ Grundlage und Grenzen" am Ende.
   Randomisierung mit Wiederholungs-Sperre ersetzt — derselbe Track darf
   nicht direkt hintereinander zweimal kommen. Das verhindert das
   vorhersehbare „A B A B A B"-Muster, wenn der Pool fast leer ist.
+- **Catch-up-Priorisierung (ab BA 105):** Zu Beginn jeder neuen Runde
+  wird geprüft, ob es Tracks mit weniger als 2 Umkehrungen gibt
+  (Konstante `FM_CATCHUP_REVERSALS_THRESHOLD = 2`, entspricht der
+  `in-progress`-Schwelle). Wenn solche „lagging" Tracks existieren UND
+  mindestens ein anderer Track bereits ≥ 2 Umkehrungen hat, wird einer
+  der lagging Tracks zufällig ausgewählt und als zusätzliches
+  Bonus-Trial der Runde vorangestellt. Anti-Wiederholungs-Sperre: der
+  Bonus-Track darf nicht direkt vor seinem regulären Runden-Eintrag
+  liegen; falls er nach dem Shuffle ohnehin an erster Stelle stünde,
+  wird er vor dem Voranstellen mit Position 1 getauscht. Der reguläre
+  Round-Robin (jeder aktive Track 1× pro Runde) bleibt unverändert —
+  der Bonus liegt obendrauf. **Wirkung:** Tracks mit ungünstigem
+  Startoffset holen schneller in den Bereich auf, in dem sie ein
+  Zwischenergebnis liefern können. Greift nur im normalen
+  Round-Robin-Pfad, nicht im Anker-Schutz-Pfad (kleiner Pool < 4).
 - Pro Trial werden zwei kurze Töne nacheinander gespielt (AB-Sequenz,
   kein ABA): einer auf der Referenzseite, einer auf der variablen Seite.
   Reihenfolge (ref-erst oder var-erst) wird pro Trial zufällig gewählt.
@@ -72,24 +87,34 @@ Grundlage und Grenzen" am Ende.
 - **Schrittweiten-Folge**: 50 → 25 → 12 → 6 → 3 cent. Schrittweite wird
   bei jeder Umkehrung halbiert, bis das Minimum erreicht ist; danach
   bleibt sie bei 3 cent.
-- **Startwert pro Elektrode**: `±100 cent` Cent-Offset gegenüber der
-  CI-Soll-Frequenz. Vorzeichen ergibt sich aus der gepaarten
-  Bracketing-Strategie über Läufe:
-  - **Erster Lauf nach Reset (oder ungepaarter Vorgänger)**: pro
-    Elektrode unabhängig zufällig `+100` oder `−100` cent.
-  - **Folgelauf mit ungepaartem Vorgänger**: pro Elektrode wird **das
-    jeweils andere Vorzeichen** des Vorgänger-Laufs verwendet. Damit
-    bilden je zwei aufeinanderfolgende Läufe ein vollständiges
-    Bracketing-Paar pro Elektrode.
-  - **Lauf nach abgeschlossenem Paar**: gilt wieder als „erster Lauf",
-    pro Elektrode neu gewürfelt — er wird zum ersten Lauf des
-    nächsten Paares.
-  - Implementierung: jeder Lauf speichert `startSigns: { [elIdx]: +1 | -1 }`
-    und ein Flag `pairedToPrevious: bool`. Beim Start eines neuen Laufs
-    wird der letzte abgeschlossene Lauf konsultiert und entschieden,
-    ob dieser Lauf der zweite eines Paares wird oder ein neues Paar
-    beginnt.
-  - **Kein Warmstart aus alten Matches**; jeder Lauf startet aus ±100 cent.
+- **Startwert pro Elektrode**: Der Startoffset wird in einer dreistufigen
+  Priorität bestimmt:
+  1. **Folgelauf mit vorhandenem Vorlauf-Match** (Lauf 2+,
+     `prevRun.perElectrode[idx].match` existiert und ist endlich):
+     Startoffset = `prevMatch + sign · 25 cent` (Konstante
+     `FM_FOLLOWUP_BRACKET_OFFSET = 25`). Damit wird der bekannte
+     Match aus zwei Richtungen mit kleinem Offset eingeschlossen, statt
+     aus ±100 cent neu zu suchen — drastisch schnellere Konvergenz bei
+     nicht-trivialen Mismatches.
+  2. **Lauf 1 mit Slider-Vor-Schätzung** (`sliderEstimates[idx].cent`
+     vorhanden): Startoffset = Schätzungs-Cent. Das Vorzeichen `sign`
+     wird trotzdem bestimmt und gespeichert (für Lauf-2-Bracketing),
+     beeinflußt den Startoffset in Lauf 1 aber nicht.
+  3. **Sonst (klassisch):** Startoffset = `sign · 100 cent`, Vorzeichen
+     zufällig in Lauf 1, alterniert in Lauf 2 (s. u.).
+  - **Gepaartes Bracketing über Läufe** (Vorzeichen `sign`):
+    - **Erster Lauf nach Reset (oder ungepaarter Vorgänger)**: pro
+      Elektrode unabhängig zufällig `+1` oder `−1`.
+    - **Folgelauf mit ungepaartem Vorgänger**: pro Elektrode wird **das
+      jeweils andere Vorzeichen** des Vorgänger-Laufs verwendet.
+    - **Lauf nach abgeschlossenem Paar**: gilt wieder als „erster Lauf",
+      pro Elektrode neu gewürfelt.
+    - Implementierung: jeder Lauf speichert `startSigns: { [elIdx]: +1 | -1 }`
+      und ein Flag `pairedToPrevious: bool`. Beim Start eines neuen Laufs
+      wird der letzte abgeschlossene Lauf konsultiert.
+  - Die **Schrittweiten-Folge** 50 → 25 → 12 → 6 → 3 cent bleibt
+    unverändert; eine gute Startposition spart Trials in der ersten
+    50er-Phase, nicht in der Konvergenz-Phase.
 - **Antwort-Interpretation**: Bei „var höher wahrgenommen als ref" →
   ref-Frequenz war zu tief → ref in Richtung höher verschieben
   (positiver cent-Schritt). Und umgekehrt. Bei reflektierter Reihenfolge
@@ -674,12 +699,14 @@ konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE,
   realen Elektroden-Bereich, nicht einem künstlichen Test-Range.
 - **Startpunkt-Bias** (Carlyon, Macherey et al. 2010; Schatzer et al.
   2014): Der Startwert eines adaptiven Tracks beeinflußt das Ergebnis,
-  weil die ersten Antworten den Erwartungsraum aufspannen. Gegenmaßnahme
-  hier: **gepaartes Bracketing über Läufe** — jeder Lauf wählt pro
-  Elektrode einen zufälligen Startwert ±100 cent; der direkt folgende
-  Lauf nimmt jeweils das andere Vorzeichen. Nach zwei Läufen ist jede
+  weil die ersten Antworten den Erwartungsraum aufspannen. Gegenmaßnahme:
+  **gepaartes Bracketing über Läufe** — der direkt folgende Lauf nimmt
+  pro Elektrode jeweils das andere Vorzeichen. Nach zwei Läufen ist jede
   Elektrode aus beiden Richtungen angepeilt, der Bias mittelt sich
-  heraus.
+  heraus. Ab BA 104 kann der Startoffset enger gewählt werden (aus
+  Vorlauf-Match ±25 cent oder Slider-Schätzung), statt pauschal ±100 cent.
+  Das gepaarte Bracketing-Vorzeichen für Lauf 2 bleibt erhalten; in
+  Lauf 1 mit Slider-Schätzung hängt der Bias-Schutz stärker am Folgelauf.
 - **Stimulus-Spezifität** (Adel et al. 2019; Lazard et al. 2012): Pitch
   hängt vom akustischen Stimulustyp ab; reiner Sinuston vs.
   CI-Pulsstimulation klingt fundamental unterschiedlich. Wir verwenden
