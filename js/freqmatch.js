@@ -1350,7 +1350,7 @@ function fmStart() {
   // Empfehlungs-Dialog nur vor adaptivem Erststart, nicht im Slider-Modus.
   if (fmMode === 'adaptive' && _fmShouldOfferSliderEstimate()) {
     if (fmEls.sliderEstimateDlg) {
-      fmEls.sliderEstimateDlg.hidden = false;
+      fmEls.sliderEstimateDlg.classList.add('active');
       return;
     }
   }
@@ -1849,15 +1849,15 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(fmSEDlg);
 
   fmSEBtnSlider.addEventListener('click', function() {
-    fmSEDlg.hidden = true;
+    fmSEDlg.classList.remove('active');
     fmSetMode('slider');
   });
   fmSEBtnSkip.addEventListener('click', function() {
-    fmSEDlg.hidden = true;
+    fmSEDlg.classList.remove('active');
     _fmShowHpCheck(_fmDoStart);
   });
   fmSEBtnCancel.addEventListener('click', function() {
-    fmSEDlg.hidden = true;
+    fmSEDlg.classList.remove('active');
   });
 
   fmEls.sliderEstimateDlg = fmSEDlg;
@@ -1968,7 +1968,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fmEls.refSelect.addEventListener('change', function() {
     if (fRes.length > 0) {
       fmRCOkBtn.onclick = function() {
-        fmRCDlg.hidden = true;
+        fmRCDlg.classList.remove('active');
         fRes.splice(0, fRes.length);
         _fmClearPersist('left');
         _fmClearPersist('right');
@@ -1976,10 +1976,10 @@ document.addEventListener("DOMContentLoaded", () => {
         fmUpdateSliderModeAvail();
       };
       fmRCCancelBtn.onclick = function() {
-        fmRCDlg.hidden = true;
+        fmRCDlg.classList.remove('active');
         fmEls.refSelect.value = _fmPrevRefVal;
       };
-      fmRCDlg.hidden = false;
+      fmRCDlg.classList.add('active');
     } else {
       _fmPrevRefVal = fmEls.refSelect.value;
     }
