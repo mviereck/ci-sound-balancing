@@ -1746,3 +1746,212 @@ var testUI = {
   }
 
 };
+
+// ===== testUI.sideCheck — Seitenhörtest =====
+(function() {
+  var _shtEls     = null;
+  var _shtCfg     = null;
+  var _shtSuccess = null;
+  var _shtAbort   = null;
+  var _shtResult  = {};
+  var _shtAskSide = null;
+
+  var _shtIdleTimer   = null;
+  var _shtIdleEl      = null;
+  var _shtIdleMs      = 0;
+  var _shtIdleCb      = null;
+  var _shtIdleHandler = null;
+
+  function _shtT(key) {
+    return (typeof t === 'function' && t(key)) || key;
+  }
+
+  function _shtInitDom() {
+    if (_shtEls) return;
+    var overlay  = _mkEl('div', 'modal-overlay sht-modal');
+    var box      = _mkEl('div', 'modal-box');
+    var titleEl  = _mkEl('h2');
+    titleEl.dataset.t   = 'shtTitle';
+    titleEl.textContent = _shtT('shtTitle');
+    var msgEl    = _mkEl('p');
+
+    var replayRow = _mkEl('div', 'btn-group');
+    var replayBtn = _mkEl('button', 'btn');
+    replayBtn.dataset.t   = 'shtBtnReplay';
+    replayBtn.textContent = _shtT('shtBtnReplay');
+    replayRow.appendChild(replayBtn);
+
+    var ansRow = _mkEl('div', 'btn-group');
+    var btnL = _mkEl('button', 'btn'); btnL.dataset.t = 'shtBtnLeft';  btnL.textContent = _shtT('shtBtnLeft');
+    var btnR = _mkEl('button', 'btn'); btnR.dataset.t = 'shtBtnRight'; btnR.textContent = _shtT('shtBtnRight');
+    var btnB = _mkEl('button', 'btn'); btnB.dataset.t = 'shtBtnBoth';  btnB.textContent = _shtT('shtBtnBoth');
+    var btnN = _mkEl('button', 'btn'); btnN.dataset.t = 'shtBtnNone';  btnN.textContent = _shtT('shtBtnNone');
+    ansRow.append(btnL, btnR, btnB, btnN);
+
+    var phaseBtns = _mkEl('div', 'sht-phase-btns');
+    phaseBtns.style.marginTop = '0.8em';
+    phaseBtns.append(replayRow, ansRow);
+
+    var errBtns = _mkEl('div', 'sht-err-btns');
+    errBtns.hidden = true;
+    errBtns.style.marginTop = '0.8em';
+    var errRow = _mkEl('div', 'btn-group');
+    var retryBtn = _mkEl('button', 'btn btn-primary');
+    retryBtn.dataset.t   = 'shtBtnRetry';
+    retryBtn.textContent = _shtT('shtBtnRetry');
+    var abortBtn = _mkEl('button', 'btn');
+    abortBtn.dataset.t   = 'shtBtnAbort';
+    abortBtn.textContent = _shtT('shtBtnAbort');
+    errRow.append(retryBtn, abortBtn);
+    errBtns.appendChild(errRow);
+
+    box.append(titleEl, msgEl, phaseBtns, errBtns);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+
+    _shtEls = { overlay: overlay, msgEl: msgEl, replayBtn: replayBtn,
+                phaseBtns: phaseBtns, errBtns: errBtns,
+                retryBtn: retryBtn, abortBtn: abortBtn };
+
+    btnL.onclick      = function() { _shtAnswer('left');  };
+    btnR.onclick      = function() { _shtAnswer('right'); };
+    btnB.onclick      = function() { _shtAnswer('both');  };
+    btnN.onclick      = function() { _shtAnswer('none');  };
+    replayBtn.onclick = function() { _shtPlayTone(_shtAskSide); };
+    retryBtn.onclick  = function() { _shtRetry(); };
+    abortBtn.onclick  = function() { _shtDoAbort(); };
+  }
+
+  function _shtPlayTone(side) {
+    playToneTyped(gAC(), 1000, 0.25, 1000, side === 'left' ? -1 : 1, 'complex');
+  }
+
+  function _shtAsk(side) {
+    _shtAskSide = side;
+    var key = (_shtCfg.sides === 'one') ? 'shtMsgOne'
+            : (side === 'left')         ? 'shtMsgLeft' : 'shtMsgRight';
+    _shtEls.msgEl.textContent = _shtT(key);
+    _shtEls.phaseBtns.hidden  = false;
+    _shtEls.errBtns.hidden    = true;
+    _shtPlayTone(side);
+  }
+
+  function _shtAnswer(answer) {
+    _shtResult[_shtAskSide] = answer;
+    if (_shtCfg.sides === 'both' && _shtAskSide === 'left') {
+      _shtAsk('right');
+    } else {
+      _shtEval();
+    }
+  }
+
+  function _shtEval() {
+    var L = _shtResult.left;
+    var R = _shtResult.right;
+    var msg = '';
+    var syms = [];
+
+    if (_shtCfg.sides === 'one') {
+      var ans = (_shtCfg.side === 'left') ? L : R;
+      if (ans === _shtCfg.side)              { _shtSucceed(); return; }
+      if (ans === 'left' || ans === 'right')   msg = _shtT('shtErrFlip');
+      else if (ans === 'both')                 msg = _shtT('shtErrBilateral');
+      else                                     msg = _shtT('shtErrNone');
+    } else {
+      if (L === 'left' && R === 'right')     { _shtSucceed(); return; }
+      if (L === 'none' || R === 'none') {
+        if (L === 'none' && R === 'none') {
+          msg = _shtT('shtErrNone');
+        } else {
+          msg = _shtT('shtErrMissing');
+          if (L === 'none') syms.push(_shtT('shtSymLeftNone'));
+          if (R === 'none') syms.push(_shtT('shtSymRightNone'));
+        }
+      } else if (L === 'both' && R === 'both') {
+        msg = _shtT('shtErrBilateral');
+      } else if ((L === 'left'  && R === 'left') ||
+                 (L === 'right' && R === 'right')) {
+        msg = _shtT('shtErrAudiolink');
+      } else if (L === 'right' && R === 'left') {
+        msg = _shtT('shtErrFlip');
+      } else {
+        msg = _shtT('shtErrMixed');
+        if (L === 'none')  syms.push(_shtT('shtSymLeftNone'));
+        if (R === 'none')  syms.push(_shtT('shtSymRightNone'));
+        if (L === 'both')  syms.push(_shtT('shtSymLeftBoth'));
+        if (R === 'both')  syms.push(_shtT('shtSymRightBoth'));
+        if (L === 'right') syms.push(_shtT('shtSymLeftWrong'));
+        if (R === 'left')  syms.push(_shtT('shtSymRightWrong'));
+      }
+    }
+    if (syms.length) msg += ' ' + syms.join(', ') + '.';
+    _shtEls.msgEl.textContent = msg;
+    _shtEls.phaseBtns.hidden  = true;
+    _shtEls.errBtns.hidden    = false;
+  }
+
+  function _shtSucceed() {
+    _shtEls.overlay.classList.remove('active');
+    var cb = _shtSuccess;
+    _shtSuccess = null; _shtAbort = null;
+    if (cb) cb();
+  }
+
+  function _shtDoAbort() {
+    _shtEls.overlay.classList.remove('active');
+    var cb = _shtAbort;
+    _shtSuccess = null; _shtAbort = null;
+    if (cb) cb();
+  }
+
+  function _shtRetry() {
+    _shtResult = {};
+    _shtAsk((_shtCfg.sides === 'one') ? _shtCfg.side : 'left');
+  }
+
+  function _shtRun(cfg, onSuccess, onAbort) {
+    _shtInitDom();
+    _shtCfg     = cfg;
+    _shtSuccess = onSuccess;
+    _shtAbort   = onAbort;
+    _shtResult  = {};
+    _shtEls.overlay.classList.add('active');
+    _shtAsk(cfg.sides === 'one' ? cfg.side : 'left');
+  }
+
+  function _shtResetTimer() {
+    if (_shtIdleTimer) clearTimeout(_shtIdleTimer);
+    _shtIdleTimer = setTimeout(function() {
+      var cb = _shtIdleCb;
+      if (cb) cb();
+    }, _shtIdleMs);
+  }
+
+  function _shtStartIdleWatch(el, ms, onIdle) {
+    _shtStopIdleWatch();
+    _shtIdleEl      = el;
+    _shtIdleMs      = ms;
+    _shtIdleCb      = onIdle;
+    _shtIdleHandler = function() { _shtResetTimer(); };
+    el.addEventListener('pointerdown', _shtIdleHandler, true);
+    el.addEventListener('keydown',     _shtIdleHandler, true);
+    el.addEventListener('click',       _shtIdleHandler, true);
+    _shtResetTimer();
+  }
+
+  function _shtStopIdleWatch() {
+    if (_shtIdleTimer) { clearTimeout(_shtIdleTimer); _shtIdleTimer = null; }
+    if (_shtIdleEl && _shtIdleHandler) {
+      _shtIdleEl.removeEventListener('pointerdown', _shtIdleHandler, true);
+      _shtIdleEl.removeEventListener('keydown',     _shtIdleHandler, true);
+      _shtIdleEl.removeEventListener('click',       _shtIdleHandler, true);
+    }
+    _shtIdleEl = null; _shtIdleHandler = null; _shtIdleCb = null;
+  }
+
+  testUI.sideCheck = {
+    run:            _shtRun,
+    startIdleWatch: _shtStartIdleWatch,
+    stopIdleWatch:  _shtStopIdleWatch
+  };
+})();

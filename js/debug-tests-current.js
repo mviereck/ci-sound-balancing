@@ -21,6 +21,34 @@
   // (aktuell keine temporären Tests registriert)
 })();
 
+/* BA116 — SHT-Infrastruktur */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA116/sht-infrastruktur', { tab: 'messungen', label: 'SHT-Infrastruktur (BA116)' }, function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+    chk('testUI.sideCheck vorhanden',
+      typeof testUI !== 'undefined' && !!testUI.sideCheck &&
+      typeof testUI.sideCheck.run === 'function');
+    chk('testUI.sideCheck.startIdleWatch / stopIdleWatch',
+      typeof testUI.sideCheck.startIdleWatch === 'function' &&
+      typeof testUI.sideCheck.stopIdleWatch  === 'function');
+
+    // Lazy-DOM-Test: run() soll .sht-modal.active erzeugen
+    testUI.sideCheck.run(
+      { sides: 'one', side: 'right' },
+      function() {},
+      function() {}
+    );
+    var shown = !!document.querySelector('.sht-modal.active');
+    // Cleanup
+    var mo = document.querySelector('.sht-modal');
+    if (mo) mo.classList.remove('active');
+    chk('SHT-Modal erscheint nach run() (lazy DOM)', shown);
+    return lines.join('\n');
+  });
+})();
+
 /* BA113 — Slider Auto-Extend API */
 (function() {
   if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
