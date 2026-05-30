@@ -1828,8 +1828,7 @@ var testUI = {
 
   function _shtAsk(side) {
     _shtAskSide = side;
-    var key = (_shtCfg.sides === 'one') ? 'shtMsgOne'
-            : (side === 'left')         ? 'shtMsgLeft' : 'shtMsgRight';
+    var key = 'shtMsgOne';
     _shtEls.msgEl.textContent = _shtT(key);
     _shtEls.phaseBtns.hidden  = false;
     _shtEls.errBtns.hidden    = true;

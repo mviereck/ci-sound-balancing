@@ -788,11 +788,6 @@ Object.assign(L.de, {
     fmRefChangeConfirm: "Beim Wechsel des Referenzohrs werden alle bisherigen Frequenzabgleich-Ergebnisse gelöscht. Fortfahren?",
     fmRefChangeConfirmOk: "Ja, wechseln",
     fmRefChangeConfirmCancel: "Abbrechen",
-    fmHpMsg1: "Auf welcher Seite hören Sie den Ton?",
-    fmHpMsg2: "Sie tragen Ihren Kopfhörer möglicherweise falsch herum. Bitte setzen Sie ihn anders herum auf und antworten Sie erneut.",
-    fmHpBtnReplay: "Ton wiederholen",
-    fmHpBtnCancel: "Abbrechen",
-
     // --- Seitenhörtest ---
     shtTitle:        "Seitenhörtest",
     shtMsgLeft:      "Linker Ton — auf welcher Seite hören Sie?",

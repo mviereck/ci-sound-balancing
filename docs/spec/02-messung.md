@@ -190,18 +190,23 @@ Slider-Wert wird invertiert.
   ausgeblendet; stattdessen erscheinen Höher/Tiefer-Buttons und das
   Status-Grid. Im Slider-Modus bleibt das bisherige Verhalten erhalten.
 
-- **Kopfhörer-Check** (Bauanleitung 101): Bei jedem Klick auf
-  Starten/Fortsetzen erscheint vor dem Test-Start ein Modal-Dialog.
-  Ein 1000-Hz-Komplexton (1 s, mittlere Lautstärke) wird auf der
-  global eingestellten Seite (`activeSide`) abgespielt. Frage:
-  „Auf welcher Seite hören Sie den Ton?" Buttons: [Links]
-  [Ton wiederholen] [Rechts] [Abbrechen]. Richtige Antwort →
-  Dialog schließt, Test startet. Falsche Antwort → gleicher Dialog
-  mit Text „Sie tragen Ihren Kopfhörer möglicherweise falsch herum.
-  Bitte setzen Sie ihn anders herum auf und antworten Sie erneut."
-  + erneuter Ton (Loop bis richtige Antwort oder Abbrechen).
-  Abbrechen → Dialog schließt, Test startet nicht. Gilt für
-  Slider- und adaptiven Modus.
+- **Seitenhörtest vor Test-Start** (BA 116/117): Bei jedem Klick auf
+  Starten erscheint das Seitenhörtest-Modal (`testUI.sideCheck.run`,
+  `cfg = {sides:'both'}`). Beide Seiten werden nacheinander geprüft
+  (links zuerst); die Meldung verrät dabei nicht, welche Seite gerade
+  gespielt wird (immer neutral: „Auf welcher Seite hören Sie den Ton?").
+  Buttons: [Ton wiederholen] [Links]
+  [Rechts] [Beide] [Nichts] [Abbrechen]. Richtige Seite →
+  Modal schließt, Test startet. Falsche Seite / Nichts / Beide →
+  Fehlermeldung + Retry-Schleife. Abbrechen → Test stoppt.
+  Gilt für Slider- und adaptiven Modus. Auch der
+  „Direkt adaptiv"-Button im Slider-Schätzungs-Dialog
+  (`fmSEBtnSkip`) durchläuft denselben Seitenhörtest.
+
+- **Idle-Watch** (BA 117): Nach Test-Start läuft ein 5-Minuten-
+  Timer (`testUI.sideCheck.startIdleWatch`). Ohne Interaktion in
+  dieser Zeit bricht der Test automatisch ab (`fmEls._stopTest()`).
+  `fmAbort` stoppt den Idle-Watch (`testUI.sideCheck.stopIdleWatch`).
 
 ### Sub-Tab 4 — Latenz (latency.js)
 

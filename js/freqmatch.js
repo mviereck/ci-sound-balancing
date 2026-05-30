@@ -39,43 +39,13 @@ let _fmNextTrialTO  = null;  // Timeout-Handle für fmNextAdaptiveTrial (canceln
 // Debug-Simulation
 let _fmSimActive  = false;
 let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
-
-// Kopfhörer-Check-Dialog
-let _fmHpEls = null;
+let _fmParentEl = null;   // gesetzt im DOMContentLoaded
 
 // Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
 function _fmDbg(msg) {
   if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
     dbg.log(msg, 'info');
   }
-}
-
-// --- Kopfhörer-Check ---
-
-function _fmHpPlayTone() {
-  const c = gAC();
-  const pan = activeSide === 'left' ? -1 : 1;
-  playToneTyped(c, 1000, 0.25, 1000, pan, 'complex');
-}
-
-function _fmShowHpCheck(callback) {
-  if (!_fmHpEls) { callback(); return; }
-  const { dlg, msgEl, btnLeft, btnReplay, btnRight, btnCancel } = _fmHpEls;
-  const checkSide = activeSide;
-
-  function show(isRetry) {
-    msgEl.textContent = isRetry
-      ? ((typeof t === 'function' && t('fmHpMsg2')) || 'Sie tragen Ihren Kopfhörer möglicherweise falsch herum. Bitte setzen Sie ihn anders herum auf und antworten Sie erneut.')
-      : ((typeof t === 'function' && t('fmHpMsg1')) || 'Auf welcher Seite hören Sie den Ton?');
-    dlg.classList.add('active');
-    _fmHpPlayTone();
-    btnReplay.onclick = () => _fmHpPlayTone();
-    btnCancel.onclick = () => { dlg.classList.remove('active'); if (fmEls && fmEls._stopTest) fmEls._stopTest(); };
-    btnLeft.onclick  = () => { if (checkSide === 'left')  { dlg.classList.remove('active'); callback(); } else show(true); };
-    btnRight.onclick = () => { if (checkSide === 'right') { dlg.classList.remove('active'); callback(); } else show(true); };
-  }
-
-  show(false);
 }
 
 // Liefert true, wenn der Empfehlungs-Dialog vor dem adaptiven Start
@@ -660,7 +630,11 @@ function fmStartAdaptive() {
       return; // testUI bleibt in "running" — Cancel/Slider-Buttons rufen _stopTest()
     }
   }
-  _fmShowHpCheck(_fmDoStartAdaptive);
+  testUI.sideCheck.run(
+    { sides: 'both' },
+    _fmDoStartAdaptive,
+    function() { if (fmEls) fmEls._stopTest(); }
+  );
 }
 
 // Eigentliche Adaptiv-Start-Logik (nach Dialog-Bestätigung).
@@ -784,6 +758,9 @@ function _fmDoStartAdaptive() {
   _fmDbg('start: ref=' + fmRefSide + ' var=' + fmVarSide
        + ', tracks=' + Object.keys(fmTracks).length);
   fmNextAdaptiveTrial();
+  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
+    if (fmEls) fmEls._stopTest();
+  });
 }
 
 function fmNextAdaptiveTrial() {
@@ -1420,10 +1397,21 @@ function fmStartSlider() {
     fmEls._stopTest();
     return;
   }
-  fmSeqIdx    = 0;
-  fmRunning   = true;
+  testUI.sideCheck.run(
+    { sides: 'both' },
+    _fmDoStartSlider,
+    function() { if (fmEls) fmEls._stopTest(); }
+  );
+}
+
+function _fmDoStartSlider() {
+  fmSeqIdx  = 0;
+  fmRunning = true;
   fmLoadElectrode();
   _fmStartTimer();
+  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
+    if (fmEls) fmEls._stopTest();
+  });
 }
 
 function fmLoadElectrode() {
@@ -1512,6 +1500,7 @@ function fmSkip() {
 }
 
 function fmAbort() {
+  testUI.sideCheck.stopIdleWatch();
   _fmSimActive = false;
   if (fmAdaptiveActive) {
     _fmPersist();
@@ -1802,6 +1791,7 @@ function fmLoadVerfahrenFromSide() {
 document.addEventListener("DOMContentLoaded", () => {
   const parentEl = document.getElementById("subpanel-messungen-freqmatch");
   if (!parentEl) return;
+  _fmParentEl = parentEl;
 
   const fmCfg = {
     id: 'freqmatch',
@@ -1923,7 +1913,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   fmSEBtnSkip.addEventListener('click', function() {
     fmSEDlg.classList.remove('active');
-    _fmShowHpCheck(_fmDoStartAdaptive);
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      _fmDoStartAdaptive,
+      function() { if (fmEls) fmEls._stopTest(); }
+    );
   });
   fmSEBtnCancel.addEventListener('click', function() {
     fmSEDlg.classList.remove('active');
@@ -1950,32 +1944,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fmRCCard.append(fmRCMsg, fmRCBtns);
   fmRCDlg.appendChild(fmRCCard);
   parentEl.appendChild(fmRCDlg);
-
-  // Kopfhörer-Check-Dialog
-  const fmHpDlg = _mkEl('div', 'modal-overlay');
-  const fmHpBox = _mkEl('div', 'modal-box');
-  const fmHpMsgEl = _mkEl('p');
-  fmHpMsgEl.style.marginBottom = '1em';
-  const fmHpBtns = _mkEl('div', 'btn-group');
-  const fmHpBtnLeft = _mkEl('button', 'btn');
-  fmHpBtnLeft.dataset.t = 'targetLeft';
-  if (typeof t === 'function') fmHpBtnLeft.textContent = t('targetLeft') || 'Links';
-  const fmHpBtnReplay = _mkEl('button', 'btn');
-  fmHpBtnReplay.dataset.t = 'fmHpBtnReplay';
-  if (typeof t === 'function') fmHpBtnReplay.textContent = t('fmHpBtnReplay') || 'Ton wiederholen';
-  const fmHpBtnRight = _mkEl('button', 'btn');
-  fmHpBtnRight.dataset.t = 'targetRight';
-  if (typeof t === 'function') fmHpBtnRight.textContent = t('targetRight') || 'Rechts';
-  const fmHpBtnCancel = _mkEl('button', 'btn');
-  fmHpBtnCancel.dataset.t = 'fmHpBtnCancel';
-  fmHpBtnCancel.style.marginLeft = '1em';
-  if (typeof t === 'function') fmHpBtnCancel.textContent = t('fmHpBtnCancel') || 'Abbrechen';
-  fmHpBtns.append(fmHpBtnLeft, fmHpBtnReplay, fmHpBtnRight, fmHpBtnCancel);
-  fmHpBox.append(fmHpMsgEl, fmHpBtns);
-  fmHpDlg.appendChild(fmHpBox);
-  parentEl.appendChild(fmHpDlg);
-  _fmHpEls = { dlg: fmHpDlg, msgEl: fmHpMsgEl, btnLeft: fmHpBtnLeft, btnReplay: fmHpBtnReplay,
-               btnRight: fmHpBtnRight, btnCancel: fmHpBtnCancel };
 
   // Events: Referenzseiten-Wechsel
   let _fmPrevRefVal = fmEls.header.refSelect.value;
