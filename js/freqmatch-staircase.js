@@ -47,6 +47,8 @@ const FM_CATCHUP_REVERSALS_THRESHOLD = 2;
 // alternierend. Liegt deutlich enger als ±100, weil der Vorlauf-Match
 // selbst schon nahe am echten PSE ist.
 const FM_FOLLOWUP_BRACKET_OFFSET = 25;
+const FM_INITIAL_START_OFFSET    = 250;  // BA 112 — Default-Cent-Abstand des ersten Trials
+const FM_TRIALS_PER_ELECTRODE_ESTIMATE = 25;   // Schätzwert für Trial-Fortschrittsanzeige
 
 // --- Track-State erzeugen ---
 //
@@ -57,9 +59,9 @@ const FM_FOLLOWUP_BRACKET_OFFSET = 25;
 //               verwendet. Wenn nicht angegeben, ergibt sich startOffset
 //               aus startSign · 100 cent (alte Voreinstellung).
 //               Verwendung in freqmatch.js fmStartAdaptive:
-//                 - Lauf 1 mit Slider-Schätzung: startOffset = schätzung.cent
+//                 - Lauf 1 mit Slider-Schätzung: startOffset = schätzung.cent + sign · FM_INITIAL_START_OFFSET
 //                 - Lauf 2+ mit Vorlauf-Match:   startOffset = match ± FM_FOLLOWUP_BRACKET_OFFSET
-//                 - Sonst: kein Override, klassisches ±100.
+//                 - Sonst: startOffset = sign · FM_INITIAL_START_OFFSET.
 function fmCreateTrack(electrodeIdx, startSign, startOffset) {
   const START_MAG = 100;
   const sign      = (startSign === -1) ? -1 : +1;

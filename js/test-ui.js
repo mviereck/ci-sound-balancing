@@ -1516,6 +1516,15 @@ function _buildTestPanelNew(parentEl, cfg) {
         }
       }
 
+      // Enter : confirmButton / onConfirm
+      if (e.key === 'Enter') {
+        if (body.confirmButton && vCfg2.hooks && vCfg2.hooks.onConfirm) {
+          e.preventDefault();
+          vCfg2.hooks.onConfirm();
+        }
+        return;
+      }
+
     };
 
     document.addEventListener('keydown', _keyListener);

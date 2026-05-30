@@ -475,6 +475,27 @@ canvas {
   color: #4b5563;
 }
 
+.fm-slider-status {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.95em;
+}
+.fm-slider-status th,
+.fm-slider-status td {
+  padding: 0.3em 0.6em;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+.fm-slider-status th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+.fm-slider-status tr.current-row td {
+  background: #fef3c7;
+  font-weight: 600;
+}
+
 .fm-badge {
   display: inline-block;
   padding: 2px 6px;
@@ -799,6 +820,40 @@ select:disabled {
   max-width: 440px;
   margin-left: auto;
   margin-right: auto;
+}
+.info-box.verfahren-explain {
+  margin: 0.4em 0 0.8em 0;
+  padding: 0.6em 0.9em;
+  border-left: 3px solid #3b82f6;
+  background: #eff6ff;
+  border-radius: 4px;
+  font-size: 0.92em;
+  color: #1e3a8a;
+}
+.test-running-title {
+  margin: 0.5em 0 1em 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  color: #374151;
+}
+.test-background {
+  margin-top: 1.5em;
+  padding: 0.5em 0.8em;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #f9fafb;
+}
+.test-background > summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #374151;
+}
+.test-background-body {
+  margin-top: 0.8em;
+  font-size: 0.92em;
+  line-height: 1.5;
+  color: #374151;
 }
 .test-hint {
   font-size: 0.88em;

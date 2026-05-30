@@ -97,11 +97,12 @@ Grundlage und Grenzen" am Ende.
      aus ±100 cent neu zu suchen — drastisch schnellere Konvergenz bei
      nicht-trivialen Mismatches.
   2. **Lauf 1 mit Slider-Vor-Schätzung** (`sliderEstimates[idx].cent`
-     vorhanden): Startoffset = Schätzungs-Cent. Das Vorzeichen `sign`
-     wird trotzdem bestimmt und gespeichert (für Lauf-2-Bracketing),
-     beeinflußt den Startoffset in Lauf 1 aber nicht.
-  3. **Sonst (klassisch):** Startoffset = `sign · 100 cent`, Vorzeichen
-     zufällig in Lauf 1, alterniert in Lauf 2 (s. u.).
+     vorhanden): Startoffset = `schätzung.cent + sign · FM_INITIAL_START_OFFSET`
+     (250 cent Abstand von der Schätzung). Das Vorzeichen `sign` wird
+     trotzdem bestimmt und gespeichert (für Lauf-2-Bracketing). Ziel:
+     erster Trial klingt deutlich verschieden von der Schätzung.
+  3. **Sonst (klassisch):** Startoffset = `sign · FM_INITIAL_START_OFFSET`
+     (250 cent), Vorzeichen zufällig in Lauf 1, alterniert in Lauf 2 (s. u.).
   - **Gepaartes Bracketing über Läufe** (Vorzeichen `sign`):
     - **Erster Lauf nach Reset (oder ungepaarter Vorgänger)**: pro
       Elektrode unabhängig zufällig `+1` oder `−1`.

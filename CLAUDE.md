@@ -74,6 +74,32 @@ keine Nachricht an den User. Wenn der Reminder erscheint und tatsächlich
 strukturell oder funktional etwas geändert wurde: Referenzdateien
 sofort anpassen, nicht aufschieben.
 
+VERSIONIERUNG
+-------------
+
+Verbindlich für **jede** Code-Änderung in `js/`, `index.html`,
+`style.css` oder anderen Laufzeit-Dateien — egal ob durch Direkt-Edit,
+Agent-Build oder Sonnet-Bauanleitung:
+
+- **`APP_VERSION` in `js/version.js` hochzählen**, sobald an Lauf-
+  Code etwas verändert wurde. Format `"<Major>.<Minor>.<Patch>-beta"`;
+  Patch-Stelle bei jeder Änderung um genau 1 erhöhen, Major und Minor
+  nur manuell bei semantischen Brüchen. Ohne Bump bleibt der Browser-
+  Cache bei der alten Version hängen und der Nutzer sieht die Änderung
+  nicht. Reine Doku-Änderungen (`*.md`, `docs/`) lösen **keinen** Bump
+  aus.
+
+- **Bauanleitungs-Dateien folgen der Toolversion**: Eine neue
+  Bauanleitung erhält die nächste Patch-Nummer, also `APP_VERSION_aktuell
+  + 1`. Dateiname-Konvention `BAUANLEITUNG_<patch>_<thema>.md` im
+  Ordner `.bauanleitungen/`. Beispiel: aktuelle Version 3.0.108-beta
+  → nächste Anleitung `BAUANLEITUNG_109_<thema>.md`, die nach
+  erfolgreichem Build die Version auf 3.0.109-beta setzt. Der Bump in
+  `version.js` ist Pflichtbestandteil jeder Anleitung (siehe
+  `docs/BAUANLEITUNGEN_LEITLINIEN.md`). Wenn parallele Anleitungen
+  gleichzeitig laufen, vergibt Opus die Nummern aufsteigend in der
+  Reihenfolge der Erstellung.
+
 KONZEPTBESPRECHUNG
 ------------------
 
@@ -185,9 +211,23 @@ es nicht unnötig zu verbrauchen:
   Nutzer auf DeepSeek auslagern. Aktiv anbieten, statt Claude-
   Volumen für reine Recherche zu verbrauchen. Bei Code- und
   Projektfragen bleibt es bei Claude.
-- **Opus und Sonnet nicht im selben Chat mischen.** Hat Opus eine
-  Bauanleitung geschrieben, übernimmt einen neuen Sonnet-Chat das
-  Bauen. Den Opus-Chat schließen.
+- **Opus und Sonnet nicht im selben Chat mischen — mit einer Ausnahme.**
+  Standardfall: Hat Opus eine Bauanleitung geschrieben, übernimmt ein
+  neuer Sonnet-Chat das Bauen. Den Opus-Chat schließen. Grund:
+  Token-Sparsamkeit, lange Chats schleppen alle alten Nachrichten mit.
+  **Ausnahme — komplexe vernetzte Refactorings**: Wenn ein Vorhaben
+  mehrere Module gleichzeitig berührt und Drift zwischen Teilmigrationen
+  früh erkannt werden muß (typisch: einheitliche API einführen und
+  mehrere Aufrufer migrieren), darf Opus Sonnet als Agent
+  (`Agent`-Tool mit `model: "sonnet"`) direkt aus dem Opus-Chat
+  aufrufen. Vorteil: Opus behält die Übersicht, prüft jedes Bauresultat
+  und kann sofort nachsteuern. Subagenten haben eigenen Kontext —
+  der Token-Grund aus dem Standardfall greift hier nicht direkt. Reale
+  Kosten: der Opus-Chat wächst durch die Agent-Berichte; bei vielen
+  Iterationen den Kontext im Auge behalten und ggf. Schritte ab einem
+  bestimmten Punkt doch wieder per Bauanleitung in einen neuen
+  Sonnet-Chat auslagern (typisch: die ersten 1-2 Migrations-Schritte
+  per Agent, danach Pattern wiederholt sich → Bauanleitung).
 - **Bei Bug-Diagnose erst Konsolen-Ausgabe holen.** Bevor Claude
   selbst durch den Code wandert, den Nutzer um die Konsolen-Meldung
   bitten (Bug-Report-Template in docs/DEBUG.md). Spart oft eine ganze

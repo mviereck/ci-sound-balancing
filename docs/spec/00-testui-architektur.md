@@ -351,6 +351,7 @@ verbindlicher Bestandteil jeder Bauanleitung, die testUI berührt.
 | Leertaste | Replay aktueller Trial | `actions` enthält `'replay'` |
 | Backspace (⌫) | Undo letzte Antwort | `actions` enthält `'undo'` |
 | B | Beide Töne gleichzeitig abspielen (simul) | `actions` enthält `'simul'` |
+| Enter | „Offset bestätigen" / `onConfirm` auslösen | `confirmButton`-Baustein deklariert |
 | 1 / 2 / 3 | (entfällt — `judgment`-Verfahren wird gestrichen) | — |
 
 ## Migrationsplan

@@ -743,9 +743,9 @@ function _fmDoStartAdaptive() {
       //   (a) Folgelauf mit vorhandenem Vorlauf-Match für diese Elektrode:
       //       startOffset = prevMatch + sign · FM_FOLLOWUP_BRACKET_OFFSET
       //   (b) Lauf 1 ohne Vorlauf, mit Slider-Vor-Schätzung:
-      //       startOffset = sliderEstimate.cent (sign bleibt für späteres
-      //       Bracketing in Lauf 2 gespeichert, beeinflußt Lauf 1 nicht)
-      //   (c) Sonst: startOffset = sign · 100 cent (klassisch)
+      //       startOffset = sliderEstimate.cent + sign · FM_INITIAL_START_OFFSET
+      //       (250 cent Abstand von der Schätzung, sign für Lauf-2-Bracketing)
+      //   (c) Sonst: startOffset = sign · FM_INITIAL_START_OFFSET (250 cent)
       let startOffset;
       let prevMatchForIdx = null;
       if (prevRun && prevRun.perElectrode && prevRun.perElectrode[idx]
@@ -759,11 +759,11 @@ function _fmDoStartAdaptive() {
       } else if (_slStore[String(idx)] != null
                  && typeof _slStore[String(idx)].cent === 'number'
                  && isFinite(_slStore[String(idx)].cent)) {
-        // (b) Slider-Vor-Schätzung als Startwert.
-        startOffset = _slStore[String(idx)].cent;
+        // (b) Slider-Vor-Schätzung als Mittelpunkt, 250 cent Abstand.
+        startOffset = _slStore[String(idx)].cent + sign * FM_INITIAL_START_OFFSET;
       } else {
-        // (c) Klassisches ±100 cent.
-        startOffset = sign * 100;
+        // (c) Default-Fallback: 250 cent Abstand.
+        startOffset = sign * FM_INITIAL_START_OFFSET;
       }
 
       fmTracks[fmTrackKey(idx)] = fmCreateTrack(idx, sign, startOffset);
@@ -1613,48 +1613,60 @@ function fmUpdateSliderProgress() {
 }
 
 function fmRenderSliderStatusGrid() {
-  const _sgEl = fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.statusGrid;
-  if (!_sgEl) return;
-  const grid = _sgEl;
-  grid.innerHTML = '';
-  grid.hidden = false;
+  if (!fmEls) return;
+  const grid = fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.statusGrid;
+  if (!grid) return;
 
-  const head = _mkEl('div', 'fm-status-row fm-status-head');
-  ['Elektrode', 'Schätzung', 'Status'].forEach(function(txt) {
-    const c = _mkEl('div', 'fm-status-cell');
-    c.textContent = txt;
-    head.appendChild(c);
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive
+                 && sideData[fmVarSide].freqmatchAdaptive.sliderEstimates) || {};
+
+  const rows = [];
+  rows.push(
+    '<tr>' +
+      '<th>Elektrode</th>' +
+      '<th>Startwert (Hz)</th>' +
+      '<th>Differenz (cent)</th>' +
+      '<th>Differenz (Hz)</th>' +
+      '<th>Schätzung mit Slider (Hz)</th>' +
+      '<th>Status</th>' +
+    '</tr>'
+  );
+
+  (fmSeq || []).forEach(function(el) {
+    const startHz = fmVarHz(el);
+    const isCur   = (fmCurrentEl === el && fmRunning && !fmAdaptiveActive);
+    const saved   = store[String(el)];
+
+    let curCentCell  = '—';
+    let curDiffCell  = '—';
+    let estimateCell = '—';
+    let statusCell   = '✗';
+
+    if (isCur) {
+      const cents = Math.round(fmCentOffset);
+      curCentCell = (cents >= 0 ? '+' : '') + cents + ' cent';
+      const diffHz = Math.round(startHz * (Math.pow(2, cents / 1200) - 1));
+      curDiffCell = (diffHz >= 0 ? '+' : '') + diffHz + ' Hz';
+    }
+    if (saved) {
+      const finalHz = Math.round(fmFreqFromCents(startHz, saved.cent));
+      estimateCell  = finalHz + ' Hz';
+      statusCell    = '✓';
+    }
+
+    rows.push(
+      '<tr' + (isCur ? ' class="current-row"' : '') + '>' +
+        '<td>E' + el + '</td>' +
+        '<td>' + Math.round(startHz) + ' Hz</td>' +
+        '<td>' + curCentCell + '</td>' +
+        '<td>' + curDiffCell + '</td>' +
+        '<td>' + estimateCell + '</td>' +
+        '<td>' + statusCell + '</td>' +
+      '</tr>'
+    );
   });
-  grid.appendChild(head);
 
-  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
-    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
-
-  (fmSeq || []).forEach(function(elIdx) {
-    const est = store && store[String(elIdx)];
-    const isDone = !!est;
-    const isCurrent = (elIdx === fmCurrentEl) && !isDone;
-
-    let cssClass = '';
-    if (isCurrent) cssClass = 'active';
-    else if (isDone) cssClass = 'converged';
-    const row = _mkEl('div', 'fm-status-row' + (cssClass ? ' fm-status-' + cssClass : ''));
-    if (isCurrent) row.classList.add('fm-status-current');
-
-    const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(elIdx); });
-    const varHz  = fmVarHz(elIdx);
-    row.appendChild(_mkCell(elName + ' · ' + Math.round(varHz) + ' Hz'));
-
-    const centTxt = est ? ((est.cent >= 0 ? '+' : '') + est.cent + ' cent') : '–';
-    row.appendChild(_mkCell(centTxt));
-
-    let statusTxt = '';
-    if (isCurrent) statusTxt = 'aktuell';
-    else if (isDone) statusTxt = 'erledigt';
-    row.appendChild(_mkCell(statusTxt));
-
-    grid.appendChild(row);
-  });
+  grid.innerHTML = '<table class="fm-slider-status">' + rows.join('') + '</table>';
 }
 
 function fmRunSliderDebugSim() {
@@ -1667,7 +1679,7 @@ function fmRunSliderDebugSim() {
   if (!store) return;
   fmSeq.forEach(function(el) {
     store[String(el)] = {
-      cent:      Math.round((Math.random() * 100) - 50),
+      cent:      Math.round(-200 + Math.random() * 700),   // [-200, +500]
       varSide:   fmVarSide,
       refSide:   fmRefSide,
       varFreq:   fmVarHz(el),
@@ -1695,6 +1707,7 @@ function fmHandleSlider(val) {
   fmCentOffset = parseFloat(val);
   fmUpdateSliderDisplay();
   _fmCheckExtend();
+  fmRenderSliderStatusGrid();
 }
 
 function _fmExtendRange() {

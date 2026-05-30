@@ -56,6 +56,7 @@ dessen x-Achse seit jeher log-Hz ist (cent-äquivalent).
 
 ## Kapitel
 
+- [Test-UI — Architektur (horizontal, schrittweise eingeführt)](spec/00-testui-architektur.md)
 - [Tab-Übersicht](spec/01-tabs.md)
 - [Messungen — Sub-Tabs](spec/02-messung.md)
 - [Frequenzabgleich — Adaptiver Modus](spec/02b-freqmatch-adaptiv.md)
