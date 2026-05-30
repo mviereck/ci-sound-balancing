@@ -583,7 +583,11 @@ Object.assign(L.de, {
     fmHintWarn:
       "Achten Sie darauf, die richtige Referenzseite auszuwählen: die mit natürlichem Gehör.",
     fmHintMethod:
-      "Dieser Test vergleicht die Tonhöhen links und rechts.<br>• Wenn Sie ein Ohr mit natürlichem Hören haben, ob normal- oder schwerhörig, stellen Sie es als Referenzohr ein.<br>• Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.<br>• Falls Sie 2 CI tragen, können Sie mit diesem Test Frequenzabweichungen feststellen und beim Audiologen korrigieren lassen.",
+      "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
+      "• Wenn Sie ein Ohr mit natürlichem Hören haben, ob normal- oder schwerhörig, stellen Sie es als Referenzohr ein.<br>" +
+      "&nbsp;&nbsp;- Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
+      "&nbsp;&nbsp;- Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.<br>" +
+      "• Wenn Sie 2 CI tragen, können Sie mit diesem Test Frequenzabweichungen feststellen und beim Audiologen korrigieren lassen.",
     fmLblRef: "Referenzseite",
     fmLblStart: "Start Frequenzabgleich",
     fmCurEl: "Aktuelle Elektrode",
@@ -751,6 +755,17 @@ Object.assign(L.de, {
     lrPrereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
     latPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
+    fmHintWorkflow:
+      "<strong>Empfohlenes Vorgehen:</strong><br>" +
+      "• Zuerst Testverfahren 'Vor-Schätzung (Slider)' ausführen.<br>" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;– Dieser Test ist tendenziell ungenau, gibt aber einen ersten Eindruck und erste Ergebnisse.<br>" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;– Die Ergebnisse dienen als Startwerte für den zweiten Test, der dadurch etwas schneller wird.<br>" +
+      "• Danach Test 'Adaptiv' ausführen.<br>" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;– Dieser Test kann sehr lange dauern; planen Sie Zeit und ein paar kleine Pausen ein.<br>" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;– Das Ergebnis liegt hoffentlich nah an der Wirklichkeit, hat aber noch keine Abschätzung seiner Genauigkeit.<br>" +
+      "&nbsp;&nbsp;&nbsp;&nbsp;– Nach Beginn des Tests 'Adaptiv' kann der Test 'Vor-Schätzung' nicht mehr ausgeführt werden.<br>" +
+      "• Noch einmal Test 'Adaptiv' ausführen. Das präzisiert das Ergebnis und erlaubt eine Einschätzung seiner Zuverlässigkeit.<br>" +
+      "• Weitere Wiederholungen von 'Adaptiv' verbessern die Genauigkeit weiter, sind aber zeitintensiv.",
     fmRunningTitle: "Frequenzabgleich läuft",
     fmRunningHint: "Gleichen Sie die Töne an, bis sie sich gleich hoch oder tief anhören.",
     fmSliderRunHint: "Passen Sie die Position des Sliders an, bis sich beide Töne annähernd oder genau gleich hoch anhören.",

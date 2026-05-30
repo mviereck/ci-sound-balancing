@@ -1798,9 +1798,10 @@ document.addEventListener("DOMContentLoaded", () => {
     explain: {
       titleKey: 'fmTitle',
       paragraphs: [
-        { key: 'fmHintMethod', kind: 'plain' },
-        { key: 'fmPrereqHint', kind: 'plain' },
-        { key: 'fmHintWarn',   kind: 'warn'  }
+        { key: 'fmHintMethod',   kind: 'plain' },
+        { key: 'fmPrereqHint',  kind: 'warn'  },
+        { key: 'fmHintWarn',    kind: 'warn'  },
+        { key: 'fmHintWorkflow', kind: 'plain' }
       ]
     },
     header: {
