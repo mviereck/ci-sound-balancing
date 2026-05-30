@@ -1,5 +1,9 @@
 # Ideen und Konzept-Skizzen
 
+> **Bekannte Bugs in 3.0.110-beta**: Slider-Verfahren im Frequenzabgleich
+> ist in dieser Version buggy (Testverfahren-Bugs, nicht Teil von BA 110).
+> Fixes folgen in BA 111.
+
 Sammelstelle für Erweiterungs- und Designideen, die **noch nicht
 gebaut werden sollen**, aber bei zukünftigen Builds berücksichtigt
 werden könnten. Abgrenzung:
@@ -430,6 +434,95 @@ liefert das gleiche Reliabilitäts- und Verfeinerungsziel mit deutlich
 weniger Implementierungsaufwand). Der Konvergenz-Modus bleibt als
 langfristige Idee erhalten, ist aber vorerst nicht geplant. BA-Nummern
 91+ stehen für eine eventuelle spätere Umsetzung zur Verfügung.
+
+---
+
+## Frequenzabgleich — Slider-Wirkung als funktionale Erweiterung
+
+**Aufgenommen am**: 2026-05-29
+**Status**: konzeptionell besprochen, nicht gebaut. Im UI als
+deaktivierte Auswahl vorbereitet (siehe
+[spec/00-testui-architektur.md](spec/00-testui-architektur.md),
+Bausteine-Katalog `sliderTarget` und Beispiel-cfg Freqmatch).
+
+**Hintergrund**: Aktuell wirkt der Korrektur-Gain im Frequenzabgleich
+symmetrisch auf beide Seiten (`getRawBalanceGains()` in `audio.js`).
+Eine Wahl, ob die Frequenzverschiebung nur die Referenzseite, nur die
+Zielseite oder symmetrisch (Balance) angewendet wird, gibt es nicht.
+
+**Idee**: Ein Auswahl-Element `sliderTarget` im Test-Header mit drei
+Optionen — Referenzseite / Zielseite / Balance. Default
+**Referenzseite**. Die Wahl ist Voreinstellung und gilt für alle
+Verfahren des Sub-Reiters; sie verändert nicht die Mechanik der
+Verfahren, sondern nur, wohin der berechnete Cent-Versatz im Audio-Pfad
+appliziert wird.
+
+**Default-Logik**:
+- Wenn nur eine Seite als CI markiert ist und die andere als
+  natürlich hörend: das natürlich hörende Ohr wird automatisch
+  Referenzseite (kein Cent-Versatz möglich, weil keine Filterbank).
+  Default `ref` ist hier zwingend.
+- Bei beidseitiger CI-Versorgung: Default bleibt `ref`, `balance`
+  ist optional sinnvoll (siehe Iterations-Punkt unten).
+
+**Hinweistexte**:
+- Bei einseitig-CI: kurzer erklärender Hinweis neben dem Selector,
+  warum die naturhörende Seite als Referenz fest ist.
+- Bei beidseitig-CI mit `balance`-Wahl: Warnhinweis im Test-Panel
+  (siehe Iterations-Problematik unten).
+
+**Iterations-Problematik bei beidseitig-CI mit balance-Wahl**
+
+Wenn beide Seiten CI sind und der Versatz symmetrisch auf beide
+appliziert wird, gilt: jede Frequenzverschiebung an einer Elektrode
+zieht Nachbarelektroden über die Filterbank-Flanken und das
+elektrische Feld mit. Diese Nachbarelektroden sind ihrerseits
+typischerweise unkalibriert — ihre Tonhöhen-Wahrnehmung ist
+unbekannt und liegt mit hoher Wahrscheinlichkeit auch nicht „richtig".
+Eine Messung mit beidseitiger Anpassung kann strukturell keine
+sichere Einzel-Antwort liefern: die Referenz, gegen die gemessen wird,
+verschiebt sich selbst mit jeder Anpassung.
+
+Konsequenz: bei beidseitiger CI ist die Annäherung an tatsächliche
+Tonhöhen-Gleichheit ein **iterativer Prozeß** — Test → Audiologen-
+Anpassung der MAP → erneuter Test → erneute Anpassung, bis die
+Verschiebungen klein genug werden, daß weitere Iterationen nichts mehr
+ändern. Das Tool kann diesen Prozeß unterstützen, aber nicht in einem
+Lauf zur Konvergenz bringen.
+
+**Empfohlener Hinweistext** (sinngemäß, finale Formulierung beim Bau):
+
+> „Beidseitige Versorgung erkannt. Bei symmetrischer Anwendung der
+> Frequenzkorrektur (Balance) werden Nachbarelektroden mit verschoben,
+> deren eigene Wahrnehmung typischerweise nicht kalibriert ist. Eine
+> einzelne Messung kann hier keine endgültige Antwort liefern —
+> mehrere Iterationen mit Audiologen-Anpassung sind nötig."
+
+Dieser Hinweis erscheint bei beidseitiger CI-Markierung im Implantat-
+Reiter, **unabhängig** von der aktuellen `sliderTarget`-Wahl —
+auch bei `ref` und `var`, weil der User die Wahl ja umstellen kann.
+
+**Voraussetzung**: Schritt 1 und 2 der Test-UI-Architektur-Migration
+(siehe spec/00-testui-architektur.md). In Schritt 2 wird `sliderTarget`
+bereits als `disabled: true` ins UI gebaut, sodaß diese Erweiterung
+nur den Selector aktiviert und die Audio-Logik anpaßt; UI-Layout
+muß nicht mehr geändert werden.
+
+**Berührte Module** (grob):
+- `audio.js` / `getRawBalanceGains`: muß sliderTarget-bewußt werden,
+  oder neue Funktion `getFreqmatchTargetGains(target)` mit
+  asymmetrischer Verteilung
+- `freqmatch.js`: Audio-Pfad ruft target-bewußte Funktion
+- `state-side.js`: Persistenz der Wahl pro Seite (eventuell, oder
+  global)
+- `test-ui.js`: Selector aktivieren (`disabled: false`), Auto-Default
+  bei einseitig-CI, Hinweistext-Logik bei beidseitig-CI
+- `i18n.js` + Sprachdaten: neue Strings
+
+**Bemerkung**: Vor Umsetzung klären, ob die Wahl pro Seite gespeichert
+wird (linkes Ohr als var, rechtes als var — eventuell unterschiedliche
+Wahl) oder global. Heutige Symmetrie spricht für global, der
+Personalisierungs-Gedanke spricht für pro Seite.
 
 ---
 

@@ -7,7 +7,7 @@ let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
 let fmVarSide = "right";
-let fmMode = 'adaptive';   // 'slider' | 'adaptive', Bauanleitung 02b/2
+let fmVerfahren = 'adaptive';   // 'slider' | 'adaptive'
 let fmSeq = [];
 let fmSeqIdx = 0;
 let fmCurrentEl = null;
@@ -72,7 +72,7 @@ function _fmShowHpCheck(callback) {
     dlg.classList.add('active');
     _fmHpPlayTone();
     btnReplay.onclick = () => _fmHpPlayTone();
-    btnCancel.onclick = () => { dlg.classList.remove('active'); };
+    btnCancel.onclick = () => { dlg.classList.remove('active'); if (fmEls && fmEls._stopTest) fmEls._stopTest(); };
     btnLeft.onclick  = () => { if (checkSide === 'left')  { dlg.classList.remove('active'); callback(); } else show(true); };
     btnRight.onclick = () => { if (checkSide === 'right') { dlg.classList.remove('active'); callback(); } else show(true); };
   }
@@ -129,13 +129,27 @@ function fmFreqFromCents(refHz, c) {
 }
 
 function fmGVol() {
-  return fmEls ? Math.pow(parseInt(fmEls.volInput.value) / 100, 2) : 0.25;
+  return (fmEls && fmEls.header) ? Math.pow(parseInt(fmEls.header.volInput.value) / 100, 2) : 0.25;
 }
 function fmGDur() {
-  return fmEls ? (parseInt(fmEls.durInput.value) || 1000) : 1000;
+  return (fmEls && fmEls.header) ? (parseInt(fmEls.header.durInput.value) || 1000) : 1000;
 }
 function fmGPau() {
-  return fmEls ? (parseInt(fmEls.pauseInput.value) || 400) : 400;
+  return (fmEls && fmEls.header) ? (parseInt(fmEls.header.pauseInput.value) || 400) : 400;
+}
+
+// Helfer: Verfahren-Refs
+function _fmAdaptPI() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.pairIndicator;
+}
+function _fmSliderPI() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.pairIndicator;
+}
+function _fmAdaptUndo() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.actions && fmEls.verfahren.adaptive.actions.undo;
+}
+function _fmSliderUndo() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.actions && fmEls.verfahren.slider.actions.undo;
 }
 function fmGAba() {
   return (typeof globalSequence !== 'undefined') ? globalSequence === "aba" : true;
@@ -240,55 +254,65 @@ function fmPrevCent(elIdx) {
 // --- UI-Update-Funktionen ---
 function fmUpdateSliderDisplay() {
   if (!fmEls || fmCurrentEl === null) return;
+  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
   const varHz = fmVarHz(fmCurrentEl);
   const refHz = fmFreqFromCents(varHz, fmCentOffset);
   const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
   const hzStr = refHz.toFixed(2);
   const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
-  if (fmEls.sliderValue) {
-    fmEls.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
+  if (slRefs && slRefs.sliderValue) {
+    slRefs.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
   }
   const refSideLabel = fmRefSide === "left" ? t("sideLeft") : t("sideRight");
   const refText = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
-  if (fmRefSide === "left") {
-    if (fmEls.pairLeft) fmEls.pairLeft.textContent = refText;
-  } else {
-    if (fmEls.pairRight) fmEls.pairRight.textContent = refText;
+  const pi = _fmSliderPI();
+  if (pi) {
+    if (fmRefSide === "left") pi.left.textContent = refText;
+    else                      pi.right.textContent = refText;
   }
 }
 
 function _fmCheckExtend() {
   if (!fmEls) return;
+  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
   const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
   const atLimit = Math.abs(fmCentOffset) >= lim - 1;
   const hasNext = fmSlRangeIdx < FM_SLIDER_RANGES.length - 1;
-  fmEls.extendBtn.hidden = !(atLimit && hasNext);
+  if (slRefs && slRefs.slider) slRefs.slider.extendBtn.hidden = !(atLimit && hasNext);
 }
 
 function fmShowElectrode() {
   if (!fmEls || fmCurrentEl === null) return;
+  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
   const varHz = fmVarHz(fmCurrentEl);
   const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
   const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
     varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
-  if (fmVarSide === "left") {
-    if (fmEls.pairLeft) fmEls.pairLeft.textContent = varText;
-  } else {
-    if (fmEls.pairRight) fmEls.pairRight.textContent = varText;
+  const pi = _fmSliderPI();
+  if (pi) {
+    if (fmVarSide === "left") pi.left.textContent = varText;
+    else                      pi.right.textContent = varText;
   }
-  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-  fmEls.slider.min = -lim;
-  fmEls.slider.max = lim;
-  fmEls.slider.value = Math.max(-lim, Math.min(lim, fmCentOffset));
+  if (slRefs && slRefs.slider) {
+    const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
+    slRefs.slider.input.min   = -lim;
+    slRefs.slider.input.max   =  lim;
+    slRefs.slider.input.value = Math.max(-lim, Math.min(lim, fmCentOffset));
+    slRefs.slider.rangeIdx    = fmSlRangeIdx;
+  }
   fmUpdateSliderDisplay();
   _fmCheckExtend();
-  if (fmEls.progressText) {
-    fmEls.progressText.textContent = (fmSeqIdx + 1) + " / " + fmSeq.length;
+  if (slRefs && slRefs.progress) {
+    const pText = slRefs.progress.text;
+    const pFill = slRefs.progress.fill;
+    if (pText) {
+      const tn = pText.firstChild;
+      if (tn && tn.nodeType === 3) tn.textContent = ((fmSeqIdx + 1) + " / " + fmSeq.length) + ' ';
+    }
+    if (pFill) pFill.style.width = (fmSeq.length > 0 ? (fmSeqIdx / fmSeq.length * 100) : 0) + "%";
   }
-  if (fmEls.progressFill) {
-    fmEls.progressFill.style.width = (fmSeq.length > 0 ? (fmSeqIdx / fmSeq.length * 100) : 0) + "%";
-  }
-  if (fmEls.undoBtn) fmEls.undoBtn.disabled = fmSeqIdx === 0;
+  const undoBtn = _fmSliderUndo();
+  if (undoBtn) undoBtn.disabled = fmSeqIdx === 0;
 }
 
 // --- Tonwiedergabe ---
@@ -328,19 +352,15 @@ async function fmPlayCurrent() {
     const effectiveVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
     return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType);
   }
+  const _spi = _fmSliderPI();
   function indRef() {
-    const isLeft = fmRefSide === "left";
-    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.toggle('playing', isLeft);
-    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', !isLeft);
+    testUI.pairIndicator.setPlaying(_spi, fmRefSide === "left" ? 'left' : 'right');
   }
   function indVar() {
-    const isLeft = fmVarSide === "left";
-    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.toggle('playing', isLeft);
-    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', !isLeft);
+    testUI.pairIndicator.setPlaying(_spi, fmVarSide === "left" ? 'left' : 'right');
   }
   function indOff() {
-    if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.remove('playing');
-    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
+    testUI.pairIndicator.setPlaying(_spi, null);
   }
 
   isPlay = true;
@@ -383,7 +403,7 @@ async function fmPlayCurrent() {
   isPlay = false;
 }
 
-async function fmPlaySimul() {
+async function fmPlaySimultaneous() {
   // --- Adaptive-Modus: Ref- und Var-Ton gleichzeitig mit aktuellem Track-Offset ---
   if (fmAdaptiveActive) {
     if (fmCurTrackId === null || !fmTracks || !fmTracks[fmCurTrackId]) return;
@@ -414,14 +434,12 @@ async function fmPlaySimul() {
 
     const c = gAC();
     isPlay = true;
-    if (fmEls && fmEls.pairLeft)  fmEls.pairLeft.classList.add('playing');
-    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.add('playing');
+    testUI.pairIndicator.setPlaying(_fmAdaptPI(), 'both');
     await Promise.all([
       playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
       playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
     ]);
-    if (fmEls && fmEls.pairLeft)  fmEls.pairLeft.classList.remove('playing');
-    if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
+    testUI.pairIndicator.setPlaying(_fmAdaptPI(), null);
     isPlay = false;
     return;
   }
@@ -451,33 +469,32 @@ async function fmPlaySimul() {
   const varVol = isDeaf(fmVarSide) ? 0 : vol * varCorr * dB2G(varBalDb);
 
   isPlay = true;
-  if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.add('playing');
-  if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.add('playing');
+  testUI.pairIndicator.setPlaying(_fmSliderPI(), 'both');
   await Promise.all([
     playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
     playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
   ]);
-  if (fmEls && fmEls.pairLeft) fmEls.pairLeft.classList.remove('playing');
-  if (fmEls && fmEls.pairRight) fmEls.pairRight.classList.remove('playing');
+  testUI.pairIndicator.setPlaying(_fmSliderPI(), null);
   isPlay = false;
 }
 
 // --- Adaptiver Modus (Bauanleitung 02b/4) ---
 
 function fmEnableHeightButtons() {
-  if (fmEls && fmEls.hjHigher) fmEls.hjHigher.disabled = false;
-  if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = false;
+  const vr = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive;
+  if (vr && vr.decisionButtons) {
+    vr.decisionButtons.up.disabled   = false;
+    vr.decisionButtons.down.disabled = false;
+  }
 }
 function fmDisableHeightButtons() {
-  setPlayingIndicator(null);
-  if (fmEls && fmEls.hjHigher) fmEls.hjHigher.disabled = true;
-  if (fmEls && fmEls.hjLower)  fmEls.hjLower.disabled  = true;
-}
-
-function setPlayingIndicator(which) {
-  if (!fmEls) return;
-  if (fmEls.pairLeft)  fmEls.pairLeft.classList.toggle('playing',  which === 'left');
-  if (fmEls.pairRight) fmEls.pairRight.classList.toggle('playing', which === 'right');
+  const pi = _fmAdaptPI();
+  if (pi) { pi.left.classList.remove('playing'); pi.right.classList.remove('playing'); }
+  const vr = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive;
+  if (vr && vr.decisionButtons) {
+    vr.decisionButtons.up.disabled   = true;
+    vr.decisionButtons.down.disabled = true;
+  }
 }
 
 // --- Persistenz (Bauanleitung 02b/5) ---
@@ -579,7 +596,7 @@ function _fmTryRestore(currentElIdxList) {
 
 function fmRefreshResumeHint() {
   if (!fmEls) return;
-  const startBtn = fmEls.startBtn;
+  const startBtn = fmEls.header && fmEls.header.startBtn;
   if (!startBtn) return;
   const fa = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
 
@@ -600,11 +617,51 @@ function fmRefreshResumeHint() {
   }
 }
 
+// onStart-Hook für adaptive verfahren — ruft nach Dialog-Check _fmDoStartAdaptive.
+let _fmTimerInterval = null;
+let _fmTimerStartTs  = 0;
+
+function _fmStartTimer() {
+  _fmTimerStartTs = Date.now();
+  _fmStopTimer();
+  _fmTimerInterval = setInterval(_fmTickTimer, 1000);
+  _fmTickTimer();
+}
+function _fmStopTimer() {
+  if (_fmTimerInterval) {
+    clearInterval(_fmTimerInterval);
+    _fmTimerInterval = null;
+  }
+}
+function _fmTickTimer() {
+  const secs = Math.floor((Date.now() - _fmTimerStartTs) / 1000);
+  const mm   = Math.floor(secs / 60);
+  const ss   = secs % 60;
+  const txt  = mm + ':' + (ss < 10 ? '0' : '') + ss;
+  const _aprog = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.progress;
+  if (_aprog && _aprog.timer) _aprog.timer.textContent = txt;
+}
+
 function fmStartAdaptive() {
+  if (!fmEls) return;
+  fmRefSide = fmEls.header.refSelect.value;
+  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+
+  if (_fmShouldOfferSliderEstimate()) {
+    if (fmEls.sliderEstimateDlg) {
+      fmEls.sliderEstimateDlg.classList.add('active');
+      return; // testUI bleibt in "running" — Cancel/Slider-Buttons rufen _stopTest()
+    }
+  }
+  _fmShowHpCheck(_fmDoStartAdaptive);
+}
+
+// Eigentliche Adaptiv-Start-Logik (nach Dialog-Bestätigung).
+function _fmDoStartAdaptive() {
   if (!fmEls) return;
 
   // Anti-Überschreib-Check (BA 93): bei 2+ abgeschlossenen Läufen Bestätigungsdialog.
-  const _refVal  = fmEls.refSelect.value;
+  const _refVal  = fmEls.header.refSelect.value;
   const _varSide = _refVal === 'left' ? 'right' : 'left';
   const _fa = (sideData[_varSide] && sideData[_varSide].freqmatchAdaptive) || null;
   if (_fa && Array.isArray(_fa.runs) && _fa.runs.length >= 1) {
@@ -623,16 +680,17 @@ function fmStartAdaptive() {
            + 'Plastizität verschoben haben.';
         msg += '\n\n' + ageMsg.replace('{D}', String(daysOld));
       }
-      if (!window.confirm(msg)) return;
+      if (!window.confirm(msg)) { fmEls._stopTest(); return; }
     }
   }
 
-  fmRefSide = fmEls.refSelect.value;
+  fmRefSide = fmEls.header.refSelect.value;
   fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
 
   const elIdxList = fmBuildSeq();
   if (elIdxList.length === 0) {
     alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+    fmEls._stopTest();
     return;
   }
 
@@ -711,20 +769,11 @@ function fmStartAdaptive() {
   fmCurTrackId        = null;
   fmLastPickedTrackId = null;
   _fmUndoSnapshot     = null;
-  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
-
-  updateTabLockState();
-  fmEls.lockedHint.hidden = false;
-  fmEls.testBox.hidden    = false;
-  if (fmEls.instructionEl && typeof t === 'function') {
-    fmEls.instructionEl.dataset.t     = 'hjPrompt';
-    fmEls.instructionEl.textContent   = t('hjPrompt');
-  }
-  fmEls.startBtn.disabled = true;
-  fmEls.stopBtn.disabled  = false;
-  if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
+  const _adaptUndo = _fmAdaptUndo();
+  if (_adaptUndo) _adaptUndo.disabled = true;
 
   fmRenderStatusGrid();
+  _fmStartTimer();
   _fmDbg('start: ref=' + fmRefSide + ' var=' + fmVarSide
        + ', tracks=' + Object.keys(fmTracks).length);
   fmNextAdaptiveTrial();
@@ -732,7 +781,8 @@ function fmStartAdaptive() {
 
 function fmNextAdaptiveTrial() {
   if (!fmAdaptiveActive) return;
-  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
+  const _au0 = _fmAdaptUndo();
+  if (_au0) _au0.disabled = true;
 
   const _rrState = { tracks: fmTracks, roundQueue: fmRoundQueue };
   fmCurTrackId = fmPickNextTrack(_rrState, undefined, fmLastPickedTrackId);
@@ -768,9 +818,11 @@ function fmNextAdaptiveTrial() {
     fmCurCatchInfo = null;
   }
 
-  if (fmEls.pairLeft)  fmEls.pairLeft.textContent  = (typeof t === 'function' && t('fmTone1')) || 'Ton 1';
-  if (fmEls.pairRight) fmEls.pairRight.textContent = (typeof t === 'function' && t('fmTone2')) || 'Ton 2';
-  if (fmEls.pairFreq)  fmEls.pairFreq.textContent  = '';
+  const _api = _fmAdaptPI();
+  if (_api) {
+    _api.left.textContent  = (typeof t === 'function' && t('fmTone1')) || 'Ton 1';
+    _api.right.textContent = (typeof t === 'function' && t('fmTone2')) || 'Ton 2';
+  }
 
   fmUpdateAdaptiveProgress();
   fmDisableHeightButtons();
@@ -787,7 +839,8 @@ function fmNextAdaptiveTrial() {
     if (!fmAdaptiveActive) return;
     fmAwaitingResponse = true;
     fmEnableHeightButtons();
-    if (fmEls.undoBtn) fmEls.undoBtn.disabled = !_fmUndoSnapshot;
+    const _au = _fmAdaptUndo();
+    if (_au) _au.disabled = !_fmUndoSnapshot;
     fmTrialStartTs = Date.now();
   });
 }
@@ -825,29 +878,44 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
     return playToneTyped(c, hz, effVol, ms, pan, globalToneType);
   }
 
+  const _adaptPI = _fmAdaptPI();
   fmIsPlay = true;
   isPlay   = true;
 
   if (firstSide === 'ref') {
-    setPlayingIndicator('left');
+    testUI.pairIndicator.setPlaying(_adaptPI, 'left');
     await playOne(fmRefSide, refHz);
-    setPlayingIndicator(null);
+    testUI.pairIndicator.setPlaying(_adaptPI, null);
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
     await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
-    setPlayingIndicator('right');
+    testUI.pairIndicator.setPlaying(_adaptPI, 'right');
     await playOne(fmVarSide, varHz);
-    setPlayingIndicator(null);
+    testUI.pairIndicator.setPlaying(_adaptPI, null);
   } else {
-    setPlayingIndicator('left');
+    testUI.pairIndicator.setPlaying(_adaptPI, 'left');
     await playOne(fmVarSide, varHz);
-    setPlayingIndicator(null);
+    testUI.pairIndicator.setPlaying(_adaptPI, null);
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
     await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
     if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
-    setPlayingIndicator('right');
+    testUI.pairIndicator.setPlaying(_adaptPI, 'right');
     await playOne(fmRefSide, refHz);
-    setPlayingIndicator(null);
+    testUI.pairIndicator.setPlaying(_adaptPI, null);
+  }
+
+  // ABA: dritten Ton (Wiederholung des ersten) abspielen
+  if (fmGAba()) {
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    await new Promise(function(r) { fmPlayTO = setTimeout(r, pau); });
+    if (!fmAdaptiveActive) { fmIsPlay = false; isPlay = false; return; }
+    testUI.pairIndicator.setPlaying(_adaptPI, 'left');
+    if (firstSide === 'ref') {
+      await playOne(fmRefSide, refHz);
+    } else {
+      await playOne(fmVarSide, varHz);
+    }
+    testUI.pairIndicator.setPlaying(_adaptPI, null);
   }
 
   fmIsPlay = false;
@@ -915,7 +983,8 @@ function fmHandleHeight(userChoice) {
 
   _fmPersist();
   fmRenderStatusGrid();
-  if (fmEls.undoBtn) fmEls.undoBtn.disabled = false;
+  const _au2 = _fmAdaptUndo();
+  if (_au2) _au2.disabled = false;
 
   _fmNextTrialTO = setTimeout(function() {
     _fmNextTrialTO = null;
@@ -1166,29 +1235,24 @@ function fmFinishAdaptive() {
   fmIsPlay           = false;
   fmRunning          = false;
   fmCurTrackId       = null;
-  updateTabLockState();
-  setPlayingIndicator(null);
+  _fmStopTimer();
+  testUI.pairIndicator.setPlaying(_fmAdaptPI(), null);
 
   _fmPersist();       // finale Tracks in runs[currentRunIdx] sichern
   _fmMarkCompleted(); // completedAt setzen
   fmTracks     = {};
   fmRoundQueue = [];
 
-  if (fmEls) {
-    fmEls.testBox.hidden    = true;
-    fmEls.lockedHint.hidden = true;
-    fmEls.startBtn.disabled = false;
-    fmEls.stopBtn.disabled  = true;
-    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
-  }
+  if (fmEls) fmEls._stopTest();
   fmUpdateSliderModeAvail();
   fmRefreshResumeHint();
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
 }
 
 function fmRenderStatusGrid() {
-  if (!fmEls || !fmEls.statusGrid) return;
-  const grid = fmEls.statusGrid;
+  const _sgEl = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.statusGrid;
+  if (!_sgEl) return;
+  const grid = _sgEl;
   grid.innerHTML = '';
 
   const head = _mkEl('div', 'fm-status-row fm-status-head');
@@ -1298,22 +1362,25 @@ function _mkCell(text) {
 
 function fmUpdateAdaptiveProgress() {
   if (!fmEls) return;
-  const fa      = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
-  const runNum  = (fa && Array.isArray(fa.runs)) ? fa.runs.length : 1;
-  const ids     = Object.keys(fmTracks);
-  const laufPfx = 'Lauf ' + runNum;
+  const _aprog = fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.progress;
+  if (!_aprog) return;
+  const ids = Object.keys(fmTracks);
 
-  // Erster Balken: aktueller Lauf
   if (ids.length > 0) {
-    const stats = fmComputeProgressStats(fmTracks);
-    if (fmEls.progressFill)  fmEls.progressFill.style.width  = stats.percent + '%';
-    if (fmEls.progressText)  fmEls.progressText.textContent  =
-      laufPfx + ': ' + stats.done + ' / ' + stats.total + ' · ' + Math.round(stats.percent) + ' %';
+    const stats    = fmComputeProgressStats(fmTracks);
+    const curTrial = (stats.totalTrials || 0) + (fmAwaitingResponse ? 1 : 0);
+    const estTotal = ids.length * FM_TRIALS_PER_ELECTRODE_ESTIMATE;
+    const txt = 'Trial ' + curTrial + ' von ca. ' + estTotal;
+    testUI.progress.set(_aprog, {
+      fraction: stats.percent / 100,
+      text:     txt
+    });
   } else {
-    if (fmEls.progressFill)  fmEls.progressFill.style.width  = '0%';
-    if (fmEls.progressText)  fmEls.progressText.textContent  = laufPfx + ': 0 / 0';
+    testUI.progress.set(_aprog, {
+      fraction: 0,
+      text:     'Trial 0 von ca. 0'
+    });
   }
-
 }
 
 // Wiederverwendbare Fortschritts-Statistik. Auch genutzt von
@@ -1346,47 +1413,21 @@ function fmComputeProgressStats(tracks) {
 }
 
 // --- Testablauf ---
-function fmStart() {
+
+// onStart-Hook für Slider-Verfahren
+function fmStartSlider() {
   if (!fmEls) return;
-  fmRefSide = fmEls.refSelect.value;
-  fmVarSide = fmRefSide === "left" ? "right" : "left";
-
-  // Empfehlungs-Dialog nur vor adaptivem Erststart, nicht im Slider-Modus.
-  if (fmMode === 'adaptive' && _fmShouldOfferSliderEstimate()) {
-    if (fmEls.sliderEstimateDlg) {
-      fmEls.sliderEstimateDlg.classList.add('active');
-      return;
-    }
-  }
-  _fmShowHpCheck(_fmDoStart);
-}
-
-function _fmDoStart() {
-  // Modus-Dispatch (Bauanleitung 02b/2)
-  if (fmMode === 'adaptive') {
-    fmStartAdaptive();
-    return;
-  }
-
+  fmRefSide = fmEls.header.refSelect.value;
+  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
   fmSeq = fmBuildSeq();
   if (fmSeq.length === 0) {
-    alert((typeof t === 'function' && t("fmNoActiveEl")) || "Keine aktiven Elektroden auf der variablen Seite.");
+    alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+    fmEls._stopTest();
     return;
   }
-  fmSeqIdx = 0;
+  fmSeqIdx    = 0;
   fmSlRangeIdx = 0;
-  fmRunning = true;
-  updateTabLockState();
-  fmEls.lockedHint.hidden = false;
-  fmEls.testBox.hidden = false;
-  fmApplyMode();   // Slider-UI-Zustand sicherstellen (hjContainer)
-  if (fmEls.instructionEl && typeof t === 'function') {
-    fmEls.instructionEl.dataset.t   = 'fmSliderRunHint';
-    fmEls.instructionEl.textContent = t('fmSliderRunHint');
-  }
-  fmEls.startBtn.disabled = true;
-  fmEls.stopBtn.disabled = false;
-  if (fmEls.modeSelect) fmEls.modeSelect.disabled = true;
+  fmRunning   = true;
   fmLoadElectrode();
 }
 
@@ -1404,9 +1445,6 @@ function fmLoadElectrode() {
   }
   fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
-  if (fmEls && fmEls.confRadios && fmEls.confRadios.none) {
-    fmEls.confRadios.none.checked = true;
-  }
   setTimeout(() => { if (fmRunning) fmPlayCurrent(); }, 100);
 }
 
@@ -1446,7 +1484,8 @@ function fmUndoAdaptive() {
   fmCurFirstSide = snap.firstSide;
   fmCurCatchInfo = snap.catchInfo;
 
-  if (fmEls.undoBtn) fmEls.undoBtn.disabled = true;
+  const _au3 = _fmAdaptUndo();
+  if (_au3) _au3.disabled = true;
   fmDisableHeightButtons();
   fmAwaitingResponse = false;
   fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
@@ -1486,44 +1525,22 @@ function fmAbort() {
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     fmRunning          = false;
     fmCurTrackId       = null;
-    updateTabLockState();
-    if (fmEls) {
-      fmEls.testBox.hidden    = true;
-      fmEls.lockedHint.hidden = true;
-      fmEls.startBtn.disabled = false;
-      fmEls.stopBtn.disabled  = true;
-      if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
-    }
+    _fmStopTimer();
     fmRefreshResumeHint();
     return;
   }
   fmIsPlay = false;
   if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
-  fmRunning = false;
+  fmRunning   = false;
   fmCurrentEl = null;
-  updateTabLockState();
-  if (fmEls) {
-    fmEls.testBox.hidden = true;
-    fmEls.lockedHint.hidden = true;
-    fmEls.startBtn.disabled = false;
-    fmEls.stopBtn.disabled = true;
-    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
-  }
   fmRefreshResumeHint();
 }
 
 function fmFinish() {
-  fmIsPlay = false;
-  fmRunning = false;
+  fmIsPlay    = false;
+  fmRunning   = false;
   fmCurrentEl = null;
-  updateTabLockState();
-  if (fmEls) {
-    fmEls.testBox.hidden = true;
-    fmEls.lockedHint.hidden = true;
-    fmEls.startBtn.disabled = false;
-    fmEls.stopBtn.disabled = true;
-    if (fmEls.modeSelect) fmEls.modeSelect.disabled = false;
-  }
+  if (fmEls && fmEls._stopTest) fmEls._stopTest();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
 }
 
@@ -1531,10 +1548,9 @@ function fmFinish() {
 
 function fmRunDebugSim() {
   if (_fmSimActive) return;
-  if (fmMode !== 'adaptive') return;
+  if (fmVerfahren !== 'adaptive') return;
   _fmSimActive  = true;
   _fmSimOffsets = {};
-  if (!fmAdaptiveActive) fmStart();
   _fmSimStep();
 }
 
@@ -1598,62 +1614,16 @@ function _fmExtendRange() {
   if (fmSlRangeIdx >= FM_SLIDER_RANGES.length - 1) return;
   fmSlRangeIdx++;
   const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-  if (fmEls) {
-    fmEls.slider.min = -lim;
-    fmEls.slider.max = lim;
-    fmEls.slider.value = fmCentOffset;
+  const slRef = fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.slider;
+  if (slRef) {
+    slRef.input.min   = -lim;
+    slRef.input.max   =  lim;
+    slRef.input.value = fmCentOffset;
+    slRef.rangeIdx    = fmSlRangeIdx;
   }
   _fmCheckExtend();
 }
 
-// --- Tastatursteuerung ---
-function fmHandleKey(e) {
-  if (!fmRunning) return;
-  const activeEl = document.activeElement;
-  if (activeEl && fmEls && activeEl !== fmEls.slider &&
-      (activeEl.tagName === "INPUT" || activeEl.tagName === "SELECT" || activeEl.tagName === "TEXTAREA")) return;
-
-  if (fmMode === 'adaptive') {
-    // Adaptiv-Tasten (Bauanleitung 02b/2: Stubs, vollständig verdrahtet in 02b/4)
-    if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      fmHandleHeight('up');
-    } else if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      fmHandleHeight('down');
-    } else if (e.key === ' ') {
-      e.preventDefault();
-      fmReplayCurrent();
-    } else if (e.key === 'Escape') {
-      e.preventDefault();
-      fmAbort();
-    }
-    return;
-  }
-
-  // Slider-Tasten (bestehend, unverändert)
-  if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-    const dir = e.key === "ArrowRight" ? 1 : -1;
-    const step = e.shiftKey ? dir * 1 : dir * 5;
-    e.preventDefault();
-    const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-    fmCentOffset = Math.max(-lim, Math.min(lim, fmCentOffset + step));
-    if (fmEls) fmEls.slider.value = fmCentOffset;
-    fmHandleSlider(fmCentOffset);
-  } else if (e.key === " ") {
-    e.preventDefault();
-    fmPlayCurrent();
-  } else if (e.key === "Enter") {
-    e.preventDefault();
-    fmConfirm();
-  } else if (e.key === "z" || e.key === "Z") {
-    e.preventDefault();
-    fmUndo();
-  } else if (e.key === "b" || e.key === "B") {
-    e.preventDefault();
-    if (fmEls && fmEls.simulBtn) fmEls.simulBtn.click();
-  }
-}
 
 // --- i18n-Aktualisierung ---
 function fmApplyLang() {
@@ -1671,96 +1641,83 @@ function fmApplyLang() {
   }
 }
 
-// --- Modus-Switch (Bauanleitung 02b/2) ---
-function fmApplyMode() {
-  if (!fmEls) return;
 
-  const isSlider = (fmMode === 'slider');
-  if (fmEls.slider)            fmEls.slider.hidden            = !isSlider;
-  if (fmEls.extendBtn)         fmEls.extendBtn.hidden         = !isSlider || fmEls.extendBtn.hidden;
-  if (fmEls.sliderValue)       fmEls.sliderValue.hidden       = !isSlider;
-  if (fmEls.confirmBtn)        fmEls.confirmBtn.hidden        = !isSlider;
-  if (fmEls.keyHintBox)        fmEls.keyHintBox.hidden        = !isSlider;
-  const confRow = fmEls.testBox.querySelector('.confidence-row');
-  const confLbl = fmEls.testBox.querySelector('.conf-quality-label');
-  if (confRow) confRow.hidden = !isSlider;
-  if (confLbl) confLbl.hidden = !isSlider;
-  if (fmEls.seqSelect && fmEls.seqSelect.parentElement) {
-    fmEls.seqSelect.parentElement.style.display = isSlider ? '' : 'none';
-  }
-
-  const isAdaptive = !isSlider;
-  if (fmEls.hjContainer) fmEls.hjContainer.hidden = !isAdaptive;
-  if (fmEls.statusGrid)  fmEls.statusGrid.hidden  = !isAdaptive;
-  const _sciAcc = document.getElementById('fmScienceAccordion');
-  if (_sciAcc) _sciAcc.hidden = !isAdaptive;
-  fmUpdateSliderModeAvail();
-}
-
-// Sperrt die 'slider'-Option im Mode-Dropdown, sobald für die aktuell
+// Sperrt die 'slider'-Option im Verfahren-Dropdown, sobald für die aktuell
 // gewählte var-Seite mindestens ein adaptiver Lauf existiert.
 function fmUpdateSliderModeAvail() {
-  if (!fmEls || !fmEls.modeSelect) return;
+  if (!fmEls) return;
   const sd = sideData[fmVarSide] || {};
   const fa = sd.freqmatchAdaptive;
   const hasRuns = !!(fa && Array.isArray(fa.runs) && fa.runs.length > 0);
-  Array.from(fmEls.modeSelect.options).forEach(function(opt) {
-    if (opt.value === 'slider') opt.disabled = hasRuns;
-  });
-  if (hasRuns && fmMode === 'slider' && !fmRunning) {
-    fmSetMode('adaptive', { force: true });
+  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasRuns,
+                          { reason: 'fmAdaptiveExists' });
+  if (hasRuns && fmVerfahren === 'slider' && !fmRunning) {
+    fmSetVerfahren('adaptive', { force: true });
   }
 }
 
 let _fmDurStash_slider  = 400;
 let _fmPauStash_slider  = 400;
 
-function fmSetMode(newMode, opts) {
+function fmSetVerfahren(newVerfahren, opts) {
   opts = opts || {};
-  if (newMode !== 'slider' && newMode !== 'adaptive') return;
-  if (newMode === fmMode && !opts.force) return;
+  if (newVerfahren !== 'slider' && newVerfahren !== 'adaptive') return;
+  if (newVerfahren === fmVerfahren && !opts.force) return;
   if (fmRunning) return;
 
-  if (fmEls && fmEls.durInput && fmEls.pauseInput) {
-    if (fmMode === 'slider') {
-      _fmDurStash_slider = parseInt(fmEls.durInput.value)   || 1000;
-      _fmPauStash_slider = parseInt(fmEls.pauseInput.value) || 500;
+  const _hdr = fmEls && fmEls.header;
+  if (_hdr && _hdr.durInput && _hdr.pauseInput) {
+    if (fmVerfahren === 'slider') {
+      _fmDurStash_slider = parseInt(_hdr.durInput.value)   || 1000;
+      _fmPauStash_slider = parseInt(_hdr.pauseInput.value) || 500;
     } else {
       const varSd = sideData[fmVarSide] || sideData.left;
-      varSd.fmAdaptiveDur = parseInt(fmEls.durInput.value)   || 200;
-      varSd.fmAdaptivePau = parseInt(fmEls.pauseInput.value) || 200;
+      varSd.fmAdaptiveDur = parseInt(_hdr.durInput.value)   || 200;
+      varSd.fmAdaptivePau = parseInt(_hdr.pauseInput.value) || 200;
     }
   }
 
-  fmMode = newMode;
+  fmVerfahren = newVerfahren;
 
-  if (sideData[fmVarSide]) sideData[fmVarSide].fmMode = newMode;
+  if (sideData[fmVarSide]) sideData[fmVarSide].fmVerfahren = newVerfahren;
 
-  if (fmEls && fmEls.durInput && fmEls.pauseInput) {
-    if (newMode === 'slider') {
-      fmEls.durInput.value   = _fmDurStash_slider;
-      fmEls.pauseInput.value = _fmPauStash_slider;
+  if (_hdr && _hdr.durInput && _hdr.pauseInput) {
+    if (newVerfahren === 'slider') {
+      _hdr.durInput.value   = _fmDurStash_slider;
+      _hdr.pauseInput.value = _fmPauStash_slider;
     } else {
       const varSd = sideData[fmVarSide] || sideData.left;
-      fmEls.durInput.value   = (varSd.fmAdaptiveDur != null) ? varSd.fmAdaptiveDur : 200;
-      fmEls.pauseInput.value = (varSd.fmAdaptivePau != null) ? varSd.fmAdaptivePau : 200;
+      _hdr.durInput.value   = (varSd.fmAdaptiveDur != null) ? varSd.fmAdaptiveDur : 200;
+      _hdr.pauseInput.value = (varSd.fmAdaptivePau != null) ? varSd.fmAdaptivePau : 200;
     }
   }
 
-  fmApplyMode();
-  if (fmEls && fmEls.modeSelect) fmEls.modeSelect.value = newMode;
+  if (_hdr && _hdr.verfahrenSelect) {
+    _hdr.verfahrenSelect.value = newVerfahren;
+    _hdr.verfahrenSelect.dispatchEvent(new Event('change'));
+  }
 }
 
-function fmLoadModeFromSide() {
-  const varSide = (fmEls && fmEls.refSelect)
-    ? (fmEls.refSelect.value === 'left' ? 'right' : 'left')
+function fmLoadVerfahrenFromSide() {
+  const varSide = (fmEls && fmEls.header && fmEls.header.refSelect)
+    ? (fmEls.header.refSelect.value === 'left' ? 'right' : 'left')
     : 'right';
-  const sd = sideData[varSide] || {};
-  const saved = (sd.fmMode === 'slider' || sd.fmMode === 'adaptive')
-    ? sd.fmMode : 'adaptive';
-  // Wenn 'slider' gespeichert war, aber bereits ein adaptiver Lauf
-  // existiert, fällt fmUpdateSliderModeAvail später auf adaptive zurück.
-  fmSetMode(saved, { force: true });
+  const sd      = sideData[varSide] || {};
+  const fa      = sd.freqmatchAdaptive;
+  const hasRuns = !!(fa && Array.isArray(fa.runs) && fa.runs.length > 0);
+  const saved   = (sd.fmVerfahren === 'slider' || sd.fmVerfahren === 'adaptive')
+                  ? sd.fmVerfahren : null;
+
+  let target;
+  if (hasRuns) {
+    target = 'adaptive';
+  } else if (saved) {
+    target = saved;
+  } else {
+    target = 'slider';
+  }
+
+  fmSetVerfahren(target, { force: true });
   fmRefreshResumeHint();
   fmUpdateSliderModeAvail();
 }
@@ -1777,59 +1734,96 @@ document.addEventListener("DOMContentLoaded", () => {
       paragraphs: [
         { key: 'fmHintMethod', kind: 'plain' },
         { key: 'fmPrereqHint', kind: 'plain' },
-        { key: 'fmHintWarn', kind: 'warn' }
+        { key: 'fmHintWarn',   kind: 'warn'  }
       ]
     },
-    presets: {
-      rowMode: {
-        show: true,
-        modeKey: 'fmLblMode',
-        modeOptions: [
-          ['adaptive', 'fmModeAdaptive'],
-          ['slider',   'fmModeSlider']
-        ]
-        // kein runOptions → kein runSelect
+    header: {
+      common: {
+        refSelect:    { type: 'side', key: 'fmLblRef' },
+        volume:       { show: true },
+        duration:     { show: true, default: 400, min: 100, max: 3000, step: 50 },
+        pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },
+        toneType:     { show: true, source: 'global' },
+        sequence:     { show: true, source: 'global' },
+        sliderTarget: {
+          options:  ['ref','var','balance'],
+          default:  'ref',
+          disabled: true,
+          hintKey:  'fmSliderTargetDisabledHint'
+        }
       },
-      rowFine:     { show: true,
-                     refSelect: { type: 'side', key: 'fmLblRef' } },
-      rowVolume:   { show: true },
-      rowSequence: {
-        sequence: { show: true, source: 'global' },
-        toneType: { show: true, source: 'global' },
-        target:   { show: false }
-      },
-      startStop:   { show: true, startKey: 'fmLblStart' }
+      startStop: { startKey: 'fmLblStart', resumable: true }
     },
-    test: {
-      subTitleKey:       'fmRunningTitle',
-      instructionKey:    'hjPrompt',   // Initialwert für adaptiven Modus; fmApplyMode schaltet um
-      progressBar:       true,
-      progressFormat:    'simple',
-      swapButton:        { show: false },
-      pairDisplay:       { mode: 'electrode-vs-refside' },
-      excludeButtons:    { show: false, target: 'electrodes' },
-      actions:           ['undo', 'replay', 'simul'],
-      keyHintBox:        { show: true, unitKey: 'sliderHintCent' },
-      slider:            { unit: 'cent', ranges: [100, 500, 1200] },
-      sliderValue:       true,
-      cumulativeDisplay: { show: false },
-      confirmButton:     { show: true, key: 'btnConfirmOffset' },
-      confidence:        { show: true },
-      heightJudgment:    { show: true },   // Bauanleitung 02b/1; kein labelKey — Text in instructionEl
-      statusGrid:        { show: true }    // Bauanleitung 02b/1
-    }
+    verfahren: [
+      {
+        id: 'slider',
+        labelKey:   'fmModeSlider',
+        explainKey: 'fmExplainSlider',
+        body: {
+          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          progress:      { format: 'simple' },
+          slider:        { unit: 'cent', ranges: [100, 500, 1200] },
+          sliderValue:   { show: true },
+          keyHint:       { unitKey: 'sliderHintCent' },
+          confirmButton: { key: 'btnConfirmOffset' },
+          actions:       ['undo','replay']
+        },
+        hooks: {
+          onStart:   fmStartSlider,
+          onStop:    fmAbort,
+          onSlide:   fmHandleSlider,
+          onConfirm: fmConfirm,
+          onReplay:  fmReplayCurrent,
+          onUndo:    fmUndo
+        }
+      },
+      {
+        id: 'adaptive',
+        labelKey:   'fmModeAdaptive',
+        explainKey: 'fmExplainAdaptive',
+        body: {
+          pairIndicator:   { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          progress:        { format: 'simple' },
+          instruction:     { key: 'hjPrompt' },
+          decisionButtons: { variant: 'updown' },
+          statusGrid:      { show: true },
+          actions:         ['undo','replay','simul'],
+          background: {
+            titleKey:   'fmExplainAdaptiveScienceTitle',
+            bodyKey:    'fmExplainAdaptiveScience',
+            bodyAsHtml: true
+          },
+          debugRun: { key: 'btnDebugRun' }
+        },
+        hooks: {
+          onStart:    fmStartAdaptive,
+          onStop:     fmAbort,
+          onDecision: fmHandleHeight,
+          onReplay:   fmReplayCurrent,
+          onUndo:     fmUndoAdaptive,
+          onSimul:    fmPlaySimultaneous,
+          onDebugRun: fmRunDebugSim
+        }
+      }
+    ]
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
-  fmEls.durInput.value   = 400;
-  fmEls.pauseInput.value = 400;
 
-  // Modus-Switch — 'slider'-Option wird dynamisch in fmUpdateSliderModeAvail() gesperrt.
-  if (fmEls.modeSelect) {
-    fmEls.modeSelect.addEventListener('change', function() {
-      fmSetMode(fmEls.modeSelect.value);
+  // buildSliderTouchCtrl für Slider-Verfahren
+  const _slInput = fmEls.verfahren && fmEls.verfahren.slider
+    && fmEls.verfahren.slider.slider && fmEls.verfahren.slider.slider.input;
+  if (_slInput) {
+    buildSliderTouchCtrl(_slInput, {
+      step: 5,
+      fineStep: 1,
+      replay: function() { if (typeof fmPlayCurrent === 'function') fmPlayCurrent(); },
+      labelReplay: '▶ ' + ((typeof t === 'function' && t('bReplay')) || 'Wiederholen')
     });
   }
+  const _slExtendBtn = fmEls.verfahren && fmEls.verfahren.slider
+    && fmEls.verfahren.slider.slider && fmEls.verfahren.slider.slider.extendBtn;
+  if (_slExtendBtn) _slExtendBtn.addEventListener('click', _fmExtendRange);
 
   // Taube-Seite Hinweis dynamisch ins Erklärungs-Block einfügen
   const deafHint = _mkEl('p', 'explain explain-warn');
@@ -1859,14 +1853,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fmSEBtnSlider.addEventListener('click', function() {
     fmSEDlg.classList.remove('active');
-    fmSetMode('slider');
+    if (fmEls && fmEls._stopTest) fmEls._stopTest();
+    fmSetVerfahren('slider');
   });
   fmSEBtnSkip.addEventListener('click', function() {
     fmSEDlg.classList.remove('active');
-    _fmShowHpCheck(_fmDoStart);
+    _fmShowHpCheck(_fmDoStartAdaptive);
   });
   fmSEBtnCancel.addEventListener('click', function() {
     fmSEDlg.classList.remove('active');
+    if (fmEls && fmEls._stopTest) fmEls._stopTest();
   });
 
   fmEls.sliderEstimateDlg = fmSEDlg;
@@ -1913,100 +1909,37 @@ document.addEventListener("DOMContentLoaded", () => {
   fmHpBox.append(fmHpMsgEl, fmHpBtns);
   fmHpDlg.appendChild(fmHpBox);
   parentEl.appendChild(fmHpDlg);
-  _fmHpEls = { dlg: fmHpDlg, msgEl: fmHpMsgEl, btnLeft: fmHpBtnLeft, btnReplay: fmHpBtnReplay, btnRight: fmHpBtnRight, btnCancel: fmHpBtnCancel };
+  _fmHpEls = { dlg: fmHpDlg, msgEl: fmHpMsgEl, btnLeft: fmHpBtnLeft, btnReplay: fmHpBtnReplay,
+               btnRight: fmHpBtnRight, btnCancel: fmHpBtnCancel };
 
-  // --- Akkordeon „Wissenschaftliche Grundlage und Grenzen" (nur adaptiv) ---
-  const fmSciDetails = document.createElement('details');
-  fmSciDetails.id = 'fmScienceAccordion';
-  fmSciDetails.style.marginTop = '1.5em';
-  fmSciDetails.style.padding   = '0.5em 0.8em';
-  fmSciDetails.style.border    = '1px solid #d1d5db';
-  fmSciDetails.style.borderRadius = '6px';
-  fmSciDetails.style.background = '#f9fafb';
-  const fmSciSummary = document.createElement('summary');
-  fmSciSummary.dataset.t = 'fmExplainAdaptiveScienceTitle';
-  fmSciSummary.style.cursor     = 'pointer';
-  fmSciSummary.style.fontWeight = '600';
-  fmSciSummary.style.color      = '#374151';
-  if (typeof t === 'function') fmSciSummary.textContent = t('fmExplainAdaptiveScienceTitle');
-  const fmSciBody = document.createElement('div');
-  fmSciBody.dataset.t = 'fmExplainAdaptiveScience';
-  fmSciBody.style.marginTop = '0.8em';
-  fmSciBody.style.fontSize  = '0.92em';
-  fmSciBody.style.lineHeight = '1.5';
-  fmSciBody.style.color = '#374151';
-  if (typeof t === 'function') fmSciBody.innerHTML = t('fmExplainAdaptiveScience');
-  fmSciDetails.append(fmSciSummary, fmSciBody);
-  parentEl.appendChild(fmSciDetails);
-
-  // Events: Start / Stop
-  fmEls.startBtn.addEventListener('click', fmStart);
-  fmEls.stopBtn.addEventListener('click', fmAbort);
-
-  // Events: Test-Aktionen
-  if (fmEls.replayBtn) fmEls.replayBtn.addEventListener('click', () => fmPlayCurrent());
-  if (fmEls.simulBtn)  fmEls.simulBtn.addEventListener('click', () => fmPlaySimul());
-  if (fmEls.undoBtn)   fmEls.undoBtn.addEventListener('click', fmUndo);
-  if (fmEls.confirmBtn) fmEls.confirmBtn.addEventListener('click', fmConfirm);
-
-  // Events: Slider
-  fmEls.slider.addEventListener('input', (e) => fmHandleSlider(e.target.value));
-  buildSliderTouchCtrl(fmEls.slider, {
-    step: 5,
-    fineStep: 1,
-    replay: function () { if (typeof fmPlayCurrent === 'function') fmPlayCurrent(); },
-    labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
+  // Events: Referenzseiten-Wechsel
+  let _fmPrevRefVal = fmEls.header.refSelect.value;
+  fmEls.header.refSelect.addEventListener('change', function() {
+    setTimeout(fmLoadVerfahrenFromSide, 0);
   });
-  if (fmEls.extendBtn) fmEls.extendBtn.addEventListener('click', _fmExtendRange);
-
-  // Events: Elektroden-Ausschluss
-  if (fmEls.excludeLeftBtn)  fmEls.excludeLeftBtn.addEventListener('click', _fmRequestExcl);
-  if (fmEls.excludeRightBtn) fmEls.excludeRightBtn.addEventListener('click', _fmRequestExcl);
-
-  // Adaptiv: Höher/Tiefer-Buttons (Bauanleitung 02b/2, Stubs)
-  if (fmEls.hjHigher) fmEls.hjHigher.addEventListener('click', () => fmHandleHeight('up'));
-  if (fmEls.hjLower)  fmEls.hjLower.addEventListener('click',  () => fmHandleHeight('down'));
-
-  // Beim Wechsel der Referenzseite auch Modus der NEUEN var-Seite laden (Bauanleitung 02b/2)
-  fmEls.refSelect.addEventListener('change', function() {
-    setTimeout(fmLoadModeFromSide, 0);
-  });
-
-  // Event: Referenzohr-Wechsel (§6.10)
-  let _fmPrevRefVal = fmEls.refSelect.value;
-  fmEls.refSelect.addEventListener('change', function() {
+  fmEls.header.refSelect.addEventListener('change', function() {
     if (fRes.length > 0) {
       fmRCOkBtn.onclick = function() {
         fmRCDlg.classList.remove('active');
         fRes.splice(0, fRes.length);
         _fmClearPersist('left');
         _fmClearPersist('right');
-        _fmPrevRefVal = fmEls.refSelect.value;
+        _fmPrevRefVal = fmEls.header.refSelect.value;
         fmUpdateSliderModeAvail();
       };
       fmRCCancelBtn.onclick = function() {
         fmRCDlg.classList.remove('active');
-        fmEls.refSelect.value = _fmPrevRefVal;
+        fmEls.header.refSelect.value = _fmPrevRefVal;
       };
       fmRCDlg.classList.add('active');
     } else {
-      _fmPrevRefVal = fmEls.refSelect.value;
+      _fmPrevRefVal = fmEls.header.refSelect.value;
     }
   });
-
-  // Tastatursteuerung
-  document.addEventListener("keydown", fmHandleKey);
-
-  // DEBUG: Testlauf-Button (nur im Debug-Modus sichtbar)
-  const _simBtn = _mkEl('button', 'btn dbg-only');
-  _simBtn.style.marginTop = '1.5rem';
-  _simBtn.textContent = 'DEBUG: Testlauf';
-  _simBtn.addEventListener('click', fmRunDebugSim);
-  parentEl.appendChild(_simBtn);
 
   // Texte initial setzen
   fmApplyLang();
 
-  fmLoadModeFromSide();   // initialer Modus aus sideData lesen (Bauanleitung 02b/2)
+  fmLoadVerfahrenFromSide();
   fmRefreshResumeHint();
 });
