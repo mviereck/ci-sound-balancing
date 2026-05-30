@@ -87,7 +87,7 @@ Vergleich der Lautstärken der Elektroden.
 - Für die Seite(n) mit CI machen Sie zunächst nur die Messung *Elektrodenlautstärke*.
 - In dieser Messung werden alle Elektroden paarweise miteinander verglichen, und Sie justieren die Lautstärke, bis sich beide Elektroden gleich laut anhören.
 - Nutzen Sie möglichst Bluetooth zum Streamen.
-- Stellen Sie die Lautstärke auf gefühlt 3/4 ein, nicht leise, aber auch noch nicht unangenehm laut.
+- Stellen Sie die Lautstärke ihres Computers (oder Smartphones) auf gefühlt 3/4 ein, nicht leise, aber auch noch nicht unangenehm laut.
 - Steuerung der Tests:
   - Justieren Sie mit den *Pfeiltasten* die Lautstärke.
   - Mit der *Leertaste* Ton erneut abspielen.
