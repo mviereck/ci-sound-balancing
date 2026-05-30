@@ -278,7 +278,7 @@ function fmShowElectrode() {
   const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
     varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
   const pi = _fmSliderPI();
-  if (pi && pi.variant !== 'token') {
+  if (pi) {
     if (fmVarSide === "left") pi.left.textContent = varText;
     else                      pi.right.textContent = varText;
   }
@@ -638,6 +638,21 @@ function fmStartAdaptive() {
   if (!fmEls) return;
   fmRefSide = fmEls.header.refSelect.value;
   fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+
+  // Warnung wenn Slider-Test nur teilweise abgeschlossen
+  const _slEst = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  if (_slEst) {
+    const _seq = fmBuildSeq();
+    const _estCount = _seq.filter(function(e) { return _slEst[String(e)] !== undefined; }).length;
+    if (_estCount > 0 && _estCount < _seq.length) {
+      const msg = 'Der Slider-Test wurde nur teilweise abgeschlossen ('
+        + _estCount + ' von ' + _seq.length + ' Elektroden).\n'
+        + 'Empfehlung: erst den Slider-Test beenden, dann adaptiv starten.\n\n'
+        + 'Trotzdem adaptiv starten?';
+      if (!window.confirm(msg)) { fmEls._stopTest(); return; }
+    }
+  }
 
   if (_fmShouldOfferSliderEstimate()) {
     if (fmEls.sliderEstimateDlg) {
@@ -1508,6 +1523,7 @@ function fmAbort() {
     fmCurTrackId       = null;
     _fmStopTimer();
     fmRefreshResumeHint();
+    fmUpdateSliderModeAvail();
     return;
   }
   fmIsPlay = false;
@@ -1692,15 +1708,6 @@ function fmApplyLang() {
   const subtabBtn = document.querySelector('.subtab[data-subtab="freqmatch"]');
   if (subtabBtn) subtabBtn.textContent = t("fmSubtabLabel");
   if (fmRunning) fmShowElectrode();
-  if (fmEls) {
-    const deafHint = fmEls.explainBox.querySelector('#fmDeafHintEl');
-    if (deafHint) {
-      const hasDeaf = (sideData.left.config || "ci") === "deaf"
-                   || (sideData.right.config || "ci") === "deaf";
-      deafHint.style.display = hasDeaf ? "" : "none";
-      if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
-    }
-  }
 }
 
 
@@ -1708,12 +1715,19 @@ function fmApplyLang() {
 // gewählte var-Seite mindestens ein adaptiver Lauf existiert.
 function fmUpdateSliderModeAvail() {
   if (!fmEls) return;
-  const sd = sideData[fmVarSide] || {};
+  const _varSide = (fmEls.header && fmEls.header.refSelect)
+    ? (fmEls.header.refSelect.value === 'left' ? 'right' : 'left')
+    : fmVarSide;
+  const sd = sideData[_varSide] || {};
   const fa = sd.freqmatchAdaptive;
-  const hasRuns = !!(fa && Array.isArray(fa.runs) && fa.runs.length > 0);
-  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasRuns,
+  const hasAnswers = !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
+    return r.tracks && Object.keys(r.tracks).some(function(k) {
+      return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
+    });
+  }));
+  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasAnswers,
                           { reason: 'fmAdaptiveExists' });
-  if (hasRuns && fmVerfahren === 'slider' && !fmRunning) {
+  if (hasAnswers && fmVerfahren === 'slider' && !fmRunning) {
     fmSetVerfahren('adaptive', { force: true });
   }
 }
@@ -1881,12 +1895,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
-
-  // Taube-Seite Hinweis dynamisch ins Erklärungs-Block einfügen
-  const deafHint = _mkEl('p', 'explain explain-warn');
-  deafHint.id = 'fmDeafHintEl';
-  deafHint.style.display = 'none';
-  fmEls.explainBox.appendChild(deafHint);
 
   // --- Slider-Empfehlungs-Dialog (BA 102) ---
   const fmSEDlg = _mkEl('div', 'modal-overlay');

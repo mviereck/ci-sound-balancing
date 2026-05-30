@@ -224,7 +224,11 @@ Callbacks über `hooks` und nutzt Helfer wie
 `pairIndicator.variant` definiert Label-Format und Aufleucht-Logik:
 - `'electrode'`: Labels „A E1" / „B E2" plus Hz-Zeile; `setPlaying('left'|'right'|'both'|null)`
 - `'side'`: Labels „L: E5" / „R: E5" plus Hz-Zeile; `setPlaying` analog
-- `'token'`: Labels „Ton 1" / „Ton 2" (oder via i18n-Keys); keine Hz-Zeile
+- `'token'`: Labels „Ton 1" / „Ton 2" (oder via i18n-Keys); keine Hz-Zeile.
+  Das aufrufende Modul darf `pi.left.textContent` / `pi.right.textContent`
+  jederzeit überschreiben (z. B. zeigt `freqmatch.js` im Slider-Modus auf der
+  Var-Seite die Elektroden-Bezeichnung + Hz, auf der Ref-Seite den aktuellen
+  Offset).
 
 ## Header — Aufteilung
 

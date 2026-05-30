@@ -1131,8 +1131,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       svEl.textContent = (svUnit === 'cent') ? '0 Cent' : (svUnit === 'ms') ? '0 ms' : '0.0 dB';
       vWrap.appendChild(svEl);
       refs.sliderValue = svEl;
-      // Auto-Update bei Slider-Input
-      if (refs.slider) {
+      // Auto-Update nur wenn kein onSlide-Hook vorhanden (der Hook setzt detailliertere Anzeige)
+      if (refs.slider && !(vCfg.hooks && vCfg.hooks.onSlide)) {
         refs.slider.input.addEventListener('input', function() {
           var v = parseFloat(refs.slider.input.value);
           if (svUnit === 'cent') svEl.textContent = v.toFixed(0) + ' Cent';

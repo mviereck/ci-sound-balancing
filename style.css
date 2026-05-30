@@ -816,16 +816,19 @@ select:disabled {
 .test-box .slider-wrap input[type="range"]::-webkit-slider-runnable-track {
   height: max(4px, calc(10px - var(--sl-range-step) * 0.8px));
   border-radius: 3px;
-  background: var(--border);
+  background: #3b82f6;
 }
 .test-box .slider-wrap input[type="range"]::-moz-range-track {
   height: max(4px, calc(10px - var(--sl-range-step) * 0.8px));
   border-radius: 3px;
-  background: var(--border);
+  background: #3b82f6;
 }
 .test-box .slider-wrap .ls-hint   { order: 2; }
 .test-box .slider-wrap .touch-ctrl { order: 3; }
 .test-box .slider-wrap .extend-btn { order: 4; }
+.test-box button[data-action="confirm"] {
+  margin-bottom: 0.8em;
+}
 .test-box .info-box.key-hint {
   text-align: left;
   max-width: 440px;

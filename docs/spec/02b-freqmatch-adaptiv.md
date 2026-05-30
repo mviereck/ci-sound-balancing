@@ -399,10 +399,16 @@ pro Lauf nur einen Track pro Elektrode).
 verwendet:
 
 - `rowMode.modeSelect`: zwei Optionen `slider` / `adaptive`. Default
-  `adaptive`. Option `slider` ist verfügbar, solange `runs.length === 0`
-  für die aktuelle Seite; danach wird sie durch `fmUpdateSliderModeAvail`
-  deaktiviert. Bei Wechsel wird der Test-Block-Inhalt umgeschaltet
-  (Slider ausblenden / heightJudgment einblenden, etc.).
+  `adaptive`. Option `slider` ist verfügbar, solange kein adaptiver Lauf
+  mit mindestens einer beantworteten Frage (`trialCount > 0`) für die
+  aktuelle Seite existiert; danach wird sie durch `fmUpdateSliderModeAvail`
+  deaktiviert. Ein gestarteter und sofort abgebrochener Lauf (0 beantwortete
+  Trials) sperrt den Slider **nicht**. Bei Wechsel wird der Test-Block-Inhalt
+  umgeschaltet (Slider ausblenden / heightJudgment einblenden, etc.).
+  Wenn der adaptive Test gestartet wird und Slider-Schätzungen nur für
+  einen Teil der Elektroden vorliegen, erscheint eine Bestätigungsfrage
+  („Der Slider-Test wurde nur teilweise abgeschlossen — trotzdem adaptiv
+  starten?").
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
 - `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
   Slider- und adaptiven Modus). Kürzere Töne erzwingen Bauch-Antworten
