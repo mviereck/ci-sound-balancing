@@ -12,8 +12,6 @@ let fmSeq = [];
 let fmSeqIdx = 0;
 let fmCurrentEl = null;
 let fmCentOffset = 0;
-const FM_SLIDER_RANGES = [100, 500, 1200];
-let fmSlRangeIdx = 0;
 let fmFirstSide = "ref";
 let fmIsPlay = false;
 let fmPlayTO = null;
@@ -272,15 +270,6 @@ function fmUpdateSliderDisplay() {
   }
 }
 
-function _fmCheckExtend() {
-  if (!fmEls) return;
-  const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
-  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-  const atLimit = Math.abs(fmCentOffset) >= lim - 1;
-  const hasNext = fmSlRangeIdx < FM_SLIDER_RANGES.length - 1;
-  if (slRefs && slRefs.slider) slRefs.slider.extendBtn.hidden = !(atLimit && hasNext);
-}
-
 function fmShowElectrode() {
   if (!fmEls || fmCurrentEl === null) return;
   const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
@@ -294,14 +283,9 @@ function fmShowElectrode() {
     else                      pi.right.textContent = varText;
   }
   if (slRefs && slRefs.slider) {
-    const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-    slRefs.slider.input.min   = -lim;
-    slRefs.slider.input.max   =  lim;
-    slRefs.slider.input.value = Math.max(-lim, Math.min(lim, fmCentOffset));
-    slRefs.slider.rangeIdx    = fmSlRangeIdx;
+    testUI.slider.setValue(slRefs.slider, fmCentOffset);
   }
   fmUpdateSliderDisplay();
-  _fmCheckExtend();
   if (slRefs && slRefs.progress) {
     const pText = slRefs.progress.text;
     const pFill = slRefs.progress.fill;
@@ -1422,7 +1406,6 @@ function fmStartSlider() {
     return;
   }
   fmSeqIdx    = 0;
-  fmSlRangeIdx = 0;
   fmRunning   = true;
   fmLoadElectrode();
   _fmStartTimer();
@@ -1435,11 +1418,6 @@ function fmLoadElectrode() {
   }
   fmCurrentEl = fmSeq[fmSeqIdx];
   fmCentOffset = fmPrevCent(fmCurrentEl);
-  fmSlRangeIdx = 0;
-  const absEx = Math.abs(fmCentOffset);
-  while (absEx > FM_SLIDER_RANGES[fmSlRangeIdx] && fmSlRangeIdx < FM_SLIDER_RANGES.length - 1) {
-    fmSlRangeIdx++;
-  }
   fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
   fmUpdateSliderProgress();
@@ -1706,24 +1684,8 @@ function _fmRequestExcl() {
 function fmHandleSlider(val) {
   fmCentOffset = parseFloat(val);
   fmUpdateSliderDisplay();
-  _fmCheckExtend();
   fmRenderSliderStatusGrid();
 }
-
-function _fmExtendRange() {
-  if (fmSlRangeIdx >= FM_SLIDER_RANGES.length - 1) return;
-  fmSlRangeIdx++;
-  const lim = FM_SLIDER_RANGES[fmSlRangeIdx];
-  const slRef = fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.slider;
-  if (slRef) {
-    slRef.input.min   = -lim;
-    slRef.input.max   =  lim;
-    slRef.input.value = fmCentOffset;
-    slRef.rangeIdx    = fmSlRangeIdx;
-  }
-  _fmCheckExtend();
-}
-
 
 // --- i18n-Aktualisierung ---
 function fmApplyLang() {
@@ -1864,7 +1826,7 @@ document.addEventListener("DOMContentLoaded", () => {
           progress:      { format: 'simple' },
           instruction:   { key: 'fmSliderInstruction' },
           keyHint:       { unitKey: 'sliderHintCent' },
-          slider:        { unit: 'cent', ranges: [100, 500, 1200], touchStep: 5, touchFineStep: 1 },
+          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1 },
           sliderValue:   { show: true },
           confirmButton: { key: 'btnConfirmOffset' },
           actions:       ['undo', 'replay', 'simul'],
@@ -1919,10 +1881,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
-
-  const _slExtendBtn = fmEls.verfahren && fmEls.verfahren.slider
-    && fmEls.verfahren.slider.slider && fmEls.verfahren.slider.slider.extendBtn;
-  if (_slExtendBtn) _slExtendBtn.addEventListener('click', _fmExtendRange);
 
   // Taube-Seite Hinweis dynamisch ins Erklärungs-Block einfügen
   const deafHint = _mkEl('p', 'explain explain-warn');

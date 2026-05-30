@@ -44,9 +44,13 @@ Slider-Wert wird invertiert.
   Desktop sichtbar): Buttons − / Fein / + und Replay (Wiederholen).
   Long-Press = Auto-Repeat. Der Fein-Toggle ersetzt Shift+Pfeil und
   bleibt aktiv, bis erneut getippt.
-- Slider-Bereich in 3 Stufen erweiterbar:
-  - Test 1+2: ±20 dB → ±40 dB → ±60 dB
-  - Test 3: ±100 cent → ±500 cent → ±1200 cent
+- Slider-Bereich erweiterbar:
+  - Test 1+2 (alte Test-UI): in 3 Stufen mit explizitem „Bereich
+    erweitern"-Button: ±20 dB → ±40 dB → ±60 dB
+  - Test 3 / Frequenzabgleich Slider-Verfahren (seit BA 113): automatisch
+    in 100-cent-Schritten beim Loslassen (Maus/Touch) oder Pfeiltasten-
+    Anschlag, von ±100 bis maximal ±1200 cent; Track wird mit jeder
+    Erweiterung etwas dünner, kein expliziter Button mehr
 - Tastatursteuerung muß fokus-robust sein (nach Klick auf Buttons,
   Dropdowns, Checkboxen weiterhin nutzbar)
 

@@ -811,6 +811,17 @@ select:disabled {
 .test-box .slider-wrap input[type="range"] {
   width: 100%;
   order: 1;
+  --sl-range-step: 0;
+}
+.test-box .slider-wrap input[type="range"]::-webkit-slider-runnable-track {
+  height: max(4px, calc(10px - var(--sl-range-step) * 0.8px));
+  border-radius: 3px;
+  background: var(--border);
+}
+.test-box .slider-wrap input[type="range"]::-moz-range-track {
+  height: max(4px, calc(10px - var(--sl-range-step) * 0.8px));
+  border-radius: 3px;
+  background: var(--border);
 }
 .test-box .slider-wrap .ls-hint   { order: 2; }
 .test-box .slider-wrap .touch-ctrl { order: 3; }

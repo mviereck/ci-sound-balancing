@@ -145,7 +145,7 @@ buildTestPanel(parentEl, {
         progress:         { format: 'simple' },
         instruction:      { key: 'fmSliderInstruction' },
         keyHint:          { unitKey: 'sliderHintCent' },
-        slider:           { unit: 'cent', ranges: [100,500,1200], touchStep: 5, touchFineStep: 1 },
+        slider:           { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1 },
         sliderValue:      { show: true },
         confirmButton:    { key: 'btnConfirmOffset' },
         actions:          ['undo','replay','simul'],
@@ -190,7 +190,7 @@ Reihenfolge (random/ascending/descending) und Seitenwahl
 **Latenz** (`latenz`): Header schlank (Klicktyp und Intervall als
 balance-spezifische Voreinstellungen in `header.extra`,
 `sliderTarget: false`). Genau ein Verfahren mit
-`slider { unit: 'ms', ranges: [50] }`, `sliderValue`, `keyHint`,
+`slider { unit: 'ms', initialRange: 50, maxRange: 50 }`, `sliderValue`, `keyHint`,
 `actions: ['replay']` (Apply-Button als eigener Baustein
 `applyButton` mit Beschriftung „Übernehmen"). Erklärungs-Block
 nimmt die heute statische Bluetooth-Warnung auf.
@@ -205,7 +205,7 @@ Callbacks über `hooks` und nutzt Helfer wie
 | Baustein | Zweck | Wichtige Optionen | Callbacks |
 |---|---|---|---|
 | `pairIndicator` | Box mit Labels für Ton-1/Ton-2 (oder L/R, A/B) und Hz-Anzeige; Aufleuchten beim Abspielen | `variant`: `'electrode'` \| `'side'` \| `'token'`; `leftKey`/`rightKey` (für `token`) | — (Helfer: `setLabels`, `setPlaying`) |
-| `slider` | Range-Slider mit Pfeiltasten-Steuerung und Range-Wechsel; baut „− / Fein / +"-Touch-Buttons automatisch ein | `unit`: `'dB'` \| `'cent'` \| `'ms'`; `ranges`: Array von Maxima; `defaultRange`: Index; `touchStep`, `touchFineStep` (Schrittweite der Touch-Buttons); LS-Hint-Element nur bei `unit: 'dB'` | `onSlide(v)` |
+| `slider` | Range-Slider mit Pfeiltasten-Steuerung und automatischer Bereichs-Erweiterung; baut „− / Fein / +"-Touch-Buttons automatisch ein. Track-Höhe wird mit jeder Erweiterung dünner (CSS-Custom-Property `--sl-range-step`, 10 px → min. 4 px) | `unit`: `'dB'` \| `'cent'` \| `'ms'`; `initialRange`: Startbereich und Schrittweite jeder Erweiterung (Pflicht für Auto-Extend); `maxRange`: absolute Obergrenze; `touchStep`, `touchFineStep` (Schrittweite der Touch-Buttons); LS-Hint-Element nur bei `unit: 'dB'`. Rückwärts-Kompat: altes `ranges: [...]` wird als `initialRange = ranges[0]`/`maxRange = ranges[-1]` interpretiert, dann aber **ohne** Auto-Extend | `onSlide(v)` (Helfer: `testUI.slider.setValue(slRef, v)` — setzt Wert und resettet Bereich auf das nötige Minimum, z. B. bei Elektroden-Wechsel) |
 | `sliderValue` | Werte-Anzeige unter dem Slider | `show`, `formatter`: optional | — |
 | `decisionButtons` | Antwort-Buttons | `variant`: `'updown'` (↑/↓) | `onDecision(choice)` mit `choice`: `'up'` \| `'down'` |
 | `confirmButton` | Bestätigen-Button | `key`: i18n | `onConfirm()` |
@@ -380,7 +380,7 @@ werden per Bauanleitung in eigene Sonnet-Chats ausgelagert.
 - Helfer-API: `testUI.pairIndicator.{setLabels,setPlaying}`,
   `testUI.progress.set`, `testUI.statusGrid.setEntries`,
   `testUI.field.setEnabled`, `testUI.confidence.getValue`,
-  `testUI.cumulativeDisplay.set`
+  `testUI.cumulativeDisplay.set`, `testUI.slider.setValue` (ab BA 113)
 - Renamings vorbereiten (alte Namen `fmMode` etc. bleiben in den
   Test-Modulen, werden erst in Schritt 2 ff. mitgezogen)
 - Akzeptanztest: alle vier Sub-Reiter funktionieren unverändert
@@ -455,6 +455,10 @@ Body-Reihenfolge angepasst: `statusGrid` von Position 2 an Position 16 (direkt v
 **BA 111 — Slider-Verfahren: vollständiger testUI-Ausbau**
 
 Body-Reihenfolge angepasst: `actions` (Zurück/Nochmal/Gleichzeitig) von Position 7 an Position 15 (nach `extraFragment`, vor `statusGrid`) verschoben; `keyHint` bleibt auf Position 7 (direkt vor `slider`). `slider`-Baustein baut jetzt die „− / Fein / +"-Touch-Buttons automatisch über `buildSliderTouchCtrl` (Optionen `touchStep`, `touchFineStep`); LS-Hint-Element nur noch bei `unit: 'dB'`. Slider-Verfahren-Body ergänzt um `instruction`, `statusGrid`, `background`, `debugRun`. `onReplay`-Hook in beiden Verfahren auf `fmPlayCurrent` korrigiert (war `fmReplayCurrent`, das im Slider-Modus sofort abbrach); `fmReplayCurrent` entfernt. Neuer generischer Timer-Helfer `_fmActiveProgress()` — Timer-Tick wählt je nach laufendem Verfahren den richtigen Progress-Ref. Neue Funktionen in `freqmatch.js`: `fmUpdateSliderProgress`, `fmRenderSliderStatusGrid`, `fmRunSliderDebugSim`, `_fmActiveProgress`. Manueller `buildSliderTouchCtrl`-Aufruf in `freqmatch.js` entfernt. Token-pairIndicator im Slider-Modus überschreibt Labels nicht mehr mit Hz-Text. BA 112 (Tonseitenabfrage-Generalisierung + Adaptive-Start-Check) folgt.
+
+**BA 113 — Slider Auto-Extend**
+
+`slider`-Baustein erweitert seinen Bereich automatisch beim Loslassen (Maus/Touch) oder wenn ein Pfeiltasten-Schritt das Limit trifft. Neuer cfg-Vertrag `slider: { initialRange, maxRange, … }` ersetzt das alte `ranges: [...]`/`defaultRange`. `initialRange` ist Startbereich und Schrittweite jeder Erweiterung; `maxRange` ist absolute Obergrenze. Rückwärts-Kompat: altes `ranges` wird gelesen als `initialRange = ranges[0]`/`maxRange = ranges[-1]`, aber ohne Auto-Extend (kein Absturz). Extend-Button (`btn.extend-btn`, i18n `bExtend`) und `refs.slider.extendBtn` ersatzlos entfernt. `refs.slider` enthält jetzt `{input, lsHint, lsHintBand, lsHintMark, lsHintLabel, unit, initialRange, maxRange, rangeIdx}`. Neue Helfer-API `testUI.slider.setValue(slRef, value)`: setzt einen Wert und resettet den Bereich auf das nötige Minimum (`initialRange`-Vielfache) — wird z. B. beim Elektroden-Wechsel im Slider-Verfahren genutzt. Track-Höhe variiert via CSS-Custom-Property `--sl-range-step` (10 px Start, −0,8 px je Erweiterung, min. 4 px) — `style.css` setzt `::-webkit-slider-runnable-track` und `::-moz-range-track` entsprechend. Migration in `freqmatch.js`: Modul-Konstanten `FM_SLIDER_RANGES`/`fmSlRangeIdx` entfernt; Funktionen `_fmCheckExtend`/`_fmExtendRange` entfernt; `fmShowElectrode` nutzt `testUI.slider.setValue` statt manueller min/max-Manipulation; externer Extend-Button-Listener im DOMContentLoaded entfernt. `_buildTestPanelOld` und alte Test-Module (`test.js`, `lr-balance.js`, `latency.js`) unangetastet — deren 3-Stufen-Extend mit Button bleibt aktiv bis zu deren Migration.
 
 ## Verwandte Dokumente
 

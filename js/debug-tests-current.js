@@ -20,3 +20,28 @@
   if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
   // (aktuell keine temporären Tests registriert)
 })();
+
+/* BA113 — Slider Auto-Extend API */
+(function() {
+  if (typeof registerDebugTest !== 'function') return;
+  registerDebugTest('build/BA113/slider-auto-extend', {
+    label: 'Slider Auto-Extend API (BA113)',
+    opts: { tab: 'messungen' },
+    run: function() {
+      var lines = [];
+      function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+      chk('testUI.slider.setValue vorhanden',
+        typeof testUI !== 'undefined' && !!testUI.slider && typeof testUI.slider.setValue === 'function');
+      chk('FM_SLIDER_RANGES entfernt',
+        typeof FM_SLIDER_RANGES === 'undefined');
+      chk('fmSlRangeIdx entfernt',
+        typeof fmSlRangeIdx === 'undefined');
+      var slRef = typeof fmEls !== 'undefined' && fmEls &&
+        fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.slider;
+      chk('slider.initialRange === 100', !!slRef && slRef.initialRange === 100);
+      chk('slider.maxRange === 1200', !!slRef && slRef.maxRange === 1200);
+      chk('extendBtn nicht in slider-refs', !!slRef && !('extendBtn' in slRef));
+      return lines.join('\n');
+    }
+  });
+})();

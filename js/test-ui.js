@@ -651,6 +651,19 @@ function _applyLangSubtree(root) {
 }
 
 // ---- Neue Implementation ----
+function _maybeExtendSlider(slRef) {
+  if (!slRef || !slRef.initialRange) return;
+  var val = parseFloat(slRef.input.value) || 0;
+  var curMax = parseFloat(slRef.input.max);
+  if (Math.abs(val) < curMax) return;
+  if (curMax >= slRef.maxRange) return;
+  var newMax = Math.min(curMax + slRef.initialRange, slRef.maxRange);
+  slRef.rangeIdx++;
+  slRef.input.min = String(-newMax);
+  slRef.input.max = String(newMax);
+  slRef.input.style.setProperty('--sl-range-step', slRef.rangeIdx);
+}
+
 function _buildTestPanelNew(parentEl, cfg) {
   parentEl.innerHTML = '';
   var id = cfg.id;
@@ -1058,21 +1071,18 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (body.slider) {
       var slCfg = body.slider;
       var slUnit = slCfg.unit || 'dB';
-      var slRanges = slCfg.ranges || [20];
-      var slDefaultRangeIdx = slCfg.defaultRange || 0;
-      var slRange = slRanges[slDefaultRangeIdx] || slRanges[0];
+      var slInitialRange = slCfg.initialRange || (slCfg.ranges && slCfg.ranges[0]) || 20;
+      var slMaxRange = slCfg.maxRange || (slCfg.ranges && slCfg.ranges[slCfg.ranges.length - 1]) || slInitialRange;
       var slWrap = _mkEl('div', 'slider-wrap');
       var slInput = _mkEl('input');
       slInput.type = 'range';
       slInput.className = 'big-slider';
-      slInput.min = -slRange; slInput.max = slRange;
+      slInput.min = -slInitialRange; slInput.max = slInitialRange;
       // Schrittweite: cent → 1, ms → 1, dB → 0.1
       slInput.step = (slUnit === 'cent' || slUnit === 'ms') ? '1' : '0.1';
       slInput.value = '0';
-      var slExtendBtn = _mkEl('button', 'btn btn-sm extend-btn');
-      slExtendBtn.hidden = true;
-      _tEl(slExtendBtn, 'bExtend');
-      slWrap.append(slInput, slExtendBtn);
+      slInput.style.setProperty('--sl-range-step', '0');
+      slWrap.append(slInput);
       vWrap.appendChild(slWrap);
 
       // LS-Hint nur bei dB-Slider (cent-Slider braucht ihn nicht)
@@ -1096,11 +1106,11 @@ function _buildTestPanelNew(parentEl, cfg) {
 
       refs.slider = {
         input: slInput,
-        extendBtn: slExtendBtn,
         lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel2,
         unit: slUnit,
-        ranges: slRanges,
-        rangeIdx: slDefaultRangeIdx
+        initialRange: slInitialRange,
+        maxRange: slMaxRange,
+        rangeIdx: 0
       };
 
       // Slider verdrahten mit Hook
@@ -1109,9 +1119,9 @@ function _buildTestPanelNew(parentEl, cfg) {
           vCfg.hooks.onSlide(parseFloat(slInput.value));
         });
       }
+      slInput.addEventListener('mouseup', function() { _maybeExtendSlider(refs.slider); slInput.blur(); });
+      slInput.addEventListener('touchend', function() { _maybeExtendSlider(refs.slider); slInput.blur(); });
       slInput.addEventListener('change', function() { slInput.blur(); });
-      slInput.addEventListener('mouseup', function() { slInput.blur(); });
-      slInput.addEventListener('touchend', function() { slInput.blur(); });
     }
 
     // --- sliderValue ---
@@ -1457,7 +1467,7 @@ function _buildTestPanelNew(parentEl, cfg) {
           }
           var step = e.shiftKey ? fineStep : coarseStep;
           var curVal = parseFloat(slRef.input.value) || 0;
-          var rangeMax = slRef.ranges[slRef.rangeIdx] || 20;
+          var rangeMax = parseFloat(slRef.input.max) || 20;
           var newVal = Math.max(-rangeMax, Math.min(rangeMax, curVal + dir * step));
           // Auf step-Genauigkeit runden
           var factor = 1 / step;
@@ -1471,6 +1481,7 @@ function _buildTestPanelNew(parentEl, cfg) {
           }
           // Hook
           if (vCfg2.hooks && vCfg2.hooks.onSlide) vCfg2.hooks.onSlide(newVal);
+          _maybeExtendSlider(slRef);
           return;
         }
       }
@@ -1706,6 +1717,31 @@ var testUI = {
       } else if (opts && opts.text !== undefined) {
         els.textContent = opts.text;
       }
+    }
+  },
+
+  // ---- slider ----
+  slider: {
+    /**
+     * Slider-Wert setzen und Range auf Minimum zurücksetzen.
+     * Expandiert den Bereich, falls abs(value) > initialRange.
+     * slRef: refs.slider aus _buildTestPanelNew
+     * value: neuer numerischer Wert
+     */
+    setValue: function(slRef, value) {
+      if (!slRef || !slRef.input || !slRef.initialRange) return;
+      var absVal = Math.abs(value);
+      var needed = slRef.initialRange;
+      var stepIdx = 0;
+      while (absVal > needed && needed < slRef.maxRange) {
+        needed = Math.min(needed + slRef.initialRange, slRef.maxRange);
+        stepIdx++;
+      }
+      slRef.rangeIdx = stepIdx;
+      slRef.input.min = String(-needed);
+      slRef.input.max = String(needed);
+      slRef.input.value = String(Math.max(-needed, Math.min(needed, value)));
+      slRef.input.style.setProperty('--sl-range-step', stepIdx);
     }
   }
 
