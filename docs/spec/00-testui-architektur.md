@@ -143,20 +143,25 @@ buildTestPanel(parentEl, {
       body: {
         pairIndicator:    { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
         progress:         { format: 'simple' },
-        slider:           { unit: 'cent', ranges: [100,500,1200] },
-        sliderValue:      { show: true },
+        instruction:      { key: 'fmSliderInstruction' },
         keyHint:          { unitKey: 'sliderHintCent' },
+        slider:           { unit: 'cent', ranges: [100,500,1200], touchStep: 5, touchFineStep: 1 },
+        sliderValue:      { show: true },
         confirmButton:    { key: 'btnConfirmOffset' },
-        confidence:       { show: true },
-        actions:          ['undo','replay']   // kein simul im Slider-Modus (BA 109)
+        actions:          ['undo','replay','simul'],
+        statusGrid:       { show: true },
+        background:       { titleKey: 'fmExplainSliderScienceTitle', bodyKey: 'fmExplainSliderScience', bodyAsHtml: true },
+        debugRun:         { key: 'btnDebugRun' }
       },
       hooks: {
         onStart:    fmStartSlider,
         onStop:     fmAbort,
-        onSlide:    fmSliderChange,
+        onSlide:    fmHandleSlider,
         onConfirm:  fmConfirm,
-        onReplay:   fmReplayCurrent,
-        onUndo:     fmUndo
+        onReplay:   fmPlayCurrent,
+        onUndo:     fmUndo,
+        onSimul:    fmPlaySimultaneous,
+        onDebugRun: fmRunSliderDebugSim
       }
     }
   ]
@@ -200,7 +205,7 @@ Callbacks über `hooks` und nutzt Helfer wie
 | Baustein | Zweck | Wichtige Optionen | Callbacks |
 |---|---|---|---|
 | `pairIndicator` | Box mit Labels für Ton-1/Ton-2 (oder L/R, A/B) und Hz-Anzeige; Aufleuchten beim Abspielen | `variant`: `'electrode'` \| `'side'` \| `'token'`; `leftKey`/`rightKey` (für `token`) | — (Helfer: `setLabels`, `setPlaying`) |
-| `slider` | Range-Slider mit Pfeiltasten-Steuerung und Range-Wechsel | `unit`: `'dB'` \| `'cent'` \| `'ms'`; `ranges`: Array von Maxima; `defaultRange`: Index | `onSlide(v)` |
+| `slider` | Range-Slider mit Pfeiltasten-Steuerung und Range-Wechsel; baut „− / Fein / +"-Touch-Buttons automatisch ein | `unit`: `'dB'` \| `'cent'` \| `'ms'`; `ranges`: Array von Maxima; `defaultRange`: Index; `touchStep`, `touchFineStep` (Schrittweite der Touch-Buttons); LS-Hint-Element nur bei `unit: 'dB'` | `onSlide(v)` |
 | `sliderValue` | Werte-Anzeige unter dem Slider | `show`, `formatter`: optional | — |
 | `decisionButtons` | Antwort-Buttons | `variant`: `'updown'` (↑/↓) | `onDecision(choice)` mit `choice`: `'up'` \| `'down'` |
 | `confirmButton` | Bestätigen-Button | `key`: i18n | `onConfirm()` |
@@ -444,7 +449,11 @@ Feste Body-Reihenfolge eingeführt (runningTitle → statusGrid → progress →
 
 **BA 110 — Layout-Feinschliff und Bug-Fixes**
 
-Body-Reihenfolge angepasst: `statusGrid` von Position 2 an Position 16 (direkt vor `background`) verschoben. `confidence`-Baustein aus neuer API entfernt (Render-Block, `testUI.confidence`-Helfer); alte API behält ihn vorerst. Pfeiltasten-Mapping: `Z`→`Backspace` für Undo; `B` wieder als Simul-Shortcut (Nutzer-Funktion „beide Töne gleichzeitig"). Header-Selects bekommen Auto-Blur nach `change`. Trial-Text-Render-Bug in `fmUpdateAdaptiveProgress` behoben (nutzt jetzt `testUI.progress.set`). AB/ABA-Flag wird im adaptiven Trial-Play-Pfad respektiert (dritter Ton bei ABA). `fmCfg.verfahren`: Slider zuerst, Adaptive zweit; Default-Verfahren in `fmLoadVerfahrenFromSide` auf Slider solange keine adaptiven Läufe. `fmSliderEstimateDlg` aus BA 102 bleibt unverändert aktiv. BA 111 (Slider-Verfahren-Fixes) und BA 112 (Tonseitenabfrage-Generalisierung + Adaptive-Start-Check) folgen.
+Body-Reihenfolge angepasst: `statusGrid` von Position 2 an Position 16 (direkt vor `background`) verschoben. `confidence`-Baustein aus neuer API entfernt (Render-Block, `testUI.confidence`-Helfer); alte API behält ihn vorerst. Pfeiltasten-Mapping: `Z`→`Backspace` für Undo; `B` wieder als Simul-Shortcut (Nutzer-Funktion „beide Töne gleichzeitig"). Header-Selects bekommen Auto-Blur nach `change`. Trial-Text-Render-Bug in `fmUpdateAdaptiveProgress` behoben (nutzt jetzt `testUI.progress.set`). AB/ABA-Flag wird im adaptiven Trial-Play-Pfad respektiert (dritter Ton bei ABA). `fmCfg.verfahren`: Slider zuerst, Adaptive zweit; Default-Verfahren in `fmLoadVerfahrenFromSide` auf Slider solange keine adaptiven Läufe. `fmSliderEstimateDlg` aus BA 102 bleibt unverändert aktiv.
+
+**BA 111 — Slider-Verfahren: vollständiger testUI-Ausbau**
+
+Body-Reihenfolge angepasst: `actions` (Zurück/Nochmal/Gleichzeitig) von Position 7 an Position 15 (nach `extraFragment`, vor `statusGrid`) verschoben; `keyHint` bleibt auf Position 7 (direkt vor `slider`). `slider`-Baustein baut jetzt die „− / Fein / +"-Touch-Buttons automatisch über `buildSliderTouchCtrl` (Optionen `touchStep`, `touchFineStep`); LS-Hint-Element nur noch bei `unit: 'dB'`. Slider-Verfahren-Body ergänzt um `instruction`, `statusGrid`, `background`, `debugRun`. `onReplay`-Hook in beiden Verfahren auf `fmPlayCurrent` korrigiert (war `fmReplayCurrent`, das im Slider-Modus sofort abbrach); `fmReplayCurrent` entfernt. Neuer generischer Timer-Helfer `_fmActiveProgress()` — Timer-Tick wählt je nach laufendem Verfahren den richtigen Progress-Ref. Neue Funktionen in `freqmatch.js`: `fmUpdateSliderProgress`, `fmRenderSliderStatusGrid`, `fmRunSliderDebugSim`, `_fmActiveProgress`. Manueller `buildSliderTouchCtrl`-Aufruf in `freqmatch.js` entfernt. Token-pairIndicator im Slider-Modus überschreibt Labels nicht mehr mit Hz-Text. BA 112 (Tonseitenabfrage-Generalisierung + Adaptive-Start-Check) folgt.
 
 ## Verwandte Dokumente
 

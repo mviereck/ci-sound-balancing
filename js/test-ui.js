@@ -1033,39 +1033,6 @@ function _buildTestPanelNew(parentEl, cfg) {
       }
     }
 
-    // --- actions ---
-    if (body.actions && body.actions.length) {
-      var actRow = _mkEl('div', 'action-row');
-      var actRefs = {};
-      body.actions.forEach(function(act) {
-        var btn = _mkEl('button', 'btn btn-large');
-        btn.dataset.action = act;
-        if (act === 'undo') {
-          btn.disabled = true;
-          btn.innerHTML = '&#9664; <span data-t="bBack"></span> <span class="kbd">&#x232B;</span>';
-          actRefs.undo = btn;
-          if (vCfg.hooks && vCfg.hooks.onUndo) {
-            btn.addEventListener('click', function() { vCfg.hooks.onUndo(); });
-          }
-        } else if (act === 'replay') {
-          btn.innerHTML = '&#9654; <span data-t="bReplay"></span> <span class="kbd" data-t="kSpace"></span>';
-          actRefs.replay = btn;
-          if (vCfg.hooks && vCfg.hooks.onReplay) {
-            btn.addEventListener('click', function() { vCfg.hooks.onReplay(); });
-          }
-        } else if (act === 'simul') {
-          btn.innerHTML = '&#x2016; <span data-t="bSimul"></span> <span class="kbd">B</span>';
-          actRefs.simul = btn;
-          if (vCfg.hooks && vCfg.hooks.onSimul) {
-            btn.addEventListener('click', function() { vCfg.hooks.onSimul(); });
-          }
-        }
-        actRow.appendChild(btn);
-      });
-      vWrap.appendChild(actRow);
-      refs.actions = actRefs;
-    }
-
     // --- keyHint ---
     if (body.keyHint) {
       var khBox = _mkEl('div', 'info-box key-hint');
@@ -1108,14 +1075,24 @@ function _buildTestPanelNew(parentEl, cfg) {
       slWrap.append(slInput, slExtendBtn);
       vWrap.appendChild(slWrap);
 
-      // LS-Hint (für dB-Slider kompatibel mit alter API)
-      var lsHint = _mkEl('div', 'ls-hint');
-      lsHint.style.display = 'none';
-      var lsHintBand = _mkEl('div', 'ls-hint-band');
-      var lsHintMark = _mkEl('div', 'ls-hint-mark');
-      var lsHintLabel2 = _mkEl('div', 'ls-hint-label');
-      lsHint.append(lsHintBand, lsHintMark, lsHintLabel2);
-      slWrap.appendChild(lsHint);
+      // LS-Hint nur bei dB-Slider (cent-Slider braucht ihn nicht)
+      var lsHint = null, lsHintBand = null, lsHintMark = null, lsHintLabel2 = null;
+      if (slUnit === 'dB') {
+        lsHint = _mkEl('div', 'ls-hint');
+        lsHint.style.display = 'none';
+        lsHintBand = _mkEl('div', 'ls-hint-band');
+        lsHintMark = _mkEl('div', 'ls-hint-mark');
+        lsHintLabel2 = _mkEl('div', 'ls-hint-label');
+        lsHint.append(lsHintBand, lsHintMark, lsHintLabel2);
+        slWrap.appendChild(lsHint);
+      }
+
+      // Touch-Buttons (− / Fein / +) automatisch einhängen
+      var _tStep     = slCfg.touchStep     != null ? slCfg.touchStep     : 5;
+      var _tFineStep = slCfg.touchFineStep != null ? slCfg.touchFineStep : 1;
+      if (typeof buildSliderTouchCtrl === 'function') {
+        buildSliderTouchCtrl(slInput, { step: _tStep, fineStep: _tFineStep });
+      }
 
       refs.slider = {
         input: slInput,
@@ -1211,6 +1188,39 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (body.extraFragment && body.extraFragment.fragment) {
       vWrap.appendChild(body.extraFragment.fragment);
       refs.extraFragment = body.extraFragment.fragment;
+    }
+
+    // --- actions ---
+    if (body.actions && body.actions.length) {
+      var actRow = _mkEl('div', 'action-row');
+      var actRefs = {};
+      body.actions.forEach(function(act) {
+        var btn = _mkEl('button', 'btn btn-large');
+        btn.dataset.action = act;
+        if (act === 'undo') {
+          btn.disabled = true;
+          btn.innerHTML = '&#9664; <span data-t="bBack"></span> <span class="kbd">&#x232B;</span>';
+          actRefs.undo = btn;
+          if (vCfg.hooks && vCfg.hooks.onUndo) {
+            btn.addEventListener('click', function() { vCfg.hooks.onUndo(); });
+          }
+        } else if (act === 'replay') {
+          btn.innerHTML = '&#9654; <span data-t="bReplay"></span> <span class="kbd" data-t="kSpace"></span>';
+          actRefs.replay = btn;
+          if (vCfg.hooks && vCfg.hooks.onReplay) {
+            btn.addEventListener('click', function() { vCfg.hooks.onReplay(); });
+          }
+        } else if (act === 'simul') {
+          btn.innerHTML = '&#x2016; <span data-t="bSimul"></span> <span class="kbd">B</span>';
+          actRefs.simul = btn;
+          if (vCfg.hooks && vCfg.hooks.onSimul) {
+            btn.addEventListener('click', function() { vCfg.hooks.onSimul(); });
+          }
+        }
+        actRow.appendChild(btn);
+      });
+      vWrap.appendChild(actRow);
+      refs.actions = actRefs;
     }
 
     // --- statusGrid ---

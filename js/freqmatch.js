@@ -289,7 +289,7 @@ function fmShowElectrode() {
   const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
     varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
   const pi = _fmSliderPI();
-  if (pi) {
+  if (pi && pi.variant !== 'token') {
     if (fmVarSide === "left") pi.left.textContent = varText;
     else                      pi.right.textContent = varText;
   }
@@ -633,13 +633,21 @@ function _fmStopTimer() {
     _fmTimerInterval = null;
   }
 }
+function _fmActiveProgress() {
+  if (!fmEls || !fmEls.verfahren) return null;
+  if (fmAdaptiveActive && fmEls.verfahren.adaptive)
+    return fmEls.verfahren.adaptive.progress;
+  if (fmRunning && fmEls.verfahren.slider)
+    return fmEls.verfahren.slider.progress;
+  return null;
+}
 function _fmTickTimer() {
   const secs = Math.floor((Date.now() - _fmTimerStartTs) / 1000);
   const mm   = Math.floor(secs / 60);
   const ss   = secs % 60;
   const txt  = mm + ':' + (ss < 10 ? '0' : '') + ss;
-  const _aprog = fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.progress;
-  if (_aprog && _aprog.timer) _aprog.timer.textContent = txt;
+  const _prog = _fmActiveProgress();
+  if (_prog && _prog.timer) _prog.timer.textContent = txt;
 }
 
 function fmStartAdaptive() {
@@ -1202,18 +1210,6 @@ function _fmWriteResult(track) {
        + ' runs=' + agg.runsCount);
 }
 
-function fmReplayCurrent() {
-  if (!fmAdaptiveActive) return;
-  if (fmCurTrackId === null) return;
-  const track = fmTracks[fmCurTrackId];
-  fmDisableHeightButtons();
-  fmAwaitingResponse = false;
-  fmPlayAdaptiveTrial(track, fmCurFirstSide, fmCurCatchInfo).then(function() {
-    if (!fmAdaptiveActive) return;
-    fmAwaitingResponse = true;
-    fmEnableHeightButtons();
-  });
-}
 
 function fmFinishAdaptive() {
   let _cv = 0, _fa2 = 0, _wide = 0, _un = 0, _np = 0;
@@ -1429,6 +1425,7 @@ function fmStartSlider() {
   fmSlRangeIdx = 0;
   fmRunning   = true;
   fmLoadElectrode();
+  _fmStartTimer();
 }
 
 function fmLoadElectrode() {
@@ -1445,6 +1442,8 @@ function fmLoadElectrode() {
   }
   fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
+  fmUpdateSliderProgress();
+  fmRenderSliderStatusGrid();
   setTimeout(() => { if (fmRunning) fmPlayCurrent(); }, 100);
 }
 
@@ -1462,6 +1461,8 @@ function fmConfirm() {
     };
   }
   fmSeqIdx++;
+  fmRenderSliderStatusGrid();
+  fmUpdateSliderProgress();
   fmLoadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
@@ -1503,6 +1504,8 @@ function fmUndo() {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (store) delete store[String(prevEl)];
+  fmRenderSliderStatusGrid();
+  fmUpdateSliderProgress();
   fmLoadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
@@ -1531,6 +1534,7 @@ function fmAbort() {
   }
   fmIsPlay = false;
   if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
+  _fmStopTimer();
   fmRunning   = false;
   fmCurrentEl = null;
   fmRefreshResumeHint();
@@ -1538,6 +1542,7 @@ function fmAbort() {
 
 function fmFinish() {
   fmIsPlay    = false;
+  _fmStopTimer();
   fmRunning   = false;
   fmCurrentEl = null;
   if (fmEls && fmEls._stopTest) fmEls._stopTest();
@@ -1592,6 +1597,88 @@ function _fmSimStep() {
     fmHandleHeight(choiceUD);
     setTimeout(_fmSimStep, 50);
   }, 60 + Math.random() * 60);
+}
+
+function fmUpdateSliderProgress() {
+  if (!fmEls) return;
+  const _sprog = fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.progress;
+  if (!_sprog) return;
+  const total = fmSeq ? fmSeq.length : 0;
+  const cur   = fmSeqIdx + 1;
+  const frac  = total > 0 ? Math.min(cur / total, 1) : 0;
+  testUI.progress.set(_sprog, {
+    fraction: frac,
+    text:     'Elektrode ' + cur + ' von ' + total
+  });
+}
+
+function fmRenderSliderStatusGrid() {
+  const _sgEl = fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.statusGrid;
+  if (!_sgEl) return;
+  const grid = _sgEl;
+  grid.innerHTML = '';
+  grid.hidden = false;
+
+  const head = _mkEl('div', 'fm-status-row fm-status-head');
+  ['Elektrode', 'Schätzung', 'Status'].forEach(function(txt) {
+    const c = _mkEl('div', 'fm-status-cell');
+    c.textContent = txt;
+    head.appendChild(c);
+  });
+  grid.appendChild(head);
+
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+
+  (fmSeq || []).forEach(function(elIdx) {
+    const est = store && store[String(elIdx)];
+    const isDone = !!est;
+    const isCurrent = (elIdx === fmCurrentEl) && !isDone;
+
+    let cssClass = '';
+    if (isCurrent) cssClass = 'active';
+    else if (isDone) cssClass = 'converged';
+    const row = _mkEl('div', 'fm-status-row' + (cssClass ? ' fm-status-' + cssClass : ''));
+    if (isCurrent) row.classList.add('fm-status-current');
+
+    const elName = withSide(fmVarSide, function() { return dENPrefix() + dEN(elIdx); });
+    const varHz  = fmVarHz(elIdx);
+    row.appendChild(_mkCell(elName + ' · ' + Math.round(varHz) + ' Hz'));
+
+    const centTxt = est ? ((est.cent >= 0 ? '+' : '') + est.cent + ' cent') : '–';
+    row.appendChild(_mkCell(centTxt));
+
+    let statusTxt = '';
+    if (isCurrent) statusTxt = 'aktuell';
+    else if (isDone) statusTxt = 'erledigt';
+    row.appendChild(_mkCell(statusTxt));
+
+    grid.appendChild(row);
+  });
+}
+
+function fmRunSliderDebugSim() {
+  if (!fmRunning) {
+    fmStartSlider();
+    setTimeout(fmRunSliderDebugSim, 100);
+    return;
+  }
+  const store = _fmEnsureSliderStore(fmVarSide);
+  if (!store) return;
+  fmSeq.forEach(function(el) {
+    store[String(el)] = {
+      cent:      Math.round((Math.random() * 100) - 50),
+      varSide:   fmVarSide,
+      refSide:   fmRefSide,
+      varFreq:   fmVarHz(el),
+      timestamp: Date.now()
+    };
+  });
+  fmSeqIdx = fmSeq.length;
+  fmLoadElectrode();
+  if (typeof renderFreqMatchResults === 'function') {
+    try { renderFreqMatchResults(); } catch (e) {}
+  }
 }
 
 // --- Elektroden-Ausschluss ---
@@ -1762,19 +1849,29 @@ document.addEventListener("DOMContentLoaded", () => {
         body: {
           pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
           progress:      { format: 'simple' },
-          slider:        { unit: 'cent', ranges: [100, 500, 1200] },
-          sliderValue:   { show: true },
+          instruction:   { key: 'fmSliderInstruction' },
           keyHint:       { unitKey: 'sliderHintCent' },
+          slider:        { unit: 'cent', ranges: [100, 500, 1200], touchStep: 5, touchFineStep: 1 },
+          sliderValue:   { show: true },
           confirmButton: { key: 'btnConfirmOffset' },
-          actions:       ['undo','replay']
+          actions:       ['undo', 'replay', 'simul'],
+          statusGrid:    { show: true },
+          background: {
+            titleKey:   'fmExplainSliderScienceTitle',
+            bodyKey:    'fmExplainSliderScience',
+            bodyAsHtml: true
+          },
+          debugRun:      { key: 'btnDebugRun' }
         },
         hooks: {
-          onStart:   fmStartSlider,
-          onStop:    fmAbort,
-          onSlide:   fmHandleSlider,
-          onConfirm: fmConfirm,
-          onReplay:  fmReplayCurrent,
-          onUndo:    fmUndo
+          onStart:    fmStartSlider,
+          onStop:     fmAbort,
+          onSlide:    fmHandleSlider,
+          onConfirm:  fmConfirm,
+          onReplay:   fmPlayCurrent,
+          onUndo:     fmUndo,
+          onSimul:    fmPlaySimultaneous,
+          onDebugRun: fmRunSliderDebugSim
         }
       },
       {
@@ -1799,7 +1896,7 @@ document.addEventListener("DOMContentLoaded", () => {
           onStart:    fmStartAdaptive,
           onStop:     fmAbort,
           onDecision: fmHandleHeight,
-          onReplay:   fmReplayCurrent,
+          onReplay:   fmPlayCurrent,
           onUndo:     fmUndoAdaptive,
           onSimul:    fmPlaySimultaneous,
           onDebugRun: fmRunDebugSim
@@ -1810,17 +1907,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fmEls = buildTestPanel(parentEl, fmCfg);
 
-  // buildSliderTouchCtrl für Slider-Verfahren
-  const _slInput = fmEls.verfahren && fmEls.verfahren.slider
-    && fmEls.verfahren.slider.slider && fmEls.verfahren.slider.slider.input;
-  if (_slInput) {
-    buildSliderTouchCtrl(_slInput, {
-      step: 5,
-      fineStep: 1,
-      replay: function() { if (typeof fmPlayCurrent === 'function') fmPlayCurrent(); },
-      labelReplay: '▶ ' + ((typeof t === 'function' && t('bReplay')) || 'Wiederholen')
-    });
-  }
   const _slExtendBtn = fmEls.verfahren && fmEls.verfahren.slider
     && fmEls.verfahren.slider.slider && fmEls.verfahren.slider.slider.extendBtn;
   if (_slExtendBtn) _slExtendBtn.addEventListener('click', _fmExtendRange);
