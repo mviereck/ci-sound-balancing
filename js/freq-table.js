@@ -83,6 +83,7 @@ function buildFreqTable() {
       const v = e.target.value !== "" ? parseFloat(e.target.value) : null;
       if (!sideData[activeSide].implant) return;
       sideData[activeSide].implant.thr[idx] = v;
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     }),
   );
   // Upper (MCL/C/M) inputs
@@ -94,6 +95,7 @@ function buildFreqTable() {
       if (!im2) return;
       if (mfr === "medel") im2.mcl[idx] = v;
       else im2.upperLevel[idx] = v;
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     }),
   );
   tb.querySelectorAll('.pbtn[data-a="play"]').forEach((b) =>

@@ -13,7 +13,8 @@
 //   {
 //     level:        1 (rot) | 2 (orange) | 3 (gelb),
 //     electrodeIdx: 0..n-1  (optional, bei zeilenbezogen),
-//     field:        'hz' | 'thr' | 'upper'  (optional),
+//     field:        'hz' | 'thr' | 'upper' oder Array davon
+//                   (optional, ein Warning kann mehrere Felder markieren),
 //     globalEl:    'c' | 'idr' | 'iidr' (optional, bei globalen Feldern),
 //     messageKey:   i18n-Key,
 //     messageParams: {…}  (Platzhalter für den i18n-Text)
@@ -56,12 +57,81 @@ const IMPL_VAL_HZ_TREND_ORANGE_CENT = 600;
 const IMPL_VAL_HZ_JUMP_YELLOW_CENT = 400;
 const IMPL_VAL_HZ_JUMP_ORANGE_CENT = 700;
 
+// THR/Upper-Level Wertebereiche pro Hersteller (Hardware-Limits).
+//   MED-EL: MCL maximal 268,6 qu (Berechnungsgrundlagen dB zu CI.md
+//           Kap. 3.1); THR identische Hardware-Grenze, real meist
+//           viel niedriger. Bereich konservativ 0–268.6.
+//   Cochlear: T-Level und C-Level als 8-bit-Skala 0–255 CL.
+//   AB: M-Level/T-Level in CU; keine harte öffentlich dokumentierte
+//       Grenze, typischer klinischer Bereich 0–600. Hard-Cap
+//       pragmatisch auf 1000 gesetzt.
+const IMPL_VAL_THR_UPPER_RANGE = {
+  medel:    { thr: { min: 0, max: 268.6 }, upper: { min: 0, max: 268.6 } },
+  cochlear: { thr: { min: 0, max: 255   }, upper: { min: 0, max: 255   } },
+  ab:       { thr: { min: 0, max: 1000  }, upper: { min: 0, max: 1000  } }
+};
+
+// Größenordnungs-Schwelle für THR/Upper (Tippfehler):
+//   Wert weicht um Faktor 10 vom Spaltenmedian ab.
+const IMPL_VAL_THR_UPPER_MAGNITUDE_FACTOR = 10;
+
+// MAD-Schwelle für THR/Upper-Ausreißer:
+//   |x − median| > MAD_FACTOR · MAD wird als Ausreißer markiert.
+const IMPL_VAL_THR_UPPER_MAD_FACTOR = 3;
+
+// Aktivierungsschwellen:
+//   Größenordnung greift ab MIN_MAGNITUDE Werten,
+//   MAD-Ausreißer ab MIN_MAD Werten in der Spalte.
+const IMPL_VAL_THR_UPPER_MIN_FOR_MAGNITUDE = 3;
+const IMPL_VAL_THR_UPPER_MIN_FOR_MAD = 5;
+
 // --- Helfer -------------------------------------------------
 
 function _implEffFreqOf(s, i) {
   if (!s) return 0;
   if (s.elFreqOwn && s.elFreqOwn[i] != null) return s.elFreqOwn[i];
   return s.freqs ? s.freqs[i] : 0;
+}
+
+function _implThrOf(s, i) {
+  if (!s || !s.implant || !s.implant.thr) return null;
+  const v = s.implant.thr[i];
+  return (v == null || isNaN(v)) ? null : v;
+}
+
+function _implUpperOf(s, i) {
+  if (!s || !s.implant) return null;
+  const arr = (s.manufacturer === 'medel')
+    ? s.implant.mcl
+    : s.implant.upperLevel;
+  if (!arr) return null;
+  const v = arr[i];
+  return (v == null || isNaN(v)) ? null : v;
+}
+
+function _implCollectColumnValues(s, getterFn) {
+  const vals = [];
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    const v = getterFn(s, i);
+    if (v != null && !isNaN(v)) vals.push(v);
+  }
+  return vals;
+}
+
+function _implMedian(arr) {
+  if (!arr || arr.length === 0) return null;
+  const sorted = arr.slice().sort(function (a, b) { return a - b; });
+  const mid = Math.floor(sorted.length / 2);
+  return (sorted.length % 2 === 0)
+    ? (sorted[mid - 1] + sorted[mid]) / 2
+    : sorted[mid];
+}
+
+function _implMAD(arr, median) {
+  if (!arr || arr.length === 0 || median == null) return null;
+  const devs = arr.map(function (v) { return Math.abs(v - median); });
+  return _implMedian(devs);
 }
 
 function _implMsg(w) {
@@ -93,24 +163,28 @@ function _implClearMarkers() {
 
 function _implApplyFieldLevel(w) {
   if (w.electrodeIdx == null || !w.field) return;
-  const sel = _implFieldSelector(w.electrodeIdx, w.field);
-  if (!sel) return;
-  const el = document.querySelector(sel);
-  if (!el) return;
+  const fields = Array.isArray(w.field) ? w.field : [w.field];
 
-  // Strengste Stufe (kleinste level-Nr) gewinnt.
-  const currentLevel =
-    el.classList.contains('impl-warn-red') ? 1 :
-    el.classList.contains('impl-warn-orange') ? 2 :
-    el.classList.contains('impl-warn-yellow') ? 3 : 99;
-  if (w.level >= currentLevel) return;
+  fields.forEach(function (field) {
+    const sel = _implFieldSelector(w.electrodeIdx, field);
+    if (!sel) return;
+    const el = document.querySelector(sel);
+    if (!el) return;
 
-  el.classList.remove('impl-warn-red', 'impl-warn-orange', 'impl-warn-yellow');
-  const newClass =
-    w.level === 1 ? 'impl-warn-red' :
-    w.level === 2 ? 'impl-warn-orange' : 'impl-warn-yellow';
-  el.classList.add(newClass);
-  el.title = _implMsg(w);
+    // Strengste Stufe (kleinste level-Nr) gewinnt.
+    const currentLevel =
+      el.classList.contains('impl-warn-red') ? 1 :
+      el.classList.contains('impl-warn-orange') ? 2 :
+      el.classList.contains('impl-warn-yellow') ? 3 : 99;
+    if (w.level >= currentLevel) return;
+
+    el.classList.remove('impl-warn-red', 'impl-warn-orange', 'impl-warn-yellow');
+    const newClass =
+      w.level === 1 ? 'impl-warn-red' :
+      w.level === 2 ? 'impl-warn-orange' : 'impl-warn-yellow';
+    el.classList.add(newClass);
+    el.title = _implMsg(w);
+  });
 }
 
 // --- Render Warnbox ----------------------------------------
@@ -426,6 +500,158 @@ function _implCheckHzJumpMedelAb(s) {
   return warnings;
 }
 
+function _implCheckThrUpperRange(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const ranges = IMPL_VAL_THR_UPPER_RANGE[s.manufacturer];
+  if (!ranges) return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+
+    const thr = _implThrOf(s, i);
+    if (thr != null && (thr < ranges.thr.min || thr > ranges.thr.max)) {
+      warnings.push({
+        level: IMPL_VAL_LEVEL_RED,
+        electrodeIdx: i,
+        field: 'thr',
+        messageKey: 'implValidateThrRange',
+        messageParams: {
+          e: dENFn(i),
+          val: thr,
+          min: ranges.thr.min,
+          max: ranges.thr.max
+        }
+      });
+    }
+
+    const upper = _implUpperOf(s, i);
+    if (upper != null && (upper < ranges.upper.min || upper > ranges.upper.max)) {
+      warnings.push({
+        level: IMPL_VAL_LEVEL_RED,
+        electrodeIdx: i,
+        field: 'upper',
+        messageKey: 'implValidateUpperRange',
+        messageParams: {
+          e: dENFn(i),
+          val: upper,
+          min: ranges.upper.min,
+          max: ranges.upper.max
+        }
+      });
+    }
+  }
+  return warnings;
+}
+
+function _implCheckThrUpperConflict(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    const thr   = _implThrOf(s, i);
+    const upper = _implUpperOf(s, i);
+    if (thr == null || upper == null) continue;
+    if (thr >= upper) {
+      warnings.push({
+        level: IMPL_VAL_LEVEL_RED,
+        electrodeIdx: i,
+        field: ['thr', 'upper'],
+        messageKey: 'implValidateThrUpperConflict',
+        messageParams: { e: dENFn(i), thr: thr, upper: upper }
+      });
+    }
+  }
+  return warnings;
+}
+
+function _implCheckThrUpperMagnitude(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const fac = IMPL_VAL_THR_UPPER_MAGNITUDE_FACTOR;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  const colsToCheck = [
+    { getter: _implThrOf,   field: 'thr',   msgKey: 'implValidateThrMagnitude' },
+    { getter: _implUpperOf, field: 'upper', msgKey: 'implValidateUpperMagnitude' }
+  ];
+
+  colsToCheck.forEach(function (col) {
+    const vals = _implCollectColumnValues(s, col.getter);
+    if (vals.length < IMPL_VAL_THR_UPPER_MIN_FOR_MAGNITUDE) return;
+    const med = _implMedian(vals);
+    if (med == null || med <= 0) return;
+
+    for (let i = 0; i < s.nEl; i++) {
+      if (s.elSt && s.elSt[i] === 'deactivated') continue;
+      const v = col.getter(s, i);
+      if (v == null) continue;
+      const ratio = v / med;
+      if (ratio >= fac || ratio <= (1 / fac)) {
+        warnings.push({
+          level: IMPL_VAL_LEVEL_ORANGE,
+          electrodeIdx: i,
+          field: col.field,
+          messageKey: col.msgKey,
+          messageParams: {
+            e: dENFn(i),
+            val: v,
+            median: Math.round(med * 10) / 10,
+            ratio: ratio >= 1 ? Math.round(ratio) : '1/' + Math.round(1 / ratio)
+          }
+        });
+      }
+    }
+  });
+  return warnings;
+}
+
+function _implCheckThrUpperMAD(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  const fac = IMPL_VAL_THR_UPPER_MAD_FACTOR;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  const colsToCheck = [
+    { getter: _implThrOf,   field: 'thr',   msgKey: 'implValidateThrMAD' },
+    { getter: _implUpperOf, field: 'upper', msgKey: 'implValidateUpperMAD' }
+  ];
+
+  colsToCheck.forEach(function (col) {
+    const vals = _implCollectColumnValues(s, col.getter);
+    if (vals.length < IMPL_VAL_THR_UPPER_MIN_FOR_MAD) return;
+    const med = _implMedian(vals);
+    const mad = _implMAD(vals, med);
+    if (med == null || mad == null || mad <= 0) return;
+    const threshold = fac * mad;
+
+    for (let i = 0; i < s.nEl; i++) {
+      if (s.elSt && s.elSt[i] === 'deactivated') continue;
+      const v = col.getter(s, i);
+      if (v == null) continue;
+      const dev = Math.abs(v - med);
+      if (dev > threshold) {
+        warnings.push({
+          level: IMPL_VAL_LEVEL_YELLOW,
+          electrodeIdx: i,
+          field: col.field,
+          messageKey: col.msgKey,
+          messageParams: {
+            e:      dENFn(i),
+            val:    v,
+            median: Math.round(med * 10) / 10,
+            dev:    Math.round(dev * 10) / 10
+          }
+        });
+      }
+    }
+  });
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -440,6 +666,10 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzCochlearLookup(s));
   warnings.push.apply(warnings, _implCheckHzTrendMedelAb(s));
   warnings.push.apply(warnings, _implCheckHzJumpMedelAb(s));
+  warnings.push.apply(warnings, _implCheckThrUpperRange(s));
+  warnings.push.apply(warnings, _implCheckThrUpperConflict(s));
+  warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));
+  warnings.push.apply(warnings, _implCheckThrUpperMAD(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);

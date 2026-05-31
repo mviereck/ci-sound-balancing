@@ -40,7 +40,10 @@
 ## Plausibilitätsprüfung der User-Eingaben
 
 Modul `js/implant-validate.js`. Aufruf nach jedem Re-Render der
-Frequenztabelle (Hook am Ende von `buildFreqTable`). Drei
+Frequenztabelle (Hook am Ende von `buildFreqTable`) sowie direkt
+aus den `change`-Handlern der THR- und Upper-Level-Felder in
+`freq-table.js` (damit Warnungen ohne vollständigen Re-Render
+sofort erscheinen, BA 139-bugfix). Drei
 Auffälligkeits-Stufen:
 
 - **Rot** (Level 1): logisch falsch, eindeutig fehlerhaft.
@@ -54,6 +57,11 @@ scrollbar bei vielen Einträgen). Zusätzlich bekommt das betroffene
 Eingabefeld einen farbigen Rahmen in der Stufe der strengsten
 aktiven Warnung; Tooltip am Feld zeigt den Begründungstext. Reine
 Warnungen, keine harten Sperren.
+
+Ein Warning-Objekt darf in `field` einen String oder ein
+String-Array enthalten — letzteres markiert mehrere Felder
+derselben Elektrode gleichzeitig (verwendet beim THR/Upper-
+Konflikt, BA 138).
 
 Persistenz: keine — bei jedem Re-Render wird neu geprüft. Eine
 einmal gesehene Warnung erscheint in der nächsten Session wieder,
@@ -99,6 +107,28 @@ Elektroden (Status „im CI deaktiviert") sind ausgenommen.
   Abweichung ≥ 400 Cent → Level 3 gelb, ≥ 700 Cent → Level 2
   orange. Warnung markiert das rechte Feld des Paars
   (Elektrode mit höherem Index).
+
+### THR/Upper-Level-Prüfungen (Stand BA 138)
+
+Geprüft werden `s.implant.thr[i]` und `s.implant.mcl[i]` (MED-EL)
+bzw. `s.implant.upperLevel[i]` (Cochlear/AB) für aktive
+(nicht-deaktivierte) Elektroden.
+
+- **Wertebereich** (BA 138, Level 1 rot): außerhalb hersteller-
+  spezifischer Hardware-Grenzen (`IMPL_VAL_THR_UPPER_RANGE`).
+  MED-EL THR/MCL 0–268.6 qu, Cochlear 0–255 CL, AB 0–1000 CU.
+- **THR ≥ Upper-Level-Konflikt** (BA 138, Level 1 rot):
+  physiologisch unmöglich. Ein Warning markiert **beide** Felder
+  derselben Zeile (THR und Upper) — Schema-Erweiterung: `field`
+  kann String oder Array sein.
+- **Größenordnung** (BA 138, Level 2 orange): Faktor ≥10 oder
+  ≤1/10 gegen Spaltenmedian. Aktivierung ab 3 Werten in der
+  Spalte.
+- **MAD-Ausreißer** (BA 138, Level 3 gelb): |x − median| > 3·MAD.
+  Aktivierung ab 5 Werten. Status-Werte außer „im CI deaktiviert"
+  haben keinen Einfluss auf die Prüfung — auch verrauschte oder
+  stumme Elektroden bleiben in der MAD-Statistik enthalten und
+  bekommen ggf. Warnungen (BA 140-fix).
 
 ### Cochlear-Default-Korrektur (BA 136)
 
