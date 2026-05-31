@@ -61,7 +61,9 @@ Warnungen, keine harten Sperren.
 Ein Warning-Objekt darf in `field` einen String oder ein
 String-Array enthalten — letzteres markiert mehrere Felder
 derselben Elektrode gleichzeitig (verwendet beim THR/Upper-
-Konflikt, BA 138).
+Konflikt, BA 138). Alternativ kann `globalEl` (`'c'`, `'idr'`
+oder `'iidr'`) gesetzt sein — markiert eines der globalen
+Parameter-Felder `#implC`, `#implIDR` oder `#implIIDR` (BA 143).
 
 Persistenz: keine — bei jedem Re-Render wird neu geprüft. Eine
 einmal gesehene Warnung erscheint in der nächsten Session wieder,
@@ -156,6 +158,28 @@ Bewertung herstellerspezifisch (Konzept-Befund aus Recherche):
 Die Warnung trägt **kein** `electrodeIdx` und markiert deshalb
 kein einzelnes Feld — sie erscheint nur als Box-Eintrag, weil
 sich die Aussage auf die Tabelle als Ganzes bezieht.
+
+### Globale Implantat-Parameter (Stand BA 143)
+
+Prüfung der drei globalen Parameter (`s.implant.cValue`,
+`.idr`, `.iidr`) gegen Hersteller-spezifische Bereiche. Nur
+aktiv, wenn der Wert gesetzt ist (`!= null`). Zwei Stufen:
+
+- **Hardware-Range** (Level 1 rot): außerhalb der dokumentierten
+  Software-Grenze. c-Wert 0–8000 (MED-EL, MAESTRO Boyd 2006),
+  IDR 20–80 dB (AB, Holden 2011), IIDR 10–100 dB (Cochlear,
+  konservativ).
+- **Typischer Bereich** (Level 3 gelb): innerhalb der Software-
+  Grenze, aber außerhalb des typischen Audiologen-Bereichs.
+  c-Wert 100–2000, IDR 40–70 dB, IIDR 30–60 dB.
+
+Pro Hersteller wird nur der jeweils relevante Parameter geprüft:
+c-Wert nur MED-EL, IDR nur AB, IIDR nur Cochlear.
+
+Markierung an den Eingabefeldern `#implC`, `#implIDR`, `#implIIDR`
+über die Schema-Erweiterung `globalEl` (vorher nur im Header
+dokumentiert, ab BA 143 tatsächlich implementiert) und den
+neuen Helfer `_implGlobalSelector`.
 
 **Überlappung mit `deactWarnBar`**: das bestehende Warnbanner
 oberhalb der Tabelle (`#deactWarnBar` in `freq-table.js`) prüft

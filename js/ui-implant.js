@@ -184,18 +184,21 @@ function buildImplantCard() {
         this.value !== "" ? parseFloat(this.value) : null;
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function" && pMaplawOn) pMaplawTrigger();
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };
   const ii = document.getElementById("implIDR");
   if (ii)
     ii.onchange = function () {
       sideData[activeSide].implant.idr =
         this.value !== "" ? parseFloat(this.value) : null;
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };
   const iii = document.getElementById("implIIDR");
   if (iii)
     iii.onchange = function () {
       sideData[activeSide].implant.iidr =
         this.value !== "" ? parseFloat(this.value) : null;
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }

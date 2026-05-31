@@ -85,6 +85,28 @@ const IMPL_VAL_THR_UPPER_MAD_FACTOR = 3;
 const IMPL_VAL_THR_UPPER_MIN_FOR_MAGNITUDE = 3;
 const IMPL_VAL_THR_UPPER_MIN_FOR_MAD = 5;
 
+// Globale Implantat-Parameter — Plausibilitäts-Bereiche.
+// Quellen: Berechnungsgrundlagen dB zu CI.md Kap. 3.2 (c-Wert),
+// Kap. 5.2 (IDR), Kap. 4.3 (IIDR).
+//   hardware: Software-Limits, außerhalb → Level 1 rot.
+//   typical:  typischer Audiologen-Bereich, außerhalb → Level 3 gelb.
+//   Default-Werte sind kommentiert, werden aber nicht direkt geprüft.
+const IMPL_VAL_GLOBAL_C = {
+  hardware: { min: 0,   max: 8000 }, // Default 500
+  typical:  { min: 100, max: 2000 }
+};
+const IMPL_VAL_GLOBAL_IDR = {
+  hardware: { min: 20, max: 80 },    // Default 60
+  typical:  { min: 40, max: 70 }
+};
+const IMPL_VAL_GLOBAL_IIDR = {
+  // IIDR hat keine öffentlich dokumentierte harte Software-Grenze.
+  // Konservativ als Hardware-Range das volle plausible Spektrum,
+  // typischer Bereich enger.
+  hardware: { min: 10, max: 100 },   // Default 40
+  typical:  { min: 30, max: 60  }
+};
+
 // --- Helfer -------------------------------------------------
 
 function _implEffFreqOf(s, i) {
@@ -152,6 +174,13 @@ function _implFieldSelector(idx, field) {
   return '.' + cls + '[data-i="' + idx + '"]';
 }
 
+function _implGlobalSelector(globalEl) {
+  if (globalEl === 'c')    return '#implC';
+  if (globalEl === 'idr')  return '#implIDR';
+  if (globalEl === 'iidr') return '#implIIDR';
+  return null;
+}
+
 function _implClearMarkers() {
   document.querySelectorAll(
     '.impl-warn-red, .impl-warn-orange, .impl-warn-yellow'
@@ -162,29 +191,42 @@ function _implClearMarkers() {
 }
 
 function _implApplyFieldLevel(w) {
+  // Globale-Parameter-Pfad: markiert #implC / #implIDR / #implIIDR.
+  if (w.globalEl) {
+    const sel = _implGlobalSelector(w.globalEl);
+    if (!sel) return;
+    const el = document.querySelector(sel);
+    if (!el) return;
+    _implApplyLevelToElement(el, w);
+    return;
+  }
+
+  // Tabellenfeld-Pfad: ein Warning kann mehrere Felder markieren.
   if (w.electrodeIdx == null || !w.field) return;
   const fields = Array.isArray(w.field) ? w.field : [w.field];
-
   fields.forEach(function (field) {
     const sel = _implFieldSelector(w.electrodeIdx, field);
     if (!sel) return;
     const el = document.querySelector(sel);
     if (!el) return;
-
-    // Strengste Stufe (kleinste level-Nr) gewinnt.
-    const currentLevel =
-      el.classList.contains('impl-warn-red') ? 1 :
-      el.classList.contains('impl-warn-orange') ? 2 :
-      el.classList.contains('impl-warn-yellow') ? 3 : 99;
-    if (w.level >= currentLevel) return;
-
-    el.classList.remove('impl-warn-red', 'impl-warn-orange', 'impl-warn-yellow');
-    const newClass =
-      w.level === 1 ? 'impl-warn-red' :
-      w.level === 2 ? 'impl-warn-orange' : 'impl-warn-yellow';
-    el.classList.add(newClass);
-    el.title = _implMsg(w);
+    _implApplyLevelToElement(el, w);
   });
+}
+
+// Setzt die strengste Stufe auf ein einzelnes Eingabefeld.
+function _implApplyLevelToElement(el, w) {
+  const currentLevel =
+    el.classList.contains('impl-warn-red') ? 1 :
+    el.classList.contains('impl-warn-orange') ? 2 :
+    el.classList.contains('impl-warn-yellow') ? 3 : 99;
+  if (w.level >= currentLevel) return;
+
+  el.classList.remove('impl-warn-red', 'impl-warn-orange', 'impl-warn-yellow');
+  const newClass =
+    w.level === 1 ? 'impl-warn-red' :
+    w.level === 2 ? 'impl-warn-orange' : 'impl-warn-yellow';
+  el.classList.add(newClass);
+  el.title = _implMsg(w);
 }
 
 // --- Render Warnbox ----------------------------------------
@@ -706,6 +748,87 @@ function _implCheckFatOnDeactivation(s) {
   return warnings;
 }
 
+function _implCheckGlobalCWert(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'medel' || !s.implant) return warnings;
+  const v = s.implant.cValue;
+  if (v == null || isNaN(v)) return warnings;
+
+  const hw = IMPL_VAL_GLOBAL_C.hardware;
+  const tp = IMPL_VAL_GLOBAL_C.typical;
+
+  if (v < hw.min || v > hw.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_RED,
+      globalEl: 'c',
+      messageKey: 'implValidateCRangeHard',
+      messageParams: { val: v, min: hw.min, max: hw.max }
+    });
+  } else if (v < tp.min || v > tp.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      globalEl: 'c',
+      messageKey: 'implValidateCRangeTypical',
+      messageParams: { val: v, min: tp.min, max: tp.max }
+    });
+  }
+  return warnings;
+}
+
+function _implCheckGlobalIDR(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'ab' || !s.implant) return warnings;
+  const v = s.implant.idr;
+  if (v == null || isNaN(v)) return warnings;
+
+  const hw = IMPL_VAL_GLOBAL_IDR.hardware;
+  const tp = IMPL_VAL_GLOBAL_IDR.typical;
+
+  if (v < hw.min || v > hw.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_RED,
+      globalEl: 'idr',
+      messageKey: 'implValidateIDRRangeHard',
+      messageParams: { val: v, min: hw.min, max: hw.max }
+    });
+  } else if (v < tp.min || v > tp.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      globalEl: 'idr',
+      messageKey: 'implValidateIDRRangeTypical',
+      messageParams: { val: v, min: tp.min, max: tp.max }
+    });
+  }
+  return warnings;
+}
+
+function _implCheckGlobalIIDR(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'cochlear' || !s.implant) return warnings;
+  const v = s.implant.iidr;
+  if (v == null || isNaN(v)) return warnings;
+
+  const hw = IMPL_VAL_GLOBAL_IIDR.hardware;
+  const tp = IMPL_VAL_GLOBAL_IIDR.typical;
+
+  if (v < hw.min || v > hw.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_RED,
+      globalEl: 'iidr',
+      messageKey: 'implValidateIIDRRangeHard',
+      messageParams: { val: v, min: hw.min, max: hw.max }
+    });
+  } else if (v < tp.min || v > tp.max) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      globalEl: 'iidr',
+      messageKey: 'implValidateIIDRRangeTypical',
+      messageParams: { val: v, min: tp.min, max: tp.max }
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -725,6 +848,9 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));
   warnings.push.apply(warnings, _implCheckThrUpperMAD(s));
   warnings.push.apply(warnings, _implCheckFatOnDeactivation(s));
+  warnings.push.apply(warnings, _implCheckGlobalCWert(s));
+  warnings.push.apply(warnings, _implCheckGlobalIDR(s));
+  warnings.push.apply(warnings, _implCheckGlobalIIDR(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);
