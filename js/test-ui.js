@@ -1241,18 +1241,22 @@ function _buildTestPanelNew(parentEl, cfg) {
       refs.statusGrid = sgEl;
     }
 
-    // --- background ---
+    // --- background (eigene Card außerhalb testBox) ---
     if (body.background) {
       var bg = body.background;
+      var bgBox = _mkEl('div', 'card test-background-box');
+      bgBox.hidden = (vId !== _activeVerfahren);
       var bgDetails = _mkEl('details', 'test-background');
       var bgSum = _mkEl('summary');
-      bgSum.dataset.t = bg.titleKey;
+      var bgSumTitle = _mkEl('span'); bgSumTitle.dataset.t = bg.titleKey || 'testBackgroundTitle';
+      var bgSumLabel = _mkEl('span'); bgSumLabel.dataset.t = vCfg.labelKey;
+      bgSum.append(bgSumTitle, document.createTextNode(' – '), bgSumLabel);
       var bgBody = _mkEl('div', 'test-background-body');
       bgBody.dataset.t = bg.bodyKey;
       if (bg.bodyAsHtml) bgBody.dataset.bgHtml = '1';
       bgDetails.append(bgSum, bgBody);
-      vWrap.appendChild(bgDetails);
-      refs.background = { details: bgDetails, summary: bgSum, body: bgBody };
+      bgBox.appendChild(bgDetails);
+      refs.background = { box: bgBox, details: bgDetails, summary: bgSum, body: bgBody };
     }
 
     // --- debugRun ---
@@ -1303,7 +1307,12 @@ function _buildTestPanelNew(parentEl, cfg) {
   exclOverlay.appendChild(exclCard);
 
   // ===== Alles zusammenbauen =====
-  parentEl.append(explainBox, headerBox, testBox, exclOverlay);
+  parentEl.append(explainBox, headerBox, testBox);
+  cfg.verfahren.forEach(function(v) {
+    var vr = _verfahrenRefs[v.id];
+    if (vr && vr.background && vr.background.box) parentEl.appendChild(vr.background.box);
+  });
+  parentEl.appendChild(exclOverlay);
 
   // i18n auf alle neuen Elemente anwenden
   _applyLangSubtree(parentEl);
@@ -1319,6 +1328,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       cfg.verfahren.forEach(function(v) {
         var vWrap2 = testBox.querySelector('[data-verfahren="' + v.id + '"]');
         if (vWrap2) vWrap2.hidden = (v.id !== newId);
+        var vr = _verfahrenRefs[v.id];
+        if (vr && vr.background && vr.background.box) vr.background.box.hidden = (v.id !== newId);
       });
       // verfahren-explain aktualisieren
       var newVCfg = null;

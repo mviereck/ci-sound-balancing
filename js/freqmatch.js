@@ -1837,7 +1837,6 @@ document.addEventListener("DOMContentLoaded", () => {
           actions:       ['undo', 'replay', 'simul'],
           statusGrid:    { show: true },
           background: {
-            titleKey:   'fmExplainSliderScienceTitle',
             bodyKey:    'fmExplainSliderScience',
             bodyAsHtml: true
           },
@@ -1866,7 +1865,6 @@ document.addEventListener("DOMContentLoaded", () => {
           statusGrid:      { show: true },
           actions:         ['undo','replay','simul'],
           background: {
-            titleKey:   'fmExplainAdaptiveScienceTitle',
             bodyKey:    'fmExplainAdaptiveScience',
             bodyAsHtml: true
           },

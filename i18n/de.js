@@ -633,8 +633,6 @@ Object.assign(L.de, {
       "Wenn Sie keinen oder nur einen der Töne hören: einfach raten. Falsche Antworten in einem Bereich, in dem Sie wenig hören, sind kein Fehler — die Messung erkennt das selbst und stuft die Elektrode in diesem Bereich als „nicht wahrnehmbar“ oder „unsicher“ ein.",
     fmExplainAdaptivePause:
       "Der Test läuft, bis alle Elektroden ausreichend genau gemessen sind. Sie können jederzeit pausieren und später fortsetzen. Weitere Meßdurchgänge verbessern die Zuverlässigkeit des Ergebnisses.",
-    fmExplainAdaptiveScienceTitle:
-      "Wissenschaftliche Grundlage und Grenzen",
     fmExplainAdaptiveScience:
       "<p><strong>Verwendete Methode.</strong> Sequentielle 2-Intervall-2-Alternative-Forced-Choice-Aufgabe (2I-2AFC) mit adaptiver 1-down-1-up-Regel nach Levitt (1971). Die Referenz-Frequenz wird nach jeder Antwort in Antwort-Richtung verschoben; die Schrittweite halbiert sich nach jeder Umkehrung der Bewegungsrichtung (50 → 25 → 12 → 6 → 3 cent). Das Verfahren konvergiert direkt auf den Punkt subjektiver Pitch-Gleichheit (PSE, 50 %-Punkt).</p>"
       + "<p><strong>Bekannte Bias-Quellen und Gegenmaßnahmen.</strong></p>"
@@ -769,6 +767,7 @@ Object.assign(L.de, {
     fmRunningTitle: "Frequenzabgleich läuft",
     fmRunningHint: "Gleichen Sie die Töne an, bis sie sich gleich hoch oder tief anhören.",
     fmSliderRunHint: "Passen Sie die Position des Sliders an, bis sich beide Töne annähernd oder genau gleich hoch anhören.",
+    testBackgroundTitle: "Wissenschaftliche Grundlage und Grenzen",
     btnStartTest: "▶ Test starten",
     btnStopTest: "■ Test pausieren",
     btnSwapAB: "⇄ A↔B",
@@ -790,7 +789,6 @@ Object.assign(L.de, {
     fmExplainAdaptive: "Das adaptive Verfahren fragt höher/tiefer Vergleiche ab. Die Testreihe kann sehr lang dauern. Planen Sie genug Zeit und ein paar kleine Pausen ein. Die Testzeit kann verkürzt werden, wenn Sie vorher die Vor-Schätzung (Slider) ausführen.",
     fmExplainSlider:   "Das Testverfahren Vor-Schätzung erlaubt eine Frequenzanpassung pro Elektrode mit einem Schieber, bis sich die Töne auf beiden Seiten gleich hoch anhören. Diese Werte werden als Startpunkt für das genauere Adaptive-Testverfahren genutzt, um die Testzeit abzukürzen. Nach dem Start des Testverfahrens Adaptive ist die Anpassung per Slider nicht mehr möglich.",
     fmSliderInstruction: "Passen Sie den Slider an, bis sich beide Töne gleich hoch anhören.",
-    fmExplainSliderScienceTitle: "Wissenschaftliche Grundlage und Grenzen der Vor-Schätzung",
     fmExplainSliderScience: "Die Vor-Schätzung bittet Sie, die Frequenz auf einer Seite manuell so zu verschieben, dass die Töne auf beiden Seiten gleich hoch klingen. Das ist eine subjektive, schnelle Methode — ihre Genauigkeit hängt davon ab, wie sicher Sie sich beim Schieben des Sliders sind. <br><br>Die Werte ersetzen kein adaptives Verfahren, sondern dienen als <strong>Startpunkt</strong>: das adaptive Verfahren bekommt mit einer guten Vor-Schätzung deutlich kürzere Testzeiten, weil es nicht von 0 cent loslaufen muss.<br><br>Die Slidermethode ist kein wissenschaftliches Meßverfahren und ist besonders stark psychoakustischen Fehlwahrnehmungen ausgesetzt.",
     cumulativeDb: "Gesamt",
     testTabLockedHint: "Während eines laufenden Tests kann dieser Tab nicht verlassen werden. Sie können den Test jederzeit unterbrechen und später weitermachen.",
