@@ -41,6 +41,13 @@ const IMPL_VAL_HZ_RANGE = {
 //   ratio = eigen / default; warnt, wenn ratio >= 5 oder <= 0.2.
 const IMPL_VAL_HZ_MAGNITUDE_FACTOR = 5;
 
+// Trend-/Lookup-Schwellen in Cent (gegen erwarteten Verlauf).
+//   Sanfter Hinweis ab 300 Cent (≈ 3 Halbtöne).
+//   Stärkere Warnung ab 600 Cent (= halbe Oktave).
+// Schwellwerte begründet in .manuals/Recherche_Cent_Schwellwerte_Plausibilitaet.md.
+const IMPL_VAL_HZ_TREND_YELLOW_CENT = 300;
+const IMPL_VAL_HZ_TREND_ORANGE_CENT = 600;
+
 // --- Helfer -------------------------------------------------
 
 function _implEffFreqOf(s, i) {
@@ -226,6 +233,62 @@ function _implCheckHzMagnitude(s) {
   return warnings;
 }
 
+function _implCheckHzCochlearLookup(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'cochlear') return warnings;
+  if (s.nEl !== 22) return warnings;
+  if (typeof COCHLEAR_FATS === 'undefined') return warnings;
+
+  // Lookup nur bei vollem Elektrodensatz aktiv — siehe BA 137
+  // für die Deaktivierungs-Sonderprüfung.
+  let nActive = s.nEl;
+  if (s.elSt) {
+    nActive = 0;
+    for (let i = 0; i < s.nEl; i++) {
+      if (s.elSt[i] !== 'deactivated') nActive++;
+    }
+  }
+  if (nActive !== 22) return warnings;
+
+  const fat = COCHLEAR_FATS.standard_22_lfe188_hfe7938;
+  if (!fat || fat.length !== s.nEl) return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // Nur User-Override prüfen.
+    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
+
+    const eigen = s.elFreqOwn[i];
+    const expected = fat[i];
+    if (!expected || expected <= 0 || eigen <= 0) continue;
+
+    const cents = Math.abs(1200 * Math.log2(eigen / expected));
+
+    let level = null;
+    if (cents >= IMPL_VAL_HZ_TREND_ORANGE_CENT) {
+      level = IMPL_VAL_LEVEL_ORANGE;
+    } else if (cents >= IMPL_VAL_HZ_TREND_YELLOW_CENT) {
+      level = IMPL_VAL_LEVEL_YELLOW;
+    }
+    if (level == null) continue;
+
+    warnings.push({
+      level: level,
+      electrodeIdx: i,
+      field: 'hz',
+      messageKey: 'implValidateHzCochlearLookup',
+      messageParams: {
+        e: dENFn(i),
+        hz: Math.round(eigen),
+        expected: Math.round(expected),
+        cents: Math.round(cents)
+      }
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -237,6 +300,7 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzMonotonie(s));
   warnings.push.apply(warnings, _implCheckHzRange(s));
   warnings.push.apply(warnings, _implCheckHzMagnitude(s));
+  warnings.push.apply(warnings, _implCheckHzCochlearLookup(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);

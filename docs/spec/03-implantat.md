@@ -62,7 +62,7 @@ wenn die Eingabe unverändert ist.
 BA 133: Grundgerüst und erste Prüfung (Hz-Monotonie zwischen
 benachbarten Elektroden).
 
-### Hz-Prüfungen (Stand BA 134)
+### Hz-Prüfungen (Stand BA 135)
 
 Geprüft werden nur User-Override-Werte (`elFreqOwn[i] != null`),
 nicht die Default-Werte aus `MFR[mfr].freqs`. Deaktivierte
@@ -77,7 +77,14 @@ Elektroden (Status „im CI deaktiviert") sind ausgenommen.
 - **Größenordnung** (BA 134, Level 2 orange): Hz-eigen weicht um
   Faktor ≥5 oder ≤1/5 vom Default an derselben Elektrode ab —
   typischer Tippfehler (Komma vergessen, Null zuviel).
+- **Cochlear-FAT-Lookup** (BA 135, Level 2/3): nur aktiv bei
+  Hersteller Cochlear und n_aktiv = 22 (alle Kanäle aktiv).
+  Vergleich der User-Override-Werte mit der Standard-FAT
+  (LFE 188 Hz, HFE 7938 Hz, Datendatei
+  `js/data/cochlear-fats.js`, Quelle CI Select Manual S. 12/13).
+  Abweichung ≥ 300 Cent → Level 3 gelb, ≥ 600 Cent → Level 2
+  orange. Alternative LFE/HFE-Kombinationen und reduzierte
+  Elektrodenzahlen werden in BA 137 abgedeckt.
 
 Trend-basierte und hersteller-spezifische Verteilungs-Prüfungen
-folgen in BA 135 (Cochlear-FAT-Lookup) und BA 136 (MED-EL/AB
-Trend und lokale Sprünge).
+für MED-EL/AB folgen in BA 136 (Trend und lokale Sprünge).

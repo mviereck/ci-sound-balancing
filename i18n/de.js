@@ -88,6 +88,7 @@ Object.assign(L.de, {
     implValidateHzMonotonie: "E{eJ} ({hzJ} Hz) liegt unter E{eI} ({hzI} Hz) — Hz-Reihe sollte aufsteigend sein",
     implValidateHzRange: "E{e} ({hz} Hz) liegt außerhalb des erlaubten Bereichs ({min}–{max} Hz)",
     implValidateHzMagnitude: "E{e}: eigener Wert {hz} Hz ist ca. {ratio}× vom Standard ({def} Hz) entfernt — Tippfehler?",
+    implValidateHzCochlearLookup: "E{e}: eigener Wert {hz} Hz weicht {cents} Cent vom Cochlear-Standard ({expected} Hz) ab",
     resetFreq: "Zurücksetzen",
     sweep: "▶ Sweep",
     stop: "■ Stopp",
