@@ -60,5 +60,24 @@ einmal gesehene Warnung erscheint in der nächsten Session wieder,
 wenn die Eingabe unverändert ist.
 
 BA 133: Grundgerüst und erste Prüfung (Hz-Monotonie zwischen
-benachbarten Elektroden). Weitere Prüfungen werden in BA 134 ff.
-ergänzt.
+benachbarten Elektroden).
+
+### Hz-Prüfungen (Stand BA 134)
+
+Geprüft werden nur User-Override-Werte (`elFreqOwn[i] != null`),
+nicht die Default-Werte aus `MFR[mfr].freqs`. Deaktivierte
+Elektroden (Status „im CI deaktiviert") sind ausgenommen.
+
+- **Monotonie** (BA 133, Level 1 rot): die Hz-Reihe sollte
+  aufsteigend mit dem Elektroden-Index sein. Verletzung wird an
+  der zweiten beteiligten Elektrode markiert.
+- **Range** (BA 134, Level 1 rot): Hz innerhalb der hersteller-
+  spezifischen Software-Grenzen. MED-EL 70–8500 Hz, Cochlear
+  63–18938 Hz, AB 250–8700 Hz.
+- **Größenordnung** (BA 134, Level 2 orange): Hz-eigen weicht um
+  Faktor ≥5 oder ≤1/5 vom Default an derselben Elektrode ab —
+  typischer Tippfehler (Komma vergessen, Null zuviel).
+
+Trend-basierte und hersteller-spezifische Verteilungs-Prüfungen
+folgen in BA 135 (Cochlear-FAT-Lookup) und BA 136 (MED-EL/AB
+Trend und lokale Sprünge).
