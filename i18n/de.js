@@ -98,6 +98,8 @@ Object.assign(L.de, {
     implValidateUpperMagnitude: "E{e}: Upper Level ({val}) ist ca. {ratio}× vom Spaltenmedian ({median}) entfernt — Tippfehler?",
     implValidateThrMAD: "E{e}: THR ({val}) weicht stark vom Median ({median}) ab (Abweichung {dev})",
     implValidateUpperMAD: "E{e}: Upper Level ({val}) weicht stark vom Median ({median}) ab (Abweichung {dev})",
+    implValidateFatMissing: "{n_deact} Elektrode(n) sind im CI deaktiviert, aber keine Frequenzanpassung der aktiven Elektroden erkennbar. MED-EL/Cochlear verteilen die FAT bei Deaktivierungen normalerweise um — aktuelle Mittenfrequenzen bitte vom Audiologen erfragen und in Hz-eigen eintragen.",
+    implValidateFatAb: "{n_deact} Elektrode(n) sind im CI deaktiviert. Bei Advanced Bionics ist eine FAT-Anpassung nicht zwingend (feste Filtergrenzen) — im Hörbild kann eine Lücke im Spektrum entstehen.",
     resetFreq: "Zurücksetzen",
     sweep: "▶ Sweep",
     stop: "■ Stopp",

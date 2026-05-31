@@ -130,6 +130,42 @@ bzw. `s.implant.upperLevel[i]` (Cochlear/AB) für aktive
   stumme Elektroden bleiben in der MAD-Statistik enthalten und
   bekommen ggf. Warnungen (BA 140-fix).
 
+### FAT-Sonderprüfung bei Deaktivierung (Stand BA 141)
+
+Eigene Prüfung `_implCheckFatOnDeactivation`. Auslöser:
+mindestens eine Elektrode mit Status „im CI deaktiviert". Prüft
+indirekt am Vorhandensein von Hz-eigen-Overrides, ob die FAT
+adaptiert wurde:
+
+- **globaler Test bestanden**: alle aktiven (nicht-deaktivierten)
+  Elektroden haben einen Hz-eigen-Override (globale Umverteilung
+  der FAT erkennbar).
+- **lokaler Test bestanden**: für mindestens eine der
+  deaktivierten Elektroden hat ein direkter aktiver Nachbar
+  einen Hz-eigen-Override (lokale Anpassung an die Lücke).
+- **weder noch**: Warnung.
+
+Bewertung herstellerspezifisch (Konzept-Befund aus Recherche):
+
+- **MED-EL und Cochlear**: Level 2 orange. Fitting-Software
+  verteilt die FAT bei Deaktivierungen normalerweise global um;
+  fehlende Adaption ist verdächtig.
+- **Advanced Bionics**: Level 3 gelb. Feste Filtergrenzen,
+  Lücke ist Default-Verhalten — Hinweis, keine starke Warnung.
+
+Die Warnung trägt **kein** `electrodeIdx` und markiert deshalb
+kein einzelnes Feld — sie erscheint nur als Box-Eintrag, weil
+sich die Aussage auf die Tabelle als Ganzes bezieht.
+
+**Überlappung mit `deactWarnBar`**: das bestehende Warnbanner
+oberhalb der Tabelle (`#deactWarnBar` in `freq-table.js`) prüft
+eine verwandte, aber nicht identische Bedingung: Auslöser ≥1
+deaktivierte Elektrode; Bedingung: mindestens eine **aktive**
+(nicht-deaktivierte) Elektrode hat noch keinen Hz-eigen-Override
+(Bugfix BA 142 — vorher wurde fälschlich auf deaktivierte
+Elektroden geprüft). Es bleibt parallel bestehen. Eine spätere
+Konsolidierung kann den Banner durch diese Prüfung ersetzen.
+
 ### Cochlear-Default-Korrektur (BA 136)
 
 `MFR.cochlear.freqs` in `js/core.js` wurde am 2026-05-31 auf

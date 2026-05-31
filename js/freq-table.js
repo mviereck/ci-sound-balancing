@@ -143,11 +143,10 @@ function buildFreqTable() {
   }
   // Warnbalken: nur wenn deaktivierte Elektroden noch Standard-Frequenzen haben
   let wb = document.getElementById("deactWarnBar");
-  const deactIdxs = [...Array(nEl).keys()].filter(
-    (i) => elSt[i] === "deactivated",
-  );
-  const deactHasDefault = deactIdxs.some((i) => elFreqOwn[i] == null);
-  if (hasDeact && deactHasDefault) {
+  const activeHasDefault = [...Array(nEl).keys()]
+    .filter((i) => elSt[i] !== "deactivated")
+    .some((i) => elFreqOwn[i] == null);
+  if (hasDeact && activeHasDefault) {
     if (!wb) {
       wb = document.createElement("div");
       wb.id = "deactWarnBar";

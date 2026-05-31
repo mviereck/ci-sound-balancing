@@ -652,6 +652,60 @@ function _implCheckThrUpperMAD(s) {
   return warnings;
 }
 
+function _implCheckFatOnDeactivation(s) {
+  const warnings = [];
+  if (!s || !s.nEl || !s.elSt) return warnings;
+
+  // Indizes der deaktivierten und der aktiven Elektroden sammeln.
+  const deactIdxs = [];
+  const activeIdxs = [];
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt[i] === 'deactivated') deactIdxs.push(i);
+    else activeIdxs.push(i);
+  }
+
+  // Auslöser: ≥1 deaktivierte Elektrode.
+  if (deactIdxs.length === 0) return warnings;
+
+  // Wenn keine aktiven mehr da sind (Edge-Case), nichts melden.
+  if (activeIdxs.length === 0) return warnings;
+
+  // Sub-Test 1 — globaler Test:
+  //   Alle aktiven Elektroden haben einen Hz-eigen-Override.
+  //   Deutet auf vollständige globale Umverteilung der FAT.
+  const allActiveOverridden = activeIdxs.every(function (i) {
+    return s.elFreqOwn && s.elFreqOwn[i] != null;
+  });
+  if (allActiveOverridden) return warnings; // global-Test bestanden
+
+  // Sub-Test 2 — lokaler Test:
+  //   Für mindestens eine deaktivierte Elektrode hat ein direkter
+  //   (aktiver) Nachbar einen Hz-eigen-Override.
+  //   Deutet auf lokale Anpassung an die Lücke.
+  const localTestPassed = deactIdxs.some(function (d) {
+    const neighbors = [];
+    if (d > 0)             neighbors.push(d - 1);
+    if (d < s.nEl - 1)     neighbors.push(d + 1);
+    return neighbors.some(function (n) {
+      if (s.elSt[n] === 'deactivated') return false;
+      return s.elFreqOwn && s.elFreqOwn[n] != null;
+    });
+  });
+  if (localTestPassed) return warnings; // lokal-Test bestanden
+
+  // Weder global noch lokal bestanden → FAT scheint nicht angepasst.
+  // Bewertung herstellerspezifisch.
+  const isAb = (s.manufacturer === 'ab');
+  warnings.push({
+    level: isAb ? IMPL_VAL_LEVEL_YELLOW : IMPL_VAL_LEVEL_ORANGE,
+    messageKey: isAb ? 'implValidateFatAb' : 'implValidateFatMissing',
+    messageParams: {
+      n_deact: deactIdxs.length
+    }
+  });
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -670,6 +724,7 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckThrUpperConflict(s));
   warnings.push.apply(warnings, _implCheckThrUpperMagnitude(s));
   warnings.push.apply(warnings, _implCheckThrUpperMAD(s));
+  warnings.push.apply(warnings, _implCheckFatOnDeactivation(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);
