@@ -48,6 +48,14 @@ const IMPL_VAL_HZ_MAGNITUDE_FACTOR = 5;
 const IMPL_VAL_HZ_TREND_YELLOW_CENT = 300;
 const IMPL_VAL_HZ_TREND_ORANGE_CENT = 600;
 
+// Lokale Sprung-Schwellen in Cent (Cent-Schrittweite zwischen
+// Nachbarelektroden vs. Default-Schrittweite). Aus Konzept:
+// lokale Sprünge dürfen etwas weiter als globale Trend-
+// Abweichungen sein, weil der apikal-basal-Gradient die
+// Schrittweiten ohnehin variiert.
+const IMPL_VAL_HZ_JUMP_YELLOW_CENT = 400;
+const IMPL_VAL_HZ_JUMP_ORANGE_CENT = 700;
+
 // --- Helfer -------------------------------------------------
 
 function _implEffFreqOf(s, i) {
@@ -135,6 +143,27 @@ function _implRenderBox(warnings) {
     li.appendChild(document.createTextNode(_implMsg(w)));
     list.appendChild(li);
   });
+}
+
+// Lokaler Median über die Nachbar-Werte von Index i im Versatz-Array,
+// Fenster ±2, ohne i selbst. Null-Werte und null/undefined werden
+// übersprungen. Rückgabe: Median oder null wenn keine Nachbarn vorhanden.
+function _implLocalNeighborMedian(arr, i) {
+  const vals = [];
+  const from = Math.max(0, i - 2);
+  const to   = Math.min(arr.length - 1, i + 2);
+  for (let j = from; j <= to; j++) {
+    if (j === i) continue;
+    const v = arr[j];
+    if (v == null || isNaN(v)) continue;
+    vals.push(v);
+  }
+  if (vals.length === 0) return null;
+  vals.sort(function (a, b) { return a - b; });
+  const mid = Math.floor(vals.length / 2);
+  return (vals.length % 2 === 0)
+    ? (vals[mid - 1] + vals[mid]) / 2
+    : vals[mid];
 }
 
 // --- Prüfungen ---------------------------------------------
@@ -289,6 +318,114 @@ function _implCheckHzCochlearLookup(s) {
   return warnings;
 }
 
+function _implCheckHzTrendMedelAb(s) {
+  const warnings = [];
+  if (!s || !s.nEl || !s.freqs) return warnings;
+  if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  // Versatz-Array vorbereiten: Cent-Differenz zwischen
+  // eigen_i und default_i, nur für User-Override und aktive
+  // (nicht deaktivierte) Elektroden. Sonst null.
+  const versatz = new Array(s.nEl).fill(null);
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
+    const eigen = s.elFreqOwn[i];
+    const def = s.freqs[i];
+    if (!eigen || !def || eigen <= 0 || def <= 0) continue;
+    versatz[i] = 1200 * Math.log2(eigen / def);
+  }
+
+  // Mindestens 3 Versatz-Werte erforderlich, damit ein lokaler
+  // Median überhaupt aussagekräftig wird.
+  let nVersatz = 0;
+  for (let i = 0; i < versatz.length; i++) if (versatz[i] != null) nVersatz++;
+  if (nVersatz < 3) return warnings;
+
+  for (let i = 0; i < s.nEl; i++) {
+    if (versatz[i] == null) continue;
+    const trend = _implLocalNeighborMedian(versatz, i);
+    if (trend == null) continue;
+    const dev = Math.abs(versatz[i] - trend);
+
+    let level = null;
+    if (dev >= IMPL_VAL_HZ_TREND_ORANGE_CENT) {
+      level = IMPL_VAL_LEVEL_ORANGE;
+    } else if (dev >= IMPL_VAL_HZ_TREND_YELLOW_CENT) {
+      level = IMPL_VAL_LEVEL_YELLOW;
+    }
+    if (level == null) continue;
+
+    warnings.push({
+      level: level,
+      electrodeIdx: i,
+      field: 'hz',
+      messageKey: 'implValidateHzTrend',
+      messageParams: {
+        e: dENFn(i),
+        dev: Math.round(dev),
+        trend: Math.round(trend)
+      }
+    });
+  }
+  return warnings;
+}
+
+function _implCheckHzJumpMedelAb(s) {
+  const warnings = [];
+  if (!s || !s.nEl || !s.freqs) return warnings;
+  if (s.manufacturer !== 'medel' && s.manufacturer !== 'ab') return warnings;
+  const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
+
+  for (let i = 0; i < s.nEl - 1; i++) {
+    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    if (s.elSt && s.elSt[i + 1] === 'deactivated') continue;
+
+    // Sprung-Prüfung nur, wenn mindestens eine der beiden
+    // Elektroden einen User-Override hat — sonst sind die Werte
+    // = Default und die Schrittweite stimmt per Konstruktion.
+    const hasOverride = (s.elFreqOwn && s.elFreqOwn[i] != null)
+                     || (s.elFreqOwn && s.elFreqOwn[i + 1] != null);
+    if (!hasOverride) continue;
+
+    const hzI = (s.elFreqOwn && s.elFreqOwn[i]     != null) ? s.elFreqOwn[i]     : s.freqs[i];
+    const hzJ = (s.elFreqOwn && s.elFreqOwn[i + 1] != null) ? s.elFreqOwn[i + 1] : s.freqs[i + 1];
+    if (!hzI || !hzJ || hzI <= 0 || hzJ <= 0) continue;
+    if (!s.freqs[i] || !s.freqs[i + 1]) continue;
+
+    const stepUser  = 1200 * Math.log2(hzJ / hzI);
+    const stepDef   = 1200 * Math.log2(s.freqs[i + 1] / s.freqs[i]);
+    const dev = Math.abs(stepUser - stepDef);
+
+    let level = null;
+    if (dev >= IMPL_VAL_HZ_JUMP_ORANGE_CENT) {
+      level = IMPL_VAL_LEVEL_ORANGE;
+    } else if (dev >= IMPL_VAL_HZ_JUMP_YELLOW_CENT) {
+      level = IMPL_VAL_LEVEL_YELLOW;
+    }
+    if (level == null) continue;
+
+    // Markiert die rechte Elektrode des Paars (E_{i+1}), weil
+    // die Lesart "der Sprung zu dieser Elektrode ist verdächtig"
+    // intuitiv ist.
+    warnings.push({
+      level: level,
+      electrodeIdx: i + 1,
+      field: 'hz',
+      messageKey: 'implValidateHzJump',
+      messageParams: {
+        eI:       dENFn(i),
+        eJ:       dENFn(i + 1),
+        stepUser: Math.round(stepUser),
+        stepDef:  Math.round(stepDef),
+        dev:      Math.round(dev)
+      }
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -301,6 +438,8 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckHzRange(s));
   warnings.push.apply(warnings, _implCheckHzMagnitude(s));
   warnings.push.apply(warnings, _implCheckHzCochlearLookup(s));
+  warnings.push.apply(warnings, _implCheckHzTrendMedelAb(s));
+  warnings.push.apply(warnings, _implCheckHzJumpMedelAb(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);

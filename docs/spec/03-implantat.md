@@ -62,7 +62,7 @@ wenn die Eingabe unverändert ist.
 BA 133: Grundgerüst und erste Prüfung (Hz-Monotonie zwischen
 benachbarten Elektroden).
 
-### Hz-Prüfungen (Stand BA 135)
+### Hz-Prüfungen (Stand BA 137)
 
 Geprüft werden nur User-Override-Werte (`elFreqOwn[i] != null`),
 nicht die Default-Werte aus `MFR[mfr].freqs`. Deaktivierte
@@ -84,10 +84,21 @@ Elektroden (Status „im CI deaktiviert") sind ausgenommen.
   `js/data/cochlear-fats.js`, Quelle CI Select Manual S. 12/13).
   Abweichung ≥ 300 Cent → Level 3 gelb, ≥ 600 Cent → Level 2
   orange. Alternative LFE/HFE-Kombinationen und reduzierte
-  Elektrodenzahlen werden in BA 137 abgedeckt.
-
-Trend-basierte und hersteller-spezifische Verteilungs-Prüfungen
-für MED-EL/AB folgen in BA 137 (Trend und lokale Sprünge).
+  Elektrodenzahlen werden in einer späteren Anleitung abgedeckt.
+- **Trend-Abweichung MED-EL/AB** (BA 137, Level 2/3): nur aktiv
+  bei MED-EL oder AB und mindestens 3 User-Override-Werten in
+  der Hz-eigen-Spalte. Für jeden Override wird der Cent-Versatz
+  vom Default berechnet; der Trend an dieser Elektrode ist der
+  Median der Versatzwerte der Nachbarn (Fenster ±2, ohne i
+  selbst, via `_implLocalNeighborMedian`). Abweichung vom Trend
+  ≥ 300 Cent → Level 3 gelb, ≥ 600 Cent → Level 2 orange.
+- **Lokaler Sprung MED-EL/AB** (BA 137, Level 2/3): nur aktiv
+  bei MED-EL oder AB. Vergleich der Cent-Schrittweite zwischen
+  benachbarten Elektroden (mit mindestens einem Override im
+  Paar) gegen die Default-Schrittweite an dieser Stelle.
+  Abweichung ≥ 400 Cent → Level 3 gelb, ≥ 700 Cent → Level 2
+  orange. Warnung markiert das rechte Feld des Paars
+  (Elektrode mit höherem Index).
 
 ### Cochlear-Default-Korrektur (BA 136)
 

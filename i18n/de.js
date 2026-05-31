@@ -89,6 +89,8 @@ Object.assign(L.de, {
     implValidateHzRange: "E{e} ({hz} Hz) liegt außerhalb des erlaubten Bereichs ({min}–{max} Hz)",
     implValidateHzMagnitude: "E{e}: eigener Wert {hz} Hz ist ca. {ratio}× vom Standard ({def} Hz) entfernt — Tippfehler?",
     implValidateHzCochlearLookup: "E{e}: eigener Wert {hz} Hz weicht {cents} Cent vom Cochlear-Standard ({expected} Hz) ab",
+    implValidateHzTrend: "E{e}: Cent-Versatz vom Standard weicht {dev} Cent vom Nachbar-Trend ({trend} Cent) ab — könnte ein Eingabefehler sein",
+    implValidateHzJump: "Sprung E{eI}→E{eJ}: {stepUser} Cent (Standard wäre {stepDef} Cent, Abweichung {dev} Cent)",
     resetFreq: "Zurücksetzen",
     sweep: "▶ Sweep",
     stop: "■ Stopp",
