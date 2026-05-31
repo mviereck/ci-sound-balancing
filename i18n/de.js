@@ -83,6 +83,9 @@ Object.assign(L.de, {
     stDeactivated: "Deaktiviert im CI",
     warnDeactivated:
       "Achtung: Frequenztabelle vermutlich nicht aktuell. Sie haben Elektrode(n) als deaktiviert markiert, die Frequenzwerte entsprechen aber den Standardwerten. Wenn Elektroden im CI deaktiviert sind, verteilen sich die Frequenzbänder auf die aktiven Elektroden um. Bitte aktuelle Mittenfrequenzen vom Audiologen erfragen und eintragen, sonst sind Messung und Equalizer nicht aussagekräftig.",
+    implValidateTitle: "Plausibilitätsprüfung",
+    implValidateEmpty: "Keine Auffälligkeiten",
+    implValidateHzMonotonie: "E{eJ} ({hzJ} Hz) liegt unter E{eI} ({hzI} Hz) — Hz-Reihe sollte aufsteigend sein",
     resetFreq: "Zurücksetzen",
     sweep: "▶ Sweep",
     stop: "■ Stopp",

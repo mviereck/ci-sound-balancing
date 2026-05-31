@@ -165,6 +165,7 @@ function buildFreqTable() {
   updRef();
   updManSel();
   applyMobileReadonly(tb);
+  if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
 }
 function updRef() {
   const s = document.getElementById("refEl");

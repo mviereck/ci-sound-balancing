@@ -112,6 +112,7 @@ function applyLang() {
   if (document.getElementById("resC").style.display !== "none") renderResults();
   if (typeof lrRenderResults === "function") lrRenderResults();
   if (typeof sUpdateUI === "function") sUpdateUI();
+  if (typeof _implValidateApplyLang === 'function') _implValidateApplyLang();
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}

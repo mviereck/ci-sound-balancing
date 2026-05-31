@@ -36,3 +36,29 @@
   berechnet (`calcMedel`, `calcCochlear`, `calcAB` in `core.js`).
 - Berechnungsgrundlagen aller drei Hersteller-Umrechnungen siehe
   `Berechnungsgrundlagen dB zu CI.md`.
+
+## Plausibilitätsprüfung der User-Eingaben
+
+Modul `js/implant-validate.js`. Aufruf nach jedem Re-Render der
+Frequenztabelle (Hook am Ende von `buildFreqTable`). Drei
+Auffälligkeits-Stufen:
+
+- **Rot** (Level 1): logisch falsch, eindeutig fehlerhaft.
+- **Orange** (Level 2): Tippfehler-Verdacht
+  (Größenordnungs-Abweichung).
+- **Gelb** (Level 3): Auffälligkeit, kann real sein.
+
+Warnungen werden in der Box „Plausibilitätsprüfung" unter dem
+Sweep/Stop-Block aufgelistet (einklappbar, per Default offen,
+scrollbar bei vielen Einträgen). Zusätzlich bekommt das betroffene
+Eingabefeld einen farbigen Rahmen in der Stufe der strengsten
+aktiven Warnung; Tooltip am Feld zeigt den Begründungstext. Reine
+Warnungen, keine harten Sperren.
+
+Persistenz: keine — bei jedem Re-Render wird neu geprüft. Eine
+einmal gesehene Warnung erscheint in der nächsten Session wieder,
+wenn die Eingabe unverändert ist.
+
+BA 133: Grundgerüst und erste Prüfung (Hz-Monotonie zwischen
+benachbarten Elektroden). Weitere Prüfungen werden in BA 134 ff.
+ergänzt.
