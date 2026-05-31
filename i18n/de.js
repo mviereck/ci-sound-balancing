@@ -584,6 +584,7 @@ Object.assign(L.de, {
       "Bei Korrekturen über ±5 dB pro Elektrode: Compliance-Grenzen prüfen · Loudness-Growth-Function kann sich verändern · stimulationsbasierte Verifikation zwingend.",
     implPrintModelMissing:
       "Bitte Implantat-Modell wählen – Generation unbekannt, Berechnung nicht möglich.",
+    fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
     fmSubtabLabel: "Frequenzabgleich",
     fmHintWarn:

@@ -190,12 +190,26 @@ const MFR = {
     name: "Cochlear",
     n: 22,
     apFirst: false,
+    // Standard-FAT bei LFE 188 Hz, HFE 7938 Hz, 22 aktiven
+    // Kanälen. Quelle: CI Select App Manual S. 12/13 (NYU
+    // Langone, Svirsky-Labor) und PMC11493529. Korrigiert in
+    // BA 136 — vorher waren die Werte ab Position 9 aus
+    // unbekannter Quelle und wichen bis zu ~125 Cent an E1
+    // (basal) ab. Siehe .manuals/Recherche_CI_Select_App.md
+    // und .manuals/Recherche_Cochlear_FAT_Deaktivierung.md.
     freqs: [
-      250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1500, 1750, 2000, 2250,
-      2625, 3000, 3500, 4000, 4625, 5250, 6000, 6875, 8000,
+      250, 375, 500, 625, 750, 875, 1000, 1125, 1250, 1438, 1688, 1938, 2188,
+      2500, 2875, 3313, 3813, 4375, 5000, 5688, 6500, 7438,
     ],
   },
 };
+// Datum der Cochlear-FAT-Default-Korrektur (BA 136).
+// Vergleichsmaßstab für fRes-Einträge: Einträge mit
+// timestamp < diesem Wert wurden vor der Korrektur gemessen
+// und beziehen sich auf eine abweichende Default-Annahme
+// (HFE 8000 statt 7938 Hz). Wird in freqmatch.js für die
+// Info-Box-Anzeige gelesen.
+const COCHLEAR_FAT_CORRECTION_DATE = Date.UTC(2026, 4, 31); // 2026-05-31 UTC
 // ============================================================
 // FREQUENCY HELPERS (Cent, log-Interpolation)
 // ============================================================

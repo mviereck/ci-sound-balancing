@@ -87,4 +87,17 @@ Elektroden (Status „im CI deaktiviert") sind ausgenommen.
   Elektrodenzahlen werden in BA 137 abgedeckt.
 
 Trend-basierte und hersteller-spezifische Verteilungs-Prüfungen
-für MED-EL/AB folgen in BA 136 (Trend und lokale Sprünge).
+für MED-EL/AB folgen in BA 137 (Trend und lokale Sprünge).
+
+### Cochlear-Default-Korrektur (BA 136)
+
+`MFR.cochlear.freqs` in `js/core.js` wurde am 2026-05-31 auf
+die offiziellen Werte aus dem CI Select App Manual (LFE 188 Hz,
+HFE 7938 Hz, 22 Kanäle) korrigiert. Positionen 0–8 unverändert,
+9–21 verschoben um bis zu ~125 Cent (max bei E1 basal).
+
+Gespeicherte `fRes`-Einträge mit `timestamp` vor der
+Korrektur-Konstante `COCHLEAR_FAT_CORRECTION_DATE` beziehen
+sich auf die alten Defaults. Im Frequenzabgleich-Reiter wird
+für Cochlear-User mit solchen Einträgen eine sanfte Info-Box
+oben angezeigt, die zum Re-Test rät.

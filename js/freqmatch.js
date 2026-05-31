@@ -103,6 +103,47 @@ function fmFreqFromCents(refHz, c) {
   return refHz * Math.pow(2, c / 1200);
 }
 
+function _fmShouldShowCochlearFatHint() {
+  if (typeof fRes === 'undefined' || !Array.isArray(fRes)) return false;
+  if (typeof sideData === 'undefined') return false;
+  if (typeof COCHLEAR_FAT_CORRECTION_DATE !== 'number') return false;
+  for (let i = 0; i < fRes.length; i++) {
+    const e = fRes[i];
+    if (!e || typeof e.timestamp !== 'number') continue;
+    if (e.timestamp >= COCHLEAR_FAT_CORRECTION_DATE) continue;
+    const sd = sideData[e.varSide];
+    if (sd && sd.manufacturer === 'cochlear') return true;
+  }
+  return false;
+}
+
+function _fmRenderCochlearFatHint() {
+  if (!_fmParentEl) return;
+  const show = _fmShouldShowCochlearFatHint();
+  let hint = document.getElementById('fmCochlearFatHint');
+
+  if (!show) {
+    if (hint) hint.remove();
+    return;
+  }
+
+  if (!hint) {
+    hint = document.createElement('div');
+    hint.id = 'fmCochlearFatHint';
+    hint.className = 'info-box info-box-warn';
+    hint.style.marginBottom = '14px';
+    _fmParentEl.insertBefore(hint, _fmParentEl.firstChild);
+  }
+  const d = new Date(COCHLEAR_FAT_CORRECTION_DATE);
+  // YYYY-MM-DD, UTC.
+  const dateStr = d.getUTCFullYear() + '-'
+    + String(d.getUTCMonth() + 1).padStart(2, '0') + '-'
+    + String(d.getUTCDate()).padStart(2, '0');
+  const txt = (typeof t === 'function') ? t('fmCochlearFatCorrectionInfo')
+    : 'Cochlear-FAT wurde korrigiert.';
+  hint.textContent = txt.replace('{date}', dateStr);
+}
+
 function fmGVol() {
   return (fmEls && fmEls.header) ? Math.pow(parseInt(fmEls.header.volInput.value) / 100, 2) : 0.25;
 }
@@ -621,6 +662,7 @@ function fmApplyLang() {
   if (fmEls.header && fmEls.header.startBtn) {
     fmRefreshResumeHint();
   }
+  _fmRenderCochlearFatHint();
 }
 
 function fmUpdateSliderModeAvail() {
@@ -877,4 +919,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fmLoadVerfahrenFromSide();
   fmRefreshResumeHint();
+  _fmRenderCochlearFatHint();
 });

@@ -12,6 +12,12 @@
 // Plausibilitätsprüfung in implant-validate.js — Audio-Pfad
 // und Berechnungen nutzen weiter MFR.cochlear.freqs.
 //
+// Seit BA 136: Werte stimmen mit MFR.cochlear.freqs (core.js)
+// überein. Die Datei bleibt als eigenständige Quelle erhalten,
+// weil sie in BA 137 ff. um weitere Tabellen (reduzierte
+// Elektrodenzahlen, alternative LFE/HFE) erweitert wird, die
+// in MFR nicht abgebildet sind.
+//
 // Erweiterungen (alternative LFE/HFE-Kombinationen, reduzierte
 // Elektrodenzahlen für die Deaktivierungs-Sonderprüfung) folgen
 // in BA 137 ff.
