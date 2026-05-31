@@ -467,6 +467,73 @@
             <button class="btn" id="sweepBtn"></button>
             <button class="btn" id="stopBtn"></button>
             <label
+              id="lblVol"
+              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
+            ></label>
+            <input
+              type="number"
+              class="vol-num"
+              id="vol1"
+              value="50"
+              min="0"
+              max="100"
+              step="1"
+              style="
+                width: 55px;
+                padding: 3px 5px;
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                text-align: center;
+                font-family: var(--mono);
+                font-size: 0.88em;
+              "
+            />
+            <span style="font-size: 0.85em; color: var(--text-muted);">%</span>
+            <label
+              id="lblDur"
+              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
+            ></label>
+            <input
+              type="number"
+              id="dur1"
+              value="1000"
+              min="100"
+              max="3000"
+              step="50"
+              style="
+                width: 65px;
+                padding: 3px 5px;
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                text-align: center;
+                font-family: var(--mono);
+                font-size: 0.88em;
+              "
+            />
+            <span style="font-size: 0.85em; color: var(--text-muted);">ms</span>
+            <label
+              id="lblPau"
+              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
+            ></label>
+            <input
+              type="number"
+              id="pau1"
+              value="500"
+              min="100"
+              max="1000"
+              step="50"
+              style="
+                width: 65px;
+                padding: 3px 5px;
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                text-align: center;
+                font-family: var(--mono);
+                font-size: 0.88em;
+              "
+            />
+            <span style="font-size: 0.85em; color: var(--text-muted);">ms</span>
+            <label
               style="
                 margin-left: 12px;
                 font-size: 0.85em;
@@ -483,56 +550,6 @@
           </div>
         </div>
 
-        <div class="card">
-          <h2 id="toneTitle"></h2>
-          <div class="controls-row">
-            <div class="control-group">
-              <label id="lblVol"></label
-              ><input
-                type="number"
-                class="vol-num"
-                id="vol1"
-                value="50"
-                min="0"
-                max="100"
-                step="1"
-                style="
-                  width: 55px;
-                  padding: 3px 5px;
-                  border: 1px solid var(--border);
-                  border-radius: 4px;
-                  text-align: center;
-                  font-family: var(--mono);
-                  font-size: 0.88em;
-                "
-              />%
-            </div>
-            <div class="control-group">
-              <label id="lblDur"></label
-              ><input
-                type="number"
-                id="dur1"
-                value="1000"
-                min="100"
-                max="3000"
-                step="50"
-              />
-              ms
-            </div>
-            <div class="control-group">
-              <label id="lblPau"></label
-              ><input
-                type="number"
-                id="pau1"
-                value="500"
-                min="100"
-                max="1000"
-                step="50"
-              />
-              ms
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- ===== TEST ===== -->

@@ -78,7 +78,6 @@ function applyLang() {
   s("sweepBtn", "sweep");
   s("stopBtn", "stop");
   s("lblCorr", "lblCorr");
-  s("toneTitle", "toneTitle");
   s("lblVol", "lblVol");
   s("lblDur", "lblDur");
   s("lblPau", "lblPau");

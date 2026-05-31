@@ -86,7 +86,7 @@ Object.assign(L.de, {
     resetFreq: "Zurücksetzen",
     sweep: "▶ Sweep",
     stop: "■ Stopp",
-    lblCorr: "Korrektur anwenden",
+    lblCorr: "Elektrodenlautstärke gemäß Messung korrigieren",
     lblLevels: "Levels anwenden",
     toneTitle: "Tonparameter",
     lblVol: "Lautstärke:",

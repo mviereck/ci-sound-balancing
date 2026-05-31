@@ -687,9 +687,10 @@ fmResiduum = sqrt(σ_konv² + σ_runHalf²)
 
 ## Wissenschaftliche Grundlage und Grenzen
 
-Dieser Abschnitt erscheint im UI als **eingeklapptes Akkordeon am Ende
-des Test-Tabs** unter der Überschrift „Wissenschaftliche Grundlage und
-Grenzen" (i18n-Key `fmExplainAdaptiveScience`). Er ist für User
+Dieser Abschnitt erscheint im UI als **eingeklapptes Akkordeon in einer
+eigenen Card unterhalb des Test-Bereichs**, sichtbar sobald das
+Adaptive-Verfahren ausgewählt ist — unabhängig davon, ob gerade ein
+Test läuft (i18n-Key `fmExplainAdaptiveScience`). Er ist für User
 gedacht, die die Methodik verstehen möchten — Pflicht-Lektüre ist er
 nicht.
 

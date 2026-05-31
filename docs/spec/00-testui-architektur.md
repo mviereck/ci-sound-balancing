@@ -218,7 +218,7 @@ Callbacks über `hooks` und nutzt Helfer wie
 | `excludeButtons` | Elektrode/Seite ausschließen + Bestätigungs-Modal | `target`: `'electrodes'` \| `'sides'` | `onExclude(which)` |
 | `applyButton` | „Übernehmen"-Button (Latenz: Wert als Ergebnis übernehmen) | `key`: i18n | `onApply()` |
 | `extraFragment` | Custom-DOM-Slot für seltene Sub-Reiter-spezifische Elemente | `fragment`: HTMLElement | — |
-| `background` | Ausklappbares Erklär-Akkordeon am Ende des Verfahren-Bodies (`<details>/<summary>`) | `titleKey`: i18n; `bodyKey`: i18n; `bodyAsHtml`: bool (Default false) | — |
+| `background` | Ausklappbares Erklär-Akkordeon in eigener Card (`<details>/<summary>`), außerhalb der testBox — sichtbar immer wenn das Verfahren aktiv ist, unabhängig vom Test-Laufzustand; Summary-Titel: „[titleKey] – [vCfg.labelKey]", außer `noLabel: true` (dann nur titleKey) | `titleKey`: i18n; `bodyKey`: i18n; `bodyAsHtml`: bool (Default false); `noLabel`: bool (Default false) | — |
 | `debugRun` | Debug-Testlauf-Button am Ende des Verfahren-Bodies, sichtbar nur bei aktivem Debug-Panel | `key`: i18n (Beschriftung); `cssClass`: optional, Default `'dbg-only'` | `onDebugRun()` |
 
 `pairIndicator.variant` definiert Label-Format und Aufleucht-Logik:

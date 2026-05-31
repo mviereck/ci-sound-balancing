@@ -858,6 +858,13 @@ select:disabled {
   border-radius: 6px;
   background: #f9fafb;
 }
+.test-background-box > .test-background {
+  margin-top: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
 .test-background > summary {
   cursor: pointer;
   font-weight: 600;
