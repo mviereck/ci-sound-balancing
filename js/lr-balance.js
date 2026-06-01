@@ -901,6 +901,8 @@ document.addEventListener("DOMContentLoaded", function() {
     lrClearBtn.addEventListener('click', function() {
       if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       lrResults = {};
+      // BA 151
+      if (typeof depLockApply === 'function') depLockApply();
       var lrRC = document.getElementById("lrResultsCard");
       if (lrRC) lrRC.style.display = "none";
       var lrNR = document.getElementById("lrNoResults");

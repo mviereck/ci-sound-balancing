@@ -407,6 +407,8 @@ document.addEventListener("DOMContentLoaded", function () {
     latClearBtn.addEventListener("click", function() {
       if (!confirm(t("latClearConfirm") || "Latenz-Meßergebnis löschen?")) return;
       latencyResult = null;
+      // BA 151
+      if (typeof depLockApply === 'function') depLockApply();
       latRenderResults();
     });
   }

@@ -607,6 +607,8 @@ function _fmRemoveResult(elIdx) {
     if (fmSymmetric) entry.cent = Math.round(agg.cent);
     if (existingIdx >= 0) fRes[existingIdx] = entry;
     else                  fRes.push(entry);
+    // BA 151
+    if (typeof depLockApply === 'function') depLockApply();
     _fmDbg('fRes keep via agg: side=' + fmVarSide + ' el=' + elIdx
          + (fmSymmetric ? ' [SYM]' : '')
          + ' (not-perceivable im aktuellen Lauf, andere Läufe haben Daten)');
@@ -618,6 +620,8 @@ function _fmRemoveResult(elIdx) {
       : (r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx);
   });
   if (idx >= 0) fRes.splice(idx, 1);
+  // BA 151
+  if (typeof depLockApply === 'function') depLockApply();
   _fmDbg('fRes remove: side=' + fmVarSide + ' el=' + elIdx
        + (fmSymmetric ? ' [SYM]' : '')
        + ' (not-perceivable)');
@@ -668,6 +672,8 @@ function _fmWriteResult(track) {
   }
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
+  // BA 151
+  if (typeof depLockApply === 'function') depLockApply();
   _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx
        + (fmSymmetric ? ' [SYM]' : '')
        + ' cent=' + (agg.cent != null ? agg.cent.toFixed(1) : 'null')

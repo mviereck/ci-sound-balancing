@@ -74,6 +74,8 @@ function buildFreqTable() {
         return; // ungültiger Wert: keine Re-Render
       }
       buildFreqTable();
+      // BA 151
+      if (typeof depLockApply === 'function') depLockApply();
     }),
   );
   // THR inputs

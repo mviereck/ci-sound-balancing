@@ -1094,29 +1094,9 @@ document.addEventListener("DOMContentLoaded", () => {
   fmRCDlg.appendChild(fmRCCard);
   parentEl.appendChild(fmRCDlg);
 
-  // Events: Referenzseiten-Wechsel
-  let _fmPrevRefVal = fmEls.header.refSelect.value;
+  // Events: Referenzseiten-Wechsel (BA 151: Sperre statt Custom-Dialog)
   fmEls.header.refSelect.addEventListener('change', function() {
     setTimeout(fmLoadVerfahrenFromSide, 0);
-  });
-  fmEls.header.refSelect.addEventListener('change', function() {
-    if (fRes.length > 0 || _fmHasAdaptiveData() || _fmHasSliderEstimates()) {
-      fmRCOkBtn.onclick = function() {
-        fmRCDlg.classList.remove('active');
-        fRes.splice(0, fRes.length);
-        _fmClearPersist('left');
-        _fmClearPersist('right');
-        _fmPrevRefVal = fmEls.header.refSelect.value;
-        fmUpdateSliderModeAvail();
-      };
-      fmRCCancelBtn.onclick = function() {
-        fmRCDlg.classList.remove('active');
-        fmEls.header.refSelect.value = _fmPrevRefVal;
-      };
-      fmRCDlg.classList.add('active');
-    } else {
-      _fmPrevRefVal = fmEls.header.refSelect.value;
-    }
   });
 
   // Texte initial setzen

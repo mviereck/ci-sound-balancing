@@ -783,6 +783,8 @@ document.addEventListener("DOMContentLoaded", function() {
         if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
         if (sideData.right) sideData.right.freqmatchAdaptive = null;
       }
+      // BA 151 — nach vollständigem Löschen aller FreqMatch-Daten
+      if (typeof depLockApply === 'function') depLockApply();
       renderFreqMatchResults();
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
       if (typeof fmUpdateSliderModeAvail === "function") fmUpdateSliderModeAvail();

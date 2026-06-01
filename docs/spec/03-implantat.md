@@ -1,7 +1,13 @@
 ## Implantat-Tab
 
-- **Konfigurations-Dropdown**: ci (Default), hg, normal, schwerhörig,
-  taub. Bestimmt, welche Eingabebereiche sichtbar sind.
+- **Konfigurations-Dropdown** (Hörtechnik): ci (Default), hg, normal,
+  schwerhörig, taub. Bestimmt, welche Eingabebereiche sichtbar sind.
+  **Sperre (BA 151):** Das Dropdown wird per `dependency-lock.js`
+  gesperrt, sobald Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der
+  aktiven Seite oder FreqMatch-Daten vorliegen (`fRes` nicht leer,
+  `_fmHasAdaptiveData()` — also auch Laufdaten ohne konvergierten
+  Match — oder `sliderEstimates` nicht leer). Klick öffnet Popup
+  mit Feldname „Hörtechnik".
 - **Hersteller-Auswahl**: MED-EL / Advanced Bionics / Cochlear.
   Bestimmt Elektrodenzahl (12/16/22) und Einheit für Upper-Level
   (MCL/qu / M-Level/CU / C-Level/CL).
@@ -10,7 +16,9 @@
   sobald Meßergebnisse vorliegen, die durch einen Hersteller-Wechsel
   ungültig würden: Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der aktiven
   Seite, Lautstärke-Test-Ergebnisse der anderen Seite (wenn akustisch),
-  Frequenzabgleich-Daten (`fRes`/`sliderEstimates`). Manuell gesetzte
+  Frequenzabgleich-Daten (`fRes` nicht leer, `_fmHasAdaptiveData()` —
+  also auch Laufdaten ohne konvergierten Match — oder `sliderEstimates`
+  nicht leer). Manuell gesetzte
   Schieber-Korrekturen (`manualLevels`) sperren nicht — sie sind
   Einstellungen, keine Meßergebnisse, und werden beim Wechsel ohnehin
   auf Null gesetzt.
@@ -27,7 +35,12 @@
 - **Frequenz- und Elektrodentabelle** (`freq-table.js`), pro Elektrode:
   - Beschriftung mit Elektrodennummer und (bei i=0/i=n−1) apikal/basal
   - Hz Standard (Herstellervorgabe, nicht editierbar)
-  - Hz eigen (optionaler abweichender Wert)
+  - Hz eigen (optionaler abweichender Wert).
+    **Sperre (BA 151):** Alle Hz-eigen-Felder werden per `dependency-lock.js`
+    gesperrt (`.fo`-Klasse, Multi-Selektor), sobald Lautstärke-Test-
+    Ergebnisse der aktiven Seite oder FreqMatch-Daten vorliegen
+    (gleiche Bedingung wie Hörtechnik-Sperre). Bilateral wirksam.
+    Klick öffnet Popup mit Feldname „Hz-eigen".
   - **Cent** re 1000 Hz: `Math.round(hzToCent(effFreq(i)))`, nicht
     editierbar, mit Vorzeichen (`+135`, `−3670`). Aktualisiert sich
     sofort, wenn Hz-eigen geändert wird.

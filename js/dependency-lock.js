@@ -11,9 +11,10 @@
 
 // ---- Sperr-Tabelle ----
 // Pro Eintrag:
-//   selector       — CSS-Selektor des Feldes
+//   selector       — CSS-Selektor des Feldes (Single-Match)
+//   selectorAll    — CSS-Selektor für mehrere Felder (Multi-Match)
 //   fieldLabelKey  — i18n-Key für den menschenlesbaren Feldnamen
-//   getReasonKeys  — Funktion ohne Argumente, liefert Liste i18n-Keys
+//   getReasonKeys  — Funktion (optional: el), liefert Liste i18n-Keys
 //                    mit menschenlesbaren Bezeichnungen der betroffenen
 //                    Tests. Leere Liste = nicht gesperrt.
 const DEP_LOCK_RULES = [
@@ -37,15 +38,17 @@ const DEP_LOCK_RULES = [
         (sideData[other].jRes && sideData[other].jRes.length > 0)
       );
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
-      // Frequenzabgleich adaptiv: fRes enthält ausschließlich abgeschlossene
-      // Adaptiv-Ergebnisse (kein method-Feld; Vorhandensein reicht als Signal).
-      // try/catch: fRes ist let in state-side.js und kann bei frühem
-      // depLockApply()-Aufruf noch in der TDZ liegen.
+      // Frequenzabgleich adaptiv: konvergierte Ergebnisse in fRes
+      // oder Laufdaten in runs[] (auch ohne konvergierten Match).
       try {
-        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0) {
+        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
           reasons.push('depReasonFreqMatchAdaptive');
-        }
       } catch(ex) { /* fRes noch in TDZ — ignorieren */ }
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
+            reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) {}
       // Frequenzabgleich Schieber: Daten liegen in sliderEstimates, nicht in fRes.
       try {
         var hasSlider = false;
@@ -61,19 +64,124 @@ const DEP_LOCK_RULES = [
     }
   }
   // Weitere Regeln folgen in BA 150ff.
+
+  ,
+  // Hörtechnik-Auswahl (BA 151)
+  {
+    selector: '#cfgSelect',
+    fieldLabelKey: 'depFieldCfg',
+    getReasonKeys: function() {
+      const reasons = [];
+      const s = sideData[activeSide];
+      const ownHasLoud =
+        (s.bRes && s.bRes.length > 0) ||
+        (s.jRes && s.jRes.length > 0);
+      if (ownHasLoud) reasons.push('depReasonLoudness');
+      // Adaptiv: fRes (konvergierte Ergebnisse) oder Laufdaten in runs[]
+      try {
+        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+          reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) { /* fRes noch in TDZ */ }
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
+            reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) {}
+      // Slider: Daten liegen in sliderEstimates, nicht in fRes
+      try {
+        var hasSlider = false;
+        ['left', 'right'].forEach(function(side) {
+          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
+            hasSlider = true;
+        });
+        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
+      return reasons;
+    }
+  },
+
+  // Hz-eigen-Felder pro Elektrode (BA 151) — bilateral wirksam
+  {
+    selectorAll: '.fo',
+    fieldLabelKey: 'depFieldHzEigen',
+    getReasonKeys: function(el) {
+      const reasons = [];
+      const s = sideData[activeSide];
+      const ownHasLoud =
+        (s.bRes && s.bRes.length > 0) ||
+        (s.jRes && s.jRes.length > 0);
+      if (ownHasLoud) reasons.push('depReasonLoudness');
+      try {
+        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+          reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) { /* fRes noch in TDZ */ }
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
+            reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) {}
+      try {
+        var hasSlider = false;
+        ['left', 'right'].forEach(function(side) {
+          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
+            hasSlider = true;
+        });
+        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
+      return reasons;
+    }
+  },
+
+  // Referenzseite im Frequenzabgleich (BA 151)
+  // ID: refEl_freqmatch (cfg.id='freqmatch', type='side' → kein Überschreiben)
+  {
+    selector: '#refEl_freqmatch',
+    fieldLabelKey: 'depFieldRefSide',
+    getReasonKeys: function() {
+      const reasons = [];
+      try {
+        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+          reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) { /* fRes noch in TDZ */ }
+      try {
+        var hasSlider = false;
+        ['left', 'right'].forEach(function(side) {
+          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
+            hasSlider = true;
+        });
+        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+      } catch(ex) { /* sliderEstimates noch nicht initialisiert */ }
+      // Laufdaten (noch nicht abgeschlossene Runs) ebenfalls berücksichtigen
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
+            reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) {}
+      return reasons;
+    }
+  }
 ];
 
 // ---- Anwenden ----
 function depLockApply() {
   if (typeof DEP_LOCK_RULES === 'undefined') return;
   DEP_LOCK_RULES.forEach(function(rule) {
-    var el = document.querySelector(rule.selector);
-    if (!el) return;
-    var reasons = rule.getReasonKeys();
-    if (reasons.length === 0) {
-      _depLockUnlock(el);
-    } else {
-      _depLockLock(el, rule.fieldLabelKey, reasons);
+    if (rule.selectorAll) {
+      var nodes = document.querySelectorAll(rule.selectorAll);
+      nodes.forEach(function(el) {
+        var reasons = rule.getReasonKeys(el);
+        if (reasons.length === 0) _depLockUnlock(el);
+        else _depLockLock(el, rule.fieldLabelKey, reasons);
+      });
+    } else if (rule.selector) {
+      var el = document.querySelector(rule.selector);
+      if (!el) return;
+      var reasons = rule.getReasonKeys(el);
+      if (reasons.length === 0) _depLockUnlock(el);
+      else _depLockLock(el, rule.fieldLabelKey, reasons);
     }
   });
 }

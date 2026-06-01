@@ -132,10 +132,12 @@ Slider-Wert wird invertiert.
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite
 - Referenzseite-Auswahl (LINKS/RECHTS = welche Seite ist Restgehör)
-- Bei Wechsel des Referenzohrs nach vorhandenen Ergebnissen
-  (klassische `fRes`-Einträge **oder** adaptive Laufdaten in
-  `sideData[*].freqmatchAdaptive.runs`):
-  Bestätigungsdialog, Verwerfen der bisherigen Ergebnisse
+  **Sperre (BA 151):** Das Dropdown wird per `dependency-lock.js`
+  gesperrt, sobald FreqMatch-Daten vorliegen (`fRes` nicht leer,
+  `_fmHasAdaptiveData()` oder `_fmHasSliderEstimates()`). Klick
+  öffnet Popup mit Feldname „Referenzseite" und Auflistung der
+  blockierenden Daten. Ersetzt den früheren `fmRCDlg`-Bestätigungsdialog
+  (der beim Wechsel fRes gelöscht hätte).
 - Ergebnis-Diagramm (`drawFreqMatchChart` in `chart.js`):
   - **Begriffe:** *Ist* = die im Implantat einprogrammierte Frequenz der
     Elektrode (`varFreq`, vom Implantat-Tab, ohne Warp). *Soll* = die
