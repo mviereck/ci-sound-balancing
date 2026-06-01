@@ -748,6 +748,11 @@ function _buildTestPanelNew(parentEl, cfg) {
         _tEl(opt, s === 'left' ? 'sideLeft' : 'sideRight');
         refSelect.appendChild(opt);
       });
+      if (hc.refSelect.includeSymmetric) {
+        var optSym = new Option('', 'symmetric');
+        _tEl(optSym, 'fmSymmetricOption');
+        refSelect.appendChild(optSym);
+      }
     }
     if (hc.refSelect.disabled) refSelect.disabled = true;
     cgRef.append(lblRef, refSelect);

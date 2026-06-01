@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderResults();
     if (typeof lrCheckData === "function") lrCheckData();
     if (typeof fmApplyLang === "function") fmApplyLang();
+    if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
     plCheck();
   });
   // Default-Frequenzraster (nur wenn keine Seite CI)

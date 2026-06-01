@@ -28,6 +28,35 @@ function fmStartAdaptive() {
   if (!fmEls) return;
   _fmInitSides();
 
+  if (fmSymmetric) {
+    const _symSeq = fmBuildSeqSymmetric();
+    if (_symSeq === null) {
+      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+        || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
+      fmEls._stopTest();
+      return;
+    }
+    if (_symSeq.length === 0) {
+      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      fmEls._stopTest();
+      return;
+    }
+    // Audio kommt in BA 148. Vorerst Stub-Alert + Stop.
+    alert((typeof t === 'function' && t('fmSymmetricNotYet'))
+      || 'Symmetrischer Modus: Audiowiedergabe wird in der nächsten Version aktiviert.');
+    fmEls._stopTest();
+    return;
+  }
+
+  if ((sideData.left  && sideData.left.config)  === 'ci' &&
+      (sideData.right && sideData.right.config) === 'ci' &&
+      fmBuildSeqSymmetric() === null) {
+    alert((typeof t === 'function' && t('fmElMismatch'))
+      || 'Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
+    fmEls._stopTest();
+    return;
+  }
+
   // Warnung wenn Slider-Test nur teilweise abgeschlossen
   const _slEst = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
@@ -84,8 +113,7 @@ function _fmDoStartAdaptive() {
     }
   }
 
-  fmRefSide = fmEls.header.refSelect.value;
-  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+  _fmInitSides();
 
   const elIdxList = fmBuildSeq();
   if (elIdxList.length === 0) {

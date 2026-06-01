@@ -15,6 +15,7 @@ let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
 let fmVarSide = "right";
+let fmSymmetric = false;   // true wenn refSelect.value === 'symmetric'
 let fmVerfahren = 'adaptive';   // 'slider' | 'adaptive'
 let fmSeq = [];
 let fmSeqIdx = 0;
@@ -250,6 +251,36 @@ function fmBuildSeq() {
   return elList.map((x) => x.idx);
 }
 
+// Symmetrische Sequenz: nur wenn beide Seiten dieselbe Menge aktiver
+// Elektroden haben (selbe Indices). Rückgabe sonst null.
+// Sortiert nach Durchschnitts-Mittenfrequenz (links/rechts gemittelt).
+function fmBuildSeqSymmetric() {
+  function activeList(side) {
+    return withSide(side, function() {
+      const r = [];
+      for (let i = 0; i < nEl; i++) {
+        if (elSt[i] === "deactivated") continue;
+        if (elExDur[i]) continue;
+        r.push(i);
+      }
+      return r;
+    });
+  }
+  const leftList  = activeList('left');
+  const rightList = activeList('right');
+  if (leftList.length !== rightList.length) return null;
+  for (let j = 0; j < leftList.length; j++) {
+    if (leftList[j] !== rightList[j]) return null;
+  }
+  const seq = leftList.map(function(idx) {
+    const fl = withSide('left',  function() { return effFreq(idx); });
+    const fr = withSide('right', function() { return effFreq(idx); });
+    return { idx: idx, hz: (fl + fr) / 2 };
+  });
+  seq.sort(function(a, b) { return a.hz - b.hz; });
+  return seq.map(function(x) { return x.idx; });
+}
+
 // Vorherige Messung für diese Elektrode (in Cent), falls vorhanden
 function fmPrevCent(elIdx) {
   // 1) Vorhandene Slider-Vor-Schätzung hat höchste Priorität.
@@ -269,8 +300,15 @@ function fmPrevCent(elIdx) {
 
 // Gemeinsame Initialisierung zu Beginn jedes Verfahren-Starts
 function _fmInitSides() {
-  fmRefSide = fmEls.header.refSelect.value;
-  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+  const val = fmEls.header.refSelect.value;
+  fmSymmetric = (val === 'symmetric');
+  if (fmSymmetric) {
+    fmVarSide = 'left';
+    fmRefSide = 'right';
+  } else {
+    fmRefSide = val;
+    fmVarSide = (fmRefSide === 'left') ? 'right' : 'left';
+  }
 }
 
 // --- Tonwiedergabe ---
@@ -695,7 +733,14 @@ function _fmAutoSetRefMode() {
     fmEls.header.refSelect.value = 'right';
   } else if (rightIsCI && !leftIsCI) {
     fmEls.header.refSelect.value = 'left';
+  } else if (leftIsCI && rightIsCI) {
+    // Beide CI: 'symmetric' setzen, sofern die Dropdown-Option existiert.
+    const hasSym = Array.from(fmEls.header.refSelect.options).some(function(o) {
+      return o.value === 'symmetric';
+    });
+    if (hasSym) fmEls.header.refSelect.value = 'symmetric';
   }
+  // beide akustisch: kein Override (Sperre wird durch _fmRenderBlockedWarning behandelt).
 }
 
 function _fmRenderHGWarning() {
@@ -777,9 +822,11 @@ function _fmHasAdaptiveData() {
 
 function fmUpdateSliderModeAvail() {
   if (!fmEls) return;
-  const _varSide = (fmEls.header && fmEls.header.refSelect)
-    ? (fmEls.header.refSelect.value === 'left' ? 'right' : 'left')
-    : fmVarSide;
+  const _refVal2 = (fmEls.header && fmEls.header.refSelect)
+    ? fmEls.header.refSelect.value : null;
+  const _varSide = (!_refVal2 || _refVal2 === 'symmetric')
+    ? (_refVal2 === 'symmetric' ? 'left' : fmVarSide)
+    : (_refVal2 === 'left' ? 'right' : 'left');
   const sd = sideData[_varSide] || {};
   const fa = sd.freqmatchAdaptive;
   const hasAnswers = !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
@@ -823,8 +870,15 @@ function fmSetVerfahren(newVerfahren, opts) {
 
 function fmLoadVerfahrenFromSide() {
   if (!fmEls) return;
-  fmRefSide = fmEls.header.refSelect.value;
-  fmVarSide = fmRefSide === 'left' ? 'right' : 'left';
+  const _refVal = fmEls.header.refSelect.value;
+  fmSymmetric = (_refVal === 'symmetric');
+  if (fmSymmetric) {
+    fmVarSide = 'left';
+    fmRefSide = 'right';
+  } else {
+    fmRefSide = _refVal;
+    fmVarSide = (fmRefSide === 'left') ? 'right' : 'left';
+  }
 
   const fa = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive) || null;
   const hasAdaptive = !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
@@ -861,7 +915,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     header: {
       common: {
-        refSelect:    { type: 'side', key: 'fmLblRef' },
+        refSelect:    { type: 'side', key: 'fmLblRef', includeSymmetric: true },
         volume:       { show: true },
         duration:     { show: true, default: 400, min: 100, max: 3000, step: 50 },
         pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },

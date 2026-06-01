@@ -59,6 +59,33 @@ function fmShowElectrode() {
 function fmStartSlider() {
   if (!fmEls) return;
   _fmInitSides();
+  if (fmSymmetric) {
+    fmSeq = fmBuildSeqSymmetric();
+    if (fmSeq === null) {
+      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+        || 'Symmetrischer Modus: Beide Seiten müssen dieselben aktiven Elektroden haben.');
+      fmEls._stopTest();
+      return;
+    }
+    if (fmSeq.length === 0) {
+      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      fmEls._stopTest();
+      return;
+    }
+    // Audio kommt in BA 148. Vorerst Stub-Alert + Stop.
+    alert((typeof t === 'function' && t('fmSymmetricNotYet'))
+      || 'Symmetrischer Modus: Audiowiedergabe wird in der nächsten Version aktiviert.');
+    fmEls._stopTest();
+    return;
+  }
+  if ((sideData.left  && sideData.left.config)  === 'ci' &&
+      (sideData.right && sideData.right.config) === 'ci' &&
+      fmBuildSeqSymmetric() === null) {
+    alert((typeof t === 'function' && t('fmElMismatch'))
+      || 'Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein.');
+    fmEls._stopTest();
+    return;
+  }
   fmSeq = fmBuildSeq();
   if (fmSeq.length === 0) {
     alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');

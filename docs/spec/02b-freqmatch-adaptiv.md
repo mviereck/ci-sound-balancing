@@ -416,6 +416,25 @@ verwendet:
   konfiguriert ist — aber nur, wenn `fRes` leer ist und keine adaptiven
   Testdaten vorliegen. Sobald Daten vorhanden sind, bleibt das Dropdown
   unverändert; ein manueller Wechsel löst den Bestätigungsdialog aus.
+  **BA 148-Bugfix**: `cfgSelect`-Change-Handler in `init.js` ruft jetzt
+  `_fmRefreshTabState()` auf — Auto-Default aktualisiert sich sofort
+  bei Konfigurationsänderung (CI↔HG↔normal↔deaf), ohne F5.
+  **SYMMETRISCH-Option (BA 147)**: Zusätzliche Dropdown-Option
+  „Symmetrisch (bilateral CI)" (`value = 'symmetric'`). Erscheint immer,
+  da `includeSymmetric: true` in der freqmatch-Konfig gesetzt ist.
+  Auto-Default setzt bei beidseitig CI automatisch `'symmetric'`
+  (Vorzeichenkonvention: `fmCentOffset > 0` = rechte Seite klingt höher;
+  Platzhalter `fmVarSide='left'`, `fmRefSide='right'`).
+  Voraussetzung für symmetrischen Test: beide Seiten müssen dieselben
+  aktiven Elektroden-Indices haben (sonst Mismatch-Alert `fmSymmetricElMismatch`
+  + Abbruch). Audiowiedergabe noch nicht implementiert — Teststart im Modus
+  „Symmetrisch" zeigt Stub-Alert „Audiowiedergabe wird in der nächsten
+  Version aktiviert" und bricht ab (gilt für Slider und Adaptiv). Volle
+  Implementierung in BA 148.
+  **Elektroden-Sperre auch im LEFT/RIGHT-Modus**: Wenn beide Seiten CI sind
+  und die aktiven Elektroden-Indices nicht übereinstimmen, wird der Test
+  ebenfalls blockiert (Alert `fmElMismatch`, gilt für Slider und Adaptiv).
+  Wiederverwendet `fmBuildSeqSymmetric() === null` als Prüfbedingung.
 - `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
   Slider- und adaptiven Modus). Kürzere Töne erzwingen Bauch-Antworten
   und mindern Timbre-Analyse — wichtig, weil CI-Stimulation und akustischer
