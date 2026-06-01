@@ -547,6 +547,8 @@ function applyLoadedData(d) {
   renderResults();
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+  if (typeof fmApplyLang === "function") fmApplyLang();
+  if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
   if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;

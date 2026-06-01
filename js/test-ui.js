@@ -83,7 +83,8 @@ function _buildTestPanelOld(parentEl, cfg) {
     if (p.kind === 'plain') cls = 'explain-plain';
     else cls = 'explain' + (p.kind === 'warn' ? ' explain-warn' : '');
     var el = _mkEl('p', cls);
-    el.dataset.t = p.key;
+    if (p.key) el.dataset.t = p.key;
+    if (p.id)  el.id = p.id;
     explainBox.appendChild(el);
   });
 
@@ -692,7 +693,8 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (p.kind === 'plain') cls = 'explain-plain';
     else cls = 'explain' + (p.kind === 'warn' ? ' explain-warn' : '');
     var el = _mkEl('p', cls);
-    _tEl(el, p.key);
+    if (p.key) _tEl(el, p.key);
+    if (p.id)  el.id = p.id;
     explainBox.appendChild(el);
   });
 

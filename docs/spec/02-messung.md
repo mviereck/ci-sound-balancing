@@ -143,9 +143,29 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 
-- Vorbedingungs-Hinweis (`fmPrereqHint`) im Erklärungsblock: „Führen
-  Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für
-  beide Seiten aus." — erscheint zwischen `fmHintMethod` und `fmHintWarn`
+- **Dynamischer Intro-Text (BA 160):** `fmHintMethod` (`#fmHintMethodPara`)
+  zeigt je nach Hörtechnik-Kombination:
+  - CI + Naturgehör (normal/shoh/hg): Ziel = tatsächlich stimulierte
+    Frequenz feststellen; Referenzohr = natürlich hörendes Ohr.
+  - Beide CI: Ziel = Tonhöhen beider CI angleichen; Einschränkungs-
+    Hinweis auf Nachbarelektroden-Effekt bei großen Abweichungen.
+  Text wird durch `_fmRenderIntroText()` gesetzt; `data-t` wird
+  dynamisch auf `fmHintMethodCiNatural` oder `fmHintMethodBothCI`
+  umgestellt.
+- **Dynamische Vorbedingungs-Hinweise (BA 160):**
+  - `#fmPrereqLvHintPara`: erscheint wenn Elektrodenlautstärke-Messung
+    fehlt; Text seitenspezifisch (`fmPrereqLvLeft` / `fmPrereqLvRight`
+    / `fmPrereqLvBoth`). Ausgeblendet wenn beide Seiten `bRes` oder
+    `jRes` nicht leer.
+  - `#fmPrereqSbHintPara`: erscheint wenn `lrResults` leer (keine
+    Stereo-Balance-Messung vorhanden). Text: `fmPrereqSb`.
+  Beide werden von `_fmRenderPrereqHints()` verwaltet, aufgerufen aus
+  `fmApplyLang` und `_fmRefreshTabState`.
+- **Dynamischer Referenzseiten-Hinweis (BA 160):** `fmHintWarn`
+  (`#fmHintWarnPara`) zeigt je nach Kombination:
+  - CI + Naturgehör: „...Referenzseite ... die mit natürlichem Gehör."
+  - Beide CI: „...Referenzseite 'symmetrisch' auszuwählen."
+  Ebenfalls durch `_fmRenderIntroText()` gesteuert.
 - Cent-Slider (statt dB)
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite

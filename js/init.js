@@ -728,6 +728,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+      if (typeof fmApplyLang === "function") fmApplyLang();
+      if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter

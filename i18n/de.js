@@ -616,12 +616,24 @@ Object.assign(L.de, {
     fmSubtabLabel: "Frequenzabgleich",
     fmHintWarn:
       "Achten Sie darauf, die richtige Referenzseite auszuwählen: die mit natürlichem Gehör.",
+    fmHintWarnBothCI:
+      "Achten Sie darauf, als Referenzseite 'symmetrisch' auszuwählen. Dabei werden die Frequenzen in beiden CI beim Test gleichermaßen verändert, um das ungewollte Ansprechen von Nachbarelektroden zu minimieren.",
     fmHintMethod:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Wenn Sie ein Ohr mit natürlichem Hören haben, ob normal- oder schwerhörig, stellen Sie es als Referenzohr ein.<br>" +
       "&nbsp;&nbsp;- Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
       "&nbsp;&nbsp;- Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.<br>" +
       "• Wenn Sie 2 CI tragen, können Sie mit diesem Test Frequenzabweichungen feststellen und beim Audiologen korrigieren lassen.",
+    fmHintMethodCiNatural:
+      "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
+      "• Ziel des Testes ist es, die tatsächlich stimulierte Frequenz der CI-Elektroden festzustellen.<br>" +
+      "• Stellen Sie das Ohr, auf dem Sie natürlich hören, als Referenzohr ein. Das gilt für schwerhörig ebenso wie für normalhörend.<br>" +
+      "• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden, so daß die Tonhöhen natürlichem Hören entsprechen.",
+    fmHintMethodBothCI:
+      "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
+      "• Ziel des Testes ist es, die Tonhöhen beider CI einander anzugleichen, so daß sie auf beiden Seiten die gleiche Frequenz auch gleich hören.<br>" +
+      "• Auf Basis des Testergebnisses können die Mittenfrequenzen der Elektroden im CI neu eingestellt werden.<br>" +
+      "• Einschränkung des Testverfahrens: Je weiter die Testtöne von den eingestellten Mittenfrequenzen der CI entfernt sind, um so stärker werden Nachbarelektroden mit angesprochen, die das Meßergebnis verfälschen. Konsequenz: Bei großen Abweichungen kann es sein, daß Sie nach der Anpassung an die Meßergebnisse durch den Audiologen den Test erneut durchführen müssen, um sich den korrekten Werten weiter anzunähern.",
     fmLblRef: "Referenzseite",
     fmLblStart: "Start Frequenzabgleich",
     fmCurEl: "Aktuelle Elektrode",
@@ -821,6 +833,10 @@ Object.assign(L.de, {
     lrNoElMsg: "Keine gemeinsamen aktiven Elektroden gefunden.",
     latPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
+    fmPrereqLvLeft:  "Führen Sie zuerst die Messung Elektrodenlautstärke für die linke Seite aus.",
+    fmPrereqLvRight: "Führen Sie zuerst die Messung Elektrodenlautstärke für die rechte Seite aus.",
+    fmPrereqLvBoth:  "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
+    fmPrereqSb:      "Führen Sie zuerst die Messung Stereo-Balance aus.",
     fmHintWorkflow:
       "<strong>Empfohlenes Vorgehen:</strong><br>" +
       "• Zuerst Testverfahren 'Vor-Schätzung (Slider)' ausführen.<br>" +

@@ -744,6 +744,8 @@ function fmApplyLang() {
   _fmRenderHGWarning();
   _fmRenderBlockedWarning();
   _fmRenderCochlearFatHint();
+  _fmRenderIntroText();
+  _fmRenderPrereqHints();
 }
 
 function _fmEvalTestEligibility() {
@@ -836,6 +838,60 @@ function _fmRenderBlockedWarning() {
   if (startBtn) startBtn.disabled = true;
 }
 
+function _fmRenderIntroText() {
+  const methodEl = document.getElementById('fmHintMethodPara');
+  const warnEl   = document.getElementById('fmHintWarnPara');
+  if (!methodEl && !warnEl) return;
+  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
+  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
+  const bothCI = (leftCfg === 'ci') && (rightCfg === 'ci');
+  if (methodEl) {
+    const key = bothCI ? 'fmHintMethodBothCI' : 'fmHintMethodCiNatural';
+    methodEl.dataset.t = key;
+    const v = (typeof t === 'function') ? t(key) : '';
+    if (v.includes('<')) methodEl.innerHTML = v; else methodEl.textContent = v;
+  }
+  if (warnEl) {
+    const key = bothCI ? 'fmHintWarnBothCI' : 'fmHintWarn';
+    warnEl.dataset.t = key;
+    const v = (typeof t === 'function') ? t(key) : '';
+    if (v.includes('<')) warnEl.innerHTML = v; else warnEl.textContent = v;
+  }
+}
+
+function _fmRenderPrereqHints() {
+  const lvEl = document.getElementById('fmPrereqLvHintPara');
+  const sbEl = document.getElementById('fmPrereqSbHintPara');
+  if (!lvEl && !sbEl) return;
+  if (lvEl) {
+    const leftHasLv  = (sideData.left.bRes  && sideData.left.bRes.length  > 0)
+                    || (sideData.left.jRes  && sideData.left.jRes.length  > 0);
+    const rightHasLv = (sideData.right.bRes && sideData.right.bRes.length > 0)
+                    || (sideData.right.jRes && sideData.right.jRes.length > 0);
+    if (!leftHasLv || !rightHasLv) {
+      let key;
+      if (!leftHasLv && !rightHasLv) key = 'fmPrereqLvBoth';
+      else if (!leftHasLv)           key = 'fmPrereqLvLeft';
+      else                           key = 'fmPrereqLvRight';
+      lvEl.textContent = (typeof t === 'function') ? t(key) : key;
+      lvEl.style.display = '';
+    } else {
+      lvEl.style.display = 'none';
+    }
+  }
+  if (sbEl) {
+    const hasSb = typeof lrResults !== 'undefined'
+               && lrResults
+               && Object.keys(lrResults).length > 0;
+    if (!hasSb) {
+      sbEl.textContent = (typeof t === 'function') ? t('fmPrereqSb') : 'fmPrereqSb';
+      sbEl.style.display = '';
+    } else {
+      sbEl.style.display = 'none';
+    }
+  }
+}
+
 function _fmRefreshTabState() {
   if (!fmEls) return;
   if (!fmRunning) {
@@ -846,6 +902,8 @@ function _fmRefreshTabState() {
   _fmRenderHGWarning();
   _fmRenderBlockedWarning();
   if (typeof _fmRenderCochlearFatHint === 'function') _fmRenderCochlearFatHint();
+  _fmRenderIntroText();
+  _fmRenderPrereqHints();
 }
 
 function _fmHasSliderEstimates() {
@@ -954,9 +1012,10 @@ document.addEventListener("DOMContentLoaded", () => {
     explain: {
       titleKey: 'fmTitle',
       paragraphs: [
-        { key: 'fmHintMethod',   kind: 'plain' },
-        { key: 'fmPrereqHint',  kind: 'warn'  },
-        { key: 'fmHintWarn',    kind: 'warn'  },
+        { key: 'fmHintMethod',   kind: 'plain', id: 'fmHintMethodPara'   },
+        {                        kind: 'warn',  id: 'fmPrereqLvHintPara' },
+        {                        kind: 'warn',  id: 'fmPrereqSbHintPara' },
+        { key: 'fmHintWarn',    kind: 'warn',  id: 'fmHintWarnPara'     },
         { key: 'fmHintWorkflow', kind: 'plain' }
       ]
     },
