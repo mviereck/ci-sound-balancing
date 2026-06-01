@@ -924,7 +924,8 @@ Object.assign(L.de, {
     legalLicenseError: "Lizenztext konnte nicht geladen werden.",
     legalLicenseFallbackLink: "Lizenztext im Repository öffnen",
 
-    lrNoResultsMsg: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance“ durch.",
+    snapshotHintChanged: "Hinweis: Implantat-Einstellungen wurden seit der Messung verändert. Eine neue Messung ist möglicherweise sinnvoll.", // BA 156
+    lrNoResultsMsg: "Noch keine Ergebnisse. Führen Sie erst eine Messung in „Messungen → Stereo-Balance” durch.",
     lrResTitle: "Ergebnisse L/R-Vergleich",
     lrMedianLabel: "Empfohlener Balance-Offset (Mittelwert)",
     lrResDesc: "Positiv = Rechts lauter als Links (rechts abschwächen oder links anheben). Negativ = Links lauter.",

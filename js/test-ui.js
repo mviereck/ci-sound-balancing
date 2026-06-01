@@ -87,6 +87,11 @@ function _buildTestPanelOld(parentEl, cfg) {
     explainBox.appendChild(el);
   });
 
+  // BA 156: Snapshot-Hinweis-Banner
+  var snapHintBox = _mkEl('div');
+  snapHintBox.id = 'snapHint_' + id;
+  snapHintBox.className = 'snapshot-hint-box';
+
   // -------- BLOCK 2: Voreinstellungen --------
   var presetsBox = _mkEl('div', 'card presets-box');
 
@@ -542,7 +547,7 @@ function _buildTestPanelOld(parentEl, cfg) {
   exclOverlay.appendChild(exclCard);
 
   // -------- Alles zusammenbauen --------
-  parentEl.append(explainBox, presetsBox, testBox, exclOverlay);
+  parentEl.append(explainBox, snapHintBox, presetsBox, testBox, exclOverlay);
 
   // applyLang auf alle neuen Elemente anwenden
   parentEl.querySelectorAll('[data-t]').forEach(function(el) {
@@ -594,7 +599,7 @@ function _buildTestPanelOld(parentEl, cfg) {
 
   return {
     id: id,
-    explainBox: explainBox, presetsBox: presetsBox, testBox: testBox, exclOverlay: exclOverlay,
+    explainBox: explainBox, snapHintBox: snapHintBox, presetsBox: presetsBox, testBox: testBox, exclOverlay: exclOverlay,
     // presets
     modeSelect: modeSelect, runSelect: runSelect, refSelect: refSelect,
     volInput: volInput, durInput: durInput, pauseInput: pauseInput,

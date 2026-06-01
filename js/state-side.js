@@ -489,6 +489,64 @@ function isSideUsable(side) {
   if (cfg === "ci" && (!s.manufacturer || s.manufacturer === "unknown")) return false;
   return true;
 }
+
+// BA 156: Snapshot der für Tests relevanten Implantat-Felder
+function implantSnapshot() {
+  function _sideSnap(side) {
+    const s = sideData[side];
+    if (!s) return null;
+    const deact = [];
+    const arr = s.elSt || [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "deactivated") deact.push(i);
+    }
+    return {
+      config: s.config || "unknown",
+      manufacturer: s.manufacturer || "unknown",
+      nEl: s.nEl || 0,
+      deactivatedIdx: deact,
+    };
+  }
+  return {
+    left:  _sideSnap("left"),
+    right: _sideSnap("right"),
+  };
+}
+
+function implantSnapshotsDiffer(a, b) {
+  if (!a || !b) return false;
+  function _eqSide(x, y) {
+    if (!x || !y) return false;
+    if (x.config !== y.config) return false;
+    if (x.manufacturer !== y.manufacturer) return false;
+    if (x.nEl !== y.nEl) return false;
+    const xD = x.deactivatedIdx || [], yD = y.deactivatedIdx || [];
+    if (xD.length !== yD.length) return false;
+    for (let i = 0; i < xD.length; i++) if (xD[i] !== yD[i]) return false;
+    return true;
+  }
+  return !(_eqSide(a.left, b.left) && _eqSide(a.right, b.right));
+}
+
+// BA 156: Hinweis-Banner-Helper. testKey ∈ {'lr', 'lat'}.
+function renderSnapshotHint(testKey, containerEl) {
+  if (!containerEl) return;
+  let oldSnap = null;
+  if (testKey === 'lr') {
+    oldSnap = (typeof lrSnapshot !== 'undefined') ? lrSnapshot : null;
+  } else if (testKey === 'lat') {
+    oldSnap = (typeof latencyResult !== 'undefined' && latencyResult)
+            ? latencyResult.implantSnapshot : null;
+  }
+  if (!oldSnap) { containerEl.innerHTML = ''; return; }
+  const curSnap = implantSnapshot();
+  if (!implantSnapshotsDiffer(oldSnap, curSnap)) {
+    containerEl.innerHTML = '';
+    return;
+  }
+  containerEl.innerHTML =
+    '<div class="snapshot-hint">' + t('snapshotHintChanged') + '</div>';
+}
 let _syncInProgress = false;
 function syncFreqsToAcoustic() {
   if (_syncInProgress) return;

@@ -124,6 +124,16 @@ Slider-Wert wird invertiert.
   `isSideUsable('left') && isSideUsable('right')`, ob beide Seiten
   konfiguriert sind. Fehlt eine Angabe, erscheint ein Alert-Hinweis
   und der Test startet nicht.
+- **Implantat-Änderungs-Hinweis (BA 156):** Beim ersten `lrConfirm`
+  wird ein Schnappschuß der Implantat-Felder (Hörtechnik, Hersteller,
+  Elektroden-Anzahl, deaktivierte Elektroden) als `lrSnapshot` gesichert.
+  Beim Öffnen des Reiters vergleicht `renderSnapshotHint` den gespeicherten
+  Snapshot mit dem aktuellen Stand. Bei Abweichung erscheint ein gelb-
+  orangener Hinweis-Banner oberhalb der Voreinstellungen: „Hinweis:
+  Implantat-Einstellungen wurden seit der Messung verändert. Eine neue
+  Messung ist möglicherweise sinnvoll." Bei alter Datei ohne Snapshot
+  erscheint kein Hinweis. Der Snapshot wird mit der Datei gespeichert
+  und geladen; beim Löschen der Ergebnisse wird er genullt.
 - Reihenfolge der Elektroden: zufällig / apikal→basal / basal→apikal
 - Seitenfolge: zufällig / L→R / R→L
 - Vergleicht gleiche Frequenz auf beiden Ohren
@@ -222,6 +232,12 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 4 — Latenz (latency.js)
 
+- **Implantat-Änderungs-Hinweis (BA 156):** Das `latencyResult`-Objekt
+  enthält seit BA 156 ein `implantSnapshot`-Feld (gleiche Struktur wie
+  `lrSnapshot`). `renderSnapshotHint` vergleicht diesen Snapshot beim
+  Öffnen des Latenz-Reiters mit dem aktuellen Stand und zeigt denselben
+  Hinweis-Banner wie bei Stereo-Balance. Alter Datensatz ohne Snapshot
+  → kein Hinweis.
 - Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Fein-Toggle per Touch-Bedienleiste). Auf Desktop zusätzlich Ctrl+Pfeil = 10 ms wie bisher.
 - Schieber ist **nur während laufendem Test** bedienbar (sonst disabled)
 - Klick-Intervall manuell wählbar: 100 / 200 / 500 / 1000 / 2000 ms

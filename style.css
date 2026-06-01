@@ -1723,3 +1723,13 @@ body.dbg-active .dbg-only { display: inline-block; }
 .dep-info-icon:hover {
   background-color: #fbbf24;
 }
+/* BA 156 */
+.snapshot-hint {
+  background: #fef3c7;
+  border-left: 3px solid #d97706;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.88em;
+  color: #92400e;
+}

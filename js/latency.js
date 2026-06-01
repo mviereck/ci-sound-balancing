@@ -327,6 +327,7 @@ function latApplyAsResult() {
     clickType: latClickType,
     intervalMs: latIntervalMs,
     timestamp: Date.now(),
+    implantSnapshot: (typeof implantSnapshot === 'function') ? implantSnapshot() : null, // BA 156
   };
   latApplyToPlayer();
   if (typeof latRenderResults === "function") latRenderResults();
@@ -343,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     stopBtn:       document.getElementById("latStopBtn"),
     testBox:       document.getElementById("latTestBox"),
     lockedHint:    document.getElementById("latLockedHint"),
+    snapHintBox:   document.getElementById("snapHint_lat"), // BA 156
   };
   if (!latEls.slider) return; // HTML noch nicht da
 
@@ -468,5 +470,9 @@ function latRenderResults() {
     ? t(typeKey) : (latencyResult.clickType || "");
   latResEls.context.textContent =
     `${t("latResMeasuredWith")}: ${typeLabel}, ${t("latResInterval")} ${latencyResult.intervalMs} ms`;
+  // BA 156
+  if (typeof renderSnapshotHint === 'function' && latEls && latEls.snapHintBox) {
+    renderSnapshotHint('lat', latEls.snapHintBox);
+  }
 }
 

@@ -29,6 +29,11 @@ function switchSubtab(parent, subtab) {
   if (parent === "messungen" && subtab === "balance") {
     lrCheckData();
   }
+  if (parent === "messungen" && subtab === "latenz") {
+    if (typeof renderSnapshotHint === 'function') {
+      renderSnapshotHint('lat', document.getElementById('snapHint_lat'));
+    }
+  }
   if (parent === "messungen" && subtab === "freqmatch") {
     if (typeof fmApplyLang === "function") fmApplyLang();
     if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();

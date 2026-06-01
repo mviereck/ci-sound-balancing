@@ -65,6 +65,7 @@ function resetAll() {
   if (typeof lrResults !== "undefined") {
     Object.keys(lrResults).forEach(k => delete lrResults[k]);
     if (typeof lrUndoStack !== "undefined") lrUndoStack.splice(0, lrUndoStack.length);
+    if (typeof lrSnapshot !== "undefined") lrSnapshot = null; // BA 156
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
   }
@@ -140,6 +141,7 @@ async function saveJson() {
     },
     currentSide: activeSide,
     lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+    lrSnapshot: (typeof lrSnapshot !== "undefined") ? lrSnapshot : null, // BA 156
     latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
     plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
@@ -468,6 +470,9 @@ function applyLoadedData(d) {
     Object.assign(lrResults, d.lrResults);
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
+  }
+  if (typeof lrSnapshot !== "undefined") {
+    lrSnapshot = (d && d.lrSnapshot) ? d.lrSnapshot : null; // BA 156
   }
   if (typeof latencyResult !== "undefined") {
     latencyResult = (d && d.latencyResult) ? d.latencyResult : null;

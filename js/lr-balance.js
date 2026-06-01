@@ -4,6 +4,8 @@
 
 // State
 let lrResults = {}; // {elIdx: offset_dB}  positive = right louder
+// BA 156: Schnappschuß zum Zeitpunkt der ersten LR-Messung
+let lrSnapshot = null;
 let lrSeq = []; // sequence of electrode indices to test
 let lrSeqIdx = 0;
 let lrCurrentEl = null; // current electrode index (left side numbering)
@@ -374,6 +376,10 @@ function lrConfirm() {
   // Save undo
   lrUndoStack.push({ el, prev: lrResults[el] });
   lrResults[el] = val;
+  // BA 156
+  if (lrSnapshot === null && typeof implantSnapshot === 'function') {
+    lrSnapshot = implantSnapshot();
+  }
   lrSeqIdx++;
   lrRenderResults();
   lrApplyMeanToBalance();
@@ -544,6 +550,10 @@ function lrRenderResults() {
 
   lrDrawChart();
   lrApplyMeanToBalance();
+  // BA 156
+  if (typeof renderSnapshotHint === 'function' && lrEls && lrEls.snapHintBox) {
+    renderSnapshotHint('lr', lrEls.snapHintBox);
+  }
 }
 
 function lrDrawChart() {
@@ -708,6 +718,10 @@ function lrCheckData() {
                  || (sideData.right.config || "ci") === "deaf";
     deafHint.style.display = hasDeaf ? "" : "none";
     if (hasDeaf) deafHint.textContent = t("cfgHintDeafTest");
+  }
+  // BA 156
+  if (typeof renderSnapshotHint === 'function' && lrEls && lrEls.snapHintBox) {
+    renderSnapshotHint('lr', lrEls.snapHintBox);
   }
 }
 
@@ -907,6 +921,7 @@ document.addEventListener("DOMContentLoaded", function() {
     lrClearBtn.addEventListener('click', function() {
       if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       lrResults = {};
+      lrSnapshot = null; // BA 156
       // BA 151
       if (typeof depLockApply === 'function') depLockApply();
       var lrRC = document.getElementById("lrResultsCard");
