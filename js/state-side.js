@@ -51,7 +51,7 @@ function effFreqDisplay(i, side) {
   return baseHz * Math.pow(2, cs / 1200);
 }
 let lvFocus = 0;
-let defaultMfr = "medel"; // Frequenzraster-Default wenn keine Seite CI ist
+let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
 
@@ -91,8 +91,9 @@ function bindActiveSide() {
 }
 function initSideData(side, m) {
   const s = sideData[side];
-  s.config = s.config || "ci"; // bewahren wenn schon gesetzt, sonst Default
-  s.manufacturer = m || "medel";
+  // BA 154: Default jetzt „Keine Angabe" statt „ci"/„medel"
+  s.config = s.config || "unknown";
+  s.manufacturer = m || "unknown";
   s.nEl = MFR[s.manufacturer].n;
   s.freqs = [...MFR[s.manufacturer].freqs];
   s.elSt = new Array(s.nEl).fill(null);
@@ -489,7 +490,9 @@ function syncFreqsToAcoustic() {
     if (src) {
       // Eine CI-Seite ist Quelle: andere Seite(n) spiegeln
       const other = src === "left" ? "right" : "left";
-      if ((sideData[other].config || "ci") !== "ci") {
+      // BA 154: nur akustische Konfigurationen spiegeln, nicht „unknown" oder „deaf"
+      const otherCfg = sideData[other].config || "unknown";
+      if (["hg", "normal", "shoh"].includes(otherCfg)) {
         const srcData = sideData[src];
         const otherData = sideData[other];
         otherData.nEl = srcData.nEl;
@@ -550,24 +553,25 @@ function syncFreqsToAcoustic() {
 // Konfiguration einer Seite setzen und Sync auslösen
 function setSideConfig(side, cfg) {
   sideData[side].config = cfg;
-  if (cfg !== "ci") {
-    // Wenn akustisch/taub: Daten dieser Seite bleiben, Frequenzen werden synchronisiert
+  if (cfg === "ci") {
+    // Wenn zurück zu CI: unabhängig werden — Frequenzen auf Default,
+    // Hersteller-Fallback weiterhin „unknown" (BA 154).
+    const s = sideData[side];
+    s.manufacturer = s.manufacturer || "unknown";
+    s.nEl = (MFR[s.manufacturer] && MFR[s.manufacturer].n) || 0;
+    s.freqs = (MFR[s.manufacturer] && [...MFR[s.manufacturer].freqs]) || [];
     syncFreqsToAcoustic();
   } else {
-    // Wenn zurück zu CI: unabhängig werden – Frequenzen auf Default zurücksetzen
-    const s = sideData[side];
-    s.manufacturer = s.manufacturer || "medel";
-    s.nEl = MFR[s.manufacturer].n;
-    s.freqs = [...MFR[s.manufacturer].freqs];
-    // Andere nicht-CI-Seite ebenfalls sync
+    // unknown / hg / normal / shoh / deaf: keine eigenen Frequenzen,
+    // ggf. Spiegel von der anderen CI-Seite.
     syncFreqsToAcoustic();
   }
   bindActiveSide();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
 }
-initSideData("left", "medel");
-initSideData("right", "medel");
+initSideData("left", "unknown");
+initSideData("right", "unknown");
 activeSide = "left";
 bindActiveSide();
 updateMfrSelectLabels();

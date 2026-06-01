@@ -292,6 +292,7 @@
             <div class="control-group">
               <label id="lblCfg"></label>
               <select id="cfgSelect">
+                <option value="unknown" id="cfgOptUnknown"></option>
                 <option value="ci" id="cfgOptCI"></option>
                 <option value="hg" id="cfgOptHG"></option>
                 <option value="normal" id="cfgOptNormal"></option>
@@ -315,6 +316,20 @@
             style="display:none;margin-bottom:8px"
           ></div>
 
+          <!-- Hinweis: Hörtechnik = Keine Angabe -->
+          <div
+            id="cfgHintUnknownEl"
+            class="explain"
+            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
+          ></div>
+
+          <!-- Hinweis: Hersteller = Keine Angabe -->
+          <div
+            id="mfrHintUnknownEl"
+            class="explain"
+            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
+          ></div>
+
           <!-- CI-spezifischer Block: Hersteller + Modell + Params -->
           <div id="implMfrBlock">
 
@@ -323,6 +338,7 @@
             <div class="control-group">
               <label id="lblMfr"></label>
               <select id="mfrSelect">
+                <option value="unknown" id="mfrOptUnknown">—</option>
                 <option value="medel">MED-EL (12)</option>
                 <option value="ab">Advanced Bionics (16)</option>
                 <option value="cochlear">Cochlear (22)</option>
@@ -331,7 +347,7 @@
           </div>
 
           <!-- Audioprozessor -->
-          <div class="controls-row" style="margin-bottom: 6px">
+          <div class="controls-row" id="implProcRow" style="margin-bottom: 6px">
             <div class="control-group">
               <label id="lblImplProc"></label>
               <select id="implProcSelect" style="min-width: 200px"></select>
@@ -339,7 +355,7 @@
           </div>
 
           <!-- Implantat-Modell + Generation (Cochlear) -->
-          <div class="controls-row" style="margin-bottom: 6px">
+          <div class="controls-row" id="implModelRow" style="margin-bottom: 6px">
             <div class="control-group">
               <label id="lblImplModel"></label>
               <select id="implModelSelect" style="min-width: 220px"></select>

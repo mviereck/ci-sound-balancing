@@ -17,10 +17,11 @@ function updateMfrSelectLabels() {
     es: "electrodos",
   };
   const lbl = labels[lang] || "electrodes";
+  // BA 154: opts[0] ist „Keine Angabe" (unknown), MED-EL/AB/Cochlear bei 1/2/3
   const opts = document.getElementById("mfrSelect").options;
-  if (opts[0]) opts[0].text = "MED-EL (12 " + lbl + ")";
-  if (opts[1]) opts[1].text = "Advanced Bionics (16 " + lbl + ")";
-  if (opts[2]) opts[2].text = "Cochlear (22 " + lbl + ")";
+  if (opts[1]) opts[1].text = "MED-EL (12 " + lbl + ")";
+  if (opts[2]) opts[2].text = "Advanced Bionics (16 " + lbl + ")";
+  if (opts[3]) opts[3].text = "Cochlear (22 " + lbl + ")";
 }
 const README_URLS = {
   de: "https://github.com/mviereck/ci-sound-balancing/blob/main/README_de.md",

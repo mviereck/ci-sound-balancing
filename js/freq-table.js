@@ -7,6 +7,15 @@ function buildFreqTable() {
   const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);  // BA 153
   const elPfx = cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
   const elLbl = cfg === "ci" ? t("cfgLblElCI") : t("cfgLblElAcoustic");
+  // BA 154: bei „Keine Angabe" Tabelle leeren und früh aussteigen
+  const isUnknownCfg = cfg === "unknown";
+  const isUnknownMfr = !isAcoustic && cfg === "ci"
+    && (sideData[activeSide].manufacturer === "unknown" || !sideData[activeSide].manufacturer);
+  if (isUnknownCfg || isUnknownMfr) {
+    document.getElementById("freqTH").innerHTML = "";
+    document.getElementById("freqTB").innerHTML = "";
+    return;
+  }
   const isMedel = mfr === "medel",
     isAB = mfr === "ab",
     isCoch = mfr === "cochlear";

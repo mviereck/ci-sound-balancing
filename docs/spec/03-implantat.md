@@ -1,14 +1,20 @@
 ## Implantat-Tab
 
-- **Konfigurations-Dropdown** (Hörtechnik): ci (Default), hg, normal,
-  schwerhörig, taub. Bestimmt, welche Eingabebereiche sichtbar sind.
+- **Konfigurations-Dropdown** (Hörtechnik): unknown (Default „Keine
+  Angabe"), ci, hg, normal, schwerhörig, taub. Bestimmt, welche
+  Eingabebereiche sichtbar sind.
+  **Cascade (BA 154):** Bei „Keine Angabe" wird der gesamte Implantat-
+  Block ausgeblendet; stattdessen Hinweistext „Bitte zuerst Hörtechnik
+  wählen…". Bei CI + Hersteller = „Keine Angabe" sind Modell, Prozessor
+  und Parameter ausgeblendet; Hinweistext „Bitte Hersteller wählen."
   **Sperre (BA 151):** Das Dropdown wird per `dependency-lock.js`
   gesperrt, sobald Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der
   aktiven Seite oder FreqMatch-Daten vorliegen (`fRes` nicht leer,
   `_fmHasAdaptiveData()` — also auch Laufdaten ohne konvergierten
   Match — oder `sliderEstimates` nicht leer). Klick öffnet Popup
   mit Feldname „Hörtechnik".
-- **Hersteller-Auswahl**: MED-EL / Advanced Bionics / Cochlear.
+- **Hersteller-Auswahl**: Keine Angabe (Default), MED-EL / Advanced
+  Bionics / Cochlear.
   Bestimmt Elektrodenzahl (12/16/22) und Einheit für Upper-Level
   (MCL/qu / M-Level/CU / C-Level/CL).
   **Sperre (BA 149):** Das Dropdown wird per `dependency-lock.js`

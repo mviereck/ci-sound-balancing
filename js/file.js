@@ -22,10 +22,10 @@ function resetAll() {
   if (!ch) return;
   // Reset both sides completely
   for (const s of SIDES) {
-    sideData[s].config = "ci"; // vor initSideData setzen, damit es bewahrt wird
-    sideData[s].manufacturer = "medel";
-    sideData[s].nEl = MFR["medel"].n;
-    sideData[s].freqs = [...MFR["medel"].freqs];
+    sideData[s].config = "unknown"; // vor initSideData setzen, damit es bewahrt wird
+    sideData[s].manufacturer = "unknown";
+    sideData[s].nEl = MFR["unknown"].n;
+    sideData[s].freqs = [...MFR["unknown"].freqs];
     sideData[s].elSt = new Array(sideData[s].nEl).fill(null);
     sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
@@ -35,9 +35,9 @@ function resetAll() {
     sideData[s].jRes = [];
     sideData[s].bRes = [];
     sideData[s].presets = [];
-    initSideData(s, "medel");
+    initSideData(s, "unknown");
   }
-  defaultMfr = "medel";
+  defaultMfr = "unknown";
   if (typeof audiologUserNote !== "undefined") {
     audiologUserNote = "";
     const aNoteEl = document.getElementById("audiologNoteInput");
@@ -46,11 +46,11 @@ function resetAll() {
   activeSide = "left";
   bindActiveSide();
   document.getElementById("ciSideSelect").value = "left";
-  document.getElementById("mfrSelect").value = "medel";
+  document.getElementById("mfrSelect").value = "unknown";
   const cfgSelR = document.getElementById("cfgSelect");
-  if (cfgSelR) cfgSelR.value = "ci";
+  if (cfgSelR) cfgSelR.value = "unknown";
   const dfSelR = document.getElementById("defaultMfrSelect");
-  if (dfSelR) dfSelR.value = "medel";
+  if (dfSelR) dfSelR.value = "unknown";
   document.getElementById("vol1").value = "50";
   document.getElementById("dur1").value = "1000";
   document.getElementById("pau1").value = "500";

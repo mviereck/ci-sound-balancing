@@ -171,6 +171,12 @@ function dbFromAB(mNew, mOld, tOld, idr) {
 // MANUFACTURERS
 // ============================================================
 const MFR = {
+  unknown: {
+    name: "—",
+    n: 0,
+    apFirst: true,
+    freqs: [],
+  },
   medel: {
     name: "MED-EL",
     n: 12,

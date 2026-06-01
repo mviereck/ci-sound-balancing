@@ -42,7 +42,7 @@ function buildImplantCard() {
     const lbl = document.getElementById("lblCfg");
     if (lbl) lbl.textContent = t("cfgLabel") + ":";
     const opts = {
-      cfgOptCI: "cfgCI", cfgOptHG: "cfgHG",
+      cfgOptUnknown: "cfgUnknown", cfgOptCI: "cfgCI", cfgOptHG: "cfgHG",
       cfgOptNormal: "cfgNormal", cfgOptSchwerh: "cfgSchwerh",
       cfgOptTaub: "cfgTaub",
     };
@@ -50,11 +50,30 @@ function buildImplantCard() {
       const el = document.getElementById(id);
       if (el) el.textContent = t(key);
     });
+    // BA 154: Hersteller-Option „Keine Angabe"
+    const mfrOptUnknown = document.getElementById("mfrOptUnknown");
+    if (mfrOptUnknown) mfrOptUnknown.textContent = t("mfrUnknown");
   }
 
-  // implMfrBlock ein-/ausblenden
+  // BA 154: Cascade
+  const isUnknownCfg = cfg === "unknown";
+  const isUnknownMfr = isCiCfg && (s.manufacturer === "unknown" || !s.manufacturer);
+
   const mfrBlock = document.getElementById("implMfrBlock");
   if (mfrBlock) mfrBlock.style.display = isCiCfg ? "" : "none";
+
+  // Hörtechnik-Hinweis
+  const hintCfgUn = document.getElementById("cfgHintUnknownEl");
+  if (hintCfgUn) {
+    hintCfgUn.style.display = isUnknownCfg ? "" : "none";
+    if (isUnknownCfg) hintCfgUn.textContent = t("cfgHintUnknown");
+  }
+  // Hersteller-Hinweis
+  const hintMfrUn = document.getElementById("mfrHintUnknownEl");
+  if (hintMfrUn) {
+    hintMfrUn.style.display = (isCiCfg && isUnknownMfr) ? "" : "none";
+    if (isCiCfg && isUnknownMfr) hintMfrUn.textContent = t("mfrHintUnknown");
+  }
 
   // Hinweise
   const hintAc = document.getElementById("cfgHintAcousticEl");
@@ -102,6 +121,26 @@ function buildImplantCard() {
     // Kein Hersteller-spezifischer Block nötig – früh zurück
     return;
   }
+
+  // BA 154: Sub-Blöcke bei unknown Hersteller verstecken und früh zurück
+  if (isUnknownMfr) {
+    ["implMedelParams","implAbParams","implCochParams"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = "none";
+    });
+    const gg = document.getElementById("implGenGroup");
+    if (gg) gg.style.display = "none";
+    const prRow = document.getElementById("implProcRow");
+    if (prRow) prRow.style.display = "none";
+    const mdRow = document.getElementById("implModelRow");
+    if (mdRow) mdRow.style.display = "none";
+    return;
+  }
+  // Prozessor- und Modell-Zeile einblenden (falls zuvor bei unknown versteckt)
+  const prRow = document.getElementById("implProcRow");
+  if (prRow) prRow.style.display = "";
+  const mdRow = document.getElementById("implModelRow");
+  if (mdRow) mdRow.style.display = "";
 
   // Show/hide manufacturer-specific params
   document.getElementById("implMedelParams").style.display =
