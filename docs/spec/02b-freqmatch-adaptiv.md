@@ -271,9 +271,22 @@ eingeschätzt werden …". Verschwindet erst wenn **alle** `fRes`-Einträge `fmR
 und kein Track mehr läuft — d.h. der zweite Lauf ist vollständig
 abgeschlossen.
 
-Unterhalb der Tabelle: Button „Frequenzabgleich-Ergebnisse löschen"
-(`fmrClearBtn`, rot) — löscht `fRes` und `freqmatchAdaptive` beider
-Seiten vollständig und aktualisiert die Anzeige.
+Unterhalb der Tabelle: drei Lösch-Buttons (BA 157):
+
+- **„Alle Frequenzabgleich-Ergebnisse löschen"** (`fmrClearAllBtn`, rot) —
+  löscht `fRes` vollständig und setzt `freqmatchAdaptive` beider Seiten
+  auf `null`. Entspricht dem früheren Einzelknopf.
+- **„Nur Vor-Schätzung (Slider) löschen"** (`fmrClearSliderBtn`) —
+  entfernt nur Einträge mit `method === 'slider'` aus `fRes` und
+  leert `freqmatchAdaptive.sliderEstimates` pro Seite. Adaptive Läufe
+  bleiben erhalten.
+- **„Nur Adaptiv-Ergebnisse löschen"** (`fmrClearAdaptiveBtn`) —
+  entfernt nur Einträge mit `method === 'adaptive'` aus `fRes` und
+  setzt `freqmatchAdaptive.runs = []` sowie `currentRunIdx = null`
+  pro Seite. Slider-Schätzungen bleiben erhalten.
+
+Jeder Knopf öffnet einen eigenen Bestätigungs-Dialog. Bei Abbruch
+passiert nichts.
 
 Oberhalb der Tabelle (nur bei laufender Messung):
 - **Fortschrittsbalken** — Formel siehe „Fortschritt".

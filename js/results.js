@@ -774,20 +774,61 @@ function renderFreqMatchResults() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  const fmrClearBtn = document.getElementById("fmrClearBtn");
-  if (fmrClearBtn) {
-    fmrClearBtn.addEventListener("click", function() {
-      if (!confirm(t("fmrClearConfirm") || "Alle Frequenzabgleich-Ergebnisse löschen?")) return;
+  // BA 157: drei Knöpfe statt einem
+  function _fmrRefreshAfterClear() {
+    if (typeof depLockApply === 'function') depLockApply();
+    renderFreqMatchResults();
+    if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+    if (typeof fmUpdateSliderModeAvail === "function") fmUpdateSliderModeAvail();
+  }
+
+  const allBtn = document.getElementById("fmrClearAllBtn");
+  if (allBtn) {
+    allBtn.addEventListener("click", function() {
+      if (!confirm(t("fmrClearAllConfirm") || "Alle löschen?")) return;
       fRes.splice(0, fRes.length);
       if (typeof sideData !== "undefined") {
         if (sideData.left)  sideData.left.freqmatchAdaptive  = null;
         if (sideData.right) sideData.right.freqmatchAdaptive = null;
       }
-      // BA 151 — nach vollständigem Löschen aller FreqMatch-Daten
-      if (typeof depLockApply === 'function') depLockApply();
-      renderFreqMatchResults();
-      if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
-      if (typeof fmUpdateSliderModeAvail === "function") fmUpdateSliderModeAvail();
+      _fmrRefreshAfterClear();
+    });
+  }
+
+  const sliderBtn = document.getElementById("fmrClearSliderBtn");
+  if (sliderBtn) {
+    sliderBtn.addEventListener("click", function() {
+      if (!confirm(t("fmrClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
+      for (let i = fRes.length - 1; i >= 0; i--) {
+        if (fRes[i] && fRes[i].method === 'slider') fRes.splice(i, 1);
+      }
+      if (typeof sideData !== "undefined") {
+        ['left', 'right'].forEach(function(side) {
+          const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa && fa.sliderEstimates) fa.sliderEstimates = {};
+        });
+      }
+      _fmrRefreshAfterClear();
+    });
+  }
+
+  const adaptiveBtn = document.getElementById("fmrClearAdaptiveBtn");
+  if (adaptiveBtn) {
+    adaptiveBtn.addEventListener("click", function() {
+      if (!confirm(t("fmrClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
+      for (let i = fRes.length - 1; i >= 0; i--) {
+        if (fRes[i] && fRes[i].method === 'adaptive') fRes.splice(i, 1);
+      }
+      if (typeof sideData !== "undefined") {
+        ['left', 'right'].forEach(function(side) {
+          const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa) {
+            fa.runs = [];
+            fa.currentRunIdx = null;
+          }
+        });
+      }
+      _fmrRefreshAfterClear();
     });
   }
 });
