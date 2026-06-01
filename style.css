@@ -50,20 +50,18 @@ h1 {
   vertical-align: middle;
 }
 .brand-row {
-  position: relative;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   min-height: 150px;
   margin-bottom: 14px;
 }
 .brand-logo {
-  position: absolute;
-  left: 25px;
-  top: 50%;
-  transform: translateY(-50%);
+  grid-column: 1;
+  margin-left: 25px;
 }
 .side-switch {
+  grid-column: 2;
   display: flex;
   gap: 10px;
 }
@@ -942,14 +940,18 @@ select:disabled {
     font-size: 0.84em;
   }
   .brand-row {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     min-height: auto;
     padding-top: 10px;
   }
   .brand-logo {
-    position: static;
-    transform: none;
+    margin-left: 0;
+  }
+  .side-switch {
+    grid-column: unset;
   }
   .touch-btn-sm {
     min-width: 38px;
