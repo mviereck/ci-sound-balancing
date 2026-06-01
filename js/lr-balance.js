@@ -771,6 +771,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Start
   lrEls.startBtn.addEventListener('click', function() {
+    // BA 155: Voraussetzungs-Sperre
+    if (typeof isSideUsable === 'function'
+        && (!isSideUsable('left') || !isSideUsable('right'))) {
+      alert(t('lrBlockedSideUnknown'));
+      return;
+    }
     lrBuildSequence();
     if (!lrSeq.length) {
       alert(t("lrNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");

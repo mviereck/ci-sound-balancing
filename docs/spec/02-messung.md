@@ -82,6 +82,10 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 1 — Elektrodenlautstärke ausgleichen (test.js)
 
+- **Voraussetzungs-Sperre (BA 155):** `startTest()` prüft per
+  `isSideUsable(activeSide)`, ob Hörtechnik und (bei CI) Hersteller
+  für die aktive Seite gesetzt sind. Fehlt eine Angabe, erscheint
+  ein Alert-Hinweis und der Test startet nicht.
 - **Modi**: balance (Slider) und judgment (3-Knopf-Urteil)
 - **Testverfahren**: vollständig (alle Paare) / Konvergenz schnell /
   manuell
@@ -116,6 +120,10 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 
+- **Voraussetzungs-Sperre (BA 155):** Start-Knopf-Listener prüft per
+  `isSideUsable('left') && isSideUsable('right')`, ob beide Seiten
+  konfiguriert sind. Fehlt eine Angabe, erscheint ein Alert-Hinweis
+  und der Test startet nicht.
 - Reihenfolge der Elektroden: zufällig / apikal→basal / basal→apikal
 - Seitenfolge: zufällig / L→R / R→L
 - Vergleicht gleiche Frequenz auf beiden Ohren

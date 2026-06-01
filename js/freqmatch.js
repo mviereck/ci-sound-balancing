@@ -747,6 +747,12 @@ function fmApplyLang() {
 }
 
 function _fmEvalTestEligibility() {
+  // BA 155: „Keine Angabe" / Hersteller-fehlend
+  if (typeof isSideUsable === 'function') {
+    if (!isSideUsable('left') || !isSideUsable('right')) {
+      return { blocked: true, reason: 'sideUnknown' };
+    }
+  }
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   if (leftCfg === 'deaf' || rightCfg === 'deaf') {

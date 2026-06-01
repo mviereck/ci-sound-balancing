@@ -70,6 +70,14 @@
     nicht abhakbar. „stumm" → automatisch gesetzt (BA 153), manuell
     wieder abhakbar. Andere Status: frei bedienbar.
   - Notiz-Feld
+- **Beide Seiten akustisch (BA 155):** Sind beide Seiten auf hg/normal/shoh
+  eingestellt, wird die Frequenztabelle vollständig geleert (`buildFreqTable`
+  kehrt früh zurück). An ihrer Stelle erscheint die Hinweis-Box
+  `cfgHintBothAcousticEl` mit Text „Beide Seiten akustisch — keine CI-Seite
+  konfiguriert. Frequenztabelle entfällt …". Das Default-Frequenzraster-
+  Dropdown (`defaultMfrGroup`) ist in diesem Fall (wie in allen anderen)
+  dauerhaft ausgeblendet. Die CI-abhängigen Tests (Lautstärke, Stereo-Balance,
+  Frequenzabgleich) sind gesperrt.
 - **Akustische Tabellen-Variante (BA 153):** Bei Hörtechnik hg/normal/shoh
   werden nur **8 Spalten** gezeigt: Position, Hz (CI), Cent, Play, Hold,
   Status, Ausschluß, Notiz. Spalten Hz-eigen, THR, Upper Level entfallen.

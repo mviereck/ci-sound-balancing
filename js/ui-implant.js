@@ -96,6 +96,17 @@ function buildImplantCard() {
     if (cfg === "deaf") hintDeaf.textContent = t("cfgHintDeaf");
   }
 
+  // BA 155: beide Seiten akustisch
+  const hintBothAc = document.getElementById("cfgHintBothAcousticEl");
+  if (hintBothAc) {
+    const leftCfg  = sideData.left.config  || "unknown";
+    const rightCfg = sideData.right.config || "unknown";
+    const isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+    const bothAcoustic = isAc(leftCfg) && isAc(rightCfg);
+    hintBothAc.style.display = bothAcoustic ? "" : "none";
+    if (bothAcoustic) hintBothAc.textContent = t("cfgHintBothAcoustic");
+  }
+
   // Deaf-Hinweis im Test-Bereich
   const deafTestHint = document.getElementById("cfgDeafTestHintEl");
   if (deafTestHint) {
@@ -108,9 +119,7 @@ function buildImplantCard() {
   // Default-Frequenzraster-Dropdown
   const dfGroup = document.getElementById("defaultMfrGroup");
   if (dfGroup) {
-    const bothNonCI = (sideData.left.config || "ci") !== "ci"
-                   && (sideData.right.config || "ci") !== "ci";
-    dfGroup.style.display = bothNonCI ? "" : "none";
+    dfGroup.style.display = "none";
     const lblDfMfr = document.getElementById("lblDefaultMfr");
     if (lblDfMfr) lblDfMfr.textContent = t("cfgDefaultLabel") + ":";
     const dfSel = document.getElementById("defaultMfrSelect");

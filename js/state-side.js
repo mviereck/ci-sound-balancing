@@ -481,6 +481,14 @@ function getFreqSource() {
   if (rCfg === "ci" && lCfg !== "ci") return "right";
   return null; // beide CI (unabhängig) oder beide nicht-CI (Default)
 }
+function isSideUsable(side) {
+  const s = sideData[side];
+  if (!s) return false;
+  const cfg = s.config || "unknown";
+  if (cfg === "unknown") return false;
+  if (cfg === "ci" && (!s.manufacturer || s.manufacturer === "unknown")) return false;
+  return true;
+}
 let _syncInProgress = false;
 function syncFreqsToAcoustic() {
   if (_syncInProgress) return;

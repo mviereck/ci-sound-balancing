@@ -607,6 +607,10 @@ Object.assign(L.de, {
     fmHGWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
     fmBlocked_sideDeaf:    "Eine Seite ist als gehörlos eingetragen. Der Frequenzabgleich vergleicht die Tonhöhenwahrnehmung beider Seiten; auf einer gehörlosen Seite ist keine Vergleichswahrnehmung möglich. Der Test ist deshalb gesperrt.",
     fmBlocked_bothAcoustic: "Beide Seiten sind akustisch versorgt (Normalhören, Schwerhörigkeit oder Hörgerät). Der Frequenzabgleich vergleicht eine CI-Frequenz gegen eine Referenz — bei beidseitig akustischer Versorgung gibt es nichts auszugleichen. Der Test ist deshalb gesperrt.",
+    fmBlocked_sideUnknown:  "Bitte zuerst Hörtechnik und Hersteller für beide Seiten festlegen.",
+    testBlockedSideUnknown: "Bitte Hörtechnik und Hersteller für diese Seite wählen, bevor der Test gestartet wird.",
+    lrBlockedSideUnknown:   "Bitte Hörtechnik (und ggf. Hersteller) für beide Seiten wählen, bevor der Stereo-Balance-Test gestartet wird.",
+    cfgHintBothAcoustic:    "Beide Seiten akustisch — keine CI-Seite konfiguriert. Frequenztabelle entfällt, weil kein CI-Frequenzraster vorhanden ist. Die Tests, die ein CI brauchen, sind nicht verfügbar.",
     fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
     fmSubtabLabel: "Frequenzabgleich",
@@ -810,6 +814,7 @@ Object.assign(L.de, {
     lrRunningTitle: "Stereo-Balance-Test läuft",
     lrRunningHint: "Passen Sie die Lautstärke an, bis sich beide Seiten gleich laut anhören.",
     lrPrereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
+    lrNoElMsg: "Keine gemeinsamen aktiven Elektroden gefunden.",
     latPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmHintWorkflow:

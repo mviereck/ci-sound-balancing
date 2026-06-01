@@ -784,6 +784,11 @@ function _testSwap() {
 }
 
 function startTest() {
+  // BA 155
+  if (typeof isSideUsable === 'function' && !isSideUsable(activeSide)) {
+    alert(t('testBlockedSideUnknown'));
+    return;
+  }
   if (!testEls) return;
   const pt = testEls.runSelect ? testEls.runSelect.value : "full";
   testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";

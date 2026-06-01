@@ -16,6 +16,15 @@ function buildFreqTable() {
     document.getElementById("freqTB").innerHTML = "";
     return;
   }
+  // BA 155: beide Seiten akustisch — Tabelle leeren
+  const leftCfg2  = sideData.left.config  || "unknown";
+  const rightCfg2 = sideData.right.config || "unknown";
+  const _isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+  if (_isAc(leftCfg2) && _isAc(rightCfg2)) {
+    document.getElementById("freqTH").innerHTML = "";
+    document.getElementById("freqTB").innerHTML = "";
+    return;
+  }
   const isMedel = mfr === "medel",
     isAB = mfr === "ab",
     isCoch = mfr === "cochlear";
