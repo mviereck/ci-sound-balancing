@@ -8,8 +8,12 @@
   **Sperre (BA 149):** Das Dropdown wird per `dependency-lock.js`
   gesperrt (`.dep-locked`, grauer Hintergrund, „not-allowed"-Cursor),
   sobald Meßergebnisse vorliegen, die durch einen Hersteller-Wechsel
-  ungültig würden: Lautstärke-Daten der aktiven Seite, Lautstärke-Daten
-  der anderen Seite (wenn akustisch), Frequenzabgleich-Daten (`fRes`).
+  ungültig würden: Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der aktiven
+  Seite, Lautstärke-Test-Ergebnisse der anderen Seite (wenn akustisch),
+  Frequenzabgleich-Daten (`fRes`/`sliderEstimates`). Manuell gesetzte
+  Schieber-Korrekturen (`manualLevels`) sperren nicht — sie sind
+  Einstellungen, keine Meßergebnisse, und werden beim Wechsel ohnehin
+  auf Null gesetzt.
   Klick auf das gesperrte Feld öffnet ein kontextuelles Popup mit
   Auflistung der blockierenden Daten und Hinweis zum Löschen/Reset.
   Ersetzt den früheren `confirm()`-Dialog.

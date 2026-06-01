@@ -592,8 +592,6 @@ function lvTabOnSchieberChange(i, newVal) {
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   lvTabDraw();
-  // BA 149
-  if (typeof depLockApply === 'function') depLockApply();
 }
 
 function lvTabResetAll() {
@@ -602,8 +600,6 @@ function lvTabResetAll() {
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
   lvTabDraw();
-  // BA 149
-  if (typeof depLockApply === 'function') depLockApply();
 }
 
 // ---------- DOM-Listener (Klick, Toggle, Resize) ----------

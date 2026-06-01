@@ -27,8 +27,7 @@ const DEP_LOCK_RULES = [
       // Eigene Lautstärke-Daten der aktiven Seite
       const ownHasLoud =
         (s.bRes && s.bRes.length > 0) ||
-        (s.jRes && s.jRes.length > 0) ||
-        (s.manualLevels && s.manualLevels.some(function(v) { return v !== 0; }));
+        (s.jRes && s.jRes.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       // Andere Seite akustisch → Hersteller-Wechsel zieht Frequenzraster mit
       const other = activeSide === 'left' ? 'right' : 'left';
