@@ -707,6 +707,8 @@ function fmFinishAdaptive() {
   fmUpdateSliderModeAvail();
   fmRefreshResumeHint();
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 
 function fmRenderStatusGrid() {

@@ -166,6 +166,8 @@ function fmConfirm() {
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
   }
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 
 function fmSkip() {

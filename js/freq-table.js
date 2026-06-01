@@ -207,22 +207,9 @@ function switchMfr(m) {
   const s = sideData[activeSide];
   const oldMfr = s.manufacturer;
   if (m === oldMfr) return;
-  // Prüfen ob Daten verloren gehen (eigene oder andere nicht-CI Seite)
-  const ownHasData = (s.bRes && s.bRes.length > 0)
-    || (s.jRes && s.jRes.length > 0)
-    || (s.manualLevels && s.manualLevels.some(v => v !== 0));
-  const other = activeSide === "left" ? "right" : "left";
-  const otherSync = (sideData[other].config || "ci") !== "ci";
-  const otherHasData = otherSync && (
-    (sideData[other].bRes && sideData[other].bRes.length > 0)
-    || (sideData[other].jRes && sideData[other].jRes.length > 0)
-  );
-  if (ownHasData || otherHasData) {
-    if (!confirm(t("cfgWarnMfrSwitch"))) {
-      document.getElementById("mfrSelect").value = oldMfr;
-      return;
-    }
-  }
+  // BA 149: Datenschutz erfolgt jetzt über die Sperre in dependency-lock.js
+  // (Sperrt das Dropdown bereits, wenn relevante Meßergebnisse vorliegen).
+  // Erreicht der Code diesen Punkt, ist das Feld nicht gesperrt — Wechsel frei.
   s.manufacturer = m;
   s.nEl = MFR[m].n;
   s.freqs = [...MFR[m].freqs];
@@ -263,6 +250,8 @@ function switchMfr(m) {
   syncFreqsToAcoustic();
   buildFreqTable();
   buildImplantCard();
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 function resetFreqs() {
   freqs = [...MFR[mfr].freqs];

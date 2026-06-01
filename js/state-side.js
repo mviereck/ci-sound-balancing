@@ -86,6 +86,8 @@ function bindActiveSide() {
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
   fullSweepDonePairs = s.fullSweepDonePairs || [];
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 function initSideData(side, m) {
   const s = sideData[side];
@@ -561,6 +563,8 @@ function setSideConfig(side, cfg) {
     syncFreqsToAcoustic();
   }
   bindActiveSide();
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 initSideData("left", "medel");
 initSideData("right", "medel");

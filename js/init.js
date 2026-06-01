@@ -894,4 +894,6 @@ document.addEventListener("DOMContentLoaded", () => {
     _suppressHashPush = false;
   }
   if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 });

@@ -76,6 +76,8 @@ function resetAll() {
   renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
   alert(t("resetDone"));
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
 }
 
 async function saveJson() {
@@ -330,6 +332,8 @@ function loadJson(file) {
         loadSideData("right", d.sides.right);
         activeSide = SIDES.includes(d.currentSide) ? d.currentSide : "left";
         applyLoadedData(d);
+        // BA 149
+        if (typeof depLockApply === 'function') depLockApply();
       }
       // Altes Format – Modal zur Seitenwahl anzeigen
       else {
@@ -340,6 +344,8 @@ function loadJson(file) {
           loadOldFormat(d, side);
           activeSide = side;
           applyLoadedData(d);
+          // BA 149
+          if (typeof depLockApply === 'function') depLockApply();
         };
         document.getElementById("loadSideLeft").onclick = () => doLoad("left");
         document.getElementById("loadSideRight").onclick = () =>

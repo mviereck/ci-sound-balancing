@@ -5,6 +5,14 @@
 - **Hersteller-Auswahl**: MED-EL / Advanced Bionics / Cochlear.
   Bestimmt Elektrodenzahl (12/16/22) und Einheit für Upper-Level
   (MCL/qu / M-Level/CU / C-Level/CL).
+  **Sperre (BA 149):** Das Dropdown wird per `dependency-lock.js`
+  gesperrt (`.dep-locked`, grauer Hintergrund, „not-allowed"-Cursor),
+  sobald Meßergebnisse vorliegen, die durch einen Hersteller-Wechsel
+  ungültig würden: Lautstärke-Daten der aktiven Seite, Lautstärke-Daten
+  der anderen Seite (wenn akustisch), Frequenzabgleich-Daten (`fRes`).
+  Klick auf das gesperrte Feld öffnet ein kontextuelles Popup mit
+  Auflistung der blockierenden Daten und Hinweis zum Löschen/Reset.
+  Ersetzt den früheren `confirm()`-Dialog.
 - **Audio-Prozessor-Modell**: Dropdown, herstellerspezifisch.
 - **Implantat-Modell + Generation**: Dropdown. Bei Cochlear bestimmt
   das Modell automatisch die Generation A (alte Stromformel,

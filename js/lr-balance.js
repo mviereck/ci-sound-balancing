@@ -422,6 +422,8 @@ function lrFinish() {
     lrEls.stopBtn.disabled = true;
   }
   lockTestTabs(false, null);
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
   lrRenderResults();
   lrApplyMeanToBalance();
 }
@@ -435,6 +437,8 @@ function lrStop() {
     lrEls.stopBtn.disabled = true;
   }
   lockTestTabs(false, null);
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
   lrRenderResults();
 }
 

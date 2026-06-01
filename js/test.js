@@ -862,6 +862,8 @@ function endTest() {
     testEls.testBox.hidden = true;
   }
   lockTestTabs(false, null);
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
   stopTmr();
 }
 function showMode() {
@@ -1147,6 +1149,8 @@ function afterManRes() {
   testAct = false;
   curPlayed = false;
   lockTestTabs(false, null);
+  // BA 149
+  if (typeof depLockApply === 'function') depLockApply();
   renderResults();
 }
 
