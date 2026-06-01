@@ -662,7 +662,106 @@ function fmApplyLang() {
   if (fmEls.header && fmEls.header.startBtn) {
     fmRefreshResumeHint();
   }
+  _fmRenderHGWarning();
+  _fmRenderBlockedWarning();
   _fmRenderCochlearFatHint();
+}
+
+function _fmEvalTestEligibility() {
+  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
+  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
+  if (leftCfg === 'deaf' || rightCfg === 'deaf') {
+    return { blocked: true, reason: 'sideDeaf' };
+  }
+  function isAcoustic(c) { return c === 'normal' || c === 'shoh' || c === 'hg'; }
+  if (isAcoustic(leftCfg) && isAcoustic(rightCfg)) {
+    return { blocked: true, reason: 'bothAcoustic' };
+  }
+  return { blocked: false, reason: null };
+}
+
+function _fmAutoSetRefMode() {
+  if (!fmEls || !fmEls.header || !fmEls.header.refSelect) return;
+  // Schutz: solange Daten vorliegen, refSelect nicht implizit umstellen —
+  // ein manueller Wechsel löst dann den fmRCDlg-Bestätigungsdialog aus.
+  if (fRes.length > 0) return;
+  if (_fmHasAdaptiveData()) return;
+  if (_fmHasSliderEstimates()) return;
+  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
+  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
+  const leftIsCI  = (leftCfg  === 'ci');
+  const rightIsCI = (rightCfg === 'ci');
+  if (leftIsCI && !rightIsCI) {
+    fmEls.header.refSelect.value = 'right';
+  } else if (rightIsCI && !leftIsCI) {
+    fmEls.header.refSelect.value = 'left';
+  }
+}
+
+function _fmRenderHGWarning() {
+  if (!_fmParentEl) return;
+  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
+  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
+  const hasHG = (leftCfg === 'hg') || (rightCfg === 'hg');
+  // HG-Warnung nur zeigen wenn Test nicht ohnehin geblockt ist
+  const blocked = _fmEvalTestEligibility().blocked;
+  let warn = document.getElementById('fmHGWarning');
+  if (!hasHG || blocked) {
+    if (warn) warn.remove();
+    return;
+  }
+  if (!warn) {
+    warn = document.createElement('div');
+    warn.id = 'fmHGWarning';
+    warn.className = 'info-box info-box-warn';
+    warn.style.marginBottom = '14px';
+    _fmParentEl.insertBefore(warn, _fmParentEl.firstChild);
+  }
+  warn.textContent = (typeof t === 'function') ? t('fmHGWarn') : 'Hörgerät konfiguriert.';
+}
+
+function _fmRenderBlockedWarning() {
+  if (!_fmParentEl) return;
+  const ev = _fmEvalTestEligibility();
+  let warn = document.getElementById('fmBlockedWarning');
+  const startBtn = (fmEls && fmEls.header) ? fmEls.header.startBtn : null;
+  if (!ev.blocked) {
+    if (warn) warn.remove();
+    // Start-Knopf nur freigeben, wenn kein Test läuft. Während fmRunning
+    // verwaltet _startTest/_stopTest startBtn.disabled selbst (BA 145).
+    if (startBtn && !fmRunning) startBtn.disabled = false;
+    return;
+  }
+  if (!warn) {
+    warn = document.createElement('div');
+    warn.id = 'fmBlockedWarning';
+    warn.className = 'info-box info-box-warn';
+    warn.style.marginBottom = '14px';
+    _fmParentEl.insertBefore(warn, _fmParentEl.firstChild);
+  }
+  const key = 'fmBlocked_' + ev.reason; // 'fmBlocked_sideDeaf' | 'fmBlocked_bothAcoustic'
+  warn.textContent = (typeof t === 'function') ? t(key) : 'Test gesperrt.';
+  if (startBtn) startBtn.disabled = true;
+}
+
+function _fmRefreshTabState() {
+  if (!fmEls) return;
+  if (!fmRunning) {
+    _fmAutoSetRefMode();
+    fmLoadVerfahrenFromSide();
+  }
+  if (typeof fmRefreshResumeHint === 'function') fmRefreshResumeHint();
+  _fmRenderHGWarning();
+  _fmRenderBlockedWarning();
+  if (typeof _fmRenderCochlearFatHint === 'function') _fmRenderCochlearFatHint();
+}
+
+function _fmHasSliderEstimates() {
+  return ['left', 'right'].some(function(side) {
+    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+    const est = fa && typeof fa.sliderEstimates === 'object' && fa.sliderEstimates;
+    return !!(est && Object.keys(est).length > 0);
+  });
 }
 
 function _fmHasAdaptiveData() {
@@ -906,7 +1005,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(fmLoadVerfahrenFromSide, 0);
   });
   fmEls.header.refSelect.addEventListener('change', function() {
-    if (fRes.length > 0 || _fmHasAdaptiveData()) {
+    if (fRes.length > 0 || _fmHasAdaptiveData() || _fmHasSliderEstimates()) {
       fmRCOkBtn.onclick = function() {
         fmRCDlg.classList.remove('active');
         fRes.splice(0, fRes.length);
@@ -928,7 +1027,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Texte initial setzen
   fmApplyLang();
 
+  if (!fmRunning) _fmAutoSetRefMode();
   fmLoadVerfahrenFromSide();
   fmRefreshResumeHint();
+  _fmRenderHGWarning();
+  _fmRenderBlockedWarning();
   _fmRenderCochlearFatHint();
 });

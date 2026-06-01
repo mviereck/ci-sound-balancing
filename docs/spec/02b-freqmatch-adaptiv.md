@@ -410,6 +410,12 @@ verwendet:
   („Der Slider-Test wurde nur teilweise abgeschlossen — trotzdem adaptiv
   starten?").
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
+  **Auto-Default (BA 146)**: Beim Öffnen des Tabs wird `refSelect`
+  automatisch auf die akustische Seite gesetzt, wenn genau eine Seite
+  als CI und die andere als akustisch (`normal` / `shoh` / `hg`)
+  konfiguriert ist — aber nur, wenn `fRes` leer ist und keine adaptiven
+  Testdaten vorliegen. Sobald Daten vorhanden sind, bleibt das Dropdown
+  unverändert; ein manueller Wechsel löst den Bestätigungsdialog aus.
 - `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
   Slider- und adaptiven Modus). Kürzere Töne erzwingen Bauch-Antworten
   und mindern Timbre-Analyse — wichtig, weil CI-Stimulation und akustischer
@@ -433,6 +439,26 @@ verwendet:
   ist die Confidence.
 - `slider`, `sliderValue`, `cumulativeDisplay`, `confirmBtn`: im
   adaptiven Modus nicht zeigen.
+
+**Konfigurationsabhängige Warn- und Sperrzustände (BA 146)**
+
+Werden beim Tab-Öffnen und bei jedem Sprachwechsel neu ausgewertet:
+
+- **Hörgeräte-Warnung** (`#fmHGWarning`, gelbe Info-Box oben im Panel):
+  Erscheint, wenn eine Seite als `'hg'` konfiguriert ist **und der Test
+  nicht ohnehin geblockt ist** (d. h. die Sperre hat Vorrang). Weist
+  darauf hin, daß Hörgeräte-Kompressor und Frequenzformung die
+  Tonhöhenwahrnehmung verzerren können und Frequenzabgleich-Ergebnisse
+  daher weniger verlässlich sind.
+
+- **Test-Sperre** (`#fmBlockedWarning`, gelbe Info-Box + `startBtn`
+  disabled): Greift in zwei Fällen:
+  - Eine Seite ist als `'deaf'` konfiguriert → kein Vergleichsohr
+    vorhanden.
+  - Beide Seiten sind akustisch (`normal` / `shoh` / `hg`) → kein
+    CI-Ohr, nichts abzugleichen.
+  Sobald die Konfiguration wieder testbar ist, wird der Start-Knopf
+  automatisch freigegeben (sofern kein Test läuft).
 
 ### Erklärungstext (i18n DE)
 

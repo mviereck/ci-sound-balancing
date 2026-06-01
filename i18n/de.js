@@ -601,6 +601,9 @@ Object.assign(L.de, {
       "Bei Korrekturen über ±5 dB pro Elektrode: Compliance-Grenzen prüfen · Loudness-Growth-Function kann sich verändern · stimulationsbasierte Verifikation zwingend.",
     implPrintModelMissing:
       "Bitte Implantat-Modell wählen – Generation unbekannt, Berechnung nicht möglich.",
+    fmHGWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
+    fmBlocked_sideDeaf:    "Eine Seite ist als gehörlos eingetragen. Der Frequenzabgleich vergleicht die Tonhöhenwahrnehmung beider Seiten; auf einer gehörlosen Seite ist keine Vergleichswahrnehmung möglich. Der Test ist deshalb gesperrt.",
+    fmBlocked_bothAcoustic: "Beide Seiten sind akustisch versorgt (Normalhören, Schwerhörigkeit oder Hörgerät). Der Frequenzabgleich vergleicht eine CI-Frequenz gegen eine Referenz — bei beidseitig akustischer Versorgung gibt es nichts auszugleichen. Der Test ist deshalb gesperrt.",
     fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
     fmSubtabLabel: "Frequenzabgleich",
