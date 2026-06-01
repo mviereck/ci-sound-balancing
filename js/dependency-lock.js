@@ -213,15 +213,22 @@ function depLockShowPopup(el) {
     return '<li>' + label + '</li>';
   }).join('');
   var titleSuffix = (typeof t === 'function') ? t('depLockedTitle') : 'kann gerade nicht geändert werden';
-  var bodyText    = (typeof t === 'function') ? t('depLockedBody')  : 'Die Änderung würde folgende Meßergebnisse ungültig machen:';
-  var footerText  = (typeof t === 'function') ? t('depLockedFooter') : 'Erst diese Ergebnisse löschen oder das Tool zurücksetzen.';
-  popup.innerHTML =
-    '<div class="dep-popup-title">' + fieldLabel + ' ' + titleSuffix + '</div>' +
-    '<div class="dep-popup-body">' +
-      '<div>' + bodyText + '</div>' +
-      '<ul>' + reasonHtml + '</ul>' +
-      '<div>' + footerText + '</div>' +
-    '</div>';
+  // BA 153: data-dep-simple → nur Titel + Grund, kein Meßdaten-Boilerplate
+  if (el.dataset.depSimple) {
+    popup.innerHTML =
+      '<div class="dep-popup-title">' + fieldLabel + ' ' + titleSuffix + '</div>' +
+      (reasonHtml ? '<div class="dep-popup-body"><ul>' + reasonHtml + '</ul></div>' : '');
+  } else {
+    var bodyText    = (typeof t === 'function') ? t('depLockedBody')  : 'Die Änderung würde folgende Meßergebnisse ungültig machen:';
+    var footerText  = (typeof t === 'function') ? t('depLockedFooter') : 'Erst diese Ergebnisse löschen oder das Tool zurücksetzen.';
+    popup.innerHTML =
+      '<div class="dep-popup-title">' + fieldLabel + ' ' + titleSuffix + '</div>' +
+      '<div class="dep-popup-body">' +
+        '<div>' + bodyText + '</div>' +
+        '<ul>' + reasonHtml + '</ul>' +
+        '<div>' + footerText + '</div>' +
+      '</div>';
+  }
   // Positionierung: unter dem gesperrten Element
   var rect = el.getBoundingClientRect();
   popup.style.left = (rect.left + window.scrollX) + 'px';

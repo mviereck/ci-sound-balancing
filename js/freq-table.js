@@ -4,6 +4,7 @@
 function buildFreqTable() {
   const im = sideData[activeSide].implant || {};
   const cfg = sideData[activeSide].config || "ci";
+  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);  // BA 153
   const elPfx = cfg === "ci" ? t("cfgLblEnCI") : t("cfgLblEnAcoustic");
   const elLbl = cfg === "ci" ? t("cfgLblElCI") : t("cfgLblElAcoustic");
   const isMedel = mfr === "medel",
@@ -14,8 +15,21 @@ function buildFreqTable() {
     : isCoch
       ? t("implCLvlHdr")
       : t("implMLvlHdr");
-  document.getElementById("freqTH").innerHTML =
-    `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th title="${t("thCentTip")}">${t("thCent")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+  if (isAcoustic) {
+    // BA 153: 8 Spalten ohne Hz-eigen, THR, Upper
+    document.getElementById("freqTH").innerHTML =
+      `<th>${elLbl}</th>` +
+      `<th>${t("thHzCi")}</th>` +
+      `<th title="${t("thCentTip")}">${t("thCent")}</th>` +
+      `<th>${t("thPlay")}</th>` +
+      `<th>${t("thHold")}</th>` +
+      `<th>${t("thSt")}</th>` +
+      `<th style="white-space:nowrap">${t("thExclCb")}</th>` +
+      `<th>${t("thNote")}</th>`;
+  } else {
+    document.getElementById("freqTH").innerHTML =
+      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th title="${t("thCentTip")}">${t("thCent")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+  }
   const tb = document.getElementById("freqTB");
   tb.innerHTML = "";
   // BA 152: Prüfung, ob Meßdaten den Status „im CI deaktiviert"-Wechsel sperren
@@ -48,6 +62,54 @@ function buildFreqTable() {
     "width:60px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em";
   for (let i = 0; i < nEl; i++) {
     const tr = document.createElement("tr");
+    // BA 153: akustischer Branch
+    if (isAcoustic) {
+      let ex = "";
+      if (i === 0) ex = ` <span class="el-extra">(${t("apikal")})</span>`;
+      if (i === nEl - 1) ex = ` <span class="el-extra">(${t("basal")})</span>`;
+      // Spiegel-Ausschluß aus CI-Gegenseite
+      const ciSide = activeSide === "left" ? "right" : "left";
+      const ciIsActive = (sideData[ciSide].config || "ci") === "ci";
+      const ciMirroredExcl = ciIsActive && (
+        (sideData[ciSide].elSt && sideData[ciSide].elSt[i] === "deactivated") ||
+        (sideData[ciSide].elExDur && sideData[ciSide].elExDur[i] != null)
+      );
+      // Hz und Cent aus effektiver CI-Frequenz (inkl. Nutzereingaben)
+      const ciEffHz = Math.round(withSide(ciSide, () => effFreq(i)));
+      const centVal = Math.round(hzToCent(withSide(ciSide, () => effFreq(i))));
+      const centTxt = (centVal > 0 ? "+" : "") + centVal;
+      const ownExcl = elExDur[i] != null;
+      const effExcl = ownExcl || ciMirroredExcl;
+      if (effExcl) tr.style.opacity = "0.55";
+      // Status-Optionen ohne „im CI deaktiviert", mit akustischer Wortwahl
+      const so_ac =
+        `<option value="">${t("acStOk")}</option>` +
+        `<option value="noisyLess">${t("acStMildImpaired")}</option>` +
+        `<option value="noisyMore">${t("acStMediumImpaired")}</option>` +
+        `<option value="noisyHeavy">${t("acStStrongImpaired")}</option>` +
+        `<option value="almostMute">${t("acStAlmostMute")}</option>` +
+        `<option value="mute">${t("acStMute")}</option>`;
+      // Checkbox: bei Spiegel-Ausschluß fest + Popup-Daten für Klick/Touch
+      const cbAttrs = ciMirroredExcl
+        ? ' disabled title="' + t('exclCiMirrored') + '"'
+        : '';
+      const ecTdAttrs = ciMirroredExcl
+        ? ' data-dep-field-label="depFieldExclCiMirrored" data-dep-reasons="exclCiMirrored" data-dep-simple="1"'
+        : '';
+      tr.innerHTML =
+        `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
+        `<td style="color:#999;font-family:var(--mono);font-size:.86em;padding:4px 6px">${ciEffHz}</td>` +
+        `<td style="color:#999;font-family:var(--mono);font-size:.86em;padding:4px 6px;text-align:right">${centTxt}</td>` +
+        `<td><button class="pbtn" data-a="play" data-i="${i}">&#9654;</button></td>` +
+        `<td><button class="pbtn" data-a="hold" data-i="${i}">&#9724;</button></td>` +
+        `<td><select class="ss" data-i="${i}">${so_ac}</select></td>` +
+        `<td style="text-align:center"${ecTdAttrs}><input type="checkbox" class="ec" data-i="${i}"${effExcl ? " checked" : ""}${cbAttrs}></td>` +
+        `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
+      tb.appendChild(tr);
+      tr.querySelector(".ss").value = elSt[i] || "";
+      continue;
+    }
+    // === Ende akustischer Branch — ab hier CI-Logik (unverändert) ===
     let ex = "";
     if (i === 0) ex = ` <span class="el-extra">(${t("apikal")})</span>`;
     if (i === nEl - 1) ex = ` <span class="el-extra">(${t("basal")})</span>`;
@@ -164,10 +226,11 @@ function buildFreqTable() {
       const idx = +e.target.dataset.i,
         val = e.target.value || null;
       elSt[idx] = val;
-      if (val === "deactivated") {
+      // BA 153: Auto-Ausschluß bei „deactivated" UND „mute" (CI- und akustisch)
+      if (val === "deactivated" || val === "mute") {
         elExDur[idx] = elExDur[idx] || Date.now();
       }
-      // If status changed away from deactivated, do NOT auto-clear elExDur
+      // Status-Wechsel weg von „deactivated"/„mute" entfernt elExDur NICHT
       buildFreqTable();
       updRef();
       // BA 152
@@ -182,6 +245,14 @@ function buildFreqTable() {
       updRef();
     }),
   );
+  // BA 153: Spiegel-Ausschluß Klick-/Touch-Popup
+  tb.querySelectorAll("td[data-dep-simple]").forEach((td) => {
+    ["mousedown", "touchstart"].forEach((evt) => {
+      td.addEventListener(evt, (e) => {
+        if (typeof depLockShowPopup === "function") depLockShowPopup(td);
+      }, true);
+    });
+  });
   tb.querySelectorAll(".ni").forEach((n) =>
     n.addEventListener("change", (e) => {
       elNt[+e.target.dataset.i] = e.target.value;

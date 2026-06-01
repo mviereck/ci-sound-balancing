@@ -60,9 +60,24 @@
     gewohnte Sperr-Popup mit Feldname `depFieldStatus` und den
     zutreffenden Reason-Keys. Andere Status-Wechsel (ok ↔ verrauscht
     ↔ stumm) sind weiterhin frei.
-  - Ausschluss-Checkbox (deaktivierte Elektroden automatisch
-    ausgeschlossen)
+  - Ausschluss-Checkbox: „im CI deaktiviert" → automatisch gesetzt,
+    nicht abhakbar. „stumm" → automatisch gesetzt (BA 153), manuell
+    wieder abhakbar. Andere Status: frei bedienbar.
   - Notiz-Feld
+- **Akustische Tabellen-Variante (BA 153):** Bei Hörtechnik hg/normal/shoh
+  werden nur **8 Spalten** gezeigt: Position, Hz (CI), Cent, Play, Hold,
+  Status, Ausschluß, Notiz. Spalten Hz-eigen, THR, Upper Level entfallen.
+  Status-Dropdown zeigt akustische Wortwahl (ok / leicht beeinträchtigt /
+  mittel beeinträchtigt / stark beeinträchtigt / fast stumm / stumm),
+  kein „im CI deaktiviert". Hz-Werte sind read-only und zeigen die
+  **effektive** Frequenz der CI-Gegenseite (inkl. Nutzereingaben, via
+  `withSide(ciSide, () => effFreq(i))`); Spaltenüberschrift „Hz (CI)".
+  Spiegel-Ausschluß: wenn auf der CI-Gegenseite eine Elektrode als
+  „deaktiviert" oder manuell ausgeschlossen markiert ist, ist die
+  entsprechende akustische Frequenz automatisch und unveränderlich
+  ausgeschlossen (Checkbox disabled). Hover zeigt `title`-Tooltip;
+  Klick/Touch öffnet dep-lock-Popup (`data-dep-simple`-Modus: nur Titel
+  + Grund, kein Meßdaten-Boilerplate). Umgekehrt keine Wirkung.
 - Werte stehen in `sideData[side].implant.thr[i]` und `.mcl[i]`
   (MED-EL) bzw. `.upperLevel[i]` (Cochlear/AB).
 - Eingaben sind optional. Ohne THR/Upper-Level zeigt der Druck die
