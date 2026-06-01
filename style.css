@@ -1696,3 +1696,30 @@ body.dbg-active .dbg-only { display: inline-block; }
   margin: 6px 0;
   padding-left: 20px;
 }
+
+/* ============================================================
+   DEP-INFO-ICON (BA 152) — kleines Begründungs-Symbol
+   neben teil-gesperrten Dropdowns
+   ============================================================ */
+.dep-info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background-color: #fde68a;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: serif;
+  font-style: italic;
+  cursor: pointer;
+  vertical-align: middle;
+  user-select: none;
+  line-height: 1;
+}
+.dep-info-icon:hover {
+  background-color: #fbbf24;
+}

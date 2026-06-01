@@ -50,6 +50,16 @@
   - Play- und Hold-Buttons (Einzelton anhören)
   - Status-Dropdown: ok, leicht/mittel/stark verrauscht, fast stumm,
     stumm, deaktiviert
+    **Sperre (BA 152):** Wechsel auf/von „im CI deaktiviert" wird
+    gesperrt, sobald Meßdaten vorliegen (Lautstärke-Test oder
+    FreqMatch-Ergebnisse). Konkret: wenn aktueller Status ≠ „im CI
+    deaktiviert", ist nur diese Option disabled; wenn aktueller Status
+    = „im CI deaktiviert", sind alle anderen Optionen disabled. Bei
+    aktiver Sperre erscheint ein kleines Info-Symbol (`.dep-info-icon`,
+    oranges Kreis-„i") neben dem Dropdown; Klick/Tap öffnet das
+    gewohnte Sperr-Popup mit Feldname `depFieldStatus` und den
+    zutreffenden Reason-Keys. Andere Status-Wechsel (ok ↔ verrauscht
+    ↔ stumm) sind weiterhin frei.
   - Ausschluss-Checkbox (deaktivierte Elektroden automatisch
     ausgeschlossen)
   - Notiz-Feld

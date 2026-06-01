@@ -245,6 +245,14 @@ document.addEventListener('mousedown', function(e) {
     depLockShowPopup(target);
     return;
   }
+  // BA 152: Info-Icon — Popup zeigen, aber kein Blockieren
+  var icon = e.target.closest('.dep-info-icon');
+  if (icon) {
+    e.preventDefault();
+    e.stopPropagation();
+    depLockShowPopup(icon);
+    return;
+  }
   // Klick außerhalb des Popups schließt es
   if (!e.target.closest('#depLockPopup')) depLockHidePopup();
 }, true);
@@ -256,6 +264,14 @@ document.addEventListener('touchstart', function(e) {
     e.preventDefault();
     e.stopPropagation();
     depLockShowPopup(target);
+    return;
+  }
+  // BA 152: Info-Icon
+  var icon = e.target.closest('.dep-info-icon');
+  if (icon) {
+    e.preventDefault();
+    e.stopPropagation();
+    depLockShowPopup(icon);
   }
 }, { capture: true, passive: false });
 

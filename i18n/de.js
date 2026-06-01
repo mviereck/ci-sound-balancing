@@ -749,6 +749,7 @@ Object.assign(L.de, {
     depFieldCfg: "Hörtechnik",
     depFieldHzEigen: "Hz-eigen",
     depFieldRefSide: "Referenzseite",
+    depFieldStatus: "Status „im CI deaktiviert“",
     cfgHintAcoustic: "Diese Seite ist akustisch. Das Frequenzraster wird von der CI-Seite übernommen.",
     cfgHintAcousticDefault: "Diese Seite ist akustisch. Es wird das Standard-Frequenzraster verwendet.",
     cfgHintDeaf: "Diese Seite ist als taub konfiguriert. Audio wird auf dieser Seite nicht zu hören sein.",
