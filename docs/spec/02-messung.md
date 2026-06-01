@@ -132,7 +132,9 @@ Slider-Wert wird invertiert.
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite
 - Referenzseite-Auswahl (LINKS/RECHTS = welche Seite ist Restgehör)
-- Bei Wechsel des Referenzohrs nach vorhandenen Ergebnissen:
+- Bei Wechsel des Referenzohrs nach vorhandenen Ergebnissen
+  (klassische `fRes`-Einträge **oder** adaptive Laufdaten in
+  `sideData[*].freqmatchAdaptive.runs`):
   Bestätigungsdialog, Verwerfen der bisherigen Ergebnisse
 - Ergebnis-Diagramm (`drawFreqMatchChart` in `chart.js`):
   - **Begriffe:** *Ist* = die im Implantat einprogrammierte Frequenz der

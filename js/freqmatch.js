@@ -665,6 +665,17 @@ function fmApplyLang() {
   _fmRenderCochlearFatHint();
 }
 
+function _fmHasAdaptiveData() {
+  return ['left', 'right'].some(function(side) {
+    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+    return !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
+      return r.tracks && Object.keys(r.tracks).some(function(k) {
+        return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
+      });
+    }));
+  });
+}
+
 function fmUpdateSliderModeAvail() {
   if (!fmEls) return;
   const _varSide = (fmEls.header && fmEls.header.refSelect)
@@ -895,7 +906,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(fmLoadVerfahrenFromSide, 0);
   });
   fmEls.header.refSelect.addEventListener('change', function() {
-    if (fRes.length > 0) {
+    if (fRes.length > 0 || _fmHasAdaptiveData()) {
       fmRCOkBtn.onclick = function() {
         fmRCDlg.classList.remove('active');
         fRes.splice(0, fRes.length);

@@ -1384,6 +1384,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     lockTestTabs(true, id);
     // Verfahren-Dropdown sperren
     if (verfahrenSelect) verfahrenSelect.disabled = true;
+    if (refSelect) refSelect.disabled = true;
     // Start-/Stop-Button-Zustand
     startBtn.disabled = true;
     stopBtn.disabled = false;
@@ -1415,6 +1416,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     lockTestTabs(false, null);
     // Verfahren-Dropdown entsperren
     if (verfahrenSelect) verfahrenSelect.disabled = false;
+    if (refSelect) refSelect.disabled = false;
     // Start-/Stop-Button-Zustand
     startBtn.disabled = false;
     stopBtn.disabled = true;
