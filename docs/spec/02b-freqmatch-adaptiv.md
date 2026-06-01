@@ -427,10 +427,16 @@ verwendet:
   Platzhalter `fmVarSide='left'`, `fmRefSide='right'`).
   Voraussetzung für symmetrischen Test: beide Seiten müssen dieselben
   aktiven Elektroden-Indices haben (sonst Mismatch-Alert `fmSymmetricElMismatch`
-  + Abbruch). Audiowiedergabe noch nicht implementiert — Teststart im Modus
-  „Symmetrisch" zeigt Stub-Alert „Audiowiedergabe wird in der nächsten
-  Version aktiviert" und bricht ab (gilt für Slider und Adaptiv). Volle
-  Implementierung in BA 148.
+  + Abbruch).
+  **SYMMETRISCH-Audiowiedergabe (BA 148)**: Beide Verfahren (Slider und
+  Adaptiv) sind voll funktionsfähig. Audio: `playL = leftBase × 2^(−offset/2/1200)`,
+  `playR = rightBase × 2^(+offset/2/1200)` — Offset wird symmetrisch auf beide
+  Seiten verteilt. Catch-Trials verteilen `catchInfo.direction` je ±½ auf beide
+  Seiten. Slider-Anzeige: beide Pair-Indikatoren zeigen Elektroden-Label mit
+  Mittenfrequenz; `sliderValue` zeigt `+N Cent (L: X Hz / R: Y Hz)`. Daten-
+  speicherung: `refSide: 'symmetric'`, `entry.cent` enthält den Match-Offset
+  (positiv = rechts klingt höher). `fmPrevCent` liest symmetric-Einträge
+  korrekt über `entry.cent`. Ergebnis-Anzeige und Druck folgen in BA 149.
   **Elektroden-Sperre auch im LEFT/RIGHT-Modus**: Wenn beide Seiten CI sind
   und die aktiven Elektroden-Indices nicht übereinstimmen, wird der Test
   ebenfalls blockiert (Alert `fmElMismatch`, gilt für Slider und Adaptiv).

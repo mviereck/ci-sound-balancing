@@ -41,11 +41,6 @@ function fmStartAdaptive() {
       fmEls._stopTest();
       return;
     }
-    // Audio kommt in BA 148. Vorerst Stub-Alert + Stop.
-    alert((typeof t === 'function' && t('fmSymmetricNotYet'))
-      || 'Symmetrischer Modus: Audiowiedergabe wird in der nächsten Version aktiviert.');
-    fmEls._stopTest();
-    return;
   }
 
   if ((sideData.left  && sideData.left.config)  === 'ci' &&
@@ -284,13 +279,28 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
     await new Promise(function(r) { setTimeout(r, 60); });
   }
 
-  const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
-  const refHz  = elFreq * Math.pow(2, track.currentOffset / 1200);
-  // normaler Trial: varHz = elFreq (CI-Elektrode statisch)
-  // Catch-Trial:    varHz = refHz * 2^(±500/1200) — ±500 cent von ref
-  const varHz  = catchInfo
-    ? refHz * Math.pow(2, catchInfo.direction / 1200)
-    : elFreq;
+  let refHz, varHz;
+  if (fmSymmetric) {
+    const varBase = withSide('left',  function() { return effFreq(track.electrodeIdx); });
+    const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
+    const halfOff = track.currentOffset / 2;
+    if (catchInfo) {
+      // Catch im symmetric: catchInfo.direction wird halbiert auf beide Seiten verteilt,
+      // sodass die Gesamtdifferenz zwischen den zwei Tönen catchInfo.direction Cent beträgt.
+      const halfCatch = catchInfo.direction / 2;
+      varHz = varBase * Math.pow(2, (-halfOff - halfCatch) / 1200);
+      refHz = refBase * Math.pow(2, (+halfOff + halfCatch) / 1200);
+    } else {
+      varHz = varBase * Math.pow(2, -halfOff / 1200);
+      refHz = refBase * Math.pow(2, +halfOff / 1200);
+    }
+  } else {
+    const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+    refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
+    // normaler Trial: varHz = elFreq (CI-Elektrode statisch)
+    // Catch-Trial:    varHz = refHz * 2^(±500/1200) — ±500 cent von ref
+    varHz = catchInfo ? refHz * Math.pow(2, catchInfo.direction / 1200) : elFreq;
+  }
 
   const vol = fmGVol();
   const ms  = fmGDur();
@@ -561,14 +571,25 @@ function _fmRemoveResult(elIdx) {
   // Andere Läufe könnten noch ein Ergebnis liefern → Aggregat prüfen.
   const agg = _fmAggregateRunsForElectrode(fmVarSide, elIdx);
   if (agg.cent != null) {
-    const varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
-    const refHz = varHz * Math.pow(2, agg.cent / 1200);
-    const existingIdx = fRes.findIndex(function(r) {
-      return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
-    });
+    let varHz, refHz, _refSideOut, existingIdx;
+    if (fmSymmetric) {
+      varHz = withSide('left',  function() { return effFreq(elIdx); });
+      refHz = withSide('right', function() { return effFreq(elIdx); });
+      _refSideOut = 'symmetric';
+      existingIdx = fRes.findIndex(function(r) {
+        return r.refSide === 'symmetric' && r.elIdx === elIdx;
+      });
+    } else {
+      varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
+      refHz = varHz * Math.pow(2, agg.cent / 1200);
+      _refSideOut = fmRefSide;
+      existingIdx = fRes.findIndex(function(r) {
+        return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+      });
+    }
     const entry = {
       varSide:               fmVarSide,
-      refSide:               fmRefSide,
+      refSide:               _refSideOut,
       elIdx:                 elIdx,
       varFreq:               varHz,
       refFreq:               refHz,
@@ -583,34 +604,51 @@ function _fmRemoveResult(elIdx) {
       fmRunsCount:           agg.runsCount,
       fmStatusLast:          agg.fmStatusLast
     };
+    if (fmSymmetric) entry.cent = Math.round(agg.cent);
     if (existingIdx >= 0) fRes[existingIdx] = entry;
     else                  fRes.push(entry);
     _fmDbg('fRes keep via agg: side=' + fmVarSide + ' el=' + elIdx
+         + (fmSymmetric ? ' [SYM]' : '')
          + ' (not-perceivable im aktuellen Lauf, andere Läufe haben Daten)');
     return;
   }
   const idx = fRes.findIndex(function(r) {
-    return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+    return fmSymmetric
+      ? (r.refSide === 'symmetric' && r.elIdx === elIdx)
+      : (r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx);
   });
   if (idx >= 0) fRes.splice(idx, 1);
-  _fmDbg('fRes remove: side=' + fmVarSide + ' el=' + elIdx + ' (not-perceivable)');
+  _fmDbg('fRes remove: side=' + fmVarSide + ' el=' + elIdx
+       + (fmSymmetric ? ' [SYM]' : '')
+       + ' (not-perceivable)');
 }
 
 function _fmWriteResult(track) {
   const elIdx = track.electrodeIdx;
-  const varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
   const agg   = _fmAggregateRunsForElectrode(fmVarSide, elIdx);
 
-  const refHz = (agg.cent != null)
-    ? varHz * Math.pow(2, agg.cent / 1200)
-    : null;
+  let varHz, refHz, _refSideOut, existingIdx;
+  if (fmSymmetric) {
+    varHz = withSide('left',  function() { return effFreq(elIdx); });
+    refHz = withSide('right', function() { return effFreq(elIdx); });
+    _refSideOut = 'symmetric';
+    existingIdx = fRes.findIndex(function(r) {
+      return r.refSide === 'symmetric' && r.elIdx === elIdx;
+    });
+  } else {
+    varHz = withSide(fmVarSide, function() { return effFreq(elIdx); });
+    refHz = (agg.cent != null)
+      ? varHz * Math.pow(2, agg.cent / 1200)
+      : null;
+    _refSideOut = fmRefSide;
+    existingIdx = fRes.findIndex(function(r) {
+      return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
+    });
+  }
 
-  const existingIdx = fRes.findIndex(function(r) {
-    return r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx;
-  });
   const entry = {
     varSide:               fmVarSide,
-    refSide:               fmRefSide,
+    refSide:               _refSideOut,
     elIdx:                 elIdx,
     varFreq:               varHz,
     refFreq:               refHz,
@@ -625,9 +663,13 @@ function _fmWriteResult(track) {
     fmRunsCount:           agg.runsCount,
     fmStatusLast:          agg.fmStatusLast
   };
+  if (fmSymmetric) {
+    entry.cent = (agg.cent != null) ? Math.round(agg.cent) : null;
+  }
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
   _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx
+       + (fmSymmetric ? ' [SYM]' : '')
        + ' cent=' + (agg.cent != null ? agg.cent.toFixed(1) : 'null')
        + ' resid=' + (agg.fmResiduum != null ? agg.fmResiduum.toFixed(1) : 'null')
        + ' runs=' + agg.runsCount);

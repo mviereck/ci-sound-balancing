@@ -8,11 +8,22 @@
 function fmUpdateSliderDisplay() {
   if (!fmEls || fmCurrentEl === null) return;
   const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
+  const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
+  const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
+  if (fmSymmetric) {
+    const leftBase  = withSide('left',  function() { return effFreq(fmCurrentEl); });
+    const rightBase = withSide('right', function() { return effFreq(fmCurrentEl); });
+    const playL = leftBase  * Math.pow(2, -fmCentOffset / 2 / 1200);
+    const playR = rightBase * Math.pow(2, +fmCentOffset / 2 / 1200);
+    if (slRefs && slRefs.sliderValue) {
+      slRefs.sliderValue.textContent = centStr + " " + centUnit
+        + " (L: " + playL.toFixed(0) + " Hz / R: " + playR.toFixed(0) + " Hz)";
+    }
+    return;
+  }
   const varHz = fmVarHz(fmCurrentEl);
   const refHz = fmFreqFromCents(varHz, fmCentOffset);
-  const centStr = (fmCentOffset >= 0 ? "+" : "") + Math.round(fmCentOffset);
   const hzStr = refHz.toFixed(2);
-  const centUnit = (typeof t === 'function' && t("fmCentUnit")) || "Cent";
   if (slRefs && slRefs.sliderValue) {
     slRefs.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
   }
@@ -28,14 +39,25 @@ function fmUpdateSliderDisplay() {
 function fmShowElectrode() {
   if (!fmEls || fmCurrentEl === null) return;
   const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
-  const varHz = fmVarHz(fmCurrentEl);
-  const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
-  const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
-    varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
   const pi = _fmSliderPI();
-  if (pi) {
-    if (fmVarSide === "left") pi.left.textContent = varText;
-    else                      pi.right.textContent = varText;
+  if (fmSymmetric) {
+    const leftHz  = withSide('left',  function() { return effFreq(fmCurrentEl); });
+    const rightHz = withSide('right', function() { return effFreq(fmCurrentEl); });
+    if (pi) {
+      const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(fmCurrentEl); });
+      const rightLabel = withSide('right', function() { return dENPrefix() + dEN(fmCurrentEl); });
+      pi.left.textContent  = leftLabel  + ", " + leftHz.toFixed(2)  + " Hz (" + t("sideLeft")  + ")";
+      pi.right.textContent = rightLabel + ", " + rightHz.toFixed(2) + " Hz (" + t("sideRight") + ")";
+    }
+  } else {
+    const varHz = fmVarHz(fmCurrentEl);
+    const varSideLabel = fmVarSide === "left" ? t("sideLeft") : t("sideRight");
+    const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
+      varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
+    if (pi) {
+      if (fmVarSide === "left") pi.left.textContent = varText;
+      else                      pi.right.textContent = varText;
+    }
   }
   if (slRefs && slRefs.slider) {
     testUI.slider.setValue(slRefs.slider, fmCentOffset);
@@ -72,10 +94,11 @@ function fmStartSlider() {
       fmEls._stopTest();
       return;
     }
-    // Audio kommt in BA 148. Vorerst Stub-Alert + Stop.
-    alert((typeof t === 'function' && t('fmSymmetricNotYet'))
-      || 'Symmetrischer Modus: Audiowiedergabe wird in der nächsten Version aktiviert.');
-    fmEls._stopTest();
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      _fmDoStartSlider,
+      function() { if (fmEls) fmEls._stopTest(); }
+    );
     return;
   }
   if ((sideData.left  && sideData.left.config)  === 'ci' &&
@@ -131,7 +154,7 @@ function fmConfirm() {
     store[String(fmCurrentEl)] = {
       cent:    Math.round(fmCentOffset),
       varSide: fmVarSide,
-      refSide: fmRefSide,
+      refSide: fmSymmetric ? 'symmetric' : fmRefSide,
       varFreq: varHz,
       timestamp: Date.now(),
     };

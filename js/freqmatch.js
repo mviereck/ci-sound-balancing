@@ -284,6 +284,9 @@ function fmBuildSeqSymmetric() {
 // Vorherige Messung für diese Elektrode (in Cent), falls vorhanden
 function fmPrevCent(elIdx) {
   // 1) Vorhandene Slider-Vor-Schätzung hat höchste Priorität.
+  //    sliderEstimates wird im symmetric-Modus in sideData.left.* abgelegt
+  //    (BA 147 Konvention fmVarSide='left'); kein zusätzlicher refSide-Filter
+  //    nötig, weil Modus-Wechsel die Daten ohnehin löscht (BA 145 fmRCDlg).
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (store && store[String(elIdx)] != null) {
@@ -291,10 +294,17 @@ function fmPrevCent(elIdx) {
     if (typeof c === 'number' && isFinite(c)) return Math.round(c);
   }
   // 2) Sonst fRes-Eintrag.
-  const existing = fRes.find(
-    (r) => r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx
+  const existing = fRes.find((r) => fmSymmetric
+    ? (r.refSide === 'symmetric' && r.elIdx === elIdx)
+    : (r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx)
   );
   if (!existing) return 0;
+  // Im symmetric ist entry.cent der gespeicherte Match-Offset (positiv = rechts höher).
+  // varFreq/refFreq sind dort die rohen Mittenfrequenzen — fmCents(varFreq, refFreq)
+  // würde die Hz-Differenz der Mittenfrequenzen liefern, nicht den Match-Offset.
+  if (fmSymmetric && typeof existing.cent === 'number' && isFinite(existing.cent)) {
+    return Math.round(existing.cent);
+  }
   return Math.round(fmCents(existing.varFreq, existing.refFreq));
 }
 
@@ -330,8 +340,16 @@ async function fmPlayCurrent() {
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise((r) => setTimeout(r, 60));
   }
-  const varHz = fmVarHz(fmCurrentEl);
-  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  let varHz, refHz;
+  if (fmSymmetric) {
+    const varBase = withSide('left',  function() { return effFreq(fmCurrentEl); });
+    const refBase = withSide('right', function() { return effFreq(fmCurrentEl); });
+    varHz = varBase * Math.pow(2, -fmCentOffset / 2 / 1200);
+    refHz = refBase * Math.pow(2, +fmCentOffset / 2 / 1200);
+  } else {
+    varHz = fmVarHz(fmCurrentEl);
+    refHz = fmFreqFromCents(varHz, fmCentOffset);
+  }
   const vol = fmGVol();
   const ms = fmGDur();
   const pau = fmGPau();
@@ -409,11 +427,26 @@ async function fmPlaySimultaneous() {
       await new Promise((r) => setTimeout(r, 60));
     }
     const track  = fmTracks[fmCurTrackId];
-    const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
-    const refHz  = elFreq * Math.pow(2, track.currentOffset / 1200);
-    const varHz  = fmCurCatchInfo
-      ? refHz * Math.pow(2, fmCurCatchInfo.direction / 1200)
-      : elFreq;
+    let refHz, varHz;
+    if (fmSymmetric) {
+      const varBase = withSide('left',  function() { return effFreq(track.electrodeIdx); });
+      const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
+      const halfOff = track.currentOffset / 2;
+      if (fmCurCatchInfo) {
+        const halfCatch = fmCurCatchInfo.direction / 2;
+        varHz = varBase * Math.pow(2, (-halfOff - halfCatch) / 1200);
+        refHz = refBase * Math.pow(2, (+halfOff + halfCatch) / 1200);
+      } else {
+        varHz = varBase * Math.pow(2, -halfOff / 1200);
+        refHz = refBase * Math.pow(2, +halfOff / 1200);
+      }
+    } else {
+      const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
+      refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
+      varHz = fmCurCatchInfo
+        ? refHz * Math.pow(2, fmCurCatchInfo.direction / 1200)
+        : elFreq;
+    }
     const vol    = fmGVol();
     const ms     = fmGDur();
     const refPan = fmRefSide === "left" ? -1 : 1;
@@ -448,8 +481,16 @@ async function fmPlaySimultaneous() {
     await new Promise((r) => setTimeout(r, 60));
   }
   const c = gAC();
-  const varHz = fmVarHz(fmCurrentEl);
-  const refHz = fmFreqFromCents(varHz, fmCentOffset);
+  let varHz, refHz;
+  if (fmSymmetric) {
+    const varBase = withSide('left',  function() { return effFreq(fmCurrentEl); });
+    const refBase = withSide('right', function() { return effFreq(fmCurrentEl); });
+    varHz = varBase * Math.pow(2, -fmCentOffset / 2 / 1200);
+    refHz = refBase * Math.pow(2, +fmCentOffset / 2 / 1200);
+  } else {
+    varHz = fmVarHz(fmCurrentEl);
+    refHz = fmFreqFromCents(varHz, fmCentOffset);
+  }
   const vol = fmGVol();
   const ms = fmGDur();
   const refPan = fmRefSide === "left" ? -1 : 1;

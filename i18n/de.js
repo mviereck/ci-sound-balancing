@@ -604,7 +604,6 @@ Object.assign(L.de, {
     fmElMismatch:          "Frequenzabgleich nicht möglich: Auf beiden Seiten müssen dieselben Elektroden aktiv sein. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
     fmSymmetricOption:     "Symmetrisch (bilateral CI)",
     fmSymmetricElMismatch: "Symmetrischer Modus nicht möglich: Beide Seiten müssen dieselben aktiven Elektroden haben. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
-    fmSymmetricNotYet:     "Symmetrischer Modus: Audiowiedergabe wird in der nächsten Version aktiviert.",
     fmHGWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
     fmBlocked_sideDeaf:    "Eine Seite ist als gehörlos eingetragen. Der Frequenzabgleich vergleicht die Tonhöhenwahrnehmung beider Seiten; auf einer gehörlosen Seite ist keine Vergleichswahrnehmung möglich. Der Test ist deshalb gesperrt.",
     fmBlocked_bothAcoustic: "Beide Seiten sind akustisch versorgt (Normalhören, Schwerhörigkeit oder Hörgerät). Der Frequenzabgleich vergleicht eine CI-Frequenz gegen eine Referenz — bei beidseitig akustischer Versorgung gibt es nichts auszugleichen. Der Test ist deshalb gesperrt.",
