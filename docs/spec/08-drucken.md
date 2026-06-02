@@ -56,8 +56,11 @@ ohne Inhalt weggelassen. Der Bericht ist sprach-aktuell — der
 Sprachwechsel im Tool wechselt auch die Markdown-Sprache.
 
 Druck-Pfad: gemeinsamer Datensammler `collectArchivData()` plus
-`renderArchivPrintHtml(data)`. Der Bericht enthält dieselben
-Sektionen wie der Markdown-Export, ergänzt um eingebettete
+`renderArchivPrintHtml(data)`. Direkt nach dem Kopf erscheint — falls
+`audiologUserNote` nicht leer — die persönliche Notiz (H2 „Notiz",
+via `_audiologUserNoteBlock()`), identisch zum Audiologen-Bericht.
+Der Bericht enthält dieselben Sektionen wie der Markdown-Export,
+ergänzt um eingebettete
 PNG-Grafiken zu jeder Sektion, in der Werte ≠ 0 vorliegen:
 Messungen Elektrodenlautstärke, Schieber, Kurven,
 Frequenzabgleich (pro Seite); Stereo-Balance bilateral; Player-EQ
@@ -104,9 +107,12 @@ Der Korrektur-Bericht ist gegliedert in:
 
 1. Kopf (Datum, Side-Auswahl) + Tool-Version-Zeile (italic, mit Domain
    www.ci-sound-balancing.org).
-2. EQ-aus-Hinweis (Blockquote), falls Player-EQ deaktiviert — direkt
-   unter Tool-Version-Zeile.
-3. Bilateraler Block — Sektionen, die beide Seiten gleichermaßen
+2. Persönliche Notiz (H2 „Notiz" + Text direkt ohne Blockquote-Prefix,
+   i18n-Key `audiologSecNote`) — nur wenn `audiologUserNote` nicht leer.
+   Bei leerer Notiz entfällt der Block vollständig.
+3. EQ-aus-Hinweis (Blockquote), falls Player-EQ deaktiviert — direkt
+   unter Notiz-Block (bzw. Tool-Version-Zeile, wenn keine Notiz).
+4. Bilateraler Block — Sektionen, die beide Seiten gleichermaßen
    betreffen, in fester Reihenfolge (vor den Pro-Seite-Blöcken):
    - „Hinweise für den Audiologen" (H2, 5 Bullets; letzter: Bitte um vollständiges Anpassungsprotokoll für den Klienten nach Ende der Sitzung).
    - „Fehlende Implantat-Angaben" (H2) — falls Implantat-Daten
@@ -165,11 +171,13 @@ Der Korrektur-Bericht ist gegliedert in:
      Suffix in der Überschrift („— Links" / „— Rechts"). Vor der
      ersten H3 erscheint ein kursiver Hinweissatz
      (`audiologFreqSymHint`), der die Doppelung erklärt.
-5. Nach dem letzten Pro-Seite-Block folgt nichts mehr — kein Footer,
+6. Nach dem letzten Pro-Seite-Block folgt nichts mehr — kein Footer,
    keine weiteren Sektionen.
 
-Persönliche Notiz und Allgemeine Bitten (Fitting-Report) erscheinen
-**nicht** im Korrektur-Bericht — sie wandern in den Brief (BA 43).
+Allgemeine Bitten (Fitting-Report) erscheinen **nicht** im Korrektur-Bericht.
+Die persönliche Notiz (`audiologUserNote`) erscheint seit BA 162 als
+Block 2 direkt nach dem Kopf — sowohl im Markdown-Export als auch im
+HTML-Druck.
 Kein Footer mit Tool-Version; Versions-Info steht im Kopf.
 
 Testprogramm-Heuristik: EQ aktiv, NH-Sim aus, und Standardabweichung

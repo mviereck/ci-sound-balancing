@@ -388,6 +388,7 @@ function _collectSaetze() {
 function renderArchivMarkdown(data) {
   const parts = [
     _archivMdHeader(data),
+    _audiologUserNoteBlock(),
     _archivMdConfig(data),
     _archivMdImplantTables(data),
     _archivMdGlobalTest(data),
@@ -1088,6 +1089,13 @@ function _audiologConfigLabel(side) {
 
 // ---------- Haupt-Generator ----------
 
+function _audiologUserNoteBlock() {
+  if (typeof audiologUserNote !== "string") return "";
+  const txt = audiologUserNote.trim();
+  if (!txt) return "";
+  return `## ${t("audiologSecNote")}\n\n${txt}\n`;
+}
+
 function buildAudiologMarkdown() {
   const now = new Date();
   const dateStr = now.toLocaleString(
@@ -1107,6 +1115,12 @@ function buildAudiologMarkdown() {
     parts.push(`_${t("audiologToolVersionLine").replace("{VERSION}", APP_VERSION)}_`);
   }
   parts.push("");
+
+  // ---- Persönliche Notiz des Patienten ganz oben ----
+  const _note = _audiologUserNoteBlock();
+  if (_note) {
+    parts.push(_note);
+  }
 
   // ---- EQ aus ----
   if (typeof plEqOn !== "undefined" && !plEqOn) {

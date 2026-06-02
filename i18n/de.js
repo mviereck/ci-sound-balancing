@@ -374,6 +374,7 @@ Object.assign(L.de, {
     audiologTitle: "Einstellungswünsche an den Audiologen",
     audiologDesc: "Wiedergabe der Einstellungen gemäß dem Player: Die Einstellungen sollen bewirken, daß Sie genau so hören, wie wenn Sie etwas im Player abspielen.",
     audiologNoteLabel: "Persönliche Notiz an den Audiologen (optional)",
+    audiologSecNote: "Notiz",
     audiologNotePlaceholder: "z.B. ‚E11 rauscht seit zwei Wochen stärker als sonst.'",
     audiologHintSide: "Bitte auf die Side-Auswahl im Player (Links/Rechts/Beide) achten — der Bericht enthält nur die ausgewählte(n) Seite(n).",
     audiologHintWarp: "Frequenz-Empfehlungen erscheinen nur, wenn im Player Frequenz-Warping aktiv ist.",
