@@ -580,7 +580,7 @@ Object.assign(L.fr, {
     testInRound: "Test dans ce tour :",
     confQualityLabel: "Qualité de la mesure :",
     footerImprint: "Mentions légales",
-    footerLicense: "Licence MIT",
+    footerLicense: "GNU GPL v2+",
     legalClose: "Fermer",
     legalLoading: "Chargement du texte de licence …",
     legalLicenseError: "Le texte de la licence n'a pas pu être chargé.",

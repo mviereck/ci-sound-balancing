@@ -580,7 +580,7 @@ Object.assign(L.es, {
     testInRound: "Prueba en esta ronda:",
     confQualityLabel: "Calidad de la medición:",
     footerImprint: "Aviso legal",
-    footerLicense: "Licencia MIT",
+    footerLicense: "GNU GPL v2+",
     legalClose: "Cerrar",
     legalLoading: "Cargando texto de licencia …",
     legalLicenseError: "No se ha podido cargar el texto de la licencia.",

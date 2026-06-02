@@ -21,7 +21,7 @@
 - **Links** (links) — Letzter Top-Level-Tab. Zwei Karten: (1) „Ressourcen rund um CI und Hören" — externe Projekte und Tools (eira, Pico-ASHA, HearWell, Binaural CI Alignment, asha_pipewire_sink, MUSIC REHAB, Online Tone Generator, Hör-Wiki, Project Gutenberg) als `<article class="link-entry">`-Blöcke mit Homepage- und/oder Projektseite-Link plus Beschreibung. (2) „Quellen für verwendete Audiodateien" — Thorsten-Voice, Common Voice (mit inoffiziellem Mirror auf Hugging Face), OpenSLR. Alle Links öffnen in neuem Tab (`target="_blank" rel="noopener noreferrer"`). i18n-Schlüssel: `tabLinks`, `linksTitle`, `linksIntro`, `linksHomepageLabel`, `linksProjectLabel`, `linksWebsiteLabel`, `linksMirrorLabel`, `linksAudioTitle`, `linksAudioIntro` sowie pro Eintrag `links<Name>Desc`. Tab wird wie alle Top-Level-Tabs während laufender Tests gesperrt. Nicht Teil des „Alles drucken"-Ablaufs. CSS-Klassen: `.link-entry`, `.link-entry-urls` in style.css.
 - **Slogan-Karte** — außerhalb aller Panels, immer sichtbar (unter jedem Tab). Enthält den kursiven Slogan-Text (`supportSlogan`). CSS-Klasse `.support-card-slogan`.
 - **Footer** — am Seitenende, immer sichtbar. Enthält Versions-Tag,
-  Impressum, MIT-Lizenz, GitHub-Link. Impressum-Inhalt fix deutsch
+  Impressum, GNU GPL v2+ (GPL-2.0-or-later), GitHub-Link. Impressum-Inhalt fix deutsch
   (rechtliche Pflicht); Footer-Labels in allen vier UI-Sprachen.
 
 ## Tab-Sperre L1 — Voraussetzungs-Sperre (BA 172)

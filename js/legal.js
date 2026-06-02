@@ -35,7 +35,7 @@ function _legalBuildImprintBody() {
     'GitHub-Datenschutzerklärung</a>.</p>' +
 
     '<p><strong>Lizenz und Quellcode</strong><br>' +
-    'Veröffentlicht unter der MIT-Lizenz. Quellcode: ' +
+    'Veröffentlicht unter der GNU General Public License v2 oder neuer (GPL-2.0-or-later). Quellcode: ' +
     '<a href="https://github.com/mviereck/ci-sound-balancing" target="_blank" rel="noopener noreferrer">' +
     'github.com/mviereck/ci-sound-balancing</a></p>';
   return html;
