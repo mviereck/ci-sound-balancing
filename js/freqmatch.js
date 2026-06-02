@@ -744,7 +744,6 @@ function fmApplyLang() {
     fmRefreshResumeHint();
   }
   _fmRenderHGWarning();
-  _fmRenderBlockedWarning();
   _fmRenderCochlearFatHint();
   _fmRenderIntroText();
   _fmRenderPrereqHints();
@@ -791,7 +790,7 @@ function _fmAutoSetRefMode() {
     });
     if (hasSym) fmEls.header.refSelect.value = 'symmetric';
   }
-  // beide akustisch: kein Override (Sperre wird durch _fmRenderBlockedWarning behandelt).
+  // beide akustisch: kein Override (Sperre wird durch L1-Tab-Sperre BA 172 behandelt).
 }
 
 function _fmRenderHGWarning() {
@@ -814,30 +813,6 @@ function _fmRenderHGWarning() {
     _fmParentEl.insertBefore(warn, _fmParentEl.firstChild);
   }
   warn.textContent = (typeof t === 'function') ? t('fmHGWarn') : 'Hörgerät konfiguriert.';
-}
-
-function _fmRenderBlockedWarning() {
-  if (!_fmParentEl) return;
-  const ev = _fmEvalTestEligibility();
-  let warn = document.getElementById('fmBlockedWarning');
-  const startBtn = (fmEls && fmEls.header) ? fmEls.header.startBtn : null;
-  if (!ev.blocked) {
-    if (warn) warn.remove();
-    // Start-Knopf nur freigeben, wenn kein Test läuft. Während fmRunning
-    // verwaltet _startTest/_stopTest startBtn.disabled selbst (BA 145).
-    if (startBtn && !fmRunning) startBtn.disabled = false;
-    return;
-  }
-  if (!warn) {
-    warn = document.createElement('div');
-    warn.id = 'fmBlockedWarning';
-    warn.className = 'info-box info-box-warn';
-    warn.style.marginBottom = '14px';
-    _fmParentEl.insertBefore(warn, _fmParentEl.firstChild);
-  }
-  const key = 'fmBlocked_' + ev.reason; // 'fmBlocked_sideDeaf' | 'fmBlocked_bothAcoustic'
-  warn.textContent = (typeof t === 'function') ? t(key) : 'Test gesperrt.';
-  if (startBtn) startBtn.disabled = true;
 }
 
 function _fmRenderIntroText() {
@@ -902,7 +877,6 @@ function _fmRefreshTabState() {
   }
   if (typeof fmRefreshResumeHint === 'function') fmRefreshResumeHint();
   _fmRenderHGWarning();
-  _fmRenderBlockedWarning();
   if (typeof _fmRenderCochlearFatHint === 'function') _fmRenderCochlearFatHint();
   _fmRenderIntroText();
   _fmRenderPrereqHints();
@@ -1173,6 +1147,5 @@ document.addEventListener("DOMContentLoaded", () => {
   fmLoadVerfahrenFromSide();
   fmRefreshResumeHint();
   _fmRenderHGWarning();
-  _fmRenderBlockedWarning();
   _fmRenderCochlearFatHint();
 });

@@ -5,6 +5,17 @@ let _suppressHashPush = false;
 // SUBTABS
 // ============================================================
 function switchSubtab(parent, subtab) {
+  // BA 173: Sperr-Guard L2 — taube Seite blockiert Vergleichstests
+  const deaf = evalDeafState();
+  const subs = LOCKED_SUBTABS_L2[parent] || [];
+  if (deaf.hasDeaf && subs.indexOf(subtab) !== -1) {
+    if (typeof tabLockShowModal === "function") tabLockShowModal("sideDeaf");
+    return;
+  }
+  _switchSubtabInternal(parent, subtab);
+}
+
+function _switchSubtabInternal(parent, subtab) {
   // Subtab-Buttons
   document.querySelectorAll(`.subtab[data-parent="${parent}"]`).forEach((b) => {
     b.classList.toggle("active", b.dataset.subtab === subtab);
@@ -99,6 +110,9 @@ function tabLockApply() {
       _switchTabInternal("setup");
     }
   }
+  // BA 173: Sub-Tab- und Player-Bereich-Sperre L2/L3 mit nachziehen
+  if (typeof subtabLockApply === "function") subtabLockApply();
+  if (typeof playerLockApply === "function") playerLockApply();
 }
 
 // Zeigt das Sperr-Modal mit der zur Reason passenden Variante.
@@ -110,6 +124,9 @@ function tabLockShowModal(reason) {
   if (reason === "bothAcoustic") {
     if (titleEl) titleEl.textContent = t("tabLockTitleBothAc");
     if (bodyEl)  bodyEl.innerHTML    = t("tabLockBodyBothAc");
+  } else if (reason === "sideDeaf") {
+    if (titleEl) titleEl.textContent = t("tabLockTitleSideDeaf");
+    if (bodyEl)  bodyEl.innerHTML    = t("tabLockBodySideDeaf");
   } else {
     if (titleEl) titleEl.textContent = t("tabLockTitleStd");
     if (bodyEl)  bodyEl.innerHTML    = t("tabLockBodyStd");
@@ -127,6 +144,55 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.getElementById("tabLockCloseBtn");
   if (closeBtn) closeBtn.addEventListener("click", tabLockHideModal);
 });
+
+// ============================================================
+// BA 173: SUB-TAB-SPERRE L2 — eine Seite taub
+// ------------------------------------------------------------
+// Sperrt Sub-Reiter in „Messungen", wenn mindestens eine Seite
+// auf „Taub" steht (config === "deaf"). Die betroffenen Tests
+// vergleichen beide Seiten und sind dann nicht sinnvoll.
+// ============================================================
+const LOCKED_SUBTABS_L2 = {
+  messungen: ["balance", "latenz", "freqmatch"],
+};
+
+// Liefert {hasDeaf, deafSide}. deafSide ist die zuerst gefundene
+// taube Seite (left vor right) und wird aktuell nicht weiter genutzt;
+// das Feld bleibt für mögliche Wortlaut-Erweiterungen reserviert.
+function evalDeafState() {
+  const lC = (sideData.left  && sideData.left.config)  || "unknown";
+  const rC = (sideData.right && sideData.right.config) || "unknown";
+  if (lC === "deaf") return { hasDeaf: true, deafSide: "left" };
+  if (rC === "deaf") return { hasDeaf: true, deafSide: "right" };
+  return { hasDeaf: false, deafSide: null };
+}
+
+function subtabLockApply() {
+  const deaf = evalDeafState();
+  Object.keys(LOCKED_SUBTABS_L2).forEach(function (parent) {
+    const subs = LOCKED_SUBTABS_L2[parent];
+    subs.forEach(function (sub) {
+      const btn = document.querySelector(
+        '.subtab[data-parent="' + parent + '"][data-subtab="' + sub + '"]'
+      );
+      if (btn) btn.classList.toggle("tab-locked", deaf.hasDeaf);
+    });
+    if (deaf.hasDeaf) {
+      const activeSubBtn = document.querySelector(
+        '.subtab.active[data-parent="' + parent + '"]'
+      );
+      const activeSub = activeSubBtn ? activeSubBtn.dataset.subtab : null;
+      if (activeSub && subs.indexOf(activeSub) !== -1) {
+        // Auto-Rückwechsel auf den ersten freien Sub-Reiter „test"
+        // (Elektrodenlautstärke). Kein Modal — der User ändert
+        // gerade die Implantat-Angaben.
+        if (typeof _switchSubtabInternal === "function") {
+          _switchSubtabInternal(parent, "test");
+        }
+      }
+    }
+  });
+}
 
 // ============================================================
 // TABS

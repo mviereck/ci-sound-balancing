@@ -947,3 +947,38 @@ window.addEventListener("resize", () => {
   if (document.getElementById("subpanel-ergebnisse-lrresults")?.classList.contains("active"))
     lrDrawChart();
 });
+
+// ============================================================
+// BA 173: PLAYER-BEREICH-SPERRE L3 — eine Seite taub
+// ------------------------------------------------------------
+// Disabled die drei seitenabhängigen Player-Bereiche
+// (Stereo-Balance, Latenzausgleich, Frequenz-Warping) und
+// blendet daneben einen Inline-Hinweis ein, sobald mindestens
+// eine Seite auf „Taub" steht.
+// ============================================================
+function playerLockApply() {
+  const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
+  const off = deaf.hasDeaf;
+  const setDisabled = function (id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.disabled = off;
+    if (off) el.style.opacity = "0.4";
+    else el.style.opacity = "";
+  };
+  setDisabled("plBalApplyBtn");
+  setDisabled("plBalModeSelect");
+  setDisabled("plLatApplyBtn");
+  setDisabled("plWarpOn");
+  // Inline-Hinweise
+  ["plLockHintBal", "plLockHintLat", "plLockHintWarp"].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (off) {
+      el.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
+      el.style.display = "inline";
+    } else {
+      el.style.display = "none";
+    }
+  });
+}

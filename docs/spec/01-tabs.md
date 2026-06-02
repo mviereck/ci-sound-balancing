@@ -40,12 +40,14 @@ gewähltem Hersteller (`config === "ci"` und
 `.tab-locked` (opacity 0.4, cursor not-allowed). Die Buttons bleiben
 klickbar — ein Klick öffnet das Modal.
 
-**Modal `#tabLockModal`** (`.modal-overlay`-Pattern): zwei Varianten je
+**Modal `#tabLockModal`** (`.modal-overlay`-Pattern): drei Varianten je
 nach Reason —
 - `"unconfigured"`: Titel `tabLockTitleStd`, Text `tabLockBodyStd`
   (Auftrag: Implantat-Angaben beider Seiten + Hersteller eintragen)
 - `"bothAcoustic"`: Titel `tabLockTitleBothAc`, Text `tabLockBodyBothAc`
   (Hinweis: mindestens eine CI-Seite benötigt)
+- `"sideDeaf"` (BA 173, L2): Titel `tabLockTitleSideDeaf`, Text
+  `tabLockBodySideDeaf` (Test bei tauber Seite nicht möglich)
 
 **Automatischer Rückwechsel:** Wenn der aktive Reiter durch eine
 Implantat-Änderung gesperrt wird, wechselt die Anzeige automatisch auf
@@ -55,6 +57,43 @@ selbst die Angaben).
 **Auslöser** für Neu-Bewertung: `setSideConfig` (state-side.js),
 `switchMfr` (freq-table.js), `applyLang` (i18n.js, für
 Sprach-Wechsel), initialer Aufruf am Ende von init.js.
+
+## Sub-Tab-Sperre L2 — eine Seite taub (BA 173)
+
+Sobald mindestens eine Seite als „Taub" eingetragen ist
+(`config === "deaf"`), werden in **Messungen** drei Sub-Reiter gesperrt:
+**Stereo-Balance**, **Latenz**, **Frequenzabgleich**. Diese Tests
+vergleichen beide Seiten miteinander und sind auf einer tauben Seite
+nicht durchführbar. Frei bleibt nur **Elektrodenlautstärke**.
+
+**Visuelle Markierung:** wie L1 — CSS-Klasse `.tab-locked`, Buttons
+bleiben klickbar.
+
+**Klick auf gesperrten Sub-Reiter** öffnet `#tabLockModal` mit
+Reason `"sideDeaf"`.
+
+**Automatischer Rückwechsel:** Wenn der aktive Sub-Reiter durch
+Umschalten auf „Taub" gesperrt wird, wechselt die Anzeige automatisch
+auf **Elektrodenlautstärke** (`test`) — ohne Modal.
+
+**Frequenzabgleich:** Der frühere Inline-Block `#fmBlockedWarning` mit
+i18n-Keys `fmBlocked_sideDeaf`/`fmBlocked_bothAcoustic` und die Funktion
+`_fmRenderBlockedWarning` entfallen, weil L1 (`bothAcoustic`) und L2
+(`sideDeaf`) die Fälle bereits am Tab-Eingang abfangen.
+
+## Player-Bereich-Sperre L3 — eine Seite taub (BA 173)
+
+Im Reiter **Player** werden bei tauber Seite die drei seitenabhängigen
+Bereiche disabled angezeigt: **Stereo-Balance**, **Latenzausgleich**,
+**Frequenz-Warping**. Neben dem jeweiligen Bereich erscheint ein
+kleiner Inline-Hinweis in Warnfarbe (i18n-Key `plLockHintSideDeaf`:
+„Nicht verfügbar — Seite als taub eingetragen.").
+
+MAPLAW, Lautstärke, Pause/Play, EQ-Toggle und die „Beide
+Seiten"-Checkbox bleiben funktionsfähig.
+
+Umsetzung: Funktion `playerLockApply()` in `player.js`, automatisch
+aufgerufen aus `tabLockApply()`.
 
 ## Tab/Subtab-Persistenz
 

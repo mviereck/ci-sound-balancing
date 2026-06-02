@@ -607,8 +607,6 @@ Object.assign(L.de, {
     fmSymmetricOption:     "Symmetrisch (bilateral CI)",
     fmSymmetricElMismatch: "Symmetrischer Modus nicht möglich: Beide Seiten müssen dieselben aktiven Elektroden haben. Bitte prüfen Sie, ob auf beiden Seiten dieselben Elektroden deaktiviert sind.",
     fmHGWarn:              "Eine Seite ist als Hörgerät konfiguriert. Die Tonhöhenwahrnehmung über ein Hörgerät kann durch Kompressor, Frequenzformung und Verstärkungseinstellung vom akustischen Original abweichen. Frequenzabgleich-Ergebnisse mit Hörgerät sind daher weniger verlässlich als mit normalem Restgehör. Alternativ testen Sie ohne Hörgerät, falls Ihr Resthörvermögen dafür ausreicht.",
-    fmBlocked_sideDeaf:    "Eine Seite ist als gehörlos eingetragen. Der Frequenzabgleich vergleicht die Tonhöhenwahrnehmung beider Seiten; auf einer gehörlosen Seite ist keine Vergleichswahrnehmung möglich. Der Test ist deshalb gesperrt.",
-    fmBlocked_bothAcoustic: "Beide Seiten sind akustisch versorgt (Normalhören, Schwerhörigkeit oder Hörgerät). Der Frequenzabgleich vergleicht eine CI-Frequenz gegen eine Referenz — bei beidseitig akustischer Versorgung gibt es nichts auszugleichen. Der Test ist deshalb gesperrt.",
     fmBlocked_sideUnknown:  "Bitte zuerst Hörtechnik und Hersteller für beide Seiten festlegen.",
     testBlockedSideUnknown: "Bitte Hörtechnik und Hersteller für diese Seite wählen, bevor der Test gestartet wird.",
     lrBlockedSideUnknown:   "Bitte Hörtechnik (und ggf. Hersteller) für beide Seiten wählen, bevor der Stereo-Balance-Test gestartet wird.",
@@ -1070,4 +1068,10 @@ Object.assign(L.de, {
     tabLockBodyBothAc:
       "Dieses Tool benötigt mindestens eine CI-Seite. Details siehe Reiter <b>Implantat &amp; Elektroden</b>.",
     tabLockClose: "Schließen",
+
+    // BA 173: Sub-Tab-/Player-Sperre L2/L3 — eine Seite taub
+    tabLockTitleSideDeaf: "Test bei einer tauben Seite nicht möglich",
+    tabLockBodySideDeaf:
+      "Sie haben eine Seite als taub eingetragen. Dieser Test vergleicht beide Seiten miteinander; das ist auf einer tauben Seite nicht durchführbar.",
+    plLockHintSideDeaf: "Nicht verfügbar — Seite als taub eingetragen.",
 });
