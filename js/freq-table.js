@@ -146,7 +146,7 @@ function buildFreqTable() {
     tb.appendChild(tr);
     tr.querySelector(".ss").value = elSt[i] || "";
   }
-  // Hz own inputs
+  // Hz own inputs — BA 169: kein buildFreqTable() mehr, damit Tab-Fokus erhalten bleibt
   tb.querySelectorAll(".fo").forEach((inp) =>
     inp.addEventListener("change", (e) => {
       const i = +e.target.dataset.i,
@@ -158,13 +158,46 @@ function buildFreqTable() {
         elFreqOwn[i] = v;
       } else {
         e.target.value = elFreqOwn[i] != null ? Math.round(elFreqOwn[i]) : "";
-        return; // ungültiger Wert: keine Re-Render
+        return; // ungültiger Wert: keine Updates
       }
-      buildFreqTable();
-      // BA 151
-      if (typeof depLockApply === 'function') depLockApply();
+      // BA 169: schmale Hinweise-Aktualisierung statt voller Rebuild.
+      // depLockApply wird intern in updateFreqTableHints aufgerufen.
+      updateFreqTableHints();
     }),
   );
+  // Vertikale Tab-Navigation: .fo → .it → .iu (Shift+Tab rückwärts)
+  [
+    { cls: ".fo", next: ".it", prev: null },
+    { cls: ".it", next: ".iu", prev: ".fo" },
+    { cls: ".iu", next: null,  prev: ".it" },
+  ].forEach(({ cls, next, prev }) => {
+    const inputs = Array.from(tb.querySelectorAll(cls));
+    inputs.forEach((inp, idx) => {
+      inp.addEventListener("keydown", (e) => {
+        if (e.key !== "Tab") return;
+        if (!e.shiftKey) {
+          if (idx < inputs.length - 1) {
+            e.preventDefault();
+            inputs[idx + 1].focus();
+          } else if (next) {
+            const firstNext = tb.querySelector(next);
+            if (firstNext) { e.preventDefault(); firstNext.focus(); }
+          }
+          // letzte .iu + Tab: Browser-Standard
+        } else {
+          if (idx > 0) {
+            e.preventDefault();
+            inputs[idx - 1].focus();
+          } else if (prev) {
+            const prevInputs = Array.from(tb.querySelectorAll(prev));
+            const lastPrev = prevInputs[prevInputs.length - 1];
+            if (lastPrev) { e.preventDefault(); lastPrev.focus(); }
+          }
+          // erste .fo + Shift+Tab: Browser-Standard
+        }
+      });
+    });
+  });
   // THR inputs
   tb.querySelectorAll(".it").forEach((inp) =>
     inp.addEventListener("change", (e) => {
@@ -304,6 +337,69 @@ function buildFreqTable() {
   applyMobileReadonly(tb);
   if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
   // BA 164: Aktiv-Checkbox-Sperren live anwenden
+  if (typeof depLockApply === 'function') depLockApply();
+}
+// BA 169: Aktualisiert nur die Hz-abhängigen Hinweise und den Warnbalken,
+// ohne die Tabelle neu zu rendern. Wird vom .fo-change-Handler aufgerufen,
+// damit Tab-Fokus zwischen Eingabefeldern erhalten bleibt.
+function updateFreqTableHints() {
+  const cfg = sideData[activeSide].config || "ci";
+  const isAcoustic = ["hg", "normal", "shoh"].includes(cfg);
+  const isUnknownCfg = cfg === "unknown";
+  const isUnknownMfr = !isAcoustic && cfg === "ci"
+    && (sideData[activeSide].manufacturer === "unknown" || !sideData[activeSide].manufacturer);
+  // Beide Seiten akustisch
+  const leftCfg2  = sideData.left.config  || "unknown";
+  const rightCfg2 = sideData.right.config || "unknown";
+  const _isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
+  const bothAcoustic = _isAc(leftCfg2) && _isAc(rightCfg2);
+  // Wenn die Tabelle gar nicht gerendert würde: Hinweise und Warnbalken aus.
+  // (Sollte beim .fo-change normalerweise nicht eintreten — Sicherheitsnetz.)
+  if (isUnknownCfg || isUnknownMfr || bothAcoustic) {
+    ["freqDeactHintEl","freqAbfHintEl"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = "none";
+    });
+    const wbOff = document.getElementById("deactWarnBar");
+    if (wbOff) wbOff.remove();
+    return;
+  }
+  // „vollständig eigene Hz" = jede aktive Elektrode hat elFreqOwn[i] != null
+  const ownHzComplete = [...Array(nEl).keys()]
+    .filter((i) => elActive[i] !== false)
+    .every((i) => elFreqOwn[i] != null);
+  const hintEl = document.getElementById("freqDeactHintEl");
+  if (hintEl) {
+    hintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
+  }
+  const abfHintEl = document.getElementById("freqAbfHintEl");
+  if (abfHintEl) {
+    abfHintEl.style.display = (isAcoustic || ownHzComplete) ? "none" : "";
+  }
+  // Warnbalken: nur wenn deaktivierte Elektroden noch Standard-Frequenzen haben
+  const hasDeact = (elActive || []).some((a) => a === false);
+  const activeHasDefault = [...Array(nEl).keys()]
+    .filter((i) => elActive[i] !== false)
+    .some((i) => elFreqOwn[i] == null);
+  let wb = document.getElementById("deactWarnBar");
+  if (hasDeact && activeHasDefault) {
+    if (!wb) {
+      wb = document.createElement("div");
+      wb.id = "deactWarnBar";
+      wb.className = "warning-bar";
+      wb.style.cssText =
+        "background:#fee2e2;color:#dc2626;border-left:3px solid #dc2626;padding:8px 14px;border-radius:6px;margin-bottom:10px;font-size:.88em;line-height:1.5";
+      const freqCard = document.getElementById("freqTable").closest(".card");
+      freqCard.insertBefore(
+        wb,
+        document.getElementById("freqTable").parentElement,
+      );
+    }
+    wb.innerHTML = t("warnDeactivated");
+  } else if (wb) {
+    wb.remove();
+  }
+  // Sperren ggf. live nachziehen (z.B. dep-Lock-Felder neu bewerten)
   if (typeof depLockApply === 'function') depLockApply();
 }
 function updRef() {

@@ -76,6 +76,14 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   - Beschriftung mit Elektrodennummer und (bei i=0/i=n−1) apikal/basal
   - Hz Standard (Herstellervorgabe, nicht editierbar)
   - Hz eigen (optionaler abweichender Wert).
+    **Tab-Navigation (v3.1.170-beta):** Tab in den Eingabespalten Hz-eigen
+    (`.fo`), THR (`.it`) und Upper Level (`.iu`) springt senkrecht zur
+    nächsten Zeile derselben Spalte. Am Ende jeder Spalte weiter zur ersten
+    Zelle der nächsten Spalte (`.fo`→`.it`→`.iu`); am Ende von `.iu`
+    Browser-Standard. Shift+Tab geht zur Zeile darüber; an der ersten Zeile
+    einer Spalte zurück zur letzten Zeile der vorherigen Spalte (`.fo` oben:
+    Browser-Standard). Implementiert als `keydown`-Listener-Gruppe in
+    `buildFreqTable()`.
     **Sperre (BA 151):** Alle Hz-eigen-Felder werden per `dependency-lock.js`
     gesperrt (`.fo`-Klasse, Multi-Selektor), sobald Lautstärke-Test-
     Ergebnisse der aktiven Seite oder FreqMatch-Daten vorliegen
