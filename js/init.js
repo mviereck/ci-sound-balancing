@@ -652,21 +652,30 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function") pMaplawTrigger();
-      // Warp-Zustand wiederherstellen
+      // BA 161: Warp-Zustand wiederherstellen — neue Schlüsselnamen,
+      // Fallback auf alte (pWarpOn etc.) für bestehende localStorage-Stände
       if (typeof pWarpOn !== "undefined") {
-        if (typeof d.pWarpOn === "boolean") pWarpOn = d.pWarpOn;
-        if (typeof d.pWarpMethod === "string") {
-          pWarpMethod = d.pWarpMethod;
+        const _wOn       = (typeof d.warpOn       === "boolean") ? d.warpOn
+                         : (typeof d.pWarpOn      === "boolean") ? d.pWarpOn      : undefined;
+        const _wMethod   = (typeof d.warpMethod   === "string")  ? d.warpMethod
+                         : (typeof d.pWarpMethod  === "string")  ? d.pWarpMethod  : undefined;
+        const _wMode     = (typeof d.warpMode     === "string")  ? d.warpMode
+                         : (typeof d.pWarpMode    === "string")  ? d.pWarpMode    : undefined;
+        const _wStrength = (typeof d.warpStrength === "number")  ? d.warpStrength
+                         : (typeof d.pWarpStrength === "number") ? d.pWarpStrength : undefined;
+        if (typeof _wOn === "boolean") pWarpOn = _wOn;
+        if (typeof _wMethod === "string") {
+          pWarpMethod = _wMethod;
           const sel = document.getElementById("plWarpMethod");
           if (sel) sel.value = pWarpMethod;
         }
-        if (typeof d.pWarpMode === "string") {
-          pWarpMode = d.pWarpMode;
+        if (typeof _wMode === "string") {
+          pWarpMode = _wMode;
           const sel = document.getElementById("plWarpModeSelect");
           if (sel) sel.value = pWarpMode;
         }
-        if (typeof d.pWarpStrength === "number") {
-          pWarpStrength = d.pWarpStrength;
+        if (typeof _wStrength === "number") {
+          pWarpStrength = _wStrength;
           const ws = document.getElementById("plWarpStr");
           if (ws) ws.value = pWarpStrength;
         }
@@ -719,6 +728,15 @@ document.addEventListener("DOMContentLoaded", () => {
           if (typeof updBalApplyBtn === "function") updBalApplyBtn();
           if (typeof updLatApplyBtn === "function") updLatApplyBtn();
         }
+      }
+      // BA 161: bisher nur in Datei-Load
+      if (typeof audiologUserNote !== "undefined") {
+        audiologUserNote = (typeof d.audiologUserNote === "string") ? d.audiologUserNote : "";
+        const aNoteEl = document.getElementById("audiologNoteInput");
+        if (aNoteEl) aNoteEl.value = audiologUserNote;
+      }
+      if (typeof lrSnapshot !== "undefined") {
+        lrSnapshot = (d && d.lrSnapshot) ? d.lrSnapshot : null;
       }
       buildFreqTable();
       buildImplantCard();
@@ -773,7 +791,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  setInterval(() => {
+  function _autoSaveState() {
     try {
       localStorage.setItem(
         "ci-lb-v4",
@@ -796,6 +814,10 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
               implant: sideData.left.implant,
               freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
+              // BA 161: bisher nur in Datei-Save, jetzt auch hier
+              fmMode:        sideData.left.fmMode || 'adaptive',
+              fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
+              fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
             },
             right: {
               config: sideData.right.config || "ci",
@@ -814,11 +836,17 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,
               implant: sideData.right.implant,
               freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
+              // BA 161
+              fmMode:        sideData.right.fmMode || 'adaptive',
+              fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
+              fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
             },
           },
           defaultMfr: defaultMfr,
           currentSide: activeSide,
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
+          // BA 161
+          lrSnapshot: (typeof lrSnapshot !== "undefined") ? lrSnapshot : null,
           latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
@@ -832,11 +860,14 @@ document.addEventListener("DOMContentLoaded", () => {
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
-          pWarpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-          pWarpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
-          pWarpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "var_side",
-          pWarpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+          // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
+          warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
+          warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
+          warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "var_side",
+          warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
+          // BA 161: bisher nur in Datei-Save
+          audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
           globalToneType: globalToneType,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
@@ -849,7 +880,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }),
       );
     } catch (e) {}
-  }, 5000);
+  }
+  setInterval(_autoSaveState, 5000);
+  // BA 161: global verfügbar machen, damit resetAll() sofort speichern kann
+  window._autoSaveState = _autoSaveState;
 
   // Tab/Subtab nach Reload wiederherstellen — URL-Hash hat Vorrang vor localStorage.
   try {

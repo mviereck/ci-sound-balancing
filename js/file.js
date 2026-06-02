@@ -20,9 +20,9 @@ function _applyUserFileSuffix(name) {
 function resetAll() {
   const ch = confirm(t("resetConfirm"));
   if (!ch) return;
-  // Reset both sides completely
+  // --- Mess-/Patientendaten pro Seite zurück ---
   for (const s of SIDES) {
-    sideData[s].config = "unknown"; // vor initSideData setzen, damit es bewahrt wird
+    sideData[s].config = "unknown";
     sideData[s].manufacturer = "unknown";
     sideData[s].nEl = MFR["unknown"].n;
     sideData[s].freqs = [...MFR["unknown"].freqs];
@@ -38,11 +38,13 @@ function resetAll() {
     initSideData(s, "unknown");
   }
   defaultMfr = "unknown";
+  // --- Notiz an Audiologen ---
   if (typeof audiologUserNote !== "undefined") {
     audiologUserNote = "";
     const aNoteEl = document.getElementById("audiologNoteInput");
     if (aNoteEl) aNoteEl.value = "";
   }
+  // --- Aktive Seite + Hersteller-Dropdowns ---
   activeSide = "left";
   bindActiveSide();
   document.getElementById("ciSideSelect").value = "left";
@@ -51,34 +53,110 @@ function resetAll() {
   if (cfgSelR) cfgSelR.value = "unknown";
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
+  // --- Globale Test-Parameter ---
   document.getElementById("vol1").value = "50";
   document.getElementById("dur1").value = "1000";
   document.getElementById("pau1").value = "500";
   globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
+  if (typeof globalToneType !== "undefined") globalToneType = "complex";
+  if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
+  // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
   if (typeof latApplyToPlayer === "function") latApplyToPlayer();
   if (typeof latRenderResults === "function") latRenderResults();
   if (typeof latSliderInput === "function") latSliderInput(0);
+  // --- LR-Balance ---
   if (typeof lrResults !== "undefined") {
     Object.keys(lrResults).forEach(k => delete lrResults[k]);
     if (typeof lrUndoStack !== "undefined") lrUndoStack.splice(0, lrUndoStack.length);
-    if (typeof lrSnapshot !== "undefined") lrSnapshot = null; // BA 156
+    if (typeof lrSnapshot !== "undefined") lrSnapshot = null;
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();
   }
+  if (typeof plApplyBalance !== "undefined") plApplyBalance = true;
+  if (typeof plBalanceMode !== "undefined") plBalanceMode = "sym";
+  if (typeof updBalApplyBtn === "function") updBalApplyBtn();
+  // --- Frequenzabgleich-Ergebnisse ---
   if (typeof fRes !== "undefined") fRes.splice(0, fRes.length);
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
+  // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
+  if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
+  if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+  if (typeof fmApplyLang === "function") fmApplyLang();
+  // --- Player-Quellen-Knöpfe ---
+  if (typeof plSrcMeas !== "undefined") {
+    plSrcMeas = true; plSrcLevels = true; plSrcCurves = true;
+  }
+  if (typeof updPlSrcButtons === "function") updPlSrcButtons();
+  // --- Player „beide Seiten" + Mono-EQ ---
+  const _plBoth = document.getElementById("plBothSides");
+  if (_plBoth) _plBoth.checked = false;
+  const _plMono = document.getElementById("plMonoEQ");
+  if (_plMono) _plMono.checked = false;
+  // --- EQ-Knopf + Stärke ---
+  if (typeof plEqOn !== "undefined") plEqOn = false;
+  if (typeof updEqToggleBtn === "function") updEqToggleBtn();
+  const _plStr = document.getElementById("plStr");
+  if (_plStr) _plStr.value = "100";
+  // --- Warp-Block ---
+  if (typeof pWarpOn !== "undefined") {
+    pWarpOn = false;
+    pWarpMode = "var_side";
+    pWarpStrength = 100;
+    pWarpMethod = "sinmodel";
+    const _ws  = document.getElementById("plWarpStr");
+    if (_ws) _ws.value = pWarpStrength;
+    const _wm  = document.getElementById("plWarpMethod");
+    if (_wm) _wm.value = pWarpMethod;
+    const _wmd = document.getElementById("plWarpModeSelect");
+    if (_wmd) _wmd.value = pWarpMode;
+    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  }
+  // --- MAPLAW-Knopf ---
+  if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
+  if (typeof pMaplawSollC !== "undefined") pMaplawSollC = 1000;
+  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
+  if (typeof pMaplawTrigger === "function") pMaplawTrigger();
+  // --- Player-Experimental ---
+  if (typeof plShowExperimental !== "undefined") plShowExperimental = false;
+  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
+  // --- Sprecher-Auswahl im Player ---
+  const _spk = document.getElementById("plSentSpeaker");
+  if (_spk) _spk.value = "";
+  // --- Schieber-Tab-Modus und -Variante ---
+  if (typeof lvTabMode !== "undefined") lvTabMode = "rel";
+  if (typeof lvTabVariant !== "undefined") lvTabVariant = "stack";
+  if (typeof lvTabShowMeas !== "undefined") lvTabShowMeas = false;
+  if (typeof lvTabShowCurves !== "undefined") lvTabShowCurves = false;
+  const _lvModeRel = document.getElementById("lvTabModeRel");
+  if (_lvModeRel) _lvModeRel.checked = true;
+  const _lvVarStack = document.getElementById("lvTabVarStack");
+  if (_lvVarStack) _lvVarStack.checked = true;
+  const _lvChkMeas = document.getElementById("lvTabChkMeas");
+  if (_lvChkMeas) _lvChkMeas.checked = false;
+  const _lvChkCurves = document.getElementById("lvTabChkCurves");
+  if (_lvChkCurves) _lvChkCurves.checked = false;
+  if (typeof lvTabUpdateModeAvailability === "function") lvTabUpdateModeAvailability();
+  // --- „Schieber für beide Seiten gleich"-Checkbox ---
+  const _prBoth = document.getElementById("prBothSides");
+  if (_prBoth) _prBoth.checked = true;
+  // --- UI-Refresh ---
   buildFreqTable();
   buildPrTbl();
   drawLvChart();
   renderResults();
   if (typeof buildImplantCard === "function") buildImplantCard();
-  alert(t("resetDone"));
+  if (typeof lvTabRebuild === "function") lvTabRebuild();
+  if (typeof updSideButtons === "function") updSideButtons();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 161: Direkt persistieren, damit ein F5 sofort danach NICHT
+  // den alten Stand zurückbringt. Nicht auf den 5-s-Tick warten.
+  if (typeof window._autoSaveState === "function") window._autoSaveState();
+  alert(t("resetDone"));
 }
 
 async function saveJson() {
