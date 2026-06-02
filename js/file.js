@@ -690,6 +690,8 @@ function applyLoadedData(d) {
   }
   sideData.left._presetsMigrated = false;
   sideData.right._presetsMigrated = false;
+  if (typeof tabLockApply === "function") tabLockApply();
+  if (typeof depLockApply === "function") depLockApply();
 }
 function clearRes() {
   const ch = confirm(t("delConfirmMeas"));
