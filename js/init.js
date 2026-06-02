@@ -132,11 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
       updBalApplyBtn();
       updLatApplyBtn();
       try {
-        const _sv = localStorage.getItem("ci-lb-v4");
+        // BA 163: pro Browser-Tab
+        const _sv = sessionStorage.getItem("ci-lb-v4");
         if (_sv) {
           const _d = JSON.parse(_sv);
           _d.plBothSides = this.checked;
-          localStorage.setItem("ci-lb-v4", JSON.stringify(_d));
+          sessionStorage.setItem("ci-lb-v4", JSON.stringify(_d));
         }
       } catch (_e) {}
     });
@@ -328,7 +329,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (userFileSuffixEl) {
     userFileSuffixEl.addEventListener("input", function () {
       userFileSuffix = String(this.value || "");
-      try { localStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
+      // BA 163: pro Browser-Tab
+      try { sessionStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
     });
   }
   if (userFileSuffixBtn && userFileSuffixDrop) {
@@ -342,7 +344,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!opt) return;
       userFileSuffixEl.value = opt.dataset.suf;
       userFileSuffix = opt.dataset.suf;
-      try { localStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
+      // BA 163: pro Browser-Tab
+      try { sessionStorage.setItem("ci-lb-userFileSuffix", userFileSuffix); } catch (e) {}
       userFileSuffixDrop.style.display = "none";
       userFileSuffixEl.focus();
     });
@@ -359,7 +362,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   try {
-    const _sufSaved = localStorage.getItem("ci-lb-userFileSuffix");
+    // BA 163: pro Browser-Tab
+    const _sufSaved = sessionStorage.getItem("ci-lb-userFileSuffix");
     if (_sufSaved !== null) {
       userFileSuffix = String(_sufSaved);
       if (userFileSuffixEl) userFileSuffixEl.value = userFileSuffix;
@@ -605,9 +609,10 @@ document.addEventListener("DOMContentLoaded", () => {
       _testUpdCumulative(v);
     }
   });
-  // Load from localStorage
+  // BA 163: Load from sessionStorage (pro Browser-Tab)
   try {
-    const sv = localStorage.getItem("ci-lb-v4");
+    // BA 163: Pro-Tab-Isolation — Lesen aus sessionStorage
+    const sv = sessionStorage.getItem("ci-lb-v4");
     if (sv) {
       const d = JSON.parse(sv);
       if (d.sides) {
@@ -793,7 +798,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function _autoSaveState() {
     try {
-      localStorage.setItem(
+      // BA 163: Auto-Save isoliert pro Browser-Tab
+      sessionStorage.setItem(
         "ci-lb-v4",
         JSON.stringify({
           sides: {
@@ -885,7 +891,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // BA 161: global verfügbar machen, damit resetAll() sofort speichern kann
   window._autoSaveState = _autoSaveState;
 
-  // Tab/Subtab nach Reload wiederherstellen — URL-Hash hat Vorrang vor localStorage.
+  // Tab/Subtab nach Reload wiederherstellen — URL-Hash hat Vorrang vor sessionStorage.
   try {
     _suppressHashPush = true;
     const hashMatch = location.hash.slice(1).match(/^([^:]+)(?::(.+))?$/);
@@ -898,7 +904,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (subBtn && typeof switchSubtab === "function") switchSubtab(hashTab, hashSub);
       }
     } else {
-      const savedTab = localStorage.getItem("ci-lb-activeTab");
+      // BA 163: pro Browser-Tab
+      const savedTab = sessionStorage.getItem("ci-lb-activeTab");
       if (savedTab) {
         const tabBtn = document.querySelector('.tab[data-tab="' + savedTab + '"]');
         if (tabBtn && typeof switchTab === "function") {
@@ -908,7 +915,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Subtab pro Parent
       const subtabParents = ["messungen", "ergebnisse"];
       for (const parent of subtabParents) {
-        const savedSub = localStorage.getItem("ci-lb-subtab-" + parent);
+        // BA 163: pro Browser-Tab
+        const savedSub = sessionStorage.getItem("ci-lb-subtab-" + parent);
         if (!savedSub) continue;
         const subBtn = document.querySelector('.subtab[data-parent="' + parent + '"][data-subtab="' + savedSub + '"]');
         if (subBtn && typeof switchSubtab === "function") {
@@ -924,7 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
       history.replaceState(null, "", "#" + (asb ? at + ":" + asb.dataset.subtab : at));
     }
   } catch (e) {
-    // localStorage nicht verfügbar oder gespeicherter Tab existiert nicht
+    // sessionStorage nicht verfügbar oder gespeicherter Tab existiert nicht
     // mehr — still durchfallen, Default-Tab bleibt aktiv.
   } finally {
     _suppressHashPush = false;

@@ -47,7 +47,8 @@ function switchSubtab(parent, subtab) {
       if (typeof updateTabLockState === "function") updateTabLockState();
     }
   }
-  try { localStorage.setItem("ci-lb-subtab-" + parent, subtab); } catch (e) {}
+  // BA 163: pro Browser-Tab
+  try { sessionStorage.setItem("ci-lb-subtab-" + parent, subtab); } catch (e) {}
   if (!_suppressHashPush) history.pushState(null, "", "#" + parent + ":" + subtab);
 }
 
@@ -95,7 +96,8 @@ function switchTab(n) {
   if (n === "schieber") {
     if (typeof lvTabRebuild === "function") lvTabRebuild();
   }
-  try { localStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
+  // BA 163: pro Browser-Tab
+  try { sessionStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
   if (!_suppressHashPush) history.pushState(null, "", "#" + n);
 }
 

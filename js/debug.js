@@ -1,7 +1,7 @@
 /* Debug-Panel (Bauanleitung 80/81)
  * Aktivierung: Doppelklick aufs Logo, ?debug=1 in der URL,
  * oder window.dbg.activate(). Deaktivierung analog.
- * Status persistiert in localStorage.
+ * Status persistiert in sessionStorage (pro Browser-Tab, BA 163).
  * Panel-Texte bewußt nur deutsch — Entwickler-/Diagnose-UI,
  * keine i18n.
  */
@@ -21,7 +21,8 @@
   const FLAG_KEY     = 'ciSb.debugFlags';
 
   try {
-    const raw = localStorage.getItem(FLAG_KEY);
+    // BA 163: pro Browser-Tab
+    const raw = sessionStorage.getItem(FLAG_KEY);
     if (raw) {
       const obj = JSON.parse(raw);
       if (obj && typeof obj === 'object') {
@@ -31,7 +32,8 @@
   } catch (_) {}
 
   function _persistFlags() {
-    try { localStorage.setItem(FLAG_KEY, JSON.stringify(_flags)); } catch (_) {}
+    // BA 163: pro Browser-Tab
+    try { sessionStorage.setItem(FLAG_KEY, JSON.stringify(_flags)); } catch (_) {}
   }
 
   function _allFields() {
@@ -56,14 +58,16 @@
   }
 
   function _readPersistedActive() {
-    try { return localStorage.getItem(DBG_KEY) === '1'; }
+    // BA 163: pro Browser-Tab
+    try { return sessionStorage.getItem(DBG_KEY) === '1'; }
     catch (_) { return false; }
   }
 
   function _writePersistedActive(v) {
+    // BA 163: pro Browser-Tab
     try {
-      if (v) localStorage.setItem(DBG_KEY, '1');
-      else   localStorage.removeItem(DBG_KEY);
+      if (v) sessionStorage.setItem(DBG_KEY, '1');
+      else   sessionStorage.removeItem(DBG_KEY);
     } catch (_) {}
   }
 
