@@ -1,12 +1,46 @@
 ## Implantat-Tab
 
-- **Konfigurations-Dropdown** (Hörtechnik): unknown (Default „Keine
+Karten-Titel: **„Implantat & Elektroden"** (BA 165, vorher „Hersteller,
+Elektrodenfrequenzen & Status").
+
+**Bilateral-Hinweis** (`implBilateralHintEl`): Steht direkt unter dem
+Titel. Sichtbar solange ≥1 Seite Hörsituation = „Keine Angabe";
+verschwindet, sobald beide Seiten eine explizite Hörsituation haben
+(BA 165, vorher immer sichtbar).
+
+**Tabellen-Intro** (`implTableIntroEl`): Zweiteiliger Einleitungstext
+(„Was Sie eintragen sollten" / „Optional, verbessert den Ausdruck")
+direkt über den Tabellen-Hinweisen. Sichtbar nur wenn Hörsituation = CI
+**und** Hersteller bekannt (BA 165).
+
+**Tabellen-Hinweise** (`freqDeactHintEl`, `freqAbfHintEl`): Stehen direkt
+über der Tabelle. Sichtbar nur wenn die CI-Tabelle gerendert wird **und**
+noch nicht alle aktiven Elektroden eigene Hz-Werte haben. Werden sofort
+ausgeblendet, sobald jede aktive Elektrode (`elActive[i] !== false`) einen
+`elFreqOwn[i]`-Wert hat; kehren zurück, wenn ein Wert gelöscht wird (BA 165).
+Für akustische Branch und bei Early-Return immer ausgeblendet.
+
+**Sweep/Stop-Zeile** (`sweepRow`): Der Flex-Container mit Sweep-Button,
+Stop-Button, Lautstärke, Dauer und Pause ist ausgeblendet (`display:none`),
+solange keine Tabelle gerendert wird (Early-Return-Bedingungen: unbekannte
+Hörsituation/Hersteller, beide Seiten akustisch). Wird eingeblendet
+(`display:flex`) sobald die Tabelle erscheint (v3.1.168-beta).
+
+**Ausschließen-Hinweis** (`freqExclHintEl`): Dritter Hinweis-Kasten direkt
+vor der Tabelle. Sichtbar sobald CI-Tabelle gerendert wird (CI + Hersteller
+bekannt), bleibt sichtbar unabhängig vom Hz-Vollständigkeits-Status. Erklärt
+die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
+(v3.1.166-beta). Für akustische Branch und bei Early-Return ausgeblendet.
+
+- **Konfigurations-Dropdown** (Hörsituation): unknown (Default „Keine
   Angabe"), ci, hg, normal, schwerhörig, taub. Bestimmt, welche
-  Eingabebereiche sichtbar sind.
+  Eingabebereiche sichtbar sind. **Label** zeigt „Hörsituation LINKS:"
+  bzw. „Hörsituation RECHTS:" je nach aktiver Seite (BA 165).
   **Cascade (BA 154):** Bei „Keine Angabe" wird der gesamte Implantat-
   Block ausgeblendet; stattdessen Hinweistext „Bitte zuerst Hörtechnik
   wählen…". Bei CI + Hersteller = „Keine Angabe" sind Modell, Prozessor
-  und Parameter ausgeblendet; Hinweistext „Bitte Hersteller wählen."
+  und Parameter ausgeblendet; Hinweistext „Bitte Hersteller wählen,
+  damit Frequenzraster und Pro-Elektroden-Felder erscheinen." (BA 165).
   **Sperre (BA 151):** Das Dropdown wird per `dependency-lock.js`
   gesperrt, sobald Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der
   aktiven Seite oder FreqMatch-Daten vorliegen (`fRes` nicht leer,
@@ -47,9 +81,6 @@
     Ergebnisse der aktiven Seite oder FreqMatch-Daten vorliegen
     (gleiche Bedingung wie Hörtechnik-Sperre). Bilateral wirksam.
     Klick öffnet Popup mit Feldname „Hz-eigen".
-  - **Cent** re 1000 Hz: `Math.round(hzToCent(effFreq(i)))`, nicht
-    editierbar, mit Vorzeichen (`+135`, `−3670`). Aktualisiert sich
-    sofort, wenn Hz-eigen geändert wird.
   - **THR** (Hörschwelle) in Hersteller-Einheit (qu/CL/CU)
   - **Upper Level**: MCL bei MED-EL (qu), C-Level bei Cochlear (CL),
     M-Level bei AB (CU)
@@ -67,14 +98,14 @@
   - Ausschluss-Checkbox: „stumm" → automatisch gesetzt (BA 153), manuell
     wieder abhakbar. Andere Status: frei bedienbar.
   - Notiz-Feld
-- **Beide Seiten akustisch (BA 155):** Sind beide Seiten auf hg/normal/shoh
-  eingestellt, wird die Frequenztabelle vollständig geleert (`buildFreqTable`
-  kehrt früh zurück). An ihrer Stelle erscheint die Hinweis-Box
-  `cfgHintBothAcousticEl` mit Text „Beide Seiten akustisch — keine CI-Seite
-  konfiguriert. Frequenztabelle entfällt …". Das Default-Frequenzraster-
-  Dropdown (`defaultMfrGroup`) ist in diesem Fall (wie in allen anderen)
-  dauerhaft ausgeblendet. Die CI-abhängigen Tests (Lautstärke, Stereo-Balance,
-  Frequenzabgleich) sind gesperrt.
+- **Beide Seiten akustisch (BA 155, Text BA 165):** Sind beide Seiten auf
+  hg/normal/shoh eingestellt, wird die Frequenztabelle vollständig geleert
+  (`buildFreqTable` kehrt früh zurück). An ihrer Stelle erscheint die
+  Hinweis-Box `cfgHintBothAcousticEl` (Stil `explain-warn`) mit dem Hinweis,
+  daß das Tool mindestens eine CI-Seite erwartet. Die CI-abhängigen Tests
+  (Lautstärke, Stereo-Balance, Frequenzabgleich) sind gesperrt.
+  Das Default-Frequenzraster-Dropdown (`defaultMfrGroup`) wurde in BA 165
+  vollständig entfernt.
 - **Akustische Tabellen-Variante (BA 153):** Bei Hörtechnik hg/normal/shoh
   werden nur **8 Spalten** gezeigt: Position, Hz (CI), Cent, Play, Hold,
   Status, Ausschluß, Notiz. Spalten Hz-eigen, THR, Upper Level entfallen.

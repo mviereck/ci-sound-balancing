@@ -177,8 +177,7 @@ function setActiveSide(side) {
   document.getElementById("mfrSelect").value = mfr;
   const cfgSel = document.getElementById("cfgSelect");
   if (cfgSel) cfgSel.value = config;
-  const dfSel = document.getElementById("defaultMfrSelect");
-  if (dfSel) dfSel.value = defaultMfr;
+
   buildFreqTable();
   buildPrTbl();
   drawLvChart();

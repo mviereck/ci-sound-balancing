@@ -113,16 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
     plCheck();
   });
-  // Default-Frequenzraster (nur wenn keine Seite CI)
-  document.getElementById("defaultMfrSelect").addEventListener("change", (e) => {
-    defaultMfr = e.target.value;
-    syncFreqsToAcoustic();
-    buildFreqTable();
-    buildImplantCard();
-    buildPrTbl();
-    drawLvChart();
-    renderResults();
-  });
   // ciSideSelect hidden; side switching via sideLeftBtn/sideRightBtn onclick
   // Player: Beide-Seiten Checkbox
   document

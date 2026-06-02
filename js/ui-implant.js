@@ -23,10 +23,15 @@ function buildImplantCard() {
   // i18n
   const implTitleEl = document.getElementById("implTitle");
   if (implTitleEl) implTitleEl.textContent = t("implTitle");
-  document.getElementById("implIntro").textContent = t("implIntro");
-  document.getElementById("implBilateralHintEl").innerHTML =
-    t("implBilateralHint");
-  document.getElementById("implBilateralHintEl").style.display = "block";
+  // BA 165: Sichtbarkeit nach Konzept — sichtbar solange ≥1 Seite „Keine Angabe"
+  const bilatEl = document.getElementById("implBilateralHintEl");
+  if (bilatEl) {
+    const leftUnknown  = (sideData.left.config  || "unknown") === "unknown";
+    const rightUnknown = (sideData.right.config || "unknown") === "unknown";
+    const showBilat = leftUnknown || rightUnknown;
+    bilatEl.innerHTML = t("implBilateralHint");
+    bilatEl.style.display = showBilat ? "block" : "none";
+  }
   document.getElementById("lblImplModel").textContent = t("lblImplModel");
   document.getElementById("lblImplProc").textContent = t("lblImplProc");
   document.getElementById("lblImplC").textContent = t("lblImplC");
@@ -40,7 +45,10 @@ function buildImplantCard() {
   if (cfgSel) {
     cfgSel.value = cfg;
     const lbl = document.getElementById("lblCfg");
-    if (lbl) lbl.textContent = t("cfgLabel") + ":";
+    if (lbl) {
+      const sideLbl = activeSide === "left" ? t("sideLeft") : t("sideRight");
+      lbl.textContent = t("cfgLabel") + " " + sideLbl + ":";
+    }
     const opts = {
       cfgOptUnknown: "cfgUnknown", cfgOptCI: "cfgCI", cfgOptHG: "cfgHG",
       cfgOptNormal: "cfgNormal", cfgOptSchwerh: "cfgSchwerh",
@@ -61,6 +69,17 @@ function buildImplantCard() {
 
   const mfrBlock = document.getElementById("implMfrBlock");
   if (mfrBlock) mfrBlock.style.display = isCiCfg ? "" : "none";
+  // BA 165: Dropdown-Wert hart auf State sync (Bug A1: Anzeige blieb sonst hängen)
+  const mfrSelEl = document.getElementById("mfrSelect");
+  if (mfrSelEl) mfrSelEl.value = s.manufacturer || "unknown";
+
+  // BA 165: Tabellen-Intro — nur sichtbar, wenn die Tabelle gerendert wird
+  const tableIntroEl = document.getElementById("implTableIntroEl");
+  if (tableIntroEl) {
+    const showTable = isCiCfg && !isUnknownMfr;
+    tableIntroEl.innerHTML = t("implTableIntro");
+    tableIntroEl.style.display = showTable ? "block" : "none";
+  }
 
   // Hörtechnik-Hinweis
   const hintCfgUn = document.getElementById("cfgHintUnknownEl");
@@ -80,15 +99,14 @@ function buildImplantCard() {
   const hintDeaf = document.getElementById("cfgHintDeafEl");
   if (hintAc) {
     const isAcoustic = ["hg","normal","shoh"].includes(cfg);
-    hintAc.style.display = isAcoustic ? "" : "none";
-    if (isAcoustic) {
-      const src = getFreqSource();
-      if (src) {
-        const srcLabel = src === "left" ? t("sideLeft") : t("sideRight");
-        hintAc.textContent = t("cfgHintAcoustic") + " (" + srcLabel + ")";
-      } else {
-        hintAc.textContent = t("cfgHintAcousticDefault");
-      }
+    const src = getFreqSource();
+    // BA 165: Hinweis nur sinnvoll, wenn andere Seite tatsächlich CI ist.
+    // Sonst greift cfgHintBothAcoustic (an anderer Stelle gerendert).
+    const showAc = isAcoustic && !!src;
+    hintAc.style.display = showAc ? "" : "none";
+    if (showAc) {
+      const srcLabel = src === "left" ? t("sideLeft") : t("sideRight");
+      hintAc.textContent = t("cfgHintAcoustic").replace("{otherSide}", srcLabel);
     }
   }
   if (hintDeaf) {
@@ -104,7 +122,7 @@ function buildImplantCard() {
     const isAc = function(c) { return c === "hg" || c === "normal" || c === "shoh"; };
     const bothAcoustic = isAc(leftCfg) && isAc(rightCfg);
     hintBothAc.style.display = bothAcoustic ? "" : "none";
-    if (bothAcoustic) hintBothAc.textContent = t("cfgHintBothAcoustic");
+    if (bothAcoustic) hintBothAc.innerHTML = t("cfgHintBothAcoustic");
   }
 
   // Deaf-Hinweis im Test-Bereich
@@ -114,16 +132,6 @@ function buildImplantCard() {
                  || (sideData.right.config || "ci") === "deaf";
     deafTestHint.style.display = hasDeaf ? "" : "none";
     if (hasDeaf) deafTestHint.textContent = t("cfgHintDeafTest");
-  }
-
-  // Default-Frequenzraster-Dropdown
-  const dfGroup = document.getElementById("defaultMfrGroup");
-  if (dfGroup) {
-    dfGroup.style.display = "none";
-    const lblDfMfr = document.getElementById("lblDefaultMfr");
-    if (lblDfMfr) lblDfMfr.textContent = t("cfgDefaultLabel") + ":";
-    const dfSel = document.getElementById("defaultMfrSelect");
-    if (dfSel) dfSel.value = defaultMfr;
   }
 
   if (!isCiCfg) {

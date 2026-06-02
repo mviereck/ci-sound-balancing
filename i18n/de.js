@@ -19,7 +19,7 @@ Object.assign(L.de, {
     introWhatDesc: "",
     introFlow: "",
     introFlowDesc:
-      "<b>1. Seite</b> – Wählen Sie oben rechts die Seite aus, auf der Sie das CI tragen. Wenn Sie 2 CI tragen, führen Sie die Messung (Punkt 4) für beide aus.<br><b>2. Implantat</b> – Wählen Sie Ihren Hersteller. Falls bekannt, korrigieren Sie die Frequenzeinträge pro Elektrode. Standardwerte sind voreingestellt. <b>Wichtig:</b> Deaktivierte Elektroden müssen unter „Status” markiert werden.<br><b>3. Lautstärke</b> – Stellen Sie die Lautstärke ihres PC oder Smartphone auf gefühlt 3/4 ein. Nicht leise, noch nicht unangenehm laut.<br><b>4. Messung</b> – Starten Sie eine Testreihe in „Messungen” → „Elektrodenlautstärke”. Das Tool spielt Tonpaare ab; Sie stellen ein, bis beide gleich laut klingen.<br><b>5. Player</b> – Laden Sie eine Musikdatei und hören Sie den Unterschied mit und ohne Korrektur.<br><b>6. Levels</b> – Optional: Gesamteinstellungen wie Sprachbetonung oder Baßverstärkung, live hörbar im Player.",
+      "<b>1. Seite</b> – Wählen Sie oben rechts die Seite aus, auf der Sie das CI tragen. Wenn Sie 2 CI tragen, führen Sie die Messung (Punkt 4) für beide aus.<br><b>2. Implantat</b> – Wählen Sie Ihren Hersteller. Falls bekannt, korrigieren Sie die Frequenzeinträge pro Elektrode. Standardwerte sind voreingestellt. <b>Wichtig:</b> Deaktivierte Elektroden müssen in Spalte „Aktiv” angehakt werden.<br><b>3. Lautstärke</b> – Stellen Sie die Lautstärke ihres PC oder Smartphone auf gefühlt 3/4 ein. Nicht leise, noch nicht unangenehm laut.<br><b>4. Messung</b> – Starten Sie eine Testreihe in „Messungen” → „Elektrodenlautstärke”. Das Tool spielt Tonpaare ab; Sie stellen ein, bis beide gleich laut klingen.<br><b>5. Player</b> – Laden Sie eine Musikdatei und hören Sie den Unterschied mit und ohne Korrektur.<br><b>6. Levels</b> – Optional: Gesamteinstellungen wie Sprachbetonung oder Baßverstärkung, live hörbar im Player.",
     introWarn:
       "Verwenden Sie möglichst ein CI-Programm ohne Sprachfilter, das ansonsten Ihrem Hauptprogramm entspricht. Sprachfilter neigen dazu, Töne zu verfälschen. Verbinden Sie Ihr CI mit Bluetooth für möglichst klare Töne.",
     introManualLink: "→ Ausführliche Bedienungsanleitung",
@@ -63,13 +63,11 @@ Object.assign(L.de, {
     no: "nein",
     introAudioDesc:
       "Die Ergebnisse können ausgedruckt werden. Der Ausdruck enthält die Meßergebnisse, Ihre gewünschten Korrekturen und die resultierenden Equalizer-Werte.",
-    freqTitle: "Hersteller, Elektrodenfrequenzen & Status",
+    freqTitle: "Implantat & Elektroden",
     lblSide: "Seite:",
     lblMfr: "Hersteller:",
-    freqHint:
-      "Wählen Sie den Hersteller Ihres CI aus. Markieren Sie problematische Elektroden unter „Status“. Status „Deaktiviert“ = Elektrode im CI selbst abgeschaltet, wird automatisch ausgeschlossen. ▶ = Einzelton, ◼ = Dauerton.",
     freqDeactHint:
-      "<b>Wichtig – deaktivierte Elektroden:</b> Wenn in Ihrem CI Elektroden deaktiviert sind, verteilt das Implantat den Frequenzbereich auf die verbleibenden aktiven Elektroden. Die Mittenfrequenzen aller anderen Elektroden verschieben sich dadurch – die hier voreingestellten Standardwerte gelten dann nicht mehr.<br>Markieren Sie deaktivierte Elektroden unter „Status“ und tragen Sie die aktuellen Mittenfrequenzen aus Ihrer Anpassung ein. Ohne korrekte Frequenzen sind Messung und Player-Equalizer nicht aussagekräftig.",
+      "<b>Wichtig – deaktivierte Elektroden:</b> Wenn in Ihrem CI Elektroden deaktiviert sind, verteilt das Implantat den Frequenzbereich auf die verbleibenden aktiven Elektroden. Die Mittenfrequenzen aller anderen Elektroden verschieben sich dadurch — die hier voreingestellten Standardwerte gelten dann nicht mehr.<br>Haken Sie deaktivierte Elektroden in der Spalte „Aktiv” ab und tragen Sie die aktuellen Mittenfrequenzen aus Ihrer Anpassung ein. Ohne korrekte Frequenzen sind Messung und Player-Equalizer nicht aussagekräftig.",
     thEl: "El.",
     thHzStd: "Hz Standard",
     thHzOwn: "Hz eigene",
@@ -550,13 +548,15 @@ Object.assign(L.de, {
       "EQ der aktiven Seite auf beide Seiten Links+Rechts anwenden",
     freqAbfHint:
       "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
+    freqExclHint:
+      "Sie können schlecht hörbare Elektroden in der Spalte <b>Ausschließen</b> von Tests ausschließen. Deaktivierte Elektroden sind automatisch von Tests ausgeschlossen.",
     plFileTitle: "Audiodatei",
     printPlayerTitle: "Player-Einstellungen",
     implTitle: "Implantat-Daten",
-    implIntro:
-      "Erfragen Sie bei Ihrem Audiologen die Werte der FAT (Frequency Allocation Table) mit Mittelfrequenzen (in Hz) für jede Elektrode und tragen Sie diese oben ein. Erfragen Sie auch MCL (MED-EL), T-Level/C-Level (Cochlear) oder T-Level/M-Level (Advanced Bionics) – diese Werte stehen in der Anpaß-Software des Audiologen und werden für die Berechnung der Anpassungswerte im Ausdruck benötigt. Sie können das Tool auch ohne diese Werte nutzen, mit den Werten werden die Ergebnisse aber präziser.",
     implBilateralHint:
-      "Bei zwei CIs müssen die Werte für Links und Rechts getrennt eingegeben werden. Wechseln Sie mit den Seiten-Buttons oben.",
+      "<b>Beide Seiten konfigurieren.</b> Geben Sie für links und rechts die Hörsituation an (Normalhörend, Schwerhörig, Hörgerät, Cochlea-Implantat, Taub). Bei CI-Seiten kommen Hersteller und ggf. Implantat- und Elektrodendaten dazu. Wechseln Sie oben rechts zwischen LINKS und RECHTS.",
+    implTableIntro:
+      "<b>Was Sie eintragen sollten:</b> Tragen Sie für jede Elektrode die Mittenfrequenz (FAT) aus Ihrer CI-Anpassung ein, falls vom Audiologen bekannt. Die eingetragenen Default-Werte passen für viele CI-Träger, können aber individuell leicht bis erheblich abweichen.<br><b>Optional, verbessert den Ausdruck:</b> THR und MCL (MED-EL) bzw. T-Level/C-Level (Cochlear) bzw. T-Level/M-Level (Advanced Bionics) — diese Werte aus der Anpaß-Software Ihres Audiologen verbessern die im Ausdruck berechneten Korrekturwerte.",
     lblImplModel: "Implantat-Modell:",
     lblImplProc: "Audioprozessor:",
     lblImplC: "c-Wert (MAPLAW):",
@@ -612,7 +612,8 @@ Object.assign(L.de, {
     fmBlocked_sideUnknown:  "Bitte zuerst Hörtechnik und Hersteller für beide Seiten festlegen.",
     testBlockedSideUnknown: "Bitte Hörtechnik und Hersteller für diese Seite wählen, bevor der Test gestartet wird.",
     lrBlockedSideUnknown:   "Bitte Hörtechnik (und ggf. Hersteller) für beide Seiten wählen, bevor der Stereo-Balance-Test gestartet wird.",
-    cfgHintBothAcoustic:    "Beide Seiten akustisch — keine CI-Seite konfiguriert. Frequenztabelle entfällt, weil kein CI-Frequenzraster vorhanden ist. Die Tests, die ein CI brauchen, sind nicht verfügbar.",
+    cfgHintBothAcoustic:
+      "<b>Tool nicht für rein akustische Versorgung vorgesehen.</b> Dieses Sound Balancing Tool richtet sich an Cochlea-Implantat-Träger und benötigt mindestens eine CI-Seite. Wenn Sie beide Seiten akustisch versorgt haben, sind Messung, Schieber und Player hier nicht anwendbar. (Eine spätere Programmversion könnte Messungen für beidseitig akustische Versorgung unterstützen.)",
     fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
     fmSubtabLabel: "Frequenzabgleich",
@@ -750,17 +751,17 @@ Object.assign(L.de, {
     fmrClearAllConfirm: "Alle Frequenzabgleich-Ergebnisse und Track-Rohdaten (Slider und Adaptiv) löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
     fmrClearSliderConfirm: "Nur die Slider-Vor-Schätzungen löschen? Die Adaptiv-Ergebnisse bleiben erhalten.",
     fmrClearAdaptiveConfirm: "Nur die Adaptiv-Ergebnisse löschen? Die Slider-Vor-Schätzungen bleiben erhalten.",
-    cfgLabel: "Konfiguration",
+    cfgLabel: "Hörsituation",
     cfgUnknown: "Keine Angabe",
     mfrUnknown: "Keine Angabe",
     cfgHintUnknown: "Bitte zuerst Hörtechnik wählen, damit das Tool die passenden Eingabefelder anzeigen kann.",
-    mfrHintUnknown: "Bitte Hersteller wählen.",
+    mfrHintUnknown: "Bitte Hersteller wählen, damit Frequenzraster und Pro-Elektroden-Felder erscheinen.",
     cfgCI: "Cochlea-Implantat",
     cfgHG: "Hörgerät",
     cfgNormal: "Normalhörend",
     cfgSchwerh: "Schwerhörig",
     cfgTaub: "Taub",
-    cfgDefaultLabel: "Standard-Frequenzraster",
+
     cfgWarnMfrSwitch: "Beim Wechsel des Herstellers werden alle Meßergebnisse und Einstellungen dieser Seite gelöscht. Außerdem werden ggf. Frequenzwerte der anderen Seite angepaßt, falls diese das Frequenzraster der CI-Seite übernimmt. Fortfahren?",
     // Dependency-Lock (BA 149)
     depFieldMfr: "Hersteller",
@@ -788,9 +789,10 @@ Object.assign(L.de, {
     exclCiMirrored: "im CI deaktiviert oder ausgeschlossen",
     depFieldExclCiMirrored: "Ausschluß (gespiegelt)",
     thHzCi: "Hz (CI)",
-    cfgHintAcoustic: "Diese Seite ist akustisch. Das Frequenzraster wird von der CI-Seite übernommen.",
-    cfgHintAcousticDefault: "Diese Seite ist akustisch. Es wird das Standard-Frequenzraster verwendet.",
-    cfgHintDeaf: "Diese Seite ist als taub konfiguriert. Audio wird auf dieser Seite nicht zu hören sein.",
+    cfgHintAcoustic:
+      "Das Frequenzraster wird von der CI-Seite {otherSide} übernommen, damit die Vergleichbarkeit zwischen beiden Seiten besteht.",
+    cfgHintDeaf:
+      "Audio wird auf dieser Seite nicht zu hören sein. Tests werden ohne Klang auf dieser Seite durchgeführt.",
     cfgHintDeafTest: "Hinweis: Diese Seite ist als taub konfiguriert. Tests werden ohne Klang auf dieser Seite durchgeführt.",
     cfgLblElCI: "Elektrode",
     cfgLblElAcoustic: "Frequenzband",

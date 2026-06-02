@@ -268,26 +268,15 @@
               🖨 <span data-t="printBtn"></span>
             </button>
           </div>
-          <p
-            style="
-              font-size: 0.84em;
-              color: var(--text-muted);
-              margin-bottom: 8px;
-            "
-            id="freqHint"
-          ></p>
+
+          <!-- Bilateral-Hinweis (oben, sichtbar solange ≥1 Seite „Keine Angabe") -->
           <div
-            id="freqDeactHintEl"
             class="explain explain-warn"
-            style="margin-bottom: 12px"
-          ></div>
-          <div
-            id="freqAbfHintEl"
-            class="explain explain-warn"
-            style="margin-bottom: 12px"
+            id="implBilateralHintEl"
+            style="margin-top: 8px; margin-bottom: 12px; display: none"
           ></div>
 
-          <!-- Konfiguration -->
+          <!-- Hörsituation (Konfiguration pro Seite) -->
           <div class="controls-row" style="margin-bottom: 8px">
             <div class="control-group">
               <label id="lblCfg"></label>
@@ -302,170 +291,150 @@
             </div>
           </div>
 
-          <!-- Hinweis: akustische Konfiguration -->
-          <div
-            id="cfgHintAcousticEl"
-            class="explain"
-            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
-          ></div>
+          <!-- Konfig-Hinweise (bedingt) -->
+          <div id="cfgHintUnknownEl" class="explain"
+               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+          <div id="cfgHintAcousticEl" class="explain"
+               style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
+          <div id="cfgHintDeafEl" class="explain explain-warn"
+               style="display:none;margin-bottom:8px"></div>
+          <div id="cfgHintBothAcousticEl" class="explain explain-warn"
+               style="display:none;margin-bottom:8px"></div>
 
-          <!-- Hinweis: beide Seiten akustisch -->
-          <div
-            id="cfgHintBothAcousticEl"
-            class="explain"
-            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
-          ></div>
-
-          <!-- Hinweis: taub -->
-          <div
-            id="cfgHintDeafEl"
-            class="explain explain-warn"
-            style="display:none;margin-bottom:8px"
-          ></div>
-
-          <!-- Hinweis: Hörtechnik = Keine Angabe -->
-          <div
-            id="cfgHintUnknownEl"
-            class="explain"
-            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
-          ></div>
-
-          <!-- Hinweis: Hersteller = Keine Angabe -->
-          <div
-            id="mfrHintUnknownEl"
-            class="explain"
-            style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"
-          ></div>
-
-          <!-- CI-spezifischer Block: Hersteller + Modell + Params -->
+          <!-- CI-spezifischer Block: Hersteller + Prozessor + Modell + Params -->
           <div id="implMfrBlock">
 
-          <!-- Hersteller -->
-          <div class="controls-row" style="margin-bottom: 6px">
-            <div class="control-group">
-              <label id="lblMfr"></label>
-              <select id="mfrSelect">
-                <option value="unknown" id="mfrOptUnknown">—</option>
-                <option value="medel">MED-EL (12)</option>
-                <option value="ab">Advanced Bionics (16)</option>
-                <option value="cochlear">Cochlear (22)</option>
-              </select>
+            <!-- Hersteller -->
+            <div class="controls-row" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblMfr"></label>
+                <select id="mfrSelect">
+                  <option value="unknown" id="mfrOptUnknown">—</option>
+                  <option value="medel">MED-EL (12)</option>
+                  <option value="ab">Advanced Bionics (16)</option>
+                  <option value="cochlear">Cochlear (22)</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <!-- Audioprozessor -->
-          <div class="controls-row" id="implProcRow" style="margin-bottom: 6px">
-            <div class="control-group">
-              <label id="lblImplProc"></label>
-              <select id="implProcSelect" style="min-width: 200px"></select>
-            </div>
-          </div>
+            <!-- Hersteller-Hinweis (wenn unknown) -->
+            <div id="mfrHintUnknownEl" class="explain"
+                 style="display:none;margin-bottom:8px;background:var(--info-bg,#eff6ff);border-left:3px solid var(--accent,#2563eb);padding:7px 12px;border-radius:6px;font-size:.86em"></div>
 
-          <!-- Implantat-Modell + Generation (Cochlear) -->
-          <div class="controls-row" id="implModelRow" style="margin-bottom: 6px">
-            <div class="control-group">
-              <label id="lblImplModel"></label>
-              <select id="implModelSelect" style="min-width: 220px"></select>
+            <!-- Audioprozessor -->
+            <div class="controls-row" id="implProcRow" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblImplProc"></label>
+                <select id="implProcSelect" style="min-width: 200px"></select>
+              </div>
             </div>
-            <div class="control-group" id="implGenGroup" style="display: none">
-              <label id="lblImplGen"></label>
-              <span
-                id="implGenDisplay"
-                style="font-family: var(--mono); font-size: 0.88em"
-              ></span>
-            </div>
-          </div>
 
-          <!-- MED-EL: c-Wert -->
-          <div
-            class="controls-row"
-            id="implMedelParams"
-            style="display: none; margin-bottom: 6px"
-          >
-            <div class="control-group">
-              <label id="lblImplC"></label>
-              <input
-                type="number"
-                id="implC"
-                min="0"
-                max="8000"
-                step="1"
-                style="width: 80px"
-              />
+            <!-- Implantat-Modell + Generation (Cochlear) -->
+            <div class="controls-row" id="implModelRow" style="margin-bottom: 6px">
+              <div class="control-group">
+                <label id="lblImplModel"></label>
+                <select id="implModelSelect" style="min-width: 220px"></select>
+              </div>
+              <div class="control-group" id="implGenGroup" style="display: none">
+                <label id="lblImplGen"></label>
+                <span
+                  id="implGenDisplay"
+                  style="font-family: var(--mono); font-size: 0.88em"
+                ></span>
+              </div>
             </div>
-          </div>
 
-          <!-- AB: IDR -->
-          <div
-            class="controls-row"
-            id="implAbParams"
-            style="display: none; margin-bottom: 6px"
-          >
-            <div class="control-group">
-              <label id="lblImplIDR"></label>
-              <input
-                type="number"
-                id="implIDR"
-                min="20"
-                max="80"
-                step="1"
-                style="width: 80px"
-              />
-              dB
+            <!-- MED-EL: c-Wert -->
+            <div
+              class="controls-row"
+              id="implMedelParams"
+              style="display: none; margin-bottom: 6px"
+            >
+              <div class="control-group">
+                <label id="lblImplC"></label>
+                <input
+                  type="number"
+                  id="implC"
+                  min="0"
+                  max="8000"
+                  step="1"
+                  style="width: 80px"
+                />
+              </div>
             </div>
-          </div>
 
-          <!-- Cochlear: IIDR -->
-          <div
-            class="controls-row"
-            id="implCochParams"
-            style="display: none; margin-bottom: 6px"
-          >
-            <div class="control-group">
-              <label id="lblImplIIDR"></label>
-              <input
-                type="number"
-                id="implIIDR"
-                min="20"
-                max="80"
-                step="1"
-                style="width: 80px"
-              />
-              dB
+            <!-- AB: IDR -->
+            <div
+              class="controls-row"
+              id="implAbParams"
+              style="display: none; margin-bottom: 6px"
+            >
+              <div class="control-group">
+                <label id="lblImplIDR"></label>
+                <input
+                  type="number"
+                  id="implIDR"
+                  min="20"
+                  max="80"
+                  step="1"
+                  style="width: 80px"
+                />
+                dB
+              </div>
             </div>
-          </div>
+
+            <!-- Cochlear: IIDR -->
+            <div
+              class="controls-row"
+              id="implCochParams"
+              style="display: none; margin-bottom: 6px"
+            >
+              <div class="control-group">
+                <label id="lblImplIIDR"></label>
+                <input
+                  type="number"
+                  id="implIIDR"
+                  min="20"
+                  max="80"
+                  step="1"
+                  style="width: 80px"
+                />
+                dB
+              </div>
+            </div>
 
           </div><!-- /implMfrBlock -->
 
-          <!-- Default-Frequenzraster (nur wenn keine Seite CI) -->
-          <div
-            id="defaultMfrGroup"
-            class="controls-row"
-            style="display:none;margin-bottom:8px"
-          >
-            <div class="control-group">
-              <label id="lblDefaultMfr"></label>
-              <select id="defaultMfrSelect">
-                <option value="medel">MED-EL (12)</option>
-                <option value="ab">Advanced Bionics (16)</option>
-                <option value="cochlear">Cochlear (22)</option>
-              </select>
-            </div>
-          </div>
-
+          <!-- Tabellen-Intro (zwei Sätze: Pflicht / Optional) -->
           <p
             style="
-              font-size: 0.84em;
-              color: var(--text-muted);
-              margin-top: 8px;
-              margin-bottom: 4px;
+              font-size: 0.86em;
+              color: var(--text);
+              margin-top: 14px;
+              margin-bottom: 6px;
             "
-            id="implIntro"
+            id="implTableIntroEl"
           ></p>
+
+          <!-- Tabellen-Hinweis 1 — Aktiv-Spalte / deaktivierte Elektroden -->
           <div
+            id="freqDeactHintEl"
             class="explain explain-warn"
-            id="implBilateralHintEl"
-            style="margin-top: 6px; margin-bottom: 10px; display: none"
+            style="margin-bottom: 8px; display: none"
+          ></div>
+
+          <!-- Tabellen-Hinweis 2 — ABF / FAT -->
+          <div
+            id="freqAbfHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 8px; display: none"
+          ></div>
+
+          <!-- Tabellen-Hinweis 3 — Ausschließen-Spalte -->
+          <div
+            id="freqExclHintEl"
+            class="explain explain-warn"
+            style="margin-bottom: 12px; display: none"
           ></div>
 
           <div style="overflow-x: auto">
@@ -477,9 +446,10 @@
             </table>
           </div>
           <div
+            id="sweepRow"
             style="
               margin-top: 12px;
-              display: flex;
+              display: none;
               gap: 8px;
               align-items: center;
               flex-wrap: wrap;

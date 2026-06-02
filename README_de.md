@@ -77,7 +77,7 @@ Grundsätzliche technische Angaben zu Ihrem CI.
 
 - Wählen Sie oben die Seite *LINKS/RECHTS* aus, auf der Sie das CI tragen.
 - Tragen Sie mindestens Ihren CI Hersteller ein, sofern bekannt, auch Modell usw.
-- Markieren Sie deaktivierte Elektroden unter *STATUS* als *DEAKTIVIERT*.
+- Markieren Sie deaktivierte Elektroden unter *AKTIV* als *DEAKTIVIERT* (Häkchen entfernen).
 - Testen Sie den Ton für jede Elektrode. Auffällige Elektroden, z. B. mit starkem Rauschen, in *STATUS* markieren.
 - Idealerweise tragen Sie alle weiteren Ihnen bekannten Angaben und Werte ein, sofern bekannt. Sie können die Werte bei Ihrem Audiologen erfragen. Sie können das Tool aber auch ohne diese Werte nutzen.
 - Machen Sie alle Angaben auch für das andere Ohr. Auch *normalhörend* oder *schwerhörig* oder *taub* gegebenenfalls eintragen, wenn sie dort kein CI tragen.
@@ -94,7 +94,7 @@ Vergleich der Lautstärken der Elektroden.
   - Sobald die Töne gleich laut sind, mit *Enter* bestätigen.
   - Optional: Anderen Ton zum Testen auswählen.
     - Anmerkung: Es stehen einige Töne zur Auswahl. 
-      - Sinus ist Standard. 
+      - Sinus ist Standard, Komplex ist auch sehr gut. 
       - Schmalbandrauschen kann zu erstaunlich großen Abweichungen in der Messung führen.
         Diesen Ton erst einmal nur experimentell nutzen, oder als ganz eigene Testreihe unabhängig von einer Sinustonmessung.
 - Empfohlenes Vorgehen: 
@@ -174,14 +174,18 @@ Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Version
 ### Reiter *Messungen* -> *Frequenzabgleich*
 Messung von Tonhöhenunterschieden links und rechts.
 - Es ist vorteilhaft, vor dieser Messung *Elektrodenlautstärke* und *Stereo-Balance* bereits durchgeführt zu haben. 
-  
-- Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
-- Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
-- Anmerkungen:
-  - Wenn Sie auf dem anderen Ohr natürlich hören, aber schwerhörig sind, kann es helfen, sich das Hörgerät für den Test so einstellen zu lassen, daß es keine Frequenzverschiebung vornimmt, sondern nur die Lautstärke verbessert.
-  - Wenn Sie auf dem anderen Ohr ein Hörgerät tragen, daß Frequenzverschiebung macht, etwa hohe Töne als tiefere Töne wiederzugeben, ist es für den Test nicht geeignet. Sie würden mit den verschobenen Frequenzen testen.
 
-Dieses Meßverfahren ist noch etwas rudimentär und soll in zukünftigen Versionen verfeinert werden.
+Das Vorgehen ist in 2 Tests aufgeteilt. Der erste Test mit Slider dient nur dazu, gute Startwerte für den zeitintensiven zweiten test zu bekommen.
+#### Test 1: Vor-Schätzung (Slider)
+- Pro Elektrode wird der gleiche Ton links und rechts abgespielt. Korrigieren Sie mit dem Slider / mit den Pfeiltasten, bis sich die Töne links und rechts gleich hoch bzw. tief anhören.
+#### Test 2: Adaptiv
+- Es werden Tonfolgen abgespielt, und Sie geben für jede Tonfolge an, ob der zweite Ton höher oder tiefer als der erste war.
+- Sie kommen irgendwann an einen Punkt, wo Sie das kaum oder nicht mehr unterscheiden können. Antworten Sie dann intuitiv, auch wenn der Verstand keinen Unterschied mehr erkennt.
+#### Player
+- Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
+#### Anmerkungen:
+- Wenn Sie auf dem anderen Ohr natürlich hören, aber schwerhörig sind, kann es helfen, sich das Hörgerät für den Test so einstellen zu lassen, daß es keine Frequenzverschiebung vornimmt, sondern nur die Lautstärke verbessert.
+- Wenn Sie auf dem anderen Ohr ein Hörgerät tragen, daß Frequenzverschiebung macht, etwa hohe Töne als tiefere Töne wiederzugeben, ist es für den Test nicht geeignet. Sie würden mit den verschobenen Frequenzen testen.
 
 ### Reiter *Schieber*
 Erlaubt manuelle Lautstärkeänderung einzelner Elektroden.

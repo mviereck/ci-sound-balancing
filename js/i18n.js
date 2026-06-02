@@ -73,9 +73,11 @@ function applyLang() {
   if (gEl2("glossLSEl")) gEl2("glossLSEl").innerHTML = t("glossLS");
   s("freqTitle", "freqTitle");
   s("lblMfr", "lblMfr");
-  s("freqHint", "freqHint");
+
   const abfEl = document.getElementById("freqAbfHintEl");
   if (abfEl) abfEl.innerHTML = t("freqAbfHint");
+  const exclEl = document.getElementById("freqExclHintEl");
+  if (exclEl) exclEl.innerHTML = t("freqExclHint");
   s("sweepBtn", "sweep");
   s("stopBtn", "stop");
   s("lblCorr", "lblCorr");
