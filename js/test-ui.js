@@ -1440,6 +1440,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (!vCfg2) return;
 
     _testRunning = true;
+    document.body.classList.add('test-running'); // BA 183
     // Tab-Sperre
     lockTestTabs(true, id);
     // Verfahren-Dropdown sperren
@@ -1472,6 +1473,7 @@ function _buildTestPanelNew(parentEl, cfg) {
   function _stopTest() {
     var vCfg2 = _getActiveVerfahrenCfg();
     _testRunning = false;
+    document.body.classList.remove('test-running'); // BA 183
     // Tab-Sperre aufheben
     lockTestTabs(false, null);
     // Verfahren-Dropdown entsperren

@@ -95,3 +95,28 @@ Hintergrund, auch wenn das Debug-Panel geschlossen ist:
 - Fehler werden auch in den Debug-Panel-Log (`dbg.log(...)`) eingetragen
   (Level `'error'`, Präfix `[type]`). Fehler, die vor dem Laden von
   `debug.js` auftreten, werden beim `window.load`-Event nachgereicht.
+
+## Update-Check-Banner
+
+Das **Update-Banner** (ab BA 183) informiert den Nutzer, wenn der
+Entwickler eine neue Version gepusht hat, während das Tool im Tab
+offen war. Trigger und Verhalten:
+
+- Bei jedem `visibilitychange → visible` und ein erstes Mal ca. 5 s
+  nach `DOMContentLoaded` wird die Server-Version aus `js/version.js`
+  per `fetch(..., { cache: 'no-store' })` gelesen und mit der beim
+  Laden eingefrorenen `APP_VERSION` verglichen.
+- Bei Differenz erscheint ein blaues Banner (`#updateBanner`) direkt
+  oberhalb der Tab-Leiste mit Text „Neue Version verfügbar (X.Y.Z)"
+  und zwei Buttons: „Jetzt aktualisieren" und „×".
+- „Jetzt aktualisieren" führt `location.replace(pathname + '?t=' + Date.now())`
+  aus — der URL-Wechsel erzwingt einen Cache-Bust und lädt frisches HTML.
+- „×" blendet das Banner nur temporär aus; beim nächsten Fokus-Check
+  erscheint es wieder, solange die Versionsdifferenz besteht (kein
+  persistentes Dismiss).
+- **Während eines laufenden Tests** wird kein Banner gezeigt. Test-Lauf
+  wird über `document.body.classList.contains('test-running')` erkannt
+  (gesetzt in `_startTest`/entfernt in `_stopTest` in `test-ui.js`).
+- Bei Offline-/Netzwerk-Fehlern bleibt die Funktion still (kein
+  Banner, kein Konsolen-Fehler).
+- Im Druckmodus ausgeblendet.

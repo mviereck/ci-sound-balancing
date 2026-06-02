@@ -1615,6 +1615,54 @@ body.dbg-active .dbg-only { display: inline-block; }
 }
 
 /* ============================================================
+   Update-Banner (BA 183)
+   ============================================================ */
+#updateBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  background: #1e40af;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 13px;
+  user-select: none;
+}
+#updateBanner .update-banner-msg {
+  flex: 1;
+}
+#updateBanner .update-banner-btn {
+  background: #fff;
+  color: #1e40af;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+#updateBanner .update-banner-btn:hover {
+  background: #e0e7ff;
+}
+#updateBanner .update-banner-close {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 6px;
+  cursor: pointer;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+#updateBanner .update-banner-close:hover {
+  background: rgba(255,255,255,0.15);
+}
+@media print {
+  #updateBanner { display: none !important; }
+}
+
+/* ============================================================
    Implantat-Plausibilitätsprüfung (BA 133)
    ============================================================ */
 .impl-warn-red    { outline: 2px solid #dc2626; outline-offset: -2px; }
