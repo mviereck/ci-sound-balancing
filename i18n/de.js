@@ -344,7 +344,6 @@ Object.assign(L.de, {
     audiologHintNote: "Bei einseitigem Ausdruck und symmetrischem Frequenz-Warping wird die Anpassung der anderen Seite als Zusatzspalte mit angezeigt.",
     audiologPrint: "Drucken (mit Grafik)",
     audiologDownloadMd: "Markdown Text exportieren",
-    audiologHeaderSide: "Aktive Side-Auswahl",
     audiologMfr: "Hersteller",
     audiologProcessor: "Prozessor",
     audiologImplant: "Implantat-Modell",
@@ -387,7 +386,6 @@ Object.assign(L.de, {
     audMissCValue: "MAPLAW c-Wert",
     audMissIidr: "IIDR",
     audMissIdr: "IDR",
-    audiologToolVersionLine: "Meßwerte ermittelt mit CI Sound Balancing Tool {VERSION} (www.ci-sound-balancing.org)",
     audColHzDefault: "Hz Default",
     audColHzManual: "Hz (manuell eingetragen)",
     audColHzWish: "Gewünschte Mittenfrequenz",
@@ -407,6 +405,7 @@ Object.assign(L.de, {
     printHeaderDate: "Datum",
     printHeaderSide: "Seite",
     printHeaderImpl: "Implantat",
+    printHeaderToolVersion: "Meßwerte ermittelt mit CI Sound Balancing Tool {VERSION} (www.ci-sound-balancing.org)",
     fResetAll: "Alles zurücksetzen",
     cardResetTitle: "Daten löschen",
     eeDesc:

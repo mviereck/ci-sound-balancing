@@ -1101,23 +1101,11 @@ function _audiologUserNoteBlock() {
 }
 
 function buildAudiologMarkdown() {
-  const now = new Date();
-  const dateStr = now.toLocaleString(
-    lang === "de" ? "de-DE"
-    : lang === "fr" ? "fr-FR"
-    : lang === "es" ? "es-ES" : "en-US"
-  );
   const mainSides = _audiologMainSides();
   const sideLabel = _mdBilateralLabel();
   const parts = [];
 
-  // ---- Kopf ----
-  parts.push(`# CI Sound Balancing — ${t("audiologTitle")}\n`);
-  parts.push(`**${t("archivHeaderDate")}**: ${dateStr}`);
-  parts.push(`**${t("audiologHeaderSide")}**: ${sideLabel}`);
-  if (typeof APP_VERSION !== "undefined") {
-    parts.push(`_${t("audiologToolVersionLine").replace("{VERSION}", APP_VERSION)}_`);
-  }
+  // ---- Kopf wird komplett vom gemeinsamen buildPrintHeader gestellt ----
   parts.push("");
 
   // ---- Persönliche Notiz des Patienten ganz oben ----

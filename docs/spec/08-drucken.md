@@ -15,9 +15,13 @@
   den Inhalt dieses Tabs (bzw. aktiven Sub-Tabs) für die aktuell
   aktive Seite druckt. Jeder Einzeldruck trägt einen Mini-Kopf
   mit App-Name, Tab-Titel, Datum, Seite und Implantat-
-  Identifikation. Der bestehende „Alles drucken"-Button in
-  Laden/Speichern bleibt unverändert und druckt weiterhin beide
-  Seiten mit allen Sektionen.
+  Identifikation; darunter eine kursive Tool-Versions-Zeile
+  („Meßwerte ermittelt mit CI Sound Balancing Tool vX.Y.Z-beta
+  (www.ci-sound-balancing.org)", i18n-Key `printHeaderToolVersion`)
+  — gilt seit BA 176 für alle Tab-Drucke und den Audiologen-Druck
+  einheitlich über `buildPrintHeader`. Der bestehende „Alles
+  drucken"-Button in Laden/Speichern bleibt unverändert und
+  druckt weiterhin beide Seiten mit allen Sektionen.
   - **Implantat-Tab** (`#printImplantBtn`): implementiert.
   - **Meßergebnisse-Sub-Tabs** (`#printErgebnisseBtn` in der
     Sub-Tab-Leiste rechts): implementiert. Dispatcher
@@ -105,13 +109,16 @@ Aktionen: Drucken (mit Grafik), Markdown-Export.
 
 Der Korrektur-Bericht ist gegliedert in:
 
-1. Kopf (Datum, Side-Auswahl) + Tool-Version-Zeile (italic, mit Domain
-   www.ci-sound-balancing.org).
+1. Kopf wird vollständig vom gemeinsamen `buildPrintHeader` (`print.js`)
+   gestellt: H1 „CI Sound Balancing — Einstellungswünsche an den
+   Audiologen", Datum / Seite / Implantat, Tool-Versions-Zeile mit
+   Domain. Der Audiologen-Markdown-Body enthält seit BA 176 keinen
+   eigenen H1/Datum/Versions-Block mehr.
 2. Persönliche Notiz (H2 „Notiz" + Text direkt ohne Blockquote-Prefix,
    i18n-Key `audiologSecNote`) — nur wenn `audiologUserNote` nicht leer.
    Bei leerer Notiz entfällt der Block vollständig.
 3. EQ-aus-Hinweis (Blockquote), falls Player-EQ deaktiviert — direkt
-   unter Notiz-Block (bzw. Tool-Version-Zeile, wenn keine Notiz).
+   unter Notiz-Block (bzw. direkt unter dem Header, wenn keine Notiz).
 4. Bilateraler Block — Sektionen, die beide Seiten gleichermaßen
    betreffen, in fester Reihenfolge (vor den Pro-Seite-Blöcken):
    - „Hinweise für den Audiologen" (H2, 5 Bullets; letzter: Bitte um vollständiges Anpassungsprotokoll für den Klienten nach Ende der Sitzung).

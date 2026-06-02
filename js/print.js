@@ -36,6 +36,10 @@ function buildPrintHeader(tabTitle) {
   if (modelName) implParts.push(modelName);
   const implStr = implParts.length ? implParts.join(", ") : "—";
   const logoUrl = new URL("assets/images/logo_briefkopf6.png", window.location.href).href;
+  const versionStr = (typeof APP_VERSION !== "undefined") ? APP_VERSION : "";
+  const versionLine = versionStr
+    ? _printEscHtml(t("printHeaderToolVersion").replace("{VERSION}", versionStr))
+    : "";
   return `
     <div style="margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px; font-family: sans-serif; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
       <div style="flex: 1; min-width: 0;">
@@ -45,6 +49,7 @@ function buildPrintHeader(tabTitle) {
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderSide"))}: ${_printEscHtml(sideStr)}${_printEscHtml(cfgSuffix)}
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderImpl"))}: ${_printEscHtml(implStr)}
         </p>
+        ${versionLine ? `<p style="font-size: 0.78em; color: #888; margin: 4px 0 0 0; font-style: italic;">${versionLine}</p>` : ""}
       </div>
       <img src="${logoUrl}" alt="CI Sound Balancing" style="height:150px;width:auto;flex-shrink:0;" />
     </div>
