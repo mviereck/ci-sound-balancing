@@ -183,7 +183,7 @@ Das Vorgehen ist in 2 Tests aufgeteilt. Der erste Test mit Slider dient nur dazu
 - Sie kommen irgendwann an einen Punkt, wo Sie das kaum oder nicht mehr unterscheiden können. Antworten Sie dann intuitiv, auch wenn der Verstand keinen Unterschied mehr erkennt.
 #### Player
 - Im *Player* kann unter *Experimentell* eine Simulation veränderter Tonhöhen abgespielt werden, die Qualität der Simulation ist aber noch bescheiden. Es kann aber eine Idee davon geben, wie die Veränderung wirken könnte.
-#### Anmerkungen:
+#### Hinweis zu Hörgeräten:
 - Wenn Sie auf dem anderen Ohr natürlich hören, aber schwerhörig sind, kann es helfen, sich das Hörgerät für den Test so einstellen zu lassen, daß es keine Frequenzverschiebung vornimmt, sondern nur die Lautstärke verbessert.
 - Wenn Sie auf dem anderen Ohr ein Hörgerät tragen, daß Frequenzverschiebung macht, etwa hohe Töne als tiefere Töne wiederzugeben, ist es für den Test nicht geeignet. Sie würden mit den verschobenen Frequenzen testen.
 
