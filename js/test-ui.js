@@ -1768,6 +1768,25 @@ var testUI = {
       slRef.input.value = String(Math.max(-needed, Math.min(needed, value)));
       slRef.input.style.setProperty('--sl-range-step', stepIdx);
     }
+  },
+
+  // ---- verfahren ----
+  verfahren: {
+    /**
+     * Programmatisch das aktive Verfahren wechseln.
+     * els:    Ergebnis von buildTestPanel
+     * vId:    Ziel-Verfahren-Id (z.B. 'slider' | 'adaptive')
+     * Setzt den Wert des verfahrenSelect und feuert das change-Event,
+     * damit der einheitliche Wechsel-Handler (Panels, Explain,
+     * runningTitle, _activeVerfahren) ausgeführt wird.
+     */
+    select: function(els, vId) {
+      var sel = els && els.header && els.header.verfahrenSelect;
+      if (!sel) return;
+      if (sel.value === vId) return;
+      sel.value = vId;
+      sel.dispatchEvent(new Event('change'));
+    }
   }
 
 };
