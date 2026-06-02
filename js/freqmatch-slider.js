@@ -158,6 +158,9 @@ function fmConfirm() {
       varFreq: varHz,
       timestamp: Date.now(),
     };
+    if (typeof pApplyWarpModeDefaultFromFm === "function") {
+      pApplyWarpModeDefaultFromFm();
+    }
   }
   fmSeqIdx++;
   fmRenderSliderStatusGrid();
@@ -267,6 +270,9 @@ function fmRunSliderDebugSim() {
       timestamp: Date.now()
     };
   });
+  if (typeof pApplyWarpModeDefaultFromFm === "function") {
+    pApplyWarpModeDefaultFromFm();
+  }
   fmSeqIdx = fmSeq.length;
   fmLoadElectrode();
   if (typeof renderFreqMatchResults === 'function') {

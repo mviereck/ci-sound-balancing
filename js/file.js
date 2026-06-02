@@ -104,7 +104,7 @@ function resetAll() {
   // --- Warp-Block ---
   if (typeof pWarpOn !== "undefined") {
     pWarpOn = false;
-    pWarpMode = "var_side";
+    pWarpMode = "right";
     pWarpStrength = 100;
     pWarpMethod = "sinmodel";
     const _ws  = document.getElementById("plWarpStr");
@@ -113,6 +113,9 @@ function resetAll() {
     if (_wm) _wm.value = pWarpMethod;
     const _wmd = document.getElementById("plWarpModeSelect");
     if (_wmd) _wmd.value = pWarpMode;
+    if (typeof _pPlayerWarpDefaultApplied !== "undefined") {
+      _pPlayerWarpDefaultApplied = false;
+    }
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
   // --- MAPLAW-Knopf ---
@@ -247,7 +250,7 @@ async function saveJson() {
     eqStrength: parseInt(document.getElementById("plStr").value),
     globalToneType: globalToneType,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
-    warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "ref_side",
+    warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline",
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
@@ -601,7 +604,11 @@ function applyLoadedData(d) {
   // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
   if (typeof pWarpOn !== "undefined") {
     if (typeof d.warpOn === "boolean") pWarpOn = d.warpOn;
-    if (d.warpMode !== undefined) pWarpMode = d.warpMode;
+    if (d.warpMode !== undefined) {
+      pWarpMode = (typeof _migrateLegacyWarpMode === "function")
+        ? _migrateLegacyWarpMode(d.warpMode, d.fRes)
+        : d.warpMode;
+    }
     if (d.warpStrength !== undefined) {
       pWarpStrength = d.warpStrength;
       const ws = document.getElementById("plWarpStr");
@@ -617,6 +624,18 @@ function applyLoadedData(d) {
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
+  // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
+  // den Default-Anwendungs-Flag setzen, damit der nächste Insert
+  // den gespeicherten pWarpMode nicht überschreibt.
+  try {
+    const _hasFm =
+      (Array.isArray(fRes) && fRes.length > 0)
+      || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
+      || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
+    if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {
+      pMarkPlayerWarpDefaultAsApplied();
+    }
+  } catch (e) { /* defensiv */ }
   if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
   if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
   if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;

@@ -288,7 +288,7 @@ function fmPrevCent(elIdx) {
   // 1) Vorhandene Slider-Vor-Schätzung hat höchste Priorität.
   //    sliderEstimates wird im symmetric-Modus in sideData.left.* abgelegt
   //    (BA 147 Konvention fmVarSide='left'); kein zusätzlicher refSide-Filter
-  //    nötig, weil Modus-Wechsel die Daten ohnehin löscht (BA 145 fmRCDlg).
+  //    nötig, weil Modus-Wechsel die Daten ohnehin löscht.
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (store && store[String(elIdx)] != null) {
@@ -771,7 +771,7 @@ function _fmEvalTestEligibility() {
 function _fmAutoSetRefMode() {
   if (!fmEls || !fmEls.header || !fmEls.header.refSelect) return;
   // Schutz: solange Daten vorliegen, refSelect nicht implizit umstellen —
-  // ein manueller Wechsel löst dann den fmRCDlg-Bestätigungsdialog aus.
+  // ein manueller Wechsel ist durch depLock gesperrt (Popup mit Begründung).
   if (fRes.length > 0) return;
   if (_fmHasAdaptiveData()) return;
   if (_fmHasSliderEstimates()) return;
@@ -1115,25 +1115,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   fmEls.sliderEstimateDlg = fmSEDlg;
-
-  // Referenzwechsel-Dialog
-  const fmRCDlg = _mkEl('div', 'modal-overlay');
-  fmRCDlg.hidden = true;
-  const fmRCCard = _mkEl('div', 'card');
-  const fmRCMsg = _mkEl('p');
-  fmRCMsg.dataset.t = 'fmRefChangeConfirm';
-  if (typeof t === 'function') fmRCMsg.textContent = t('fmRefChangeConfirm') || fmRCMsg.textContent;
-  const fmRCBtns = _mkEl('div', 'btn-group');
-  const fmRCOkBtn = _mkEl('button', 'btn btn-danger');
-  fmRCOkBtn.dataset.t = 'fmRefChangeConfirmOk';
-  if (typeof t === 'function') fmRCOkBtn.textContent = t('fmRefChangeConfirmOk') || fmRCOkBtn.textContent;
-  const fmRCCancelBtn = _mkEl('button', 'btn');
-  fmRCCancelBtn.dataset.t = 'fmRefChangeConfirmCancel';
-  if (typeof t === 'function') fmRCCancelBtn.textContent = t('fmRefChangeConfirmCancel') || fmRCCancelBtn.textContent;
-  fmRCBtns.append(fmRCOkBtn, fmRCCancelBtn);
-  fmRCCard.append(fmRCMsg, fmRCBtns);
-  fmRCDlg.appendChild(fmRCCard);
-  parentEl.appendChild(fmRCDlg);
 
   // Events: Referenzseiten-Wechsel (BA 151: Sperre statt Custom-Dialog)
   fmEls.header.refSelect.addEventListener('change', function() {

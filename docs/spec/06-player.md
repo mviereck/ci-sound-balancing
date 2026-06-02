@@ -107,9 +107,19 @@
     Rauschen klingen natürlicher als beim Phasen-Vocoder. Pitch-Shift mit
     Spectral Spread auf zwei benachbarte Bins. Defaults: Phasen-Vocoder bleibt
     Default; Sinusoidal Modeling wahlweise im Dropdown.
-  - Korrektur-Modus: ref_side / var_side / symmetric
-  - Defaults: Verfahren = Sinusoidal Modeling, Korrektur-Modus = variable Seite
-    (gespeicherte JSON-Werte gewinnen weiter beim Laden)
+  - Korrektur-Modus: left / right / symmetric (User-Labels „Linke Seite" /
+    „Rechte Seite" / „Beide Seiten symmetrisch"). Alt-Werte `ref_side`/`var_side`
+    aus älteren Save-Dateien werden beim Laden über `_migrateLegacyWarpMode`
+    in absolute Seiten übersetzt (anhand der refSide des ersten fRes-Eintrags).
+  - Defaults: Verfahren = Sinusoidal Modeling, Korrektur-Modus = Rechte Seite.
+    Beim ersten Frequenzabgleich-Resultat einer Session wird der Korrektur-Modus
+    automatisch einmalig auf die **Zielseite** (= Gegenseite der Frequenzabgleich-
+    Referenzseite) gesetzt, sofern der User ihn nicht zuvor manuell geändert hat.
+    Gilt für jede Schreibstelle (Slider-Confirm, Adaptive-Aggregat-Insert,
+    Adaptive-finaler-Insert, Slider-DebugSim); idempotent über die Session-
+    Variable `_pPlayerWarpDefaultApplied` in `freq-warp.js`. Gespeicherte JSON-
+    Werte gewinnen weiter beim Laden: nach dem Load wird das Flag gesetzt,
+    sodass der nächste Mess-Insert den geladenen Wert nicht überschreibt.
   - Korrektur-Modus und Stärke sind immer sichtbar (nicht mehr von Checkbox abhängig)
   - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
   - Untertitel-Zeile oben in der Einstellungsbox (i18n-Key `pwSubtitle`), sichtbar wenn Box ausgeklappt

@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const modeSel = document.getElementById("plWarpModeSelect");
     if (!modeSel) return;
-    const modeKeys = ["pwModeRef", "pwModeVar", "pwModeSym"];
+    const modeKeys = ["pwModeLeft", "pwModeRight", "pwModeSym"];
     for (let i = 0; i < modeSel.options.length; i++) {
       if (modeKeys[i]) modeSel.options[i].text = t(modeKeys[i]);
     }
@@ -665,7 +665,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (sel) sel.value = pWarpMethod;
         }
         if (typeof _wMode === "string") {
-          pWarpMode = _wMode;
+          pWarpMode = (typeof _migrateLegacyWarpMode === "function")
+            ? _migrateLegacyWarpMode(_wMode, d.fRes)
+            : _wMode;
           const sel = document.getElementById("plWarpModeSelect");
           if (sel) sel.value = pWarpMode;
         }
@@ -676,6 +678,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (typeof pWarpUpdUI === "function") pWarpUpdUI();
       }
+      // BA 177: wenn beim Auto-Restore schon Frequenzabgleich-Messungen
+      // vorhanden sind, Default-Anwendungs-Flag setzen.
+      try {
+        const _hasFm =
+          (Array.isArray(fRes) && fRes.length > 0)
+          || (typeof _fmHasSliderEstimates === "function" && _fmHasSliderEstimates())
+          || (typeof _fmHasAdaptiveData === "function" && _fmHasAdaptiveData());
+        if (_hasFm && typeof pMarkPlayerWarpDefaultAsApplied === "function") {
+          pMarkPlayerWarpDefaultAsApplied();
+        }
+      } catch (e) { /* defensiv */ }
       if (d.lrResults && typeof lrResults !== "undefined") {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
@@ -863,7 +876,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
           warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
-          warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "var_side",
+          warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
           warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           // BA 161: bisher nur in Datei-Save

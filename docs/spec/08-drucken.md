@@ -162,10 +162,10 @@ Der Korrektur-Bericht ist gegliedert in:
      der Helper berechnet pro Elektrode auf der jeweiligen Seite die
      effektive Cent-Verschiebung über `buildWarpPoints` + `centShift`
      aus `_warpFResSource()` — also exakt die Mathematik, die der
-     Player im Audio-Pfad anwendet. Daraus folgt: im var_side-Modus
-     hat nur die varSide Einträge (refSide bekommt keine Sektion);
-     im ref_side-Modus ist es spiegelbildlich; im symmetric-Modus
-     bekommen **beide** Seiten Einträge mit je cent/2. Vorläufige
+     Player im Audio-Pfad anwendet. Daraus folgt: im left-Modus hat
+     nur die linke Seite Einträge (rechte bleibt leer); im right-Modus
+     ist es spiegelbildlich; im symmetric-Modus bekommen **beide**
+     Seiten Einträge mit je cent/2. Vorläufige
      Werte aus einem laufenden Frequenzabgleich-Test fließen mit ein
      — vorläufige Zeilen mit Sternchen am Elektrodenlabel und
      Fußnote `archivFmProvNote`; eine Elektrode gilt als vorläufig,

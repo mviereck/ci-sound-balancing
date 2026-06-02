@@ -607,6 +607,9 @@ function _fmRemoveResult(elIdx) {
     if (fmSymmetric) entry.cent = Math.round(agg.cent);
     if (existingIdx >= 0) fRes[existingIdx] = entry;
     else                  fRes.push(entry);
+    if (typeof pApplyWarpModeDefaultFromFm === "function") {
+      pApplyWarpModeDefaultFromFm();
+    }
     // BA 151
     if (typeof depLockApply === 'function') depLockApply();
     _fmDbg('fRes keep via agg: side=' + fmVarSide + ' el=' + elIdx
@@ -672,6 +675,9 @@ function _fmWriteResult(track) {
   }
   if (existingIdx >= 0) fRes[existingIdx] = entry;
   else                  fRes.push(entry);
+  if (typeof pApplyWarpModeDefaultFromFm === "function") {
+    pApplyWarpModeDefaultFromFm();
+  }
   // BA 151
   if (typeof depLockApply === 'function') depLockApply();
   _fmDbg('fRes write: side=' + fmVarSide + ' el=' + elIdx

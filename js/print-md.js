@@ -359,7 +359,7 @@ function _collectPlayer() {
     applyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
     warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
     warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "offline",
-    warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "ref_side",
+    warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     maplawOn:     (typeof pMaplawOn     !== "undefined") ? pMaplawOn     : false,
     maplawSollC:  (typeof pMaplawSollC  !== "undefined") ? pMaplawSollC  : null,
@@ -622,8 +622,8 @@ function _archivMdPlayer(data) {
   out.push(`- ${t("archivPlLatency")}: ${p.applyLatency ? t("on") : t("off")}`);
   out.push(`- ${t("archivPlMaplaw")}: ${p.maplawOn ? t("on") : t("off")}${p.maplawOn ? " (Soll-c=" + p.maplawSollC + ")" : ""}`);
   if (p.warpOn) {
-    const modeKey = p.warpMode === "ref_side" ? "pwModeRef"
-                  : p.warpMode === "var_side" ? "pwModeVar" : "pwModeSym";
+    const modeKey = p.warpMode === "left"  ? "pwModeLeft"
+                  : p.warpMode === "right" ? "pwModeRight" : "pwModeSym";
     const methodKey = p.warpMethod === "sinmodel" ? "pwMethodSinmodel"
                     : p.warpMethod === "vocoder"  ? "pwMethodVocoder"
                     : p.warpMethod === "bandshift" ? "pwMethodBandshift"
@@ -846,7 +846,7 @@ function _audiologFmRowsForSide(side) {
     : ((typeof fRes !== "undefined" && Array.isArray(fRes)) ? fRes : []);
   if (fmSrc.length === 0) return [];
 
-  const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "var_side";
+  const mode = (typeof pWarpMode !== "undefined") ? pWarpMode : "right";
   const points = buildWarpPoints(fmSrc, mode);
 
   const elIdxSet = new Set();

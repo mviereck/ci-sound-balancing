@@ -526,7 +526,7 @@ const _VOCODER_FFT_SIZE = 2048;
 
 let pWarpedBuf = null;
 let pWarpOn = false;
-let pWarpMode = "var_side";     // "ref_side" | "var_side" | "symmetric" — Default synchron mit HTML
+let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
 let pWarpBusy = false;
 let pWarpMethod = "sinmodel";   // "offline" | "bandshift" | "vocoder" | "sinmodel"
@@ -608,12 +608,25 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
   for (const r of fResData) {
     const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
     let csL = 0, csR = 0;
-    if (warpMode === "ref_side") {
-      if (r.refSide === "left")  csL = -cent;
-      else                       csR = -cent;
-    } else if (warpMode === "var_side") {
-      if (r.varSide === "left")  csL = cent;
-      else                       csR = cent;
+    if (warpMode === "left") {
+      if (r.refSide === "symmetric") {
+        // sym-Eintrag ohne klare Ref-/Var-Seite: gleichmäßig verteilen
+        csL = cent / 2;
+        csR = cent / 2;
+      } else if (r.varSide === "left") {
+        csL = cent;
+      } else if (r.refSide === "left") {
+        csL = -cent;
+      }
+    } else if (warpMode === "right") {
+      if (r.refSide === "symmetric") {
+        csL = cent / 2;
+        csR = cent / 2;
+      } else if (r.varSide === "right") {
+        csR = cent;
+      } else if (r.refSide === "right") {
+        csR = -cent;
+      }
     } else { // symmetric
       if (r.refSide === "left")  csL = -cent / 2;
       else                       csR = -cent / 2;
@@ -625,6 +638,29 @@ function buildWarpPoints(fResData, warpMode, invert = false) {
   }
   pts.sort((a, b) => a.varFreq - b.varFreq);
   return pts;
+}
+
+// ---- Migrations-Helfer für Alt-Werte ref_side/var_side ----
+// Übersetzt Alt-Werte in absolute Seiten anhand der Referenzseite,
+// die in den gespeicherten fRes-Einträgen steht. Wenn keine
+// fRes-Daten vorhanden sind, fallback auf Default-Seite.
+function _migrateLegacyWarpMode(savedMode, savedFRes) {
+  if (savedMode !== "ref_side" && savedMode !== "var_side") {
+    return savedMode;
+  }
+  let refSide = "left";
+  if (Array.isArray(savedFRes) && savedFRes.length > 0) {
+    const first = savedFRes[0];
+    if (first && typeof first.refSide === "string") {
+      refSide = first.refSide;
+    }
+  }
+  if (refSide === "symmetric") return "symmetric";
+  if (savedMode === "ref_side") {
+    return refSide === "left" ? "left" : "right";
+  }
+  // var_side
+  return refSide === "left" ? "right" : "left";
 }
 
 // ---- Hilfsfunktion: betroffene Seiten ermitteln ---------
@@ -1134,4 +1170,33 @@ async function pWarpTrigger() {
   pWarpUpdUI();
 
   if (wasPlaying) pPlay();
+}
+
+// ---- Default-Anwendung beim ersten Frequenzabgleich-Resultat ----
+// Wird einmal pro Session beim Übergang "0 → 1+ Messungen"
+// aufgerufen. Setzt pWarpMode auf die Zielseite (= nicht die
+// Referenzseite). Wenn der Default in dieser Session bereits
+// angewendet wurde, ist die Funktion idempotent (kein Override).
+// Beim Laden eines Saves mit vorhandenen Messungen muß
+// pMarkPlayerWarpDefaultAsApplied() einmal aufgerufen werden,
+// damit der gespeicherte pWarpMode nicht beim nächsten Insert
+// überschrieben wird.
+let _pPlayerWarpDefaultApplied = false;
+
+function pApplyWarpModeDefaultFromFm() {
+  if (_pPlayerWarpDefaultApplied) return;
+  _pPlayerWarpDefaultApplied = true;
+  let mode = "right";
+  if (typeof fmRefSide === "string") {
+    if (fmRefSide === "left")            mode = "right";
+    else if (fmRefSide === "right")      mode = "left";
+    else if (fmRefSide === "symmetric")  mode = "symmetric";
+  }
+  pWarpMode = mode;
+  const sel = document.getElementById("plWarpModeSelect");
+  if (sel) sel.value = pWarpMode;
+}
+
+function pMarkPlayerWarpDefaultAsApplied() {
+  _pPlayerWarpDefaultApplied = true;
 }
