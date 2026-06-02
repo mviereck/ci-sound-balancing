@@ -82,20 +82,39 @@ Verbindlich für **jede** Code-Änderung in `js/`, `index.html`,
 Agent-Build oder Sonnet-Bauanleitung:
 
 - **`APP_VERSION` in `js/version.js` hochzählen**, sobald an Lauf-
-  Code etwas verändert wurde. Format `"<Major>.<Minor>.<Patch>-beta"`;
-  Patch-Stelle bei jeder Änderung um genau 1 erhöhen, Major und Minor
-  nur manuell bei semantischen Brüchen. Ohne Bump bleibt der Browser-
-  Cache bei der alten Version hängen und der Nutzer sieht die Änderung
-  nicht. Reine Doku-Änderungen (`*.md`, `docs/`) lösen **keinen** Bump
-  aus.
+  Code etwas verändert wurde. Format:
+  `"<Major>.<Minor>.<BA-Nummer>[.<Fix>]-beta"`. Ohne Bump bleibt der
+  Browser-Cache bei der alten Version hängen und der Nutzer sieht die
+  Änderung nicht. Reine Doku-Änderungen (`*.md`, `docs/`) lösen
+  **keinen** Bump aus.
+
+  Bedeutung der Stellen:
+  - **Major / Minor**: manuell bei semantischen Brüchen (Architektur,
+    Lizenz, große Verfahrensumstellung). Beim Minor-Bump bleibt die
+    BA-Nummer der dritten Stelle erhalten — sie wird **nicht** auf
+    0 zurückgesetzt.
+  - **BA-Nummer (dritte Stelle)**: zeigt auf die zugehörige Bau-
+    anleitung. Wird **nur** bei einer neuen Bauanleitung um 1 erhöht.
+    Bleibt bei reinen Fixes / Lizenzwechsel / Direkt-Edits ohne BA
+    unverändert.
+  - **Fix-Suffix `.n` (vierte Stelle, optional)**: Bugfixes, kleine
+    Korrekturen und sonstige Code-Änderungen ohne eigene Bauanleitung
+    hängen `.1`, `.2`, … an die aktuelle BA-Nummer. Damit bleibt die
+    BA-Nummer in der dritten Stelle als Anker konsistent mit den
+    Dateinamen im `.bauanleitungen/`-Ordner. Beispiel: nach
+    `3.1.181-beta` (gebaut aus BA 181) wird ein Bugfix-Edit zu
+    `3.1.181.1-beta`, der nächste Bugfix zu `3.1.181.2-beta`. Mit
+    der nächsten Bauanleitung springt es auf `3.1.182-beta` (Fix-
+    Suffix entfällt wieder).
 
 - **Bauanleitungs-Dateien folgen der Toolversion**: Eine neue
-  Bauanleitung erhält die nächste Patch-Nummer, also `APP_VERSION_aktuell
-  + 1`. Dateiname-Konvention `BAUANLEITUNG_<patch>_<thema>.md` im
-  Ordner `.bauanleitungen/`. Beispiel: aktuelle Version 3.0.108-beta
-  → nächste Anleitung `BAUANLEITUNG_109_<thema>.md`, die nach
-  erfolgreichem Build die Version auf 3.0.109-beta setzt. Der Bump in
-  `version.js` ist Pflichtbestandteil jeder Anleitung (siehe
+  Bauanleitung erhält die nächste BA-Nummer = aktuelle dritte Stelle
+  + 1 (Fix-Suffix wird ignoriert). Dateiname-Konvention
+  `BAUANLEITUNG_<BA-Nummer>_<thema>.md` im Ordner `.bauanleitungen/`.
+  Beispiel: aktuelle Version `3.2.181.2-beta` → nächste Anleitung
+  `BAUANLEITUNG_182_<thema>.md`, die nach erfolgreichem Build die
+  Version auf `3.2.182-beta` setzt. Der Bump in `version.js` ist
+  Pflichtbestandteil jeder Anleitung (siehe
   `docs/BAUANLEITUNGEN_LEITLINIEN.md`). Wenn parallele Anleitungen
   gleichzeitig laufen, vergibt Opus die Nummern aufsteigend in der
   Reihenfolge der Erstellung.
