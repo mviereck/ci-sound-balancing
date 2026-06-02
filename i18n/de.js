@@ -726,7 +726,6 @@ Object.assign(L.de, {
     latPrereqHint: "Führen Sie zuerst die Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten aus.",
     fmPrereqLvLeft:  "Führen Sie zuerst die Messung Elektrodenlautstärke für die linke Seite aus.",
     fmPrereqLvRight: "Führen Sie zuerst die Messung Elektrodenlautstärke für die rechte Seite aus.",
-    fmPrereqLvBoth:  "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
     fmPrereqSb:      "Führen Sie zuerst die Messung Stereo-Balance aus.",
     fmHintWorkflow:
       "<strong>Empfohlenes Vorgehen:</strong><br>" +

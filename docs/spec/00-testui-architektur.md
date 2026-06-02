@@ -81,6 +81,22 @@ Das aufrufende Test-Modul nutzt die Refs nur, wenn es etwas anzeigen
 oder lesen muß; alle Aktionen laufen über Callbacks in `hooks` oder
 über zentrale Helfer (siehe Bausteine-Katalog).
 
+**`explain.paragraphs[].kind` (BA 178):** Fünf Dringlichkeits-Stufen
+plus Plain-Text:
+
+- `error` (rot) — kritischer Fehler
+- `caution` (orange) — wichtige Warnung
+- `warn` (gelb) — Hinweis / Vorbedingung
+- `info` (blau) — neutraler Hinweis
+- `ok` (grün) — Bestätigung / alles gut
+- `plain` — kleiner grauer Plain-Text (Methode, Workflow)
+
+Der Render in `test-ui.js` sortiert die Paragraphen automatisch:
+oben der Stufen-Block in Reihenfolge `error → caution → warn → info → ok`,
+darunter die Plain-Texte in Config-Reihenfolge. Innerhalb derselben
+Stufe bleibt die Config-Reihenfolge erhalten. Unbekannte `kind`-
+Werte fallen sicher auf `plain` zurück.
+
 ## Vollständiges Beispiel — Freqmatch
 
 ```js

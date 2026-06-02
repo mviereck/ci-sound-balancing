@@ -836,36 +836,23 @@ function _fmRenderIntroText() {
   }
 }
 
+function _fmHasLvData(side) {
+  const s = sideData[side];
+  if (!s) return false;
+  return (s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0);
+}
+
 function _fmRenderPrereqHints() {
-  const lvEl = document.getElementById('fmPrereqLvHintPara');
-  const sbEl = document.getElementById('fmPrereqSbHintPara');
-  if (!lvEl && !sbEl) return;
-  if (lvEl) {
-    const leftHasLv  = (sideData.left.bRes  && sideData.left.bRes.length  > 0)
-                    || (sideData.left.jRes  && sideData.left.jRes.length  > 0);
-    const rightHasLv = (sideData.right.bRes && sideData.right.bRes.length > 0)
-                    || (sideData.right.jRes && sideData.right.jRes.length > 0);
-    if (!leftHasLv || !rightHasLv) {
-      let key;
-      if (!leftHasLv && !rightHasLv) key = 'fmPrereqLvBoth';
-      else if (!leftHasLv)           key = 'fmPrereqLvLeft';
-      else                           key = 'fmPrereqLvRight';
-      lvEl.textContent = (typeof t === 'function') ? t(key) : key;
-      lvEl.style.display = '';
-    } else {
-      lvEl.style.display = 'none';
-    }
-  }
+  const lvLeftEl  = document.getElementById('fmPrereqLvLeftPara');
+  const lvRightEl = document.getElementById('fmPrereqLvRightPara');
+  const sbEl      = document.getElementById('fmPrereqSbHintPara');
+  if (lvLeftEl)  lvLeftEl.style.display  = _fmHasLvData('left')  ? 'none' : '';
+  if (lvRightEl) lvRightEl.style.display = _fmHasLvData('right') ? 'none' : '';
   if (sbEl) {
     const hasSb = typeof lrResults !== 'undefined'
                && lrResults
                && Object.keys(lrResults).length > 0;
-    if (!hasSb) {
-      sbEl.textContent = (typeof t === 'function') ? t('fmPrereqSb') : 'fmPrereqSb';
-      sbEl.style.display = '';
-    } else {
-      sbEl.style.display = 'none';
-    }
+    sbEl.style.display = hasSb ? 'none' : '';
   }
 }
 
@@ -988,11 +975,12 @@ document.addEventListener("DOMContentLoaded", () => {
     explain: {
       titleKey: 'fmTitle',
       paragraphs: [
-        { key: 'fmHintMethod',   kind: 'plain', id: 'fmHintMethodPara'   },
-        {                        kind: 'warn',  id: 'fmPrereqLvHintPara' },
-        {                        kind: 'warn',  id: 'fmPrereqSbHintPara' },
-        { key: 'fmHintWarn',    kind: 'warn',  id: 'fmHintWarnPara'     },
-        { key: 'fmHintWorkflow', kind: 'plain' }
+        { key: 'fmHintMethod',    kind: 'plain',   id: 'fmHintMethodPara'      },
+        { key: 'fmPrereqLvLeft',  kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
+        { key: 'fmPrereqLvRight', kind: 'warn',    id: 'fmPrereqLvRightPara'   },
+        { key: 'fmPrereqSb',      kind: 'warn',    id: 'fmPrereqSbHintPara'    },
+        { key: 'fmHintWarn',      kind: 'caution', id: 'fmHintWarnPara'        },
+        { key: 'fmHintWorkflow',  kind: 'plain' }
       ]
     },
     header: {

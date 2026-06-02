@@ -581,6 +581,23 @@ select:disabled {
 }
 .explain-warn {
   border-left-color: var(--warning);
+  background: #fef7e0;
+}
+.explain-error {
+  border-left-color: var(--danger);
+  background: #fdecea;
+}
+.explain-caution {
+  border-left-color: var(--warning);
+  background: #fdf3e5;
+}
+.explain-info {
+  border-left-color: var(--accent);
+  background: #e8f0fe;
+}
+.explain-ok {
+  border-left-color: var(--success);
+  background: #e6f4ea;
 }
 .explain-plain {
   font-size: 0.82em;

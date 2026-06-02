@@ -152,20 +152,27 @@ Slider-Wert wird invertiert.
   Text wird durch `_fmRenderIntroText()` gesetzt; `data-t` wird
   dynamisch auf `fmHintMethodCiNatural` oder `fmHintMethodBothCI`
   umgestellt.
-- **Dynamische Vorbedingungs-Hinweise (BA 160):**
-  - `#fmPrereqLvHintPara`: erscheint wenn Elektrodenlautstärke-Messung
-    fehlt; Text seitenspezifisch (`fmPrereqLvLeft` / `fmPrereqLvRight`
-    / `fmPrereqLvBoth`). Ausgeblendet wenn beide Seiten `bRes` oder
-    `jRes` nicht leer.
+- **Vorbedingungs-Hinweise (BA 160, Split seit 3.1.181):**
+  - `#fmPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes` und
+    `sideData.left.jRes` leer sind. Text: `fmPrereqLvLeft`.
+  - `#fmPrereqLvRightPara`: erscheint wenn `sideData.right.bRes` und
+    `sideData.right.jRes` leer sind. Text: `fmPrereqLvRight`.
   - `#fmPrereqSbHintPara`: erscheint wenn `lrResults` leer (keine
     Stereo-Balance-Messung vorhanden). Text: `fmPrereqSb`.
-  Beide werden von `_fmRenderPrereqHints()` verwaltet, aufgerufen aus
-  `fmApplyLang` und `_fmRefreshTabState`.
-- **Dynamischer Referenzseiten-Hinweis (BA 160):** `fmHintWarn`
-  (`#fmHintWarnPara`) zeigt je nach Kombination:
+  Die linke/rechte LV-Prüfung läuft seitenunabhängig vom
+  Hörtechnik-`config` — auch auf Naturgehör-/Hörgerät-Seiten kann
+  eine Ausgleichsmessung sinnvoll sein. Sichtbarkeit per
+  `display`-Toggle in `_fmRenderPrereqHints()`, aufgerufen aus
+  `fmApplyLang` und `_fmRefreshTabState`. Texte stehen statisch
+  in `data-t` der Config (kein dynamisches Umschalten mehr).
+  Helfer `_fmHasLvData(side)` prüft `bRes`/`jRes`-Befüllung.
+- **Dynamischer Referenzseiten-Hinweis (BA 160, Stufe seit BA 178):**
+  `fmHintWarn` (`#fmHintWarnPara`) zeigt je nach Kombination:
   - CI + Naturgehör: „...Referenzseite ... die mit natürlichem Gehör."
   - Beide CI: „...Referenzseite 'symmetrisch' auszuwählen."
-  Ebenfalls durch `_fmRenderIntroText()` gesteuert.
+  Ebenfalls durch `_fmRenderIntroText()` gesteuert. Render-Stufe
+  `caution` (orange) — landet durch die testUI-Sortierung oberhalb
+  der gelben Vorbedingungs-Hinweise (`warn`).
 - Cent-Slider (statt dB)
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite
