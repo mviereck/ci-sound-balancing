@@ -22,11 +22,30 @@ const FM_RESIDUAL_WIDE = 50;                   // converged-wide-Schwelle (cent)
 const FM_TRIAL_CAP     = 80;                   // Hard cap pro Track
 
 // Catch-Trial-Konstanten
-const FM_CATCH_INTERVAL     = 8;     // Catch-Trial-Abstand pro Track (deterministisch)
-const FM_CATCH_PHASE        = 5;     // Track-Trial-Index des ersten Catch (Trial 5, 13, 21 …)
-const FM_CATCH_MAGNITUDE    = 500;   // cent — Untergrenze der Catch-Spreizung
-const FM_NOT_PERC_MIN_CATCH = 3;     // mind. Catch-Trials vor Konvergenz-Freigabe
-const FM_NOT_PERC_ERR_RATE  = 2/3;   // Catch-Fehlerrate für not-perceivable (≥ 67 %)
+// BA 182: Verteilung umgestellt auf 4, 8, 14, 22, 30, … (statt 5, 13, 21, …).
+// Erste zwei Catches eng am Anfang, damit not-perceivable ab Trial 14 greift.
+const FM_CATCH_TRIALS_EARLY = [4, 8]; // Erste zwei Catches: feste Trial-Indizes
+const FM_CATCH_REGULAR_FROM = 14;     // Ab hier Modulo-Logik mit FM_CATCH_INTERVAL
+const FM_CATCH_INTERVAL     = 8;      // Catch-Trial-Abstand ab FM_CATCH_REGULAR_FROM
+const FM_CATCH_MAGNITUDE    = 500;    // cent — Untergrenze der Catch-Spreizung
+const FM_NOT_PERC_MIN_CATCH = 3;      // mind. Catch-Trials vor Konvergenz-Freigabe
+const FM_NOT_PERC_ERR_RATE  = 2/3;    // Catch-Fehlerrate für not-perceivable (≥ 67 %)
+
+// Frühabbruch-Konstanten (BA 182)
+// Smart Stop: vorzeitige Konvergenz bei 6 (statt 8) Reversals,
+//   wenn das Residuum zwei Reversal-Updates in Folge stabil unter
+//   der Klassen-Schwelle (FM_RESIDUAL_OK / FM_RESIDUAL_FAIR) liegt.
+const FM_SMART_STOP_REVERSALS = 6;
+
+// Residuum-Stagnation: nach FM_EARLY_UNSTABLE_TRIALS Trials und
+//   Residuum > FM_EARLY_UNSTABLE_RESID ct => unstable.
+const FM_EARLY_UNSTABLE_TRIALS = 40;
+const FM_EARLY_UNSTABLE_RESID  = 80;
+
+// Reversal-Mangel: nach FM_EARLY_NO_PROGRESS_TRIALS Trials und
+//   weniger als FM_EARLY_NO_PROGRESS_MIN_REVERSALS Reversals => unstable.
+const FM_EARLY_NO_PROGRESS_TRIALS         = 30;
+const FM_EARLY_NO_PROGRESS_MIN_REVERSALS  = 2;
 
 // Vorläufige Anzeige
 const FM_PROVISIONAL_MATCH_MIN = 2;  // ab so vielen Umkehrungen Schätz-Match
@@ -85,6 +104,8 @@ function fmCreateTrack(electrodeIdx, startSign, startOffset) {
                                      // 'not-perceivable' | 'aborted'
     match:           null,
     residual:        null
+    // _smartStopPrevResid und _smartStopLastEvalAtRevCount werden in
+    // _fmCheckAndUpdateStatus lazy gesetzt (BA 182, Smart Stop).
   };
 }
 
@@ -276,6 +297,24 @@ function _fmHalfSpanReversals(track) {
   return (max - min) / 2;
 }
 
+// --- Catch-Trial-Bestimmung (BA 182) ---
+//
+// Verteilung: erste zwei Catches bei Trial 4 und 8 (eng am Anfang,
+// damit not-perceivable früher greifen kann); danach jeder
+// FM_CATCH_INTERVAL-te ab FM_CATCH_REGULAR_FROM.
+// Aufruf: VOR dem trialCount++ in fmApplyResponse — also nach
+// trialCount === 4 ist der nächste Trial der 5., aber der Catch greift,
+// wenn der trialCount im Aufruferkontext direkt vor Trial-Start
+// === 4 ist.
+//
+function _fmIsCatchTrial(trialCount) {
+  for (let i = 0; i < FM_CATCH_TRIALS_EARLY.length; i++) {
+    if (trialCount === FM_CATCH_TRIALS_EARLY[i]) return true;
+  }
+  if (trialCount < FM_CATCH_REGULAR_FROM) return false;
+  return ((trialCount - FM_CATCH_REGULAR_FROM) % FM_CATCH_INTERVAL) === 0;
+}
+
 // --- Konvergenz-/Endzustands-Check ---
 //
 // Schreibt status / match / residual auf den Track, wenn ein Endzustand
@@ -284,7 +323,7 @@ function _fmHalfSpanReversals(track) {
 function _fmCheckAndUpdateStatus(track) {
   if (track.status !== 'active') return track.status;
 
-  // Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl.
+  // (1) Not-perceivable-Check: immer, unabhängig von Umkehr-Zahl.
   if (track.catchTotal >= FM_NOT_PERC_MIN_CATCH) {
     const errRate = track.catchErrors / track.catchTotal;
     if (errRate >= FM_NOT_PERC_ERR_RATE) {
@@ -301,7 +340,39 @@ function _fmCheckAndUpdateStatus(track) {
     return track.status;
   }
 
-  // Saubere Konvergenz: ≥8 Umkehrungen, Schrittweite am Minimum.
+  // (2) Smart Stop (BA 182): vorzeitige Konvergenz bei 6 Reversals,
+  // wenn das Residuum zwei Reversal-Updates in Folge unter der
+  // Schwelle liegt. Nur für converged und converged-fair, nicht
+  // für converged-wide.
+  const _revCount = track.reversals.length;
+  if (track.stepSize === FM_STEP_MIN
+      && _revCount >= FM_SMART_STOP_REVERSALS
+      && _revCount > (track._smartStopLastEvalAtRevCount || 0)) {
+    const _resNow = fmComputeResidual(track);
+    if (_resNow != null) {
+      const _resPrev = track._smartStopPrevResid;
+      if (_resPrev != null) {
+        if (_resNow <= FM_RESIDUAL_OK && _resPrev <= FM_RESIDUAL_OK) {
+          track.status   = 'converged';
+          track.match    = fmComputeMatch(track);
+          track.residual = _resNow;
+          return track.status;
+        }
+        if (_resNow <= FM_RESIDUAL_FAIR && _resPrev <= FM_RESIDUAL_FAIR) {
+          track.status   = 'converged-fair';
+          track.match    = fmComputeMatch(track);
+          track.residual = _resNow;
+          return track.status;
+        }
+      }
+      // Smart Stop greift noch nicht: aktuelles Residuum als Vorgänger
+      // für den NÄCHSTEN Reversal-Update merken.
+      track._smartStopPrevResid          = _resNow;
+      track._smartStopLastEvalAtRevCount = _revCount;
+    }
+  }
+
+  // (3) Klassische Konvergenz: ≥8 Umkehrungen, Schrittweite am Minimum.
   // Match/Residuum werden aus den letzten 6 berechnet (FM_REVERSALS_WIN).
   if (track.reversals.length >= FM_REVERSALS_REQ && track.stepSize === FM_STEP_MIN) {
     const residual = fmComputeResidual(track);
@@ -324,11 +395,37 @@ function _fmCheckAndUpdateStatus(track) {
         track.residual = residual;
         return track.status;
       }
-      // Residuum > FM_RESIDUAL_WIDE → noch aktiv (bis Hard-Cap)
+      // Residuum > FM_RESIDUAL_WIDE → noch aktiv (bis Frühabbruch oder Hard-Cap)
     }
   }
 
-  // Hard-Cap erreicht ohne Konvergenz: als unstable klassifizieren.
+  // (4) Residuum-Stagnation (BA 182): nach FM_EARLY_UNSTABLE_TRIALS
+  // Trials und Residuum > FM_EARLY_UNSTABLE_RESID → unstable.
+  if (track.trialCount >= FM_EARLY_UNSTABLE_TRIALS
+      && track.reversals.length >= FM_REVERSALS_WIN) {
+    const _resEarly = fmComputeResidual(track);
+    if (_resEarly != null && _resEarly > FM_EARLY_UNSTABLE_RESID) {
+      track.match    = fmComputeMatch(track);
+      track.residual = _resEarly;
+      track.status   = 'unstable';
+      return track.status;
+    }
+  }
+
+  // (5) Reversal-Mangel (BA 182): nach FM_EARLY_NO_PROGRESS_TRIALS
+  // Trials und weniger als FM_EARLY_NO_PROGRESS_MIN_REVERSALS Reversals
+  // → unstable. Match/Residuum aus dem Fallback (Mittel/halbe Spanne
+  // aller bisherigen Reversals).
+  if (track.trialCount >= FM_EARLY_NO_PROGRESS_TRIALS
+      && track.reversals.length < FM_EARLY_NO_PROGRESS_MIN_REVERSALS) {
+    track.match    = _fmMeanReversals(track);
+    if (track.match == null) track.match = track.currentOffset;
+    track.residual = _fmHalfSpanReversals(track);
+    track.status   = 'unstable';
+    return track.status;
+  }
+
+  // (6) Hard-Cap erreicht ohne Konvergenz: als unstable klassifizieren.
   if (track.trialCount >= FM_TRIAL_CAP) {
     if (track.reversals.length >= FM_REVERSALS_WIN) {
       // Genug für 6er-Fenster: Standard-Match/Residuum

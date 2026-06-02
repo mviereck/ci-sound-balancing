@@ -223,9 +223,9 @@ function fmNextAdaptiveTrial() {
   fmAwaitingResponse = false;
 
   // --- Catch-Entscheidung: deterministisch pro Track ---
-  // Jeder FM_CATCH_INTERVAL-te Trial eines Tracks ist ein Catch-Trial
-  // (Trial-Indizes 5, 13, 21, … — gleichmäßige Verteilung je Elektrode).
-  if ((fmTracks[fmCurTrackId].trialCount % FM_CATCH_INTERVAL) === FM_CATCH_PHASE) {
+  // Verteilung (BA 182): Trial 4, 8, 14, 22, 30, … — siehe
+  // _fmIsCatchTrial in freqmatch-staircase.js.
+  if (_fmIsCatchTrial(fmTracks[fmCurTrackId].trialCount)) {
     // Adaptive Spreizung: bei großem lokalem Residuum wird ±500 ct nicht
     // mehr eindeutig hörbar. Spreizung wächst mit dem aktuellen Residuum
     // (halbe Spanne der letzten 6 Umkehrungen via fmComputeResidual);

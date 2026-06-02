@@ -167,6 +167,72 @@ Catch-Trials vorhanden, wird der Track als `not-perceivable` klassifiziert.
 
 **Hard Cap**: 80 Trials pro Track als Safety Net.
 
+### Frühabbruch-Mechanismen (BA 182)
+
+Drei zusätzliche Trigger im Konvergenz-Check, die den Track früher als
+beim Hard Cap (Trial 80) beenden, ohne die methodische Aussagekraft
+zu verlieren. Reihenfolge im `_fmCheckAndUpdateStatus`-Check:
+not-perceivable → Smart Stop → klassische Konvergenz → Residuum-
+Stagnation → Reversal-Mangel → Hard Cap.
+
+**Smart Stop (vorzeitige Konvergenz)**: Greift, wenn ein Track bereits
+nach **6 Reversals** (statt 8) bei minimaler Schrittweite ein stabiles
+niedriges Residuum zeigt. Bedingung: zwei aufeinanderfolgende
+Residuum-Werte (jeweils nach einem Reversal-Update neu berechnet)
+unter der Klassenschwelle.
+
+- Smart-Stop-`converged`: zwei Residuen ≤ 10 ct in Folge → Status
+  `converged` (gleiche Klasse wie klassisch).
+- Smart-Stop-`converged-fair`: zwei Residuen ≤ 25 ct in Folge → Status
+  `converged-fair`.
+- Für `converged-wide` (26–50 ct) **kein** Smart Stop: bei dieser
+  Streuung ist die Mittelung über 6 statt 8 Reversals statistisch
+  zu schwach.
+- Voraussetzung wie für klassische Konvergenz: mind. 3 Catch-Trials
+  absolviert (`FM_NOT_PERC_MIN_CATCH`).
+- Trick zur Wiederholungs-Erkennung: der Track speichert das
+  Residuum aus dem vorherigen Reversal-Update in `_smartStopPrevResid`
+  und den Reversal-Count, bei dem zuletzt evaluiert wurde, in
+  `_smartStopLastEvalAtRevCount`. Damit greift Smart Stop genau
+  bei zwei aufeinanderfolgenden **Reversal-Events**, nicht bei zwei
+  aufeinanderfolgenden Antworten.
+- Konstante: `FM_SMART_STOP_REVERSALS = 6`.
+
+**Residuum-Stagnation**: Greift, wenn ein Track nach **40 Trials**
+ein Residuum > 80 ct zeigt — also weiter über `converged-wide`
+(50 ct) liegt, als sich in den verbleibenden 40 Trials realistisch
+korrigieren ließe. Frühabbruch als `unstable` mit Match und Residuum
+aus dem 6er-Fenster (analog zum Hard-Cap-Fall mit ausreichend
+Reversals).
+
+- Voraussetzung: ≥ 6 Reversals (sonst Residuum nicht berechenbar).
+- Konstanten: `FM_EARLY_UNSTABLE_TRIALS = 40`,
+  `FM_EARLY_UNSTABLE_RESID = 80`.
+
+**Reversal-Mangel**: Greift, wenn ein Track nach **30 Trials**
+weniger als 2 Reversals hat — der User antwortet praktisch monoton,
+die Staircase ist noch auf der 50-cent-Stufe, eine sinnvolle
+Konvergenz ist nicht mehr zu erwarten. Frühabbruch als `unstable`
+mit Fallback-Match/Residuum (Mittel und halbe Spanne aller bisherigen
+Reversals; falls keine: `currentOffset` als Match).
+
+- Konstanten: `FM_EARLY_NO_PROGRESS_TRIALS = 30`,
+  `FM_EARLY_NO_PROGRESS_MIN_REVERSALS = 2`.
+
+**Catch-Verdichtung am Track-Anfang (D)**: Die ersten beiden Catches
+liegen enger zusammen, damit `not-perceivable` früher greifen kann.
+Verteilung neu: **Trial 4, 8, 14, 22, 30, 38, …** (statt bisher 5,
+13, 21, …). Drei Catches sind damit nach Trial 14 absolviert (statt
+21); `not-perceivable` greift entsprechend früher. Spreizung und
+Logik bleiben unverändert (≥500 ct, eindeutig hörbar). Ersetzt den
+bisherigen Inline-Check `(trialCount % FM_CATCH_INTERVAL) ===
+FM_CATCH_PHASE` durch eine Helper-Funktion `_fmIsCatchTrial(trialCount)`
+in `freqmatch-staircase.js`.
+
+- Konstanten: `FM_CATCH_TRIALS_EARLY = [4, 8]`,
+  `FM_CATCH_REGULAR_FROM = 14`, `FM_CATCH_INTERVAL = 8` (unverändert).
+- Die Konstante `FM_CATCH_PHASE` entfällt.
+
 ### Ergebnis-Tabelle (Status-Spalte)
 
 Die Ergebnis-Tabelle zeigt den **Elektroden-Status** (kombiniert über
@@ -310,10 +376,14 @@ Balken im Test-Panel und im Ergebnis-Reiter nutzen dieselbe Formel
 
 ### Catch-Trials
 
-- **Verteilung**: deterministisch, jeder 8. Trial eines Tracks ist ein
-  Catch-Trial (Track-Trial-Indizes 5, 13, 21, … — konstante `FM_CATCH_INTERVAL=8`,
-  `FM_CATCH_PHASE=5`). Damit erhält jeder Track gleichmäßig Catch-Trials,
-  unabhängig von Gesamtlaufzeit oder Reihenfolge.
+- **Verteilung**: deterministisch, Catch-Trials liegen bei
+  Track-Trial-Indizes **4, 8, 14, 22, 30, 38, …** (ab BA 182: erste
+  zwei Catches eng am Anfang, danach jeder 8. ab Trial 14). Konstanten:
+  `FM_CATCH_TRIALS_EARLY = [4, 8]`, `FM_CATCH_REGULAR_FROM = 14`,
+  `FM_CATCH_INTERVAL = 8`. Implementiert als Helper-Funktion
+  `_fmIsCatchTrial(trialCount)` in `freqmatch-staircase.js`. Damit
+  erhält jeder Track die ersten 3 Catches schon nach Trial 14 (statt
+  21), `not-perceivable` greift entsprechend früher.
 - **Design**: in einem Catch-Trial wird der variable Ton nicht aus dem
   Staircase-Algorithmus geholt, sondern um eine **adaptive Spreizung**
   von der Referenz verschoben (Richtung zufällig). Die richtige Antwort
