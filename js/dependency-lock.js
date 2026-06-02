@@ -162,6 +162,40 @@ const DEP_LOCK_RULES = [
       } catch(ex) {}
       return reasons;
     }
+  },
+
+  // BA 164: Aktiv-Häkchen pro Elektrode — kann nicht umgeschaltet
+  // werden, wenn Meßergebnisse der aktiven Seite vorliegen.
+  {
+    selectorAll: '.ec-active',
+    fieldLabelKey: 'depFieldActive',
+    getReasonKeys: function() {
+      const reasons = [];
+      const s = sideData[activeSide];
+      const ownHasLoud =
+        (s.bRes && s.bRes.length > 0) ||
+        (s.jRes && s.jRes.length > 0);
+      if (ownHasLoud) reasons.push('depReasonLoudness');
+      try {
+        if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
+          reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) { /* fRes noch in TDZ */ }
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          if (reasons.indexOf('depReasonFreqMatchAdaptive') === -1)
+            reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) {}
+      try {
+        var hasSlider = false;
+        ['left', 'right'].forEach(function(side) {
+          var fa = sideData[side] && sideData[side].freqmatchAdaptive;
+          if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0)
+            hasSlider = true;
+        });
+        if (hasSlider) reasons.push('depReasonFreqMatchSlider');
+      } catch(ex) {}
+      return reasons;
+    }
   }
 ];
 

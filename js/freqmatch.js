@@ -241,7 +241,8 @@ function fmBuildSeq() {
   const elList = withSide(fmVarSide, () => {
     const result = [];
     for (let i = 0; i < nEl; i++) {
-      if (elSt[i] === "deactivated") continue;
+      // BA 164
+      if (elActive[i] === false) continue;
       if (elExDur[i]) continue;
       result.push({ idx: i, hz: effFreq(i) });
     }
@@ -259,7 +260,8 @@ function fmBuildSeqSymmetric() {
     return withSide(side, function() {
       const r = [];
       for (let i = 0; i < nEl; i++) {
-        if (elSt[i] === "deactivated") continue;
+        // BA 164
+        if (elActive[i] === false) continue;
         if (elExDur[i]) continue;
         r.push(i);
       }

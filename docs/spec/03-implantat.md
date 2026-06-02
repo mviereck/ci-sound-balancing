@@ -54,20 +54,17 @@
   - **Upper Level**: MCL bei MED-EL (qu), C-Level bei Cochlear (CL),
     M-Level bei AB (CU)
   - Play- und Hold-Buttons (Einzelton anhören)
+  - **Aktiv-Checkbox (BA 164):** neue Spalte vor Status. Gehakt = Elektrode
+    aktiv im CI. Abgehakt = inaktiv (Zeile halbtransparent). Quelle:
+    `elActive[i]` (`sideData[side].elActive[]`, Bool-Array, Default `true`).
+    Bei vorhandenen Meßdaten gesperrt (`.dep-locked` via `DEP_LOCK_RULES`,
+    Feldname `depFieldActive`): Opacity 0.45, Cursor `not-allowed`, kein
+    `disabled`-Attribut — Klick öffnet Sperr-Popup. Aktiv und Ausschluss
+    sind **vollständig unabhängig** — kein automatisches Setzen/Löschen
+    zwischen den beiden Konzepten.
   - Status-Dropdown: ok, leicht/mittel/stark verrauscht, fast stumm,
-    stumm, deaktiviert
-    **Sperre (BA 152):** Wechsel auf/von „im CI deaktiviert" wird
-    gesperrt, sobald Meßdaten vorliegen (Lautstärke-Test oder
-    FreqMatch-Ergebnisse). Konkret: wenn aktueller Status ≠ „im CI
-    deaktiviert", ist nur diese Option disabled; wenn aktueller Status
-    = „im CI deaktiviert", sind alle anderen Optionen disabled. Bei
-    aktiver Sperre erscheint ein kleines Info-Symbol (`.dep-info-icon`,
-    oranges Kreis-„i") neben dem Dropdown; Klick/Tap öffnet das
-    gewohnte Sperr-Popup mit Feldname `depFieldStatus` und den
-    zutreffenden Reason-Keys. Andere Status-Wechsel (ok ↔ verrauscht
-    ↔ stumm) sind weiterhin frei.
-  - Ausschluss-Checkbox: „im CI deaktiviert" → automatisch gesetzt,
-    nicht abhakbar. „stumm" → automatisch gesetzt (BA 153), manuell
+    stumm (6 Optionen — **kein „im CI deaktiviert"** mehr seit BA 164).
+  - Ausschluss-Checkbox: „stumm" → automatisch gesetzt (BA 153), manuell
     wieder abhakbar. Andere Status: frei bedienbar.
   - Notiz-Feld
 - **Beide Seiten akustisch (BA 155):** Sind beide Seiten auf hg/normal/shoh
@@ -86,10 +83,10 @@
   kein „im CI deaktiviert". Hz-Werte sind read-only und zeigen die
   **effektive** Frequenz der CI-Gegenseite (inkl. Nutzereingaben, via
   `withSide(ciSide, () => effFreq(i))`); Spaltenüberschrift „Hz (CI)".
-  Spiegel-Ausschluß: wenn auf der CI-Gegenseite eine Elektrode als
-  „deaktiviert" oder manuell ausgeschlossen markiert ist, ist die
-  entsprechende akustische Frequenz automatisch und unveränderlich
-  ausgeschlossen (Checkbox disabled). Hover zeigt `title`-Tooltip;
+  Spiegel-Ausschluß: wenn auf der CI-Gegenseite eine Elektrode inaktiv
+  (`elActive[i] === false`) oder manuell ausgeschlossen (`elExDur[i] != null`)
+  ist, ist die entsprechende akustische Frequenz automatisch und
+  unveränderlich ausgeschlossen (Checkbox disabled). Hover zeigt `title`-Tooltip;
   Klick/Touch öffnet dep-lock-Popup (`data-dep-simple`-Modus: nur Titel
   + Grund, kein Meßdaten-Boilerplate). Umgekehrt keine Wirkung.
 - Werte stehen in `sideData[side].implant.thr[i]` und `.mcl[i]`
@@ -139,8 +136,8 @@ benachbarten Elektroden).
 ### Hz-Prüfungen (Stand BA 137)
 
 Geprüft werden nur User-Override-Werte (`elFreqOwn[i] != null`),
-nicht die Default-Werte aus `MFR[mfr].freqs`. Deaktivierte
-Elektroden (Status „im CI deaktiviert") sind ausgenommen.
+nicht die Default-Werte aus `MFR[mfr].freqs`. Inaktive Elektroden
+(`elActive[i] === false`, BA 164) sind ausgenommen.
 
 - **Monotonie** (BA 133, Level 1 rot): die Hz-Reihe sollte
   aufsteigend mit dem Elektroden-Index sein. Verletzung wird an
@@ -191,23 +188,22 @@ bzw. `s.implant.upperLevel[i]` (Cochlear/AB) für aktive
   ≤1/10 gegen Spaltenmedian. Aktivierung ab 3 Werten in der
   Spalte.
 - **MAD-Ausreißer** (BA 138, Level 3 gelb): |x − median| > 3·MAD.
-  Aktivierung ab 5 Werten. Status-Werte außer „im CI deaktiviert"
-  haben keinen Einfluss auf die Prüfung — auch verrauschte oder
-  stumme Elektroden bleiben in der MAD-Statistik enthalten und
-  bekommen ggf. Warnungen (BA 140-fix).
+  Aktivierung ab 5 Werten. Nur inaktive Elektroden (`elActive[i] === false`)
+  sind ausgenommen; verrauschte oder stumme Elektroden bleiben in der
+  MAD-Statistik enthalten und bekommen ggf. Warnungen (BA 140-fix).
 
-### FAT-Sonderprüfung bei Deaktivierung (Stand BA 141)
+### FAT-Sonderprüfung bei Deaktivierung (Stand BA 141, aktualisiert BA 164)
 
 Eigene Prüfung `_implCheckFatOnDeactivation`. Auslöser:
-mindestens eine Elektrode mit Status „im CI deaktiviert". Prüft
+mindestens eine Elektrode mit `elActive[i] === false`. Prüft
 indirekt am Vorhandensein von Hz-eigen-Overrides, ob die FAT
 adaptiert wurde:
 
-- **globaler Test bestanden**: alle aktiven (nicht-deaktivierten)
+- **globaler Test bestanden**: alle aktiven (`elActive[i] !== false`)
   Elektroden haben einen Hz-eigen-Override (globale Umverteilung
   der FAT erkennbar).
 - **lokaler Test bestanden**: für mindestens eine der
-  deaktivierten Elektroden hat ein direkter aktiver Nachbar
+  inaktiven Elektroden hat ein direkter aktiver Nachbar
   einen Hz-eigen-Override (lokale Anpassung an die Lücke).
 - **weder noch**: Warnung.
 

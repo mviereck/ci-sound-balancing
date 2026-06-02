@@ -134,7 +134,8 @@ function _implUpperOf(s, i) {
 function _implCollectColumnValues(s, getterFn) {
   const vals = [];
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     const v = getterFn(s, i);
     if (v != null && !isNaN(v)) vals.push(v);
   }
@@ -291,8 +292,10 @@ function _implCheckHzMonotonie(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < n - 1; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
-    if (s.elSt && s.elSt[i + 1] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
+    // BA 164
+    if (s.elActive && s.elActive[i + 1] === false) continue;
 
     const hzI = _implEffFreqOf(s, i);
     const hzJ = _implEffFreqOf(s, i + 1);
@@ -323,7 +326,8 @@ function _implCheckHzRange(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
 
     const hz = s.elFreqOwn[i];
@@ -352,7 +356,8 @@ function _implCheckHzMagnitude(s) {
   const fac = IMPL_VAL_HZ_MAGNITUDE_FACTOR;
 
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
 
     const eigen = s.elFreqOwn[i];
@@ -390,7 +395,8 @@ function _implCheckHzCochlearLookup(s) {
   if (s.elSt) {
     nActive = 0;
     for (let i = 0; i < s.nEl; i++) {
-      if (s.elSt[i] !== 'deactivated') nActive++;
+      // BA 164
+      if (s.elActive && s.elActive[i] !== false) nActive++;
     }
   }
   if (nActive !== 22) return warnings;
@@ -400,7 +406,8 @@ function _implCheckHzCochlearLookup(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     // Nur User-Override prüfen.
     if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
 
@@ -445,7 +452,8 @@ function _implCheckHzTrendMedelAb(s) {
   // (nicht deaktivierte) Elektroden. Sonst null.
   const versatz = new Array(s.nEl).fill(null);
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     if (!s.elFreqOwn || s.elFreqOwn[i] == null) continue;
     const eigen = s.elFreqOwn[i];
     const def = s.freqs[i];
@@ -495,8 +503,10 @@ function _implCheckHzJumpMedelAb(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < s.nEl - 1; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
-    if (s.elSt && s.elSt[i + 1] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
+    // BA 164
+    if (s.elActive && s.elActive[i + 1] === false) continue;
 
     // Sprung-Prüfung nur, wenn mindestens eine der beiden
     // Elektroden einen User-Override hat — sonst sind die Werte
@@ -550,7 +560,8 @@ function _implCheckThrUpperRange(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
 
     const thr = _implThrOf(s, i);
     if (thr != null && (thr < ranges.thr.min || thr > ranges.thr.max)) {
@@ -593,7 +604,8 @@ function _implCheckThrUpperConflict(s) {
   const dENFn = (typeof dEN === 'function') ? dEN : function (i) { return i + 1; };
 
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt && s.elSt[i] === 'deactivated') continue;
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
     const thr   = _implThrOf(s, i);
     const upper = _implUpperOf(s, i);
     if (thr == null || upper == null) continue;
@@ -628,7 +640,8 @@ function _implCheckThrUpperMagnitude(s) {
     if (med == null || med <= 0) return;
 
     for (let i = 0; i < s.nEl; i++) {
-      if (s.elSt && s.elSt[i] === 'deactivated') continue;
+      // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
       const v = col.getter(s, i);
       if (v == null) continue;
       const ratio = v / med;
@@ -671,7 +684,8 @@ function _implCheckThrUpperMAD(s) {
     const threshold = fac * mad;
 
     for (let i = 0; i < s.nEl; i++) {
-      if (s.elSt && s.elSt[i] === 'deactivated') continue;
+      // BA 164
+    if (s.elActive && s.elActive[i] === false) continue;
       const v = col.getter(s, i);
       if (v == null) continue;
       const dev = Math.abs(v - med);
@@ -702,7 +716,8 @@ function _implCheckFatOnDeactivation(s) {
   const deactIdxs = [];
   const activeIdxs = [];
   for (let i = 0; i < s.nEl; i++) {
-    if (s.elSt[i] === 'deactivated') deactIdxs.push(i);
+    // BA 164
+    if (s.elActive && s.elActive[i] === false) deactIdxs.push(i);
     else activeIdxs.push(i);
   }
 
@@ -729,7 +744,8 @@ function _implCheckFatOnDeactivation(s) {
     if (d > 0)             neighbors.push(d - 1);
     if (d < s.nEl - 1)     neighbors.push(d + 1);
     return neighbors.some(function (n) {
-      if (s.elSt[n] === 'deactivated') return false;
+      // BA 164
+      if (s.elActive && s.elActive[n] === false) return false;
       return s.elFreqOwn && s.elFreqOwn[n] != null;
     });
   });

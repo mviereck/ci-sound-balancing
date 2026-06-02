@@ -56,6 +56,7 @@ let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, 
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
 
 let presets = [];
+let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite
 let fullSweepRound = null,
   fullSweepDonePairs = [];
 function initPresets() {
@@ -83,6 +84,7 @@ function bindActiveSide() {
   refEl = s.refEl;
   jRes = s.jRes;
   bRes = s.bRes;
+  elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
   fullSweepDonePairs = s.fullSweepDonePairs || [];
@@ -104,6 +106,8 @@ function initSideData(side, m) {
   s.refEl = Math.floor(s.nEl / 2);
   s.jRes = [];
   s.bRes = [];
+  // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
+  s.elActive = new Array(s.nEl).fill(true);
   s.fmMode = 'adaptive';
   s.fmAdaptiveDur = 200;
   s.fmAdaptivePau = 200;
@@ -327,9 +331,20 @@ function loadSideData(side, d) {
       s.elSt[_i] = null;
     }
   }
-  // Deactivated: ensure elExDur is set
+  // BA 164: elActive aus Datei lesen oder Default true.
+  s.elActive = Array.isArray(d.electrodeActive)
+    ? d.electrodeActive.map((v) => v !== false)
+    : new Array(s.nEl).fill(true);
+  while (s.elActive.length < s.nEl) s.elActive.push(true);
+  s.elActive = s.elActive.slice(0, s.nEl);
+  // BA 164 Migration: alter elSt-Wert "deactivated" -> elActive=false + elSt=null.
+  // elExDur wird zusätzlich gesetzt, damit alte Stände auch die alte
+  // Skip-Wirkung behalten (Aktiv und Ausschluss sind ab BA 164 entkoppelt,
+  // aber alte Daten brauchen den Spiegel-Effekt fürs nahtlose Weiterarbeiten).
   for (let _i = 0; _i < s.elSt.length; _i++) {
     if (s.elSt[_i] === "deactivated") {
+      s.elActive[_i] = false;
+      s.elSt[_i] = null;
       s.elExDur[_i] = s.elExDur[_i] || Date.now();
     }
   }
@@ -495,10 +510,11 @@ function implantSnapshot() {
   function _sideSnap(side) {
     const s = sideData[side];
     if (!s) return null;
+    // BA 164: Quelle ist jetzt elActive[]
     const deact = [];
-    const arr = s.elSt || [];
+    const arr = s.elActive || [];
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === "deactivated") deact.push(i);
+      if (arr[i] === false) deact.push(i);
     }
     return {
       config: s.config || "unknown",

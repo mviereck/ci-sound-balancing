@@ -180,6 +180,7 @@ async function saveJson() {
         frequencies: sideData.left.freqs,
         electrodeFreqOwn: sideData.left.elFreqOwn,
         electrodeStatus: sideData.left.elSt,
+        electrodeActive: sideData.left.elActive,
         electrodeNotes: sideData.left.elNt,
         electrodeExcludedDuring: sideData.left.elExDur,
         referenceElectrode: sideData.left.refEl,
@@ -201,6 +202,7 @@ async function saveJson() {
         frequencies: sideData.right.freqs,
         electrodeFreqOwn: sideData.right.elFreqOwn,
         electrodeStatus: sideData.right.elSt,
+        electrodeActive: sideData.right.elActive,
         electrodeNotes: sideData.right.elNt,
         electrodeExcludedDuring: sideData.right.elExDur,
         referenceElectrode: sideData.right.refEl,
@@ -341,6 +343,22 @@ function loadOldFormat(d, targetSide) {
       s.elSt[i] = null;
     }
   }
+  // BA 164: elActive aus Datei lesen oder Default true.
+  s.elActive = Array.isArray(d.electrodeActive)
+    ? d.electrodeActive.map((v) => v !== false)
+    : new Array(s.nEl).fill(true);
+  while (s.elActive.length < s.nEl) s.elActive.push(true);
+  s.elActive = s.elActive.slice(0, s.nEl);
+  // BA 164 Migration: alter elSt-Wert "deactivated" -> elActive=false + elSt=null.
+  // elExDur wird zusätzlich gesetzt, damit alte Stände auch die alte
+  // Skip-Wirkung behalten.
+  for (let _i = 0; _i < s.elSt.length; _i++) {
+    if (s.elSt[_i] === "deactivated") {
+      s.elActive[_i] = false;
+      s.elSt[_i] = null;
+      s.elExDur[_i] = s.elExDur[_i] || Date.now();
+    }
+  }
 
   // Referenzelektrode
   s.refEl =
@@ -385,12 +403,6 @@ function loadOldFormat(d, targetSide) {
     s.elFreqOwn = s.freqs.map((f, i) =>
       Math.round(f) === Math.round(defF[i] || 0) ? null : f,
     );
-  }
-  // Deactivated: ensure elExDur is set
-  for (let _i = 0; _i < s.elSt.length; _i++) {
-    if (s.elSt[_i] === "deactivated") {
-      s.elExDur[_i] = s.elExDur[_i] || Date.now();
-    }
   }
   console.log(
     "loadOldFormat fertig, nEl=",

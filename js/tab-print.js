@@ -26,6 +26,7 @@ function _cfgI18nKey(cfg) {
 
 // Mappt den internen elSt-Wert auf den korrekten i18n-Key.
 function _stI18nKey(stKey) {
+  // BA 164: „deactivated" nicht mehr als Status — jetzt eigene Spalte
   return (
     {
       noisyHeavy: "stNoisyHeavy",
@@ -33,7 +34,6 @@ function _stI18nKey(stKey) {
       noisyLess:  "stNoisyLess",
       almostMute: "stAlmMute",
       mute:       "stMute",
-      deactivated:"stDeactivated",
     }[stKey] || stKey
   );
 }
@@ -84,6 +84,7 @@ function printImplantTab() {
     "Hz*",
     t("implThHdr"),
     _upperHdr(m),
+    t("thActive"), // BA 164
     "Status",
     "Notiz",
   ];
@@ -103,6 +104,9 @@ function printImplantTab() {
     const stKey = s.elSt[i];
     const stText = stKey ? t(_stI18nKey(stKey)) : "";
     const note = s.elNt[i] || "";
+    // BA 164: Aktiv-Zelle
+    const isActive = (s.elActive && s.elActive[i] !== false);
+    const activeStr = isActive ? "✓" : "—";
     rows.push(
       `<tr>
         <td style="border:1px solid #ccc;padding:3px 6px;">E${elNum}${_tpEsc(apexBasal)}</td>
@@ -110,6 +114,7 @@ function printImplantTab() {
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(hzOwn)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(thr)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;text-align:right;">${_tpEsc(upper)}</td>
+        <td style="border:1px solid #ccc;padding:3px 6px;text-align:center;">${activeStr}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;">${_tpEsc(stText)}</td>
         <td style="border:1px solid #ccc;padding:3px 6px;">${_tpEsc(note)}</td>
       </tr>`,

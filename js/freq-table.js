@@ -45,37 +45,12 @@ function buildFreqTable() {
       `<th style="white-space:nowrap">${t("thExclCb")}</th>` +
       `<th>${t("thNote")}</th>`;
   } else {
+    // BA 164: neue Spalte „Aktiv" vor Status
     document.getElementById("freqTH").innerHTML =
-      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th title="${t("thCentTip")}">${t("thCent")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th title="${t("thCentTip")}">${t("thCent")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th style="white-space:nowrap">${t("thActive")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
   }
   const tb = document.getElementById("freqTB");
   tb.innerHTML = "";
-  // BA 152: Prüfung, ob Meßdaten den Status „im CI deaktiviert"-Wechsel sperren
-  const _depHasData = (function() {
-    const s = sideData[activeSide];
-    const ownHasLoud = (s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0);
-    const fHas = (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0);
-    return ownHasLoud || fHas;
-  })();
-  function _depStatusReasons() {
-    const reasons = [];
-    const s = sideData[activeSide];
-    if ((s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0)) {
-      reasons.push('depReasonLoudness');
-    }
-    if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0) {
-      var hasSlider = false, hasAdaptive = false;
-      for (var i = 0; i < fRes.length; i++) {
-        var e = fRes[i];
-        if (!e) continue;
-        if (e.method === 'slider') hasSlider = true;
-        if (e.method === 'adaptive') hasAdaptive = true;
-      }
-      if (hasSlider) reasons.push('depReasonFreqMatchSlider');
-      if (hasAdaptive) reasons.push('depReasonFreqMatchAdaptive');
-    }
-    return reasons;
-  }
   const inpStyle =
     "width:60px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em";
   for (let i = 0; i < nEl; i++) {
@@ -88,8 +63,9 @@ function buildFreqTable() {
       // Spiegel-Ausschluß aus CI-Gegenseite
       const ciSide = activeSide === "left" ? "right" : "left";
       const ciIsActive = (sideData[ciSide].config || "ci") === "ci";
+      // BA 164: Quelle für „CI-Spiegel-Ausschluß" ist jetzt elActive
       const ciMirroredExcl = ciIsActive && (
-        (sideData[ciSide].elSt && sideData[ciSide].elSt[i] === "deactivated") ||
+        (sideData[ciSide].elActive && sideData[ciSide].elActive[i] === false) ||
         (sideData[ciSide].elExDur && sideData[ciSide].elExDur[i] != null)
       );
       // Hz und Cent aus effektiver CI-Frequenz (inkl. Nutzereingaben)
@@ -127,56 +103,43 @@ function buildFreqTable() {
       tr.querySelector(".ss").value = elSt[i] || "";
       continue;
     }
-    // === Ende akustischer Branch — ab hier CI-Logik (unverändert) ===
+    // === Ende akustischer Branch — ab hier CI-Logik ===
     let ex = "";
     if (i === 0) ex = ` <span class="el-extra">(${t("apikal")})</span>`;
     if (i === nEl - 1) ex = ` <span class="el-extra">(${t("basal")})</span>`;
-    const isExcl = elExDur[i] !== null;
-    const isDeact = elSt[i] === "deactivated";
-    const stdHz = Math.round(freqs[i]);
-    const ownVal = elFreqOwn[i] != null ? Math.round(elFreqOwn[i]) : "";
-    const thrVal =
+    const isExcl  = elExDur[i] !== null;
+    // BA 164: Aktivitäts-Status aus globaler elActive
+    const isDeact = (elActive && elActive[i] === false);
+    const stdHz   = Math.round(freqs[i]);
+    const ownVal  = elFreqOwn[i] != null ? Math.round(elFreqOwn[i]) : "";
+    const thrVal  =
       im.thr && im.thr[i] !== null && im.thr[i] !== undefined ? im.thr[i] : "";
     const upperVal = isMedel
       ? im.mcl && im.mcl[i] !== null && im.mcl[i] !== undefined
-        ? im.mcl[i]
-        : ""
+        ? im.mcl[i] : ""
       : im.upperLevel &&
           im.upperLevel[i] !== null &&
           im.upperLevel[i] !== undefined
-        ? im.upperLevel[i]
-        : "";
+        ? im.upperLevel[i] : "";
     const centVal = Math.round(hzToCent(effFreq(i)));
     const centTxt = (centVal > 0 ? "+" : "") + centVal;
     if (isDeact || isExcl) tr.style.opacity = "0.55";
-    // BA 152: Status-Optionen pro Zeile, mit selektivem disabled
-    const _curStatus = elSt[i] || "";
-    const _curIsDeact = _curStatus === "deactivated";
-    const _lockDeactOption  = _depHasData && !_curIsDeact;
-    const _lockOtherOptions = _depHasData &&  _curIsDeact;
-    function _mkOpt(val, label, isDeactOpt) {
-      var disabled = '';
-      if (isDeactOpt && _lockDeactOption) disabled = ' disabled';
-      else if (!isDeactOpt && _lockOtherOptions) disabled = ' disabled';
-      var extraStyle = isDeactOpt
-        ? ' style="font-weight:700;color:#dc2626;text-transform:uppercase"'
-        : '';
-      return '<option value="' + val + '"' + disabled + extraStyle + '>' + label + '</option>';
-    }
+
+    // BA 164: Status-Dropdown ohne „deactivated"-Option (6 statt 7)
     const so_i =
-      _mkOpt("", "ok", false) +
-      _mkOpt("noisyLess", t("stNoisyLess"), false) +
-      _mkOpt("noisyMore", t("stNoisyMore"), false) +
-      _mkOpt("noisyHeavy", t("stNoisyHeavy"), false) +
-      _mkOpt("almostMute", t("stAlmMute"), false) +
-      _mkOpt("mute", t("stMute"), false) +
-      _mkOpt("deactivated", t("stDeactivated").toUpperCase(), true);
-    const _depShowInfo = _lockDeactOption || _lockOtherOptions;
-    const _depReasonsCsv = _depShowInfo ? _depStatusReasons().join(',') : '';
-    const _depInfoIconHtml = _depShowInfo
-      ? '<span class="dep-info-icon" data-dep-field-label="depFieldStatus" data-dep-reasons="'
-        + _depReasonsCsv + '" title="' + t('depLockedTitle') + '">i</span>'
-      : '';
+      `<option value="">ok</option>` +
+      `<option value="noisyLess">${t("stNoisyLess")}</option>` +
+      `<option value="noisyMore">${t("stNoisyMore")}</option>` +
+      `<option value="noisyHeavy">${t("stNoisyHeavy")}</option>` +
+      `<option value="almostMute">${t("stAlmMute")}</option>` +
+      `<option value="mute">${t("stMute")}</option>`;
+
+    // BA 164: Aktiv-Checkbox „nackt" — depLockApply() klebt
+    // .dep-locked automatisch drauf, wenn Meßdaten vorliegen.
+    const _activeChecked = isDeact ? "" : " checked";
+    const _activeCbHtml =
+      `<input type="checkbox" class="ec-active" data-i="${i}"${_activeChecked}>`;
+
     tr.innerHTML =
       `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
       `<td style="color:#999;font-family:var(--mono);font-size:.86em;padding:4px 6px">${stdHz}</td>` +
@@ -186,8 +149,9 @@ function buildFreqTable() {
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><button class="pbtn" data-a="play" data-i="${i}">&#9654;</button></td>` +
       `<td><button class="pbtn" data-a="hold" data-i="${i}">&#9724;</button></td>` +
-      `<td><select class="ss" data-i="${i}">${so_i}</select>${_depInfoIconHtml}</td>` +
-      `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}" ${isExcl || isDeact ? "checked" : ""} ${isDeact ? 'disabled title="Deaktivierte Elektroden sind automatisch ausgeschlossen"' : ""}></td>` +
+      `<td style="text-align:center">${_activeCbHtml}</td>` +
+      `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +
+      `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${isExcl ? " checked" : ""}></td>` +
       `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
     tb.appendChild(tr);
     tr.querySelector(".ss").value = elSt[i] || "";
@@ -244,11 +208,10 @@ function buildFreqTable() {
       const idx = +e.target.dataset.i,
         val = e.target.value || null;
       elSt[idx] = val;
-      // BA 153: Auto-Ausschluß bei „deactivated" UND „mute" (CI- und akustisch)
-      if (val === "deactivated" || val === "mute") {
+      // BA 164: „deactivated" als Status-Option entfernt — nur noch „mute"
+      if (val === "mute") {
         elExDur[idx] = elExDur[idx] || Date.now();
       }
-      // Status-Wechsel weg von „deactivated"/„mute" entfernt elExDur NICHT
       buildFreqTable();
       updRef();
       // BA 152
@@ -261,6 +224,30 @@ function buildFreqTable() {
       elExDur[idx] = e.target.checked ? elExDur[idx] || Date.now() : null;
       buildFreqTable();
       updRef();
+    }),
+  );
+  // BA 164: Aktiv-Checkbox
+  tb.querySelectorAll(".ec-active").forEach((cb) =>
+    cb.addEventListener("change", (e) => {
+      // BA 164: Sicherheitsnetz — falls preventDefault aus dem globalen
+      // mousedown-Handler in dependency-lock.js auf einer Plattform
+      // durchrutscht, Toggle rückgängig machen.
+      if (e.target.classList.contains('dep-locked')) {
+        e.target.checked = !e.target.checked;
+        return;
+      }
+      const idx  = +e.target.dataset.i;
+      const want = e.target.checked;
+      const arr  = sideData[activeSide].elActive;
+      if (!arr) return;
+      arr[idx] = want;
+      // elActive global neu binden, damit nachfolgende Render-
+      // Funktionen den neuen Stand sehen.
+      elActive = arr;
+      // BA 164: KEINE Auto-Verknüpfung zur Ausschluss-Checkbox.
+      buildFreqTable();
+      updRef();
+      if (typeof depLockApply === 'function') depLockApply();
     }),
   );
   // BA 153: Spiegel-Ausschluß Klick-/Touch-Popup
@@ -276,9 +263,9 @@ function buildFreqTable() {
       elNt[+e.target.dataset.i] = e.target.value;
     }),
   );
-  // Hinweistext für deaktivierte Elektroden (immer sichtbar sobald mind. eine deakt.)
+  // BA 164: Hinweis & Warnung jetzt aus elActive[]
   const hintEl = document.getElementById("freqDeactHintEl");
-  const hasDeact = elSt.some((s) => s === "deactivated");
+  const hasDeact = (elActive || []).some((a) => a === false);
   if (hintEl) {
     hintEl.innerHTML = t("freqDeactHint");
   }
@@ -290,7 +277,7 @@ function buildFreqTable() {
   // Warnbalken: nur wenn deaktivierte Elektroden noch Standard-Frequenzen haben
   let wb = document.getElementById("deactWarnBar");
   const activeHasDefault = [...Array(nEl).keys()]
-    .filter((i) => elSt[i] !== "deactivated")
+    .filter((i) => elActive[i] !== false)
     .some((i) => elFreqOwn[i] == null);
   if (hasDeact && activeHasDefault) {
     if (!wb) {
@@ -313,6 +300,8 @@ function buildFreqTable() {
   updManSel();
   applyMobileReadonly(tb);
   if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
+  // BA 164: Aktiv-Checkbox-Sperren live anwenden
+  if (typeof depLockApply === 'function') depLockApply();
 }
 function updRef() {
   const s = document.getElementById("refEl");

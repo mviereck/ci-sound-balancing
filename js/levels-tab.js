@@ -89,7 +89,8 @@ function lvTabDrawRelative(ctx, W, H) {
   const all = allEl();
   if (!all.length) return;
   const isExcluded = (i) =>
-    elSt[i] === "deactivated" || elSt[i] === "mute" || elExDur[i] !== null;
+    // BA 164
+    elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
   const { levels: measArr } = compWLS();
   const preArr = getTotalPresetCurve();
@@ -161,7 +162,8 @@ function lvTabDrawAbsolute(ctx, W, H) {
   const all = allEl();
   if (!all.length) return;
   const isExcluded = (i) =>
-    elSt[i] === "deactivated" || elSt[i] === "mute" || elExDur[i] !== null;
+    // BA 164
+    elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
   const im = sideData[activeSide].implant || {};
   const isMedel = mfr === "medel";
@@ -628,7 +630,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const slotW = plotW / all.length;
     const idx = Math.max(0, Math.min(all.length - 1, Math.floor((x - padL) / slotW)));
     const i = all[idx];
-    if (elSt[i] === "deactivated" || elSt[i] === "mute" || elExDur[i] !== null) return;
+    // BA 164
+    if (elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null) return;
     // Im Absolutmodus dürfen nur Elektroden mit MCL den Fokus erhalten,
     // weil Pfeiltasten dort sonst keine Wirkung haben.
     if (lvTabMode === "abs" && !lvTabElHasMcl(i)) return;

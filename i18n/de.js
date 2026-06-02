@@ -77,6 +77,7 @@ Object.assign(L.de, {
     thCentTip: "Cent relativ zu 1000 Hz (Audiologie-Standard). Negativ für Frequenzen unter 1 kHz, positiv darüber.",
     thPlay: "▶",
     thHold: "◼",
+    thActive:         "Aktiv",
     thSt: "Status",
     thNote: "Notiz",
     thExclCb: "Ausschließen",
@@ -775,6 +776,7 @@ Object.assign(L.de, {
     depFieldHzEigen: "Hz-eigen",
     depFieldRefSide: "Referenzseite",
     depFieldStatus: "Status „im CI deaktiviert”",
+    depFieldActive:   "Aktivitäts-Häkchen einer Elektrode",
     // Akustische Status-Labels (BA 153)
     acStOk: "ok",
     acStMildImpaired: "leicht beeinträchtigt",

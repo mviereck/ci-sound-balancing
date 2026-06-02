@@ -809,6 +809,8 @@ document.addEventListener("DOMContentLoaded", () => {
               frequencies: sideData.left.freqs,
               electrodeFreqOwn: sideData.left.elFreqOwn,
               electrodeStatus: sideData.left.elSt,
+              // BA 164
+              electrodeActive: sideData.left.elActive,
               electrodeNotes: sideData.left.elNt,
               electrodeExcludedDuring: sideData.left.elExDur,
               referenceElectrode: sideData.left.refEl,
@@ -831,6 +833,8 @@ document.addEventListener("DOMContentLoaded", () => {
               frequencies: sideData.right.freqs,
               electrodeFreqOwn: sideData.right.elFreqOwn,
               electrodeStatus: sideData.right.elSt,
+              // BA 164
+              electrodeActive: sideData.right.elActive,
               electrodeNotes: sideData.right.elNt,
               electrodeExcludedDuring: sideData.right.elExDur,
               referenceElectrode: sideData.right.refEl,

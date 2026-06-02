@@ -154,7 +154,8 @@ function _collectSideData(side) {
         thr: (impl.thr && impl.thr[i] != null) ? impl.thr[i] : null,
         upper: _pickUpperLevel(impl, i, mfr),
         unit,
-        status: elSt[i] || null,
+        // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
+        status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
         note: elNt[i] || "",
         excluded: elExDur[i] !== null && elExDur[i] !== undefined,
       });
@@ -176,7 +177,8 @@ function _collectSideData(side) {
           hz: effFreq(i),
           offsetDb:   inMeas ? levels[i] : null,
           residualDb: inMeas ? elRes[i]  : null,
-          status: elSt[i] || null,
+          // BA 164: inaktive Elektrode → "deactivated" für Archiv-Rendering
+          status: (elActive && elActive[i] === false) ? "deactivated" : (elSt[i] || null),
           note: elNt[i] || "",
         });
       }
@@ -445,7 +447,7 @@ function _archivMdImplantTables(data) {
       const hzOwn  = (e.hzOwn != null) ? _mdFmtHz(e.hzOwn) : "";
       const thrTxt = (e.thr   != null) ? e.thr   : "";
       const upTxt  = (e.upper != null) ? e.upper : "";
-      const _ST_KEY = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" };
+      const _ST_KEY = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
       const stTxt  = e.status ? (t(_ST_KEY[e.status] || "") || e.status) : "";
       const exclTxt = e.excluded ? "**X**" : "";
       const note = _mdEsc(e.note || "");
@@ -508,7 +510,7 @@ function _archivMdMeas(sd) {
   for (const r of sd.meas.rows) {
     const offTxt = (r.offsetDb   != null) ? _mdFmtDb(r.offsetDb, true)  : "—";
     const resTxt = (r.residualDb != null) ? _mdFmtDb(r.residualDb, false) : "—";
-    const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" };
+    const _ST_KEY2 = { noisyLess: "stNoisyLess", noisyMore: "stNoisyMore", noisyHeavy: "stNoisyHeavy", almostMute: "stAlmMute", mute: "stMute", deactivated: "stDeactivated" }; // BA 164: Quelle ist jetzt elActive (via _collectSideData)
     const stTxt  = r.status ? (t(_ST_KEY2[r.status] || "") || r.status) : "";
     const noteTxt = r.note ? ` (${_mdEsc(r.note)})` : "";
     const refMark = (sd.meas.refEl != null && r.idx === sd.meas.refEl) ? "**X**" : "";
@@ -751,6 +753,8 @@ function _audCent(varHz, refHz) {
 
 function _audStatusText(side, i) {
   return withSide(side, () => {
+    // BA 164: inaktive Elektrode → vertraute Bezeichnung „Im CI deaktiviert"
+    if (elActive && elActive[i] === false) return t("stDeactivated");
     if (elSt[i] === "mute") return t("audStatMute");
     if (elSt[i]) {
       const lb = {

@@ -1735,3 +1735,14 @@ body.dbg-active .dbg-only { display: inline-block; }
   font-size: 0.88em;
   color: #92400e;
 }
+
+/* ============================================================
+   BA 164 — Aktiv-Checkbox bei vorhandenen Meßdaten gesperrt.
+   Nicht disabled, damit Mouse-Events durchkommen und der globale
+   mousedown-Handler aus dependency-lock.js das Sperr-Popup öffnet.
+   ============================================================ */
+input.ec-active.dep-locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: auto;
+}

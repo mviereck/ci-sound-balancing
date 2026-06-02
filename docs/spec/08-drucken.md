@@ -46,7 +46,7 @@ laden, JSON speichern, Bericht drucken, Markdown Text exportieren.
 
 Markdown-Bericht: vollständige Tool-Sicht in einer festen
 Markdown-Struktur. Reihenfolge: Kopf, Konfiguration pro Seite,
-Implantat-Tabelle pro Seite (THR, MCL/Upper, Hz-eigen, Status,
+Implantat-Tabelle pro Seite (THR, MCL/Upper, Hz-eigen, Aktiv, Status,
 Ausgeschlossen, Notiz), globale Test-Einstellungen, pro Seite Messungen
 (mit Sweep-Resume-Stand falls vorhanden) / Schieber / Kurven /
 Frequenzabgleich, Bilateral (Stereo-Balance, Latenz), Player
