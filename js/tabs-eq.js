@@ -53,6 +53,82 @@ function switchSubtab(parent, subtab) {
 }
 
 // ============================================================
+// BA 172: TAB-SPERRE L1
+// ------------------------------------------------------------
+// Sperrt Haupt-Reiter, wenn die Implantat-Angaben unzureichend
+// sind. Sperr-Schwelle und Tab-Liste sind hier zentral.
+// ============================================================
+const LOCKED_TABS_L1 = ["messungen", "ergebnisse", "levels", "schieber", "player"];
+
+// Liefert den aktuellen Sperr-Zustand:
+//   { locked: false, reason: null }                 — frei
+//   { locked: true,  reason: "unconfigured" }       — fehlende Angaben
+//   { locked: true,  reason: "bothAcoustic" }       — beide Seiten akustisch
+function evalTabLockState() {
+  const lC = (sideData.left  && sideData.left.config)  || "unknown";
+  const rC = (sideData.right && sideData.right.config) || "unknown";
+  const isAc = (c) => c === "hg" || c === "normal" || c === "shoh";
+  if (isAc(lC) && isAc(rC)) return { locked: true, reason: "bothAcoustic" };
+  if (lC === "unknown" || rC === "unknown") return { locked: true, reason: "unconfigured" };
+  const lMfr = sideData.left  && sideData.left.manufacturer;
+  const rMfr = sideData.right && sideData.right.manufacturer;
+  const validMfr = (m) => !!m && m !== "unknown";
+  const lCI = lC === "ci" && validMfr(lMfr);
+  const rCI = rC === "ci" && validMfr(rMfr);
+  if (!lCI && !rCI) return { locked: true, reason: "unconfigured" };
+  return { locked: false, reason: null };
+}
+
+// Visuelle Sperre setzen und ggf. den aktuellen Tab zurückwechseln,
+// falls er nun gesperrt wäre.
+function tabLockApply() {
+  const state = evalTabLockState();
+  window._tabLockState = state;
+  LOCKED_TABS_L1.forEach((name) => {
+    const btn = document.querySelector('.tab[data-tab="' + name + '"]');
+    if (btn) btn.classList.toggle("tab-locked", state.locked);
+  });
+  if (state.locked) {
+    // Wenn der User aktuell auf einem nun gesperrten Tab steht, sanft auf
+    // den Implantat-Reiter zurückwechseln, damit kein inkonsistenter
+    // Inhalt sichtbar bleibt. KEIN Modal in diesem Fall — der User
+    // ändert ja gerade die Implantat-Angaben.
+    const activeTabEl = document.querySelector(".tab.active");
+    const activeName  = activeTabEl ? activeTabEl.dataset.tab : null;
+    if (activeName && LOCKED_TABS_L1.indexOf(activeName) !== -1) {
+      _switchTabInternal("setup");
+    }
+  }
+}
+
+// Zeigt das Sperr-Modal mit der zur Reason passenden Variante.
+function tabLockShowModal(reason) {
+  const modal = document.getElementById("tabLockModal");
+  if (!modal) return;
+  const titleEl = modal.querySelector(".tab-lock-title");
+  const bodyEl  = modal.querySelector(".tab-lock-body");
+  if (reason === "bothAcoustic") {
+    if (titleEl) titleEl.textContent = t("tabLockTitleBothAc");
+    if (bodyEl)  bodyEl.innerHTML    = t("tabLockBodyBothAc");
+  } else {
+    if (titleEl) titleEl.textContent = t("tabLockTitleStd");
+    if (bodyEl)  bodyEl.innerHTML    = t("tabLockBodyStd");
+  }
+  modal.classList.add("active");
+}
+
+function tabLockHideModal() {
+  const modal = document.getElementById("tabLockModal");
+  if (modal) modal.classList.remove("active");
+}
+
+// BA 172: Close-Handler für Tab-Sperr-Modal
+document.addEventListener("DOMContentLoaded", function () {
+  const closeBtn = document.getElementById("tabLockCloseBtn");
+  if (closeBtn) closeBtn.addEventListener("click", tabLockHideModal);
+});
+
+// ============================================================
 // TABS
 // ============================================================
 function switchTab(n) {
@@ -64,6 +140,18 @@ function switchTab(n) {
   if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
+  // BA 172: Sperr-Guard L1 — bei gesperrtem Tab Modal zeigen statt zu wechseln
+  const lockState = window._tabLockState;
+  if (lockState && lockState.locked && LOCKED_TABS_L1.indexOf(n) !== -1) {
+    tabLockShowModal(lockState.reason);
+    return;
+  }
+  _switchTabInternal(n);
+}
+
+// BA 172: interner Tab-Wechsel ohne Sperr-Check. Wird von switchTab und von
+// tabLockApply (Rückwechsel auf Implantat-Tab) genutzt.
+function _switchTabInternal(n) {
   document
     .querySelectorAll(".tab")
     .forEach((t) => t.classList.toggle("active", t.dataset.tab === n));

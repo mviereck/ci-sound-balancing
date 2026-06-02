@@ -486,6 +486,8 @@ function switchMfr(m) {
   buildImplantCard();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 172: Tab-Sperre L1 neu bewerten
+  if (typeof tabLockApply === 'function') tabLockApply();
 }
 function resetFreqs() {
   freqs = [...MFR[mfr].freqs];

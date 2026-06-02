@@ -116,6 +116,8 @@ function applyLang() {
   if (typeof lrRenderResults === "function") lrRenderResults();
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof _implValidateApplyLang === 'function') _implValidateApplyLang();
+  // BA 172: Tab-Sperre L1 — Klassen-Toggle + Modal-Texte ggf. neu aufgrund Sprachwechsel
+  if (typeof tabLockApply === 'function') tabLockApply();
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}

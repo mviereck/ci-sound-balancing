@@ -1746,3 +1746,12 @@ input.ec-active.dep-locked {
   cursor: not-allowed;
   pointer-events: auto;
 }
+
+/* BA 172: Tab-Sperre L1 — visuelle Markierung gesperrter Haupt-Reiter */
+.tab.tab-locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.tab.tab-locked:hover {
+  opacity: 0.4;
+}

@@ -650,6 +650,8 @@ function setSideConfig(side, cfg) {
   bindActiveSide();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 172: Tab-Sperre L1 neu bewerten
+  if (typeof tabLockApply === 'function') tabLockApply();
 }
 initSideData("left", "unknown");
 initSideData("right", "unknown");

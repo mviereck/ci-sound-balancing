@@ -934,4 +934,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 172: Initialer Sperr-Stand
+  if (typeof tabLockApply === 'function') tabLockApply();
 });

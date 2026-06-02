@@ -24,6 +24,38 @@
   Impressum, MIT-Lizenz, GitHub-Link. Impressum-Inhalt fix deutsch
   (rechtliche Pflicht); Footer-Labels in allen vier UI-Sprachen.
 
+## Tab-Sperre L1 — Voraussetzungs-Sperre (BA 172)
+
+Solange die Implantat-Angaben unzureichend sind, sind fünf Hauptreiter
+gesperrt: **Messungen**, **Meßergebnisse**, **Kurven**, **Schieber**,
+**Player**. Frei zugänglich bleiben Einführung, Implantat, Laden/Speichern,
+Unterstützung, Links.
+
+**Frei-Schwelle:** Beide Seiten haben eine konkrete Hörsituation
+(`config ≠ "unknown"`) **und** mindestens eine Seite ist CI mit
+gewähltem Hersteller (`config === "ci"` und
+`manufacturer ∈ {"medel","ab","cochlear"}`).
+
+**Visuelle Markierung:** Gesperrte Reiter erhalten CSS-Klasse
+`.tab-locked` (opacity 0.4, cursor not-allowed). Die Buttons bleiben
+klickbar — ein Klick öffnet das Modal.
+
+**Modal `#tabLockModal`** (`.modal-overlay`-Pattern): zwei Varianten je
+nach Reason —
+- `"unconfigured"`: Titel `tabLockTitleStd`, Text `tabLockBodyStd`
+  (Auftrag: Implantat-Angaben beider Seiten + Hersteller eintragen)
+- `"bothAcoustic"`: Titel `tabLockTitleBothAc`, Text `tabLockBodyBothAc`
+  (Hinweis: mindestens eine CI-Seite benötigt)
+
+**Automatischer Rückwechsel:** Wenn der aktive Reiter durch eine
+Implantat-Änderung gesperrt wird, wechselt die Anzeige automatisch auf
+den Implantat-Reiter (`setup`) — ohne Modal (der User ändert ja gerade
+selbst die Angaben).
+
+**Auslöser** für Neu-Bewertung: `setSideConfig` (state-side.js),
+`switchMfr` (freq-table.js), `applyLang` (i18n.js, für
+Sprach-Wechsel), initialer Aufruf am Ende von init.js.
+
 ## Tab/Subtab-Persistenz
 
 Der zuletzt aktive Top-Level-Tab und die zuletzt aktiven Sub-Tabs in

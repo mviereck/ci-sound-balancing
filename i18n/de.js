@@ -1061,4 +1061,13 @@ Object.assign(L.de, {
     linksCommonVoiceDesc: "Sammlung von Sätzen samt Transkription aus über 100 Sprachen der Welt, eingesprochen von natürlichen Sprechern.",
 
     linksOpenSlrDesc: "OpenSLR sammelt Sprach- und Sprachverarbeitungs-Ressourcen — etwa Trainingskorpora für Spracherkennung und zugehörige Software. Ziel ist ein zentraler, unkomplizierter Ablageort, an dem Forscher ihre eigenen Ressourcen öffentlich zugänglich machen können. Zusätzlich werden Programme von anderswo gespiegelt, um eine Ausfallsicherung zu bieten.",
+
+    // BA 172: Tab-Sperre L1
+    tabLockTitleStd: "Reiter noch nicht verfügbar",
+    tabLockBodyStd:
+      "Bitte tragen Sie zuerst im Reiter <b>Implantat &amp; Elektroden</b> die Angaben für <b>beide</b> Seiten ein:<br>– Hörsituation links und rechts<br>– bei Cochlea-Implantat: zusätzlich den Hersteller<br><br>Sobald die Angaben vollständig sind, werden die übrigen Reiter freigeschaltet.",
+    tabLockTitleBothAc: "Reiter nicht verfügbar",
+    tabLockBodyBothAc:
+      "Dieses Tool benötigt mindestens eine CI-Seite. Details siehe Reiter <b>Implantat &amp; Elektroden</b>.",
+    tabLockClose: "Schließen",
 });
