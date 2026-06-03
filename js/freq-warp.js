@@ -529,6 +529,8 @@ let pWarpOn = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
 let pWarpBusy = false;
+let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
+let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpMethod = "rubberband";   // "rubberband" | "offline" | "bandshift" | "vocoder" | "sinmodel"
 let pWarpWorkletReady = false;
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
@@ -1052,10 +1054,11 @@ async function _rbPitchShift(rb, signal, sampleRate, cents) {
 
 // Eine Mono-Seite durch alle Baender schicken und summieren, mit
 // Pegelausgleich.
-async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues) {
+async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBandDone) {
   const out = new Float32Array(srcMono.length);
   const nyquist = sampleRate / 2;
   for (let i = 0; i < bands.length; i++) {
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
     const [low, high] = bands[i];
     const lowN  = Math.max(low  / nyquist, 1e-6);
     const highN = Math.min(high / nyquist, 1 - 1e-6);
@@ -1063,6 +1066,7 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues) {
     const filtered = await _rbConvolveViaWebAudio(srcMono, fir, sampleRate);
     const shifted  = await _rbPitchShift(rb, filtered, sampleRate, csValues[i]);
     for (let n = 0; n < out.length; n++) out[n] += shifted[n];
+    if (typeof onBandDone === "function") onBandDone();
   }
   // Pegelausgleich: Peak des Inputs als Ziel.
   let peakIn = 0, peakOut = 0;
@@ -1116,20 +1120,33 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
   let outL = srcL;
   let outR = srcR;
 
+  // Schritt-Zähler vorab bestimmen, damit der Prozentwert stimmt.
+  const sameAsLAnticipated = decided.needL && decided.needR
+    && srcL === srcR
+    && csL.length === csR.length
+    && csL.every((v, i) => v === csR[i]);
+  const totalBands = bands.length * (
+    (decided.needL ? 1 : 0)
+    + (decided.needR && !sameAsLAnticipated ? 1 : 0)
+  );
+  let doneBands = 0;
+  const onBand = () => {
+    if (totalBands > 0) {
+      doneBands++;
+      pWarpProgress = Math.min(1, doneBands / totalBands);
+      if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+    }
+  };
+
   if (decided.needL) {
-    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL);
+    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL, onBand);
   }
   if (decided.needR) {
-    // Optimierung: wenn L und R identische Quelle und identische cs-Werte
-    // haben (z.B. Mono-Datei mit symmetrischem Warp), ein einziger Lauf.
-    const sameAsL = decided.needL
-                 && srcL === srcR
-                 && csL.length === csR.length
-                 && csL.every((v, i) => v === csR[i]);
-    if (sameAsL) {
+    if (sameAsLAnticipated) {
       outR = outL;
     } else {
-      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR);
+      if (pWarpCancel) throw new Error("__warp_cancelled__");
+      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR, onBand);
     }
   }
 
@@ -1418,7 +1435,12 @@ function pWarpUpdUI() {
   if (!pWarpOn) {
     statusText = t("pwStatusReady");
   } else if (pWarpBusy) {
-    statusText = t("pwStatusBusy");
+    if (method === "rubberband" && pWarpProgress > 0) {
+      const pct = Math.round(pWarpProgress * 100);
+      statusText = t("pwStatusBusyProgress").replace("{pct}", pct);
+    } else {
+      statusText = t("pwStatusBusy");
+    }
   } else if (noData) {
     statusText = t("pwStatusReady");
   } else if (method === "rubberband") {
@@ -1456,6 +1478,9 @@ function pWarpUpdUI() {
     }
     statusText += " " + parts.join(" · ");
   }
+  if (pWarpBusy && statusText) {
+    statusText = "⏳ " + statusText;
+  }
   if (statusEl) statusEl.textContent = statusText;
 
   // Hinweis bei fehlenden Daten (weder final noch laufend)
@@ -1468,9 +1493,34 @@ function pWarpUpdUI() {
     }
   }
 
-  // Play-Button bei laufender Vorberechnung sperren (Offline + Rubberband)
+  // Play-Button-Sperre bei laufender Vorberechnung
   const playBtn = document.getElementById("plPlay");
-  if (playBtn) playBtn.disabled = pWarpBusy && (method === "offline" || method === "rubberband");
+  const playLocked = pWarpBusy && (method === "offline" || method === "rubberband");
+  if (playBtn) {
+    playBtn.disabled = playLocked;
+    playBtn.style.pointerEvents = playLocked ? "none" : "";
+  }
+
+  // Sanduhr neben dem Play-Button
+  const busyIcon = document.getElementById("plPlayBusyIcon");
+  if (busyIcon) busyIcon.style.display = playLocked ? "" : "none";
+
+  // Tooltip-Text (Inhalt; Sichtbarkeit steuert _pBusyTooltipInit)
+  const busyTip = document.getElementById("plPlayBusyTip");
+  if (busyTip) {
+    let tipText = t("plWarpBusyTooltip");
+    if (method === "rubberband" && pWarpProgress > 0) {
+      tipText += " " + Math.round(pWarpProgress * 100) + " %";
+    }
+    busyTip.textContent = tipText;
+    if (!playLocked) busyTip.style.display = "none";
+  }
+
+  // Stop-Button: nur bei Rubberband (Offline ist nicht unterbrechbar)
+  const stopBtn = document.getElementById("plWarpStopBtn");
+  if (stopBtn) {
+    stopBtn.style.display = (pWarpBusy && method === "rubberband") ? "" : "none";
+  }
 
 }
 
@@ -1507,8 +1557,11 @@ async function pWarpTrigger() {
   if (wasPlaying) pPause();
 
   pWarpBusy = true;
+  pWarpCancel = false;
+  pWarpProgress = 0;
   pWarpUpdUI();
 
+  let cancelled = false;
   try {
     if (method === "rubberband") {
       pWarpedBuf = await pComputeRubberbandWarpedBuffer(
@@ -1525,18 +1578,38 @@ async function pWarpTrigger() {
       );
     }
   } catch (err) {
-    console.error("Warp-Fehler:", err);
-    pWarpedBuf = null;
-    if (method === "rubberband" && typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
-      rubberbandLastError = err && err.message ? err.message : String(err);
+    if (err && err.message === "__warp_cancelled__") {
+      cancelled = true;
+      pWarpedBuf = null;
+    } else {
+      console.error("Warp-Fehler:", err);
+      pWarpedBuf = null;
+      if (method === "rubberband" && typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
+        rubberbandLastError = err && err.message ? err.message : String(err);
+      }
     }
   }
 
   pWarpBusy = false;
+  pWarpCancel = false;
+  pWarpProgress = 0;
+
+  if (cancelled) {
+    // User-Abbruch: Warp-Toggle aus, kein Resume.
+    pWarpOn = false;
+    const cb = document.getElementById("plWarpOn");
+    if (cb && typeof cb.checked === "boolean") cb.checked = false;
+  }
+
   pBuf = getPlaybackBuffer();
   pWarpUpdUI();
 
-  if (wasPlaying) pPlay();
+  if (wasPlaying && pWarpOn) pPlay();
+}
+
+function pWarpCancelCompute() {
+  if (!pWarpBusy) return;
+  pWarpCancel = true;
 }
 
 // ---- Default-Anwendung beim ersten Frequenzabgleich-Resultat ----
@@ -1567,3 +1640,32 @@ function pApplyWarpModeDefaultFromFm() {
 function pMarkPlayerWarpDefaultAsApplied() {
   _pPlayerWarpDefaultApplied = true;
 }
+
+// --- Tooltip auf gesperrtem Play-Button -------------------------
+// Hover / Klick / Tap auf den gesperrten Play-Button zeigt
+// "Frequenz-Warping wird noch berechnet …". Der Wrapper
+// (#plPlayWrap) fängt die Events, weil disabled-Buttons selbst
+// keine Maus-Events feuern; pWarpUpdUI setzt pointer-events:none
+// auf dem Button, damit Klicks auf den Wrapper durchfallen.
+document.addEventListener("DOMContentLoaded", () => {
+  const wrap = document.getElementById("plPlayWrap");
+  const tip = document.getElementById("plPlayBusyTip");
+  const btn = document.getElementById("plPlay");
+  if (!wrap || !tip || !btn) return;
+
+  const show = () => {
+    if (!btn.disabled) return;
+    tip.style.display = "";
+  };
+  const hide = () => { tip.style.display = "none"; };
+
+  wrap.addEventListener("mouseenter", show);
+  wrap.addEventListener("mouseleave", hide);
+  wrap.addEventListener("click", show);
+  document.addEventListener("click", (e) => {
+    if (!wrap.contains(e.target)) hide();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") hide();
+  });
+});

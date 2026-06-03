@@ -558,6 +558,7 @@ function applyLoadedData(d) {
     plSrcLevels = true;
     plSrcCurves = true;
   }
+  if (typeof updPlSrcButtons === "function") updPlSrcButtons();
   if (typeof lrResults !== "undefined" && d.lrResults) {
     Object.keys(lrResults).forEach((k) => delete lrResults[k]);
     Object.assign(lrResults, d.lrResults);

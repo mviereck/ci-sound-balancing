@@ -1261,7 +1261,22 @@
                 ><button class="btn btn-sm plWarpStrBtn" data-v="150">150%</button>
               </div>
             </div>
-            <div id="plWarpStatus" style="margin-top:8px;font-size:0.85em;color:var(--text-muted)"></div>
+            <div
+              id="plWarpStatusRow"
+              style="margin-top:8px;display:flex;align-items:center;gap:10px"
+            >
+              <span
+                id="plWarpStatus"
+                style="font-size:0.85em;color:var(--text-muted);flex:1"
+              ></span>
+              <button
+                type="button"
+                class="btn btn-sm"
+                id="plWarpStopBtn"
+                data-t="plWarpStopBtn"
+                style="display:none;background:#c00;color:#fff;border-color:#900;font-size:0.85em"
+              ></button>
+            </div>
             <div id="plWarpHint" style="margin-top:4px;font-size:0.85em;color:var(--warning);display:none"></div>
           </div>
           <!-- Zeile 4: MAPLAW (nur bei MED-EL) -->
@@ -1409,22 +1424,50 @@
                 margin-bottom: 12px;
               "
             >
-              <button
-                class="btn"
-                id="plPlay"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  font-size: 1.1em;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  padding: 0;
-                "
+              <span
+                id="plPlayWrap"
+                style="position:relative;display:inline-flex;align-items:center;gap:8px"
               >
-                &#9654;
-              </button>
+                <button
+                  class="btn"
+                  id="plPlay"
+                  style="
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    font-size: 1.1em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0;
+                  "
+                >
+                  &#9654;
+                </button>
+                <span
+                  id="plPlayBusyIcon"
+                  style="display:none;font-size:1.4em;line-height:1"
+                  aria-hidden="true"
+                >&#9203;</span>
+                <div
+                  id="plPlayBusyTip"
+                  style="
+                    display:none;
+                    position:absolute;
+                    bottom:100%;
+                    left:0;
+                    margin-bottom:8px;
+                    padding:6px 10px;
+                    background:#333;
+                    color:#fff;
+                    border-radius:4px;
+                    font-size:0.82em;
+                    white-space:nowrap;
+                    z-index:1000;
+                    pointer-events:none;
+                  "
+                ></div>
+              </span>
               <button
                 class="btn"
                 id="plStop"

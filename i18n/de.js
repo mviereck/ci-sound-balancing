@@ -717,6 +717,9 @@ Object.assign(L.de, {
     pwStatusSliderEst:   "{est} davon Vor-Schätzung",
     audFmSliderEstNote:  "† Mit diesem Zeichen markierte Werte sind Vor-Schätzungen aus dem Schieber-Modus und noch nicht durch den adaptiven Test bestätigt.",
     pwHintNoFRes: "Bitte zuerst den Frequenzabgleich-Test durchführen.",
+    pwStatusBusyProgress: "Berechne… {pct} %",
+    plWarpStopBtn: "Berechnung stoppen",
+    plWarpBusyTooltip: "Frequenz-Warping wird noch berechnet. Bitte warten.",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Elektrodenlautstärke ausgleichen",
     testIntro: "Dieser Test vergleicht die Lautstärke der Elektroden miteinander. Finales Ziel ist es, eine ausgeglichene Lautstärke für alle Elektroden zu finden.<br> - Dies ist die wichtige Basis für alle weiteren Optimierungen, sei es Musikhören oder Sprachverständlichkeit.",

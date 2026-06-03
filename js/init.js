@@ -531,6 +531,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
     })
   );
+  // Stop-Button für Rubberband-Abbruch
+  const _plWarpStopBtn = document.getElementById("plWarpStopBtn");
+  if (_plWarpStopBtn) {
+    _plWarpStopBtn.addEventListener("click", () => {
+      if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
+    });
+  }
   // Warp-UI initialisieren
   _pWarpApplyMethodLabels();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
