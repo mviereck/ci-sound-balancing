@@ -165,12 +165,9 @@ function getPlaybackBuffer() {
   const mode = getPlayerSide();
   if (!pSourceBuf) return null;
 
-  const _warpMethodEl = document.getElementById("plWarpMethod");
-  const _warpMethod = _warpMethodEl ? _warpMethodEl.value : "rubberband";
   // EQ-Toggle wirkt als Master: wenn EQ aus, ist auch der Warp-Pfad bypass.
   const warpReady = typeof pWarpOn !== "undefined"
-                  && pWarpOn && plEqOn && pWarpedBuf && !pWarpBusy
-                  && (_warpMethod === "offline" || _warpMethod === "rubberband");
+                  && pWarpOn && plEqOn && pWarpedBuf && !pWarpBusy;
 
   if (warpReady) {
     return _buildWarpedPlaybackBuffer(mode);
@@ -519,54 +516,14 @@ async function pPlay() {
     pMaplawNode = null;
   }
 
-  const methodSel = document.getElementById("plWarpMethod");
-  const method = methodSel ? methodSel.value : "offline";
-
   let leadSrc = null;
 
-  // EQ-Toggle ist Master: Warp-Pfade nur, wenn EQ an. Warp-Checkbox-Zustand
-  // bleibt als User-Intent erhalten und greift wieder, sobald EQ wieder an.
-  // Warp-Datenquelle ist _warpFResSource() (fRes + laufende Tracks); diese
-  // liefert auch dann Punkte, wenn fRes noch leer ist, aber ein Test läuft.
-  const _warpHasData = (typeof _warpFResSource === "function")
-    && _warpFResSource().length > 0;
-  if (pWarpOn && plEqOn && method === "bandshift" && _warpHasData && pSourceBuf) {
-    // Variante B: Live Bandweise Pitch-Shift
-    pBuf = pSourceBuf;
-    const pb = pBuildWarpedGraph(
-      c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, null, 0, pOff
-    );
-    pCurrentPlayback = pb;
-    leadSrc = pb.sources[0] || null;
-
-  } else if (pWarpOn && plEqOn && (method === "vocoder" || method === "sinmodel") && _warpHasData && pSourceBuf) {
-    // Variante A: Phasen-Vocoder (async wegen erstem Worklet-Laden)
-    pBuf = pSourceBuf;
-    let pb;
-    try {
-      pb = await pBuildVocoderGraph(
-        c, pSourceBuf, firstNode, pWarpMode, pWarpStrength, null, 0, pOff
-      );
-    } catch (err) {
-      console.error("Vocoder-Fehler:", err);
-      return;
-    }
-    // Prüfen ob Pause/Stop während Worklet-Laden gedrückt wurde
-    if (gen !== pPlayGen) {
-      pb.stop();
-      return;
-    }
-    pCurrentPlayback = pb;
-    leadSrc = pb.sources[0] || null;
-
-  } else {
-    // Normal oder Offline-Warp (Variante C)
-    pSrc = c.createBufferSource();
-    pSrc.buffer = pBuf;
-    pSrc.connect(firstNode);
-    pSrc.start(0, pOff);
-    leadSrc = pSrc;
-  }
+  // Nur ein Pfad: BufferSource auf pBuf (original oder Rubberband-Vorberechnung).
+  pSrc = c.createBufferSource();
+  pSrc.buffer = pBuf;
+  pSrc.connect(firstNode);
+  pSrc.start(0, pOff);
+  leadSrc = pSrc;
 
   if (leadSrc) {
     leadSrc.onended = function () {

@@ -59,27 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (_psb) _psb.title = t("printBtn");
   };
 
-  // ---- Warp i18n Hilfsfunktionen ----
-  function _pWarpApplyMethodLabels() {
-    const sel = document.getElementById("plWarpMethod");
-    if (!sel) return;
-    const keys = ["pwMethodRubberband", "pwMethodOffline", "pwMethodVocoder", "pwMethodSinModel", "pwMethodBandShift"];
-    for (let i = 0; i < sel.options.length; i++) {
-      if (keys[i]) sel.options[i].text = t(keys[i]);
-    }
+  // ---- Warp i18n Hilfsfunktion (Modus-Dropdown) ----
+  function _pWarpApplyLangTexts() {
     const modeSel = document.getElementById("plWarpModeSelect");
     if (!modeSel) return;
     const modeKeys = ["pwModeLeft", "pwModeRight", "pwModeSym"];
     for (let i = 0; i < modeSel.options.length; i++) {
       if (modeKeys[i]) modeSel.options[i].text = t(modeKeys[i]);
     }
-  }
-  window._pWarpApplyMethodLabels = _pWarpApplyMethodLabels;
-
-  function _pWarpApplyLangTexts() {
-    // data-t-Elemente werden von applyLang() automatisch aktualisiert.
-    // Hier nur Dropdown-Optionen (haben kein data-t).
-    _pWarpApplyMethodLabels();
   }
   window._pWarpApplyLangTexts = _pWarpApplyLangTexts;
 
@@ -205,22 +192,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updEqToggleBtn();
     pUpdEQ();
     if (pWarpOn) {
-      const method = document.getElementById("plWarpMethod").value;
-      if (method === "vocoder" || method === "bandshift") {
-        const wasPlaying = pPlaying;
-        if (wasPlaying) pPause();
-        pBuf = getPlaybackBuffer();
-        pWarpUpdUI();
-        if (wasPlaying) pPlay();
-      } else if (method === "offline" || method === "rubberband") {
-        // Offline-Verfahren (offline, rubberband): getPlaybackBuffer
-        // entscheidet anhand plEqOn neu beim nächsten Play.
-        // Bei laufender Wiedergabe Pfad an aktueller Position wechseln.
-        const wasPlaying = pPlaying;
-        if (wasPlaying) pPause();
-        pBuf = getPlaybackBuffer();
-        if (wasPlaying) pPlay();
-      }
+      // getPlaybackBuffer entscheidet anhand plEqOn neu; bei laufender
+      // Wiedergabe Pfad an aktueller Position wechseln.
+      const wasPlaying = pPlaying;
+      if (wasPlaying) pPause();
+      pBuf = getPlaybackBuffer();
+      if (wasPlaying) pPlay();
     }
     if (typeof pMaplawTrigger === "function") pMaplawTrigger();
   });
@@ -413,26 +390,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plWarpOn").addEventListener("click", function () {
     pWarpOn = !pWarpOn;
     pWarpUpdUI();
-    const method = document.getElementById("plWarpMethod").value;
-    // Offline-Verfahren einschalten (offline, rubberband) OHNE gueltigen
-    // Buffer: Vorberechnung anstossen. pWarpTrigger regelt Vorberechnung +
-    // pause/resume + Play-Sperre selbst. Wenn schon ein gueltiger Buffer
-    // vorliegt (z.B. weil der Nutzer Warp gerade nur aus- und wieder
-    // einschaltet), faellt der Code in den allgemeinen Pfad weiter unten
-    // und verwendet den vorhandenen Buffer ohne Neuberechnung.
-    if (pWarpOn && (method === "offline" || method === "rubberband") && !pWarpedBuf) {
+    if (pWarpOn && !pWarpedBuf) {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       return;
     }
-    // Sonst (Vocoder/Bandshift ein/aus, Offline-Verfahren ein mit vorhandenem
-    // Buffer, Offline-Verfahren aus): Pfadwechsel an aktueller Position.
-    // pWarpedBuf bleibt erhalten, damit erneutes Einschalten ohne
-    // Neuberechnung moeglich ist. Invalidierung geschieht nur in
-    // pWarpTrigger (Mode/Staerke/Methodenwechsel) und in pSetPlaybackMode
-    // (Audiodatei-/Saetze-Wechsel).
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
     pBuf = getPlaybackBuffer();
@@ -443,60 +407,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
-  // Verfahren-Dropdown
-  document.getElementById("plWarpMethod").addEventListener("change", function () {
-    // Methodenwechsel: ein fertig berechneter Buffer gehoert immer zur
-    // alten Methode (offline-Buffer != rubberband-Buffer). Sofort
-    // invalidieren — auch wenn Warp gerade aus ist, sonst wuerde der
-    // stale Buffer beim naechsten Einschalten faelschlich wiederverwendet.
-    pWarpedBuf = null;
-    // Methoden-Labels neu setzen (data-t-opt)
-    _pWarpApplyMethodLabels();
-    pWarpUpdUI();
-    // Vocoder vorab laden, damit das await im pPlay nach dem ersten Mal nicht
-    // mehr blockt — entkrampft den Toggle-Pfad.
-    if ((this.value === "vocoder" || this.value === "sinmodel") &&
-        typeof pInitWarpWorklet === "function") {
-      try { pInitWarpWorklet(gPC()); } catch (e) {}
-    }
-    if (!pWarpOn) return;
-    if (this.value === "offline" || this.value === "rubberband") {
-      pWarpTrigger();
-      return;
-    }
-    // Methodenwechsel bei aktivem Warp: laufende Wiedergabe auf neuen Pfad bringen
-    const wasPlaying = pPlaying;
-    if (wasPlaying) pPause();
-    pBuf = getPlaybackBuffer();
-    pWarpUpdUI();
-    if (wasPlaying) pPlay();
-  });
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet
   // - Bandshift: Graph-Rebuild via pause/resume (kurze Unterbrechung)
   function _pWarpParamsChanged() {
-    // Parameter haben sich geaendert: fertiger Buffer (falls vorhanden)
-    // passt nicht mehr zu Mode/Staerke. Sofort invalidieren — auch wenn
-    // Warp gerade aus ist, sonst wuerde der stale Buffer beim naechsten
-    // Einschalten faelschlich wiederverwendet.
     pWarpedBuf = null;
     if (!pWarpOn) return;
-    const method = document.getElementById("plWarpMethod").value;
-    if (method === "offline" || method === "rubberband") {
-      pWarpTrigger();
-      return;
-    }
-    if (method === "vocoder" && typeof pWarpLiveUpdate === "function") {
-      pWarpLiveUpdate();
-      return;
-    }
-    // bandshift: kein Worklet → Graph neu aufbauen
-    const wasPlaying = pPlaying;
-    if (wasPlaying) pPause();
-    pBuf = getPlaybackBuffer();
-    pWarpUpdUI();
-    if (wasPlaying) pPlay();
+    pWarpTrigger();
   }
   // Korrektur-Modus-Dropdown
   document.getElementById("plWarpModeSelect").addEventListener("change", function () {
@@ -539,7 +457,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   // Warp-UI initialisieren
-  _pWarpApplyMethodLabels();
+  _pWarpApplyLangTexts();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
 
   // Player volume textbox
@@ -670,18 +588,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pWarpOn !== "undefined") {
         const _wOn       = (typeof d.warpOn       === "boolean") ? d.warpOn
                          : (typeof d.pWarpOn      === "boolean") ? d.pWarpOn      : undefined;
-        const _wMethod   = (typeof d.warpMethod   === "string")  ? d.warpMethod
-                         : (typeof d.pWarpMethod  === "string")  ? d.pWarpMethod  : undefined;
+
         const _wMode     = (typeof d.warpMode     === "string")  ? d.warpMode
                          : (typeof d.pWarpMode    === "string")  ? d.pWarpMode    : undefined;
         const _wStrength = (typeof d.warpStrength === "number")  ? d.warpStrength
                          : (typeof d.pWarpStrength === "number") ? d.pWarpStrength : undefined;
         if (typeof _wOn === "boolean") pWarpOn = _wOn;
-        if (typeof _wMethod === "string") {
-          pWarpMethod = _wMethod;
-          const sel = document.getElementById("plWarpMethod");
-          if (sel) sel.value = pWarpMethod;
-        }
         if (typeof _wMode === "string") {
           pWarpMode = (typeof _migrateLegacyWarpMode === "function")
             ? _migrateLegacyWarpMode(_wMode, d.fRes)
@@ -893,7 +805,7 @@ document.addEventListener("DOMContentLoaded", () => {
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-          warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "sinmodel",
+
           warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
           warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",

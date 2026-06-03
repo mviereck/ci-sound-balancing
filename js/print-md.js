@@ -358,7 +358,7 @@ function _collectPlayer() {
     balanceMode:  (typeof plBalanceMode  !== "undefined") ? plBalanceMode  : "sym",
     applyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
     warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-    warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "rubberband",
+
     warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     maplawOn:     (typeof pMaplawOn     !== "undefined") ? pMaplawOn     : false,
@@ -624,11 +624,7 @@ function _archivMdPlayer(data) {
   if (p.warpOn) {
     const modeKey = p.warpMode === "left"  ? "pwModeLeft"
                   : p.warpMode === "right" ? "pwModeRight" : "pwModeSym";
-    const methodKey = p.warpMethod === "sinmodel" ? "pwMethodSinmodel"
-                    : p.warpMethod === "vocoder"  ? "pwMethodVocoder"
-                    : p.warpMethod === "bandshift" ? "pwMethodBandshift"
-                    : "pwMethodOffline";
-    out.push(`- ${t("archivPlWarp")}: ${t("on")} (${t(methodKey)}, ${t(modeKey)}, ${p.warpStrength}%)`);
+    out.push(`- ${t("archivPlWarp")}: ${t("on")} (${t(modeKey)}, ${p.warpStrength}%)`);
   } else {
     out.push(`- ${t("archivPlWarp")}: ${t("off")}`);
   }

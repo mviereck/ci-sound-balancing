@@ -106,11 +106,8 @@ function resetAll() {
     pWarpOn = false;
     pWarpMode = "right";
     pWarpStrength = 100;
-    pWarpMethod = "rubberband";
     const _ws  = document.getElementById("plWarpStr");
     if (_ws) _ws.value = pWarpStrength;
-    const _wm  = document.getElementById("plWarpMethod");
-    if (_wm) _wm.value = pWarpMethod;
     const _wmd = document.getElementById("plWarpModeSelect");
     if (_wmd) _wmd.value = pWarpMode;
     if (typeof _pPlayerWarpDefaultApplied !== "undefined") {
@@ -252,7 +249,7 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
-    warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "rubberband",
+
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
@@ -614,11 +611,6 @@ function applyLoadedData(d) {
       pWarpStrength = d.warpStrength;
       const ws = document.getElementById("plWarpStr");
       if (ws) ws.value = pWarpStrength;
-    }
-    if (d.warpMethod !== undefined && typeof pWarpMethod !== "undefined") {
-      pWarpMethod = d.warpMethod;
-      const methodSel = document.getElementById("plWarpMethod");
-      if (methodSel) methodSel.value = pWarpMethod;
     }
     const modeSel = document.getElementById("plWarpModeSelect");
     if (modeSel) modeSel.value = pWarpMode;

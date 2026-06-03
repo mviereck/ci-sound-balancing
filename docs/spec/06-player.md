@@ -115,111 +115,61 @@
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
-- Frequenz-Warping mit fünf Verfahren (freq-warp.js):
-  - **Rubberband (Variante E, Default):** bandweise Vorberechnung über
-    Rubberband-WASM mit FIR-Bandpässen auf geometrischen Bandgrenzen,
-    echter zeitkonsistenter Pitch-Shift pro Band (kein `playbackRate`-
-    Trick), Mono-Optimierung (nur effektiv hörbare und tatsächlich
-    gewarpte Kanäle werden verarbeitet). Optionen-Set hartcodiert auf
-    `EngineFiner | PitchHighQuality | FormantPreserved | StretchPrecise
-    | WindowStandard | ThreadingNever | ChannelsApart`. Lazy WASM-Load
-    via `js/rubberband-loader.js` (Vendor in
+- Frequenz-Warping via Rubberband (freq-warp.js):
+  - **Verfahren: Rubberband** — bandweise Vorberechnung über Rubberband-WASM
+    mit FIR-Bandpässen auf geometrischen Bandgrenzen, echter zeitkonsistenter
+    Pitch-Shift pro Band (kein `playbackRate`-Trick), Mono-Optimierung (nur
+    effektiv hörbare und tatsächlich gewarpte Kanäle werden verarbeitet).
+    Optionen-Set hartcodiert auf `EngineFiner | PitchHighQuality |
+    FormantPreserved | StretchPrecise | WindowStandard | ThreadingNever |
+    ChannelsApart`. Lazy WASM-Load via `js/rubberband-loader.js` (Vendor in
     `vendors/rubberband-wasm/dist/`).
-  - **Offline-Vorberechnung** (Variante C): rendert gewarpten Buffer vor
-    dem Play
-  - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
-    × 2 Kanäle; wirkt sofort beim nächsten Play, keine Vorberechnung
-  - **Phasen-Vocoder** (Variante A): AudioWorklet mit FFT/IFFT und
-    Identity Phase Locking (Laroche/Dolson) — Spektrum-Peaks tragen ihre
-    Phase eigenständig fort, Non-Peak-Bins werden phasen-gelockt zum
-    jeweils nächsten Peak. Reduziert die typischen Phasen-Vocoder-Artefakte
-    (roboterhafter Klang, tremoloartiges Vibrieren). Ca. 46 ms Latenz;
-    Worklet-Code liegt inline als String in freq-warp.js und wird per
-    Blob-URL geladen — funktioniert daher auch unter `file://`
-  - **Sinusoidal Modeling** (Variante D): STFT-basiert wie der Phasen-Vocoder.
-    Peaks werden mit Quadratic Peak Interpolation sub-bin-genau lokalisiert
-    und über Frames getrackt (kontinuierliche Phase pro Oszillator). Residual-
-    Spektrum (nicht-tonale Anteile) bleibt unverschoben → Konsonanten und
-    Rauschen klingen natürlicher als beim Phasen-Vocoder. Pitch-Shift mit
-    Spectral Spread auf zwei benachbarte Bins. Defaults: Phasen-Vocoder bleibt
-    Default; Sinusoidal Modeling wahlweise im Dropdown.
   - Korrektur-Modus: left / right / symmetric (User-Labels „Linke Seite" /
     „Rechte Seite" / „Beide Seiten symmetrisch"). Alt-Werte `ref_side`/`var_side`
     aus älteren Save-Dateien werden beim Laden über `_migrateLegacyWarpMode`
     in absolute Seiten übersetzt (anhand der refSide des ersten fRes-Eintrags).
-  - Defaults: Verfahren = Rubberband, Korrektur-Modus = Rechte Seite.
-    Beim ersten Frequenzabgleich-Resultat einer Session wird der Korrektur-Modus
-    automatisch einmalig auf die **Zielseite** (= Gegenseite der Frequenzabgleich-
-    Referenzseite) gesetzt, sofern der User ihn nicht zuvor manuell geändert hat.
-    Gilt für jede Schreibstelle (Slider-Confirm, Adaptive-Aggregat-Insert,
-    Adaptive-finaler-Insert, Slider-DebugSim); idempotent über die Session-
-    Variable `_pPlayerWarpDefaultApplied` in `freq-warp.js`. Gespeicherte JSON-
-    Werte gewinnen weiter beim Laden: nach dem Load wird das Flag gesetzt,
-    sodass der nächste Mess-Insert den geladenen Wert nicht überschreibt.
-  - Korrektur-Modus und Stärke sind immer sichtbar (nicht mehr von Checkbox abhängig)
-  - Stärke 0–150%; Recalc-Button nur bei Offline-Verfahren sichtbar
+  - Default Korrektur-Modus = Rechte Seite. Beim ersten Frequenzabgleich-
+    Resultat einer Session wird der Modus automatisch einmalig auf die
+    **Zielseite** (= Gegenseite der Referenzseite) gesetzt, sofern nicht zuvor
+    manuell geändert. Idempotent über `_pPlayerWarpDefaultApplied`; geladene
+    JSON-Werte gewinnen (Flag wird nach Load gesetzt).
+  - Stärke 0–150%
   - Untertitel-Zeile oben in der Einstellungsbox (i18n-Key `pwSubtitle`), sichtbar wenn Box ausgeklappt
-  - Status-Anzeige zeigt aktives Verfahren und Stützpunkt-Anzahl. Sind vorläufige Punkte aus einem laufenden Frequenzabgleich-Test dabei, wird ein Zusatztext „(davon N vorläufig aus laufendem Test, M final)" angehängt (i18n-Key `pwStatusProvisional`).
-  - **Daten-Quelle der Warp-Stützpunkte:** identisch zur Meßergebnis-Tabelle — `_warpFResSource()` vereint `fRes` (finale Konvergenz-Punkte) mit den Provisionals aus `_fmrBuildInProgressEntries(side)` beider Seiten (aktive Tracks mit ≥1 Reversal liefern einen vorläufigen Match, Status `in-progress`; früher Stand mit cent=0 als Platzhalter, Status `in-progress-early`). Final hat Vorrang pro (varSide, elIdx). Folge: Warping wirkt bereits während eines laufenden Tests, sobald die Tabelle vorläufige Werte zeigt — und gibt genau dasselbe wieder, was die Tabelle anzeigt.
-  - Hinweis-Zeile in der Einstellungsbox (`#plWarpHint`): wird eingeblendet, wenn Warp eingeschaltet ist, aber weder finale noch vorläufige Daten vorliegen — sagt „Bitte zuerst den Frequenzabgleich-Test durchführen" (i18n-Key `pwHintNoFRes`).
-  - **Persistenz:** `pWarpOn`, `pWarpMethod`, `pWarpMode`, `pWarpStrength` werden
-    vollständig in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert
-    und beim Laden wiederhergestellt. `pWarpedBuf` wird nicht gespeichert;
-    er wird bei Bedarf neu berechnet. Beim JSON-Load gibt es kein Force-Off
-    mehr — der Warp-Zustand erscheint nach Reload und JSON-Load genauso wie
-    beim Speichern. UI-Sync erfolgt über `pWarpUpdUI()` nach dem Setzen der Werte.
+  - Status-Anzeige zeigt Stützpunkt-Anzahl. Sind vorläufige Punkte aus einem laufenden Frequenzabgleich-Test dabei, wird ein Zusatztext „(davon N vorläufig aus laufendem Test, M final)" angehängt (i18n-Key `pwStatusProvisional`).
+  - **Daten-Quelle der Warp-Stützpunkte:** identisch zur Meßergebnis-Tabelle — `_warpFResSource()` vereint `fRes` (finale Konvergenz-Punkte) mit den Provisionals aus `_fmrBuildInProgressEntries(side)` beider Seiten (aktive Tracks mit ≥1 Reversal liefern einen vorläufigen Match, Status `in-progress`; früher Stand mit cent=0 als Platzhalter, Status `in-progress-early`). Final hat Vorrang pro (varSide, elIdx).
+  - Hinweis-Zeile in der Einstellungsbox (`#plWarpHint`): wird eingeblendet, wenn Warp eingeschaltet ist, aber weder finale noch vorläufige Daten vorliegen (i18n-Key `pwHintNoFRes`).
+  - **Persistenz:** `pWarpOn`, `pWarpMode`, `pWarpStrength` werden vollständig
+    in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert und beim
+    Laden wiederhergestellt. `pWarpedBuf` wird nicht gespeichert; er wird bei
+    Bedarf neu berechnet. Ältere Saves mit `warpMethod`-Feld werden ohne Fehler
+    geladen (Feld wird ignoriert). UI-Sync über `pWarpUpdUI()`.
   - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des
-    EQ-Graphen den gewarpten Wahrnehmungs-Frequenzen der Elektroden
-    — das ist das Klangbild, das beim Träger ankommt, und ist
-    unabhängig vom Modus. Die im Audio-Pfad eingehängten Biquad-
-    Filter sitzen dagegen **modus-abhängig**:
+    EQ-Graphen den gewarpten Wahrnehmungs-Frequenzen der Elektroden.
+    Die im Audio-Pfad eingehängten Biquad-Filter sitzen **modus-abhängig**:
     - **Korrektur-Modus (NH-Sim aus):** Filter auf den **nominellen**
-      Mittenfrequenzen `effFreq(i)`. Begründung: die Pegel-Korrektur
-      pro Elektrode entspricht der Anpassung am CI-Prozessor, die
-      starr auf der nominellen Bandzuordnung der jeweiligen Elektrode
-      sitzt — sie wandert nicht mit der Cochlea-Verzerrung mit.
-      Das vorgewarpte Audio führt die Inhalte einer Elektrode an
-      genau dieser nominellen Position; der Filter trifft dort das
-      richtige Material.
-    - **NH-Sim-Modus:** Filter auf den gewarpten Wahrnehmungs-
-      Frequenzen `effFreqDisplay(i, side)`. Begründung: das simuliert-
-      verzerrte Audio führt die Elektroden-Inhalte hier an der
-      wahrgenommenen Position; der normalhörende Hörer soll die
-      Pegel-Verzerrung an genau dieser Position erleben.
-    Im Stereo-Modus werden die Filter pro Channel mit der
-    jeweiligen Seiten-Bindung gesetzt (`withSide("left"/"right",
-    () => effFreq(i))` bzw. `effFreqDisplay(i, "left"/"right")`); im
-    Mono-Modus bindet die Frequenz an `activeSide`.
-  - Druck-Export enthält aktives Verfahren wenn Warp aktiv
-  - Offline-Verfahren beachtet die gewählte Player-Seite: bei LINKS/RECHTS
-    ist nur diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist
-    auf der vom Korrektur-Modus nicht betroffenen Seite das Original zu
-    hören (klanglich unverändert, kein Bandpass-Artefakt)
-  - Vocoder-Graph beachtet ebenfalls die Player-Seite und mischt bei
-    „Beide Seiten" + einseitigem Korrektur-Modus die nicht betroffene
-    Seite aus einer zweiten Original-BufferSource ein, die per DelayNode
-    um die Vocoder-Latenz (ein FFT-Fenster) verzögert wird, damit L/R
-    synchron bleiben
-  - Warp-Toggle und Methoden-Wechsel wirken auch während laufender Wiedergabe:
-    Pfadwechsel erfolgt an aktueller Position mit kurzer Unterbrechung
-    (Offline regelt das in `pWarpTrigger`; Vocoder/Bandshift im Toggle-Handler
-    in init.js). Worklet des Vocoders wird beim Auswählen der Methode vorab
-    geladen, damit der spätere Pfadwechsel ohne erkennbare Verzögerung wirkt.
-  - Live-Änderung von Stärke und Korrektur-Modus während Wiedergabe:
-    - Rubberband → Neuberechnung via `pWarpTrigger` (längere Pause; beim
-      ersten Lauf zusätzlich WASM-Lade-Zeit)
-    - Offline → Neuberechnung via `pWarpTrigger` (kürzere Pause)
-    - Vocoder → knackfreier `postMessage` an den laufenden Worklet
-      (`pWarpLiveUpdate`), sofort wirksam
-    - Bandshift → Graph-Rebuild via pause/resume (kurzer hörbarer Knack)
-  - Aktivierung über Toggle-Button im Einstellungs-Block (Zeile 6), grün wenn aktiv. Bei Aktivierung klappt die Einstellungsbox (`plWarpSettingsBox`) auf; beim Deaktivieren wird sie ausgeblendet.
+      Mittenfrequenzen `effFreq(i)`.
+    - **NH-Sim-Modus:** Filter auf den gewarpten Wahrnehmungs-Frequenzen
+      `effFreqDisplay(i, side)`.
+    Im Stereo-Modus werden die Filter pro Channel gesetzt; im Mono-Modus
+    bindet die Frequenz an `activeSide`.
+  - Druck-Export enthält Korrektur-Modus und Stärke wenn Warp aktiv
+  - Rubberband beachtet die gewählte Player-Seite: bei LINKS/RECHTS ist nur
+    diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist auf der
+    nicht betroffenen Seite das Original zu hören.
+  - Warp-Toggle wirkt auch während laufender Wiedergabe: Pfadwechsel erfolgt
+    an aktueller Position. Änderung von Stärke oder Korrektur-Modus löst
+    Neuberechnung via `pWarpTrigger` aus (kurze Pause; beim ersten Lauf
+    zusätzlich WASM-Lade-Zeit).
+  - Aktivierung über Toggle-Button im Einstellungs-Block, grün wenn aktiv.
+    Bei Aktivierung klappt die Einstellungsbox (`plWarpSettingsBox`) auf;
+    beim Deaktivieren wird sie ausgeblendet.
   - EQ-Toggle wirkt als Master-Bypass auch für das Frequenz-Warping: wenn
     EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Toggle-
     Zustand bleibt als „Memory" erhalten und greift wieder, sobald EQ
     wieder eingeschaltet wird. Bei Toggle während Wiedergabe erfolgt der
     nötige Pfadwechsel an aktueller Position.
-  - Stop-Button greift auch in Zwischenzuständen, in denen `pPlaying` kurz
-    `false` ist, aber Audio-Sources aktiv sind (Race im async Vocoder-pPlay).
+  - Stop-Button (`#plWarpStopBtn`) bricht laufende Rubberband-Vorberechnung
+    ab; Warp-Toggle schaltet dabei aus.
 
 - Sätze-Wiedergabe im Player: Card „Sätze abspielen" unterhalb der
   Audiodatei-Card. Wiedergabe vorgesprochener Sätze durch denselben
