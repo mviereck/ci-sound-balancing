@@ -115,7 +115,16 @@
 - EasyEffects-Export für PipeWire (korrektes JSON-Format)
 - Equalizer-Controls immer sichtbar (nicht nur bei geladener Datei)
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
-- Frequenz-Warping mit vier Verfahren (freq-warp.js):
+- Frequenz-Warping mit fünf Verfahren (freq-warp.js):
+  - **Rubberband (Variante E, Default):** bandweise Vorberechnung über
+    Rubberband-WASM mit FIR-Bandpässen auf geometrischen Bandgrenzen,
+    echter zeitkonsistenter Pitch-Shift pro Band (kein `playbackRate`-
+    Trick), Mono-Optimierung (nur effektiv hörbare und tatsächlich
+    gewarpte Kanäle werden verarbeitet). Optionen-Set hartcodiert auf
+    `EngineFiner | PitchHighQuality | FormantPreserved | StretchPrecise
+    | WindowStandard | ThreadingNever | ChannelsApart`. Lazy WASM-Load
+    via `js/rubberband-loader.js` (Vendor in
+    `vendors/rubberband-wasm/dist/`).
   - **Offline-Vorberechnung** (Variante C): rendert gewarpten Buffer vor
     dem Play
   - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
@@ -197,7 +206,9 @@
     in init.js). Worklet des Vocoders wird beim Auswählen der Methode vorab
     geladen, damit der spätere Pfadwechsel ohne erkennbare Verzögerung wirkt.
   - Live-Änderung von Stärke und Korrektur-Modus während Wiedergabe:
-    - Offline → Neuberechnung via `pWarpTrigger` (längere Pause)
+    - Rubberband → Neuberechnung via `pWarpTrigger` (längere Pause; beim
+      ersten Lauf zusätzlich WASM-Lade-Zeit)
+    - Offline → Neuberechnung via `pWarpTrigger` (kürzere Pause)
     - Vocoder → knackfreier `postMessage` an den laufenden Worklet
       (`pWarpLiveUpdate`), sofort wirksam
     - Bandshift → Graph-Rebuild via pause/resume (kurzer hörbarer Knack)

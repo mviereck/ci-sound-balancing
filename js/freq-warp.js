@@ -802,9 +802,343 @@ async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
 }
 
 // ---- Variante E: Rubberband-WASM Offline-Vorberechnung -----
-// Stub — Implementierung folgt in BA 186.
+//
+// Bandweise echter Pitch-Shift via Rubberband-WASM. FIR-Bandpaesse
+// (linearphasig, Blackman-Harris-Fenster) mit Grenzen am geometrischen
+// Mittel der Nachbarmittenfrequenzen, pro Band ein Rubberband-Lauf in
+// EngineFiner-Qualitaet, danach Summe und Pegelausgleich. Mono-
+// Optimierung: pro Lauf nur die effektiv hoerbaren und tatsaechlich
+// gewarpten Kanaele verarbeiten (siehe _rbDecideAffectedSides).
+//
+// Aufrufkonvention identisch zu pComputeWarpedBuffer.
+
+const _RB_FIR_ORDER = 4096; // FIR-Ordnung der Bandpaesse (linearphasig)
+
+// Rubberband-Options-Bitmaske (siehe vendors/rubberband-wasm/src/index.ts).
+// Werte hartcodiert, damit die BA nicht vom UMD-Export der Enums abhaengt;
+// im UMD-Namespace heisst die Sammlung `rubberband.RubberBandOption`,
+// die Konstanten haben dieselben Werte.
+const _RB_OPTIONS_OFFLINE_HIGHQ =
+    0x00000000  // ProcessOffline
+  | 0x20000000  // EngineFiner
+  | 0x02000000  // PitchHighQuality
+  | 0x01000000  // FormantPreserved
+  | 0x00000010  // StretchPrecise
+  | 0x00000000  // WindowStandard
+  | 0x00010000  // ThreadingNever
+  | 0x00000000; // ChannelsApart
+
+// Entscheidet, welche Kanaele tatsaechlich Rubberband durchlaufen
+// muessen — abhaengig von Player-Seite (was wird hoerbar?) und
+// warpAffected-Sides (wo gibt es ueberhaupt Cent-Werte != 0?).
+// Liefert { needL, needR }.
+function _rbDecideAffectedSides(points, playerSide) {
+  const aff = _warpAffectedSides(points);
+
+  let audibleL = false, audibleR = false;
+  if (playerSide === "left") audibleL = true;
+  else if (playerSide === "right") audibleR = true;
+  else { audibleL = true; audibleR = true; } // "both" oder "mono"
+
+  return {
+    needL: audibleL && aff.warpsLeft,
+    needR: audibleR && aff.warpsRight,
+  };
+}
+
+// Geometrische Bandgrenzen aus Stuetzpunkt-Frequenzen.
+// Gibt Array von [low, high] Tupeln zurueck, gleiche Anzahl wie points.
+// Bei einem einzigen Stuetzpunkt: ein Vollband (0 .. ~Nyquist).
+function _rbBuildBandEdges(points, nyquist) {
+  if (points.length === 0) return [];
+  if (points.length === 1) {
+    return [[0, nyquist * 0.999]];
+  }
+  const edges = [0];
+  for (let i = 0; i < points.length - 1; i++) {
+    edges.push(Math.sqrt(points[i].varFreq * points[i + 1].varFreq));
+  }
+  edges.push(nyquist * 0.999);
+
+  const bands = [];
+  for (let i = 0; i < points.length; i++) {
+    bands.push([edges[i], edges[i + 1]]);
+  }
+  return bands;
+}
+
+// FIR-Bandpass-Koeffizienten (linearphasig, Blackman-Harris-Fenster).
+// lowN, highN: normalisierte Frequenzen (0..1, 1 = Nyquist).
+// Aequivalent zu scipy.signal.firwin(order+1, [low, high], pass_zero=False,
+// window="blackmanharris") aus scripts/freqshift_filterbank.py.
+function _rbDesignBandpassFIR(lowN, highN, order) {
+  const n = order + 1;
+  const h = new Float32Array(n);
+  const M = order;
+  // Sinc-basierter Bandpass = Sinc(high) - Sinc(low).
+  for (let i = 0; i < n; i++) {
+    const k = i - M / 2;
+    let v;
+    if (k === 0) {
+      v = highN - lowN;
+    } else {
+      v = (Math.sin(Math.PI * highN * k) - Math.sin(Math.PI * lowN * k))
+        / (Math.PI * k);
+    }
+    // Blackman-Harris-Fenster (4-Term)
+    const a0 = 0.35875, a1 = 0.48829, a2 = 0.14128, a3 = 0.01168;
+    const w = a0
+            - a1 * Math.cos((2 * Math.PI * i) / M)
+            + a2 * Math.cos((4 * Math.PI * i) / M)
+            - a3 * Math.cos((6 * Math.PI * i) / M);
+    h[i] = v * w;
+  }
+  return h;
+}
+
+// Convolution: signal (Float32Array) * fir (Float32Array) -> Float32Array
+// gleicher Laenge ("same"-Mode, FIR-Verzoegerung order/2 heraus-
+// gerechnet). Linear, ohne FFT — bei order=4096 wuerde JS O(N*M) zu
+// langsam. Stattdessen FFT-Convolution via OfflineAudioContext +
+// ConvolverNode.
+async function _rbConvolveViaWebAudio(signal, fir, sampleRate) {
+  const outLen = signal.length + fir.length - 1;
+  const oc = new OfflineAudioContext(1, outLen, sampleRate);
+
+  const irBuf = oc.createBuffer(1, fir.length, sampleRate);
+  irBuf.getChannelData(0).set(fir);
+
+  const conv = oc.createConvolver();
+  conv.normalize = false;
+  conv.buffer = irBuf;
+
+  const srcBuf = oc.createBuffer(1, signal.length, sampleRate);
+  srcBuf.getChannelData(0).set(signal);
+  const src = oc.createBufferSource();
+  src.buffer = srcBuf;
+  src.connect(conv);
+  conv.connect(oc.destination);
+  src.start(0);
+
+  const rendered = await oc.startRendering();
+  // FIR-Verzoegerung ist (fir.length - 1) / 2; wir trimmen den Anfang
+  // weg und bringen die Ausgabe auf signal.length.
+  const delay = Math.floor((fir.length - 1) / 2);
+  const out = new Float32Array(signal.length);
+  const src0 = rendered.getChannelData(0);
+  out.set(src0.subarray(delay, delay + signal.length));
+  return out;
+}
+
+// Pitch-Shift via Rubberband. cents > 0: hoeher, cents < 0: tiefer.
+// Liefert Float32Array gleicher Laenge wie signal (Anfangs-Latenz von
+// Rubberband wird abgeschnitten, Tail-Padding mit Stille).
+async function _rbPitchShift(rb, signal, sampleRate, cents) {
+  if (Math.abs(cents) < 0.5) {
+    // Vernachlaessigbar — direkt zurueck (defensive Kopie nicht noetig,
+    // weil Aufrufer signal nicht weiterverwendet).
+    return signal;
+  }
+  const pitchScale = Math.pow(2, cents / 1200);
+
+  const state = rb.rubberband_new(
+    sampleRate, 1, _RB_OPTIONS_OFFLINE_HIGHQ, 1.0, pitchScale
+  );
+
+  // Pointer-auf-Pointer-Setup fuer Rubberband-API (channels=1).
+  const inPtrPtr  = rb.malloc(4);
+  const outPtrPtr = rb.malloc(4);
+  const CHUNK = 4096;
+  const inBufPtr  = rb.malloc(CHUNK * 4);
+  const outBufPtr = rb.malloc(CHUNK * 4);
+  rb.memWritePtr(inPtrPtr,  inBufPtr);
+  rb.memWritePtr(outPtrPtr, outBufPtr);
+
+  try {
+    rb.rubberband_set_expected_input_duration(state, signal.length);
+
+    const startPad = rb.rubberband_get_preferred_start_pad(state);
+    const tmp = new Float32Array(CHUNK);
+
+    // 1) Study-Phase: Eingabe einmal komplett scannen.
+    {
+      let pos = -startPad;
+      while (pos < signal.length) {
+        const want = Math.min(CHUNK, signal.length - Math.max(pos, 0));
+        if (want <= 0) break;
+        for (let i = 0; i < want; i++) {
+          const srcIdx = pos + i;
+          tmp[i] = (srcIdx >= 0 && srcIdx < signal.length)
+            ? signal[srcIdx] : 0;
+        }
+        rb.memWrite(inBufPtr, tmp.subarray(0, want));
+        const isFinal = (pos + want) >= signal.length ? 1 : 0;
+        rb.rubberband_study(state, inPtrPtr, want, isFinal);
+        pos += want;
+      }
+    }
+
+    // 2) Process-Phase: Eingabe erneut, parallel Output abholen.
+    const outChunks = [];
+    let outTotal = 0;
+    {
+      let pos = -startPad;
+      while (pos < signal.length) {
+        const want = Math.min(CHUNK, signal.length - Math.max(pos, 0));
+        if (want <= 0) break;
+        for (let i = 0; i < want; i++) {
+          const srcIdx = pos + i;
+          tmp[i] = (srcIdx >= 0 && srcIdx < signal.length)
+            ? signal[srcIdx] : 0;
+        }
+        rb.memWrite(inBufPtr, tmp.subarray(0, want));
+        const isFinal = (pos + want) >= signal.length ? 1 : 0;
+        rb.rubberband_process(state, inPtrPtr, want, isFinal);
+
+        let avail = rb.rubberband_available(state);
+        while (avail > 0) {
+          const take = Math.min(avail, CHUNK);
+          rb.rubberband_retrieve(state, outPtrPtr, take);
+          const chunk = rb.memReadF32(outBufPtr, take);
+          const copy = new Float32Array(take);
+          copy.set(chunk);
+          outChunks.push(copy);
+          outTotal += take;
+          avail = rb.rubberband_available(state);
+        }
+        pos += want;
+      }
+    }
+
+    // 3) Drain: restliches Output abholen, bis Rubberband meldet, daß
+    //    nichts mehr da ist (avail <= 0).
+    while (true) {
+      const avail = rb.rubberband_available(state);
+      if (avail <= 0) break;
+      const take = Math.min(avail, CHUNK);
+      rb.rubberband_retrieve(state, outPtrPtr, take);
+      const chunk = rb.memReadF32(outBufPtr, take);
+      const copy = new Float32Array(take);
+      copy.set(chunk);
+      outChunks.push(copy);
+      outTotal += take;
+    }
+
+    // Output zusammenfuegen.
+    const merged = new Float32Array(outTotal);
+    let off = 0;
+    for (const c of outChunks) {
+      merged.set(c, off);
+      off += c.length;
+    }
+
+    // Anfangs-Latenz von Rubberband abschneiden.
+    const startDelay = rb.rubberband_get_start_delay(state);
+    const result = new Float32Array(signal.length);
+    const usable = Math.max(0, merged.length - startDelay);
+    const copyLen = Math.min(signal.length, usable);
+    if (copyLen > 0) {
+      result.set(merged.subarray(startDelay, startDelay + copyLen));
+    }
+    return result;
+  } finally {
+    rb.free(inPtrPtr);
+    rb.free(outPtrPtr);
+    rb.free(inBufPtr);
+    rb.free(outBufPtr);
+    rb.rubberband_delete(state);
+  }
+}
+
+// Eine Mono-Seite durch alle Baender schicken und summieren, mit
+// Pegelausgleich.
+async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues) {
+  const out = new Float32Array(srcMono.length);
+  const nyquist = sampleRate / 2;
+  for (let i = 0; i < bands.length; i++) {
+    const [low, high] = bands[i];
+    const lowN  = Math.max(low  / nyquist, 1e-6);
+    const highN = Math.min(high / nyquist, 1 - 1e-6);
+    const fir = _rbDesignBandpassFIR(lowN, highN, _RB_FIR_ORDER);
+    const filtered = await _rbConvolveViaWebAudio(srcMono, fir, sampleRate);
+    const shifted  = await _rbPitchShift(rb, filtered, sampleRate, csValues[i]);
+    for (let n = 0; n < out.length; n++) out[n] += shifted[n];
+  }
+  // Pegelausgleich: Peak des Inputs als Ziel.
+  let peakIn = 0, peakOut = 0;
+  for (let n = 0; n < srcMono.length; n++) {
+    const ai = Math.abs(srcMono[n]); if (ai > peakIn)  peakIn  = ai;
+    const ao = Math.abs(out[n]);     if (ao > peakOut) peakOut = ao;
+  }
+  if (peakOut > 0 && peakIn > 0) {
+    const scale = peakIn / peakOut;
+    for (let n = 0; n < out.length; n++) out[n] *= scale;
+  }
+  return out;
+}
+
 async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
-  throw new Error("Implementierung folgt in BA 186");
+  const src = _warpFResSource();
+  if (warpMode === "off" || src.length === 0 || strength === 0) {
+    return srcBuf;
+  }
+
+  const nhSim = !!(document.getElementById("plNHSim")?.checked);
+  const points = buildWarpPoints(src, warpMode, !nhSim);
+  pWarpAffected = _warpAffectedSides(points);
+  const str = strength / 100;
+
+  const playerSide = (typeof getPlayerSide === "function")
+    ? getPlayerSide() : "both";
+  const decided = _rbDecideAffectedSides(points, playerSide);
+
+  const sampleRate = srcBuf.sampleRate;
+  const nyquist = sampleRate / 2;
+  const bands = _rbBuildBandEdges(points, nyquist);
+
+  const csL = points.map(p => p.csL * str);
+  const csR = points.map(p => p.csR * str);
+
+  // Rubberband-Interface lazy laden (kann mit sprechender Fehlermeldung
+  // werfen — der pWarpTrigger-catch-Block reicht sie nach
+  // rubberbandLastError durch).
+  const rb = await rubberbandLoad();
+
+  // Quell-Kanaele extrahieren (defensive Kopie — Rubberband schreibt in
+  // eigenen WASM-Heap, aber wir vermeiden Aliasing-Risiken).
+  const srcL = new Float32Array(srcBuf.getChannelData(0));
+  const srcR = srcBuf.numberOfChannels > 1
+    ? new Float32Array(srcBuf.getChannelData(1))
+    : srcL;
+
+  // Ergebnis-Kanaele initial mit Original-Inhalt (= Bypass, falls nicht
+  // gewarpt wird).
+  let outL = srcL;
+  let outR = srcR;
+
+  if (decided.needL) {
+    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL);
+  }
+  if (decided.needR) {
+    // Optimierung: wenn L und R identische Quelle und identische cs-Werte
+    // haben (z.B. Mono-Datei mit symmetrischem Warp), ein einziger Lauf.
+    const sameAsL = decided.needL
+                 && srcL === srcR
+                 && csL.length === csR.length
+                 && csL.every((v, i) => v === csR[i]);
+    if (sameAsL) {
+      outR = outL;
+    } else {
+      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR);
+    }
+  }
+
+  // Resultat-Buffer im Live-Context aufbauen.
+  const c = gPC();
+  const out = c.createBuffer(2, srcBuf.length, sampleRate);
+  out.getChannelData(0).set(outL.subarray(0, srcBuf.length));
+  out.getChannelData(1).set(outR.subarray(0, srcBuf.length));
+  return out;
 }
 
 // ---- Variante B: Live Bandweise Pitch-Shift -------------
