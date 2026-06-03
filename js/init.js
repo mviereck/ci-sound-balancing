@@ -212,8 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pBuf = getPlaybackBuffer();
         pWarpUpdUI();
         if (wasPlaying) pPlay();
-      } else if (method === "offline") {
-        // Offline: getPlaybackBuffer entscheidet anhand plEqOn neu beim nächsten Play.
+      } else if (method === "offline" || method === "rubberband") {
+        // Offline-Verfahren (offline, rubberband): getPlaybackBuffer
+        // entscheidet anhand plEqOn neu beim nächsten Play.
         // Bei laufender Wiedergabe Pfad an aktueller Position wechseln.
         const wasPlaying = pPlaying;
         if (wasPlaying) pPause();
@@ -413,8 +414,9 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpOn = !pWarpOn;
     pWarpUpdUI();
     const method = document.getElementById("plWarpMethod").value;
-    // Offline-Einschalten: pWarpTrigger regelt Vorberechnung + pause/resume selbst
-    if (pWarpOn && method === "offline") {
+    // Offline-Verfahren einschalten (offline, rubberband):
+    // pWarpTrigger regelt Vorberechnung + pause/resume + Play-Sperre selbst.
+    if (pWarpOn && (method === "offline" || method === "rubberband")) {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
@@ -447,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
       try { pInitWarpWorklet(gPC()); } catch (e) {}
     }
     if (!pWarpOn) return;
-    if (this.value === "offline") {
+    if (this.value === "offline" || this.value === "rubberband") {
       pWarpTrigger();
       return;
     }
@@ -465,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function _pWarpParamsChanged() {
     if (!pWarpOn) return;
     const method = document.getElementById("plWarpMethod").value;
-    if (method === "offline") {
+    if (method === "offline" || method === "rubberband") {
       pWarpTrigger();
       return;
     }

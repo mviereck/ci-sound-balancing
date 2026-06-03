@@ -239,6 +239,11 @@ document
         && typeof sStop === "function") {
       sStop();
     }
+    // Laufende Datei-Wiedergabe sauber stoppen, bevor die neue Datei
+    // dekodiert wird. Kein Autostart — der Nutzer drückt Play selbst.
+    if (pPlaying || pSrc || pCurrentPlayback) {
+      pStopReset();
+    }
     try {
       const c = gPC();
       const buf = await f.arrayBuffer();
