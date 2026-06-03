@@ -39,6 +39,14 @@ REFERENZDATEIEN
   am Levels-Tab im Absolutmodus oder an der MAPLAW-Simulation
   benötigt. Implementierung der Formeln liegt in `core.js`
   (`calcMedel`, `calcCochlear`, `calcAB`).
+- **docs/Konzept_Frequenzwarping_und_EQ.md** — Konzeptionelle
+  Grundlagen der Audio-Pipeline des Players: Wirkungsrichtung
+  des Frequenz-Warpings (Korrektur-Vorhalt vs. NH-Simulation),
+  modus-abhängige Filter-Position des Equalizers (nominell vs.
+  gewarpt), Zusammenwirken beider Korrekturen, Pipeline-Reihenfolge
+  und Vereinfachungen gegenüber dem echten CI. Vor jeder Arbeit an
+  der Wirkungsrichtung des Warps, an der EQ-Filter-Position oder
+  an der Pipeline-Reihenfolge im Player lesen.
 - **docs/BAUANLEITUNGEN_LEITLINIEN.md** — Format-Vorgaben für
   Sonnet-Bauanleitungen (Snippets, Skeleton, Akzeptanztest,
   Selbstprüfung, Aufteilung in kleine Dateien). Nur lesen,

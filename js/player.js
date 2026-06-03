@@ -166,11 +166,11 @@ function getPlaybackBuffer() {
   if (!pSourceBuf) return null;
 
   const _warpMethodEl = document.getElementById("plWarpMethod");
-  const _warpMethod = _warpMethodEl ? _warpMethodEl.value : "offline";
+  const _warpMethod = _warpMethodEl ? _warpMethodEl.value : "rubberband";
   // EQ-Toggle wirkt als Master: wenn EQ aus, ist auch der Warp-Pfad bypass.
   const warpReady = typeof pWarpOn !== "undefined"
                   && pWarpOn && plEqOn && pWarpedBuf && !pWarpBusy
-                  && _warpMethod === "offline";
+                  && (_warpMethod === "offline" || _warpMethod === "rubberband");
 
   if (warpReady) {
     return _buildWarpedPlaybackBuffer(mode);
@@ -340,7 +340,9 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const lf = c.createBiquadFilter();
       lf.type = "peaking";
-      lf.frequency.value = effFreqDisplay(i, "left");
+      lf.frequency.value = nhSim
+        ? effFreqDisplay(i, "left")
+        : withSide("left", () => effFreq(i));
       lf.Q.value = pCompQ(i);
       lf.gain.value = 0;
       if (plEqOn) {
@@ -349,7 +351,9 @@ function pBuildEQ() {
       pEqFLeft.push(lf);
       const rf = c.createBiquadFilter();
       rf.type = "peaking";
-      rf.frequency.value = effFreqDisplay(i, "right");
+      rf.frequency.value = nhSim
+        ? effFreqDisplay(i, "right")
+        : withSide("right", () => effFreq(i));
       rf.Q.value = pCompQ(i);
       rf.gain.value = 0;
       if (plEqOn) {
@@ -383,7 +387,7 @@ function pBuildEQ() {
     for (let i = 0; i < nEl; i++) {
       const f = c.createBiquadFilter();
       f.type = "peaking";
-      f.frequency.value = effFreqDisplay(i);
+      f.frequency.value = nhSim ? effFreqDisplay(i) : effFreq(i);
       f.Q.value = pCompQ(i);
       f.gain.value = 0;
       if (plEqOn) {

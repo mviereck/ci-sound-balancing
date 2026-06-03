@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function _pWarpApplyMethodLabels() {
     const sel = document.getElementById("plWarpMethod");
     if (!sel) return;
-    const keys = ["pwMethodOffline", "pwMethodVocoder", "pwMethodSinModel", "pwMethodBandShift"];
+    const keys = ["pwMethodRubberband", "pwMethodOffline", "pwMethodVocoder", "pwMethodSinModel", "pwMethodBandShift"];
     for (let i = 0; i < sel.options.length; i++) {
       if (keys[i]) sel.options[i].text = t(keys[i]);
     }
@@ -513,13 +513,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
     })
   );
-  // Neu-berechnen-Button
-  const _plWarpRecalcEl = document.getElementById("plWarpRecalc");
-  if (_plWarpRecalcEl) {
-    _plWarpRecalcEl.addEventListener("click", function () {
-      if (pWarpOn) pWarpTrigger();
-    });
-  }
   // Warp-UI initialisieren
   _pWarpApplyMethodLabels();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();

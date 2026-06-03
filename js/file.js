@@ -106,7 +106,7 @@ function resetAll() {
     pWarpOn = false;
     pWarpMode = "right";
     pWarpStrength = 100;
-    pWarpMethod = "sinmodel";
+    pWarpMethod = "rubberband";
     const _ws  = document.getElementById("plWarpStr");
     if (_ws) _ws.value = pWarpStrength;
     const _wm  = document.getElementById("plWarpMethod");
@@ -252,7 +252,7 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
-    warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "offline",
+    warpMethod: (typeof pWarpMethod !== "undefined") ? pWarpMethod : "rubberband",
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,

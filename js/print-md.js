@@ -358,7 +358,7 @@ function _collectPlayer() {
     balanceMode:  (typeof plBalanceMode  !== "undefined") ? plBalanceMode  : "sym",
     applyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : false,
     warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-    warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "offline",
+    warpMethod:   (typeof pWarpMethod   !== "undefined") ? pWarpMethod   : "rubberband",
     warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     maplawOn:     (typeof pMaplawOn     !== "undefined") ? pMaplawOn     : false,

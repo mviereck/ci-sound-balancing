@@ -59,7 +59,34 @@
   - **Persistenz der Checkbox:** Der Zustand von „Beide Seiten" (`plBothSides`)
     wird in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert
     und beim Reload bzw. JSON-Load wiederhergestellt.
-- Normalhörenden-Simulation (nicht-invertierter Equalizer)
+- Normalhörenden-Simulation (nicht-invertierter Equalizer). Steuert
+  zugleich die **Wirkungsrichtung** der Audio-Verarbeitung:
+  - **NH-Sim aus (Korrektur-Modus, Default):** Frequenz-Warping und
+    Equalizer arbeiten als Vorhalt — das Audio wird so vorverarbeitet,
+    daß nach der Cochlea-Verzerrung beim CI-Träger das richtige
+    Klangbild ankommt. Pegel-Equalizer ist invertiert (Verzerrung
+    kompensiert). Inhalte werden vom Warping auf die **nominellen**
+    Mittenfrequenzen der Elektroden verschoben, damit die richtige
+    Elektrode stimuliert wird. Konkretes Beispiel: ein Ton, der im
+    Original-Audio bei 100 Hz liegt und auf einer Elektrode landen
+    soll, deren nominelle Mittenfrequenz 120 Hz ist (und die als
+    100 Hz wahrgenommen wird), wird vom Warping auf 120 Hz Audio
+    verschoben — das CI stimuliert dann die richtige Elektrode, und
+    die Cochlea-Verzerrung bringt die Wahrnehmung wieder auf 100 Hz.
+  - **NH-Sim an:** zeigt einem normalhörenden Hörer, wie ein
+    CI-Träger das Audio wahrnimmt. Frequenz-Warping wirkt in
+    Simulations-Richtung — Inhalte werden auf die gewarpten
+    Wahrnehmungs-Frequenzen verschoben. Pegel-Equalizer ist
+    nicht-invertiert (Verzerrung wird direkt aufs Audio gelegt).
+  - Beide Richtungen werden in `buildWarpPoints` über den
+    `invert`-Flag gesteuert; der Audio-Pfad ruft mit `!nhSim` auf,
+    damit `invert=true` im Korrektur-Modus den Vorhalt liefert und
+    `invert=false` im NH-Sim die Wahrnehmungs-Verschiebung.
+  - Konzeptionelle Hintergründe (warum der Warp in welche Richtung
+    wirken muß, warum die EQ-Filter modus-abhängig auf nominellen
+    oder gewarpten Frequenzen sitzen, wie beide Korrekturen
+    zusammenwirken, Vereinfachungen gegenüber dem echten CI):
+    `docs/Konzept_Frequenzwarping_und_EQ.md`.
 - MAPLAW-Simulation (MED-EL): bandweise Hüllkurven-Vorverzerrung
   Ist⁻¹∘Soll als AudioWorklet im Tool. Eigene Card oberhalb der
   Frequenz-Warping-Card. Ist-c kommt aus `implant.cValue` der
@@ -90,7 +117,7 @@
 - Änderungen im Schieber-Tab aktualisieren den Player-Equalizer live
 - Frequenz-Warping mit vier Verfahren (freq-warp.js):
   - **Offline-Vorberechnung** (Variante C): rendert gewarpten Buffer vor
-    dem Play; Recalc-Button bei Änderung von Modus/Stärke/fRes nötig
+    dem Play
   - **Bandweise Pitch-Shift** (Variante B): Live-Audio-Graph, N Subbänder
     × 2 Kanäle; wirkt sofort beim nächsten Play, keine Vorberechnung
   - **Phasen-Vocoder** (Variante A): AudioWorklet mit FFT/IFFT und
@@ -111,7 +138,7 @@
     „Rechte Seite" / „Beide Seiten symmetrisch"). Alt-Werte `ref_side`/`var_side`
     aus älteren Save-Dateien werden beim Laden über `_migrateLegacyWarpMode`
     in absolute Seiten übersetzt (anhand der refSide des ersten fRes-Eintrags).
-  - Defaults: Verfahren = Sinusoidal Modeling, Korrektur-Modus = Rechte Seite.
+  - Defaults: Verfahren = Rubberband, Korrektur-Modus = Rechte Seite.
     Beim ersten Frequenzabgleich-Resultat einer Session wird der Korrektur-Modus
     automatisch einmalig auf die **Zielseite** (= Gegenseite der Frequenzabgleich-
     Referenzseite) gesetzt, sofern der User ihn nicht zuvor manuell geändert hat.
@@ -132,7 +159,28 @@
     er wird bei Bedarf neu berechnet. Beim JSON-Load gibt es kein Force-Off
     mehr — der Warp-Zustand erscheint nach Reload und JSON-Load genauso wie
     beim Speichern. UI-Sync erfolgt über `pWarpUpdUI()` nach dem Setzen der Werte.
-  - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des EQ-Graphen und die im Audio-Pfad eingehängten Biquad-Filter den gewarpten Wahrnehmungs-Frequenzen der Elektroden. Die Filter im Stereo-Modus werden pro Channel mit der jeweiligen Seiten-Warp-Verschiebung gesetzt (`effFreqDisplay(i, "left"/"right")`); im Mono-Modus bindet `effFreqDisplay(i)` an `activeSide`.
+  - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des
+    EQ-Graphen den gewarpten Wahrnehmungs-Frequenzen der Elektroden
+    — das ist das Klangbild, das beim Träger ankommt, und ist
+    unabhängig vom Modus. Die im Audio-Pfad eingehängten Biquad-
+    Filter sitzen dagegen **modus-abhängig**:
+    - **Korrektur-Modus (NH-Sim aus):** Filter auf den **nominellen**
+      Mittenfrequenzen `effFreq(i)`. Begründung: die Pegel-Korrektur
+      pro Elektrode entspricht der Anpassung am CI-Prozessor, die
+      starr auf der nominellen Bandzuordnung der jeweiligen Elektrode
+      sitzt — sie wandert nicht mit der Cochlea-Verzerrung mit.
+      Das vorgewarpte Audio führt die Inhalte einer Elektrode an
+      genau dieser nominellen Position; der Filter trifft dort das
+      richtige Material.
+    - **NH-Sim-Modus:** Filter auf den gewarpten Wahrnehmungs-
+      Frequenzen `effFreqDisplay(i, side)`. Begründung: das simuliert-
+      verzerrte Audio führt die Elektroden-Inhalte hier an der
+      wahrgenommenen Position; der normalhörende Hörer soll die
+      Pegel-Verzerrung an genau dieser Position erleben.
+    Im Stereo-Modus werden die Filter pro Channel mit der
+    jeweiligen Seiten-Bindung gesetzt (`withSide("left"/"right",
+    () => effFreq(i))` bzw. `effFreqDisplay(i, "left"/"right")`); im
+    Mono-Modus bindet die Frequenz an `activeSide`.
   - Druck-Export enthält aktives Verfahren wenn Warp aktiv
   - Offline-Verfahren beachtet die gewählte Player-Seite: bei LINKS/RECHTS
     ist nur diese Seite hörbar (Gegenkanal stumm); bei „Beide Seiten" ist

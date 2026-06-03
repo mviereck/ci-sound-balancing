@@ -529,7 +529,7 @@ let pWarpOn = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
 let pWarpBusy = false;
-let pWarpMethod = "sinmodel";   // "offline" | "bandshift" | "vocoder" | "sinmodel"
+let pWarpMethod = "rubberband";   // "rubberband" | "offline" | "bandshift" | "vocoder" | "sinmodel"
 let pWarpWorkletReady = false;
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 let _pWarpFResVersion = 0;
@@ -603,7 +603,21 @@ function _warpFResStats() {
 function buildWarpPoints(fResData, warpMode, invert = false) {
   // fResData: Array { varSide, refSide, elIdx, varFreq, refFreq }
   // Gibt sortiertes Array { varFreq, csL, csR } zurück.
-  // invert: Cent-Werte umkehren (für NH-Simulation: Frequenzfehler zeigen statt korrigieren)
+  //
+  // Vorzeichen-Konvention der zurückgegebenen cs-Werte:
+  // - Ohne invert (Default): cs = 1200 * log2(refFreq / varFreq), also die
+  //   Wahrnehmungs-/Simulations-Richtung — wie die Cochlea die Wahrnehmung
+  //   gegenüber der nominellen Elektroden-Mittenfrequenz verschiebt.
+  //   `effFreqDisplay` nutzt das so, um die wahrgenommene Frequenz für die
+  //   Anzeige zu berechnen.
+  // - Mit invert=true: Vorzeichen gespiegelt; ergibt die Korrektur-/Vorhalt-
+  //   Richtung — das Audio wird so vorverarbeitet, daß nach der Cochlea-
+  //   Verzerrung beim CI-Träger die richtige Frequenz ankommt.
+  //
+  // Aufrufkonvention der Audio-Pipeline: `buildWarpPoints(..., !nhSim)`.
+  //   NH-Sim aus (Korrektur-Modus) → invert=true → Vorhalt für CI-Wiedergabe.
+  //   NH-Sim an (Simulation für Normalhörende) → invert=false → Verzerrung
+  //   wird direkt aufs Audio gelegt.
   const pts = [];
   for (const r of fResData) {
     const cent = 1200 * Math.log2(r.refFreq / r.varFreq);
@@ -707,7 +721,7 @@ async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(src, warpMode, nhSim);
+  const points = buildWarpPoints(src, warpMode, !nhSim);
   pWarpAffected = _warpAffectedSides(points);
   const str = strength / 100;
 
@@ -787,6 +801,12 @@ async function pComputeWarpedBuffer(srcBuf, warpMode, strength, fResData) {
   return rendered;
 }
 
+// ---- Variante E: Rubberband-WASM Offline-Vorberechnung -----
+// Stub — Implementierung folgt in BA 186.
+async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
+  throw new Error("Implementierung folgt in BA 186");
+}
+
 // ---- Variante B: Live Bandweise Pitch-Shift -------------
 
 function pBuildWarpedGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResData, startTime, offsetSec) {
@@ -801,7 +821,7 @@ function pBuildWarpedGraph(audioCtx, srcBuf, destNode, warpMode, strength, fResD
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fSrc, warpMode, nhSim);
+  const points = buildWarpPoints(fSrc, warpMode, !nhSim);
   const str = strength / 100;
   const bands = points.map(p => ({
     freq: p.varFreq,
@@ -886,7 +906,7 @@ async function pBuildVocoderGraph(audioCtx, srcBuf, destNode, warpMode, strength
   }
 
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fSrc, warpMode, nhSim);
+  const points = buildWarpPoints(fSrc, warpMode, !nhSim);
   const str = strength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -1004,7 +1024,7 @@ function pWarpLiveUpdate() {
   const fSrc = _warpFResSource();
   if (fSrc.length === 0) return;
   const nhSim = !!(document.getElementById("plNHSim")?.checked);
-  const points = buildWarpPoints(fSrc, pWarpMode, nhSim);
+  const points = buildWarpPoints(fSrc, pWarpMode, !nhSim);
   const str = pWarpStrength / 100;
   const adjPoints = points.map(p => ({
     varFreq: p.varFreq,
@@ -1030,7 +1050,6 @@ function pWarpUpdUI() {
   const cbEl      = document.getElementById("plWarpOn");
   const statusEl  = document.getElementById("plWarpStatus");
   const hintEl    = document.getElementById("plWarpHint");
-  const recalcBtn = document.getElementById("plWarpRecalc");
   const methodSel = document.getElementById("plWarpMethod");
 
   if (!cbEl) return;
@@ -1068,6 +1087,16 @@ function pWarpUpdUI() {
     statusText = t("pwStatusBusy");
   } else if (noData) {
     statusText = t("pwStatusReady");
+  } else if (method === "rubberband") {
+    if (typeof rubberbandLastError !== "undefined" && rubberbandLastError) {
+      statusText = t("pwStatusRubberbandError").replace("{msg}", rubberbandLastError);
+    } else if (pWarpBusy) {
+      statusText = t("pwStatusRubberbandLoading");
+    } else {
+      statusText = pWarpedBuf
+        ? t("pwStatusActiveRubberband").replace("{n}", n)
+        : t("pwStatusReady");
+    }
   } else if (method === "offline") {
     statusText = pWarpedBuf
       ? t("pwStatusActiveOffline").replace("{n}", n)
@@ -1105,17 +1134,9 @@ function pWarpUpdUI() {
     }
   }
 
-  // Recalc-Button nur beim Offline-Verfahren
-  if (recalcBtn) {
-    const showRecalc = pWarpOn && !noFRes && method === "offline";
-    recalcBtn.style.display = showRecalc ? "" : "none";
-    recalcBtn.disabled = pWarpBusy;
-    recalcBtn.textContent = t("pwBtnRecompute");
-  }
-
-  // Play-Button nur bei Offline-Berechnung sperren
+  // Play-Button bei laufender Vorberechnung sperren (Offline + Rubberband)
   const playBtn = document.getElementById("plPlay");
-  if (playBtn) playBtn.disabled = pWarpBusy && method === "offline";
+  if (playBtn) playBtn.disabled = pWarpBusy && (method === "offline" || method === "rubberband");
 
 }
 
@@ -1136,17 +1157,18 @@ async function pWarpTrigger() {
   }
 
   const methodSel = document.getElementById("plWarpMethod");
-  const method = methodSel ? methodSel.value : "offline";
+  const method = methodSel ? methodSel.value : "rubberband";
   pWarpMethod = method;
 
-  // Variante B und A brauchen keine Vorberechnung – UI aktualisieren, fertig
-  if (method !== "offline") {
+  // Live-Verfahren (vocoder, sinmodel, bandshift) brauchen keine
+  // Vorberechnung — UI aktualisieren, fertig.
+  if (method !== "offline" && method !== "rubberband") {
     pWarpUpdUI();
     return;
   }
 
-  // Variante C: Offline-Vorberechnung. fRes-Argument ist nur Legacy-API —
-  // pComputeWarpedBuffer ignoriert es und liest _warpFResSource() selbst.
+  // Offline-Verfahren (offline, rubberband): Vorberechnung mit
+  // Pause-Resume um den Lauf herum.
   const wasPlaying = pPlaying;
   if (wasPlaying) pPause();
 
@@ -1154,15 +1176,26 @@ async function pWarpTrigger() {
   pWarpUpdUI();
 
   try {
-    pWarpedBuf = await pComputeWarpedBuffer(
-      pSourceBuf,
-      pWarpMode,
-      pWarpStrength,
-      null
-    );
+    if (method === "rubberband") {
+      pWarpedBuf = await pComputeRubberbandWarpedBuffer(
+        pSourceBuf,
+        pWarpMode,
+        pWarpStrength
+      );
+    } else {
+      pWarpedBuf = await pComputeWarpedBuffer(
+        pSourceBuf,
+        pWarpMode,
+        pWarpStrength,
+        null
+      );
+    }
   } catch (err) {
     console.error("Warp-Fehler:", err);
     pWarpedBuf = null;
+    if (method === "rubberband" && typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
+      rubberbandLastError = err && err.message ? err.message : String(err);
+    }
   }
 
   pWarpBusy = false;
