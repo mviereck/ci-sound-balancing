@@ -361,6 +361,8 @@ function _collectPlayer() {
 
     warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+    warpRbOptions: (typeof pRubberbandOptions !== "undefined")
+      ? { ...pRubberbandOptions } : null,
     maplawOn:     (typeof pMaplawOn     !== "undefined") ? pMaplawOn     : false,
     maplawSollC:  (typeof pMaplawSollC  !== "undefined") ? pMaplawSollC  : null,
     eqGains,
@@ -625,6 +627,18 @@ function _archivMdPlayer(data) {
     const modeKey = p.warpMode === "left"  ? "pwModeLeft"
                   : p.warpMode === "right" ? "pwModeRight" : "pwModeSym";
     out.push(`- ${t("archivPlWarp")}: ${t("on")} (${t(modeKey)}, ${p.warpStrength}%)`);
+    if (p.warpRbOptions) {
+      const o = p.warpRbOptions;
+      const engKey = (o.engine === "r2") ? "pwEngineR2" : "pwEngineR3";
+      const matKey = (o.material === "speech")     ? "pwMaterialSpeech"
+                   : (o.material === "percussive") ? "pwMaterialPercussive"
+                   : "pwMaterialStandard";
+      const flags = [];
+      if (o.formant) flags.push(t("pwOptFormant"));
+      if (o.fast)    flags.push(t("pwOptFast"));
+      const flagsStr = flags.length ? " · " + flags.join(", ") : "";
+      out.push(`  - ${t("pwEngineLabel")}: ${t(engKey)} · ${t("pwMaterialLabel")}: ${t(matKey)}${flagsStr}`);
+    }
   } else {
     out.push(`- ${t("archivPlWarp")}: ${t("off")}`);
   }

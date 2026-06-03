@@ -1221,7 +1221,50 @@
             </div>
           </div>
           <div id="plWarpSettingsBox" style="display:none;margin-top:4px;margin-left:15px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
-            <div class="controls-row" style="margin-bottom:6px;flex-wrap:wrap;gap:10px">
+            <div class="controls-row" style="margin-bottom:6px;flex-wrap:wrap;gap:14px;align-items:flex-start">
+              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
+                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwEngineLabel"></label>
+                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                  <input type="radio" name="plWarpEngine" value="r3" checked />
+                  <span data-t="pwEngineR3"></span>
+                </label>
+                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                  <input type="radio" name="plWarpEngine" value="r2" />
+                  <span data-t="pwEngineR2"></span>
+                </label>
+              </div>
+
+              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
+                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwMaterialLabel"></label>
+                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                  <input type="radio" name="plWarpMaterial" value="standard" checked />
+                  <span data-t="pwMaterialStandard"></span>
+                </label>
+                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                  <input type="radio" name="plWarpMaterial" value="speech" />
+                  <span data-t="pwMaterialSpeech"></span>
+                </label>
+                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                  <input type="radio" name="plWarpMaterial" value="percussive" />
+                  <span data-t="pwMaterialPercussive"></span>
+                </label>
+                <span id="plWarpMaterialR3Hint" style="font-size:0.76em;color:var(--text-muted);margin-top:2px;display:none;max-width:180px" data-t="pwMaterialR3Hint"></span>
+              </div>
+
+              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
+                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwOptionsLabel"></label>
+                <div style="display:flex;gap:14px">
+                  <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                    <input type="checkbox" id="plWarpFormant" checked />
+                    <span data-t="pwOptFormant"></span>
+                  </label>
+                  <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
+                    <input type="checkbox" id="plWarpFast" />
+                    <span data-t="pwOptFast"></span>
+                  </label>
+                </div>
+              </div>
+
               <div class="control-group">
                 <label data-t="pwMode" style="margin-right:6px"></label>
                 <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">

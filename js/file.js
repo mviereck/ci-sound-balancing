@@ -114,6 +114,21 @@ function resetAll() {
       _pPlayerWarpDefaultApplied = false;
     }
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+    if (typeof pRubberbandOptions !== "undefined") {
+      pRubberbandOptions.engine   = "r3";
+      pRubberbandOptions.material = "standard";
+      pRubberbandOptions.formant  = true;
+      pRubberbandOptions.fast     = false;
+      const rE = document.querySelector('input[name="plWarpEngine"][value="r3"]');
+      if (rE) rE.checked = true;
+      const rM = document.querySelector('input[name="plWarpMaterial"][value="standard"]');
+      if (rM) rM.checked = true;
+      const cF = document.getElementById("plWarpFormant");
+      if (cF) cF.checked = true;
+      const cS = document.getElementById("plWarpFast");
+      if (cS) cS.checked = false;
+      if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
+    }
   }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
@@ -249,6 +264,8 @@ async function saveJson() {
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+    warpRbOptions: (typeof pRubberbandOptions !== "undefined")
+      ? { ...pRubberbandOptions } : null,
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -616,6 +633,31 @@ function applyLoadedData(d) {
     if (modeSel) modeSel.value = pWarpMode;
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+  }
+  if (typeof pRubberbandOptions !== "undefined"
+      && d.warpRbOptions && typeof d.warpRbOptions === "object") {
+    if (typeof d.warpRbOptions.engine === "string") {
+      pRubberbandOptions.engine = (d.warpRbOptions.engine === "r2") ? "r2" : "r3";
+    }
+    if (typeof d.warpRbOptions.material === "string") {
+      const m = d.warpRbOptions.material;
+      pRubberbandOptions.material = (m === "speech" || m === "percussive") ? m : "standard";
+    }
+    if (typeof d.warpRbOptions.formant === "boolean") {
+      pRubberbandOptions.formant = d.warpRbOptions.formant;
+    }
+    if (typeof d.warpRbOptions.fast === "boolean") {
+      pRubberbandOptions.fast = d.warpRbOptions.fast;
+    }
+    const rE = document.querySelector('input[name="plWarpEngine"][value="' + pRubberbandOptions.engine + '"]');
+    if (rE) rE.checked = true;
+    const rM = document.querySelector('input[name="plWarpMaterial"][value="' + pRubberbandOptions.material + '"]');
+    if (rM) rM.checked = true;
+    const cF = document.getElementById("plWarpFormant");
+    if (cF) cF.checked = !!pRubberbandOptions.formant;
+    const cS = document.getElementById("plWarpFast");
+    if (cS) cS.checked = !!pRubberbandOptions.fast;
+    if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
   }
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert

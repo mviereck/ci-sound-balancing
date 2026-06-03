@@ -436,6 +436,54 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
+  // BA 191: Rubberband-Optionen — Engine-/Material-Radios, Toggles.
+  // Aenderungen invalidieren den vorberechneten Buffer und triggern
+  // (bei aktivem Warp) eine Neuberechnung. Reiner Zustand wird ueber
+  // _autoSaveState() persistiert.
+  function _pRbOptUpdateR3Hint() {
+    const hint = document.getElementById("plWarpMaterialR3Hint");
+    if (!hint) return;
+    hint.style.display = (pRubberbandOptions.engine === "r3") ? "" : "none";
+  }
+  window._pRbOptUpdateR3Hint = _pRbOptUpdateR3Hint;
+
+  function _pRbOptOnChange() {
+    pWarpedBuf = null;
+    _pRbOptUpdateR3Hint();
+    if (typeof _autoSaveState === "function") _autoSaveState();
+    if (!pWarpOn) return;
+    pWarpTrigger();
+  }
+
+  document.querySelectorAll('input[name="plWarpEngine"]').forEach(function (r) {
+    r.addEventListener("change", function () {
+      if (!this.checked) return;
+      pRubberbandOptions.engine = (this.value === "r2") ? "r2" : "r3";
+      _pRbOptOnChange();
+    });
+  });
+
+  document.querySelectorAll('input[name="plWarpMaterial"]').forEach(function (r) {
+    r.addEventListener("change", function () {
+      if (!this.checked) return;
+      const v = this.value;
+      pRubberbandOptions.material = (v === "speech" || v === "percussive") ? v : "standard";
+      _pRbOptOnChange();
+    });
+  });
+
+  document.getElementById("plWarpFormant").addEventListener("change", function () {
+    pRubberbandOptions.formant = !!this.checked;
+    _pRbOptOnChange();
+  });
+
+  document.getElementById("plWarpFast").addEventListener("change", function () {
+    pRubberbandOptions.fast = !!this.checked;
+    _pRbOptOnChange();
+  });
+
+  // Hinweistext-Sichtbarkeit beim ersten Render synchronisieren.
+  _pRbOptUpdateR3Hint();
   // Stärke-Buttons
   document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
     b.addEventListener("click", function () {
@@ -607,6 +655,32 @@ document.addEventListener("DOMContentLoaded", () => {
           if (ws) ws.value = pWarpStrength;
         }
         if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+        if (typeof pRubberbandOptions !== "undefined"
+            && d.warpRbOptions && typeof d.warpRbOptions === "object") {
+          if (typeof d.warpRbOptions.engine === "string") {
+            pRubberbandOptions.engine = (d.warpRbOptions.engine === "r2") ? "r2" : "r3";
+          }
+          if (typeof d.warpRbOptions.material === "string") {
+            const m = d.warpRbOptions.material;
+            pRubberbandOptions.material = (m === "speech" || m === "percussive") ? m : "standard";
+          }
+          if (typeof d.warpRbOptions.formant === "boolean") {
+            pRubberbandOptions.formant = d.warpRbOptions.formant;
+          }
+          if (typeof d.warpRbOptions.fast === "boolean") {
+            pRubberbandOptions.fast = d.warpRbOptions.fast;
+          }
+          // UI-Sync
+          const rE = document.querySelector('input[name="plWarpEngine"][value="' + pRubberbandOptions.engine + '"]');
+          if (rE) rE.checked = true;
+          const rM = document.querySelector('input[name="plWarpMaterial"][value="' + pRubberbandOptions.material + '"]');
+          if (rM) rM.checked = true;
+          const cF = document.getElementById("plWarpFormant");
+          if (cF) cF.checked = !!pRubberbandOptions.formant;
+          const cS = document.getElementById("plWarpFast");
+          if (cS) cS.checked = !!pRubberbandOptions.fast;
+          if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
+        }
       }
       // BA 177: wenn beim Auto-Restore schon Frequenzabgleich-Messungen
       // vorhanden sind, Default-Anwendungs-Flag setzen.
@@ -808,6 +882,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
           warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
+          warpRbOptions: (typeof pRubberbandOptions !== "undefined")
+            ? { ...pRubberbandOptions } : null,
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           // BA 161: bisher nur in Datei-Save
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",

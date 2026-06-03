@@ -18,6 +18,75 @@ let pWarpBusy = false;
 let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
+
+// BA 191: Rubberband-Optionen. Wird per UI gesetzt, in localStorage
+// und JSON-Save persistiert. `realtime` ist Platzhalter fuer den
+// spaeter geplanten Live-Modus (BA folgt) und bleibt hier immer false.
+let pRubberbandOptions = {
+  engine:   "r3",        // "r3" | "r2"
+  material: "standard",  // "standard" | "speech" | "percussive"
+  formant:  true,        // FormantPreserved an
+  fast:     false,       // R3: PitchHighSpeed; R2: WindowShort
+};
+
+// Liefert die Rubberband-Bit-Maske aus dem Options-Objekt.
+// Aufrufer aus dieser BA setzt realtime=false (Default). Die spaetere
+// Live-BA ruft mit realtime=true auf — alle anderen Bits bleiben
+// kombinierbar.
+function _rbBuildOptionBits(opts) {
+  const realtime = !!opts.realtime;
+  const engine   = opts.engine === "r2" ? "r2" : "r3";
+  const material = (opts.material === "speech" || opts.material === "percussive")
+    ? opts.material : "standard";
+  const formant  = opts.formant !== false; // Default an
+  const fast     = !!opts.fast;
+
+  let bits = 0;
+
+  // Process-Mode: Offline (0x0) oder RealTime (0x1).
+  bits |= realtime ? 0x00000001 : 0x00000000;
+
+  // Engine: EngineFaster (R2, 0x0) oder EngineFiner (R3).
+  bits |= (engine === "r3") ? 0x20000000 : 0x00000000;
+
+  // Stretch: offline = Precise (0x10), live = Elastic (0x0).
+  bits |= realtime ? 0x00000000 : 0x00000010;
+
+  // Threading: Never (Pipeline ruft pro Band auf, kein internes Threading).
+  bits |= 0x00010000;
+
+  // Formant: Preserved (0x01000000) oder Shifted (0x0).
+  bits |= formant ? 0x01000000 : 0x00000000;
+
+  if (engine === "r3") {
+    // PitchHighQuality (0x02000000) oder PitchHighSpeed (0x0).
+    bits |= fast ? 0x00000000 : 0x02000000;
+    // Material wirkt in R3 nur ueber die Fenstergroesse.
+    if (material === "speech") {
+      bits |= 0x00200000; // WindowLong
+    } else if (material === "percussive") {
+      bits |= 0x00100000; // WindowShort
+    }
+    // Standard => WindowStandard (0x0).
+  } else {
+    // R2: Detector + Transients aus Material.
+    if (material === "speech") {
+      bits |= 0x00000800; // DetectorSoft
+      bits |= 0x00000200; // TransientsSmooth
+    } else if (material === "percussive") {
+      bits |= 0x00000400; // DetectorPercussive
+      // TransientsCrisp ist Default (0x0).
+    }
+    // Window: Schnell hat Vorrang vor Material-Window-Wahl.
+    if (fast) {
+      bits |= 0x00100000; // WindowShort
+    } else if (material === "speech") {
+      bits |= 0x00200000; // WindowLong
+    }
+  }
+
+  return bits;
+}
 let _pWarpFResVersion = 0;
 
 // Quelle der Warp-Punkte: fRes (final) + laufende Tracks (vorläufig), exakt
@@ -208,19 +277,6 @@ function centShift(f, side, points) {
 
 const _RB_FIR_ORDER = 4096; // FIR-Ordnung der Bandpaesse (linearphasig)
 
-// Rubberband-Options-Bitmaske (siehe vendors/rubberband-wasm/src/index.ts).
-// Werte hartcodiert, damit die BA nicht vom UMD-Export der Enums abhaengt;
-// im UMD-Namespace heisst die Sammlung `rubberband.RubberBandOption`,
-// die Konstanten haben dieselben Werte.
-const _RB_OPTIONS_OFFLINE_HIGHQ =
-    0x00000000  // ProcessOffline
-  | 0x20000000  // EngineFiner
-  | 0x02000000  // PitchHighQuality
-  | 0x01000000  // FormantPreserved
-  | 0x00000010  // StretchPrecise
-  | 0x00000000  // WindowStandard
-  | 0x00010000  // ThreadingNever
-  | 0x00000000; // ChannelsApart
 
 // Entscheidet, welche Kanaele tatsaechlich Rubberband durchlaufen
 // muessen — abhaengig von Player-Seite (was wird hoerbar?) und
@@ -327,7 +383,7 @@ async function _rbConvolveViaWebAudio(signal, fir, sampleRate) {
 // Pitch-Shift via Rubberband. cents > 0: hoeher, cents < 0: tiefer.
 // Liefert Float32Array gleicher Laenge wie signal (Anfangs-Latenz von
 // Rubberband wird abgeschnitten, Tail-Padding mit Stille).
-async function _rbPitchShift(rb, signal, sampleRate, cents) {
+async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
   if (Math.abs(cents) < 0.5) {
     // Vernachlaessigbar — direkt zurueck (defensive Kopie nicht noetig,
     // weil Aufrufer signal nicht weiterverwendet).
@@ -336,7 +392,7 @@ async function _rbPitchShift(rb, signal, sampleRate, cents) {
   const pitchScale = Math.pow(2, cents / 1200);
 
   const state = rb.rubberband_new(
-    sampleRate, 1, _RB_OPTIONS_OFFLINE_HIGHQ, 1.0, pitchScale
+    sampleRate, 1, optionBits, 1.0, pitchScale
   );
 
   // Pointer-auf-Pointer-Setup fuer Rubberband-API (channels=1).
@@ -446,7 +502,7 @@ async function _rbPitchShift(rb, signal, sampleRate, cents) {
 
 // Eine Mono-Seite durch alle Baender schicken und summieren, mit
 // Pegelausgleich.
-async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBandDone) {
+async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBandDone, optionBits) {
   const out = new Float32Array(srcMono.length);
   const nyquist = sampleRate / 2;
   for (let i = 0; i < bands.length; i++) {
@@ -456,7 +512,7 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBa
     const highN = Math.min(high / nyquist, 1 - 1e-6);
     const fir = _rbDesignBandpassFIR(lowN, highN, _RB_FIR_ORDER);
     const filtered = await _rbConvolveViaWebAudio(srcMono, fir, sampleRate);
-    const shifted  = await _rbPitchShift(rb, filtered, sampleRate, csValues[i]);
+    const shifted  = await _rbPitchShift(rb, filtered, sampleRate, csValues[i], optionBits);
     for (let n = 0; n < out.length; n++) out[n] += shifted[n];
     if (typeof onBandDone === "function") onBandDone();
   }
@@ -530,15 +586,23 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
     }
   };
 
+  const optionBits = _rbBuildOptionBits({
+    engine:   pRubberbandOptions.engine,
+    material: pRubberbandOptions.material,
+    formant:  pRubberbandOptions.formant,
+    fast:     pRubberbandOptions.fast,
+    realtime: false,
+  });
+
   if (decided.needL) {
-    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL, onBand);
+    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL, onBand, optionBits);
   }
   if (decided.needR) {
     if (sameAsLAnticipated) {
       outR = outL;
     } else {
       if (pWarpCancel) throw new Error("__warp_cancelled__");
-      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR, onBand);
+      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR, onBand, optionBits);
     }
   }
 

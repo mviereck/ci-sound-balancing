@@ -120,10 +120,13 @@
     mit FIR-Bandpässen auf geometrischen Bandgrenzen, echter zeitkonsistenter
     Pitch-Shift pro Band (kein `playbackRate`-Trick), Mono-Optimierung (nur
     effektiv hörbare und tatsächlich gewarpte Kanäle werden verarbeitet).
-    Optionen-Set hartcodiert auf `EngineFiner | PitchHighQuality |
-    FormantPreserved | StretchPrecise | WindowStandard | ThreadingNever |
-    ChannelsApart`. Lazy WASM-Load via `js/rubberband-loader.js` (Vendor in
-    `vendors/rubberband-wasm/dist/`).
+    Lazy WASM-Load via `js/rubberband-loader.js` (Vendor in
+    `vendors/rubberband-wasm/dist/`). Vier einstellbare Optionen (BA 191):
+    **Engine** (R3 Finer / R2 Faster), **Material** (Standard / Sprache /
+    Perkussiv), **Formante erhalten** (Toggle, Default an), **Schnell**
+    (Toggle, Default aus). Die Bit-Maske wird einmalig pro Vorberechnung
+    aus dem State-Objekt `pRubberbandOptions` via `_rbBuildOptionBits()`
+    erzeugt und an `_rbProcessMonoSide` und `_rbPitchShift` weitergereicht.
   - Korrektur-Modus: left / right / symmetric (User-Labels „Linke Seite" /
     „Rechte Seite" / „Beide Seiten symmetrisch"). Alt-Werte `ref_side`/`var_side`
     aus älteren Save-Dateien werden beim Laden über `_migrateLegacyWarpMode`
@@ -138,11 +141,14 @@
   - Status-Anzeige zeigt Stützpunkt-Anzahl. Sind vorläufige Punkte aus einem laufenden Frequenzabgleich-Test dabei, wird ein Zusatztext „(davon N vorläufig aus laufendem Test, M final)" angehängt (i18n-Key `pwStatusProvisional`).
   - **Daten-Quelle der Warp-Stützpunkte:** identisch zur Meßergebnis-Tabelle — `_warpFResSource()` vereint `fRes` (finale Konvergenz-Punkte) mit den Provisionals aus `_fmrBuildInProgressEntries(side)` beider Seiten (aktive Tracks mit ≥1 Reversal liefern einen vorläufigen Match, Status `in-progress`; früher Stand mit cent=0 als Platzhalter, Status `in-progress-early`). Final hat Vorrang pro (varSide, elIdx).
   - Hinweis-Zeile in der Einstellungsbox (`#plWarpHint`): wird eingeblendet, wenn Warp eingeschaltet ist, aber weder finale noch vorläufige Daten vorliegen (i18n-Key `pwHintNoFRes`).
-  - **Persistenz:** `pWarpOn`, `pWarpMode`, `pWarpStrength` werden vollständig
-    in localStorage (Autosave alle 5 s) und in JSON-Save gespeichert und beim
+  - **Persistenz:** `pWarpOn`, `pWarpMode`, `pWarpStrength` und
+    `pRubberbandOptions` (als `warpRbOptions`) werden vollständig in
+    localStorage (Autosave alle 5 s) und in JSON-Save gespeichert und beim
     Laden wiederhergestellt. `pWarpedBuf` wird nicht gespeichert; er wird bei
-    Bedarf neu berechnet. Ältere Saves mit `warpMethod`-Feld werden ohne Fehler
-    geladen (Feld wird ignoriert). UI-Sync über `pWarpUpdUI()`.
+    Bedarf neu berechnet. Ältere Saves ohne `warpRbOptions` werden ohne Fehler
+    geladen (Optionen behalten ihren letzten Wert). Ältere Saves mit
+    `warpMethod`-Feld werden ohne Fehler geladen (Feld wird ignoriert).
+    UI-Sync über `pWarpUpdUI()`.
   - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des
     EQ-Graphen den gewarpten Wahrnehmungs-Frequenzen der Elektroden.
     Die im Audio-Pfad eingehängten Biquad-Filter sitzen **modus-abhängig**:
