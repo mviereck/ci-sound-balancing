@@ -414,21 +414,27 @@ document.addEventListener("DOMContentLoaded", () => {
     pWarpOn = !pWarpOn;
     pWarpUpdUI();
     const method = document.getElementById("plWarpMethod").value;
-    // Offline-Verfahren einschalten (offline, rubberband):
-    // pWarpTrigger regelt Vorberechnung + pause/resume + Play-Sperre selbst.
-    if (pWarpOn && (method === "offline" || method === "rubberband")) {
+    // Offline-Verfahren einschalten (offline, rubberband) OHNE gueltigen
+    // Buffer: Vorberechnung anstossen. pWarpTrigger regelt Vorberechnung +
+    // pause/resume + Play-Sperre selbst. Wenn schon ein gueltiger Buffer
+    // vorliegt (z.B. weil der Nutzer Warp gerade nur aus- und wieder
+    // einschaltet), faellt der Code in den allgemeinen Pfad weiter unten
+    // und verwendet den vorhandenen Buffer ohne Neuberechnung.
+    if (pWarpOn && (method === "offline" || method === "rubberband") && !pWarpedBuf) {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       return;
     }
-    // Sonst (Vocoder/Bandshift ein oder beliebig aus): Pfadwechsel an aktueller
-    // Position. Symmetrisch in beide Toggle-Richtungen, damit Einschalten genauso
-    // wirkt wie Ausschalten.
+    // Sonst (Vocoder/Bandshift ein/aus, Offline-Verfahren ein mit vorhandenem
+    // Buffer, Offline-Verfahren aus): Pfadwechsel an aktueller Position.
+    // pWarpedBuf bleibt erhalten, damit erneutes Einschalten ohne
+    // Neuberechnung moeglich ist. Invalidierung geschieht nur in
+    // pWarpTrigger (Mode/Staerke/Methodenwechsel) und in pSetPlaybackMode
+    // (Audiodatei-/Saetze-Wechsel).
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
-    if (!pWarpOn) pWarpedBuf = null;
     pBuf = getPlaybackBuffer();
     pWarpUpdUI();
     if (wasPlaying) pPlay();
@@ -439,6 +445,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Verfahren-Dropdown
   document.getElementById("plWarpMethod").addEventListener("change", function () {
+    // Methodenwechsel: ein fertig berechneter Buffer gehoert immer zur
+    // alten Methode (offline-Buffer != rubberband-Buffer). Sofort
+    // invalidieren — auch wenn Warp gerade aus ist, sonst wuerde der
+    // stale Buffer beim naechsten Einschalten faelschlich wiederverwendet.
+    pWarpedBuf = null;
     // Methoden-Labels neu setzen (data-t-opt)
     _pWarpApplyMethodLabels();
     pWarpUpdUI();
@@ -465,6 +476,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet
   // - Bandshift: Graph-Rebuild via pause/resume (kurze Unterbrechung)
   function _pWarpParamsChanged() {
+    // Parameter haben sich geaendert: fertiger Buffer (falls vorhanden)
+    // passt nicht mehr zu Mode/Staerke. Sofort invalidieren — auch wenn
+    // Warp gerade aus ist, sonst wuerde der stale Buffer beim naechsten
+    // Einschalten faelschlich wiederverwendet.
+    pWarpedBuf = null;
     if (!pWarpOn) return;
     const method = document.getElementById("plWarpMethod").value;
     if (method === "offline" || method === "rubberband") {
