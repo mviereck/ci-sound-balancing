@@ -21,7 +21,8 @@
         "source_item_id": "38561239",
         "gender": "u",
         "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
-      }
+      },
+      "duration": 5.9
     },
     {
       "id": "38608251",
@@ -30,7 +31,8 @@
       "tags": {
         "source_item_id": "38608251",
         "gender": "u"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "38641116",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "38641116",
         "gender": "u"
-      }
+      },
+      "duration": 3.96
     },
     {
       "id": "38661742",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "38661742",
         "gender": "u"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "38693077",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "38693077",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "38696755",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "38696755",
         "gender": "u"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "38757668",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "38757668",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "38785422",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "38785422",
         "gender": "u"
-      }
+      },
+      "duration": 6.12
     },
     {
       "id": "39294258",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "39294258",
         "gender": "u"
-      }
+      },
+      "duration": 5.44
     },
     {
       "id": "39885261",
@@ -103,7 +112,8 @@
         "source_item_id": "39885261",
         "gender": "u",
         "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
-      }
+      },
+      "duration": 6.23
     },
     {
       "id": "38759886",
@@ -112,7 +122,8 @@
       "tags": {
         "source_item_id": "38759886",
         "gender": "u"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "38731747",
@@ -121,7 +132,8 @@
       "tags": {
         "source_item_id": "38731747",
         "gender": "u"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "39919460",
@@ -130,7 +142,8 @@
       "tags": {
         "source_item_id": "39919460",
         "gender": "u"
-      }
+      },
+      "duration": 6.52
     },
     {
       "id": "38640357",
@@ -139,7 +152,8 @@
       "tags": {
         "source_item_id": "38640357",
         "gender": "u"
-      }
+      },
+      "duration": 3.53
     },
     {
       "id": "38662283",
@@ -148,7 +162,8 @@
       "tags": {
         "source_item_id": "38662283",
         "gender": "u"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "38693007",
@@ -157,7 +172,8 @@
       "tags": {
         "source_item_id": "38693007",
         "gender": "u"
-      }
+      },
+      "duration": 3.42
     },
     {
       "id": "39296732",
@@ -166,7 +182,8 @@
       "tags": {
         "source_item_id": "39296732",
         "gender": "u"
-      }
+      },
+      "duration": 4.14
     },
     {
       "id": "39919086",
@@ -175,7 +192,8 @@
       "tags": {
         "source_item_id": "39919086",
         "gender": "u"
-      }
+      },
+      "duration": 5.22
     }
   ]
 }

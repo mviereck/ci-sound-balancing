@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "29309236",
         "gender": "u"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "29310353",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "29310353",
         "gender": "u"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "29316846",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "29316846",
         "gender": "u"
-      }
+      },
+      "duration": 4.46
     },
     {
       "id": "29317526",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "29317526",
         "gender": "u"
-      }
+      },
+      "duration": 7.74
     },
     {
       "id": "29321873",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "29321873",
         "gender": "u"
-      }
+      },
+      "duration": 7.06
     },
     {
       "id": "29333232",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "29333232",
         "gender": "u"
-      }
+      },
+      "duration": 4.79
     },
     {
       "id": "29343838",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "29343838",
         "gender": "u"
-      }
+      },
+      "duration": 5.51
     },
     {
       "id": "29350665",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "29350665",
         "gender": "u"
-      }
+      },
+      "duration": 4.32
     },
     {
       "id": "29353742",
@@ -93,7 +101,8 @@
         "source_item_id": "29353742",
         "gender": "u",
         "accent": "Hawleri,Iraqi Kurdistan"
-      }
+      },
+      "duration": 3.06
     },
     {
       "id": "29357429",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "29357429",
         "gender": "u"
-      }
+      },
+      "duration": 4.14
     }
   ]
 }

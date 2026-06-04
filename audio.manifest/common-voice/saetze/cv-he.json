@@ -21,7 +21,8 @@
         "source_item_id": "38569741",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 5.18
     },
     {
       "id": "39753055",
@@ -31,7 +32,8 @@
         "source_item_id": "39753055",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 6.12
     },
     {
       "id": "39609389",
@@ -41,7 +43,8 @@
         "source_item_id": "39609389",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 3.46
     },
     {
       "id": "39753088",
@@ -51,7 +54,8 @@
         "source_item_id": "39753088",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "39753620",
@@ -61,7 +65,8 @@
         "source_item_id": "39753620",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 3.1
     },
     {
       "id": "40001948",
@@ -71,7 +76,8 @@
         "source_item_id": "40001948",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 4.43
     },
     {
       "id": "39027849",
@@ -81,7 +87,8 @@
         "source_item_id": "39027849",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "39890615",
@@ -91,7 +98,8 @@
         "source_item_id": "39890615",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "39753570",
@@ -101,7 +109,8 @@
         "source_item_id": "39753570",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 4.39
     },
     {
       "id": "39609254",
@@ -111,7 +120,8 @@
         "source_item_id": "39609254",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 3.78
     },
     {
       "id": "39753072",
@@ -121,7 +131,8 @@
         "source_item_id": "39753072",
         "gender": "u",
         "accent": "israeli,native,Formal"
-      }
+      },
+      "duration": 3.49
     },
     {
       "id": "38569715",
@@ -131,7 +142,8 @@
         "source_item_id": "38569715",
         "gender": "u",
         "accent": "Natibe"
-      }
+      },
+      "duration": 3.06
     }
   ]
 }

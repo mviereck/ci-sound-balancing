@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "31270376",
         "gender": "u"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "31834897",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "31834897",
         "gender": "u"
-      }
+      },
+      "duration": 7.92
     },
     {
       "id": "31858543",
@@ -39,7 +41,8 @@
         "source_item_id": "31858543",
         "gender": "u",
         "accent": "Шыман и лыжган"
-      }
+      },
+      "duration": 4.82
     },
     {
       "id": "32080644",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "32080644",
         "gender": "u"
-      }
+      },
+      "duration": 7.34
     },
     {
       "id": "32084524",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "32084524",
         "gender": "u"
-      }
+      },
+      "duration": 6.19
     },
     {
       "id": "33905295",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "33905295",
         "gender": "u"
-      }
+      },
+      "duration": 8.75
     },
     {
       "id": "34938479",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "34938479",
         "gender": "u"
-      }
+      },
+      "duration": 8.21
     },
     {
       "id": "34993001",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "34993001",
         "gender": "u"
-      }
+      },
+      "duration": 6.84
     },
     {
       "id": "35263412",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "35263412",
         "gender": "u"
-      }
+      },
+      "duration": 6.3
     },
     {
       "id": "35300133",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "35300133",
         "gender": "u"
-      }
+      },
+      "duration": 5.76
     }
   ]
 }

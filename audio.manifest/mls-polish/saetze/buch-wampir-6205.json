@@ -26,7 +26,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2532.22,
         "original_end_s": 2552.01
-      }
+      },
+      "duration": 19.8
     },
     {
       "id": "8502_6205_000001",
@@ -40,7 +41,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1190.36,
         "original_end_s": 1210.09
-      }
+      },
+      "duration": 19.74
     },
     {
       "id": "8502_6205_000002",
@@ -54,7 +56,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 903.75,
         "original_end_s": 919.98
-      }
+      },
+      "duration": 16.24
     },
     {
       "id": "8502_6205_000003",
@@ -68,7 +71,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 2757.01,
         "original_end_s": 2773.92
-      }
+      },
+      "duration": 16.92
     },
     {
       "id": "8502_6205_000004",
@@ -82,7 +86,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2218.52,
         "original_end_s": 2232.84
-      }
+      },
+      "duration": 14.33
     },
     {
       "id": "8502_6205_000005",
@@ -96,7 +101,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 2197.0,
         "original_end_s": 2207.93
-      }
+      },
+      "duration": 10.94
     },
     {
       "id": "8502_6205_000006",
@@ -110,7 +116,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 3157.97,
         "original_end_s": 3171.44
-      }
+      },
+      "duration": 13.48
     },
     {
       "id": "8502_6205_000007",
@@ -124,7 +131,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1695.55,
         "original_end_s": 1710.75
-      }
+      },
+      "duration": 15.21
     },
     {
       "id": "8502_6205_000008",
@@ -138,7 +146,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 1504.57,
         "original_end_s": 1516.81
-      }
+      },
+      "duration": 12.25
     },
     {
       "id": "8502_6205_000009",
@@ -152,7 +161,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1070.56,
         "original_end_s": 1088.23
-      }
+      },
+      "duration": 17.68
     },
     {
       "id": "8502_6205_000010",
@@ -166,7 +176,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 1106.03,
         "original_end_s": 1117.35
-      }
+      },
+      "duration": 11.33
     },
     {
       "id": "8502_6205_000011",
@@ -180,7 +191,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 2070.21,
         "original_end_s": 2082.4
-      }
+      },
+      "duration": 12.2
     },
     {
       "id": "8502_6205_000012",
@@ -194,7 +206,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2206.57,
         "original_end_s": 2226.1
-      }
+      },
+      "duration": 19.54
     },
     {
       "id": "8502_6205_000013",
@@ -208,7 +221,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 2284.42,
         "original_end_s": 2294.5
-      }
+      },
+      "duration": 10.09
     },
     {
       "id": "8502_6205_000014",
@@ -222,7 +236,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 374.36,
         "original_end_s": 385.47
-      }
+      },
+      "duration": 11.12
     },
     {
       "id": "8502_6205_000015",
@@ -236,7 +251,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1791.11,
         "original_end_s": 1808.38
-      }
+      },
+      "duration": 17.28
     },
     {
       "id": "8502_6205_000016",
@@ -250,7 +266,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 166.21,
         "original_end_s": 180.91
-      }
+      },
+      "duration": 14.71
     },
     {
       "id": "8502_6205_000017",
@@ -264,7 +281,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 612.24,
         "original_end_s": 631.09
-      }
+      },
+      "duration": 18.86
     },
     {
       "id": "8502_6205_000018",
@@ -278,7 +296,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 183.87,
         "original_end_s": 201.78
-      }
+      },
+      "duration": 17.92
     },
     {
       "id": "8502_6205_000019",
@@ -292,7 +311,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 978.37,
         "original_end_s": 992.54
-      }
+      },
+      "duration": 14.18
     },
     {
       "id": "8502_6205_000020",
@@ -306,7 +326,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 860.49,
         "original_end_s": 871.07
-      }
+      },
+      "duration": 10.59
     },
     {
       "id": "8502_6205_000021",
@@ -320,7 +341,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 327.88,
         "original_end_s": 344.17
-      }
+      },
+      "duration": 16.3
     },
     {
       "id": "8502_6205_000022",
@@ -334,7 +356,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2508.78,
         "original_end_s": 2520.94
-      }
+      },
+      "duration": 12.17
     },
     {
       "id": "8502_6205_000023",
@@ -348,7 +371,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 2365.88,
         "original_end_s": 2380.19
-      }
+      },
+      "duration": 14.32
     },
     {
       "id": "8502_6205_000024",
@@ -362,7 +386,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 557.71,
         "original_end_s": 571.39
-      }
+      },
+      "duration": 13.69
     },
     {
       "id": "8502_6205_000025",
@@ -376,7 +401,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2566.46,
         "original_end_s": 2580.54
-      }
+      },
+      "duration": 14.09
     },
     {
       "id": "8502_6205_000026",
@@ -390,7 +416,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 1118.35,
         "original_end_s": 1137.72
-      }
+      },
+      "duration": 19.38
     },
     {
       "id": "8502_6205_000027",
@@ -404,7 +431,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 1524.55,
         "original_end_s": 1539.45
-      }
+      },
+      "duration": 14.91
     },
     {
       "id": "8502_6205_000028",
@@ -418,7 +446,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 488.69,
         "original_end_s": 501.29
-      }
+      },
+      "duration": 12.61
     },
     {
       "id": "8502_6205_000029",
@@ -432,7 +461,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 156.06,
         "original_end_s": 171.24
-      }
+      },
+      "duration": 15.19
     },
     {
       "id": "8502_6205_000030",
@@ -446,7 +476,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 968.87,
         "original_end_s": 979.03
-      }
+      },
+      "duration": 10.17
     },
     {
       "id": "8502_6205_000031",
@@ -460,7 +491,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 1681.67,
         "original_end_s": 1699.36
-      }
+      },
+      "duration": 17.7
     },
     {
       "id": "8502_6205_000032",
@@ -474,7 +506,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 598.15,
         "original_end_s": 617.83
-      }
+      },
+      "duration": 19.69
     },
     {
       "id": "8502_6205_000033",
@@ -488,7 +521,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 1256.32,
         "original_end_s": 1275.82
-      }
+      },
+      "duration": 19.51
     },
     {
       "id": "8502_6205_000034",
@@ -502,7 +536,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 1403.32,
         "original_end_s": 1416.48
-      }
+      },
+      "duration": 13.17
     },
     {
       "id": "8502_6205_000035",
@@ -516,7 +551,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2398.62,
         "original_end_s": 2412.86
-      }
+      },
+      "duration": 14.25
     },
     {
       "id": "8502_6205_000036",
@@ -530,7 +566,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2947.8,
         "original_end_s": 2964.81
-      }
+      },
+      "duration": 17.02
     },
     {
       "id": "8502_6205_000037",
@@ -544,7 +581,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2186.48,
         "original_end_s": 2204.31
-      }
+      },
+      "duration": 17.84
     },
     {
       "id": "8502_6205_000038",
@@ -558,7 +596,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 1095.29,
         "original_end_s": 1106.39
-      }
+      },
+      "duration": 11.11
     },
     {
       "id": "8502_6205_000039",
@@ -572,7 +611,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 1542.96,
         "original_end_s": 1554.44
-      }
+      },
+      "duration": 11.49
     },
     {
       "id": "8502_6205_000040",
@@ -586,7 +626,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 485.04,
         "original_end_s": 500.17
-      }
+      },
+      "duration": 15.14
     },
     {
       "id": "8502_6205_000041",
@@ -600,7 +641,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 1942.75,
         "original_end_s": 1959.75
-      }
+      },
+      "duration": 17.01
     },
     {
       "id": "8502_6205_000042",
@@ -614,7 +656,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 255.43,
         "original_end_s": 272.68
-      }
+      },
+      "duration": 17.26
     },
     {
       "id": "8502_6205_000043",
@@ -628,7 +671,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 2007.17,
         "original_end_s": 2017.82
-      }
+      },
+      "duration": 10.66
     },
     {
       "id": "8502_6205_000044",
@@ -642,7 +686,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2423.63,
         "original_end_s": 2442.08
-      }
+      },
+      "duration": 18.46
     },
     {
       "id": "8502_6205_000045",
@@ -656,7 +701,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 1716.17,
         "original_end_s": 1732.21
-      }
+      },
+      "duration": 16.05
     },
     {
       "id": "8502_6205_000046",
@@ -670,7 +716,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1406.4,
         "original_end_s": 1421.01
-      }
+      },
+      "duration": 14.62
     },
     {
       "id": "8502_6205_000047",
@@ -684,7 +731,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 564.74,
         "original_end_s": 579.1
-      }
+      },
+      "duration": 14.37
     },
     {
       "id": "8502_6205_000048",
@@ -698,7 +746,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1992.22,
         "original_end_s": 2003.64
-      }
+      },
+      "duration": 11.43
     },
     {
       "id": "8502_6205_000049",
@@ -712,7 +761,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 697.43,
         "original_end_s": 708.85
-      }
+      },
+      "duration": 11.43
     },
     {
       "id": "8502_6205_000050",
@@ -726,7 +776,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2068.15,
         "original_end_s": 2082.05
-      }
+      },
+      "duration": 13.91
     },
     {
       "id": "8502_6205_000051",
@@ -740,7 +791,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 60.35,
         "original_end_s": 70.68
-      }
+      },
+      "duration": 10.34
     },
     {
       "id": "8502_6205_000052",
@@ -754,7 +806,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 360.13,
         "original_end_s": 378.49
-      }
+      },
+      "duration": 18.37
     },
     {
       "id": "8502_6205_000053",
@@ -768,7 +821,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 2391.16,
         "original_end_s": 2405.29
-      }
+      },
+      "duration": 14.14
     },
     {
       "id": "8502_6205_000054",
@@ -782,7 +836,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1023.38,
         "original_end_s": 1043.32
-      }
+      },
+      "duration": 19.95
     },
     {
       "id": "8502_6205_000055",
@@ -796,7 +851,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2280.01,
         "original_end_s": 2298.79
-      }
+      },
+      "duration": 18.79
     },
     {
       "id": "8502_6205_000056",
@@ -810,7 +866,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 631.77,
         "original_end_s": 648.61
-      }
+      },
+      "duration": 16.85
     },
     {
       "id": "8502_6205_000057",
@@ -824,7 +881,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 1051.96,
         "original_end_s": 1068.67
-      }
+      },
+      "duration": 16.72
     },
     {
       "id": "8502_6205_000058",
@@ -838,7 +896,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 593.2,
         "original_end_s": 609.35
-      }
+      },
+      "duration": 16.16
     },
     {
       "id": "8502_6205_000059",
@@ -852,7 +911,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 502.95,
         "original_end_s": 522.81
-      }
+      },
+      "duration": 19.87
     },
     {
       "id": "8502_6205_000060",
@@ -866,7 +926,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1480.32,
         "original_end_s": 1494.86
-      }
+      },
+      "duration": 14.55
     },
     {
       "id": "8502_6205_000061",
@@ -880,7 +941,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 16.05,
         "original_end_s": 30.04
-      }
+      },
+      "duration": 14.0
     },
     {
       "id": "8502_6205_000062",
@@ -894,7 +956,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2414.16,
         "original_end_s": 2424.48
-      }
+      },
+      "duration": 10.33
     },
     {
       "id": "8502_6205_000063",
@@ -908,7 +971,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2364.43,
         "original_end_s": 2383.07
-      }
+      },
+      "duration": 18.65
     },
     {
       "id": "8502_6205_000064",
@@ -922,7 +986,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2521.21,
         "original_end_s": 2538.76
-      }
+      },
+      "duration": 17.56
     },
     {
       "id": "8502_6205_000065",
@@ -936,7 +1001,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1274.73,
         "original_end_s": 1286.8
-      }
+      },
+      "duration": 12.08
     },
     {
       "id": "8502_6205_000066",
@@ -950,7 +1016,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 849.86,
         "original_end_s": 863.49
-      }
+      },
+      "duration": 13.64
     },
     {
       "id": "8502_6205_000067",
@@ -964,7 +1031,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1317.95,
         "original_end_s": 1337.73
-      }
+      },
+      "duration": 19.79
     },
     {
       "id": "8502_6205_000068",
@@ -978,7 +1046,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 1751.82,
         "original_end_s": 1769.97
-      }
+      },
+      "duration": 18.16
     },
     {
       "id": "8502_6205_000069",
@@ -992,7 +1061,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 475.44,
         "original_end_s": 485.64
-      }
+      },
+      "duration": 10.21
     },
     {
       "id": "8502_6205_000070",
@@ -1006,7 +1076,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 406.01,
         "original_end_s": 419.83
-      }
+      },
+      "duration": 13.83
     },
     {
       "id": "8502_6205_000071",
@@ -1020,7 +1091,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1845.53,
         "original_end_s": 1855.85
-      }
+      },
+      "duration": 10.33
     },
     {
       "id": "8502_6205_000072",
@@ -1034,7 +1106,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 235.58,
         "original_end_s": 250.87
-      }
+      },
+      "duration": 15.3
     },
     {
       "id": "8502_6205_000073",
@@ -1048,7 +1121,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 2350.21,
         "original_end_s": 2365.88
-      }
+      },
+      "duration": 15.68
     },
     {
       "id": "8502_6205_000074",
@@ -1062,7 +1136,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 411.02,
         "original_end_s": 430.13
-      }
+      },
+      "duration": 19.12
     },
     {
       "id": "8502_6205_000075",
@@ -1076,7 +1151,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2789.84,
         "original_end_s": 2804.68
-      }
+      },
+      "duration": 14.85
     },
     {
       "id": "8502_6205_000076",
@@ -1090,7 +1166,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 292.46,
         "original_end_s": 303.85
-      }
+      },
+      "duration": 11.4
     },
     {
       "id": "8502_6205_000077",
@@ -1104,7 +1181,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 317.84,
         "original_end_s": 332.49
-      }
+      },
+      "duration": 14.66
     },
     {
       "id": "8502_6205_000078",
@@ -1118,7 +1196,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 223.86,
         "original_end_s": 240.02
-      }
+      },
+      "duration": 16.17
     },
     {
       "id": "8502_6205_000079",
@@ -1132,7 +1211,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 870.36,
         "original_end_s": 883.26
-      }
+      },
+      "duration": 12.91
     },
     {
       "id": "8502_6205_000080",
@@ -1146,7 +1226,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1542.91,
         "original_end_s": 1557.21
-      }
+      },
+      "duration": 14.31
     },
     {
       "id": "8502_6205_000081",
@@ -1160,7 +1241,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 805.28,
         "original_end_s": 817.86
-      }
+      },
+      "duration": 12.59
     },
     {
       "id": "8502_6205_000082",
@@ -1174,7 +1256,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1664.53,
         "original_end_s": 1682.45
-      }
+      },
+      "duration": 17.93
     },
     {
       "id": "8502_6205_000083",
@@ -1188,7 +1271,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1985.76,
         "original_end_s": 1998.53
-      }
+      },
+      "duration": 12.78
     },
     {
       "id": "8502_6205_000084",
@@ -1202,7 +1286,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 2294.5,
         "original_end_s": 2305.41
-      }
+      },
+      "duration": 10.92
     },
     {
       "id": "8502_6205_000085",
@@ -1216,7 +1301,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 2165.37,
         "original_end_s": 2181.06
-      }
+      },
+      "duration": 15.7
     },
     {
       "id": "8502_6205_000086",
@@ -1230,7 +1316,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1365.57,
         "original_end_s": 1379.87
-      }
+      },
+      "duration": 14.31
     },
     {
       "id": "8502_6205_000087",
@@ -1244,7 +1331,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 57.51,
         "original_end_s": 71.02
-      }
+      },
+      "duration": 13.52
     },
     {
       "id": "8502_6205_000088",
@@ -1258,7 +1346,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 316.18,
         "original_end_s": 327.88
-      }
+      },
+      "duration": 11.71
     },
     {
       "id": "8502_6205_000089",
@@ -1272,7 +1361,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 1959.75,
         "original_end_s": 1972.13
-      }
+      },
+      "duration": 12.39
     },
     {
       "id": "8502_6205_000090",
@@ -1286,7 +1376,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 461.09,
         "original_end_s": 480.68
-      }
+      },
+      "duration": 19.6
     },
     {
       "id": "8502_6205_000091",
@@ -1300,7 +1391,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1671.31,
         "original_end_s": 1682.31
-      }
+      },
+      "duration": 11.01
     },
     {
       "id": "8502_6205_000092",
@@ -1314,7 +1406,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 2033.28,
         "original_end_s": 2050.9
-      }
+      },
+      "duration": 17.63
     },
     {
       "id": "8502_6205_000093",
@@ -1328,7 +1421,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2326.88,
         "original_end_s": 2346.25
-      }
+      },
+      "duration": 19.38
     },
     {
       "id": "8502_6205_000094",
@@ -1342,7 +1436,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 1054.72,
         "original_end_s": 1067.29
-      }
+      },
+      "duration": 12.58
     },
     {
       "id": "8502_6205_000095",
@@ -1356,7 +1451,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1568.16,
         "original_end_s": 1584.64
-      }
+      },
+      "duration": 16.49
     },
     {
       "id": "8502_6205_000096",
@@ -1370,7 +1466,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 1184.74,
         "original_end_s": 1201.95
-      }
+      },
+      "duration": 17.22
     },
     {
       "id": "8502_6205_000097",
@@ -1384,7 +1481,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2551.22,
         "original_end_s": 2566.46
-      }
+      },
+      "duration": 15.25
     },
     {
       "id": "8502_6205_000098",
@@ -1398,7 +1496,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2412.86,
         "original_end_s": 2432.35
-      }
+      },
+      "duration": 19.5
     },
     {
       "id": "8502_6205_000099",
@@ -1412,7 +1511,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 810.02,
         "original_end_s": 828.11
-      }
+      },
+      "duration": 18.1
     },
     {
       "id": "8502_6205_000100",
@@ -1426,7 +1526,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1907.69,
         "original_end_s": 1921.27
-      }
+      },
+      "duration": 13.59
     },
     {
       "id": "8502_6205_000101",
@@ -1440,7 +1541,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 1571.24,
         "original_end_s": 1584.33
-      }
+      },
+      "duration": 13.09
     },
     {
       "id": "8502_6205_000102",
@@ -1454,7 +1556,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 817.83,
         "original_end_s": 833.81
-      }
+      },
+      "duration": 15.99
     },
     {
       "id": "8502_6205_000103",
@@ -1468,7 +1571,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1772.74,
         "original_end_s": 1791.11
-      }
+      },
+      "duration": 18.38
     },
     {
       "id": "8502_6205_000104",
@@ -1482,7 +1586,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 1508.87,
         "original_end_s": 1524.55
-      }
+      },
+      "duration": 15.69
     },
     {
       "id": "8502_6205_000105",
@@ -1496,7 +1601,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 649.1,
         "original_end_s": 664.12
-      }
+      },
+      "duration": 15.03
     },
     {
       "id": "8502_6205_000106",
@@ -1510,7 +1616,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 2270.07,
         "original_end_s": 2287.07
-      }
+      },
+      "duration": 17.01
     },
     {
       "id": "8502_6205_000107",
@@ -1524,7 +1631,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1897.08,
         "original_end_s": 1912.56
-      }
+      },
+      "duration": 15.49
     },
     {
       "id": "8502_6205_000108",
@@ -1538,7 +1646,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 982.31,
         "original_end_s": 994.07
-      }
+      },
+      "duration": 11.77
     },
     {
       "id": "8502_6205_000109",
@@ -1552,7 +1661,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1208.09,
         "original_end_s": 1220.7
-      }
+      },
+      "duration": 12.62
     },
     {
       "id": "8502_6205_000110",
@@ -1566,7 +1676,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1912.56,
         "original_end_s": 1927.41
-      }
+      },
+      "duration": 14.86
     },
     {
       "id": "8502_6205_000111",
@@ -1580,7 +1691,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 1306.79,
         "original_end_s": 1317.95
-      }
+      },
+      "duration": 11.17
     },
     {
       "id": "8502_6205_000112",
@@ -1594,7 +1706,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 863.49,
         "original_end_s": 873.6
-      }
+      },
+      "duration": 10.12
     },
     {
       "id": "8502_6205_000113",
@@ -1608,7 +1721,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1756.08,
         "original_end_s": 1775.02
-      }
+      },
+      "duration": 18.95
     },
     {
       "id": "8502_6205_000114",
@@ -1622,7 +1736,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 530.67,
         "original_end_s": 546.07
-      }
+      },
+      "duration": 15.41
     },
     {
       "id": "8502_6205_000115",
@@ -1636,7 +1751,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 188.99,
         "original_end_s": 204.78
-      }
+      },
+      "duration": 15.8
     },
     {
       "id": "8502_6205_000116",
@@ -1650,7 +1766,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 2744.79,
         "original_end_s": 2757.01
-      }
+      },
+      "duration": 12.23
     },
     {
       "id": "8502_6205_000117",
@@ -1664,7 +1781,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1881.04,
         "original_end_s": 1891.91
-      }
+      },
+      "duration": 10.88
     },
     {
       "id": "8502_6205_000118",
@@ -1678,7 +1796,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 530.5,
         "original_end_s": 541.22
-      }
+      },
+      "duration": 10.73
     },
     {
       "id": "8502_6205_000119",
@@ -1692,7 +1811,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2501.12,
         "original_end_s": 2516.21
-      }
+      },
+      "duration": 15.1
     },
     {
       "id": "8502_6205_000120",
@@ -1706,7 +1826,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 752.7,
         "original_end_s": 769.16
-      }
+      },
+      "duration": 16.47
     },
     {
       "id": "8502_6205_000121",
@@ -1720,7 +1841,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 644.91,
         "original_end_s": 657.71
-      }
+      },
+      "duration": 12.81
     },
     {
       "id": "8502_6205_000122",
@@ -1734,7 +1856,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 1960.81,
         "original_end_s": 1971.64
-      }
+      },
+      "duration": 10.84
     },
     {
       "id": "8502_6205_000123",
@@ -1748,7 +1871,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 615.57,
         "original_end_s": 632.69
-      }
+      },
+      "duration": 17.13
     },
     {
       "id": "8502_6205_000124",
@@ -1762,7 +1886,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 1808.76,
         "original_end_s": 1822.37
-      }
+      },
+      "duration": 13.62
     },
     {
       "id": "8502_6205_000125",
@@ -1776,7 +1901,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 817.86,
         "original_end_s": 829.12
-      }
+      },
+      "duration": 11.27
     },
     {
       "id": "8502_6205_000126",
@@ -1790,7 +1916,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
         "original_start_s": 1946.45,
         "original_end_s": 1966.26
-      }
+      },
+      "duration": 19.82
     },
     {
       "id": "8502_6205_000127",
@@ -1804,7 +1931,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
         "original_start_s": 571.39,
         "original_end_s": 587.06
-      }
+      },
+      "duration": 15.68
     },
     {
       "id": "8502_6205_000128",
@@ -1818,7 +1946,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 743.84,
         "original_end_s": 754.64
-      }
+      },
+      "duration": 10.81
     },
     {
       "id": "8502_6205_000129",
@@ -1832,7 +1961,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 470.28,
         "original_end_s": 485.38
-      }
+      },
+      "duration": 15.11
     },
     {
       "id": "8502_6205_000130",
@@ -1846,7 +1976,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2000.24,
         "original_end_s": 2012.52
-      }
+      },
+      "duration": 12.29
     },
     {
       "id": "8502_6205_000131",
@@ -1860,7 +1991,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 605.48,
         "original_end_s": 616.37
-      }
+      },
+      "duration": 10.9
     },
     {
       "id": "8502_6205_000132",
@@ -1874,7 +2006,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
         "original_start_s": 2325.73,
         "original_end_s": 2336.01
-      }
+      },
+      "duration": 10.29
     },
     {
       "id": "8502_6205_000133",
@@ -1888,7 +2021,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 157.89,
         "original_end_s": 172.5
-      }
+      },
+      "duration": 14.62
     },
     {
       "id": "8502_6205_000134",
@@ -1902,7 +2036,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2056.82,
         "original_end_s": 2073.23
-      }
+      },
+      "duration": 16.42
     },
     {
       "id": "8502_6205_000135",
@@ -1916,7 +2051,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
         "original_start_s": 2860.07,
         "original_end_s": 2879.2
-      }
+      },
+      "duration": 19.14
     },
     {
       "id": "8502_6205_000136",
@@ -1930,7 +2066,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
         "original_start_s": 680.9,
         "original_end_s": 697.43
-      }
+      },
+      "duration": 16.54
     },
     {
       "id": "8502_6205_000137",
@@ -1944,7 +2081,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 2548.2,
         "original_end_s": 2558.81
-      }
+      },
+      "duration": 10.62
     },
     {
       "id": "8502_6205_000138",
@@ -1958,7 +2096,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
         "original_start_s": 1801.25,
         "original_end_s": 1817.37
-      }
+      },
+      "duration": 16.13
     },
     {
       "id": "8502_6205_000139",
@@ -1972,7 +2111,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
         "original_start_s": 1989.46,
         "original_end_s": 2007.17
-      }
+      },
+      "duration": 17.72
     },
     {
       "id": "8502_6205_000140",
@@ -1986,7 +2126,8 @@
         "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
         "original_start_s": 1869.67,
         "original_end_s": 1881.04
-      }
+      },
+      "duration": 11.38
     }
   ]
 }

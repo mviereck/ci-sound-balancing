@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "25383340",
         "gender": "u"
-      }
+      },
+      "duration": 4.54
     },
     {
       "id": "25385524",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "25385524",
         "gender": "u"
-      }
+      },
+      "duration": 6.7
     },
     {
       "id": "25387783",
@@ -39,7 +41,8 @@
         "source_item_id": "25387783",
         "gender": "u",
         "accent": "Normativo (estándar)"
-      }
+      },
+      "duration": 4.46
     },
     {
       "id": "25400234",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "25400234",
         "gender": "u"
-      }
+      },
+      "duration": 6.01
     },
     {
       "id": "25508403",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "25508403",
         "gender": "u"
-      }
+      },
+      "duration": 9.22
     },
     {
       "id": "25998188",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "25998188",
         "gender": "u"
-      }
+      },
+      "duration": 7.2
     },
     {
       "id": "26185302",
@@ -76,7 +82,8 @@
         "source_item_id": "26185302",
         "gender": "u",
         "accent": "Neofalante"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "26186911",
@@ -86,7 +93,8 @@
         "source_item_id": "26186911",
         "gender": "u",
         "accent": "Neofalante"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "26195061",
@@ -96,7 +104,8 @@
         "source_item_id": "26195061",
         "gender": "u",
         "accent": "Central (gheada)"
-      }
+      },
+      "duration": 4.75
     },
     {
       "id": "26285229",
@@ -106,7 +115,8 @@
         "source_item_id": "26285229",
         "gender": "u",
         "accent": "Neofalante"
-      }
+      },
+      "duration": 9.25
     }
   ]
 }

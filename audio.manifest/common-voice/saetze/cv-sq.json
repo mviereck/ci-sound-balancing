@@ -21,7 +21,8 @@
         "source_item_id": "37655606",
         "gender": "u",
         "accent": "gjakovar,kosovar"
-      }
+      },
+      "duration": 3.67
     },
     {
       "id": "37795391",
@@ -30,7 +31,8 @@
       "tags": {
         "source_item_id": "37795391",
         "gender": "u"
-      }
+      },
+      "duration": 8.35
     },
     {
       "id": "37800718",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "37800718",
         "gender": "u"
-      }
+      },
+      "duration": 8.57
     },
     {
       "id": "39190751",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "39190751",
         "gender": "u"
-      }
+      },
+      "duration": 5.8
     },
     {
       "id": "37795651",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "37795651",
         "gender": "u"
-      }
+      },
+      "duration": 4.43
     },
     {
       "id": "39206371",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "39206371",
         "gender": "u"
-      }
+      },
+      "duration": 3.28
     },
     {
       "id": "37800900",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "37800900",
         "gender": "u"
-      }
+      },
+      "duration": 5.4
     },
     {
       "id": "37775799",
@@ -85,7 +92,8 @@
         "source_item_id": "37775799",
         "gender": "u",
         "accent": "gjakovar,kosovar"
-      }
+      },
+      "duration": 4.1
     },
     {
       "id": "37795614",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "37795614",
         "gender": "u"
-      }
+      },
+      "duration": 3.89
     },
     {
       "id": "37800810",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "37800810",
         "gender": "u"
-      }
+      },
+      "duration": 3.49
     },
     {
       "id": "37655600",
@@ -113,7 +123,8 @@
         "source_item_id": "37655600",
         "gender": "u",
         "accent": "gjakovar,kosovar"
-      }
+      },
+      "duration": 2.45
     },
     {
       "id": "37800782",
@@ -122,7 +133,8 @@
       "tags": {
         "source_item_id": "37800782",
         "gender": "u"
-      }
+      },
+      "duration": 2.74
     },
     {
       "id": "39206427",
@@ -131,7 +143,8 @@
       "tags": {
         "source_item_id": "39206427",
         "gender": "u"
-      }
+      },
+      "duration": 4.14
     },
     {
       "id": "37800741",
@@ -140,7 +153,8 @@
       "tags": {
         "source_item_id": "37800741",
         "gender": "u"
-      }
+      },
+      "duration": 5.36
     }
   ]
 }

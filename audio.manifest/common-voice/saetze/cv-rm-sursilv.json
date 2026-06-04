@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "20562187",
         "gender": "u"
-      }
+      },
+      "duration": 7.3
     },
     {
       "id": "20566835",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "20566835",
         "gender": "u"
-      }
+      },
+      "duration": 7.25
     },
     {
       "id": "20569057",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "20569057",
         "gender": "u"
-      }
+      },
+      "duration": 6.89
     },
     {
       "id": "20582245",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "20582245",
         "gender": "u"
-      }
+      },
+      "duration": 6.14
     },
     {
       "id": "20582652",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "20582652",
         "gender": "u"
-      }
+      },
+      "duration": 4.7
     },
     {
       "id": "20585197",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "20585197",
         "gender": "u"
-      }
+      },
+      "duration": 5.4
     },
     {
       "id": "21812818",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "21812818",
         "gender": "u"
-      }
+      },
+      "duration": 9.74
     },
     {
       "id": "20579997",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "20579997",
         "gender": "u"
-      }
+      },
+      "duration": 4.78
     },
     {
       "id": "21837546",
@@ -92,7 +100,8 @@
       "tags": {
         "source_item_id": "21837546",
         "gender": "u"
-      }
+      },
+      "duration": 7.44
     },
     {
       "id": "20582528",
@@ -101,7 +110,8 @@
       "tags": {
         "source_item_id": "20582528",
         "gender": "u"
-      }
+      },
+      "duration": 5.93
     },
     {
       "id": "20569805",
@@ -110,7 +120,8 @@
       "tags": {
         "source_item_id": "20569805",
         "gender": "u"
-      }
+      },
+      "duration": 7.51
     },
     {
       "id": "20585934",
@@ -119,7 +130,8 @@
       "tags": {
         "source_item_id": "20585934",
         "gender": "u"
-      }
+      },
+      "duration": 4.8
     },
     {
       "id": "20582742",
@@ -128,7 +140,8 @@
       "tags": {
         "source_item_id": "20582742",
         "gender": "u"
-      }
+      },
+      "duration": 2.38
     },
     {
       "id": "20585271",
@@ -137,7 +150,8 @@
       "tags": {
         "source_item_id": "20585271",
         "gender": "u"
-      }
+      },
+      "duration": 6.02
     },
     {
       "id": "20567247",
@@ -146,7 +160,8 @@
       "tags": {
         "source_item_id": "20567247",
         "gender": "u"
-      }
+      },
+      "duration": 3.58
     },
     {
       "id": "20567945",
@@ -155,7 +170,8 @@
       "tags": {
         "source_item_id": "20567945",
         "gender": "u"
-      }
+      },
+      "duration": 6.74
     },
     {
       "id": "20582282",
@@ -164,7 +180,8 @@
       "tags": {
         "source_item_id": "20582282",
         "gender": "u"
-      }
+      },
+      "duration": 7.27
     }
   ]
 }

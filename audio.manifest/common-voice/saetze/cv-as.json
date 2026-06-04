@@ -21,7 +21,8 @@
         "source_item_id": "32843638",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 5.26
     },
     {
       "id": "32843639",
@@ -31,7 +32,8 @@
         "source_item_id": "32843639",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 5.44
     },
     {
       "id": "32843692",
@@ -41,7 +43,8 @@
         "source_item_id": "32843692",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "32869262",
@@ -51,7 +54,8 @@
         "source_item_id": "32869262",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 4.86
     },
     {
       "id": "32850545",
@@ -61,7 +65,8 @@
         "source_item_id": "32850545",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 7.31
     },
     {
       "id": "32862330",
@@ -71,7 +76,8 @@
         "source_item_id": "32862330",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 7.85
     },
     {
       "id": "32862329",
@@ -81,7 +87,8 @@
         "source_item_id": "32862329",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "32841095",
@@ -91,7 +98,8 @@
         "source_item_id": "32841095",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 3.82
     },
     {
       "id": "32849994",
@@ -101,7 +109,8 @@
         "source_item_id": "32849994",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 5.04
     },
     {
       "id": "32850485",
@@ -111,7 +120,8 @@
         "source_item_id": "32850485",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "32850549",
@@ -121,7 +131,8 @@
         "source_item_id": "32850549",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "32852686",
@@ -131,7 +142,8 @@
         "source_item_id": "32852686",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 8.03
     },
     {
       "id": "32862202",
@@ -141,7 +153,8 @@
         "source_item_id": "32862202",
         "gender": "u",
         "accent": "Gaonlia"
-      }
+      },
+      "duration": 4.68
     }
   ]
 }

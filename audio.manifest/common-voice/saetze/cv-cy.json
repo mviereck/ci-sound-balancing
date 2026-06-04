@@ -21,7 +21,8 @@
         "source_item_id": "19562213",
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg"
-      }
+      },
+      "duration": 5.14
     },
     {
       "id": "19644804",
@@ -30,7 +31,8 @@
       "tags": {
         "source_item_id": "19644804",
         "gender": "u"
-      }
+      },
+      "duration": 7.9
     },
     {
       "id": "19684386",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "19684386",
         "gender": "u"
-      }
+      },
+      "duration": 3.26
     },
     {
       "id": "19785838",
@@ -49,7 +52,8 @@
         "source_item_id": "19785838",
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg"
-      }
+      },
+      "duration": 6.82
     },
     {
       "id": "19806111",
@@ -58,7 +62,8 @@
       "tags": {
         "source_item_id": "19806111",
         "gender": "u"
-      }
+      },
+      "duration": 5.45
     },
     {
       "id": "19838981",
@@ -67,7 +72,8 @@
       "tags": {
         "source_item_id": "19838981",
         "gender": "u"
-      }
+      },
+      "duration": 7.97
     },
     {
       "id": "19854845",
@@ -77,7 +83,8 @@
         "source_item_id": "19854845",
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg"
-      }
+      },
+      "duration": 5.5
     },
     {
       "id": "19863542",
@@ -87,7 +94,8 @@
         "source_item_id": "19863542",
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg"
-      }
+      },
+      "duration": 4.7
     },
     {
       "id": "20149629",
@@ -97,7 +105,8 @@
         "source_item_id": "20149629",
         "gender": "u",
         "accent": "Y Deyrnas Unedig Cymraeg"
-      }
+      },
+      "duration": 6.19
     },
     {
       "id": "20454152",
@@ -106,7 +115,8 @@
       "tags": {
         "source_item_id": "20454152",
         "gender": "u"
-      }
+      },
+      "duration": 3.94
     }
   ]
 }

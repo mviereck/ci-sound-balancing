@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "39104660",
         "gender": "u"
-      }
+      },
+      "duration": 6.23
     },
     {
       "id": "38821775",
@@ -30,7 +31,8 @@
         "source_item_id": "38821775",
         "gender": "u",
         "accent": "guntur krishna delta region"
-      }
+      },
+      "duration": 5.58
     },
     {
       "id": "39171902",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "39171902",
         "gender": "u"
-      }
+      },
+      "duration": 4.97
     },
     {
       "id": "40127056",
@@ -49,7 +52,8 @@
         "source_item_id": "40127056",
         "gender": "u",
         "accent": "Telangana,Andhra"
-      }
+      },
+      "duration": 4.86
     },
     {
       "id": "38821716",
@@ -59,7 +63,8 @@
         "source_item_id": "38821716",
         "gender": "u",
         "accent": "guntur krishna delta region"
-      }
+      },
+      "duration": 3.89
     },
     {
       "id": "38821735",
@@ -69,7 +74,8 @@
         "source_item_id": "38821735",
         "gender": "u",
         "accent": "guntur krishna delta region"
-      }
+      },
+      "duration": 4.86
     },
     {
       "id": "38821855",
@@ -79,7 +85,8 @@
         "source_item_id": "38821855",
         "gender": "u",
         "accent": "guntur krishna delta region"
-      }
+      },
+      "duration": 2.45
     },
     {
       "id": "38821734",
@@ -89,7 +96,8 @@
         "source_item_id": "38821734",
         "gender": "u",
         "accent": "guntur krishna delta region"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "40116810",
@@ -99,7 +107,8 @@
         "source_item_id": "40116810",
         "gender": "u",
         "accent": "Telangana,Andhra"
-      }
+      },
+      "duration": 3.96
     },
     {
       "id": "39104658",
@@ -108,7 +117,8 @@
       "tags": {
         "source_item_id": "39104658",
         "gender": "u"
-      }
+      },
+      "duration": 2.95
     }
   ]
 }

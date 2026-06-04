@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "26466593",
         "gender": "u"
-      }
+      },
+      "duration": 6.05
     },
     {
       "id": "39273478",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "39273478",
         "gender": "u"
-      }
+      },
+      "duration": 8.39
     },
     {
       "id": "39325546",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "39325546",
         "gender": "u"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "39420661",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "39420661",
         "gender": "u"
-      }
+      },
+      "duration": 3.6
     },
     {
       "id": "39433852",
@@ -57,7 +61,8 @@
         "source_item_id": "39433852",
         "gender": "u",
         "accent": "Գրական,eastern"
-      }
+      },
+      "duration": 5.83
     },
     {
       "id": "39446956",
@@ -67,7 +72,8 @@
         "source_item_id": "39446956",
         "gender": "u",
         "accent": "Eastern Armenian"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "39459169",
@@ -77,7 +83,8 @@
         "source_item_id": "39459169",
         "gender": "u",
         "accent": "Female"
-      }
+      },
+      "duration": 7.74
     },
     {
       "id": "39471720",
@@ -86,7 +93,8 @@
       "tags": {
         "source_item_id": "39471720",
         "gender": "u"
-      }
+      },
+      "duration": 7.13
     },
     {
       "id": "39498188",
@@ -95,7 +103,8 @@
       "tags": {
         "source_item_id": "39498188",
         "gender": "u"
-      }
+      },
+      "duration": 5.15
     },
     {
       "id": "39464815",
@@ -104,7 +113,8 @@
       "tags": {
         "source_item_id": "39464815",
         "gender": "u"
-      }
+      },
+      "duration": 4.07
     },
     {
       "id": "39462495",
@@ -114,7 +124,8 @@
         "source_item_id": "39462495",
         "gender": "u",
         "accent": "Female"
-      }
+      },
+      "duration": 4.79
     },
     {
       "id": "39275391",
@@ -123,7 +134,8 @@
       "tags": {
         "source_item_id": "39275391",
         "gender": "u"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "26610443",
@@ -132,7 +144,8 @@
       "tags": {
         "source_item_id": "26610443",
         "gender": "u"
-      }
+      },
+      "duration": 6.55
     },
     {
       "id": "39529978",
@@ -141,7 +154,8 @@
       "tags": {
         "source_item_id": "39529978",
         "gender": "u"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "39552558",
@@ -151,7 +165,8 @@
         "source_item_id": "39552558",
         "gender": "u",
         "accent": "Գրական,eastern"
-      }
+      },
+      "duration": 4.57
     },
     {
       "id": "39543344",
@@ -161,7 +176,8 @@
         "source_item_id": "39543344",
         "gender": "u",
         "accent": "Eastern Armenian"
-      }
+      },
+      "duration": 3.42
     },
     {
       "id": "39547775",
@@ -170,7 +186,8 @@
       "tags": {
         "source_item_id": "39547775",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "39552495",
@@ -180,7 +197,8 @@
         "source_item_id": "39552495",
         "gender": "u",
         "accent": "Գրական,eastern"
-      }
+      },
+      "duration": 4.21
     }
   ]
 }

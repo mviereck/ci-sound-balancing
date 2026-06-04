@@ -21,7 +21,8 @@
         "source_item_id": "36922846",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 4.72
     },
     {
       "id": "36922968",
@@ -30,7 +31,8 @@
       "tags": {
         "source_item_id": "36922968",
         "gender": "u"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "36922885",
@@ -40,7 +42,8 @@
         "source_item_id": "36922885",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 3.6
     },
     {
       "id": "36922969",
@@ -49,7 +52,8 @@
       "tags": {
         "source_item_id": "36922969",
         "gender": "u"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "36922888",
@@ -59,7 +63,8 @@
         "source_item_id": "36922888",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 3.42
     },
     {
       "id": "36923048",
@@ -68,7 +73,8 @@
       "tags": {
         "source_item_id": "36923048",
         "gender": "u"
-      }
+      },
+      "duration": 5.04
     },
     {
       "id": "36924245",
@@ -77,7 +83,8 @@
       "tags": {
         "source_item_id": "36924245",
         "gender": "u"
-      }
+      },
+      "duration": 4.57
     },
     {
       "id": "37015666",
@@ -87,7 +94,8 @@
         "source_item_id": "37015666",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 2.88
     },
     {
       "id": "36924673",
@@ -96,7 +104,8 @@
       "tags": {
         "source_item_id": "36924673",
         "gender": "u"
-      }
+      },
+      "duration": 5.18
     },
     {
       "id": "37148642",
@@ -106,7 +115,8 @@
         "source_item_id": "37148642",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "36924498",
@@ -115,7 +125,8 @@
       "tags": {
         "source_item_id": "36924498",
         "gender": "u"
-      }
+      },
+      "duration": 5.87
     },
     {
       "id": "37015481",
@@ -125,7 +136,8 @@
         "source_item_id": "37015481",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 7.06
     },
     {
       "id": "37143181",
@@ -135,7 +147,8 @@
         "source_item_id": "37143181",
         "gender": "u",
         "accent": "Oriental"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "36923102",
@@ -144,7 +157,8 @@
       "tags": {
         "source_item_id": "36923102",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "36924524",
@@ -153,7 +167,8 @@
       "tags": {
         "source_item_id": "36924524",
         "gender": "u"
-      }
+      },
+      "duration": 5.29
     },
     {
       "id": "36924661",
@@ -162,7 +177,8 @@
       "tags": {
         "source_item_id": "36924661",
         "gender": "u"
-      }
+      },
+      "duration": 4.07
     }
   ]
 }

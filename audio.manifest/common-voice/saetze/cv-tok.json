@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "31168501",
         "gender": "u"
-      }
+      },
+      "duration": 2.38
     },
     {
       "id": "31170994",
@@ -30,7 +31,8 @@
         "source_item_id": "31170994",
         "gender": "u",
         "accent": "Polish"
-      }
+      },
+      "duration": 5.54
     },
     {
       "id": "31171187",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "31171187",
         "gender": "u"
-      }
+      },
+      "duration": 3.24
     },
     {
       "id": "31198643",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "31198643",
         "gender": "u"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "31214953",
@@ -58,7 +62,8 @@
         "source_item_id": "31214953",
         "gender": "u",
         "accent": "IPA"
-      }
+      },
+      "duration": 5.58
     },
     {
       "id": "31218270",
@@ -67,7 +72,8 @@
       "tags": {
         "source_item_id": "31218270",
         "gender": "u"
-      }
+      },
+      "duration": 4.72
     },
     {
       "id": "36866436",
@@ -76,7 +82,8 @@
       "tags": {
         "source_item_id": "36866436",
         "gender": "u"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "37269635",
@@ -85,7 +92,8 @@
       "tags": {
         "source_item_id": "37269635",
         "gender": "u"
-      }
+      },
+      "duration": 5.76
     },
     {
       "id": "31202229",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "31202229",
         "gender": "u"
-      }
+      },
+      "duration": 3.67
     },
     {
       "id": "31217699",
@@ -104,7 +113,8 @@
         "source_item_id": "31217699",
         "gender": "u",
         "accent": "IPA"
-      }
+      },
+      "duration": 3.35
     },
     {
       "id": "31218334",
@@ -113,7 +123,8 @@
       "tags": {
         "source_item_id": "31218334",
         "gender": "u"
-      }
+      },
+      "duration": 5.26
     },
     {
       "id": "37311328",
@@ -122,7 +133,8 @@
       "tags": {
         "source_item_id": "37311328",
         "gender": "u"
-      }
+      },
+      "duration": 3.13
     },
     {
       "id": "31225677",
@@ -131,7 +143,8 @@
       "tags": {
         "source_item_id": "31225677",
         "gender": "u"
-      }
+      },
+      "duration": 2.7
     },
     {
       "id": "31391106",
@@ -141,7 +154,8 @@
         "source_item_id": "31391106",
         "gender": "u",
         "accent": "Polish"
-      }
+      },
+      "duration": 2.56
     },
     {
       "id": "31437314",
@@ -150,7 +164,8 @@
       "tags": {
         "source_item_id": "31437314",
         "gender": "u"
-      }
+      },
+      "duration": 4.79
     },
     {
       "id": "36866527",
@@ -159,7 +174,8 @@
       "tags": {
         "source_item_id": "36866527",
         "gender": "u"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "31241450",
@@ -168,7 +184,8 @@
       "tags": {
         "source_item_id": "31241450",
         "gender": "u"
-      }
+      },
+      "duration": 2.09
     },
     {
       "id": "36866653",
@@ -177,7 +194,8 @@
       "tags": {
         "source_item_id": "36866653",
         "gender": "u"
-      }
+      },
+      "duration": 5.44
     }
   ]
 }

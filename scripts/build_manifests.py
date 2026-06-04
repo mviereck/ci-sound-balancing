@@ -37,6 +37,8 @@ import json
 import logging
 import os
 import re
+import shutil
+import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -47,6 +49,32 @@ SCHEMA_VERSION = "ci-sb-corpus/2"
 DEFAULT_MIRROR = Path("/mnt/xbox/lauscher/voice/opus")
 DEFAULT_METADATA = None  # wenn None -> gleich wie mirror_root
 DEFAULT_OUT = Path(__file__).resolve().parents[1] / "audio.manifest"
+
+# Pro Source-Key die Audio-Endung, die im Mirror tatsaechlich liegt.
+EXT_BY_SOURCE = {
+    "thorsten-voice":            ".opus",
+    "thorsten-voice-emotional":  ".opus",
+    "thorsten-voice-hessisch":   ".opus",
+    "aru-speech-corpus":         ".opus",
+    "freiburger":                ".wav",
+    "oldenburger-olsa":          ".wav",
+    "mls-french":                ".opus",
+    "mls-spanish":               ".opus",
+    "mls-polish":                ".opus",
+    "common-voice":              ".mp3",
+    "test-noise":                ".wav",
+    # musan ist gemischt - wird im MUSAN-Builder pro Sub-Quelle entschieden
+}
+
+# Globaler Sammler fuer den Differenzen-Report.
+_BUILD_DIFFS = {
+    "missing_audio": [],
+    "orphan_audio":  [],
+}
+
+# Pro Source-Key gesammelte Audio-Pfade (relativ zur source.base).
+_BUILD_AUDIO_PATHS = {}      # source_key -> set[str]
+_BUILD_SOURCE_BASES = {}     # source_key -> "Thorsten Voice/"
 
 log = logging.getLogger("build_manifests")
 
@@ -63,6 +91,198 @@ def write_json(path: Path, data: Any, dry_run: bool) -> None:
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+
+def audio_in_mirror(mirror_root: Path, source_base: str, rel: str) -> Path:
+    """Lokaler Pfad einer Audiodatei im Mirror."""
+    return mirror_root / source_base.rstrip("/") / rel
+
+
+def verify_manifest_audio(manifest: dict, mirror_root: Path,
+                          source_base: str, source_key: str) -> None:
+    """Prueft pro Item, ob die referenzierte Audiodatei im Mirror existiert."""
+    for it in manifest.get("items", []):
+        rel = it.get("audio")
+        if not rel or rel.startswith(("http://", "https://", "data:")):
+            continue
+        p = audio_in_mirror(mirror_root, source_base, rel)
+        if not p.is_file():
+            _BUILD_DIFFS["missing_audio"].append({
+                "source":   source_key,
+                "manifest": manifest.get("title", "?"),
+                "item":     it.get("id", "?"),
+                "expected": str(p),
+            })
+
+
+def collect_audio_paths(manifest: dict) -> set[str]:
+    out = set()
+    for it in manifest.get("items", []):
+        a = it.get("audio")
+        if a and not a.startswith(("http://", "https://", "data:")):
+            out.add(a)
+    return out
+
+
+def remember_paths(source_key: str, manifest: dict) -> None:
+    s = _BUILD_AUDIO_PATHS.setdefault(source_key, set())
+    s.update(collect_audio_paths(manifest))
+
+
+def scan_orphans(mirror_root: Path, source_base: str,
+                 source_key: str, manifested_paths: set[str]) -> None:
+    """Sucht Audiodateien im Mirror, die in keinem Manifest stehen."""
+    src_root = mirror_root / source_base.rstrip("/")
+    if not src_root.is_dir():
+        return
+    audio_exts = {".opus", ".wav", ".mp3", ".flac", ".ogg"}
+    for p in src_root.rglob("*"):
+        if not p.is_file():
+            continue
+        if p.suffix.lower() not in audio_exts:
+            continue
+        rel = str(p.relative_to(src_root))
+        if rel not in manifested_paths:
+            _BUILD_DIFFS["orphan_audio"].append({
+                "source": source_key,
+                "path":   str(p),
+            })
+
+
+def write_diff_report(path: Path, diffs: dict, dry_run: bool) -> None:
+    lines = [
+        "# Audio-Manifest-Differenzen-Report",
+        "",
+        "Erzeugt von `scripts/build_manifests.py` am Ende eines Voll-Laufs.",
+        "",
+        "## Fehlende Audio-Dateien",
+        "",
+        f"Manifeste referenzieren {len(diffs['missing_audio'])} Items, "
+        "die im Mirror nicht vorliegen. Pro Quelle die ersten 30:",
+        "",
+    ]
+    by_src: dict = defaultdict(list)
+    for d in diffs["missing_audio"]:
+        by_src[d["source"]].append(d)
+    for src in sorted(by_src):
+        lines.append(f"### {src} ({len(by_src[src])} fehlend)")
+        lines.append("")
+        for d in by_src[src][:30]:
+            lines.append(f"- `{d['manifest']}` / `{d['item']}` -> `{d['expected']}`")
+        if len(by_src[src]) > 30:
+            lines.append(f"- ... und {len(by_src[src]) - 30} weitere")
+        lines.append("")
+
+    lines.append("## Verwaiste Audio-Dateien")
+    lines.append("")
+    lines.append(
+        f"Im Mirror liegen {len(diffs['orphan_audio'])} Audiodateien, "
+        "auf die kein Manifest verweist. Pro Quelle die ersten 30:")
+    lines.append("")
+    by_src2: dict = defaultdict(list)
+    for d in diffs["orphan_audio"]:
+        by_src2[d["source"]].append(d)
+    for src in sorted(by_src2):
+        lines.append(f"### {src} ({len(by_src2[src])} verwaist)")
+        lines.append("")
+        for d in by_src2[src][:30]:
+            lines.append(f"- `{d['path']}`")
+        if len(by_src2[src]) > 30:
+            lines.append(f"- ... und {len(by_src2[src]) - 30} weitere")
+        lines.append("")
+
+    if dry_run:
+        log.info("DRY write %s", path)
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
+# Duration-Cache
+
+DURATION_CACHE_PATH = (Path(__file__).resolve().parent /
+                       ".cache" / "duration_cache.json")
+_DURATION_CACHE: dict[str, float] = {}
+_DURATION_CACHE_LOADED = False
+_DURATION_CACHE_DIRTY = False
+
+
+def _duration_cache_key(p: Path) -> str:
+    try:
+        st = p.stat()
+        return f"{p}|{st.st_size}|{int(st.st_mtime)}"
+    except OSError:
+        return f"{p}|?"
+
+
+def load_duration_cache() -> None:
+    global _DURATION_CACHE, _DURATION_CACHE_LOADED
+    if _DURATION_CACHE_LOADED:
+        return
+    if DURATION_CACHE_PATH.is_file():
+        try:
+            with open(DURATION_CACHE_PATH, "r", encoding="utf-8") as f:
+                _DURATION_CACHE = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            _DURATION_CACHE = {}
+    _DURATION_CACHE_LOADED = True
+
+
+def save_duration_cache(dry_run: bool) -> None:
+    if not _DURATION_CACHE_DIRTY or dry_run:
+        return
+    DURATION_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(DURATION_CACHE_PATH, "w", encoding="utf-8") as f:
+        json.dump(_DURATION_CACHE, f, indent=2, sort_keys=True)
+
+
+def _check_ffprobe() -> bool:
+    if shutil.which("ffprobe") is None:
+        log.warning("ffprobe nicht im PATH - Dauer-Felder werden ausgelassen.")
+        return False
+    return True
+
+
+def get_duration(p: Path) -> float | None:
+    """Sekunden, gerundet auf 2 Nachkommastellen. None bei Fehler."""
+    global _DURATION_CACHE_DIRTY
+    if not p.is_file():
+        return None
+    key = _duration_cache_key(p)
+    cached = _DURATION_CACHE.get(key)
+    if cached is not None:
+        return cached
+    ffprobe = shutil.which("ffprobe")
+    if not ffprobe:
+        return None
+    try:
+        out = subprocess.check_output(
+            [ffprobe, "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", str(p)],
+            stderr=subprocess.STDOUT,
+            timeout=10,
+        )
+        secs = round(float(out.strip()), 2)
+    except (subprocess.SubprocessError, ValueError):
+        return None
+    _DURATION_CACHE[key] = secs
+    _DURATION_CACHE_DIRTY = True
+    return secs
+
+
+def attach_durations(manifest: dict, mirror_root: Path,
+                     source_base: str) -> None:
+    """Iteriert items und ergaenzt 'duration' (Sekunden) via ffprobe/Cache."""
+    for it in manifest.get("items", []):
+        if it.get("duration") is not None:
+            continue
+        rel = it.get("audio")
+        if not rel or rel.startswith(("http://", "https://", "data:")):
+            continue
+        p = audio_in_mirror(mirror_root, source_base, rel)
+        d = get_duration(p)
+        if d is not None:
+            it["duration"] = d
 
 
 def safe_id(s: str, prefix: str = "") -> str:
@@ -161,6 +381,7 @@ def write_source(out: Path, key: str, name: str, url: str,
                  license_spdx: str, credit: str, base: str,
                  categories: list[str], manifests: dict[str, list[str]],
                  notes: str = "", dry_run: bool = False) -> Path:
+    _BUILD_SOURCE_BASES[key] = base
     src = {
         "schema": SCHEMA_VERSION,
         "key": key,
@@ -224,8 +445,12 @@ def build_thorsten_voice(metadata_root: Path, out: Path, dry_run: bool) -> str |
         "tags": {"speaker_id": "thorsten", "gender": "m", "style": "studio"},
         "items": items,
     }
+    attach_durations(manifest, metadata_root, "Thorsten Voice/")
     write_json(out / "thorsten-voice" / "saetze" / "thorsten.json",
                manifest, dry_run)
+    verify_manifest_audio(manifest, metadata_root,
+                          "Thorsten Voice/", "thorsten-voice")
+    remember_paths("thorsten-voice", manifest)
     return "thorsten-voice"
 
 
@@ -256,16 +481,29 @@ def build_thorsten_emotional(metadata_root: Path, out: Path, dry_run: bool) -> s
     manifests_idx: list[str] = []
     for emo in emotions:
         emo_dir = base_dir / emo
+        ext = EXT_BY_SOURCE.get("thorsten-voice-emotional", ".opus")
+
+        files = [f for f in sorted(emo_dir.iterdir())
+                 if f.is_file() and f.suffix.lower() == ext]
+
+        if not files:
+            wavs = [f for f in sorted(emo_dir.iterdir())
+                    if f.is_file() and f.suffix.lower() == ".wav"]
+            if wavs:
+                log.warning(
+                    "emotional/%s: keine %s gefunden, %d .wav vorhanden - "
+                    "vermutlich Lauf gegen Original. Manifest-Pfade werden "
+                    "auf %s gesetzt.", emo, ext, len(wavs), ext)
+                files = wavs
+
         items = []
-        for wav in sorted(emo_dir.iterdir()):
-            if wav.suffix.lower() != ".wav":
-                continue
-            h = wav.stem
+        for f in files:
+            h = f.stem
             text = text_by_hash.get(h, "")
             items.append({
                 "id": h[:8],
                 "text": text,
-                "audio": f"thorsten-emotional_v02/{emo}/{h}.opus",
+                "audio": f"thorsten-emotional_v02/{emo}/{h}{ext}",
             })
         if not items:
             continue
@@ -287,7 +525,12 @@ def build_thorsten_emotional(metadata_root: Path, out: Path, dry_run: bool) -> s
             "items": items,
         }
         rel = f"saetze/thorsten-{emo}.json"
+        attach_durations(manifest, metadata_root, "Thorsten-Voice-Emotional/")
         write_json(out / "thorsten-voice-emotional" / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root,
+                              "Thorsten-Voice-Emotional/",
+                              "thorsten-voice-emotional")
+        remember_paths("thorsten-voice-emotional", manifest)
         manifests_idx.append(rel)
 
     write_source(out, "thorsten-voice-emotional", "Thorsten-Voice Emotional v0.2",
@@ -349,8 +592,12 @@ def build_thorsten_hessisch(metadata_root: Path, out: Path, dry_run: bool) -> st
         },
         "items": items,
     }
+    attach_durations(manifest, metadata_root, "Thorsten-Voice-Hessisch/")
     write_json(out / "thorsten-voice-hessisch" / "saetze" / "thorsten-hessisch.json",
                manifest, dry_run)
+    verify_manifest_audio(manifest, metadata_root,
+                          "Thorsten-Voice-Hessisch/", "thorsten-voice-hessisch")
+    remember_paths("thorsten-voice-hessisch", manifest)
     return "thorsten-voice-hessisch"
 
 
@@ -426,7 +673,11 @@ def build_aru(metadata_root: Path, out: Path, dry_run: bool) -> str | None:
             "items": sorted(items, key=lambda it: it["id"]),
         }
         rel = f"saetze/{slug}.json"
+        attach_durations(manifest, metadata_root, "ARU_Speech_Corpus_v1_0/")
         write_json(out / "aru-speech-corpus" / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root,
+                              "ARU_Speech_Corpus_v1_0/", "aru-speech-corpus")
+        remember_paths("aru-speech-corpus", manifest)
         manifests_idx.append(rel)
 
     write_source(out, "aru-speech-corpus", "ARU Speech Corpus v1.0",
@@ -501,7 +752,10 @@ def build_freiburger(metadata_root: Path, out: Path, dry_run: bool) -> str | Non
             "tags": {"speaker_id": "freiburger-mono", "style": "test"},
             "items": sorted(items_mono, key=lambda it: it["id"]),
         }
+        attach_durations(m, metadata_root, "Freiburger/")
         write_json(out / "freiburger" / "saetze" / "einsilbig.json", m, dry_run)
+        verify_manifest_audio(m, metadata_root, "Freiburger/", "freiburger")
+        remember_paths("freiburger", m)
         saetze_manifests.append("saetze/einsilbig.json")
     if items_poly:
         m = {
@@ -514,7 +768,10 @@ def build_freiburger(metadata_root: Path, out: Path, dry_run: bool) -> str | Non
             "tags": {"speaker_id": "freiburger-poly", "style": "test"},
             "items": sorted(items_poly, key=lambda it: it["id"]),
         }
+        attach_durations(m, metadata_root, "Freiburger/")
         write_json(out / "freiburger" / "saetze" / "mehrsilbig.json", m, dry_run)
+        verify_manifest_audio(m, metadata_root, "Freiburger/", "freiburger")
+        remember_paths("freiburger", m)
         saetze_manifests.append("saetze/mehrsilbig.json")
 
     cat = ["saetze"]
@@ -529,7 +786,10 @@ def build_freiburger(metadata_root: Path, out: Path, dry_run: bool) -> str | Non
             "url": "https://zenodo.org/records/10082491",
             "items": [ccitt_item],
         }
+        attach_durations(m, metadata_root, "Freiburger/")
         write_json(out / "freiburger" / "geraeusche" / "ccitt-rauschen.json", m, dry_run)
+        verify_manifest_audio(m, metadata_root, "Freiburger/", "freiburger")
+        remember_paths("freiburger", m)
         cat.append("geraeusche")
         mf["geraeusche"] = ["geraeusche/ccitt-rauschen.json"]
 
@@ -606,7 +866,11 @@ def build_oldenburger(metadata_root: Path, out: Path, dry_run: bool) -> str | No
         },
         "items": items,
     }
+    attach_durations(manifest, metadata_root, "Oldenburger OLSA female/")
     write_json(out / "oldenburger-olsa" / "saetze" / "olsa.json", manifest, dry_run)
+    verify_manifest_audio(manifest, metadata_root,
+                          "Oldenburger OLSA female/", "oldenburger-olsa")
+    remember_paths("oldenburger-olsa", manifest)
     return "oldenburger-olsa"
 
 
@@ -747,7 +1011,10 @@ def build_mls(metadata_root: Path, out: Path, dry_run: bool,
         }
         fname = f"buch-{slug or 'x'}-{book}.json"
         rel = f"saetze/{fname}"
+        attach_durations(manifest, metadata_root, f"{dir_name}/")
         write_json(out / key / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root, f"{dir_name}/", key)
+        remember_paths(key, manifest)
         manifests_idx.append(rel)
 
     write_source(out, key, source_name,
@@ -824,7 +1091,11 @@ def build_common_voice(metadata_root: Path, out: Path, dry_run: bool) -> str | N
             "items": items,
         }
         rel = f"saetze/cv-{lang}.json"
+        cv_base = "common-voice/assets/sentences/common-voice/"
+        attach_durations(manifest, metadata_root, cv_base)
         write_json(out / "common-voice" / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root, cv_base, "common-voice")
+        remember_paths("common-voice", manifest)
         manifests_idx.append(rel)
         n_langs += 1
     log.info("common-voice: %d Sprachen", n_langs)
@@ -922,7 +1193,10 @@ def build_musan(metadata_root: Path, out: Path, dry_run: bool) -> str | None:
             "items": items,
         }
         rel = f"musik/{sub}.json"
+        attach_durations(manifest, metadata_root, "musan/")
         write_json(out / "musan" / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root, "musan/", "musan")
+        remember_paths("musan", manifest)
         music_manifests.append(rel)
         n_music += len(items)
     log.info("musan music: %d Items in %d Sub-Quellen", n_music, len(music_manifests))
@@ -973,7 +1247,10 @@ def build_musan(metadata_root: Path, out: Path, dry_run: bool) -> str | None:
             "items": items,
         }
         rel = f"geraeusche/{sub}.json"
+        attach_durations(manifest, metadata_root, "musan/")
         write_json(out / "musan" / rel, manifest, dry_run)
+        verify_manifest_audio(manifest, metadata_root, "musan/", "musan")
+        remember_paths("musan", manifest)
         noise_manifests.append(rel)
         n_noise += len(items)
     log.info("musan noise: %d Items in %d Sub-Quellen", n_noise, len(noise_manifests))
@@ -1041,8 +1318,11 @@ def build_test_noise(metadata_root: Path, out: Path, dry_run: bool) -> str | Non
         "url": "https://www.openslr.org/18/",
         "items": items,
     }
+    attach_durations(manifest, metadata_root, "test-noise/")
     write_json(out / "test-noise" / "geraeusche" / "test-noise.json",
                manifest, dry_run)
+    verify_manifest_audio(manifest, metadata_root, "test-noise/", "test-noise")
+    remember_paths("test-noise", manifest)
     return "test-noise"
 
 
@@ -1123,6 +1403,9 @@ def main() -> int:
     log.info("Metadaten aus: %s", metadata_root)
     log.info("Manifeste nach: %s", out_root)
 
+    _check_ffprobe()
+    load_duration_cache()
+
     selected = args.only or list(ALL_BUILDERS.keys())
     built: list[str] = []
     for key in selected:
@@ -1135,6 +1418,21 @@ def main() -> int:
                 built.append(result)
         except Exception as e:
             log.exception("Quelle %s fehlgeschlagen: %s", key, e)
+
+    # Orphan-Scan und Diff-Report
+    for src_key, base in _BUILD_SOURCE_BASES.items():
+        manifested = _BUILD_AUDIO_PATHS.get(src_key, set())
+        scan_orphans(metadata_root, base, src_key, manifested)
+
+    report_path = out_root / "_diff_report.md"
+    write_diff_report(report_path, _BUILD_DIFFS, dry_run=args.dry_run)
+    log.info("Differenzen-Report: %s", report_path)
+    log.info("  - %d fehlende Audio-Dateien",
+             len(_BUILD_DIFFS["missing_audio"]))
+    log.info("  - %d verwaiste Audio-Dateien",
+             len(_BUILD_DIFFS["orphan_audio"]))
+
+    save_duration_cache(args.dry_run)
 
     if built:
         write_top_index(out_root, built, args.dry_run)

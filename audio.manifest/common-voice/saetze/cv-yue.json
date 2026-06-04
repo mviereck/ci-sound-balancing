@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "31222299",
         "gender": "u"
-      }
+      },
+      "duration": 2.66
     },
     {
       "id": "31754321",
@@ -30,7 +31,8 @@
         "source_item_id": "31754321",
         "gender": "u",
         "accent": "Hong Kong"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "32085906",
@@ -40,7 +42,8 @@
         "source_item_id": "32085906",
         "gender": "u",
         "accent": "母語係四邑片新會（會城）口音。,喺廣東新會出世，一直住到廿歲。之後搬咗去澳門，到今日已經十年。,標準粵語/廣府話穗港口音自細睇電視學識嘅。宜家喺澳門啲廣東話發音已經講到同本地人冇咩差別。,一直希望振興我故鄉新會乃至四邑嘅語言文化，希望世人可以認識新會乃至四邑話地區。,除咗新會話，我通過研究同接觸四邑話地區唔同口音嘅人，慢慢都學識咗唔同種類四邑話嘅發音（例如台山話、開平話、恩平話等等）"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "31690209",
@@ -49,7 +52,8 @@
       "tags": {
         "source_item_id": "31690209",
         "gender": "u"
-      }
+      },
+      "duration": 3.53
     },
     {
       "id": "31418668",
@@ -59,7 +63,8 @@
         "source_item_id": "31418668",
         "gender": "u",
         "accent": "广东佛山"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "31220491",
@@ -69,7 +74,8 @@
         "source_item_id": "31220491",
         "gender": "u",
         "accent": "靚爆鏡"
-      }
+      },
+      "duration": 2.92
     },
     {
       "id": "37574051",
@@ -79,7 +85,8 @@
         "source_item_id": "37574051",
         "gender": "u",
         "accent": "广东音"
-      }
+      },
+      "duration": 2.52
     },
     {
       "id": "32448566",
@@ -89,7 +96,8 @@
         "source_item_id": "32448566",
         "gender": "u",
         "accent": "Hong Kong Cantonese"
-      }
+      },
+      "duration": 1.58
     },
     {
       "id": "31173430",
@@ -99,7 +107,8 @@
         "source_item_id": "31173430",
         "gender": "u",
         "accent": "Canton,Gwongzau,Guangzhou"
-      }
+      },
+      "duration": 3.82
     },
     {
       "id": "32686954",
@@ -109,7 +118,8 @@
         "source_item_id": "32686954",
         "gender": "u",
         "accent": "Hong Kong"
-      }
+      },
+      "duration": 3.42
     }
   ]
 }

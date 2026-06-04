@@ -21,7 +21,8 @@
         "source_item_id": "21832056",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 4.85
     },
     {
       "id": "22272012",
@@ -31,7 +32,8 @@
         "source_item_id": "22272012",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 3.38
     },
     {
       "id": "22334763",
@@ -41,7 +43,8 @@
         "source_item_id": "22334763",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 5.18
     },
     {
       "id": "21845724",
@@ -51,7 +54,8 @@
         "source_item_id": "21845724",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 5.81
     },
     {
       "id": "22738076",
@@ -61,7 +65,8 @@
         "source_item_id": "22738076",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "21843555",
@@ -71,7 +76,8 @@
         "source_item_id": "21843555",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "22315852",
@@ -81,7 +87,8 @@
         "source_item_id": "22315852",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 4.78
     },
     {
       "id": "26943527",
@@ -91,7 +98,8 @@
         "source_item_id": "26943527",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 9.0
     },
     {
       "id": "22354606",
@@ -101,7 +109,8 @@
         "source_item_id": "22354606",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 6.94
     },
     {
       "id": "21861928",
@@ -111,7 +120,8 @@
         "source_item_id": "21861928",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 3.62
     },
     {
       "id": "22745901",
@@ -121,7 +131,8 @@
         "source_item_id": "22745901",
         "gender": "u",
         "accent": "Central,Baleswari"
-      }
+      },
+      "duration": 5.69
     }
   ]
 }

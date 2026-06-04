@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "26652058",
         "gender": "u"
-      }
+      },
+      "duration": 6.52
     },
     {
       "id": "26657544",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "26657544",
         "gender": "u"
-      }
+      },
+      "duration": 3.96
     },
     {
       "id": "26701461",
@@ -39,7 +41,8 @@
         "source_item_id": "26701461",
         "gender": "u",
         "accent": "Punjabi"
-      }
+      },
+      "duration": 2.74
     },
     {
       "id": "27745883",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "27745883",
         "gender": "u"
-      }
+      },
+      "duration": 9.9
     },
     {
       "id": "29186220",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "29186220",
         "gender": "u"
-      }
+      },
+      "duration": 3.17
     },
     {
       "id": "30644821",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "30644821",
         "gender": "u"
-      }
+      },
+      "duration": 6.66
     },
     {
       "id": "31771683",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "31771683",
         "gender": "u"
-      }
+      },
+      "duration": 6.52
     },
     {
       "id": "31772079",
@@ -85,7 +92,8 @@
         "source_item_id": "31772079",
         "gender": "u",
         "accent": "Islamabadi,Karachi"
-      }
+      },
+      "duration": 3.56
     },
     {
       "id": "31775378",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "31775378",
         "gender": "u"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "31780055",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "31780055",
         "gender": "u"
-      }
+      },
+      "duration": 4.72
     }
   ]
 }

@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "30648608",
         "gender": "u"
-      }
+      },
+      "duration": 5.87
     },
     {
       "id": "30661611",
@@ -30,7 +31,8 @@
         "source_item_id": "30661611",
         "gender": "u",
         "accent": "Indian"
-      }
+      },
+      "duration": 9.65
     },
     {
       "id": "30662998",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "30662998",
         "gender": "u"
-      }
+      },
+      "duration": 7.56
     },
     {
       "id": "30698954",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "30698954",
         "gender": "u"
-      }
+      },
+      "duration": 10.37
     },
     {
       "id": "30704507",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "30704507",
         "gender": "u"
-      }
+      },
+      "duration": 6.16
     },
     {
       "id": "30706554",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "30706554",
         "gender": "u"
-      }
+      },
+      "duration": 7.31
     },
     {
       "id": "30707171",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "30707171",
         "gender": "u"
-      }
+      },
+      "duration": 4.32
     },
     {
       "id": "30707410",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "30707410",
         "gender": "u"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "30712617",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "30712617",
         "gender": "u"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "30716819",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "30716819",
         "gender": "u"
-      }
+      },
+      "duration": 10.48
     }
   ]
 }

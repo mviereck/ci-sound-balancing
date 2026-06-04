@@ -16,7 +16,8 @@
         "stationary": null,
         "loop_safe": null,
         "license": "PD"
-      }
+      },
+      "duration": 6.75
     },
     {
       "id": "noise-sound-bible-0001",
@@ -27,7 +28,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/5-Answering-Machine-Beep.html"
-      }
+      },
+      "duration": 2.06
     },
     {
       "id": "noise-sound-bible-0002",
@@ -38,7 +40,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1968-Apple-Bite.html"
-      }
+      },
+      "duration": 1.04
     },
     {
       "id": "noise-sound-bible-0003",
@@ -49,7 +52,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2087-Audience-Applause.html"
-      }
+      },
+      "duration": 6.56
     },
     {
       "id": "noise-sound-bible-0004",
@@ -60,7 +64,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1776-Babbling-Brook.html"
-      }
+      },
+      "duration": 11.05
     },
     {
       "id": "noise-sound-bible-0005",
@@ -71,7 +76,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/531-Background-Noise.html"
-      }
+      },
+      "duration": 12.41
     },
     {
       "id": "noise-sound-bible-0006",
@@ -82,7 +88,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2047-Banana-Slap.html"
-      }
+      },
+      "duration": 0.77
     },
     {
       "id": "noise-sound-bible-0007",
@@ -93,7 +100,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2056-Missile-Alert.html"
-      }
+      },
+      "duration": 21.06
     },
     {
       "id": "noise-sound-bible-0008",
@@ -104,7 +112,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1072-Busy-Signal.html"
-      }
+      },
+      "duration": 9.25
     },
     {
       "id": "noise-sound-bible-0009",
@@ -115,7 +124,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1198-Buzz-Fade-Out.html"
-      }
+      },
+      "duration": 2.12
     },
     {
       "id": "noise-sound-bible-0010",
@@ -126,7 +136,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1581-Buzz.html"
-      }
+      },
+      "duration": 7.5
     },
     {
       "id": "noise-sound-bible-0011",
@@ -137,7 +148,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1861-Canadian-Geese-Migration.html"
-      }
+      },
+      "duration": 5.09
     },
     {
       "id": "noise-sound-bible-0012",
@@ -148,7 +160,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1515-Best-Cardinal-Bird.html"
-      }
+      },
+      "duration": 3.13
     },
     {
       "id": "noise-sound-bible-0013",
@@ -159,7 +172,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1954-Cat-Meow-2.html"
-      }
+      },
+      "duration": 5.12
     },
     {
       "id": "noise-sound-bible-0014",
@@ -170,7 +184,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/920-Cicada.html"
-      }
+      },
+      "duration": 27.51
     },
     {
       "id": "noise-sound-bible-0015",
@@ -181,7 +196,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1266-City-Ambiance.html"
-      }
+      },
+      "duration": 22.23
     },
     {
       "id": "noise-sound-bible-0016",
@@ -192,7 +208,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2000-City-Centre.html"
-      }
+      },
+      "duration": 7.03
     },
     {
       "id": "noise-sound-bible-0017",
@@ -203,7 +220,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2081-Coin-Drop.html"
-      }
+      },
+      "duration": 3.24
     },
     {
       "id": "noise-sound-bible-0018",
@@ -214,7 +232,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2063-UFO-Landing.html"
-      }
+      },
+      "duration": 3.68
     },
     {
       "id": "noise-sound-bible-0019",
@@ -225,7 +244,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/418-Dialing-Phone-Number.html"
-      }
+      },
+      "duration": 6.92
     },
     {
       "id": "noise-sound-bible-0020",
@@ -236,7 +256,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1070-Dial-Tone.html"
-      }
+      },
+      "duration": 4.34
     },
     {
       "id": "noise-sound-bible-0021",
@@ -247,7 +268,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1667-Dishwasher.html"
-      }
+      },
+      "duration": 12.72
     },
     {
       "id": "noise-sound-bible-0022",
@@ -258,7 +280,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1850-Dove.html"
-      }
+      },
+      "duration": 4.15
     },
     {
       "id": "noise-sound-bible-0023",
@@ -269,7 +292,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/912-Eat-Chips.html"
-      }
+      },
+      "duration": 2.56
     },
     {
       "id": "noise-sound-bible-0024",
@@ -280,7 +304,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/976-Eating.html"
-      }
+      },
+      "duration": 2.46
     },
     {
       "id": "noise-sound-bible-0025",
@@ -291,7 +316,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1795-Electrical-Sweep.html"
-      }
+      },
+      "duration": 5.54
     },
     {
       "id": "noise-sound-bible-0026",
@@ -302,7 +328,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2048-Eye-Poke.html"
-      }
+      },
+      "duration": 0.65
     },
     {
       "id": "noise-sound-bible-0027",
@@ -313,7 +340,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1974-Falcon.html"
-      }
+      },
+      "duration": 3.0
     },
     {
       "id": "noise-sound-bible-0028",
@@ -324,7 +352,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/851-Fax-Machine.html"
-      }
+      },
+      "duration": 12.62
     },
     {
       "id": "noise-sound-bible-0029",
@@ -335,7 +364,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1978-Finger-Snapping.html"
-      }
+      },
+      "duration": 3.0
     },
     {
       "id": "noise-sound-bible-0030",
@@ -346,7 +376,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1511-Fire-Truck-Siren.html"
-      }
+      },
+      "duration": 14.89
     },
     {
       "id": "noise-sound-bible-0031",
@@ -357,7 +388,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1882-Football-Crowd.html"
-      }
+      },
+      "duration": 9.77
     },
     {
       "id": "noise-sound-bible-0032",
@@ -368,7 +400,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2057-Footsteps-On-Cement.html"
-      }
+      },
+      "duration": 25.15
     },
     {
       "id": "noise-sound-bible-0033",
@@ -379,7 +412,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1482-Frying-Chicken.html"
-      }
+      },
+      "duration": 6.69
     },
     {
       "id": "noise-sound-bible-0034",
@@ -390,7 +424,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2078-Gun-Battle-Sound.html"
-      }
+      },
+      "duration": 20.22
     },
     {
       "id": "noise-sound-bible-0035",
@@ -401,7 +436,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2082-Hammering.html"
-      }
+      },
+      "duration": 6.5
     },
     {
       "id": "noise-sound-bible-0036",
@@ -412,7 +448,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2074-Helicopter-Approach.html"
-      }
+      },
+      "duration": 20.04
     },
     {
       "id": "noise-sound-bible-0037",
@@ -423,7 +460,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1969-Hole-Punch.html"
-      }
+      },
+      "duration": 1.04
     },
     {
       "id": "noise-sound-bible-0038",
@@ -434,7 +472,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/315-Home-Phone-Ringing.html"
-      }
+      },
+      "duration": 16.25
     },
     {
       "id": "noise-sound-bible-0039",
@@ -445,7 +484,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1573-DTMF-Tones.html"
-      }
+      },
+      "duration": 4.05
     },
     {
       "id": "noise-sound-bible-0040",
@@ -456,7 +496,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1101-Large-Chains.html"
-      }
+      },
+      "duration": 9.14
     },
     {
       "id": "noise-sound-bible-0041",
@@ -467,7 +508,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1862-Mallard-Duck-Quacking.html"
-      }
+      },
+      "duration": 2.64
     },
     {
       "id": "noise-sound-bible-0042",
@@ -478,7 +520,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2062-Metal-Gong-1.html"
-      }
+      },
+      "duration": 6.27
     },
     {
       "id": "noise-sound-bible-0043",
@@ -489,7 +532,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1701-Modem.html"
-      }
+      },
+      "duration": 23.93
     },
     {
       "id": "noise-sound-bible-0044",
@@ -500,7 +544,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1591-Mosquito-Ringtone.html"
-      }
+      },
+      "duration": 30.04
     },
     {
       "id": "noise-sound-bible-0045",
@@ -511,7 +556,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2085-Annoying-Speaker-Pulsing.html"
-      }
+      },
+      "duration": 61.41
     },
     {
       "id": "noise-sound-bible-0046",
@@ -522,7 +568,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2091-MP5-SMG-9mm.html"
-      }
+      },
+      "duration": 0.81
     },
     {
       "id": "noise-sound-bible-0047",
@@ -533,7 +580,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1514-Neighborhood-Dogs-Barking.html"
-      }
+      },
+      "duration": 6.16
     },
     {
       "id": "noise-sound-bible-0048",
@@ -544,7 +592,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2059-Night-Rain-In-Russian-City.html"
-      }
+      },
+      "duration": 62.64
     },
     {
       "id": "noise-sound-bible-0049",
@@ -555,7 +604,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/2083-Crickets-Chirping-At-Night.html"
-      }
+      },
+      "duration": 49.35
     },
     {
       "id": "noise-sound-bible-0050",
@@ -566,7 +616,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2066-Page-Turn.html"
-      }
+      },
+      "duration": 1.06
     },
     {
       "id": "noise-sound-bible-0051",
@@ -577,7 +628,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/835-Pen-Clicking.html"
-      }
+      },
+      "duration": 2.06
     },
     {
       "id": "noise-sound-bible-0052",
@@ -588,7 +640,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1560-Phone-Dialing-With-Dialtone.html"
-      }
+      },
+      "duration": 6.76
     },
     {
       "id": "noise-sound-bible-0053",
@@ -599,7 +652,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1091-Phone-Off-Hook.html"
-      }
+      },
+      "duration": 12.88
     },
     {
       "id": "noise-sound-bible-0054",
@@ -610,7 +664,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1869-Phone-Ringing-8x.html"
-      }
+      },
+      "duration": 37.17
     },
     {
       "id": "noise-sound-bible-0055",
@@ -621,7 +676,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1518-Phone-Ringing.html"
-      }
+      },
+      "duration": 18.1
     },
     {
       "id": "noise-sound-bible-0056",
@@ -632,7 +688,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1994-Phone-Vibrating.html"
-      }
+      },
+      "duration": 7.89
     },
     {
       "id": "noise-sound-bible-0057",
@@ -643,7 +700,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2086-Piano-Breaking.html"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "noise-sound-bible-0058",
@@ -654,7 +712,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1992-Pin-Dropping.html"
-      }
+      },
+      "duration": 1.33
     },
     {
       "id": "noise-sound-bible-0059",
@@ -665,7 +724,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1819-Police.html"
-      }
+      },
+      "duration": 49.53
     },
     {
       "id": "noise-sound-bible-0060",
@@ -676,7 +736,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2070-Railroad-Crossing-Bell.html"
-      }
+      },
+      "duration": 45.14
     },
     {
       "id": "noise-sound-bible-0061",
@@ -687,7 +748,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2065-Rain-Inside-House.html"
-      }
+      },
+      "duration": 19.46
     },
     {
       "id": "noise-sound-bible-0062",
@@ -698,7 +760,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1158-Rain.html"
-      }
+      },
+      "duration": 15.91
     },
     {
       "id": "noise-sound-bible-0063",
@@ -709,7 +772,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1674-Record-Player-Static.html"
-      }
+      },
+      "duration": 14.39
     },
     {
       "id": "noise-sound-bible-0064",
@@ -720,7 +784,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1987-Rockslide-Small.html"
-      }
+      },
+      "duration": 2.85
     },
     {
       "id": "noise-sound-bible-0065",
@@ -731,7 +796,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2075-RPG-Plus-Shrapnel.html"
-      }
+      },
+      "duration": 7.24
     },
     {
       "id": "noise-sound-bible-0066",
@@ -742,7 +808,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/895-Rustle.html"
-      }
+      },
+      "duration": 2.72
     },
     {
       "id": "noise-sound-bible-0067",
@@ -753,7 +820,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2022-School-Fire-Alarm.html"
-      }
+      },
+      "duration": 27.74
     },
     {
       "id": "noise-sound-bible-0068",
@@ -764,7 +832,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2025-Sharpen-Knife.html"
-      }
+      },
+      "duration": 5.78
     },
     {
       "id": "noise-sound-bible-0069",
@@ -775,7 +844,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1744-Shooting-Star.html"
-      }
+      },
+      "duration": 1.18
     },
     {
       "id": "noise-sound-bible-0070",
@@ -786,7 +856,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1118-Short-Dial-Tone.html"
-      }
+      },
+      "duration": 2.06
     },
     {
       "id": "noise-sound-bible-0071",
@@ -797,7 +868,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2088-Silly-Farts.html"
-      }
+      },
+      "duration": 4.05
     },
     {
       "id": "noise-sound-bible-0072",
@@ -808,7 +880,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1349-Skype-Feedback.html"
-      }
+      },
+      "duration": 4.83
     },
     {
       "id": "noise-sound-bible-0073",
@@ -819,7 +892,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1870-Sqeaking-Door.html"
-      }
+      },
+      "duration": 7.9
     },
     {
       "id": "noise-sound-bible-0074",
@@ -830,7 +904,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1537-Stapling-Paper.html"
-      }
+      },
+      "duration": 2.06
     },
     {
       "id": "noise-sound-bible-0075",
@@ -841,7 +916,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1264-Sunday-Church-Ambiance.html"
-      }
+      },
+      "duration": 32.68
     },
     {
       "id": "noise-sound-bible-0076",
@@ -852,7 +928,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1411-Telephone-Ring.html"
-      }
+      },
+      "duration": 57.7
     },
     {
       "id": "noise-sound-bible-0077",
@@ -863,7 +940,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1531-Temple-Bell.html"
-      }
+      },
+      "duration": 5.15
     },
     {
       "id": "noise-sound-bible-0078",
@@ -874,7 +952,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2053-Thunder-Sound-FX.html"
-      }
+      },
+      "duration": 23.41
     },
     {
       "id": "noise-sound-bible-0079",
@@ -885,7 +964,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2015-Thunder-Strike-1.html"
-      }
+      },
+      "duration": 21.39
     },
     {
       "id": "noise-sound-bible-0080",
@@ -896,7 +976,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1525-Triangle-Dinner-Bell.html"
-      }
+      },
+      "duration": 4.7
     },
     {
       "id": "noise-sound-bible-0081",
@@ -907,7 +988,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1116-Truck-Idle-And-Pull-Off.html"
-      }
+      },
+      "duration": 16.85
     },
     {
       "id": "noise-sound-bible-0082",
@@ -918,7 +1000,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1846-Warbling-Vireo.html"
-      }
+      },
+      "duration": 3.6
     },
     {
       "id": "noise-sound-bible-0083",
@@ -929,7 +1012,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2071-Winchester-1873-Single-Shots.html"
-      }
+      },
+      "duration": 58.62
     },
     {
       "id": "noise-sound-bible-0084",
@@ -940,7 +1024,8 @@
         "loop_safe": null,
         "license": "PD",
         "license_url": "http://soundbible.com/1247-Wind.html"
-      }
+      },
+      "duration": 8.04
     },
     {
       "id": "noise-sound-bible-0085",
@@ -951,7 +1036,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/1377-Woop-Woop.html"
-      }
+      },
+      "duration": 2.06
     },
     {
       "id": "noise-sound-bible-0086",
@@ -962,7 +1048,8 @@
         "loop_safe": null,
         "license": "CC-BY-3.0",
         "license_url": "http://soundbible.com/2068-Woosh.html"
-      }
+      },
+      "duration": 0.55
     }
   ]
 }

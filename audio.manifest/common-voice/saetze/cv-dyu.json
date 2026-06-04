@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "38501518",
         "gender": "u"
-      }
+      },
+      "duration": 5.98
     },
     {
       "id": "38501747",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "38501747",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "38509105",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "38509105",
         "gender": "u"
-      }
+      },
+      "duration": 4.54
     },
     {
       "id": "38501627",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "38501627",
         "gender": "u"
-      }
+      },
+      "duration": 8.75
     },
     {
       "id": "38501456",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "38501456",
         "gender": "u"
-      }
+      },
+      "duration": 7.02
     },
     {
       "id": "38509028",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "38509028",
         "gender": "u"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "38509058",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "38509058",
         "gender": "u"
-      }
+      },
+      "duration": 4.43
     },
     {
       "id": "38501364",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "38501364",
         "gender": "u"
-      }
+      },
+      "duration": 6.48
     },
     {
       "id": "38509125",
@@ -92,7 +100,8 @@
       "tags": {
         "source_item_id": "38509125",
         "gender": "u"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "38501571",
@@ -101,7 +110,8 @@
       "tags": {
         "source_item_id": "38501571",
         "gender": "u"
-      }
+      },
+      "duration": 5.51
     },
     {
       "id": "38501537",
@@ -110,7 +120,8 @@
       "tags": {
         "source_item_id": "38501537",
         "gender": "u"
-      }
+      },
+      "duration": 4.68
     },
     {
       "id": "38501460",
@@ -119,7 +130,8 @@
       "tags": {
         "source_item_id": "38501460",
         "gender": "u"
-      }
+      },
+      "duration": 3.17
     }
   ]
 }

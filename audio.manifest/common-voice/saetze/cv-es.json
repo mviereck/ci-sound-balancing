@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "18310112",
         "gender": "u"
-      }
+      },
+      "duration": 4.01
     },
     {
       "id": "18311272",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "18311272",
         "gender": "u"
-      }
+      },
+      "duration": 5.66
     },
     {
       "id": "18311404",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "18311404",
         "gender": "u"
-      }
+      },
+      "duration": 4.7
     },
     {
       "id": "18311447",
@@ -48,7 +51,8 @@
         "source_item_id": "18311447",
         "gender": "u",
         "accent": "España: Sur peninsular (Andalucia, Extremadura, Murcia)"
-      }
+      },
+      "duration": 5.5
     },
     {
       "id": "18311715",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "18311715",
         "gender": "u"
-      }
+      },
+      "duration": 3.79
     },
     {
       "id": "18312006",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "18312006",
         "gender": "u"
-      }
+      },
+      "duration": 5.26
     },
     {
       "id": "18313965",
@@ -76,7 +82,8 @@
         "source_item_id": "18313965",
         "gender": "u",
         "accent": "España: Islas Canarias"
-      }
+      },
+      "duration": 4.08
     },
     {
       "id": "18317307",
@@ -85,7 +92,8 @@
       "tags": {
         "source_item_id": "18317307",
         "gender": "u"
-      }
+      },
+      "duration": 5.02
     },
     {
       "id": "18319376",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "18319376",
         "gender": "u"
-      }
+      },
+      "duration": 4.42
     },
     {
       "id": "18320021",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "18320021",
         "gender": "u"
-      }
+      },
+      "duration": 4.85
     }
   ]
 }

@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "35844569",
         "gender": "u"
-      }
+      },
+      "duration": 9.9
     },
     {
       "id": "36880045",
@@ -30,7 +31,8 @@
         "source_item_id": "36880045",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 7.06
     },
     {
       "id": "36880067",
@@ -40,7 +42,8 @@
         "source_item_id": "36880067",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 7.78
     },
     {
       "id": "35844225",
@@ -49,7 +52,8 @@
       "tags": {
         "source_item_id": "35844225",
         "gender": "u"
-      }
+      },
+      "duration": 9.58
     },
     {
       "id": "36880207",
@@ -59,7 +63,8 @@
         "source_item_id": "36880207",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 9.29
     },
     {
       "id": "36880408",
@@ -69,7 +74,8 @@
         "source_item_id": "36880408",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 5.87
     },
     {
       "id": "35891712",
@@ -78,7 +84,8 @@
       "tags": {
         "source_item_id": "35891712",
         "gender": "u"
-      }
+      },
+      "duration": 8.78
     },
     {
       "id": "35890848",
@@ -87,7 +94,8 @@
       "tags": {
         "source_item_id": "35890848",
         "gender": "u"
-      }
+      },
+      "duration": 8.21
     },
     {
       "id": "36880081",
@@ -97,7 +105,8 @@
         "source_item_id": "36880081",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 3.6
     },
     {
       "id": "36880358",
@@ -107,7 +116,8 @@
         "source_item_id": "36880358",
         "gender": "u",
         "accent": "서울"
-      }
+      },
+      "duration": 4.79
     },
     {
       "id": "35845211",
@@ -116,7 +126,8 @@
       "tags": {
         "source_item_id": "35845211",
         "gender": "u"
-      }
+      },
+      "duration": 6.16
     },
     {
       "id": "35971984",
@@ -125,7 +136,8 @@
       "tags": {
         "source_item_id": "35971984",
         "gender": "u"
-      }
+      },
+      "duration": 6.05
     },
     {
       "id": "36985085",
@@ -134,7 +146,8 @@
       "tags": {
         "source_item_id": "36985085",
         "gender": "u"
-      }
+      },
+      "duration": 7.38
     }
   ]
 }

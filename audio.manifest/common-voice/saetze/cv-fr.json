@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "17301107",
         "gender": "u"
-      }
+      },
+      "duration": 4.94
     },
     {
       "id": "17301876",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "17301876",
         "gender": "u"
-      }
+      },
+      "duration": 3.14
     },
     {
       "id": "17301909",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "17301909",
         "gender": "u"
-      }
+      },
+      "duration": 5.47
     },
     {
       "id": "17302240",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "17302240",
         "gender": "u"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "17303225",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "17303225",
         "gender": "u"
-      }
+      },
+      "duration": 3.7
     },
     {
       "id": "17303270",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "17303270",
         "gender": "u"
-      }
+      },
+      "duration": 3.96
     },
     {
       "id": "17303636",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "17303636",
         "gender": "u"
-      }
+      },
+      "duration": 4.99
     },
     {
       "id": "17303641",
@@ -84,7 +91,8 @@
         "source_item_id": "17303641",
         "gender": "u",
         "accent": "Français de France"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "17304146",
@@ -94,7 +102,8 @@
         "source_item_id": "17304146",
         "gender": "u",
         "accent": "Français de France"
-      }
+      },
+      "duration": 3.0
     },
     {
       "id": "17304740",
@@ -104,7 +113,8 @@
         "source_item_id": "17304740",
         "gender": "u",
         "accent": "Français de France"
-      }
+      },
+      "duration": 3.89
     }
   ]
 }

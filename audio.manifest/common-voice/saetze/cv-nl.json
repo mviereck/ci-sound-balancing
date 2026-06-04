@@ -21,7 +21,8 @@
         "source_item_id": "17726626",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 3.14
     },
     {
       "id": "17838891",
@@ -31,7 +32,8 @@
         "source_item_id": "17838891",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 5.28
     },
     {
       "id": "21821292",
@@ -41,7 +43,8 @@
         "source_item_id": "21821292",
         "gender": "u",
         "accent": "Surinaams Nederlands"
-      }
+      },
+      "duration": 5.38
     },
     {
       "id": "22065732",
@@ -51,7 +54,8 @@
         "source_item_id": "22065732",
         "gender": "u",
         "accent": "Belgisch Nederlands"
-      }
+      },
+      "duration": 6.38
     },
     {
       "id": "22451961",
@@ -61,7 +65,8 @@
         "source_item_id": "22451961",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 3.58
     },
     {
       "id": "22526031",
@@ -71,7 +76,8 @@
         "source_item_id": "22526031",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 7.58
     },
     {
       "id": "22754543",
@@ -81,7 +87,8 @@
         "source_item_id": "22754543",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 3.86
     },
     {
       "id": "22916535",
@@ -91,7 +98,8 @@
         "source_item_id": "22916535",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 4.46
     },
     {
       "id": "23373535",
@@ -101,7 +109,8 @@
         "source_item_id": "23373535",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 4.08
     },
     {
       "id": "23522441",
@@ -111,7 +120,8 @@
         "source_item_id": "23522441",
         "gender": "u",
         "accent": "Nederlands Nederlands"
-      }
+      },
+      "duration": 5.26
     }
   ]
 }

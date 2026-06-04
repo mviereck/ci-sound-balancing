@@ -26,7 +26,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 143.59,
         "original_end_s": 162.66
-      }
+      },
+      "duration": 19.08
     },
     {
       "id": "1770_3135_000001",
@@ -40,7 +41,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 49.01,
         "original_end_s": 63.16
-      }
+      },
+      "duration": 14.16
     },
     {
       "id": "1770_3135_000002",
@@ -54,7 +56,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 109.3,
         "original_end_s": 126.3
-      }
+      },
+      "duration": 17.01
     },
     {
       "id": "1770_3135_000003",
@@ -68,7 +71,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 76.86,
         "original_end_s": 89.49
-      }
+      },
+      "duration": 12.64
     },
     {
       "id": "1770_3135_000004",
@@ -82,7 +86,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 89.49,
         "original_end_s": 109.3
-      }
+      },
+      "duration": 19.82
     },
     {
       "id": "1770_3135_000005",
@@ -96,7 +101,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 126.3,
         "original_end_s": 143.59
-      }
+      },
+      "duration": 17.3
     },
     {
       "id": "1770_3135_000006",
@@ -110,7 +116,8 @@
         "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
         "original_start_s": 63.16,
         "original_end_s": 76.86
-      }
+      },
+      "duration": 13.71
     }
   ]
 }

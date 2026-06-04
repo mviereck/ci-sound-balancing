@@ -17,7 +17,8 @@
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "broadband"
-      }
+      },
+      "duration": 300.0
     },
     {
       "id": "car",
@@ -28,7 +29,8 @@
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "lowpass"
-      }
+      },
+      "duration": 300.0
     },
     {
       "id": "white",
@@ -39,7 +41,8 @@
         "stationary": "y",
         "loop_safe": "y",
         "spectrum": "broadband"
-      }
+      },
+      "duration": 300.0
     }
   ]
 }

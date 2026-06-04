@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "33799190",
         "gender": "u"
-      }
+      },
+      "duration": 2.88
     },
     {
       "id": "32167632",
@@ -30,7 +31,8 @@
         "source_item_id": "32167632",
         "gender": "u",
         "accent": "偏漳腔,桃園"
-      }
+      },
+      "duration": 2.74
     },
     {
       "id": "32332804",
@@ -40,7 +42,8 @@
         "source_item_id": "32332804",
         "gender": "u",
         "accent": "漳州腔"
-      }
+      },
+      "duration": 3.78
     },
     {
       "id": "38073544",
@@ -50,7 +53,8 @@
         "source_item_id": "38073544",
         "gender": "u",
         "accent": "台北腔"
-      }
+      },
+      "duration": 2.38
     },
     {
       "id": "32136332",
@@ -60,7 +64,8 @@
         "source_item_id": "32136332",
         "gender": "u",
         "accent": "偏漳腔,桃園"
-      }
+      },
+      "duration": 2.38
     },
     {
       "id": "32146726",
@@ -70,7 +75,8 @@
         "source_item_id": "32146726",
         "gender": "u",
         "accent": "偏漳腔,桃園"
-      }
+      },
+      "duration": 3.1
     },
     {
       "id": "32354655",
@@ -80,7 +86,8 @@
         "source_item_id": "32354655",
         "gender": "u",
         "accent": "漳州腔"
-      }
+      },
+      "duration": 1.91
     },
     {
       "id": "32332810",
@@ -90,7 +97,8 @@
         "source_item_id": "32332810",
         "gender": "u",
         "accent": "漳州腔"
-      }
+      },
+      "duration": 2.52
     },
     {
       "id": "32136184",
@@ -100,7 +108,8 @@
         "source_item_id": "32136184",
         "gender": "u",
         "accent": "偏漳腔,桃園"
-      }
+      },
+      "duration": 1.98
     },
     {
       "id": "30911700",
@@ -109,7 +118,8 @@
       "tags": {
         "source_item_id": "30911700",
         "gender": "u"
-      }
+      },
+      "duration": 2.16
     }
   ]
 }

@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "27565097",
         "gender": "u"
-      }
+      },
+      "duration": 10.26
     },
     {
       "id": "27872240",
@@ -30,7 +31,8 @@
         "source_item_id": "27872240",
         "gender": "u",
         "accent": "Nashik Rural - Dindori,West Maharashtra"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "30388718",
@@ -40,7 +42,8 @@
         "source_item_id": "30388718",
         "gender": "u",
         "accent": "Praman,Boli"
-      }
+      },
+      "duration": 5.76
     },
     {
       "id": "30584799",
@@ -49,7 +52,8 @@
       "tags": {
         "source_item_id": "30584799",
         "gender": "u"
-      }
+      },
+      "duration": 8.21
     },
     {
       "id": "30584995",
@@ -58,7 +62,8 @@
       "tags": {
         "source_item_id": "30584995",
         "gender": "u"
-      }
+      },
+      "duration": 6.95
     },
     {
       "id": "30585613",
@@ -67,7 +72,8 @@
       "tags": {
         "source_item_id": "30585613",
         "gender": "u"
-      }
+      },
+      "duration": 5.8
     },
     {
       "id": "30592694",
@@ -76,7 +82,8 @@
       "tags": {
         "source_item_id": "30592694",
         "gender": "u"
-      }
+      },
+      "duration": 5.76
     },
     {
       "id": "30647129",
@@ -85,7 +92,8 @@
       "tags": {
         "source_item_id": "30647129",
         "gender": "u"
-      }
+      },
+      "duration": 4.07
     },
     {
       "id": "30931794",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "30931794",
         "gender": "u"
-      }
+      },
+      "duration": 5.4
     },
     {
       "id": "30932326",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "30932326",
         "gender": "u"
-      }
+      },
+      "duration": 3.89
     },
     {
       "id": "30928254",
@@ -112,7 +122,8 @@
       "tags": {
         "source_item_id": "30928254",
         "gender": "u"
-      }
+      },
+      "duration": 5.87
     },
     {
       "id": "30721587",
@@ -121,7 +132,8 @@
       "tags": {
         "source_item_id": "30721587",
         "gender": "u"
-      }
+      },
+      "duration": 6.88
     },
     {
       "id": "30390762",
@@ -131,7 +143,8 @@
         "source_item_id": "30390762",
         "gender": "u",
         "accent": "Praman,Boli"
-      }
+      },
+      "duration": 3.64
     },
     {
       "id": "30639338",
@@ -140,7 +153,8 @@
       "tags": {
         "source_item_id": "30639338",
         "gender": "u"
-      }
+      },
+      "duration": 8.28
     },
     {
       "id": "27843940",
@@ -149,7 +163,8 @@
       "tags": {
         "source_item_id": "27843940",
         "gender": "u"
-      }
+      },
+      "duration": 5.18
     },
     {
       "id": "30400158",
@@ -159,7 +174,8 @@
         "source_item_id": "30400158",
         "gender": "u",
         "accent": "Nashik Rural - Dindori,West Maharashtra"
-      }
+      },
+      "duration": 3.92
     },
     {
       "id": "30588196",
@@ -168,7 +184,8 @@
       "tags": {
         "source_item_id": "30588196",
         "gender": "u"
-      }
+      },
+      "duration": 10.08
     },
     {
       "id": "30657485",
@@ -177,7 +194,8 @@
       "tags": {
         "source_item_id": "30657485",
         "gender": "u"
-      }
+      },
+      "duration": 6.66
     },
     {
       "id": "30390350",
@@ -187,7 +205,8 @@
         "source_item_id": "30390350",
         "gender": "u",
         "accent": "Praman,Boli"
-      }
+      },
+      "duration": 3.78
     }
   ]
 }

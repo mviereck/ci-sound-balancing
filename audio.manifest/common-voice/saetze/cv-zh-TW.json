@@ -21,7 +21,8 @@
         "source_item_id": "31046937",
         "gender": "u",
         "accent": "出生地：新北市"
-      }
+      },
+      "duration": 2.92
     },
     {
       "id": "30161851",
@@ -31,7 +32,8 @@
         "source_item_id": "30161851",
         "gender": "u",
         "accent": "出生地：桃園市,馬祖福州人,馬祖人混合客家人家庭"
-      }
+      },
+      "duration": 5.04
     },
     {
       "id": "30586068",
@@ -40,7 +42,8 @@
       "tags": {
         "source_item_id": "30586068",
         "gender": "u"
-      }
+      },
+      "duration": 3.71
     },
     {
       "id": "24477433",
@@ -50,7 +53,8 @@
         "source_item_id": "24477433",
         "gender": "u",
         "accent": "出生地：臺北市"
-      }
+      },
+      "duration": 2.34
     },
     {
       "id": "30242824",
@@ -60,7 +64,8 @@
         "source_item_id": "30242824",
         "gender": "u",
         "accent": "出生地：新北市"
-      }
+      },
+      "duration": 1.98
     },
     {
       "id": "31113803",
@@ -69,7 +74,8 @@
       "tags": {
         "source_item_id": "31113803",
         "gender": "u"
-      }
+      },
+      "duration": 1.98
     },
     {
       "id": "26819679",
@@ -78,7 +84,8 @@
       "tags": {
         "source_item_id": "26819679",
         "gender": "u"
-      }
+      },
+      "duration": 3.13
     },
     {
       "id": "19877574",
@@ -88,7 +95,8 @@
         "source_item_id": "19877574",
         "gender": "u",
         "accent": "出生地：臺中市"
-      }
+      },
+      "duration": 2.81
     },
     {
       "id": "30584884",
@@ -98,7 +106,8 @@
         "source_item_id": "30584884",
         "gender": "u",
         "accent": "可以很正經也可以很溫柔,可以很俏皮,可以很撒嬌"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "25042181",
@@ -107,7 +116,8 @@
       "tags": {
         "source_item_id": "25042181",
         "gender": "u"
-      }
+      },
+      "duration": 3.6
     }
   ]
 }

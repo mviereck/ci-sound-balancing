@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "18026324",
         "gender": "u"
-      }
+      },
+      "duration": 2.76
     },
     {
       "id": "20975377",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "20975377",
         "gender": "u"
-      }
+      },
+      "duration": 5.71
     },
     {
       "id": "23613876",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "23613876",
         "gender": "u"
-      }
+      },
+      "duration": 4.63
     },
     {
       "id": "23902311",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "23902311",
         "gender": "u"
-      }
+      },
+      "duration": 8.18
     },
     {
       "id": "23659928",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "23659928",
         "gender": "u"
-      }
+      },
+      "duration": 6.7
     },
     {
       "id": "35641930",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "35641930",
         "gender": "u"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "25013521",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "25013521",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "23909260",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "23909260",
         "gender": "u"
-      }
+      },
+      "duration": 6.26
     },
     {
       "id": "23654564",
@@ -92,7 +100,8 @@
       "tags": {
         "source_item_id": "23654564",
         "gender": "u"
-      }
+      },
+      "duration": 5.14
     },
     {
       "id": "23654545",
@@ -101,7 +110,8 @@
       "tags": {
         "source_item_id": "23654545",
         "gender": "u"
-      }
+      },
+      "duration": 3.91
     },
     {
       "id": "25070857",
@@ -110,7 +120,8 @@
       "tags": {
         "source_item_id": "25070857",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "23659640",
@@ -119,7 +130,8 @@
       "tags": {
         "source_item_id": "23659640",
         "gender": "u"
-      }
+      },
+      "duration": 4.97
     },
     {
       "id": "35583920",
@@ -128,7 +140,8 @@
       "tags": {
         "source_item_id": "35583920",
         "gender": "u"
-      }
+      },
+      "duration": 3.42
     },
     {
       "id": "23906590",
@@ -137,7 +150,8 @@
       "tags": {
         "source_item_id": "23906590",
         "gender": "u"
-      }
+      },
+      "duration": 6.74
     }
   ]
 }

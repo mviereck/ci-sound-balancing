@@ -17,587 +17,704 @@
     {
       "id": "22592_OLSAfemale_TTS",
       "text": "Tanja kauft fünf weiße Autos.",
-      "audio": "22592_OLSAfemale_TTS.wav"
+      "audio": "22592_OLSAfemale_TTS.wav",
+      "duration": 2.6
     },
     {
       "id": "24330_OLSAfemale_TTS",
       "text": "Tanja schenkt acht nasse Blumen.",
-      "audio": "24330_OLSAfemale_TTS.wav"
+      "audio": "24330_OLSAfemale_TTS.wav",
+      "duration": 2.2
     },
     {
       "id": "24643_OLSAfemale_TTS",
       "text": "Tanja schenkt zwei schwere Bilder.",
-      "audio": "24643_OLSAfemale_TTS.wav"
+      "audio": "24643_OLSAfemale_TTS.wav",
+      "duration": 2.36
     },
     {
       "id": "25208_OLSAfemale_TTS",
       "text": "Tanja verleiht sieben große Steine.",
-      "audio": "25208_OLSAfemale_TTS.wav"
+      "audio": "25208_OLSAfemale_TTS.wav",
+      "duration": 2.55
     },
     {
       "id": "25656_OLSAfemale_TTS",
       "text": "Tanja verleiht zwei grüne Messer.",
-      "audio": "25656_OLSAfemale_TTS.wav"
+      "audio": "25656_OLSAfemale_TTS.wav",
+      "duration": 2.48
     },
     {
       "id": "26165_OLSAfemale_TTS",
       "text": "Tanja hat neun teure Sessel.",
-      "audio": "26165_OLSAfemale_TTS.wav"
+      "audio": "26165_OLSAfemale_TTS.wav",
+      "duration": 2.12
     },
     {
       "id": "27106_OLSAfemale_TTS",
       "text": "Tanja gewann neun große Messer.",
-      "audio": "27106_OLSAfemale_TTS.wav"
+      "audio": "27106_OLSAfemale_TTS.wav",
+      "duration": 2.29
     },
     {
       "id": "27114_OLSAfemale_TTS",
       "text": "Tanja gewann neun kleine Dosen.",
-      "audio": "27114_OLSAfemale_TTS.wav"
+      "audio": "27114_OLSAfemale_TTS.wav",
+      "duration": 2.44
     },
     {
       "id": "27848_OLSAfemale_TTS",
       "text": "Tanja gewann zwölf schwere Steine.",
-      "audio": "27848_OLSAfemale_TTS.wav"
+      "audio": "27848_OLSAfemale_TTS.wav",
+      "duration": 2.56
     },
     {
       "id": "28365_OLSAfemale_TTS",
       "text": "Tanja nahm acht teure Sessel.",
-      "audio": "28365_OLSAfemale_TTS.wav"
+      "audio": "28365_OLSAfemale_TTS.wav",
+      "duration": 2.23
     },
     {
       "id": "29097_OLSAfemale_TTS",
       "text": "Tanja malt drei weiße Schuhe.",
-      "audio": "29097_OLSAfemale_TTS.wav"
+      "audio": "29097_OLSAfemale_TTS.wav",
+      "duration": 2.1
     },
     {
       "id": "30779_OLSAfemale_TTS",
       "text": "Ulrich bekommt achtzehn schöne Ringe.",
-      "audio": "30779_OLSAfemale_TTS.wav"
+      "audio": "30779_OLSAfemale_TTS.wav",
+      "duration": 2.39
     },
     {
       "id": "31737_OLSAfemale_TTS",
       "text": "Ulrich sieht achtzehn nasse Schuhe.",
-      "audio": "31737_OLSAfemale_TTS.wav"
+      "audio": "31737_OLSAfemale_TTS.wav",
+      "duration": 2.25
     },
     {
       "id": "32981_OLSAfemale_TTS",
       "text": "Ulrich kauft elf rote Tassen.",
-      "audio": "32981_OLSAfemale_TTS.wav"
+      "audio": "32981_OLSAfemale_TTS.wav",
+      "duration": 2.38
     },
     {
       "id": "33521_OLSAfemale_TTS",
       "text": "Ulrich gibt fünf alte Tassen.",
-      "audio": "33521_OLSAfemale_TTS.wav"
+      "audio": "33521_OLSAfemale_TTS.wav",
+      "duration": 2.23
     },
     {
       "id": "33773_OLSAfemale_TTS",
       "text": "Ulrich gibt achtzehn schöne Bilder.",
-      "audio": "33773_OLSAfemale_TTS.wav"
+      "audio": "33773_OLSAfemale_TTS.wav",
+      "duration": 2.36
     },
     {
       "id": "34112_OLSAfemale_TTS",
       "text": "Ulrich schenkt neun kleine Autos.",
-      "audio": "34112_OLSAfemale_TTS.wav"
+      "audio": "34112_OLSAfemale_TTS.wav",
+      "duration": 2.57
     },
     {
       "id": "36533_OLSAfemale_TTS",
       "text": "Ulrich hat fünf nasse Bilder.",
-      "audio": "36533_OLSAfemale_TTS.wav"
+      "audio": "36533_OLSAfemale_TTS.wav",
+      "duration": 2.12
     },
     {
       "id": "36678_OLSAfemale_TTS",
       "text": "Ulrich hat zwei schöne Steine.",
-      "audio": "36678_OLSAfemale_TTS.wav"
+      "audio": "36678_OLSAfemale_TTS.wav",
+      "duration": 2.28
     },
     {
       "id": "37315_OLSAfemale_TTS",
       "text": "Ulrich gewann acht kleine Sessel.",
-      "audio": "37315_OLSAfemale_TTS.wav"
+      "audio": "37315_OLSAfemale_TTS.wav",
+      "duration": 2.27
     },
     {
       "id": "37633_OLSAfemale_TTS",
       "text": "Ulrich gewann zwei nasse Bilder.",
-      "audio": "37633_OLSAfemale_TTS.wav"
+      "audio": "37633_OLSAfemale_TTS.wav",
+      "duration": 2.16
     },
     {
       "id": "37934_OLSAfemale_TTS",
       "text": "Ulrich gewann elf nasse Dosen.",
-      "audio": "37934_OLSAfemale_TTS.wav"
+      "audio": "37934_OLSAfemale_TTS.wav",
+      "duration": 2.25
     },
     {
       "id": "38324_OLSAfemale_TTS",
       "text": "Ulrich nahm acht alte Dosen.",
-      "audio": "38324_OLSAfemale_TTS.wav"
+      "audio": "38324_OLSAfemale_TTS.wav",
+      "duration": 2.11
     },
     {
       "id": "38974_OLSAfemale_TTS",
       "text": "Ulrich nahm elf schöne Dosen.",
-      "audio": "38974_OLSAfemale_TTS.wav"
+      "audio": "38974_OLSAfemale_TTS.wav",
+      "duration": 2.11
     },
     {
       "id": "39356_OLSAfemale_TTS",
       "text": "Ulrich malt acht grüne Messer.",
-      "audio": "39356_OLSAfemale_TTS.wav"
+      "audio": "39356_OLSAfemale_TTS.wav",
+      "duration": 2.1
     },
     {
       "id": "39537_OLSAfemale_TTS",
       "text": "Ulrich malt fünf nasse Schuhe.",
-      "audio": "39537_OLSAfemale_TTS.wav"
+      "audio": "39537_OLSAfemale_TTS.wav",
+      "duration": 2.12
     },
     {
       "id": "40544_OLSAfemale_TTS",
       "text": "Britta bekommt fünf schwere Dosen.",
-      "audio": "40544_OLSAfemale_TTS.wav"
+      "audio": "40544_OLSAfemale_TTS.wav",
+      "duration": 2.62
     },
     {
       "id": "40629_OLSAfemale_TTS",
       "text": "Britta bekommt zwei alte Ringe.",
-      "audio": "40629_OLSAfemale_TTS.wav"
+      "audio": "40629_OLSAfemale_TTS.wav",
+      "duration": 2.33
     },
     {
       "id": "41511_OLSAfemale_TTS",
       "text": "Britta sieht fünf kleine Tassen.",
-      "audio": "41511_OLSAfemale_TTS.wav"
+      "audio": "41511_OLSAfemale_TTS.wav",
+      "duration": 2.14
     },
     {
       "id": "41876_OLSAfemale_TTS",
       "text": "Britta sieht zwölf schöne Messer.",
-      "audio": "41876_OLSAfemale_TTS.wav"
+      "audio": "41876_OLSAfemale_TTS.wav",
+      "duration": 2.35
     },
     {
       "id": "42597_OLSAfemale_TTS",
       "text": "Britta kauft fünf weiße Schuhe.",
-      "audio": "42597_OLSAfemale_TTS.wav"
+      "audio": "42597_OLSAfemale_TTS.wav",
+      "duration": 2.3
     },
     {
       "id": "43323_OLSAfemale_TTS",
       "text": "Britta gibt acht alte Bilder.",
-      "audio": "43323_OLSAfemale_TTS.wav"
+      "audio": "43323_OLSAfemale_TTS.wav",
+      "duration": 2.01
     },
     {
       "id": "43431_OLSAfemale_TTS",
       "text": "Britta gibt vier nasse Tassen.",
-      "audio": "43431_OLSAfemale_TTS.wav"
+      "audio": "43431_OLSAfemale_TTS.wav",
+      "duration": 2.14
     },
     {
       "id": "44053_OLSAfemale_TTS",
       "text": "Britta schenkt drei grüne Bilder.",
-      "audio": "44053_OLSAfemale_TTS.wav"
+      "audio": "44053_OLSAfemale_TTS.wav",
+      "duration": 2.48
     },
     {
       "id": "44617_OLSAfemale_TTS",
       "text": "Britta schenkt zwei kleine Schuhe.",
-      "audio": "44617_OLSAfemale_TTS.wav"
+      "audio": "44617_OLSAfemale_TTS.wav",
+      "duration": 2.33
     },
     {
       "id": "45655_OLSAfemale_TTS",
       "text": "Britta verleiht zwei grüne Sessel.",
-      "audio": "45655_OLSAfemale_TTS.wav"
+      "audio": "45655_OLSAfemale_TTS.wav",
+      "duration": 2.46
     },
     {
       "id": "45826_OLSAfemale_TTS",
       "text": "Britta verleiht zwölf alte Messer.",
-      "audio": "45826_OLSAfemale_TTS.wav"
+      "audio": "45826_OLSAfemale_TTS.wav",
+      "duration": 2.45
     },
     {
       "id": "46041_OLSAfemale_TTS",
       "text": "Britta hat drei schwere Tassen.",
-      "audio": "46041_OLSAfemale_TTS.wav"
+      "audio": "46041_OLSAfemale_TTS.wav",
+      "duration": 2.13
     },
     {
       "id": "46950_OLSAfemale_TTS",
       "text": "Britta hat elf grüne Blumen.",
-      "audio": "46950_OLSAfemale_TTS.wav"
+      "audio": "46950_OLSAfemale_TTS.wav",
+      "duration": 2.12
     },
     {
       "id": "47022_OLSAfemale_TTS",
       "text": "Britta gewann drei alte Autos.",
-      "audio": "47022_OLSAfemale_TTS.wav"
+      "audio": "47022_OLSAfemale_TTS.wav",
+      "duration": 2.4
     },
     {
       "id": "49698_OLSAfemale_TTS",
       "text": "Britta malt zwei weiße Steine.",
-      "audio": "49698_OLSAfemale_TTS.wav"
+      "audio": "49698_OLSAfemale_TTS.wav",
+      "duration": 2.26
     },
     {
       "id": "50360_OLSAfemale_TTS",
       "text": "Wolfgang bekommt acht teure Blumen.",
-      "audio": "50360_OLSAfemale_TTS.wav"
+      "audio": "50360_OLSAfemale_TTS.wav",
+      "duration": 2.58
     },
     {
       "id": "50628_OLSAfemale_TTS",
       "text": "Wolfgang bekommt zwei alte Steine.",
-      "audio": "50628_OLSAfemale_TTS.wav"
+      "audio": "50628_OLSAfemale_TTS.wav",
+      "duration": 2.76
     },
     {
       "id": "50702_OLSAfemale_TTS",
       "text": "Wolfgang bekommt achtzehn große Autos.",
-      "audio": "50702_OLSAfemale_TTS.wav"
+      "audio": "50702_OLSAfemale_TTS.wav",
+      "duration": 2.99
     },
     {
       "id": "51278_OLSAfemale_TTS",
       "text": "Wolfgang sieht sieben schöne Steine.",
-      "audio": "51278_OLSAfemale_TTS.wav"
+      "audio": "51278_OLSAfemale_TTS.wav",
+      "duration": 2.49
     },
     {
       "id": "51619_OLSAfemale_TTS",
       "text": "Wolfgang sieht zwei kleine Ringe.",
-      "audio": "51619_OLSAfemale_TTS.wav"
+      "audio": "51619_OLSAfemale_TTS.wav",
+      "duration": 2.17
     },
     {
       "id": "51994_OLSAfemale_TTS",
       "text": "Wolfgang sieht elf weiße Dosen.",
-      "audio": "51994_OLSAfemale_TTS.wav"
+      "audio": "51994_OLSAfemale_TTS.wav",
+      "duration": 2.47
     },
     {
       "id": "52757_OLSAfemale_TTS",
       "text": "Wolfgang kauft achtzehn grüne Schuhe.",
-      "audio": "52757_OLSAfemale_TTS.wav"
+      "audio": "52757_OLSAfemale_TTS.wav",
+      "duration": 2.58
     },
     {
       "id": "53183_OLSAfemale_TTS",
       "text": "Wolfgang gibt neun rote Bilder.",
-      "audio": "53183_OLSAfemale_TTS.wav"
+      "audio": "53183_OLSAfemale_TTS.wav",
+      "duration": 2.19
     },
     {
       "id": "54727_OLSAfemale_TTS",
       "text": "Wolfgang schenkt achtzehn alte Schuhe.",
-      "audio": "54727_OLSAfemale_TTS.wav"
+      "audio": "54727_OLSAfemale_TTS.wav",
+      "duration": 2.71
     },
     {
       "id": "54866_OLSAfemale_TTS",
       "text": "Wolfgang schenkt zwölf teure Messer.",
-      "audio": "54866_OLSAfemale_TTS.wav"
+      "audio": "54866_OLSAfemale_TTS.wav",
+      "duration": 2.59
     },
     {
       "id": "54914_OLSAfemale_TTS",
       "text": "Wolfgang schenkt elf kleine Dosen.",
-      "audio": "54914_OLSAfemale_TTS.wav"
+      "audio": "54914_OLSAfemale_TTS.wav",
+      "duration": 2.61
     },
     {
       "id": "55211_OLSAfemale_TTS",
       "text": "Wolfgang verleiht sieben kleine Tassen.",
-      "audio": "55211_OLSAfemale_TTS.wav"
+      "audio": "55211_OLSAfemale_TTS.wav",
+      "duration": 2.81
     },
     {
       "id": "55569_OLSAfemale_TTS",
       "text": "Wolfgang verleiht fünf teure Ringe.",
-      "audio": "55569_OLSAfemale_TTS.wav"
+      "audio": "55569_OLSAfemale_TTS.wav",
+      "duration": 2.48
     },
     {
       "id": "56472_OLSAfemale_TTS",
       "text": "Wolfgang hat vier schöne Autos.",
-      "audio": "56472_OLSAfemale_TTS.wav"
+      "audio": "56472_OLSAfemale_TTS.wav",
+      "duration": 2.54
     },
     {
       "id": "59890_OLSAfemale_TTS",
       "text": "Wolfgang malt zwölf weiße Blumen.",
-      "audio": "59890_OLSAfemale_TTS.wav"
+      "audio": "59890_OLSAfemale_TTS.wav",
+      "duration": 2.42
     },
     {
       "id": "60065_OLSAfemale_TTS",
       "text": "Stefan bekommt drei teure Sessel.",
-      "audio": "60065_OLSAfemale_TTS.wav"
+      "audio": "60065_OLSAfemale_TTS.wav",
+      "duration": 2.48
     },
     {
       "id": "60585_OLSAfemale_TTS",
       "text": "Stefan bekommt fünf rote Sessel.",
-      "audio": "60585_OLSAfemale_TTS.wav"
+      "audio": "60585_OLSAfemale_TTS.wav",
+      "duration": 2.51
     },
     {
       "id": "61469_OLSAfemale_TTS",
       "text": "Stefan sieht vier teure Ringe.",
-      "audio": "61469_OLSAfemale_TTS.wav"
+      "audio": "61469_OLSAfemale_TTS.wav",
+      "duration": 2.07
     },
     {
       "id": "61536_OLSAfemale_TTS",
       "text": "Stefan sieht fünf nasse Messer.",
-      "audio": "61536_OLSAfemale_TTS.wav"
+      "audio": "61536_OLSAfemale_TTS.wav",
+      "duration": 2.2
     },
     {
       "id": "61637_OLSAfemale_TTS",
       "text": "Stefan sieht zwei nasse Schuhe.",
-      "audio": "61637_OLSAfemale_TTS.wav"
+      "audio": "61637_OLSAfemale_TTS.wav",
+      "duration": 2.22
     },
     {
       "id": "62604_OLSAfemale_TTS",
       "text": "Stefan kauft zwei große Dosen.",
-      "audio": "62604_OLSAfemale_TTS.wav"
+      "audio": "62604_OLSAfemale_TTS.wav",
+      "duration": 2.52
     },
     {
       "id": "63028_OLSAfemale_TTS",
       "text": "Stefan gibt drei alte Steine.",
-      "audio": "63028_OLSAfemale_TTS.wav"
+      "audio": "63028_OLSAfemale_TTS.wav",
+      "duration": 2.41
     },
     {
       "id": "64249_OLSAfemale_TTS",
       "text": "Stefan schenkt sieben schwere Ringe.",
-      "audio": "64249_OLSAfemale_TTS.wav"
+      "audio": "64249_OLSAfemale_TTS.wav",
+      "duration": 2.34
     },
     {
       "id": "64438_OLSAfemale_TTS",
       "text": "Stefan schenkt vier nasse Steine.",
-      "audio": "64438_OLSAfemale_TTS.wav"
+      "audio": "64438_OLSAfemale_TTS.wav",
+      "duration": 2.37
     },
     {
       "id": "65909_OLSAfemale_TTS",
       "text": "Stefan verleiht elf große Ringe.",
-      "audio": "65909_OLSAfemale_TTS.wav"
+      "audio": "65909_OLSAfemale_TTS.wav",
+      "duration": 2.44
     },
     {
       "id": "65936_OLSAfemale_TTS",
       "text": "Stefan verleiht elf nasse Messer.",
-      "audio": "65936_OLSAfemale_TTS.wav"
+      "audio": "65936_OLSAfemale_TTS.wav",
+      "duration": 2.45
     },
     {
       "id": "65980_OLSAfemale_TTS",
       "text": "Stefan verleiht elf rote Blumen.",
-      "audio": "65980_OLSAfemale_TTS.wav"
+      "audio": "65980_OLSAfemale_TTS.wav",
+      "duration": 2.51
     },
     {
       "id": "67902_OLSAfemale_TTS",
       "text": "Stefan gewann elf große Autos.",
-      "audio": "67902_OLSAfemale_TTS.wav"
+      "audio": "67902_OLSAfemale_TTS.wav",
+      "duration": 2.76
     },
     {
       "id": "68264_OLSAfemale_TTS",
       "text": "Stefan nahm sieben teure Dosen.",
-      "audio": "68264_OLSAfemale_TTS.wav"
+      "audio": "68264_OLSAfemale_TTS.wav",
+      "duration": 2.37
     },
     {
       "id": "68862_OLSAfemale_TTS",
       "text": "Stefan nahm zwölf teure Autos.",
-      "audio": "68862_OLSAfemale_TTS.wav"
+      "audio": "68862_OLSAfemale_TTS.wav",
+      "duration": 2.54
     },
     {
       "id": "70498_OLSAfemale_TTS",
       "text": "Thomas bekommt vier weiße Steine.",
-      "audio": "70498_OLSAfemale_TTS.wav"
+      "audio": "70498_OLSAfemale_TTS.wav",
+      "duration": 2.68
     },
     {
       "id": "70719_OLSAfemale_TTS",
       "text": "Thomas bekommt achtzehn kleine Ringe.",
-      "audio": "70719_OLSAfemale_TTS.wav"
+      "audio": "70719_OLSAfemale_TTS.wav",
+      "duration": 2.74
     },
     {
       "id": "72149_OLSAfemale_TTS",
       "text": "Thomas kauft neun schwere Ringe.",
-      "audio": "72149_OLSAfemale_TTS.wav"
+      "audio": "72149_OLSAfemale_TTS.wav",
+      "duration": 2.22
     },
     {
       "id": "72673_OLSAfemale_TTS",
       "text": "Thomas kauft zwei schöne Bilder.",
-      "audio": "72673_OLSAfemale_TTS.wav"
+      "audio": "72673_OLSAfemale_TTS.wav",
+      "duration": 2.34
     },
     {
       "id": "73171_OLSAfemale_TTS",
       "text": "Thomas gibt neun schöne Tassen.",
-      "audio": "73171_OLSAfemale_TTS.wav"
+      "audio": "73171_OLSAfemale_TTS.wav",
+      "duration": 2.24
     },
     {
       "id": "73393_OLSAfemale_TTS",
       "text": "Thomas gibt acht weiße Bilder.",
-      "audio": "73393_OLSAfemale_TTS.wav"
+      "audio": "73393_OLSAfemale_TTS.wav",
+      "duration": 2.19
     },
     {
       "id": "73567_OLSAfemale_TTS",
       "text": "Thomas gibt fünf teure Schuhe.",
-      "audio": "73567_OLSAfemale_TTS.wav"
+      "audio": "73567_OLSAfemale_TTS.wav",
+      "duration": 2.09
     },
     {
       "id": "75015_OLSAfemale_TTS",
       "text": "Thomas verleiht drei kleine Sessel.",
-      "audio": "75015_OLSAfemale_TTS.wav"
+      "audio": "75015_OLSAfemale_TTS.wav",
+      "duration": 2.52
     },
     {
       "id": "75183_OLSAfemale_TTS",
       "text": "Thomas verleiht neun rote Bilder.",
-      "audio": "75183_OLSAfemale_TTS.wav"
+      "audio": "75183_OLSAfemale_TTS.wav",
+      "duration": 2.47
     },
     {
       "id": "76256_OLSAfemale_TTS",
       "text": "Thomas hat sieben grüne Messer.",
-      "audio": "76256_OLSAfemale_TTS.wav"
+      "audio": "76256_OLSAfemale_TTS.wav",
+      "duration": 2.2
     },
     {
       "id": "77009_OLSAfemale_TTS",
       "text": "Thomas gewann drei große Ringe.",
-      "audio": "77009_OLSAfemale_TTS.wav"
+      "audio": "77009_OLSAfemale_TTS.wav",
+      "duration": 2.29
     },
     {
       "id": "78579_OLSAfemale_TTS",
       "text": "Thomas nahm fünf schöne Ringe.",
-      "audio": "78579_OLSAfemale_TTS.wav"
+      "audio": "78579_OLSAfemale_TTS.wav",
+      "duration": 2.04
     },
     {
       "id": "78742_OLSAfemale_TTS",
       "text": "Thomas nahm achtzehn schwere Autos.",
-      "audio": "78742_OLSAfemale_TTS.wav"
+      "audio": "78742_OLSAfemale_TTS.wav",
+      "duration": 2.63
     },
     {
       "id": "79920_OLSAfemale_TTS",
       "text": "Thomas malt elf alte Blumen.",
-      "audio": "79920_OLSAfemale_TTS.wav"
+      "audio": "79920_OLSAfemale_TTS.wav",
+      "duration": 2.45
     },
     {
       "id": "79948_OLSAfemale_TTS",
       "text": "Thomas malt elf schwere Steine.",
-      "audio": "79948_OLSAfemale_TTS.wav"
+      "audio": "79948_OLSAfemale_TTS.wav",
+      "duration": 2.4
     },
     {
       "id": "80125_OLSAfemale_TTS",
       "text": "Doris bekommt neun alte Sessel.",
-      "audio": "80125_OLSAfemale_TTS.wav"
+      "audio": "80125_OLSAfemale_TTS.wav",
+      "duration": 2.31
     },
     {
       "id": "80259_OLSAfemale_TTS",
       "text": "Doris bekommt sieben grüne Ringe.",
-      "audio": "80259_OLSAfemale_TTS.wav"
+      "audio": "80259_OLSAfemale_TTS.wav",
+      "duration": 2.28
     },
     {
       "id": "82784_OLSAfemale_TTS",
       "text": "Doris kauft achtzehn rote Dosen.",
-      "audio": "82784_OLSAfemale_TTS.wav"
+      "audio": "82784_OLSAfemale_TTS.wav",
+      "duration": 2.59
     },
     {
       "id": "83881_OLSAfemale_TTS",
       "text": "Doris gibt zwölf rote Tassen.",
-      "audio": "83881_OLSAfemale_TTS.wav"
+      "audio": "83881_OLSAfemale_TTS.wav",
+      "duration": 2.15
     },
     {
       "id": "85055_OLSAfemale_TTS",
       "text": "Doris verleiht drei grüne Sessel.",
-      "audio": "85055_OLSAfemale_TTS.wav"
+      "audio": "85055_OLSAfemale_TTS.wav",
+      "duration": 2.53
     },
     {
       "id": "85444_OLSAfemale_TTS",
       "text": "Doris verleiht vier schwere Dosen.",
-      "audio": "85444_OLSAfemale_TTS.wav"
+      "audio": "85444_OLSAfemale_TTS.wav",
+      "duration": 2.45
     },
     {
       "id": "86432_OLSAfemale_TTS",
       "text": "Doris hat vier nasse Autos.",
-      "audio": "86432_OLSAfemale_TTS.wav"
+      "audio": "86432_OLSAfemale_TTS.wav",
+      "duration": 2.17
     },
     {
       "id": "86714_OLSAfemale_TTS",
       "text": "Doris hat achtzehn kleine Dosen.",
-      "audio": "86714_OLSAfemale_TTS.wav"
+      "audio": "86714_OLSAfemale_TTS.wav",
+      "duration": 2.26
     },
     {
       "id": "86759_OLSAfemale_TTS",
       "text": "Doris hat achtzehn grüne Ringe.",
-      "audio": "86759_OLSAfemale_TTS.wav"
+      "audio": "86759_OLSAfemale_TTS.wav",
+      "duration": 2.15
     },
     {
       "id": "87580_OLSAfemale_TTS",
       "text": "Doris gewann fünf rote Blumen.",
-      "audio": "87580_OLSAfemale_TTS.wav"
+      "audio": "87580_OLSAfemale_TTS.wav",
+      "duration": 2.17
     },
     {
       "id": "87586_OLSAfemale_TTS",
       "text": "Doris gewann fünf rote Messer.",
-      "audio": "87586_OLSAfemale_TTS.wav"
+      "audio": "87586_OLSAfemale_TTS.wav",
+      "duration": 2.18
     },
     {
       "id": "88082_OLSAfemale_TTS",
       "text": "Doris nahm drei rote Autos.",
-      "audio": "88082_OLSAfemale_TTS.wav"
+      "audio": "88082_OLSAfemale_TTS.wav",
+      "duration": 2.32
     },
     {
       "id": "89187_OLSAfemale_TTS",
       "text": "Doris malt neun rote Schuhe.",
-      "audio": "89187_OLSAfemale_TTS.wav"
+      "audio": "89187_OLSAfemale_TTS.wav",
+      "duration": 2.27
     },
     {
       "id": "89340_OLSAfemale_TTS",
       "text": "Doris malt acht schwere Blumen.",
-      "audio": "89340_OLSAfemale_TTS.wav"
+      "audio": "89340_OLSAfemale_TTS.wav",
+      "duration": 2.27
     },
     {
       "id": "89498_OLSAfemale_TTS",
       "text": "Doris malt vier weiße Steine.",
-      "audio": "89498_OLSAfemale_TTS.wav"
+      "audio": "89498_OLSAfemale_TTS.wav",
+      "duration": 2.3
     },
     {
       "id": "91471_OLSAfemale_TTS",
       "text": "Nina sieht vier schöne Tassen.",
-      "audio": "91471_OLSAfemale_TTS.wav"
+      "audio": "91471_OLSAfemale_TTS.wav",
+      "duration": 2.17
     },
     {
       "id": "91858_OLSAfemale_TTS",
       "text": "Nina sieht zwölf grüne Steine.",
-      "audio": "91858_OLSAfemale_TTS.wav"
+      "audio": "91858_OLSAfemale_TTS.wav",
+      "duration": 2.33
     },
     {
       "id": "92706_OLSAfemale_TTS",
       "text": "Nina kauft achtzehn große Messer.",
-      "audio": "92706_OLSAfemale_TTS.wav"
+      "audio": "92706_OLSAfemale_TTS.wav",
+      "duration": 2.6
     },
     {
       "id": "93451_OLSAfemale_TTS",
       "text": "Nina gibt vier grüne Tassen.",
-      "audio": "93451_OLSAfemale_TTS.wav"
+      "audio": "93451_OLSAfemale_TTS.wav",
+      "duration": 2.15
     },
     {
       "id": "93790_OLSAfemale_TTS",
       "text": "Nina gibt achtzehn weiße Blumen.",
-      "audio": "93790_OLSAfemale_TTS.wav"
+      "audio": "93790_OLSAfemale_TTS.wav",
+      "duration": 2.47
     },
     {
       "id": "93880_OLSAfemale_TTS",
       "text": "Nina gibt zwölf rote Blumen.",
-      "audio": "93880_OLSAfemale_TTS.wav"
+      "audio": "93880_OLSAfemale_TTS.wav",
+      "duration": 2.22
     },
     {
       "id": "94216_OLSAfemale_TTS",
       "text": "Nina schenkt sieben kleine Messer.",
-      "audio": "94216_OLSAfemale_TTS.wav"
+      "audio": "94216_OLSAfemale_TTS.wav",
+      "duration": 2.36
     },
     {
       "id": "95827_OLSAfemale_TTS",
       "text": "Nina verleiht zwölf alte Schuhe.",
-      "audio": "95827_OLSAfemale_TTS.wav"
+      "audio": "95827_OLSAfemale_TTS.wav",
+      "duration": 2.45
     },
     {
       "id": "96160_OLSAfemale_TTS",
       "text": "Nina hat neun teure Blumen.",
-      "audio": "96160_OLSAfemale_TTS.wav"
+      "audio": "96160_OLSAfemale_TTS.wav",
+      "duration": 2.08
     },
     {
       "id": "97407_OLSAfemale_TTS",
       "text": "Nina gewann vier große Schuhe.",
-      "audio": "97407_OLSAfemale_TTS.wav"
+      "audio": "97407_OLSAfemale_TTS.wav",
+      "duration": 2.15
     },
     {
       "id": "97719_OLSAfemale_TTS",
       "text": "Nina gewann achtzehn kleine Ringe.",
-      "audio": "97719_OLSAfemale_TTS.wav"
+      "audio": "97719_OLSAfemale_TTS.wav",
+      "duration": 2.59
     },
     {
       "id": "98805_OLSAfemale_TTS",
       "text": "Nina nahm zwölf große Sessel.",
-      "audio": "98805_OLSAfemale_TTS.wav"
+      "audio": "98805_OLSAfemale_TTS.wav",
+      "duration": 2.19
     },
     {
       "id": "98887_OLSAfemale_TTS",
       "text": "Nina nahm zwölf rote Schuhe.",
-      "audio": "98887_OLSAfemale_TTS.wav"
+      "audio": "98887_OLSAfemale_TTS.wav",
+      "duration": 2.12
     },
     {
       "id": "99307_OLSAfemale_TTS",
       "text": "Nina malt acht große Schuhe.",
-      "audio": "99307_OLSAfemale_TTS.wav"
+      "audio": "99307_OLSAfemale_TTS.wav",
+      "duration": 2.18
     },
     {
       "id": "99468_OLSAfemale_TTS",
       "text": "Nina malt vier teure Steine.",
-      "audio": "99468_OLSAfemale_TTS.wav"
+      "audio": "99468_OLSAfemale_TTS.wav",
+      "duration": 2.18
     },
     {
       "id": "stereonoise_OLSAfemale_TTS",
       "text": "",
-      "audio": "stereonoise_OLSAfemale_TTS.wav"
+      "audio": "stereonoise_OLSAfemale_TTS.wav",
+      "duration": 60.0
     }
   ]
 }

@@ -21,7 +21,8 @@
         "source_item_id": "21152644",
         "gender": "u",
         "accent": "Галицький"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "21170403",
@@ -30,7 +31,8 @@
       "tags": {
         "source_item_id": "21170403",
         "gender": "u"
-      }
+      },
+      "duration": 4.15
     },
     {
       "id": "21259349",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "21259349",
         "gender": "u"
-      }
+      },
+      "duration": 4.99
     },
     {
       "id": "21265811",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "21265811",
         "gender": "u"
-      }
+      },
+      "duration": 4.22
     },
     {
       "id": "21356507",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "21356507",
         "gender": "u"
-      }
+      },
+      "duration": 3.91
     },
     {
       "id": "21361245",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "21361245",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "21374912",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "21374912",
         "gender": "u"
-      }
+      },
+      "duration": 5.98
     },
     {
       "id": "21408518",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "21408518",
         "gender": "u"
-      }
+      },
+      "duration": 3.7
     },
     {
       "id": "21425780",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "21425780",
         "gender": "u"
-      }
+      },
+      "duration": 5.93
     },
     {
       "id": "21564489",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "21564489",
         "gender": "u"
-      }
+      },
+      "duration": 4.78
     }
   ]
 }

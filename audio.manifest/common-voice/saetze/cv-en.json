@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "1026785",
         "gender": "u"
-      }
+      },
+      "duration": 3.14
     },
     {
       "id": "103631",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "103631",
         "gender": "u"
-      }
+      },
+      "duration": 6.26
     },
     {
       "id": "104927",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "104927",
         "gender": "u"
-      }
+      },
+      "duration": 3.6
     },
     {
       "id": "104986",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "104986",
         "gender": "u"
-      }
+      },
+      "duration": 2.86
     },
     {
       "id": "106341",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "106341",
         "gender": "u"
-      }
+      },
+      "duration": 7.54
     },
     {
       "id": "106959",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "106959",
         "gender": "u"
-      }
+      },
+      "duration": 6.6
     },
     {
       "id": "10998",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "10998",
         "gender": "u"
-      }
+      },
+      "duration": 3.86
     },
     {
       "id": "110708",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "110708",
         "gender": "u"
-      }
+      },
+      "duration": 3.41
     },
     {
       "id": "110778",
@@ -93,7 +101,8 @@
         "source_item_id": "110778",
         "gender": "u",
         "accent": "United States English"
-      }
+      },
+      "duration": 4.01
     },
     {
       "id": "1108",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "1108",
         "gender": "u"
-      }
+      },
+      "duration": 9.02
     }
   ]
 }

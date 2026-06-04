@@ -21,7 +21,8 @@
         "source_item_id": "17899187",
         "gender": "u",
         "accent": "Internacia"
-      }
+      },
+      "duration": 4.78
     },
     {
       "id": "17900191",
@@ -31,7 +32,8 @@
         "source_item_id": "17900191",
         "gender": "u",
         "accent": "Internacia"
-      }
+      },
+      "duration": 3.38
     },
     {
       "id": "17901088",
@@ -41,7 +43,8 @@
         "source_item_id": "17901088",
         "gender": "u",
         "accent": "Internacia"
-      }
+      },
+      "duration": 6.26
     },
     {
       "id": "17904259",
@@ -50,7 +53,8 @@
       "tags": {
         "source_item_id": "17904259",
         "gender": "u"
-      }
+      },
+      "duration": 7.1
     },
     {
       "id": "17909798",
@@ -59,7 +63,8 @@
       "tags": {
         "source_item_id": "17909798",
         "gender": "u"
-      }
+      },
+      "duration": 5.78
     },
     {
       "id": "17913152",
@@ -69,7 +74,8 @@
         "source_item_id": "17913152",
         "gender": "u",
         "accent": "Internacia"
-      }
+      },
+      "duration": 5.18
     },
     {
       "id": "17914903",
@@ -79,7 +85,8 @@
         "source_item_id": "17914903",
         "gender": "u",
         "accent": "Internacia"
-      }
+      },
+      "duration": 4.2
     },
     {
       "id": "17919670",
@@ -88,7 +95,8 @@
       "tags": {
         "source_item_id": "17919670",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "17975065",
@@ -97,7 +105,8 @@
       "tags": {
         "source_item_id": "17975065",
         "gender": "u"
-      }
+      },
+      "duration": 3.5
     },
     {
       "id": "18236201",
@@ -106,7 +115,8 @@
       "tags": {
         "source_item_id": "18236201",
         "gender": "u"
-      }
+      },
+      "duration": 7.06
     }
   ]
 }

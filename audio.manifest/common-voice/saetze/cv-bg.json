@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "24999479",
         "gender": "u"
-      }
+      },
+      "duration": 4.72
     },
     {
       "id": "25570487",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "25570487",
         "gender": "u"
-      }
+      },
+      "duration": 9.68
     },
     {
       "id": "37118248",
@@ -39,7 +41,8 @@
         "source_item_id": "37118248",
         "gender": "u",
         "accent": "Sofia accent"
-      }
+      },
+      "duration": 4.28
     },
     {
       "id": "25078710",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "25078710",
         "gender": "u"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "37118330",
@@ -58,7 +62,8 @@
         "source_item_id": "37118330",
         "gender": "u",
         "accent": "Sofia accent"
-      }
+      },
+      "duration": 5.44
     },
     {
       "id": "25908066",
@@ -67,7 +72,8 @@
       "tags": {
         "source_item_id": "25908066",
         "gender": "u"
-      }
+      },
+      "duration": 7.7
     },
     {
       "id": "24999560",
@@ -76,7 +82,8 @@
       "tags": {
         "source_item_id": "24999560",
         "gender": "u"
-      }
+      },
+      "duration": 6.77
     },
     {
       "id": "25313101",
@@ -85,7 +92,8 @@
       "tags": {
         "source_item_id": "25313101",
         "gender": "u"
-      }
+      },
+      "duration": 3.17
     },
     {
       "id": "25039263",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "25039263",
         "gender": "u"
-      }
+      },
+      "duration": 6.08
     },
     {
       "id": "25638791",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "25638791",
         "gender": "u"
-      }
+      },
+      "duration": 8.39
     },
     {
       "id": "25597174",
@@ -112,7 +122,8 @@
       "tags": {
         "source_item_id": "25597174",
         "gender": "u"
-      }
+      },
+      "duration": 6.05
     },
     {
       "id": "37118877",
@@ -122,7 +133,8 @@
         "source_item_id": "37118877",
         "gender": "u",
         "accent": "Sofia accent"
-      }
+      },
+      "duration": 3.74
     },
     {
       "id": "37133441",
@@ -132,7 +144,8 @@
         "source_item_id": "37133441",
         "gender": "u",
         "accent": "Sofia accent"
-      }
+      },
+      "duration": 7.42
     }
   ]
 }

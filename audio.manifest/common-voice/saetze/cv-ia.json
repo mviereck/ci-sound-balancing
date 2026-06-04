@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "20103420",
         "gender": "u"
-      }
+      },
+      "duration": 5.64
     },
     {
       "id": "24431644",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "24431644",
         "gender": "u"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "24713665",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "24713665",
         "gender": "u"
-      }
+      },
+      "duration": 3.89
     },
     {
       "id": "20905908",
@@ -47,7 +50,8 @@
       "tags": {
         "source_item_id": "20905908",
         "gender": "u"
-      }
+      },
+      "duration": 2.86
     },
     {
       "id": "20151449",
@@ -56,7 +60,8 @@
       "tags": {
         "source_item_id": "20151449",
         "gender": "u"
-      }
+      },
+      "duration": 2.35
     },
     {
       "id": "24685199",
@@ -65,7 +70,8 @@
       "tags": {
         "source_item_id": "24685199",
         "gender": "u"
-      }
+      },
+      "duration": 4.18
     },
     {
       "id": "24469043",
@@ -74,7 +80,8 @@
       "tags": {
         "source_item_id": "24469043",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "24564867",
@@ -83,7 +90,8 @@
       "tags": {
         "source_item_id": "24564867",
         "gender": "u"
-      }
+      },
+      "duration": 6.84
     },
     {
       "id": "24490641",
@@ -92,7 +100,8 @@
       "tags": {
         "source_item_id": "24490641",
         "gender": "u"
-      }
+      },
+      "duration": 3.89
     },
     {
       "id": "20164597",
@@ -101,7 +110,8 @@
       "tags": {
         "source_item_id": "20164597",
         "gender": "u"
-      }
+      },
+      "duration": 2.81
     },
     {
       "id": "20313188",
@@ -110,7 +120,8 @@
       "tags": {
         "source_item_id": "20313188",
         "gender": "u"
-      }
+      },
+      "duration": 2.59
     },
     {
       "id": "20926507",
@@ -119,7 +130,8 @@
       "tags": {
         "source_item_id": "20926507",
         "gender": "u"
-      }
+      },
+      "duration": 3.74
     }
   ]
 }

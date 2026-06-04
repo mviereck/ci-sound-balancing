@@ -21,7 +21,8 @@
         "source_item_id": "19427016",
         "gender": "u",
         "accent": "出生地：52 贵州省"
-      }
+      },
+      "duration": 5.38
     },
     {
       "id": "18768077",
@@ -31,7 +32,8 @@
         "source_item_id": "18768077",
         "gender": "u",
         "accent": "出生地：37 山东省"
-      }
+      },
+      "duration": 5.78
     },
     {
       "id": "18650517",
@@ -40,7 +42,8 @@
       "tags": {
         "source_item_id": "18650517",
         "gender": "u"
-      }
+      },
+      "duration": 7.42
     },
     {
       "id": "18776487",
@@ -50,7 +53,8 @@
         "source_item_id": "18776487",
         "gender": "u",
         "accent": "出生地：44 广东省"
-      }
+      },
+      "duration": 4.58
     },
     {
       "id": "18848889",
@@ -59,7 +63,8 @@
       "tags": {
         "source_item_id": "18848889",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "19266229",
@@ -69,7 +74,8 @@
         "source_item_id": "19266229",
         "gender": "u",
         "accent": "出生地：43 湖南省"
-      }
+      },
+      "duration": 4.82
     },
     {
       "id": "18959687",
@@ -79,7 +85,8 @@
         "source_item_id": "18959687",
         "gender": "u",
         "accent": "出生地：23 黑龙江省"
-      }
+      },
+      "duration": 4.7
     },
     {
       "id": "18627558",
@@ -89,7 +96,8 @@
         "source_item_id": "18627558",
         "gender": "u",
         "accent": "出生地：11 北京市"
-      }
+      },
+      "duration": 5.78
     },
     {
       "id": "18797504",
@@ -99,7 +107,8 @@
         "source_item_id": "18797504",
         "gender": "u",
         "accent": "出生地：34 安徽省"
-      }
+      },
+      "duration": 6.55
     },
     {
       "id": "18992637",
@@ -109,7 +118,8 @@
         "source_item_id": "18992637",
         "gender": "u",
         "accent": "出生地：32 江苏省"
-      }
+      },
+      "duration": 4.9
     }
   ]
 }

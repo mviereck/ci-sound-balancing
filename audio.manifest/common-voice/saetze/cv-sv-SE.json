@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "18711970",
         "gender": "u"
-      }
+      },
+      "duration": 2.86
     },
     {
       "id": "18737942",
@@ -30,7 +31,8 @@
         "source_item_id": "18737942",
         "gender": "u",
         "accent": "Rikssvenska,Sveamål,Stockholmska,Skelleftemål"
-      }
+      },
+      "duration": 3.38
     },
     {
       "id": "18747822",
@@ -39,7 +41,8 @@
       "tags": {
         "source_item_id": "18747822",
         "gender": "u"
-      }
+      },
+      "duration": 4.06
     },
     {
       "id": "18844791",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "18844791",
         "gender": "u"
-      }
+      },
+      "duration": 2.98
     },
     {
       "id": "18847619",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "18847619",
         "gender": "u"
-      }
+      },
+      "duration": 2.26
     },
     {
       "id": "18848640",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "18848640",
         "gender": "u"
-      }
+      },
+      "duration": 4.03
     },
     {
       "id": "19101551",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "19101551",
         "gender": "u"
-      }
+      },
+      "duration": 3.29
     },
     {
       "id": "19518501",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "19518501",
         "gender": "u"
-      }
+      },
+      "duration": 3.34
     },
     {
       "id": "20020962",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "20020962",
         "gender": "u"
-      }
+      },
+      "duration": 3.72
     },
     {
       "id": "20171301",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "20171301",
         "gender": "u"
-      }
+      },
+      "duration": 3.0
     }
   ]
 }

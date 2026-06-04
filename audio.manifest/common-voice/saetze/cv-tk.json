@@ -21,7 +21,8 @@
         "source_item_id": "36937639",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "36938457",
@@ -31,7 +32,8 @@
         "source_item_id": "36938457",
         "gender": "u",
         "accent": "Ýemreli"
-      }
+      },
+      "duration": 6.48
     },
     {
       "id": "36942856",
@@ -41,7 +43,8 @@
         "source_item_id": "36942856",
         "gender": "u",
         "accent": "Ýemreli"
-      }
+      },
+      "duration": 4.97
     },
     {
       "id": "36942038",
@@ -51,7 +54,8 @@
         "source_item_id": "36942038",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 3.46
     },
     {
       "id": "36964827",
@@ -61,7 +65,8 @@
         "source_item_id": "36964827",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 4.43
     },
     {
       "id": "37081176",
@@ -71,7 +76,8 @@
         "source_item_id": "37081176",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 4.36
     },
     {
       "id": "36942593",
@@ -81,7 +87,8 @@
         "source_item_id": "36942593",
         "gender": "u",
         "accent": "Ýemreli"
-      }
+      },
+      "duration": 3.71
     },
     {
       "id": "36964803",
@@ -91,7 +98,8 @@
         "source_item_id": "36964803",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 7.02
     },
     {
       "id": "36990282",
@@ -101,7 +109,8 @@
         "source_item_id": "36990282",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 4.14
     },
     {
       "id": "36940181",
@@ -111,7 +120,8 @@
         "source_item_id": "36940181",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 7.67
     },
     {
       "id": "36990341",
@@ -121,7 +131,8 @@
         "source_item_id": "36990341",
         "gender": "u",
         "accent": "Türkmençe,Türkmen"
-      }
+      },
+      "duration": 6.34
     },
     {
       "id": "36942204",
@@ -131,7 +142,8 @@
         "source_item_id": "36942204",
         "gender": "u",
         "accent": "Ýemreli"
-      }
+      },
+      "duration": 3.42
     }
   ]
 }

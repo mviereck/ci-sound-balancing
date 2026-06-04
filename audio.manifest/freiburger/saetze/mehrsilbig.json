@@ -19,7 +19,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 1
-      }
+      },
+      "duration": 1.87
     },
     {
       "id": "L01-W02",
@@ -28,7 +29,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 2
-      }
+      },
+      "duration": 1.88
     },
     {
       "id": "L01-W03",
@@ -37,7 +39,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 3
-      }
+      },
+      "duration": 2.11
     },
     {
       "id": "L01-W04",
@@ -46,7 +49,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 4
-      }
+      },
+      "duration": 1.26
     },
     {
       "id": "L01-W05",
@@ -55,7 +59,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 5
-      }
+      },
+      "duration": 1.86
     },
     {
       "id": "L01-W06",
@@ -64,7 +69,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 6
-      }
+      },
+      "duration": 1.9
     },
     {
       "id": "L01-W07",
@@ -73,7 +79,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 7
-      }
+      },
+      "duration": 2.29
     },
     {
       "id": "L01-W08",
@@ -82,7 +89,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 8
-      }
+      },
+      "duration": 2.11
     },
     {
       "id": "L01-W09",
@@ -91,7 +99,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 9
-      }
+      },
+      "duration": 1.46
     },
     {
       "id": "L01-W10",
@@ -100,7 +109,8 @@
       "tags": {
         "list_no": 1,
         "word_no": 10
-      }
+      },
+      "duration": 2.14
     },
     {
       "id": "L02-W01",
@@ -109,7 +119,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 1
-      }
+      },
+      "duration": 2.08
     },
     {
       "id": "L02-W02",
@@ -118,7 +129,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 2
-      }
+      },
+      "duration": 1.58
     },
     {
       "id": "L02-W03",
@@ -127,7 +139,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 3
-      }
+      },
+      "duration": 2.34
     },
     {
       "id": "L02-W04",
@@ -136,7 +149,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 4
-      }
+      },
+      "duration": 2.02
     },
     {
       "id": "L02-W05",
@@ -145,7 +159,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 5
-      }
+      },
+      "duration": 2.3
     },
     {
       "id": "L02-W06",
@@ -154,7 +169,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 6
-      }
+      },
+      "duration": 1.67
     },
     {
       "id": "L02-W07",
@@ -163,7 +179,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 7
-      }
+      },
+      "duration": 2.1
     },
     {
       "id": "L02-W08",
@@ -172,7 +189,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 8
-      }
+      },
+      "duration": 2.39
     },
     {
       "id": "L02-W09",
@@ -181,7 +199,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 9
-      }
+      },
+      "duration": 2.24
     },
     {
       "id": "L02-W10",
@@ -190,7 +209,8 @@
       "tags": {
         "list_no": 2,
         "word_no": 10
-      }
+      },
+      "duration": 2.44
     },
     {
       "id": "L03-W01",
@@ -199,7 +219,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 1
-      }
+      },
+      "duration": 1.99
     },
     {
       "id": "L03-W02",
@@ -208,7 +229,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 2
-      }
+      },
+      "duration": 2.33
     },
     {
       "id": "L03-W03",
@@ -217,7 +239,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 3
-      }
+      },
+      "duration": 2.28
     },
     {
       "id": "L03-W04",
@@ -226,7 +249,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 4
-      }
+      },
+      "duration": 1.63
     },
     {
       "id": "L03-W05",
@@ -235,7 +259,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 5
-      }
+      },
+      "duration": 2.46
     },
     {
       "id": "L03-W06",
@@ -244,7 +269,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 6
-      }
+      },
+      "duration": 2.26
     },
     {
       "id": "L03-W07",
@@ -253,7 +279,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 7
-      }
+      },
+      "duration": 2.43
     },
     {
       "id": "L03-W08",
@@ -262,7 +289,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 8
-      }
+      },
+      "duration": 2.54
     },
     {
       "id": "L03-W09",
@@ -271,7 +299,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 9
-      }
+      },
+      "duration": 1.63
     },
     {
       "id": "L03-W10",
@@ -280,7 +309,8 @@
       "tags": {
         "list_no": 3,
         "word_no": 10
-      }
+      },
+      "duration": 2.12
     },
     {
       "id": "L04-W01",
@@ -289,7 +319,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 1
-      }
+      },
+      "duration": 2.48
     },
     {
       "id": "L04-W02",
@@ -298,7 +329,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 2
-      }
+      },
+      "duration": 2.24
     },
     {
       "id": "L04-W03",
@@ -307,7 +339,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 3
-      }
+      },
+      "duration": 2.4
     },
     {
       "id": "L04-W04",
@@ -316,7 +349,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 4
-      }
+      },
+      "duration": 1.45
     },
     {
       "id": "L04-W05",
@@ -325,7 +359,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 5
-      }
+      },
+      "duration": 2.4
     },
     {
       "id": "L04-W06",
@@ -334,7 +369,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 6
-      }
+      },
+      "duration": 2.47
     },
     {
       "id": "L04-W07",
@@ -343,7 +379,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 7
-      }
+      },
+      "duration": 2.39
     },
     {
       "id": "L04-W08",
@@ -352,7 +389,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 8
-      }
+      },
+      "duration": 1.84
     },
     {
       "id": "L04-W09",
@@ -361,7 +399,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 9
-      }
+      },
+      "duration": 2.32
     },
     {
       "id": "L04-W10",
@@ -370,7 +409,8 @@
       "tags": {
         "list_no": 4,
         "word_no": 10
-      }
+      },
+      "duration": 2.31
     },
     {
       "id": "L05-W01",
@@ -379,7 +419,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 1
-      }
+      },
+      "duration": 2.35
     },
     {
       "id": "L05-W02",
@@ -388,7 +429,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 2
-      }
+      },
+      "duration": 2.33
     },
     {
       "id": "L05-W03",
@@ -397,7 +439,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 3
-      }
+      },
+      "duration": 2.37
     },
     {
       "id": "L05-W04",
@@ -406,7 +449,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 4
-      }
+      },
+      "duration": 1.73
     },
     {
       "id": "L05-W05",
@@ -415,7 +459,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 5
-      }
+      },
+      "duration": 2.3
     },
     {
       "id": "L05-W06",
@@ -424,7 +469,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 6
-      }
+      },
+      "duration": 2.45
     },
     {
       "id": "L05-W07",
@@ -433,7 +479,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 7
-      }
+      },
+      "duration": 2.52
     },
     {
       "id": "L05-W08",
@@ -442,7 +489,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 8
-      }
+      },
+      "duration": 1.64
     },
     {
       "id": "L05-W09",
@@ -451,7 +499,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 9
-      }
+      },
+      "duration": 2.65
     },
     {
       "id": "L05-W10",
@@ -460,7 +509,8 @@
       "tags": {
         "list_no": 5,
         "word_no": 10
-      }
+      },
+      "duration": 2.45
     },
     {
       "id": "L06-W01",
@@ -469,7 +519,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 1
-      }
+      },
+      "duration": 2.91
     },
     {
       "id": "L06-W02",
@@ -478,7 +529,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 2
-      }
+      },
+      "duration": 2.84
     },
     {
       "id": "L06-W03",
@@ -487,7 +539,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 3
-      }
+      },
+      "duration": 2.62
     },
     {
       "id": "L06-W04",
@@ -496,7 +549,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 4
-      }
+      },
+      "duration": 1.84
     },
     {
       "id": "L06-W05",
@@ -505,7 +559,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 5
-      }
+      },
+      "duration": 2.26
     },
     {
       "id": "L06-W06",
@@ -514,7 +569,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 6
-      }
+      },
+      "duration": 2.6
     },
     {
       "id": "L06-W07",
@@ -523,7 +579,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 7
-      }
+      },
+      "duration": 1.76
     },
     {
       "id": "L06-W08",
@@ -532,7 +589,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 8
-      }
+      },
+      "duration": 2.64
     },
     {
       "id": "L06-W09",
@@ -541,7 +599,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 9
-      }
+      },
+      "duration": 2.45
     },
     {
       "id": "L06-W10",
@@ -550,7 +609,8 @@
       "tags": {
         "list_no": 6,
         "word_no": 10
-      }
+      },
+      "duration": 2.35
     },
     {
       "id": "L07-W01",
@@ -559,7 +619,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 1
-      }
+      },
+      "duration": 2.87
     },
     {
       "id": "L07-W02",
@@ -568,7 +629,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 2
-      }
+      },
+      "duration": 2.55
     },
     {
       "id": "L07-W03",
@@ -577,7 +639,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 3
-      }
+      },
+      "duration": 2.26
     },
     {
       "id": "L07-W04",
@@ -586,7 +649,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 4
-      }
+      },
+      "duration": 1.95
     },
     {
       "id": "L07-W05",
@@ -595,7 +659,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 5
-      }
+      },
+      "duration": 2.58
     },
     {
       "id": "L07-W06",
@@ -604,7 +669,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 6
-      }
+      },
+      "duration": 2.46
     },
     {
       "id": "L07-W07",
@@ -613,7 +679,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 7
-      }
+      },
+      "duration": 1.72
     },
     {
       "id": "L07-W08",
@@ -622,7 +689,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 8
-      }
+      },
+      "duration": 2.63
     },
     {
       "id": "L07-W09",
@@ -631,7 +699,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 9
-      }
+      },
+      "duration": 2.51
     },
     {
       "id": "L07-W10",
@@ -640,7 +709,8 @@
       "tags": {
         "list_no": 7,
         "word_no": 10
-      }
+      },
+      "duration": 2.52
     },
     {
       "id": "L08-W01",
@@ -649,7 +719,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 1
-      }
+      },
+      "duration": 2.58
     },
     {
       "id": "L08-W02",
@@ -658,7 +729,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 2
-      }
+      },
+      "duration": 2.55
     },
     {
       "id": "L08-W03",
@@ -667,7 +739,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 3
-      }
+      },
+      "duration": 1.58
     },
     {
       "id": "L08-W04",
@@ -676,7 +749,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 4
-      }
+      },
+      "duration": 2.61
     },
     {
       "id": "L08-W05",
@@ -685,7 +759,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 5
-      }
+      },
+      "duration": 2.5
     },
     {
       "id": "L08-W06",
@@ -694,7 +769,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 6
-      }
+      },
+      "duration": 2.31
     },
     {
       "id": "L08-W07",
@@ -703,7 +779,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 7
-      }
+      },
+      "duration": 1.75
     },
     {
       "id": "L08-W08",
@@ -712,7 +789,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 8
-      }
+      },
+      "duration": 2.59
     },
     {
       "id": "L08-W09",
@@ -721,7 +799,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 9
-      }
+      },
+      "duration": 2.46
     },
     {
       "id": "L08-W10",
@@ -730,7 +809,8 @@
       "tags": {
         "list_no": 8,
         "word_no": 10
-      }
+      },
+      "duration": 2.62
     },
     {
       "id": "L09-W01",
@@ -739,7 +819,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 1
-      }
+      },
+      "duration": 2.35
     },
     {
       "id": "L09-W02",
@@ -748,7 +829,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 2
-      }
+      },
+      "duration": 2.69
     },
     {
       "id": "L09-W03",
@@ -757,7 +839,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 3
-      }
+      },
+      "duration": 2.38
     },
     {
       "id": "L09-W04",
@@ -766,7 +849,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 4
-      }
+      },
+      "duration": 2.6
     },
     {
       "id": "L09-W05",
@@ -775,7 +859,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 5
-      }
+      },
+      "duration": 2.48
     },
     {
       "id": "L09-W06",
@@ -784,7 +869,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 6
-      }
+      },
+      "duration": 1.9
     },
     {
       "id": "L09-W07",
@@ -793,7 +879,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 7
-      }
+      },
+      "duration": 2.66
     },
     {
       "id": "L09-W08",
@@ -802,7 +889,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 8
-      }
+      },
+      "duration": 2.76
     },
     {
       "id": "L09-W09",
@@ -811,7 +899,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 9
-      }
+      },
+      "duration": 2.85
     },
     {
       "id": "L09-W10",
@@ -820,7 +909,8 @@
       "tags": {
         "list_no": 9,
         "word_no": 10
-      }
+      },
+      "duration": 1.98
     },
     {
       "id": "L10-W01",
@@ -829,7 +919,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 1
-      }
+      },
+      "duration": 2.5
     },
     {
       "id": "L10-W02",
@@ -838,7 +929,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 2
-      }
+      },
+      "duration": 1.87
     },
     {
       "id": "L10-W03",
@@ -847,7 +939,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 3
-      }
+      },
+      "duration": 2.55
     },
     {
       "id": "L10-W04",
@@ -856,7 +949,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 4
-      }
+      },
+      "duration": 2.95
     },
     {
       "id": "L10-W05",
@@ -865,7 +959,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 5
-      }
+      },
+      "duration": 2.78
     },
     {
       "id": "L10-W06",
@@ -874,7 +969,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 6
-      }
+      },
+      "duration": 2.74
     },
     {
       "id": "L10-W07",
@@ -883,7 +979,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 7
-      }
+      },
+      "duration": 1.88
     },
     {
       "id": "L10-W08",
@@ -892,7 +989,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 8
-      }
+      },
+      "duration": 2.59
     },
     {
       "id": "L10-W09",
@@ -901,7 +999,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 9
-      }
+      },
+      "duration": 2.88
     },
     {
       "id": "L10-W10",
@@ -910,7 +1009,8 @@
       "tags": {
         "list_no": 10,
         "word_no": 10
-      }
+      },
+      "duration": 2.77
     }
   ]
 }

@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "24970751",
         "gender": "u"
-      }
+      },
+      "duration": 4.61
     },
     {
       "id": "24975785",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "24975785",
         "gender": "u"
-      }
+      },
+      "duration": 6.23
     },
     {
       "id": "27641193",
@@ -38,7 +40,8 @@
       "tags": {
         "source_item_id": "27641193",
         "gender": "u"
-      }
+      },
+      "duration": 6.16
     },
     {
       "id": "38974353",
@@ -48,7 +51,8 @@
         "source_item_id": "38974353",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 7.2
     },
     {
       "id": "24975795",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "24975795",
         "gender": "u"
-      }
+      },
+      "duration": 6.12
     },
     {
       "id": "24970338",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "24970338",
         "gender": "u"
-      }
+      },
+      "duration": 4.86
     },
     {
       "id": "38975898",
@@ -76,7 +82,8 @@
         "source_item_id": "38975898",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "27729978",
@@ -85,7 +92,8 @@
       "tags": {
         "source_item_id": "27729978",
         "gender": "u"
-      }
+      },
+      "duration": 7.24
     },
     {
       "id": "24975955",
@@ -94,7 +102,8 @@
       "tags": {
         "source_item_id": "24975955",
         "gender": "u"
-      }
+      },
+      "duration": 5.51
     },
     {
       "id": "27641570",
@@ -103,7 +112,8 @@
       "tags": {
         "source_item_id": "27641570",
         "gender": "u"
-      }
+      },
+      "duration": 4.25
     },
     {
       "id": "24969725",
@@ -112,7 +122,8 @@
       "tags": {
         "source_item_id": "24969725",
         "gender": "u"
-      }
+      },
+      "duration": 5.69
     },
     {
       "id": "38975375",
@@ -122,7 +133,8 @@
         "source_item_id": "38975375",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 6.52
     },
     {
       "id": "27729922",
@@ -131,7 +143,8 @@
       "tags": {
         "source_item_id": "27729922",
         "gender": "u"
-      }
+      },
+      "duration": 4.54
     },
     {
       "id": "24970527",
@@ -140,7 +153,8 @@
       "tags": {
         "source_item_id": "24970527",
         "gender": "u"
-      }
+      },
+      "duration": 2.45
     }
   ]
 }

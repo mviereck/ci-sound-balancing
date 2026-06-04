@@ -20,7 +20,8 @@
       "tags": {
         "source_item_id": "25365444",
         "gender": "u"
-      }
+      },
+      "duration": 5.08
     },
     {
       "id": "25713384",
@@ -29,7 +30,8 @@
       "tags": {
         "source_item_id": "25713384",
         "gender": "u"
-      }
+      },
+      "duration": 3.53
     },
     {
       "id": "25843953",
@@ -39,7 +41,8 @@
         "source_item_id": "25843953",
         "gender": "u",
         "accent": "İstanbul türkçesi"
-      }
+      },
+      "duration": 5.22
     },
     {
       "id": "26531200",
@@ -48,7 +51,8 @@
       "tags": {
         "source_item_id": "26531200",
         "gender": "u"
-      }
+      },
+      "duration": 4.32
     },
     {
       "id": "27175277",
@@ -57,7 +61,8 @@
       "tags": {
         "source_item_id": "27175277",
         "gender": "u"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "27764558",
@@ -66,7 +71,8 @@
       "tags": {
         "source_item_id": "27764558",
         "gender": "u"
-      }
+      },
+      "duration": 8.1
     },
     {
       "id": "28651153",
@@ -75,7 +81,8 @@
       "tags": {
         "source_item_id": "28651153",
         "gender": "u"
-      }
+      },
+      "duration": 7.96
     },
     {
       "id": "28856099",
@@ -84,7 +91,8 @@
       "tags": {
         "source_item_id": "28856099",
         "gender": "u"
-      }
+      },
+      "duration": 4.68
     },
     {
       "id": "28903923",
@@ -93,7 +101,8 @@
       "tags": {
         "source_item_id": "28903923",
         "gender": "u"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "28904240",
@@ -102,7 +111,8 @@
       "tags": {
         "source_item_id": "28904240",
         "gender": "u"
-      }
+      },
+      "duration": 5.4
     }
   ]
 }

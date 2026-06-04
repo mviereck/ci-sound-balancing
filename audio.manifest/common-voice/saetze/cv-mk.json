@@ -21,7 +21,8 @@
         "source_item_id": "39663700",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 3.17
     },
     {
       "id": "39667744",
@@ -31,7 +32,8 @@
         "source_item_id": "39667744",
         "gender": "u",
         "accent": "Skopje,Native"
-      }
+      },
+      "duration": 3.71
     },
     {
       "id": "39674331",
@@ -40,7 +42,8 @@
       "tags": {
         "source_item_id": "39674331",
         "gender": "u"
-      }
+      },
+      "duration": 3.1
     },
     {
       "id": "39825248",
@@ -50,7 +53,8 @@
         "source_item_id": "39825248",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 5.8
     },
     {
       "id": "39696066",
@@ -60,7 +64,8 @@
         "source_item_id": "39696066",
         "gender": "u",
         "accent": "Skopje,Native"
-      }
+      },
+      "duration": 5.29
     },
     {
       "id": "39808769",
@@ -69,7 +74,8 @@
       "tags": {
         "source_item_id": "39808769",
         "gender": "u"
-      }
+      },
+      "duration": 3.78
     },
     {
       "id": "39774879",
@@ -79,7 +85,8 @@
         "source_item_id": "39774879",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 3.35
     },
     {
       "id": "39839663",
@@ -89,7 +96,8 @@
         "source_item_id": "39839663",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 4.54
     },
     {
       "id": "39781807",
@@ -98,7 +106,8 @@
       "tags": {
         "source_item_id": "39781807",
         "gender": "u"
-      }
+      },
+      "duration": 5.33
     },
     {
       "id": "39709196",
@@ -108,7 +117,8 @@
         "source_item_id": "39709196",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "39700572",
@@ -118,7 +128,8 @@
         "source_item_id": "39700572",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 5.62
     },
     {
       "id": "39775172",
@@ -128,7 +139,8 @@
         "source_item_id": "39775172",
         "gender": "u",
         "accent": "Типичен скопски акцент"
-      }
+      },
+      "duration": 4.32
     },
     {
       "id": "39900627",
@@ -137,7 +149,8 @@
       "tags": {
         "source_item_id": "39900627",
         "gender": "u"
-      }
+      },
+      "duration": 4.36
     }
   ]
 }

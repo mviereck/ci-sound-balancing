@@ -21,7 +21,8 @@
         "source_item_id": "35280492",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 3.42
     },
     {
       "id": "35292449",
@@ -31,7 +32,8 @@
         "source_item_id": "35292449",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 2.92
     },
     {
       "id": "35280546",
@@ -41,7 +43,8 @@
         "source_item_id": "35280546",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 3.64
     },
     {
       "id": "35292434",
@@ -51,7 +54,8 @@
         "source_item_id": "35292434",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 3.17
     },
     {
       "id": "35292427",
@@ -61,7 +65,8 @@
         "source_item_id": "35292427",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 4.5
     },
     {
       "id": "35292440",
@@ -71,7 +76,8 @@
         "source_item_id": "35292440",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 3.28
     },
     {
       "id": "35280548",
@@ -81,7 +87,8 @@
         "source_item_id": "35280548",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 4.0
     },
     {
       "id": "35280547",
@@ -91,7 +98,8 @@
         "source_item_id": "35280547",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 3.28
     },
     {
       "id": "35292425",
@@ -101,7 +109,8 @@
         "source_item_id": "35292425",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 2.34
     },
     {
       "id": "35280594",
@@ -111,7 +120,8 @@
         "source_item_id": "35280594",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 4.14
     },
     {
       "id": "35292437",
@@ -121,7 +131,8 @@
         "source_item_id": "35292437",
         "gender": "u",
         "accent": "Native"
-      }
+      },
+      "duration": 2.52
     }
   ]
 }
