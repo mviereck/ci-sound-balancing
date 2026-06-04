@@ -1,0 +1,43 @@
+{
+  "_comment": [
+    "Curation für den LibriVox-Adapter. Pro Sprache wird die LibriVox-API",
+    "befragt, books_per_language Bücher werden ausgewählt (Heuristik:",
+    "Solo-Sprecher bevorzugt, Bücher mit min_total_minutes bis",
+    "max_total_minutes Laufzeit). Adapter schreibt pro Buch ein",
+    "Manifest und legt Indizes nach Sprache an. Genre und",
+    "reader_gender bleiben zunächst leer und werden in einem",
+    "späteren Schritt manuell ergänzt — die LibriVox-API liefert",
+    "diese Felder nicht zuverlässig."
+  ],
+  "books_per_language": 15,
+  "min_total_minutes": 30,
+  "max_total_minutes": 1200,
+  "prefer_solo_reader": true,
+  "languages": [
+    { "code": "en", "api_name": "English" },
+    { "code": "de", "api_name": "German" },
+    { "code": "fr", "api_name": "French" },
+    { "code": "es", "api_name": "Spanish" },
+    { "code": "it", "api_name": "Italian" },
+    { "code": "nl", "api_name": "Dutch" },
+    { "code": "pt", "api_name": "Portuguese" },
+    { "code": "ru", "api_name": "Russian" },
+    { "code": "pl", "api_name": "Polish" },
+    { "code": "zh", "api_name": "Chinese" },
+    { "code": "ja", "api_name": "Japanese" },
+    { "code": "hu", "api_name": "Hungarian" },
+    { "code": "sv", "api_name": "Swedish" },
+    { "code": "fi", "api_name": "Finnish" },
+    { "code": "da", "api_name": "Danish" },
+    { "code": "cs", "api_name": "Czech" },
+    { "code": "el", "api_name": "Greek" },
+    { "code": "ro", "api_name": "Romanian" },
+    { "code": "la", "api_name": "Latin" },
+    { "code": "eo", "api_name": "Esperanto" },
+    { "code": "he", "api_name": "Hebrew" },
+    { "code": "ar", "api_name": "Arabic" },
+    { "code": "tr", "api_name": "Turkish" },
+    { "code": "ko", "api_name": "Korean" },
+    { "code": "uk", "api_name": "Ukrainian" }
+  ]
+}
