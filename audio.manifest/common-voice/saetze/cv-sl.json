@@ -1,0 +1,188 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sl",
+  "lang": "sl",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sl",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17568248",
+      "text": "Bogastvo je modremu sluga, neumnemu gospodar.",
+      "audio": "sl/unknown/sl_u_17568248.mp3",
+      "tags": {
+        "source_item_id": "17568248",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17809683",
+      "text": "Ampak tako je bilo brez dvoma.",
+      "audio": "sl/unknown/sl_u_17809683.mp3",
+      "tags": {
+        "source_item_id": "17809683",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18136224",
+      "text": "Kjer se veliki prepirajo, mali umirajo.",
+      "audio": "sl/unknown/sl_u_18136224.mp3",
+      "tags": {
+        "source_item_id": "18136224",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19094258",
+      "text": "Ni vse zlato, kar se sveti.",
+      "audio": "sl/unknown/sl_u_19094258.mp3",
+      "tags": {
+        "source_item_id": "19094258",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24855718",
+      "text": "Torej, problem je v tem, da nekdo pride na obisk.",
+      "audio": "sl/unknown/sl_u_24855718.mp3",
+      "tags": {
+        "source_item_id": "24855718",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25232908",
+      "text": "Mislim, da je njeno ime Oliva.",
+      "audio": "sl/unknown/sl_u_25232908.mp3",
+      "tags": {
+        "source_item_id": "25232908",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25850319",
+      "text": "Ura je zaznamovala tretje obdobje.",
+      "audio": "sl/unknown/sl_u_25850319.mp3",
+      "tags": {
+        "source_item_id": "25850319",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27659609",
+      "text": "Darila se sprejemajo tako, kot se dajejo.",
+      "audio": "sl/unknown/sl_u_27659609.mp3",
+      "tags": {
+        "source_item_id": "27659609",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32251646",
+      "text": "Oblačila in prenočišča so brezplačna za mlade moške.",
+      "audio": "sl/unknown/sl_u_32251646.mp3",
+      "tags": {
+        "source_item_id": "32251646",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17568951",
+      "text": "Kdor goni dva zajca, nobenega ne ujame.",
+      "audio": "sl/unknown/sl_u_17568951.mp3",
+      "tags": {
+        "source_item_id": "17568951",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24938886",
+      "text": "Nimamo veliko denarja, vendar se zabavamo.",
+      "audio": "sl/unknown/sl_u_24938886.mp3",
+      "tags": {
+        "source_item_id": "24938886",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32252364",
+      "text": "Spregovorite o denarju in vsi bodo umolknili.",
+      "audio": "sl/unknown/sl_u_32252364.mp3",
+      "tags": {
+        "source_item_id": "32252364",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27690548",
+      "text": "Kdor ne pomisli, kam gre, potem nazaj ne ve.",
+      "audio": "sl/unknown/sl_u_27690548.mp3",
+      "tags": {
+        "source_item_id": "27690548",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25329782",
+      "text": "S stisnjeno pestjo je udaril po mizo.",
+      "audio": "sl/unknown/sl_u_25329782.mp3",
+      "tags": {
+        "source_item_id": "25329782",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18055656",
+      "text": "Zdravnik je odstranil svoje rokavice.",
+      "audio": "sl/unknown/sl_u_18055656.mp3",
+      "tags": {
+        "source_item_id": "18055656",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19095061",
+      "text": "Drevesa so v mnogih stvareh.",
+      "audio": "sl/unknown/sl_u_19095061.mp3",
+      "tags": {
+        "source_item_id": "19095061",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25850678",
+      "text": "Ne, moja teta nikoli ni hotela, da bi to storila.",
+      "audio": "sl/unknown/sl_u_25850678.mp3",
+      "tags": {
+        "source_item_id": "25850678",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18274514",
+      "text": "Ne pravi sosedu, da mu konj šepa.",
+      "audio": "sl/unknown/sl_u_18274514.mp3",
+      "tags": {
+        "source_item_id": "18274514",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19095000",
+      "text": "Matej je vedno strahopetec.",
+      "audio": "sl/unknown/sl_u_19095000.mp3",
+      "tags": {
+        "source_item_id": "19095000",
+        "gender": "u"
+      }
+    }
+  ]
+}

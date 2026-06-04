@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — cv",
+  "lang": "cv",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-cv",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18026324",
+      "text": "Ҫапла вӗсем тӗрӗс мар диагноз лартнӑ.",
+      "audio": "cv/unknown/cv_u_18026324.mp3",
+      "tags": {
+        "source_item_id": "18026324",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20975377",
+      "text": "Ача аптӑрасан та тӑхтаса тӑмасӑр тухтӑра кӑтартмалла.",
+      "audio": "cv/unknown/cv_u_20975377.mp3",
+      "tags": {
+        "source_item_id": "20975377",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23613876",
+      "text": "Труççиклĕ çынсем пĕрин хыççăн тепри кая юлса пынă.",
+      "audio": "cv/unknown/cv_u_23613876.mp3",
+      "tags": {
+        "source_item_id": "23613876",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23902311",
+      "text": "Вăл Чĕмпĕрти чăваш шкулĕнчен çаратса тухнă чăнлавсене тупас тесе, Лондона аукциона тухса кайрĕ.",
+      "audio": "cv/unknown/cv_u_23902311.mp3",
+      "tags": {
+        "source_item_id": "23902311",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23659928",
+      "text": "Унăн куçĕ, тути-çăварĕ, çепĕç калаçни, йăл кулни, çăмăл ташлани — йăлтах килĕшетчĕ мана.",
+      "audio": "cv/unknown/cv_u_23659928.mp3",
+      "tags": {
+        "source_item_id": "23659928",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35641930",
+      "text": "Анатолий Григорьев ҫартан таврӑнсан пир-авӑр комбинатне ӗҫлеме вырнаҫнӑ.",
+      "audio": "cv/unknown/cv_u_35641930.mp3",
+      "tags": {
+        "source_item_id": "35641930",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25013521",
+      "text": "Пире пăхан Пихампар, ху йыттуна хăвах чар.",
+      "audio": "cv/unknown/cv_u_25013521.mp3",
+      "tags": {
+        "source_item_id": "25013521",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23909260",
+      "text": "Тĕтĕм тата çулăм кăларса, кăвар хĕлхемлĕ çаврăм туса çынсене хăратнă.",
+      "audio": "cv/unknown/cv_u_23909260.mp3",
+      "tags": {
+        "source_item_id": "23909260",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23654564",
+      "text": "Пăр кайнине курма мĕнпур ватти-вĕтти тухать вара.",
+      "audio": "cv/unknown/cv_u_23654564.mp3",
+      "tags": {
+        "source_item_id": "23654564",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23654545",
+      "text": "Тинтерех çунă юра таптаса çул тунă.",
+      "audio": "cv/unknown/cv_u_23654545.mp3",
+      "tags": {
+        "source_item_id": "23654545",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25070857",
+      "text": "Эпĕ ăна çăкăр сăмсине хуçса патăм.",
+      "audio": "cv/unknown/cv_u_25070857.mp3",
+      "tags": {
+        "source_item_id": "25070857",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23659640",
+      "text": "Эпир ăна сасса çĕклемесĕр кăна пĕр çĕре кайма хушрăмăр.",
+      "audio": "cv/unknown/cv_u_23659640.mp3",
+      "tags": {
+        "source_item_id": "23659640",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35583920",
+      "text": "Вӑл ҫӳҫ типӗтмелли хатӗре евӗр.",
+      "audio": "cv/unknown/cv_u_35583920.mp3",
+      "tags": {
+        "source_item_id": "35583920",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23906590",
+      "text": "Еçе каймалла пуличчен кинемей кĕписене кăштах пăрса илес тесе килтĕм-ха.",
+      "audio": "cv/unknown/cv_u_23906590.mp3",
+      "tags": {
+        "source_item_id": "23906590",
+        "gender": "u"
+      }
+    }
+  ]
+}

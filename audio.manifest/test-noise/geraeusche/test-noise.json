@@ -1,0 +1,45 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "THCHS30 Test-Noise",
+  "lang": null,
+  "license": "CC-BY-4.0",
+  "credit": "THCHS30 — Tsinghua University",
+  "url": "https://www.openslr.org/18/",
+  "items": [
+    {
+      "id": "cafe",
+      "title": "cafe",
+      "audio": "noise/cafe/cafe.wav",
+      "tags": {
+        "kind": "cafe",
+        "stationary": "y",
+        "loop_safe": "y",
+        "spectrum": "broadband"
+      }
+    },
+    {
+      "id": "car",
+      "title": "car",
+      "audio": "noise/car/car.wav",
+      "tags": {
+        "kind": "verkehr",
+        "stationary": "y",
+        "loop_safe": "y",
+        "spectrum": "lowpass"
+      }
+    },
+    {
+      "id": "white",
+      "title": "white",
+      "audio": "noise/white/white.wav",
+      "tags": {
+        "kind": "rauschen-weiss",
+        "stationary": "y",
+        "loop_safe": "y",
+        "spectrum": "broadband"
+      }
+    }
+  ]
+}

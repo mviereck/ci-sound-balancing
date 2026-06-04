@@ -1,0 +1,28 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "aru-speech-corpus",
+  "name": "ARU Speech Corpus v1.0",
+  "url": "https://datacat.liverpool.ac.uk/681/",
+  "license": "CC-BY-4.0",
+  "credit": "ARU Speech Corpus v1.0 — University of Liverpool",
+  "base": "ARU_Speech_Corpus_v1_0/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/id01.json",
+      "saetze/id02.json",
+      "saetze/id03.json",
+      "saetze/id04.json",
+      "saetze/id05.json",
+      "saetze/id06.json",
+      "saetze/id07.json",
+      "saetze/id08.json",
+      "saetze/id09.json",
+      "saetze/id10.json",
+      "saetze/id11.json",
+      "saetze/id12.json"
+    ]
+  }
+}

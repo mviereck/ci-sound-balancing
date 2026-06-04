@@ -1,0 +1,118 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "index",
+  "title": "CI Sound Balancing — Audio-Bibliotheken",
+  "description": "Top-Level-Index aller Quellen unter audio.manifest/.",
+  "sources": [
+    {
+      "key": "aru-speech-corpus",
+      "name": "ARU Speech Corpus v1.0",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "aru-speech-corpus/source.json"
+    },
+    {
+      "key": "common-voice",
+      "name": "Mozilla Common Voice",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "common-voice/source.json"
+    },
+    {
+      "key": "freiburger",
+      "name": "Freiburger Sprachtest",
+      "categories": [
+        "saetze",
+        "geraeusche"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "freiburger/source.json"
+    },
+    {
+      "key": "mls-french",
+      "name": "MLS Französisch",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "mls-french/source.json"
+    },
+    {
+      "key": "mls-polish",
+      "name": "MLS Polnisch",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "mls-polish/source.json"
+    },
+    {
+      "key": "mls-spanish",
+      "name": "MLS Spanisch",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "mls-spanish/source.json"
+    },
+    {
+      "key": "musan",
+      "name": "MUSAN — Music And Speech And Noise",
+      "categories": [
+        "musik",
+        "geraeusche"
+      ],
+      "license": "mixed",
+      "source": "musan/source.json"
+    },
+    {
+      "key": "oldenburger-olsa",
+      "name": "Oldenburger OLSA (female TTS)",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC-BY-NC-SA-4.0",
+      "source": "oldenburger-olsa/source.json"
+    },
+    {
+      "key": "test-noise",
+      "name": "THCHS30 Test-Noise",
+      "categories": [
+        "geraeusche"
+      ],
+      "license": "CC-BY-4.0",
+      "source": "test-noise/source.json"
+    },
+    {
+      "key": "thorsten-voice",
+      "name": "Thorsten-Voice",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "thorsten-voice/source.json"
+    },
+    {
+      "key": "thorsten-voice-emotional",
+      "name": "Thorsten-Voice Emotional v0.2",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "thorsten-voice-emotional/source.json"
+    },
+    {
+      "key": "thorsten-voice-hessisch",
+      "name": "Thorsten-Voice Hessisch",
+      "categories": [
+        "saetze"
+      ],
+      "license": "CC0-1.0",
+      "source": "thorsten-voice-hessisch/source.json"
+    }
+  ]
+}

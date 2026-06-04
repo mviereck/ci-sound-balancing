@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — dyu",
+  "lang": "dyu",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-dyu",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38501518",
+      "text": "Madi ni Alimata y'u ka wari segin faantanw ma.",
+      "audio": "dyu/unknown/dyu_u_38501518.mp3",
+      "tags": {
+        "source_item_id": "38501518",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501747",
+      "text": "N ka kan ka n ka finiw ko.",
+      "audio": "dyu/unknown/dyu_u_38501747.mp3",
+      "tags": {
+        "source_item_id": "38501747",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38509105",
+      "text": "- ka kalanta walima barokun sugandi ;",
+      "audio": "dyu/unknown/dyu_u_38509105.mp3",
+      "tags": {
+        "source_item_id": "38509105",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501627",
+      "text": "Ouaga, Gao, Dori, Djibo, Houndé ani Kaya jamanaw ye nanbarako bali.",
+      "audio": "dyu/unknown/dyu_u_38501627.mp3",
+      "tags": {
+        "source_item_id": "38501627",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501456",
+      "text": "Jiriw, finiw ani masafugulan walima biɲɛw ye sigidamɔgɔw ka danbe taamasyɛnw ye.",
+      "audio": "dyu/unknown/dyu_u_38501456.mp3",
+      "tags": {
+        "source_item_id": "38501456",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38509028",
+      "text": "Yirali",
+      "audio": "dyu/unknown/dyu_u_38509028.mp3",
+      "tags": {
+        "source_item_id": "38509028",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38509058",
+      "text": "ka baara kɛ ni mɔntɔrɔ ni lonyirasɛbɛ ye;",
+      "audio": "dyu/unknown/dyu_u_38509058.mp3",
+      "tags": {
+        "source_item_id": "38509058",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501364",
+      "text": "- k’a to bɛɛ k’a ka kokɛta sugandi a yɛrɛ ma ;",
+      "audio": "dyu/unknown/dyu_u_38501364.mp3",
+      "tags": {
+        "source_item_id": "38501364",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38509125",
+      "text": "ani jatisigifɛɛrɛ ka to kalandenw kuun na;",
+      "audio": "dyu/unknown/dyu_u_38509125.mp3",
+      "tags": {
+        "source_item_id": "38509125",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501571",
+      "text": "Kɛlɛ bɛ sɛnɛkɛlaw ni baganmaralaw cɛ.",
+      "audio": "dyu/unknown/dyu_u_38501571.mp3",
+      "tags": {
+        "source_item_id": "38501571",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501537",
+      "text": "K'a kɛ kalandenw bi masalabolo nin kalan",
+      "audio": "dyu/unknown/dyu_u_38501537.mp3",
+      "tags": {
+        "source_item_id": "38501537",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38501460",
+      "text": "U ye alamaɲi sara.",
+      "audio": "dyu/unknown/dyu_u_38501460.mp3",
+      "tags": {
+        "source_item_id": "38501460",
+        "gender": "u"
+      }
+    }
+  ]
+}

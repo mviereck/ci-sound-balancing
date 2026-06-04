@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — is",
+  "lang": "is",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-is",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37652412",
+      "text": "Jafnhending er þegar stöng er lyft í tveimur hreyfingum upp fyrir höfuð.",
+      "audio": "is/unknown/is_u_37652412.mp3",
+      "tags": {
+        "source_item_id": "37652412",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37652415",
+      "text": "Allir úr íslenska liðinu voru sáttir, sér í lagi Anna.",
+      "audio": "is/unknown/is_u_37652415.mp3",
+      "tags": {
+        "source_item_id": "37652415",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051266",
+      "text": "Stefnan er sögð vera sú fyrsta sem hefur verið nefnd af plötusnúði.",
+      "audio": "is/unknown/is_u_37051266.mp3",
+      "tags": {
+        "source_item_id": "37051266",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37652413",
+      "text": "Nöfn þeirra Parísarbúa sem féllu í júlíbyltingunni eru grafin með gulli í turninn.",
+      "audio": "is/unknown/is_u_37652413.mp3",
+      "tags": {
+        "source_item_id": "37652413",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37652416",
+      "text": "Úrslitaleikurinn var leikinn á milli Þróttar og Breiðabliks.",
+      "audio": "is/unknown/is_u_37652416.mp3",
+      "tags": {
+        "source_item_id": "37652416",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051268",
+      "text": "Enn í dag liggur bærinn fimm metrum fyrir neðan sjávarmál.",
+      "audio": "is/unknown/is_u_37051268.mp3",
+      "tags": {
+        "source_item_id": "37051268",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051265",
+      "text": "Það var uppsetning á leikverkinu „Glerlaufin“ eftir Philip Ridley.",
+      "audio": "is/unknown/is_u_37051265.mp3",
+      "tags": {
+        "source_item_id": "37051265",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051280",
+      "text": "Tónlistarmenn eru Stefán Hilmarsson og Sverrir Stormsker.",
+      "audio": "is/unknown/is_u_37051280.mp3",
+      "tags": {
+        "source_item_id": "37051280",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051283",
+      "text": "Með þátttökunni varð hann fyrsti íslendingurinn sem keppir í maraþonhlaupi á ólympíuleikum.",
+      "audio": "is/unknown/is_u_37051283.mp3",
+      "tags": {
+        "source_item_id": "37051283",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37652414",
+      "text": "Sigursteinn Róbert Másson er íslenskur kvikmyndagerðarmaður.",
+      "audio": "is/unknown/is_u_37652414.mp3",
+      "tags": {
+        "source_item_id": "37652414",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37051281",
+      "text": "Leiktími er frá enduðum maí til miðs septembers.",
+      "audio": "is/unknown/is_u_37051281.mp3",
+      "tags": {
+        "source_item_id": "37051281",
+        "gender": "u"
+      }
+    }
+  ]
+}

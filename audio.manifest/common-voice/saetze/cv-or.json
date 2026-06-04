@@ -1,0 +1,127 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — or",
+  "lang": "or",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-or",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "21832056",
+      "text": "ଭିତରକୁ ଖବର ଗଲା, ନୂଆବୋହୂ ମାଉସୀ ଆସିଅଛନ୍ତି ।",
+      "audio": "or/unknown/or_u_21832056_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "21832056",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22272012",
+      "text": "ଜାତି କଥାଟା ଆଗେ ପଚାର ।",
+      "audio": "or/unknown/or_u_22272012_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22272012",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22334763",
+      "text": "ସେ ମଧ୍ୟରୁ ଗଡଜାତ ଏକ ଅଂଶ ଓ ମୋଗଲବନ୍ଦୀ ଅନ୍ୟ ଅଂଶ ।",
+      "audio": "or/unknown/or_u_22334763_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22334763",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "21845724",
+      "text": "ତୋଳାଏ ଆପୁ ଉପରେ ସଞ୍ଜବେଳେ ଆହୁରି ତୋଳାଏ ପକାଇଛନ୍ତି ।",
+      "audio": "or/unknown/or_u_21845724_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "21845724",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22738076",
+      "text": "ଖୋଜୁଥିବା ଲୋକର କମ୍ପ୍ୟୁଟର ବା ମୋବାଇଲ ଜରିଆରେ ଏହା ହୁଏ ।",
+      "audio": "or/unknown/or_u_22738076_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22738076",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "21843555",
+      "text": "ଝିଅ ଜୁଆଇଁଙ୍କୁ ସବୁ ସମ୍ପିଦେଇ ଦିନ ରାତି ବସି ହରି ନାମ ଜପୁଥାଏ |",
+      "audio": "or/unknown/or_u_21843555_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "21843555",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22315852",
+      "text": "ଅଧିକାଂଶ ଅଧିବାସୀ ନିମ୍ନଶ୍ରେଣୀୟ ନିର୍ଦ୍ଧନୀ ଲୋକ ଅଟନ୍ତି |",
+      "audio": "or/unknown/or_u_22315852_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22315852",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "26943527",
+      "text": "ଅବଶ୍ୟ ଏ କଥାଟା ଆପଣଙ୍କୁ ବୁଝାଇଦେବା ଦରକାର ନାହିଁ; ମାତ୍ର ଆଉ ନବ୍ୟ ବାବୁମାନଙ୍କୁ ବୁଝାଇଦେବା ଦରକାର ।",
+      "audio": "or/unknown/or_u_26943527_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "26943527",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22354606",
+      "text": "ତମ ଜମି ତ କେହି ଘେନିଯିବ ନାହିଁ, ଯେଉଁଠା ଜମି ସେହିଠାରେ ରହିବ, କେବଳ ଗୁଜାରେ ଲେଖାଯିବ ।",
+      "audio": "or/unknown/or_u_22354606_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22354606",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "21861928",
+      "text": "ପିଲାମାନେ ତ ତେଣେ ସକାଳ ଟାରୁ ଚାଲିଗଲେଣି ।\"",
+      "audio": "or/unknown/or_u_21861928_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "21861928",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    },
+    {
+      "id": "22745901",
+      "text": "କଥା ଛଳରେ ଆମ୍ଭେମାନେ ମାନିଗଲୁ, ଚମ୍ପା ପିଆଜ କିଣି ଆଣିଲା ।",
+      "audio": "or/unknown/or_u_22745901_central_baleswari.mp3",
+      "tags": {
+        "source_item_id": "22745901",
+        "gender": "u",
+        "accent": "Central,Baleswari"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1493 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "musik",
+  "title": "MUSAN — fma-western-art",
+  "lang": null,
+  "license": "mixed",
+  "credit": "MUSAN (fma-western-art), Lizenzen pro Item",
+  "url": "https://www.openslr.org/17/",
+  "items": [
+    {
+      "id": "music-fma-wa-0003",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0003.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Albinoni",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0006",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0006.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Albinoni",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0009",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0009.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Albinoni",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0012",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0012.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0015",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0015.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Dvorak",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_November_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0004",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0004.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0008",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0008.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Couperin",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0011",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0011.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "mondernist"
+        ],
+        "artist": "Bartok",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0013",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0013.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0016",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0016.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0017",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0017.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0019",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0019.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0021",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0021.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0023",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0023.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Corelli",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_2005-2006_Season/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0005",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0005.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Corelli",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0007",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0007.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Corelli",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0010",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0010.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0014",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0014.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Advent Chamber",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0018",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0018.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0020",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0020.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Handel",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0022",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0022.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0024",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0024.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0025",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0025.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0026",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0026.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0027",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0027.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0028",
+      "title": "Advent Chamber",
+      "audio": "music/fma-western-art/music-fma-wa-0028.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "Advent Chamber",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Advent_Chamber_Orchestra/Selections_from_the_December_2006_Concert/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0047",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0047.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0048",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0048.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0049",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0049.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0050",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0050.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0051",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0051.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0052",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0052.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0053",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0053.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0054",
+      "title": "John Harrison",
+      "audio": "music/fma-western-art/music-fma-wa-0054.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0071",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0071.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD"
+      }
+    },
+    {
+      "id": "music-fma-wa-0072",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0072.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0073",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0073.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0074",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0074.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0075",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0075.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0076",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0076.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0077",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0077.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0078",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0078.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0079",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0079.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0080",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0080.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0081",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0081.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0082",
+      "title": "Skidmore",
+      "audio": "music/fma-western-art/music-fma-wa-0082.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Skidmore",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Skidmore_College_Orchestra/Mussorgskys_Pictures_at_an_Exhibition/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0044",
+      "title": "Weinberger",
+      "audio": "music/fma-western-art/music-fma-wa-0044.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mahler",
+        "album": "Weinberger",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0045",
+      "title": "Weinberger",
+      "audio": "music/fma-western-art/music-fma-wa-0045.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Debussy",
+        "album": "Weinberger",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0046",
+      "title": "Weinberger",
+      "audio": "music/fma-western-art/music-fma-wa-0046.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Weinberger",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jason_Weinberger__the_WCFSO/Jason_Weinberger__the_Waterloo-Cedar_Falls_Symphony_Orchestra/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0056",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0056.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Saint Saens",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0063",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0063.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0055",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0055.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Saint Saens",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0064",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0064.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0057",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0057.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Pachelbel",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0065",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0065.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0058",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0058.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Rossini",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0066",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0066.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0059",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0059.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Holst",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0067",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0067.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0060",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0060.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0068",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0068.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Strauss",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0061",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0061.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0070",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0070.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Wagner",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0062",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0062.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0069",
+      "title": "Kevin MacLeod",
+      "audio": "music/fma-western-art/music-fma-wa-0069.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Wagner",
+        "album": "Kevin MacLeod",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler"
+      }
+    },
+    {
+      "id": "music-fma-wa-0033",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0033.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0035",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0035.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0037",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0037.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0039",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0039.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0032",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0032.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0034",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0034.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0036",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0036.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0038",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0038.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0042",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0042.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0041",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0041.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0043",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0043.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0040",
+      "title": "Daniel Veesey",
+      "audio": "music/fma-western-art/music-fma-wa-0040.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Daniel Veesey",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Daniel_Veesey/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0002",
+      "title": "Aaron Dunn",
+      "audio": "music/fma-western-art/music-fma-wa-0002.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Clementi",
+        "album": "Aaron Dunn",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
+      }
+    },
+    {
+      "id": "music-fma-wa-0000",
+      "title": "Aaron Dunn",
+      "audio": "music/fma-western-art/music-fma-wa-0000.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Clementi",
+        "album": "Aaron Dunn",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
+      }
+    },
+    {
+      "id": "music-fma-wa-0001",
+      "title": "Aaron Dunn",
+      "audio": "music/fma-western-art/music-fma-wa-0001.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Clementi",
+        "album": "Aaron Dunn",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Aaron_Dunn/Muzio_Clementis_Sonatina_No_1_in_C_Major"
+      }
+    },
+    {
+      "id": "music-fma-wa-0029",
+      "title": "Brendan Kinsella",
+      "audio": "music/fma-western-art/music-fma-wa-0029.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Brendan Kinsella",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0031",
+      "title": "Brendan Kinsella",
+      "audio": "music/fma-western-art/music-fma-wa-0031.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Brendan Kinsella",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0030",
+      "title": "Brendan Kinsella",
+      "audio": "music/fma-western-art/music-fma-wa-0030.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Brendan Kinsella",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/Brendan_Kinsella/Mozarts_Piano_Sonata_in_B-flat_Major/"
+      }
+    },
+    {
+      "id": "music-fma-wa-0083",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0083.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0088",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0088.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0084",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0084.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0089",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0089.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0085",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0085.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0090",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0090.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0086",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0086.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0091",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0091.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0087",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0087.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    },
+    {
+      "id": "music-fma-wa-0092",
+      "title": "Tudor Consort",
+      "audio": "music/fma-western-art/music-fma-wa-0092.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Scarlatti",
+        "album": "Tudor Consort",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Tudor_Consort/Stabat_Mater_-_Domenico_Scarlatti"
+      }
+    }
+  ]
+}

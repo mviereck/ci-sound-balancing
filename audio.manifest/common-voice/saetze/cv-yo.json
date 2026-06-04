@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — yo",
+  "lang": "yo",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-yo",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "36840061",
+      "text": "Ilẹ̀ mímìtìtì ní ìlú ṣakí ti sọ àwọn olugbé ibẹ̀ sínú hílàhílo",
+      "audio": "yo/unknown/yo_u_36840061.mp3",
+      "tags": {
+        "source_item_id": "36840061",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36840759",
+      "text": "Ayekòótọ́ kó olówó rẹ̀ yọ lọ́wọ́ ikú gbígbóná.",
+      "audio": "yo/unknown/yo_u_36840759.mp3",
+      "tags": {
+        "source_item_id": "36840759",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36861199",
+      "text": "Mímikò ti padà sí ẹgbẹ́ rẹ̀ àtijọ́ lẹ́yìn ìpàdé ìdákọ́ńkọ́",
+      "audio": "yo/unknown/yo_u_36861199.mp3",
+      "tags": {
+        "source_item_id": "36861199",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36917340",
+      "text": "Ọmọ tí orúkọ rẹ̀ ń jẹ́ Bámidélé ni àṣìta ìbọn ọdẹ àdùgbò kan ba.",
+      "audio": "yo/unknown/yo_u_36917340.mp3",
+      "tags": {
+        "source_item_id": "36917340",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36919292",
+      "text": "Iléeṣé àwọn ológun ní àwọn olóṣèlú kan fẹ́ yin àdó olóró lásìkò ìbò.",
+      "audio": "yo/unknown/yo_u_36919292.mp3",
+      "tags": {
+        "source_item_id": "36919292",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36840468",
+      "text": "Ìwádìí fi hàn pé ikú àrá ló pa àwọn òṣìṣẹ́ ìjọba mẹ́ta kan.",
+      "audio": "yo/unknown/yo_u_36840468.mp3",
+      "tags": {
+        "source_item_id": "36840468",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36892807",
+      "text": "Àlàyé ṣe pàtàkì fún wa ká tó dá wọ́lé iṣẹ́ náà.",
+      "audio": "yo/unknown/yo_u_36892807.mp3",
+      "tags": {
+        "source_item_id": "36892807",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36911935",
+      "text": "Àlòkù táyà ọkọ̀ ló mú mi rí nǹkan ṣe lásìkò ìgbélé ààrùn yìí.",
+      "audio": "yo/unknown/yo_u_36911935.mp3",
+      "tags": {
+        "source_item_id": "36911935",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36900442",
+      "text": "Àwọn ọmọdé àti ìsọ̀ jóná ráú-ráú nígbà tí táńkà kẹrosínìí jóná.",
+      "audio": "yo/unknown/yo_u_36900442.mp3",
+      "tags": {
+        "source_item_id": "36900442",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36877216",
+      "text": "Yọ̀mí Fáṣàánú ti dùbúlẹ̀ àìsàn, àwọn ẹgbẹ́ è sì ń bẹ̀bẹ̀.",
+      "audio": "yo/unknown/yo_u_36877216.mp3",
+      "tags": {
+        "source_item_id": "36877216",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36917353",
+      "text": "Ẹgbẹ́ wa ké gbànjarè sí ìjọba àpapọ̀ Nàíjíríà.",
+      "audio": "yo/unknown/yo_u_36917353.mp3",
+      "tags": {
+        "source_item_id": "36917353",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36861242",
+      "text": "Tinubu ṣe iṣẹ́ abẹ nílùú òyìnbó.",
+      "audio": "yo/unknown/yo_u_36861242.mp3",
+      "tags": {
+        "source_item_id": "36861242",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37107278",
+      "text": "Adé gba ìdájọ́ ẹ̀wọ̀n ọdún méje.",
+      "audio": "yo/unknown/yo_u_37107278.mp3",
+      "tags": {
+        "source_item_id": "37107278",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36917684",
+      "text": "Ọ̀pọ̀ èèyàn jẹ́rìí pé Mùsùlùmí òdodo ni Ọlá.",
+      "audio": "yo/unknown/yo_u_36917684.mp3",
+      "tags": {
+        "source_item_id": "36917684",
+        "gender": "u"
+      }
+    }
+  ]
+}

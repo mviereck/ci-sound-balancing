@@ -1,0 +1,1202 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "musik",
+  "title": "MUSAN — hd-classical",
+  "lang": null,
+  "license": "mixed",
+  "credit": "MUSAN (hd-classical), Lizenzen pro Item",
+  "url": "https://www.openslr.org/17/",
+  "items": [
+    {
+      "id": "music-hd-0039",
+      "title": "Kevin MacLoad",
+      "audio": "music/hd-classical/music-hd-0039.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Erik Satie",
+        "album": "Kevin MacLoad",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=512"
+      }
+    },
+    {
+      "id": "music-hd-0037",
+      "title": "John Harrison",
+      "audio": "music/hd-classical/music-hd-0037.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "CC-BY-SA-1.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
+      }
+    },
+    {
+      "id": "music-hd-0035",
+      "title": "John Harrison",
+      "audio": "music/hd-classical/music-hd-0035.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "CC-BY-SA-1.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
+      }
+    },
+    {
+      "id": "music-hd-0036",
+      "title": "John Harrison",
+      "audio": "music/hd-classical/music-hd-0036.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "CC-BY-SA-1.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
+      }
+    },
+    {
+      "id": "music-hd-0038",
+      "title": "John Harrison",
+      "audio": "music/hd-classical/music-hd-0038.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Vivaldi",
+        "album": "John Harrison",
+        "vocal": "n",
+        "license": "CC-BY-SA-1.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=143"
+      }
+    },
+    {
+      "id": "music-hd-0033",
+      "title": "Steven Dunlop",
+      "audio": "music/hd-classical/music-hd-0033.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Steven Dunlop",
+        "vocal": "n",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=1"
+      }
+    },
+    {
+      "id": "music-hd-0059",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0059.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0060",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0060.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0061",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0061.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0055",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0055.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0056",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0056.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0057",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0057.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0058",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0058.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0062",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0062.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0063",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0063.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0064",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0064.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Albeniz",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0003",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0003.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0004",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0004.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0005",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0005.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0006",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0006.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0007",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0007.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0008",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0008.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Grieg",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0000",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0000.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Granados",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0001",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0001.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Granados",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0002",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0002.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Granados",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0071",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0071.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0072",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0072.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0069",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0069.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0070",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0070.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0073",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0073.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0074",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0074.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Chopin",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0009",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0009.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Liszt",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0010",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0010.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Liszt",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0011",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0011.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Liszt",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0012",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0012.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Liszt",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0048",
+      "title": "MIT",
+      "audio": "music/hd-classical/music-hd-0048.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "MIT",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=6"
+      }
+    },
+    {
+      "id": "music-hd-0049",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0049.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0050",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0050.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0051",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0051.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0053",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0053.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0054",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0054.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Beethoven",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0013",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0013.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0014",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0014.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0015",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0015.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Mozart",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0031",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0031.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0032",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0032.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Mussorgsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0016",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0016.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Schubert",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=7"
+      }
+    },
+    {
+      "id": "music-hd-0065",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0065.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Burgmuller",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0066",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0066.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Burgmuller",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0067",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0067.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Burgmuller",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0068",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0068.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Burgmuller",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0018",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0018.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0019",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0019.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0020",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0020.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0017",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0017.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0021",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0021.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0022",
+      "title": "Bernd Krueger",
+      "audio": "music/hd-classical/music-hd-0022.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Tchaikovsky",
+        "album": "Bernd Krueger",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0"
+      }
+    },
+    {
+      "id": "music-hd-0041",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0041.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bevin",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=570"
+      }
+    },
+    {
+      "id": "music-hd-0044",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0044.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Philips",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=578"
+      }
+    },
+    {
+      "id": "music-hd-0045",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0045.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Dowland",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=586"
+      }
+    },
+    {
+      "id": "music-hd-0043",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0043.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Monteverdi",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=577"
+      }
+    },
+    {
+      "id": "music-hd-0052",
+      "title": "Shelley Katz",
+      "audio": "music/hd-classical/music-hd-0052.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Shelley Katz",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/listen/?id_song=6"
+      }
+    },
+    {
+      "id": "music-hd-0047",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0047.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
+      }
+    },
+    {
+      "id": "music-hd-0046",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0046.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Bach",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
+      }
+    },
+    {
+      "id": "music-hd-0040",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0040.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Purcell",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
+      }
+    },
+    {
+      "id": "music-hd-0042",
+      "title": "Jon Sayles",
+      "audio": "music/hd-classical/music-hd-0042.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "baroque"
+        ],
+        "artist": "Purcell",
+        "album": "Jon Sayles",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=149"
+      }
+    },
+    {
+      "id": "music-hd-0027",
+      "title": "Czech Natl Symphony",
+      "audio": "music/hd-classical/music-hd-0027.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Brahms",
+        "album": "Czech Natl Symphony",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
+      }
+    },
+    {
+      "id": "music-hd-0028",
+      "title": "Czech Natl Symphony",
+      "audio": "music/hd-classical/music-hd-0028.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Brahms",
+        "album": "Czech Natl Symphony",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
+      }
+    },
+    {
+      "id": "music-hd-0029",
+      "title": "Czech Natl Symphony",
+      "audio": "music/hd-classical/music-hd-0029.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Brahms",
+        "album": "Czech Natl Symphony",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
+      }
+    },
+    {
+      "id": "music-hd-0030",
+      "title": "Czech Natl Symphony",
+      "audio": "music/hd-classical/music-hd-0030.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Brahms",
+        "album": "Czech Natl Symphony",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=3"
+      }
+    },
+    {
+      "id": "music-hd-0023",
+      "title": "Museopen",
+      "audio": "music/hd-classical/music-hd-0023.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Dvorak",
+        "album": "Museopen",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
+      }
+    },
+    {
+      "id": "music-hd-0024",
+      "title": "Museopen",
+      "audio": "music/hd-classical/music-hd-0024.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Dvorak",
+        "album": "Museopen",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
+      }
+    },
+    {
+      "id": "music-hd-0025",
+      "title": "Museopen",
+      "audio": "music/hd-classical/music-hd-0025.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Dvorak",
+        "album": "Museopen",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
+      }
+    },
+    {
+      "id": "music-hd-0026",
+      "title": "Museopen",
+      "audio": "music/hd-classical/music-hd-0026.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "romantic"
+        ],
+        "artist": "Dvorak",
+        "album": "Museopen",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
+      }
+    },
+    {
+      "id": "music-hd-0034",
+      "title": "Museopen",
+      "audio": "music/hd-classical/music-hd-0034.opus",
+      "tags": {
+        "genres": [
+          "westernart",
+          "classical"
+        ],
+        "artist": "Hayden",
+        "album": "Museopen",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://www.hdclassicalmusic.com/browse/?by=performer&id_performer=5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — nl",
+  "lang": "nl",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-nl",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17726626",
+      "text": "Zijn stoppelbaard je is wel sexy.",
+      "audio": "nl/unknown/nl_u_17726626_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "17726626",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "17838891",
+      "text": "Een frequentie wordt gemeten in hertz, oftewel keren per second.",
+      "audio": "nl/unknown/nl_u_17838891_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "17838891",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "21821292",
+      "text": "Daaruit kunnen wij opmaken dat het programma naast een moeder ook een vader heeft.",
+      "audio": "nl/unknown/nl_u_21821292_surinaams_nederlands.mp3",
+      "tags": {
+        "source_item_id": "21821292",
+        "gender": "u",
+        "accent": "Surinaams Nederlands"
+      }
+    },
+    {
+      "id": "22065732",
+      "text": "Zij hebben reeds uitvoerig uitgelegd wat niet werd gedaan, na al het werk.",
+      "audio": "nl/unknown/nl_u_22065732_belgisch_nederlands.mp3",
+      "tags": {
+        "source_item_id": "22065732",
+        "gender": "u",
+        "accent": "Belgisch Nederlands"
+      }
+    },
+    {
+      "id": "22451961",
+      "text": "Daarom moeten we ons hierbij niet onnodig haasten.",
+      "audio": "nl/unknown/nl_u_22451961_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "22451961",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "22526031",
+      "text": "Daarom klopt het mijns inziens ook niet wat in de verkiezingsstrijd vaak wordt beweerd.",
+      "audio": "nl/unknown/nl_u_22526031_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "22526031",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "22754543",
+      "text": "Veel van deze banen zijn kwaliteitsbanen.",
+      "audio": "nl/unknown/nl_u_22754543_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "22754543",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "22916535",
+      "text": "Ook dat zijn historische feiten.",
+      "audio": "nl/unknown/nl_u_22916535_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "22916535",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "23373535",
+      "text": "Wij hebben ons nauwgezet aan die wens gehouden.",
+      "audio": "nl/unknown/nl_u_23373535_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "23373535",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    },
+    {
+      "id": "23522441",
+      "text": "Ik vind dat een dubieuze procedure.",
+      "audio": "nl/unknown/nl_u_23522441_nederlands_nederlands.mp3",
+      "tags": {
+        "source_item_id": "23522441",
+        "gender": "u",
+        "accent": "Nederlands Nederlands"
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — eo",
+  "lang": "eo",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-eo",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17899187",
+      "text": "Oni prenas avide, oni redonas malrapide.",
+      "audio": "eo/unknown/eo_u_17899187_internacia.mp3",
+      "tags": {
+        "source_item_id": "17899187",
+        "gender": "u",
+        "accent": "Internacia"
+      }
+    },
+    {
+      "id": "17900191",
+      "text": "El la mizero oni devas fari virton.",
+      "audio": "eo/unknown/eo_u_17900191_internacia.mp3",
+      "tags": {
+        "source_item_id": "17900191",
+        "gender": "u",
+        "accent": "Internacia"
+      }
+    },
+    {
+      "id": "17901088",
+      "text": "Pli bona apude najbaro, ol frato post arbaro.",
+      "audio": "eo/unknown/eo_u_17901088_internacia.mp3",
+      "tags": {
+        "source_item_id": "17901088",
+        "gender": "u",
+        "accent": "Internacia"
+      }
+    },
+    {
+      "id": "17904259",
+      "text": "Mi deziregas revidi mian patrolandon kaj krei por mi hejmon.",
+      "audio": "eo/unknown/eo_u_17904259.mp3",
+      "tags": {
+        "source_item_id": "17904259",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17909798",
+      "text": "Cetere por mi malviva novnaskito estas nur anatomia temulo.",
+      "audio": "eo/unknown/eo_u_17909798.mp3",
+      "tags": {
+        "source_item_id": "17909798",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17913152",
+      "text": "Vi estis prava, li diris al Maziero.",
+      "audio": "eo/unknown/eo_u_17913152_internacia.mp3",
+      "tags": {
+        "source_item_id": "17913152",
+        "gender": "u",
+        "accent": "Internacia"
+      }
+    },
+    {
+      "id": "17914903",
+      "text": "Ni reciproke nin konas, klarigon ne bezonas.",
+      "audio": "eo/unknown/eo_u_17914903_internacia.mp3",
+      "tags": {
+        "source_item_id": "17914903",
+        "gender": "u",
+        "accent": "Internacia"
+      }
+    },
+    {
+      "id": "17919670",
+      "text": "Kiu ne mensogas, tiu ne vendas.",
+      "audio": "eo/unknown/eo_u_17919670.mp3",
+      "tags": {
+        "source_item_id": "17919670",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17975065",
+      "text": "Subite la bankiero kunplektis la manojn.",
+      "audio": "eo/unknown/eo_u_17975065.mp3",
+      "tags": {
+        "source_item_id": "17975065",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18236201",
+      "text": "La eksperimento sukcesis pli perfekte ol esperis Eduardo.",
+      "audio": "eo/unknown/eo_u_18236201.mp3",
+      "tags": {
+        "source_item_id": "18236201",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — id",
+  "lang": "id",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-id",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "25450107",
+      "text": "Aku pernah melihat gadis itu sebelumnya.",
+      "audio": "id/unknown/id_u_25450107.mp3",
+      "tags": {
+        "source_item_id": "25450107",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25628427",
+      "text": "Aku tidak menyukai hal ini.",
+      "audio": "id/unknown/id_u_25628427.mp3",
+      "tags": {
+        "source_item_id": "25628427",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25902155",
+      "text": "Di kota itu, ia merasa kesulitan dalam bekerja karena kemampuan bahasa Inggrisnya buruk.",
+      "audio": "id/unknown/id_u_25902155.mp3",
+      "tags": {
+        "source_item_id": "25902155",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25978837",
+      "text": "Kuil Ram juga memiliki ruang pernikahan.",
+      "audio": "id/unknown/id_u_25978837.mp3",
+      "tags": {
+        "source_item_id": "25978837",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26242377",
+      "text": "Seorang lelaki berbaju hitam sedang membaca sisi mangkuk",
+      "audio": "id/unknown/id_u_26242377.mp3",
+      "tags": {
+        "source_item_id": "26242377",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25903790",
+      "text": "Hantu makhluk cerdas bukan main.",
+      "audio": "id/unknown/id_u_25903790.mp3",
+      "tags": {
+        "source_item_id": "25903790",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26269303",
+      "text": "Dia menyukain sains, dan di sekolah fisika dan matematika merupakan pelajaran favoritnya.",
+      "audio": "id/unknown/id_u_26269303.mp3",
+      "tags": {
+        "source_item_id": "26269303",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25931295",
+      "text": "Istilah itu tidak berarti teks tentang Katedral Rochester.",
+      "audio": "id/unknown/id_u_25931295.mp3",
+      "tags": {
+        "source_item_id": "25931295",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25903650",
+      "text": "Dia menyanyikan lagu untuk Bush dan istrinya, Barbara, di Gedung Putih.",
+      "audio": "id/unknown/id_u_25903650.mp3",
+      "tags": {
+        "source_item_id": "25903650",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25969778",
+      "text": "Misalnya seorang pembunuh yang sengaja tidak mau bertobat kemungkinan besar akan dihukum mati.",
+      "audio": "id/unknown/id_u_25969778.mp3",
+      "tags": {
+        "source_item_id": "25969778",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25978850",
+      "text": "Pemain memukul bola kecil di sekitar es dengan tongkat yang disebut sapu.",
+      "audio": "id/unknown/id_u_25978850.mp3",
+      "tags": {
+        "source_item_id": "25978850",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26241250",
+      "text": "Selain kamusnya, Blount menerbitkan banyak hal pada subjek lain.",
+      "audio": "id/unknown/id_u_26241250.mp3",
+      "tags": {
+        "source_item_id": "26241250",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26228631",
+      "text": "Sistem FoxTrax menerima beragam ulasan.",
+      "audio": "id/unknown/id_u_26228631.mp3",
+      "tags": {
+        "source_item_id": "26228631",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26021528",
+      "text": "Tolong putar sesuatu dari musik google tahun dua puluhan",
+      "audio": "id/unknown/id_u_26021528.mp3",
+      "tags": {
+        "source_item_id": "26021528",
+        "gender": "u"
+      }
+    }
+  ]
+}

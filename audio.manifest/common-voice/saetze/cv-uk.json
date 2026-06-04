@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — uk",
+  "lang": "uk",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-uk",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "21152644",
+      "text": "Цього сезону акцент буде поставлено на роботи молодих дизайнерів.",
+      "audio": "uk/unknown/uk_u_21152644.mp3",
+      "tags": {
+        "source_item_id": "21152644",
+        "gender": "u",
+        "accent": "Галицький"
+      }
+    },
+    {
+      "id": "21170403",
+      "text": "Подібні обмеження, дійсно, є в більшості країн.",
+      "audio": "uk/unknown/uk_u_21170403.mp3",
+      "tags": {
+        "source_item_id": "21170403",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21259349",
+      "text": "Щоб налаштувати це програмне забезпечення, мені потрібен час.",
+      "audio": "uk/unknown/uk_u_21259349.mp3",
+      "tags": {
+        "source_item_id": "21259349",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21265811",
+      "text": "Дружба випробовується в біді й небезпеці.",
+      "audio": "uk/unknown/uk_u_21265811.mp3",
+      "tags": {
+        "source_item_id": "21265811",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21356507",
+      "text": "Ви можете тут, а можете там.",
+      "audio": "uk/unknown/uk_u_21356507.mp3",
+      "tags": {
+        "source_item_id": "21356507",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21361245",
+      "text": "Тому, вибачте, якщо ми себе так поведемо.",
+      "audio": "uk/unknown/uk_u_21361245.mp3",
+      "tags": {
+        "source_item_id": "21361245",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21374912",
+      "text": "Доки грім не вдарить, мужик не перехреститься.",
+      "audio": "uk/unknown/uk_u_21374912.mp3",
+      "tags": {
+        "source_item_id": "21374912",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21408518",
+      "text": "У нас просто дивовижна ситуація.",
+      "audio": "uk/unknown/uk_u_21408518.mp3",
+      "tags": {
+        "source_item_id": "21408518",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21425780",
+      "text": "Університет розвиває всі здібності, в тому числі і дурість.",
+      "audio": "uk/unknown/uk_u_21425780.mp3",
+      "tags": {
+        "source_item_id": "21425780",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21564489",
+      "text": "Не хвилюйся. Він у мене все життя такий.",
+      "audio": "uk/unknown/uk_u_21564489.mp3",
+      "tags": {
+        "source_item_id": "21564489",
+        "gender": "u"
+      }
+    }
+  ]
+}

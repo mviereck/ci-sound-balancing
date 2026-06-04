@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ca",
+  "lang": "ca",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ca",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17373781",
+      "text": "Al caigut, dóna-li la mà i ell després t'ajudarà.",
+      "audio": "ca/unknown/ca_u_17373781.mp3",
+      "tags": {
+        "source_item_id": "17373781",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17373797",
+      "text": "A canvi, té dret a percebre un preu o renda.",
+      "audio": "ca/unknown/ca_u_17373797_central.mp3",
+      "tags": {
+        "source_item_id": "17373797",
+        "gender": "u",
+        "accent": "central"
+      }
+    },
+    {
+      "id": "17374569",
+      "text": "La participació en aquest Premi suposa la plena acceptació d'aquestes bases.",
+      "audio": "ca/unknown/ca_u_17374569.mp3",
+      "tags": {
+        "source_item_id": "17374569",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17374629",
+      "text": "Proposa modificacions en l'eina per tal d'adaptar-la a noves necessitats.",
+      "audio": "ca/unknown/ca_u_17374629.mp3",
+      "tags": {
+        "source_item_id": "17374629",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17374922",
+      "text": "Lloa el mar i viu en terra.",
+      "audio": "ca/unknown/ca_u_17374922.mp3",
+      "tags": {
+        "source_item_id": "17374922",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17375230",
+      "text": "Qui va amb un coix, a l'any, coix i mig.",
+      "audio": "ca/unknown/ca_u_17375230.mp3",
+      "tags": {
+        "source_item_id": "17375230",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17375496",
+      "text": "Per Sant Martí, la llebre al costat del camí.",
+      "audio": "ca/unknown/ca_u_17375496.mp3",
+      "tags": {
+        "source_item_id": "17375496",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17375658",
+      "text": "El treball que tot ho pot i tot ho venç.",
+      "audio": "ca/unknown/ca_u_17375658.mp3",
+      "tags": {
+        "source_item_id": "17375658",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17377756",
+      "text": "Podem establir, doncs, cinc seccions clarament identificades per aquests diversos aspectes.",
+      "audio": "ca/unknown/ca_u_17377756.mp3",
+      "tags": {
+        "source_item_id": "17377756",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17377787",
+      "text": "Actualment els horaris de preparació de les comandes són els dimarts, dijous i dissabte.",
+      "audio": "ca/unknown/ca_u_17377787.mp3",
+      "tags": {
+        "source_item_id": "17377787",
+        "gender": "u"
+      }
+    }
+  ]
+}

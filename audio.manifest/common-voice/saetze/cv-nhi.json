@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — nhi",
+  "lang": "nhi",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-nhi",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38648099",
+      "text": "Después nitzcuintli quiseguiroa quiuahuia non ceraocuilimeh, ...",
+      "audio": "nhi/unknown/nhi_u_38648099.mp3",
+      "tags": {
+        "source_item_id": "38648099",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648094",
+      "text": "San cholohtoqueh por non cocolis tlen omochih n ompa San Juan Totutla.",
+      "audio": "nhi/unknown/nhi_u_38648094.mp3",
+      "tags": {
+        "source_item_id": "38648094",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648095",
+      "text": "Mocauaquih san tlahco ohtli",
+      "audio": "nhi/unknown/nhi_u_38648095.mp3",
+      "tags": {
+        "source_item_id": "38648095",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648104",
+      "text": "Ticniqui ocsiqui",
+      "audio": "nhi/unknown/nhi_u_38648104.mp3",
+      "tags": {
+        "source_item_id": "38648104",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648086",
+      "text": "Entonces yeh oyah nouan.",
+      "audio": "nhi/unknown/nhi_u_38648086.mp3",
+      "tags": {
+        "source_item_id": "38648086",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648102",
+      "text": "Onechtitic cerahocuilin",
+      "audio": "nhi/unknown/nhi_u_38648102.mp3",
+      "tags": {
+        "source_item_id": "38648102",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648083",
+      "text": "Yiueyehtzitzi ipiluan.",
+      "audio": "nhi/unknown/nhi_u_38648083.mp3",
+      "tags": {
+        "source_item_id": "38648083",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648085",
+      "text": "In Víctor yen totiachcah nicah ich n topueblo.",
+      "audio": "nhi/unknown/nhi_u_38648085.mp3",
+      "tags": {
+        "source_item_id": "38648085",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648089",
+      "text": "Cualtzin tliltic motzon",
+      "audio": "nhi/unknown/nhi_u_38648089.mp3",
+      "tags": {
+        "source_item_id": "38648089",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648093",
+      "text": "Onicquixte noprimaria, nosecundaria, uan nobachiller.",
+      "audio": "nhi/unknown/nhi_u_38648093.mp3",
+      "tags": {
+        "source_item_id": "38648093",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38648092",
+      "text": "Quihtozniqui lugar de huesos.",
+      "audio": "nhi/unknown/nhi_u_38648092.mp3",
+      "tags": {
+        "source_item_id": "38648092",
+        "gender": "u"
+      }
+    }
+  ]
+}

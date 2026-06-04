@@ -1,0 +1,2384 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Misérables - tome 3",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "4703",
+    "book_title": "Misérables - tome 3",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "4193_4703_000000",
+      "text": "s'entreprêtant leurs noms et leurs trucs se dérobant dans leur propre ombre boîtes à secrets et asiles les uns pour les autres défaisant leurs personnalités comme on ôte son faux nez au bal masqué parfois se simplifiant au point de ne plus être qu'un",
+      "audio": "dev/audio/4193/4703/4193_4703_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 45.87,
+        "original_end_s": 61.02
+      }
+    },
+    {
+      "id": "4193_4703_000001",
+      "text": "ces êtres peu prodigues de leurs visages n'étaient pas de ceux qu'on voit passer dans les rues le jour fatigués des nuits farouches qu'ils avaient ils s'en allaient dormir tantôt dans les fours à plâtre tantôt dans les carrières abandonnées de montmartre ou de montrouge parfois dans les égouts ils se terraient",
+      "audio": "dev/audio/4193/4703/4193_4703_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 263.06,
+        "original_end_s": 282.72
+      }
+    },
+    {
+      "id": "4193_4703_000002",
+      "text": "l'or et l'argent ont pour eux une odeur il y a des bourgeois naïfs dont on pourrait dire qu'ils ont l'air volables ces hommes suivent patiemment ces bourgeois au passage d'un étranger ou d'un provincial ils ont des tressaillements d'araignée",
+      "audio": "dev/audio/4193/4703/4193_4703_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 329.99,
+        "original_end_s": 345.47
+      }
+    },
+    {
+      "id": "4193_4703_000003",
+      "text": "et qui transforme lentement le dessus par le dessous et le dehors par le dedans immense fourmillement inconnu la société se doute à peine de ce creusement qui lui laisse sa surface et lui change les entrailles",
+      "audio": "dev/audio/4193/4703/4193_4703_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_51_hugo_64kb.mp3",
+        "original_start_s": 152.07,
+        "original_end_s": 166.5
+      }
+    },
+    {
+      "id": "4193_4703_000004",
+      "text": "ils faisaient sur le passant le coup d'état d'en bas les trouveurs d'idées en ce genre les hommes à imagination nocturne s'adressaient à eux pour l'exécution on fournissait aux quatre coquins le canevas ils se chargeaient de la mise en scène ils travaillaient sur scénario",
+      "audio": "dev/audio/4193/4703/4193_4703_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 91.67,
+        "original_end_s": 109.06
+      }
+    },
+    {
+      "id": "4193_4703_000005",
+      "text": "que faut-il pour faire évanouir ces larves de la lumière de la lumière à flots pas une chauve-souris ne résiste à l'aube éclairez la société en dessous",
+      "audio": "dev/audio/4193/4703/4193_4703_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 372.41,
+        "original_end_s": 384.4
+      }
+    },
+    {
+      "id": "4193_4703_000006",
+      "text": "lacenaire fit cette réponse énigmatique pour le magistrat mais claire pour la police c'est peut-être patron-minette on devine parfois une pièce sur l'énoncé des personnages on peut de même presque apprécier une bande sur la liste des bandits",
+      "audio": "dev/audio/4193/4703/4193_4703_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 183.71,
+        "original_end_s": 198.8
+      }
+    },
+    {
+      "id": "4193_4703_000007",
+      "text": "ces travaux se superposent il y a les mines supérieures et les mines inférieures il y a un haut et un bas dans cet obscur sous-sol qui s'effondre parfois sous la civilisation et que notre indifférence et notre insouciance foulent aux pieds",
+      "audio": "dev/audio/4193/4703/4193_4703_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_51_hugo_64kb.mp3",
+        "original_start_s": 44.37,
+        "original_end_s": 60.72
+      }
+    },
+    {
+      "id": "4193_4703_000008",
+      "text": "cette appellation patron-minette venait probablement de l'heure à laquelle leur besogne finissait l'aube étant l'instant de l'évanouissement des fantômes et de la séparation des bandits",
+      "audio": "dev/audio/4193/4703/4193_4703_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 159.11,
+        "original_end_s": 170.75
+      }
+    },
+    {
+      "id": "4193_4703_000009",
+      "text": "les sociétés humaines ont toutes ce qu'on appelle dans les théâtres un troisième dessous le sol social est partout miné tantôt pour le bien tantôt pour le mal",
+      "audio": "dev/audio/4193/4703/4193_4703_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_51_hugo_64kb.mp3",
+        "original_start_s": 32.66,
+        "original_end_s": 44.37
+      }
+    },
+    {
+      "id": "4193_4703_000010",
+      "text": "à eux quatre ces bandits formaient une sorte de protée serpentant à travers la police et s'efforçant d'échapper aux regards indiscrets de vidocq sous diverses figures arbres flammes fontaines",
+      "audio": "dev/audio/4193/4703/4193_4703_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 32.27,
+        "original_end_s": 45.87
+      }
+    },
+    {
+      "id": "4193_4703_000011",
+      "text": "il y avait une dynastie de brujon nous ne renonçons pas à en dire un mot boulatruelle le cantonnier déjà entrevu laveuve finistère homère hogu nègre",
+      "audio": "dev/audio/4193/4703/4193_4703_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 211.92,
+        "original_end_s": 224.88
+      }
+    },
+    {
+      "id": "4193_4703_000012",
+      "text": "mais rien n'arrête ni n'interrompt la tension de toutes ces énergies vers le but et la vaste activité simultanée qui va et vient monte descend et remonte dans ces obscurités",
+      "audio": "dev/audio/4193/4703/4193_4703_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_51_hugo_64kb.mp3",
+        "original_start_s": 140.33,
+        "original_end_s": 152.07
+      }
+    },
+    {
+      "id": "4193_4703_000013",
+      "text": "car dans les ténèbres sacrées il y a de la lumière latente les volcans sont pleins d'une ombre capable de flamboiement toute lave commence par être nuit les catacombes où s'est dite la première messe n'étaient pas seulement la cave de rome elles étaient le souterrain du monde",
+      "audio": "dev/audio/4193/4703/4193_4703_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_51_hugo_64kb.mp3",
+        "original_start_s": 77.45,
+        "original_end_s": 96.12
+      }
+    },
+    {
+      "id": "4193_4703_000014",
+      "text": "patron-minette tel était le nom qu'on donnait dans la circulation souterraine à l'association de ces quatre hommes dans la vieille langue populaire fantasque qui va s'effaçant tous les jours patron-minette signifie le matin de même que entre chien et loup signifie le soir",
+      "audio": "dev/audio/4193/4703/4193_4703_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 142.2,
+        "original_end_s": 159.11
+      }
+    },
+    {
+      "id": "4193_4703_000015",
+      "text": "ils étaient toujours en situation de prêter un personnel proportionné et convenable à tous les attentats ayant besoin d'un coup d'épaule et suffisamment lucratifs un crime étant en quête de bras ils lui sous-louaient des complices ils avaient une troupe d'acteurs de ténèbres à la disposition de toutes les tragédies de cavernes",
+      "audio": "dev/audio/4193/4703/4193_4703_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4193",
+        "gender": "m",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_54_hugo_64kb.mp3",
+        "original_start_s": 109.06,
+        "original_end_s": 127.88
+      }
+    },
+    {
+      "id": "5830_4703_000000",
+      "text": "une situation grave étant donnée il avait tout ce qu'il fallait pour être stupide un tour de clef de plus il pouvait être sublime",
+      "audio": "dev/audio/5830/4703/5830_4703_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 98.6,
+        "original_end_s": 111.66
+      }
+    },
+    {
+      "id": "5830_4703_000001",
+      "text": "et défit l'enveloppe tout en disant dieu de dieu avons-nous cherché ma soeur et moi et c'est vous qui l'aviez trouvé sur le boulevard n'est-ce pas ce doit être sur le boulevard voyez-vous ça a tombé quand nous avons couru c'est ma mioche de soeur qui a fait la bêtise",
+      "audio": "dev/audio/5830/4703/5830_4703_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 824.85,
+        "original_end_s": 844.34
+      }
+    },
+    {
+      "id": "5830_4703_000002",
+      "text": "cinq francs du luisant un monarque dans cette piaule c'est chenâtre vous êtes un bon mion je vous fonce mon palpitant bravo les fanandels deux jours de pivois et de la viandemuche et du fricotmar on pitancera chenument et de la bonne mouise",
+      "audio": "dev/audio/5830/4703/5830_4703_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1057.19,
+        "original_end_s": 1073.93
+      }
+    },
+    {
+      "id": "5830_4703_000003",
+      "text": "ce personnage et cette jeune fille quoiqu'ils parussent et peut-être parce qu'ils paraissaient éviter les regards avaient naturellement quelque peu éveillé l'attention des cinq ou six étudiants qui se promenaient de temps en temps le long de la pépinière les studieux après leur cours",
+      "audio": "dev/audio/5830/4703/5830_4703_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 480.34,
+        "original_end_s": 499.55
+      }
+    },
+    {
+      "id": "5830_4703_000004",
+      "text": "les étoiles sont comme des lampions d'illuminations on dirait qu'elles fument et que le vent les éteint je suis ahurie comme si j'avais des chevaux qui me soufflent dans l'oreille quoique ce soit la nuit",
+      "audio": "dev/audio/5830/4703/5830_4703_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 982.31,
+        "original_end_s": 997.37
+      }
+    },
+    {
+      "id": "5830_4703_000005",
+      "text": "en rentrant nous ne l'avons plus trouvé comme nous ne voulions pas être battues que cela est inutile que cela est entièrement inutile que cela est absolument inutile nous avons dit chez nous que nous avions porté les lettres chez les personnes et qu'on nous avait dit",
+      "audio": "dev/audio/5830/4703/5830_4703_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 844.34,
+        "original_end_s": 861.61
+      }
+    },
+    {
+      "id": "5830_4703_000006",
+      "text": "maintenant il voyait clairement tout il comprenait que son voisin jondrette avait pour industrie dans sa détresse d'exploiter la charité des personnes bienfaisantes",
+      "audio": "dev/audio/5830/4703/5830_4703_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 382.71,
+        "original_end_s": 395.66
+      }
+    },
+    {
+      "id": "5830_4703_000007",
+      "text": "elle posa le livre prit une plume et s'écria et je sais écrire aussi elle trempa la plume dans l'encre et se tournant vers marius voulez-vous voir tenez je vais écrire un mot pour voir",
+      "audio": "dev/audio/5830/4703/5830_4703_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 650.82,
+        "original_end_s": 667.43
+      }
+    },
+    {
+      "id": "5830_4703_000008",
+      "text": "l'homme pouvait avoir une soixantaine d'années il paraissait triste et sérieux toute sa personne offrait cet aspect robuste et fatigué des gens de guerre retirés du service",
+      "audio": "dev/audio/5830/4703/5830_4703_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 309.29,
+        "original_end_s": 322.24
+      }
+    },
+    {
+      "id": "5830_4703_000009",
+      "text": "s'il avait eu une décoration marius eût dit c'est un ancien officier il avait l'air bon mais inabordable et il n'arrêtait jamais son regard sur le regard de personne",
+      "audio": "dev/audio/5830/4703/5830_4703_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 322.24,
+        "original_end_s": 336.08
+      }
+    },
+    {
+      "id": "5830_4703_000010",
+      "text": "elle entra résolument regardant avec une sorte d'assurance qui serrait le coeur toute la chambre et le lit défait",
+      "audio": "dev/audio/5830/4703/5830_4703_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 192.57,
+        "original_end_s": 202.58
+      }
+    },
+    {
+      "id": "5830_4703_000011",
+      "text": "il n'y a pas de fautes d'orthographe vous pouvez regarder nous avons reçu de l'éducation ma soeur et moi nous n'avons pas toujours été comme nous sommes nous n'étions pas faites ici elle s'arrêta fixa sa prunelle éteinte sur marius",
+      "audio": "dev/audio/5830/4703/5830_4703_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 680.76,
+        "original_end_s": 695.56
+      }
+    },
+    {
+      "id": "5830_4703_000012",
+      "text": "et avant qu'il eût eu le temps de répondre elle écrivit sur une feuille de papier blanc qui était au milieu de la table les cognes sont là puis jetant la plume",
+      "audio": "dev/audio/5830/4703/5830_4703_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 667.43,
+        "original_end_s": 680.76
+      }
+    },
+    {
+      "id": "5830_4703_000013",
+      "text": "elle s'approcha de lui et lui posa une main sur l'épaule vous ne faites pas attention à moi mais je vous connais monsieur marius je vous rencontre ici dans l'escalier et puis je vous vois entrer chez un appelé le père mabeuf qui demeure du côté d'austerlitz des fois quand je me promène par là",
+      "audio": "dev/audio/5830/4703/5830_4703_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 756.71,
+        "original_end_s": 776.43
+      }
+    },
+    {
+      "id": "5830_4703_000014",
+      "text": "marius en ouvrant cette lettre remarqua que le pain à cacheter large et énorme était encore mouillé le message ne pouvait venir de bien loin il lut mon aimable voisin jeune homme",
+      "audio": "dev/audio/5830/4703/5830_4703_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 218.12,
+        "original_end_s": 235.52
+      }
+    },
+    {
+      "id": "5830_4703_000015",
+      "text": "et le père monsieur leblanc si bien que personne ne les connaissant d'ailleurs en l'absence du nom le surnom avait fait loi",
+      "audio": "dev/audio/5830/4703/5830_4703_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 528.58,
+        "original_end_s": 539.31
+      }
+    },
+    {
+      "id": "5830_4703_000016",
+      "text": "je sais lire moi elle saisit vivement le livre ouvert sur la table et lut assez couramment le général bauduin reçut l'ordre d'enlever avec les cinq bataillons de sa brigade le château de hougomont qui est au milieu de la plaine de waterloo",
+      "audio": "dev/audio/5830/4703/5830_4703_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 618.43,
+        "original_end_s": 634.67
+      }
+    },
+    {
+      "id": "5830_4703_000017",
+      "text": "son sourire corrigeait ce que toute sa physionomie avait de sévère à de certains moments c'était un singulier contraste que ce front chaste et ce sourire voluptueux",
+      "audio": "dev/audio/5830/4703/5830_4703_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 128.49,
+        "original_end_s": 141.55
+      }
+    },
+    {
+      "id": "5830_4703_000018",
+      "text": "cela vous va très bien vos cheveux ébouriffés sa voix cherchait à être très douce et ne parvenait qu'à être basse une partie des mots se perdait dans le trajet du larynx aux lèvres comme sur un clavier où il manque des notes",
+      "audio": "dev/audio/5830/4703/5830_4703_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 776.43,
+        "original_end_s": 794.55
+      }
+    },
+    {
+      "id": "5830_4703_000019",
+      "text": "je crois devoir espérer que votre coeur généreux s'humanisera à cet exposé et vous subjuguera le désir de m'être propice en daignant me prodiguer un léger bienfait je suis avec la considération distinguée qu'on doit aux bienfaiteurs de l'humanité jondrette",
+      "audio": "dev/audio/5830/4703/5830_4703_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 255.18,
+        "original_end_s": 274.81
+      }
+    },
+    {
+      "id": "5830_4703_000020",
+      "text": "elle fredonnait comme si elle eût été seule des bribes de vaudeville des refrains folâtres que sa voix gutturale et rauque faisaient lugubres",
+      "audio": "dev/audio/5830/4703/5830_4703_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 530.34,
+        "original_end_s": 542.24
+      }
+    },
+    {
+      "id": "5830_4703_000021",
+      "text": "une toute jeune fille était debout dans la porte entrebâillée la lucarne du galetas où le jour paraissait était précisément en face de la porte et éclairait cette figure d'une lumière blafarde",
+      "audio": "dev/audio/5830/4703/5830_4703_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 32.41,
+        "original_end_s": 49.44
+      }
+    },
+    {
+      "id": "5830_4703_000022",
+      "text": "à peine eut-elle achevé ce couplet qu'elle s'écria allez-vous quelquefois au spectacle monsieur marius moi j'y vais j'ai un petit frère qui est ami avec des artistes et qui me donne des fois des billets par exemple je n'aime pas les banquettes de galeries on y est gêné on y est mal",
+      "audio": "dev/audio/5830/4703/5830_4703_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 712.4,
+        "original_end_s": 732.29
+      }
+    },
+    {
+      "id": "5830_4703_000023",
+      "text": "s ma fille attendra vos ordres cher monsieur marius cette lettre au milieu de l'aventure obscure qui occupait marius depuis la veille au soir c'était une chandelle dans une cave tout fut brusquement éclairé",
+      "audio": "dev/audio/5830/4703/5830_4703_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 274.81,
+        "original_end_s": 292.58
+      }
+    },
+    {
+      "id": "5830_4703_000024",
+      "text": "c'était une créature hâve chétive décharnée rien qu'une chemise et une jupe sur une nudité frissonnante et glacée",
+      "audio": "dev/audio/5830/4703/5830_4703_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 49.44,
+        "original_end_s": 62.52
+      }
+    },
+    {
+      "id": "5830_4703_000025",
+      "text": "et qui promettait peut-être d'avoir d'assez beaux yeux seulement ils étaient toujours levés avec une sorte d'assurance déplaisante elle avait cette mise à la fois vieille et enfantine des pensionnaires de couvent une robe mal coupée de gros mérinos noir",
+      "audio": "dev/audio/5830/4703/5830_4703_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 381.26,
+        "original_end_s": 400.85
+      }
+    },
+    {
+      "id": "5830_4703_000026",
+      "text": "nous ferons comme eux et nous dirons m leblanc pour la facilité de ce récit marius les vit ainsi presque tous les jours à la même heure pendant la première année il trouvait l'homme à son gré mais la fille assez maussade",
+      "audio": "dev/audio/5830/4703/5830_4703_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 551.86,
+        "original_end_s": 571.01
+      }
+    },
+    {
+      "id": "5830_4703_000027",
+      "text": "les voilà ces pauvres lettres et à quoi avez-vous vu qu'elles étaient à moi ah oui à l'écriture c'est donc vous que nous avons cogné en passant hier au soir on n'y voyait pas quoi j'ai dit à ma soeur est-ce que c'est un monsieur",
+      "audio": "dev/audio/5830/4703/5830_4703_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 861.61,
+        "original_end_s": 879.15
+      }
+    },
+    {
+      "id": "5830_4703_000028",
+      "text": "et cette absence complète d'angles qui rendait les sicambres si reconnaissables parmi les romains et qui distingue la race léonine de la race aquiline",
+      "audio": "dev/audio/5830/4703/5830_4703_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 73.19,
+        "original_end_s": 85.72
+      }
+    },
+    {
+      "id": "5830_4703_000029",
+      "text": "c'était une façon de fille de treize ou quatorze ans maigre au point d'en être presque laide gauche insignifiante",
+      "audio": "dev/audio/5830/4703/5830_4703_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 370.89,
+        "original_end_s": 381.26
+      }
+    },
+    {
+      "id": "5830_4703_000030",
+      "text": "elle saisit la pièce bon dit-elle il y a du soleil et comme si ce soleil eût eu la propriété de faire fondre dans son cerveau des avalanches d'argot elle poursuivit",
+      "audio": "dev/audio/5830/4703/5830_4703_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1042.98,
+        "original_end_s": 1057.19
+      }
+    },
+    {
+      "id": "5830_4703_000031",
+      "text": "les étudiants disaient ah monsieur leblanc est à son banc et marius comme les autres avait trouvé commode d'appeler ce monsieur inconnu m leblanc",
+      "audio": "dev/audio/5830/4703/5830_4703_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 539.31,
+        "original_end_s": 551.86
+      }
+    },
+    {
+      "id": "5830_4703_000032",
+      "text": "d'autres fois courfeyrac le rencontrait et lui disait bonjour monsieur l'abbé quand courfeyrac lui avait tenu quelque propos de ce genre marius était huit jours à éviter plus que jamais les femmes",
+      "audio": "dev/audio/5830/4703/5830_4703_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 216.05,
+        "original_end_s": 231.41
+      }
+    },
+    {
+      "id": "5830_4703_000033",
+      "text": "en sortant de l'enfance n'ont déjà plus rien dans ce monde ni la liberté ni la vertu ni la responsabilité",
+      "audio": "dev/audio/5830/4703/5830_4703_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 465.46,
+        "original_end_s": 477.21
+      }
+    },
+    {
+      "id": "5830_4703_000034",
+      "text": "il avait l'esprit ailleurs et où est l'esprit est le regard il avait dû plus d'une fois croiser les jondrette dans le corridor ou dans l'escalier",
+      "audio": "dev/audio/5830/4703/5830_4703_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 342.99,
+        "original_end_s": 354.68
+      }
+    },
+    {
+      "id": "5830_4703_000035",
+      "text": "marius s'était reculé doucement mademoiselle dit-il avec sa gravité froide j'ai là un paquet qui est je crois à vous permettez-moi de vous le remettre",
+      "audio": "dev/audio/5830/4703/5830_4703_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 794.55,
+        "original_end_s": 812.38
+      }
+    },
+    {
+      "id": "5830_4703_000036",
+      "text": "elle reprit et son accent exprimait ce bonheur de se vanter de quelque chose auquel nulle créature humaine n'est insensible",
+      "audio": "dev/audio/5830/4703/5830_4703_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 607.98,
+        "original_end_s": 618.43
+      }
+    },
+    {
+      "id": "5830_4703_000037",
+      "text": "une grisette passant un jour près de lui dit voilà un veuf fort propre il avait les cheveux très blancs la première fois que la jeune fille qui l'accompagnait vint s'asseoir avec lui sur le banc qu'ils semblaient avoir adopté",
+      "audio": "dev/audio/5830/4703/5830_4703_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 354.49,
+        "original_end_s": 370.89
+      }
+    },
+    {
+      "id": "5830_4703_000038",
+      "text": "l'allée qui longe le parapet de la pépinière un homme et une toute jeune fille presque toujours assis côte à côte sur le même banc à l'extrémité la plus solitaire de l'allée du côté de la rue de l'ouest",
+      "audio": "dev/audio/5830/4703/5830_4703_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 280.49,
+        "original_end_s": 296.21
+      }
+    },
+    {
+      "id": "5830_4703_000039",
+      "text": "je vois les arbres comme des fourches je vois des maisons toutes noires grosses comme les tours de notre-dame je me figure que les murs blancs sont la rivière je me dis tiens il y a de l'eau là",
+      "audio": "dev/audio/5830/4703/5830_4703_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 968.61,
+        "original_end_s": 982.31
+      }
+    },
+    {
+      "id": "5830_4703_000040",
+      "text": "elle remuait les chaises elle dérangeait les objets de toilette posés sur la commode elle touchait aux vêtements de marius elle furetait ce qu'il y avait dans les coins tiens dit-elle vous avez un miroir",
+      "audio": "dev/audio/5830/4703/5830_4703_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 516.93,
+        "original_end_s": 530.34
+      }
+    },
+    {
+      "id": "5830_4703_000041",
+      "text": "elle s'interrompit ah waterloo je connais ça c'est une bataille dans les temps mon père y était mon père a servi dans les armées nous sommes joliment bonapartistes chez nous allez c'est contre les anglais waterloo",
+      "audio": "dev/audio/5830/4703/5830_4703_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 634.67,
+        "original_end_s": 650.82
+      }
+    },
+    {
+      "id": "5830_4703_000042",
+      "text": "marius s'était levé et considérait avec une sorte de stupeur cet être presque pareil aux formes de l'ombre qui traversent les rêves",
+      "audio": "dev/audio/5830/4703/5830_4703_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 109.83,
+        "original_end_s": 121.87
+      }
+    },
+    {
+      "id": "5830_4703_000043",
+      "text": "la grâce de l'âge luttait encore contre la hideuse vieillesse anticipée de la débauche et de la pauvreté un reste de beauté se mourait sur ce visage de seize ans comme ce pâle soleil qui s'éteint sous d'affreuses nuées à l'aube d'une journée d'hiver",
+      "audio": "dev/audio/5830/4703/5830_4703_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 135.4,
+        "original_end_s": 154.92
+      }
+    },
+    {
+      "id": "5830_4703_000044",
+      "text": "éclata de rire en disant avec une intonation qui contenait toutes les angoisses étouffées par tous les cynismes bah et elle se mit à fredonner ces paroles sur un air gai j'ai faim mon père pas de fricot j'ai froid ma mère pas de tricot grelotte lolotte sanglote jacquot",
+      "audio": "dev/audio/5830/4703/5830_4703_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 695.56,
+        "original_end_s": 712.4
+      }
+    },
+    {
+      "id": "5830_4703_000045",
+      "text": "le vieil homme parlait peu et par instants il attachait sur elle des yeux remplis d'une ineffable paternité marius avait pris l'habitude machinale de se promener dans cette allée il les y retrouvait invariablement",
+      "audio": "dev/audio/5830/4703/5830_4703_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 430.16,
+        "original_end_s": 446.95
+      }
+    },
+    {
+      "id": "5830_4703_000046",
+      "text": "la jeune fille répondit avec sa voix de galérien ivre c'est une lettre pour vous monsieur marius elle appelait marius par son nom",
+      "audio": "dev/audio/5830/4703/5830_4703_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 167.72,
+        "original_end_s": 179.07
+      }
+    },
+    {
+      "id": "5830_4703_000047",
+      "text": "et que c'était à grand'peine que celle-ci qui venait d'entrer dans sa chambre avait éveillé en lui à travers le dégoût et la pitié un vague souvenir de l'avoir rencontrée ailleurs",
+      "audio": "dev/audio/5830/4703/5830_4703_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 368.71,
+        "original_end_s": 382.71
+      }
+    },
+    {
+      "id": "5830_4703_000048",
+      "text": "ce visage n'était pas absolument inconnu à marius il croyait se rappeler l'avoir vu quelque part que voulez-vous mademoiselle demanda-t-il",
+      "audio": "dev/audio/5830/4703/5830_4703_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 154.92,
+        "original_end_s": 167.72
+      }
+    },
+    {
+      "id": "5830_4703_000049",
+      "text": "ni des femmes espèces de monstres impurs et innocents produits par la misère tristes créatures sans nom sans âge sans sexe auxquelles ni le bien ni le mal ne sont plus possibles et qui",
+      "audio": "dev/audio/5830/4703/5830_4703_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 445.93,
+        "original_end_s": 465.46
+      }
+    },
+    {
+      "id": "5830_4703_000050",
+      "text": "il était à cette saison de la vie où l'esprit des hommes qui pensent se compose presque à proportions égales de profondeur et de naïveté",
+      "audio": "dev/audio/5830/4703/5830_4703_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 85.72,
+        "original_end_s": 98.6
+      }
+    },
+    {
+      "id": "5830_4703_000051",
+      "text": "il ne pouvait douter que ce ne fût à lui qu'elle eût affaire mais qu'était-ce que cette fille comment savait-elle son nom sans attendre qu'il lui dît d'avancer elle entra",
+      "audio": "dev/audio/5830/4703/5830_4703_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 179.07,
+        "original_end_s": 192.57
+      }
+    },
+    {
+      "id": "5830_4703_000052",
+      "text": "ce qui était poignant surtout c'est que cette fille n'était pas venue au monde pour être laide dans sa première enfance elle avait dû même être jolie",
+      "audio": "dev/audio/5830/4703/5830_4703_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 121.87,
+        "original_end_s": 135.4
+      }
+    },
+    {
+      "id": "5830_4703_000053",
+      "text": "ils avaient l'air du père et de la fille marius examina pendant deux ou trois jours cet homme vieux qui n'était pas encore un vieillard et cette petite fille qui n'était pas encore une personne",
+      "audio": "dev/audio/5830/4703/5830_4703_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 400.85,
+        "original_end_s": 414.65
+      }
+    },
+    {
+      "id": "5830_4703_000054",
+      "text": "avant d'être ici l'autre hiver nous demeurions sous les arches des ponts on se serrait pour ne pas geler ma petite soeur pleurait l'eau comme c'est triste",
+      "audio": "dev/audio/5830/4703/5830_4703_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 942.72,
+        "original_end_s": 954.73
+      }
+    },
+    {
+      "id": "5830_4703_000055",
+      "text": "le capitaine espagnol don alvarès la malheureuse mère balizard le poète dramatique genflot le vieux comédien fanbatou se nommaient tous les quatre jondrette si toutefois jondrette lui-même s'appelait jondrette",
+      "audio": "dev/audio/5830/4703/5830_4703_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 311.33,
+        "original_end_s": 329.05
+      }
+    },
+    {
+      "id": "5830_4703_000056",
+      "text": "son profil dont toutes les lignes étaient arrondies sans cesser d'être fermes avait cette douceur germanique qui a pénétré dans la physionomie française par l'alsace et la lorraine",
+      "audio": "dev/audio/5830/4703/5830_4703_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 58.34,
+        "original_end_s": 73.19
+      }
+    },
+    {
+      "id": "5830_4703_000057",
+      "text": "il y a quelquefois du gros monde il y a aussi du monde qui sent mauvais puis elle considéra marius prit un air étrange et lui dit",
+      "audio": "dev/audio/5830/4703/5830_4703_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 732.29,
+        "original_end_s": 743.42
+      }
+    },
+    {
+      "id": "5830_4703_000058",
+      "text": "les narines ouvertes et passionnées l'air sincère et calme et sur tout son visage je ne sais quoi qui était hautain pensif et innocent",
+      "audio": "dev/audio/5830/4703/5830_4703_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 44.5,
+        "original_end_s": 58.34
+      }
+    },
+    {
+      "id": "5830_4703_000059",
+      "text": "rien n'était plus morne que de la voir s'ébattre et pour ainsi dire voleter dans la chambre avec des mouvements d'oiseau que le jour effare ou qui a l'aile cassée",
+      "audio": "dev/audio/5830/4703/5830_4703_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 553.91,
+        "original_end_s": 566.4
+      }
+    },
+    {
+      "id": "5830_4703_000060",
+      "text": "marius songeait et la laissait faire elle s'approcha de la table ah dit-elle des livres une lueur traversa son oeil vitreux",
+      "audio": "dev/audio/5830/4703/5830_4703_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 594.36,
+        "original_end_s": 607.98
+      }
+    },
+    {
+      "id": "5830_4703_000061",
+      "text": "marius à cette époque était un beau jeune homme de moyenne taille avec d'épais cheveux très noirs un front haut et intelligent",
+      "audio": "dev/audio/5830/4703/5830_4703_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 32.1,
+        "original_end_s": 44.5
+      }
+    },
+    {
+      "id": "5830_4703_000062",
+      "text": "voilà toujours mon dîner d'aujourd'hui pensa-t-il demain nous verrons il prit les seize sous et donna les cinq francs à la fille",
+      "audio": "dev/audio/5830/4703/5830_4703_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1030.52,
+        "original_end_s": 1042.98
+      }
+    },
+    {
+      "id": "5830_4703_000063",
+      "text": "et auxquelles il ne prenait point garde à la vérité on l'eût fort étonné si on lui eût dit que c'étaient des femmes l'une était la vieille barbue qui balayait sa chambre et qui faisait dire à courfeyrac voyant que sa servante porte sa barbe",
+      "audio": "dev/audio/5830/4703/5830_4703_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 245.01,
+        "original_end_s": 264.31
+      }
+    },
+    {
+      "id": "5830_4703_000064",
+      "text": "j'ai appris vos bontés pour moi que vous avez payé mon terme il y a six mois je vous bénis jeune homme ma fille aînée vous dira que nous sommes sans un morceau de pain depuis deux jours quatre personnes et mon épouse malade si je ne suis point dessus dans ma pensée",
+      "audio": "dev/audio/5830/4703/5830_4703_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 235.52,
+        "original_end_s": 255.18
+      }
+    },
+    {
+      "id": "5830_4703_000065",
+      "text": "il s'était enfui comme un parthe en leur décochant un sobriquet frappé uniquement de la robe de la petite et des cheveux du vieux il avait appelé la fille melle lanoire",
+      "audio": "dev/audio/5830/4703/5830_4703_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 514.89,
+        "original_end_s": 528.58
+      }
+    },
+    {
+      "id": "5830_4703_000066",
+      "text": "depuis assez longtemps déjà que marius habitait la masure il n'avait eu nous l'avons dit que de bien rares occasions de voir d'entrevoir même son très infime voisinage",
+      "audio": "dev/audio/5830/4703/5830_4703_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 329.05,
+        "original_end_s": 342.99
+      }
+    },
+    {
+      "id": "5830_4703_000067",
+      "text": "elle avait les pieds nus de larges trous à son jupon laissaient voir ses longues jambes et ses genoux maigres elle grelottait elle tenait en effet une lettre à la main qu'elle présenta à marius",
+      "audio": "dev/audio/5830/4703/5830_4703_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 202.58,
+        "original_end_s": 218.12
+      }
+    },
+    {
+      "id": "5830_4703_000068",
+      "text": "ce muet malentendu entre lui et les jolies passantes l'avait rendu farouche il n'en choisit aucune par l'excellente raison qu'il s'enfuyait devant toutes il vécut ainsi indéfiniment bêtement disait courfeyrac",
+      "audio": "dev/audio/5830/4703/5830_4703_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 168.67,
+        "original_end_s": 187.33
+      }
+    },
+    {
+      "id": "5830_4703_000069",
+      "text": "marius ne porte point la sienne l'autre était une espèce de petite fille qu'il voyait très souvent et qu'il ne regardait jamais depuis plus d'un an marius remarquait dans une allée déserte du luxembourg",
+      "audio": "dev/audio/5830/4703/5830_4703_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 264.31,
+        "original_end_s": 280.49
+      }
+    },
+    {
+      "id": "5830_4703_000070",
+      "text": "cinquante ans mêlés à quinze ans un de ces êtres qui sont tout ensemble faibles et horribles et qui font frémir ceux qu'ils ne font pas pleurer",
+      "audio": "dev/audio/5830/4703/5830_4703_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 96.7,
+        "original_end_s": 109.83
+      }
+    },
+    {
+      "id": "5830_4703_000071",
+      "text": "courfeyrac lui disait encore n'aspire pas à être vénérable car ils se tutoyaient glisser au tutoiement est la pente des amitiés jeunes",
+      "audio": "dev/audio/5830/4703/5830_4703_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 187.33,
+        "original_end_s": 199.59
+      }
+    },
+    {
+      "id": "5830_4703_000072",
+      "text": "et il lui tendit l'enveloppe qui renfermait les quatre lettres elle frappa dans ses deux mains et s'écria nous avons cherché partout puis elle saisit vivement le paquet",
+      "audio": "dev/audio/5830/4703/5830_4703_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 812.38,
+        "original_end_s": 824.85
+      }
+    },
+    {
+      "id": "5830_4703_000073",
+      "text": "cette hardiesse perçait je ne sais quoi de contraint d'inquiet et d'humilié l'effronterie est une honte",
+      "audio": "dev/audio/5830/4703/5830_4703_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 542.24,
+        "original_end_s": 553.91
+      }
+    },
+    {
+      "id": "5830_4703_000074",
+      "text": "âmes écloses hier fanées aujourd'hui pareilles à ces fleurs tombées dans la rue que toutes les boues flétrissent en attendant qu'une roue les écrase",
+      "audio": "dev/audio/5830/4703/5830_4703_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 477.21,
+        "original_end_s": 490.94
+      }
+    },
+    {
+      "id": "5830_4703_000075",
+      "text": "cependant tandis que marius attachait sur elle un regard étonné et douloureux la jeune fille allait et venait dans la mansarde avec une audace de spectre",
+      "audio": "dev/audio/5830/4703/5830_4703_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 490.94,
+        "original_end_s": 505.21
+      }
+    },
+    {
+      "id": "5830_4703_000076",
+      "text": "savez-vous monsieur marius que vous êtes très joli garçon et en même temps il leur vint à tous les deux la même pensée qui la fit sourire et qui le fit rougir",
+      "audio": "dev/audio/5830/4703/5830_4703_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 743.42,
+        "original_end_s": 756.71
+      }
+    },
+    {
+      "id": "5830_4703_000077",
+      "text": "qu'il se procurait des adresses et qu'il écrivait sous des noms supposés à des gens qu'il jugeait riches et pitoyables des lettres que ses filles portaient à leurs risques et périls car ce père en était là qu'il risquait ses filles",
+      "audio": "dev/audio/5830/4703/5830_4703_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 395.66,
+        "original_end_s": 412.57
+      }
+    },
+    {
+      "id": "5830_4703_000078",
+      "text": "mais ce n'était pour lui que des silhouettes il avait pris si peu garde que la veille au soir il avait heurté sur le boulevard sans les reconnaître les filles jondrette car c'était évidemment elles",
+      "audio": "dev/audio/5830/4703/5830_4703_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 354.68,
+        "original_end_s": 368.71
+      }
+    },
+    {
+      "id": "5830_4703_000079",
+      "text": "cette lettre venait d'où venaient les quatre autres c'était la même écriture le même style la même orthographe le même papier la même odeur de tabac il y avait cinq missives cinq histoires cinq noms cinq signatures et un seul signataire",
+      "audio": "dev/audio/5830/4703/5830_4703_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 292.58,
+        "original_end_s": 311.33
+      }
+    },
+    {
+      "id": "5830_4703_000080",
+      "text": "tiens dit-elle c'est celle pour ce vieux qui va à la messe au fait c'est l'heure je vas lui porter il nous donnera peut-être de quoi déjeuner",
+      "audio": "dev/audio/5830/4703/5830_4703_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 892.06,
+        "original_end_s": 903.14
+      }
+    },
+    {
+      "id": "5830_4703_000081",
+      "text": "des clavicules terreuses des mains rouges la bouche entr'ouverte et dégradée des dents de moins l'oeil terne hardi et bas les formes d'une jeune fille avortée et le regard d'une vieille femme corrompue",
+      "audio": "dev/audio/5830/4703/5830_4703_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 77.62,
+        "original_end_s": 96.7
+      }
+    },
+    {
+      "id": "5830_4703_000082",
+      "text": "les autres après leur partie de billard courfeyrac qui était un de ces derniers les avait observés quelque temps mais trouvant la fille laide il s'en était bien vite et soigneusement écarté",
+      "audio": "dev/audio/5830/4703/5830_4703_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 499.55,
+        "original_end_s": 514.89
+      }
+    },
+    {
+      "id": "5830_4703_000083",
+      "text": "ces infortunées faisaient encore on ne sait quels métiers sombres et que de tout cela il était résulté au milieu de la société humaine telle qu'elle est faite deux misérables êtres qui n'étaient ni des enfants ni des filles",
+      "audio": "dev/audio/5830/4703/5830_4703_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 429.34,
+        "original_end_s": 445.93
+      }
+    },
+    {
+      "id": "5830_4703_000084",
+      "text": "elle se démenait sans se préoccuper de sa nudité par instants sa chemise défaite et déchirée lui tombait presque à la ceinture",
+      "audio": "dev/audio/5830/4703/5830_4703_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 505.21,
+        "original_end_s": 516.93
+      }
+    },
+    {
+      "id": "5830_4703_000085",
+      "text": "livre six la conjonction de deux étoiles chapitre un le sobriquet mode de formation des noms de familles",
+      "audio": "dev/audio/5830/4703/5830_4703_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 21.92,
+        "original_end_s": 32.1
+      }
+    },
+    {
+      "id": "5830_4703_000086",
+      "text": "puis elle se remit à rire et ajouta savez-vous ce que cela fera si nous déjeunons aujourd'hui cela fera que nous aurons eu notre déjeuner d'avant-hier notre dîner d'avant-hier notre déjeuner d'hier notre dîner d'hier tout ça en une fois ce matin tiens parbleu si vous n'êtes pas contents crevez chiens",
+      "audio": "dev/audio/5830/4703/5830_4703_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 903.14,
+        "original_end_s": 922.88
+      }
+    },
+    {
+      "id": "5830_4703_000087",
+      "text": "et recommençait il faisait ce va-et-vient cinq ou six fois dans sa promenade et cette promenade cinq ou six fois par semaine sans qu'ils en fussent arrivés ces gens et lui à échanger un salut",
+      "audio": "dev/audio/5830/4703/5830_4703_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 463.69,
+        "original_end_s": 480.34
+      }
+    },
+    {
+      "id": "5830_4703_000088",
+      "text": "jeunes et vieilles et il évitait par-dessus le marché courfeyrac il y avait pourtant dans toute l'immense création deux femmes que marius ne fuyait pas",
+      "audio": "dev/audio/5830/4703/5830_4703_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 231.41,
+        "original_end_s": 245.01
+      }
+    },
+    {
+      "id": "5830_4703_000089",
+      "text": "chaque fois que ce hasard qui se mêle aux promenades des gens dont l'oeil est retourné en dedans amenait marius dans cette allée et c'était presque tous les jours il y retrouvait ce couple",
+      "audio": "dev/audio/5830/4703/5830_4703_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 296.21,
+        "original_end_s": 309.29
+      }
+    },
+    {
+      "id": "5830_4703_000090",
+      "text": "il jouait une partie avec la destinée et il les mettait au jeu marius comprenait que probablement à en juger par leur fuite de la veille par leur essoufflement par leur terreur et par ces mots d'argot qu'il avait entendus",
+      "audio": "dev/audio/5830/4703/5830_4703_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 412.57,
+        "original_end_s": 429.34
+      }
+    },
+    {
+      "id": "5830_4703_000091",
+      "text": "pour ceinture une ficelle pour coiffure une ficelle des épaules pointues sortant de la chemise une pâleur blonde et lymphatique",
+      "audio": "dev/audio/5830/4703/5830_4703_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 62.52,
+        "original_end_s": 77.62
+      }
+    },
+    {
+      "id": "5830_4703_000092",
+      "text": "il avait l'oeil petit et le regard grand au temps de sa pire misère il remarquait que les jeunes filles se retournaient quand il passait et il se sauvait ou se cachait la mort dans l'âme",
+      "audio": "dev/audio/5830/4703/5830_4703_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 141.55,
+        "original_end_s": 156.03
+      }
+    },
+    {
+      "id": "5830_4703_000093",
+      "text": "j'entends des orgues de barbarie et les mécaniques des filatures est-ce que je sais moi je crois qu'on me jette des pierres je me sauve sans savoir tout tourne tout tourne quand on n'a pas mangé c'est très drôle",
+      "audio": "dev/audio/5830/4703/5830_4703_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 997.37,
+        "original_end_s": 1014.13
+      }
+    },
+    {
+      "id": "5830_4703_000094",
+      "text": "elle ramena sa chemise sur ses épaules fit un profond salut à marius puis un signe familier de la main et se dirigea vers la porte en disant bonjour monsieur c'est égal je vas trouver mon vieux",
+      "audio": "dev/audio/5830/4703/5830_4703_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1073.93,
+        "original_end_s": 1087.58
+      }
+    },
+    {
+      "id": "5830_4703_000095",
+      "text": "ma soeur m'a dit je crois que c'est un monsieur cependant elle avait déplié la supplique adressée au monsieur bienfaisant de l'église saint jacques du haut pas",
+      "audio": "dev/audio/5830/4703/5830_4703_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 879.15,
+        "original_end_s": 892.06
+      }
+    },
+    {
+      "id": "5830_4703_000096",
+      "text": "quand je pensais à me noyer je disais non c'est trop froid je vais toute seule quand je veux je dors des fois dans les fossés savez-vous la nuit quand je marche sur le boulevard",
+      "audio": "dev/audio/5830/4703/5830_4703_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 954.73,
+        "original_end_s": 968.61
+      }
+    },
+    {
+      "id": "5830_4703_000097",
+      "text": "jamais parmi les animaux la créature née pour être une colombe ne se change en une orfraie cela ne se voit que parmi les hommes",
+      "audio": "dev/audio/5830/4703/5830_4703_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 580.56,
+        "original_end_s": 594.36
+      }
+    },
+    {
+      "id": "5830_4703_000098",
+      "text": "et elle le regarda d'un air égaré à force de creuser et d'approfondir ses poches marius avait fini par réunir cinq francs seize sous c'était en ce moment tout ce qu'il possédait au monde",
+      "audio": "dev/audio/5830/4703/5830_4703_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1014.13,
+        "original_end_s": 1030.52
+      }
+    },
+    {
+      "id": "5830_4703_000099",
+      "text": "il pensait qu'elles le regardaient pour ses vieux habits et qu'elles en riaient le fait est qu'elles le regardaient pour sa grâce et qu'elles en rêvaient",
+      "audio": "dev/audio/5830/4703/5830_4703_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 156.03,
+        "original_end_s": 168.67
+      }
+    },
+    {
+      "id": "5830_4703_000100",
+      "text": "en passant elle aperçut sur la commode une croûte de pain desséchée qui y moisissait dans la poussière elle se jeta dessus et y mordit en grommelant c'est bon c'est dur ça me casse les dents puis elle sortit",
+      "audio": "dev/audio/5830/4703/5830_4703_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 1087.58,
+        "original_end_s": 1104.39
+      }
+    },
+    {
+      "id": "5830_4703_000101",
+      "text": "ceci fit souvenir marius de ce que la malheureuse venait chercher chez lui il fouilla dans son gilet il n'y trouva rien la jeune fille continuait et semblait parler comme si elle n'avait plus conscience que marius fût là des fois je m'en vais le soir des fois je ne rentre pas",
+      "audio": "dev/audio/5830/4703/5830_4703_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 922.88,
+        "original_end_s": 942.72
+      }
+    },
+    {
+      "id": "5830_4703_000102",
+      "text": "on sentait qu'avec d'autres conditions d'éducation et de destinée l'allure gaie et libre de cette jeune fille eût pu être quelque chose de doux et de charmant",
+      "audio": "dev/audio/5830/4703/5830_4703_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_58_hugo_64kb.mp3",
+        "original_start_s": 566.4,
+        "original_end_s": 580.56
+      }
+    },
+    {
+      "id": "5830_4703_000103",
+      "text": "il portait un pantalon bleu une redingote bleue et un chapeau à bords larges qui paraissaient toujours neufs une cravate noire et une chemise de quaker c'est-à-dire éclatante de blancheur mais de grosse toile",
+      "audio": "dev/audio/5830/4703/5830_4703_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 336.08,
+        "original_end_s": 354.49
+      }
+    },
+    {
+      "id": "5830_4703_000104",
+      "text": "voilà comment la chose se passait marius arrivait le plus volontiers par le bout de l'allée opposé à leur banc il marchait toute la longueur de l'allée passait devant eux puis s'en retournait jusqu'à l'extrémité par où il était venu",
+      "audio": "dev/audio/5830/4703/5830_4703_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 446.95,
+        "original_end_s": 463.69
+      }
+    },
+    {
+      "id": "5830_4703_000105",
+      "text": "mon cher un conseil ne lis pas tant dans les livres et regarde un peu plus les margotons les coquines ont du bon ô marius à force de t'enfuir et de rougir tu t'abrutiras",
+      "audio": "dev/audio/5830/4703/5830_4703_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 199.59,
+        "original_end_s": 216.05
+      }
+    },
+    {
+      "id": "5830_4703_000106",
+      "text": "ses façons étaient réservées froides polies peu ouvertes comme sa bouche était charmante ses lèvres les plus vermeilles et ses dents les plus blanches du monde",
+      "audio": "dev/audio/5830/4703/5830_4703_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_42_hugo_64kb.mp3",
+        "original_start_s": 111.66,
+        "original_end_s": 128.49
+      }
+    },
+    {
+      "id": "5830_4703_000107",
+      "text": "marius n'eût pu le dire il n'y avait rien et il y avait tout ce fut un étrange éclair elle baissa les yeux et il continua son chemin",
+      "audio": "dev/audio/5830/4703/5830_4703_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 69.17,
+        "original_end_s": 81.88
+      }
+    },
+    {
+      "id": "5830_4703_000108",
+      "text": "il n'y avait qu'un coupable le vent mais marius en qui frémissait confusément le bartholo qu'il y a dans chérubin était déterminé à être mécontent et était jaloux de son ombre",
+      "audio": "dev/audio/5830/4703/5830_4703_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 149.38,
+        "original_end_s": 164.43
+      }
+    },
+    {
+      "id": "5830_4703_000109",
+      "text": "marius poussa de nouveau la porte elle continua de la retenir tenez dit-elle vous avez tort quoique vous ne soyez pas riche vous avez été bon ce matin soyez-le encore à présent",
+      "audio": "dev/audio/5830/4703/5830_4703_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 160.75,
+        "original_end_s": 180.75
+      }
+    },
+    {
+      "id": "5830_4703_000110",
+      "text": "que marius vous avez l'air triste qu'est-ce que vous avez moi dit marius oui vous je n'ai rien si non je vous dis que si ah laissez-moi tranquille",
+      "audio": "dev/audio/5830/4703/5830_4703_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 140.75,
+        "original_end_s": 160.75
+      }
+    },
+    {
+      "id": "5830_4703_000111",
+      "text": "le père et la fille se donnant le bras venaient de passer devant le banc de marius marius s'était levé derrière eux et les suivait du regard comme il convient dans cette situation d'âme éperdue",
+      "audio": "dev/audio/5830/4703/5830_4703_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 63.15,
+        "original_end_s": 79.78
+      }
+    },
+    {
+      "id": "5830_4703_000112",
+      "text": "marius lui jeta un regard bourru et féroce la jeune fille eut ce petit redressement en arrière accompagné d'un haussement de paupières qui signifie eh bien qu'est-ce qu'il a donc",
+      "audio": "dev/audio/5830/4703/5830_4703_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 203.04,
+        "original_end_s": 219.66
+      }
+    },
+    {
+      "id": "5830_4703_000113",
+      "text": "ce les qui était devenu la avait je ne sais quoi de significatif et d'amer enfin peux-tu dit marius vous avoir l'adresse de la belle demoiselle il y avait encore dans ces",
+      "audio": "dev/audio/5830/4703/5830_4703_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 300.75,
+        "original_end_s": 320.75
+      }
+    },
+    {
+      "id": "5830_4703_000114",
+      "text": "rien ne saurait rendre le charme dangereux de cette lueur inattendue qui éclaire vaguement tout-à-coup d'adorables ténèbres et qui se compose de toute l'innocence du présent et de toute la passion de l'avenir",
+      "audio": "dev/audio/5830/4703/5830_4703_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 113.26,
+        "original_end_s": 131.56
+      }
+    },
+    {
+      "id": "5830_4703_000115",
+      "text": "qu'il avait la malpropreté l'inconvenance et la stupidité inouïe d'aller se promener au luxembourg avec ses habits de tous les jours c'est-à-dire avec un chapeau cassé près de la ganse de grosses bottes de roulier",
+      "audio": "dev/audio/5830/4703/5830_4703_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 204.22,
+        "original_end_s": 220.24
+      }
+    },
+    {
+      "id": "5830_4703_000116",
+      "text": "c'est ainsi en effet que s'éveille dans le coeur humain et que s'impose même sans droit l'âcre et bizarre jalousie de la chair",
+      "audio": "dev/audio/5830/4703/5830_4703_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 164.43,
+        "original_end_s": 175.83
+      }
+    },
+    {
+      "id": "5830_4703_000117",
+      "text": "c'est vous reprit marius presque durement toujours vous donc que me voulez-vous elle semblait pensive et ne regardait pas elle n'avait plus son assurance du matin elle n'était pas entrée et se tenait dans",
+      "audio": "dev/audio/5830/4703/5830_4703_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 100.75,
+        "original_end_s": 120.75
+      }
+    },
+    {
+      "id": "5830_4703_000118",
+      "text": "vous m'avez donné de quoi manger dites-moi maintenant ce que vous avez vous avez du chagrin cela se voit je ne voudrais pas que vous eussiez du chagrin qu'est-ce qu'il faut faire pour cela puis-je servir à quelque chose employez-moi je ne vous demande",
+      "audio": "dev/audio/5830/4703/5830_4703_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 180.75,
+        "original_end_s": 200.75
+      }
+    },
+    {
+      "id": "5830_4703_000119",
+      "text": "au fond d'une âme cette fleur sombre pleine de parfums et de poisons qu'on appelle l'amour",
+      "audio": "dev/audio/5830/4703/5830_4703_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 180.56,
+        "original_end_s": 193.2
+      }
+    },
+    {
+      "id": "5830_4703_000120",
+      "text": "quand on se sent tomber il s'approcha de la jondrette écoute lui dit-il elle l'interrompit avec un éclair de joie dans les yeux oh oui tutoyez moi j'aime mieux cela eh bien",
+      "audio": "dev/audio/5830/4703/5830_4703_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 240.75,
+        "original_end_s": 260.75
+      }
+    },
+    {
+      "id": "5830_4703_000121",
+      "text": "d'ailleurs elle ne les lui rendrait pas quant à la questionner sur la demeure des gens qui étaient venus tout à l'heure cela était inutile il était évident qu'elle ne la savait point puisque la lettre signée fanbatou était adressée au monsieur bienfaisant de l'église",
+      "audio": "dev/audio/5830/4703/5830_4703_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 60.75,
+        "original_end_s": 80.75
+      }
+    },
+    {
+      "id": "5830_4703_000122",
+      "text": "flottant dans un désespoir immense voilà ce qui emplissait confusément son cerveau tout à coup il fut violemment arraché à sa rêverie il entendit la voix haute et dure de jondrette prononcer ces paroles pleines du plus étrange intérêt pour lui",
+      "audio": "dev/audio/5830/4703/5830_4703_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 380.75,
+        "original_end_s": 400.75
+      }
+    },
+    {
+      "id": "5830_4703_000123",
+      "text": "tous les renseignements sans lesquels sa vie était obscure pour lui-même allait-il savoir enfin qui il aimait qui était cette jeune fille qui était son père l'ombre si épaisse qui les couvrait était-elle au moment de s'éclaircir",
+      "audio": "dev/audio/5830/4703/5830_4703_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 420.75,
+        "original_end_s": 440.75
+      }
+    },
+    {
+      "id": "5830_4703_000124",
+      "text": "c'était un de ces jours où elle déterminait m leblanc à quitter le banc et à se promener dans l'allée il faisait une vive brise de plérial qui remuait le haut des platanes",
+      "audio": "dev/audio/5830/4703/5830_4703_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 49.31,
+        "original_end_s": 63.15
+      }
+    },
+    {
+      "id": "5830_4703_000125",
+      "text": "digne des nymphes de virgile et des faunes de théocrite et souleva sa robe cette robe plus sacrée que celle d'isis presque jusqu'à la hauteur de la jarretière",
+      "audio": "dev/audio/5830/4703/5830_4703_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 97.38,
+        "original_end_s": 113.17
+      }
+    },
+    {
+      "id": "5830_4703_000126",
+      "text": "il était seul dans l'allée c'est vrai mais il pouvait y avoir eu quelqu'un et s'il y avait eu quelqu'un comprend-on une chose pareille c'est horrible ce qu'elle vient de faire là hélas la pauvre enfant n'avait rien fait",
+      "audio": "dev/audio/5830/4703/5830_4703_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 133.0,
+        "original_end_s": 149.38
+      }
+    },
+    {
+      "id": "5830_4703_000127",
+      "text": "cette fille lui fut odieuse à voir c'était elle qui avait ses cinq francs il était trop tard pour les lui redemander le cabriolet n'était plus là le fiacre était bien loin",
+      "audio": "dev/audio/5830/4703/5830_4703_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 47.28,
+        "original_end_s": 60.75
+      }
+    },
+    {
+      "id": "5830_4703_000128",
+      "text": "je te dis que j'en suis sûr et que je l'ai reconnu de qui parlait jondrette il avait reconnu qui m leblanc le père de son ursule quoi est-ce que jondrette le connaissait marius allait-il avoir de cette façon brusque et inattendue",
+      "audio": "dev/audio/5830/4703/5830_4703_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 400.75,
+        "original_end_s": 420.75
+      }
+    },
+    {
+      "id": "5830_4703_000129",
+      "text": "pas vos secrets vous n'aurez pas besoin de me dire mais enfin je peux être utile je peux bien vous aider puisque j'aide mon père quand il faut porter des lettres aller dans les maisons demander de porte en porte trouver une adresse suivre quelqu'un moi je sers à ça eh bien",
+      "audio": "dev/audio/5830/4703/5830_4703_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 200.75,
+        "original_end_s": 220.75
+      }
+    },
+    {
+      "id": "5830_4703_000130",
+      "text": "qu'avait-il donc à être si content ce débris de mars que s'est-il donc passé entre cette jambe de bois et l'autre marius arriva au paroxysme de la jalousie il était peut-être là se dit-il il a peut-être vu",
+      "audio": "dev/audio/5830/4703/5830_4703_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 280.35,
+        "original_end_s": 298.02
+      }
+    },
+    {
+      "id": "5830_4703_000131",
+      "text": "c'est une vierge qui regarde comme une femme il est rare qu'une rêverie profonde ne naisse pas de ce regard là où il tombe",
+      "audio": "dev/audio/5830/4703/5830_4703_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 149.83,
+        "original_end_s": 162.87
+      }
+    },
+    {
+      "id": "5830_4703_000132",
+      "text": "reprit-il tu as amené ici ce vieux monsieur avec sa fille oui sais-tu leur adresse non trouve-la moi l'oeil de la jondrette de morne était devenu joyeux de joyeux",
+      "audio": "dev/audio/5830/4703/5830_4703_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 260.75,
+        "original_end_s": 280.75
+      }
+    },
+    {
+      "id": "5830_4703_000133",
+      "text": "le bas blanc de la première femme venue lui eût fait plus de plaisir quand son ursule après avoir atteint l'extrémité de l'allée revint sur ses pas avec m leblanc et passa devant le banc où marius s'était rassis",
+      "audio": "dev/audio/5830/4703/5830_4703_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 187.22,
+        "original_end_s": 203.04
+      }
+    },
+    {
+      "id": "5830_4703_000134",
+      "text": "ce fut là leur première querelle marius achevait à peine de lui faire cette scène avec les yeux que quelqu'un traversa l'allée c'était un invalide tout courbé tout ridé et tout blanc en uniforme",
+      "audio": "dev/audio/5830/4703/5830_4703_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 219.66,
+        "original_end_s": 236.03
+      }
+    },
+    {
+      "id": "5830_4703_000135",
+      "text": "du haut pas marius entra dans sa chambre et poussa sa porte derrière lui elle ne se ferma pas il se retourna et vit une main qui retenait la porte entrouverte qu'est-ce que c'est demanda-t-il qui est là c'était la fille jondrette",
+      "audio": "dev/audio/5830/4703/5830_4703_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 80.75,
+        "original_end_s": 100.75
+      }
+    },
+    {
+      "id": "5830_4703_000136",
+      "text": "il finit par pardonner mais ce fut un grand effort il la bouda trois jours cependant à travers tout cela et à cause de tout cela la passion grandissait et devenait folle",
+      "audio": "dev/audio/5830/4703/5830_4703_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 314.59,
+        "original_end_s": 334.11
+      }
+    },
+    {
+      "id": "5830_4703_000137",
+      "text": "le voile allait-il se déchirer ah ciel il bondit plutôt qu'il ne monta sur la commode et reprit sa place près de la petite lucarne de la cloison il revoyait l'intérieur du bouge jondrette",
+      "audio": "dev/audio/5830/4703/5830_4703_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 440.75,
+        "original_end_s": 460.75
+      }
+    },
+    {
+      "id": "5830_4703_000138",
+      "text": "tout à coup un souffle de vent plus en gaîté que les autres et probablement chargé de faire les affaires du printemps s'envola de la pépinière s'abattit sur l'allée enveloppa la jeune fille dans un ravissant frisson",
+      "audio": "dev/audio/5830/4703/5830_4703_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 79.78,
+        "original_end_s": 97.38
+      }
+    },
+    {
+      "id": "5830_4703_000139",
+      "text": "du reste en dehors même de cette jalousie la vue de cette jambe charmante n'avait eu pour lui rien d'agréable",
+      "audio": "dev/audio/5830/4703/5830_4703_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 175.83,
+        "original_end_s": 187.22
+      }
+    },
+    {
+      "id": "5830_4703_000140",
+      "text": "ce premier regard d'une âme qui ne se connaît pas encore est comme l'aube dans le ciel c'est l'éveil de quelque chose de rayonnant et d'inconnu",
+      "audio": "dev/audio/5830/4703/5830_4703_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 101.59,
+        "original_end_s": 113.26
+      }
+    },
+    {
+      "id": "5830_4703_000141",
+      "text": "sur une chaise la tête et les deux coudes sur son lit abîmé dans des pensées qu'il ne pouvait saisir et comme en proie à un vertige tout ce qui s'était passé depuis le matin l'apparition de l'ange sa disparition ce que cette créature venait de lui dire une lueur d'espérance",
+      "audio": "dev/audio/5830/4703/5830_4703_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 360.75,
+        "original_end_s": 380.75
+      }
+    },
+    {
+      "id": "5830_4703_000142",
+      "text": "lui avait adressé un clignement d'oeil très fraternel et très joyeux comme si un hasard quelconque avait fait qu'ils pussent être d'intelligence et qu'ils eussent savouré en commun quelque bonne",
+      "audio": "dev/audio/5830/4703/5830_4703_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 264.31,
+        "original_end_s": 280.35
+      }
+    },
+    {
+      "id": "5830_4703_000143",
+      "text": "toutes les puretés et toutes les candeurs se concentrent dans ce rayon céleste et fatal qui plus que les oeillades les mieux travaillées des coquettes a le pouvoir magique de faire subitement éclore",
+      "audio": "dev/audio/5830/4703/5830_4703_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 162.87,
+        "original_end_s": 180.56
+      }
+    },
+    {
+      "id": "5830_4703_000144",
+      "text": "à l'instant où il allait rentrer dans sa cellule il aperçut derrière lui dans le corridor la jondrette aînée qui le suivait",
+      "audio": "dev/audio/5830/4703/5830_4703_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 36.72,
+        "original_end_s": 47.28
+      }
+    },
+    {
+      "id": "5830_4703_000145",
+      "text": "ayant sur le torse la petite plaque ovale de drap rouge aux épées croisées croix de saint-louis du soldat et orné en outre d'une manche d'habit sans bras dedans d'un menton d'argent et d'une jambe de bois",
+      "audio": "dev/audio/5830/4703/5830_4703_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 236.03,
+        "original_end_s": 253.25
+      }
+    },
+    {
+      "id": "5830_4703_000146",
+      "text": "vous pouvez bien me dire ce que vous avez j'irai parler aux personnes quelquefois quelqu'un qui parle aux personnes ça suffit pour qu'on sache les choses et tout s'arrange servez-vous de moi une idée traversa l'esprit de marius quelle branche",
+      "audio": "dev/audio/5830/4703/5830_4703_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 220.75,
+        "original_end_s": 240.75
+      }
+    },
+    {
+      "id": "5830_4703_000147",
+      "text": "marius crut distinguer que cet être avait l'air extrêmement satisfait il lui sembla même que le vieux cynique tout en clopinant près de lui",
+      "audio": "dev/audio/5830/4703/5830_4703_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 253.25,
+        "original_end_s": 264.31
+      }
+    },
+    {
+      "id": "5830_4703_000148",
+      "text": "tout ce que tu voudras tout ce que je voudrai oui vous aurez l'adresse elle baissa la tête puis d'un mouvement brusque elle tira la porte qui se referma marius se retrouva seul il se laissa tomber",
+      "audio": "dev/audio/5830/4703/5830_4703_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 340.75,
+        "original_end_s": 360.75
+      }
+    },
+    {
+      "id": "5830_4703_000149",
+      "text": "une jambe d'une forme exquise apparut marius la vit il fut exaspéré et furieux la jeune fille avait rapidement baissé sa robe d'un mouvement divinement effarouché mais il n'en fut pas moins indigné",
+      "audio": "dev/audio/5830/4703/5830_4703_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 113.17,
+        "original_end_s": 133.0
+      }
+    },
+    {
+      "id": "5830_4703_000150",
+      "text": "du corridor où marius l'apercevait par la porte entrebâillée ah çà répondrez-vous fit marius qu'est-ce que vous me voulez elle leva sur lui son oeil morne où une espèce de clarté semblait s'allumer vaguement et lui dit",
+      "audio": "dev/audio/5830/4703/5830_4703_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_65_hugo_64kb.mp3",
+        "original_start_s": 120.75,
+        "original_end_s": 140.75
+      }
+    },
+    {
+      "id": "5830_4703_000151",
+      "text": "il passa près de ce banc la jeune fille leva les yeux sur lui leurs deux regards se rencontrèrent qu'y avait-il cette fois dans le regard de la jeune fille",
+      "audio": "dev/audio/5830/4703/5830_4703_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_44_hugo_64kb.mp3",
+        "original_start_s": 55.53,
+        "original_end_s": 69.17
+      }
+    },
+    {
+      "id": "5830_4703_000152",
+      "text": "et il eut envie d'exterminer l'invalide le temps aidant toute pointe s'émousse cette colère de marius contre ursule si juste et si légitime qu'elle fût passa",
+      "audio": "dev/audio/5830/4703/5830_4703_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5830",
+        "gender": "w",
+        "book_id": "4703",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/miserables_t3_1108_librivox/lesmiserables_t3_49_hugo_64kb.mp3",
+        "original_start_s": 298.02,
+        "original_end_s": 314.59
+      }
+    }
+  ]
+}

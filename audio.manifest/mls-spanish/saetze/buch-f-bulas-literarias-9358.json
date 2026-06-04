@@ -1,0 +1,172 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Fábulas literarias",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "9358",
+    "book_title": "Fábulas literarias",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "11266_9358_000000",
+      "text": "un arroyo añadió sí padre mío es una furia lo que ese hombre miente yo voy a mi camino no censuro y con todo ha fingido que murmuro",
+      "audio": "test/audio/11266/9358/11266_9358_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_73_iriarte_64kb.mp3",
+        "original_start_s": 40.02,
+        "original_end_s": 52.85
+      }
+    },
+    {
+      "id": "11266_9358_000001",
+      "text": "esta contienda oyó un perito dióle gran risa y al punto dijo vaya verruga que hablas con juicio sois todos tres a la verdad tan buenos que bien puedes decir del mal el menos",
+      "audio": "test/audio/11266/9358/11266_9358_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 94.06,
+        "original_end_s": 111.95
+      }
+    },
+    {
+      "id": "11266_9358_000002",
+      "text": "la verruga el lobanillo y la corcova de las obras de un mal poeta la más reducida es la menos perjudicial cierto poeta",
+      "audio": "test/audio/11266/9358/11266_9358_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 13.88,
+        "original_end_s": 25.7
+      }
+    },
+    {
+      "id": "11266_9358_000003",
+      "text": "dicen que el tajo luego así les respondió con gran sosiego no tengo yo también oro en mi arena",
+      "audio": "test/audio/11266/9358/11266_9358_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_73_iriarte_64kb.mp3",
+        "original_start_s": 52.85,
+        "original_end_s": 62.95
+      }
+    },
+    {
+      "id": "11266_9358_000004",
+      "text": "en tu presencia venerable río al tajo de este modo habló una fuente de un poeta me quejo amargamente porque ha dicho y no hay tal que yo me río",
+      "audio": "test/audio/11266/9358/11266_9358_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_73_iriarte_64kb.mp3",
+        "original_start_s": 26.39,
+        "original_end_s": 40.02
+      }
+    },
+    {
+      "id": "11266_9358_000005",
+      "text": "él le responde yo más me inclino a los sainetes por qué motivo tenga paciencia voy a decirlo óigame un cuento nada prolijo",
+      "audio": "test/audio/11266/9358/11266_9358_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 51.33,
+        "original_end_s": 64.38
+      }
+    },
+    {
+      "id": "11266_9358_000006",
+      "text": "pues qué de los poetas os espantan los falsos testimonios no os dé pena mayores entre sí se los levantan reíd y murmurad enhorabuena fin de la fábula",
+      "audio": "test/audio/11266/9358/11266_9358_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_73_iriarte_64kb.mp3",
+        "original_start_s": 62.95,
+        "original_end_s": 80.22
+      }
+    },
+    {
+      "id": "11266_9358_000007",
+      "text": "aunque pagado de sus escritos pidió no obstante a un docto amigo que le dijera sin artificio cuál de su aprecio era más digno",
+      "audio": "test/audio/11266/9358/11266_9358_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 39.99,
+        "original_end_s": 51.33
+      }
+    },
+    {
+      "id": "11266_9358_000008",
+      "text": "una verruga un lobanillo y una corcova miren qué trío diz que tenían cierto litigio sobre cuál de ellos era más lindo doña joroba por lo crecido la primacía llevarse quiso",
+      "audio": "test/audio/11266/9358/11266_9358_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 64.38,
+        "original_end_s": 81.37
+      }
+    },
+    {
+      "id": "11266_9358_000009",
+      "text": "que por oficio era de aquellos cuyos caprichos antes que puedan ponerse en limpio ya en los teatros son aplaudidos trágicos dramas como si varios sainetes de igual estilo",
+      "audio": "test/audio/11266/9358/11266_9358_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_75_iriarte_64kb.mp3",
+        "original_start_s": 25.7,
+        "original_end_s": 39.99
+      }
+    },
+    {
+      "id": "11266_9358_000010",
+      "text": "el río tajo una fuente y un arroyo los escritores sensatos aunque se digan desatinos de sus obras continúan trabajando",
+      "audio": "test/audio/11266/9358/11266_9358_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "9358",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fabulasliterarias_1702_librivox/fabulasliterarias_73_iriarte_64kb.mp3",
+        "original_start_s": 14.05,
+        "original_end_s": 26.39
+      }
+    }
+  ]
+}

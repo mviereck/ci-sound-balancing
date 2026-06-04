@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ab",
+  "lang": "ab",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ab",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "22261147",
+      "text": "Уи Аҟәырҟан, Аллаҳ ида даҽаӡәы шәимҵамхырхәарц азоуп.",
+      "audio": "ab/unknown/ab_u_22261147.mp3",
+      "tags": {
+        "source_item_id": "22261147",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27190037",
+      "text": "Уи иагьазхаҳҵеит. Уажәшьҭа ҳанцәа зынӡа аваҟәыла диваҳаргылаӡом.",
+      "audio": "ab/unknown/ab_u_27190037.mp3",
+      "tags": {
+        "source_item_id": "27190037",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27271505",
+      "text": "Аҵыхәтәаны ҳацхыраара рыхьӡаны аиааира згазгьы дара ракәхеит.",
+      "audio": "ab/unknown/ab_u_27271505.mp3",
+      "tags": {
+        "source_item_id": "27271505",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29229233",
+      "text": "Еиҳа еиӷьуп ҳәа сгәы иаанагоит.",
+      "audio": "ab/unknown/ab_u_29229233.mp3",
+      "tags": {
+        "source_item_id": "29229233",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29231919",
+      "text": "Агәыр аларкшозшәа ихы-иҿы ацәа ахԥаны ицон.",
+      "audio": "ab/unknown/ab_u_29231919.mp3",
+      "tags": {
+        "source_item_id": "29231919",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29257487",
+      "text": "Ҽнак шьыжьымҭанк, амра аҩыҵхахамҭаз, ҳәаа змаӡамыз сакарак ҳнықәгылт.",
+      "audio": "ab/unknown/ab_u_29257487.mp3",
+      "tags": {
+        "source_item_id": "29257487",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29259996",
+      "text": "Ҳаргьы, ишуҳәаҵәҟьо еиԥш, хьаак ҳамаӡамкәа ҳаҟам.",
+      "audio": "ab/unknown/ab_u_29259996.mp3",
+      "tags": {
+        "source_item_id": "29259996",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29262409",
+      "text": "Уи ашьҭахь амшқәа акыр цеит.",
+      "audio": "ab/unknown/ab_u_29262409.mp3",
+      "tags": {
+        "source_item_id": "29262409",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29262456",
+      "text": "Убри дшоурысыз анеилыркаа, ишнеиуаз доурышьҭит.",
+      "audio": "ab/unknown/ab_u_29262456.mp3",
+      "tags": {
+        "source_item_id": "29262456",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29271384",
+      "text": "Ацынҵәарах еиқәыхьшәашәа ишьҭоуп, игәаӷьны сзалакьысуам.",
+      "audio": "ab/unknown/ab_u_29271384.mp3",
+      "tags": {
+        "source_item_id": "29271384",
+        "gender": "u"
+      }
+    }
+  ]
+}

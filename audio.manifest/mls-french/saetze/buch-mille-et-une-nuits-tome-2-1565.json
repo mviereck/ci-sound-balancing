@@ -1,0 +1,1474 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Mille et une nuits, tome 2",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1565",
+    "book_title": "Mille et une nuits, tome 2",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2085_1565_000000",
+      "text": "mon frère était tellement absorbé dans ces visions chimériques qu'il représenta l'action avec son pied comme si elle eût été réelle et par malheur il en frappa si rudement son panier plein de verrerie qu'il le jeta du haut de sa boutique de la rue de manière que toute la verrerie fut brisée en mille morceaux",
+      "audio": "test/audio/2085/1565/2085_1565_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 163.02,
+        "original_end_s": 179.76
+      }
+    },
+    {
+      "id": "2085_1565_000001",
+      "text": "on lui dit seulement que c'était un pauvre homme qui avait employé le peu d'argent qu'il possédait à l'achat d'un panier de verrerie que ce panier était tombé et que toute la verrerie s'était cassée",
+      "audio": "test/audio/2085/1565/2085_1565_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 254.53,
+        "original_end_s": 264.9
+      }
+    },
+    {
+      "id": "2085_1565_000002",
+      "text": "mon frère à cet accident si funeste pour lui rentra en lui-même et voyant que c'était par son orgueil insupportable qu'il lui était arrivé il se frappa le visage déchira ses habits et se mit à pleurer en poussant des cris qui firent bientôt assembler les voisins et arrêter les passants qui allaient à la prière de midi",
+      "audio": "test/audio/2085/1565/2085_1565_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 208.74,
+        "original_end_s": 225.83
+      }
+    },
+    {
+      "id": "2085_1565_000003",
+      "text": "quand elles se seront retirées ma femme se couchera la première je me coucherai ensuite auprès d'elle le dos tourné de son côté et je passerai la nuit sans lui dire un seul mot le lendemain elle ne manquera pas de se plaindre de mes mépris et de mon orgueil à sa mère femme du grand vizir et j'en aurai la joie au cœur",
+      "audio": "test/audio/2085/1565/2085_1565_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 32.19,
+        "original_end_s": 49.52
+      }
+    },
+    {
+      "id": "2085_1565_000004",
+      "text": "il pleurait encore son sort amèrement lorsqu'une dame de considération montée sur une mule richement caparaçonnée vint à passer par là l'état où elle vit mon frère excita sa compassion elle demanda qui il était et ce qu'il avait à pleurer",
+      "audio": "test/audio/2085/1565/2085_1565_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 239.56,
+        "original_end_s": 254.53
+      }
+    },
+    {
+      "id": "2085_1565_000005",
+      "text": "sire le barbier babillard poursuivit ainsi l'histoire de son cinquième frère après les cérémonies de nos noces continua alnaschar je prendrai de la main d'un de mes gens qui sera près de moi une bourse de cinq cents pièces d'or que je donnerai aux coiffeuses afin qu'elles me laissent seul avec mon épouse",
+      "audio": "test/audio/2085/1565/2085_1565_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 15.47,
+        "original_end_s": 32.19
+      }
+    },
+    {
+      "id": "2085_1565_000006",
+      "text": "mon cœur ma chère âme mon aimable seigneur je vous conjure par les faveurs dont le ciel vous comble de me faire la grâce de recevoir ce verre de vin de la main de votre très humble servante",
+      "audio": "test/audio/2085/1565/2085_1565_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 128.52,
+        "original_end_s": 139.48
+      }
+    },
+    {
+      "id": "2085_1565_000007",
+      "text": "la vieille pendant ce temps-là fit sa prière et lorsqu'elle eut achevé elle vint trouver mon frère se prosterna deux fois en frappant la terre de son front comme si elle eût voulu prier dieu puis s'étant relevée elle lui souhaita toute sorte de biens",
+      "audio": "test/audio/2085/1565/2085_1565_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 333.99,
+        "original_end_s": 347.66
+      }
+    },
+    {
+      "id": "2085_1565_000008",
+      "text": "l'aurore dont la clarté commençait à paraître obligea scheherazade à s'arrêter à cet endroit la nuit suivante elle reprit ainsi son discours en faisant toujours parler le barbier fin de la cent cinquante quatrième nuit section cinq",
+      "audio": "test/audio/2085/1565/2085_1565_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 347.66,
+        "original_end_s": 362.98
+      }
+    },
+    {
+      "id": "2085_1565_000009",
+      "text": "alors fatigué de ses prières je lui lancerai un regard terrible et lui donnerai un bon soufflet sur la joue en la repoussant du pied si vigoureusement qu'elle ira tomber bien loin au-delà du sofa",
+      "audio": "test/audio/2085/1565/2085_1565_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 151.93,
+        "original_end_s": 163.02
+      }
+    },
+    {
+      "id": "2085_1565_000010",
+      "text": "il faut que tu sois bien brutal pour mépriser les pleurs et les charmes d'une si aimable personne si j'étais à la place du grand vizir ton beau-père je te ferais donner cent coups de nerfs de bœuf et te ferais promener par la ville avec l'éloge que tu mérites",
+      "audio": "test/audio/2085/1565/2085_1565_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 195.0,
+        "original_end_s": 208.74
+      }
+    },
+    {
+      "id": "2085_1565_000011",
+      "text": "il faisait de profondes réflexions sur le grand bonheur qui venait de lui arriver lorsqu'il entendit frapper à sa porte avant que d'ouvrir il demanda qui frappait et ayant reconnu à la voix que c'était une femme il",
+      "audio": "test/audio/2085/1565/2085_1565_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 287.78,
+        "original_end_s": 300.52
+      }
+    },
+    {
+      "id": "2085_1565_000012",
+      "text": "mon fils lui dit-elle j'ai une grâce à vous demander voilà le temps de la prière je voudrais bien me laver pour être en état de la faire laissez-moi s'il vous plaît entrer chez vous et me donnez un vase d'eau",
+      "audio": "test/audio/2085/1565/2085_1565_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 300.52,
+        "original_end_s": 312.39
+      }
+    },
+    {
+      "id": "2085_1565_000013",
+      "text": "tout cela ne me touchera point ce que voyant ma belle-mère elle prendra un verre de vin et le mettant à la main de sa fille mon épouse allez lui dira-t-elle présentez lui vous-même ce verre de vin il n'aura peut-être pas la cruauté de le refuser d'une si belle main",
+      "audio": "test/audio/2085/1565/2085_1565_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 100.24,
+        "original_end_s": 115.21
+      }
+    },
+    {
+      "id": "2085_1565_000014",
+      "text": "je me garderai bien de la regarder encore et de lui répondre mon charmant époux continuera-t-elle en redoublant ses pleurs et en m'approchant le verre de la bouche je ne cesserai pas que je n'aie obtenu que vous buviez",
+      "audio": "test/audio/2085/1565/2085_1565_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 139.48,
+        "original_end_s": 151.93
+      }
+    },
+    {
+      "id": "2085_1565_000015",
+      "text": "sa mère viendra me trouver me baisera les mains avec respect et me dira seigneur car elle n'osera m'appeler son gendre de peur de me déplaire en me parlant si familièrement je vous supplie de ne pas dédaigner de regarder ma fille et de vous approcher d'elle je vous assure qu'elle ne cherche qu'à vous plaire et qu'elle vous aime de tout son âme",
+      "audio": "test/audio/2085/1565/2085_1565_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 49.52,
+        "original_end_s": 68.24
+      }
+    },
+    {
+      "id": "2085_1565_000016",
+      "text": "ma belle-mère aura beau parler je ne lui répondrai pas une syllabe et je demeurerai ferme dans ma gravité alors elle se jetera à mes pieds me les baisera plusieurs fois et me dira seigneur serait-il possible que vous soupçonnassiez la sagesse de ma fille",
+      "audio": "test/audio/2085/1565/2085_1565_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 68.24,
+        "original_end_s": 83.81
+      }
+    },
+    {
+      "id": "2085_1565_000017",
+      "text": "comme c'est un vendredi il y allait plus de monde que les autres jours les uns eurent pitié d'alnaschar et les autres ne firent que rire de son extravagance cependant la vanité qu'il s'était mise en tête s'était dissipée avec son bien",
+      "audio": "test/audio/2085/1565/2085_1565_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 225.83,
+        "original_end_s": 239.56
+      }
+    },
+    {
+      "id": "2085_1565_000018",
+      "text": "il lui donna un vase plein d'eau ensuite il reprit sa place et toujours occupé de sa dernière aventure il mit son or dans une espèce de bourse longue et étroite propre à porter à sa ceinture",
+      "audio": "test/audio/2085/1565/2085_1565_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 322.52,
+        "original_end_s": 333.99
+      }
+    },
+    {
+      "id": "2085_1565_000019",
+      "text": "aussitôt la dame se tourna du côté d'un eunuque qui l'accompagnait donnez-lui dit-elle ce que vous avez sur vous l'eunuque obéit et mit entre les mains de mon frère une bourse de cinq cents pièces d'or",
+      "audio": "test/audio/2085/1565/2085_1565_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 264.9,
+        "original_end_s": 276.9
+      }
+    },
+    {
+      "id": "2085_1565_000020",
+      "text": "le tailleur son voisin qui avait ouï l'extravagance de son discours fit un grand éclat de rire lorsqu'il vit tomber le panier oh que tu es un indigne homme dit-il à mon frère ne devrais-tu pas mourir de honte de maltraiter une jeune épouse qui ne t'a donné aucun sujet de te plaindre d'elle",
+      "audio": "test/audio/2085/1565/2085_1565_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 179.76,
+        "original_end_s": 195.0
+      }
+    },
+    {
+      "id": "2085_1565_000021",
+      "text": "mon frère envisagea cette femme et vit que c'était une personne déjà fort avancée en âge quoiqu'il ne la connût point il ne laissa pas de lui accorder ce qu'elle demandait",
+      "audio": "test/audio/2085/1565/2085_1565_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 312.39,
+        "original_end_s": 322.52
+      }
+    },
+    {
+      "id": "2085_1565_000022",
+      "text": "ma femme viendra avec le verre demeurera debout et toute tremblante devant moi lorsqu'elle verra que je ne tournerai point la vue de son côté et que je persisterai à la dédaigner elle me dira les larmes aux yeux",
+      "audio": "test/audio/2085/1565/2085_1565_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 115.21,
+        "original_end_s": 128.52
+      }
+    },
+    {
+      "id": "2085_1565_000023",
+      "text": "je vous assure que je l'ai toujours eue devant les yeux et que vous êtes le premier homme qui l'ait jamais vue en face cessez de lui causer une si grande mortification faites-lui la grâce de la regarder de lui parler et de la fortifier dans la bonne intention qu'elle a de vous satisfaire en toute chose",
+      "audio": "test/audio/2085/1565/2085_1565_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 83.81,
+        "original_end_s": 100.24
+      }
+    },
+    {
+      "id": "2085_1565_000024",
+      "text": "ainaschar pensa mourir de joie en la recevant il donna mille bénédictions à la dame et après avoir fermé sa boutique où sa présence n'était plus nécessaire il s'en alla chez lui",
+      "audio": "test/audio/2085/1565/2085_1565_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
+        "original_start_s": 276.9,
+        "original_end_s": 287.78
+      }
+    },
+    {
+      "id": "2085_1565_000025",
+      "text": "la vieille se retira en arrière avec surprise comme si mon frère lui eût fait une injure grand dieu lui dit-elle que veut dire ceci serait-il possible seigneur que vous me prissiez pour une de ces misérables qui font profession d'entrer hardiment chez les gens pour demander l'aumône",
+      "audio": "test/audio/2085/1565/2085_1565_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 28.45,
+        "original_end_s": 43.62
+      }
+    },
+    {
+      "id": "2085_1565_000026",
+      "text": "reprenez votre argent je n'en ai pas besoin dieu merci j'appartiens à une jeune dame de cette ville qui est pourvue d'une beauté charmante et qui est avec cela très riche elle ne me laisse manquer de rien",
+      "audio": "test/audio/2085/1565/2085_1565_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 43.62,
+        "original_end_s": 54.89
+      }
+    },
+    {
+      "id": "2085_1565_000027",
+      "text": "et de vous mettre en possession de tous ses biens en vous faisant maître de sa personne prenez votre argent et suivez-moi ravi d'avoir trouvé une grosse somme d'argent et presque aussitôt une femme belle et riche il ferma les yeux à toute autre considération il prit les cinq cents pièces d'or et se laissa conduire par la vieille",
+      "audio": "test/audio/2085/1565/2085_1565_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 69.97,
+        "original_end_s": 87.1
+      }
+    },
+    {
+      "id": "2085_1565_000028",
+      "text": "et passer au travers d'une cour bien pavée et l'introduisit dans une salle dont l'ameublement le confirma dans la bonne opinion qu'on lui avait fait concevoir de la maîtresse de la maison pendant que la vieille alla avertir la dame il s'assit et comme il avait chaud il ôta son turban et le mit près de lui",
+      "audio": "test/audio/2085/1565/2085_1565_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 98.54,
+        "original_end_s": 114.45
+      }
+    },
+    {
+      "id": "2085_1565_000029",
+      "text": "nous ne sommes pas ici assez commodément ajouta-t-elle venez donnez-moi la main à ces mots elle lui présenta la sienne et le mena dans une chambre écartée où elle s'entretint encore quelque temps avec lui puis elle le quitta en lui disant demeurez je suis à vous dans un moment",
+      "audio": "test/audio/2085/1565/2085_1565_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 132.33,
+        "original_end_s": 149.02
+      }
+    },
+    {
+      "id": "2085_1565_000030",
+      "text": "et il vint se réfugier chez moi où il m'apprit toutes les aventures qui lui étaient arrivées en si peu de temps au bout d'un mois il fut parfaitement guéri de ses blessures par les remèdes souverains que je lui fis prendre",
+      "audio": "test/audio/2085/1565/2085_1565_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 242.04,
+        "original_end_s": 253.96
+      }
+    },
+    {
+      "id": "2085_1565_000031",
+      "text": "il résolut de se venger de la vieille qui l'avait trompé si cruellement pour cet effet il fit une bourse assez grande pour contenir cinq cents pièces d'or et au lieu d'or il la remplit de morceaux de verre",
+      "audio": "test/audio/2085/1565/2085_1565_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 253.96,
+        "original_end_s": 265.04
+      }
+    },
+    {
+      "id": "2085_1565_000032",
+      "text": "il vit bientôt entrer la jeune dame qui le surprit bien plus par sa beauté que par la richesse de son habillement il se leva dès qu'il l'aperçut la dame le pria d'un air gracieux de reprendre sa place en s'asseyant près de lui elle lui marqua bien de la joie de le voir et après lui avoir dit quelques douceurs",
+      "audio": "test/audio/2085/1565/2085_1565_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 114.45,
+        "original_end_s": 132.33
+      }
+    },
+    {
+      "id": "2085_1565_000033",
+      "text": "il s'en aperçut dès qu'il fut revenu à lui car la violence de sa chute lui avait ôté le sentiment le sel dont ses plaies avaient été frottées lui conserva la vie il reprit peu à peu assez de force pour se soutenir et au bout de deux jours ayant ouvert la trappe durant la nuit et remarqué dans la cour un endroit propre à se cacher",
+      "audio": "test/audio/2085/1565/2085_1565_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 208.12,
+        "original_end_s": 226.89
+      }
+    },
+    {
+      "id": "2085_1565_000034",
+      "text": "il attendit mais au lieu de la dame un grand esclave noir arriva le sabre à la main et regardant mon frère d'un œil terrible que fais-tu ici lui dit-il fièrement alnaschar à cet aspect fut tellement saisi de frayeur qu'il n'eut pas la force de répondre l'esclave le dépouilla lui enleva l'or qu'il portait",
+      "audio": "test/audio/2085/1565/2085_1565_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 149.02,
+        "original_end_s": 166.98
+      }
+    },
+    {
+      "id": "2085_1565_000035",
+      "text": "le noir et l'esclave grecque s'étant retirés la vieille qui avait fait tomber mon frère dans le piège vint le prendre par les pieds et le traîna jusqu'à une trappe qu'elle ouvrit elle le jeta dedans et il se trouva dans un lieu souterrain avec plusieurs corps de gens qui avaient été assassinés",
+      "audio": "test/audio/2085/1565/2085_1565_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 192.12,
+        "original_end_s": 208.12
+      }
+    },
+    {
+      "id": "2085_1565_000036",
+      "text": "la vieille souhaita donc toute sorte de biens à mon frère et le remercia de son honnêteté comme elle était habillée assez pauvrement et qu'elle s'humiliait fort devant lui il crut qu'elle lui demandait l'aumône et il lui présenta deux pièces d'or",
+      "audio": "test/audio/2085/1565/2085_1565_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 14.81,
+        "original_end_s": 28.45
+      }
+    },
+    {
+      "id": "2085_1565_000037",
+      "text": "elle marcha devant lui et il la suivit de loin jusqu'à la porte d'une grande maison où elle frappa il la rejoignit dans le temps qu'une jeune esclave grecque ouvrait la vieille le fit entrer le premier",
+      "audio": "test/audio/2085/1565/2085_1565_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 87.1,
+        "original_end_s": 98.54
+      }
+    },
+    {
+      "id": "2085_1565_000038",
+      "text": "scheherazade en achevant ces derniers mots s'aperçut qu'il était jour elle n'en dit pas davantage cette nuit mais le lendemain elle poursuivit de cette sorte l'histoire d'alnaschar fin de la cent cinquante cinquième nuit section six",
+      "audio": "test/audio/2085/1565/2085_1565_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 265.04,
+        "original_end_s": 278.74
+      }
+    },
+    {
+      "id": "2085_1565_000039",
+      "text": "le noir le croyant mort demanda du sel l'esclave grecque en apporta plein un grand bassin ils en frottèrent les plaies de mon irère qui eut la présence d'esprit malgré la douleur cuisante qu'il souffrait de ne donner aucun signe de vie",
+      "audio": "test/audio/2085/1565/2085_1565_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 177.57,
+        "original_end_s": 192.12
+      }
+    },
+    {
+      "id": "2085_1565_000040",
+      "text": "et lui déchargea plusieurs coups de sabre dans les chairs seulement le malheureux en tomba par terre où il resta sans mouvement quoiqu'il eût encore l'usage de ses sens",
+      "audio": "test/audio/2085/1565/2085_1565_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 166.98,
+        "original_end_s": 177.57
+      }
+    },
+    {
+      "id": "2085_1565_000041",
+      "text": "il y demeura jusqu'à la pointe du jour alors il vit paraître la détestable vieille qui ouvrit la porte de la rue et partit pour aller chercher une autre proie afin qu'elle ne le vit pas il ne sortit de ce coupe-gorge que quelques moments après elle",
+      "audio": "test/audio/2085/1565/2085_1565_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 226.89,
+        "original_end_s": 242.04
+      }
+    },
+    {
+      "id": "2085_1565_000042",
+      "text": "mon frère ne fut pas assez fin pour s'apercevoir de l'adresse de la vieille qui n'avait refusé les deux pièces d'or que pour en attraper davantage il lui demanda si elle ne pourrait pas lui procurer l'honneur de voir cette dame très volontiers lui répondit-elle elle sera bien aise de vous épouser",
+      "audio": "test/audio/2085/1565/2085_1565_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
+        "original_start_s": 54.89,
+        "original_end_s": 69.97
+      }
+    },
+    {
+      "id": "2085_1565_000043",
+      "text": "venez avec nous lui dirent-ils notre maître veut vous parler mon frère les pria de se donner un moment de patience et leur offrit une somme d'argent pour qu'ils le laissassent échapper mais au lieu de l'écouter ils le lièrent et le forcèrent a marcher avec eux",
+      "audio": "test/audio/2085/1565/2085_1565_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 288.66,
+        "original_end_s": 303.54
+      }
+    },
+    {
+      "id": "2085_1565_000044",
+      "text": "scheherazade voulait continuer mais le jour qui paraissait l'obligea de s'arrêter à ces dernières paroles la nuit suivante elle poursuivit de cette manière fin de la cent cinquante septième nuit section huit",
+      "audio": "test/audio/2085/1565/2085_1565_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 390.04,
+        "original_end_s": 404.24
+      }
+    },
+    {
+      "id": "2085_1565_000045",
+      "text": "cependant alnaschar obéit à l'ordre sans murmurer et sortit de la ville pour se réfugier dans une autre en chemin il fut rencontré par des voleurs qui le dépouillèrent et le mirent nu comme la main je n'eus pas plus tôt appris cette fâcheuse nouvelle que je pris un habit et allai le trouver où il était",
+      "audio": "test/audio/2085/1565/2085_1565_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 86.41,
+        "original_end_s": 103.29
+      }
+    },
+    {
+      "id": "2085_1565_000046",
+      "text": "la dame plus rusée et plus diligente que lui les avait fait enlever et avait disparu elle-même à défaut des coffres et pour ne s'en pas retourner les mains vides il fit emporter tout ce qu'il put trouver de meubles dans les chambres et dans les garde-meubles",
+      "audio": "test/audio/2085/1565/2085_1565_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 246.48,
+        "original_end_s": 260.6
+      }
+    },
+    {
+      "id": "2085_1565_000047",
+      "text": "scheherazade cessa de parler en cet endroit parce qu'elle remarqua qu'il était jour la nuit suivante elle reprit le fil de sa narration et dit au sultan des indes fin de la cent cinquante sixième nuit section sept",
+      "audio": "test/audio/2085/1565/2085_1565_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 320.28,
+        "original_end_s": 335.46
+      }
+    },
+    {
+      "id": "2085_1565_000048",
+      "text": "il s'en acquittait avec adresse et il s'étudiait surtout à se procurer l'entrée des grandes maisons par l'entremise des officiers et des domestiques pour avoir un libre accès auprès des maîtres et s'attirer leur compassion",
+      "audio": "test/audio/2085/1565/2085_1565_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 135.47,
+        "original_end_s": 147.39
+      }
+    },
+    {
+      "id": "2085_1565_000049",
+      "text": "en achevant ces paroles quoiqu'on n'eût rien apporté il commença de faire comme s'il eût pris quelque chose dans un plat de porter à sa bouche et de mâcher à vide en disant à mon frère mangez mon hôte je vous en prie agissez aussi librement que si vous étiez chez vous mangez donc pour un homme affamé il me semble que vous faites la petite bouche",
+      "audio": "test/audio/2085/1565/2085_1565_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 340.48,
+        "original_end_s": 359.49
+      }
+    },
+    {
+      "id": "2085_1565_000050",
+      "text": "je vous la donne répliqua le juge alors mon frère lui raconta sans déguisement tout ce qui lui était arrivé et tout ce qu'il avait fait depuis que la vieille était venue faire sa prière chez lui jusqu'à ce qu'il ne trouva plus la jeune dame dans la chambre où il l'avait laissée après avoir tué le noir l'esclave grecque et la vieille",
+      "audio": "test/audio/2085/1565/2085_1565_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 37.03,
+        "original_end_s": 55.21
+      }
+    },
+    {
+      "id": "2085_1565_000051",
+      "text": "ils rencontrèrent dans une rue un ami de mon frère qui les arrêta et s'informa d'eux pour quelle raison ils l'emmenaient il leur proposa même une somme considérable pour le lâcher et rapporter au juge de police qu'ils ne l'avaient pas trouvé mais il ne put rien obtenir d'eux et ils menèrent ainaschar au juge de police",
+      "audio": "test/audio/2085/1565/2085_1565_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 303.54,
+        "original_end_s": 320.28
+      }
+    },
+    {
+      "id": "2085_1565_000052",
+      "text": "de la manière dont ce détestable noir se gouvernait reprit mon frère il faut bien qu'il ait amassé bien des richesses il y en a tant repartit-elle que vous serez riche à jamais si vous pouvez les emporter suivez-moi et vous le verrez",
+      "audio": "test/audio/2085/1565/2085_1565_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 200.69,
+        "original_end_s": 214.37
+      }
+    },
+    {
+      "id": "2085_1565_000053",
+      "text": "et comme il entendait lui-même raillerie et qu'il n'ignorait pas la complaisance que les pauvres doivent avoir pour les riches s'ils en veulent tirer bon parti il s'approcha et fit comme lui allons dit alors le barmécide qu'on apporte à manger et qu'on ne nous fasse point attendre",
+      "audio": "test/audio/2085/1565/2085_1565_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 325.99,
+        "original_end_s": 340.48
+      }
+    },
+    {
+      "id": "2085_1565_000054",
+      "text": "la vieille mena mon frère dans la salle où elle lui dit d'attendre un moment qu'elle allait faire venir son fils le prétendu fils parut sous la forme du vilain esclave noir maudite vieille dit-il à mon frère lève-toi et me suis en disant ces mots il marcha devant pour le mener au lieu où il voulait le massacrer",
+      "audio": "test/audio/2085/1565/2085_1565_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 70.66,
+        "original_end_s": 89.25
+      }
+    },
+    {
+      "id": "2085_1565_000055",
+      "text": "mon frère continua le barbier attacha le sac de verre autour de lui avec sa ceinture se déguisa en vieille et prit un sabre qu'il cacha sous sa robe",
+      "audio": "test/audio/2085/1565/2085_1565_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 15.4,
+        "original_end_s": 25.43
+      }
+    },
+    {
+      "id": "2085_1565_000056",
+      "text": "la méchante vieille accourut au bruit et il se saisit d'elle avant qu'elle eût le temps de lui échapper perfide s'écria-t-il me reconnais-tu hélas seigneur répondit-elle en tremblant qui êtes-vous je ne me souviens pas de vous avoir jamais vu",
+      "audio": "test/audio/2085/1565/2085_1565_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 125.02,
+        "original_end_s": 140.0
+      }
+    },
+    {
+      "id": "2085_1565_000057",
+      "text": "entrez lui dirent-ils personne ne vous empêche et adressez-vous vous-même au maître de la maison il vous renverra content mon frère ne s'attendait pas à tant d'honnêteté il en remercia les portiers et entra avec leur permission dans l'hôtel qui était si vaste qu'il mit beaucoup de temps à gagner l'appartement du barmecide",
+      "audio": "test/audio/2085/1565/2085_1565_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 177.05,
+        "original_end_s": 194.14
+      }
+    },
+    {
+      "id": "2085_1565_000058",
+      "text": "il pénétra enfin jusqu'à un grand bâtiment en carré d'une très belle architecture et entra par un vestibule qui lui fit découvrir un jardin des plus propres avec des allées de cailloux de différentes couleurs qui réjouissaient la vue les appartements d'en bas qui régnaient alentour étaient presque tous à jour",
+      "audio": "test/audio/2085/1565/2085_1565_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 194.14,
+        "original_end_s": 210.74
+      }
+    },
+    {
+      "id": "2085_1565_000059",
+      "text": "seigneur répondit alnaschar je suis prêt à vous dire la vérité mais permettez-moi auparavant d'avoir recours à votre clémence et de vous supplier de me donner votre parole qu'il ne me sera rien fait",
+      "audio": "test/audio/2085/1565/2085_1565_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 25.78,
+        "original_end_s": 37.03
+      }
+    },
+    {
+      "id": "2085_1565_000060",
+      "text": "j'étais lui répondit-elle la femme d'un honnête marchand et la maudite vieille dont je ne connaissais pas la méchanceté me venait voir quelquefois madame me dit-elle un jour nous avons de belles noces chez nous vous y prendriez beaucoup de plaisir si vous vouliez nous faire l'honneur de vous y trouver",
+      "audio": "test/audio/2085/1565/2085_1565_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 171.55,
+        "original_end_s": 187.33
+      }
+    },
+    {
+      "id": "2085_1565_000061",
+      "text": "il avança et entra dans une salle richement meublée et ornée de peintures à feuillages d'or et d'azur où il aperçut un homme vénérable avec une longue barbe blanche assis sur un sofa à la place d'honneur ce qui lui fit juger que c'était le maître de la maison",
+      "audio": "test/audio/2085/1565/2085_1565_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 224.21,
+        "original_end_s": 238.16
+      }
+    },
+    {
+      "id": "2085_1565_000062",
+      "text": "alnaschar se leva le suivit et tirant son sabre de dessous sa robe il le lui déchargea sur le cou par derrière si adroitement qu'il lui abattit la tête il la prit aussitôt d'une main et de l'autre il traina le cadavre jusqu'au lieu souterrain où il le jeta avec la tête",
+      "audio": "test/audio/2085/1565/2085_1565_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 89.25,
+        "original_end_s": 107.27
+      }
+    },
+    {
+      "id": "2085_1565_000063",
+      "text": "il ne restait plus que la dame qui ne savait rien de ce qui venait de se passer chez elle il la chercha et la trouva dans une chambre où elle pensa s'évanouir quand elle le vit paraître elle lui demanda la vie et il eut la générosité de lui accorder madame lui dit-il comment pouvez-vous être avec des gens aussi méchants que ceux dont je viens de me venger si justement",
+      "audio": "test/audio/2085/1565/2085_1565_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 152.13,
+        "original_end_s": 171.55
+      }
+    },
+    {
+      "id": "2085_1565_000064",
+      "text": "elle conduisit alnaschar dans une chambre où elle lui fit voir effectivement plusieurs coffres pleins d'or qu'il considéra avec une admiration dont il ne pouvait revenir allez dit-elle et amenez assez de monde pour emporter tout cela mon frère ne se le fit pas dire deux fois",
+      "audio": "test/audio/2085/1565/2085_1565_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 214.37,
+        "original_end_s": 229.66
+      }
+    },
+    {
+      "id": "2085_1565_000065",
+      "text": "il ne me reste plus à vous raconter que l'histoire de mon sixième frère appelé schacabac aux lèvres fendues il avait eu d'abord l'industrie de faire valoir les cent drachmes d'argent qu'il avait eues en partage de même que ses autres frères de sorte qu'il s'était vu fort à son aise mais un revers de fortune le réduisit à la nécessité de demander sa vie",
+      "audio": "test/audio/2085/1565/2085_1565_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 116.02,
+        "original_end_s": 135.47
+      }
+    },
+    {
+      "id": "2085_1565_000066",
+      "text": "un jour qu'il passait devant un hôtel magnifique dont la porte élevée laissait voir une cour très spacieuse où il y avait une foule de domestiques il s'approcha de l'un d'entre eux et lui demanda à qui appartenait cet hôtel",
+      "audio": "test/audio/2085/1565/2085_1565_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 147.39,
+        "original_end_s": 159.06
+      }
+    },
+    {
+      "id": "2085_1565_000067",
+      "text": "l'esclave grecque accoutumée à ce ménage se fit bientôt voir avec le bassin plein de sel mais quand elle vit alnaschar le sabre à la main et qui avait quitté le voile dont il s'était couvert le visage elle laissa tomber le bassin et s'enfuit mais mon frère courant plus fort qu'elle la joignit et lui fit voler la tête de dessus les épaules",
+      "audio": "test/audio/2085/1565/2085_1565_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 107.27,
+        "original_end_s": 125.02
+      }
+    },
+    {
+      "id": "2085_1565_000068",
+      "text": "sire quand les gardes poursuivit le barbier eurent conduit mon frère devant le juge de police ce magistrat lui dit je vous demande où vous avez pris tous les meubles que vous fîtes porter hier chez vous",
+      "audio": "test/audio/2085/1565/2085_1565_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 14.23,
+        "original_end_s": 25.78
+      }
+    },
+    {
+      "id": "2085_1565_000069",
+      "text": "où il y en avait beaucoup plus qu'il ne lui en fallait pour le dédommager des cinq cents pièces d'or qui lui avaient été volées mais en sortant de la maison il oublia de fermer la porte les voisins qui avaient reconnu mon frère et vu les porteurs aller et venir coururent avertir le juge de police de ce déménagement qui leur avait paru suspect",
+      "audio": "test/audio/2085/1565/2085_1565_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 260.6,
+        "original_end_s": 278.26
+      }
+    },
+    {
+      "id": "2085_1565_000070",
+      "text": "pardonnez-moi seigneur lui répondit schacabac en imitant parfaitement ses gestes vous voyez que je ne perds pas de temps et que je fais assez bien mon devoir que dites-vous de ce pain reprit le barmécide ne le trouvez-vous pas excellent",
+      "audio": "test/audio/2085/1565/2085_1565_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 359.49,
+        "original_end_s": 372.33
+      }
+    },
+    {
+      "id": "2085_1565_000071",
+      "text": "je suis une femme de perse nouvellement arrivée j'ai apporté de mon pays cinq cents pièces d'or je voudrais bien voir si elles sont de poids bonne femme lui répondit la vieille vous ne pouviez mieux vous adresser qu'à moi",
+      "audio": "test/audio/2085/1565/2085_1565_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 39.22,
+        "original_end_s": 51.77
+      }
+    },
+    {
+      "id": "2085_1565_000072",
+      "text": "venez vous n'avez qu'à me suivre je vous mènerai chez mon fils qui est changeur il se fera un plaisir de vous les peser lui-même pour vous en épargner la peine ne perdons pas de temps afin de le trouver avant qu'il aille à sa boutique mon frère la suivit jusqu'à la maison où elle l'avait introduit la première fois et la porte fut ouverte par l'esclave grecque",
+      "audio": "test/audio/2085/1565/2085_1565_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 51.77,
+        "original_end_s": 70.66
+      }
+    },
+    {
+      "id": "2085_1565_000073",
+      "text": "il sortit et ne fut dehors qu'autant de temps qu'il lui en fallut pour assembler dix hommes il les emmena avec lui et en arrivant à la maison il fut fort étonné de trouver la porte ouverte mais il le fut bien davantage lorsque étant entré dans la chambre où il avait vu les coffres il n'en trouva pas un seul",
+      "audio": "test/audio/2085/1565/2085_1565_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 229.66,
+        "original_end_s": 246.48
+      }
+    },
+    {
+      "id": "2085_1565_000074",
+      "text": "quoique aucun garçon ne parût et que mon frère ne vit ni bassin ni eau le barmécide néanmoins ne laissa pas de se frotter les mains comme si quelqu'un eût versé de l'eau dessus et en faisant cela il disait à mon frère approchez donc lavez-vous avec moi schacabac jugea bien par là que le seigneur barmécide aimait à rire",
+      "audio": "test/audio/2085/1565/2085_1565_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 308.17,
+        "original_end_s": 325.99
+      }
+    },
+    {
+      "id": "2085_1565_000075",
+      "text": "est-il bien vrai repartit le barmécide que vous soyez à jeun à l'heure qu'il est hélas le pauvre homme il meurt de faim holà garçon ajouta-t-il en élevant la voix qu'on apporte vite le bassin et l'eau que nous nous lavions les mains",
+      "audio": "test/audio/2085/1565/2085_1565_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 295.21,
+        "original_end_s": 308.17
+      }
+    },
+    {
+      "id": "2085_1565_000076",
+      "text": "et lorsqu'on lui eut rapporté qu'il n'y restait plus rien et que tout avait été mis dans son garde-meuble il commanda aussitôt à mon frère de sortir de la ville et de n'y revenir de sa vie parce qu'il craignait que s'il y demeurait il n'allât se plaindre de son injustice au calife",
+      "audio": "test/audio/2085/1565/2085_1565_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 70.91,
+        "original_end_s": 86.41
+      }
+    },
+    {
+      "id": "2085_1565_000077",
+      "text": "je suis dit-il celui chez qui tu entras l'autre jour pour te laver et faire ta prière d'hypocrite t'en souvient-il alors elle se mit à genoux pour lui demander pardon mais il la coupa en quatre pièces",
+      "audio": "test/audio/2085/1565/2085_1565_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 140.0,
+        "original_end_s": 152.13
+      }
+    },
+    {
+      "id": "2085_1565_000078",
+      "text": "je me laissai persuader je pris mon plus bel habit avec une bourse de cent pièces d'or je la suivis elle m'amena dans cette maison où je trouvai ce noir qui me retint par force il y a trois ans que j'y suis avec bien de la douleur",
+      "audio": "test/audio/2085/1565/2085_1565_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 187.33,
+        "original_end_s": 200.69
+      }
+    },
+    {
+      "id": "2085_1565_000079",
+      "text": "ils se fermaient avec de grands rideaux pour garantir du soleil et on les ouvrait pour prendre le frais quand la chaleur était passée un lieu si agréable aurait causé de l'admiration à mon frère s'il eut eu l'esprit plus content qu'il ne l'avait",
+      "audio": "test/audio/2085/1565/2085_1565_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 210.74,
+        "original_end_s": 224.21
+      }
+    },
+    {
+      "id": "2085_1565_000080",
+      "text": "il ne pouvait mieux s'adresser qu'à ce seigneur qui était recommandable par mille qualités le barmécide parut étonné de la réponse de mon frère et portant ses deux mains à son estomac comme pour déchirer son habit en signe de douleur",
+      "audio": "test/audio/2085/1565/2085_1565_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 254.76,
+        "original_end_s": 267.31
+      }
+    },
+    {
+      "id": "2085_1565_000081",
+      "text": "est-il possible s'écria-t-il que je sois à bagdad et qu'un homme tel que vous soit dans la nécessité que vous dites voilà ce que je ne puis souffrir à ces démonstrations mon frère prévenu qu'il allait lui donner une marque singulière de sa libéralité lui donna mille bénédictions et lui souhaita toute sorte de biens",
+      "audio": "test/audio/2085/1565/2085_1565_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 267.31,
+        "original_end_s": 284.45
+      }
+    },
+    {
+      "id": "2085_1565_000082",
+      "text": "en effet c'était le seigneur barmécide lui-même qui lui dit d'une manière obligeante qu'il était le bienvenu et qui lui demanda ce qu'il souhaitait seigneur lui répondit mon frère d'un air à lui faire pitié je suis un pauvre homme qui a besoin de l'assistance des personnes puissantes et généreuses comme vous",
+      "audio": "test/audio/2085/1565/2085_1565_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 238.16,
+        "original_end_s": 254.76
+      }
+    },
+    {
+      "id": "2085_1565_000083",
+      "text": "ah seigneur répondit mon frère qui ne voyait pas plus de pain que de viande jamais je n'en ai mangé de si blanc et de si délicat mangez-en donc tout votre soûl répliqua le seigneur barmécide je vous assure que j'ai acheté cinq cents pièces d'or la boulangère qui me fait de si bon pain",
+      "audio": "test/audio/2085/1565/2085_1565_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
+        "original_start_s": 372.33,
+        "original_end_s": 390.04
+      }
+    },
+    {
+      "id": "2085_1565_000084",
+      "text": "alnaschar passa la nuit assez tranquillement mais le lendemain matin comme il sortait du logis il rencontra à sa porte vingt hommes des gens du juge de police qui se saisirent de lui",
+      "audio": "test/audio/2085/1565/2085_1565_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2085",
+        "gender": "w",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
+        "original_start_s": 278.26,
+        "original_end_s": 288.66
+      }
+    },
+    {
+      "id": "2223_1565_000000",
+      "text": "et qu'on la verrait bientôt s'approcher du soleil cela signifiait que schemselnihar allait paraître et que le prince de perse aurait bientôt le plaisir de la voir",
+      "audio": "test/audio/2223/1565/2223_1565_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 191.62,
+        "original_end_s": 205.78
+      }
+    },
+    {
+      "id": "2223_1565_000001",
+      "text": "comme elle avait été avertie du sujet sur lequel elle devait chanter les paroles se trouvèrent si conformes aux sentiments du prince de perse qu'il ne put s'empêcher de lui applaudir à la fin du couplet",
+      "audio": "test/audio/2223/1565/2223_1565_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 126.25,
+        "original_end_s": 139.95
+      }
+    },
+    {
+      "id": "2223_1565_000002",
+      "text": "ce qui faisait assez connaître qu'il s'en appliquait le sens quand elle eut achevé tous les couplets elle et ses compagnes se levèrent et chantèrent toutes ensemble en marquant par leurs paroles que la pleine lune allait se lever avec tout son éclat",
+      "audio": "test/audio/2223/1565/2223_1565_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 174.74,
+        "original_end_s": 191.62
+      }
+    },
+    {
+      "id": "2223_1565_000003",
+      "text": "en effet regardant du côté de la cour ebn thaher et le prince remarquèrent que l'esclave confidente s'approchait et qu'elle était suivie de dix femmes noires qui apportaient avec bien de la peine un grand trône d'argent massif et admirablement travaillé",
+      "audio": "test/audio/2223/1565/2223_1565_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 205.78,
+        "original_end_s": 225.14
+      }
+    },
+    {
+      "id": "2223_1565_000004",
+      "text": "elle n'est point obsédée d'eunuques qui veillent sur ses actions elle a sa maison particulière dont elle dispose absolument elle sort de chez elle pour aller dans la ville sans en demander la permission à personne elle rentre lorsqu'il lui plaît",
+      "audio": "test/audio/2223/1565/2223_1565_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 57.76,
+        "original_end_s": 74.27
+      }
+    },
+    {
+      "id": "2223_1565_000005",
+      "text": "dans une attention d'autant plus grande qu'ils étaient curieux de savoir à quoi elles se termineraient enfin ils virent paraître à la même porte par où étaient venues les dix femmes noires qui avaient apporté le trône et les vingt autres qui venaient d'arriver",
+      "audio": "test/audio/2223/1565/2223_1565_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 256.01,
+        "original_end_s": 273.46
+      }
+    },
+    {
+      "id": "2223_1565_000006",
+      "text": "aussitôt elles jouèrent toutes ensemble comme pour préluder et quand elles eurent joué quelque temps une seule commença de chanter et accompagna sa voix d'un luth dont elle jouait admirablement bien",
+      "audio": "test/audio/2223/1565/2223_1565_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 111.66,
+        "original_end_s": 126.25
+      }
+    },
+    {
+      "id": "2223_1565_000007",
+      "text": "dix autres femmes également belles et bien vêtues qui s'y arrêtèrent quelques moments elles attendaient la favorite qui se montra enfin et se mit au milieu d'elles",
+      "audio": "test/audio/2223/1565/2223_1565_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 273.46,
+        "original_end_s": 285.57
+      }
+    },
+    {
+      "id": "2223_1565_000008",
+      "text": "je ne m'exprimerais pas moi-même en d'autres termes la femme ne répondit rien à ce discours elle continua et chanta plusieurs autres couplets dont ce prince fut si touché qu'il en répéta quelques-uns les larmes aux yeux",
+      "audio": "test/audio/2223/1565/2223_1565_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 156.83,
+        "original_end_s": 174.74
+      }
+    },
+    {
+      "id": "2223_1565_000009",
+      "text": "serait-il possible s'écria-t-il que vous eussiez le don de pénétrer dans les cœurs et que la connaissance que vous avez de ce qui se passe dans le mien vous eût obligée à nous donner un essai de votre voix charmante par ces mots",
+      "audio": "test/audio/2223/1565/2223_1565_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 139.95,
+        "original_end_s": 156.83
+      }
+    },
+    {
+      "id": "2223_1565_000010",
+      "text": "dans le temps qu'ebn thaher achevait ces paroles le prince de perse et lui virent venir l'esclave confidente de la favorite qui ordonna aux femmes qui étaient assises devant eux de chanter et de jouer de leurs instruments",
+      "audio": "test/audio/2223/1565/2223_1565_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 95.51,
+        "original_end_s": 111.66
+      }
+    },
+    {
+      "id": "2223_1565_000011",
+      "text": "entendant parler le prince de perse de la manière que je disais hier à votre majesté lui dit seigneur",
+      "audio": "test/audio/2223/1565/2223_1565_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 17.93,
+        "original_end_s": 29.72
+      }
+    },
+    {
+      "id": "2223_1565_000012",
+      "text": "et jamais le calife ne vient la voir qu'il ne lui ait envoyé auparavant mesrour chef de ses eunuques pour lui en donner avis et se préparer à le recevoir",
+      "audio": "test/audio/2223/1565/2223_1565_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 74.27,
+        "original_end_s": 85.45
+      }
+    },
+    {
+      "id": "2223_1565_000013",
+      "text": "plût à dieu que je pusse vous donner des assurances aussi certaines de l'heureux succès de vos amours que je le puis de la sûreté de votre vie quoique ce palais superbe appartienne au calife qui l'a fait bâtir exprès pour",
+      "audio": "test/audio/2223/1565/2223_1565_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 29.72,
+        "original_end_s": 46.52
+      }
+    },
+    {
+      "id": "2223_1565_000014",
+      "text": "qu'elle fit poser devant eux a une certaine distance après quoi les esclaves noires se retirèrent derrière des arbres à l'entrée d'une allée ensuite vingt femmes",
+      "audio": "test/audio/2223/1565/2223_1565_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 225.14,
+        "original_end_s": 237.43
+      }
+    },
+    {
+      "id": "2223_1565_000015",
+      "text": "ainsi vous devez avoir l'esprit tranquille et donner toute votre attention au concert dont je vois que schemseinihar veut vous régaler",
+      "audio": "test/audio/2223/1565/2223_1565_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 85.45,
+        "original_end_s": 95.51
+      }
+    },
+    {
+      "id": "2223_1565_000016",
+      "text": "toutes belles et très richement habillées d'une parure uniforme s'avancèrent en deux files en chantant et en jouant d'un instrument qu'elles tenaient chacune et se rangèrent auprès du trône autant d'un côté que de l'autre toutes ces choses tenaient le prince de perse et ebn",
+      "audio": "test/audio/2223/1565/2223_1565_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 237.43,
+        "original_end_s": 256.01
+      }
+    },
+    {
+      "id": "2223_1565_000017",
+      "text": "sous le nom de palais des plaisirs éternels et qu'il fasse partie du sien propre néanmoins il faut que vous sachiez que cette dame y vit dans une entière liberté",
+      "audio": "test/audio/2223/1565/2223_1565_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 46.52,
+        "original_end_s": 57.76
+      }
+    },
+    {
+      "id": "2223_1565_000018",
+      "text": "le jour qui commençait à éclairer l'appartement de shahryar imposa silence à scheherazade la nuit suivante elle poursuivit ainsi",
+      "audio": "test/audio/2223/1565/2223_1565_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1565",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
+        "original_start_s": 285.57,
+        "original_end_s": 297.58
+      }
+    }
+  ]
+}

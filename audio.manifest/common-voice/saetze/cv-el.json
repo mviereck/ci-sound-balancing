@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — el",
+  "lang": "el",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-el",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20433064",
+      "text": "Να χαλάσω τελειωμένη δουλειά; είπε μελαγχολικά.",
+      "audio": "el/unknown/el_u_20433064.mp3",
+      "tags": {
+        "source_item_id": "20433064",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20437844",
+      "text": "Αυτό δε μας λέγει γιατί έφυγε ο γιος σου",
+      "audio": "el/unknown/el_u_20437844.mp3",
+      "tags": {
+        "source_item_id": "20437844",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20447802",
+      "text": "Να το πάρεις, Κυρά μου, αποκρίθηκε χαρούμενος ο Βασιλιάς.",
+      "audio": "el/unknown/el_u_20447802.mp3",
+      "tags": {
+        "source_item_id": "20447802",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20536748",
+      "text": "Σκέφθηκα πως πρέπει να μου φτιάσεις μια πρόχειρη γέφυρα.",
+      "audio": "el/unknown/el_u_20536748.mp3",
+      "tags": {
+        "source_item_id": "20536748",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20575544",
+      "text": "βαστούσε από τη φούστα τη φουρκισμένη Πικρόχολη.",
+      "audio": "el/unknown/el_u_20575544.mp3",
+      "tags": {
+        "source_item_id": "20575544",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20576009",
+      "text": "που γύρευε να ζημιώσει καλούς και ήσυχους νοικοκυρέους;",
+      "audio": "el/unknown/el_u_20576009.mp3",
+      "tags": {
+        "source_item_id": "20576009",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20750499",
+      "text": "Μου είπαν πάλι πως ήταν το παλάτι του Βασιλιά.",
+      "audio": "el/unknown/el_u_20750499.mp3",
+      "tags": {
+        "source_item_id": "20750499",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21105373",
+      "text": "είπε με το φαρδύ του χαμόγελο",
+      "audio": "el/unknown/el_u_21105373.mp3",
+      "tags": {
+        "source_item_id": "21105373",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21349442",
+      "text": "Βρήκε μια φέτα και την άλέιψε με βούτυρο",
+      "audio": "el/unknown/el_u_21349442.mp3",
+      "tags": {
+        "source_item_id": "21349442",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24822921",
+      "text": "Η Ειρηνούλα κοίταζε την κλωστή και τις βελόνες χωρίς να καταλαβαίνει.",
+      "audio": "el/unknown/el_u_24822921.mp3",
+      "tags": {
+        "source_item_id": "24822921",
+        "gender": "u"
+      }
+    }
+  ]
+}

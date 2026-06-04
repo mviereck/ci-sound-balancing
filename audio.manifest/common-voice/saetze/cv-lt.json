@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — lt",
+  "lang": "lt",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-lt",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "23705775",
+      "text": "Leido ir redagavo Aleksandras Burba.",
+      "audio": "lt/unknown/lt_u_23705775.mp3",
+      "tags": {
+        "source_item_id": "23705775",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23716959",
+      "text": "Įteka į Karibų jūrą ties Padėkos Dievui kyšuliu.",
+      "audio": "lt/unknown/lt_u_23716959.mp3",
+      "tags": {
+        "source_item_id": "23716959",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23754688",
+      "text": "Tarptautinių ir rusiškų šaškių kandidatas į sporto meistrus.",
+      "audio": "lt/unknown/lt_u_23754688.mp3",
+      "tags": {
+        "source_item_id": "23754688",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25114586",
+      "text": "Tuo pačiu Italijoje cirkuliavo ir San Marino lira bei Vatikano lira.",
+      "audio": "lt/unknown/lt_u_25114586.mp3",
+      "tags": {
+        "source_item_id": "25114586",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25114729",
+      "text": "Tuo metu bendruomenė tapo smurto ir konfliktų arena tarp bendruomenės narių.",
+      "audio": "lt/unknown/lt_u_25114729.mp3",
+      "tags": {
+        "source_item_id": "25114729",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25132803",
+      "text": "Joje žiemoja retai arba atsitiktinai.",
+      "audio": "lt/unknown/lt_u_25132803.mp3",
+      "tags": {
+        "source_item_id": "25132803",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25151454",
+      "text": "Netrukus įvykusiuose parlamento rinkimuose Liaudies partija pralaimėjo socialistams.",
+      "audio": "lt/unknown/lt_u_25151454.mp3",
+      "tags": {
+        "source_item_id": "25151454",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36949075",
+      "text": "Ši direkcija tiesiogiai pavaldi Prancūzijos vidaus reikalų ministrui.",
+      "audio": "lt/unknown/lt_u_36949075.mp3",
+      "tags": {
+        "source_item_id": "36949075",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36953319",
+      "text": "Aplinkui plyti pievos ir dirbami laukai.",
+      "audio": "lt/unknown/lt_u_36953319.mp3",
+      "tags": {
+        "source_item_id": "36953319",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37028121",
+      "text": "Joje sudėti Lietuvos istorijos kūriniai.",
+      "audio": "lt/unknown/lt_u_37028121.mp3",
+      "tags": {
+        "source_item_id": "37028121",
+        "gender": "u"
+      }
+    }
+  ]
+}

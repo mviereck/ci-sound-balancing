@@ -1,0 +1,133 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sr",
+  "lang": "sr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37517857",
+      "text": "Пар дана касније, смијењена су четири шефа одјела.",
+      "audio": "sr/unknown/sr_u_37517857_bijeljinski_bosanski.mp3",
+      "tags": {
+        "source_item_id": "37517857",
+        "gender": "u",
+        "accent": "Bijeljinski,Bosanski"
+      }
+    },
+    {
+      "id": "38844946",
+      "text": "Свирам трубу од шесте године.",
+      "audio": "sr/unknown/sr_u_38844946.mp3",
+      "tags": {
+        "source_item_id": "38844946",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37517871",
+      "text": "А ја сам сигуран да вријеме ради за све нас.",
+      "audio": "sr/unknown/sr_u_37517871_bijeljinski_bosanski.mp3",
+      "tags": {
+        "source_item_id": "37517871",
+        "gender": "u",
+        "accent": "Bijeljinski,Bosanski"
+      }
+    },
+    {
+      "id": "27014753",
+      "text": "Експерти су подељени у погледу прогноза.",
+      "audio": "sr/unknown/sr_u_27014753.mp3",
+      "tags": {
+        "source_item_id": "27014753",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35098150",
+      "text": "И што је још горе.",
+      "audio": "sr/unknown/sr_u_35098150.mp3",
+      "tags": {
+        "source_item_id": "35098150",
+        "gender": "u",
+        "accent": "Шумадијски"
+      }
+    },
+    {
+      "id": "36774295",
+      "text": "Запад је то протумачио као васкрснуће отоманизма.",
+      "audio": "sr/unknown/sr_u_36774295_beogradski.mp3",
+      "tags": {
+        "source_item_id": "36774295",
+        "gender": "u",
+        "accent": "Beogradski"
+      }
+    },
+    {
+      "id": "28438492",
+      "text": "Не знам, шта је то.",
+      "audio": "sr/unknown/sr_u_28438492.mp3",
+      "tags": {
+        "source_item_id": "28438492",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36765504",
+      "text": "Прележаће тешку болест, али ће се спасти",
+      "audio": "sr/unknown/sr_u_36765504.mp3",
+      "tags": {
+        "source_item_id": "36765504",
+        "gender": "u",
+        "accent": "Београдски"
+      }
+    },
+    {
+      "id": "37517896",
+      "text": "Цијене некретнина под утјецајем су тржишта.",
+      "audio": "sr/unknown/sr_u_37517896_bijeljinski_bosanski.mp3",
+      "tags": {
+        "source_item_id": "37517896",
+        "gender": "u",
+        "accent": "Bijeljinski,Bosanski"
+      }
+    },
+    {
+      "id": "35085599",
+      "text": "Спремни смо да вам помогнемо.",
+      "audio": "sr/unknown/sr_u_35085599.mp3",
+      "tags": {
+        "source_item_id": "35085599",
+        "gender": "u",
+        "accent": "Шумадијски"
+      }
+    },
+    {
+      "id": "27781369",
+      "text": "Било је стварно, стварно добро.",
+      "audio": "sr/unknown/sr_u_27781369.mp3",
+      "tags": {
+        "source_item_id": "27781369",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35248759",
+      "text": "Посао се мора наставити.",
+      "audio": "sr/unknown/sr_u_35248759.mp3",
+      "tags": {
+        "source_item_id": "35248759",
+        "gender": "u",
+        "accent": "Шумадијски"
+      }
+    }
+  ]
+}

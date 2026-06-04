@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ja",
+  "lang": "ja",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ja",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "36316566",
+      "text": "宮崎県三股町",
+      "audio": "ja/unknown/ja_u_36316566.mp3",
+      "tags": {
+        "source_item_id": "36316566",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25997962",
+      "text": "通行量の少ないルートにはミニバスが運行されることもあります。",
+      "audio": "ja/unknown/ja_u_25997962.mp3",
+      "tags": {
+        "source_item_id": "25997962",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25124587",
+      "text": "そっくりショーというテレビ番組を見たことがある。",
+      "audio": "ja/unknown/ja_u_25124587.mp3",
+      "tags": {
+        "source_item_id": "25124587",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26007516",
+      "text": "航空機は、カリに向かってコロンビアの首都ボゴタを飛び立ちました。",
+      "audio": "ja/unknown/ja_u_26007516.mp3",
+      "tags": {
+        "source_item_id": "26007516",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36308648",
+      "text": "横浜市保土ケ谷区",
+      "audio": "ja/unknown/ja_u_36308648.mp3",
+      "tags": {
+        "source_item_id": "36308648",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23636557",
+      "text": "日本でも、半導体価格が上昇し始め、不況に、出口が見え始めた。",
+      "audio": "ja/unknown/ja_u_23636557.mp3",
+      "tags": {
+        "source_item_id": "23636557",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36307752",
+      "text": "逆に個物が製作的であるということは、世界が作られたものから作るものへということである。",
+      "audio": "ja/unknown/ja_u_36307752.mp3",
+      "tags": {
+        "source_item_id": "36307752",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35908087",
+      "text": "ソクラテスの活動が模範的に示している如く、そこには知の無知への転換がなければならぬ。",
+      "audio": "ja/unknown/ja_u_35908087.mp3",
+      "tags": {
+        "source_item_id": "35908087",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37591752",
+      "text": "私は家に戻ると五ヵ月間は、妻や子供たちと一しょに楽しく暮していました。が、再び航海に出ることになりました。",
+      "audio": "ja/unknown/ja_u_37591752.mp3",
+      "tags": {
+        "source_item_id": "37591752",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25938561",
+      "text": "その製粉場は現在博物館として運営されている。",
+      "audio": "ja/unknown/ja_u_25938561.mp3",
+      "tags": {
+        "source_item_id": "25938561",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Boule de suif",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "2576",
+    "book_title": "Boule de suif",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2154_2576_000000",
+      "text": "laissant voir un bas de soie rouge que les éclats du foyer enflammaient par instants au bout d'une minute je vous fais peur dit-elle je protestai elle s'appuya tout à fait contre ma poitrine et sans me regarder",
+      "audio": "test/audio/2154/2576/2154_2576_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 623.74,
+        "original_end_s": 641.59
+      }
+    },
+    {
+      "id": "2154_2576_000001",
+      "text": "il fait trop chaud maintenant dit-elle allons donc là-bas sur le canapé et nous voilà partis sur le canapé puis tout à coup me regardant bien en face",
+      "audio": "test/audio/2154/2576/2154_2576_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 504.86,
+        "original_end_s": 515.93
+      }
+    },
+    {
+      "id": "2154_2576_000002",
+      "text": "mon bon dit-il il va falloir que je m'absente en sortant de table pour une affaire je ne serai pas de retour avant onze heures mais à onze heures précises je rentrerai j'ai compté sur toi pour tenir compagnie à berthe la jeune femme sourit",
+      "audio": "test/audio/2154/2576/2154_2576_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 361.46,
+        "original_end_s": 378.58
+      }
+    },
+    {
+      "id": "2154_2576_000003",
+      "text": "ils restent deux belligérants ils sont d'une race différente il faut qu'il y ait toujours un dompteur et un dompté un maître et un esclave tantôt l'un tantôt l'autre ils ne sont jamais deux égaux",
+      "audio": "test/audio/2154/2576/2154_2576_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 263.16,
+        "original_end_s": 278.66
+      }
+    },
+    {
+      "id": "2154_2576_000004",
+      "text": "nous ne nous étions encore jamais trouvés seuls et malgré notre intimité grandissant chaque jour le tête-à-tête nous plaçait dans une situation nouvelle",
+      "audio": "test/audio/2154/2576/2154_2576_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 407.14,
+        "original_end_s": 418.11
+      }
+    },
+    {
+      "id": "2154_2576_000005",
+      "text": "julien tout joyeux rentrait il s'écria je suis libre l'affaire est finie deux heures plus tôt oui mon amie sans la bûche j'étais pincé en flagrant délit et vous apercevez d'ici les conséquences",
+      "audio": "test/audio/2154/2576/2154_2576_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 751.3,
+        "original_end_s": 768.88
+      }
+    },
+    {
+      "id": "2154_2576_000006",
+      "text": "roulant comme un ouragan de flamme incendiant le tapis et se gîtant sous un fauteuil qu'elle allait infailliblement flamber je me précipitai comme un fou et pendant que je repoussais dans la cheminée le tison sauveur la porte brusquement s'ouvrit",
+      "audio": "test/audio/2154/2576/2154_2576_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 733.91,
+        "original_end_s": 751.3
+      }
+    },
+    {
+      "id": "2154_2576_000007",
+      "text": "or je fis en sorte de n'être plus repris dans une situation pareille jamais jamais puis je m'aperçus que julien me battait froid comme on dit sa femme évidemment sapait notre amitié",
+      "audio": "test/audio/2154/2576/2154_2576_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 768.88,
+        "original_end_s": 785.27
+      }
+    },
+    {
+      "id": "2154_2576_000008",
+      "text": "oh que celui qui n'a jamais senti sur sa bouche le baiser profond d'une femme prête à se donner me jette la première pierre enfin une minute de plus vous comprenez n'est-ce pas une minute de plus et j'étais",
+      "audio": "test/audio/2154/2576/2154_2576_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 698.63,
+        "original_end_s": 716.02
+      }
+    },
+    {
+      "id": "2154_2576_000009",
+      "text": "et peu à peu il m'éloigna de chez lui et nous avons cessé de nous voir je ne me suis point marié cela ne doit plus vous étonner",
+      "audio": "test/audio/2154/2576/2154_2576_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 785.27,
+        "original_end_s": 798.64
+      }
+    },
+    {
+      "id": "2154_2576_000010",
+      "text": "et puis je sentais du nouveau dans l'air je sentais de l'invisible un je ne sais quoi impossible à exprimer cet avertissement mystérieux qui vous prévient des intentions secrètes bonnes ou mauvaises d'une autre personne à votre égard",
+      "audio": "test/audio/2154/2576/2154_2576_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 449.79,
+        "original_end_s": 466.82
+      }
+    },
+    {
+      "id": "2154_2576_000011",
+      "text": "si je vous disais moi que je vous aime que feriez-vous et avant que j'eusse pu trouver ma réponse ses bras avaient pris mon cou avaient attiré brusquement ma tête et ses lèvres joignaient les miennes",
+      "audio": "test/audio/2154/2576/2154_2576_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 641.59,
+        "original_end_s": 657.25
+      }
+    },
+    {
+      "id": "2154_2576_000012",
+      "text": "et je pris une bûche la plus grosse bûche que je plaçai en pyramide sur les autres morceaux aux trois quarts consumés et le silence recommença",
+      "audio": "test/audio/2154/2576/2154_2576_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 480.67,
+        "original_end_s": 492.33
+      }
+    },
+    {
+      "id": "2154_2576_000013",
+      "text": "ah ma chère amie je vous réponds que je ne m'amusais pas quoi tromper julien devenir l'amant de cette petite folle perverse et rusée effroyablement sensuelle sans doute à qui son mari déjà ne suffisait plus",
+      "audio": "test/audio/2154/2576/2154_2576_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 657.25,
+        "original_end_s": 672.14
+      }
+    },
+    {
+      "id": "2154_2576_000014",
+      "text": "quand le désastre fut réparé une forte odeur de roussi se répandit et l'homme se rasseyant en face de son amie la regarda en souriant et voilà dit-il en montrant la bûche replacée dans l'âtre voilà pourquoi je ne me suis jamais marié",
+      "audio": "test/audio/2154/2576/2154_2576_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 146.1,
+        "original_end_s": 165.93
+      }
+    },
+    {
+      "id": "2154_2576_000015",
+      "text": "et soudain une grosse bûche une souche hérissée de racines enflammées croula elle bondit par-dessus les chenets et lancée dans le salon roula sur le tapis en jetant des éclats de feu tout autour d'elle",
+      "audio": "test/audio/2154/2576/2154_2576_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 113.69,
+        "original_end_s": 129.43
+      }
+    },
+    {
+      "id": "2154_2576_000016",
+      "text": "lui et moi nous habitions ensemble autrefois nous ne nous quittions jamais et l'amitié qui nous liait semblait si forte que rien n'aurait pu la briser un soir en rentrant il m'annonça son mariage",
+      "audio": "test/audio/2154/2576/2154_2576_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 213.88,
+        "original_end_s": 229.17
+      }
+    },
+    {
+      "id": "2154_2576_000017",
+      "text": "elle la maîtresse de la maison une vieille à cheveux blancs mais une de ces vieilles adorables dont la peau sans rides est lisse comme un fin papier et parfumée",
+      "audio": "test/audio/2154/2576/2154_2576_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 52.3,
+        "original_end_s": 65.54
+      }
+    },
+    {
+      "id": "2154_2576_000018",
+      "text": "tout imprégnée de parfums pénétrée jusqu'à la chair vive par les essences fines dont elle se baigne depuis si longtemps l'épiderme une vieille qui sent quand on lui baise la main",
+      "audio": "test/audio/2154/2576/2154_2576_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 65.54,
+        "original_end_s": 78.29
+      }
+    },
+    {
+      "id": "2154_2576_000019",
+      "text": "ils ne comprenaient point comment deux intimes deux inséparables comme nous étions avaient pu tout à coup devenir presque étrangers l'un à l'autre or voici le secret de notre éloignement",
+      "audio": "test/audio/2154/2576/2154_2576_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 200.02,
+        "original_end_s": 213.88
+      }
+    },
+    {
+      "id": "2154_2576_000020",
+      "text": "je reçus un coup dans la poitrine comme s'il m'avait volé ou trahi quand un ami se marie c'est fini bien fini l'affection jalouse d'une femme cette affection ombrageuse inquiète et charnelle ne tolère point l'attachement vigoureux et franc",
+      "audio": "test/audio/2154/2576/2154_2576_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 229.17,
+        "original_end_s": 246.92
+      }
+    },
+    {
+      "id": "2154_2576_000021",
+      "text": "non vous n'y entendez rien pour que l'amour fût bon il faudrait il me semble qu'il bouleversât le coeur tordît les nerfs et ravageât la tête",
+      "audio": "test/audio/2154/2576/2154_2576_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 565.12,
+        "original_end_s": 575.59
+      }
+    },
+    {
+      "id": "2154_2576_000022",
+      "text": "cet attachement d'esprit de coeur et de confiance qui existe entre deux hommes voyez-vous madame quel que soit l'amour qui les soude l'un à l'autre l'homme et la femme sont toujours étrangers d'âme d'intelligence",
+      "audio": "test/audio/2154/2576/2154_2576_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 246.92,
+        "original_end_s": 263.16
+      }
+    },
+    {
+      "id": "2154_2576_000023",
+      "text": "je parlai d'abord de choses vagues de ces choses insignifiantes dont on emplit les silences embarrassants elle ne répondit rien et restait en face de moi de l'autre côté de la cheminée la tête baissée le regard indécis",
+      "audio": "test/audio/2154/2576/2154_2576_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 418.11,
+        "original_end_s": 433.93
+      }
+    },
+    {
+      "id": "2154_2576_000024",
+      "text": "eux paraissaient se chérir ne se quittaient point or un soir julien m'écrivit de venir dîner j'y allai",
+      "audio": "test/audio/2154/2576/2154_2576_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 351.44,
+        "original_end_s": 361.46
+      }
+    },
+    {
+      "id": "2154_2576_000025",
+      "text": "quand l'amour est tranquille facile sans périls légal est-ce bien de l'amour je ne savais plus quoi répondre et je jetais en moi-même cette exclamation philosophique ô cervelle féminine te voilà bien",
+      "audio": "test/audio/2154/2576/2154_2576_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 591.39,
+        "original_end_s": 609.14
+      }
+    },
+    {
+      "id": "2154_2576_000026",
+      "text": "qu'est-ce que vous feriez si une femme vous disait qu'elle vous aime je répondis fort interloqué euh ma foi le cas n'est pas prévu et puis ça dépendrait de la femme",
+      "audio": "test/audio/2154/2576/2154_2576_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 515.93,
+        "original_end_s": 529.16
+      }
+    },
+    {
+      "id": "2154_2576_000027",
+      "text": "non elle était pardon c'est lui qui l'était ou plutôt qui l'aurait été quand voilà qu'un bruit terrible nous fit bondir la bûche oui la bûche madame s'élançait dans le salon renversant la pelle le garde feu",
+      "audio": "test/audio/2154/2576/2154_2576_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 716.02,
+        "original_end_s": 733.91
+      }
+    },
+    {
+      "id": "2154_2576_000028",
+      "text": "trahir sans cesse tromper toujours jouer l'amour pour le seul attrait du fruit défendu du danger bravé de l'amitié trahie non cela ne m'allait guère",
+      "audio": "test/audio/2154/2576/2154_2576_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 672.14,
+        "original_end_s": 683.89
+      }
+    },
+    {
+      "id": "2154_2576_000029",
+      "text": "au bout de quelques minutes la bûche flambait de telle façon qu'elle nous grillait la figure la jeune femme releva sur moi ses yeux des yeux qui me parurent étranges",
+      "audio": "test/audio/2154/2576/2154_2576_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 492.33,
+        "original_end_s": 504.86
+      }
+    },
+    {
+      "id": "2154_2576_000030",
+      "text": "ils avaient cessé de causer depuis une minute environ et tous deux regardaient le feu rêvant à n'importe quoi en l'un de ces silences amis des gens qui n'ont point besoin de parler toujours pour se plaire l'un près de l'autre",
+      "audio": "test/audio/2154/2576/2154_2576_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 97.59,
+        "original_end_s": 113.69
+      }
+    },
+    {
+      "id": "2154_2576_000031",
+      "text": "dans une cheminée large un grand feu flambait tandis qu'une seule lampe posée sur le coin de la cheminée versait une lumière molle ombrée par un abat-jour d'ancienne dentelle sur les deux personnes qui causaient",
+      "audio": "test/audio/2154/2576/2154_2576_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 36.49,
+        "original_end_s": 52.3
+      }
+    },
+    {
+      "id": "2154_2576_000032",
+      "text": "il reprit oh c'est toute une histoire une assez triste et vilaine histoire mes anciens camarades se sont souvent étonnés du froid survenu tout à coup entre un de mes meilleurs amis qui s'appelait de son petit nom julien et moi",
+      "audio": "test/audio/2154/2576/2154_2576_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 182.81,
+        "original_end_s": 200.02
+      }
+    },
+    {
+      "id": "2154_2576_000033",
+      "text": "la vieille femme avec un petit cri se dressa comme pour fuir tandis que lui à coups de botte rejetait dans la cheminée l'énorme charbon et ratissait de sa semelle toutes les éclaboussures ardentes répandues autour",
+      "audio": "test/audio/2154/2576/2154_2576_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 129.43,
+        "original_end_s": 146.1
+      }
+    },
+    {
+      "id": "2154_2576_000034",
+      "text": "je n'y pris pas garde on se mit à table et dès huit heures julien nous quittait aussitôt qu'il fut parti une sorte de gêne singulière naquit brusquement entre sa femme et moi",
+      "audio": "test/audio/2154/2576/2154_2576_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 392.83,
+        "original_end_s": 407.14
+      }
+    },
+    {
+      "id": "2154_2576_000035",
+      "text": "c'est moi d'ailleurs qui ai eu l'idée de vous envoyer chercher reprit-elle je lui serrai la main vous êtes gentille comme tout et je sentis sur mes doigts une amicale et longue pression",
+      "audio": "test/audio/2154/2576/2154_2576_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 378.58,
+        "original_end_s": 392.83
+      }
+    },
+    {
+      "id": "2154_2576_000036",
+      "text": "un pied tendu vers la flamme comme perdue en une difficile méditation quand je fus à sec d'idées banales je me tus c'est étonnant comme il est difficile quelquefois de trouver des choses à dire",
+      "audio": "test/audio/2154/2576/2154_2576_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 433.93,
+        "original_end_s": 449.79
+      }
+    },
+    {
+      "id": "2154_2576_000037",
+      "text": "avez-vous quelquefois été amoureux monsieur paul je l'avouai oui j'avais été amoureux racontez-moi ça dit-elle je lui racontai une histoire quelconque elle m'écoutait attentivement avec des marques fréquentes d'improbation et de mépris et soudain",
+      "audio": "test/audio/2154/2576/2154_2576_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 545.17,
+        "original_end_s": 565.12
+      }
+    },
+    {
+      "id": "2154_2576_000038",
+      "text": "ils s'étreignent les mains leurs mains frissonnantes d'ardeur ils ne se les serrent jamais d'une large et forte pression loyale de cette pression qui semble ouvrir les coeurs les mettre à nu dans un élan de sincère et forte et virile affection",
+      "audio": "test/audio/2154/2576/2154_2576_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 278.66,
+        "original_end_s": 295.29
+      }
+    },
+    {
+      "id": "2154_2576_000039",
+      "text": "mais que faire imiter joseph rôle fort sot et de plus fort difficile car elle était affolante en sa perfidie cette fille et enflammée d'audace et palpitante et acharnée",
+      "audio": "test/audio/2154/2576/2154_2576_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 683.89,
+        "original_end_s": 698.63
+      }
+    },
+    {
+      "id": "2154_2576_000040",
+      "text": "ce pénible silence dura quelque temps puis berthe me dit mettez donc une bûche au feu mon ami vous voyez bien qu'il va s'éteindre j'ouvris le coffre à bois placé juste comme le vôtre",
+      "audio": "test/audio/2154/2576/2154_2576_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 466.82,
+        "original_end_s": 480.67
+      }
+    },
+    {
+      "id": "2154_2576_000041",
+      "text": "d'abord j'allais peu dans la maison craignant de gêner leur tendresse me sentant de trop entre eux ils semblaient pourtant m'attirer m'appeler sans cesse et m'aimer",
+      "audio": "test/audio/2154/2576/2154_2576_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 322.95,
+        "original_end_s": 334.44
+      }
+    },
+    {
+      "id": "2154_2576_000042",
+      "text": "il faudrait qu'il fût comment dirai-je dangereux terrible même presque criminel presque sacrilège qu'il fût une sorte de trahison je veux dire qu'il a besoin de rompre des obstacles sacrés des lois des liens fraternels",
+      "audio": "test/audio/2154/2576/2154_2576_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 575.59,
+        "original_end_s": 591.39
+      }
+    },
+    {
+      "id": "2154_2576_000043",
+      "text": "l'odeur légère qui vous saute à l'odorat lorsqu'on ouvre une boîte de poudre d'iris florentine lui était un ami d'autrefois resté garçon un ami de toutes les semaines un compagnon de voyage dans l'existence rien de plus d'ailleurs",
+      "audio": "test/audio/2154/2576/2154_2576_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 78.29,
+        "original_end_s": 97.59
+      }
+    },
+    {
+      "id": "2154_2576_000044",
+      "text": "elle le considéra tout étonnée avec cet oeil curieux des femmes qui veulent savoir cet oeil des femmes qui ne sont plus toutes jeunes où la curiosité est réfléchie compliquée souvent malicieuse et elle demanda comment ça",
+      "audio": "test/audio/2154/2576/2154_2576_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 165.93,
+        "original_end_s": 182.81
+      }
+    },
+    {
+      "id": "2154_2576_000045",
+      "text": "enfin mon ami julien se maria elle était jolie sa femme charmante une petite blonde frisottée vive potelée qui semblait l'adorer",
+      "audio": "test/audio/2154/2576/2154_2576_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 311.93,
+        "original_end_s": 322.95
+      }
+    },
+    {
+      "id": "2154_2576_000046",
+      "text": "alors elle se mit à rire d'un rire sec nerveux frémissant un de ces rires faux qui semblent devoir casser les verres fins les hommes ne sont jamais audacieux ni malins elle se tut puis reprit",
+      "audio": "test/audio/2154/2576/2154_2576_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 529.16,
+        "original_end_s": 545.17
+      }
+    },
+    {
+      "id": "2154_2576_000047",
+      "text": "elle avait pris en parlant un petit air indifférent sainte-nitouche et appuyée sur les coussins elle s'était allongée couchée la tête contre mon épaule la robe un peu relevée",
+      "audio": "test/audio/2154/2576/2154_2576_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 609.14,
+        "original_end_s": 623.74
+      }
+    },
+    {
+      "id": "2154_2576_000048",
+      "text": "peu à peu je me laissai séduire par le charme doux de cette vie commune et je dînais souvent chez eux et souvent rentré chez moi la nuit je songeais à faire comme lui à prendre une femme trouvant bien triste à présent ma maison vide",
+      "audio": "test/audio/2154/2576/2154_2576_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 334.44,
+        "original_end_s": 351.44
+      }
+    },
+    {
+      "id": "2154_2576_000049",
+      "text": "les sages au lieu de se marier et de procréer comme consolation pour les vieux jours des enfants qui les abandonneront devraient chercher un bon et solide ami et vieillir avec lui dans cette communion de pensées qui ne peut exister qu'entre deux hommes",
+      "audio": "test/audio/2154/2576/2154_2576_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2576",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/bouledesuif_0904_librivox/bouledesuif_11_maupassant_64kb.mp3",
+        "original_start_s": 295.29,
+        "original_end_s": 311.93
+      }
+    }
+  ]
+}

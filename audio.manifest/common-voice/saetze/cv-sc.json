@@ -1,0 +1,131 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sc",
+  "lang": "sc",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sc",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "32613356",
+      "text": "Sos diacrìticos tenent unu significadu fonèticu, semànticu e etimològicu.",
+      "audio": "sc/unknown/sc_u_32613356_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32613356",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "33349239",
+      "text": "Su delitu diferente dae su restu de Sardigna est sa fura pro iscòrriu.",
+      "audio": "sc/unknown/sc_u_33349239.mp3",
+      "tags": {
+        "source_item_id": "33349239",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33351429",
+      "text": "Nessi cussa chi est in Cussìgiu Regionale.",
+      "audio": "sc/unknown/sc_u_33351429.mp3",
+      "tags": {
+        "source_item_id": "33351429",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32889042",
+      "text": "Totus amus dèpidu rinuntziare a carchi cosa, fortzis prus de is àteros puru.",
+      "audio": "sc/unknown/sc_u_32889042_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32889042",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "32627895",
+      "text": "Immoi so bidende pipios o giòvanos de sas biddas chi chistionant in italianu.",
+      "audio": "sc/unknown/sc_u_32627895_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32627895",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "33351911",
+      "text": "Amus atobiadu a Sandro Puggioni, mere de s'azienda.",
+      "audio": "sc/unknown/sc_u_33351911.mp3",
+      "tags": {
+        "source_item_id": "33351911",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32638459",
+      "text": "Fiat fìgiu de sa mugere de su re.",
+      "audio": "sc/unknown/sc_u_32638459_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32638459",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "32889711",
+      "text": "Ma sunt cosas diferentes.",
+      "audio": "sc/unknown/sc_u_32889711_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32889711",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "33351884",
+      "text": "Gasi dughentas persones contant pro unu sòtziu.",
+      "audio": "sc/unknown/sc_u_33351884.mp3",
+      "tags": {
+        "source_item_id": "33351884",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32630930",
+      "text": "Lu depimus amìtere.",
+      "audio": "sc/unknown/sc_u_32630930_campidanesu.mp3",
+      "tags": {
+        "source_item_id": "32630930",
+        "gender": "u",
+        "accent": "Campidanesu"
+      }
+    },
+    {
+      "id": "33351161",
+      "text": "Sos pratos preferidos no los agradessides prus.",
+      "audio": "sc/unknown/sc_u_33351161.mp3",
+      "tags": {
+        "source_item_id": "33351161",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33351585",
+      "text": "Est su de tres annos chi s’iscola tataresa partètzipat a su progetu.",
+      "audio": "sc/unknown/sc_u_33351585.mp3",
+      "tags": {
+        "source_item_id": "33351585",
+        "gender": "u"
+      }
+    }
+  ]
+}

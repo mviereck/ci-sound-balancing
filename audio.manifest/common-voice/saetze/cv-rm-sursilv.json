@@ -1,0 +1,170 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — rm-sursilv",
+  "lang": "rm-sursilv",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-rm-sursilv",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20562187",
+      "text": "Certas scenas paran al monitur aunc pli horrentas che schiglioc.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20562187.mp3",
+      "tags": {
+        "source_item_id": "20562187",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20566835",
+      "text": "Per quei svilup han ils specialists aunc buca ina explicaziun entelgeivla.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20566835.mp3",
+      "tags": {
+        "source_item_id": "20566835",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20569057",
+      "text": "Vegn vitier che nus vein adattau il menaschi al diember da skiunzs.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20569057.mp3",
+      "tags": {
+        "source_item_id": "20569057",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20582245",
+      "text": "Ei era il davos da zercladur, in di senza vent.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20582245.mp3",
+      "tags": {
+        "source_item_id": "20582245",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20582652",
+      "text": "Secapescha viu per aschidadir dad ordeifer.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20582652.mp3",
+      "tags": {
+        "source_item_id": "20582652",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20585197",
+      "text": "Atras las plontas miran ins viers la Surselva.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20585197.mp3",
+      "tags": {
+        "source_item_id": "20585197",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21812818",
+      "text": "Prescripziuns muntien bein ina directiva, mo sligien aunc ditg buca tut ils problems.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_21812818.mp3",
+      "tags": {
+        "source_item_id": "21812818",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20579997",
+      "text": "Oz ei quei cremas ni auters desserts.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20579997.mp3",
+      "tags": {
+        "source_item_id": "20579997",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21837546",
+      "text": "Ed ei deva biaras ondas en quella casa, aunc pli biaras che augs.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_21837546.mp3",
+      "tags": {
+        "source_item_id": "21837546",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20582528",
+      "text": "Ils schubregiaveiders da miu auto funcziunan buca endretg.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20582528.mp3",
+      "tags": {
+        "source_item_id": "20582528",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20569805",
+      "text": "Suenter treis dis fuva Pigniu magliaus ora e la bargada ei tschessada.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20569805.mp3",
+      "tags": {
+        "source_item_id": "20569805",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20585934",
+      "text": "Va e viva tenor tia cardientscha.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20585934.mp3",
+      "tags": {
+        "source_item_id": "20585934",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20582742",
+      "text": "Sai buc propi tgei dir.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20582742.mp3",
+      "tags": {
+        "source_item_id": "20582742",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20585271",
+      "text": "Lardi ha menziunau che far nuot seigi buc il salvament pil romontsch.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20585271.mp3",
+      "tags": {
+        "source_item_id": "20585271",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20567247",
+      "text": "Bein ha el telefonau pliras ga.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20567247.mp3",
+      "tags": {
+        "source_item_id": "20567247",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20567945",
+      "text": "La reit da viandar stat exclusivamein a disposiziun als spassegiaders.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20567945.mp3",
+      "tags": {
+        "source_item_id": "20567945",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20582282",
+      "text": "Giuseppa Hosang ei stada l’inizianta dalla gruppa e l’emprema presidenta.",
+      "audio": "rm-sursilv/unknown/rm-sursilv_u_20582282.mp3",
+      "tags": {
+        "source_item_id": "20582282",
+        "gender": "u"
+      }
+    }
+  ]
+}

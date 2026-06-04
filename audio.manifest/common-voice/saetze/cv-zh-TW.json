@@ -1,0 +1,113 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zh-TW",
+  "lang": "zh-TW",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zh-TW",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "31046937",
+      "text": "旅客自動電車輸送系統",
+      "audio": "zh-TW/unknown/zh-TW_u_31046937.mp3",
+      "tags": {
+        "source_item_id": "31046937",
+        "gender": "u",
+        "accent": "出生地：新北市"
+      }
+    },
+    {
+      "id": "30161851",
+      "text": "草屯鎮北勢湳的交流道",
+      "audio": "zh-TW/unknown/zh-TW_u_30161851.mp3",
+      "tags": {
+        "source_item_id": "30161851",
+        "gender": "u",
+        "accent": "出生地：桃園市,馬祖福州人,馬祖人混合客家人家庭"
+      }
+    },
+    {
+      "id": "30586068",
+      "text": "澐密戰備道路",
+      "audio": "zh-TW/unknown/zh-TW_u_30586068.mp3",
+      "tags": {
+        "source_item_id": "30586068",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24477433",
+      "text": "造飲輒盡",
+      "audio": "zh-TW/unknown/zh-TW_u_24477433.mp3",
+      "tags": {
+        "source_item_id": "24477433",
+        "gender": "u",
+        "accent": "出生地：臺北市"
+      }
+    },
+    {
+      "id": "30242824",
+      "text": "雅環路",
+      "audio": "zh-TW/unknown/zh-TW_u_30242824.mp3",
+      "tags": {
+        "source_item_id": "30242824",
+        "gender": "u",
+        "accent": "出生地：新北市"
+      }
+    },
+    {
+      "id": "31113803",
+      "text": "臺南市東門路",
+      "audio": "zh-TW/unknown/zh-TW_u_31113803.mp3",
+      "tags": {
+        "source_item_id": "31113803",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26819679",
+      "text": "現在看相關文獻",
+      "audio": "zh-TW/unknown/zh-TW_u_26819679.mp3",
+      "tags": {
+        "source_item_id": "26819679",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19877574",
+      "text": "最惋惜的是",
+      "audio": "zh-TW/unknown/zh-TW_u_19877574.mp3",
+      "tags": {
+        "source_item_id": "19877574",
+        "gender": "u",
+        "accent": "出生地：臺中市"
+      }
+    },
+    {
+      "id": "30584884",
+      "text": "應該很需要免治馬桶",
+      "audio": "zh-TW/unknown/zh-TW_u_30584884.mp3",
+      "tags": {
+        "source_item_id": "30584884",
+        "gender": "u",
+        "accent": "可以很正經也可以很溫柔,可以很俏皮,可以很撒嬌"
+      }
+    },
+    {
+      "id": "25042181",
+      "text": "區域的和平穩定與發展",
+      "audio": "zh-TW/unknown/zh-TW_u_25042181.mp3",
+      "tags": {
+        "source_item_id": "25042181",
+        "gender": "u"
+      }
+    }
+  ]
+}

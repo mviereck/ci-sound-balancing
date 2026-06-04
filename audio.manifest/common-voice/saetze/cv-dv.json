@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — dv",
+  "lang": "dv",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-dv",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18600533",
+      "text": "އަދި ހުއްދައީ އެކަންޏެއް ވެސް ނޫން",
+      "audio": "dv/unknown/dv_u_18600533.mp3",
+      "tags": {
+        "source_item_id": "18600533",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18619045",
+      "text": "މީގެ އިތުރަށް މަލިކުގެ އަވަށެއްކަމުގައިވާ ފަލައްސޭރީގެ މީހުން އެމީހުންނަށް ޚާއްސަކޮށް ހިންގާ ދެ އެޖެންސީއެއްވެސް ހުރޭ",
+      "audio": "dv/unknown/dv_u_18619045.mp3",
+      "tags": {
+        "source_item_id": "18619045",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18621675",
+      "text": "ކިރު ސަޔާއެކު ދެބިހުގެ ބިސްގަނޑެއް ކާލުން އެއީ ވަރަށް ގިނަމީހުން ކުރާކަމެއް",
+      "audio": "dv/unknown/dv_u_18621675.mp3",
+      "tags": {
+        "source_item_id": "18621675",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18626351",
+      "text": "ދޮންމަނިކު ފުނަދޫގައި އަވަހާރަވީ އަޅުގަނޑުމެން ދެ މީހުން ކައިވެނީގެ ގޮތުން ގުޅިގެން އުޅޭތާ ތިން އަހަރެއްހާ ދުވަސް ފަހުން",
+      "audio": "dv/unknown/dv_u_18626351.mp3",
+      "tags": {
+        "source_item_id": "18626351",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23397426",
+      "text": "ކޮންމެވެސް ގޮތަކުން އޭނާއަށް ތިނަދުއަށް ދެވިދާނެ",
+      "audio": "dv/unknown/dv_u_23397426.mp3",
+      "tags": {
+        "source_item_id": "23397426",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23604839",
+      "text": "އެދުވަހު ދެބަފައިންގެ މެދުގައި ވަރަށް ގަދަ ޒުވާބު ހިނގުމަށްފަހު ހިސާބަކަށް މައިތިރިވެއްޖެ",
+      "audio": "dv/unknown/dv_u_23604839.mp3",
+      "tags": {
+        "source_item_id": "23604839",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25240542",
+      "text": "ރަސްގެފާނާ ދިމާއަށް ގަޅިއުކަން އެއްވެސް މީހަކަށް ހުއްދައެއް ނޯންނާނެ",
+      "audio": "dv/unknown/dv_u_25240542.mp3",
+      "tags": {
+        "source_item_id": "25240542",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25248958",
+      "text": "މިހެން އޮއްވާ މަންމަގެ އަޑު އަނެއްކާވެސް އިވިއްޖެ",
+      "audio": "dv/unknown/dv_u_25248958.mp3",
+      "tags": {
+        "source_item_id": "25248958",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25478959",
+      "text": "އަހަރެންނަށް ހިންދިރުވާލެވުނީ ވާންއުޅޭ ގޮތެއް ނޭނގިފައި ހުރޭ",
+      "audio": "dv/unknown/dv_u_25478959.mp3",
+      "tags": {
+        "source_item_id": "25478959",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26736047",
+      "text": "އަހަރެން ރުޅި އަރުވާލަން މަސައްކަތް އެކުރަނީ އެހެންވެ",
+      "audio": "dv/unknown/dv_u_26736047.mp3",
+      "tags": {
+        "source_item_id": "26736047",
+        "gender": "u"
+      }
+    }
+  ]
+}

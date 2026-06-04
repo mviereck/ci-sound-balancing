@@ -1,0 +1,17 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "thorsten-voice",
+  "name": "Thorsten-Voice",
+  "url": "https://www.thorsten-voice.de",
+  "license": "CC0-1.0",
+  "credit": "Thorsten Müller — Trainingsdaten CC0",
+  "base": "Thorsten Voice/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/thorsten.json"
+    ]
+  }
+}

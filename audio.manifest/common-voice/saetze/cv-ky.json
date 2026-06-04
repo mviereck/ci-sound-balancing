@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ky",
+  "lang": "ky",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ky",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17436268",
+      "text": "Бул саякатчыларды аябай кызыктырат, — деди ишкер Абдукаримов.",
+      "audio": "ky/unknown/ky_u_17436268.mp3",
+      "tags": {
+        "source_item_id": "17436268",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17436470",
+      "text": "Болгону дарыгерлер глюкоза, дары берип эптеп кармап турушат.",
+      "audio": "ky/unknown/ky_u_17436470.mp3",
+      "tags": {
+        "source_item_id": "17436470",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17505724",
+      "text": "Бул нерсе мага партиянын бөлүнбөшүнө түрткү берди.",
+      "audio": "ky/unknown/ky_u_17505724.mp3",
+      "tags": {
+        "source_item_id": "17505724",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17708768",
+      "text": "Антпесе үй ээлери да, коноктор да штраф төлөшөт.",
+      "audio": "ky/unknown/ky_u_17708768.mp3",
+      "tags": {
+        "source_item_id": "17708768",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17927306",
+      "text": "Бул жолу дарбазаны Павел Матяш коргоду.",
+      "audio": "ky/unknown/ky_u_17927306.mp3",
+      "tags": {
+        "source_item_id": "17927306",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18429973",
+      "text": "Браконьерлер жеке менчик аймакта аңчылык кылбайт.",
+      "audio": "ky/unknown/ky_u_18429973.mp3",
+      "tags": {
+        "source_item_id": "18429973",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18434654",
+      "text": "Ал эми таптакыр көчпөйбүз деп тургандардын саны да арбын.",
+      "audio": "ky/unknown/ky_u_18434654.mp3",
+      "tags": {
+        "source_item_id": "18434654",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18442841",
+      "text": "Мал ичет бул сууну, эгинди суугарышат.",
+      "audio": "ky/unknown/ky_u_18442841.mp3",
+      "tags": {
+        "source_item_id": "18442841",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18449484",
+      "text": "Кечигүүнүн себеби — өкмөт тарабынан каржылоонун жетишсиздиги.",
+      "audio": "ky/unknown/ky_u_18449484.mp3",
+      "tags": {
+        "source_item_id": "18449484",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18454874",
+      "text": "Ар бирибиз элдин гана тандоосуна үмүт арттык, — деди Жээнбеков.",
+      "audio": "ky/unknown/ky_u_18454874.mp3",
+      "tags": {
+        "source_item_id": "18454874",
+        "gender": "u"
+      }
+    }
+  ]
+}

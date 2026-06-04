@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — lg",
+  "lang": "lg",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-lg",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "23830032",
+      "text": "Akanyonyi kayingidde mu kibiina nga tusoma.",
+      "audio": "lg/unknown/lg_u_23830032.mp3",
+      "tags": {
+        "source_item_id": "23830032",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24011587",
+      "text": "Omuwala oyo bambi musirise nnyo.",
+      "audio": "lg/unknown/lg_u_24011587.mp3",
+      "tags": {
+        "source_item_id": "24011587",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24018834",
+      "text": "Amakubo gaffe gaseerera nnyo mu budde bw'enkuba ebirime ne bituvundako.",
+      "audio": "lg/unknown/lg_u_24018834.mp3",
+      "tags": {
+        "source_item_id": "24018834",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24021114",
+      "text": "Osaanidde owe buli muntu ekitiibwa okusinziira mu kiti mw'abeera ajjidde.",
+      "audio": "lg/unknown/lg_u_24021114.mp3",
+      "tags": {
+        "source_item_id": "24021114",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24184398",
+      "text": "Enkyukakyuka mu kukola oluguudo luno ereese akalipagano kangi.",
+      "audio": "lg/unknown/lg_u_24184398.mp3",
+      "tags": {
+        "source_item_id": "24184398",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24318686",
+      "text": "Kikwewuunyisa ng'abantu be baawa obutimba bw'ensiri ate babulundiramu nkoko.",
+      "audio": "lg/unknown/lg_u_24318686.mp3",
+      "tags": {
+        "source_item_id": "24318686",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24538833",
+      "text": "Yawaayiriza munne nti mubbi kyokka naye ne bamusiba.",
+      "audio": "lg/unknown/lg_u_24538833.mp3",
+      "tags": {
+        "source_item_id": "24538833",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24686220",
+      "text": "Abasawo bonna abajjanjabira mu nkola ey'ekizungu bavumirira enzijanjaba y'ekinnansi.",
+      "audio": "lg/unknown/lg_u_24686220.mp3",
+      "tags": {
+        "source_item_id": "24686220",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25208583",
+      "text": "Waliwo obutakwatagana mu kusalawo ku disitulikiti.",
+      "audio": "lg/unknown/lg_u_25208583.mp3",
+      "tags": {
+        "source_item_id": "25208583",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25416302",
+      "text": "Abasawo abaddugavu bangi basinga abeeru.",
+      "audio": "lg/unknown/lg_u_25416302.mp3",
+      "tags": {
+        "source_item_id": "25416302",
+        "gender": "u"
+      }
+    }
+  ]
+}

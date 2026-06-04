@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — gn",
+  "lang": "gn",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-gn",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26354878",
+      "text": "Chopombe ndaje imitã guive oñangarekova'ekue Ña Antonia-re.",
+      "audio": "gn/unknown/gn_u_26354878.mp3",
+      "tags": {
+        "source_item_id": "26354878",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32418256",
+      "text": "Techakuaa chupe iñasãi opaite hendápe.",
+      "audio": "gn/unknown/gn_u_32418256.mp3",
+      "tags": {
+        "source_item_id": "32418256",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26587350",
+      "text": "Oréko oreresãi ha rovy'a amo roimehápe.",
+      "audio": "gn/unknown/gn_u_26587350.mp3",
+      "tags": {
+        "source_item_id": "26587350",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33893491",
+      "text": "Upévare avei Ñandejára ipochy orendive.",
+      "audio": "gn/unknown/gn_u_33893491.mp3",
+      "tags": {
+        "source_item_id": "33893491",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26498006",
+      "text": "Sapy'apy'a ojejuhu upépe Pláta Yvyguy.",
+      "audio": "gn/unknown/gn_u_26498006.mp3",
+      "tags": {
+        "source_item_id": "26498006",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26548045",
+      "text": "ohasaporãta upe ary",
+      "audio": "gn/unknown/gn_u_26548045.mp3",
+      "tags": {
+        "source_item_id": "26548045",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32074629",
+      "text": "Teroñe'ẽje'éva pypegua.",
+      "audio": "gn/unknown/gn_u_32074629.mp3",
+      "tags": {
+        "source_item_id": "32074629",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26586941",
+      "text": "Ha'e oñangareko ogapýre.",
+      "audio": "gn/unknown/gn_u_26586941.mp3",
+      "tags": {
+        "source_item_id": "26586941",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32418540",
+      "text": "Ou ha oho ñaimo'ã yvytu mba'e.",
+      "audio": "gn/unknown/gn_u_32418540.mp3",
+      "tags": {
+        "source_item_id": "32418540",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34352353",
+      "text": "Anivéna ere upéicha che irũ",
+      "audio": "gn/unknown/gn_u_34352353.mp3",
+      "tags": {
+        "source_item_id": "34352353",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34152306",
+      "text": "Tava'i oĩva Ka'asapápe.",
+      "audio": "gn/unknown/gn_u_34152306.mp3",
+      "tags": {
+        "source_item_id": "34152306",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26407641",
+      "text": "Hetáma aha'ãrõ ha nderejúi gueteri.",
+      "audio": "gn/unknown/gn_u_26407641.mp3",
+      "tags": {
+        "source_item_id": "26407641",
+        "gender": "u"
+      }
+    }
+  ]
+}

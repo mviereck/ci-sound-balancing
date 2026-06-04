@@ -1,0 +1,117 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — os",
+  "lang": "os",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-os",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38689165",
+      "text": "Фӕндагыл сӕ иу дзырд дӕр ничи скодта, цалынмӕ хӕдзармӕ баввахс сты.",
+      "audio": "os/unknown/os_u_38689165.mp3",
+      "tags": {
+        "source_item_id": "38689165",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "40070991",
+      "text": "Цыма иумӕ дзырд бакодтой, уыйау иннӕ усгуртӕ дӕр Тегайы ацыды фӕстӕ ӕмгӕрон нал цыдысты.",
+      "audio": "os/unknown/os_u_40070991.mp3",
+      "tags": {
+        "source_item_id": "40070991",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38675302",
+      "text": "Слæмæгъ ис, сфыдхуыз ис.",
+      "audio": "os/unknown/os_u_38675302.mp3",
+      "tags": {
+        "source_item_id": "38675302",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38747482",
+      "text": "Иу ран мын хорз суджы уæрдон баззади æмæ йæ æххæст æрдавын хъæуы.",
+      "audio": "os/unknown/os_u_38747482.mp3",
+      "tags": {
+        "source_item_id": "38747482",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38747485",
+      "text": "Знон дын мæ ныхас æххæстæй нæ загътон, лæппу.",
+      "audio": "os/unknown/os_u_38747485.mp3",
+      "tags": {
+        "source_item_id": "38747485",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38768457",
+      "text": "Æнæ хæдзарæй хъизæмар кодтой бинонтæ ахæм фадæтты.",
+      "audio": "os/unknown/os_u_38768457.mp3",
+      "tags": {
+        "source_item_id": "38768457",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38711505",
+      "text": "Нӕ, хӕйрӕджы усӕн ракурын мӕ бон нӕу.",
+      "audio": "os/unknown/os_u_38711505.mp3",
+      "tags": {
+        "source_item_id": "38711505",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38648638",
+      "text": "Саукуыдз фæтарсти, кæд йæ фыд мæлы, мыййаг, æмæ йын фæстаг ныхас зæгъы.",
+      "audio": "os/unknown/os_u_38648638.mp3",
+      "tags": {
+        "source_item_id": "38648638",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38675265",
+      "text": "Къуыри раздæр ма уыди уый ам хъазты.",
+      "audio": "os/unknown/os_u_38675265.mp3",
+      "tags": {
+        "source_item_id": "38675265",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    },
+    {
+      "id": "38718720",
+      "text": "Дæ фырты Куыдзиты Батрадз фысау аргæвста.",
+      "audio": "os/unknown/os_u_38718720.mp3",
+      "tags": {
+        "source_item_id": "38718720",
+        "gender": "u",
+        "accent": "Цæгат"
+      }
+    }
+  ]
+}

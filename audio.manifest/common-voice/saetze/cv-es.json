@@ -1,0 +1,109 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — es",
+  "lang": "es",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-es",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18310112",
+      "text": "A mala cama, colchón de vino.",
+      "audio": "es/unknown/es_u_18310112.mp3",
+      "tags": {
+        "source_item_id": "18310112",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18311272",
+      "text": "Una declaración de principios es exigible, en este caso.",
+      "audio": "es/unknown/es_u_18311272.mp3",
+      "tags": {
+        "source_item_id": "18311272",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18311404",
+      "text": "yo , sin embargo , lo llevaba con paciencia .",
+      "audio": "es/unknown/es_u_18311404.mp3",
+      "tags": {
+        "source_item_id": "18311404",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18311447",
+      "text": "el campanario de la iglesia , con su enorme nido de zopilotes ,",
+      "audio": "es/unknown/es_u_18311447_espa_a_sur_peninsular_andalucia_extremadura_murcia.mp3",
+      "tags": {
+        "source_item_id": "18311447",
+        "gender": "u",
+        "accent": "España: Sur peninsular (Andalucia, Extremadura, Murcia)"
+      }
+    },
+    {
+      "id": "18311715",
+      "text": "los españoles nos dividimos en dos grandes bandos :",
+      "audio": "es/unknown/es_u_18311715.mp3",
+      "tags": {
+        "source_item_id": "18311715",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18312006",
+      "text": "Cada uno en su casa, y Dios en la de todos.",
+      "audio": "es/unknown/es_u_18312006.mp3",
+      "tags": {
+        "source_item_id": "18312006",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18313965",
+      "text": "pero esos comentarios , duelen .",
+      "audio": "es/unknown/es_u_18313965_espa_a_islas_canarias.mp3",
+      "tags": {
+        "source_item_id": "18313965",
+        "gender": "u",
+        "accent": "España: Islas Canarias"
+      }
+    },
+    {
+      "id": "18317307",
+      "text": "a las voces del negro acudió toda la prole .",
+      "audio": "es/unknown/es_u_18317307.mp3",
+      "tags": {
+        "source_item_id": "18317307",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18319376",
+      "text": "burbuja , ve al huerto que hay en cubierta",
+      "audio": "es/unknown/es_u_18319376.mp3",
+      "tags": {
+        "source_item_id": "18319376",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18320021",
+      "text": "borrar lo que ha sucedido y empezar de cero ...",
+      "audio": "es/unknown/es_u_18320021.mp3",
+      "tags": {
+        "source_item_id": "18320021",
+        "gender": "u"
+      }
+    }
+  ]
+}

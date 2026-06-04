@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — rm-vallader",
+  "lang": "rm-vallader",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-rm-vallader",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20575585",
+      "text": "Però il cussagl da scoula ha stuvü gnir elet.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_20575585.mp3",
+      "tags": {
+        "source_item_id": "20575585",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21650577",
+      "text": "Üna fuorma nouva ha tschüf la cronica.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21650577.mp3",
+      "tags": {
+        "source_item_id": "21650577",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21872929",
+      "text": "Il sguard sül vast program accumpagnativ conferma quai evidaintamaing.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21872929.mp3",
+      "tags": {
+        "source_item_id": "21872929",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22373805",
+      "text": "La Quotidiana ha discuorrü cun Marcel Melcher davart ils müdamaints ed ulteriurs accents.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_22373805.mp3",
+      "tags": {
+        "source_item_id": "22373805",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20575627",
+      "text": "El vaglia sco ün dals pioniers dals prüms decenis dal turissem a Scuol.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_20575627.mp3",
+      "tags": {
+        "source_item_id": "20575627",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20575943",
+      "text": "La musica fa bain al corp ed a l’orma.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_20575943.mp3",
+      "tags": {
+        "source_item_id": "20575943",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21870755",
+      "text": "Davo il salüd dal president ha lura Luzi Arquint prelet seis fich bun protocol.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21870755.mp3",
+      "tags": {
+        "source_item_id": "21870755",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21872662",
+      "text": "Ma uossa restan cretta, vita e charità, e la plü gronda ais la charità.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21872662.mp3",
+      "tags": {
+        "source_item_id": "21872662",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20680388",
+      "text": "Üna specialità da Samignun es il möd da finanziar il marketing turistic.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_20680388.mp3",
+      "tags": {
+        "source_item_id": "20680388",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21873168",
+      "text": "Quai es bun, agreabel e san.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21873168.mp3",
+      "tags": {
+        "source_item_id": "21873168",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20575906",
+      "text": "La mera da quella vouta es restada fin hoz.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_20575906.mp3",
+      "tags": {
+        "source_item_id": "20575906",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21873147",
+      "text": "Ün oter votant percunter ha rinvià a l’importanza culturala da la halla.",
+      "audio": "rm-vallader/unknown/rm-vallader_u_21873147.mp3",
+      "tags": {
+        "source_item_id": "21873147",
+        "gender": "u"
+      }
+    }
+  ]
+}

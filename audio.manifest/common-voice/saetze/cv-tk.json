@@ -1,0 +1,137 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tk",
+  "lang": "tk",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tk",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "36937639",
+      "text": "Keýpem alsam alýadym welin, sütemi has agyrdy.",
+      "audio": "tk/unknown/tk_u_36937639_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36937639",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36938457",
+      "text": "Size ýokary okuw jaýyna girmäge kömek etjek käbir maslahatlary hödürleýäris.",
+      "audio": "tk/unknown/tk_u_36938457_emreli.mp3",
+      "tags": {
+        "source_item_id": "36938457",
+        "gender": "u",
+        "accent": "Ýemreli"
+      }
+    },
+    {
+      "id": "36942856",
+      "text": "Ol özüne näme diýseler, näme etseler taýyndy.",
+      "audio": "tk/unknown/tk_u_36942856_emreli.mp3",
+      "tags": {
+        "source_item_id": "36942856",
+        "gender": "u",
+        "accent": "Ýemreli"
+      }
+    },
+    {
+      "id": "36942038",
+      "text": "Hiç kimde kommunist bolmak höwesi galmady.",
+      "audio": "tk/unknown/tk_u_36942038_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36942038",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36964827",
+      "text": "Dünýede öler jany ýaşulularyň gürrüňini diňlemekdi.",
+      "audio": "tk/unknown/tk_u_36964827_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36964827",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "37081176",
+      "text": "Oňa bolan höwesem her kimde birhili.",
+      "audio": "tk/unknown/tk_u_37081176_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "37081176",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36942593",
+      "text": "Azyndan üç ýyla geçendir.",
+      "audio": "tk/unknown/tk_u_36942593_emreli.mp3",
+      "tags": {
+        "source_item_id": "36942593",
+        "gender": "u",
+        "accent": "Ýemreli"
+      }
+    },
+    {
+      "id": "36964803",
+      "text": "Hajatyň subýektiwligini başga makalanyň jogapkärçiligine goýup temamyza dowam edeliň.",
+      "audio": "tk/unknown/tk_u_36964803_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36964803",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36990282",
+      "text": "Onuň ýene birden gaýtalanmazlygyny isländir.",
+      "audio": "tk/unknown/tk_u_36990282_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36990282",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36940181",
+      "text": "Olaryň serdary Lenin ölüp-ölmänkä ýerine geçen Stalin tutuş özüne kommunist diýenleri gyrgyna berdi.",
+      "audio": "tk/unknown/tk_u_36940181_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36940181",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36990341",
+      "text": "tutuş bir zat ýaly görünýän keşbine seretdigiňçe gözüňi aýryp bilmersiň",
+      "audio": "tk/unknown/tk_u_36990341_t_rkmen_e_t_rkmen.mp3",
+      "tags": {
+        "source_item_id": "36990341",
+        "gender": "u",
+        "accent": "Türkmençe,Türkmen"
+      }
+    },
+    {
+      "id": "36942204",
+      "text": "Özüne tabyn edýär.",
+      "audio": "tk/unknown/tk_u_36942204_emreli.mp3",
+      "tags": {
+        "source_item_id": "36942204",
+        "gender": "u",
+        "accent": "Ýemreli"
+      }
+    }
+  ]
+}

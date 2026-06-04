@@ -1,0 +1,2006 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Ballady i Romanse",
+  "lang": "pl",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "11059",
+    "book_title": "Ballady i Romanse",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "11295_11059_000000",
+      "text": "znowu się duch z ciałem zrośnie w młodocianej wstaniesz wiosnie i możesz skutkiem tych leków umierać wstawać wiek wieków dalej tam były przestrogi jak siekać głowę jak nogi",
+      "audio": "dev/audio/11295/11059/11295_11059_000000.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 389.18,
+        "original_end_s": 403.33
+      }
+    },
+    {
+      "id": "11295_11059_000001",
+      "text": "już u źwierzyńca podwojów król zasiada przy nim książęta i panowie rada a gdzie wzniosły krążył ganek rycerze obok kochanek król skinął palcem zaczęto igrzysko",
+      "audio": "dev/audio/11295/11059/11295_11059_000001.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_10_mickiewicz_64kb.mp3",
+        "original_start_s": 11.04,
+        "original_end_s": 24.54
+      }
+    },
+    {
+      "id": "11295_11059_000002",
+      "text": "pewnie kędyś w obłędzie ubite minęły szlaki zaczekajmy dzień jaki poślemy szukać wszędzie dziś jutro pewnie będzie posłali wszędzie sługi czekali dzień i drugi gdy nic nie doczekali z płaczem chcą jechać dali",
+      "audio": "dev/audio/11295/11059/11295_11059_000002.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 277.42,
+        "original_end_s": 294.89
+      }
+    },
+    {
+      "id": "11295_11059_000003",
+      "text": "na miejscach które dziś piaskiem zaniosło gdzie car i trzcina zarasta po których teraz wasze biega wiosło stał okrąg pięknego miasta",
+      "audio": "dev/audio/11295/11059/11295_11059_000003.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 238.12,
+        "original_end_s": 248.76
+      }
+    },
+    {
+      "id": "11295_11059_000004",
+      "text": "przyjaciółka tutaj bywało z ranku nad wodą sobie stoim ja o twoim kochanku ty mnie mówisz o moim już więcej z sobą nie będziem mówili",
+      "audio": "dev/audio/11295/11059/11295_11059_000004.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 254.19,
+        "original_end_s": 266.39
+      }
+    },
+    {
+      "id": "11295_11059_000005",
+      "text": "słyszy to strzelec błędny krok niesie błędnemi rzuca oczyma a wicher szumi po gęstym lesie woda się burzy i wzdyma",
+      "audio": "dev/audio/11295/11059/11295_11059_000005.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 365.42,
+        "original_end_s": 375.63
+      }
+    },
+    {
+      "id": "11295_11059_000006",
+      "text": "ja pierwszy ziemskiemu oku śmiem do niej pokazać drogę lecz podłóg ustaw wyroku dwom tylko pokazać mogę wybierz drugiego człowieka człowieka doznanej wiary któremu byś w każdej probie",
+      "audio": "dev/audio/11295/11059/11295_11059_000006.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 212.14,
+        "original_end_s": 226.54
+      }
+    },
+    {
+      "id": "11295_11059_000007",
+      "text": "niech sobie słyszy już niema ciebie już po twoim pogrzebie ty już umarłeś ach ja się boję czego się boję mego jasieńka ach to on lica twoje oczki twoje twoja biała sukienka",
+      "audio": "dev/audio/11295/11059/11295_11059_000007.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 58.43,
+        "original_end_s": 75.58
+      }
+    },
+    {
+      "id": "11295_11059_000008",
+      "text": "straszno nie była straszną ta godzina gdy były nieba łaskawsze ileż mi słodkich chwilek przypomina precz to już znikło na zawsze",
+      "audio": "dev/audio/11295/11059/11295_11059_000008.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_08_mickiewicz_64kb.mp3",
+        "original_start_s": 35.49,
+        "original_end_s": 47.46
+      }
+    },
+    {
+      "id": "11295_11059_000009",
+      "text": "młodzieńcy wiecie że tutaj bezkarnie dotąd nikt statku nie spuści każdego śmiałka jezioro zagarnie do nieprzebrnionych czeluści",
+      "audio": "dev/audio/11295/11059/11295_11059_000009.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 208.35,
+        "original_end_s": 218.68
+      }
+    },
+    {
+      "id": "11295_11059_000010",
+      "text": "własnych mieszkańców dla obcej zgubię odsieczy wszak wiesz że świteź nie ma innych szańców prócz naszych piersi i mieczy jeśli rozdzielę szczupłe wojsko moje krewnemu nie dam obrony a jeśli wszyscy pociągniem naboje jak będą córy i żony",
+      "audio": "dev/audio/11295/11059/11295_11059_000010.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 312.11,
+        "original_end_s": 330.79
+      }
+    },
+    {
+      "id": "11295_11059_000011",
+      "text": "a dudarz milczy brząka powoli a wzrok utopił w pasterce utopił w licu lecz wzrok sokoli zdał się przedzierać aż w serce",
+      "audio": "dev/audio/11295/11059/11295_11059_000011.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 206.84,
+        "original_end_s": 217.87
+      }
+    },
+    {
+      "id": "11295_11059_000012",
+      "text": "tukaj nic nie odpowiada bo któż zgadnie myśli cudze bo zbyt częsta w sługach zdrada może kochance lub żonie tak wtem uciął patrzy smutnie tak rzecze i znowu utnie",
+      "audio": "dev/audio/11295/11059/11295_11059_000012.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 255.98,
+        "original_end_s": 272.31
+      }
+    },
+    {
+      "id": "11295_11059_000013",
+      "text": "wtem z lasu gdzie się dwór bieli tysiączne świecą kagańce zjeżdżają goście weseli muzyka hałas i tańce lecz mimo tego hałasu płacz dziecięcia słychać w lesie wierny sługa wyszedł z lasu i dziecię na ręku niesie",
+      "audio": "dev/audio/11295/11059/11295_11059_000013.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_05_mickiewicz_64kb.mp3",
+        "original_start_s": 75.88,
+        "original_end_s": 94.11
+      }
+    },
+    {
+      "id": "11295_11059_000014",
+      "text": "za życia cnoty niewinnej obrazy jej barwę mają po zgonie w ukryciu żyją i nie cierpią skazy śmiertelne nie tkną ich dłonie",
+      "audio": "dev/audio/11295/11059/11295_11059_000014.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 456.54,
+        "original_end_s": 466.85
+      }
+    },
+    {
+      "id": "11295_11059_000015",
+      "text": "lecz próżno nędzny w oczach prawie znika próżno i dzień i noc płacze w boleściach jego dla mnie radość dzika śmiech obudzały rozpacze",
+      "audio": "dev/audio/11295/11059/11295_11059_000015.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 221.42,
+        "original_end_s": 231.97
+      }
+    },
+    {
+      "id": "11295_11059_000016",
+      "text": "milczą piszczałki głuchną bębenki porzuca ogień gromadka biegą staruszki biegą panienki biegą do dudarza dziadka witaj dudarzu witamy radzi w wesołej przychodzisz dobie pewnie z daleka pan bóg prowadzi pogrzej się i spocznij sobie",
+      "audio": "dev/audio/11295/11059/11295_11059_000016.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 55.86,
+        "original_end_s": 74.6
+      }
+    },
+    {
+      "id": "11295_11059_000017",
+      "text": "i niechaj doda znaki żeby poznać czyj jaki i pójdzie w kościół boży i na ołtarzu złoży czyj pierwszy weźmiesz wianek ten mąż twój ten kochanek",
+      "audio": "dev/audio/11295/11059/11295_11059_000017.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 531.32,
+        "original_end_s": 542.92
+      }
+    },
+    {
+      "id": "11295_11059_000018",
+      "text": "zostań się lepiej z tym kto cię kocha zostań się o luba ze mną chateczka moja stąd niedaleka pośrodku gęstej leszczyny jest tam dostatkiem owoców mleka jest tam dostatkiem zwierzyny",
+      "audio": "dev/audio/11295/11059/11295_11059_000018.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 77.67,
+        "original_end_s": 93.45
+      }
+    },
+    {
+      "id": "11295_11059_000019",
+      "text": "nie słucha zgraja ten już wóz wyprzęga zabiera konie a drugi pieniędzy krzyczy i buławą sięga ów z mieczem wpada na sługi",
+      "audio": "dev/audio/11295/11059/11295_11059_000019.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 144.88,
+        "original_end_s": 155.79
+      }
+    },
+    {
+      "id": "11295_11059_000020",
+      "text": "zagrzmią tarany padły bram ostatki zewsząd pocisków grad leci biegną na dworzec starce nędzne matki dziewice i drobne dzieci",
+      "audio": "dev/audio/11295/11059/11295_11059_000020.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 365.35,
+        "original_end_s": 376.4
+      }
+    },
+    {
+      "id": "11295_11059_000021",
+      "text": "sam ich posłuchasz niedoli własne twe oczy zobaczą patrz w prawo idzie kochanek patrz matka idzie z domu patrz w lewo przyjaciółka wszyscy idą powoli i niosą ziółka i płaczą",
+      "audio": "dev/audio/11295/11059/11295_11059_000021.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 74.97,
+        "original_end_s": 91.95
+      }
+    },
+    {
+      "id": "11295_11059_000022",
+      "text": "po co żałujesz dzikiej wietrznicy która cię zwabia w te knieje zawraca głowę rzuca w tęsknicy i może jeszcze się śmieje daj się namówić czułym wyrazem porzuć wzdychania i żale do mnie tu do mnie tu będziem razem",
+      "audio": "dev/audio/11295/11059/11295_11059_000022.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 205.74,
+        "original_end_s": 223.59
+      }
+    },
+    {
+      "id": "11295_11059_000023",
+      "text": "na brzeg oboje wyjęto już skrzydło sciągną ostatek więcierzy powiem że jakie złowiono straszydło choć powiem nikt nie uwierzy",
+      "audio": "dev/audio/11295/11059/11295_11059_000023.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 176.17,
+        "original_end_s": 186.77
+      }
+    },
+    {
+      "id": "11295_11059_000024",
+      "text": "i sam ty biały jak chusta zimny jakie zimne dłonie tutaj połóż tu na łonie przyciśnij mnie do ust usta",
+      "audio": "dev/audio/11295/11059/11295_11059_000024.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 75.58,
+        "original_end_s": 86.54
+      }
+    },
+    {
+      "id": "11295_11059_000025",
+      "text": "ja młoda śród młodzieży a droga cnoty śliska nie dochowałam wiary ach biada mojej głowie król srogie głosi kary powrócili mężowie ha ha mąż się nie dowie oto krew oto nóż",
+      "audio": "dev/audio/11295/11059/11295_11059_000025.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 91.07,
+        "original_end_s": 106.61
+      }
+    },
+    {
+      "id": "11295_11059_000026",
+      "text": "grób lilią zasiewa zasiewając tak śpiewa rośnij kwiecie wysoko jak pan leży głęboko jak pan leży głęboko tak ty rośnij wysoko",
+      "audio": "dev/audio/11295/11059/11295_11059_000026.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 17.08,
+        "original_end_s": 29.05
+      }
+    },
+    {
+      "id": "11295_11059_000027",
+      "text": "szekspir zdaje mi się że widzę gdzie przed oczyma duszy mojej słuchaj dzieweczko ona nie słucha to dzień biały to miasteczko przy tobie nie ma żywego ducha co tam wkoło siebie chwytasz kogo wołasz z kim się witasz",
+      "audio": "dev/audio/11295/11059/11295_11059_000027.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 13.27,
+        "original_end_s": 32.51
+      }
+    },
+    {
+      "id": "11295_11059_000028",
+      "text": "znasz piosnkę którąm po tyle razy śpiewał płacząc nad mym losem pomnisz zapewne wszystkie wyrazy i wiesz jakim śpiewać głosem",
+      "audio": "dev/audio/11295/11059/11295_11059_000028.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 404.19,
+        "original_end_s": 414.9
+      }
+    },
+    {
+      "id": "11295_11059_000029",
+      "text": "wraz uchodzi bladość z czoła iskrą zdrowia oko strzela tukaj wydarty mogile wstaje dziwią się doktory wstaje chodzi o swej sile jakby nigdy nie był chory",
+      "audio": "dev/audio/11295/11059/11295_11059_000029.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 346.73,
+        "original_end_s": 359.62
+      }
+    },
+    {
+      "id": "11295_11059_000030",
+      "text": "on gdy hanowi na srebrny półmisek rzucił łeb księcia iflaku wdzięczny mu hagan dziesięć odalisek z własnego przysłał orszaku",
+      "audio": "dev/audio/11295/11059/11295_11059_000030.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_15_mickiewicz_64kb.mp3",
+        "original_start_s": 124.46,
+        "original_end_s": 135.41
+      }
+    },
+    {
+      "id": "11295_11059_000031",
+      "text": "odtąd mi życie stało się nielube późne uczułam wyrzuty lecz ani sposób wynagrodzić zgubę ani czas został pokuty raz gdy się w północ z rodzicami bawię",
+      "audio": "dev/audio/11295/11059/11295_11059_000031.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 243.28,
+        "original_end_s": 255.78
+      }
+    },
+    {
+      "id": "11295_11059_000032",
+      "text": "bo jakie szatan wyprawia tam harce jakie się larwy szamocą drżę cały kiedy bają o tem starce i strach wspominać przed nocą",
+      "audio": "dev/audio/11295/11059/11295_11059_000032.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 77.63,
+        "original_end_s": 88.17
+      }
+    },
+    {
+      "id": "11295_11059_000033",
+      "text": "tak co wieczora co ranka gdy sługa stanie w zakątku wraz wypływa świtezianka żeby dać piersi dzieciątku za cóż jednego wieczora nikt nie przychodzi na smugi już zwykła przemija pora nie widać z dziecięciem sługi",
+      "audio": "dev/audio/11295/11059/11295_11059_000033.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_05_mickiewicz_64kb.mp3",
+        "original_start_s": 221.05,
+        "original_end_s": 239.56
+      }
+    },
+    {
+      "id": "11295_11059_000034",
+      "text": "kiedy mię skał tych dzikich zakątek ukrył przed gminu obliczem odtąd już dla mnie świat ten był niczem żyłem na świecie pamiątek",
+      "audio": "dev/audio/11295/11059/11295_11059_000034.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 383.45,
+        "original_end_s": 393.69
+      }
+    },
+    {
+      "id": "11295_11059_000035",
+      "text": "zwiedzion przez nasze fortele innemu pokaże ziele lub w oznaczonej godzinie twego ciała nie namaści wtenczas wskutek zioła zginie wtenczas piekło czeka waści",
+      "audio": "dev/audio/11295/11059/11295_11059_000035.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 416.23,
+        "original_end_s": 428.1
+      }
+    },
+    {
+      "id": "11295_11059_000036",
+      "text": "rzekł mnie natychmiast porwały złe duchy odtąd już setny rok minie w dzień męczą na noc zdejmują łańcuchy rzucam ogniste głębinie",
+      "audio": "dev/audio/11295/11059/11295_11059_000036.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 315.79,
+        "original_end_s": 326.85
+      }
+    },
+    {
+      "id": "11295_11059_000037",
+      "text": "myśli albo wieczne życie albo wiecznie diabłu dusza nic nie mówi myśli skrycie tylko trochę wargą rusza nadszedł już czas odpowiedzi",
+      "audio": "dev/audio/11295/11059/11295_11059_000037.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 501.16,
+        "original_end_s": 513.24
+      }
+    },
+    {
+      "id": "11295_11059_000038",
+      "text": "dziwią się panie dziwią się rycerze a on w zwycięskiej chwale wstępuje na krużganki tam od radosnej witany kochanki rycerz jej w oczy rękawiczkę rzucił pani twych dzięków nie trzeba mi wcale to rzekł i poszedł i więcej nie wrócił",
+      "audio": "dev/audio/11295/11059/11295_11059_000038.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_10_mickiewicz_64kb.mp3",
+        "original_start_s": 119.64,
+        "original_end_s": 139.09
+      }
+    },
+    {
+      "id": "11295_11059_000039",
+      "text": "ktokolwiek będziesz w nowogródzkiej stronie do płużyn ciemnego boru wjechawszy pomnij zatrzymać twe konie byś się przypatrzył jezioru",
+      "audio": "dev/audio/11295/11059/11295_11059_000039.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 10.1,
+        "original_end_s": 21.9
+      }
+    },
+    {
+      "id": "11295_11059_000040",
+      "text": "kto tylko ściągnął do głębiny ramię tak straszna jest kwiatów władza że go natychmiast choroba wyłamie i śmierć gwałtowna ugadza choć czas te dzieje wymazał z pamięci pozostał sam odgłos kary",
+      "audio": "dev/audio/11295/11059/11295_11059_000040.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 477.13,
+        "original_end_s": 491.64
+      }
+    },
+    {
+      "id": "11295_11059_000041",
+      "text": "ktokolwiek jesteś poczciwy człowieku coś mię zachował od męki dożyj ty szczęścia i późnego wieku i pokój tobie i dzięki widzisz przed sobą obraz grzesznej duszy",
+      "audio": "dev/audio/11295/11059/11295_11059_000041.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 151.58,
+        "original_end_s": 164.02
+      }
+    },
+    {
+      "id": "11295_11059_000042",
+      "text": "i nic nie odpowiada umrzyj więc ty śmiałeś żądać daj pokój żądaniom dzikim ty nie masz ufności w nikim wartoż dłużej świat oglądać",
+      "audio": "dev/audio/11295/11059/11295_11059_000042.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 290.73,
+        "original_end_s": 303.02
+      }
+    },
+    {
+      "id": "11295_11059_000043",
+      "text": "ubite nogą pastuszka to jest drożyna jej matki a stąd przychodzi jej drużka lecz oto błysnął poranek przyjdą oni na kurhanek ukryj się tu za stos łomu",
+      "audio": "dev/audio/11295/11059/11295_11059_000043.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 62.02,
+        "original_end_s": 74.97
+      }
+    },
+    {
+      "id": "11295_11059_000044",
+      "text": "burzy się wzdyma pękają tonie o niesłychane zjawiska ponad srebrzyste świtezi błonie dziewicza piękność wytryska jej twarz",
+      "audio": "dev/audio/11295/11059/11295_11059_000044.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 176.11,
+        "original_end_s": 187.4
+      }
+    },
+    {
+      "id": "11295_11059_000045",
+      "text": "co to ma znaczyć różni różnie plotą cóż kiedy nie był nikt na dnie biegają wieści pomiędzy prostotą lecz któż z nich prawdę odgadnie",
+      "audio": "dev/audio/11295/11059/11295_11059_000045.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 112.24,
+        "original_end_s": 124.13
+      }
+    },
+    {
+      "id": "11295_11059_000046",
+      "text": "niespodzianie obległ tam mendoga potężnem wojskiem car z rusi na całą litwę wielka padła trwoga że mendog poddać się musi nim ściągnął wojsko z odległej granicy do ojca mego napisze",
+      "audio": "dev/audio/11295/11059/11295_11059_000046.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 270.12,
+        "original_end_s": 284.69
+      }
+    },
+    {
+      "id": "11295_11059_000047",
+      "text": "ona nie słucha to jak martwa opoka nie zwróci w stronę oka to strzela wkoło oczyma to się łzami zaleje coś niby chwyta coś niby trzyma rozpłacze się i zaśmieje",
+      "audio": "dev/audio/11295/11059/11295_11059_000047.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 32.51,
+        "original_end_s": 47.69
+      }
+    },
+    {
+      "id": "11295_11059_000048",
+      "text": "tukaj oddala się z tłumu i do pracowni rozumu zamknąwszy się jeden siedzi i tam swój traktat raz jeszcze nim stępel przyjęcia zyska surowej uwagi kleszcze bierze i porządnie ściska",
+      "audio": "dev/audio/11295/11059/11295_11059_000048.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 513.24,
+        "original_end_s": 528.49
+      }
+    },
+    {
+      "id": "11295_11059_000049",
+      "text": "dzieci woła to ja to to ja dzieci wasz tato noc przeszła zasnąć trudno nie wygnać z myśli grzechu zawsze na sercu nudno nigdy na ustach śmiechu",
+      "audio": "dev/audio/11295/11059/11295_11059_000049.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 187.85,
+        "original_end_s": 201.71
+      }
+    },
+    {
+      "id": "11295_11059_000050",
+      "text": "wtem u wrót szczęścia hałas się wzmaga rozstąpiły się sług rzędy nieznaną brankę wiódł kyzlar aga skłonił się i rzekł",
+      "audio": "dev/audio/11295/11059/11295_11059_000050.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_15_mickiewicz_64kb.mp3",
+        "original_start_s": 38.54,
+        "original_end_s": 49.13
+      }
+    },
+    {
+      "id": "11295_11059_000051",
+      "text": "raz trup po drodze bez głowy się toczy to znowu głowa bez ciała roztwiera gębę i wytrzeszcza oczy w gębie i w oczach żar pała",
+      "audio": "dev/audio/11295/11059/11295_11059_000051.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 60.73,
+        "original_end_s": 71.45
+      }
+    },
+    {
+      "id": "11295_11059_000052",
+      "text": "czegoż mam iść do domu kto nas na obiad zawoła kto z nami siądzie do stoła nie masz ach nie masz komu pókiśmy mieli ciebie w domu było jak w niebie u nas i wieczorynki z całej wsi chłopcy dziewki najweselsze zażynki",
+      "audio": "dev/audio/11295/11059/11295_11059_000052.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 221.09,
+        "original_end_s": 238.23
+      }
+    },
+    {
+      "id": "11295_11059_000053",
+      "text": "całują ziemię potem w imię ojca syna i ducha świętego bądź pochwalona przenajświętsza trójca teraz i czasu wszelkiego",
+      "audio": "dev/audio/11295/11059/11295_11059_000053.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 41.55,
+        "original_end_s": 52.14
+      }
+    },
+    {
+      "id": "11295_11059_000054",
+      "text": "więcej się waszej obłudy boję niż w zmienne ufam zapały może bym prośby przyjęła twoje ale czy będziesz mnie stały chłopiec przyklęknął chwycił w dłoń piasku piekielne wzywał potęgi klął się przy świętym księżyca blasku",
+      "audio": "dev/audio/11295/11059/11295_11059_000054.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 105.08,
+        "original_end_s": 123.22
+      }
+    },
+    {
+      "id": "11295_11059_000055",
+      "text": "jeżeli nocną przybliżysz się dobą i zwrócisz ku wodom lice gwiazdy nad tobą i gwiazdy pod tobą i dwa obaczysz księżyce",
+      "audio": "dev/audio/11295/11059/11295_11059_000055.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 33.33,
+        "original_end_s": 44.68
+      }
+    },
+    {
+      "id": "11295_11059_000056",
+      "text": "zachodzi drogę pani bracia moi kochani jesień zła do podróży wiatry słoty i deszcze wszakże czekaliście dłużej czekajcie trochę jeszcze",
+      "audio": "dev/audio/11295/11059/11295_11059_000056.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 294.89,
+        "original_end_s": 305.67
+      }
+    },
+    {
+      "id": "11295_11059_000057",
+      "text": "diabeł do niego pół ucha pół oka zwrócił do samki niby patrzy niby słucha tymczasem już blisko klamki gdy mu twardowski dokucza od drzwi od okien odpycha czmychnąwszy dziurką od klucza dotąd jak czmycha tak czmycha",
+      "audio": "dev/audio/11295/11059/11295_11059_000057.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_11_mickiewicz_64kb.mp3",
+        "original_start_s": 273.88,
+        "original_end_s": 293.27
+      }
+    },
+    {
+      "id": "11295_11059_000058",
+      "text": "ty coś mi wiernym został do grobu kończył ściskając za ręce nagrodzić tobie nie mam sposobu wszakże to co mam poświęcę",
+      "audio": "dev/audio/11295/11059/11295_11059_000058.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 393.69,
+        "original_end_s": 404.19
+      }
+    },
+    {
+      "id": "11295_11059_000059",
+      "text": "wtem z zasłon błysną piersi łabędzie strzelec w ziemię patrzy skromnie dziewica w lekkim zbliża się pędzie i do mnie woła pójdź do mnie",
+      "audio": "dev/audio/11295/11059/11295_11059_000059.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 247.38,
+        "original_end_s": 259.34
+      }
+    },
+    {
+      "id": "11295_11059_000060",
+      "text": "zrzekę się mego zbioru i pójdę do klasztoru i pójdę w ciemny las nie nie wskrzeszaj mój ojcze nie czas już ach nie czas to żelazo zabójcze na wieki dzieli nas",
+      "audio": "dev/audio/11295/11059/11295_11059_000060.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 483.08,
+        "original_end_s": 496.28
+      }
+    },
+    {
+      "id": "11295_11059_000061",
+      "text": "starzec ucisza podnosi rękę słuchajcie dzieci zawoła powiem od kogo mam te piosenkę może on był z tego sioła",
+      "audio": "dev/audio/11295/11059/11295_11059_000061.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 275.23,
+        "original_end_s": 285.43
+      }
+    },
+    {
+      "id": "11295_11059_000062",
+      "text": "i tak go łechce i tak go znęca tak się w nim serce rozpływa jak gdy tajemnie rękę młodzieńca ściśnie kochanka wstydliwa",
+      "audio": "dev/audio/11295/11059/11295_11059_000062.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 280.78,
+        "original_end_s": 290.78
+      }
+    },
+    {
+      "id": "11295_11059_000063",
+      "text": "pani ze strachu zbladła zemdlała i upadła oczy przewraca w słup z trwogą dokoła rzuca gdzie on gdzie mąż gdzie trup powoli się ocuca mdlała niby z radości i pytała u gości gdzie mąż gdzie me kochanie kiedy przede mną stanie",
+      "audio": "dev/audio/11295/11059/11295_11059_000063.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 248.43,
+        "original_end_s": 266.95
+      }
+    },
+    {
+      "id": "11295_11059_000064",
+      "text": "stoją dzieci przed bramą mamo wołają mamo a gdzie został nasz tato nieboszczyk co wasz tato nie wie co mówić na to",
+      "audio": "dev/audio/11295/11059/11295_11059_000064.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 151.31,
+        "original_end_s": 161.72
+      }
+    },
+    {
+      "id": "11295_11059_000065",
+      "text": "wtem wietrzyk świsnął obłoczek pryska co ją w łudzącym krył blasku poznaje strzelec dziewczynę z bliska ach to dziewczyna spod lasku",
+      "audio": "dev/audio/11295/11059/11295_11059_000065.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 322.57,
+        "original_end_s": 334.2
+      }
+    },
+    {
+      "id": "11295_11059_000066",
+      "text": "starzec westchnął głęboko i łzami zalał oko oblicze skrył w zasłonie drżące załamał dłonie idź za mąż póki pora nie lękaj się upiora martwy się nie ocuci twarda wieczności brama i mąż twój nie powróci chyba zawołasz sama",
+      "audio": "dev/audio/11295/11059/11295_11059_000066.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 496.28,
+        "original_end_s": 515.76
+      }
+    },
+    {
+      "id": "11295_11059_000067",
+      "text": "i jak skałka płaskim bokiem gdy z lekkich rąk chłopca pierzchnie tak nasza rybka podskokiem mokre całuje powierzchnie złotemi plamki nadobna kraśne ma po bokach piórka główka jak naparstek drobna oczko drobne jak paciórka",
+      "audio": "dev/audio/11295/11059/11295_11059_000067.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_05_mickiewicz_64kb.mp3",
+        "original_start_s": 154.06,
+        "original_end_s": 173.62
+      }
+    },
+    {
+      "id": "11295_11059_000068",
+      "text": "ruszajcie kupiec na sługi zawoła ja z dziećmi pójdę ku miastu idzie aż zbójcy obskoczą dokoła a zbójców było dwunastu",
+      "audio": "dev/audio/11295/11059/11295_11059_000068.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 104.02,
+        "original_end_s": 114.88
+      }
+    },
+    {
+      "id": "11295_11059_000069",
+      "text": "zaledwie przymknę oczy traf traf klamka odskoczy budzę się widzę słyszę jak idzie i jak dysze jak dysze i jak tupa ach widzę słyszę trupa",
+      "audio": "dev/audio/11295/11059/11295_11059_000069.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 422.59,
+        "original_end_s": 435.41
+      }
+    },
+    {
+      "id": "11295_11059_000070",
+      "text": "skarbnice nauk posiadłem o nauki o człowieku wielka mądrość wielkie imię wielkie nic rozum czczy dymie ja umieram w kwiecie wieku strzegłem ustaw świętej wiary",
+      "audio": "dev/audio/11295/11059/11295_11059_000070.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 52.84,
+        "original_end_s": 68.69
+      }
+    },
+    {
+      "id": "11295_11059_000071",
+      "text": "na to szmer powstał różne pogłoski pomiędzy ciżbą przytomną tę piosnkę śpiewał ktoś z naszej wioski lecz kto i kiedy niepomną",
+      "audio": "dev/audio/11295/11059/11295_11059_000071.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 264.55,
+        "original_end_s": 275.23
+      }
+    },
+    {
+      "id": "11295_11059_000072",
+      "text": "pójdźcie wszystkie razem za miasto pod słup na wzgórek tam przed cudownym klęknijcie obrazem pobożnie zmówcie paciórek tato nie wraca ranki i wieczory we łzach go czekam i trwodze rozlały rzeki pełne zwierza bory i pełno zbójców na drodze",
+      "audio": "dev/audio/11295/11059/11295_11059_000072.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 11.84,
+        "original_end_s": 31.29
+      }
+    },
+    {
+      "id": "11295_11059_000073",
+      "text": "wtem na nieszczęście zapiał kur skinęła tylko widać radość z oczek mieni się w parę cieniuchną ginie jak ginie bladawy obłoczek kiedy zefiry nań dmuchną",
+      "audio": "dev/audio/11295/11059/11295_11059_000073.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 356.93,
+        "original_end_s": 370.2
+      }
+    },
+    {
+      "id": "11295_11059_000074",
+      "text": "zdawna już słysząc o przejeździe kupca i ja i moje kamraty tutaj za miastem przy wzgórku u słupca zasiadaliśmy na czaty dzisiaj nadchodzę patrzę między chrósty modlą się dziatki do boga słucham",
+      "audio": "dev/audio/11295/11059/11295_11059_000074.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 186.21,
+        "original_end_s": 201.99
+      }
+    },
+    {
+      "id": "11295_11059_000075",
+      "text": "wielkość czczy dymie ja umieram w kwiecie wieku gdy za mądrości widziadłem goniąc zbiegam kraje cudze gdy wzrok nad księgami trudzę",
+      "audio": "dev/audio/11295/11059/11295_11059_000075.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 40.42,
+        "original_end_s": 52.84
+      }
+    },
+    {
+      "id": "11295_11059_000076",
+      "text": "co co jak jak mój ojcze nie czas już ach nie czas to żelazo zabójcze na wieki dzieli nas ach znam żem warta kary i zniosę wszelkie kary byle się pozbyć mary",
+      "audio": "dev/audio/11295/11059/11295_11059_000076.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 469.02,
+        "original_end_s": 483.08
+      }
+    },
+    {
+      "id": "11295_11059_000077",
+      "text": "chciałem uciekać padłem zalękniony włos dębem stanął na głowie krzyknę niech będzie chrystus pochwalony na wieki wieków odpowie",
+      "audio": "dev/audio/11295/11059/11295_11059_000077.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 140.42,
+        "original_end_s": 151.58
+      }
+    },
+    {
+      "id": "11295_11059_000078",
+      "text": "stoją a potem skoczą z całej mocy dyszel przy samej pękł szrubie zostać na polu samemu i w nocy to lubię rzekłem to lubię",
+      "audio": "dev/audio/11295/11059/11295_11059_000078.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 118.07,
+        "original_end_s": 129.42
+      }
+    },
+    {
+      "id": "11295_11059_000079",
+      "text": "miały słuchać twego rymu ty jak dwa lata przebiegą miałeś pojechać do rzymu by cię tam porwać jak swego już i siedem lat uciekło cyrograf nadal nie służy ty czarami dręcząc piekło ani myślisz o podróży",
+      "audio": "dev/audio/11295/11059/11295_11059_000079.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_11_mickiewicz_64kb.mp3",
+        "original_start_s": 104.08,
+        "original_end_s": 121.17
+      }
+    },
+    {
+      "id": "11295_11059_000080",
+      "text": "do smaku im gospoda bo gospodyni młoda że chcą jechać udają a tymczasem czekają czekają aż do lata zapominają brata",
+      "audio": "dev/audio/11295/11059/11295_11059_000080.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 323.44,
+        "original_end_s": 333.95
+      }
+    },
+    {
+      "id": "11295_11059_000081",
+      "text": "natychmiast wściekłość bierze miejsce strachu miecą bogactwa na stosy przynoszą żagwie i płomień do gmachu i krzyczą strasznemi głosy przeklęty będzie kto się nie dobije broniłam lecz próżny opor klęczą na progach wyciągają szyje a drugie przynoszą topor",
+      "audio": "dev/audio/11295/11059/11295_11059_000081.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 387.48,
+        "original_end_s": 407.15
+      }
+    },
+    {
+      "id": "11295_11059_000082",
+      "text": "ach jak tam zimno musi być w grobie umarłeś tak dwa lata weź mię ja umrę przy tobie nie lubię świata",
+      "audio": "dev/audio/11295/11059/11295_11059_000082.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 86.54,
+        "original_end_s": 96.95
+      }
+    },
+    {
+      "id": "11295_11059_000083",
+      "text": "tu gazę co jej wdzięki przygasza odsłonił cały dwór klasnął spojrzał raz na nią trzytulny basza wypuścił cybuch i zasnął",
+      "audio": "dev/audio/11295/11059/11295_11059_000083.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_15_mickiewicz_64kb.mp3",
+        "original_start_s": 79.68,
+        "original_end_s": 91.17
+      }
+    },
+    {
+      "id": "11295_11059_000084",
+      "text": "wtem stójcie stójcie krzyknie starszy zbójca i spędza bandę precz z drogi a wypuściwszy i dzieci i ojca idźcie rzekł dalej bez trwogi",
+      "audio": "dev/audio/11295/11059/11295_11059_000084.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 155.79,
+        "original_end_s": 167.04
+      }
+    },
+    {
+      "id": "11295_11059_000085",
+      "text": "ojcze odpowiem lękasz się niewcześnie idź kędy sława cię woła bóg nas obroni dziś nad miastem we śnie widziałam jego anioły",
+      "audio": "dev/audio/11295/11059/11295_11059_000085.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 330.79,
+        "original_end_s": 342.32
+      }
+    },
+    {
+      "id": "11295_11059_000086",
+      "text": "doświadczył tego car i ruska zgraja gdy piękne ujrzawszy kwiecie ten rwie i szyszak stalony umaja ten wianki na skronie plecie",
+      "audio": "dev/audio/11295/11059/11295_11059_000086.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 466.85,
+        "original_end_s": 477.13
+      }
+    },
+    {
+      "id": "11295_11059_000087",
+      "text": "niech tak będzie chciał dołożyć i nazwisko lecz nim pierwsze t napisał myślał pół godziny blisko głową i piórem kołysał",
+      "audio": "dev/audio/11295/11059/11295_11059_000087.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 608.84,
+        "original_end_s": 619.36
+      }
+    },
+    {
+      "id": "11295_11059_000088",
+      "text": "zamkieme stały otworem dla przyjaciół i dla gości o potęgo o człowieku wielkie zamki wielkie imię wielkie nic",
+      "audio": "dev/audio/11295/11059/11295_11059_000088.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 29.47,
+        "original_end_s": 40.42
+      }
+    },
+    {
+      "id": "11295_11059_000089",
+      "text": "obaczył kupiec łzy radośne leje z wozu na ziemię wylata ha jak się macie co się u was dzieje czyście tęskniły do tata mama czy zdrowa ciotunia domowi a ot rodzynki w koszyku ten sobie mówi a ten sobie mówi pełno radości i krzyku",
+      "audio": "dev/audio/11295/11059/11295_11059_000089.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 84.6,
+        "original_end_s": 104.02
+      }
+    },
+    {
+      "id": "11295_11059_000090",
+      "text": "to mówiąc dziewka więcej nie czeka wieniec włożyła na skronie i pożegnawszy strzelca z daleka na zwykłe uchodzi błonie próżno się za nią strzelec pomyka rączym wybiegom nie sprostał",
+      "audio": "dev/audio/11295/11059/11295_11059_000090.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 135.43,
+        "original_end_s": 150.18
+      }
+    },
+    {
+      "id": "11295_11059_000091",
+      "text": "i nic więcej nie napisał tylko do pierwszej litery dodał małe kropki cztery gdy już napisano widzi jeszcze patrzy jeszcze bada niechaj z tego nikt nie szydzi bo z diabłami rzecz nie lada lecz jakże się musiał zdumieć gdy głoska b",
+      "audio": "dev/audio/11295/11059/11295_11059_000091.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 619.36,
+        "original_end_s": 638.76
+      }
+    },
+    {
+      "id": "11295_11059_000092",
+      "text": "powiedz mi piękna luba dziewczyno na co nam te tajemnice jaką przybiegłaś do mnie drożyną gdzie dom twój gdzie są rodzice",
+      "audio": "dev/audio/11295/11059/11295_11059_000092.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 51.36,
+        "original_end_s": 61.79
+      }
+    },
+    {
+      "id": "11295_11059_000093",
+      "text": "z daleka tylko poznał sukienkę bo w chustce skryła twarz boską jakiś młodzieniec wiódł ją pod rękę już ich nie widać za wioską",
+      "audio": "dev/audio/11295/11059/11295_11059_000093.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 467.17,
+        "original_end_s": 477.27
+      }
+    },
+    {
+      "id": "11295_11059_000094",
+      "text": "dziewczyna czuje odpowiadam skromnie a gawiedź wierzy głęboko czucie i wiara silniej mówi do mnie niż mędrca szkiełko i oko",
+      "audio": "dev/audio/11295/11059/11295_11059_000094.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 175.92,
+        "original_end_s": 186.66
+      }
+    },
+    {
+      "id": "11295_11059_000095",
+      "text": "powracał razem z nami lecz przodem chciał pospieszyć nas przyjąć z rycerzami i twoje łzy pocieszyć dziś jutro pewnie będzie",
+      "audio": "dev/audio/11295/11059/11295_11059_000095.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 266.95,
+        "original_end_s": 277.42
+      }
+    },
+    {
+      "id": "11295_11059_000096",
+      "text": "tak na domowników ręku tukaj pośród skarg i jęku pożegnawszy świat na wieki gasnące zamknął powieki",
+      "audio": "dev/audio/11295/11059/11295_11059_000096.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 105.94,
+        "original_end_s": 115.99
+      }
+    },
+    {
+      "id": "11295_11059_000097",
+      "text": "ja pójdę mówił ze łzami idź sobie poszedł i umarł z miłości tu nad rzeczułką w tym zielonym grobie złożone jego są kości",
+      "audio": "dev/audio/11295/11059/11295_11059_000097.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 231.97,
+        "original_end_s": 243.28
+      }
+    },
+    {
+      "id": "11295_11059_000098",
+      "text": "ja tędy płynę z wiciną pytam się ciebie dziewczyno co to za piękny kurhanek dziewczyna w całej wsi pytaj się bracie a cała wieś powie tobie maryla żyła w tej chacie a teraz leży w tym grobie na prawej stronie te śladki",
+      "audio": "dev/audio/11295/11059/11295_11059_000098.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 44.05,
+        "original_end_s": 62.02
+      }
+    },
+    {
+      "id": "11295_11059_000099",
+      "text": "tak się dziewczyna z kochankiem pieści bieży za nim krzyczy pada na ten upadek na głos boleści skupia się ludzi gromada",
+      "audio": "dev/audio/11295/11059/11295_11059_000099.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_02_mickiewicz_64kb.mp3",
+        "original_start_s": 129.22,
+        "original_end_s": 139.77
+      }
+    },
+    {
+      "id": "11295_11059_000100",
+      "text": "a wtem na poduszce z boku ujrzy z wolej skóry karty gdzie tajemnice wyroku przeklęte spisały czarty tukaj z ciekawością chwyta siada podparł się i czyta",
+      "audio": "dev/audio/11295/11059/11295_11059_000100.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 359.62,
+        "original_end_s": 372.47
+      }
+    },
+    {
+      "id": "11295_11059_000101",
+      "text": "i w cerkwi albo na józia mogile niebu i ziemi obrzydła muszę podróżnych trwożyć w nocne chwile różne udając straszydła",
+      "audio": "dev/audio/11295/11059/11295_11059_000101.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 326.85,
+        "original_end_s": 337.32
+      }
+    },
+    {
+      "id": "11295_11059_000102",
+      "text": "niepewny czy szklana z pod twej stopy pod niebo idzie równina czyli też niebo swoje szklane stropy aż do nóg twoich ugina",
+      "audio": "dev/audio/11295/11059/11295_11059_000102.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 44.68,
+        "original_end_s": 54.81
+      }
+    },
+    {
+      "id": "11295_11059_000103",
+      "text": "bo takie sądy boże iż co ty zrobisz skrycie mąż tylko wydać może a mąż twój stracił życie pani z wyroku rada jak wpadła tak wypada bieży nocą do domu nic nie mówiąc nikomu",
+      "audio": "dev/audio/11295/11059/11295_11059_000103.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 136.79,
+        "original_end_s": 151.31
+      }
+    },
+    {
+      "id": "11295_11059_000104",
+      "text": "dysząc na stronie przylega wtem leci rękawiczka z krużganków pałacu z rączek nadobnej marty pada między tygrysa i między lamparty na środek placu marta z uśmiechem rzecze do embroba",
+      "audio": "dev/audio/11295/11059/11295_11059_000104.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_10_mickiewicz_64kb.mp3",
+        "original_start_s": 90.53,
+        "original_end_s": 106.2
+      }
+    },
+    {
+      "id": "11295_11059_000105",
+      "text": "prosił i józio niegdyś o to słowo gorzkie łzy lał nieszczęśliwy prośże ty teraz nie łzą nie namową ale przez strach i dziwy",
+      "audio": "dev/audio/11295/11059/11295_11059_000105.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 304.88,
+        "original_end_s": 315.79
+      }
+    },
+    {
+      "id": "11295_11059_000106",
+      "text": "ręce nad czoło zakłada skoczył raptem i w zapędzie machnął ręką niech tak będzie znowu umilkł znowu siada znowu myśli znowu wstaje znowu chodzi znowu siada niech go za to nikt nie łaie bo z diabłami rzecz nie lada",
+      "audio": "dev/audio/11295/11059/11295_11059_000106.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 483.3,
+        "original_end_s": 501.16
+      }
+    },
+    {
+      "id": "11295_11059_000107",
+      "text": "dawno rok minął umarł na wojnie zginął to kłamstwo bądź spokojna już skończyła się wojna brat zdrowy i ochoczy ujrzysz go na twe oczy",
+      "audio": "dev/audio/11295/11059/11295_11059_000107.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 235.87,
+        "original_end_s": 248.43
+      }
+    },
+    {
+      "id": "11295_11059_000108",
+      "text": "przybiega na koniec łączki gdzie w jezioro wpada rzeka załamuje białe rączki i tak żałośnie narzeka o wy co mieszkacie w wodzie siostry moje świtezianki słuchajcie w ciężkiej przygodzie głosu zdradzonej kochanki",
+      "audio": "dev/audio/11295/11059/11295_11059_000108.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_05_mickiewicz_64kb.mp3",
+        "original_start_s": 19.74,
+        "original_end_s": 38.27
+      }
+    },
+    {
+      "id": "11295_11059_000109",
+      "text": "kiedym wędrując przez kraje cudze królewiec zwiedził przechodem wtenczas przypłynął z litwy na strudze pasterz jakiś z tych stron rodem",
+      "audio": "dev/audio/11295/11059/11295_11059_000109.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 285.43,
+        "original_end_s": 296.46
+      }
+    },
+    {
+      "id": "11295_11059_000110",
+      "text": "przebóg cudy czy moc piekła uderza go widok nowy gdzie pierwej rzeczułka ciekła tam suchy piasek i rowy na brzegach porozrzucana wala się odzież bez ładu ani pani ani pana nie widać nigdzie ni śladu",
+      "audio": "dev/audio/11295/11059/11295_11059_000110.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_05_mickiewicz_64kb.mp3",
+        "original_start_s": 276.72,
+        "original_end_s": 294.41
+      }
+    },
+    {
+      "id": "11295_11059_000111",
+      "text": "ja na rok u belzebuba przyjmę za ciebie mieszkanie niech przez ten rok moja luba z tobą jak z mężem zostanie przysiąż jej miłość szacunek i posłuszeństwo bez granic złamiesz choć jeden warunek już cała ugoda na nic",
+      "audio": "dev/audio/11295/11059/11295_11059_000111.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_11_mickiewicz_64kb.mp3",
+        "original_start_s": 257.44,
+        "original_end_s": 273.88
+      }
+    },
+    {
+      "id": "11295_11059_000112",
+      "text": "król skinął znowu znowu przemknie się krata szybkiemi skoki chciwy połowu tygrys wylata spoziera z dala i kłami błyska język wywala ogonem ciska i lwa dokoła obiega",
+      "audio": "dev/audio/11295/11059/11295_11059_000112.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_10_mickiewicz_64kb.mp3",
+        "original_start_s": 41.57,
+        "original_end_s": 56.95
+      }
+    },
+    {
+      "id": "11295_11059_000113",
+      "text": "dawniej kiedy spać szedłem tem słodziłem chwile że skoro się obudzę obaczę marylę i dawniej spałem mile teraz tutaj spać będę od ludzi daleki może ją we śnie ujrzę gdy zamknę powieki",
+      "audio": "dev/audio/11295/11059/11295_11059_000113.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 124.49,
+        "original_end_s": 140.55
+      }
+    },
+    {
+      "id": "11295_11059_000114",
+      "text": "z początku porwał mnie śmiech pusty a potem litość i trwoga słucham ojczyste przyszły na myśl strony buława upadła z ręki ach ja mam żonę i u mojej żony jest synek taki maleńki",
+      "audio": "dev/audio/11295/11059/11295_11059_000114.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 201.99,
+        "original_end_s": 217.17
+      }
+    },
+    {
+      "id": "11295_11059_000115",
+      "text": "pani zapomnieć trudno nie wygnać z myśli grzechu zawsze na sercu nudno nigdy na ustach śmiechu nigdy snu na źrenicy bo często w nocnej porze coś stuka się na dworze coś chodzi po świetlicy",
+      "audio": "dev/audio/11295/11059/11295_11059_000115.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 172.4,
+        "original_end_s": 187.85
+      }
+    },
+    {
+      "id": "11295_11059_000116",
+      "text": "do smaku im gospoda i gospodyni młoda jak dwaj u niej gościli tak ją dwaj polubili obu nadzieja łechce obydwaj zjęci trwogą żyć bez niej żaden nie chce żyć z nią obaj nie mogą wreszcie na jedno zdani idą razem do pani",
+      "audio": "dev/audio/11295/11059/11295_11059_000116.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 333.95,
+        "original_end_s": 352.57
+      }
+    },
+    {
+      "id": "11295_11059_000117",
+      "text": "ja mam maleńkie dziatki i wioski i dostatki dostatek się zmitręża gdy zostałam bez męża lecz ach nie dla mnie szczęście nie dla mnie już zamęście boża nade mną kara ściga mnie nocna mara",
+      "audio": "dev/audio/11295/11059/11295_11059_000117.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 407.2,
+        "original_end_s": 422.59
+      }
+    },
+    {
+      "id": "11295_11059_000118",
+      "text": "spadły wrzeciądze ogromne lwisko zwolna się toczy podnosi czoło milczkiem obraca oczy wokoło i ziewy rozdarł straszliwie i kudły zatrząsł na grzywie i wyciągnął cielska brzemie i obalił się na ziemię",
+      "audio": "dev/audio/11295/11059/11295_11059_000118.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_10_mickiewicz_64kb.mp3",
+        "original_start_s": 24.54,
+        "original_end_s": 41.57
+      }
+    },
+    {
+      "id": "11295_11059_000119",
+      "text": "lasy gorą niknie w płomieniach opoka i doliny i jezioro śród gromów świstu i szczęku czy to zły duch czy moc boża tukaj znalazł się śród łoża na swych domowników ręku głos tylko zagrzmiał z daleka",
+      "audio": "dev/audio/11295/11059/11295_11059_000119.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 317.93,
+        "original_end_s": 334.62
+      }
+    },
+    {
+      "id": "11295_11059_000120",
+      "text": "tuhanie w tobie obrona stolicy śpiesz zwołaj twe towarzysze skoro przeczytał tuhan list książęcy i wydał rozkaz do wojny stanęło zaraz mężów pięć tysięcy a każdy konny i zbrojny",
+      "audio": "dev/audio/11295/11059/11295_11059_000120.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 284.69,
+        "original_end_s": 300.47
+      }
+    },
+    {
+      "id": "11295_11059_000121",
+      "text": "słysząc to dziatki biegną wszystkie razem za miasto pod słup na wzgórek tam przed cudownym klękają obrazem i zaczynają paciorek",
+      "audio": "dev/audio/11295/11059/11295_11059_000121.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_06_mickiewicz_64kb.mp3",
+        "original_start_s": 31.29,
+        "original_end_s": 41.55
+      }
+    },
+    {
+      "id": "11295_11059_000122",
+      "text": "minęło lato zżółkniały liścia i dżdżysta nadchodzi pora zawsze mam czekać twojego przyjścia na dzikich brzegach jeziora zawszeż po kniejach jak sarna płocha jak upiór błądzisz w noc ciemną",
+      "audio": "dev/audio/11295/11059/11295_11059_000122.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 61.79,
+        "original_end_s": 77.67
+      }
+    },
+    {
+      "id": "11295_11059_000123",
+      "text": "co tu począć kusa rada przyjdzie już nałożyć głową twardowski na koncept wpada i zadaje trudność nową patrz w kontrakt mefistofilu tam warunki takie stoją po latach tylu a tylu gdy przyjdziesz brać duszę moją",
+      "audio": "dev/audio/11295/11059/11295_11059_000123.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_11_mickiewicz_64kb.mp3",
+        "original_start_s": 138.42,
+        "original_end_s": 155.61
+      }
+    },
+    {
+      "id": "11295_11059_000124",
+      "text": "świteź i w sławne orężem ramiona i w kraśne twarze bogata niegdyś od książąt tuhanów rządzona kwitnęła przez długie lata",
+      "audio": "dev/audio/11295/11059/11295_11059_000124.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 248.76,
+        "original_end_s": 259.57
+      }
+    },
+    {
+      "id": "11295_11059_000125",
+      "text": "jeśli na to się ośmielisz dla znaku że zaszła zgoda nasz poseł mefistofelisz do wymiany traktat poda ostrzegliśmy o fortelach strzeż się potem próżny kweres",
+      "audio": "dev/audio/11295/11059/11295_11059_000125.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 428.1,
+        "original_end_s": 441.69
+      }
+    },
+    {
+      "id": "11295_11059_000126",
+      "text": "lecz czy dochowa przysięgi dochowaj strzelcze to moja rada bo kto przysięgę naruszy ach biada jemu za życia biada i biada jego złej duszy",
+      "audio": "dev/audio/11295/11059/11295_11059_000126.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 123.22,
+        "original_end_s": 135.43
+      }
+    },
+    {
+      "id": "11295_11059_000127",
+      "text": "wtem oko ściemniało a w ustach panny najświętszej imię wpół wymówione zostało silił się jeszcze i w samym skonie na próżno co się wyrzec żądał wskazał ku sercu i ku tej stronie na którą żyjąc spoglądał",
+      "audio": "dev/audio/11295/11059/11295_11059_000127.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 438.92,
+        "original_end_s": 456.63
+      }
+    },
+    {
+      "id": "11295_11059_000128",
+      "text": "związano niewód głęboki stóp dwieście budują czółna i statki ja ostrzegałem że w tak wielkiem dziele dobrze kto z bogiem poczyna dano więc na mszę w niejednym kościele i ksiądz przyjechał z cyryna",
+      "audio": "dev/audio/11295/11059/11295_11059_000128.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 138.77,
+        "original_end_s": 154.49
+      }
+    },
+    {
+      "id": "11295_11059_000129",
+      "text": "tam szli starzec kląkł na grobie rozwarł usta okiem błysnął podniósł w górę ręce obie trzykroć krzyknął trzykroć świsnął tukaju patrz oto ścieżka",
+      "audio": "dev/audio/11295/11059/11295_11059_000129.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 170.25,
+        "original_end_s": 184.31
+      }
+    },
+    {
+      "id": "11295_11059_000130",
+      "text": "tak w noc pogodna jeśli służy pora wzrok się przyjemnie ułudzi lecz żeby w nocy jechać do jeziora trzeba być najśmielszym z ludzi",
+      "audio": "dev/audio/11295/11059/11295_11059_000130.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_03_mickiewicz_64kb.mp3",
+        "original_start_s": 66.35,
+        "original_end_s": 77.63
+      }
+    },
+    {
+      "id": "11295_11059_000131",
+      "text": "woda się dotąd burzy i pieni dotąd przy świetle księżyca snuje się para znikomych cieni jest to z młodzieńcem dziewica ona po srebrnym pląsa jeziorze on pod tym jęczy modrzewiem któż jest młodzieniec",
+      "audio": "dev/audio/11295/11059/11295_11059_000131.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 386.02,
+        "original_end_s": 402.76
+      }
+    },
+    {
+      "id": "11295_11059_000132",
+      "text": "i z tych układów rada jak wpadła tak wypada bieży prosto do domu nic nie mówiąc nikomu bieży przez łąki przez gaje i bieży i staje i staje i myśli i słucha zda się że ją ktoś goni i że coś szepce do niej",
+      "audio": "dev/audio/11295/11059/11295_11059_000132.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_13_mickiewicz_64kb.mp3",
+        "original_start_s": 553.12,
+        "original_end_s": 571.06
+      }
+    },
+    {
+      "id": "11295_11059_000133",
+      "text": "boki ma strojne murawą głowę ukwieconą w kwiaty a na niej czeremchy drzewo a od niej idą trzy drogi jedna droga na prawo druga droga do chaty trzecia droga na lewo",
+      "audio": "dev/audio/11295/11059/11295_11059_000133.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 30.18,
+        "original_end_s": 44.05
+      }
+    },
+    {
+      "id": "11295_11059_000134",
+      "text": "a srebrzysta twarz miesiąca to grubawe mgły roztrąca to się znowu we mgle topi idą ponad trzęskie kępy mijają bagna głębinie hnilicy ciemnej ostępy",
+      "audio": "dev/audio/11295/11059/11295_11059_000134.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 146.42,
+        "original_end_s": 159.5
+      }
+    },
+    {
+      "id": "11295_11059_000135",
+      "text": "idzie nad wodą błędny krok niesie błędnemi strzela oczyma wtem wiatr zaszumiał po gęstym lesie woda się burzy i wzdyma",
+      "audio": "dev/audio/11295/11059/11295_11059_000135.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_04_mickiewicz_64kb.mp3",
+        "original_start_s": 165.88,
+        "original_end_s": 176.11
+      }
+    },
+    {
+      "id": "11295_11059_000136",
+      "text": "jeszcze jedno będzie kwita zaraz pęknie moc czartowska patrzaj oto jest kobita moja żoneczka twardowska",
+      "audio": "dev/audio/11295/11059/11295_11059_000136.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_11_mickiewicz_64kb.mp3",
+        "original_start_s": 247.31,
+        "original_end_s": 257.44
+      }
+    },
+    {
+      "id": "11295_11059_000137",
+      "text": "czasem gdy słodkie złudzi zachwycenie kochankę widzę lub braci zrywam się patrzę aż tylko po ścienie biega cień własnej postaci",
+      "audio": "dev/audio/11295/11059/11295_11059_000137.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_08_mickiewicz_64kb.mp3",
+        "original_start_s": 59.48,
+        "original_end_s": 71.48
+      }
+    },
+    {
+      "id": "11295_11059_000138",
+      "text": "porwał za maleńki palec zasadził nożyk pod skórką i umoczył we krwi piórko piórko wścibił ścisnął w ręku ręką wodzi pomaleńku gdy już u",
+      "audio": "dev/audio/11295/11059/11295_11059_000138.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_12_mickiewicz_64kb.mp3",
+        "original_start_s": 683.3,
+        "original_end_s": 696.64
+      }
+    },
+    {
+      "id": "11295_11059_000139",
+      "text": "posłuchał przyszedł skłonił się nisko i usiadł sobie pod miedzą przy nim po bokach chłopczyki siedzą patrząc na wiejskie igrzysko tu brzmią piszczałki biją bębenki płoną stosy suchych drewek piją staruszki skaczą panienki obchodząc święto dosiewek",
+      "audio": "dev/audio/11295/11059/11295_11059_000139.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_14_mickiewicz_64kb.mp3",
+        "original_start_s": 35.96,
+        "original_end_s": 55.86
+      }
+    },
+    {
+      "id": "11295_11059_000140",
+      "text": "wiedziałaś że się spodobało panu z męża ród stworzyć niewieści na osłodzenie mężom złego stanu na rozkosz nie na boleści ty jakbyś w piersiach miała serce z głazu ani cię jęki ubodły nikt nie uprosił słodkiego wyrazu przez przez łzy cierpienia i modły",
+      "audio": "dev/audio/11295/11059/11295_11059_000140.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_09_mickiewicz_64kb.mp3",
+        "original_start_s": 274.14,
+        "original_end_s": 294.14
+      }
+    },
+    {
+      "id": "11295_11059_000141",
+      "text": "może zamknę na wieki byłem ja gospodarny gdy byłem szczęśliwy chwalili mnie sąsiedzi chwalił mię ojciec siwy teraz się ojciec biedzi a ja ni ludziom ni bogu niech ziarno w polu przepadnie niech ginie siano ze stogu",
+      "audio": "dev/audio/11295/11059/11295_11059_000141.opus",
+      "tags": {
+        "speaker_id": "mls-pl-11295",
+        "gender": "w",
+        "book_id": "11059",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/balladyiromanse_1703_librivox/balladyiromanse_07_mickiewicz_64kb.mp3",
+        "original_start_s": 140.55,
+        "original_end_s": 158.87
+      }
+    }
+  ]
+}

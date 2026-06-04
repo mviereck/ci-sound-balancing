@@ -1,0 +1,161 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — cnh",
+  "lang": "cnh",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-cnh",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17894873",
+      "text": "Rawl a ei tuk caah a thau deuh deuh.",
+      "audio": "cnh/unknown/cnh_u_17894873.mp3",
+      "tags": {
+        "source_item_id": "17894873",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17896576",
+      "text": "Ramdang ka kal ahcun ka thil ka'an tanh lai.",
+      "audio": "cnh/unknown/cnh_u_17896576.mp3",
+      "tags": {
+        "source_item_id": "17896576",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17899706",
+      "text": "Amah cu saupi ka hawikom a si.",
+      "audio": "cnh/unknown/cnh_u_17899706.mp3",
+      "tags": {
+        "source_item_id": "17899706",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17906468",
+      "text": "An kum an i rual caah an i kom khun.",
+      "audio": "cnh/unknown/cnh_u_17906468.mp3",
+      "tags": {
+        "source_item_id": "17906468",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17924987",
+      "text": "Hmuhnak mit a ngei mi nih cun hmu hna seh.",
+      "audio": "cnh/unknown/cnh_u_17924987.mp3",
+      "tags": {
+        "source_item_id": "17924987",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17926966",
+      "text": "Thaizing ah ka rak ra lai.",
+      "audio": "cnh/unknown/cnh_u_17926966.mp3",
+      "tags": {
+        "source_item_id": "17926966",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17896592",
+      "text": "Uico a bo hnu khan kaa hngilh kho ti lo.",
+      "audio": "cnh/unknown/cnh_u_17896592.mp3",
+      "tags": {
+        "source_item_id": "17896592",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17922914",
+      "text": "Ram dawt ruang ah a lu a hloh.",
+      "audio": "cnh/unknown/cnh_u_17922914.mp3",
+      "tags": {
+        "source_item_id": "17922914",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17899934",
+      "text": "Kapi nih la zelhnak in la a zelh.",
+      "audio": "cnh/unknown/cnh_u_17899934.mp3",
+      "tags": {
+        "source_item_id": "17899934",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17896212",
+      "text": "A ram caah a nunnak a pek sian nak nih mi tampi a khamh hna.",
+      "audio": "cnh/unknown/cnh_u_17896212.mp3",
+      "tags": {
+        "source_item_id": "17896212",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17927114",
+      "text": "Mileng tam tuk kan ngei i kan rawl a ek dih.",
+      "audio": "cnh/unknown/cnh_u_17927114.mp3",
+      "tags": {
+        "source_item_id": "17927114",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17925034",
+      "text": "A nu nih a fapa a dai.",
+      "audio": "cnh/unknown/cnh_u_17925034.mp3",
+      "tags": {
+        "source_item_id": "17925034",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17891700",
+      "text": "Pathian nih van le vawlei hram ser a thok.",
+      "audio": "cnh/unknown/cnh_u_17891700.mp3",
+      "tags": {
+        "source_item_id": "17891700",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17922960",
+      "text": "A tak a phar ka rak hngal lo.",
+      "audio": "cnh/unknown/cnh_u_17922960.mp3",
+      "tags": {
+        "source_item_id": "17922960",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17922943",
+      "text": "Kawhra ba kan phu lai.",
+      "audio": "cnh/unknown/cnh_u_17922943.mp3",
+      "tags": {
+        "source_item_id": "17922943",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17896225",
+      "text": "Na hnap cu mi na neh hna lai lo.",
+      "audio": "cnh/unknown/cnh_u_17896225.mp3",
+      "tags": {
+        "source_item_id": "17896225",
+        "gender": "u"
+      }
+    }
+  ]
+}

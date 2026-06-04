@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — bn",
+  "lang": "bn",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-bn",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "30648608",
+      "text": "মোগল সাম্রাজ্য পুনরুদ্ধারের জন্য সম্রাটকে তিনি প্রতিনিয়ত উদ্বুদ্ধ করে গেছেন।",
+      "audio": "bn/unknown/bn_u_30648608.mp3",
+      "tags": {
+        "source_item_id": "30648608",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30661611",
+      "text": "যেমন মহাসাগর, বিস্তীর্ণ মরুভূমি বা উচ্চ পর্বতমালার সীমা, যারা অভিবাসনের পথে বাধা সৃষ্টি করে।",
+      "audio": "bn/unknown/bn_u_30661611_indian.mp3",
+      "tags": {
+        "source_item_id": "30661611",
+        "gender": "u",
+        "accent": "Indian"
+      }
+    },
+    {
+      "id": "30662998",
+      "text": "তার নামের শেষাংশ নেয়া হয়েছে তার জন্মস্থান থেকে।",
+      "audio": "bn/unknown/bn_u_30662998.mp3",
+      "tags": {
+        "source_item_id": "30662998",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30698954",
+      "text": "সাংগঠনিক জীববিদ্যা হচ্ছে জীববিজ্ঞান ভিত্তিক একটি শাখা বিজ্ঞান যা মূলতঃ জৈবিক ব্যবস্থার জটিল মিথস্ক্রিয়া নিয়ে কাজ করে।",
+      "audio": "bn/unknown/bn_u_30698954.mp3",
+      "tags": {
+        "source_item_id": "30698954",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30704507",
+      "text": "এরপরের বছর কর্নেলিয়াস কার্যকরী কমিটির সভাপতি হন।",
+      "audio": "bn/unknown/bn_u_30704507.mp3",
+      "tags": {
+        "source_item_id": "30704507",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30706554",
+      "text": "তিনি কেমব্রিজের অভিজাত ক্লেয়ার হল কলেজের আজীবন সদস্য ছিলেন।",
+      "audio": "bn/unknown/bn_u_30706554.mp3",
+      "tags": {
+        "source_item_id": "30706554",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30707171",
+      "text": "একজন ধরা পড়লেও অন্যজন ফেরার।",
+      "audio": "bn/unknown/bn_u_30707171.mp3",
+      "tags": {
+        "source_item_id": "30707171",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30707410",
+      "text": "তার বাড়িতে দিদি ও মা আছেন।",
+      "audio": "bn/unknown/bn_u_30707410.mp3",
+      "tags": {
+        "source_item_id": "30707410",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30712617",
+      "text": "বর্তমানে এর নির্মাণ কার্য চলছে হায়দ্রাবাদ শহর জুড়ে।",
+      "audio": "bn/unknown/bn_u_30712617.mp3",
+      "tags": {
+        "source_item_id": "30712617",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30716819",
+      "text": "শীঘ্রই এটি হাডসন বে কোম্পানির জাহাজগুলির প্রধান জলপথ হিসেবে ব্যবহৃত হওয়া শুরু করে।",
+      "audio": "bn/unknown/bn_u_30716819.mp3",
+      "tags": {
+        "source_item_id": "30716819",
+        "gender": "u"
+      }
+    }
+  ]
+}

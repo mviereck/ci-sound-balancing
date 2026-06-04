@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zgh",
+  "lang": "zgh",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zgh",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "40055267",
+      "text": "ⵉⵙⵙⵓⴼⴰ ⵓⵏⵙⵙⵉⵅⴼ ⴰⵢⵣⵏⵀⴰⵡⵔ ⴰⵡⴰⵍ ⵏⵏⵙ.",
+      "audio": "zgh/unknown/zgh_u_40055267.mp3",
+      "tags": {
+        "source_item_id": "40055267",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38267030",
+      "text": "ⵜⵙⴱⵕⴱⵕ ⴷ ⵜⵢⵎⵎⴰⵜ ⵎⵔⴰⵡⵜ ⵜⵎⵍⵍⴰⵍⵉⵏ.",
+      "audio": "zgh/unknown/zgh_u_38267030.mp3",
+      "tags": {
+        "source_item_id": "38267030",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38267027",
+      "text": "ⵢⵓⴼⴰ ⴰⵙ ⵙⴰⵎⵉ ⴰⴷ ⵉⵣⵣⵉⴳⵉⵣ.",
+      "audio": "zgh/unknown/zgh_u_38267027.mp3",
+      "tags": {
+        "source_item_id": "38267027",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38267184",
+      "text": "ⵉⵎⵎⵓⵜⵜⵉ ⴷ ⵙⴰⵎⵉ.",
+      "audio": "zgh/unknown/zgh_u_38267184.mp3",
+      "tags": {
+        "source_item_id": "38267184",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40055242",
+      "text": "ⴷⴰⵔⵉ ⴽⵔⴰ ⵏ ⵉⵎⴷⴷⵓⴽⴽⴰⵍ ⵖ ⴱⵓⵙⵜⵏ.",
+      "audio": "zgh/unknown/zgh_u_40055242.mp3",
+      "tags": {
+        "source_item_id": "40055242",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40041119",
+      "text": "ⵏⵛⵛ ⵖⴰⵙ ⴷ ⴰⵎⴰⵍⵍⴰⵢ.",
+      "audio": "zgh/unknown/zgh_u_40041119.mp3",
+      "tags": {
+        "source_item_id": "40041119",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40041120",
+      "text": "ⴰⵔ ⵜⵜⵍⵍⵉⵖ ⵙ ⵢⴰⵜ ⵜⴳⵓⵔⵉ ⴳ ⵎⵙⵎⵓⵏ ⴰⵡⴰⵍ.",
+      "audio": "zgh/unknown/zgh_u_40041120.mp3",
+      "tags": {
+        "source_item_id": "40041120",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40040271",
+      "text": "ⵓⵔ ⵖⵉⴷ ⵍⵍⵉⵖ.",
+      "audio": "zgh/unknown/zgh_u_40040271.mp3",
+      "tags": {
+        "source_item_id": "40040271",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38267043",
+      "text": "ⴰⵍⵍⵉⴳ ⴰⵖⵓⵍⵏ ⴷⴰ ⵙⵙⴽⴰⵔⵏ ⵜⴰⴷⴷⵔⵡⵉⵏ ⴰⵔ ⵣⴷⴷⵖⵏ ⴳ ⵜⵎⴷⵉⵏⵉⵏ.",
+      "audio": "zgh/unknown/zgh_u_38267043.mp3",
+      "tags": {
+        "source_item_id": "38267043",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40039233",
+      "text": "ⵙⵙⵏⵖ ⵜⵓⵎ ⵉⵙ ⵉⵔⴰ ⴰⴷ ⵉⵙⴽⵔ ⵎⴰⵢⴰⵏⵏ.",
+      "audio": "zgh/unknown/zgh_u_40039233.mp3",
+      "tags": {
+        "source_item_id": "40039233",
+        "gender": "u"
+      }
+    }
+  ]
+}

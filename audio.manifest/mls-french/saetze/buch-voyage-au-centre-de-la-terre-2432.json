@@ -1,0 +1,2762 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Voyage au centre de la terre",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "2432",
+    "book_title": "Voyage au centre de la terre",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "6318_2432_000000",
+      "text": "et fâcheuse expectative nous avions peu d'espoir de rencontrer quelque source vive dans ces terrains de l'époque de transition pendant toute la journée du lendemain la galerie déroula devant nos pas ses interminables arceaux nous marchions presque sans mot dire le mutisme de",
+      "audio": "dev/audio/6318/2432/6318_2432_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 31.19,
+        "original_end_s": 48.5
+      }
+    },
+    {
+      "id": "6318_2432_000001",
+      "text": "or c'est précisément à cette exubérante végétation que la houille doit son origine l'écorce élastique du globe obéissait aux mouvements de la masse liquide qu'elle recouvrait de là des fissures des affaissements nombreux les plantes entraînées sous les eaux formèrent peu à peu des amas considérables",
+      "audio": "dev/audio/6318/2432/6318_2432_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 352.22,
+        "original_end_s": 368.43
+      }
+    },
+    {
+      "id": "6318_2432_000002",
+      "text": "et le courage manquera-t-il aussi fit le professeur en me regardant d'un oeil sévère je n'osai lui répondre fin du chapitre vingt enregistré par sébès",
+      "audio": "dev/audio/6318/2432/6318_2432_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 514.99,
+        "original_end_s": 533.47
+      }
+    },
+    {
+      "id": "6318_2432_000003",
+      "text": "alors intervint l'action de la chimie naturelle au fond des mers les masses végétales se firent tourbe d'abord puis grâce à l'influence des gaz et sous le feu de la fermentation elles subirent une minéralisation complète",
+      "audio": "dev/audio/6318/2432/6318_2432_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 368.43,
+        "original_end_s": 382.27
+      }
+    },
+    {
+      "id": "6318_2432_000004",
+      "text": "une mine de charbon m'écriai-je une mine sans mineurs répondit mon oncle eh qui sait moi je sais répliqua le professeur d'un ton bref et je suis certain que cette galerie percée à travers ces couches de houille n'a pas été faite de la main des hommes",
+      "audio": "dev/audio/6318/2432/6318_2432_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 185.79,
+        "original_end_s": 201.13
+      }
+    },
+    {
+      "id": "6318_2432_000005",
+      "text": "dans lesquels l'oeil du paléontologiste a su découvrir les premières formes du reptile les mers dévoniennes étaient habitées par un grand nombre d'animaux de cette espèce et elles les déposèrent par milliers sur les roches de nouvelle formation",
+      "audio": "dev/audio/6318/2432/6318_2432_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 114.39,
+        "original_end_s": 128.66
+      }
+    },
+    {
+      "id": "6318_2432_000006",
+      "text": "la lumière électrique faisait splendidement étinceler les schistes le calcaire et les vieux grès rouges des parois on aurait pu se croire dans une tranchée ouverte au milieu du devonshire qui donna son nom à ce genre de terrains",
+      "audio": "dev/audio/6318/2432/6318_2432_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 67.54,
+        "original_end_s": 79.6
+      }
+    },
+    {
+      "id": "6318_2432_000007",
+      "text": "le samedi à six heures on repartit vingt minutes plus tard nous arrivions à une vaste excavation je reconnus alors que la main de l'homme ne pouvait pas avoir creusé cette houillère les voûtes en eussent été étançonnées et véritablement elles ne se tenaient que par un miracle d'équilibre",
+      "audio": "dev/audio/6318/2432/6318_2432_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 227.87,
+        "original_end_s": 245.65
+      }
+    },
+    {
+      "id": "6318_2432_000008",
+      "text": "aussi telles je voyais ces couches intactes telles elles seraient encore lorsque sonnerait la dernière heure du monde cependant nous marchions et seul de mes compagnons j'oubliais la longueur de la route pour me perdre au milieu de considérations géologiques",
+      "audio": "dev/audio/6318/2432/6318_2432_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 410.43,
+        "original_end_s": 425.38
+      }
+    },
+    {
+      "id": "6318_2432_000009",
+      "text": "la température restait sensiblement ce qu'elle était pendant notre passage au milieu des laves et des schistes seulement mon odorat était affecté par une odeur fort prononcée de protocarbure d'hydrogène",
+      "audio": "dev/audio/6318/2432/6318_2432_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 425.38,
+        "original_end_s": 437.66
+      }
+    },
+    {
+      "id": "6318_2432_000010",
+      "text": "si par malheur nous avions imprudemment exploré cette galerie la torche à la main une explosion terrible eût fini le voyage en supprimant les voyageurs cette excursion dans la houillère dura jusqu'au soir",
+      "audio": "dev/audio/6318/2432/6318_2432_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 455.13,
+        "original_end_s": 466.23
+      }
+    },
+    {
+      "id": "6318_2432_000011",
+      "text": "après leur repas mes deux compagnons s'étendirent sur leurs couvertures et trouvèrent dans le sommeil un remède à leurs fatigues pour moi je ne pus dormir et je comptai les heures jusqu'au matin",
+      "audio": "dev/audio/6318/2432/6318_2432_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 217.83,
+        "original_end_s": 227.87
+      }
+    },
+    {
+      "id": "6318_2432_000012",
+      "text": "en dépit des théories du professeur lidenbrock un feu violent couvait dans les entrailles du sphéroïde son action se faisait sentir jusqu'aux dernières couches de l'écorce terrestre",
+      "audio": "dev/audio/6318/2432/6318_2432_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 318.82,
+        "original_end_s": 328.84
+      }
+    },
+    {
+      "id": "6318_2432_000013",
+      "text": "nous gagnait la route ne montait pas du moins d'une façon sensible parfois même elle semblait s'incliner mais cette tendance peu marquée d'ailleurs ne devait pas rassurer le professeur car la nature des couches ne se modifiait pas et la période de transition s'affirmait davantage",
+      "audio": "dev/audio/6318/2432/6318_2432_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 48.5,
+        "original_end_s": 67.54
+      }
+    },
+    {
+      "id": "6318_2432_000014",
+      "text": "ainsi se formèrent ces immenses couches de charbon que la consommation de tous les peuples pendant de longs siècles encore ne parviendra pas à épuiser ces réflexions me revenaient à l'esprit pendant que je considérais les richesses houillères accumulées dans cette portion du massif terrestre",
+      "audio": "dev/audio/6318/2432/6318_2432_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 382.27,
+        "original_end_s": 397.08
+      }
+    },
+    {
+      "id": "6318_2432_000015",
+      "text": "il y avait peu d'arbres des plantes herbacées seulement d'immenses gazons des fougères des lycopodes des sigillaires des astérophylites familles rares dont les espèces se comptaient alors par milliers",
+      "audio": "dev/audio/6318/2432/6318_2432_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 339.12,
+        "original_end_s": 352.22
+      }
+    },
+    {
+      "id": "6318_2432_000016",
+      "text": "a un moment où le tunnel devenait fort étroit je m'appuyai sur sa paroi quand je retirai ma main elle était entièrement noire je regardai de plus près nous étions en pleine",
+      "audio": "dev/audio/6318/2432/6318_2432_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 173.25,
+        "original_end_s": 185.79
+      }
+    },
+    {
+      "id": "6318_2432_000017",
+      "text": "de là cette conclusion que les hautes températures ne provenaient pas de ce foyer nouveau peut-être même l'astre du jour n'était-il pas prêt à jouer son rôle éclatant",
+      "audio": "dev/audio/6318/2432/6318_2432_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 296.1,
+        "original_end_s": 306.23
+      }
+    },
+    {
+      "id": "6318_2432_000018",
+      "text": "des spécimens de marbres magnifiques revêtaient les murailles les uns d'un gris agate avec des veines blanches capricieusement accusées les autres de couleur incarnat ou d'un jaune taché de plaques rouges plus loin des échantillons de ces griottes à couleurs sombres dans lesquels le calcaire se relevait en nuances vives",
+      "audio": "dev/audio/6318/2432/6318_2432_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 79.6,
+        "original_end_s": 98.56
+      }
+    },
+    {
+      "id": "6318_2432_000019",
+      "text": "les climats n'existaient pas encore et une chaleur torride se répandait à la surface entière du globe égale à l'equateur et aux pôles d'où venait-elle de l'intérieur du globe",
+      "audio": "dev/audio/6318/2432/6318_2432_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 306.23,
+        "original_end_s": 318.82
+      }
+    },
+    {
+      "id": "6318_2432_000020",
+      "text": "mais le soir arriva sans que cette espérance se fût réalisée le vendredi après une nuit pendant laquelle je commençai à ressentir les tourments de la soif notre petite troupe s'enfonça de nouveau dans les détours de la galerie",
+      "audio": "dev/audio/6318/2432/6318_2432_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 147.13,
+        "original_end_s": 160.93
+      }
+    },
+    {
+      "id": "6318_2432_000021",
+      "text": "la plupart de ces marbres offraient des empreintes d'animaux primitifs mais depuis la veille la création avait fait un progrès évident au lieu des trilobites rudimentaires j'apercevais des débris d'un ordre plus parfait entre autres des poissons ganoïdes et des sauropteris",
+      "audio": "dev/audio/6318/2432/6318_2432_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 98.56,
+        "original_end_s": 114.39
+      }
+    },
+    {
+      "id": "6318_2432_000022",
+      "text": "xx en effet il fallut se rationner notre provision ne pouvait durer plus de trois jours c'est ce que je reconnus le soir au moment du souper",
+      "audio": "dev/audio/6318/2432/6318_2432_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 15.9,
+        "original_end_s": 31.19
+      }
+    },
+    {
+      "id": "6318_2432_000023",
+      "text": "je reconnus immédiatement dans cette galerie la présence d'une notable quantité de ce fluide dangereux auquel les mineurs ont donné le nom de grisou et dont l'explosion a si souvent causé d'épouvantables catastrophes heureusement nous étions éclairés par les ingénieux appareils de",
+      "audio": "dev/audio/6318/2432/6318_2432_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 437.66,
+        "original_end_s": 455.13
+      }
+    },
+    {
+      "id": "6318_2432_000024",
+      "text": "mais que ce soit ou non l'ouvrage de la nature cela m'importe peu l'heure du souper est venue soupons hans prépara quelques aliments je mangeai à peine et je bus les quelques gouttes d'eau qui formaient ma ration la gourde du guide à demi pleine voilà tout ce qui restait pour désaltérer trois hommes",
+      "audio": "dev/audio/6318/2432/6318_2432_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 201.13,
+        "original_end_s": 217.83
+      }
+    },
+    {
+      "id": "6318_2432_000025",
+      "text": "à cet âge du monde qui précéda l'époque secondaire la terre se recouvrit d'immenses végétations dues à la double action d'une chaleur tropicale et d'une humidité persistante une atmosphère de vapeurs enveloppait le globe de toutes parts lui dérobant encore les rayons du soleil",
+      "audio": "dev/audio/6318/2432/6318_2432_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 279.3,
+        "original_end_s": 296.1
+      }
+    },
+    {
+      "id": "6318_2432_000026",
+      "text": "mon oncle contenait à peine l'impatience que lui causait l'horizontalité de la route les ténèbres toujours profondes à vingt pas empêchaient d'estimer la longueur de la galerie et je commençai à la croire interminable quand soudain à six heures un mur se présenta inopinément à nous",
+      "audio": "dev/audio/6318/2432/6318_2432_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 466.23,
+        "original_end_s": 483.72
+      }
+    },
+    {
+      "id": "6318_2432_000027",
+      "text": "après dix heures de marche je remarquai que la réverbération de nos lampes sur les parois diminuait singulièrement le marbre le schiste le calcaire les grès des murailles faisaient place à un revêtement sombre et sans éclat",
+      "audio": "dev/audio/6318/2432/6318_2432_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 160.93,
+        "original_end_s": 173.25
+      }
+    },
+    {
+      "id": "6318_2432_000028",
+      "text": "toute l'histoire de cette période houillère était écrite sur ces sombres parois et un géologue en pouvait suivre facilement les phases diverses les lits de charbon étaient séparés par des strates de grès ou d'argile compacts et comme écrasés par les couches supérieures",
+      "audio": "dev/audio/6318/2432/6318_2432_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 263.29,
+        "original_end_s": 279.3
+      }
+    },
+    {
+      "id": "6318_2432_000029",
+      "text": "cette espèce de caverne comptait cent pieds de largeur sur cent cinquante de hauteur le terrain avait été violemment écarté par une commotion souterraine le massif terrestre cédant à quelque puissante poussée s'était disloqué laissant ce large vide où des habitants de la terre pénétraient pour la première fois",
+      "audio": "dev/audio/6318/2432/6318_2432_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 245.65,
+        "original_end_s": 263.29
+      }
+    },
+    {
+      "id": "6318_2432_000030",
+      "text": "à droite à gauche en haut en bas il n'y avait aucun passage nous étions arrivés au fond d'une impasse eh bien tant mieux s'écria mon oncle je sais au moins à quoi m'en tenir nous ne sommes pas sur la route de",
+      "audio": "dev/audio/6318/2432/6318_2432_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 483.72,
+        "original_end_s": 498.98
+      }
+    },
+    {
+      "id": "6318_2432_000031",
+      "text": "et il ne reste plus qu'à revenir en arrière prenons une nuit de repos et avant trois jours nous aurons regagné le point où les deux galeries se bifurquent oui dis-je si nous en avons la force et pourquoi non parce que demain l'eau manquera tout à fait",
+      "audio": "dev/audio/6318/2432/6318_2432_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 498.98,
+        "original_end_s": 514.99
+      }
+    },
+    {
+      "id": "6318_2432_000032",
+      "text": "celles-ci sans doute ne seront jamais mises à découvert l'exploitation de ces mines reculées demanderait des sacrifices trop considérables a quoi bon d'ailleurs quand la houille est répandue pour ainsi dire à la surface de la terre dans un grand nombre de contrées",
+      "audio": "dev/audio/6318/2432/6318_2432_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 397.08,
+        "original_end_s": 410.43
+      }
+    },
+    {
+      "id": "6318_2432_000033",
+      "text": "il devenait évident que nous remontions l'échelle de la vie animale dont l'homme occupe le sommet mais le professeur lidenbrock ne paraissait pas y prendre garde il attendait deux choses ou qu'un puits vertical vînt à s'ouvrir sous ses pieds et lui permettre de reprendre sa descente ou qu'un obstacle l'empêchât de continuer cette route",
+      "audio": "dev/audio/6318/2432/6318_2432_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 128.66,
+        "original_end_s": 147.13
+      }
+    },
+    {
+      "id": "6318_2432_000034",
+      "text": "les plantes privées des bienfaisantes effluves du soleil ne donnaient ni fleurs ni parfums mais leurs racines puisaient une vie forte dans les terrains brûlants des premiers jours",
+      "audio": "dev/audio/6318/2432/6318_2432_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_20_verne_64kb.mp3",
+        "original_start_s": 328.84,
+        "original_end_s": 339.12
+      }
+    },
+    {
+      "id": "7142_2432_000000",
+      "text": "je le fais remarquer à mon oncle qui secoue la tête j'ai pourtant la conviction que je ne me trompe pas courons nous donc à quelque cataracte qui nous précipitera dans l'abîme",
+      "audio": "dev/audio/7142/2432/7142_2432_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 88.49,
+        "original_end_s": 99.75
+      }
+    },
+    {
+      "id": "7142_2432_000001",
+      "text": "c'était une espèce de petit pauvre très misérablement vêtu assez souffreteux et que notre aspect parut effrayer beaucoup en effet demi-nus avec nos barbes incultes nous avions une fort mauvaise mine",
+      "audio": "dev/audio/7142/2432/7142_2432_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 428.65,
+        "original_end_s": 444.33
+      }
+    },
+    {
+      "id": "7142_2432_000002",
+      "text": "cependant la pluie forme une cataracte mugissante devant cet horizon vers lequel nous courons en insensés mais avant qu'elle n'arrive jusqu'à nous le voile de nuage se déchire la mer entre en ébullition et l'électricité produite par une vaste action chimique qui s'opère dans les couches supérieures est mise en jeu",
+      "audio": "dev/audio/7142/2432/7142_2432_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 292.96,
+        "original_end_s": 312.6
+      }
+    },
+    {
+      "id": "7142_2432_000003",
+      "text": "non par le diable s'écrie mon oncle non cent fois non que le vent nous saisisse que l'orage nous emporte mais que j'aperçoive enfin les rochers rivage quand notre radeau devra s'y briser en mille pièces",
+      "audio": "dev/audio/7142/2432/7142_2432_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 195.93,
+        "original_end_s": 211.18
+      }
+    },
+    {
+      "id": "7142_2432_000004",
+      "text": "le mât et la voile sont partis tout d'un bloc je les ai vus s'enlever à une prodigieuse hauteur semblables au ptérodactyle cet oiseau fantastique des premiers siècles nous sommes glacés d'effroi",
+      "audio": "dev/audio/7142/2432/7142_2432_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 522.73,
+        "original_end_s": 536.34
+      }
+    },
+    {
+      "id": "7142_2432_000005",
+      "text": "nous avons franchi deux cent soixante-dix lieues de mer depuis port graüben et nous sommes à six cent vingt lieues de l'islande sous l'angleterre fin du chapitre trente-quatre",
+      "audio": "dev/audio/7142/2432/7142_2432_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 543.78,
+        "original_end_s": 562.52
+      }
+    },
+    {
+      "id": "7142_2432_000006",
+      "text": "pas davantage mon garçon ceci n'est point un volcan du nord avec ses collines de granit et sa calotte de neige cependant regarde axel regarde au-dessus de notre tête à cinq cents pieds au plus",
+      "audio": "dev/audio/7142/2432/7142_2432_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 144.18,
+        "original_end_s": 157.95
+      }
+    },
+    {
+      "id": "7142_2432_000007",
+      "text": "nous avions abandonné la région des neiges éternelles pour celle de la verdure infinie et laissé au-dessus de nos têtes le brouillard grisâtre des zones glacées revenir au ciel azuré de la sicile",
+      "audio": "dev/audio/7142/2432/7142_2432_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 586.49,
+        "original_end_s": 599.46
+      }
+    },
+    {
+      "id": "7142_2432_000008",
+      "text": "l'imprévu d'un pareil spectacle en centuplait encore les merveilleuses beautés où sommes-nous où sommes-nous répétais je à mi-voix hans fermait les yeux avec indifférence et mon oncle regardait sans comprendre",
+      "audio": "dev/audio/7142/2432/7142_2432_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 261.64,
+        "original_end_s": 276.6
+      }
+    },
+    {
+      "id": "7142_2432_000009",
+      "text": "l'îlot représente à s'y méprendre un cétacé immense dont la tête domine les flots à une hauteur de dix toises le geyser mot que les islandais prononcent geysir et qui signifie fureur s'élève majestueusement à son extrémité",
+      "audio": "dev/audio/7142/2432/7142_2432_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 369.57,
+        "original_end_s": 386.41
+      }
+    },
+    {
+      "id": "7142_2432_000010",
+      "text": "je suis forcé d'avouer que nous sommes singulièrement favorisés jusqu'ici et que pour une raison qui m'échappe ce voyage s'accomplit dans des conditions particulières de température mais il me paraît évident certain",
+      "audio": "dev/audio/7142/2432/7142_2432_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 479.8,
+        "original_end_s": 491.72
+      }
+    },
+    {
+      "id": "7142_2432_000011",
+      "text": "que cette manière de descendre plaise au professeur parce qu'elle se rapproche de la verticale c'est possible mais à moi en tout cas il doit y avoir quelques lieues au vent un phénomène bruyant car maintenant les mugissements se font entendre avec une grande violence viennent-ils du ciel ou de l'océan",
+      "audio": "dev/audio/7142/2432/7142_2432_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 99.75,
+        "original_end_s": 119.21
+      }
+    },
+    {
+      "id": "7142_2432_000012",
+      "text": "il semble que si mes compagnons me touchaient en ce moment ils recevraient une commotion violente à dix heures du matin les symptômes de l'orage sont plus décisifs on dirait que le vent mollit pour mieux reprendre leur haleine la nue ressemble à une outre immense dans laquelle s'accumulent les ouragans",
+      "audio": "dev/audio/7142/2432/7142_2432_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 119.63,
+        "original_end_s": 138.83
+      }
+    },
+    {
+      "id": "7142_2432_000013",
+      "text": "hans maintient sa barre avec une inflexible rigueur cependant si de la distance qui nous sépare de cet animal et qu'il faut estimer à douze lieues au moins on peut apercevoir la colonne d'eau chassée par ses évents il doit être d'une taille surnaturelle",
+      "audio": "dev/audio/7142/2432/7142_2432_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 234.66,
+        "original_end_s": 251.33
+      }
+    },
+    {
+      "id": "7142_2432_000014",
+      "text": "pendant que chacun s'abandonnait ainsi à toutes les douceurs du repos un enfant apparut entre deux touffes d'oliviers ah m'écriais-je un habitant de cette heureuse contrée",
+      "audio": "dev/audio/7142/2432/7142_2432_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 416.98,
+        "original_end_s": 428.65
+      }
+    },
+    {
+      "id": "7142_2432_000015",
+      "text": "une île s'écrie mon oncle une île dis-je à mon tour en haussant les épaules évidemment répond le professeur en poussant un vaste éclat de rire mais cette colonne d'eau geyser fait hans",
+      "audio": "dev/audio/7142/2432/7142_2432_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 328.66,
+        "original_end_s": 343.9
+      }
+    },
+    {
+      "id": "7142_2432_000016",
+      "text": "ah ça parleras-tu s'écria mon oncle que la colère commençait à gagner et qui secoua l'enfant par les oreilles come si noma questa isola",
+      "audio": "dev/audio/7142/2432/7142_2432_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 505.9,
+        "original_end_s": 516.72
+      }
+    },
+    {
+      "id": "7142_2432_000017",
+      "text": "depuis j'ai réfléchi à ce singulier phénomène sans en trouver une explication satisfaisante toutefois il me paraît évident que nous n'occupions pas la cheminée principale du volcan mais bien un conduit accessoire où se faisait sentir un effet de contre-coup",
+      "audio": "dev/audio/7142/2432/7142_2432_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 558.99,
+        "original_end_s": 574.64
+      }
+    },
+    {
+      "id": "7142_2432_000018",
+      "text": "mon imagination surexcitée se promenait sur les plages de neige des contrées arctiques et j'aspirais au moment où je me roulerais sur les tapis glacés du pôle peu à peu d'ailleurs ma tête brisée par ces secousses réitérées se perdit",
+      "audio": "dev/audio/7142/2432/7142_2432_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 605.34,
+        "original_end_s": 621.96
+      }
+    },
+    {
+      "id": "7142_2432_000019",
+      "text": "quel est donc ce cétacé que n'ont prévu ni les cuvier ni les blumembach il est impossible et comme endormi la mer semble ne pas pouvoir le soulever et ce sont les vagues qui ondulent sur ses flancs",
+      "audio": "dev/audio/7142/2432/7142_2432_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 285.4,
+        "original_end_s": 298.75
+      }
+    },
+    {
+      "id": "7142_2432_000020",
+      "text": "heureusement après deux heures de marche une jolie campagne s'offrit à nos regards entièrement couverte d'oliviers de grenadiers et de vignes qui avaient l'air d'appartenir à tout le monde d'ailleurs dans notre dénuement nous n'étions point des gens à y regarder de si près",
+      "audio": "dev/audio/7142/2432/7142_2432_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 378.11,
+        "original_end_s": 397.65
+      }
+    },
+    {
+      "id": "7142_2432_000021",
+      "text": "nous n'étoufferons pas la galerie s'élargit et s'il le faut nous abandonnerons le radeau pour nous abriter dans quelque crevasse et l'eau et l'eau montante il n'y a plus d'eau axel mais une sorte de pâte lavique qui nous soulève avec elle jusqu'à l'orifice du cratère",
+      "audio": "dev/audio/7142/2432/7142_2432_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 399.77,
+        "original_end_s": 417.6
+      }
+    },
+    {
+      "id": "7142_2432_000022",
+      "text": "puis la boussole affolée secouée par les phénomènes électriques me confirmait dans mon opinion l'écorce minérale menaçait de se rompre les massifs granitiques de se rejoindre la fissure de se combler",
+      "audio": "dev/audio/7142/2432/7142_2432_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 82.1,
+        "original_end_s": 96.08
+      }
+    },
+    {
+      "id": "7142_2432_000023",
+      "text": "après les surprises innombrables de ce voyage une stupéfaction nous était encore réservée je m'attendais à voir un cône couvert de neiges éternelles au milieu des arides déserts des regions septentrionales",
+      "audio": "dev/audio/7142/2432/7142_2432_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 68.0,
+        "original_end_s": 80.98
+      }
+    },
+    {
+      "id": "7142_2432_000024",
+      "text": "stromboli répondit le petit pâtre qui s'échappa des mains de hans et gagna la plaine à travers les oliviers nous ne pensions guère à lui le stromboli",
+      "audio": "dev/audio/7142/2432/7142_2432_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 516.72,
+        "original_end_s": 528.54
+      }
+    },
+    {
+      "id": "7142_2432_000025",
+      "text": "vers le matin le mouvement d'ascension s'accéléra si la chaleur s'accrut au lieu de diminuer aux approches de la surface du globe c'est quelle était toute locale et due à une influence volcanique notre genre de locomotion ne pouvait plus me laisser aucun doute dans l'esprit",
+      "audio": "dev/audio/7142/2432/7142_2432_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 336.35,
+        "original_end_s": 354.06
+      }
+    },
+    {
+      "id": "7142_2432_000026",
+      "text": "bientôt des reflets fauves pénétraient dans la galerie verticale qui s'élargissait j'apercevais à droite et à gauche des couloirs profonds semblables à d'immenses tunnels d'où s'échappaient des vapeurs épaisses des langues de flammes en léchaient les parois en pétillant",
+      "audio": "dev/audio/7142/2432/7142_2432_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 366.94,
+        "original_end_s": 383.99
+      }
+    },
+    {
+      "id": "7142_2432_000027",
+      "text": "je porte mes regards vers les vapeurs suspendues dans l'atmosphère et cherche à sonder leur profondeur le ciel est tranquille les nuages apportés au plus haut de la voûte semblent immobiles et se perdent dans l'intense irradiation de la lumière",
+      "audio": "dev/audio/7142/2432/7142_2432_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 119.21,
+        "original_end_s": 136.82
+      }
+    },
+    {
+      "id": "7142_2432_000028",
+      "text": "il y avait là un fait inexplicable je ne savais qu'imaginer cependant nous nous rapprochions de cette verdure qui faisait plaisir à voir la faim me tourmentait et la soif aussi",
+      "audio": "dev/audio/7142/2432/7142_2432_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 364.55,
+        "original_end_s": 378.11
+      }
+    },
+    {
+      "id": "7142_2432_000029",
+      "text": "fuir serait se conformer aux lois de la plus vulgaire prudence mais nous ne sommes pas venus ici pour être prudents on va donc en avant plus nous approchons plus la gerbe grandit quel monstre peut s'emplir d'une pareille quantité d'eau et l'expulser sans ainsi sans interruption",
+      "audio": "dev/audio/7142/2432/7142_2432_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 251.33,
+        "original_end_s": 270.31
+      }
+    },
+    {
+      "id": "7142_2432_000030",
+      "text": "lundi vingt-quatre août cela ne finira pas pourquoi l'état de cette atmosphère si dense une fois modifié ne serait-il pas définitif nous sommes brisés de fatigue hans comme à l'ordinaire",
+      "audio": "dev/audio/7142/2432/7142_2432_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 448.23,
+        "original_end_s": 463.06
+      }
+    },
+    {
+      "id": "7142_2432_000031",
+      "text": "le radeau demeura absolument immobile qu'est-ce donc demandais-je ébranlé par cet arrêt subit comme par un choc une halte répondit mon oncle est-ce l'éruption qui se calme j'espère bien que non",
+      "audio": "dev/audio/7142/2432/7142_2432_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 461.43,
+        "original_end_s": 476.25
+      }
+    },
+    {
+      "id": "7142_2432_000032",
+      "text": "mardi vingt-cinq août je sors d'un évanouissement prolongé l'orage continue les éclairs se déchaînent comme une couvée de serpents lâchée dans l'atmosphère",
+      "audio": "dev/audio/7142/2432/7142_2432_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 639.35,
+        "original_end_s": 650.87
+      }
+    },
+    {
+      "id": "7142_2432_000033",
+      "text": "hans m'avait sauvé de la mort pendant que je roulais sur les flancs du cratère où sommes-nous demanda mon oncle qui me parut fort irrité d'être revenu sur terre",
+      "audio": "dev/audio/7142/2432/7142_2432_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 42.27,
+        "original_end_s": 53.22
+      }
+    },
+    {
+      "id": "7142_2432_000034",
+      "text": "je me levai j'essayai de voir autour de moi peut-être le radeau arrêté par une saillie de roc opposait-il une résistance momentanée à la masse éruptive",
+      "audio": "dev/audio/7142/2432/7142_2432_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 476.25,
+        "original_end_s": 486.8
+      }
+    },
+    {
+      "id": "7142_2432_000035",
+      "text": "quelle que soit cette montagne dit-il enfin il y fait un peu chaud les explosions ne discontinuent pas et ce ne serait vraiment pas la peine d'être sortis d'une éruption pour recevoir un morceau de roc sur la tête descendons et nous saurons à quoi nous en tenir d'ailleurs je meurs de faim et de soif",
+      "audio": "dev/audio/7142/2432/7142_2432_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 276.6,
+        "original_end_s": 296.59
+      }
+    },
+    {
+      "id": "7142_2432_000036",
+      "text": "et ces montagnes bleues qui s'arrondissaient au levant c'étaient les montagnes de la calabre et ce volcan dressé à l'horizon du sud l'etna le farouche etna lui-même stromboli le stromboli répétai-je",
+      "audio": "dev/audio/7142/2432/7142_2432_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 544.61,
+        "original_end_s": 559.44
+      }
+    },
+    {
+      "id": "7142_2432_000037",
+      "text": "une odeur de gaz nitreux remplit l'atmosphère elle pénètre le gosier les poumons on étouffe pourquoi ne puis-je retirer mon pied il est donc rivé au radeau",
+      "audio": "dev/audio/7142/2432/7142_2432_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 580.05,
+        "original_end_s": 592.33
+      }
+    },
+    {
+      "id": "7142_2432_000038",
+      "text": "dans l'est un seul existait sous le quatre vingtième degré de latitude l'esk dans l'île de jean mayen non loin du spitzberg",
+      "audio": "dev/audio/7142/2432/7142_2432_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 314.28,
+        "original_end_s": 325.02
+      }
+    },
+    {
+      "id": "7142_2432_000039",
+      "text": "ses longs cheveux repoussés par l'ouragan et ramenés sur sa face immobile lui donnent une étrange physionomie car chacune de leurs extrémités est hérissée de petites aigrettes lumineuses",
+      "audio": "dev/audio/7142/2432/7142_2432_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 249.55,
+        "original_end_s": 261.18
+      }
+    },
+    {
+      "id": "7142_2432_000040",
+      "text": "voyage au centre de la terre par jules verne chapitre quarante trois oui affolée l'aiguille sautait d'un pôle à l'autre avec de brusques secousses parcourait tous les points du cadran et tournait comme si elle eût été prise de vertige",
+      "audio": "dev/audio/7142/2432/7142_2432_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 14.31,
+        "original_end_s": 33.14
+      }
+    },
+    {
+      "id": "7142_2432_000041",
+      "text": "je prends le parti de lui écrire ces mots amenons notre voile il me fait signe qu'il y consent sa tête n'a pas eu le temps de se relever de bas en haut qu'un disque de feu apparaît au bord du radeau",
+      "audio": "dev/audio/7142/2432/7142_2432_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 508.43,
+        "original_end_s": 522.73
+      }
+    },
+    {
+      "id": "7142_2432_000042",
+      "text": "un ouragan qu'on eût dit chassé d'un ventilateur immense activait les feux souterrains une dernière fois la figure de hans m'apparut dans un reflet d'incendie",
+      "audio": "dev/audio/7142/2432/7142_2432_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 649.91,
+        "original_end_s": 660.77
+      }
+    },
+    {
+      "id": "7142_2432_000043",
+      "text": "silence général le vent se tait la nature a l'air d'une morte et ne respire plus sur le mat où je vois déjà poindre un léger feu saint-elme la voile détendue tombe en plis lourds le radeau est immobile au milieu d'une mer épaisse et sans ondulations",
+      "audio": "dev/audio/7142/2432/7142_2432_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 165.48,
+        "original_end_s": 183.94
+      }
+    },
+    {
+      "id": "7142_2432_000044",
+      "text": "il a vu quelque chose dit mon oncle je le crois hans redescend puis étend son bras vers le sud en disant der ner là-bas répond mon oncle",
+      "audio": "dev/audio/7142/2432/7142_2432_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 190.3,
+        "original_end_s": 204.63
+      }
+    },
+    {
+      "id": "7142_2432_000045",
+      "text": "se montrait à notre égard prodigue de lumière et de chaleur et nous versait à flots une splendide irradiation quand mes yeux furent accoutumés à cet éclat dont ils avaient perdu l'habitude je les employai à rectifier les erreurs de mon imagination",
+      "audio": "dev/audio/7142/2432/7142_2432_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 111.9,
+        "original_end_s": 128.03
+      }
+    },
+    {
+      "id": "7142_2432_000046",
+      "text": "en parlant ainsi ainsi mon oncle demi-nu sa bourse de cuir autour des reins et dressant ses lunettes sur son nez redevint le terrible professeur de minéralogie",
+      "audio": "dev/audio/7142/2432/7142_2432_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 649.71,
+        "original_end_s": 661.34
+      }
+    },
+    {
+      "id": "7142_2432_000047",
+      "text": "la boule mi-partie blanche mi-partie azurée de la grosseur d'une bombe de dix pouces se promène lentement en tournant avec une surprenante vitesse sous la lanière de l'ouragan",
+      "audio": "dev/audio/7142/2432/7142_2432_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 536.34,
+        "original_end_s": 548.16
+      }
+    },
+    {
+      "id": "7142_2432_000048",
+      "text": "il vient des extrémités les plus reculées de la caverne l'obscurité redouble c'est à peine si je puis prendre quelques notes incomplètes le radeau se soulève il bondit mon oncle est jeté de son haut",
+      "audio": "dev/audio/7142/2432/7142_2432_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 225.08,
+        "original_end_s": 239.19
+      }
+    },
+    {
+      "id": "7142_2432_000049",
+      "text": "parfois une pelote de vapeurs encore éclairée rebondit sur ce tapis grisâtre et va se perdre bientôt dans la masse opaque évidemment l'atmosphère est saturée de fluide j'en suis tout imprégné mes cheveux se dressent sur ma tête comme aux abords d'une machine électrique",
+      "audio": "dev/audio/7142/2432/7142_2432_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 101.79,
+        "original_end_s": 119.63
+      }
+    },
+    {
+      "id": "7142_2432_000050",
+      "text": "nous étions donc dans la cheminée d'un volcan pas de doute à cet égard mais cette fois au lieu du sneffels ce volcan éteint il s'agissait d'un volcan en pleine activité je me demandai donc quelle pourrait être cette montagne et dans quelle partie du monde nous allions être expulsés",
+      "audio": "dev/audio/7142/2432/7142_2432_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 259.0,
+        "original_end_s": 277.88
+      }
+    },
+    {
+      "id": "7142_2432_000051",
+      "text": "ma foi dis-je avec un grand air de dédain il ne faut pas l'expliquer c'est plus facile par exemple un professeur au johannaeum qui ne trouverait pas la raison d'un phénomène cosmique ce serait une honte",
+      "audio": "dev/audio/7142/2432/7142_2432_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 635.13,
+        "original_end_s": 649.71
+      }
+    },
+    {
+      "id": "7142_2432_000052",
+      "text": "mes yeux sont éblouis par l'intensité de la lumière mes oreilles brisées par le fracas de la foudre il faut me retenir au mât qui plie comme un roseau sous la violence de l'ouragan",
+      "audio": "dev/audio/7142/2432/7142_2432_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 339.75,
+        "original_end_s": 350.53
+      }
+    },
+    {
+      "id": "7142_2432_000053",
+      "text": "de l'autre main il soutenait mon oncle je n'étais pas blessé grièvement mais brisé plutôt par une courbature générale je me vis couché sur le versant d'une montagne à deux pas d'un gouffre dans lequel le moindre mouvement m'eût précipité",
+      "audio": "dev/audio/7142/2432/7142_2432_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 26.82,
+        "original_end_s": 42.27
+      }
+    },
+    {
+      "id": "7142_2432_000054",
+      "text": "quel effet produisit sur mon imagination ce nom inattendu nous étions en pleine méditerranée au milieu de l'archipel éolien de mythologique mémoire dans l'ancienne strongyle ou éole tenait à la chaîne les vents et les tempêtes",
+      "audio": "dev/audio/7142/2432/7142_2432_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 528.54,
+        "original_end_s": 544.61
+      }
+    },
+    {
+      "id": "7142_2432_000055",
+      "text": "le professeur en parlant ainsi ne cessait de consulter son chronomètre il devait avoir encore raison dans ses pronostics bientôt le radeau fut repris d'un mouvement rapide et désordonné qui dura deux minutes à peu près et il s'arrêta de nouveau",
+      "audio": "dev/audio/7142/2432/7142_2432_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 516.21,
+        "original_end_s": 531.87
+      }
+    },
+    {
+      "id": "7142_2432_000056",
+      "text": "combien de fois se reproduisit cette manoeuvre je ne saurais le dire tout ce que je puis affirmer c'est qu'à chaque reprise du mouvement nous étions lancés avec une force croissante et comme emportés par un véritable projectile",
+      "audio": "dev/audio/7142/2432/7142_2432_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 574.64,
+        "original_end_s": 587.66
+      }
+    },
+    {
+      "id": "7142_2432_000057",
+      "text": "il fallut donc se résigner à passer pour des humbles naufragés c'était moins glorieux mais plus sûr chemin faisant j'entendais mon oncle murmurer mais la boussole la boussole qui marquait le nord comment expliquer ce fait",
+      "audio": "dev/audio/7142/2432/7142_2432_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 618.45,
+        "original_end_s": 635.13
+      }
+    },
+    {
+      "id": "7142_2432_000058",
+      "text": "eh bien réplique-t-il qu'est-ce que cela prouve contre ma doctrine rien dis-je d'un ton sec en voyant que je me heurte à un entêtement absolu néanmoins",
+      "audio": "dev/audio/7142/2432/7142_2432_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 469.36,
+        "original_end_s": 479.8
+      }
+    },
+    {
+      "id": "7142_2432_000059",
+      "text": "certes les cratères ne manquaient pas et ils se trouvaient assez spacieux pour vomir une armée tout entière mais lequel nous servirait d'issue c'est ce que je cherchais à deviner",
+      "audio": "dev/audio/7142/2432/7142_2432_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 325.02,
+        "original_end_s": 336.35
+      }
+    },
+    {
+      "id": "7142_2432_000060",
+      "text": "pendant les instants de halte on étouffait pendant les moments de projection l'air brûlant me coupait la respiration je pensai un instant à cette volupté de me retrouver subitement dans les régions hyperboréennes par un froid de trente degrés au-dessous de zéro",
+      "audio": "dev/audio/7142/2432/7142_2432_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 587.66,
+        "original_end_s": 605.34
+      }
+    },
+    {
+      "id": "7142_2432_000061",
+      "text": "en cet instant s'il ne partagea pas notre émotion bien naturelle il se laissa aller du moins à un mouvement d'expansion extraordinaire du bout de ses doigts il pressa légèrement nos deux mains et se mit à sourire",
+      "audio": "dev/audio/7142/2432/7142_2432_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 673.63,
+        "original_end_s": 688.16
+      }
+    },
+    {
+      "id": "7142_2432_000062",
+      "text": "vers le couchant des côtes éloignées s'arrondissaient sur l'horizon les unes des autres et se profilaient des montagnes bleues d'une harmonieuse conformation sur les autres les plus lointaines apparaissait un cône prodigieusement élevé au sommet duquel s'agitait un panache de fumée",
+      "audio": "dev/audio/7142/2432/7142_2432_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 230.83,
+        "original_end_s": 248.62
+      }
+    },
+    {
+      "id": "7142_2432_000063",
+      "text": "mais l'évidence se fait et il faut enfin contenir mon erreur il n'y a là qu'un phénomène naturel à mesure que nous approchons les dimensions de la gerbe liquide deviennent grandioses",
+      "audio": "dev/audio/7142/2432/7142_2432_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 356.55,
+        "original_end_s": 369.57
+      }
+    },
+    {
+      "id": "7142_2432_000064",
+      "text": "que voulez-vous dire une éruption axel une éruption dis-je nous sommes dans la cheminée d'un volcan en activité je le pense dit le professeur en souriant et c'est ce qui peut nous arriver de plus heureux",
+      "audio": "dev/audio/7142/2432/7142_2432_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 143.69,
+        "original_end_s": 158.65
+      }
+    },
+    {
+      "id": "7142_2432_000065",
+      "text": "bon fît mon oncle en observant l'heure dans dix minutes il se remettra en route dix minutes oui nous avons affaire à un volcan dont l'éruption est intermittente il nous laisse respirer avec lui",
+      "audio": "dev/audio/7142/2432/7142_2432_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 531.87,
+        "original_end_s": 544.93
+      }
+    },
+    {
+      "id": "7142_2432_000066",
+      "text": "sous les pâles rayons d'un ciel polaire au delà des latitudes les plus élevées et contrairement à toutes ces prévisions mon oncle l'islandais et moi nous étions étendus à mi flanc d'une montagne calcinée par les ardeurs du soleil qui nous dévorait de ses feux",
+      "audio": "dev/audio/7142/2432/7142_2432_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 80.98,
+        "original_end_s": 97.47
+      }
+    },
+    {
+      "id": "7142_2432_000067",
+      "text": "voyage au centre de la terre par jules verne chapitre trente-quatre mercredi dix-neuf aout heureusement le vent qui souffle avec force nous a permis de fuir rapidement le théâtre du combat",
+      "audio": "dev/audio/7142/2432/7142_2432_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 15.27,
+        "original_end_s": 29.62
+      }
+    },
+    {
+      "id": "7142_2432_000068",
+      "text": "marchons sur un granit mêlé de tuf siliceux le sol frissonne sous nos pieds comme les flancs d'une chaudière où se tord de la vapeur surchauffée il est brûlant nous arrivons en vue d'un petit bassin central d'où s'élève le geyser",
+      "audio": "dev/audio/7142/2432/7142_2432_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 434.75,
+        "original_end_s": 450.42
+      }
+    },
+    {
+      "id": "7142_2432_000069",
+      "text": "voyage au centre de la terre par jules verne chapitre quarante-quatre quand je rouvris les yeux je me sentis serré à la ceinture par la main vigoureuse du guide",
+      "audio": "dev/audio/7142/2432/7142_2432_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 14.94,
+        "original_end_s": 26.82
+      }
+    },
+    {
+      "id": "7142_2432_000070",
+      "text": "d'autres éclairs bifurquent ou prennent la forme de globes de feu qui éclatent comme des bombes le bruit général ne parait pas s'en accroître il a dépassé la limite d'intensité que peut percevoir l'oreille humaine et quand toutes les poudrières du monde viendraient à sauter ensemble nous ne saurions en entendre davantage",
+      "audio": "dev/audio/7142/2432/7142_2432_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 401.87,
+        "original_end_s": 420.31
+      }
+    },
+    {
+      "id": "7142_2432_000071",
+      "text": "même silence de l'enfant alors essayons de l'italien reprit mon oncle et il dit en cette langue dove noi siamo oui où sommes-nous répétai-je avec impatience l'enfant de ne point répondre",
+      "audio": "dev/audio/7142/2432/7142_2432_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 489.39,
+        "original_end_s": 505.9
+      }
+    },
+    {
+      "id": "7142_2432_000072",
+      "text": "le temps s'il est permis de s'exprimer ainsi va changer avant peu l'atmosphère se charge de vapeurs qui emportent avec elles l'électricité formée par l'évaporation des eaux salines les nuages s'abaissent sensiblement et prennent une teinte uniformément olivâtre",
+      "audio": "dev/audio/7142/2432/7142_2432_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 36.59,
+        "original_end_s": 52.76
+      }
+    },
+    {
+      "id": "7142_2432_000073",
+      "text": "j'ai le sentiment confus de détonations continues de l'agitation du massif de mouvements giratoires dont fut pris le radeau il ondula sur les flots de lave au milieu d'une pluie de cendres les flammes ronflantes l'enveloppèrent",
+      "audio": "dev/audio/7142/2432/7142_2432_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 634.18,
+        "original_end_s": 649.91
+      }
+    },
+    {
+      "id": "7142_2432_000074",
+      "text": "je croyais toucher à ma dernière heure et pourtant l'imagination est si bizarre que je me livrai à une recherche véritablement enfantine mais je subissais mes pensées je ne les dominais pas",
+      "audio": "dev/audio/7142/2432/7142_2432_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 228.94,
+        "original_end_s": 242.56
+      }
+    },
+    {
+      "id": "7142_2432_000075",
+      "text": "aux éclats du tonnerre se mêlent les jets étincelants de la foudre des éclairs sans nombre s'entrecroisent au milieu des détonations la masse des vapeurs devient incandescente les grêlons qui frappent le métal de nos outils ou de nos armes se font lumineux",
+      "audio": "dev/audio/7142/2432/7142_2432_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 312.6,
+        "original_end_s": 329.59
+      }
+    },
+    {
+      "id": "7142_2432_000076",
+      "text": "voyez voyez mon oncle m'écriai-je eh bien ce sont des flammes sulfureuses rien de plus naturel dans une éruption mais si elles nous enveloppent elles ne nous envelopperont pas mais si nous étouffons",
+      "audio": "dev/audio/7142/2432/7142_2432_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 383.99,
+        "original_end_s": 399.77
+      }
+    },
+    {
+      "id": "7142_2432_000077",
+      "text": "alors même que les êtres disséminés à sa surface ne soupçonnent pas son agitation ce phénomène ne m'aurait donc pas autrement effrayé ou du moins il n'eût pas fait naître dans mon esprit une idée terrible",
+      "audio": "dev/audio/7142/2432/7142_2432_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 51.44,
+        "original_end_s": 64.47
+      }
+    },
+    {
+      "id": "7142_2432_000078",
+      "text": "et sans doute geyser riposte mon oncle un geyser pareil à ceux de l'islande je ne veux pas d'abord m'être trompé si grossièrement avoir pris un îlot pour un monstre marin",
+      "audio": "dev/audio/7142/2432/7142_2432_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 343.9,
+        "original_end_s": 356.55
+      }
+    },
+    {
+      "id": "7142_2432_000079",
+      "text": "qu'il regarde fixement de mon oncle qui se précipite à genoux pour l'éviter de moi pâle et frissonnant sous l'éclat de la lumière et de la chaleur il pirouette près de mon pied que j'essaye de retirer je ne puis y parvenir",
+      "audio": "dev/audio/7142/2432/7142_2432_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 564.91,
+        "original_end_s": 580.05
+      }
+    },
+    {
+      "id": "7142_2432_000080",
+      "text": "dans un tourbillon de flammes et c'est ce qui peut nous arriver de plus heureux oui répondit le professeur en me regardant par-dessus ses lunettes car c'est la seule chance que nous ayons de revenir à la surface de la terre",
+      "audio": "dev/audio/7142/2432/7142_2432_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 187.54,
+        "original_end_s": 200.39
+      }
+    },
+    {
+      "id": "7142_2432_000081",
+      "text": "voyage au centre de la terre par jules verne chapitre trente-cinq vendredi vingt-et-un août le lendemain le magnifique geyser a disparu le vent a fraîchi et nous a rapidement éloignés de l'îlot axel les mugissements se sont éteints peu à peu",
+      "audio": "dev/audio/7142/2432/7142_2432_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 17.67,
+        "original_end_s": 36.59
+      }
+    },
+    {
+      "id": "7142_2432_000082",
+      "text": "mais d'autres faits certains détails sui generis ne purent me tromper plus longtemps les détonations se multipliaient avec une effrayante intensité je ne pouvais les comparer qu'au bruit que feraient un grand nombre de chariots entraînés rapidement sur le pavé c'était un tonnerre continu",
+      "audio": "dev/audio/7142/2432/7142_2432_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 64.47,
+        "original_end_s": 82.1
+      }
+    },
+    {
+      "id": "7142_2432_000083",
+      "text": "je reste pendant quelques minutes encore à contempler le geyser je remarque que son jet est irrégulier dans ses accès qu'il diminue parfois d'intensité puis reprend avec une nouvelle vigueur ce que j'attribue aux variations de pression des vapeurs accumulées dans son réservoir",
+      "audio": "dev/audio/7142/2432/7142_2432_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 511.03,
+        "original_end_s": 527.23
+      }
+    },
+    {
+      "id": "7142_2432_000084",
+      "text": "alors mettons le cap plus à l'ouest car nous savons à quoi nous en tenir sur le danger de rencontrer ces monstres antédiluviens laissons aller répond mon oncle je me retourne vers hans",
+      "audio": "dev/audio/7142/2432/7142_2432_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 221.68,
+        "original_end_s": 234.66
+      }
+    },
+    {
+      "id": "7142_2432_000085",
+      "text": "décidément le professeur n'était point un esprit contemplatif pour mon compte oubliant le besoin et les fatigues je serais resté à cette place pendant de longues heures encore mais il fallut suivre mes compagnons",
+      "audio": "dev/audio/7142/2432/7142_2432_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 296.59,
+        "original_end_s": 311.72
+      }
+    },
+    {
+      "id": "7142_2432_000086",
+      "text": "les éclairs ne discontinuent pas je vois des zigzags rétrogrades qui après un jet rapide reviennent de bas en haut et vont frapper la voûte de granit si elle allait s'écrouler",
+      "audio": "dev/audio/7142/2432/7142_2432_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 389.89,
+        "original_end_s": 401.87
+      }
+    },
+    {
+      "id": "7142_2432_000087",
+      "text": "une heure après avoir quitté le bois d'oliviers nous arrivions au port de san vicenzo où hans réclamait le prix de sa treizième semaine de service qui lui fut compté de chaleureuses poignées de main",
+      "audio": "dev/audio/7142/2432/7142_2432_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 661.34,
+        "original_end_s": 673.63
+      }
+    },
+    {
+      "id": "7142_2432_000088",
+      "text": "il faut donc chercher ailleurs la cause du phénomène j'interroge alors l'horizon pur et dégagé de toute brume son aspect n'a pas changé mais si ce bruit vient d'une chute d'une cataracte si tout cet océan se précipite dans un bassin inférieur",
+      "audio": "dev/audio/7142/2432/7142_2432_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 136.82,
+        "original_end_s": 153.76
+      }
+    },
+    {
+      "id": "7142_2432_000089",
+      "text": "chacun de nous s'attache également les flots passent par-dessus notre tête impossible de s'adresser une seule parole depuis trois jours nous ouvrons la bouche nous remuons nos lèvres il ne se produit aucun son appréciable",
+      "audio": "dev/audio/7142/2432/7142_2432_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 477.75,
+        "original_end_s": 494.03
+      }
+    },
+    {
+      "id": "7142_2432_000090",
+      "text": "mon oncle commença par le rassurer de son mieux et lui dit en bon allemand quel est le nom de cette montagne mon petit ami l'enfant ne répondit pas bon fit mon oncle nous ne sommes point en allemagne et il redit la même demande en anglais",
+      "audio": "dev/audio/7142/2432/7142_2432_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 458.21,
+        "original_end_s": 475.42
+      }
+    },
+    {
+      "id": "7142_2432_000091",
+      "text": "jeudi vingt août brise du nord nord est assez inégale température chaude nous marchons avec une vitesse de trois lieues et demie à l'heure",
+      "audio": "dev/audio/7142/2432/7142_2432_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 46.89,
+        "original_end_s": 58.59
+      }
+    },
+    {
+      "id": "7142_2432_000092",
+      "text": "elles donnent le sentiment de notre situation dimanche vingt trois août où sommes-nous emportés avec une incomparable rapidité",
+      "audio": "dev/audio/7142/2432/7142_2432_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 367.58,
+        "original_end_s": 378.19
+      }
+    },
+    {
+      "id": "7142_2432_000093",
+      "text": "je sentais les convulsions de la montagne qui respirait à la façon des baleines et rejetait de temps à autre le feu et l'air par ses énormes évents au-dessous et par une pente assez roide",
+      "audio": "dev/audio/7142/2432/7142_2432_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 169.56,
+        "original_end_s": 182.3
+      }
+    },
+    {
+      "id": "7142_2432_000094",
+      "text": "la terreur me prend je ne veux pas aller plus loin je couperai s'il le faut la drisse de la voile je me révolte contre le professeur qui ne me répond pas tout à coup hans se lève et montrant du doigt le point menaçant holme dit-il",
+      "audio": "dev/audio/7142/2432/7142_2432_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 310.49,
+        "original_end_s": 328.66
+      }
+    },
+    {
+      "id": "7142_2432_000095",
+      "text": "cependant nous montions toujours la nuit se passa donc dans ce mouvement ascensionnel les fracas environnants redoublaient j'étais presque suffoqué",
+      "audio": "dev/audio/7142/2432/7142_2432_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 217.75,
+        "original_end_s": 228.94
+      }
+    },
+    {
+      "id": "7142_2432_000096",
+      "text": "dans les régions septentrionales cela ne faisait aucun doute avant ses affolements la boussole n'avait jamais varié à cet égard depuis le cap saknussemm nous avions été entraînés directement au nord pendant des centaines de lieues or étions-nous revenus sous l'islande",
+      "audio": "dev/audio/7142/2432/7142_2432_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 277.88,
+        "original_end_s": 297.51
+      }
+    },
+    {
+      "id": "7142_2432_000097",
+      "text": "sans les bras de hans plus d'une fois je me serais brisé le crâne contre la paroi de granit je n'ai donc conservé aucun souvenir précis de ce qui se passa dans les heures suivantes",
+      "audio": "dev/audio/7142/2432/7142_2432_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 621.96,
+        "original_end_s": 634.18
+      }
+    },
+    {
+      "id": "7142_2432_000098",
+      "text": "le vide de se remplir et nous pauvres atomes nous allions être écrasés dans cette formidable étreinte mon oncle mon oncle m'écriai-je nous sommes perdus",
+      "audio": "dev/audio/7142/2432/7142_2432_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 96.08,
+        "original_end_s": 107.49
+      }
+    },
+    {
+      "id": "7142_2432_000099",
+      "text": "l'enfant ne répondit pas davantage j'étais très intrigué est-il donc muet s'écria le professeur qui très fier de son polyglottisme recommença la même demande en français",
+      "audio": "dev/audio/7142/2432/7142_2432_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 475.42,
+        "original_end_s": 489.39
+      }
+    },
+    {
+      "id": "7142_2432_000100",
+      "text": "ce n'était point l'aspect des régions arctiques il fallait bien en convenir lorsque le regard franchissait cette verdoyante enceinte il arrivait rapidement à se perdre dans les eaux d'une mer admirable ou d'un lac qui faisait de cette terre enchantée une île large de quelques lieues à peine",
+      "audio": "dev/audio/7142/2432/7142_2432_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 196.63,
+        "original_end_s": 213.81
+      }
+    },
+    {
+      "id": "7142_2432_000101",
+      "text": "dans ce cas il fallait se hâter de le dégager au plus vite il n'en était rien la colonne de cendres de scories de débris pierreux avait elle-même cessé de monter",
+      "audio": "dev/audio/7142/2432/7142_2432_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 486.8,
+        "original_end_s": 498.36
+      }
+    },
+    {
+      "id": "7142_2432_000102",
+      "text": "il y a une émission continue de lumière à la surface des nuages la matière électrique se dégage incessamment de leurs molécules évidemment les principes gazeux de l'air sont altérés des colonnes d'eau innombrables s'élancent dans l'atmosphère et retombent en écumant",
+      "audio": "dev/audio/7142/2432/7142_2432_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 420.31,
+        "original_end_s": 436.42
+      }
+    },
+    {
+      "id": "7142_2432_000103",
+      "text": "ah la chute de ce globe électrique a aimanté tout le fer du bord les instruments les outils les armes s'agitent en se heurtant avec un cliquet aigu les clous de ma chaussure adhèrent violemment à une plaque de fer incrustée dans le bois je ne puis retirer mon pied",
+      "audio": "dev/audio/7142/2432/7142_2432_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 592.33,
+        "original_end_s": 609.55
+      }
+    },
+    {
+      "id": "7142_2432_000104",
+      "text": "il est d'une humeur massacrante à voir l'océan se prolonger indéfiniment devant ses yeux il hausse les épaules à mes paroles nous aurons de l'orage dis-je en étendant la main vers l'horizon ces nuages s'abaissent sur la mer comme pour l'écraser",
+      "audio": "dev/audio/7142/2432/7142_2432_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 149.53,
+        "original_end_s": 165.48
+      }
+    },
+    {
+      "id": "7142_2432_000105",
+      "text": "enfin par un violent effort je l'arrache au moment où la boule allait le saisir dans son mouvement giratoire et m'entraîner moi-même si ah quelle lumière intense le globe éclate nous sommes couverts par des jets de flammes",
+      "audio": "dev/audio/7142/2432/7142_2432_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 609.55,
+        "original_end_s": 624.58
+      }
+    },
+    {
+      "id": "7142_2432_000106",
+      "text": "a-t-elle donc menti oh menti a moins que ceci ne soit le pôle nord le pôle non mais",
+      "audio": "dev/audio/7142/2432/7142_2432_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 354.0,
+        "original_end_s": 364.55
+      }
+    },
+    {
+      "id": "7142_2432_000107",
+      "text": "le radeau court invariablement vers le sud-est nous avons fait plus de deux cents lieues depuis l'îlot axel à midi la violence de l'ouragan redouble il faut lier solidement tout les objets composant la cargaison",
+      "audio": "dev/audio/7142/2432/7142_2432_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 463.06,
+        "original_end_s": 477.75
+      }
+    },
+    {
+      "id": "7142_2432_000108",
+      "text": "de sourdes détonations éclatent par instants et l'énorme jet pris de colères plus violentes secoue son panache de vapeurs en bondissant jusqu'à la première couche de nuages",
+      "audio": "dev/audio/7142/2432/7142_2432_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 386.41,
+        "original_end_s": 397.52
+      }
+    },
+    {
+      "id": "7142_2432_000109",
+      "text": "est-ce que l'éruption s'arrêterait m'écriai-je ah fît mon oncle les dents serrées tu le crains mon garçon mais rassure-toi ce moment de calme ne saurait se prolonger voilà déjà cinq minutes qu'il dure et avant peu nous reprendrons notre ascension vers l'orifice du cratère",
+      "audio": "dev/audio/7142/2432/7142_2432_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 498.36,
+        "original_end_s": 516.21
+      }
+    },
+    {
+      "id": "7142_2432_000110",
+      "text": "hans se hisse au sommet du mât mais ne signale aucun écueil l'océan est uni jusqu'à sa ligne d'horizon trois heures se passent les mugissements semblent provenir d'une chute d'eau éloignée",
+      "audio": "dev/audio/7142/2432/7142_2432_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 74.94,
+        "original_end_s": 88.49
+      }
+    },
+    {
+      "id": "7142_2432_000111",
+      "text": "où allons-nous mon oncle est couché tout de son long à l'extrémité du radeau la chaleur redouble je regarde le thermomètre il indique le chiffre est effacé",
+      "audio": "dev/audio/7142/2432/7142_2432_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 436.42,
+        "original_end_s": 448.23
+      }
+    },
+    {
+      "id": "7142_2432_000112",
+      "text": "à huit heures du soir nous ne sommes pas à deux lieues de lui son corps noirâtre énorme monstrueux s'étend dans la mer comme un îlot est-ce illusion est-ce effroi sa longueur me parait dépasser mille toises",
+      "audio": "dev/audio/7142/2432/7142_2432_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 270.31,
+        "original_end_s": 285.4
+      }
+    },
+    {
+      "id": "7142_2432_000113",
+      "text": "ces quelques poutres mal jointes offraient une surface solide un point d'appui qui nous eût manqué partout ailleurs vers huit heures du matin un nouvel incident se produisit pour la première fois le mouvement ascensionnel cessa tout à coup",
+      "audio": "dev/audio/7142/2432/7142_2432_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 446.67,
+        "original_end_s": 461.43
+      }
+    },
+    {
+      "id": "7142_2432_000114",
+      "text": "mais si nous ne marchons plus à quoi bon conserver cette toile qui ne peut nous mettre en perdition au premier choc de la tempête amenons la dis-je abattons notre mât cela sera plus prudent",
+      "audio": "dev/audio/7142/2432/7142_2432_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 183.94,
+        "original_end_s": 195.93
+      }
+    },
+    {
+      "id": "7142_2432_000115",
+      "text": "la nuit a été épouvantable l'orage ne se calme pas nous vivons dans un milieu de bruit une détonation incessante nos oreilles saignent on ne peut échanger une parole",
+      "audio": "dev/audio/7142/2432/7142_2432_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 378.19,
+        "original_end_s": 389.89
+      }
+    },
+    {
+      "id": "7142_2432_000116",
+      "text": "rien n'était plus vrai à la minute assignée nous fûmes lancés de nouveau avec une extrême rapidité il fallait se cramponner aux poutres pour ne pas être rejeté hors du radeau puis la poussée s'arrêta",
+      "audio": "dev/audio/7142/2432/7142_2432_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 544.93,
+        "original_end_s": 558.99
+      }
+    },
+    {
+      "id": "7142_2432_000117",
+      "text": "le talus du volcan offrait des pentes très raides nous glissions dans de véritables fondrières de cendres évitant les ruisseaux de lave qui s'allongeaient comme des serpents de feu",
+      "audio": "dev/audio/7142/2432/7142_2432_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 311.72,
+        "original_end_s": 323.26
+      }
+    },
+    {
+      "id": "7142_2432_000118",
+      "text": "son masque effrayant est celui d'un homme antédiluvien contemporain des ichthyosaures et des megatherium cependant le mât résiste la voile se tend comme une bulle prête à crever",
+      "audio": "dev/audio/7142/2432/7142_2432_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 261.18,
+        "original_end_s": 274.11
+      }
+    },
+    {
+      "id": "7142_2432_000119",
+      "text": "je ne voulais pas en croire mes regards mais la réelle cuisson dont mon corps était l'objet ne permettait aucun doute nous étions sortis à demi nus du cratère et l'astre radieux auquel nous n'avons rien demandé depuis deux mois",
+      "audio": "dev/audio/7142/2432/7142_2432_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 97.47,
+        "original_end_s": 111.9
+      }
+    },
+    {
+      "id": "7142_2432_000120",
+      "text": "il est seul ni fumerolles ni sources chaudes ne l'entourent et de toute la puissance volcanique se résume en lui les rayons de la lumière électrique viennent se mêler à cette gerbe éblouissante dont chaque goutte se nuance de toutes les couleurs du prisme accostons dit le professeur",
+      "audio": "dev/audio/7142/2432/7142_2432_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 397.52,
+        "original_end_s": 416.24
+      }
+    },
+    {
+      "id": "7142_2432_000121",
+      "text": "je me traîne jusqu'à lui il s'est fortement cramponné à un bout de câble et parait considérer avec plaisir ce spectacle des éléments déchaînés hans ne bouge pas",
+      "audio": "dev/audio/7142/2432/7142_2432_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 239.19,
+        "original_end_s": 249.55
+      }
+    },
+    {
+      "id": "7142_2432_000122",
+      "text": "vers quatre heures hans se lève se cramponne au mât et monte à son extrémité de là son regard parcourt l'arc de cercle que l'océan décrit devant le radeau et s'arrête à un point sa figure n'exprime aucune surprise mais son poil est devenu fixe",
+      "audio": "dev/audio/7142/2432/7142_2432_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 172.48,
+        "original_end_s": 190.3
+      }
+    },
+    {
+      "id": "7142_2432_000123",
+      "text": "mon oncle m'accompagnait de ses gestes et de ses paroles nous avions l'air de chanter un choeur ah quel voyage quel merveilleux voyage entrés par un volcan nous étions sortis par un autre et cet autre était situé à plus de douze cents lieues du",
+      "audio": "dev/audio/7142/2432/7142_2432_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 559.44,
+        "original_end_s": 576.07
+      }
+    },
+    {
+      "id": "7142_2432_000124",
+      "text": "enfin nous partons en contournant les roches très accores du sud hans a profité de cette halte pour remettre le radeau en état mais avant de déborder je fais quelques observations pour calculer la distance parcourue et je les note sur mon journal",
+      "audio": "dev/audio/7142/2432/7142_2432_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 527.23,
+        "original_end_s": 543.78
+      }
+    },
+    {
+      "id": "7142_2432_000125",
+      "text": "mon oncle secoua doucement la tête un tremblement de terre fit-il oui mon garçon je crois que tu te trompes quoi vous ne reconnaissez pas ces symptômes d'un tremblement de terre non j'attends mieux que cela",
+      "audio": "dev/audio/7142/2432/7142_2432_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 127.3,
+        "original_end_s": 143.69
+      }
+    },
+    {
+      "id": "7142_2432_000126",
+      "text": "quelle est de cette nouvelle terreur me répondit-il avec un calme surprenant qu'as-tu donc ce que j'ai observez ces murailles qui s'agitent ce massif qui se disloque cette chaleur torride cette eau qui bouillonne ces vapeurs qui s'épaississent cette aiguille folle tous les indices d'un tremblement de terre",
+      "audio": "dev/audio/7142/2432/7142_2432_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 107.49,
+        "original_end_s": 127.3
+      }
+    },
+    {
+      "id": "7142_2432_000127",
+      "text": "et saisissant sa lunette il regarde attentivement pendant une minute qui me paraît un siècle oui oui s'écrie-t-il que voyez-vous une gerbe immense qui s'élève au-dessus des flots encore quelque animal marin",
+      "audio": "dev/audio/7142/2432/7142_2432_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 204.63,
+        "original_end_s": 221.68
+      }
+    },
+    {
+      "id": "7142_2432_000128",
+      "text": "de plus heureux mon oncle était-il devenu fou que signifiaient ces paroles pourquoi ce calme et ce sourire comment m'écriai-je nous sommes pris dans une éruption",
+      "audio": "dev/audio/7142/2432/7142_2432_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 158.65,
+        "original_end_s": 170.23
+      }
+    },
+    {
+      "id": "7142_2432_000129",
+      "text": "nous avons traversé la moitié du globe pour aboutir aux antipodes de l'europe mais la boussole répondit mon oncle oui la boussole dis-je d'un air embarrassé à l'en croire nous avons toujours marché au nord",
+      "audio": "dev/audio/7142/2432/7142_2432_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 339.0,
+        "original_end_s": 354.0
+      }
+    },
+    {
+      "id": "7142_2432_000130",
+      "text": "et à moins que ce pays ne fût un pays de voleurs nous étions faite de manière à effrayer ses habitants au moment ou le gamin allait prendre la fuite hans courut après lui et le ramena malgré ses cris et ses coups de pied",
+      "audio": "dev/audio/7142/2432/7142_2432_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 444.33,
+        "original_end_s": 458.21
+      }
+    },
+    {
+      "id": "7142_2432_000131",
+      "text": "je passe rapidement sur les mille idées qui se croisèrent dans mon cerveau mon oncle avait raison absolument raison et jamais il ne me parut ni plus audacieux ni plus convaincu qu'en ce moment où il attendait et supputait avec le calme les chances d'une éruption",
+      "audio": "dev/audio/7142/2432/7142_2432_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 200.39,
+        "original_end_s": 217.75
+      }
+    },
+    {
+      "id": "7142_2432_000132",
+      "text": "la fatalité nous a jetés sur le chemin des laves incandescentes des roches en feu des eaux bouillonnantes de toutes les matières éruptives nous allons être repoussés expulsés rejetés vomis lancés dans les airs avec les quartiers de rocs des pluies de cendres et de scories",
+      "audio": "dev/audio/7142/2432/7142_2432_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 170.23,
+        "original_end_s": 187.54
+      }
+    },
+    {
+      "id": "7142_2432_000133",
+      "text": "s'ouvrait le cratère d'un volcan par lequel s'échappait de quart d'heure en quart d'heure avec une très forte détonation une haute colonne de flammes mêlée de pierres ponces de cendres et de laves",
+      "audio": "dev/audio/7142/2432/7142_2432_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 157.95,
+        "original_end_s": 169.56
+      }
+    },
+    {
+      "id": "7142_2432_000134",
+      "text": "la sueur m'inondait sans la rapidité de l'ascension nous aurions été certainement étouffés cependant le professeur ne donna pas suite à sa proposition d'abandonner le radeau et il fit bien",
+      "audio": "dev/audio/7142/2432/7142_2432_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 432.47,
+        "original_end_s": 446.67
+      }
+    },
+    {
+      "id": "7142_2432_000135",
+      "text": "dans le nord une immense étendue d'eau étincelait sous les rayons solaires laissait poindre ça et là l'extrémité d'une mâture ou la convexité d'une voile gonflée au vent",
+      "audio": "dev/audio/7142/2432/7142_2432_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 248.62,
+        "original_end_s": 261.64
+      }
+    },
+    {
+      "id": "7142_2432_000136",
+      "text": "tout en descendant je causais avec volubilité car mon imagination était trop remplie pour ne point s'en aller en paroles nous sommes en asie m'écriai-je sur les côtes de l'inde dans les îles malaises en pleine océanie",
+      "audio": "dev/audio/7142/2432/7142_2432_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 323.26,
+        "original_end_s": 339.0
+      }
+    },
+    {
+      "id": "7142_2432_000137",
+      "text": "je ne veux pas croire aux menaces du ciel et cependant je ne puis m'empêcher de dire voilà du mauvais temps qui se prépare le professeur ne répond pas",
+      "audio": "dev/audio/7142/2432/7142_2432_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 138.83,
+        "original_end_s": 149.53
+      }
+    },
+    {
+      "id": "7142_2432_000138",
+      "text": "leur pesanteur est telle qu'ils ne peuvent se détacher de l'horizon mais au souffle des courants élevés ils se fondent peu à peu s'assombrissent et présentent bientôt une couche unique d'un aspect redoutable",
+      "audio": "dev/audio/7142/2432/7142_2432_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 89.93,
+        "original_end_s": 101.79
+      }
+    },
+    {
+      "id": "7142_2432_000139",
+      "text": "après un délicieux repas composé de fruits et d'eau fraîche nous nous remîmes en route pour gagner le port de stromboli dire comment nous étions arrivés dans l'île ne nous parut pas prudent l'esprit superstitieux des italiens n'eût pas manqué de voir en nous des démons vomis au sein des enfers",
+      "audio": "dev/audio/7142/2432/7142_2432_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 599.46,
+        "original_end_s": 618.45
+      }
+    },
+    {
+      "id": "7142_2432_000140",
+      "text": "au loin les nuages ressemblent à de grosses balles de coton amoncelées dans un pittoresque désordre peu à peu ils se gonflent et perdent en nombre ce qu'ils gagnent en grandeur",
+      "audio": "dev/audio/7142/2432/7142_2432_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 78.67,
+        "original_end_s": 89.93
+      }
+    },
+    {
+      "id": "7142_2432_000141",
+      "text": "puis tout s'éteint j'ai eu le temps de voir mon oncle étendu sur le radeau hans toujours à sa barre et crachant du feu sous l'influence de l'électricité qui le pénètre où allons-nous où allons-nous",
+      "audio": "dev/audio/7142/2432/7142_2432_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 624.58,
+        "original_end_s": 639.35
+      }
+    },
+    {
+      "id": "7142_2432_000142",
+      "text": "radeau file avec un emportement que je ne puis estimer mais moins vite encore que ces gouttes d'eau déplacées sous lui dont la rapidité fait des lignes droites et nettes la voile la voile dis-je en faisant signe de l'abaisser non répond mon oncle nej fait hans en remuant doucement la tête",
+      "audio": "dev/audio/7142/2432/7142_2432_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 274.11,
+        "original_end_s": 292.96
+      }
+    },
+    {
+      "id": "7142_2432_000143",
+      "text": "je n'eus plus d'autre sentiment que cette épouvante sinistre des condamnés attachés à la bouche d'un canon au moment où le coup part et disperse leurs membres dans les airs fin du chapitre quarante trois",
+      "audio": "dev/audio/7142/2432/7142_2432_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 660.77,
+        "original_end_s": 679.16
+      }
+    },
+    {
+      "id": "7142_2432_000144",
+      "text": "il était évident que nous étions rejetés par une poussée éruptive sous le radeau il y avait des eaux bouillonnantes et sous ces eaux toute une pâte de lave un agrégat de roches qui au sommet du cratère se disperseraient en tous les sens",
+      "audio": "dev/audio/7142/2432/7142_2432_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 242.56,
+        "original_end_s": 259.0
+      }
+    },
+    {
+      "id": "7142_2432_000145",
+      "text": "la colonne liquide avait effectivement disparu pour faire place à des matières éruptives assez denses quoique bouillonnantes la température devenait insoutenable et un thermomètre exposé dans cette atmosphère eût marqué plus de soixante-dix degrés",
+      "audio": "dev/audio/7142/2432/7142_2432_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 417.6,
+        "original_end_s": 432.47
+      }
+    },
+    {
+      "id": "7142_2432_000146",
+      "text": "les vagues soulevées semblent être autant de mamelons ignivomes sous lesquels couve un feu intérieur et dont chaque crête est empanachée d'une flamme",
+      "audio": "dev/audio/7142/2432/7142_2432_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 329.59,
+        "original_end_s": 339.75
+      }
+    },
+    {
+      "id": "7142_2432_000147",
+      "text": "hans est toujours au gouvernail mon oncle tiré de ses absorbantes idées par les incidents de ce combat retombe dans son impatiente contemplation de la mer le voyage reprend sa monotone uniformité que je ne tiens pas à rompre au prix des dangers d'hier",
+      "audio": "dev/audio/7142/2432/7142_2432_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 29.62,
+        "original_end_s": 46.89
+      }
+    },
+    {
+      "id": "7142_2432_000148",
+      "text": "même en se parlant à l'oreille on ne peut s'entendre mon oncle s'est approché de moi il a articulé quelques paroles je crois qu'il a dit nous sommes perdus je n'en suis pas certain",
+      "audio": "dev/audio/7142/2432/7142_2432_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 494.03,
+        "original_end_s": 508.43
+      }
+    },
+    {
+      "id": "7142_2432_000149",
+      "text": "ici mes notes de voyage deviennent très incomplètes je n'ai plus retrouvé que quelques observations fugitives et prises machinalement pour ainsi dire mais dans leur brièveté dans leur obscurité même elles sont empreintes de l'émotion qui me dominait et mieux que ma mémoire",
+      "audio": "dev/audio/7142/2432/7142_2432_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 350.53,
+        "original_end_s": 367.58
+      }
+    },
+    {
+      "id": "7142_2432_000150",
+      "text": "quelle jouissance ce fut de presser ces fruits savoureux sur nos lèvres et de mordre à pleines grappes dans ces vignes vermeilles non loin dans l'herbe à l'ombre délicieuse des arbres je découvris une source d'eau fraîche où notre figure et nos mains se plongèrent voluptueusement",
+      "audio": "dev/audio/7142/2432/7142_2432_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 397.65,
+        "original_end_s": 416.98
+      }
+    },
+    {
+      "id": "7142_2432_000151",
+      "text": "les nappes de matières éruptives s'étendaient à une profondeur de sept à huit cents pieds une hauteur de cent toises parmi lesquelles je distinguai des oliviers des figuiers et des vignes chargées de grappes vermeilles",
+      "audio": "dev/audio/7142/2432/7142_2432_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 182.3,
+        "original_end_s": 196.63
+      }
+    },
+    {
+      "id": "7142_2432_000152",
+      "text": "le chasseur leva les épaules en signe d'ignorance en islande dis-je nej répondit hans comment non s'écria le professeur hans se trompe dis-je en me soulevant",
+      "audio": "dev/audio/7142/2432/7142_2432_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 53.22,
+        "original_end_s": 68.0
+      }
+    },
+    {
+      "id": "7142_2432_000153",
+      "text": "la colonne d'eau projetée à une hauteur de cinq cents pieds retombe avec un bruit assourdissant nous courons en insensés vers cette masse puissante que cent baleines ne nourriraient pas pour un jour",
+      "audio": "dev/audio/7142/2432/7142_2432_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 298.75,
+        "original_end_s": 310.49
+      }
+    },
+    {
+      "id": "7142_2432_000154",
+      "text": "je savais bien que d'après les théories les plus acceptées l'écorce minérale du globe n'est jamais dans un état de repos absolu les modifications amenées par la décomposition des matières internes l'agitation provenant des grands courants liquides l'action du magnétisme tendent à l'ébranler incessamment",
+      "audio": "dev/audio/7142/2432/7142_2432_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 33.14,
+        "original_end_s": 51.44
+      }
+    },
+    {
+      "id": "7142_2432_000155",
+      "text": "mais il faut éviter avec soin cette trombe d'eau qui coulerait le radeau en un instant hans manoeuvrant adroitement nous amène à l'extrémité de l'îlot je saute sur le roc mon oncle me suit lestement tandis que le chasseur demeure à son poste comme un homme au-dessus de ces étonnements",
+      "audio": "dev/audio/7142/2432/7142_2432_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 416.24,
+        "original_end_s": 434.75
+      }
+    },
+    {
+      "id": "7142_2432_000156",
+      "text": "devions-nous être rejetés par le cratère de l'hécla ou par ceux des sept autres monts ignivomes de l'île dans un rayon de cinq cents lieues à l'ouest je ne voyais sous ce parallèle que les volcans mal connus de la côte nord-ouest de l'amérique",
+      "audio": "dev/audio/7142/2432/7142_2432_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_43_verne_64kb.mp3",
+        "original_start_s": 297.51,
+        "original_end_s": 314.28
+      }
+    },
+    {
+      "id": "7142_2432_000157",
+      "text": "si ces mugissements sont produits par une masse d'eau qui tombe le courant doit s'activer et sa vitesse croissante peut me donner la mesure du péril dont nous sommes menacés je consulte le courant il est nul une bouteille vide que je jette à la mer reste sous le vent",
+      "audio": "dev/audio/7142/2432/7142_2432_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_34_verne_64kb.mp3",
+        "original_start_s": 153.76,
+        "original_end_s": 172.48
+      }
+    },
+    {
+      "id": "7142_2432_000158",
+      "text": "de cet aride pays de l'islande jeté aux confins du monde les hasards de cette expédition nous avaient transportés au sein des plus harmonieuses contrées de la terre",
+      "audio": "dev/audio/7142/2432/7142_2432_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_44_verne_64kb.mp3",
+        "original_start_s": 576.07,
+        "original_end_s": 586.49
+      }
+    },
+    {
+      "id": "7142_2432_000159",
+      "text": "les rayons électriques peuvent à peine percer cet opaque rideau baissé sur le théâtre où va se jouer le drame des tempêtes je me sens particulièrement impressionné comme l'est sur terre toute créature à l'approche d'un cataclysme",
+      "audio": "dev/audio/7142/2432/7142_2432_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 52.76,
+        "original_end_s": 66.1
+      }
+    },
+    {
+      "id": "7142_2432_000160",
+      "text": "sommes-nous toujours sur la mer oui et emportés avec une vitesse incalculable nous avons passé sous l'angleterre sous la manche sous la france sous l'europe entière peut-être un bruit nouveau se fait entendre évidemment la mer qui se brise sur les rochers mais alors",
+      "audio": "dev/audio/7142/2432/7142_2432_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7142",
+        "gender": "m",
+        "book_id": "2432",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/voyageaucentredelaterre_1210_librivox/voyageaucentredelaterre_35_verne_64kb.mp3",
+        "original_start_s": 650.87,
+        "original_end_s": 669.9
+      }
+    }
+  ]
+}

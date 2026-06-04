@@ -1,0 +1,3350 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Sklepy cynamonowe",
+  "lang": "pl",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1447",
+    "book_title": "Sklepy cynamonowe",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1889_1447_000000",
+      "text": "staliśmy wszyscy bezradni wobec tej szalejącej furii złości która sama siebie trawiła i pożerała z ubolewaniem patrzyliśmy na smutny przebieg tego paroksyzmu i z pewną ulgą wróciliśmy do naszych zajęć gdy żałosny ten proces dobiegł swego naturalnego końca",
+      "audio": "test/audio/1889/1447/1889_1447_000000.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 757.63,
+        "original_end_s": 775.81
+      }
+    },
+    {
+      "id": "1889_1447_000001",
+      "text": "nawet w obecności matki leżącej z zawiązaną głową na sofie nie mogły się powstrzymać robiły perskie oczko dawały sobie znaki mówiły niemym kolorowym alfabetem pełnym sekretnych znaczeń irytowało mnie to szydercze porozumienie ta migotliwa zmowa poza mymi plecami",
+      "audio": "test/audio/1889/1447/1889_1447_000001.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 206.14,
+        "original_end_s": 224.63
+      }
+    },
+    {
+      "id": "1889_1447_000002",
+      "text": "staliśmy pod drzwiami i nasłuchiwali w lamentach wichru dawały się słyszeć wszelkie głosy perswazje nawoływania i gawędy zdawało się nam że słyszymy wołanie o pomoc ojca zbłąkanego w wichurze to znowu że brat z teodorem gwarzą beztrosko pod drzwiami",
+      "audio": "test/audio/1889/1447/1889_1447_000002.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 453.36,
+        "original_end_s": 471.68
+      }
+    },
+    {
+      "id": "1889_1447_000003",
+      "text": "owego dnia był ciężki dzień zimowy i od rana już sypał się miękki puch zmierzchu matka miała migrenę i leżała na sofie samotnie w salonie",
+      "audio": "test/audio/1889/1447/1889_1447_000003.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 140.92,
+        "original_end_s": 150.92
+      }
+    },
+    {
+      "id": "1889_1447_000004",
+      "text": "weszli zdyszani do sieni zaciskając z wysiłkiem drzwi za sobą przez chwilę musieli wesprzeć się o odrzwia tak silnie szturmował wicher do bramy wreszcie zasunęli rygiel i wiatr pognał dalej",
+      "audio": "test/audio/1889/1447/1889_1447_000004.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 482.38,
+        "original_end_s": 494.91
+      }
+    },
+    {
+      "id": "1889_1447_000005",
+      "text": "ale w dniach upadku w godzinach niskiej pokusy zdarzało się że ten lub ów z mieszkańców miasta zabłąkiwał się na wpół przypadkiem w tę wątpliwą dzielnicę",
+      "audio": "test/audio/1889/1447/1889_1447_000005.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 305.94,
+        "original_end_s": 317.82
+      }
+    },
+    {
+      "id": "1889_1447_000006",
+      "text": "podzielone na pola energetyczne i drżące od napięć pełne było utajonej dynamiki rysowały się w nim diagramy wichury która sama niewidoczna i nieuchwytna ładowała krajobraz potęgą",
+      "audio": "test/audio/1889/1447/1889_1447_000006.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 208.79,
+        "original_end_s": 222.22
+      }
+    },
+    {
+      "id": "1889_1447_000007",
+      "text": "ażeby wypocząć na ich nicości zanim wciągnięte zostaną w labirynty nowych przygód i rozdziałów ach ten stary pożółkły romans roku ta wielka rozpadająca się księga kalendarza",
+      "audio": "test/audio/1889/1447/1889_1447_000007.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 122.09,
+        "original_end_s": 136.61
+      }
+    },
+    {
+      "id": "1889_1447_000008",
+      "text": "a u dołu u stóp tego synaju wyrosłego z gniewu ojca gestykulował lud złorzeczył i czcił baala i handlował nabierali pełne ręce miękkich fałd drapowali się w kolorowe sukna owijali się w zaimprowizowane domina i płaszcze i gadali bezładnie a obficie",
+      "audio": "test/audio/1889/1447/1889_1447_000008.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1030.23,
+        "original_end_s": 1049.1
+      }
+    },
+    {
+      "id": "1889_1447_000009",
+      "text": "ale potem zapominaliśmy o wichurze adela tłukła cynamon w dźwięcznym moździerzu ciotka perazja przyszła w odwiedziny drobna ruchliwa i pełna zabiegliwości z koronką czarnego szala na głowie zaczęła krzątać się po kuchni pomagając adeli",
+      "audio": "test/audio/1889/1447/1889_1447_000009.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 625.35,
+        "original_end_s": 643.57
+      }
+    },
+    {
+      "id": "1889_1447_000010",
+      "text": "z twarzami w profilu jak szereg bladych masek z papieru wyciętych w fantastyczną linię zapatrzenia i wreszcie niespodzianie zajeżdża już wjechał z bocznej uliczki skąd go oczekiwano niski jak wąż miniaturowy z małą sapiącą krępą lokomotywą",
+      "audio": "test/audio/1889/1447/1889_1447_000010.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 963.64,
+        "original_end_s": 980.59
+      }
+    },
+    {
+      "id": "1889_1447_000011",
+      "text": "tymczasem powszechna rozwiązłość zrzucała coraz bardziej hamulce pozorów subiekt wyczerpawszy swą natarczywą aktywność przechodził powoli do kobiecej bierności",
+      "audio": "test/audio/1889/1447/1889_1447_000011.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 625.56,
+        "original_end_s": 636.98
+      }
+    },
+    {
+      "id": "1889_1447_000012",
+      "text": "gdzie byli subiekci gdzie były te urodziwe cheruby majce bronić ciemnych sukiennych szańców ojciec podejrzewał bolesną mylą że oto grzeszą gdzieś w głębi domu z córami ludzi",
+      "audio": "test/audio/1889/1447/1889_1447_000012.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 797.57,
+        "original_end_s": 810.65
+      }
+    },
+    {
+      "id": "1889_1447_000013",
+      "text": "i podczas gdy zabawy dzieci stawały się coraz bardziej hałaśliwe i splątane wypieki miasta ciemniały i zakwitały purpurą nagle świat cały zaczynał więdnąć i czernieć i szybko wydzielał się zeń majaczliwy zmierzch którym zarażały się wszystkie rzeczy",
+      "audio": "test/audio/1889/1447/1889_1447_000013.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 521.42,
+        "original_end_s": 537.61
+      }
+    },
+    {
+      "id": "1889_1447_000014",
+      "text": "osobliwością dzielnicy są dorożki bez woźniców biegnące samopas po ulicach nie jakoby nie było tu dorożkarzy ale wmieszani w tłum i zajęci tysiącem spraw nie troszcz się o swe dorożki",
+      "audio": "test/audio/1889/1447/1889_1447_000014.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 867.26,
+        "original_end_s": 880.35
+      }
+    },
+    {
+      "id": "1889_1447_000015",
+      "text": "przez jasne szyby tych latarni można było śledzić zgiełkliwy i pełen dziwacznego ceremoniału obrzęd zakupów jesiennych ta wielka fałdzista noc jesienna rosnąca cieniami",
+      "audio": "test/audio/1889/1447/1889_1447_000015.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 619.74,
+        "original_end_s": 632.48
+      }
+    },
+    {
+      "id": "1889_1447_000016",
+      "text": "czasami w nieregularnych porach dnia gdzieś ku końcowi tygodnia można zauważyć tłum ludzi czekających na zakręcie ulicy na pociąg nie jest się nigdy pewnym czy przyjedzie i gdzie stanie",
+      "audio": "test/audio/1889/1447/1889_1447_000016.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 936.72,
+        "original_end_s": 949.26
+      }
+    },
+    {
+      "id": "1889_1447_000017",
+      "text": "pochłonąwszy ich wicher na chwilę przycichł adela z matką próbowały na nowo rozpalić ogień pod kuchnią zapałki gasły przez drzwiczki dmuchało popiołem i sadzą",
+      "audio": "test/audio/1889/1447/1889_1447_000017.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 441.16,
+        "original_end_s": 453.36
+      }
+    },
+    {
+      "id": "1889_1447_000018",
+      "text": "twierdzą oni że każda kobieta w tej dzielnicy jest kokotą w istocie wystarczy zwrócić uwagę na którąś a natychmiast spotyka się to uporczywe lepkie spojrzenie które nas zmraża rozkoszną pewnością",
+      "audio": "test/audio/1889/1447/1889_1447_000018.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1087.57,
+        "original_end_s": 1100.79
+      }
+    },
+    {
+      "id": "1889_1447_000019",
+      "text": "na całe pojezierze szeroko rozlanych moczarów i stawów na pofałdowane przedgórza ciągnące się ku południowi naprzód z rzadka potem coraz tłumniejszymi pasmami szachownicą okrągławych wzgórzy coraz mniejszych i coraz bledszych w miarę jak odchodziły ku złotawej i dymnej mgle horyzontu",
+      "audio": "test/audio/1889/1447/1889_1447_000019.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 54.5,
+        "original_end_s": 74.12
+      }
+    },
+    {
+      "id": "1889_1447_000020",
+      "text": "nawet na uczciwą obywatelską śmierć nie zasłużył sobie myślałem wszystko u niego musiało być dziwaczne i wątpliwe postanowiłem w stosownej chwili zaskoczyć matkę otwartą rozmową",
+      "audio": "test/audio/1889/1447/1889_1447_000020.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 128.48,
+        "original_end_s": 140.92
+      }
+    },
+    {
+      "id": "1889_1447_000021",
+      "text": "ludzie uciekali przed zmierzchem w cichym popłochu i naraz dosięgał ich ten trąd i wysypywał się ciemną wysypką na czole i tracili twarze które odpadały wielkimi bezkształtnymi plamami i szli dalej już bez rysów bez oczu gubiąc po drodze maskę po masce",
+      "audio": "test/audio/1889/1447/1889_1447_000021.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 547.77,
+        "original_end_s": 565.05
+      }
+    },
+    {
+      "id": "1889_1447_000022",
+      "text": "tak cofano się wsuwano w głąb z wyrachowaniem otwierając wolną przestrzeń dla aktywności gościa skorzystajmy z tego momentu nieuwagi ażeby wymknąć się nieprzewidzianym konsekwencjom tej niewinnej wizyty i wydostać się na ulicę",
+      "audio": "test/audio/1889/1447/1889_1447_000022.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 684.45,
+        "original_end_s": 699.81
+      }
+    },
+    {
+      "id": "1889_1447_000023",
+      "text": "świdrowały te oczy dzień cały i wierciły dziury w ścianach mrugały tłoczyły się trzepocząc rzęsami z palcem przy ustach jedne przez drugie pełne chichotu i psoty",
+      "audio": "test/audio/1889/1447/1889_1447_000023.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 184.86,
+        "original_end_s": 195.54
+      }
+    },
+    {
+      "id": "1889_1447_000024",
+      "text": "ranki były podówczas dziwnie cierpkie i orzeźwiające po uspokojonym i chłodniejszym tempie czasu po nowym całkiem zapachu powietrza po odmiennej konsystencji światła poznać było że weszło się w inną serię dni w nową okolicę bożego roku",
+      "audio": "test/audio/1889/1447/1889_1447_000024.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 186.49,
+        "original_end_s": 205.47
+      }
+    },
+    {
+      "id": "1889_1447_000025",
+      "text": "mnożył się i sycił potężny kapitał jesieni tam rósł i ciemniał ten kapitał i rozsiadał się coraz szerzej na półkach jak na galeriach jakiego wielkiego teatru",
+      "audio": "test/audio/1889/1447/1889_1447_000025.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 304.61,
+        "original_end_s": 316.53
+      }
+    },
+    {
+      "id": "1889_1447_000026",
+      "text": "rozglądał się z przerażeniem po pustym sklepie szukał subiektów ale ci ciemni i rudzi aniołowie dokądś odlecieli pozostał on sam tylko",
+      "audio": "test/audio/1889/1447/1889_1447_000026.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 774.53,
+        "original_end_s": 784.68
+      }
+    },
+    {
+      "id": "1889_1447_000027",
+      "text": "prawda że to jest on i chociaż nie wskazałem nawet spojrzeniem na kondora matka odgadła od razu zmieszała się bardzo i spuściła oczy dałem umyślnie upłynąć chwili żeby wykosztować jej zmieszanie po czym z całym spokojem opanowując wzbierający gniew spytałem",
+      "audio": "test/audio/1889/1447/1889_1447_000027.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 236.62,
+        "original_end_s": 254.46
+      }
+    },
+    {
+      "id": "1889_1447_000028",
+      "text": "nie jedliśmy tego dnia obiadu bo ogień w kuchni wracał kłębami dymu do izby w pokojach było zimno i pachniało wiatrem około drugiej po południu wybuchł na przedmieściu pożar i rozszerzał się gwałtownie matka z adelą zaczęły pakować pościel futra i kosztowności",
+      "audio": "test/audio/1889/1447/1889_1447_000028.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 320.72,
+        "original_end_s": 338.35
+      }
+    },
+    {
+      "id": "1889_1447_000029",
+      "text": "ojciec mój uspokajał się powoli gniew jego układał się i zastygał w pokładach i warstwach krajobrazu siedział teraz na galeriach wysokich półek i patrzył w jesienniejący rozległy kraj widział jak na dalekich jeziorach odbywał się połów ryb",
+      "audio": "test/audio/1889/1447/1889_1447_000029.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1254.48,
+        "original_end_s": 1271.22
+      }
+    },
+    {
+      "id": "1889_1447_000030",
+      "text": "opowiadali bezładnie o nocy o wichurze ich futra nasiąkłe wiatrem pachniały teraz powietrzem trzepotali powiekami w świetle ich oczy pełne jeszcze nocy broczyły ciemnością za każdym uderzeniem powiek",
+      "audio": "test/audio/1889/1447/1889_1447_000030.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 494.91,
+        "original_end_s": 509.67
+      }
+    },
+    {
+      "id": "1889_1447_000031",
+      "text": "aż znalazła dwie cienkie żółte drzazgi pochwyciła je latającymi ze wzburzenia rękami przymierzyła do nóg po czym wspięła się na nie jak na szczudła i zaczęła na tych żółtych kulach chodzić stukocąc po deskach biegać tam i z powrotem wzdłuż skośnej linii podłogi coraz szybciej i szybciej",
+      "audio": "test/audio/1889/1447/1889_1447_000031.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 711.5,
+        "original_end_s": 730.39
+      }
+    },
+    {
+      "id": "1889_1447_000032",
+      "text": "nastawiał się palisadami krokwi rósł jak sklepienia gotyckie rozprzestrzeniał się lasem belek pełnym stokrotnego echa i huczał jak pudło ogromnych basów",
+      "audio": "test/audio/1889/1447/1889_1447_000032.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 614.35,
+        "original_end_s": 625.35
+      }
+    },
+    {
+      "id": "1889_1447_000033",
+      "text": "pokazywało się wówczas że magazyn konfekcji był tylko fasadą za którą kryła się antykwarnia zbiór wysoce dwuznacznych wydawnictw i druków prywatnych",
+      "audio": "test/audio/1889/1447/1889_1447_000033.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 550.83,
+        "original_end_s": 560.95
+      }
+    },
+    {
+      "id": "1889_1447_000034",
+      "text": "pustoszący i ciepły wicher powieje nad tymi szafami i wtedy puszczą one i nic nie zdoła powstrzymać ich wylewu tych strumieni kolorowości którymi wybuchną na miasto całe",
+      "audio": "test/audio/1889/1447/1889_1447_000034.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 424.25,
+        "original_end_s": 436.53
+      }
+    },
+    {
+      "id": "1889_1447_000035",
+      "text": "zaczynał się u dołu i próbował jękliwie i nieśmiało altowych spełzłości i półtonów przechodził potem do spłowiałych popiołów dali do gobelinowych błękitów",
+      "audio": "test/audio/1889/1447/1889_1447_000035.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 357.25,
+        "original_end_s": 369.71
+      }
+    },
+    {
+      "id": "1889_1447_000036",
+      "text": "urywane bezładne słowa które fantastycznie powiększały kłamliwie przesadzały bezmiar nocy siedzieliśmy wszyscy w jasno oświetlonej kuchni",
+      "audio": "test/audio/1889/1447/1889_1447_000036.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 577.16,
+        "original_end_s": 588.08
+      }
+    },
+    {
+      "id": "1889_1447_000037",
+      "text": "nieraz można ich widzieć na niebezpiecznych zakrętach wychylonych daleko z połamanej budy jak z lejcami w dłoniach przeprowadzają z natężeniem trudny manewr wymijania",
+      "audio": "test/audio/1889/1447/1889_1447_000037.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 892.81,
+        "original_end_s": 903.5
+      }
+    },
+    {
+      "id": "1889_1447_000038",
+      "text": "wyolbrzymiony gniewem z głową spęczniałą w pięść purpurową wbiegł jak walczący prorok na szańce sukienne i jął przeciwko nim szaleć wpierał się całym ciałem w potężne bale wełny i wyważał je z osady podsuwał się pod ogromne postawy sukna i unosił je na ladę z głuchym łomotem",
+      "audio": "test/audio/1889/1447/1889_1447_000038.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 951.87,
+        "original_end_s": 971.8
+      }
+    },
+    {
+      "id": "1889_1447_000039",
+      "text": "cała ta manipulacja wydaje się czymś nieistotnym pozorem komedią ironicznie zarzuconą zasłoną na prawdziwy sens sprawy panienki sklepowe smukłe i czarne każda z jakąś skazą piękności charakterystyczną dla tej dzielnicy wybrakowanych artykułów",
+      "audio": "test/audio/1889/1447/1889_1447_000039.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 485.63,
+        "original_end_s": 503.0
+      }
+    },
+    {
+      "id": "1889_1447_000040",
+      "text": "wtedy to wylały się te czarne rzeki wędrówki beczek i konwi i płynęły przez noce czarne ich połyskliwe gwarne zbiegowiska oblegały miasto",
+      "audio": "test/audio/1889/1447/1889_1447_000040.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 94.33,
+        "original_end_s": 105.91
+      }
+    },
+    {
+      "id": "1889_1447_000041",
+      "text": "ojciec nasłuchiwał jego ucho zdawało się w tej ciszy nocnej wydłużać i rozgałęziać poza okno fantastyczny koralowiec czerwony polip falujący w mętach nocy nasłuchiwał i słyszał słyszał z rosnącym niepokojem daleki przypływ tłumów które nadciągały",
+      "audio": "test/audio/1889/1447/1889_1447_000041.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 754.97,
+        "original_end_s": 774.53
+      }
+    },
+    {
+      "id": "1889_1447_000042",
+      "text": "szał jego euforia jego podniecenia przygasła w ruchach i mimice jęły się zdradzać znaki złego sumienia zaczął nas unikać krył się dzień cały po kątach w szafach pod pierzyn widziałem go nieraz jak w zamyśleniu oglądał własne ręce",
+      "audio": "test/audio/1889/1447/1889_1447_000042.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 409.41,
+        "original_end_s": 426.07
+      }
+    },
+    {
+      "id": "1889_1447_000043",
+      "text": "adela trzymając koguta za szyję uniosła go nad płomień ażeby opalić na nim resztę pierza kogut zatrzepotał nagle w ogniu skrzydłami zapiał i spłonął wtedy ciotka perazja zaczęła się kłócić kląć i złorzeczyć",
+      "audio": "test/audio/1889/1447/1889_1447_000043.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 654.0,
+        "original_end_s": 667.71
+      }
+    },
+    {
+      "id": "1889_1447_000044",
+      "text": "głos drżał pod tymi nowymi niebami dźwięcznie i świeżo jak w nowym jeszcze i pustym mieszkaniu pełnym zapachu lakieru farb rzeczy zaczętych i nie wypróbowanych",
+      "audio": "test/audio/1889/1447/1889_1447_000044.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 205.47,
+        "original_end_s": 217.73
+      }
+    },
+    {
+      "id": "1889_1447_000045",
+      "text": "za to sukna leżały ciche bez głosu w swej pilśniowej puszystości i podawały sobie wzdłuż ścian spojrzenia za plecami ojca wymieniały od szafy do szafy ciche znaki porozumiewawcze",
+      "audio": "test/audio/1889/1447/1889_1447_000045.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 741.98,
+        "original_end_s": 754.97
+      }
+    },
+    {
+      "id": "1889_1447_000046",
+      "text": "znam je od adeli rzekłem ale wiem że pochodzą od ciebie chcę wiedzieć prawdę usta jej drżały lekko źrenice unikając mego wzroku powędrowały w kąt oka nie kłamałam rzekła a usta jej napęczniały i stały się małe zarazem",
+      "audio": "test/audio/1889/1447/1889_1447_000046.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 271.92,
+        "original_end_s": 289.73
+      }
+    },
+    {
+      "id": "1889_1447_000047",
+      "text": "widziałem smutny powrót mego ojca sztuczny dzień zabarwiał się już powoli kolorami zwyczajnego poranka w spustoszałym sklepie najwyższe półki syciły się barwami rannego nieba",
+      "audio": "test/audio/1889/1447/1889_1447_000047.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1529.92,
+        "original_end_s": 1542.93
+      }
+    },
+    {
+      "id": "1889_1447_000048",
+      "text": "i zdarza się często że ludzie ustawiają się w dwóch różnych punktach nie mogąc uzgodnić swych poglądów na miejsce przystanku czekają długo i stoją czarnym milczącym tłumem wzdłuż ledwo zarysowanych śladów toru",
+      "audio": "test/audio/1889/1447/1889_1447_000048.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 949.26,
+        "original_end_s": 963.64
+      }
+    },
+    {
+      "id": "1889_1447_000049",
+      "text": "osypało się falującymi plamami które rosły dojrzewały i wnet napełniły przestworze dziwnym ludem ptaków krążących i kołujących w wielkich krzyżujących się spiralach",
+      "audio": "test/audio/1889/1447/1889_1447_000049.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1294.42,
+        "original_end_s": 1305.79
+      }
+    },
+    {
+      "id": "1889_1447_000050",
+      "text": "były między nimi ptaki dwugłowe ptaki wieloskrzydłe były też i kaleki kulejące w powietrzu jednoskrzydłym niedołężnym lotem niebo stało się podobne do starego fresku pełnego dziwolągów i fantastycznych zwierząt które krążyły wymijały się i znów wracały w kolorowych elipsach",
+      "audio": "test/audio/1889/1447/1889_1447_000050.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1339.24,
+        "original_end_s": 1357.9
+      }
+    },
+    {
+      "id": "1889_1447_000051",
+      "text": "pobiegłem boso do okna niebo wydmuchane było wzdłuż i wszerz wiatrami srebrzystobiałe i przestronne porysowane było w linie sił natężone do pęknięcia w srogie bruzdy jakby zastygłe żyły cyny i ołowiu",
+      "audio": "test/audio/1889/1447/1889_1447_000051.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 193.62,
+        "original_end_s": 208.79
+      }
+    },
+    {
+      "id": "1889_1447_000052",
+      "text": "słyszał jak w pauzach wichury miechy żeber strychowych składały się w fałdy i dach wiotczał i zwisał jak ogromne płuca z których uciekł oddech to znów nabierał tchu",
+      "audio": "test/audio/1889/1447/1889_1447_000052.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 602.45,
+        "original_end_s": 614.35
+      }
+    },
+    {
+      "id": "1889_1447_000053",
+      "text": "jest to szary dzień jak zawsze w tej okolicy i cała sceneria wydaje się chwilami fotografią z ilustrowanej gazety tak szare tak płaskie są domy ludzie i pojazdy",
+      "audio": "test/audio/1889/1447/1889_1447_000053.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 719.6,
+        "original_end_s": 731.82
+      }
+    },
+    {
+      "id": "1889_1447_000054",
+      "text": "aż pewnej nocy wezbrały pod gontowymi przestworami falangi garnków i flaszek i popłynęły wielkim stłoczonym ludem na miasto strychy",
+      "audio": "test/audio/1889/1447/1889_1447_000054.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 62.5,
+        "original_end_s": 73.31
+      }
+    },
+    {
+      "id": "1889_1447_000055",
+      "text": "za ogniskiem kuchennym i czarnym szerokim okapem komina prowadziło parę stopni do drzwi strychu na tych schodkach siedział starszy subiekt teodor i nasłuchiwał jak strych grał od wichru",
+      "audio": "test/audio/1889/1447/1889_1447_000055.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 588.08,
+        "original_end_s": 602.45
+      }
+    },
+    {
+      "id": "1889_1447_000056",
+      "text": "gdy tymczasem już na bokach rozwiązuje się i rozprzęga ta zaimprowizowana maskarada i niezdolna wytrwać w swej roli rozpada się za nami w gips i pakuły w rupieciarnię jakiegoś ogromnego pustego teatru",
+      "audio": "test/audio/1889/1447/1889_1447_000056.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 746.5,
+        "original_end_s": 759.69
+      }
+    },
+    {
+      "id": "1889_1447_000057",
+      "text": "przychodziła pora wielkiego sezonu ożywiały się ulice o szóstej godzinie po południu miasto zakwitało gorączką domy dostawały wypieków a ludzie wędrowali ożywieni jakimś wewnętrznym ogniem",
+      "audio": "test/audio/1889/1447/1889_1447_000057.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 436.53,
+        "original_end_s": 450.43
+      }
+    },
+    {
+      "id": "1889_1447_000058",
+      "text": "przez wielkie szare okna kratkowane wielokrotnie jak arkusze papieru kancelaryjnego nie wchodzi światło gdyż przestrzeń sklepu już napełniona jest jak wodą indyferentną szarą powiat która nie rzuca cienia i nie akcentuje niczego",
+      "audio": "test/audio/1889/1447/1889_1447_000058.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 445.98,
+        "original_end_s": 462.02
+      }
+    },
+    {
+      "id": "1889_1447_000059",
+      "text": "zaledwie subiekt i brat mój z wzdętymi płaszczami wkroczyli jedną nogą w ciemność noc ich połknęła zaraz na progu domu wicher zmył momentalnie ślad ich wyjścia nie widać było przez okno nawet latarki którą ze sobą zabrali",
+      "audio": "test/audio/1889/1447/1889_1447_000059.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 425.71,
+        "original_end_s": 441.16
+      }
+    },
+    {
+      "id": "1889_1447_000060",
+      "text": "nigdy go nie kochała myślałem a ponieważ ojciec nie był zakorzeniony w sercu żadnej kobiety przeto nie mógł też wróść w żadną realność i unosił się wiecznie na peryferii życia w półrealnych regionach na krawędziach rzeczywistości",
+      "audio": "test/audio/1889/1447/1889_1447_000060.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 112.94,
+        "original_end_s": 128.48
+      }
+    },
+    {
+      "id": "1889_1447_000061",
+      "text": "sztychowane z ostrą wyrazistością widoków oglądanych przez lunetę na tych bliższych planach wydobył sztycharz cały zawikłany i wieloraki zgiełk ulic i zaułków",
+      "audio": "test/audio/1889/1447/1889_1447_000061.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 90.55,
+        "original_end_s": 100.91
+      }
+    },
+    {
+      "id": "1889_1447_000062",
+      "text": "stopniowo jednak znudzony błaznowaniem wesoły ten ludek rozpraszał się w dalszych okolicach krajobrazu i tam powoli gubił się wród skalnych załomów i dolin",
+      "audio": "test/audio/1889/1447/1889_1447_000062.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1190.56,
+        "original_end_s": 1201.4
+      }
+    },
+    {
+      "id": "1889_1447_000063",
+      "text": "rozszedłszy się po całym owym wielkim górzystym kraju wędrowali po dwóch po trzech na dalekich i krętych drogach małe i ciemne ich sylwety zaludniały cała tę pustynną wyżynę nad którą zwisło ciężkie i ciemne niebo sfałdowane i chmurne poorane w długie równoległe bruzdy",
+      "audio": "test/audio/1889/1447/1889_1447_000063.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1222.42,
+        "original_end_s": 1241.2
+      }
+    },
+    {
+      "id": "1889_1447_000064",
+      "text": "adela oskubała koguta ciotka perazja zapaliła pod okapem komina garść papierów i szerokie płaty płomienia wzlatywały z nich w czarną czeluść",
+      "audio": "test/audio/1889/1447/1889_1447_000064.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 643.57,
+        "original_end_s": 654.0
+      }
+    },
+    {
+      "id": "1889_1447_000065",
+      "text": "pokój drżał z lekka obrazy na ścianach brzęczały szyby lśniły się tłustym odblaskiem lampy firanki na oknie wisiały wzdęte i pełne tchnienia tej burzliwej nocy przypomnieliśmy sobie że ojca od rana nie widziano",
+      "audio": "test/audio/1889/1447/1889_1447_000065.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 377.81,
+        "original_end_s": 394.41
+      }
+    },
+    {
+      "id": "1889_1447_000066",
+      "text": "a jednak a jednak czy mamy zdradzić ostatnią tajemnicę tej dzielnicy troskliwie ukrywany sekret ulicy krokodyli kilkakrotnie w trakcie naszego sprawozdania stawialiśmy pewne znaki ostrzegawcze dawaliśmy w delikatny sposób wyraz naszym zastrzeżeniom",
+      "audio": "test/audio/1889/1447/1889_1447_000066.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1113.2,
+        "original_end_s": 1131.27
+      }
+    },
+    {
+      "id": "1889_1447_000067",
+      "text": "z tej zwiędłej dali peryferii wynurzało się miasto i rosło ku przodowi naprzód jeszcze w nie zróżnicowanych kompleksach w zwartych blokach i masach domów poprzecinanych głębokimi parowami ulic by bliżej jeszcze wyodrębnić się w pojedyncze kamienice",
+      "audio": "test/audio/1889/1447/1889_1447_000067.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 74.12,
+        "original_end_s": 90.55
+      }
+    },
+    {
+      "id": "1889_1447_000068",
+      "text": "tak że zmierzch roił się od tych larw porzuconych sypiących się za ich ucieczką potem zaczynało wszystko zarastać czarną próchniejącą korą łuszczącą się wielkimi płatami chorymi strupami ciemności",
+      "audio": "test/audio/1889/1447/1889_1447_000068.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 565.05,
+        "original_end_s": 580.27
+      }
+    },
+    {
+      "id": "1889_1447_000069",
+      "text": "w tej dzielnicy pozoru i pustego gestu nie przywiązuje się zbytniej wagi do ścisłego celu jazdy i pasażerowie powierzaj się tym błędnym pojazdom z lekkomyślnością która cechuje tu wszystko",
+      "audio": "test/audio/1889/1447/1889_1447_000069.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 880.35,
+        "original_end_s": 892.81
+      }
+    },
+    {
+      "id": "1889_1447_000070",
+      "text": "byli to mężowie wielkiego zgromadzenia dostojni i pełni namaszczenia panowie gładzący długie pielęgnowane brody i prowadzący wstrzemięźliwe i dyplomatyczne rozmowy ale i w tej ceremonialnej konwersacji w spojrzeniach które wymieniali był błysk uśmiechniętej ironii",
+      "audio": "test/audio/1889/1447/1889_1447_000070.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1144.03,
+        "original_end_s": 1162.12
+      }
+    },
+    {
+      "id": "1889_1447_000071",
+      "text": "tam w tych spalonych wielkobelkowych lasach strychów i dachów ciemność zaczęła się wyradzać i dziko fermentować tam zaczęły się te czarne sejmy garnków te wiecowania gadatliwe i puste te bełkotliwe flaszkowania bulgoty butli i baniek",
+      "audio": "test/audio/1889/1447/1889_1447_000071.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 42.82,
+        "original_end_s": 62.5
+      }
+    },
+    {
+      "id": "1889_1447_000072",
+      "text": "z tego labiryntu wystrzelał całymi galeriami pokojów wyprowadzał piorunem skrzydła i trakty toczył z hukiem długie amfilady",
+      "audio": "test/audio/1889/1447/1889_1447_000072.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 356.33,
+        "original_end_s": 366.71
+      }
+    },
+    {
+      "id": "1889_1447_000073",
+      "text": "tak wylewały się zapasy szaf wymiotowały gwałtownie płynęły szerokimi rzekami wypływała barwna treść półek rosła mnożyła się i zalewała wszystkie lady i stoły",
+      "audio": "test/audio/1889/1447/1889_1447_000073.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 982.81,
+        "original_end_s": 994.2
+      }
+    },
+    {
+      "id": "1889_1447_000074",
+      "text": "głąb wielkiego sklepu ciemniała i wzbogacała się z dnia na dzień zapasami sukna szewiotów aksamitów i kortów w ciemnych półkach tych spichrzach i lamusach chłodnej pilśniowej barwności procentowała stokrotnie ciemna odstała korowość rzeczy",
+      "audio": "test/audio/1889/1447/1889_1447_000074.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 285.37,
+        "original_end_s": 304.61
+      }
+    },
+    {
+      "id": "1889_1447_000075",
+      "text": "nagle zagwizdały kamienie w powietrzu to wesołki głupie i bezmyślne plemię jęły celować pociskami w fantastyczne niebo ptasie na darmo ojciec ostrzegał na darmo groził zaklinającymi gestami nie dosłyszano go nie dostrzeżono",
+      "audio": "test/audio/1889/1447/1889_1447_000075.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1441.1,
+        "original_end_s": 1457.95
+      }
+    },
+    {
+      "id": "1889_1447_000076",
+      "text": "ostatniej chwili gdy pociąg już stoi na stacji toczą się w nerwowym pośpiechu pertraktacje z przekupnymi urzędnikami linii żelaznej zanim te negocjacje się kończą pociąg rusza odprowadzany przez wolno sunący rozczarowany tłum który odprowadza go daleko ażeby się wreszcie rozproszyć",
+      "audio": "test/audio/1889/1447/1889_1447_000076.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1005.79,
+        "original_end_s": 1024.75
+      }
+    },
+    {
+      "id": "1889_1447_000077",
+      "text": "pusta wielka podłoga trzaskała w ciszy i liczyła w tym wietle wzdłuż i wszerz swe błyszczce kwadraty szachownicę wielkich tafli które rozmawiały ze sob w ciszy trzaskami odpowiadały sobie to tu to tam głonym pęknięciem",
+      "audio": "test/audio/1889/1447/1889_1447_000077.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 726.01,
+        "original_end_s": 741.98
+      }
+    },
+    {
+      "id": "1889_1447_000078",
+      "text": "nie mogli dojść do sklepu zgubili drogę i ledwo trafili z powrotem nie poznawali miasta wszystkie ulice były jak przestawione matka podejrzewała że kłamali w istocie cała ta scena sprawiała wrażenie jakby przez ten kwadrans stali w ciemności pod oknem nie oddalając się wcale",
+      "audio": "test/audio/1889/1447/1889_1447_000078.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 509.67,
+        "original_end_s": 527.68
+      }
+    },
+    {
+      "id": "1889_1447_000079",
+      "text": "nie przyjmując jadła ani napoju z wypiekami gorączki na twarzy z konwulsją wstrętu wrytą dookoła ust ojciec mój zdziczał zupełnie jasne było że tego napięcia nienawiści żaden organizm długo wytrzymać nie może",
+      "audio": "test/audio/1889/1447/1889_1447_000079.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 329.01,
+        "original_end_s": 342.86
+      }
+    },
+    {
+      "id": "1889_1447_000080",
+      "text": "kto mógł powiedzieć czy żył gdzie jeszcze w jakiej szparze podłogi czy przebiegał nocami pokoje zaplątany w afery karakonie czy też był może między tymi martwymi owadami które adela co rana znajdowała brzuchem do góry leżące i najeżone nogami i które ze wstrętem brała na śmietniczkę i wyrzucała",
+      "audio": "test/audio/1889/1447/1889_1447_000080.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 495.0,
+        "original_end_s": 514.07
+      }
+    },
+    {
+      "id": "1889_1447_000081",
+      "text": "były to długie tygodnie depresji ciężkie tygodnie bez niedziel i świąt przy zamkniętym niebie i w zubożałym krajobrazie ojca już wówczas nie było górne pokoje wysprzątano i wynajęto pewnej telefonistce",
+      "audio": "test/audio/1889/1447/1889_1447_000081.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 31.58,
+        "original_end_s": 46.71
+      }
+    },
+    {
+      "id": "1889_1447_000082",
+      "text": "leży ona sobie zapomniana gdzieś w archiwach czasu a treść jej rośnie dalej między okładkami pęcznieje bez ustanku od gadulstwa miesięcy od szybkiego samorództwa blagi od bajania i marzeń które się w niej mnożą",
+      "audio": "test/audio/1889/1447/1889_1447_000082.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 136.61,
+        "original_end_s": 152.57
+      }
+    },
+    {
+      "id": "1889_1447_000083",
+      "text": "niektóre okazywały się z bliska niczym innym jak wielkimi pawimi ogonami kolorowymi wachlarzami w które niepojętym sposobem tchnięto jakiś pozór życia",
+      "audio": "test/audio/1889/1447/1889_1447_000083.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1518.84,
+        "original_end_s": 1529.92
+      }
+    },
+    {
+      "id": "1889_1447_000084",
+      "text": "mój ojciec podniósł się na bantach oblany nagłym blaskiem wyciągnął ręce przyzywając ptaki starym zaklęciem poznał je pełen wzruszenia było to dalekie zapomniane potomstwo tej ptasiej generacji którą ongi adela rozpędziła na wszystkie strony nieba",
+      "audio": "test/audio/1889/1447/1889_1447_000084.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1357.9,
+        "original_end_s": 1374.7
+      }
+    },
+    {
+      "id": "1889_1447_000085",
+      "text": "tam siedział ojciec jak w ptaszarni na wysokim stołku a gołębniki registratur szeleściły plikami papierów i wszystkie gniazda i dziuple pełne były świergotu cyfr",
+      "audio": "test/audio/1889/1447/1889_1447_000085.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 272.46,
+        "original_end_s": 285.37
+      }
+    },
+    {
+      "id": "1889_1447_000086",
+      "text": "wracało teraz zwyrodniałe i wybujałe to sztuczne potomstwo to zdegenerowane plemię ptasie zmarniałe wewnętrznie wystrzelone głupio wzrostem wyogromnione niedorzecznie było wewntrz puste i bez życia",
+      "audio": "test/audio/1889/1447/1889_1447_000086.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1374.7,
+        "original_end_s": 1389.53
+      }
+    },
+    {
+      "id": "1889_1447_000087",
+      "text": "tylko pęk piór pawich stojących w wazie na komodzie nie dał się utrzymać w ryzach był to element swawolny niebezpieczny o nieuchwytnej rewolucyjności jak rozhukana klasa gimnazjalistek pełna dewocji w oczy a rozpustnej swawoli poza oczyma",
+      "audio": "test/audio/1889/1447/1889_1447_000087.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 168.48,
+        "original_end_s": 184.86
+      }
+    },
+    {
+      "id": "1889_1447_000088",
+      "text": "wjechał w ten czarny szpaler i ulica staje się ciemna od tego ciągu wozów siejących pył węglowy ciemne sapanie parowozu i powiew dziwnej powagi pełnej smutku",
+      "audio": "test/audio/1889/1447/1889_1447_000088.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 980.59,
+        "original_end_s": 992.12
+      }
+    },
+    {
+      "id": "1889_1447_000089",
+      "text": "winna jest temu starcza niepowściągliwość lata jego rozpustna i późna żywotność bywa czasem że sierpień minie a stary gruby pień lata rodzi z przyzwyczajenia jeszcze dalej",
+      "audio": "test/audio/1889/1447/1889_1447_000089.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 57.11,
+        "original_end_s": 71.27
+      }
+    },
+    {
+      "id": "1889_1447_000090",
+      "text": "wrażenie było tak łudzące że adela otworzyła drzwi i w samej rzeczy ujrzała teodora i brata mego wynurzających się z trudem z wichury w której tkwili po pachy",
+      "audio": "test/audio/1889/1447/1889_1447_000090.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 471.68,
+        "original_end_s": 482.38
+      }
+    },
+    {
+      "id": "1889_1447_000091",
+      "text": "przestrzeń sklepu rozszerzyła się w panoramę jesiennego krajobrazu pełną jezior i dali a na tle tej scenerii ojciec wędrował wśród fałd i dolin fantastycznego kanaanu wędrował wielkimi krokami z rękoma rozkrzyżowanymi proroczo w chmurach i kształtował kraj uderzeniami natchnienia",
+      "audio": "test/audio/1889/1447/1889_1447_000091.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1010.77,
+        "original_end_s": 1030.23
+      }
+    },
+    {
+      "id": "1889_1447_000092",
+      "text": "dalej za dachami rynku widziałem dalekie mury ogniowe nagie ściany szczytowe przedmieścia wspinały się jeden nad drugi i rosły zesztywniałe z przerażenia i osłupiałe daleki zimny czerwony odblask zabarwiał je późnymi kolorami",
+      "audio": "test/audio/1889/1447/1889_1447_000092.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 302.86,
+        "original_end_s": 320.72
+      }
+    },
+    {
+      "id": "1889_1447_000093",
+      "text": "ale gdy gadając rozwija ogromne postawy sukna przymierza fałduje i drapuje niekończącą się strugę materiału przepływającą przez jego ręce formując z jego fal iluzoryczne surduty i spodnie",
+      "audio": "test/audio/1889/1447/1889_1447_000093.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 473.06,
+        "original_end_s": 485.63
+      }
+    },
+    {
+      "id": "1889_1447_000094",
+      "text": "w wyłysiałych miejscach widać było workowe grube płótno z którego wyłaziły kłaki konopne miałem ukryty żal do matki za łatwość z jaką przeszła do porządku dziennego nad stratą ojca",
+      "audio": "test/audio/1889/1447/1889_1447_000094.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 100.23,
+        "original_end_s": 112.94
+      }
+    },
+    {
+      "id": "1889_1447_000095",
+      "text": "a gdy w dole wszystko rozprzęgło się i szło w niwecz w tej cichej zamieszce w panice prędkiego rozkładu w górze utrzymywał się i rósł coraz wyżej milczący alarm zorzy",
+      "audio": "test/audio/1889/1447/1889_1447_000095.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 580.27,
+        "original_end_s": 592.07
+      }
+    },
+    {
+      "id": "1889_1447_000096",
+      "text": "i wędrówki te były równie jałowe i bez rezultatu jak ekscytacje fantazji pędzonej przez szpalty i kolumny pornograficznych druków wchodziło się do jakiegoś krawca żeby zamówić ubranie ubranie o taniej elegancji tak charakterystycznej dla tej dzielnicy",
+      "audio": "test/audio/1889/1447/1889_1447_000096.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 392.32,
+        "original_end_s": 408.66
+      }
+    },
+    {
+      "id": "1889_1447_000097",
+      "text": "stojąc nieruchomy i pełen troski z błyszczącymi oczyma w jasnej ciszy sklepu czuł wewnętrznym słuchem co działo się w głębi domu w tylnych komorach wielkiej kolorowej tej latarni",
+      "audio": "test/audio/1889/1447/1889_1447_000097.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 810.65,
+        "original_end_s": 823.43
+      }
+    },
+    {
+      "id": "1889_1447_000098",
+      "text": "napięcie pozy sztuczna powaga maski ironiczny patos drży na tym naskórku ale dalecy jesteśmy od chęci demaskowania widowiska wbrew lepszej wiedzy czujemy się wciągnięci w tandetny czar dzielnicy",
+      "audio": "test/audio/1889/1447/1889_1447_000098.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 759.69,
+        "original_end_s": 775.93
+      }
+    },
+    {
+      "id": "1889_1447_000099",
+      "text": "ale te papierowe ślepe ptaki nie mogły już poznać ojca na darmo wołał na nie dawnym zaklęciem zapomnianą mową ptasią nie słyszały go i nie widziały",
+      "audio": "test/audio/1889/1447/1889_1447_000099.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1429.32,
+        "original_end_s": 1441.1
+      }
+    },
+    {
+      "id": "1889_1447_000100",
+      "text": "gdy ojciec mój przerażony ohydą grzechu wrastał gniewem swych gestów w grozę krajobrazu w dole beztroski lud baala oddawał się wyuzdanej wesołości",
+      "audio": "test/audio/1889/1447/1889_1447_000100.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1085.01,
+        "original_end_s": 1095.59
+      }
+    },
+    {
+      "id": "1889_1447_000101",
+      "text": "zwiedzimy dziesiątki magazynów trafimy do całkiem podobnych będziemy wędrowali przez szpalery książek wertowali czasopisma i druki konferowali długo i zawile z panienkami o nadmiernym pigmencie i skażonej piękności które nie potrafią zrozumieć naszych życzeń",
+      "audio": "test/audio/1889/1447/1889_1447_000101.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1256.53,
+        "original_end_s": 1272.65
+      }
+    },
+    {
+      "id": "1889_1447_000102",
+      "text": "z dziwnym wzruszeniem próbowało się nowego echa napoczynało się je z ciekawością jak w chłodny i trzeźwy poranek babkę do kawy w przeddzień podróży",
+      "audio": "test/audio/1889/1447/1889_1447_000102.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 217.73,
+        "original_end_s": 228.73
+      }
+    },
+    {
+      "id": "1889_1447_000103",
+      "text": "będziemy się wikłali w nieporozumieniach aż cała nasza gorączka i podniecenie ulotni się w niepotrzebnym wysiłku w straconej na próżno gonitwie nasze nadzieje były nieporozumieniem",
+      "audio": "test/audio/1889/1447/1889_1447_000103.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1272.65,
+        "original_end_s": 1285.73
+      }
+    },
+    {
+      "id": "1889_1447_000104",
+      "text": "potem była już nagle noc wielka noc rosnąca jeszcze podmuchami wiatru które ją rozszerzały w jej wielokrotnym labiryncie wyłupane były gniazda jasne sklepy wielkie kolorowe latarnie pełne spiętrzonego towaru i zgiełku kupujących",
+      "audio": "test/audio/1889/1447/1889_1447_000104.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 602.9,
+        "original_end_s": 619.74
+      }
+    },
+    {
+      "id": "1889_1447_000105",
+      "text": "na niebie wydmuchał wiatr zimne i martwe kolory grynszpanowe żółte i liliowe smugi dalekie sklepienia i arkady swego labiryntu dachy stały pod tymi niebami czarne i krzywe pełne niecierpliwości i oczekiwania",
+      "audio": "test/audio/1889/1447/1889_1447_000105.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 254.77,
+        "original_end_s": 270.91
+      }
+    },
+    {
+      "id": "1889_1447_000106",
+      "text": "ojciec krzyknął z gniewu i rozpaczy ale w tej chwili gwar głosów stał się całkiem bliski i nagle jasne okna sklepu zaludniły się bliskimi twarzami wykrzywionymi śmiechem rozgadanymi twarzami które płaszczyły nosy na ślnicych szybach",
+      "audio": "test/audio/1889/1447/1889_1447_000106.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 889.91,
+        "original_end_s": 905.21
+      }
+    },
+    {
+      "id": "1889_1447_000107",
+      "text": "trzęsąc się ze złości wygrażała rękami adeli i matce nie rozumiałem o co jej chodzi a ona zacietrzewiała się coraz bardziej w gniewie i stała się jednym pękiem gestykulacji i złorzeczeń",
+      "audio": "test/audio/1889/1447/1889_1447_000107.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 667.71,
+        "original_end_s": 679.43
+      }
+    },
+    {
+      "id": "1889_1447_000108",
+      "text": "były to ogromne wiechcie piór wypchane byle jak starym ścierwem u wielu nie można było wyróżnić głowy gdyż pałkowata ta część ciała nie nosiła żadnych znamion duszy",
+      "audio": "test/audio/1889/1447/1889_1447_000108.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1488.86,
+        "original_end_s": 1500.78
+      }
+    },
+    {
+      "id": "1889_1447_000109",
+      "text": "chciał jak najdłużej utrzymać w całości te rezerwy zamagazynowanej barwności bał się łamać wymieniać na gotówkę ten fundusz żelazny jesieni ale wiedział czuł że przyjdzie czas i wicher jesienny",
+      "audio": "test/audio/1889/1447/1889_1447_000109.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 409.09,
+        "original_end_s": 424.25
+      }
+    },
+    {
+      "id": "1889_1447_000110",
+      "text": "ale i w spalonych rumieńcach w pikantnych stygmatach pieprzyków we wstydliwych znamionach ciemnego puszku zdradzała się rasa zapiekłej czarnej krwi ten barwik o nazbyt intensywnej mocy ta mokka gęsta i aromatyczna zdawała się plamić książki które brały one do oliwkowej dłoni",
+      "audio": "test/audio/1889/1447/1889_1447_000110.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 596.82,
+        "original_end_s": 615.5
+      }
+    },
+    {
+      "id": "1889_1447_000111",
+      "text": "pod domami płynie rzeka tłumu ulica jest szeroka jak bulwar wielkomiejski ale jezdnia jak place wiejskie zrobiona jest z ubitej gliny pełna wybojów kałuży i trawy",
+      "audio": "test/audio/1889/1447/1889_1447_000111.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 795.23,
+        "original_end_s": 808.35
+      }
+    },
+    {
+      "id": "1889_1447_000112",
+      "text": "ojciec mój wydany na łup szału wplątywał się w nią coraz bardziej smutne skutki nie dały długo na siebie czekać wnet pojawiły się pierwsze podejrzane znaki które napełniły nas przerażeniem i smutkiem zachowanie ojca zmieniło się",
+      "audio": "test/audio/1889/1447/1889_1447_000112.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 392.9,
+        "original_end_s": 409.41
+      }
+    },
+    {
+      "id": "1889_1447_000113",
+      "text": "prawdopodobnie jeden po drugim zapadały się te wesołki gdzie w szczeliny i fałdy terenu jak dzieci zmęczone zabawą po kątach i zakamarkach mieszkania w noc balową",
+      "audio": "test/audio/1889/1447/1889_1447_000113.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1201.4,
+        "original_end_s": 1211.79
+      }
+    },
+    {
+      "id": "1889_1447_000114",
+      "text": "i ptaki spadały ugodzone pociskiem obwisały ciężko i więdły już w powietrzu nim doleciały do ziemi były już bezforemną kupą pierza w mgnieniu oka pokryła się wyżyna tą dziwną fantastyczną padliną",
+      "audio": "test/audio/1889/1447/1889_1447_000114.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1457.95,
+        "original_end_s": 1472.53
+      }
+    },
+    {
+      "id": "1889_1447_000115",
+      "text": "ta rzeczywistość jest cienka jak papier i wszystkimi szparami zdradza swą imitatywność chwilami ma się wrażenie że tylko na małym skrawku przed nami układa się wszystko przykładnie w ten pointowany obraz bulwaru wielkomiejskiego",
+      "audio": "test/audio/1889/1447/1889_1447_000115.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 731.82,
+        "original_end_s": 746.5
+      }
+    },
+    {
+      "id": "1889_1447_000116",
+      "text": "czasem tylko wyławiamy z tego gwaru wielu głów jakieś ciemne żywe spojrzenie jakiś czarny melonik nasunięty głęboko na głowę jakieś pół twarzy rozdarte uśmiechem z ustami które właśnie coś powiedziały jakąś nogę wysuniętą w kroku i tak już zastygłą na zawsze",
+      "audio": "test/audio/1889/1447/1889_1447_000116.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 849.57,
+        "original_end_s": 867.26
+      }
+    },
+    {
+      "id": "1889_1447_000117",
+      "text": "napełniały pokój świergotem i szeptem rozsypywały się jak motyle dookoła wieloramiennej lampy uderzały tłumem barwnym w matowe starcze dziurki od kluczy",
+      "audio": "test/audio/1889/1447/1889_1447_000117.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 195.54,
+        "original_end_s": 206.14
+      }
+    },
+    {
+      "id": "1889_1447_000118",
+      "text": "będziemy wiecznie żałowali żeśmy wtedy wyszli na chwilę z magazynu konfekcji podejrzanej konduity nigdy nie trafimy już doń z powrotem będziemy błądzili od szyldu do szyldu i mylili się setki razy",
+      "audio": "test/audio/1889/1447/1889_1447_000118.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1243.85,
+        "original_end_s": 1256.53
+      }
+    },
+    {
+      "id": "1889_1447_000119",
+      "text": "malejąc coraz bardziej sczernieć zwinąć się jak zwiędły spalony papier zetlić się w płatek popiołu skruszyć w proch i w nicość",
+      "audio": "test/audio/1889/1447/1889_1447_000119.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 746.23,
+        "original_end_s": 757.63
+      }
+    },
+    {
+      "id": "1889_1447_000120",
+      "text": "ach ten dziki obłęd popłochu pisany błyszczącą czarną linią na tablicy podłogi ach te krzyki grozy ojca skaczącego z krzesła na krzesło z dzirytem w ręku",
+      "audio": "test/audio/1889/1447/1889_1447_000120.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_13_schulz_64kb.mp3",
+        "original_start_s": 318.89,
+        "original_end_s": 329.01
+      }
+    },
+    {
+      "id": "1889_1447_000121",
+      "text": "ojciec stał się purpurowy ze wzburzenia i wskoczył na ladę i kiedy tłum szturmem zdobywał tę twierdzę i wkraczał hałaśliwą ciżbą do sklepu ojciec mój jednym skokiem wspiął się na półki z suknem i uwisły wysoko nad tłumem dął z całej siły w wielki puzon z rogu i trąbił na alarm",
+      "audio": "test/audio/1889/1447/1889_1447_000121.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 905.21,
+        "original_end_s": 923.67
+      }
+    },
+    {
+      "id": "1889_1447_000122",
+      "text": "ach i spisując te nasze opowiadania szeregując te historie o moim ojcu na zużytym marginesie jej tekstu czy nie oddaję się tajnej nadziei że wrosną one kiedy niepostrzeżenie między zżółkłe kartki tej najwspanialszej rozsypującej się księgi",
+      "audio": "test/audio/1889/1447/1889_1447_000122.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 152.57,
+        "original_end_s": 168.56
+      }
+    },
+    {
+      "id": "1889_1447_000123",
+      "text": "lecz na tym się też kończy przekroczywszy pewien punkt napięcia przypływ zatrzymuje się i cofa atmosfera gaśnie i przekwita możliwości więdną i rozpadaj się w nicość oszalałe szare maki ekscytacji rozsypuj się w popiół",
+      "audio": "test/audio/1889/1447/1889_1447_000123.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 1227.7,
+        "original_end_s": 1243.85
+      }
+    },
+    {
+      "id": "1889_1447_000124",
+      "text": "wówczas to dostrzegł jak grupy wędrowców w oddali zadzierały głowy ku niebu wskazując coś wzniesionymi rękami i wnet zaroiło się niebo jak kolorową wysypką",
+      "audio": "test/audio/1889/1447/1889_1447_000124.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_15_schulz_64kb.mp3",
+        "original_start_s": 1282.85,
+        "original_end_s": 1294.42
+      }
+    },
+    {
+      "id": "1889_1447_000125",
+      "text": "duch czasu mechanizm ekonomiki nie oszczędził i naszego miasta i zapuścił korzenie na skrawku jego peryferii gdzie rozwinął się w pasożytniczą dzielnicę",
+      "audio": "test/audio/1889/1447/1889_1447_000125.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_12_schulz_64kb.mp3",
+        "original_start_s": 189.25,
+        "original_end_s": 200.32
+      }
+    },
+    {
+      "id": "1889_1447_000126",
+      "text": "i wybuchła ciemność ogromna wzburzoną wichur i szalała przez trzy dni i trzy noce nie pójdziesz dziś do szkoły rzekła rano matka jest straszna wichura na dworze",
+      "audio": "test/audio/1889/1447/1889_1447_000126.opus",
+      "tags": {
+        "speaker_id": "mls-pl-1889",
+        "gender": "w",
+        "book_id": "1447",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_alt-14_schulz_64kb.mp3",
+        "original_start_s": 162.89,
+        "original_end_s": 175.08
+      }
+    },
+    {
+      "id": "5090_1447_000000",
+      "text": "ale gdy przebrnęliśmy przez ciżbę ludzką wynurzyła się przed nami olbrzymia bladoniebieska kurtyna jak niebo jakiegoś innego firmamentu",
+      "audio": "dev/audio/5090/1447/5090_1447_000000.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 230.21,
+        "original_end_s": 242.21
+      }
+    },
+    {
+      "id": "5090_1447_000001",
+      "text": "pamiętam tych starych i pełnych godności kupców którzy obsługiwali klientów ze spuszczonymi oczyma w dyskretnym milczeniu i pełni byli mądrości i wyrozumienia dla ich najtajniejszych życzeń",
+      "audio": "dev/audio/5090/1447/5090_1447_000001.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 613.24,
+        "original_end_s": 630.01
+      }
+    },
+    {
+      "id": "5090_1447_000002",
+      "text": "w których te ulice mają swe miejsce i nazwę a noc w niewyczerpanej swej płodności nie ma nic lepszego do roboty jak dostarczać wciąż nowych i urojonych konfiguracji",
+      "audio": "dev/audio/5090/1447/5090_1447_000002.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 419.84,
+        "original_end_s": 433.65
+      }
+    },
+    {
+      "id": "5090_1447_000003",
+      "text": "gdy miasto rozgałęziało się coraz głębiej w labirynty zimowych nocy z trudem przywoływane przez krótki świt do opamiętania do powrotu ojciec mój był już zatracony zaprzedany zaprzysiężony tamtej sferze",
+      "audio": "dev/audio/5090/1447/5090_1447_000003.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 37.71,
+        "original_end_s": 56.07
+      }
+    },
+    {
+      "id": "5090_1447_000004",
+      "text": "była to niejako odnoga tego placu i niektóre meble stały już na bruku zbiegłem z kilku kamiennych schodów i znalazłem się znów na ulicy",
+      "audio": "dev/audio/5090/1447/5090_1447_000004.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1401.69,
+        "original_end_s": 1412.29
+      }
+    },
+    {
+      "id": "5090_1447_000005",
+      "text": "w świetle błyskawicy ujrzałem ojca mego w rozwianej bieliźnie jak ze straszliwym przekleństwem wylewał potężnym chlustem w okno zawartość nocnika w noc szumiącą jak muszla",
+      "audio": "dev/audio/5090/1447/5090_1447_000005.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 658.7,
+        "original_end_s": 672.15
+      }
+    },
+    {
+      "id": "5090_1447_000006",
+      "text": "wstrzymywał oddech i nasłuchiwał i gdy wzrok jego wracał zbielały i mętny z tamtych głębin uspokajał go uśmiechem nie wierzył jeszcze i odrzucał jak absurd te uroszczenia te propozycje które nań napierały",
+      "audio": "dev/audio/5090/1447/5090_1447_000006.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 488.14,
+        "original_end_s": 507.55
+      }
+    },
+    {
+      "id": "5090_1447_000007",
+      "text": "ale gdy matka późnym wieczorem wracała ze sklepu ojciec ożywiał się przywoływał ją do siebie i z dumą pokazywał jej świetlne kolorowe odbijanki którymi skrzątnie wylepił stronnice księgi głównej",
+      "audio": "dev/audio/5090/1447/5090_1447_000007.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 753.4,
+        "original_end_s": 767.34
+      }
+    },
+    {
+      "id": "5090_1447_000008",
+      "text": "nie wydawało mi się to połączone ze zbyt wielkim ryzykiem zejść z paru stopni prowadzących do poziomu sali w kilku susach przebiec wielki kosztowny dywan i znaleźć się na tarasie z którego bez trudu dostać się mogłem na",
+      "audio": "dev/audio/5090/1447/5090_1447_000008.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1354.8,
+        "original_end_s": 1372.89
+      }
+    },
+    {
+      "id": "5090_1447_000009",
+      "text": "absorbowało go to w tym stopniu że pogrążał się zupełnie w tej niedostępnej dla nas sferze z której nie próbował zdawać nam sprawy",
+      "audio": "dev/audio/5090/1447/5090_1447_000009.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 122.68,
+        "original_end_s": 134.34
+      }
+    },
+    {
+      "id": "5090_1447_000010",
+      "text": "w inne dni bywał spokojny i skupiony i pogrążał się zupełnie w swych księgach zabłąkany głęboko w labiryntach zawiłych obliczeń",
+      "audio": "dev/audio/5090/1447/5090_1447_000010.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 295.37,
+        "original_end_s": 306.08
+      }
+    },
+    {
+      "id": "5090_1447_000011",
+      "text": "niektórzy z nas zasypiali w ciepłym śniegu inni domacywali się w gęstwinie bram swych domów wchodzili omackiem do ciemnych wnętrzy w sen rodziców i braci",
+      "audio": "dev/audio/5090/1447/5090_1447_000011.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1136.11,
+        "original_end_s": 1149.72
+      }
+    },
+    {
+      "id": "5090_1447_000012",
+      "text": "prawdę mówiąc niewieleśmy podczas tych godzin rysowali i profesor nie stawiał zbyt ścisłych wymagań niektórzy przynosili sobie z domu poduszki i układali się na ławach do powierzchownej drzemki",
+      "audio": "dev/audio/5090/1447/5090_1447_000012.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 847.67,
+        "original_end_s": 863.37
+      }
+    },
+    {
+      "id": "5090_1447_000013",
+      "text": "ostrożnie otworzono drzwi prowadzące w noc zaledwie subiekt i brat mój z wzdętymi płaszczami wkroczyli jedną nogą w ciemność noc ich połknęła zaraz na progu domu",
+      "audio": "dev/audio/5090/1447/5090_1447_000013.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 481.86,
+        "original_end_s": 493.97
+      }
+    },
+    {
+      "id": "5090_1447_000014",
+      "text": "wreszcie otwierały się drzwi jego pokoju i wchodził mały z piękną brodą pełen ezoterycznych uśmiechów dyskretnych przemilczeń i aromatu tajemnicy",
+      "audio": "dev/audio/5090/1447/5090_1447_000014.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 877.39,
+        "original_end_s": 890.92
+      }
+    },
+    {
+      "id": "5090_1447_000015",
+      "text": "a może naprawdę nie było już miasta i rynku a wicher i noc otaczały nasz dom tylko ciemnymi kulisami pełnymi wycia świstu i jęków",
+      "audio": "dev/audio/5090/1447/5090_1447_000015.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 602.81,
+        "original_end_s": 613.35
+      }
+    },
+    {
+      "id": "5090_1447_000016",
+      "text": "poszliśmy gromadą na spacer stromo spadając ulicą z której wiał powiew fiołków niepewni czy to jeszcze magia nocy srebrzyła się na śniegu czy też świt już wstawał",
+      "audio": "dev/audio/5090/1447/5090_1447_000016.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1812.43,
+        "original_end_s": 1827.39
+      }
+    },
+    {
+      "id": "5090_1447_000017",
+      "text": "w różnych tonacjach całymi godzinami od czasu do czasu złaził z łóżka wspinał się na szafę i przykucnięty pod sufitem porządkował coś w starych gratach pełnych rdzy i kurzu",
+      "audio": "dev/audio/5090/1447/5090_1447_000017.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 800.18,
+        "original_end_s": 813.35
+      }
+    },
+    {
+      "id": "5090_1447_000018",
+      "text": "sybilińskie spokojne oczy których spojrzenia nikt z nas wytrzymać nie umiał ale cofnąć się w połowie drogi nie dokonawszy powziątego planu poczytałbym był sobie za tchórzostwo",
+      "audio": "dev/audio/5090/1447/5090_1447_000018.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1315.74,
+        "original_end_s": 1330.53
+      }
+    },
+    {
+      "id": "5090_1447_000019",
+      "text": "szliśmy wzdłuż tego włochatego brzegu ciemności ocierając się o niedźwiedzie futro krzaków trzaskających pod naszymi nogami w jasną noc bezksiężycową w mleczny fałszywy dzień daleko po północy",
+      "audio": "dev/audio/5090/1447/5090_1447_000019.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1010.34,
+        "original_end_s": 1026.35
+      }
+    },
+    {
+      "id": "5090_1447_000020",
+      "text": "porozumiewał się wówczas spojrzeniem z naszym kotem który również wtajemniczony w ten świat podnosił swą cyniczną zimną porysowaną pręgami twarz mrużąc z nudów i obojętności skośne szparki oczu",
+      "audio": "dev/audio/5090/1447/5090_1447_000020.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 144.89,
+        "original_end_s": 161.59
+      }
+    },
+    {
+      "id": "5090_1447_000021",
+      "text": "wystarczających do obdzielenia całego miesiąca nocy zimowych i do nakrycia swymi srebrnymi i malowanymi kloszami wszystkich ich nocnych zjawisk przygód awantur i karnawałów",
+      "audio": "dev/audio/5090/1447/5090_1447_000021.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 372.38,
+        "original_end_s": 386.06
+      }
+    },
+    {
+      "id": "5090_1447_000022",
+      "text": "weszli zdyszani do sieni zaciskając z wysiłkiem drzwi za sobą przez chwilę musieli wesprzeć się o odrzwia tak silnie szturmował wicher do bramy wreszcie zasunęli rygiel i wiatr pognał dalej",
+      "audio": "dev/audio/5090/1447/5090_1447_000022.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 548.07,
+        "original_end_s": 563.91
+      }
+    },
+    {
+      "id": "5090_1447_000023",
+      "text": "cały smutny i jałowy olimp więdnący od lat w tym muzeum gipsów zmierzch tego pokoju mętniał i za dnia",
+      "audio": "dev/audio/5090/1447/5090_1447_000023.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 907.73,
+        "original_end_s": 917.89
+      }
+    },
+    {
+      "id": "5090_1447_000024",
+      "text": "ale kto w taką noc powierza się kaprysom nieobliczalnego dorożkarza wśród klekotu szprych wśród dudnienia pudła i budy nie mogłem porozumieć się z nim co do celu drogi",
+      "audio": "dev/audio/5090/1447/5090_1447_000024.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1467.72,
+        "original_end_s": 1482.81
+      }
+    },
+    {
+      "id": "5090_1447_000025",
+      "text": "chwilami wynurzał głowę z tych rachunków jakby dla zaczerpnięcia tchu otwierał usta mlaskał z niesmakiem językiem który był suchy i gorzki i rozglądał się bezradnie jakby czegoś szukając",
+      "audio": "dev/audio/5090/1447/5090_1447_000025.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 320.37,
+        "original_end_s": 335.26
+      }
+    },
+    {
+      "id": "5090_1447_000026",
+      "text": "wielkie malowane maski różowe z wydętymi policzkami nurzały się w ogromnym płóciennym przestworzu to sztuczne niebo szerzyło się i płynęło wzdłuż i w poprzek",
+      "audio": "dev/audio/5090/1447/5090_1447_000026.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 242.21,
+        "original_end_s": 257.43
+      }
+    },
+    {
+      "id": "5090_1447_000027",
+      "text": "około drugiej po południu wybuchł na przedmieściu pożar i rozszerzał się gwałtownie matka z adelą zaczęły pakować pościel futra i kosztowności",
+      "audio": "dev/audio/5090/1447/5090_1447_000027.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 374.19,
+        "original_end_s": 386.49
+      }
+    },
+    {
+      "id": "5090_1447_000028",
+      "text": "może nie było wcale tych ogromnych i żałosnych przestrzeni które nam wicher sugerował może nie było wcale tych opłakanych labiryntów tych wielookiennych traktów i korytarzy na których grał wicher jak na długich czarnych fletach",
+      "audio": "dev/audio/5090/1447/5090_1447_000028.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 613.35,
+        "original_end_s": 629.51
+      }
+    },
+    {
+      "id": "5090_1447_000029",
+      "text": "wzbierając ogromnym tchem patosu i wielkich gestów atmosferą tego świata sztucznego i pełnego blasku który budował się tam na dudniących rusztowaniach sceny",
+      "audio": "dev/audio/5090/1447/5090_1447_000029.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 257.43,
+        "original_end_s": 271.4
+      }
+    },
+    {
+      "id": "5090_1447_000030",
+      "text": "pod wielokrotnie rozczłonkowane fantastyczne sklepienia kolorowych i rozległych nocy mieszkaliśmy w rynku w jednym z tych ciemnych domów o pustych i ślepych fasadach które tak trudno od siebie odróżnić",
+      "audio": "dev/audio/5090/1447/5090_1447_000030.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 60.36,
+        "original_end_s": 77.84
+      }
+    },
+    {
+      "id": "5090_1447_000031",
+      "text": "lokator dawno się wyprowadził a w nietkniętych od miesięcy szufladach dokonywano niespodzianych odkryć w dolnych pokojach mieszkali subiekci i nieraz w nocy budziły nas ich jęki wydawane pod wpływem zmory sennej",
+      "audio": "dev/audio/5090/1447/5090_1447_000031.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 156.8,
+        "original_end_s": 173.47
+      }
+    },
+    {
+      "id": "5090_1447_000032",
+      "text": "bacząc by nie zmylić drogi tak minąłem już trzecią czy czwartą przecznicę a upragnionej ulicy wciąż nie było w dodatku nawet konfiguracja ulic nie odpowiadała oczekiwanemu obrazowi sklepów ani śladu",
+      "audio": "dev/audio/5090/1447/5090_1447_000032.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 676.45,
+        "original_end_s": 693.89
+      }
+    },
+    {
+      "id": "5090_1447_000033",
+      "text": "zdawało się nam że słyszymy wołanie o pomoc ojca zabłąkanego w wichurze to znowu że brat z teodorem gwarzą beztrosko pod drzwiami",
+      "audio": "dev/audio/5090/1447/5090_1447_000033.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 525.65,
+        "original_end_s": 536.09
+      }
+    },
+    {
+      "id": "5090_1447_000034",
+      "text": "ażeby mu sprawić pewną dystrakcję i oderwać go od chorobliwych dociekań wyciągała go matka na wieczorne spacery na które szedł",
+      "audio": "dev/audio/5090/1447/5090_1447_000034.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 199.32,
+        "original_end_s": 209.71
+      }
+    },
+    {
+      "id": "5090_1447_000035",
+      "text": "trzeba się było zapuścić według mego obliczenia w boczną uliczkę minąć dwie albo trzy przecznice ażeby osiągnąć ulicę nocnych sklepów",
+      "audio": "dev/audio/5090/1447/5090_1447_000035.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 646.3,
+        "original_end_s": 658.72
+      }
+    },
+    {
+      "id": "5090_1447_000036",
+      "text": "niekiedy ustawiał sobie dwa krzesła naprzeciw siebie i wspierając się rękami o poręcze bujał się nogami wstecz i naprzód szukając rozpromienionymi oczyma w naszych twarzach wyrazów podziwu i zachęty",
+      "audio": "dev/audio/5090/1447/5090_1447_000036.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 813.35,
+        "original_end_s": 827.43
+      }
+    },
+    {
+      "id": "5090_1447_000037",
+      "text": "przed piersią konia zbierał się wał białej piany śnieżnej coraz wyższy i wyższy z trudem przekopywał się koń przez czystą i świeżą jego masę",
+      "audio": "dev/audio/5090/1447/5090_1447_000037.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1646.26,
+        "original_end_s": 1659.95
+      }
+    },
+    {
+      "id": "5090_1447_000038",
+      "text": "przeciwnie stan jego zdrowia humor ruchliwość zdawały się poprawiać często miał się teraz głośno i szczebiotliwie zanosił się wprost od śmiechu albo też pukał w łóżko i odpowiadał sobie proszę",
+      "audio": "dev/audio/5090/1447/5090_1447_000038.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 781.45,
+        "original_end_s": 800.18
+      }
+    },
+    {
+      "id": "5090_1447_000039",
+      "text": "a pokój ogromniał górą w cieniu umbry który go łączył z wielkim żywiołem nocy miejskiej za oknem czuł nie patrząc że przestrzeń obrasta go pulsującą gęstwiną tapet pełną szeptów syków seplenień",
+      "audio": "dev/audio/5090/1447/5090_1447_000039.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 388.07,
+        "original_end_s": 404.53
+      }
+    },
+    {
+      "id": "5090_1447_000040",
+      "text": "to co jeszcze z niego pozostało to trochę cielesnej powłoki i ta garść bezsensownych dziwactw mogły zniknąć pewnego dnia tak samo nie zauważone jak szara kupka śmieci gromadząca się w kącie którą adela co dzień wynosiła na śmietnik",
+      "audio": "dev/audio/5090/1447/5090_1447_000040.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 1008.82,
+        "original_end_s": 1027.93
+      }
+    },
+    {
+      "id": "5090_1447_000041",
+      "text": "urywane bezładne słowa które fantastycznie powiększały kłamliwie przesadzały bezmiar nocy siedzieliśmy wszyscy w jasno oświetlonej kuchni za ogniskiem kuchennym i czarnym szerokim okapem komina prowadziło parę stopni do drzwi strychu",
+      "audio": "dev/audio/5090/1447/5090_1447_000041.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 660.52,
+        "original_end_s": 678.57
+      }
+    },
+    {
+      "id": "5090_1447_000042",
+      "text": "wielki bohomaz wymalowany na jego pękatym brzuchu wykrzywiał się kolorowym grymasem i fantastyczniał wzdętymi policzkami pobiegłem boso do okna niebo wydmuchane było wzdłuż i wszerz wiatrami srebrzystobiałe i przestronne",
+      "audio": "dev/audio/5090/1447/5090_1447_000042.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 210.86,
+        "original_end_s": 227.58
+      }
+    },
+    {
+      "id": "5090_1447_000043",
+      "text": "głęboka cisza tych pustych salonów pełna była tylko tajnych spojrzeń które oddawały sobie zwierciadła i popłochu arabesek biegnących wysoko fryzami wzdłuż ścian i gubiących się w sztukateriach białych sufitów",
+      "audio": "dev/audio/5090/1447/5090_1447_000043.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1251.05,
+        "original_end_s": 1270.35
+      }
+    },
+    {
+      "id": "5090_1447_000044",
+      "text": "wówczas bywało że zbiegał po cichu z łóżka w kąt pokoju pod ścianę na której wisiał zaufany instrument był to rodzaj klepsydry wodnej albo wielkiej fioli szklanej podzielonej na uncje i napełnionej ciemnym fluidem",
+      "audio": "dev/audio/5090/1447/5090_1447_000044.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 335.26,
+        "original_end_s": 352.43
+      }
+    },
+    {
+      "id": "5090_1447_000045",
+      "text": "znów wielkie folianty rozłożone były na łóżku na stole na podłodze i jakiś benedyktyński spokój pracy zalegał w świetle lampy nad białą pościelą łóżka nad pochyloną siwą głową mego ojca",
+      "audio": "dev/audio/5090/1447/5090_1447_000045.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 736.86,
+        "original_end_s": 753.4
+      }
+    },
+    {
+      "id": "5090_1447_000046",
+      "text": "w zimie była jeszcze na dworze głucha noc gdy ojciec schodził do tych zimnych i ciemnych pokojów płosząc przed sobą świecą stada cieni ulatujących bokami po podłodze i ścianach szedł budzić ciężko chrapiących z twardego jak kamień snu",
+      "audio": "dev/audio/5090/1447/5090_1447_000046.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 173.47,
+        "original_end_s": 191.86
+      }
+    },
+    {
+      "id": "5090_1447_000047",
+      "text": "aż znalazła dwie cienkie żółte drzazgi pochwyciła je latającymi ze wzburzenia rękami przymierzyła do nóg po czym wspięła się na nie jak na szczudła i zaczęła na tych żółtych kulach chodzić",
+      "audio": "dev/audio/5090/1447/5090_1447_000047.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 806.13,
+        "original_end_s": 818.4
+      }
+    },
+    {
+      "id": "5090_1447_000048",
+      "text": "w dalszy ciąg głębokiego chrapania które doganiali na swych spóźnionych drogach te nocne seanse pełne były dla mnie tajemniczego uroku",
+      "audio": "dev/audio/5090/1447/5090_1447_000048.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1149.72,
+        "original_end_s": 1162.53
+      }
+    },
+    {
+      "id": "5090_1447_000049",
+      "text": "cały dzień nic nie jadł biadała matka starszy subiekt teodor podjął się wyprawić w noc i wichurę żeby zanieść mu posiłek brat mój przyłączył się do wyprawy",
+      "audio": "dev/audio/5090/1447/5090_1447_000049.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 457.19,
+        "original_end_s": 471.26
+      }
+    },
+    {
+      "id": "5090_1447_000050",
+      "text": "gdyż kłócił się ze sobą głośno pertraktował usilnie i namiętnie przekonywał i prosił to znowu zdawał się przewodniczyć zgromadzeniu wielu interesantów których usiłował z całym nakładem żarliwości i swady pogodzić",
+      "audio": "dev/audio/5090/1447/5090_1447_000050.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 700.17,
+        "original_end_s": 718.08
+      }
+    },
+    {
+      "id": "5090_1447_000051",
+      "text": "nie rozumiałem o co jej chodzi a ona zacietrzewiała się coraz bardziej w gniewie i stała się jednym pękiem gestykulacji i złorzeczeń zdawało się",
+      "audio": "dev/audio/5090/1447/5090_1447_000051.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 764.54,
+        "original_end_s": 775.28
+      }
+    },
+    {
+      "id": "5090_1447_000052",
+      "text": "zdarzało się podczas obiadu że wśród jedzenia odkładał nagle nóż i widelec i z serwetą zawiązaną pod szyją podnosił się kocim ruchem skradał na brzuścach palców do drzwi sąsiedniego pustego pokoju i z największą ostrożnością",
+      "audio": "dev/audio/5090/1447/5090_1447_000052.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 161.59,
+        "original_end_s": 181.41
+      }
+    },
+    {
+      "id": "5090_1447_000053",
+      "text": "pokój drżał z lekka obrazy na ścianach brzęczały szyby lśniły się tłustym odblaskiem lampy firanki na oknie wisiały wzdęte i pełne tchnienia tej burzliwej nocy",
+      "audio": "dev/audio/5090/1447/5090_1447_000053.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 428.61,
+        "original_end_s": 443.89
+      }
+    },
+    {
+      "id": "5090_1447_000054",
+      "text": "wreszcie ustał wyszedłem z dorożki dyszał ciężko ze zwieszoną głową przytuliłem jego łeb do piersi w jego wielkich czarnych oczach lśniły łzy",
+      "audio": "dev/audio/5090/1447/5090_1447_000054.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1659.95,
+        "original_end_s": 1673.38
+      }
+    },
+    {
+      "id": "5090_1447_000055",
+      "text": "to znowu nabierał tchu nastawiał się palisadami krokwi rósł jak sklepienia gotyckie rozprzestrzeniał się lasem belek pełnym stokrotnego echa i huczał jak pudło ogromnych basów",
+      "audio": "dev/audio/5090/1447/5090_1447_000055.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 697.8,
+        "original_end_s": 712.53
+      }
+    },
+    {
+      "id": "5090_1447_000056",
+      "text": "daje to powód do ciągłych omyłek gdyż wszedłszy raz w niewłaściwą sień na niewłaściwe schody dostawało się zazwyczaj w prawdziwy labirynt obcych mieszkań ganków niespodzianych wyjść na obce podwórza i zapominało się o początkowym celu wyprawy",
+      "audio": "dev/audio/5090/1447/5090_1447_000056.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 77.84,
+        "original_end_s": 97.36
+      }
+    },
+    {
+      "id": "5090_1447_000057",
+      "text": "potem znów przychodziły dni cichej skupionej pracy przeplatanej samotnymi monologami gdy tak siedział w świetle lampy stołowej wśród poduszek wielkiego łoża",
+      "audio": "dev/audio/5090/1447/5090_1447_000057.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 374.91,
+        "original_end_s": 388.07
+      }
+    },
+    {
+      "id": "5090_1447_000058",
+      "text": "był to dialog groźny jak mowa piorunów łamańce rąk jego rozrywały niebo na sztuki a w szczelinach ukazywała się twarz jehowy wzdęta gniewem i plująca przekleństwa",
+      "audio": "dev/audio/5090/1447/5090_1447_000058.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 594.47,
+        "original_end_s": 607.87
+      }
+    },
+    {
+      "id": "5090_1447_000059",
+      "text": "koniec rozdziału sklepy cynamonowe czytał mateusz wyciślik",
+      "audio": "dev/audio/5090/1447/5090_1447_000059.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1827.39,
+        "original_end_s": 1844.91
+      }
+    },
+    {
+      "id": "5090_1447_000060",
+      "text": "pełne wielkich szaf głębokich kanap bladych luster i tandetnych palm sztucznych mieszkanie nasze coraz bardziej popadało w stan zaniedbania wskutek opieszałości matki przesiadującej w sklepie",
+      "audio": "dev/audio/5090/1447/5090_1447_000060.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 109.22,
+        "original_end_s": 123.7
+      }
+    },
+    {
+      "id": "5090_1447_000061",
+      "text": "słyszałem jego głos w przerwach proroczej tyrady mego ojca słyszałem te potężne warknięcia wzdętych warg od których szyby brzęczały mieszając się z wybuchami zaklęć lamentów gróźb mego ojca",
+      "audio": "dev/audio/5090/1447/5090_1447_000061.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 624.58,
+        "original_end_s": 639.29
+      }
+    },
+    {
+      "id": "5090_1447_000062",
+      "text": "na tych schodkach siedział starszy subiekt teodor i nasłuchiwał jak strych grał od wichru słyszał jak w pauzach wichury miechy żeber strychowych składały się w fałdy i dach wiotczał i zwisał jak ogromne płuca z których uciekł oddech",
+      "audio": "dev/audio/5090/1447/5090_1447_000062.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 678.57,
+        "original_end_s": 697.8
+      }
+    },
+    {
+      "id": "5090_1447_000063",
+      "text": "w tym czasie ojciec mój zaczął zapadać na zdrowiu bywało już w pierwszych tygodniach tej wczesnej zimy że spędzał dnie całe w łóżku otoczony flaszkami pigułkami i księgami handlowymi które mu przynoszono z kontuaru",
+      "audio": "dev/audio/5090/1447/5090_1447_000063.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 237.78,
+        "original_end_s": 254.62
+      }
+    },
+    {
+      "id": "5090_1447_000064",
+      "text": "na rynku spotkałem ludzi zażywających przechadzki wszyscy oczarowani widowiskiem tej nocy mieli twarze wzniesione i srebrne od magii nieba troska o portfel opuściła mnie zupełnie",
+      "audio": "dev/audio/5090/1447/5090_1447_000064.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1762.63,
+        "original_end_s": 1779.06
+      }
+    },
+    {
+      "id": "5090_1447_000065",
+      "text": "przypominaliśmy sobie że ojca od rana nie widziano wczesnym rankiem domyśliliśmy się musiał udać się do sklepu gdzie go zaskoczyła wichura odcinając mu powrót",
+      "audio": "dev/audio/5090/1447/5090_1447_000065.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 443.89,
+        "original_end_s": 457.19
+      }
+    },
+    {
+      "id": "5090_1447_000066",
+      "text": "ogromne obozowisko czarny ruchomy amfiteatr zstępować zaczął w potężnych kręgach ku miastu i wybuchła ciemność ogromną wzburzoną wichur i szalała przez trzy dni i trzy noce",
+      "audio": "dev/audio/5090/1447/5090_1447_000066.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 178.2,
+        "original_end_s": 193.24
+      }
+    },
+    {
+      "id": "5090_1447_000067",
+      "text": "w świetle pozostawionej przezeń świecy wywijali się leniwie z brudnej pościeli wystawiali siadając na łóżkach bose i brzydkie nogi i z skarpetą w ręce oddawali się jeszcze przez chwilę rozkoszy ziewania",
+      "audio": "dev/audio/5090/1447/5090_1447_000067.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 191.86,
+        "original_end_s": 208.56
+      }
+    },
+    {
+      "id": "5090_1447_000068",
+      "text": "i wszystkie kołatały niezgrabnie kołkami drewnianych języków mełły nieudolnie w drewnianych gębach bełkot klątw i obelg bluźniąc błotem na całej przestrzeni nocy aż dobluźniły się doklęły swego",
+      "audio": "dev/audio/5090/1447/5090_1447_000068.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 149.65,
+        "original_end_s": 166.77
+      }
+    },
+    {
+      "id": "5090_1447_000069",
+      "text": "przestaliśmy zwracać uwagę na te dziwactwa w które się z dnia na dzień głębiej wplątywał wyzbyty jakby zupełnie cielesnych potrzeb nie przyjmując tygodniami pokarmu pogrążał się z dniem każdym głębiej w zawiłe i dziwaczne afery dla których nie mieliśmy zrozumienia",
+      "audio": "dev/audio/5090/1447/5090_1447_000069.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 920.19,
+        "original_end_s": 939.9
+      }
+    },
+    {
+      "id": "5090_1447_000070",
+      "text": "mój ojciec powoli zanikał wiądł w oczach przykucnięty pod wielkimi poduszkami dziko nastroszony kępami siwych włosów rozmawiał z sobą półgłosem",
+      "audio": "dev/audio/5090/1447/5090_1447_000070.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 672.15,
+        "original_end_s": 687.65
+      }
+    },
+    {
+      "id": "5090_1447_000071",
+      "text": "ale tym razem zaczęło się inaczej uszedłszy parę kroków spostrzegłem że jestem bez płaszcza chciałem zawrócić",
+      "audio": "dev/audio/5090/1447/5090_1447_000071.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 451.35,
+        "original_end_s": 462.21
+      }
+    },
+    {
+      "id": "5090_1447_000072",
+      "text": "opowiadali bezładnie o nocy o wichurze ich futra nasiąknięte wiatrem pachniały teraz powietrzem trzepotali powiekami w świetle ich oczy pełne jeszcze nocy broczyły ciemnością za każdym uderzeniem powiek",
+      "audio": "dev/audio/5090/1447/5090_1447_000072.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 563.91,
+        "original_end_s": 580.57
+      }
+    },
+    {
+      "id": "5090_1447_000073",
+      "text": "przypomniałem sobie że o tej późnej godzinie musi się w sali profesora arensta odbywać jedna z lekcyj nadobowiązkowych prowadzona w późną noc",
+      "audio": "dev/audio/5090/1447/5090_1447_000073.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 808.11,
+        "original_end_s": 819.65
+      }
+    },
+    {
+      "id": "5090_1447_000074",
+      "text": "najlżejszy szmer nie przerywał tu solennej ciszy korytarze były w tym skrzydle obszerniejsze wysłane pluszowym dywanem i pełne wytworności",
+      "audio": "dev/audio/5090/1447/5090_1447_000074.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1187.86,
+        "original_end_s": 1199.23
+      }
+    },
+    {
+      "id": "5090_1447_000075",
+      "text": "to oddalało mnie od celu ale można było nadrobić spóźnienie wracając drogą na żupy solne uskrzydlony pragnieniem zwiedzenia sklepów cynamonowych skręciłem w wiadomą mi ulicę i leciałem więcej aniżeli szedłem",
+      "audio": "dev/audio/5090/1447/5090_1447_000075.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 658.72,
+        "original_end_s": 676.45
+      }
+    },
+    {
+      "id": "5090_1447_000076",
+      "text": "rynku i nie przypomnieć sobie że o tej późnej porze bywają czasem jeszcze otwarte niektóre z owych osobliwych a tyle nęcących sklepów o których zapomina się we dnie zwyczajne",
+      "audio": "dev/audio/5090/1447/5090_1447_000076.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 523.82,
+        "original_end_s": 539.09
+      }
+    },
+    {
+      "id": "5090_1447_000077",
+      "text": "przy przez arkady korytarza widziałem na drugim końcu wielkiego salonu duże oszklone drzwi prowadzące na taras było tak cicho wokoło że nabrałem odwagi",
+      "audio": "dev/audio/5090/1447/5090_1447_000077.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1341.13,
+        "original_end_s": 1354.8
+      }
+    },
+    {
+      "id": "5090_1447_000078",
+      "text": "w przerwach między nimi widniały parki i mury sadów obraz przypominał z daleka ulicę leszniańską w jej dolnych i rzadko zwiedzanych okolicach",
+      "audio": "dev/audio/5090/1447/5090_1447_000078.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 748.07,
+        "original_end_s": 759.63
+      }
+    },
+    {
+      "id": "5090_1447_000079",
+      "text": "śnieg skurczył się w baranki białe w niewinne i słodkie runo które pachniało fiołkami w takie same baranki rozpuściło się niebo w którym księżyc dwoił się i troił demonstrując w tym zwielokrotnieniu wszystkie swe fazy i pozycje",
+      "audio": "dev/audio/5090/1447/5090_1447_000079.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 475.95,
+        "original_end_s": 495.06
+      }
+    },
+    {
+      "id": "5090_1447_000080",
+      "text": "coraz częściej otwierały się teraz drzwi sieni i wpuszczały okutanego w opończe i szale gościa zziajany sąsiad lub znajomy wywijał się powoli z chustek płaszczy i wyrzucał z siebie zdyszanym głosem opowiadania",
+      "audio": "dev/audio/5090/1447/5090_1447_000080.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 645.06,
+        "original_end_s": 660.52
+      }
+    },
+    {
+      "id": "5090_1447_000081",
+      "text": "z bogiem zdaje się pogodził się zupełnie niekiedy w nocy ukazywała się twarz brodatego demiurga w oknie sypialni oblana ciemną purpur bengalskiego światła i patrzyła przez chwilę dobrotliwie na uśpionego głęboko",
+      "audio": "dev/audio/5090/1447/5090_1447_000081.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 827.43,
+        "original_end_s": 843.74
+      }
+    },
+    {
+      "id": "5090_1447_000082",
+      "text": "mieszkanie to nie posiadało określonej liczby pokojów gdyż nie pamiętano ile z nich wynajęte było obcym lokatorom nieraz otwierano przypadkiem którąś z tych izb zapomnianych i znajdowano ją pustą",
+      "audio": "dev/audio/5090/1447/5090_1447_000082.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 141.64,
+        "original_end_s": 156.8
+      }
+    },
+    {
+      "id": "5090_1447_000083",
+      "text": "że przyjdzie chwila kiedy napięcie tajemnicy dojdzie do zenitu i wtedy wezbrane niebo kurtyny pęknie naprawdę uniesie się i ukaże rzeczy niesłychane i olśniewające",
+      "audio": "dev/audio/5090/1447/5090_1447_000083.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 301.3,
+        "original_end_s": 315.37
+      }
+    },
+    {
+      "id": "5090_1447_000084",
+      "text": "milcząc bez oporu ale i bez przekonania roztargniony i nieobecny duchem raz nawet poszliśmy do teatru",
+      "audio": "dev/audio/5090/1447/5090_1447_000084.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 209.71,
+        "original_end_s": 219.96
+      }
+    },
+    {
+      "id": "5090_1447_000085",
+      "text": "była to jedna z tych jasnych nocy w których firmament gwiezdny jest tak rozległy i rozgałęziony jakby rozpadł się rozłamał i podzielił na labirynt odrębnych niebios",
+      "audio": "dev/audio/5090/1447/5090_1447_000085.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 360.24,
+        "original_end_s": 372.38
+      }
+    },
+    {
+      "id": "5090_1447_000086",
+      "text": "pełen pomysłów i inspiracji chciałem skierować się do domu gdy zaszli mi drogę koledzy z książkami pod pachą zbyt wcześnie wyszli do szkoły obudzeni jasnością tej nocy która nie chciała się skończyć",
+      "audio": "dev/audio/5090/1447/5090_1447_000086.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1796.3,
+        "original_end_s": 1812.43
+      }
+    },
+    {
+      "id": "5090_1447_000087",
+      "text": "po drugiej stronie tych domów musi prowadzić właściwa ulica od której te domy są dostępne myślałem sobie z niepokojem przyspieszałem kroku rezygnując w duchu z myli zwiedzenia sklepów byle tylko wydostać się stąd prędko w znane okolice miasta",
+      "audio": "dev/audio/5090/1447/5090_1447_000087.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 704.07,
+        "original_end_s": 723.54
+      }
+    },
+    {
+      "id": "5090_1447_000088",
+      "text": "wtedy ujrzałem na jego brzuchu okrągłą czarną ranę dlaczego mi nie powiedziałeś szepnąłem ze łzami",
+      "audio": "dev/audio/5090/1447/5090_1447_000088.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1673.38,
+        "original_end_s": 1683.43
+      }
+    },
+    {
+      "id": "5090_1447_000089",
+      "text": "już wówczas miasto nasze popadało coraz bardziej w chroniczną szarość zmierzchu porastało na krawędziach liszajem cienia puszystą pleśnią i mchem koloru żelaza",
+      "audio": "dev/audio/5090/1447/5090_1447_000089.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 31.4,
+        "original_end_s": 45.41
+      }
+    },
+    {
+      "id": "5090_1447_000090",
+      "text": "wjechaliśmy na podmiejską ulicę ujętą z obu stron w ogrody ogrody te przechodziły z wolna w miarę posuwania się w parki wielkodrzewne a te w lasy",
+      "audio": "dev/audio/5090/1447/5090_1447_000090.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1528.95,
+        "original_end_s": 1542.78
+      }
+    },
+    {
+      "id": "5090_1447_000091",
+      "text": "którego gniew boży obalił rozkraczonego szeroko na ogromnym porcelanowym urynale zakrytego wichrem ramion chmurą rozpaczliwych łamachmanów nad którymi wyżej jeszcze unosił się głos jego obcy i twardy zrozumiałem gniew boży świętych mężów",
+      "audio": "dev/audio/5090/1447/5090_1447_000091.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 575.28,
+        "original_end_s": 594.47
+      }
+    },
+    {
+      "id": "5090_1447_000092",
+      "text": "profesor przechadzał się dostojnie pełen namaszczenia wzdłuż pustych ławek wśród których rozrzuceni małymi grupkami rysowaliśmy coś w szarym odblasku nocy zimowej było zacisznie i sennie",
+      "audio": "dev/audio/5090/1447/5090_1447_000092.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 931.89,
+        "original_end_s": 949.86
+      }
+    },
+    {
+      "id": "5090_1447_000093",
+      "text": "ojciec pogrążony w swych dziwactwach zapewne zapomniał już o zgubie o matkę nie dbałem w taką noc jedyną w roku przychodzą szczęśliwe myli natchnienia wieszcze tknięcia palca bożego",
+      "audio": "dev/audio/5090/1447/5090_1447_000093.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1779.06,
+        "original_end_s": 1796.3
+      }
+    },
+    {
+      "id": "5090_1447_000094",
+      "text": "z podziwem i czcią stałem przed tym przepychem domyślałem się że nocna moja eskapada zaprowadziła mnie niespodzianie w skrzydło dyrektora przed jego prywatne mieszkanie",
+      "audio": "dev/audio/5090/1447/5090_1447_000094.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1270.35,
+        "original_end_s": 1285.39
+      }
+    },
+    {
+      "id": "5090_1447_000095",
+      "text": "wówczas pogrążał się pozornie jeszcze bardziej w pracę liczył i sumował bojąc się zdradzić ten gniew który w nim wzbierał i walcząc z pokusą",
+      "audio": "dev/audio/5090/1447/5090_1447_000095.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 419.6,
+        "original_end_s": 430.85
+      }
+    },
+    {
+      "id": "5090_1447_000096",
+      "text": "dobrze mi znaną ulicę uczyniłem tak zeszedłszy na parkiety salonu pod wielkie palmy wystrzelające tam z wazonów aż do arabesek sufitu spostrzegłem że znajduję się już właściwie na gruncie neutralnym",
+      "audio": "dev/audio/5090/1447/5090_1447_000096.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1372.89,
+        "original_end_s": 1389.9
+      }
+    },
+    {
+      "id": "5090_1447_000097",
+      "text": "drogi mój to dla ciebie rzekł i stał się bardzo mały jak konik z drzewa opuściłem go czułem się dziwnie lekki i szczęśliwy",
+      "audio": "dev/audio/5090/1447/5090_1447_000097.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 1683.43,
+        "original_end_s": 1697.4
+      }
+    },
+    {
+      "id": "5090_1447_000098",
+      "text": "jak duch weń wstąpił jak podnosi się z łóżka długi i rosnący gniewem proroczym dławiąc się hałaśliwymi słowy które wyrzucał jak militareza",
+      "audio": "dev/audio/5090/1447/5090_1447_000098.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 551.2,
+        "original_end_s": 561.9
+      }
+    },
+    {
+      "id": "5090_1447_000099",
+      "text": "aż pewnej nocy wezbrały pod gontowymi przestworami falangi garnków i flaszek i popłynęły wielkim stłoczonym ludem na miasto",
+      "audio": "dev/audio/5090/1447/5090_1447_000099.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 70.36,
+        "original_end_s": 81.73
+      }
+    },
+    {
+      "id": "5090_1447_000100",
+      "text": "a oczy jego ciemniały zaś na twarz przybladłą występował wyraz cierpienia czy jakiej występnej rozkoszy",
+      "audio": "dev/audio/5090/1447/5090_1447_000100.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 364.83,
+        "original_end_s": 374.91
+      }
+    },
+    {
+      "id": "5090_1447_000101",
+      "text": "ale za każdym razem te hałaśliwe zebrania pełne gorących temperamentów rozpryskiwały się przy końcu wśród klątw złorzeczeń i obelg potem przyszedł okres jakiego uciszenia ukojenia wewnętrznego błogiej pogody ducha",
+      "audio": "dev/audio/5090/1447/5090_1447_000101.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 718.08,
+        "original_end_s": 736.86
+      }
+    },
+    {
+      "id": "5090_1447_000102",
+      "text": "owiał mnie od razu oddech szerokiej przestrzeni stały tam przy ulicy albo w głębi ogrodów malownicze wille ozdobne budynki bogaczy",
+      "audio": "dev/audio/5090/1447/5090_1447_000102.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 736.13,
+        "original_end_s": 748.07
+      }
+    },
+    {
+      "id": "5090_1447_000103",
+      "text": "nie mogli dojć do sklepu zgubili drogę i ledwo trafili z powrotem nie poznawali miasta wszystkie ulice były jak przestawione",
+      "audio": "dev/audio/5090/1447/5090_1447_000103.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 580.57,
+        "original_end_s": 591.41
+      }
+    },
+    {
+      "id": "5090_1447_000104",
+      "text": "zauważyliśmy wówczas wszyscy że ojciec zaczął z dnia na dzień maleć jak orzech który zsycha się wewnątrz łupiny zanikowi temu nie towarzyszył bynajmniej upadek sił",
+      "audio": "dev/audio/5090/1447/5090_1447_000104.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 767.34,
+        "original_end_s": 781.45
+      }
+    },
+    {
+      "id": "5090_1447_000105",
+      "text": "lecz nie było mi dane doczekać tej chwili albowiem tymczasem ojciec zaczął zdradzać pewne oznaki zaniepokojenia chwytał się za kieszenie i wreszcie oświadczył że zapomniał portfelu z pieniędzmi i ważnymi dokumentami",
+      "audio": "dev/audio/5090/1447/5090_1447_000105.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 315.37,
+        "original_end_s": 333.24
+      }
+    },
+    {
+      "id": "5090_1447_000106",
+      "text": "ujrzałem go jak w koszuli i boso biegał tam i z powrotem po skórzanej kanapie dokumentując w ten sposób swą irytację przed bezradną matką",
+      "audio": "dev/audio/5090/1447/5090_1447_000106.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 284.13,
+        "original_end_s": 295.37
+      }
+    },
+    {
+      "id": "5090_1447_000107",
+      "text": "nie pójdziesz dziś do szkoły rzekła rano matka jest straszna wichura na dworze w pokoju unosił się delikatny welon dymu pachnący żywicą piec wył i gwizdał jak gdyby uwięziona w nim była cała sfora psów czy demonów",
+      "audio": "dev/audio/5090/1447/5090_1447_000107.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 193.24,
+        "original_end_s": 210.86
+      }
+    },
+    {
+      "id": "5090_1447_000108",
+      "text": "daleki zimny czerwony odblask zabarwiał je późnymi kolorami nie jedliśmy tego dnia obiadu bo ogień w kuchni wracał kłębami dymu do izby w pokojach było zimno i pachniało wiatrem",
+      "audio": "dev/audio/5090/1447/5090_1447_000108.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_14_schulz_64kb.mp3",
+        "original_start_s": 358.79,
+        "original_end_s": 374.19
+      }
+    },
+    {
+      "id": "5090_1447_000109",
+      "text": "gorzki zapach choroby osiadał na dnie pokoju którego tapety gęstniały ciemniejszym splotem arabesek wieczorami gdy matka przychodziła ze sklepu bywał podniecony i skłonny do sprzeczek",
+      "audio": "dev/audio/5090/1447/5090_1447_000109.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_02_schulz_64kb.mp3",
+        "original_start_s": 254.62,
+        "original_end_s": 271.01
+      }
+    },
+    {
+      "id": "5090_1447_000110",
+      "text": "zaglądał przez dziurkę od klucza potem wracał do stołu jakby zawstydzony z zakłopotanym uśmiechem wśród mruknięć i niewyraźnych mamrotań odnoszących się do wewnętrznego monologu w którym był pogrążony",
+      "audio": "dev/audio/5090/1447/5090_1447_000110.opus",
+      "tags": {
+        "speaker_id": "mls-pl-5090",
+        "gender": "m",
+        "book_id": "1447",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/sklepy_cynamonowe_1004_librivox/sklepy_cynamonowe_11_schulz_64kb.mp3",
+        "original_start_s": 181.41,
+        "original_end_s": 199.32
+      }
+    }
+  ]
+}

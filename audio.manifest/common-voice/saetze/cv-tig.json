@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tig",
+  "lang": "tig",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tig",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37654239",
+      "text": "ገመልኩም ዕቀሎ ወዲብ ረቢኩም ትወከሎ።",
+      "audio": "tig/unknown/tig_u_37654239.mp3",
+      "tags": {
+        "source_item_id": "37654239",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39778625",
+      "text": "ወለጸሩ' አሰር ለእሉ በልዐ ሰዐር ረአው።",
+      "audio": "tig/unknown/tig_u_39778625.mp3",
+      "tags": {
+        "source_item_id": "39778625",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37652819",
+      "text": "ለሓሎታቱ እለ - ክምሰል ሰምዐው ክል-ምኖም እብ ሸፋግ እት ቤቱ ሰዐ።",
+      "audio": "tig/unknown/tig_u_37652819.mp3",
+      "tags": {
+        "source_item_id": "37652819",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39778628",
+      "text": "ሐመዶት ነፍስ፡፣ ጥባይ ጸሬዕ ቱ።",
+      "audio": "tig/unknown/tig_u_39778628.mp3",
+      "tags": {
+        "source_item_id": "39778628",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37654343",
+      "text": "ምን ትትደሬ ጥዋሎት ወምን ተዐቅሎሌ አስመረ",
+      "audio": "tig/unknown/tig_u_37654343.mp3",
+      "tags": {
+        "source_item_id": "37654343",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37669573",
+      "text": "ሐየት እት ልርእው እብ አሰሩ ሐዙው",
+      "audio": "tig/unknown/tig_u_37669573.mp3",
+      "tags": {
+        "source_item_id": "37669573",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37654308",
+      "text": "ምን እንዴ ሐመምከ መትሳራይ ምን ቀዳምካ",
+      "audio": "tig/unknown/tig_u_37654308.mp3",
+      "tags": {
+        "source_item_id": "37654308",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37654320",
+      "text": ". ሐቆ ሺበት ወምብረሕ ሀዴ ቤለ ኢልፍረሕ።",
+      "audio": "tig/unknown/tig_u_37654320.mp3",
+      "tags": {
+        "source_item_id": "37654320",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39778664",
+      "text": "ምናተ፡ ለሰበብ ለለአመጽእዉ ብዕድ ቱ።",
+      "audio": "tig/unknown/tig_u_39778664.mp3",
+      "tags": {
+        "source_item_id": "39778664",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37653937",
+      "text": "ዲብ መናሰባት ለልትሀየብመ ሀለ ።",
+      "audio": "tig/unknown/tig_u_37653937.mp3",
+      "tags": {
+        "source_item_id": "37653937",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37654204",
+      "text": "አሶምያ ወምርግዲ ክስከስ እብ ምናክብነ",
+      "audio": "tig/unknown/tig_u_37654204.mp3",
+      "tags": {
+        "source_item_id": "37654204",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37669571",
+      "text": "መን ቱ ምንዲ ትብለኩም ካይን ለፈኩ ኢፈዴ",
+      "audio": "tig/unknown/tig_u_37669571.mp3",
+      "tags": {
+        "source_item_id": "37669571",
+        "gender": "u"
+      }
+    }
+  ]
+}

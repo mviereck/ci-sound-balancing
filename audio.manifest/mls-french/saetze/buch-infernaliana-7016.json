@@ -1,0 +1,2090 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Infernaliana",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "7016",
+    "book_title": "Infernaliana",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "6318_7016_000000",
+      "text": "bientôt après un troisième un quatrième un cinquième un sixième enfin un douzième est à la file et le cheval de s'allonger pour laisser de la place au dernier venu",
+      "audio": "dev/audio/6318/7016/6318_7016_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 65.26,
+        "original_end_s": 76.46
+      }
+    },
+    {
+      "id": "6318_7016_000001",
+      "text": "dis à mon petit fils que de dix ans ni lui ni personne n'habitera ici mais l'heure de mon retour approche je sens déjà les cruelles atteintes des flammes je brûle s'adressant alors à son compagnon qui s'emparait de lui",
+      "audio": "dev/audio/6318/7016/6318_7016_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 346.85,
+        "original_end_s": 366.7
+      }
+    },
+    {
+      "id": "6318_7016_000002",
+      "text": "fuis malheureux fuis ou redoute mon courroux mille bombes s'écrie mon hussard je n'ai pas fui devant des régiments entiers et je fuirais devant un esprit",
+      "audio": "dev/audio/6318/7016/6318_7016_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 250.45,
+        "original_end_s": 265.91
+      }
+    },
+    {
+      "id": "6318_7016_000003",
+      "text": "un soir vers la brune accablé de lassitude je dis tout haut si j'avais un cheval je serais bien heureux à peine avais-je fini ce souhait qu'un cavalier passa et me dit monsieur vous avez l'air bien fatigué vous avez encore trois lieues à faire si vous voulez profiter de la croupe de mon cheval il ne tient qu'à vous",
+      "audio": "dev/audio/6318/7016/6318_7016_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 32.61,
+        "original_end_s": 51.83
+      }
+    },
+    {
+      "id": "6318_7016_000004",
+      "text": "en effet le vieillard était déjà tout en feu et son terrible conducteur le mettait à la torture nous étions stupéfaits",
+      "audio": "dev/audio/6318/7016/6318_7016_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 382.65,
+        "original_end_s": 393.25
+      }
+    },
+    {
+      "id": "6318_7016_000005",
+      "text": "doué d'une force d'âme peu commune je ne pouvais m'empêcher de rire en lisant sa correspondance mais ce fut bien pire lorsqu'il me raconta que véritablement effrayé",
+      "audio": "dev/audio/6318/7016/6318_7016_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 54.93,
+        "original_end_s": 66.49
+      }
+    },
+    {
+      "id": "6318_7016_000006",
+      "text": "nous choisîmes l'appartement le plus agréable nous y allumâmes un grand feu et fortifiés par un bon souper nous attendîmes avec patience les revenans",
+      "audio": "dev/audio/6318/7016/6318_7016_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 123.44,
+        "original_end_s": 134.36
+      }
+    },
+    {
+      "id": "6318_7016_000007",
+      "text": "insensés nous dit-il qui a pu vous porter à venir troubler mon repos persécuté par ma famille durant toute ma vie veut-elle me persécuter encore après ma mort",
+      "audio": "dev/audio/6318/7016/6318_7016_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 232.7,
+        "original_end_s": 250.45
+      }
+    },
+    {
+      "id": "6318_7016_000008",
+      "text": "je te suivrai aux enfers s'écrie le hussard eh bien marche répond l'esprit nous le suivons son guide allait devant nous traversons une foule d'appartemens les cours les jardins",
+      "audio": "dev/audio/6318/7016/6318_7016_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 311.91,
+        "original_end_s": 328.01
+      }
+    },
+    {
+      "id": "6318_7016_000009",
+      "text": "tandis que mon intime ami le marquis se rendait au sein de sa famille qui habitait les bords du rhône au bout de six ans j'obtins un congé et je fus passer mon semestre chez mon ami",
+      "audio": "dev/audio/6318/7016/6318_7016_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 30.35,
+        "original_end_s": 43.18
+      }
+    },
+    {
+      "id": "6318_7016_000010",
+      "text": "ses joues dépouillées de chair n'offraient à notre vue qu'un monstre horrible sa tête chauve ajoutait encore à ce tableau ses mains étaient armées de griffes crochues son corps n'était qu'un vrai squelette entouré de reptiles",
+      "audio": "dev/audio/6318/7016/6318_7016_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 191.22,
+        "original_end_s": 208.42
+      }
+    },
+    {
+      "id": "6318_7016_000011",
+      "text": "notre courage devenant inutile nous nous retirâmes et ayant pris nos chevaux nous nous éloignâmes de toute la vitesse de leurs jambes",
+      "audio": "dev/audio/6318/7016/6318_7016_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 406.4,
+        "original_end_s": 416.71
+      }
+    },
+    {
+      "id": "6318_7016_000012",
+      "text": "voilà messieurs ce qui m'a dégoûté de voyager et m'a rendu moins incrédule sur les esprits nous ne savions que dire de cette aventure lorsque le second commença son récit",
+      "audio": "dev/audio/6318/7016/6318_7016_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 117.79,
+        "original_end_s": 129.32
+      }
+    },
+    {
+      "id": "6318_7016_000013",
+      "text": "enfin il était mille fois plus hideux que la mort telle qu'on nous la représente nous étions encore à considérer ce monstre lorsqu'un vieillard paraissant avoir",
+      "audio": "dev/audio/6318/7016/6318_7016_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 208.42,
+        "original_end_s": 222.6
+      }
+    },
+    {
+      "id": "6318_7016_000014",
+      "text": "nous venions de nous livrer au sommeil lorsque nous fûmes réveillés par un bacanal épouvantable on traînait de lourdes chaînes les meubles étaient en mouvement une vapeur épaisse et infecte parcourait tout le château",
+      "audio": "dev/audio/6318/7016/6318_7016_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 134.36,
+        "original_end_s": 149.75
+      }
+    },
+    {
+      "id": "6318_7016_000015",
+      "text": "depuis longtemps la peur s'était emparée de moi je n'osais respirer et j'étais plus mort que vif mais que devins-je lorsque je vis que la maudite monture allait d'une vitesse égale à la foudre et prenait un chemin nouveau",
+      "audio": "dev/audio/6318/7016/6318_7016_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 76.46,
+        "original_end_s": 89.5
+      }
+    },
+    {
+      "id": "6318_7016_000016",
+      "text": "arrivés chez le marquis nous lui fîmes le récit exact de notre aventure et l'engageâmes très fort à ne plus remettre les pieds dans son château",
+      "audio": "dev/audio/6318/7016/6318_7016_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 416.71,
+        "original_end_s": 436.59
+      }
+    },
+    {
+      "id": "6318_7016_000017",
+      "text": "ah ciel m'écriai-je notre seigneur était en même compagnie que nous ils étaient treize et le treizième était judas qui le vendit nous avons certainement un judas parmi nous jésus ne nous abandonnez pas",
+      "audio": "dev/audio/6318/7016/6318_7016_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 89.5,
+        "original_end_s": 102.86
+      }
+    },
+    {
+      "id": "6318_7016_000018",
+      "text": "le diable m'emporte si j'y conçois rien dit mon domestique jamais je n'ai visé si juste et avec si peu de succès suis-moi dit une voix sépulcrale",
+      "audio": "dev/audio/6318/7016/6318_7016_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 298.93,
+        "original_end_s": 311.91
+      }
+    },
+    {
+      "id": "6318_7016_000019",
+      "text": "il ne mettait plus les pieds dans son donjon parce que son grand père lui était apparu au moins vingt fois et que tous ses gens l'avaient reconnu et avaient été témoin du vacarme que les esprits faisaient dans sa maison",
+      "audio": "dev/audio/6318/7016/6318_7016_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 66.49,
+        "original_end_s": 79.45
+      }
+    },
+    {
+      "id": "6318_7016_000020",
+      "text": "arrivés à l'extrémité de celui-ci le vieillard nous adresse ces mots je suis damné ma famille en est la cause repoussé de son sein je me suis donné aux esprits infernaux et c'est pour me venger que je répands l'alarme dans ce château",
+      "audio": "dev/audio/6318/7016/6318_7016_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 328.01,
+        "original_end_s": 346.85
+      }
+    },
+    {
+      "id": "6318_7016_000021",
+      "text": "lorsque ressemblant tout mon courage aux armes lui dis-je ces morts ne sont que des vivans qui fuiront à notre approche a peine avais-je fini ces mots que la porte s'ouvre",
+      "audio": "dev/audio/6318/7016/6318_7016_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 163.3,
+        "original_end_s": 176.69
+      }
+    },
+    {
+      "id": "6318_7016_000022",
+      "text": "j'hésitais cependant la nécessité me força à accepter et me voilà derrière le cavalier nous n'avions pas fait cinq cents pas qu'un second voyageur se présente même offre encore acceptée",
+      "audio": "dev/audio/6318/7016/6318_7016_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 51.83,
+        "original_end_s": 65.26
+      }
+    },
+    {
+      "id": "6318_7016_000023",
+      "text": "enregistré par cébès infernaliana par charles nodier le revenant rouge mon éducation finie je fus joindre un régiment de hussard dont je venais d'obtenir la lieutenance",
+      "audio": "dev/audio/6318/7016/6318_7016_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 15.87,
+        "original_end_s": 30.35
+      }
+    },
+    {
+      "id": "6318_7016_000024",
+      "text": "que peuvent tes armes contre moi dit le revenant d'un ton froid et ironique elles pourront mieux cette fois dit le hussard et un second coup n'a pas plus de succès que le premier",
+      "audio": "dev/audio/6318/7016/6318_7016_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 284.02,
+        "original_end_s": 298.93
+      }
+    },
+    {
+      "id": "6318_7016_000025",
+      "text": "personne n'habite le château et nulle créature humaine n'en approche même en plein jour sans être saisi d'effroi vaines terreurs répliquai-je et ce soir même je cours me livrer aux esprits infernaux",
+      "audio": "dev/audio/6318/7016/6318_7016_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 92.05,
+        "original_end_s": 107.39
+      }
+    },
+    {
+      "id": "6318_7016_000026",
+      "text": "j'aime beaucoup les aventures extraordinaires lui dis-je la vue des revenans l'est passablement à mon avis aussi veux-je aller faire une visite à ton aïeul dieu t'en préserve mon ami",
+      "audio": "dev/audio/6318/7016/6318_7016_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 79.45,
+        "original_end_s": 92.05
+      }
+    },
+    {
+      "id": "6318_7016_000027",
+      "text": "attends téméraire vieillard je vais t'apprendre qu'un hussard français ne tremble point même devant les puissances de l'enfer en disant ces mots il saisit son pistolet ajuste l'esprit la balle part frappe sa poitrine et roule à ses pieds",
+      "audio": "dev/audio/6318/7016/6318_7016_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 265.91,
+        "original_end_s": 284.02
+      }
+    },
+    {
+      "id": "6318_7016_000028",
+      "text": "monstre lui dit-il auras-tu bientôt fini de me tourmenter tes ongles me déchirent tes dents affreuses me dévorent et ton souffle m'empoisonne",
+      "audio": "dev/audio/6318/7016/6318_7016_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 366.7,
+        "original_end_s": 382.65
+      }
+    },
+    {
+      "id": "6318_7016_000029",
+      "text": "nous avions tenu une correspondance active et toutes ses lettres m'entretenaient des terreurs qu'il avait eues dans son vieux château elles avaient été si grandes qu'il l'avait abandonné",
+      "audio": "dev/audio/6318/7016/6318_7016_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 43.18,
+        "original_end_s": 54.93
+      }
+    },
+    {
+      "id": "6318_7016_000030",
+      "text": "au même instant des hurlemens épouvantables se firent entendre et bientôt après je ne sentis plus rien autour de moi cependant j'allais toujours avec une rapidité extraordinaire et je me trouvai presqu'à la même place où j'avais rencontré mon maudit cavalier",
+      "audio": "dev/audio/6318/7016/6318_7016_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 102.86,
+        "original_end_s": 117.79
+      }
+    },
+    {
+      "id": "6318_7016_000031",
+      "text": "toutes les représentations de mon ami furent inutiles et suivi de mon domestique brave hussard je partis sur-le-champ dès que nous fûmes arrivés nous commençâmes à visiter nos armes ensuite nous parcourûmes toute la maison",
+      "audio": "dev/audio/6318/7016/6318_7016_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 107.39,
+        "original_end_s": 123.44
+      }
+    },
+    {
+      "id": "6318_7016_000032",
+      "text": "et nos regards se portent sur un fantôme d'une grandeur gigantesque ses yeux creux étaient enflammés sa bouche livide laissait voir des dents longues et décharnées",
+      "audio": "dev/audio/6318/7016/6318_7016_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 176.69,
+        "original_end_s": 191.22
+      }
+    },
+    {
+      "id": "6318_7016_000033",
+      "text": "un vent violent circulait dans toutes les chambres et l'on aurait dit que la foudre allait nous écraser mon domestique et moi nous nous regardions sinon épouvantés du moins surpris",
+      "audio": "dev/audio/6318/7016/6318_7016_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 149.75,
+        "original_end_s": 163.3
+      }
+    },
+    {
+      "id": "6318_7016_000034",
+      "text": "ans et tout habillé de rouge entre dans la chambre sa figure respectable nous rassure",
+      "audio": "dev/audio/6318/7016/6318_7016_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 222.6,
+        "original_end_s": 232.7
+      }
+    },
+    {
+      "id": "6318_7016_000035",
+      "text": "infernaliana par charles nodier le cheval sans fin j'ai toujours aimé les voyages et semblable au juif errant je ne restais jamais dans le même lieu tantôt en voiture tantôt à cheval tantôt à pied j'étais toujours par monts et par vaux",
+      "audio": "dev/audio/6318/7016/6318_7016_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_26_nodier_64kb.mp3",
+        "original_start_s": 16.81,
+        "original_end_s": 32.61
+      }
+    },
+    {
+      "id": "6318_7016_000036",
+      "text": "cependant l'esprit infernal frappa la terre de son pied en poussant un cri effroyable aussi tôt la terre s'entrouvrit et engloutit le vieillard et son bourreau",
+      "audio": "dev/audio/6318/7016/6318_7016_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_29_nodier_64kb.mp3",
+        "original_start_s": 393.25,
+        "original_end_s": 406.4
+      }
+    },
+    {
+      "id": "8128_7016_000000",
+      "text": "le bruit extraordinaire qu'il faisait en sifflant dans les branches leur fit lever les yeux voici les chênes dit thomas en tremblant de tous ses membres et en effet fortin reconnut les deux grands arbres qui se dessinaient dans l'ombre",
+      "audio": "dev/audio/8128/7016/8128_7016_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 319.55,
+        "original_end_s": 335.17
+      }
+    },
+    {
+      "id": "8128_7016_000001",
+      "text": "il commence à se repentir d'être entré dans le bois son courage l'abandonne son fusil tombe de ses mains soit fatigue soit saisissement il est forcé de s'appuyer contre un arbre qui se trouve près de lui",
+      "audio": "dev/audio/8128/7016/8128_7016_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 459.34,
+        "original_end_s": 473.09
+      }
+    },
+    {
+      "id": "8128_7016_000002",
+      "text": "une voix inconnue lui répond viens je t'attends il hésite cependant il va en avant la lumière disparaît bientôt il la revoit plus loin on lui crie encore me voilà viens je t'attends",
+      "audio": "dev/audio/8128/7016/8128_7016_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 410.7,
+        "original_end_s": 425.57
+      }
+    },
+    {
+      "id": "8128_7016_000003",
+      "text": "orlandine donna encore d'autres détails auxquels thibaud faillit d'étouffer de rire car il s'agissait d'un souper qu'il avait fait la veille avec ses deux amis et trois demoiselles de la ville",
+      "audio": "dev/audio/8128/7016/8128_7016_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 563.06,
+        "original_end_s": 575.65
+      }
+    },
+    {
+      "id": "8128_7016_000004",
+      "text": "le lendemain matin des paysans qui allaient vendre leurs légumes au marché de lyon entendirent des gémissemens dans une masure abandonnée qui était près du chemin et servait de voirie ils y entrèrent et trouvèrent thibaud couché sur une charogne à demi pourrie",
+      "audio": "dev/audio/8128/7016/8128_7016_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 861.35,
+        "original_end_s": 878.74
+      }
+    },
+    {
+      "id": "8128_7016_000005",
+      "text": "thomas dit partons toute la famille tremblait et personne n'eut la force ni peut-être la pensée tant ils étaient effrayés de s'opposer à ce téméraire dessein",
+      "audio": "dev/audio/8128/7016/8128_7016_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 223.25,
+        "original_end_s": 234.06
+      }
+    },
+    {
+      "id": "8128_7016_000006",
+      "text": "infernaliana par charles nodier les petites chiennes blanches conte noir on raconte que vers le commencement du dix-septième siècle on remarquait dans la forêt de bondy sur le bord du grand chemin qui traverse le bois dans la direction de l'est à l'ouest deux grands chênes",
+      "audio": "dev/audio/8128/7016/8128_7016_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 17.4,
+        "original_end_s": 35.78
+      }
+    },
+    {
+      "id": "8128_7016_000007",
+      "text": "cependant comme il était curieux de savoir à qui il avait affaire et qu'elle paraissait fatiguée il la pria de vouloir bien s'asseoir sur un banc de pierre que l'on entrevoyait auprès d'une porte",
+      "audio": "dev/audio/8128/7016/8128_7016_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 326.47,
+        "original_end_s": 341.45
+      }
+    },
+    {
+      "id": "8128_7016_000008",
+      "text": "dans ce moment terrible il recommande son âme à dieu et tire de sa poche un crucifix que cet homme pieux avait toujours avec lui mais ses forces l'ont abandonné il tombe à genoux au pied de l'arbre et bientôt il perd l'usage de ses sens",
+      "audio": "dev/audio/8128/7016/8128_7016_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 473.09,
+        "original_end_s": 490.16
+      }
+    },
+    {
+      "id": "8128_7016_000009",
+      "text": "et lui serrait le bras pour ne pas tomber alors thibaud empressé de la retenir lui posait la main sur le coeur ce qu'il faisait pourtant avec discrétion pour ne pas l'effaroucher",
+      "audio": "dev/audio/8128/7016/8128_7016_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 298.5,
+        "original_end_s": 311.24
+      }
+    },
+    {
+      "id": "8128_7016_000010",
+      "text": "mon père dit l'aîné grand gaillard de vingt ans je viens avec vous viens si tu te sens assez de courage réponds fortin mais je te préviens que je vais droit aux deux chênes vous n'y pensez pas mon père réplique thomas",
+      "audio": "dev/audio/8128/7016/8128_7016_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 189.34,
+        "original_end_s": 204.6
+      }
+    },
+    {
+      "id": "8128_7016_000011",
+      "text": "se renouveler refusa de passer les nuits suivantes avec caroline qui lui reprocha de l'abandonner à un vampire les visites nocturnes continuèrent caroline belle riche et maîtresse de ses actions à vingt et un ans voulut se marier dans l'espoir d'éloigner le fantôme",
+      "audio": "dev/audio/8128/7016/8128_7016_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 293.38,
+        "original_end_s": 313.38
+      }
+    },
+    {
+      "id": "8128_7016_000012",
+      "text": "thibaud impatienté de cette solitude s'écria en grossissant sa voix sacré mort du grand diable je lui baille mon sang et mon âme que si la grande diablesse sa fille venait à passer je la prierais d'amour tant je me sens échauffé par le vin",
+      "audio": "dev/audio/8128/7016/8128_7016_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 190.14,
+        "original_end_s": 208.43
+      }
+    },
+    {
+      "id": "8128_7016_000013",
+      "text": "alors je vis à travers une autre fenêtre d'une maison voisine une chambre bien éclairée où soupaient trois jeunes cavaliers et trois jeunes filles ils chantaient buvaient riaient et s'embrassaient",
+      "audio": "dev/audio/8128/7016/8128_7016_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 548.14,
+        "original_end_s": 563.06
+      }
+    },
+    {
+      "id": "8128_7016_000014",
+      "text": "viendrai toutes les nuits passer un quart-d'heure avec vous du reste soyez tranquille je ne vous ferai aucun mal je borne ma vengeance à vous forcer de voir chaque nuit celui que vous avez conduit au tombeau par votre imprudente conduite l'amie peu curieuse de voir la même scène",
+      "audio": "dev/audio/8128/7016/8128_7016_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 273.38,
+        "original_end_s": 293.38
+      }
+    },
+    {
+      "id": "8128_7016_000015",
+      "text": "à la vérité ma sourde gouvernante me criait souvent aux oreilles je ne sais quelles leçons de morale mais je les entendais aussi peu que si j'eusse été aussi sourde qu'elle car elle me parlait des devoirs du mariage et ne me disait ce que c'était que le mariage",
+      "audio": "dev/audio/8128/7016/8128_7016_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 416.04,
+        "original_end_s": 434.22
+      }
+    },
+    {
+      "id": "8128_7016_000016",
+      "text": "elle était obligée d'y renoncer et s'en allait en me bégayant des excuses dont elle se tirait aussi mal que de son histoire je vous ai dit qu'il y avait un monsieur qui venait me voir une fois tous les ans quand j'eus quinze ans ce monsieur me fit monter dans un carrosse avec ma duègne",
+      "audio": "dev/audio/8128/7016/8128_7016_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 445.67,
+        "original_end_s": 465.62
+      }
+    },
+    {
+      "id": "8128_7016_000017",
+      "text": "il tira de ce double accident un mauvais présage et s'en retourna tristement chez lui ce jour-là thibaud régala encore ses amis",
+      "audio": "dev/audio/8128/7016/8128_7016_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 164.37,
+        "original_end_s": 175.47
+      }
+    },
+    {
+      "id": "8128_7016_000018",
+      "text": "mais quelque adresse qu'on employât pour tacher de la surprendre elle se levait au moment qu'on croyait mettre la main dessus alors elle s'éloignait de quelques pas en s'enfonçant dans le bois",
+      "audio": "dev/audio/8128/7016/8128_7016_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 59.38,
+        "original_end_s": 72.85
+      }
+    },
+    {
+      "id": "8128_7016_000019",
+      "text": "et qui leur paraissaient être au plus à la distance de vingt pas allons thomas dit fortin d'une voix assez forte malgré qu'il ne fut pas très rassuré lui-même allons dit-il c'est à mon tour à marcher devant",
+      "audio": "dev/audio/8128/7016/8128_7016_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 335.17,
+        "original_end_s": 349.93
+      }
+    },
+    {
+      "id": "8128_7016_000020",
+      "text": "cette petite bête paraissait endormie et ne semblait s'éveiller que lorsque quelque passant surpris de voir un si joli animal perdu au milieu du bois s'approchait pour la caresser",
+      "audio": "dev/audio/8128/7016/8128_7016_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 47.25,
+        "original_end_s": 59.38
+      }
+    },
+    {
+      "id": "8128_7016_000021",
+      "text": "il était charitable envers les pauvres et bienfaisant envers tous thibaud de la jacquière son fils unique était d'humeur différente c'était un beau garçon",
+      "audio": "dev/audio/8128/7016/8128_7016_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 37.01,
+        "original_end_s": 48.43
+      }
+    },
+    {
+      "id": "8128_7016_000022",
+      "text": "il les embrassa les fit entrer chez son père et se mit à boire avec eux il continua de mener une vie qui navra le coeur du bon prévôt",
+      "audio": "dev/audio/8128/7016/8128_7016_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 133.87,
+        "original_end_s": 144.41
+      }
+    },
+    {
+      "id": "8128_7016_000023",
+      "text": "ce n'était qu'une cabane en apparence mais l'intérieur en est magnifique comme vous le verrez si le petit nègre en fait le chemin car je vois qu'il a trouvé de la lumière et rallumé sa lanterne",
+      "audio": "dev/audio/8128/7016/8128_7016_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 599.71,
+        "original_end_s": 614.04
+      }
+    },
+    {
+      "id": "8128_7016_000024",
+      "text": "mais comme on lui avait bien recommandé de ne pas aller du côté du grand chemin de l'est à l'ouest et que ce jeune garçon était très soumis aux ordres de ses parents on ne s'en inquiéta que légèrement et chacun retourna à son travail",
+      "audio": "dev/audio/8128/7016/8128_7016_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 140.77,
+        "original_end_s": 155.52
+      }
+    },
+    {
+      "id": "8128_7016_000025",
+      "text": "infernaliana par charles nodier les aventures de thibaud de la jacquière petit roman un riche marchand de lyon nommé jacques de la jacquière devint prévôt de la ville à cause de sa probité et des grands biens qu'il avait acquis sans faire tache à sa réputation",
+      "audio": "dev/audio/8128/7016/8128_7016_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 17.81,
+        "original_end_s": 37.01
+      }
+    },
+    {
+      "id": "8128_7016_000026",
+      "text": "fortin ne peut reconnaître cette voix ce n'est ni celle de thomas ni celle de célestin la lanterne disparaît tout à fait il ne sait plus où il est il veut retourner sur ses pas il ne peut retrouver le grand chemin qu'il vient de quitter",
+      "audio": "dev/audio/8128/7016/8128_7016_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 425.57,
+        "original_end_s": 440.21
+      }
+    },
+    {
+      "id": "8128_7016_000027",
+      "text": "nous entrâmes donc continua orlandine sous une porte cochère et l'on me fit monter dans de grandes et belles chambres ensuite par un escalier tournant dans une tourelle fort haute",
+      "audio": "dev/audio/8128/7016/8128_7016_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 502.81,
+        "original_end_s": 517.42
+      }
+    },
+    {
+      "id": "8128_7016_000028",
+      "text": "les gens de la maison se retirent et caroline dit d'une voix mourante ah il est parti enfin tu l'as donc vu oui et je ne suis que trop sûre qu'il exécutera ses menaces et quoi t'aurait il parlé voici ce que je viens d'entendre pendant trois ans je",
+      "audio": "dev/audio/8128/7016/8128_7016_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 253.38,
+        "original_end_s": 273.38
+      }
+    },
+    {
+      "id": "8128_7016_000029",
+      "text": "les branches étaient cassées les feuilles noircies et séchées l'herbe était foulée et couverte de lambeaux de vêtemens fortin reconnut ceux de ses deux malheureux fils et le même sort lui était réservé s'il n'avait été armé du signe divin qui seul l'avait sauvé du démon",
+      "audio": "dev/audio/8128/7016/8128_7016_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 517.01,
+        "original_end_s": 534.88
+      }
+    },
+    {
+      "id": "8128_7016_000030",
+      "text": "souvenez-vous seulement que vous avez mis trois ans à me conduire douloureusement au tombeau adieu mademoiselle a cette nuit en achevant ces paroles qu'il eut une peine infinie à prononcer il expira caroline saisie de frayeur s'enfuit",
+      "audio": "dev/audio/8128/7016/8128_7016_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 173.38,
+        "original_end_s": 193.38
+      }
+    },
+    {
+      "id": "8128_7016_000031",
+      "text": "heureusement je savais parler lorsqu'on m'enferma au château de sombre car je ne l'aurais sûrement point appris des deux compagnes de ma prison pour ce qui est du portier je ne le voyais qu'au moment où il nous passait notre dîner à travers la grille de la seule fenêtre que nous eussions",
+      "audio": "dev/audio/8128/7016/8128_7016_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 396.89,
+        "original_end_s": 416.04
+      }
+    },
+    {
+      "id": "8128_7016_000032",
+      "text": "il disparut avec la dot et quantité de bijoux qui n'en faisaient pas partie l'amie de caroline sensible à tant de malheurs accourut auprès d'elle la consola de son mieux et l'emmena dans une terre où elle acheva tristement sa pénitence les trois ans écoulés son",
+      "audio": "dev/audio/8128/7016/8128_7016_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 333.38,
+        "original_end_s": 353.38
+      }
+    },
+    {
+      "id": "8128_7016_000033",
+      "text": "l'intérieur était fort orné et parmi les meubles précieux on remarquait surtout des fauteuils en velours de gènes à franges d'or et un lit en moire de venise mais tout cela n'occupait guère thibaud il ne voyait que la charmante orlandine",
+      "audio": "dev/audio/8128/7016/8128_7016_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 696.99,
+        "original_end_s": 715.22
+      }
+    },
+    {
+      "id": "8128_7016_000034",
+      "text": "ils cheminent encore mais à mesure qu'ils avancent il semble que les arbres s'éloignent la forêt paraît ne plus finir fortin entend de tous côtés des sifflements comme si le bois était rempli de serpents de temps en temps il roule sous ses pieds des corps inconnus",
+      "audio": "dev/audio/8128/7016/8128_7016_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 363.78,
+        "original_end_s": 380.71
+      }
+    },
+    {
+      "id": "8128_7016_000035",
+      "text": "ils le placèrent sur leurs paniers et le portèrent ainsi chez le prévôt de lyon le malheureux de la jacquière reconnut son fils thibaud fut mis dans un lit où bientôt il parut reprendre quelque connaissance",
+      "audio": "dev/audio/8128/7016/8128_7016_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 878.74,
+        "original_end_s": 893.62
+      }
+    },
+    {
+      "id": "8128_7016_000036",
+      "text": "il fit un faux pas tomba sur le nez et cassa sa lanterne la jeune dame parut fort effrayée et ne sachant quel parti prendre thibaud se hâta de l'accoster le plus poliment qu'il put et lui offrit son bras pour la reconduire chez elle",
+      "audio": "dev/audio/8128/7016/8128_7016_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 241.3,
+        "original_end_s": 257.64
+      }
+    },
+    {
+      "id": "8128_7016_000037",
+      "text": "l'incorrigible thibaud répondit comme je l'ai dit je le ferais un moment après ils virent sortir d'une rue voisine une jeune dame voilée qui annonçait beaucoup de charmes et de jeunesse un petit nègre la suivait",
+      "audio": "dev/audio/8128/7016/8128_7016_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 225.43,
+        "original_end_s": 241.3
+      }
+    },
+    {
+      "id": "8128_7016_000038",
+      "text": "et si au lieu de la poursuivre l'on passait outre elle revenait à sa place en regardant les personnes et remuant la queue si l'on faisait semblant de revenir elle se laissait approcher ayant l'air d'attendre mais bientôt elle s'échappait comme la première fois et se rendait ensuite à la même place avec opiniâtreté",
+      "audio": "dev/audio/8128/7016/8128_7016_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 72.85,
+        "original_end_s": 91.95
+      }
+    },
+    {
+      "id": "8128_7016_000039",
+      "text": "nous n'en sortîmes que le troisième jour ou plutôt la troisième nuit du moins la soirée était fort avancée un homme ouvrit la portière et nous dit vous voici sur la place bellecour et voilà la maison du prévôt jacques de la jacquière où voulez-vous qu'on vous conduise",
+      "audio": "dev/audio/8128/7016/8128_7016_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 465.62,
+        "original_end_s": 483.3
+      }
+    },
+    {
+      "id": "8128_7016_000040",
+      "text": "scandalisé lui-même de la mauvaise conduite du jeune thibaud le renvoya à lyon afin qu'il se réformât un peu dans la maison de son père le bon prévôt demeurait alors au coin de la place bellecour",
+      "audio": "dev/audio/8128/7016/8128_7016_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 70.38,
+        "original_end_s": 84.31
+      }
+    },
+    {
+      "id": "8128_7016_000041",
+      "text": "une sueur froide découle de tout son corps des substances aériennes passent à tout moment devant son visage et autour de lui il ne les voit pas mais il sent une haleine puante et brûlante et un air froid comme si quelque oiseau de grandeur extraordinaire agitait ses ailes au-dessus de lui",
+      "audio": "dev/audio/8128/7016/8128_7016_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 440.21,
+        "original_end_s": 459.34
+      }
+    },
+    {
+      "id": "8128_7016_000042",
+      "text": "et lorsque la nuit fut venue ils sortirent pour prendre l'air sur la place bellecour et se promenèrent par les rues comptant y trouver quelque fortune mais la nuit était si épaisse qu'ils ne rencontrèrent ni fille ni femme",
+      "audio": "dev/audio/8128/7016/8128_7016_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 175.47,
+        "original_end_s": 190.14
+      }
+    },
+    {
+      "id": "8128_7016_000043",
+      "text": "à quoi voulez-vous que nous passions notre soirée il me vient une idée voici un grand miroir allons y faire des mines comme j'en faisais au château de sombre",
+      "audio": "dev/audio/8128/7016/8128_7016_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 769.87,
+        "original_end_s": 780.6
+      }
+    },
+    {
+      "id": "8128_7016_000044",
+      "text": "dont les fenêtres étaient bouchées avec un drap vert très épais au reste la tourelle était bien éclairée ma duègne m'ayant fait asseoir sur un siége me donna son chapelet pour m'amuser et sortit en fermant la porte à double tour",
+      "audio": "dev/audio/8128/7016/8128_7016_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 517.42,
+        "original_end_s": 536.43
+      }
+    },
+    {
+      "id": "8128_7016_000045",
+      "text": "ils marchèrent si longtemps qu'à la fin il semblait à thibaud qu'ils s'étaient égarés dans les rues de lyon mais il en fut bien aise car il lui parut qu'il en aurait d'autant meilleur marché de la belle égarée",
+      "audio": "dev/audio/8128/7016/8128_7016_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 311.24,
+        "original_end_s": 326.47
+      }
+    },
+    {
+      "id": "8128_7016_000046",
+      "text": "l'inconnue accepta après quelques façons et thibaud se retournant vers ses amis leur dit à demi-voix vous voyez que celui que j'ai invoqué ne m'a pas fait attendre ainsi bonsoir les deux amis comprirent ce qu'il voulait dire et se retirèrent en riant",
+      "audio": "dev/audio/8128/7016/8128_7016_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 257.64,
+        "original_end_s": 276.47
+      }
+    },
+    {
+      "id": "8128_7016_000047",
+      "text": "de rallumer les flambeaux mais inutilement au bout d'un quart d'heure passé dans les plus mortelles angoisses on entend l'heure caroline pousse un profond soupir comme une personne qui sort d'un long assoupissement les bougies se rallument d'elles-mêmes",
+      "audio": "dev/audio/8128/7016/8128_7016_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 233.38,
+        "original_end_s": 253.38
+      }
+    },
+    {
+      "id": "8128_7016_000048",
+      "text": "il se leva avec effroi courut comme un fou jusques chez lui le fait raconté fut vérifié par les autorités qui vinrent avec les archers visiter les lieux le récit de fortin fut reconnu vrai on vit toutes les traces d'un repas horrible des danses et des jeux de la troupe diabolique",
+      "audio": "dev/audio/8128/7016/8128_7016_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 534.88,
+        "original_end_s": 552.86
+      }
+    },
+    {
+      "id": "8128_7016_000049",
+      "text": "il faut nécessairement que nous ayons dépassé les deux chênes retournons dit thomas retournons dit fortin mais dans ce moment il vint un si fort coup de vent qu'ils furent obligés de porter la main à leurs chapeaux",
+      "audio": "dev/audio/8128/7016/8128_7016_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 304.68,
+        "original_end_s": 319.55
+      }
+    },
+    {
+      "id": "8128_7016_000050",
+      "text": "il est tombé sa lanterne s'est brisée et c'est alors monsieur que j'ai eu le bonheur de vous rencontrer thibaud allait répondre quelque galanterie lorsque le petit nègre vint avec sa lanterne allumée",
+      "audio": "dev/audio/8128/7016/8128_7016_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 671.26,
+        "original_end_s": 686.39
+      }
+    },
+    {
+      "id": "8128_7016_000051",
+      "text": "mais ces vœux charitables lui déplurent il prit sur la table une tasse d'or la remplit de vin et dit sacré mort du grand diable je lui veux bailler dans ce vin mon sang et mon âme si jamais je deviens plus homme de bien que je le suis",
+      "audio": "dev/audio/8128/7016/8128_7016_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 99.05,
+        "original_end_s": 116.44
+      }
+    },
+    {
+      "id": "8128_7016_000052",
+      "text": "souvent aussi ma servante bègue s'efforçait de me conter quelque histoire qu'elle m'assurait être fort drôle mais ne pouvant jamais aller jusqu'à la seconde phrase",
+      "audio": "dev/audio/8128/7016/8128_7016_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 434.22,
+        "original_end_s": 445.67
+      }
+    },
+    {
+      "id": "8128_7016_000053",
+      "text": "il se recommanda à saint-jacques son patron et porta devant son image un cierge de dix livres orné de deux anneaux d'or chacun du poids de cinq marcs mais en voulant placer le cierge sur l'autel il le fit tomber et renversa une lampe d'argent qui brûlait devant le saint",
+      "audio": "dev/audio/8128/7016/8128_7016_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 144.41,
+        "original_end_s": 164.37
+      }
+    },
+    {
+      "id": "8128_7016_000054",
+      "text": "l'amie de caroline outrée de cette dureté envers un mourant la pressa avec plus de vivacité et lui reprocha sa coquetterie et ses mauvais procédés envers un homme à qui elle pouvait au moins offrir en expiation un instant de pitié",
+      "audio": "dev/audio/8128/7016/8128_7016_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 112.35,
+        "original_end_s": 130.1
+      }
+    },
+    {
+      "id": "8128_7016_000055",
+      "text": "de le venir trouver chez une de ses soeurs mais comme il ne pouvait envoyer son carrosse qui était allé chercher un prêtre nous y allions à pied",
+      "audio": "dev/audio/8128/7016/8128_7016_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 640.5,
+        "original_end_s": 651.42
+      }
+    },
+    {
+      "id": "8128_7016_000056",
+      "text": "lorsque je me vis seule je jettai mon chapelet je pris des ciseaux que j'avais à ma ceinture et je fis une ouverture dans le drap vert qui bouchait la fenêtre",
+      "audio": "dev/audio/8128/7016/8128_7016_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 536.43,
+        "original_end_s": 548.14
+      }
+    },
+    {
+      "id": "8128_7016_000057",
+      "text": "en vain voulut-on faire des recherches la petite chienne blanche paraissait et aussitôt chacun était glacé d'effroi reconnaissant que ce lieu était habité par le démon qui s'y tenait d'une manière inexpugnable",
+      "audio": "dev/audio/8128/7016/8128_7016_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 552.86,
+        "original_end_s": 566.24
+      }
+    },
+    {
+      "id": "8128_7016_000058",
+      "text": "ils partent donc la nuit était des plus sombres en vain thomas avançait sa lanterne ils se heurtaient à chaque instant contre les arbres s'embarrassaient dans les ronces revenaient sur leurs pas croyant trouver une issue et s'égaraient toujours davantage",
+      "audio": "dev/audio/8128/7016/8128_7016_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 234.06,
+        "original_end_s": 250.38
+      }
+    },
+    {
+      "id": "8128_7016_000059",
+      "text": "précipitamment et son amie employa tous les moyens possibles pour calmer son extrême agitation caroline la supplia de passer la nuit avec elle on lui dressa un lit dans la même chambre on laissa les flambeaux allumés et les deux amies ne pouvant dormir s'entretinrent long-tems ensemble",
+      "audio": "dev/audio/8128/7016/8128_7016_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 193.38,
+        "original_end_s": 213.38
+      }
+    },
+    {
+      "id": "8128_7016_000060",
+      "text": "des griffes semblent vouloir entourer ses jambes cependant il n'en est qu'effleuré une odeur infecte l'environne plusieurs êtres semblent se glisser autour de lui mais il ne sent rien exténué de fatigue il se retourne pour proposer à thomas de s'asseoir un instant thomas n'y est plus",
+      "audio": "dev/audio/8128/7016/8128_7016_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 380.71,
+        "original_end_s": 400.2
+      }
+    },
+    {
+      "id": "8128_7016_000061",
+      "text": "vous avez le cou fait à peu près comme le mien les épaules aussi mais pour la poitrine quelle différence la mienne était comme cela l'année dernière mais j'ai tant engraissé que je ne me reconnais plus ôtez donc votre ceinture votre pourpoint",
+      "audio": "dev/audio/8128/7016/8128_7016_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 798.1,
+        "original_end_s": 815.83
+      }
+    },
+    {
+      "id": "8128_7016_000062",
+      "text": "qu'elle ne se soutenait qu'avec peine mais elle se rassura peu à peu et s'appuya plus franchement sur le bras de son cavalier quelquefois même elle faisait des faux pas",
+      "audio": "dev/audio/8128/7016/8128_7016_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 286.57,
+        "original_end_s": 298.5
+      }
+    },
+    {
+      "id": "8128_7016_000063",
+      "text": "quelqu'un nous a arrêtés pour me dire qu'il me trouvait jolie ma duègne qui est sourde crut qu'il m'insultait et lui répondit des injures d'autres gens sont survenus et se sont mêlés de la querelle j'ai eu peur j'ai pris la fuite le petit nègre a couru après moi",
+      "audio": "dev/audio/8128/7016/8128_7016_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 651.42,
+        "original_end_s": 671.26
+      }
+    },
+    {
+      "id": "8128_7016_000064",
+      "text": "thibaud voulut prononcer le nom de jésus mais le diable qui le devina lui saisit la gorge avec les dents et l'empêcha de prononcer ce nom sacré",
+      "audio": "dev/audio/8128/7016/8128_7016_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 851.16,
+        "original_end_s": 861.35
+      }
+    },
+    {
+      "id": "8128_7016_000065",
+      "text": "ils se remirent en marche et arrivèrent au bout du faubourg à une chaumière isolée dont le petit nègre ouvrit la porte avec une clé qu'il avait à sa ceinture",
+      "audio": "dev/audio/8128/7016/8128_7016_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 686.39,
+        "original_end_s": 696.99
+      }
+    },
+    {
+      "id": "8128_7016_000066",
+      "text": "qu'elle aurait dû se contenter d'éloigner avec froideur et décence au bout de trois ans de persévérance d'une part et de mauvais traitements de l'autre le malheureux amant succomba à une maladie dont son funeste amour fut en grande partie le principe",
+      "audio": "dev/audio/8128/7016/8128_7016_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 49.77,
+        "original_end_s": 67.68
+      }
+    },
+    {
+      "id": "8128_7016_000067",
+      "text": "et un vieux portier qui était aveugle ce portier n'avait pas beaucoup à faire car il n'ouvrait la porte qu'une fois par an et cela à un monsieur qui ne venait chez nous que pour me prendre par le menton et pour parler à ma duègne en la langue biscayenne que je ne sais point",
+      "audio": "dev/audio/8128/7016/8128_7016_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 378.65,
+        "original_end_s": 396.89
+      }
+    },
+    {
+      "id": "8128_7016_000068",
+      "text": "pourquoi toutes ces aiguillettes thibaud ne se possédant plus porta orlandine sur le lit de moire de venise et se crut le plus heureux des hommes mais ce bonheur ne fut pas de longue durée le malheureux thibaud sentit des griffes aiguës qui s'enfonçaient dans ses reins",
+      "audio": "dev/audio/8128/7016/8128_7016_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 815.83,
+        "original_end_s": 834.97
+      }
+    },
+    {
+      "id": "8128_7016_000069",
+      "text": "à l'heure du dîner il ne parut point encore on commença alors à soupçonner quelque malheur enfin l'heure du souper étant arrivée sans qu'il fut de retour son père nommé jean fortin dit à son épouse femme allume la lanterne",
+      "audio": "dev/audio/8128/7016/8128_7016_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 155.52,
+        "original_end_s": 171.61
+      }
+    },
+    {
+      "id": "8128_7016_000070",
+      "text": "alors il dit d'une voix faible ouvrez à ce saint ermite d'abord on ne le comprit pas mais enfin on ouvrit la porte et on vit entrer un vénérable religieux qui demanda qu'on le laissa seul avec thibaud",
+      "audio": "dev/audio/8128/7016/8128_7016_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 893.62,
+        "original_end_s": 909.13
+      }
+    },
+    {
+      "id": "8128_7016_000071",
+      "text": "je m'y amusais à voir que ma gouvernante était faite autrement que moi à présent je veux savoir si je ne suis pas autrement faite que vous orlandine plaça deux chaises devant le miroir après quoi elle détacha la fraise de thibaud et lui dit",
+      "audio": "dev/audio/8128/7016/8128_7016_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 780.6,
+        "original_end_s": 798.1
+      }
+    },
+    {
+      "id": "8128_7016_000072",
+      "text": "sans qu'aucun bruit pût éclairer leur marche les chênes fatals même ne paraissaient pas thomas dit à son père je crois que nous les avons passés non dit fortin",
+      "audio": "dev/audio/8128/7016/8128_7016_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 263.68,
+        "original_end_s": 274.28
+      }
+    },
+    {
+      "id": "8128_7016_000073",
+      "text": "mais le bruit de ces apparitions retint les prétendants un seul un gascon nommé monsieur de forbignac se présenta pour époux la nécessité le fit agréer mais dès le lendemain des noces sans qu'on put savoir comment s'était passée la nuit",
+      "audio": "dev/audio/8128/7016/8128_7016_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 313.38,
+        "original_end_s": 333.38
+      }
+    },
+    {
+      "id": "8128_7016_000074",
+      "text": "on ne parlait que des malices de thibaud à paris à fontainebleau et dans les autres villes où séjournait le roi un jour ce roi qui était françois premier",
+      "audio": "dev/audio/8128/7016/8128_7016_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 59.1,
+        "original_end_s": 70.38
+      }
+    },
+    {
+      "id": "8128_7016_000075",
+      "text": "lui annonça enfin qu'elle ne le verrait plus il tint parole une leçon aussi sévère adoucit son caractère la mort de m de forbignac qui eut l'honnêteté de ne pas revenir laissa caroline libre de se remarier et cette fois elle trouva un époux qui la rendit parfaitement",
+      "audio": "dev/audio/8128/7016/8128_7016_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 353.38,
+        "original_end_s": 373.38
+      }
+    },
+    {
+      "id": "8128_7016_000076",
+      "text": "je me nomme orlandine au moins c'est ainsi que m'appelaient les personnes qui habitaient avec moi le château de sombre dans les pyrénées là je n'ai vu d'autres humains que ma gouvernante qui était sourde une servante qui bégayait si fort qu'autant aurait valu qu'elle fût muette",
+      "audio": "dev/audio/8128/7016/8128_7016_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 359.66,
+        "original_end_s": 378.65
+      }
+    },
+    {
+      "id": "8128_7016_000077",
+      "text": "oui seule reprit la dame avec ce petit nègre et ma gouvernante mais je ne pense pas qu'elle puisse y revenir ce soir le monsieur qui m'a fait conduire la nuit dernière dans cette chaumière m'envoya dire il y a deux heures",
+      "audio": "dev/audio/8128/7016/8128_7016_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 624.11,
+        "original_end_s": 640.5
+      }
+    },
+    {
+      "id": "8128_7016_000078",
+      "text": "pour le coup dit fortin voilà qui me parait bien singulier nous devrions être à l'autre bout du bois il ne faut que cinq quarts d'heure pour le traverser tout entier et voilà déjà une grande heure et demie que nous marchons",
+      "audio": "dev/audio/8128/7016/8128_7016_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 290.28,
+        "original_end_s": 304.68
+      }
+    },
+    {
+      "id": "8128_7016_000079",
+      "text": "ces propos déplurent aux amis de thibaud qui n'étaient pas d'aussi grands pécheurs que lui et l'un d'eux lui dit notre ami songez que le diable étant l'ennemi des hommes il leur fait assez de mal sans qu'on l'y invite en l'appelant par son nom",
+      "audio": "dev/audio/8128/7016/8128_7016_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 208.43,
+        "original_end_s": 225.43
+      }
+    },
+    {
+      "id": "8128_7016_000080",
+      "text": "ce petit nain apporta dans un bassin de vermeil quatre perdrix appétissantes et un flacon d'excellent vin aussitôt on se mit à table",
+      "audio": "dev/audio/8128/7016/8128_7016_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 729.2,
+        "original_end_s": 740.38
+      }
+    },
+    {
+      "id": "8128_7016_000081",
+      "text": "elle me prit encore par la main sans me rien dire et me fit remonter en carrosse nous arrivâmes après une longue course à la dernière maison du",
+      "audio": "dev/audio/8128/7016/8128_7016_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 587.61,
+        "original_end_s": 599.71
+      }
+    },
+    {
+      "id": "8128_7016_000082",
+      "text": "enfin il était reconnu dans les environs que cette petite chienne était tout au moins un suppôt du diable si ce n'était le diable lui-même l'anecdote suivante jetta plus que jamais la terreur dans le voisinage le bruit s'en répandit même dans toute la contrée",
+      "audio": "dev/audio/8128/7016/8128_7016_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 111.21,
+        "original_end_s": 129.22
+      }
+    },
+    {
+      "id": "8128_7016_000083",
+      "text": "les deux amies partirent enfin le mourant voyant entrer caroline fit un dernier effort et prenant la parole d'une voix éteinte",
+      "audio": "dev/audio/8128/7016/8128_7016_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 145.9,
+        "original_end_s": 156.97
+      }
+    },
+    {
+      "id": "8128_7016_000084",
+      "text": "il était grand jour lorsqu'il revint de son évanouissement le soleil en réchauffant ses membres était peut-être cause du retour de ses forces fortin regarda autour de lui il vit son arme brisée et macérée comme si elle avait été mâchée avec des dents",
+      "audio": "dev/audio/8128/7016/8128_7016_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 490.16,
+        "original_end_s": 506.16
+      }
+    },
+    {
+      "id": "8128_7016_000085",
+      "text": "caroline fatiguée de ses importunités consentit enfin d'assez mauvaise grâce et dit allons conduisez-moi donc chez votre protégé mais nous n'y resterons qu'un moment je vous en avertis je n'aime ni les mourants ni les morts",
+      "audio": "dev/audio/8128/7016/8128_7016_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 130.1,
+        "original_end_s": 145.9
+      }
+    },
+    {
+      "id": "8128_7016_000086",
+      "text": "belle égarée interrompit thibaud en baisant la main de la jeune dame faites-moi le plaisir de me dire si vous habitez seule cette petite maison",
+      "audio": "dev/audio/8128/7016/8128_7016_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 614.04,
+        "original_end_s": 624.11
+      }
+    },
+    {
+      "id": "8128_7016_000087",
+      "text": "on résolut de planter des croix à l'entour afin que ce signe put l'empêcher d'étendre son domaine et depuis on n'entendit plus parler d'accidents dans l'autre partie du bois mais malheur à qui osait enfreindre les limites",
+      "audio": "dev/audio/8128/7016/8128_7016_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 566.24,
+        "original_end_s": 581.16
+      }
+    },
+    {
+      "id": "8128_7016_000088",
+      "text": "j'étais fort attentive à tout ce qui se passait reprit orlandine lorsque j'entendis ouvrir ma porte je me remis aussitôt à mon chapelet et ma duègne entra",
+      "audio": "dev/audio/8128/7016/8128_7016_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 575.65,
+        "original_end_s": 587.61
+      }
+    },
+    {
+      "id": "8128_7016_000089",
+      "text": "le petit nègre couvrit la table et prépara le souper thibaud s'aperçut alors que ce n'était pas un enfant comme il l'avait cru d'abord mais une espèce de vieux nain tout noir et de la plus laide figure",
+      "audio": "dev/audio/8128/7016/8128_7016_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 715.22,
+        "original_end_s": 729.2
+      }
+    },
+    {
+      "id": "8128_7016_000090",
+      "text": "on vint une seconde fois faire la même prière en ajoutant que le malade demandait à voir caroline plus par intérêt pour elle que pour lui mais ce second message ne fut pas plus heureux que le premier",
+      "audio": "dev/audio/8128/7016/8128_7016_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 95.69,
+        "original_end_s": 112.35
+      }
+    },
+    {
+      "id": "8128_7016_000091",
+      "text": "caroline nouvelle une jeune personne de dix-huit ans nommée caroline inspira la plus violente passion à un homme d'un âge mur et comme à cinquante ans on est dit-on plus amoureux qu'à vingt",
+      "audio": "dev/audio/8128/7016/8128_7016_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 17.42,
+        "original_end_s": 33.41
+      }
+    },
+    {
+      "id": "8128_7016_000092",
+      "text": "allons viens ou reste reprend fortin quant à moi je suis décidé à périr ou à éclaircir cette diablerie il faut que je retrouve mon célestin il aura sans doute couru après cette maudite chienne eh bien je la suivrai aussi et fut-ce le diable j'aurai ses cornes ou il m'emportera",
+      "audio": "dev/audio/8128/7016/8128_7016_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 204.6,
+        "original_end_s": 223.25
+      }
+    },
+    {
+      "id": "8128_7016_000093",
+      "text": "une de ses amies qui était présente lui dit avec douceur qu'elle ferait bien d'accorder cette triste consolation à un infortuné qui mourait pour elle et par elle ses instances furent inutiles",
+      "audio": "dev/audio/8128/7016/8128_7016_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 81.53,
+        "original_end_s": 95.69
+      }
+    },
+    {
+      "id": "8128_7016_000094",
+      "text": "dans le creux de l'un on voyait toujours une jolie petite chienne d'une blancheur éblouissante qui portait au cou un collier en maroquin rouge enrichi d'une boucle et de clous en or",
+      "audio": "dev/audio/8128/7016/8128_7016_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 35.78,
+        "original_end_s": 47.25
+      }
+    },
+    {
+      "id": "8128_7016_000095",
+      "text": "thibaud donna le bras à sa belle et le petit nègre dont la lanterne s'était éteinte allait devant eux la jeune dame paraissait d'abord si troublée",
+      "audio": "dev/audio/8128/7016/8128_7016_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 276.47,
+        "original_end_s": 286.57
+      }
+    },
+    {
+      "id": "8128_7016_000096",
+      "text": "mais un mauvais garnement qui avait appris à casser les vitres à séduire les filles et à jurer avec les hommes d'armes du roi qu'il servait en qualité de guidon",
+      "audio": "dev/audio/8128/7016/8128_7016_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 48.43,
+        "original_end_s": 59.1
+      }
+    },
+    {
+      "id": "8128_7016_000097",
+      "text": "il croit appercevoir à travers des buissons l'oeil de boeuf de la lanterne il reconnaît même le bas du pantalon blanc de son fils il l'appelle",
+      "audio": "dev/audio/8128/7016/8128_7016_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 400.2,
+        "original_end_s": 410.7
+      }
+    },
+    {
+      "id": "8128_7016_000098",
+      "text": "il n'est plus temps mademoiselle dit-il vous m'avez refusé avec barbarie le bonheur de vous voir quand je vous en ai fait prier et je ne désirais que vous pardonner ma mort vous me verrez dorénavant plus fréquemment que par le passé",
+      "audio": "dev/audio/8128/7016/8128_7016_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 156.97,
+        "original_end_s": 173.38
+      }
+    },
+    {
+      "id": "8128_7016_000099",
+      "text": "elle y consentit et thibaud s'étant assis auprès d'elle lui prit la main d'un air galant et la pria avec beaucoup de politesse de lui dire qui elle était la jeune dame parut d'abord intimidée elle se rassura pourtant et parla en ces termes",
+      "audio": "dev/audio/8128/7016/8128_7016_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 341.45,
+        "original_end_s": 359.66
+      }
+    },
+    {
+      "id": "8128_7016_000100",
+      "text": "thibaud fut reçu dans la maison paternelle avec beaucoup de joie on donna pour son arrivée un grand festin aux parents et aux amis de la maison tous burent à sa santé et lui souhaitèrent d'être sage et bon chrétien",
+      "audio": "dev/audio/8128/7016/8128_7016_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 84.31,
+        "original_end_s": 99.05
+      }
+    },
+    {
+      "id": "8128_7016_000101",
+      "text": "j'ai trop bien regardé à droite et à gauche et nous n'y sommes pas encore cependant je croyais que nous avions fait plus de chemin ne nous décourageons pas reprit le père ils marchent encore une demi-heure et les deux arbres ne paraissent point encore",
+      "audio": "dev/audio/8128/7016/8128_7016_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 274.28,
+        "original_end_s": 290.28
+      }
+    },
+    {
+      "id": "8128_7016_000102",
+      "text": "les pièces de fer qui la composaient paraissaient avoir passé au feu les arbres étaient teints de sang des caractères magiques et épouvantables y étaient empreints",
+      "audio": "dev/audio/8128/7016/8128_7016_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 506.16,
+        "original_end_s": 517.01
+      }
+    },
+    {
+      "id": "8128_7016_000103",
+      "text": "ces paroles firent dresser les cheveux à la tête de tous les convives ils firent le signe de la croix et quelques-uns se levèrent de table thibaud se leva aussi et alla prendre l'air sur la place bellecour où il trouva deux de ses anciens camarades mauvais sujets comme lui",
+      "audio": "dev/audio/8128/7016/8128_7016_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 116.44,
+        "original_end_s": 133.87
+      }
+    },
+    {
+      "id": "8128_7016_000104",
+      "text": "enfants donnez-moi mon fusil à deux coups cherchez mes balles et ma poire à poudre je vais aller chercher votre frère et si je ne rentre pas ce soir couchez-vous car je suis résolu de battre toute la forêt et de ne revenir qu'avec célestin c'est ainsi qu'on appelait le jeune garçon absent",
+      "audio": "dev/audio/8128/7016/8128_7016_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 171.61,
+        "original_end_s": 189.34
+      }
+    },
+    {
+      "id": "8128_7016_000105",
+      "text": "on entendit longtemps des exhortations de l'ermite et des soupirs du malheureux jeune homme lorsqu'on n'entendit plus rien on entra dans la chambre l'ermite avait disparu et l'on trouva thibaud mort sur son lit avec un crucifix entre les mains",
+      "audio": "dev/audio/8128/7016/8128_7016_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_16_nodier_64kb.mp3",
+        "original_start_s": 909.13,
+        "original_end_s": 928.2
+      }
+    },
+    {
+      "id": "8128_7016_000106",
+      "text": "en disant cela il arme son fusil marche droit aux arbres thomas le suit ils font environ trois cents pas et les chênes qu'ils croyaient tout près se trouvent à la même distance qu'auparavant",
+      "audio": "dev/audio/8128/7016/8128_7016_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 349.93,
+        "original_end_s": 363.78
+      }
+    },
+    {
+      "id": "8128_7016_000107",
+      "text": "se sentant près de sa fin il sollicita pour grâce dernière que caroline daignât au moins venir recevoir son éternel adieu la jeune personne refusa sèchement de se rendre à cette demande",
+      "audio": "dev/audio/8128/7016/8128_7016_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 67.68,
+        "original_end_s": 81.53
+      }
+    },
+    {
+      "id": "8128_7016_000108",
+      "text": "quoiqu'avec beaucoup moins de moyens de plaire l'amant suranné obsédait sans cesse la jeune caroline qui était loin de répondre à ses sentiments elle eut le tort plus impardonnable de tourner en ridicule et de tourmenter cruellement l'homme",
+      "audio": "dev/audio/8128/7016/8128_7016_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_18_nodier_64kb.mp3",
+        "original_start_s": 33.41,
+        "original_end_s": 49.77
+      }
+    },
+    {
+      "id": "8128_7016_000109",
+      "text": "un jeune garçon âgé de dix ans fut envoyé par ses parents faire des fagots dans le bois il ne revint pas à l'heure où sa famille se rassemblait pour déjeuner",
+      "audio": "dev/audio/8128/7016/8128_7016_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 129.22,
+        "original_end_s": 140.77
+      }
+    },
+    {
+      "id": "8128_7016_000110",
+      "text": "quelques personnes fatiguées de revenir inutilement lui jetaient des pierres qui l'atteignaient mais elle n'y paraissait pas plus sensible que si elle eût été de marbre les coups de fusil même des gardes-chasse ne la faisaient pas déloger quoiqu'ils vissent leurs balles la frapper directement sans l'avoir blessée",
+      "audio": "dev/audio/8128/7016/8128_7016_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-8128",
+        "gender": "m",
+        "book_id": "7016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/infernaliana_1312_librivox/infernaliana_24_nodier_64kb.mp3",
+        "original_start_s": 91.95,
+        "original_end_s": 111.21
+      }
+    }
+  ]
+}

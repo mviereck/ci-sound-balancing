@@ -1,0 +1,1600 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Aventuras de Robinsón Crusoe",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "9503",
+    "book_title": "Aventuras de Robinsón Crusoe",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "8585_9503_000000",
+      "text": "sosteniendo la carga con todas mis fuerzas hacía media hora que conservaba aquella actitud al cabo de cuyo tiempo la marea levantando poco a poco la balsa concluyó por enderezarla",
+      "audio": "test/audio/8585/9503/8585_9503_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 892.61,
+        "original_end_s": 905.34
+      }
+    },
+    {
+      "id": "8585_9503_000001",
+      "text": "el primer efecto tanto de una alegría como de una pena repentina es una violenta conmoción me paseaba por la playa alzando las manos al cielo absorto el espíritu con la sola idea de haber librado de un peligro tan inminente",
+      "audio": "test/audio/8585/9503/8585_9503_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 104.22,
+        "original_end_s": 121.63
+      }
+    },
+    {
+      "id": "8585_9503_000002",
+      "text": "era no tener ninguna arma con la cual pudiese matar algún animal para proveer a mi subsistencia o defenderme contra los que viniesen a atacarme lo que poseía estaba reducida a muy poco un un cuchillo una pipa y un poco de tabaco dentro de una cajita",
+      "audio": "test/audio/8585/9503/8585_9503_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 206.18,
+        "original_end_s": 224.77
+      }
+    },
+    {
+      "id": "8585_9503_000003",
+      "text": "ni me habia cuidado mucho de mis penas para sacar del buque lo que me habia podido ser de alguna utilidad quedando muy pocas cosas que llevarme aun cuando la borrasca no hubiera hecho desaparecer el buque",
+      "audio": "test/audio/8585/9503/8585_9503_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1777.6,
+        "original_end_s": 1790.06
+      }
+    },
+    {
+      "id": "8585_9503_000004",
+      "text": "al dia siguiente hice otro esta vez como ya había despojado el buque de todo lo que podía llevarme fácilmente pensé en los cables empecé por los más gruesos cortándolos en pequeños pedazos para poderlos mover",
+      "audio": "test/audio/8585/9503/8585_9503_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1545.72,
+        "original_end_s": 1560.83
+      }
+    },
+    {
+      "id": "8585_9503_000005",
+      "text": "hacía un calor excesivo me despojé de una parte de mis vestidos y me tiré al agua cuando llegué al pie del buque encontré más dificultad en subir a él que lo que yo había creído",
+      "audio": "test/audio/8585/9503/8585_9503_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 407.26,
+        "original_end_s": 420.86
+      }
+    },
+    {
+      "id": "8585_9503_000006",
+      "text": "descubrí bien pronto delante de mí una pequeña cortadura de tierra hacia la cual me sentí arrastrado por una fuerte corriente goberné mi balsa lo mejor que pude por entre aquella pero era necesario experimentar otro naufragio que la verdad me redujo a la desesperación",
+      "audio": "test/audio/8585/9503/8585_9503_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 841.36,
+        "original_end_s": 860.22
+      }
+    },
+    {
+      "id": "8585_9503_000007",
+      "text": "traté pues de hacer un nuevo viaje a bordo si era posible y como preveía que a la primera borrasca que hubiese la embarcación no dejaría de hacerse pedazos renuncié á toda otra empresa hasta que sacara del buque to do lo que pudiese",
+      "audio": "test/audio/8585/9503/8585_9503_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1214.69,
+        "original_end_s": 1230.61
+      }
+    },
+    {
+      "id": "8585_9503_000008",
+      "text": "apenas me vi en seguridad levanté los ojos al cielo dando gracias a dios de haberme salvado de una muerte casi cierta es de todo punto imposible expresar los transportes y el éxtasis de un hombre arrancado a la tumba",
+      "audio": "test/audio/8585/9503/8585_9503_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 69.53,
+        "original_end_s": 86.66
+      }
+    },
+    {
+      "id": "8585_9503_000009",
+      "text": "a mi llegada huyó algunos pasos de mi y se paró de repente parecía querer familiarizarse y que estaba muy confiado me miraba fijamente como si tuviese deseos de acercarse a mi",
+      "audio": "test/audio/8585/9503/8585_9503_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1340.64,
+        "original_end_s": 1353.82
+      }
+    },
+    {
+      "id": "8585_9503_000010",
+      "text": "y la conduje sana y salva a tierra con grande satisfaccion mía durante mi ausencia de la playa temí que las fieras me hubiesen devorado mis provisiones masa mi vuelta las encontré intactas únicamente divisé un animal parecido a un gato montes que estaba sentado sobre una de las arcas",
+      "audio": "test/audio/8585/9503/8585_9503_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1321.42,
+        "original_end_s": 1340.64
+      }
+    },
+    {
+      "id": "8585_9503_000011",
+      "text": "por lo tanto el castillo de popa se conservaba en muy buen estado y todo lo que en él se encerraba estaba reservado del agua lo primero que hice fue recorrer todo el barco y ver lo que había sufrido alguna avería y lo que se conservaba intacto",
+      "audio": "test/audio/8585/9503/8585_9503_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 465.93,
+        "original_end_s": 483.09
+      }
+    },
+    {
+      "id": "8585_9503_000012",
+      "text": "en la cámara del capitán había dos hermosas escopetas de caza y dos pistolas las cogí así como también muchos frascos llenos de pólvora un pequeño saco de plomo y dos viejas espadas muy tomadas",
+      "audio": "test/audio/8585/9503/8585_9503_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 742.56,
+        "original_end_s": 757.46
+      }
+    },
+    {
+      "id": "8585_9503_000013",
+      "text": "calculé que tanto tiempo como el buque estuviese allí varado debía sacar todo lo que pudiese todos les días iba pues a bordo mientras bajaba la marea y traía allá una cosa allá otra",
+      "audio": "test/audio/8585/9503/8585_9503_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1464.1,
+        "original_end_s": 1476.5
+      }
+    },
+    {
+      "id": "8585_9503_000014",
+      "text": "empecé a reflexionar tristemente sobre los peligros que correría si por desgracia aquel país estaba infestado de fieras no ignorando que estas buscan su presa durante la oscuridad",
+      "audio": "test/audio/8585/9503/8585_9503_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 234.99,
+        "original_end_s": 247.85
+      }
+    },
+    {
+      "id": "8585_9503_000015",
+      "text": "zozobró con todo el cargamento con respecto a mi especialmente el accidente no tenia nada de peligroso porque estaba cerca de tierra pero perdí la mayor parte de la carga sobre todo el hierro que me hubiera sido de una utilidad muy grande",
+      "audio": "test/audio/8585/9503/8585_9503_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1590.87,
+        "original_end_s": 1606.95
+      }
+    },
+    {
+      "id": "8585_9503_000016",
+      "text": "pero vi una multitud de aves de una especie para mí desconocida pues ignoraba si podría sacar de ellas algún partido cuando hubiese cazado alguna dirigiendo la vista detrás de mí vi una muy grande posada en lo más alto de un árbol en la ladera de un bosque",
+      "audio": "test/audio/8585/9503/8585_9503_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1093.65,
+        "original_end_s": 1111.57
+      }
+    },
+    {
+      "id": "8585_9503_000017",
+      "text": "tres observaciones que hice sin embargo me inspiraron ánimo el mar estaba tranquilo la marea subía y llegaba a tierra el viento aunque débil no dejaba del ser favorable habiendo entonces encontrado dos o tres palos de virar medio rotos que pertenecían a la chalupa",
+      "audio": "test/audio/8585/9503/8585_9503_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 791.08,
+        "original_end_s": 810.05
+      }
+    },
+    {
+      "id": "8585_9503_000018",
+      "text": "los coloqué en la balsa junto con las armas estaba contentísimo con mi cargamento pero necesitaba buscar un medio seguro para conducirlo a tierra porque ni tenía vela ni remos ni timón y el menor soplo de viento podía sumergirlo todo",
+      "audio": "test/audio/8585/9503/8585_9503_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 774.4,
+        "original_end_s": 791.08
+      }
+    },
+    {
+      "id": "8585_9503_000019",
+      "text": "ignoraba aún si la tierra adonde el naufragio me había arrojado era un continente o una isla si estaba habitada ó inhabitada en fin si tenía ó no algo que temer de las fieras",
+      "audio": "test/audio/8585/9503/8585_9503_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1025.96,
+        "original_end_s": 1038.09
+      }
+    },
+    {
+      "id": "8585_9503_000020",
+      "text": "durante aquella operación observé que la marea empezaba a subir aunque lentamente y tuve la pesadumbre de ver mis vestidos que había dejado en la orilla flotando en el agua me quedé solo con mis calzones que eran de tela y abiertos hasta las rodillas",
+      "audio": "test/audio/8585/9503/8585_9503_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 672.53,
+        "original_end_s": 688.76
+      }
+    },
+    {
+      "id": "8585_9503_000021",
+      "text": "la marea que subía lo desprendió del banco de arena en donde estaba encallado y lo arrastró junto a la roca en la cual me había yo tan cruelmente magullado la víspera",
+      "audio": "test/audio/8585/9503/8585_9503_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 315.33,
+        "original_end_s": 326.06
+      }
+    },
+    {
+      "id": "8585_9503_000022",
+      "text": "me decido a visitarle estado en que le encuentro llego a fuerza de ingenio a trasladar a tierra una grande cantidad de provisiones",
+      "audio": "test/audio/8585/9503/8585_9503_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 46.35,
+        "original_end_s": 58.19
+      }
+    },
+    {
+      "id": "8585_9503_000023",
+      "text": "después que yo mismo lo experimenté comprendo con cuanta razón se llama al médico pana curar al hombre a quien se concede la vida estando al pié del cadalso por temor de que la sorpresa parando los latidos del corazón no llegue a serle funesto",
+      "audio": "test/audio/8585/9503/8585_9503_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 86.66,
+        "original_end_s": 104.22
+      }
+    },
+    {
+      "id": "8585_9503_000024",
+      "text": "y comprendí que si quería ganar la orilla era necesario volver antes que el reflujo se hiciese sentir me eché pues a nado para atravesar el brazo de mar que me separaba de tierra llegué con mucho trabajo tanto a causa del peso de lo que llevaba como por la agitación del mar",
+      "audio": "test/audio/8585/9503/8585_9503_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1734.67,
+        "original_end_s": 1751.64
+      }
+    },
+    {
+      "id": "8585_9503_000025",
+      "text": "porque la quilla sosteniéndose encima del banco es consiguiente que el puente estaba muy elevado y carecía de medios con los cuales pudiese subir a él",
+      "audio": "test/audio/8585/9503/8585_9503_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 420.86,
+        "original_end_s": 431.96
+      }
+    },
+    {
+      "id": "8585_9503_000026",
+      "text": "que sería muy posible el perder todo mi cargamento en su consecuencia tomé el partido de aguardar que la marea hubiese subido del todo",
+      "audio": "test/audio/8585/9503/8585_9503_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 973.84,
+        "original_end_s": 984.37
+      }
+    },
+    {
+      "id": "8585_9503_000027",
+      "text": "que me desnudé antes de salir de mi choza dejándome puesta la camisa unos calzoncillos y unas zapatillas a mi llegada al barco traté en primer lugar de construir una seganda balsa",
+      "audio": "test/audio/8585/9503/8585_9503_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1244.22,
+        "original_end_s": 1256.59
+      }
+    },
+    {
+      "id": "8585_9503_000028",
+      "text": "la tercera vez que fui me llevé todos los aparejos todas las cuerdas una pieza de lienzo destinada a reparar el velámen y el barril de pólvora que se había mojado",
+      "audio": "test/audio/8585/9503/8585_9503_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1476.5,
+        "original_end_s": 1487.69
+      }
+    },
+    {
+      "id": "8585_9503_000029",
+      "text": "no me faltaba mas que una lancha para cargar los objetos que creí me serian necesarios en esta posición era preciso no perder un tiempo precioso en desear cosas imposibles de alcanzar",
+      "audio": "test/audio/8585/9503/8585_9503_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 508.84,
+        "original_end_s": 521.42
+      }
+    },
+    {
+      "id": "8585_9503_000030",
+      "text": "le tiré y cayó sin vida esto era sin duda el primer tiro que había retumbado en aquellos sitios después de la creación del mundo porque no bien hube disparado",
+      "audio": "test/audio/8585/9503/8585_9503_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1111.57,
+        "original_end_s": 1122.93
+      }
+    },
+    {
+      "id": "8585_9503_000031",
+      "text": "todo lo que una persona sola era capaz de llevarse me llevé y creo no exagerar diciendo que si la calma hubiese continuado hubiera transportado á tierra todo el buque pieza por pieza",
+      "audio": "test/audio/8585/9503/8585_9503_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1634.83,
+        "original_end_s": 1646.76
+      }
+    },
+    {
+      "id": "8585_9503_000032",
+      "text": "los até separadamente con una cuerda a fin de que se desuniesen hecho esto descendí por un costado del barco y tirando los palos hacia mi até cuatro juntos por los dos extremos lo mejor que me fue posible y les di la forma de una bolsa",
+      "audio": "test/audio/8585/9503/8585_9503_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 539.09,
+        "original_end_s": 556.74
+      }
+    },
+    {
+      "id": "8585_9503_000033",
+      "text": "mas vino la noche y me pregunté con espanto qué iba yo a hacer no me atrevía a dormir en el suelo de miedo que las fieras viniesen a devorarme aunque no había ningún temor según vi después",
+      "audio": "test/audio/8585/9503/8585_9503_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1163.07,
+        "original_end_s": 1175.4
+      }
+    },
+    {
+      "id": "8585_9503_000034",
+      "text": "después de haberme consolado con la idea de que mi situación era todavía soportable dirigí la vista a mi alrededor a fin de ver en qué sitio me hallaba y de resolver lo que había de hacer",
+      "audio": "test/audio/8585/9503/8585_9503_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 169.56,
+        "original_end_s": 182.38
+      }
+    },
+    {
+      "id": "8585_9503_000035",
+      "text": "despues de haber bajado del árbol miré a mi alrededor y lo primero que descubrí fue el bote que el viento y la marea habían arrojado sobre la costa á dos millas a la derecha de donde yo me hallaba",
+      "audio": "test/audio/8585/9503/8585_9503_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 339.81,
+        "original_end_s": 352.78
+      }
+    },
+    {
+      "id": "8585_9503_000036",
+      "text": "pero mi suerte empezó a abandonarme la balsa iba tan en demasía cargada que habiendo dado en la pequeña ensenada en donde había desembarcado mis anteriores provisiones y a pesar de mis esfuerzos para dirigirla como otras veces",
+      "audio": "test/audio/8585/9503/8585_9503_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1575.78,
+        "original_end_s": 1590.87
+      }
+    },
+    {
+      "id": "8585_9503_000037",
+      "text": "tales como dos o tres sacos de clavos una grande barrena dos docenas de hachas y una piedra de afilar instrumento utilísimo y precioso",
+      "audio": "test/audio/8585/9503/8585_9503_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1273.36,
+        "original_end_s": 1283.77
+      }
+    },
+    {
+      "id": "8585_9503_000038",
+      "text": "eché a tierra mi segunda carga y me vi obligado a abrir los barriles para trasportar la pólvora en pequeñas partidas porque los toneles eran demasiado pesados trabajé al mismo tiempo para hacer una pequeña tienda con una vela y estacas que corté al efecto",
+      "audio": "test/audio/8585/9503/8585_9503_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1387.22,
+        "original_end_s": 1404.25
+      }
+    },
+    {
+      "id": "8585_9503_000039",
+      "text": "cogí una escopeta y una de mis pistolas con un frasco de pólvora y armado de esta suerte empecé á trepar hasta lo alto del monte llegué a su cúspide fatigado y sin aliento",
+      "audio": "test/audio/8585/9503/8585_9503_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1049.98,
+        "original_end_s": 1063.43
+      }
+    },
+    {
+      "id": "8585_9503_000040",
+      "text": "a poco más de una milla del lugar en que yo habia desembarcado se elevaba una alta y escarpada montaña que dominaba una larga cordillera corriéndose hácia el norte",
+      "audio": "test/audio/8585/9503/8585_9503_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1038.09,
+        "original_end_s": 1049.98
+      }
+    },
+    {
+      "id": "8585_9503_000041",
+      "text": "entonces pensé construir una nueva balsa pero viendo que el cielo se cubria que se empezaba á levantar el viento y al cabo de un cuarto de hora percibiendo algunas ráfagas que venian de tierra pensé que seria una locura el querer construir entonces una balsa cuando el viento era contrario",
+      "audio": "test/audio/8585/9503/8585_9503_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1717.82,
+        "original_end_s": 1734.67
+      }
+    },
+    {
+      "id": "8585_9503_000042",
+      "text": "también calculé que podría sacar del buque muchas cosas que me pudiesen ser muy útiles especialmente cuerdas velas y otros objetos susceptibles de ser transportados a tierra",
+      "audio": "test/audio/8585/9503/8585_9503_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1201.73,
+        "original_end_s": 1214.69
+      }
+    },
+    {
+      "id": "8585_9503_000043",
+      "text": "no tenía que comer ni que beber con el objeto de tomar valor no me quedaba pues otro recurso que morir de hambre o ser devorado por las fieras pero lo que mas sentía",
+      "audio": "test/audio/8585/9503/8585_9503_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 195.07,
+        "original_end_s": 206.18
+      }
+    },
+    {
+      "id": "8585_9503_000044",
+      "text": "el animal se acercó a la galleta la olio la comió y después me miró con aire satisfecho como si quisiese darme a entender que le diese más pero no volviendo a hacer caso de él desapareció",
+      "audio": "test/audio/8585/9503/8585_9503_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1373.7,
+        "original_end_s": 1387.22
+      }
+    },
+    {
+      "id": "8585_9503_000045",
+      "text": "coloqué todo lo que podia echarse a perder con la lluvia y con el sol puse alrededor las arcas vacías y los toneles los ordené colocándolos unos encima de los otros para fortificar mi tienda contra los ataques de los hombres o de las fieras",
+      "audio": "test/audio/8585/9503/8585_9503_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1404.25,
+        "original_end_s": 1420.07
+      }
+    },
+    {
+      "id": "8585_9503_000046",
+      "text": "con respecto al que yo maté me pareció una especie de gavilan él tenia en efecto el color y el pico de este pájaro sin tener ni sus espolones ni sus uñas",
+      "audio": "test/audio/8585/9503/8585_9503_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1139.71,
+        "original_end_s": 1150.6
+      }
+    },
+    {
+      "id": "8585_9503_000047",
+      "text": "desperté muy tarde el tiempo estaba sereno la tempestad se había disipado y el mar estaba sosegado júzguese de mi sorpresa a la vista de mi buque",
+      "audio": "test/audio/8585/9503/8585_9503_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 303.08,
+        "original_end_s": 315.33
+      }
+    },
+    {
+      "id": "8585_9503_000048",
+      "text": "las provisiones no habían experimentado ningún contratiempo devorado por el hambre me fui a los pañoles de los víveres y llenándome los bolsillos empecé a comer ocupándome al mismo tiempo de otras cosas porque no podía perder un minuto",
+      "audio": "test/audio/8585/9503/8585_9503_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 483.09,
+        "original_end_s": 498.65
+      }
+    },
+    {
+      "id": "8585_9503_000049",
+      "text": "mientras tanto me parapeté lo mejor que pude con las cajas y tablones que había des embarcado y de este modo hice una especie de choza pa ra que me sirviese de abrigo a lo menos por aquella noche",
+      "audio": "test/audio/8585/9503/8585_9503_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1175.4,
+        "original_end_s": 1188.46
+      }
+    },
+    {
+      "id": "8585_9503_000050",
+      "text": "mas se percibía tan dentro del mar y este se conservaba tan soberbio y espumoso que apenas lo distinguía dios mío exclamé cómo es posible que haya yo podido llegar hasta tierra",
+      "audio": "test/audio/8585/9503/8585_9503_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 154.57,
+        "original_end_s": 169.56
+      }
+    },
+    {
+      "id": "8585_9503_000051",
+      "text": "aquellas reflexiones me arrancaron lágrimas pero como estas no eran mas que un débil consuelo me propuse llegar hasta el buque si era cosa practicable",
+      "audio": "test/audio/8585/9503/8585_9503_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 397.12,
+        "original_end_s": 407.26
+      }
+    },
+    {
+      "id": "8585_9503_000052",
+      "text": "y vi en aquel momento cuan deplorable era mi situación me encontraba en una isla en medio del océano no descubriendo más que rocas muy lejanas de un lado y de otro dos islas más pequeñas que la mía situadas a unas tres leguas hacia el oeste",
+      "audio": "test/audio/8585/9503/8585_9503_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1063.43,
+        "original_end_s": 1081.57
+      }
+    },
+    {
+      "id": "8585_9503_000053",
+      "text": "desocupé lo mas pronto posible el tonel de galleta é hice varias porciones y las envolví en dos pedazos de vela llegué á tierra con mas alegría que en mis anteriores viajes",
+      "audio": "test/audio/8585/9503/8585_9503_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1533.4,
+        "original_end_s": 1545.72
+      }
+    },
+    {
+      "id": "8585_9503_000054",
+      "text": "su carne de un olor fuerte no valía absolutamente nada sin arrojarme mas por entonces volvi a mi balsa y me puse á descargarla dicho trabajo me ocupó el resto del día",
+      "audio": "test/audio/8585/9503/8585_9503_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1150.6,
+        "original_end_s": 1163.07
+      }
+    },
+    {
+      "id": "8585_9503_000055",
+      "text": "en la cámara del capitán encontré rom del cual bebí un buen trago pues tenia gran necesidad de aquel cordial para tomar ánimo",
+      "audio": "test/audio/8585/9503/8585_9503_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 498.65,
+        "original_end_s": 508.84
+      }
+    },
+    {
+      "id": "8585_9503_000056",
+      "text": "expresando mi alegría con mil caprichosos gestos me acordé luego de mis camaradas que todos debían de haber perecido porque imaginé que yo era el solo que se había salvado del naufragio",
+      "audio": "test/audio/8585/9503/8585_9503_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 121.63,
+        "original_end_s": 135.87
+      }
+    },
+    {
+      "id": "8585_9503_000057",
+      "text": "el único recurso que se ofreció a mi imaginación fue el subirme a un árbol muy frondoso de la especie de los abetos pero espinoso que se elevaba cerca de mí",
+      "audio": "test/audio/8585/9503/8585_9503_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 247.85,
+        "original_end_s": 259.15
+      }
+    },
+    {
+      "id": "8585_9503_000058",
+      "text": "sentí entonces punzantes angustias durante las cuales corría de un lado á otro como un insensato mientras tanto la noche se aproximaba",
+      "audio": "test/audio/8585/9503/8585_9503_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 224.77,
+        "original_end_s": 234.99
+      }
+    },
+    {
+      "id": "8585_9503_000059",
+      "text": "la bajó á mi balsa tal como estaba sin perder tiempo en inspeccionarla calculando en globo lo que poco mas ó menos podia contener luego pensé en las armas y municiones",
+      "audio": "test/audio/8585/9503/8585_9503_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 729.16,
+        "original_end_s": 742.56
+      }
+    },
+    {
+      "id": "8585_9503_000060",
+      "text": "elección de un lugar conveniente para fijar mi morada viajes a la embarcación varada y su desaparición a consecuencia de una nueva borrasca",
+      "audio": "test/audio/8585/9503/8585_9503_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 58.19,
+        "original_end_s": 69.53
+      }
+    },
+    {
+      "id": "8585_9503_000061",
+      "text": "después de haber bebido masqué un poco de tabaco para entretener el hambre corrí al árbol y me coloqué de manera que no me cayese si llegaba a dormirme",
+      "audio": "test/audio/8585/9503/8585_9503_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 275.38,
+        "original_end_s": 285.71
+      }
+    },
+    {
+      "id": "8585_9503_000062",
+      "text": "bien pronto tomé mi determinación primero cargué todas las planchas o tablones que pude encontrar enseguida después de haber calculado las cosas que me podrían ser más necesarias tomé tres arcas pertenecientes a los marineros de las cuales forcé las cerraduras",
+      "audio": "test/audio/8585/9503/8585_9503_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 603.73,
+        "original_end_s": 622.38
+      }
+    },
+    {
+      "id": "8585_9503_000063",
+      "text": "y las desocupé las bajé a la balsa habiendo metido pan arroz tres quesos de holanda cinco pedazos de cabra este era nuestro alimento ordinario a bordo y un pequeño resto de trigo destinado a alimentar las aves que llevábamos y las cuales nos habíamos comido ya",
+      "audio": "test/audio/8585/9503/8585_9503_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 622.38,
+        "original_end_s": 641.86
+      }
+    },
+    {
+      "id": "8585_9503_000064",
+      "text": "la sorpresa que me causó este descubrimiento fue tanto mayor cuanto no esperaba encontrar ninguna otra provisión que el agua no hubiese enteramente echado a perder",
+      "audio": "test/audio/8585/9503/8585_9503_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1522.6,
+        "original_end_s": 1533.4
+      }
+    },
+    {
+      "id": "8585_9503_000065",
+      "text": "me dirigí a lo largo de la orilla y después de haber andado bastante pude acercarme a la chalupa pero no pude pasar mas adelante por detenerme un brazo de mar de cerca de media milla me volvi",
+      "audio": "test/audio/8585/9503/8585_9503_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 352.78,
+        "original_end_s": 366.52
+      }
+    },
+    {
+      "id": "8585_9503_000066",
+      "text": "sin embargo como bajaba la marea salvé la mayor parte de los pedazos de cable y algún poco de hierro pero esto no fue sin trabajo porque me vi precisado a sumergirme lo que me fatigó mucho",
+      "audio": "test/audio/8585/9503/8585_9503_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1606.95,
+        "original_end_s": 1620.69
+      }
+    },
+    {
+      "id": "8585_9503_000067",
+      "text": "entonces vi que la embarcación estaba medio abierta y que había mucha agua en el fondo de la cala pero encallada sobre un banco de arena muy duro o mas bien de tierra en popa se elevaba mucho mientras que la proa casi lamía el agua",
+      "audio": "test/audio/8585/9503/8585_9503_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 449.81,
+        "original_end_s": 465.93
+      }
+    },
+    {
+      "id": "8585_9503_000068",
+      "text": "resolví pasar allí la noche esperando encontrar al otro día la muerte que miraba como inevitable me alejé cerca de medio cuarto de milla de la orilla por ver si descubriría agua dulce la encontré por lo cual fue grande mi alegría",
+      "audio": "test/audio/8585/9503/8585_9503_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 259.15,
+        "original_end_s": 275.38
+      }
+    },
+    {
+      "id": "8585_9503_000069",
+      "text": "podía ya muy bien alcanzar a la orilla pero verificándolo me exponía otra vez a que se sumergiese la balsa efectivamente ofreciendo la ribera una pendiente bastante rápida no podía abordar en un sitio al cual cuando mi balsa llegase a tocar se encontraría tan alta de un lado y tan baja de otro",
+      "audio": "test/audio/8585/9503/8585_9503_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 953.84,
+        "original_end_s": 973.84
+      }
+    },
+    {
+      "id": "8585_9503_000070",
+      "text": "después de mil investigaciones descubrí por fin el arca del carpintero verdadero tesoro más precioso para mí que lo que hubiese sido un buque cargado de oro",
+      "audio": "test/audio/8585/9503/8585_9503_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 716.79,
+        "original_end_s": 729.16
+      }
+    },
+    {
+      "id": "8585_9503_000071",
+      "text": "sujeté en cada uno de sus extremos un palo de virar y aguardé en aquella situación hasta el momento en que la marea hubo hecho todo su descenso dejando el cargamento de la balsa seguro ya sobre la ribera",
+      "audio": "test/audio/8585/9503/8585_9503_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1001.67,
+        "original_end_s": 1015.47
+      }
+    },
+    {
+      "id": "8585_9503_000072",
+      "text": "en otro cajón el valor de treinta y seis libras esterlinas en moneda de europa y del brasil parte en oro parte en plata y entre otras algunas piezas de a ocho a la vista de aquel dinero me sonreí sardónicamente metal miserable exclamé de qué puedes servirme",
+      "audio": "test/audio/8585/9503/8585_9503_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1673.41,
+        "original_end_s": 1692.78
+      }
+    },
+    {
+      "id": "8585_9503_000073",
+      "text": "la necesidad me volvió ingenioso a bordo teníamos de reserva muchas vergas dos o tres pequeños mástiles y uno ó dos masteleros de juanete tomé la resolución de poner manos á la obra y bajando del buque todos aquellos objetos que por su peso pudiese sostener",
+      "audio": "test/audio/8585/9503/8585_9503_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 521.42,
+        "original_end_s": 539.09
+      }
+    },
+    {
+      "id": "8585_9503_000074",
+      "text": "sabía ademas que había a bordo tres barriles de pólvora pero ignoraba en dónde nuestro artillero los tenía guardados a fuerza de pesquisas di al fin con ellos uno estaba enteramente mojado mas los otros dos estaban secos y en muy buen estado",
+      "audio": "test/audio/8585/9503/8585_9503_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 757.46,
+        "original_end_s": 774.4
+      }
+    },
+    {
+      "id": "8585_9503_000075",
+      "text": "de lo primero que traté fue de ir á reconocer el país y buscar un lugar a propósito para alejarme y poner mis efectos al abrigo de todo accidente",
+      "audio": "test/audio/8585/9503/8585_9503_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1015.47,
+        "original_end_s": 1025.96
+      }
+    },
+    {
+      "id": "8585_9503_000076",
+      "text": "hecho esto parapeté la puerta por dentro con tablones y por fuera puse un cofre vacío de pie derecho después habiendo extendido un colchón en el suelo y colocado mis dos pistolas a la cabecera y mi escopeta al lado me metí en la cama por primera vez",
+      "audio": "test/audio/8585/9503/8585_9503_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1420.07,
+        "original_end_s": 1438.42
+      }
+    },
+    {
+      "id": "8585_9503_000077",
+      "text": "porque el viento arreció con tanta rapidez que la tempestad estalló antes que hubiese subido la marea mas yo me hallaba ya sentado en mi choza en medio de mis riquezas y en plena seguridad",
+      "audio": "test/audio/8585/9503/8585_9503_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1751.64,
+        "original_end_s": 1764.04
+      }
+    },
+    {
+      "id": "8585_9503_000078",
+      "text": "algunos momentos después el agua que continuaba elevándose la desencalló y al mismo tiempo ayudado de mis remos la dirigí hacia el canal",
+      "audio": "test/audio/8585/9503/8585_9503_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 905.34,
+        "original_end_s": 916.0
+      }
+    },
+    {
+      "id": "8585_9503_000079",
+      "text": "al duodécimo viaje el viento empezó a levantarse lo que no me impidió volver a bordo mientras estuvo bajando la marea y aunque bastantes veces había registrado la cámara del capitán",
+      "audio": "test/audio/8585/9503/8585_9503_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1646.76,
+        "original_end_s": 1659.74
+      }
+    },
+    {
+      "id": "8585_9503_000080",
+      "text": "le presenté la boca de mi escopeta mas no comprendiendo aquel ademan ni se intimidó ni pensó en huir le eche luego un pedazo de galleta aunque en mi posición no debiese ser tan pródigo porque mis provisiones no eran muy grandes a pesar de todo hice aquel pequeño sacrificio",
+      "audio": "test/audio/8585/9503/8585_9503_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1353.82,
+        "original_end_s": 1373.7
+      }
+    },
+    {
+      "id": "8585_9503_000081",
+      "text": "despues de haber fijado al través dos o tres planchas de madera conoci que podria marchar con esta especie de ensambladura pero que no seria bastante sólida para soportar una grande carga pues las piezas que la componian eran demasiado débiles",
+      "audio": "test/audio/8585/9503/8585_9503_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 556.74,
+        "original_end_s": 572.69
+      }
+    },
+    {
+      "id": "8585_9503_000082",
+      "text": "así como mis medias todo lo cual no me había quitado cuando me eché a nado para llegar a donde estaba el buque este accidente me obligó a proveerme de vestidos",
+      "audio": "test/audio/8585/9503/8585_9503_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 688.76,
+        "original_end_s": 698.94
+      }
+    },
+    {
+      "id": "8585_9503_000083",
+      "text": "por lo que toca a mi subsistencia no sabía aun como proveería a ella solamente había visto dos o tres animales parecidos a las liebres huir fuera del bosque en donde había matado el pájaro",
+      "audio": "test/audio/8585/9503/8585_9503_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1188.46,
+        "original_end_s": 1201.73
+      }
+    },
+    {
+      "id": "8585_9503_000084",
+      "text": "por dos veces di la vuelta nadando a la embarcación la segunda vez divisé el cabo de una cuerda que pendía de los porta obenques de mesana admirado de no haberla visto mas pronto me cogi a ella después de hacer algunos esfuerzos y trepé al castillo de proa",
+      "audio": "test/audio/8585/9503/8585_9503_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 431.96,
+        "original_end_s": 449.81
+      }
+    },
+    {
+      "id": "8585_9503_000085",
+      "text": "consulté conmigo mismo si volvería con mi balsa pero no me pareció conveniente y así tomé el partido de ir a nado como la vez primera cuando bajase la marea lo que verifiqué con la sola diferencia",
+      "audio": "test/audio/8585/9503/8585_9503_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1230.61,
+        "original_end_s": 1244.22
+      }
+    },
+    {
+      "id": "8585_9503_000086",
+      "text": "a pesar de esta desgracia continué en ir á bordo todos los días y llevarme todo lo que podía hacía ya trece días que estaba en tierra durante cuyo tiempo hice once viajes a bordo del buque",
+      "audio": "test/audio/8585/9503/8585_9503_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1620.69,
+        "original_end_s": 1634.83
+      }
+    },
+    {
+      "id": "8585_9503_000087",
+      "text": "lo reuní todo cuidadosamente juntando muchos efectos que habían pertenecido al artillero particularmente dos o tres palancas de hierro dos barriles de balas siete mosquetes otra escopeta de caza una pequeña cantidad de pólvora y un gran saco de perdigones hallé además un pedazo de plomo",
+      "audio": "test/audio/8585/9503/8585_9503_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1283.77,
+        "original_end_s": 1303.27
+      }
+    },
+    {
+      "id": "8585_9503_000088",
+      "text": "había también en el buque cierta cantidad de cebada y de trigo candeal todo mezclado pero a mi parecer aquel grano estaba echado a perder o había sido comido por las ratas",
+      "audio": "test/audio/8585/9503/8585_9503_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 641.86,
+        "original_end_s": 655.66
+      }
+    },
+    {
+      "id": "8585_9503_000089",
+      "text": "al instante hice todo lo posible para mantener las arcas en el lugar en que estaban colocadas deteniéndolas con mis espaldas porque mis esfuerzos hubiesen sido insuficientes para desencallar la balsa no atreviéndome a abandonar el sitio que ocupaba",
+      "audio": "test/audio/8585/9503/8585_9503_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 875.47,
+        "original_end_s": 892.61
+      }
+    },
+    {
+      "id": "8585_9503_000090",
+      "text": "reconocí que esta isla estaba inculta y según toda apariencia inhabitada o poblada a lo más de animales salvajes por entonces no divisé ninguno",
+      "audio": "test/audio/8585/9503/8585_9503_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1081.57,
+        "original_end_s": 1093.65
+      }
+    },
+    {
+      "id": "8585_9503_000091",
+      "text": "solamente conocí que se apartaba un poco del sitio en que yo había antes tomado tierra calculé que allí existía una corriente de agua y concebí la esperanza de encontrar una bahía o una playa que me sirviese de puerto para desembarcar mi cargamento mis previsiones se realizaron",
+      "audio": "test/audio/8585/9503/8585_9503_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 821.74,
+        "original_end_s": 841.36
+      }
+    },
+    {
+      "id": "8585_9503_000092",
+      "text": "lo que me causó más placer en aquellas excursiones fue que al quinto o sexto viaje en el momento en que creía que nada había en el buque que valiese la pena encontré aun un grande barril de galleta tres buenas pipas de ron y de aguardiente una caja de azúcar y un moño de harina de flor",
+      "audio": "test/audio/8585/9503/8585_9503_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1504.57,
+        "original_end_s": 1522.6
+      }
+    },
+    {
+      "id": "8585_9503_000093",
+      "text": "me puse a trabajar y con la ayuda de la sierra partí en tres pedazos un mastelero de juanete que añadí  a mi balsa no sin mucha pena y trabajo mas la esperanza de procurarme objetos tan necesarios me daba fuerzas para conseguir hacer lo que en otra ocasión no hubiera hecho",
+      "audio": "test/audio/8585/9503/8585_9503_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 572.69,
+        "original_end_s": 591.54
+      }
+    },
+    {
+      "id": "8585_9503_000094",
+      "text": "cuando de todas partes del bosque se levantó un número increíble de pájaros de diversas especies con un ruido confuso y una rara algarabía causada por la reunión de gritos y chillidos peculiares a cada uno de ellos pero ninguno vi que me fuese conocido",
+      "audio": "test/audio/8585/9503/8585_9503_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1122.93,
+        "original_end_s": 1139.71
+      }
+    },
+    {
+      "id": "8585_9503_000095",
+      "text": "y finalmente dos sierras un hacha y un martilo los junté a los demás instrumentos y me largué con mi cargamento mi balsa bogó muy bien durante cerca de una milla",
+      "audio": "test/audio/8585/9503/8585_9503_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 810.05,
+        "original_end_s": 821.74
+      }
+    },
+    {
+      "id": "8585_9503_000096",
+      "text": "no conociendo la costa uno de los estremos de mi balsa topó en un banco de arena tanto que el otro quedó sumergido en esta posicion faltó muy poco para que el cargamento deslizándose hácia la parte inclinada no cayese al agua",
+      "audio": "test/audio/8585/9503/8585_9503_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 860.22,
+        "original_end_s": 875.47
+      }
+    },
+    {
+      "id": "8585_9503_000097",
+      "text": "y sirviéndome de mi palo de virar a manera de ancla detuve la balsa en un terreno llano y unido en donde el agua no podia menos de llegar cuando vi que había ya bastante agua que la cubría cerca de un pie la arrastré a la playa hundiéndola en tierra",
+      "audio": "test/audio/8585/9503/8585_9503_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 984.37,
+        "original_end_s": 1001.67
+      }
+    },
+    {
+      "id": "8585_9503_000098",
+      "text": "la esperanza que tenía de descubrir alguna embarcación me determinaba a no esforzarme a ganar la orilla finalmente percibí a mi derecha un pequeño ancón hacia el cual me dirigí no sin mucha dificultad me llegué a aproximar ya tanto que mi remo tocaba en la arena",
+      "audio": "test/audio/8585/9503/8585_9503_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 934.25,
+        "original_end_s": 953.84
+      }
+    },
+    {
+      "id": "8585_9503_000099",
+      "text": "aquel espectáculo renovó mi dolor porque reconoci que si nos hubiésemos quedado á bordo la tripulacion entera hubiera llegado á tierra sana y salva y no me encontraria privado de todo consuelo en aquella soledad",
+      "audio": "test/audio/8585/9503/8585_9503_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 382.71,
+        "original_end_s": 397.12
+      }
+    },
+    {
+      "id": "8585_9503_000100",
+      "text": "pero mucho más deseoso entonces de visitar el buque en donde esperaba encontrar algo con que alimentarme un poco después de mediodía el mar estaba muy sosegado y la marea tan baja que pude avanzar hasta un cuarto de milla del barco",
+      "audio": "test/audio/8585/9503/8585_9503_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 366.52,
+        "original_end_s": 382.71
+      }
+    },
+    {
+      "id": "8585_9503_000101",
+      "text": "habiendo bogado un poco mas me encontré en la embocadura de un pequeño río a la cual me arrastró rápidamente el flujo mientras buscaba ya en una ya en otra orilla un sitio a propósito para desembarcar porque temía ser arrojado demasiado dentro del río",
+      "audio": "test/audio/8585/9503/8585_9503_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 916.0,
+        "original_end_s": 934.25
+      }
+    },
+    {
+      "id": "8585_9503_000102",
+      "text": "la noche fue tempestuosa y por la mañana cuando dirigí la vista al mar vi que el casco del buque había desaparecido me consolé bien pronto de mi sorpresa porque no había perdido el tiempo",
+      "audio": "test/audio/8585/9503/8585_9503_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1764.04,
+        "original_end_s": 1777.6
+      }
+    },
+    {
+      "id": "8585_9503_000103",
+      "text": "mi balsa era ya bastante fuerte para poder llevar un peso regular luego traté de ver de qué modo colocaría la carga y cómo la preservaría de los golpes de agua",
+      "audio": "test/audio/8585/9503/8585_9503_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 591.54,
+        "original_end_s": 603.73
+      }
+    },
+    {
+      "id": "8585_9503_000104",
+      "text": "pero pesaba tanto que no tuve la fuerza suficiente para levantarlo y hacerlo pasar por encima del borde del buque me llevé todos los vestidos que pude encontrar una vela de repuesto del pequeño mastelero una hamaca colchones y alghnas mantas coloqué mi cargamento en mi nueva balsa",
+      "audio": "test/audio/8585/9503/8585_9503_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1303.27,
+        "original_end_s": 1321.42
+      }
+    },
+    {
+      "id": "8585_9503_000105",
+      "text": "los cuales encontré en abundancia pero me contenté con tomar los absolutamente indispensables por el momento pues el barco contenía una multitud de cosas que me eran mucho más útiles en aquel número se contaba los instrumentos para trabajar cuando estuviese en tierra",
+      "audio": "test/audio/8585/9503/8585_9503_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 698.94,
+        "original_end_s": 716.79
+      }
+    },
+    {
+      "id": "8585_9503_000106",
+      "text": "mas cai bien pronto en un hondo abatimiento porque veía que las consecuencias de haberme salvado eran terribles me encontraba mojado y no podía cambiar de vestidos",
+      "audio": "test/audio/8585/9503/8585_9503_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 182.38,
+        "original_end_s": 195.07
+      }
+    },
+    {
+      "id": "8585_9503_000107",
+      "text": "en cuanto á los líquidos encontré muchas cajas de botellas pertenecientes al capitán entre las cuales había algunos frascos espirituosos los coloqué separadamente porque era necesario el ponerlos en las arcas en donde por otra parte no había lugar",
+      "audio": "test/audio/8585/9503/8585_9503_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 655.66,
+        "original_end_s": 672.53
+      }
+    },
+    {
+      "id": "8585_9503_000108",
+      "text": "en efecto no volví a ver jamás a ninguno de ellos ni percibí la más pequeña huella excepto tres sombreros una gorra y un par de zapatos que no eran compañeros entonces volví la vista en la dirección en donde estaba encallado el buque",
+      "audio": "test/audio/8585/9503/8585_9503_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 135.87,
+        "original_end_s": 154.57
+      }
+    },
+    {
+      "id": "8585_9503_000109",
+      "text": "una milla me separaba apenas de la varada embarcación y como parecía que aun se conservaba derecha sobre su quilla tuve deseos vehementes de ir a su bordo para poder tomar lo que me fuese más necesario",
+      "audio": "test/audio/8585/9503/8585_9503_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 326.06,
+        "original_end_s": 339.81
+      }
+    },
+    {
+      "id": "8585_9503_000110",
+      "text": "no vales la pena de que baje a recogerte uno solo de estos cuchillos es para mí mas precioso quédate donde estás ó mas bien ve a sumergirte al fondo del mar como una mercadería de deshecho",
+      "audio": "test/audio/8585/9503/8585_9503_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1692.78,
+        "original_end_s": 1707.36
+      }
+    },
+    {
+      "id": "8585_9503_000111",
+      "text": "y como ya tenía experiencia por la construcción de la primera estuve en la segunda mucho más listo y tuve cuidado de no cargarla tanto recogí muchas cosas que me fueron muy necesarias y entre otros diversos objetos que encontré en el arca de carpintería",
+      "audio": "test/audio/8585/9503/8585_9503_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1256.59,
+        "original_end_s": 1273.36
+      }
+    },
+    {
+      "id": "8585_9503_000112",
+      "text": "dormí toda la noche tranquilamente porque estaba rendido de fatiga no había descansado casi nada la noche anterior y había trabajado mucho todo el día tanto para ir á buscar mis provisiones al buque como para desembarcarlas",
+      "audio": "test/audio/8585/9503/8585_9503_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "9503",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/robinsoncrusoe_1606_librivox/robinsoncrusoe_04_defoe_64kb.mp3",
+        "original_start_s": 1438.42,
+        "original_end_s": 1453.61
+      }
+    }
+  ]
+}

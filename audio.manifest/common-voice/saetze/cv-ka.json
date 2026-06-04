@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ka",
+  "lang": "ka",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ka",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "21301163",
+      "text": "სასიამოვნოდ გაკვირვებული და გახარებული დავრჩი, რადგან აღმოვაჩინე, რომ ამერიკელებს ქართული პიესების მიმართ ინტერესი გაუჩნდათ.",
+      "audio": "ka/unknown/ka_u_21301163.mp3",
+      "tags": {
+        "source_item_id": "21301163",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21304389",
+      "text": "ერთ თვეში გავხსენი ეს რესტორანი, ხუთ მაისს აღდგომას გაიხსნა.",
+      "audio": "ka/unknown/ka_u_21304389.mp3",
+      "tags": {
+        "source_item_id": "21304389",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21356128",
+      "text": "კარი გადახურულია შეისრული თაღით, რომელიც მოქცეულია აგურით გამოყვანილ, ოთხკუთხა არეში.",
+      "audio": "ka/unknown/ka_u_21356128.mp3",
+      "tags": {
+        "source_item_id": "21356128",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21671518",
+      "text": "მდებარეობს ბოლივიის ცენტრალური კორდილიერის ჩრდილოეთ კიდეზე.",
+      "audio": "ka/unknown/ka_u_21671518.mp3",
+      "tags": {
+        "source_item_id": "21671518",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33059700",
+      "text": "იოანე ბოლნელი ქართული ჰომილეტიკის უმნიშვნელოვანესი წარმომადგენელია.",
+      "audio": "ka/unknown/ka_u_33059700.mp3",
+      "tags": {
+        "source_item_id": "33059700",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34230040",
+      "text": "მეცნიერებთა განსაკუთრებულ ყურადღებას იპყრობს ცხოველების გრძნობის ორგანოები.",
+      "audio": "ka/unknown/ka_u_34230040.mp3",
+      "tags": {
+        "source_item_id": "34230040",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34258272",
+      "text": "ამის შემდეგ დიდი ხანი რომაელი ხალხისთვის მეფის მმართველობაზე საძულველი და დამამცირებელი ალბათ არაფერი იყო.",
+      "audio": "ka/unknown/ka_u_34258272.mp3",
+      "tags": {
+        "source_item_id": "34258272",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34296291",
+      "text": "უმაღლესი ლიგის ყველაზე ტიტულოვანი კლუბია „დინამო თბილისი“.",
+      "audio": "ka/unknown/ka_u_34296291_no_accent.mp3",
+      "tags": {
+        "source_item_id": "34296291",
+        "gender": "u",
+        "accent": "No accent"
+      }
+    },
+    {
+      "id": "35237001",
+      "text": "ლუიზა სავოიელი, პოლიტიკურად მეტად აქტიური ქალბატონი იყო, რაც თავისი ვაჟის გამეფებისთანავე გამოამჟღავნა.",
+      "audio": "ka/unknown/ka_u_35237001.mp3",
+      "tags": {
+        "source_item_id": "35237001",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36504838",
+      "text": "ეკლესიის ეზოს აქვს ძველი კარიბჭე.",
+      "audio": "ka/unknown/ka_u_36504838.mp3",
+      "tags": {
+        "source_item_id": "36504838",
+        "gender": "u"
+      }
+    }
+  ]
+}

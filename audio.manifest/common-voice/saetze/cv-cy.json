@@ -1,0 +1,112 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — cy",
+  "lang": "cy",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-cy",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "19562213",
+      "text": "Y mae y dyfroedd yn ennill rhywfaint bob tro.",
+      "audio": "cy/unknown/cy_u_19562213_y_deyrnas_unedig_cymraeg.mp3",
+      "tags": {
+        "source_item_id": "19562213",
+        "gender": "u",
+        "accent": "Y Deyrnas Unedig Cymraeg"
+      }
+    },
+    {
+      "id": "19644804",
+      "text": "Roedd yn gyffrous medru gweld y bwyd yn cael ei goginio hefyd.",
+      "audio": "cy/unknown/cy_u_19644804.mp3",
+      "tags": {
+        "source_item_id": "19644804",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19684386",
+      "text": "Nid ydyw Awst wedi darfod.",
+      "audio": "cy/unknown/cy_u_19684386.mp3",
+      "tags": {
+        "source_item_id": "19684386",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19785838",
+      "text": "Yr oeddwn yn fwy o hen ben nag y tybiai fy mam fy mod.",
+      "audio": "cy/unknown/cy_u_19785838_y_deyrnas_unedig_cymraeg.mp3",
+      "tags": {
+        "source_item_id": "19785838",
+        "gender": "u",
+        "accent": "Y Deyrnas Unedig Cymraeg"
+      }
+    },
+    {
+      "id": "19806111",
+      "text": "Oxwich yw un o'r traethau mwyaf poblogaidd ym Nghymru.",
+      "audio": "cy/unknown/cy_u_19806111.mp3",
+      "tags": {
+        "source_item_id": "19806111",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19838981",
+      "text": "Wrth adael, estynnodd Abraham sofren felen i mam.",
+      "audio": "cy/unknown/cy_u_19838981.mp3",
+      "tags": {
+        "source_item_id": "19838981",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19854845",
+      "text": "Mae unrhyw gynllun gofal iechyd unigol yn disodli'r polisi hwn.",
+      "audio": "cy/unknown/cy_u_19854845_y_deyrnas_unedig_cymraeg.mp3",
+      "tags": {
+        "source_item_id": "19854845",
+        "gender": "u",
+        "accent": "Y Deyrnas Unedig Cymraeg"
+      }
+    },
+    {
+      "id": "19863542",
+      "text": "Dim ond dau ddiwrnod sydd ar ôl tan y gwyliau.",
+      "audio": "cy/unknown/cy_u_19863542_y_deyrnas_unedig_cymraeg.mp3",
+      "tags": {
+        "source_item_id": "19863542",
+        "gender": "u",
+        "accent": "Y Deyrnas Unedig Cymraeg"
+      }
+    },
+    {
+      "id": "20149629",
+      "text": "Mae'r canlyniad yma yn sefyll yn y categori cyfartaledd ar y tabl normadol",
+      "audio": "cy/unknown/cy_u_20149629_y_deyrnas_unedig_cymraeg.mp3",
+      "tags": {
+        "source_item_id": "20149629",
+        "gender": "u",
+        "accent": "Y Deyrnas Unedig Cymraeg"
+      }
+    },
+    {
+      "id": "20454152",
+      "text": "Byddai'n dda cael rhannu fy syniadau gyda chi.",
+      "audio": "cy/unknown/cy_u_20454152.mp3",
+      "tags": {
+        "source_item_id": "20454152",
+        "gender": "u"
+      }
+    }
+  ]
+}

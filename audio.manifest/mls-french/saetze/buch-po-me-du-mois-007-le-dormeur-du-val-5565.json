@@ -1,0 +1,60 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Poème du Mois - 007 Le dormeur du val",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "5565",
+    "book_title": "Poème du Mois - 007 Le dormeur du val",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "6318_5565_000000",
+      "text": "où le soleil de la montagne fière luit c'est un petit val qui mousse de rayons un soldat jeune bouche ouverte tête nue et la nuque baignant dans le frais cresson bleu dort",
+      "audio": "dev/audio/6318/5565/6318_5565_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5565",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
+        "original_start_s": 16.19,
+        "original_end_s": 31.46
+      }
+    },
+    {
+      "id": "6318_5565_000001",
+      "text": "les parfums ne font pas frissonner sa narine il dort dans le soleil la main sur sa poitrine tranquille il a deux trous rouges au côté droit",
+      "audio": "dev/audio/6318/5565/6318_5565_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5565",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
+        "original_start_s": 49.3,
+        "original_end_s": 62.41
+      }
+    },
+    {
+      "id": "6318_5565_000002",
+      "text": "il est étendu dans l'herbe sous la nue pâle dans son lit vert où la lumière pleut les pieds dans les glaïeuls il dort souriant comme sourirait un enfant malade il fait un somme nature berce-le chaudement il a froid",
+      "audio": "dev/audio/6318/5565/6318_5565_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5565",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
+        "original_start_s": 31.46,
+        "original_end_s": 49.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — kk",
+  "lang": "kk",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-kk",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24970751",
+      "text": "Жоғарғыны көріп пікір ет, төменгіні көріп шүкір ет.",
+      "audio": "kk/unknown/kk_u_24970751.mp3",
+      "tags": {
+        "source_item_id": "24970751",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24975785",
+      "text": "Ісің ақ болса, Құдайың жақ болады.",
+      "audio": "kk/unknown/kk_u_24975785.mp3",
+      "tags": {
+        "source_item_id": "24975785",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27641193",
+      "text": "Өзі жаманның қатыны кетеді, елі жаманның ақысы кетеді.",
+      "audio": "kk/unknown/kk_u_27641193.mp3",
+      "tags": {
+        "source_item_id": "27641193",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38974353",
+      "text": "Жаз болды деп, қыс тоныңды тастама.",
+      "audio": "kk/unknown/kk_u_38974353_native.mp3",
+      "tags": {
+        "source_item_id": "38974353",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "24975795",
+      "text": "Жауға батыл бол, дауға бақыл бол.",
+      "audio": "kk/unknown/kk_u_24975795.mp3",
+      "tags": {
+        "source_item_id": "24975795",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24970338",
+      "text": "Жаман кісіге мал бітсе, сусын бермес ішуге.",
+      "audio": "kk/unknown/kk_u_24970338.mp3",
+      "tags": {
+        "source_item_id": "24970338",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38975898",
+      "text": "Талапты ерге нұр жауар, талапсыз неме құр қалар.",
+      "audio": "kk/unknown/kk_u_38975898_native.mp3",
+      "tags": {
+        "source_item_id": "38975898",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "27729978",
+      "text": "Мақтау сөзді кім сүймейді, мәуіті шекпенді кім кимейді.",
+      "audio": "kk/unknown/kk_u_27729978.mp3",
+      "tags": {
+        "source_item_id": "27729978",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24975955",
+      "text": "Қайғысыз қара суға семіреді.",
+      "audio": "kk/unknown/kk_u_24975955.mp3",
+      "tags": {
+        "source_item_id": "24975955",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27641570",
+      "text": "Күлкі жасартады, қайғы қартайтады.",
+      "audio": "kk/unknown/kk_u_27641570.mp3",
+      "tags": {
+        "source_item_id": "27641570",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24969725",
+      "text": "Жаман ерден жайдағым жақсы, жаман қатыннан бойдағым жақсы.",
+      "audio": "kk/unknown/kk_u_24969725.mp3",
+      "tags": {
+        "source_item_id": "24969725",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38975375",
+      "text": "Алғаның жаман болса, көңілің жарым, атың шабан болса, талар қарың.",
+      "audio": "kk/unknown/kk_u_38975375_native.mp3",
+      "tags": {
+        "source_item_id": "38975375",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "27729922",
+      "text": "Қыз баққаннан қысырақ баққан оңай.",
+      "audio": "kk/unknown/kk_u_27729922.mp3",
+      "tags": {
+        "source_item_id": "27729922",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24970527",
+      "text": "Қорқақтың қолы қысқа.",
+      "audio": "kk/unknown/kk_u_24970527.mp3",
+      "tags": {
+        "source_item_id": "24970527",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — lv",
+  "lang": "lv",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-lv",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20968970",
+      "text": "Nav par ko. Sen nav bijis tik jautri.",
+      "audio": "lv/unknown/lv_u_20968970.mp3",
+      "tags": {
+        "source_item_id": "20968970",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25277687",
+      "text": "Es esmu vecs. Bet ne novecojis.",
+      "audio": "lv/unknown/lv_u_25277687.mp3",
+      "tags": {
+        "source_item_id": "25277687",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36980239",
+      "text": "Es tev teicu, ka tas notiks.",
+      "audio": "lv/unknown/lv_u_36980239.mp3",
+      "tags": {
+        "source_item_id": "36980239",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36995392",
+      "text": "Kas sunim asti cels, ja pats necels.",
+      "audio": "lv/unknown/lv_u_36995392.mp3",
+      "tags": {
+        "source_item_id": "36995392",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37000380",
+      "text": "Es zinu, kas tu esi.",
+      "audio": "lv/unknown/lv_u_37000380_regular_common_basic.mp3",
+      "tags": {
+        "source_item_id": "37000380",
+        "gender": "u",
+        "accent": "Regular,Common,Basic"
+      }
+    },
+    {
+      "id": "37687345",
+      "text": "Nevajag izlikt savas dusmas uz mani.",
+      "audio": "lv/unknown/lv_u_37687345.mp3",
+      "tags": {
+        "source_item_id": "37687345",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37692361",
+      "text": "Kas dievam neder, to velns nerauj.",
+      "audio": "lv/unknown/lv_u_37692361.mp3",
+      "tags": {
+        "source_item_id": "37692361",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37693287",
+      "text": "Uz ielas tevi gaida taksis.",
+      "audio": "lv/unknown/lv_u_37693287.mp3",
+      "tags": {
+        "source_item_id": "37693287",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37694502",
+      "text": "Es nekad neesmu teicis runu.",
+      "audio": "lv/unknown/lv_u_37694502.mp3",
+      "tags": {
+        "source_item_id": "37694502",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37699138",
+      "text": "Es negribu ar tevi to apspriest.",
+      "audio": "lv/unknown/lv_u_37699138.mp3",
+      "tags": {
+        "source_item_id": "37699138",
+        "gender": "u"
+      }
+    }
+  ]
+}

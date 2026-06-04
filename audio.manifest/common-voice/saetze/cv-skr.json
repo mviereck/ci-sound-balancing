@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — skr",
+  "lang": "skr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-skr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "33025825",
+      "text": "آتن دی رن، ناں کار ناں کم",
+      "audio": "skr/unknown/skr_u_33025825.mp3",
+      "tags": {
+        "source_item_id": "33025825",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35014112",
+      "text": "شالا ݙُدھوں پُتروں ودھّیں مَنّوں نہ ودھیں",
+      "audio": "skr/unknown/skr_u_35014112.mp3",
+      "tags": {
+        "source_item_id": "35014112",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33245159",
+      "text": "ݙاڈھے آن٘دے پی پی وین٘دے ، گھر دے شودے تسے",
+      "audio": "skr/unknown/skr_u_33245159.mp3",
+      "tags": {
+        "source_item_id": "33245159",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33804579",
+      "text": "گوݙے اخیر ہاں نال لڳدن",
+      "audio": "skr/unknown/skr_u_33804579.mp3",
+      "tags": {
+        "source_item_id": "33804579",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33025286",
+      "text": "اُٹھ خالی وی رڑے تے لݙیا وی رڑے",
+      "audio": "skr/unknown/skr_u_33025286.mp3",
+      "tags": {
+        "source_item_id": "33025286",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36671496",
+      "text": "چوراں دی بجاجی ، ݙان٘گاں دے گز",
+      "audio": "skr/unknown/skr_u_36671496.mp3",
+      "tags": {
+        "source_item_id": "36671496",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33274233",
+      "text": "بختاں والیاں دے کِکروں ٻیر اِن",
+      "audio": "skr/unknown/skr_u_33274233.mp3",
+      "tags": {
+        "source_item_id": "33274233",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33443193",
+      "text": "ڄٹ ڳنا نئیں ݙین٘دا ، ڳڑ دی روڑی ݙے ݙین٘دے",
+      "audio": "skr/unknown/skr_u_33443193.mp3",
+      "tags": {
+        "source_item_id": "33443193",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33215154",
+      "text": "ہک میان ءِچ ݙو تلواراں نئیں آن٘دیاں",
+      "audio": "skr/unknown/skr_u_33215154.mp3",
+      "tags": {
+        "source_item_id": "33215154",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33744818",
+      "text": "انت برے دا برا",
+      "audio": "skr/unknown/skr_u_33744818.mp3",
+      "tags": {
+        "source_item_id": "33744818",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33192980",
+      "text": "وݙا کرے وݙائی ، چھوٹیں دی شامت آئی",
+      "audio": "skr/unknown/skr_u_33192980.mp3",
+      "tags": {
+        "source_item_id": "33192980",
+        "gender": "u"
+      }
+    }
+  ]
+}

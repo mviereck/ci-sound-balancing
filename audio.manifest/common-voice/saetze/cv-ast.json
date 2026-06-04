@@ -1,0 +1,168 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ast",
+  "lang": "ast",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ast",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "36922846",
+      "text": "Muncha xente d'Asturies dio la cara pola oficialidá.",
+      "audio": "ast/unknown/ast_u_36922846_oriental.mp3",
+      "tags": {
+        "source_item_id": "36922846",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36922968",
+      "text": "Xineru y febreru, faen el payeru.",
+      "audio": "ast/unknown/ast_u_36922968.mp3",
+      "tags": {
+        "source_item_id": "36922968",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36922885",
+      "text": "El códigu postal qu'apurriesti nun ye válidu.",
+      "audio": "ast/unknown/ast_u_36922885_oriental.mp3",
+      "tags": {
+        "source_item_id": "36922885",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36922969",
+      "text": "Del osu aprovechábase l'untu pa frotar con él pa curar el reuma.",
+      "audio": "ast/unknown/ast_u_36922969.mp3",
+      "tags": {
+        "source_item_id": "36922969",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36922888",
+      "text": "La so carne yera mui apreciao.",
+      "audio": "ast/unknown/ast_u_36922888_oriental.mp3",
+      "tags": {
+        "source_item_id": "36922888",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36923048",
+      "text": "Tenía un secretu bien guardáu que voi cuntavos agora.",
+      "audio": "ast/unknown/ast_u_36923048.mp3",
+      "tags": {
+        "source_item_id": "36923048",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36924245",
+      "text": "La lliteratura infantil nun ye un bloque.",
+      "audio": "ast/unknown/ast_u_36924245.mp3",
+      "tags": {
+        "source_item_id": "36924245",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37015666",
+      "text": "Prediz la muerte les persones.",
+      "audio": "ast/unknown/ast_u_37015666_oriental.mp3",
+      "tags": {
+        "source_item_id": "37015666",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36924673",
+      "text": "Él siempre ta gayoleru, con gana de comedia.",
+      "audio": "ast/unknown/ast_u_36924673.mp3",
+      "tags": {
+        "source_item_id": "36924673",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37148642",
+      "text": "Quíxivos siempre y tovía lo faigo.",
+      "audio": "ast/unknown/ast_u_37148642_oriental.mp3",
+      "tags": {
+        "source_item_id": "37148642",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36924498",
+      "text": "El dibuxu d'inxeniería produz dibuxos d'inxeniería.",
+      "audio": "ast/unknown/ast_u_36924498.mp3",
+      "tags": {
+        "source_item_id": "36924498",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37015481",
+      "text": "Aconseyába-yos la profesora mientres vía cómo s'alloñaben pela caleya alantre.",
+      "audio": "ast/unknown/ast_u_37015481_oriental.mp3",
+      "tags": {
+        "source_item_id": "37015481",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "37143181",
+      "text": "Les piedres aporten como'l mensax arteru de los dioses.",
+      "audio": "ast/unknown/ast_u_37143181_oriental.mp3",
+      "tags": {
+        "source_item_id": "37143181",
+        "gender": "u",
+        "accent": "Oriental"
+      }
+    },
+    {
+      "id": "36923102",
+      "text": "Yá nun escribo tanto.",
+      "audio": "ast/unknown/ast_u_36923102.mp3",
+      "tags": {
+        "source_item_id": "36923102",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36924524",
+      "text": "Toles madrugaes pasio cuando nun hai naide nes cais del pueblu.",
+      "audio": "ast/unknown/ast_u_36924524.mp3",
+      "tags": {
+        "source_item_id": "36924524",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36924661",
+      "text": "Y eso ye lo que más m'acoraxa.",
+      "audio": "ast/unknown/ast_u_36924661.mp3",
+      "tags": {
+        "source_item_id": "36924661",
+        "gender": "u"
+      }
+    }
+  ]
+}

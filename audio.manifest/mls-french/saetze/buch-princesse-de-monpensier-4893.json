@@ -1,0 +1,2258 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Princesse de Monpensier",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "4893",
+    "book_title": "Princesse de Monpensier",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "5790_4893_000000",
+      "text": "et son désespoir s'augmentant par cette incertitude ôtez-moi la vie vous-même lui dit-il ou donnez moi l'éclaircissement de vos paroles je n'y comprends rien vous devez cet éclaircissement à mon amitié vous le devez à ma modération car tout autre que moi aurait déjà vengé sur votre vie un affront si sensible",
+      "audio": "test/audio/5790/4893/5790_4893_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2970.3,
+        "original_end_s": 2987.43
+      }
+    },
+    {
+      "id": "5790_4893_000001",
+      "text": "le duc de guise ne laissa pas d'entrer dans la salle outré dans le coeur et contre le roi et contre le duc d'anjou mais sa douleur augmenta sa fierté naturelle et par une manière de dépit il s'approcha beaucoup plus de madame qu'il n'avait accoutumé joint que ce que lui avait dit le duc d'anjou de la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1722.58,
+        "original_end_s": 1740.43
+      }
+    },
+    {
+      "id": "5790_4893_000002",
+      "text": "elle lui apprit le juste sujet qu'elle avait de croire qu'il l'avait trahie puisque le duc d'anjou savait ce qu'il ne pouvait avoir appris que de lui le duc de guise ne savait par où se défendre et était aussi embarrassé que la princesse de montpensier à deviner ce qui avait pu découvrir leur intelligence",
+      "audio": "test/audio/5790/4893/5790_4893_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1983.93,
+        "original_end_s": 1999.77
+      }
+    },
+    {
+      "id": "5790_4893_000003",
+      "text": "la princesse de montpensier de madame de lafayette pendant que la guerre civile déchirait la france sous le règne de charles neuf l'amour ne laissait pas de trouver sa place parmi tant de désordres et d'en causer beaucoup dans son empire",
+      "audio": "test/audio/5790/4893/5790_4893_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 13.41,
+        "original_end_s": 28.49
+      }
+    },
+    {
+      "id": "5790_4893_000004",
+      "text": "enfin sans rien dire d'obligeant au duc de guise elle lui fit revoir mille choses agréables qu'il avait trouvées autrefois en mademoiselle de meziere quoi qu'ils ne se fussent point parlé depuis longtemps ils se trouvèrent accoutumés l'un à l'autre et leurs coeurs se remirent aisément dans un chemin qui ne leur était pas inconnu",
+      "audio": "test/audio/5790/4893/5790_4893_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1450.06,
+        "original_end_s": 1467.82
+      }
+    },
+    {
+      "id": "5790_4893_000005",
+      "text": "le duc de guise acheva d'en devenir violemment amoureux et voulant par plusieurs raisons tenir sa passion cachée il se résolut de le lui déclarer d'abord afin de s'épargner tous ces commencements qui font toujours naître le bruit et l'éclat",
+      "audio": "test/audio/5790/4893/5790_4893_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1141.61,
+        "original_end_s": 1154.65
+      }
+    },
+    {
+      "id": "5790_4893_000006",
+      "text": "chabannes le suivit à la cour s'étant entièrement justifié auprès de la reine ce ne fut pas sans une douleur extrême qu'il quitta la princesse qui de son côté demeura fort triste des perils où la guerre allait exposer son mari",
+      "audio": "test/audio/5790/4893/5790_4893_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 495.96,
+        "original_end_s": 508.79
+      }
+    },
+    {
+      "id": "5790_4893_000007",
+      "text": "elle lui fît mille caresses et mille amitié et lui témoigna une impatience extraordinaire de s'entretenir en particulier dont il fut d'abord charmé mais qu'elles furent son étonnement et sa douleur quand il trouva que cette impatience n'allait qu'à lui conter qu'elle était passionnément aimée du duc de guise et qu'elle l'aimait de la même sorte",
+      "audio": "test/audio/5790/4893/5790_4893_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2147.4,
+        "original_end_s": 2165.8
+      }
+    },
+    {
+      "id": "5790_4893_000008",
+      "text": "il arriva auprès d'elle sans savoir ce qu'il devait faire et apprenant que le prince de monpensier était à la chasse il alla droit à l'appartement de la princesse qui le voyant troublé fit retirer aussitôt ses femmes pour savoir le sujet de ce trouble",
+      "audio": "test/audio/5790/4893/5790_4893_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2497.58,
+        "original_end_s": 2510.5
+      }
+    },
+    {
+      "id": "5790_4893_000009",
+      "text": "et lui et le duc d'anjou partirent de champigny avec beaucoup de regret ils marchèrent longtemps tous deux dans un profond silence mais enfin le duc d'anjou s'imaginant tout d'un coup que ce qui faisait sa rêverie pouvait bien causer celle du duc de guise lui demanda brusquement s'il pensait aux beautés de la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 887.82,
+        "original_end_s": 904.95
+      }
+    },
+    {
+      "id": "5790_4893_000010",
+      "text": "il se sépara d'elle avec toute la douleur que peut causer l'absence d'une personne que l'on aime passionnément le comte de chabanes qui avait toujours été malade à paris pendant le séjour de la princesse de monpensier à blois sachant qu'elle s'en allait à champigny la fut trouver sur le chemin pour s'en aller avec elle",
+      "audio": "test/audio/5790/4893/5790_4893_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2131.08,
+        "original_end_s": 2147.4
+      }
+    },
+    {
+      "id": "5790_4893_000011",
+      "text": "ce commandement lui fut bien rude il fallut pourtant obéir elle trouva moyen de dire adieu en particulier au duc de guise mais elle se trouva bien embarrassée à lui donner des moyens sûrs pour lui écrire enfin",
+      "audio": "test/audio/5790/4893/5790_4893_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2099.31,
+        "original_end_s": 2111.34
+      }
+    },
+    {
+      "id": "5790_4893_000012",
+      "text": "je l'amènerai par le parc donnez ordre seulement à celle de vos femmes à qui vous vous fiez le plus qu'elle baisse précisément à minuit le petit pont-levis qui donne de votre antichambre dans le parterre et ne vous inquiétez pas du reste",
+      "audio": "test/audio/5790/4893/5790_4893_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2597.49,
+        "original_end_s": 2610.37
+      }
+    },
+    {
+      "id": "5790_4893_000013",
+      "text": "ce ne fut pas un sujet de si grand divertissement dans champigny le prince de monpensier était mal content de tout ce qui était arrivé sans qu'il en pût dire le sujet il trouvait mauvais que sa femme se fût trouvée dans ce bateau",
+      "audio": "test/audio/5790/4893/5790_4893_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 965.63,
+        "original_end_s": 977.4
+      }
+    },
+    {
+      "id": "5790_4893_000014",
+      "text": "il ne put se résoudre à être témoin de leur conversation quoique la princesse lui témoignât le souhaiter et qu'il l'eût bien souhaité lui-même il se retira dans un petit passage qui était du côté de l'appartement du prince de monpensier ayant dans l'esprit les plus tristes pensées qui aient jamais occupé l'esprit d'un amant",
+      "audio": "test/audio/5790/4893/5790_4893_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2716.14,
+        "original_end_s": 2732.81
+      }
+    },
+    {
+      "id": "5790_4893_000015",
+      "text": "et elle instruisit une de ses femmes de tout ce qu'il fallait faire pour introduire le duc de guise dans son appartement cependant et ce duc le comte de chabanes approchaient de champigny mais dans un état bien different",
+      "audio": "test/audio/5790/4893/5790_4893_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2645.48,
+        "original_end_s": 2656.1
+      }
+    },
+    {
+      "id": "5790_4893_000016",
+      "text": "la fille unique du marquis de mézieres héritière très considérable et par ses grands biens et par l'illustre maison d'anjou dont elle était descendue était promise au duc du maine cadet du duc de guise que l'on a depuis appelé le balafré",
+      "audio": "test/audio/5790/4893/5790_4893_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 28.49,
+        "original_end_s": 41.5
+      }
+    },
+    {
+      "id": "5790_4893_000017",
+      "text": "à peine le duc était hors l'antichambre que le prince ayant enfoncé la porte du passage entra dans la chambre comme un homme possédé de fureur et qui cherchait sur qui la faire éclater mais quand il ne vit que le comte de chabanes et qu'il le vit immobile appuyé sur la table avec un visage où la tristesse était peinte il demeura immobile lui-même",
+      "audio": "test/audio/5790/4893/5790_4893_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2854.57,
+        "original_end_s": 2873.99
+      }
+    },
+    {
+      "id": "5790_4893_000018",
+      "text": "qui était effectivement touché d'amour et de douleur put à peine achever ces paroles et quoi qu'il eût commencé son discours dans un esprit de dépit et de vengeance il s'attendrit en considérant la beauté de la princesse et la perte qu'il faisait en perdant l'espérance d'en être aimé",
+      "audio": "test/audio/5790/4893/5790_4893_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1804.87,
+        "original_end_s": 1819.93
+      }
+    },
+    {
+      "id": "5790_4893_000019",
+      "text": "elle pensa que sans le rappeler elle n'avait qu'à ne point faire abaisser le pont elle crut qu'elle continuerait dans cette résolution quand l'heure de l'assignation approcha elle ne put résister davantage à l'envie de voir un amant qu'elle croyait si digne d'elle",
+      "audio": "test/audio/5790/4893/5790_4893_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2632.84,
+        "original_end_s": 2645.48
+      }
+    },
+    {
+      "id": "5790_4893_000020",
+      "text": "elle était contrainte de le voir souvent dans les lieux où les cérémonies des noces les appelaient l'un et l'autre la princesse de monpensier ne pouvant plus souffrir qu'un homme que toute la france croyait amoureux de madame osât lui dire qu'il l'était d'elle et se sentant offensée et quasi affligée de s'être trompée elle-même",
+      "audio": "test/audio/5790/4893/5790_4893_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1319.29,
+        "original_end_s": 1337.33
+      }
+    },
+    {
+      "id": "5790_4893_000021",
+      "text": "il se consola pourtant un peu dans la pensée que cette princesse ferait quelque réflexion sur ce qu'il faisait pour elle et qu'elle lui en témoignerait de la reconnaissance la trouvant de jour en jour plus rude pour lui par le chagrin qu'elle avait d'ailleurs il prît la liberté de la supplier de penser un peu à ce qu'elle lui faisait souffrir",
+      "audio": "test/audio/5790/4893/5790_4893_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2290.75,
+        "original_end_s": 2309.46
+      }
+    },
+    {
+      "id": "5790_4893_000022",
+      "text": "il ne se passait point de jour qu'elle ne reçût mille marques cachées de la passion de ce duc sans qu'il essayât de lui en parler que lorsqu'il ne pouvait être vu de personne comme elle était bien persuadée de cette passion elle commença nonobstant toutes les résolutions qu'elle avait faites à champigny à sentir dans le fond de son coeur quelque chose de ce qui y avait été autrefois",
+      "audio": "test/audio/5790/4893/5790_4893_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1255.18,
+        "original_end_s": 1274.46
+      }
+    },
+    {
+      "id": "5790_4893_000023",
+      "text": "mais elle l'assura en même temps que rien ne pouvait ébranler la résolution qu'elle avait prise de ne s'engager jamais le comte de chabanes eut bien de la joie d'apprendre cette résolution mais rien ne le pouvait rassurer sur le duc de guise",
+      "audio": "test/audio/5790/4893/5790_4893_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1032.04,
+        "original_end_s": 1044.24
+      }
+    },
+    {
+      "id": "5790_4893_000024",
+      "text": "après deux années d'absence la paix étant faite le prince de monpensier revint trouver la princesse sa femme tout couvert de la gloire qu'il avait acquise au siège de paris et à la bataille de saint-denis il fut surpris de voir la beauté de cette princesse dans une si grande perfection et par le sentiment d'une jalousie qui lui était naturelle il en eut quelque chagrin",
+      "audio": "test/audio/5790/4893/5790_4893_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 414.59,
+        "original_end_s": 432.4
+      }
+    },
+    {
+      "id": "5790_4893_000025",
+      "text": "et ne pouvant plus soutenir la vue des deux personnes qui lui donnaient des mouvements si tristes il tourna la tête de l'autre côté et se laissa tomber sur le lit de sa femme accablé d'une douleur incroyable",
+      "audio": "test/audio/5790/4893/5790_4893_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3022.67,
+        "original_end_s": 3033.6
+      }
+    },
+    {
+      "id": "5790_4893_000026",
+      "text": "les armées étant remises sur pied tous les princes y retournèrent et le prince de monpensier trouva bon que sa femme s'en vint à paris pour n'être plus si proche des lieux où se faisait la guerre les huguenots assiégèrent la ville de poitiers le duc de guise s'y jeta pour la défendre et il y fît des actions qui suffiraient seules pour rendre glorieuse une autre vie que la sienne",
+      "audio": "test/audio/5790/4893/5790_4893_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1070.63,
+        "original_end_s": 1089.74
+      }
+    },
+    {
+      "id": "5790_4893_000027",
+      "text": "ils arrivèrent bientôt au bord où ils trouvèrent les chevaux et les écuyers de madame de monpensier qui l'attendaient le duc d'anjou et le duc de guise lui aidèrent à monter à cheval où elle se tenait avec une grâce admirable",
+      "audio": "test/audio/5790/4893/5790_4893_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 750.9,
+        "original_end_s": 763.79
+      }
+    },
+    {
+      "id": "5790_4893_000028",
+      "text": "quelque temps après voyant le duc d'anjou avec son masque et son habit de maure qui venait pour lui parler troublée de son inquiétude elle crut que c'était encore le duc de guise et s'approchant de lui n'ayez des yeux ce soir que pour madame lui dit-elle je n'en serai point jalouse je vous l'ordonne on m'observe ne m'approchez plus",
+      "audio": "test/audio/5790/4893/5790_4893_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1568.19,
+        "original_end_s": 1587.34
+      }
+    },
+    {
+      "id": "5790_4893_000029",
+      "text": "un jour qu'il revenait à loches par un chemin peu connu de ceux de sa suite le duc de guise qui se vantait de le savoir se mit à la tête de la troupe pour servir de guide mais après avoir marché quelque temps il s'égara et se trouva sur le bord d'une petite rivière qu'il ne reconnut pas lui-même",
+      "audio": "test/audio/5790/4893/5790_4893_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 574.1,
+        "original_end_s": 589.34
+      }
+    },
+    {
+      "id": "5790_4893_000030",
+      "text": "le duc de guise qui était presque justifié dans son esprit par son mariage le fut entièrement par cette conversation cette belle princesse ne put refuser son coeur à un homme qui l'avait possédé autrefois et qui venait de tout abandonner pour elle",
+      "audio": "test/audio/5790/4893/5790_4893_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2039.92,
+        "original_end_s": 2053.68
+      }
+    },
+    {
+      "id": "5790_4893_000031",
+      "text": "la haine qu'il avait pour le dernier se joignant à sa jalousie naturelle lui fit trouver quelque chose de si désagréable à voir ces princes avec sa femme sans savoir comment ils s'y étaient trouvés ni ce qu'ils venaient faire en sa maison qu'il ne put cacher le chagrin qu'il en avait",
+      "audio": "test/audio/5790/4893/5790_4893_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 805.11,
+        "original_end_s": 819.29
+      }
+    },
+    {
+      "id": "5790_4893_000032",
+      "text": "ils cachèrent leur amour avec beaucoup de soin le duc de guise qui n'avait pas encore autant d'ambition qu'il en a eu depuis souhaitait ardemment de l'épouser mais la crainte du cardinal de lorraine qui lui tenait lieu de père l'empêchait de se déclarer",
+      "audio": "test/audio/5790/4893/5790_4893_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 53.1,
+        "original_end_s": 66.39
+      }
+    },
+    {
+      "id": "5790_4893_000033",
+      "text": "la princesse de monpensier apprit cette nouvelle qui ne lui fut pas indifférente et qui lui fit sentir qu'elle prenait plus d'intérêt au duc de guise qu'elle ne pensait monsieur de monpensier son beau-père épousant alors mademoiselle de guise soeur de ce duc",
+      "audio": "test/audio/5790/4893/5790_4893_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1304.94,
+        "original_end_s": 1319.29
+      }
+    },
+    {
+      "id": "5790_4893_000034",
+      "text": "cette grande ville était menacée d'un siège par l'armée des huguenots dont le prince de condé était le chef et qui venait de déclarer la guerre au roi pour la seconde fois le prince de monpensier dans sa plus tendre jeunesse avait fait une amitié très particulière avec le comte de chabanes qui était un homme d'un âge beaucoup plus avancé que lui et d'un mérite extraordinaire",
+      "audio": "test/audio/5790/4893/5790_4893_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 150.91,
+        "original_end_s": 169.93
+      }
+    },
+    {
+      "id": "5790_4893_000035",
+      "text": "voir sa réputation et le secret de sa vie entre les mains d'un prince qu'elle avait maltraité et apprendre par lui sans pouvoir en douter qu'elle était trompée par son amant étaient des choses peu capables de lui laisser la liberté d'esprit que demandait un lieu destiné à la joie",
+      "audio": "test/audio/5790/4893/5790_4893_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1833.58,
+        "original_end_s": 1847.59
+      }
+    },
+    {
+      "id": "5790_4893_000036",
+      "text": "le duc d'anjou de son côté n'oubliait rien pour lui témoigner son amour en tous les lieux où il la pouvait voir et il la suivait continuellement chez la reine sa mère la princesse sa soeur de qui il était aimé en était traitée avec une rigueur capable de guérir toute autre passion que la sienne",
+      "audio": "test/audio/5790/4893/5790_4893_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1274.46,
+        "original_end_s": 1291.95
+      }
+    },
+    {
+      "id": "5790_4893_000037",
+      "text": "que le voyant le lendemain comme il se présentait pour entrer au bal chez la reine paré d'un nombre infini de pierreries mais plus paré encore de sa bonne mine il se mit à l'entrée de la porte et lui demanda brusquement où il allait",
+      "audio": "test/audio/5790/4893/5790_4893_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1700.1,
+        "original_end_s": 1711.96
+      }
+    },
+    {
+      "id": "5790_4893_000038",
+      "text": "et ne pouvant se résoudre à le perdre non seulement à cause de l'amitié qu'elle avait pour lui mais aussi par l'intérêt de son amour pour lequel il lui était tout à fait nécessaire elle lui manda qu'elle voulait absolument lui parler encore une fois et après cela qu'elle le laissait libre de faire ce qu'il lui plairait",
+      "audio": "test/audio/5790/4893/5790_4893_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2352.54,
+        "original_end_s": 2369.01
+      }
+    },
+    {
+      "id": "5790_4893_000039",
+      "text": "il descendit dans la cour il se fît donner des chevaux et s'en alla dans la campagne guidé par son seul désespoir cependant le prince de monpensier qui voyait que la princesse ne revenait point de son évanouissement la laissa entre les mains de ses femmes et se retira dans sa chambre avec une douleur mortelle",
+      "audio": "test/audio/5790/4893/5790_4893_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3047.5,
+        "original_end_s": 3064.85
+      }
+    },
+    {
+      "id": "5790_4893_000040",
+      "text": "l'écuyer ne trouva point le comte de chabanes mais il apprit d'autres personnes que la princesse de monpensier était extraordinairement malade l'inquietude du duc de guise fut augmentée par ce que lui dit son écuyer et sans la pouvoir soulager il fut contraint de s'en retourner trouver ses oncles pour ne pas donner de soupçon par un plus long voyage",
+      "audio": "test/audio/5790/4893/5790_4893_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3084.1,
+        "original_end_s": 3101.7
+      }
+    },
+    {
+      "id": "5790_4893_000041",
+      "text": "et l'intérêt de son amour lui fit recevoir ce manquement de parole comme un affront insupportable son ressentiment éclata bientôt malgré les réprimandes du cardinal de lorraine et du duc d'aumale ses oncles qui ne voulaient pas s'opiniâtrer à une chose qu'ils voyaient ne pouvoir empêcher",
+      "audio": "test/audio/5790/4893/5790_4893_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 97.99,
+        "original_end_s": 112.57
+      }
+    },
+    {
+      "id": "5790_4893_000042",
+      "text": "ce que le hasard avait fait pour rassembler ces deux personnes lui semblait de si mauvais augure qu'il pronostiquait aisément que ce commencement de roman ne serait pas sans suite madame de monpensier fit le soir les honneurs de chez elle avec le même agrément qu'elle faisait toutes choses enfin elle ne plut que trop à ses hôtes",
+      "audio": "test/audio/5790/4893/5790_4893_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 834.79,
+        "original_end_s": 852.53
+      }
+    },
+    {
+      "id": "5790_4893_000043",
+      "text": "il était si absolument maître de lui- même qu'il lui cacha tous ses sentiments il lui témoigna seulement la surprise où il était de voir en elle un si grand changement il espéra d'abord que ce changement qui lui ôtait toute espérance lui ôterait aussi toute sa passion",
+      "audio": "test/audio/5790/4893/5790_4893_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2197.62,
+        "original_end_s": 2213.26
+      }
+    },
+    {
+      "id": "5790_4893_000044",
+      "text": "ces paroles prononcées avec une douleur mortelle et avec un air qui marquait son innocence au lieu d'éclaircir le prince de monpensier lui persuadaient de plus en plus qu'il y avait quelque mystère dans cette aventure qu'il ne pouvait deviner",
+      "audio": "test/audio/5790/4893/5790_4893_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2956.77,
+        "original_end_s": 2970.3
+      }
+    },
+    {
+      "id": "5790_4893_000045",
+      "text": "le duc de guise qui avait beaucoup d'esprit et qui était fort amoureux n'eut besoin de consulter personne pour entendre tout ce que signifiaient les paroles de la princesse il lui répondit avec beaucoup de respect",
+      "audio": "test/audio/5790/4893/5790_4893_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1361.67,
+        "original_end_s": 1373.51
+      }
+    },
+    {
+      "id": "5790_4893_000046",
+      "text": "le comte de chabanes croyant que c'était seulement pour recevoir des lettres du duc de guise l'alla trouver mais il fut extrêmement surpris quand il vit le duc de guise et il n'en fut pas moins affligé ce duc occupé de son dessein ne prit non plus garde à l'embarras du comte que la princesse de monpensier avait fait de son silence lorsqu'elle lui avait conté son amour",
+      "audio": "test/audio/5790/4893/5790_4893_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2441.94,
+        "original_end_s": 2461.35
+      }
+    },
+    {
+      "id": "5790_4893_000047",
+      "text": "le duc de guise lui dit qu'elle avait eu l'intention de lui faire ce commandement mais qu'assurément elle ne lui avait pas fait la princesse lui soutint le contraire enfin",
+      "audio": "test/audio/5790/4893/5790_4893_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2018.28,
+        "original_end_s": 2028.65
+      }
+    },
+    {
+      "id": "5790_4893_000048",
+      "text": "je ne comprends pas qu'il faille sur le fondement d'une faiblesse dont on a été capable à treize ans avoir l'audace de faire l'amoureux d'une personne comme moi et surtout quand on l'est d'une autre à la vue de toute la cour",
+      "audio": "test/audio/5790/4893/5790_4893_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1348.59,
+        "original_end_s": 1361.67
+      }
+    },
+    {
+      "id": "5790_4893_000049",
+      "text": "toutes les confidences qu'elle lui faisait sur la tendresse et sur la délicatesse de ses sentiments pour le duc de guise lui faisaient voir le prix du coeur de cette princesse et lui donnaient un vif désir de le posséder",
+      "audio": "test/audio/5790/4893/5790_4893_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2223.72,
+        "original_end_s": 2235.17
+      }
+    },
+    {
+      "id": "5790_4893_000050",
+      "text": "enfin le prince de monpensier qui ne croyait pas ce qu'il voyait et qui voulait démêler ce chaos où il venait de tomber adressant la parole au comte d'un ton qui faisait voir qu'il avait encore de l'amitié pour lui",
+      "audio": "test/audio/5790/4893/5790_4893_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2890.82,
+        "original_end_s": 2901.87
+      }
+    },
+    {
+      "id": "5790_4893_000051",
+      "text": "en arrivant dans la premiere cour de champigny ils trouvèrent le prince de monpensier qui ne faisait que de revenir de la chasse son étonnement fut grand de voir marcher deux hommes à côté de sa femme mais il fut extrême quand s'approchant de plus près il reconnut que c'était le duc d'anjou et le duc de guise",
+      "audio": "test/audio/5790/4893/5790_4893_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 788.98,
+        "original_end_s": 805.11
+      }
+    },
+    {
+      "id": "5790_4893_000052",
+      "text": "pressa la princesse de lui donner une audience particulière pour s'éclaircir des reproches injustes qu'elle lui avait faits il obtint qu'elle se trouverait chez la duchesse de monpensier sa soeur à une heure que cette duchesse n'y serait pas et qu'il pourrait l'entretenir en particulier",
+      "audio": "test/audio/5790/4893/5790_4893_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1950.52,
+        "original_end_s": 1966.72
+      }
+    },
+    {
+      "id": "5790_4893_000053",
+      "text": "un jour que le duc de guise la rencontra chez sa soeur un peu éloignée des autres et qu'il lui voulut parler de sa passion elle l'interrompit brusquement et lui dit d'un ton qui marquait sa colère",
+      "audio": "test/audio/5790/4893/5790_4893_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1337.33,
+        "original_end_s": 1348.59
+      }
+    },
+    {
+      "id": "5790_4893_000054",
+      "text": "qu'il s'était accoutumé à en supporter l'éclat du temps qu'elle était destinée à être sa belle-sœur mais qu'il voyait bien que tout le monde n'en était pas si peu ébloui le duc d'anjou lui avoua qu'il n'avait encore rien vu qui lui parût comparable à cette jeune princesse et qu'il sentait bien que sa vue lui pourrait être dangereuse s'il y était souvent exposé",
+      "audio": "test/audio/5790/4893/5790_4893_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 930.04,
+        "original_end_s": 948.61
+      }
+    },
+    {
+      "id": "5790_4893_000055",
+      "text": "le comte avec une sincérité aussi exacte que s'il n'eut point été amoureux dit au prince tout ce qu'il connaissait en cette princesse capable de la lui faire aimer et il avertit aussi madame de monpensier de toutes les choses qu'elle devait faire pour achever de gagner le coeur et l'estime de son mari",
+      "audio": "test/audio/5790/4893/5790_4893_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 449.2,
+        "original_end_s": 464.79
+      }
+    },
+    {
+      "id": "5790_4893_000056",
+      "text": "mais elles gravèrent dans son coeur un désir de vengeance qu'il travailla toute sa vie à satisfaire dès le soir même le duc d'anjou lui rendit toutes sortes de mauvais offices auprès du roi il lui persuada que jamais madame ne consentirait d'être mariée avec le roi de navarre avec qui on proposait de la marier tant que l'on souffrirait que le duc de guise l'approchât",
+      "audio": "test/audio/5790/4893/5790_4893_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1666.29,
+        "original_end_s": 1685.74
+      }
+    },
+    {
+      "id": "5790_4893_000057",
+      "text": "chabanes de son côté regardait avec admiration tant de beauté d'esprit et de vertu qui paraissaient en cette jeune princesse et se servant de l'amitié qu'elle lui témoignait pour lui inspirer des sentiments d'une vertu extraordinaire et digne de la grandeur de sa naissance il la rendit en peu de temps une des personnes du monde les plus achevées",
+      "audio": "test/audio/5790/4893/5790_4893_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 217.07,
+        "original_end_s": 236.56
+      }
+    },
+    {
+      "id": "5790_4893_000058",
+      "text": "ce changement de parti n'ayant point d'autre fondement l'on douta qu'il fut véritable et la reine mère catherine de médicis en eut de si grands soupçons que la guerre étant déclarée par les huguenots elle eut dessein de le faire arrêter mais le prince de monpensier l'en empêcha et emmena chabanes à champigny en s'y en allant avec sa femme",
+      "audio": "test/audio/5790/4893/5790_4893_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 187.4,
+        "original_end_s": 205.09
+      }
+    },
+    {
+      "id": "5790_4893_000059",
+      "text": "dans le moment qu'il approchait de ce petit passage où était le comte de chabanes la princesse de monpensier qui avait quelque honte de se trouver seule avec le duc de guise pria plusieurs fois le comte d'entrer dans sa chambre",
+      "audio": "test/audio/5790/4893/5790_4893_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2767.49,
+        "original_end_s": 2778.85
+      }
+    },
+    {
+      "id": "5790_4893_000060",
+      "text": "si après tout ce que je viens de vous représenter madame votre passion est la plus forte et que vous désiriez voir le duc de guise que ma considération ne vous en empêche point si celle de votre intérêt ne le fait pas",
+      "audio": "test/audio/5790/4893/5790_4893_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2557.41,
+        "original_end_s": 2569.82
+      }
+    },
+    {
+      "id": "5790_4893_000061",
+      "text": "et il eut quelque pensée que dès ce temps-là même il en était amoureux le chagrin que tous ces soupçons lui causèrent donnaient de mauvaises heures à la princesse de monpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 992.91,
+        "original_end_s": 1003.03
+      }
+    },
+    {
+      "id": "5790_4893_000062",
+      "text": "enfin dans la suite de leur conversation comme elle lui remontrait qu'il avait eu tort de précipiter son mariage avec la princesse de portien et d'abandonner celui de madame qui lui était si avantageux elle lui dît qu'il pouvait bien juger qu'elle n'en eut eu aucune jalousie puisque le jour du ballet elle même l'avait conjuré de n'avoir des yeux que pour madame",
+      "audio": "test/audio/5790/4893/5790_4893_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1999.77,
+        "original_end_s": 2018.28
+      }
+    },
+    {
+      "id": "5790_4893_000063",
+      "text": "il lui dit en se modérant le plus qu'il lui fut possible que le duc de guise était à une lieue de champigny et qu'il souhaitait passionnément de la voir la princesse fit un grand cri à cette nouvelle et son embarras ne fut guère moindre que celui du comte son amour lui présenta d'abord la joie qu'elle aurait de voir un homme qu'elle aimait si tendrement",
+      "audio": "test/audio/5790/4893/5790_4893_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2510.5,
+        "original_end_s": 2529.57
+      }
+    },
+    {
+      "id": "5790_4893_000064",
+      "text": "et par sa lettre il lui disait un éternel adieu la princesse commença à se repentir d'avoir si peu ménagé un homme sur qui elle avait tant de pouvoir",
+      "audio": "test/audio/5790/4893/5790_4893_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2342.53,
+        "original_end_s": 2352.54
+      }
+    },
+    {
+      "id": "5790_4893_000065",
+      "text": "il y entra seul avec le duc de guise donnant ordre à tous ceux qui les suivaient d'aller passer la rivière à un autre endroit et de les venir joindre à champigny que madame de monpensier leur dit qui n'était qu'à deux lieues de là",
+      "audio": "test/audio/5790/4893/5790_4893_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 703.05,
+        "original_end_s": 715.17
+      }
+    },
+    {
+      "id": "5790_4893_000066",
+      "text": "pour lui en ôter tout soupçon il lui répondit en riant qu'il paraissait lui-même si occupé de la rêverie dont il l'accusait qu'il n'avait pas jugé à-propos de l'interrompre que les beautés de la princesse de monpensier n'étaient pas nouvelles pour lui",
+      "audio": "test/audio/5790/4893/5790_4893_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 917.63,
+        "original_end_s": 930.04
+      }
+    },
+    {
+      "id": "5790_4893_000067",
+      "text": "le matin le prince de montpensier allant donner quelques ordres hors de la ville passa dans la rue où était le corps de chabanes il fut d'abord saisi d'étonnement à ce pitoyable spectacle ensuite son amitié se réveillant elle lui donna de la douleur mais le souvenir de l'offense qu'il croyait avoir reçue du comte lui donna enfin de la joie",
+      "audio": "test/audio/5790/4893/5790_4893_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3168.32,
+        "original_end_s": 3186.19
+      }
+    },
+    {
+      "id": "5790_4893_000068",
+      "text": "enfin voulant pousser l'aventure à bout ils firent avancer dans la rivière de leurs gens à cheval le plus avant qu'il se pût pour crier à cette dame que c'était monsieur d'anjou qui eut bien voulu passer de l'autre côté de l'eau et qui priait qu'on le vint prendre cette dame qui était la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 633.37,
+        "original_end_s": 649.85
+      }
+    },
+    {
+      "id": "5790_4893_000069",
+      "text": "sitôt qu'ils furent dans le bateau le duc d'anjou lui demanda à quoi ils devaient une si agréable rencontre et ce qu'elle faisait au milieu de la rivière elle lui répondit qu'étant partie de champigny avec le prince son mari dans le dessein de le suivre à la chasse s'étant trouvée trop lasse",
+      "audio": "test/audio/5790/4893/5790_4893_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 715.17,
+        "original_end_s": 729.86
+      }
+    },
+    {
+      "id": "5790_4893_000070",
+      "text": "la princesse n'était pas capable de répondre et le comte de chabanes ouvrit plusieurs fois la bouche sans pouvoir parler je suis criminel à votre égard lui dit-il enfin et indigne de l'amitié que vous avez eue pour moi mais ce n'est pas de la manière que vous pouvez vous l'imaginer",
+      "audio": "test/audio/5790/4893/5790_4893_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2929.39,
+        "original_end_s": 2945.2
+      }
+    },
+    {
+      "id": "5790_4893_000071",
+      "text": "je suis plus malheureux que vous et plus désespéré je ne saurais vous en dire davantage ma mort vous vengera et si vous voulez me la donner tout à l'heure vous me donnerez la seule chose qui peut m'être agréable",
+      "audio": "test/audio/5790/4893/5790_4893_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2945.2,
+        "original_end_s": 2956.77
+      }
+    },
+    {
+      "id": "5790_4893_000072",
+      "text": "cette aventure donna une nouvelle joie à ces jeunes princes et à tous ceux de leur suite elle leur parut une chose de roman les uns disaient au duc de guise qu'il les avait égarés exprès pour leur faire voir cette belle personne les autres qu'il fallait qu'après ce qu'avait fait le hasard il en devint amoureux et le duc d'anjou soutenait que c'était lui qui devait être son amant",
+      "audio": "test/audio/5790/4893/5790_4893_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 614.09,
+        "original_end_s": 633.37
+      }
+    },
+    {
+      "id": "5790_4893_000073",
+      "text": "la princesse de monpensier trouva le soir dans l'esprit de son mari tout le chagrin imaginable il s'emporta contre elle avec des violences épouvantables et lui défendit de parler jamais au duc de guise elle se retira bien triste dans son appartement et bien occupée des aventures qui lui étaient arrivées ce jour-là",
+      "audio": "test/audio/5790/4893/5790_4893_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1226.98,
+        "original_end_s": 1244.89
+      }
+    },
+    {
+      "id": "5790_4893_000074",
+      "text": "la princesse fut d'abord si surprise et si troublée de ce discours qu'elle ne songea pas à l'interrompre mais ensuite étant revenue à elle et commençant à lui répondre le prince de monpensier entra",
+      "audio": "test/audio/5790/4893/5790_4893_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1200.46,
+        "original_end_s": 1211.19
+      }
+    },
+    {
+      "id": "5790_4893_000075",
+      "text": "quelque temps après la cour s'en allant à blois où la princesse de monpensier la suivit le mariage de madame avec le roi de navarre y fut conclu le duc de guise ne connaissant plus de grandeur ni de bonne fortune que celle d'être aimé de la princesse vit avec joie la conclusion de ce mariage qui l'aurait comblé de douleur dans un autre temps",
+      "audio": "test/audio/5790/4893/5790_4893_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2068.4,
+        "original_end_s": 2088.37
+      }
+    },
+    {
+      "id": "5790_4893_000076",
+      "text": "le duc de guise qui était sorti heureusement du parc sans savoir quasi ce qu'il faisait tant il était troublé s'éloigna de champigny de quelques lieues mais il ne put s'éloigner davantage sans savoir des nouvelles de la princesse il s'arrêta dans une forêt et envoya son écuyer pour apprendre du comte de chabanes ce qui était arrivé de cette terrible aventure",
+      "audio": "test/audio/5790/4893/5790_4893_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3064.85,
+        "original_end_s": 3084.1
+      }
+    },
+    {
+      "id": "5790_4893_000077",
+      "text": "ensuite la bataille de moncontour se donna le duc d'anjou après avoir pris saint jean d'angély tomba malade et quitta en même temps l'armée soit par la violence de son mal soit par l'envie qu'il avait de revenir goûter le repos et les douceurs de paris où la présence de la princesse de monpensier n'était pas la moindre raison qui l'attirât",
+      "audio": "test/audio/5790/4893/5790_4893_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1089.74,
+        "original_end_s": 1109.11
+      }
+    },
+    {
+      "id": "5790_4893_000078",
+      "text": "cette jalousie servait à la princesse de monpensier à défendre le reste de son coeur contre les soins du duc de guise qui en avait déjà gagné la plus grande partie le mariage du roi avec la fille de l'empereur maximilien remplit la cour de fêtes et de réjouissances le roi fît un ballet où dansait madame et toutes les princesses",
+      "audio": "test/audio/5790/4893/5790_4893_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1518.68,
+        "original_end_s": 1537.77
+      }
+    },
+    {
+      "id": "5790_4893_000079",
+      "text": "pendant ce temps l'envie qu'on eut à la cour d'y faire venir les chefs du parti huguenot pour cet horrible dessein qu'on exécuta le jour de la saint-barthélemy fit que le roi pour les mieux tromper éloigna de lui tous les princes de la maison de bourbon et tous ceux de la maison de guise",
+      "audio": "test/audio/5790/4893/5790_4893_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2385.33,
+        "original_end_s": 2401.66
+      }
+    },
+    {
+      "id": "5790_4893_000080",
+      "text": "le duc de guise y demeura avec lui et le prince de monpensier accompagné du comte de chabanes s'en retourna à champigny qui n'était pas fort éloigné de là le duc d'anjou allait souvent visiter les places qu'il faisait fortifier",
+      "audio": "test/audio/5790/4893/5790_4893_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 561.03,
+        "original_end_s": 574.1
+      }
+    },
+    {
+      "id": "5790_4893_000081",
+      "text": "la nouvelle alliance de leurs maisons lui donnait occasion de lui parler souvent mais il n'avait pas peu de peine à la guérir de la jalousie que lui donnait la beauté de madame contre laquelle il n'y avait point de serment qui la put rassurer",
+      "audio": "test/audio/5790/4893/5790_4893_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1505.47,
+        "original_end_s": 1518.68
+      }
+    },
+    {
+      "id": "5790_4893_000082",
+      "text": "ces assurances consolèrent le comte comme on se le peut imaginer il sentit le mépris des paroles de la princesse dans toute leur étendue et le lendemain la revoyant avec un visage aussi ouvert que de coutume son affliction en redoubla de la moitié le procedé de la princesse ne la diminua pas",
+      "audio": "test/audio/5790/4893/5790_4893_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 366.72,
+        "original_end_s": 382.58
+      }
+    },
+    {
+      "id": "5790_4893_000083",
+      "text": "et trouvant la marquise de noirmoutier personne de beaucoup d'esprit et de beauté et qui donnait plus d'espérance que cette princesse il s'y attacha entièrement et l'aima avec une passion démesurée et qui dura jusqu'à sa mort",
+      "audio": "test/audio/5790/4893/5790_4893_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3201.55,
+        "original_end_s": 3214.82
+      }
+    },
+    {
+      "id": "5790_4893_000084",
+      "text": "le duc de guise eut la joie de se pouvoir jeter à ses pieds de lui parler en liberté de sa passion et de lui dire ce qu'il avait souffert de ses soupçons la princesse ne pouvait s'ôter de l'esprit ce que lui avait dit le duc d'anjou quoique le procedé du duc de guise la dût absolument rassurer",
+      "audio": "test/audio/5790/4893/5790_4893_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1966.72,
+        "original_end_s": 1983.93
+      }
+    },
+    {
+      "id": "5790_4893_000085",
+      "text": "les choses étaient en cet état lorsque la maison de bourbon qui ne pouvait voir qu'avec envie l'élévation de celle de guise s'apercevant de l'avantage qu'elle recevrait de ce mariage se résolut de le lui ôter et d'en profiter elle-même en faisant épouser cette héritière au jeune prince de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 66.39,
+        "original_end_s": 82.25
+      }
+    },
+    {
+      "id": "5790_4893_000086",
+      "text": "cependant après que le mal de madame de monpensier fut venu au dernier point il commença à diminuer la raison lui revint et se trouvant un peu soulagée par l'absence du prince son mari elle donna quelque espérance de sa vie",
+      "audio": "test/audio/5790/4893/5790_4893_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3214.82,
+        "original_end_s": 3228.23
+      }
+    },
+    {
+      "id": "5790_4893_000087",
+      "text": "il ne put s'empêcher de lui demander quel effet avait produit en elle la vue du duc de guise elle lui apprit qu'elle en avait été troublée par la honte du souvenir de l'inclination qu'elle lui avait autrefois témoignée qu'elle l'avait trouvé beaucoup mieux fait qu'il n'était en ce temps-là que même il lui avait paru qu'il voulait lui persuader qu'il l'aimait encore",
+      "audio": "test/audio/5790/4893/5790_4893_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1013.46,
+        "original_end_s": 1032.04
+      }
+    },
+    {
+      "id": "5790_4893_000088",
+      "text": "il voulut faire convenir le duc de guise qu'il sentait la même chose mais ce duc qui commençait à se faire une affaire sérieuse de son amour n'en voulut rien avouer ces princes s'en retournèrent à loches faisant souvent leur agréable conversation de l'aventure qui leur avait découvert la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 948.61,
+        "original_end_s": 965.63
+      }
+    },
+    {
+      "id": "5790_4893_000089",
+      "text": "le prince son mari ne faisant point de violence pour l'y retenir le duc de guise ne partit pas sans faire entendre à madame de monpensier qu'il était pour elle ce qu'il avait été autrefois et comme sa passion n'avait été sue de personne il lui dit plusieurs fois devant tout le monde sans être entendu que d'elle que son coeur n'était point changé",
+      "audio": "test/audio/5790/4893/5790_4893_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 869.56,
+        "original_end_s": 887.82
+      }
+    },
+    {
+      "id": "5790_4893_000090",
+      "text": "ne m'interrompez point je vous prie pour me dire le contraire d'une vérité que je ne sais que trop il vous trompe madame et vous sacrifie à ma soeur comme il vous l'a sacrifiée c'est un homme qui n'est capable que d'ambition",
+      "audio": "test/audio/5790/4893/5790_4893_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1769.89,
+        "original_end_s": 1782.17
+      }
+    },
+    {
+      "id": "5790_4893_000091",
+      "text": "l'extrême jeunesse de cette grande héritière retardait son mariage et cependant le duc de guise qui la voyait souvent et qui voyait en elle les commencements d'une grande beauté en devint amoureux et en fut aimé",
+      "audio": "test/audio/5790/4893/5790_4893_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 41.5,
+        "original_end_s": 53.1
+      }
+    },
+    {
+      "id": "5790_4893_000092",
+      "text": "la princesse de monpensier continuant toujours son procédé avec lui ne répondait presque pas à ce qu'il lui disait de sa passion et ne considérait toujours en lui que la qualité du meilleur ami du monde sans lui vouloir faire l'honneur de prendre garde à celle d'amant",
+      "audio": "test/audio/5790/4893/5790_4893_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1055.95,
+        "original_end_s": 1070.63
+      }
+    },
+    {
+      "id": "5790_4893_000093",
+      "text": "mais quand elle pensa combien cette action était contraire à sa vertu et qu'elle ne pouvait voir son amant qu'en le faisant entrer la nuit chez elle à l'insu de son mari elle se trouva dans une extrémité épouvantable",
+      "audio": "test/audio/5790/4893/5790_4893_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2529.57,
+        "original_end_s": 2540.14
+      }
+    },
+    {
+      "id": "5790_4893_000094",
+      "text": "une pareille aventure eut donné de l'emportement à un esprit et plus tranquille et moins jaloux aussi mit-elle d'abord l'excès de la rage et de la fureur dans celui du prince il heurta aussitôt à la porte avec impétuosité et criant pour se faire ouvrir il donna la plus cruelle surprise du monde à la princesse au duc de guise et au comte de chabanes",
+      "audio": "test/audio/5790/4893/5790_4893_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2792.98,
+        "original_end_s": 2812.35
+      }
+    },
+    {
+      "id": "5790_4893_000095",
+      "text": "le comte de chabanes pénétré de repentir d'avoir abusé d'une amitié dont il recevait tant de marques et ne trouvant pas qu'il pût jamais réparer ce qu'il venait de faire sortit brusquement de la chambre et passant par l'appartement du prince dont il trouva les portes ouvertes",
+      "audio": "test/audio/5790/4893/5790_4893_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3033.6,
+        "original_end_s": 3047.5
+      }
+    },
+    {
+      "id": "5790_4893_000096",
+      "text": "il en rejeta adroitement la cause sur la crainte de ne pouvoir recevoir un si grand prince selon sa qualité et comme il l'eût bien souhaité le comte de chabanes avait encore plus de chagrin de voir monsieur de guise auprès de madame de monpensier que monsieur de monpensier n'en avait lui-même",
+      "audio": "test/audio/5790/4893/5790_4893_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 819.29,
+        "original_end_s": 834.79
+      }
+    },
+    {
+      "id": "5790_4893_000097",
+      "text": "de sorte que sans attendre sa réponse il sortit du bal feignant de se trouver mal et s'en alla chez lui rêver à son malheur la princesse de monpensier demeura affligée et troublée comme on se le peut imaginer",
+      "audio": "test/audio/5790/4893/5790_4893_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1819.93,
+        "original_end_s": 1833.58
+      }
+    },
+    {
+      "id": "5790_4893_000098",
+      "text": "la confiance s'augmenta de part et d'autre et à tel point du côté de la princesse de monpensier qu'elle lui apprit l'inclination qu'elle avait eue pour monsieur de guise mais elle lui apprit aussi en même temps qu'elle était presque éteinte et qu'il ne lui en restait que ce qui était nécessaire pour défendre l'entrée de son cœur à une autre inclination et que la vertu se joignant à ce reste d'impression",
+      "audio": "test/audio/5790/4893/5790_4893_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 249.01,
+        "original_end_s": 268.72
+      }
+    },
+    {
+      "id": "5790_4893_000099",
+      "text": "l'on est bien faible quand on est amoureux le comte revint et en moins d'une heure la beauté de la princesse de monpensier son esprit et quelques paroles obligeantes le rendirent plus soumis qu'il n'avait jamais été et il lui donna même des lettres du duc de guise qu'il venait de recevoir",
+      "audio": "test/audio/5790/4893/5790_4893_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2369.01,
+        "original_end_s": 2385.33
+      }
+    },
+    {
+      "id": "5790_4893_000100",
+      "text": "il témoigna à la princesse qu'il appréhendait extrêmement que les premières impressions ne revinssent bientôt et il lui fît comprendre la mortelle douleur qu'il aurait pour leur intérêt commun s'il la voyait un jour changer de sentiments",
+      "audio": "test/audio/5790/4893/5790_4893_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1044.24,
+        "original_end_s": 1055.95
+      }
+    },
+    {
+      "id": "5790_4893_000101",
+      "text": "enfin ils arrivèrent au parc de champigny où ils laissèrent leurs chevaux à l'écuyer du duc de guise et passant par des brèches qui étaient aux murailles ils vinrent dans le parterre le comte de chabanes au milieu de son désespoir avait toujours quelque espérance que la raison reviendrait à la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2669.37,
+        "original_end_s": 2685.64
+      }
+    },
+    {
+      "id": "5790_4893_000102",
+      "text": "cette demande si brusque jointe à ce qu'avait déjà remarqué le duc de guise des sentiments du duc d'anjou lui fît voir qu'il serait infailliblement son rival et qu'il lui était très important de ne pas découvrir son amour à ce prince",
+      "audio": "test/audio/5790/4893/5790_4893_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 904.95,
+        "original_end_s": 917.63
+      }
+    },
+    {
+      "id": "5790_4893_000103",
+      "text": "le pauvre comte de chabanes qui s'était venu cacher dans l'extrémité de l'un des faubourgs de paris pour s'abandonner entièrement à sa douleur fut enveloppé dans la ruine des huguenots les personnes chez qui il s'était retiré l'ayant reconnu et s'étant souvenues qu'on l'avait soupçonné d'être de ce parti le massacrèrent cette même nuit qui fut si funeste à tant de gens",
+      "audio": "test/audio/5790/4893/5790_4893_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3149.08,
+        "original_end_s": 3168.32
+      }
+    },
+    {
+      "id": "5790_4893_000104",
+      "text": "et il fut bien aise de se voir vengé par les mains de la fortune le duc de guise occupé du désir de venger la mort de son père et peu après rempli de la joie de l'avoir vengée laissa peu à peu éloigner de son âme le soin d'apprendre des nouvelles de la princesse de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3186.19,
+        "original_end_s": 3201.55
+      }
+    },
+    {
+      "id": "5790_4893_000105",
+      "text": "l'amour fit en lui ce qu'il fait en tous les autres il lui donna l'envie de parler et après tous les combats qui ont accoutumé de se faire en pareilles occasions il osa lui dire qu'il l'aimait s'étant bien préparé à essuyer les orages dont la fierté de cette princesse le menaçait",
+      "audio": "test/audio/5790/4893/5790_4893_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 315.67,
+        "original_end_s": 329.93
+      }
+    },
+    {
+      "id": "5790_4893_000106",
+      "text": "je ne veux point priver d'une si grande satisfaction une personne que j'adore ni être cause qu'elle cherche des personnes moins fidèles que moi pour se la procurer oui madame si vous le voulez j'irai quérir le duc de guise dès ce soir car il est trop périlleux de le laisser plus long temps où il est et je l'amènerai dans votre appartement",
+      "audio": "test/audio/5790/4893/5790_4893_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2569.82,
+        "original_end_s": 2587.16
+      }
+    },
+    {
+      "id": "5790_4893_000107",
+      "text": "la princesse de monpensier ne répondit point mais elle ne s'éloigna pas et le duc de guise voyant qu'elle lui donnait l'audience qu'il souhaitait lui apprit que sans s'être attiré les bonnes grâces de madame par aucun soin elle l'en avait honoré",
+      "audio": "test/audio/5790/4893/5790_4893_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1390.62,
+        "original_end_s": 1404.84
+      }
+    },
+    {
+      "id": "5790_4893_000108",
+      "text": "prévoyant bien qu'il ne serait pas seul à la trouver belle il eut beaucoup de joie de revoir le comte de chabanes pour qui son amitié n'était point diminuée il lui demanda confidemment des nouvelles de l'esprit et de l'humeur de sa femme qui lui était quasi une personne inconnue par le peu de temps qu'il avait demeuré avec elle",
+      "audio": "test/audio/5790/4893/5790_4893_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 432.4,
+        "original_end_s": 449.2
+      }
+    },
+    {
+      "id": "5790_4893_000109",
+      "text": "la considération du roi m'empêche d'éclater mais souvenez-vous que la perte de votre vie sera peut-être la moindre chose dont je punirai quelque jour votre témérité la fierté du duc de guise n'était pas accoutumée à de telles menaces et il ne put néanmoins y répondre parce que le roi qui sortait dans ce moment les appela tous deux",
+      "audio": "test/audio/5790/4893/5790_4893_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1647.73,
+        "original_end_s": 1666.29
+      }
+    },
+    {
+      "id": "5790_4893_000110",
+      "text": "et il ne put douter que la princesse sa soeur ne fut le sacrifice qui avait rendu la princesse de monpensier favorable aux voeux de son rival la jalousie le dépit et la rage se joignant à la haine qu'il avait déjà pour lui firent dans son âme tout ce qu'on peut imaginer de plus violent",
+      "audio": "test/audio/5790/4893/5790_4893_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1601.69,
+        "original_end_s": 1618.98
+      }
+    },
+    {
+      "id": "5790_4893_000111",
+      "text": "elle ne prit pas le soin de la cacher et lui fit avaler à longs traits tout le poison imaginable en lui lisant ces lettres et la réponse tendre et galante qu'elle y faisait il porta cette réponse au gentilhomme avec la même fidélité avec laquelle il avait rendu la lettre à la princesse mais avec plus de douleur",
+      "audio": "test/audio/5790/4893/5790_4893_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2273.13,
+        "original_end_s": 2290.75
+      }
+    },
+    {
+      "id": "5790_4893_000112",
+      "text": "la princesse de monpensier pouvait seule lui disputer le prix de la beauté le duc d'anjou dansait une entrée de maures et le duc de guise avec quatre autres était de son entrée leurs habits étaient tous pareils comme le sont d'ordinaire les habits de ceux qui dansent une même entrée",
+      "audio": "test/audio/5790/4893/5790_4893_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1537.77,
+        "original_end_s": 1553.54
+      }
+    },
+    {
+      "id": "5790_4893_000113",
+      "text": "le tira de l'embarras où il était il s'en alla à paris ne sachant ce qu'il avait à espérer ou à craindre du mal de la princesse sa femme il n'y fut pas sitôt arrivé qu'on commença d'attaquer les huguenots en la personne d'un de leurs chefs l'amiral de châtillon et deux jours après l'on fit cet horrible massacre si renommé par toute l'europe",
+      "audio": "test/audio/5790/4893/5790_4893_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3130.42,
+        "original_end_s": 3149.08
+      }
+    },
+    {
+      "id": "5790_4893_000114",
+      "text": "le dernier entendant la voix du prince comprit d'abord qu'il était impossible de l'empêcher de croire qu'il n'y eut quelqu'un dans la chambre de la princesse sa femme et la grandeur de sa passion lui montrant en ce moment que s'il y trouvait le duc de guise madame de monpensier aurait la douleur de le voir tuer à ses yeux",
+      "audio": "test/audio/5790/4893/5790_4893_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2812.35,
+        "original_end_s": 2827.73
+      }
+    },
+    {
+      "id": "5790_4893_000115",
+      "text": "comme sa passion était la plus extraordinaire du monde elle produisit l'effet du monde le plus extraordinaire car elle le fit résoudre de porter à sa maîtresse les lettres de son rival",
+      "audio": "test/audio/5790/4893/5790_4893_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2235.17,
+        "original_end_s": 2246.08
+      }
+    },
+    {
+      "id": "5790_4893_000116",
+      "text": "la première fois que le ballet se dansa le duc de guise devant que de danser n'ayant pas encore son masque dit quelques mots en passant à la princesse de monpensier elle s'aperçut bien que le prince son mari y avait pris garde ce qui la mit en inquietude",
+      "audio": "test/audio/5790/4893/5790_4893_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1553.54,
+        "original_end_s": 1568.19
+      }
+    },
+    {
+      "id": "5790_4893_000117",
+      "text": "le comte ayant l'esprit fort doux et fort agréable gagna bientôt l'estime de la princesse de monpensier et en peu de temps elle n'eut pas moins de confiance et d'amitié pour lui qu'en avait le prince son mari",
+      "audio": "test/audio/5790/4893/5790_4893_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 205.09,
+        "original_end_s": 217.07
+      }
+    },
+    {
+      "id": "5790_4893_000118",
+      "text": "elle tâcha de le consoler en l'assurant qu'elle ne se souviendrait jamais de ce qu'il venait de lui dire qu'elle ne se persuaderait jamais une chose qui lu était si désavantageuse et qu'elle ne le regarderait jamais que comme son meilleur ami",
+      "audio": "test/audio/5790/4893/5790_4893_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 355.43,
+        "original_end_s": 366.72
+      }
+    },
+    {
+      "id": "5790_4893_000119",
+      "text": "le duc sans s'étonner lui dit qu'il venait pour lui rendre ses très humbles services à quoi le roi répliqua qu'il n'avait pas besoin de ceux qu'il lui rendait et se tourna sans le regarder",
+      "audio": "test/audio/5790/4893/5790_4893_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1711.96,
+        "original_end_s": 1722.58
+      }
+    },
+    {
+      "id": "5790_4893_000120",
+      "text": "le trouble et l'agitation étaient peints sur le visage de la princesse la vue de son mari acheva de l'embarrasser de sorte qu'elle lui en laissa plus entendre que le duc de guise ne lui en venait de dire la reine sortit de son cabinet et le duc se retira pour guérir la jalousie de ce prince",
+      "audio": "test/audio/5790/4893/5790_4893_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1211.19,
+        "original_end_s": 1226.98
+      }
+    },
+    {
+      "id": "5790_4893_000121",
+      "text": "il ne put toutefois se refuser le plaisir de lui apprendre qu'il savait le secret de son amour et l'abordant en sortant de la salle où l'on avait dansé c'est trop lui dit-il d'oser lever les yeux jusqu'à ma soeur et de m'ôter ma maîtresse",
+      "audio": "test/audio/5790/4893/5790_4893_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1634.47,
+        "original_end_s": 1647.73
+      }
+    },
+    {
+      "id": "5790_4893_000122",
+      "text": "sur l'embarras où elle s'allait plonger en s'engageant dans une chose qu'elle avait regardée avec tant d'horreur et sur les effroyables malheurs où la jalousie de son mari la pouvait jeter",
+      "audio": "test/audio/5790/4893/5790_4893_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1483.8,
+        "original_end_s": 1494.07
+      }
+    },
+    {
+      "id": "5790_4893_000123",
+      "text": "après que les deux armées se furent fatiguées par beaucoup de petits combats d'un commun consentement on licencia les troupes pour quelque temps le duc d'anjou demeura à loches pour donner ordre à toutes les places qui eussent pu être attaquées",
+      "audio": "test/audio/5790/4893/5790_4893_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 548.42,
+        "original_end_s": 561.03
+      }
+    },
+    {
+      "id": "5790_4893_000124",
+      "text": "voyant d'ailleurs qu'elle ne pouvait épouser le duc de guise et connaissant par sa vertu qu'il était dangereux d'avoir pour beau-frère un homme qu'elle eut souhaité pour mari se résolut enfin de suivre le sentiment de ses proches et conjura monsieur de guise de ne plus apporter d'obstacle à son mariage",
+      "audio": "test/audio/5790/4893/5790_4893_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 124.78,
+        "original_end_s": 139.64
+      }
+    },
+    {
+      "id": "5790_4893_000125",
+      "text": "le duc abandonnait son âme à la joie et à tout ce que l'espérance inspire de plus agréable et le comte s'abandonnait à un désespoir et à une rage qui le poussèrent mille fois à donner de son épée au travers du corps de son rival",
+      "audio": "test/audio/5790/4893/5790_4893_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2656.1,
+        "original_end_s": 2669.37
+      }
+    },
+    {
+      "id": "5790_4893_000126",
+      "text": "la paix ne fit que paraître la guerre recommença aussitôt par le dessein qu'eut le roi de faire arrêter à noyers le prince de condé et l'amiral de châtillon et ce dessein ayant été découvert l'on commença de nouveau les préparatifs de la guerre et le prince de monpensier fut contraint de quitter sa femme pour se rendre où son devoir l'appelait",
+      "audio": "test/audio/5790/4893/5790_4893_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 478.55,
+        "original_end_s": 495.96
+      }
+    },
+    {
+      "id": "5790_4893_000127",
+      "text": "et comme elle n'était pas large ils distinguèrent aisément dans ce bateau trois ou quatre femmes et une entre autres qui leur sembla fort belle qui était habillée magnifiquement et qui regardait avec attention deux hommes qui pêchaient auprès d'elle",
+      "audio": "test/audio/5790/4893/5790_4893_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 601.19,
+        "original_end_s": 614.09
+      }
+    },
+    {
+      "id": "5790_4893_000128",
+      "text": "le duc d'anjou qui était fort galant et fort bien fait ne put voir une fortune si digne de lui sans la souhaiter ardemment il fut touché du même mal que monsieur de guise et feignant toujours des affaires extraordinaires il demeura deux jours à champigni sans être obligé d'y demeurer que par les charmes de madame de montpensier",
+      "audio": "test/audio/5790/4893/5790_4893_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 852.53,
+        "original_end_s": 869.56
+      }
+    },
+    {
+      "id": "5790_4893_000129",
+      "text": "il se mit à lui exagérer sa passion et à lui faire comprendre qu'il mourrait infailliblement s'il ne lui faisait obtenir de la princesse la permission de la voir le comte de chabanes lui répondit froidement qu'il dirait à cette princesse tout ce qu'il souhaitait qu'il lui dit et qu'il viendrait lui en rendre réponse",
+      "audio": "test/audio/5790/4893/5790_4893_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2461.35,
+        "original_end_s": 2479.86
+      }
+    },
+    {
+      "id": "5790_4893_000130",
+      "text": "le jour suivant elle revit le duc de guise chez la reine mais il ne l'aborda pas et se contenta de sortir un peu après elle pour lui faire voir qu'il n'y avait que faire quand elle n'y était pas",
+      "audio": "test/audio/5790/4893/5790_4893_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1244.89,
+        "original_end_s": 1255.18
+      }
+    },
+    {
+      "id": "5790_4893_000131",
+      "text": "il s'emporta avec tant de violence en présence même du jeune prince de monpensier qu'il en naquit entre eux une haine qui ne finit qu'avec leur vie mademoiselle de mezieres tourmentée par ses parents d'épouser ce prince",
+      "audio": "test/audio/5790/4893/5790_4893_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 112.57,
+        "original_end_s": 124.78
+      }
+    },
+    {
+      "id": "5790_4893_000132",
+      "text": "cependant quelque peu de bruit qu'ils eussent fait en passant sur le pont le prince de montpensier qui par malheur était éveillé dans ce moment l'entendit et fit lever un de ses valets de chambre pour voir ce que c'était",
+      "audio": "test/audio/5790/4893/5790_4893_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2732.81,
+        "original_end_s": 2744.43
+      }
+    },
+    {
+      "id": "5790_4893_000133",
+      "text": "à force de disputer et d'approfondir ils trouvèrent qu'il fallait qu'elle se fût trompée dans la ressemblance des habits et qu'elle-même eût appris au duc d'anjou ce qu'elle accusait le duc de guise de lui avoir appris",
+      "audio": "test/audio/5790/4893/5790_4893_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2028.65,
+        "original_end_s": 2039.92
+      }
+    },
+    {
+      "id": "5790_4893_000134",
+      "text": "je vais vous surprendre madame lui dit-il et vous déplaire en vous apprenant que j'ai toujours conservé cette passion qui vous a été connue autrefois mais qui s'est si fort augmentée en vous revoyant que ni votre sévérité ni la haine de monsieur le prince de monpensier ni la concurrence du premier prince du royaume ne sauraient lui ôter un moment de sa violence",
+      "audio": "test/audio/5790/4893/5790_4893_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1168.56,
+        "original_end_s": 1187.73
+      }
+    },
+    {
+      "id": "5790_4893_000135",
+      "text": "un moment après il se leva lui-même étant inquiet de ce qu'il lui semblait avoir ouï marcher quelqu'un et s'en vint droit à l'appartement de la princesse sa femme qui répondait sur le pont",
+      "audio": "test/audio/5790/4893/5790_4893_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2757.34,
+        "original_end_s": 2767.49
+      }
+    },
+    {
+      "id": "5790_4893_000136",
+      "text": "les chefs des huguenots s'étaient retirés à la rochelle le poitou et la saintonge étant dans leur parti la guerre s'y alluma fortement et le roi y rassembla toutes ses troupes le duc d'anjou son frère qui fut depuis henri trois y acquit beaucoup de gloire par plusieurs belles actions et entre autres par la bataille de jarnac où le prince de condé fut tué",
+      "audio": "test/audio/5790/4893/5790_4893_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 508.79,
+        "original_end_s": 528.69
+      }
+    },
+    {
+      "id": "5790_4893_000137",
+      "text": "la princesse qui n'avait dans la tête que le duc de guise et qui ne trouvait que lui seul digne de l'adorer trouva si mauvais qu'un autre que lui osât penser à elle qu'elle maltraita bien plus le comte de chabanes en cette occasion qu'elle n'avait fait la premiere fois qu'il lui avait parlé de son amour",
+      "audio": "test/audio/5790/4893/5790_4893_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2309.46,
+        "original_end_s": 2325.41
+      }
+    },
+    {
+      "id": "5790_4893_000138",
+      "text": "on travailla à l'exécution de ce dessein avec tant de succès que les parents de mademoiselle de mézières contre les promesses qu'ils avaient faites au cardinal de lorraine se résolurent de la donner en mariage à ce jeune prince toute la maison de guise fut extrêmement surprise de ce procédé mais le duc en fut accablé de douleur",
+      "audio": "test/audio/5790/4893/5790_4893_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 82.25,
+        "original_end_s": 97.99
+      }
+    },
+    {
+      "id": "5790_4893_000139",
+      "text": "et la surprise de trouver et seul et la nuit dans la chambre de sa femme l'homme du monde qu'il aimait le mieux le mit hors d'état de pouvoir parler la princesse était à demi évanouie sur les carreaux et jamais peut-être la fortune ne mit trois personnes en des états si pitoyables",
+      "audio": "test/audio/5790/4893/5790_4893_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2873.99,
+        "original_end_s": 2890.82
+      }
+    },
+    {
+      "id": "5790_4893_000140",
+      "text": "entendant dire que le duc d'anjou était là et ne doutant point à la quantité des gens qu'elle voyait au bord de l'eau que ce ne fût lui fit avancer son bateau pour aller du côté où il était sa bonne mine le lui fit bientôt distinguer des autres",
+      "audio": "test/audio/5790/4893/5790_4893_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 649.85,
+        "original_end_s": 662.94
+      }
+    },
+    {
+      "id": "5790_4893_000141",
+      "text": "ce comte avait été si sensible à l'estime et à la confiance de ce jeune prince que contre les engagements qu'il avait avec le prince de condé qui lui faisait espérer des emplois considérables dans le parti des huguenots il se déclara pour les catholiques ne pouvant se résoudre à être opposé en quelque chose à un homme qui lui était si cher",
+      "audio": "test/audio/5790/4893/5790_4893_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 169.93,
+        "original_end_s": 187.4
+      }
+    },
+    {
+      "id": "5790_4893_000142",
+      "text": "après avoir bien cherché elle jeta les yeux sur le comte de chabanes qu'elle comptait toujours pour son ami sans considérer qu'il était son amant le duc de guise qui savait à quel point ce comte était ami du prince de monpensier fut épouvanté qu'elle le choisit pour son confident mais elle lui répondit si bien de sa fidélité qu'elle le rassura",
+      "audio": "test/audio/5790/4893/5790_4893_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2111.34,
+        "original_end_s": 2131.08
+      }
+    },
+    {
+      "id": "5790_4893_000143",
+      "text": "toutes ces marques de confiance qui avaient été si chères au comte lui devinrent insupportables il n'osait pourtant le témoigner à la princesse quoiqu'il osât bien la faire souvenir quelquefois de ce qu'il avait eu la hardiesse de lui dire",
+      "audio": "test/audio/5790/4893/5790_4893_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 402.13,
+        "original_end_s": 414.59
+      }
+    },
+    {
+      "id": "5790_4893_000144",
+      "text": "la connaissance particulière qu'il avait de sa vertu et de l'inclination qu'elle avait eue pour le duc de guise et surtout ce qu'il devait à l'amitié et à la confiance du prince son mari le comte pensa mourir à ses pieds de honte et de douleur",
+      "audio": "test/audio/5790/4893/5790_4893_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 342.86,
+        "original_end_s": 355.43
+      }
+    },
+    {
+      "id": "5790_4893_000145",
+      "text": "le duc d'anjou lui fit la guerre de les avoir si mal conduits et étant arrêtés en ce lieu aussi disposés à la joie qu'ont accoutumé de l'être de jeunes princes ils aperçurent un petit bateau qui était arrêté au milieu de la rivière",
+      "audio": "test/audio/5790/4893/5790_4893_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 589.34,
+        "original_end_s": 601.19
+      }
+    },
+    {
+      "id": "5790_4893_000146",
+      "text": "n'était-ce point assez de m'ôter votre coeur et mon honneur sans m'ôter le seul homme qui pouvait me consoler de ces malheurs répondez-moi l'un ou l'autre leur dit-il et éclaircissez-moi d'une aventure que je ne puis croire telle qu'elle me paraît",
+      "audio": "test/audio/5790/4893/5790_4893_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2915.91,
+        "original_end_s": 2929.39
+      }
+    },
+    {
+      "id": "5790_4893_000147",
+      "text": "que n'ayant nulle passion pour elle il avait très mal répondu à l'honneur qu'elle lui faisait jusqu'à ce qu'elle lui eut donné quelque espérance de l'épouser qu'à la vérité la grandeur où ce mariage pouvait l'élever l'avait obligé de lui rendre plus de devoirs",
+      "audio": "test/audio/5790/4893/5790_4893_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1404.84,
+        "original_end_s": 1418.13
+      }
+    },
+    {
+      "id": "5790_4893_000148",
+      "text": "il s'en excusa toujours et comme elle l'en pressait davantage possedé de rage et de fureur il lui répondit si haut qu'il fût ouï du prince de monpensier mais si confusément que ce prince entendit seulement la voix d'un homme sans distinguer celle du comte",
+      "audio": "test/audio/5790/4893/5790_4893_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2778.85,
+        "original_end_s": 2792.98
+      }
+    },
+    {
+      "id": "5790_4893_000149",
+      "text": "elle fut bien aise de voir par là le pouvoir qu'elle avait sur le duc et elle fut fâchée en même temps de lui avoir fait abandonner une chose aussi avantageuse que le mariage de madame le duc qui voulait au moins que l'amour le récompensa de ce qu'il perdait du côté de la fortune",
+      "audio": "test/audio/5790/4893/5790_4893_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1935.9,
+        "original_end_s": 1950.52
+      }
+    },
+    {
+      "id": "5790_4893_000150",
+      "text": "le prince étant revenu à la cour où la continuation de la guerre l'appelait le comte demeura seul avec la princesse et continua d'avoir pour elle un respect et une amitié proportionnée à sa qualité et à son mérite",
+      "audio": "test/audio/5790/4893/5790_4893_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 236.56,
+        "original_end_s": 249.01
+      }
+    },
+    {
+      "id": "5790_4893_000151",
+      "text": "enfin il en reçut par un gentilhomme du duc de guise et il les lui apporta à l'heure même pour ne lui retarder pas sa joie d'un moment celle qu'elle eut de les recevoir fut extrême",
+      "audio": "test/audio/5790/4893/5790_4893_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2261.79,
+        "original_end_s": 2273.13
+      }
+    },
+    {
+      "id": "5790_4893_000152",
+      "text": "pendant que le prince de monpensier donnait mille coups à la porte il vint au duc de guise qui ne savait quelle résolution prendre et il le mit entre les mains de cette femme de madame de monpensier qui l'avait fait entrer par le pont pour le faire sortir par le même lieu pendant qu'il s'exposerait à la fureur du prince",
+      "audio": "test/audio/5790/4893/5790_4893_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2838.05,
+        "original_end_s": 2854.57
+      }
+    },
+    {
+      "id": "5790_4893_000153",
+      "text": "il ne pouvait si bien cacher son amour que le prince de monpensier n'en entrevit quelque chose lequel n'étant plus maître de sa jalousie ordonna à la princesse sa femme de s'en aller à champigny",
+      "audio": "test/audio/5790/4893/5790_4893_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2088.37,
+        "original_end_s": 2099.31
+      }
+    },
+    {
+      "id": "5790_4893_000154",
+      "text": "mais venant à penser que s'il faisait du bruit il serait ouï apparemment du prince de monpensier dont l'appartement donnait sur le même parterre et que tout ce désordre tomberait ensuite sur la personne qu'il aimait le plus sa rage se calma à l'heure même et il acheva de conduire le duc de guise aux pieds de sa princesse",
+      "audio": "test/audio/5790/4893/5790_4893_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2699.09,
+        "original_end_s": 2716.14
+      }
+    },
+    {
+      "id": "5790_4893_000155",
+      "text": "l'écuyer du duc de guise lui avait rapporté la vérité en lui disant que madame de monpensier était extrêmement malade car il était vrai que sitôt que ses femmes l'eurent mis dans son lit la fièvre lui prit si violemment et avec des rêveries si horribles que dès le second jour l'on craignit pour sa vie",
+      "audio": "test/audio/5790/4893/5790_4893_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 3101.7,
+        "original_end_s": 3117.65
+      }
+    },
+    {
+      "id": "5790_4893_000156",
+      "text": "c'est trop de n'avoir pu attirer que votre indifférence je ne veux pas y faire succéder la haine en vous importunant plus longtemps de la plus fidèle passion qui fut jamais le duc d'anjou",
+      "audio": "test/audio/5790/4893/5790_4893_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 1794.8,
+        "original_end_s": 1804.87
+      }
+    },
+    {
+      "id": "5790_4893_000157",
+      "text": "mais elle distingua encore plutôt le duc de guise sa vue lui apporta un trouble qui la fit un peu rougir et qui la fit paraître aux yeux de ces princes dans une beauté qu'ils crurent surnaturelle",
+      "audio": "test/audio/5790/4893/5790_4893_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 662.94,
+        "original_end_s": 673.56
+      }
+    },
+    {
+      "id": "5790_4893_000158",
+      "text": "pendant tout le chemin elle les entretint agréablement de diverses choses ils ne furent pas moins surpris des charmes de son esprit qu'ils l'avaient été de sa beauté et ils ne purent s'empêcher de lui faire connaitre qu'ils en étaient extraordinairement surpris",
+      "audio": "test/audio/5790/4893/5790_4893_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 763.79,
+        "original_end_s": 777.28
+      }
+    },
+    {
+      "id": "5790_4893_000159",
+      "text": "son étonnement et sa douleur ne lui permirent pas de répondre la princesse qui était pleine de sa passion et qui trouvait un soulagement extrême à lui en parler ne prît pas garde à son silence et se mit à lui conter jusqu'aux plus petites circonstances de son aventure",
+      "audio": "test/audio/5790/4893/5790_4893_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5790",
+        "gender": "m",
+        "book_id": "4893",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/princesse_monpensier_ar_librivox/monpensier_lafayette_64kb.mp3",
+        "original_start_s": 2165.8,
+        "original_end_s": 2180.75
+      }
+    }
+  ]
+}

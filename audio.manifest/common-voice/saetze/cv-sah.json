@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sah",
+  "lang": "sah",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sah",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18580714",
+      "text": "Ааттаһар да ахсааннаах, көрдөһөр да күттүөннээх",
+      "audio": "sah/unknown/sah_u_18580714.mp3",
+      "tags": {
+        "source_item_id": "18580714",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18871573",
+      "text": "Көрбүтүм соһуччута бэрт буолан, бастаан хорус гына түстүм быһыылааҕа",
+      "audio": "sah/unknown/sah_u_18871573.mp3",
+      "tags": {
+        "source_item_id": "18871573",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18706076",
+      "text": "Ыксыыбын, биллэрии эйиэхэ түргэнник тиийэ оҕустун диэн бу почта дьааһыгар ыстанным",
+      "audio": "sah/unknown/sah_u_18706076.mp3",
+      "tags": {
+        "source_item_id": "18706076",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18872006",
+      "text": "Куттанан хаһыытаабытынан ойон туран, суолга биирдэ баар буолбут",
+      "audio": "sah/unknown/sah_u_18872006.mp3",
+      "tags": {
+        "source_item_id": "18872006",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18755002",
+      "text": "Тиийэн сэрэниин-сэрэнэн көтөҕөн ылан истэхпинэ мин диэки көрбүт хараҕын билигин да умнубаппын",
+      "audio": "sah/unknown/sah_u_18755002.mp3",
+      "tags": {
+        "source_item_id": "18755002",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18758590",
+      "text": "Илиитин тааска тырыта тыытан хаан оҕуолаата да, онно эрэ кыһаммата",
+      "audio": "sah/unknown/sah_u_18758590.mp3",
+      "tags": {
+        "source_item_id": "18758590",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18637296",
+      "text": "Өтөххө бөх умаппыт быһыыта суох, тоҕо эрэ буруо көстүбэт",
+      "audio": "sah/unknown/sah_u_18637296.mp3",
+      "tags": {
+        "source_item_id": "18637296",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18816538",
+      "text": "дии-диибин, өйүөбүтүн хаалаабыт үрүсээкпитин хаһыспытынан бардым",
+      "audio": "sah/unknown/sah_u_18816538.mp3",
+      "tags": {
+        "source_item_id": "18816538",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18706026",
+      "text": "Аны Никаҕа, тустаахха бэйэтигэр биир ыарахан, эппиэттээх сорук турда",
+      "audio": "sah/unknown/sah_u_18706026.mp3",
+      "tags": {
+        "source_item_id": "18706026",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23602969",
+      "text": "Хаалбыт дьон бэйэм киэнэ диэбиттэрин биирдии сүөһүнэн үүрэн бу эргиннээҕи сиргэ олохсуйан олорбуттар",
+      "audio": "sah/unknown/sah_u_23602969.mp3",
+      "tags": {
+        "source_item_id": "23602969",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18844141",
+      "text": "Хайдах буоллуҥ, куттанан уолгар да кэпсээбэккин дии уонна хайдах тэйитээри гынаҕын",
+      "audio": "sah/unknown/sah_u_18844141.mp3",
+      "tags": {
+        "source_item_id": "18844141",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18728729",
+      "text": "Сытан эрэ сиэбиттэн табах ылан тарта",
+      "audio": "sah/unknown/sah_u_18728729.mp3",
+      "tags": {
+        "source_item_id": "18728729",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4316 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Cuentos de Amor de Locura y de Muerte",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "7613",
+    "book_title": "Cuentos de Amor de Locura y de Muerte",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "7510_7613_000000",
+      "text": "benincasa había sido ya enterado de las curiosas hormigas a que llamamos corrección son pequeñas negras brillantes y marchan velozmente en ríos más o menos anchos son esencialmente carnívoras",
+      "audio": "test/audio/7510/7613/7510_7613_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 319.9,
+        "original_end_s": 337.72
+      }
+    },
+    {
+      "id": "7510_7613_000001",
+      "text": "benincasa habiendo concluído sus estudios de contaduría pública sintió fulminante deseo de conocer la vida de la selva no que su temperamento fuera ese pues antes bien era un muchacho pacífico gordinflón y de cara uniformemente rosada",
+      "audio": "test/audio/7510/7613/7510_7613_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 114.57,
+        "original_end_s": 133.58
+      }
+    },
+    {
+      "id": "7510_7613_000002",
+      "text": "uno tras otro los cinco panales se vaciaron así dentro de la boca de benincasa fué inútil que prolongara la suspensión y mucho más que repasara los globos exhaustos tuvo que resignarse",
+      "audio": "test/audio/7510/7613/7510_7613_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 644.34,
+        "original_end_s": 661.31
+      }
+    },
+    {
+      "id": "7510_7613_000003",
+      "text": "cierto es que los dos muchachos no se habían acordado particularmente de llevar escopetas ni anzuelos pero de todos modos el bosque estaba allí con su libertad como fuente de dicha y sus peligros como encanto",
+      "audio": "test/audio/7510/7613/7510_7613_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 53.53,
+        "original_end_s": 69.9
+      }
+    },
+    {
+      "id": "7510_7613_000004",
+      "text": "de las doce bolas siete contenían polen pero las restantes estaban llenas de miel una miel oscura de sombría transparencia que benincasa paladeó golosamente sabía distintamente a algo a qué",
+      "audio": "test/audio/7510/7613/7510_7613_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 577.3,
+        "original_end_s": 594.96
+      }
+    },
+    {
+      "id": "7510_7613_000005",
+      "text": "desgraciadamente al segundo día fueron hallados por quienes les buscaban estaban bastante atónitos todavía no poco débiles y con gran asombro de sus hermanos menores iniciados también en julio verne",
+      "audio": "test/audio/7510/7613/7510_7613_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 69.9,
+        "original_end_s": 86.65
+      }
+    },
+    {
+      "id": "7510_7613_000006",
+      "text": "a la par que el mareo se aceleraba creyó así notar que el suelo oscilante se volvía negro y se agitaba vertiginosamente",
+      "audio": "test/audio/7510/7613/7510_7613_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 797.67,
+        "original_end_s": 808.34
+      }
+    },
+    {
+      "id": "7510_7613_000007",
+      "text": "de este modo llegó al obraje de su padrino y a la hora tuvo éste que contener el desenfado de su ahijado",
+      "audio": "test/audio/7510/7613/7510_7613_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 196.34,
+        "original_end_s": 206.6
+      }
+    },
+    {
+      "id": "7510_7613_000008",
+      "text": "tuvo aún fuerzas para arrancarse a ese último espanto y de pronto lanzó un grito un verdadero alarido en que la voz del hombre recobra la tonalidad del niño aterrado",
+      "audio": "test/audio/7510/7613/7510_7613_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 821.79,
+        "original_end_s": 836.54
+      }
+    },
+    {
+      "id": "7510_7613_000009",
+      "text": "benincasa cogió una en seguida y oprimiéndole el abdomen constató que no tenía aguijón su saliva ya liviana se clarificó en milífica abundancia maravillosos y buenos animalitos",
+      "audio": "test/audio/7510/7613/7510_7613_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 544.82,
+        "original_end_s": 563.72
+      }
+    },
+    {
+      "id": "7510_7613_000010",
+      "text": "y aunque su fusil volvió profundamente dormido benincasa no deploró el paseo las fieras llegarían poco a poco llegaron estas a la segunda noche aunque de un carácter singular",
+      "audio": "test/audio/7510/7613/7510_7613_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 271.75,
+        "original_end_s": 287.04
+      }
+    },
+    {
+      "id": "7510_7613_000011",
+      "text": "avanzan devorando todo lo que encuentran a su paso arañas grillos alacranes sapos víboras y a cuanto ser no puede resistirles no hay animal por grande y fuerte que sea que no huya de ellas",
+      "audio": "test/audio/7510/7613/7510_7613_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 337.72,
+        "original_end_s": 354.89
+      }
+    },
+    {
+      "id": "7510_7613_000012",
+      "text": "en razón de gran bienestar en consecuencia lo suficientemente cuerdo para preferir un té con leche y pastelitos a quién sabe qué fortuita e infernal comida del bosque",
+      "audio": "test/audio/7510/7613/7510_7613_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 133.58,
+        "original_end_s": 147.73
+      }
+    },
+    {
+      "id": "7510_7613_000013",
+      "text": "pero de todos modos lograba trozar las ramas azotarse la cara y cortarse las botas todo en uno el monte crepuscular y silencioso lo cansó pronto dábale la impresión exacta por lo demás de un escenario visto de día",
+      "audio": "test/audio/7510/7613/7510_7613_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 457.19,
+        "original_end_s": 476.82
+      }
+    },
+    {
+      "id": "7510_7613_000014",
+      "text": "dormía profundamente cuando fue despertado por su padrino eh dormilón levántate que te van a comer vivo benincasa se sentó bruscamente en la cama",
+      "audio": "test/audio/7510/7613/7510_7613_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 287.04,
+        "original_end_s": 300.76
+      }
+    },
+    {
+      "id": "7510_7613_000015",
+      "text": "su entrada en una casa supone la exterminación absoluta de todo ser viviente pues no hay rincón ni agujero profundo donde no se precipite el río devorador los perros aullan los bueyes mugen y es forzoso abandonarles la casa",
+      "audio": "test/audio/7510/7613/7510_7613_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 354.89,
+        "original_end_s": 374.42
+      }
+    },
+    {
+      "id": "7510_7613_000016",
+      "text": "otra vez subió a su memoria el recuerdo de la corrección y en su pensamiento se fijó como una suprema angustia la posibilidad de que eso negro que invadía el suelo",
+      "audio": "test/audio/7510/7613/7510_7613_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 808.34,
+        "original_end_s": 821.79
+      }
+    },
+    {
+      "id": "7510_7613_000017",
+      "text": "pero como la miel era espesa tuvo que agrandar el agujero después de haber permanecido medio minuto con la boca inútilmente abierta entonces la miel asomó adelgazándose en pesado hilo hasta la lengua del contador",
+      "audio": "test/audio/7510/7613/7510_7613_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 624.69,
+        "original_end_s": 644.34
+      }
+    },
+    {
+      "id": "7510_7613_000018",
+      "text": "en un instante el contador desprendió las bolsitas de cera y alejándose un buen trecho para escapar al pegajoso contacto de las abejas se sentó en un raigón",
+      "audio": "test/audio/7510/7613/7510_7613_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 563.72,
+        "original_end_s": 577.3
+      }
+    },
+    {
+      "id": "7510_7613_000019",
+      "text": "es muy raro muy raro muy raro se repitió estúpidamente benincasa sin escrudiñar sin embargo el motivo de esa rareza como si tuviera hormigas la corrección concluyó",
+      "audio": "test/audio/7510/7613/7510_7613_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 708.74,
+        "original_end_s": 726.59
+      }
+    },
+    {
+      "id": "7510_7613_000020",
+      "text": "los árboles y el suelo tomaban posturas por demás oblicuas y su cabeza acompañaba el vaivén del paisaje qué curioso mareo pensó el contador y lo peor es",
+      "audio": "test/audio/7510/7613/7510_7613_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 675.5,
+        "original_end_s": 690.43
+      }
+    },
+    {
+      "id": "7510_7613_000021",
+      "text": "a diez metros de él en el tronco hueco diminutas abejas aureolaban la entrada del agujero se acercó con cautela y vio en el fondo de la abertura diez o doce bolas oscuras del tamaño de un huevo",
+      "audio": "test/audio/7510/7613/7510_7613_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 491.95,
+        "original_end_s": 510.77
+      }
+    },
+    {
+      "id": "7510_7613_000022",
+      "text": "ahora la sensación de plomo y el hormigueo subían hasta la cintura durante un rato el horror de morir allí miserablemente solo lejos de su madre y sus amigos le cohibió todo medio de defensa",
+      "audio": "test/audio/7510/7613/7510_7613_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 748.09,
+        "original_end_s": 763.66
+      }
+    },
+    {
+      "id": "7510_7613_000023",
+      "text": "por sus piernas trepaba un precipitado río de hormigas negras alrededor de él la corrección devoradora oscurecía el suelo y el contador sintió por bajo el calzoncillo el río de hormigas carnívoras que subían",
+      "audio": "test/audio/7510/7613/7510_7613_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 836.54,
+        "original_end_s": 856.14
+      }
+    },
+    {
+      "id": "7510_7613_000024",
+      "text": "de igual modo benincasa quiso honrar su vida aceitada con dos o tres choques de vida intensa y por este motivo remontaba el paraná hasta un obraje con sus famosos stromboot",
+      "audio": "test/audio/7510/7613/7510_7613_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 160.42,
+        "original_end_s": 177.16
+      }
+    },
+    {
+      "id": "7510_7613_000025",
+      "text": "y a un segundo esfuerzo para incorporarse se le erizó el cabello de terror no había podido ni aún moverse",
+      "audio": "test/audio/7510/7613/7510_7613_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 738.05,
+        "original_end_s": 748.09
+      }
+    },
+    {
+      "id": "7510_7613_000026",
+      "text": "pues había concluído por comprender que tal expediente le sería en el monte mucho más útil que el fusil cierto es que su pulso no era maravilloso y su acierto mucho menos",
+      "audio": "test/audio/7510/7613/7510_7613_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 444.23,
+        "original_end_s": 457.19
+      }
+    },
+    {
+      "id": "7510_7613_000027",
+      "text": "sabían aún andar en dos pies y recordaban el habla acaso sin embargo la aventura de los dos robinsones fuera más formal a haber tenido como teatro otro bosque menos dominguero",
+      "audio": "test/audio/7510/7613/7510_7613_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 86.65,
+        "original_end_s": 102.97
+      }
+    },
+    {
+      "id": "7510_7613_000028",
+      "text": "adónde vas ahora le había preguntado sorprendido al monte quiero recorrerlo un poco repuso benincasa que acababa de colgarse el winchester al hombro",
+      "audio": "test/audio/7510/7613/7510_7613_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 206.6,
+        "original_end_s": 219.12
+      }
+    },
+    {
+      "id": "7510_7613_000029",
+      "text": "muy fuerte realmente dijo sorprendido levantando la cabeza a su padrino este para quien la observación no tenía ya ningún valor no respondió felicitándose en cambio de haber contenido a tiempo la invasión",
+      "audio": "test/audio/7510/7613/7510_7613_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 411.22,
+        "original_end_s": 431.1
+      }
+    },
+    {
+      "id": "7510_7613_000030",
+      "text": "metióse las manos en los bolsillos y miró detenidamente aquella inextricable maraña silbando débilmente aires truncos",
+      "audio": "test/audio/7510/7613/7510_7613_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 244.09,
+        "original_end_s": 254.88
+      }
+    },
+    {
+      "id": "7510_7613_000031",
+      "text": "las escapatorias llevan aquí en misiones a límites imprevistos y a tal extremo arrastró a gabriel benincasa el orgullo de sus stromboot",
+      "audio": "test/audio/7510/7613/7510_7613_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 102.97,
+        "original_end_s": 114.57
+      }
+    },
+    {
+      "id": "7510_7613_000032",
+      "text": "apenas salido de corrientes había calzado sus botas fuertes pues los yacarés de la orilla calentaban ya el paisaje mas a pesar de ello el contador público cuidaba mucho de su calzado evitándole arañazos y sucios contactos",
+      "audio": "test/audio/7510/7613/7510_7613_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 177.16,
+        "original_end_s": 196.34
+      }
+    },
+    {
+      "id": "7510_7613_000033",
+      "text": "pero infeliz no vas a poder dar un paso sigue la picada si quieres o mejor deja esa arma y mañana te haré acompañar por un peón",
+      "audio": "test/audio/7510/7613/7510_7613_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 219.12,
+        "original_end_s": 231.47
+      }
+    },
+    {
+      "id": "7510_7613_000034",
+      "text": "entretanto la sostenida posición de la cabeza en alto lo había mareado un poco pesado de miel quieto y los ojos bien abiertos benincasa consideró de nuevo el monte crepuscular",
+      "audio": "test/audio/7510/7613/7510_7613_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 661.31,
+        "original_end_s": 675.5
+      }
+    },
+    {
+      "id": "7510_7613_000035",
+      "text": "y de pronto la respiración se le cortó en seco de espanto debe de ser la miel es venenosa estoy envenenado",
+      "audio": "test/audio/7510/7613/7510_7613_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 726.59,
+        "original_end_s": 738.05
+      }
+    },
+    {
+      "id": "7510_7613_000036",
+      "text": "alucinado por la luz de los tres faroles de viento que se movían de un lado a otro en la pieza su padrino y dos peones regaban el piso qué hay qué hay preguntó echándose al suelo nada cuidado con los pies la corrección",
+      "audio": "test/audio/7510/7613/7510_7613_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 300.76,
+        "original_end_s": 319.9
+      }
+    },
+    {
+      "id": "7510_7613_000037",
+      "text": "a trueque de ser roído en diez horas hasta el esqueleto permanecen en el lugar uno dos hasta cinco días según su riqueza en insectos carne y grasa una vez devorado todo se van",
+      "audio": "test/audio/7510/7613/7510_7613_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 374.42,
+        "original_end_s": 392.08
+      }
+    },
+    {
+      "id": "7510_7613_000038",
+      "text": "su padrino halló por fin dos días después sin la menor partícula de carne el esqueleto cubierto de ropa de benincasa",
+      "audio": "test/audio/7510/7613/7510_7613_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 856.14,
+        "original_end_s": 867.13
+      }
+    },
+    {
+      "id": "7510_7613_000039",
+      "text": "el contador no pudo precisarlo acaso a resina de frutales o de eucalipto y por igual motivo tenía la densa miel un vago dejo áspero mas qué perfume en cambio",
+      "audio": "test/audio/7510/7613/7510_7613_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 594.96,
+        "original_end_s": 610.38
+      }
+    },
+    {
+      "id": "7510_7613_000040",
+      "text": "la corrección que merodeaba aún por allí y las bolsitas de cera lo iluminaron suficientemente no es común que la miel silvestre tenga esas propiedades narcóticas o paralizantes pero se la halla",
+      "audio": "test/audio/7510/7613/7510_7613_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 867.13,
+        "original_end_s": 883.72
+      }
+    },
+    {
+      "id": "7510_7613_000041",
+      "text": "pero así como el soltero que fué siempre juicioso cree de su deber la víspera de sus bodas despedirse de la vida libre con una noche de orgía en compañía de sus amigos",
+      "audio": "test/audio/7510/7613/7510_7613_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 147.73,
+        "original_end_s": 160.42
+      }
+    },
+    {
+      "id": "7510_7613_000042",
+      "text": "de la bullente vida tropical no hay más que el teatro helado ni un animal ni un pájaro ni un ruido casi benincasa volvía cuando un sordo zumbido le llamó la atención",
+      "audio": "test/audio/7510/7613/7510_7613_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 476.82,
+        "original_end_s": 491.95
+      }
+    },
+    {
+      "id": "7510_7613_000043",
+      "text": "después de un momento desencanto pensó en el fuego levantaría una buena humareda la suerte quiso que mientras el ladrón acercaba cautelosamente la hojarasca húmeda cuatro o cinco abejas se posaran en su mano sin picarlo",
+      "audio": "test/audio/7510/7613/7510_7613_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 526.06,
+        "original_end_s": 544.82
+      }
+    },
+    {
+      "id": "7510_7613_000044",
+      "text": "no resisten sin embargo a la creolina o droga similar y como en el obraje abundaba aquella antes de una hora quedó libre de la corrección benincasa se observaba muy de cerca en los pies la placa lívida de la mordedura",
+      "audio": "test/audio/7510/7613/7510_7613_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 392.08,
+        "original_end_s": 411.22
+      }
+    },
+    {
+      "id": "7510_7613_000045",
+      "text": "esto es miel se dijo el contador público con íntima gula deben de ser bolitas de cera llenas de miel pero entre él benincasa y las bolsitas estaban las abejas",
+      "audio": "test/audio/7510/7613/7510_7613_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 510.77,
+        "original_end_s": 526.06
+      }
+    },
+    {
+      "id": "7510_7613_000046",
+      "text": "benincasa una vez bien seguro de que solo cinco bolsitas le serían útiles comenzó su idea era sencilla tener suspendido el panal goteante sobre su boca",
+      "audio": "test/audio/7510/7613/7510_7613_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 610.38,
+        "original_end_s": 624.69
+      }
+    },
+    {
+      "id": "7510_7613_000047",
+      "text": "después de observar de nuevo el bosque a uno y otro lado retornó bastante desilusionado al día siguiente sin embargo recorrió la picada central por espacio de una legua",
+      "audio": "test/audio/7510/7613/7510_7613_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 254.88,
+        "original_end_s": 271.75
+      }
+    },
+    {
+      "id": "7510_7613_000048",
+      "text": "su angustia cambió de forma estoy paralítico es la parálisis y no me van a encontrar pero una invencible somnolencia comenzaba a apoderarse de él dejándole íntegras sus facultades",
+      "audio": "test/audio/7510/7613/7510_7613_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 780.67,
+        "original_end_s": 797.67
+      }
+    },
+    {
+      "id": "7510_7613_000049",
+      "text": "que a sus doce años y en consecuencia de profundas lecturas de julio verne dieron a la rica empresa de abandonar su casa para ir a vivir al monte este queda a dos leguas de la ciudad allí vivirían primitivamente de la caza y la pesca",
+      "audio": "test/audio/7510/7613/7510_7613_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_16_quiroga_64kb.mp3",
+        "original_start_s": 34.4,
+        "original_end_s": 53.53
+      }
+    },
+    {
+      "id": "7678_7613_000000",
+      "text": "apenas me respondía y aunque se esforzaba en ello no podía sostener mi mirada un solo momento entonces le dije al fin levantándome creo que lo más discreto es que no vuelva más a verla creo lo mismo me respondió",
+      "audio": "test/audio/7678/7613/7678_7613_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 886.42,
+        "original_end_s": 905.15
+      }
+    },
+    {
+      "id": "7678_7613_000001",
+      "text": "kassim trabajaba esa noche hasta las tres de la mañana y su mujer tenía luego nuevas chispas que ella consideraba un instante con los labios apretados",
+      "audio": "test/audio/7678/7613/7678_7613_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 249.6,
+        "original_end_s": 261.07
+      }
+    },
+    {
+      "id": "7678_7613_000002",
+      "text": "no vamos no quiero que no quieras ir me mata esto por qué no quieres ir ya te he dicho no quiero ni una palabra más sobre esto oyes",
+      "audio": "test/audio/7678/7613/7678_7613_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 699.33,
+        "original_end_s": 711.35
+      }
+    },
+    {
+      "id": "7678_7613_000003",
+      "text": "kassim esperó un momento y cuando el solitario quedó por fin perfectamente inmóvil pudo entonces retirarse cerrando tras de sí la puerta sin hacer ruido",
+      "audio": "test/audio/7678/7613/7678_7613_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 740.69,
+        "original_end_s": 753.28
+      }
+    },
+    {
+      "id": "7678_7613_000004",
+      "text": "aquí termina mi novela ahora quiere verla maría se dirigió a una joven que pasaba del brazo es hora ya son las tres",
+      "audio": "test/audio/7678/7613/7678_7613_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 964.46,
+        "original_end_s": 976.1
+      }
+    },
+    {
+      "id": "7678_7613_000005",
+      "text": "así nuestra charla que en otra ocasión no hubiera pasado de ocho o diez frases se prolongó esta vez en larga y desahogada sinceridad",
+      "audio": "test/audio/7678/7613/7678_7613_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 61.83,
+        "original_end_s": 72.41
+      }
+    },
+    {
+      "id": "7678_7613_000006",
+      "text": "maría se levantó para comer y kassim tuvo la solicitud de siempre con ella al final de la cena su mujer lo miró de frente es mentira kassim le dijo oh repuso kassim sonriendo no es nada",
+      "audio": "test/audio/7678/7613/7678_7613_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 601.63,
+        "original_end_s": 617.22
+      }
+    },
+    {
+      "id": "7678_7613_000007",
+      "text": "no tengo ganas te gusta vezzera me miró como miran los tuberculosos condenados al reposo a un hombre fuerte que no se jacta de ello y en realidad creo que ya se precipitaba su tisis se observó en seguida las manos sudorosas que le temblaban",
+      "audio": "test/audio/7678/7613/7678_7613_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 351.65,
+        "original_end_s": 370.61
+      }
+    },
+    {
+      "id": "7678_7613_000008",
+      "text": "los sollozos subían con esto y el joyero se reinstalaba lentamente en su banco estas cosas se repitieron tanto que kassim no se levantaba ya a consolarla consolarla de qué",
+      "audio": "test/audio/7678/7613/7678_7613_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 189.46,
+        "original_end_s": 204.8
+      }
+    },
+    {
+      "id": "7678_7613_000009",
+      "text": "por lo cual mientras el joyero trabajaba doblado sobre sus pinzas ella de codos sostenía sobre su marido una lenta y pesada mirada",
+      "audio": "test/audio/7678/7613/7678_7613_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 100.39,
+        "original_end_s": 110.84
+      }
+    },
+    {
+      "id": "7678_7613_000010",
+      "text": "no nunca más como quieras mejor no estás enojado verdad oh no seas criatura me reí y estaba verdaderamente irritado contra vezzera contra mí",
+      "audio": "test/audio/7678/7613/7678_7613_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 648.55,
+        "original_end_s": 663.92
+      }
+    },
+    {
+      "id": "7678_7613_000011",
+      "text": "lo detuve del hombro y se dejó caer en seguida en la silla con la cabeza sobre sus brazos en la mesa quédate le dije vas a dormir aquí conmigo no estés solo",
+      "audio": "test/audio/7678/7613/7678_7613_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 731.18,
+        "original_end_s": 744.37
+      }
+    },
+    {
+      "id": "7678_7613_000012",
+      "text": "su mujer no lo sintió no había mucha luz el rostro de kassim adquirió de pronto una dura inmovilidad y suspendiendo un instante la joya a flor del seno desnudo hundió firme y perpendicular como un clavo el alfiler entero en el corazón de su mujer",
+      "audio": "test/audio/7678/7613/7678_7613_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 705.59,
+        "original_end_s": 725.22
+      }
+    },
+    {
+      "id": "7678_7613_000013",
+      "text": "su mujer los ojos encendidos y la boca burlona se erguía con el prendedor puesto te queda muy bien dijo kassim al rato guardémoslo maría se rió oh no es mío broma",
+      "audio": "test/audio/7678/7613/7678_7613_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 345.5,
+        "original_end_s": 361.91
+      }
+    },
+    {
+      "id": "7678_7613_000014",
+      "text": "firme y varonil en su engarce con paso silencioso fue al dormitorio y encendió la veladora maría dormía de espaldas en la blancura helada de su camisón y de la sábana",
+      "audio": "test/audio/7678/7613/7678_7613_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 678.15,
+        "original_end_s": 693.12
+      }
+    },
+    {
+      "id": "7678_7613_000015",
+      "text": "eres un hombre tú murmuraba kassim sobre sus engarces no cesaba de mover los dedos no eres feliz conmigo maría expresaba al rato feliz",
+      "audio": "test/audio/7678/7613/7678_7613_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 222.63,
+        "original_end_s": 237.82
+      }
+    },
+    {
+      "id": "7678_7613_000016",
+      "text": "cuanto ganaba kassim no obstante era para ella los domingos trabajaba también a fin de poderle ofrecer un suplemento cuando maría deseaba una joya y con cuánta pasión deseaba ella trabajaba de noche",
+      "audio": "test/audio/7678/7613/7678_7613_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 121.12,
+        "original_end_s": 138.89
+      }
+    },
+    {
+      "id": "7678_7613_000017",
+      "text": "durante un rato nos quedamos en profundo silencio al fin articuló sin entonación alguna es que me dan unas ganas locas de matarme por eso quédate aquí no estés solo pero no pude contenerlo y pasé toda la noche inquieto",
+      "audio": "test/audio/7678/7613/7678_7613_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 744.37,
+        "original_end_s": 762.83
+      }
+    },
+    {
+      "id": "7678_7613_000018",
+      "text": "sabes lo que te quería decir que no querías que maría se enamorara de ti por eso no ibas qué estúpido me sonreí sí estúpido todo lo que quieras quedamos mudos otra vez al fin me acerqué a él",
+      "audio": "test/audio/7678/7613/7678_7613_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 417.35,
+        "original_end_s": 437.13
+      }
+    },
+    {
+      "id": "7678_7613_000019",
+      "text": "usted sabe qué terrible fuerza de atracción tiene el suicidio cuando la idea fija se ha enredado en una madeja de nervios enfermos habría sido menester que a toda costa vezzera no estuviera solo en su cuarto y aún así persistía siempre el motivo",
+      "audio": "test/audio/7678/7613/7678_7613_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 762.83,
+        "original_end_s": 781.48
+      }
+    },
+    {
+      "id": "7678_7613_000020",
+      "text": "en medio de todo quedaba vivísima radiante de brusca felicidad la imagen de maría yo sé el esfuerzo que debí hacer cuando era de vezzera para dejar de ir a verla y había creído adivinar también que algo semejante pasaba en ella",
+      "audio": "test/audio/7678/7613/7678_7613_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 855.98,
+        "original_end_s": 873.61
+      }
+    },
+    {
+      "id": "7678_7613_000021",
+      "text": "para arrancarse luego bruscamente y seguir con la vista tras los vidrios al transeunte de posición que podía haber sido su marido",
+      "audio": "test/audio/7678/7613/7678_7613_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 110.84,
+        "original_end_s": 121.12
+      }
+    },
+    {
+      "id": "7678_7613_000022",
+      "text": "hace días que las noto más flacas sabes por qué no quieres ir más quieres que te lo diga tenía las ventanas de la nariz contraídas y su respiración acelerada le cerraba los labios vamos no seas cálmate que es lo mejor es que te lo voy a decir",
+      "audio": "test/audio/7678/7613/7678_7613_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 370.61,
+        "original_end_s": 389.77
+      }
+    },
+    {
+      "id": "7678_7613_000023",
+      "text": "y que como todos los de ese carácter al reír destellan felicidad sí repuso sencillamente sufrimos un poco ya ve se rió zapiola despidiéndose yo en lugar suyo volvería al salón",
+      "audio": "test/audio/7678/7613/7678_7613_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 1010.7,
+        "original_end_s": 1027.94
+      }
+    },
+    {
+      "id": "7678_7613_000024",
+      "text": "kassim lívido lo recogió examinándolo y alzó luego desde el suelo la mirada a su mujer y bueno por qué me miras así se hizo algo tu piedra",
+      "audio": "test/audio/7678/7613/7678_7613_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 496.45,
+        "original_end_s": 508.6
+      }
+    },
+    {
+      "id": "7678_7613_000025",
+      "text": "además sus pulmones no daban más era cuestión de tiempo que hiciera feliz a maría como él hubiera deseado etcétera y dos o tres frases más inútil que le cuente en detalle mi turbación de esos días",
+      "audio": "test/audio/7678/7613/7678_7613_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 821.86,
+        "original_end_s": 837.93
+      }
+    },
+    {
+      "id": "7678_7613_000026",
+      "text": "pero no ves que estás delirando que estás muerto de fiebre le interrumpí por dicha un violento acceso de tos lo detuvo lo empujé cariñosamente acuéstate un momento estás mal",
+      "audio": "test/audio/7678/7613/7678_7613_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 389.77,
+        "original_end_s": 404.8
+      }
+    },
+    {
+      "id": "7678_7613_000027",
+      "text": "sí pensabas eso antenor no supondrás era una broma se rió él también la madre entró de nuevo en la sala y la conversación cambió de rumbo",
+      "audio": "test/audio/7678/7613/7678_7613_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 566.05,
+        "original_end_s": 579.91
+      }
+    },
+    {
+      "id": "7678_7613_000028",
+      "text": "no repuso kassim y reanudó en seguida su tarea aunque las manos le temblaban hasta dar lástima pero tuvo que levantarse al fin a ver al su mujer en el dormitorio en plena crisis de nervios",
+      "audio": "test/audio/7678/7613/7678_7613_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 508.6,
+        "original_end_s": 525.13
+      }
+    },
+    {
+      "id": "7678_7613_000029",
+      "text": "no crea en esas sacudidas me dijo zapiola con aire tranquilo y serio casi nunca se sabe al principio lo que pasará o se hará después",
+      "audio": "test/audio/7678/7613/7678_7613_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 94.56,
+        "original_end_s": 105.63
+      }
+    },
+    {
+      "id": "7678_7613_000030",
+      "text": "cuando salimos vezzera me dijo y es como te he dicho sí le respondí la gente impresionable puede entonces comunicar una impresión conforme a la realidad",
+      "audio": "test/audio/7678/7613/7678_7613_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 246.7,
+        "original_end_s": 259.37
+      }
+    },
+    {
+      "id": "7678_7613_000031",
+      "text": "posiblemente me quejé de la amarga situación pues recuerdo haberle dicho que creía de todo punto imposible cualquier arreglo",
+      "audio": "test/audio/7678/7613/7678_7613_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 84.11,
+        "original_end_s": 94.56
+      }
+    },
+    {
+      "id": "7678_7613_000032",
+      "text": "pasó conmigo una hora de loco entusiasmo abrasándose al recuerdo de su novia fui varias veces más con bezzera",
+      "audio": "test/audio/7678/7613/7678_7613_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 303.79,
+        "original_end_s": 313.84
+      }
+    },
+    {
+      "id": "7678_7613_000033",
+      "text": "supe que se había casado su mujer estaba allí mismo esa noche por mi parte lo informé de mi noviazgo con elena y su reciente ruptura",
+      "audio": "test/audio/7678/7613/7678_7613_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 72.41,
+        "original_end_s": 84.11
+      }
+    },
+    {
+      "id": "7678_7613_000034",
+      "text": "y no te da vergüenza pero qué diablos te pasa qué tienes contra mí no me contestó encogiéndose de hombros anda al demonio murmuré pero un momento después al separarme sentí su mirada cruel y desconfiada fija en la mía",
+      "audio": "test/audio/7678/7613/7678_7613_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 595.51,
+        "original_end_s": 613.51
+      }
+    },
+    {
+      "id": "7678_7613_000035",
+      "text": "mira maría qué piedra no he visto otra igual su mujer no dijo nada pero kassim la sintió respirar hondamente sobre el solitario",
+      "audio": "test/audio/7678/7613/7678_7613_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 431.95,
+        "original_end_s": 442.9
+      }
+    },
+    {
+      "id": "7678_7613_000036",
+      "text": "y se levantó a proseguir su tarea su mujer con la cara entre las manos lo siguió con la vista y no me dice más que eso murmuró y con una honda náusea por aquello pegajoso fofo e inerte que era su marido se fue a su cuarto",
+      "audio": "test/audio/7678/7613/7678_7613_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 628.53,
+        "original_end_s": 647.58
+      }
+    },
+    {
+      "id": "7678_7613_000037",
+      "text": "pero no me moví nunca más añadí no nunca como usted quiera rompió en un sollozo mientras dos lágrimas vencidas rodaban por sus mejillas",
+      "audio": "test/audio/7678/7613/7678_7613_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 905.15,
+        "original_end_s": 918.96
+      }
+    },
+    {
+      "id": "7678_7613_000038",
+      "text": "al día siguiente vezzera entró al anochecer en mi cuarto llovía desde la mañana con fuerte temporal y la humedad y el frío me agobiaban",
+      "audio": "test/audio/7678/7613/7678_7613_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 663.92,
+        "original_end_s": 674.32
+      }
+    },
+    {
+      "id": "7678_7613_000039",
+      "text": "hay otra cosa se sonrió con esfuerzo sí zapiola te va a decir vezzera exclamé es decir no el motivo suyo sino el que yo le atribuía para no venir más aquí sabes por qué",
+      "audio": "test/audio/7678/7613/7678_7613_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 529.21,
+        "original_end_s": 547.84
+      }
+    },
+    {
+      "id": "7678_7613_000040",
+      "text": "después había tos y puntadas al costado pero maría tenía sus chispas de brillante poco a poco el trato diario con las gemas llegó a hacerle amar las tareas del artífice y seguía con ardor las íntimas delicadezas del engarce",
+      "audio": "test/audio/7678/7613/7678_7613_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 138.89,
+        "original_end_s": 157.98
+      }
+    },
+    {
+      "id": "7678_7613_000041",
+      "text": "hubo una brusca apertura de ojos seguida de una lenta caída de párpados los dedos se arquearon y nada más la joya sacudida por la convulsión del ganglio herido tembló un instante desequilibrada",
+      "audio": "test/audio/7678/7613/7678_7613_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 725.22,
+        "original_end_s": 740.69
+      }
+    },
+    {
+      "id": "7678_7613_000042",
+      "text": "me llamas ladrona a mí infame se durmió al fin pero kassim no durmió entregaron luego a kassim para montar un solitario el brillante más admirable que hubiera pasado por sus manos",
+      "audio": "test/audio/7678/7613/7678_7613_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 415.63,
+        "original_end_s": 431.95
+      }
+    },
+    {
+      "id": "7678_7613_000043",
+      "text": "un día me dijo que estaba enamorado y que posiblemente se casaría muy pronto aunque me habló con loco entusiasmo de la belleza de su novia esta apreciación suya de la hermosura en cuestión no tenía para mí ningún valor",
+      "audio": "test/audio/7678/7613/7678_7613_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 153.44,
+        "original_end_s": 169.58
+      }
+    },
+    {
+      "id": "7678_7613_000044",
+      "text": "que estuviera yo lejos de creer que se mataba de dolor absolutamente no pero él no era hombre capaz de sacrificar a nadie a su egoísta felicidad y por eso nos dejaba libre a mí y a ella",
+      "audio": "test/audio/7678/7613/7678_7613_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 808.24,
+        "original_end_s": 821.86
+      }
+    },
+    {
+      "id": "7678_7613_000045",
+      "text": "todas sus ansias y suspicacias eran enfermizas y usted no ignora de qué modo se sufre y se hace sufrir con este modo de ser",
+      "audio": "test/audio/7678/7613/7678_7613_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 143.3,
+        "original_end_s": 153.44
+      }
+    },
+    {
+      "id": "7678_7613_000046",
+      "text": "kassim de cuerpo mezquino rostro exangüe sombreado por rala barba negra tenía una mujer hermosa y fuertemente apasionada la joven de origen callejero",
+      "audio": "test/audio/7678/7613/7678_7613_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 60.87,
+        "original_end_s": 74.4
+      }
+    },
+    {
+      "id": "7678_7613_000047",
+      "text": "vezzera se recostó en mi cama y cruzó sus dos manos sobre la frente pasó un largo rato en silencio de pronto me llegó su voz lenta",
+      "audio": "test/audio/7678/7613/7678_7613_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 404.8,
+        "original_end_s": 417.35
+      }
+    },
+    {
+      "id": "7678_7613_000048",
+      "text": "después sí mi amor sí después no no no redobló aún sus sollozos entonces salí desesperado y pensando con rabiosa amargura que aquel imbécil al matarse nos había muerto también a nosotros dos",
+      "audio": "test/audio/7678/7613/7678_7613_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 945.31,
+        "original_end_s": 964.46
+      }
+    },
+    {
+      "id": "7678_7613_000049",
+      "text": "te juro que es mentira insistió ella kassim sonrió de nuevo tocándole con torpe cariño la mano loca te digo que no me acuerdo de nada",
+      "audio": "test/audio/7678/7613/7678_7613_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 617.22,
+        "original_end_s": 628.53
+      }
+    },
+    {
+      "id": "7678_7613_000050",
+      "text": "kassim la ayudó a levantarse lívido estás enferma maría después hablaremos acuéstate mi brillante bueno veremos si es posible acuéstate",
+      "audio": "test/audio/7678/7613/7678_7613_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 573.49,
+        "original_end_s": 587.69
+      }
+    },
+    {
+      "id": "7678_7613_000051",
+      "text": "al acercarme se llevó las manos a la cara y apenas sintió mi contacto se estremeció violentamente y rompió en sollozos me incliné detrás de ella y le abracé la cabeza",
+      "audio": "test/audio/7678/7613/7678_7613_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 918.96,
+        "original_end_s": 932.54
+      }
+    },
+    {
+      "id": "7678_7613_000052",
+      "text": "si quieres hacerlo después se atrevió kassim es un trabajo urgente esperó respuesta en vano su mujer abría el balcón maría te pueden ver toma ahí está tu piedra el solitario violentamente arrancado rodó por el piso",
+      "audio": "test/audio/7678/7613/7678_7613_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 476.89,
+        "original_end_s": 496.45
+      }
+    },
+    {
+      "id": "7678_7613_000053",
+      "text": "no has visto el prendedor maría lo dejé aquí sí lo he visto dónde está se volvió extrañado aquí",
+      "audio": "test/audio/7678/7613/7678_7613_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 335.26,
+        "original_end_s": 345.5
+      }
+    },
+    {
+      "id": "7678_7613_000054",
+      "text": "la mujer de kassim franqueó ese límite con una pasión igual por lo menos a la que sentía por los brillantes una tarde al guardar sus joyas kassim notó la falta de un prendedor cinco mil pesos en dos solitarios buscó en sus cajones de nuevo",
+      "audio": "test/audio/7678/7613/7678_7613_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 315.6,
+        "original_end_s": 335.26
+      }
+    },
+    {
+      "id": "7678_7613_000055",
+      "text": "si es eso yo soy enfermizo excitable expuesto a continuos mirajes y debo equivocarme siempre tú no lo que dices es la ponderación justa de lo que has visto",
+      "audio": "test/audio/7678/7613/7678_7613_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 180.48,
+        "original_end_s": 193.95
+      }
+    },
+    {
+      "id": "7678_7613_000056",
+      "text": "maría tartamudeó kassim tratando de desasirse ah rugió su mujer enloquecida tú eres el ladrón miserable me has robado mi vida ladrón ladrón y creías que no me iba a desquitar cornudo ajá mírame no se te había ocurrido nunca eh ah",
+      "audio": "test/audio/7678/7613/7678_7613_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 535.35,
+        "original_end_s": 555.18
+      }
+    },
+    {
+      "id": "7678_7613_000057",
+      "text": "que en cuanto a maría tenía la más completa certidumbre y que yo no había hecho sino confirmarle mi amor con mi negativa a ir más allá",
+      "audio": "test/audio/7678/7613/7678_7613_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 797.48,
+        "original_end_s": 808.24
+      }
+    },
+    {
+      "id": "7678_7613_000058",
+      "text": "una noche a una nueva invitación respondí que no me hallaba bien y que lo dejaríamos para otro momento diez días más tarde respondí lo mismo y de igual modo en la siguiente semana esta vez vezzera me miró fijamente a los ojos por qué no quieres ir",
+      "audio": "test/audio/7678/7613/7678_7613_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 313.84,
+        "original_end_s": 333.52
+      }
+    },
+    {
+      "id": "7678_7613_000059",
+      "text": "porque él cree que usted se va a enamorar de mí me adelanté dirigiéndome a maría ya antes de decir esto vi bien claro la ridiculez en que iba a caer pero tuve que hacerlo maría soltó la risa notándose así mucho más el cansancio de sus ojos",
+      "audio": "test/audio/7678/7613/7678_7613_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 547.84,
+        "original_end_s": 566.05
+      }
+    },
+    {
+      "id": "7678_7613_000060",
+      "text": "me juras por lo que más quieras por lo que quieras más que no sabes lo que pienso no respondí secamente no mientes no estás mintiendo no miento y mentía profundamente",
+      "audio": "test/audio/7678/7613/7678_7613_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 613.51,
+        "original_end_s": 630.1
+      }
+    },
+    {
+      "id": "7678_7613_000061",
+      "text": "y tienes el valor de decirlo quién puede ser feliz contigo ni la última de las mujeres pobre diablo concluía con risa nerviosa yéndose",
+      "audio": "test/audio/7678/7613/7678_7613_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 237.82,
+        "original_end_s": 249.6
+      }
+    },
+    {
+      "id": "7678_7613_000062",
+      "text": "me quedé solo el pensamiento de elena volvió otra vez pero en medio de mi disgusto me acordaba a cada instante de la impresión que recibió zapiola al ver por primera vez los ojos de maría yo no hacía sino recordarlos",
+      "audio": "test/audio/7678/7613/7678_7613_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 1027.94,
+        "original_end_s": 1045.63
+      }
+    },
+    {
+      "id": "7678_7613_000063",
+      "text": "pero cuando la joya estaba concluída debía partir no era para ella caía más hondamente en la decepción de su matrimonio se probaba la alhaja deteniéndose ante el espejo",
+      "audio": "test/audio/7678/7613/7678_7613_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 157.98,
+        "original_end_s": 172.08
+      }
+    },
+    {
+      "id": "7678_7613_000064",
+      "text": "no es que no quiera ir sino que me hallo hoy con poco humor para esas cosas no es eso es que no quieres ir más yo sí y te exijo como a un amigo o como a ti que me digas justamente esto por qué no quieres ir más",
+      "audio": "test/audio/7678/7613/7678_7613_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 333.52,
+        "original_end_s": 351.65
+      }
+    },
+    {
+      "id": "7678_7613_000065",
+      "text": "todos cualquier marido el último haría un sacrificio para halagar a su mujer y tú y tú ni un miserable vestido que ponerme tengo cuando se franquea cierto límite de respeto al varón la mujer puede llegar a decir a su marido cosas increíbles",
+      "audio": "test/audio/7678/7613/7678_7613_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 296.2,
+        "original_end_s": 315.6
+      }
+    },
+    {
+      "id": "7678_7613_000066",
+      "text": "eres un canalla me apresuré a decirle en los ojos a vezzera cuando salimos sí me respondió mirándome claramente lo hice a propósito querías ridiculizarme sí quería",
+      "audio": "test/audio/7678/7613/7678_7613_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 579.91,
+        "original_end_s": 595.51
+      }
+    },
+    {
+      "id": "7678_7613_000067",
+      "text": "te juro bah déjame en paz concluyó cada vez más irritado con mi tranquilidad que era para él otra manifestación de orgullo",
+      "audio": "test/audio/7678/7613/7678_7613_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 193.95,
+        "original_end_s": 204.39
+      }
+    },
+    {
+      "id": "7678_7613_000068",
+      "text": "y ahora libres sí solos los dos pero con un cadáver entre nosotros después de quince días fui a su casa hablamos vagamente evitando la menor alusión",
+      "audio": "test/audio/7678/7613/7678_7613_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 873.61,
+        "original_end_s": 886.42
+      }
+    },
+    {
+      "id": "7678_7613_000069",
+      "text": "pero lo que resaltaba claro para mí en su carta para mí que lo conocía era la desesperación de celos que lo llevó al suicidio ese era el único motivo lo demás sacrificio y conciencia tranquila no tenía ningún valor",
+      "audio": "test/audio/7678/7613/7678_7613_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 837.93,
+        "original_end_s": 855.98
+      }
+    },
+    {
+      "id": "7678_7613_000070",
+      "text": "al compás del montaje del solitario kassim recibió sobre su espalda trabajadora cuanto ardía de rencor y cocotaje frustrado en su mujer diez veces por día interrumpía a su marido para ir con el brillante ante el espejo después se lo probaba con diferentes vestidos",
+      "audio": "test/audio/7678/7613/7678_7613_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 457.06,
+        "original_end_s": 476.89
+      }
+    },
+    {
+      "id": "7678_7613_000071",
+      "text": "y se llevó las dos manos a la garganta ahogada pero cuando kassim se iba saltó de la cama y cayó alcanzando a cogerlo de un botín no importa el brillante dámelo no quiero más que eso es mío kassim miserable",
+      "audio": "test/audio/7678/7613/7678_7613_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 555.18,
+        "original_end_s": 573.49
+      }
+    },
+    {
+      "id": "7678_7613_000072",
+      "text": "el pelo se había soltado y los ojos le salían de las órbitas dame el brillante clamó dámelo nos escaparemos para mí dámelo",
+      "audio": "test/audio/7678/7613/7678_7613_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 525.13,
+        "original_end_s": 535.35
+      }
+    },
+    {
+      "id": "7678_7613_000073",
+      "text": "pregúntale siquiera se rió vezzera con visible afectación por qué ha pasado tanto tiempo sin venir maría arrugó imperceptiblemente el ceño y se volvió a mí con risueña sorpresa",
+      "audio": "test/audio/7678/7613/7678_7613_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 454.07,
+        "original_end_s": 469.17
+      }
+    },
+    {
+      "id": "7678_7613_000074",
+      "text": "fue al taller y volvió de nuevo contempló un rato el seno casi descubierto y con una descolorida sonrisa apartó un poco más el camisón desprendido",
+      "audio": "test/audio/7678/7613/7678_7613_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 693.12,
+        "original_end_s": 705.59
+      }
+    },
+    {
+      "id": "7678_7613_000075",
+      "text": "dámelo la bola montó de nuevo a la garganta kassim volvió a trabajar en su solitario como sus manos tenían una seguridad matemática faltaban pocas horas ya",
+      "audio": "test/audio/7678/7613/7678_7613_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 587.69,
+        "original_end_s": 601.63
+      }
+    },
+    {
+      "id": "7678_7613_000076",
+      "text": "el solitario kassim era un hombre enfermizo joyero de profesión bien que no tuviera tienda establecida trabajaba para las grandes casas siendo su especialidad el montaje de piedras preciosas",
+      "audio": "test/audio/7678/7613/7678_7613_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 28.47,
+        "original_end_s": 44.95
+      }
+    },
+    {
+      "id": "7678_7613_000077",
+      "text": "sí es broma es broma sí cómo te duele pensar que podría ser mío mañana te lo doy hoy voy al teatro con él kassim se demudó haces mal podrían verte perderían toda confianza en mí oh",
+      "audio": "test/audio/7678/7613/7678_7613_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 361.91,
+        "original_end_s": 379.29
+      }
+    },
+    {
+      "id": "7678_7613_000078",
+      "text": "un segundo y mientras me presentaba a su mujer le contaba a x cómo estuvimos nosotros a punto de no ser felices la joven sonrió a su marido y reconocí aquellos ojos sombríos de que él me había hablado",
+      "audio": "test/audio/7678/7613/7678_7613_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 993.32,
+        "original_end_s": 1010.7
+      }
+    },
+    {
+      "id": "7678_7613_000079",
+      "text": "quieres hacer una cosa vamos esta noche a su casa ya le he hablado de ti vas a ver si es o no como te he dicho fuimos no sé si usted ha sufrido una impresión semejante",
+      "audio": "test/audio/7678/7613/7678_7613_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 216.51,
+        "original_end_s": 231.05
+      }
+    },
+    {
+      "id": "7678_7613_000080",
+      "text": "sí es para ti falta poco maría repuso presuroso levantándose pero su mujer tras ese grito de pesadilla dormía de nuevo a las dos de la mañana kassim pudo dar por terminada su tarea el brillante resplandecía",
+      "audio": "test/audio/7678/7613/7678_7613_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 660.61,
+        "original_end_s": 678.15
+      }
+    },
+    {
+      "id": "7678_7613_000081",
+      "text": "cuanto prometía el muchacho se realizó plenamente en el hombre era como antes inconstante apasionado con depresiones y exaltamientos femeniles",
+      "audio": "test/audio/7678/7613/7678_7613_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 130.53,
+        "original_end_s": 143.3
+      }
+    },
+    {
+      "id": "7678_7613_000082",
+      "text": "vezzera insistió irritándose con mi orgullo no sé qué tiene que ver el orgullo con esto le observé",
+      "audio": "test/audio/7678/7613/7678_7613_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 169.58,
+        "original_end_s": 180.48
+      }
+    },
+    {
+      "id": "7678_7613_000083",
+      "text": "una agua admirable prosiguió él costará nueve o diez mil pesos un anillo murmuró maría al fin no es de hombre un alfiler",
+      "audio": "test/audio/7678/7613/7678_7613_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 442.9,
+        "original_end_s": 457.06
+      }
+    },
+    {
+      "id": "7678_7613_000084",
+      "text": "había aspirado con su hermosura a un más alto enlace esperó hasta los veinte años provocando a los hombres y a sus vecinas con su cuerpo temerosa al fin aceptó nerviosamente a kassim",
+      "audio": "test/audio/7678/7613/7678_7613_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 74.4,
+        "original_end_s": 89.59
+      }
+    },
+    {
+      "id": "7678_7613_000085",
+      "text": "de veras de veras me juras que te parece linda pero claro idiota me parece lindísima quieres más se calmó entonces y con la reacción inevitable de sus nervios femeninos",
+      "audio": "test/audio/7678/7613/7678_7613_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 290.17,
+        "original_end_s": 303.79
+      }
+    },
+    {
+      "id": "7678_7613_000086",
+      "text": "pero ya en el movimiento de los pies y en la dilatación de las narices de vezzera conocí su tensión de nervios dile que te diga se dirigió a maría por qué realmente no quería venir",
+      "audio": "test/audio/7678/7613/7678_7613_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 498.04,
+        "original_end_s": 513.48
+      }
+    },
+    {
+      "id": "7678_7613_000087",
+      "text": "ya las tres se volvió ella no hubiera creído bueno vámonos un momentito zapiola me dijo entonces ya ve amigo mío como se puede ser feliz después de lo que le he contado y su caso",
+      "audio": "test/audio/7678/7613/7678_7613_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 976.1,
+        "original_end_s": 993.32
+      }
+    },
+    {
+      "id": "7678_7613_000088",
+      "text": "sí mi alma querida quieres podremos ser muy felices eso no importa nada quieres no no me respondió no podríamos no imposible",
+      "audio": "test/audio/7678/7613/7678_7613_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 932.54,
+        "original_end_s": 945.31
+      }
+    },
+    {
+      "id": "7678_7613_000089",
+      "text": "pasó lo que temía a las siete de la mañana me trajeron una carta de vezzera muerto ya desde cuatro horas atrás me decía en ella que era demasiado claro que yo estaba enamorado de su novia y ella de mí",
+      "audio": "test/audio/7678/7613/7678_7613_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 781.48,
+        "original_end_s": 797.48
+      }
+    },
+    {
+      "id": "7678_7613_000090",
+      "text": "después de las primeras semanas de romper con elena una noche no pude evitar asistir a un baile hallábame hacía largo rato sentado y aburrido en exceso cuando julio zapiola viéndome allí vino a saludarme",
+      "audio": "test/audio/7678/7613/7678_7613_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 31.51,
+        "original_end_s": 48.03
+      }
+    },
+    {
+      "id": "7678_7613_000091",
+      "text": "yo tengo en mi matrimonio una novela infinitamente más complicada que la suya lo cual no obsta para que yo sea hoy el marido más feliz de la tierra oígala porque a usted podrá serle de gran provecho",
+      "audio": "test/audio/7678/7613/7678_7613_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 105.63,
+        "original_end_s": 120.39
+      }
+    },
+    {
+      "id": "7678_7613_000092",
+      "text": "esta noche vamos le dije quieres sí quiero cuatro horas más tarde llegábamos allá maría me saludó como si hubiera dejado de verme el día anterior sin parecer en lo más mínimo preocupada de mi larga ausencia",
+      "audio": "test/audio/7678/7613/7678_7613_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 437.13,
+        "original_end_s": 454.07
+      }
+    },
+    {
+      "id": "7678_7613_000093",
+      "text": "esta vez sí no pude menos que reírme vezzera me miró de reojo y se calló por largo rato parece me dijo de pronto que no hicieras sino concederme por suma gracia su belleza",
+      "audio": "test/audio/7678/7613/7678_7613_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 259.37,
+        "original_end_s": 273.75
+      }
+    },
+    {
+      "id": "7678_7613_000094",
+      "text": "lo cual no obstaba para que kassim prolongara más sus veladas a fin de un mayor suplemento era un hombre indeciso irresoluto y callado las miradas de su mujer se detenían ahora con más pesada fijeza sobre aquella muda tranquilidad",
+      "audio": "test/audio/7678/7613/7678_7613_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 204.8,
+        "original_end_s": 222.63
+      }
+    },
+    {
+      "id": "7678_7613_000095",
+      "text": "hace cinco años me vi con gran frecuencia con vezzera un amigo del colegio a quien había querido mucho antes y sobre todo él a mí",
+      "audio": "test/audio/7678/7613/7678_7613_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 120.39,
+        "original_end_s": 130.53
+      }
+    },
+    {
+      "id": "7678_7613_000096",
+      "text": "la angustia de la noche anterior tornó a desmesurarle los ojos entonces articuló con voz profundamente tomada es lo que pienso lo que tú sabes que yo pensaba cuando mentiste anoche de modo bueno dejemos no es nada hasta mañana",
+      "audio": "test/audio/7678/7613/7678_7613_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 711.35,
+        "original_end_s": 731.18
+      }
+    },
+    {
+      "id": "7678_7613_000097",
+      "text": "desde el primer momento noté que vezzera ardía en fiebre vengo a pedirte una cosa comenzó déjate de cosas interrumpí por qué has salido con esta noche no ves que estás jugando tu vida con esto",
+      "audio": "test/audio/7678/7613/7678_7613_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 674.32,
+        "original_end_s": 689.2
+      }
+    },
+    {
+      "id": "7678_7613_000098",
+      "text": "bueno me alegro dejemos esto hasta mañana cuándo quieres que volvamos allá nunca se acabó vi que verdadera angustia le dilataba los ojos no quieres ir más me dijo con voz ronca y extraña",
+      "audio": "test/audio/7678/7613/7678_7613_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 630.1,
+        "original_end_s": 648.55
+      }
+    },
+    {
+      "id": "7678_7613_000099",
+      "text": "cerró ella con rabioso fastidio golpeando violentamente la puerta vuelta del teatro colocó la joya sobre el velador kassim se levantó y la guardó en su taller bajo llave al volver su mujer estaba sentada en la cama",
+      "audio": "test/audio/7678/7613/7678_7613_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 379.29,
+        "original_end_s": 397.97
+      }
+    },
+    {
+      "id": "7678_7613_000100",
+      "text": "cada vez que volví a verlo en los días sucesivos lo hallé más exaltado con su amor estaba más delgado y sus ojos cargados de ojeras brillaban de fiebre",
+      "audio": "test/audio/7678/7613/7678_7613_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 204.39,
+        "original_end_s": 216.51
+      }
+    },
+    {
+      "id": "7678_7613_000101",
+      "text": "pero estás loco le respondí vezzera se encogió de hombros como si yo hubiera esquivado su respuesta siguió sin hablarme visiblemente disgustado hasta que al fin volvió otra vez a mí sus ojos de fiebre",
+      "audio": "test/audio/7678/7613/7678_7613_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 273.75,
+        "original_end_s": 290.17
+      }
+    },
+    {
+      "id": "7678_7613_000102",
+      "text": "pero cuando ella me extendió la mano y nos miramos sentí que por ese contacto tibio la espléndida belleza de aquellos ojos sombríos y de aquel cuerpo mudo se infiltraba en una caliente onda en todo mi ser",
+      "audio": "test/audio/7678/7613/7678_7613_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 231.05,
+        "original_end_s": 246.7
+      }
+    },
+    {
+      "id": "7678_7613_000103",
+      "text": "al fin la dejaba por ahí y se iba a su cuarto kassim se levantaba al oir sus sollozos y la hallaba en la cama sin querer escucharlo hago sin embargo cuanto puedo por ti decía él al fin tristemente",
+      "audio": "test/audio/7678/7613/7678_7613_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 172.08,
+        "original_end_s": 189.46
+      }
+    },
+    {
+      "id": "7678_7613_000104",
+      "text": "es un hombre joven dotado de rara elegancia y virilidad de carácter lo había estimado muchos años atrás y entonces volvía de europa después de larga ausencia",
+      "audio": "test/audio/7678/7613/7678_7613_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 48.03,
+        "original_end_s": 61.83
+      }
+    },
+    {
+      "id": "7678_7613_000105",
+      "text": "no más sueños de lujo sin embargo su marido hábil artista aún carecía completamente de carácter para hacer una fortuna",
+      "audio": "test/audio/7678/7613/7678_7613_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 89.59,
+        "original_end_s": 100.39
+      }
+    },
+    {
+      "id": "7678_7613_000106",
+      "text": "era tan perverso y cobarde el ataque que lo miré con verdadera rabia vezzera afectó no darse cuenta y sostuvo la tirante expectativa con el convulsivo golpeteo del pie mientras maría tornaba a contraer las cejas",
+      "audio": "test/audio/7678/7613/7678_7613_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_02_quiroga_64kb.mp3",
+        "original_start_s": 513.48,
+        "original_end_s": 529.21
+      }
+    },
+    {
+      "id": "7678_7613_000107",
+      "text": "es decir que temes que te la robe qué soy una ladrona no mires así has sido imprudente nada más ah y a ti te lo confían a ti a ti y cuando tu mujer te pide un poco de halago y quiere",
+      "audio": "test/audio/7678/7613/7678_7613_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-7678",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_03_quiroga_64kb.mp3",
+        "original_start_s": 397.97,
+        "original_end_s": 415.63
+      }
+    },
+    {
+      "id": "8630_7613_000000",
+      "text": "el veneno comenzaba a irse no había duda se hallaba casi bien y aunque no tenía fuerzas para mover la mano contaba con la caída del rocío para reponerse del todo",
+      "audio": "dev/audio/8630/7613/8630_7613_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 433.91,
+        "original_end_s": 448.41
+      }
+    },
+    {
+      "id": "8630_7613_000001",
+      "text": "no había nada que hacer se echó en la cama tiritando de frío doblado en gatillo bajo el poncho mientras los dientes incontenibles castañeaban a más no poder",
+      "audio": "dev/audio/8630/7613/8630_7613_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 952.67,
+        "original_end_s": 966.71
+      }
+    },
+    {
+      "id": "8630_7613_000002",
+      "text": "así en constantes derroches de nuevos adelantos necesidad irresistible de compensar con siete días de gran señor las miserias del obraje el silex volvió a remontar el río",
+      "audio": "dev/audio/8630/7613/8630_7613_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 306.75,
+        "original_end_s": 321.21
+      }
+    },
+    {
+      "id": "8630_7613_000003",
+      "text": "el tercer ataque comenzó una hora después quedando podeley aplomado en una profunda falta de fuerzas y la mirada fija y opaca como si no pudiera ir más allá de uno o dos metros",
+      "audio": "dev/audio/8630/7613/8630_7613_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1026.78,
+        "original_end_s": 1041.59
+      }
+    },
+    {
+      "id": "8630_7613_000004",
+      "text": "movía la pierna con dificultad una metálica sequedad de garganta seguida de sed quemante le arrancó un nuevo juramento",
+      "audio": "dev/audio/8630/7613/8630_7613_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 108.71,
+        "original_end_s": 120.22
+      }
+    },
+    {
+      "id": "8630_7613_000005",
+      "text": "el mayordomo contempló aquella ruina y no estimó en gran cosa la vida que quedaba allí cómo está tu cuenta preguntó otra vez debo veinte pesos todavía el sábado entregué me hallo muy enfermo",
+      "audio": "dev/audio/8630/7613/8630_7613_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1102.74,
+        "original_end_s": 1121.07
+      }
+    },
+    {
+      "id": "8630_7613_000006",
+      "text": "cayé y podeley bajaron tambaleantes de orgía pregustada y rodeados de tres o cuatro amigas se hallaron en un momento ante la cantidad suficiente de caña para colmar el hambre de eso de un mensú",
+      "audio": "dev/audio/8630/7613/8630_7613_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 128.91,
+        "original_end_s": 146.22
+      }
+    },
+    {
+      "id": "8630_7613_000007",
+      "text": "la muchacha deslumbraba efectivamente con su traje de raso falda verde y blusa amarilla luciendo en el cuello sucio un triple collar de perlas zapatos luis quince",
+      "audio": "dev/audio/8630/7613/8630_7613_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 427.65,
+        "original_end_s": 441.9
+      }
+    },
+    {
+      "id": "8630_7613_000008",
+      "text": "al día siguiente el acceso no esperado hasta el crepúsculo tornó a mediodía y podeley fue a la comisaría a pedir quinina",
+      "audio": "dev/audio/8630/7613/8630_7613_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 966.71,
+        "original_end_s": 977.96
+      }
+    },
+    {
+      "id": "8630_7613_000009",
+      "text": "un dolor agudo nacía de los dos puntitos violeta y comenzaba a invadir todo el pie apresuradamente se ligó el tobillo con su pañuelo y siguió por la picada hacia su rancho",
+      "audio": "dev/audio/8630/7613/8630_7613_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 76.17,
+        "original_end_s": 91.48
+      }
+    },
+    {
+      "id": "8630_7613_000010",
+      "text": "tal vez no no tanto dos años y nueve meses acaso ocho meses y medio eso sí seguramente",
+      "audio": "dev/audio/8630/7613/8630_7613_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 530.54,
+        "original_end_s": 542.42
+      }
+    },
+    {
+      "id": "8630_7613_000011",
+      "text": "la exploración en descubierta de madera el desayuno a las ocho harina charque y grasa el hacha luego a busto descubierto cuyo sudor arrastraba tábanos barigüís y mosquitos",
+      "audio": "dev/audio/8630/7613/8630_7613_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 645.13,
+        "original_end_s": 660.81
+      }
+    },
+    {
+      "id": "8630_7613_000012",
+      "text": "saltó adelante y al volverse con un juramento vio una yararacusú que arrollada sobre sí misma esperaba otro ataque",
+      "audio": "dev/audio/8630/7613/8630_7613_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 34.67,
+        "original_end_s": 45.91
+      }
+    },
+    {
+      "id": "8630_7613_000013",
+      "text": "pero volvían por fin y el hachazo aún doliente de la vida del obraje era apenas un roce de astilla ante el rotundo goce que olfateaban allí",
+      "audio": "dev/audio/8630/7613/8630_7613_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 85.2,
+        "original_end_s": 97.82
+      }
+    },
+    {
+      "id": "8630_7613_000014",
+      "text": "al atardecer sin embargo su belleza sombría y calma cobra una majestad única el sol había caído ya cuando el hombre semi tendido en el fondo de la canoa tuvo un violento escalofrío",
+      "audio": "dev/audio/8630/7613/8630_7613_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 398.3,
+        "original_end_s": 414.96
+      }
+    },
+    {
+      "id": "8630_7613_000015",
+      "text": "a la cabeza a los dos y un momento después surgían de un recodo de la picada el capataz y tres peones corriendo la cacería comenzaba cayé amartilló su revólver sin dejar de avanzar",
+      "audio": "dev/audio/8630/7613/8630_7613_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1256.31,
+        "original_end_s": 1275.62
+      }
+    },
+    {
+      "id": "8630_7613_000016",
+      "text": "repleta la ropa de cigarrillos que deshacían torpemente entre los dientes dejando caer de cada bolsillo la punta de un pañuelo acompañábanlos dos muchachas orgullosas de esa opulencia cuya magnitud se acusaba en la expresión un tanto hastiada de los mensú",
+      "audio": "dev/audio/8630/7613/8630_7613_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 254.72,
+        "original_end_s": 274.6
+      }
+    },
+    {
+      "id": "8630_7613_000017",
+      "text": "los dos mensú devoraban con los ojos la capital del bosque jerusalem y gólgota de sus vidas nueve meses allá arriba año y medio",
+      "audio": "dev/audio/8630/7613/8630_7613_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 72.28,
+        "original_end_s": 85.2
+      }
+    },
+    {
+      "id": "8630_7613_000018",
+      "text": "anoche se han escapado tres eso es lo que te gusta no esos también eran cumplidores como vos pero antes vas a reventar aquí que salir de la planchada y mucho cuidado vos y todos los que están oyendo ya saben",
+      "audio": "dev/audio/8630/7613/8630_7613_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1193.93,
+        "original_end_s": 1210.84
+      }
+    },
+    {
+      "id": "8630_7613_000019",
+      "text": "y podeley encendió fuego no obstante los mil inconvenientes en un país donde fuera de los pavones hay otros seres que tienen debilidad por la luz sin contar los hombres",
+      "audio": "dev/audio/8630/7613/8630_7613_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1409.66,
+        "original_end_s": 1422.64
+      }
+    },
+    {
+      "id": "8630_7613_000020",
+      "text": "otra vez vos lo recibió el mayordomo eso no anda bien no tomaste quinina tomé no me hallo con esta fiebre no puedo trabajar si querés darme para mi pasaje te voy a cumplir en cuanto me sane",
+      "audio": "dev/audio/8630/7613/8630_7613_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1084.05,
+        "original_end_s": 1102.74
+      }
+    },
+    {
+      "id": "8630_7613_000021",
+      "text": "pero si tuviera un cuarenta y cuatro la fortuna llególe esta vez en forma bastante desviada la compañera de cayé que desprovista ya de su lujoso atavío lavaba la ropa a los peones",
+      "audio": "dev/audio/8630/7613/8630_7613_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 809.54,
+        "original_end_s": 827.36
+      }
+    },
+    {
+      "id": "8630_7613_000022",
+      "text": "el descanso absoluto a que se entregó por tres días bálsamo específico para el mensú por lo inesperado no hizo sino convertirle en un bulto castañeteante y arrebujado sobre un raigón",
+      "audio": "dev/audio/8630/7613/8630_7613_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1041.59,
+        "original_end_s": 1056.66
+      }
+    },
+    {
+      "id": "8630_7613_000023",
+      "text": "ambos se miraron con expresión que pudiera haber sido de espanto si un mensú no estuviera perfectamente curado de ese malestar no recordaban haber gastado ni la quinta parte añá murmuró cayé no voy a cumplir nunca",
+      "audio": "dev/audio/8630/7613/8630_7613_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 361.64,
+        "original_end_s": 381.28
+      }
+    },
+    {
+      "id": "8630_7613_000024",
+      "text": "el silex que pasó por allí al atardecer recogió al mensú ya casi moribundo su felicidad transformóse en terror al darse cuenta al día siguiente de que el vapor remontaba el río",
+      "audio": "dev/audio/8630/7613/8630_7613_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1708.98,
+        "original_end_s": 1725.88
+      }
+    },
+    {
+      "id": "8630_7613_000025",
+      "text": "la corriente del río se precipitaba ahora hacia la costa brasileña y el hombre pudo fácilmente atracar se arrastró por la picada en cuesta arriba pero a los veinte metros exhausto quedó tendido de pecho",
+      "audio": "dev/audio/8630/7613/8630_7613_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 311.76,
+        "original_end_s": 328.91
+      }
+    },
+    {
+      "id": "8630_7613_000026",
+      "text": "una gritería aguda respondióles mientras otra bala de winchester hacía saltar la corteza del árbol entregáte o te voy a dejar la cabeza",
+      "audio": "dev/audio/8630/7613/8630_7613_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1310.1,
+        "original_end_s": 1322.27
+      }
+    },
+    {
+      "id": "8630_7613_000027",
+      "text": "recomenzó automáticamente sus días de obraje silenciosos mates al levantarse de noche aún que se sucedían sin desprender la mano de la pava",
+      "audio": "dev/audio/8630/7613/8630_7613_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 632.63,
+        "original_end_s": 645.13
+      }
+    },
+    {
+      "id": "8630_7613_000028",
+      "text": "andá no más instó cayé a podeley yo voy a y tras nueva descarga entró en el monte los perseguidores detenidos un momento por las explosiones",
+      "audio": "dev/audio/8630/7613/8630_7613_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1322.27,
+        "original_end_s": 1336.22
+      }
+    },
+    {
+      "id": "8630_7613_000029",
+      "text": "lavaba entonces su ropa y el domingo iba al almacén a proveerse era este el real momento de solaz de los mensú olvidándolo todo entre los anatemas de la lengua natal",
+      "audio": "dev/audio/8630/7613/8630_7613_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 692.31,
+        "original_end_s": 706.8
+      }
+    },
+    {
+      "id": "8630_7613_000030",
+      "text": "y durante veinte horas la lluvia transformó al paraná en aceite blanco y al paranaí en furiosa avenida todo imposible",
+      "audio": "dev/audio/8630/7613/8630_7613_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1586.83,
+        "original_end_s": 1597.81
+      }
+    },
+    {
+      "id": "8630_7613_000031",
+      "text": "vos también le dijo este mirándolo y van cuatro los otros no importa poca cosa vos sos cumplidor cómo está tu cuenta",
+      "audio": "dev/audio/8630/7613/8630_7613_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 995.97,
+        "original_end_s": 1008.24
+      }
+    },
+    {
+      "id": "8630_7613_000032",
+      "text": "sabés bien que mientras tu cuenta no esté pagada debés quedar abajo podés morirte cúrate aquí y arreglás tu cuenta enseguida",
+      "audio": "dev/audio/8630/7613/8630_7613_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1121.07,
+        "original_end_s": 1132.8
+      }
+    },
+    {
+      "id": "8630_7613_000033",
+      "text": "cayé mensualero llegaba en iguales condiciones mas al año y medio tiempo necesario para chancelar su cuenta",
+      "audio": "dev/audio/8630/7613/8630_7613_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 49.91,
+        "original_end_s": 60.07
+      }
+    },
+    {
+      "id": "8630_7613_000034",
+      "text": "hecho a ella domada su aspiración de estricta justicia en el cubicaje de la madera compensando las rapiñas rutinarias con ciertos privilegios de buen peón su nueva etapa comenzó al día siguiente una vez demarcada su zona de bosque",
+      "audio": "dev/audio/8630/7613/8630_7613_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 598.4,
+        "original_end_s": 618.35
+      }
+    },
+    {
+      "id": "8630_7613_000035",
+      "text": "impotentes para contener la alzaprima que bajaba a todo escape rodaban unas sobre otras dando tumbos vigas animales carretas todo bien mezclado raramente se lastimaban las mulas pero la algazara era la misma",
+      "audio": "dev/audio/8630/7613/8630_7613_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 772.0,
+        "original_end_s": 789.78
+      }
+    },
+    {
+      "id": "8630_7613_000036",
+      "text": "llovió aún toda la noche sobre el moribundo la lluvia blanca y sorda de los diluvios otoñales hasta que a la madrugada podeley quedó inmóvil para siempre en su tumba de agua",
+      "audio": "dev/audio/8630/7613/8630_7613_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1672.18,
+        "original_end_s": 1687.03
+      }
+    },
+    {
+      "id": "8630_7613_000037",
+      "text": "en todo el día siguiente comieron dos chipas último resto de provisión que podeley probó apenas las tacuaras taladradas por los tambús se hundían y al caer la tarde la jangada había descendido a una cuarta del nivel del agua",
+      "audio": "dev/audio/8630/7613/8630_7613_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1492.62,
+        "original_end_s": 1512.06
+      }
+    },
+    {
+      "id": "8630_7613_000038",
+      "text": "ya deslumbraba el sol cuando despertaron el pajonal se extendía veinte metros tierra adentro sirviendo de litoral a río y bosque a media cuadra al sur el riacho paranaí que decidieron vadear cuando hubieran recuperado las fuerzas",
+      "audio": "dev/audio/8630/7613/8630_7613_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1557.29,
+        "original_end_s": 1576.2
+      }
+    },
+    {
+      "id": "8630_7613_000039",
+      "text": "tan claramente se denunciaba el chucho en el aspecto del mensú que el dependiente bajó los paquetes sin mirar casi al enfermo quien volcó tranquilamente sobre su lengua la terrible amargura aquella al volver al monte halló al mayordomo",
+      "audio": "dev/audio/8630/7613/8630_7613_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 977.96,
+        "original_end_s": 995.97
+      }
+    },
+    {
+      "id": "8630_7613_000040",
+      "text": "el hombre que iba en ella se sentía cada vez mejor y pensaba entretanto en el tiempo justo que había pasado sin ver a su expatrón dougald tres años",
+      "audio": "dev/audio/8630/7613/8630_7613_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 517.71,
+        "original_end_s": 530.54
+      }
+    },
+    {
+      "id": "8630_7613_000041",
+      "text": "viviría aún su compadre gaona en tacurú pucú acaso viera también a su ex patrón míster dougald y al recibidor del obraje llegaría pronto",
+      "audio": "dev/audio/8630/7613/8630_7613_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 464.76,
+        "original_end_s": 477.82
+      }
+    },
+    {
+      "id": "8630_7613_000042",
+      "text": "el sol estaba muy alto ya cuando a la mañana siguiente encontraron al riacho primera y última esperanza de los escapados cayé cortó doce tacuaras sin más prolija elección",
+      "audio": "dev/audio/8630/7613/8630_7613_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1422.64,
+        "original_end_s": 1437.23
+      }
+    },
+    {
+      "id": "8630_7613_000043",
+      "text": "falta poco pero no voy a poder trabajar bah curate bien y no es nada hasta mañana hasta mañana se alejó podeley apresurando el paso porque en los talones acababa de sentir un leve cosquilleo",
+      "audio": "dev/audio/8630/7613/8630_7613_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1008.24,
+        "original_end_s": 1026.78
+      }
+    },
+    {
+      "id": "8630_7613_000044",
+      "text": "la mujer corrió otra vez volviendo con la damajuana el hombre tragó uno tras otro dos vasos pero no sintió nada en la garganta",
+      "audio": "dev/audio/8630/7613/8630_7613_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 180.67,
+        "original_end_s": 192.23
+      }
+    },
+    {
+      "id": "8630_7613_000045",
+      "text": "de cien peones sólo dos llegan a posadas con haber para esa gloria de una semana a que los arrastra el río aguas abajo",
+      "audio": "dev/audio/8630/7613/8630_7613_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 97.82,
+        "original_end_s": 109.51
+      }
+    },
+    {
+      "id": "8630_7613_000046",
+      "text": "arrastrando consigo mañana y tarde por las calles caldeadas una infección de tabaco negro y extracto de obraje la noche llegaba por fin",
+      "audio": "dev/audio/8630/7613/8630_7613_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 274.6,
+        "original_end_s": 287.19
+      }
+    },
+    {
+      "id": "8630_7613_000047",
+      "text": "por lo demás los tiros errados hoy habían hecho lindo blanco la noche del jueves el peligro había pasado los fugitivos se sentaron rendidos",
+      "audio": "dev/audio/8630/7613/8630_7613_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1372.85,
+        "original_end_s": 1386.21
+      }
+    },
+    {
+      "id": "8630_7613_000048",
+      "text": "un instante después estaban borrachos y con nueva contrata sellada en qué trabajo en dónde lo ignoraban ni les importaba tampoco",
+      "audio": "dev/audio/8630/7613/8630_7613_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 146.22,
+        "original_end_s": 160.01
+      }
+    },
+    {
+      "id": "8630_7613_000049",
+      "text": "dorotea alcanzó a lanzar en un estertor dame caña su mujer corrió con un vaso lleno que el hombre sorbió en tres tragos pero no había sentido gusto alguno",
+      "audio": "dev/audio/8630/7613/8630_7613_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 148.21,
+        "original_end_s": 165.37
+      }
+    },
+    {
+      "id": "8630_7613_000050",
+      "text": "podeley cuya fiebre anterior había tenido honrado y periódico ritmo no presagió nada bueno para él de esa galopada de accesos casi sin intermitencia",
+      "audio": "dev/audio/8630/7613/8630_7613_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1056.66,
+        "original_end_s": 1068.72
+      }
+    },
+    {
+      "id": "8630_7613_000051",
+      "text": "no obstante esta sencillez el trato estuvo a punto de romperse porque a última hora cayé pidió se agregara un metro de tabaco en cuerda lo que pareció excesivo al mensú",
+      "audio": "dev/audio/8630/7613/8630_7613_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 869.22,
+        "original_end_s": 882.75
+      }
+    },
+    {
+      "id": "8630_7613_000052",
+      "text": "calculó que antes de tres horas estaría en tacurú pucú el bienestar avanzaba y con él una somnolencia llena de recuerdos no sentía ya nada ni en la pierna ni en el vientre",
+      "audio": "dev/audio/8630/7613/8630_7613_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 448.41,
+        "original_end_s": 464.76
+      }
+    },
+    {
+      "id": "8630_7613_000053",
+      "text": "cambió un día de domicilio cayé esperó dos noches y a la tercera fue a casa de su reemplazante donde propinó una soberbia paliza a la muchacha",
+      "audio": "dev/audio/8630/7613/8630_7613_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 827.36,
+        "original_end_s": 839.58
+      }
+    },
+    {
+      "id": "8630_7613_000054",
+      "text": "y sin abrir casi los ojos cegados por el agua murmuró cayé caray frío muy grande",
+      "audio": "dev/audio/8630/7613/8630_7613_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1661.38,
+        "original_end_s": 1672.18
+      }
+    },
+    {
+      "id": "8630_7613_000055",
+      "text": "es un desprendimiento brutal de su dinero por su parte cayé adquirió muchos más extractos y lociones y aceites de los necesarios para sahumar hasta la náusea su ropa nueva",
+      "audio": "dev/audio/8630/7613/8630_7613_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 209.59,
+        "original_end_s": 224.46
+      }
+    },
+    {
+      "id": "8630_7613_000056",
+      "text": "cayé entre risa y risa meditaba siempre su fuga harto ya de revirados y yoparás que el pregusto de la huída tornaba más indigestos deteníase aún por falta de revólver y ciertamente ante el winchester del capataz",
+      "audio": "dev/audio/8630/7613/8630_7613_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 789.78,
+        "original_end_s": 809.54
+      }
+    },
+    {
+      "id": "8630_7613_000057",
+      "text": "no tenía ánimo para nada volvió a su cobertizo y en el camino sintió un ligero cosquilleo en la espalda sabía muy bien qué eran aquel desgano y aquel hormigueo a flor de estremecimiento",
+      "audio": "dev/audio/8630/7613/8630_7613_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 925.33,
+        "original_end_s": 942.11
+      }
+    },
+    {
+      "id": "8630_7613_000058",
+      "text": "y desde ese momento tuvo sencillamente como justo castigo de su despilfarro la idea de escaparse de allá la legitimidad de su vida en posadas era sin embargo tan evidente para él",
+      "audio": "dev/audio/8630/7613/8630_7613_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 381.28,
+        "original_end_s": 398.02
+      }
+    },
+    {
+      "id": "8630_7613_000059",
+      "text": "los dedos lívidos temblaban sobre el gatillo cayé obedeció dejóse llevar por la corriente y desapareció tras el pajonal al que pudo abordar con terrible esfuerzo",
+      "audio": "dev/audio/8630/7613/8630_7613_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1626.65,
+        "original_end_s": 1642.15
+      }
+    },
+    {
+      "id": "8630_7613_000060",
+      "text": "y mulas enfermas que durante cuatro días remontó con él para podeley labrador de madera cuyo diario podía subir a siete pesos la vida de obraje no era dura",
+      "audio": "dev/audio/8630/7613/8630_7613_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 580.82,
+        "original_end_s": 598.4
+      }
+    },
+    {
+      "id": "8630_7613_000061",
+      "text": "las mejillas brutalmente pintadas y un desdeñoso cigarro de hoja bajo los párpados entornados cayé consideró a la muchacha y su revolver cuarenta y cuatro era realmente lo único que valía de cuanto llevaba con él",
+      "audio": "dev/audio/8630/7613/8630_7613_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 441.9,
+        "original_end_s": 460.57
+      }
+    },
+    {
+      "id": "8630_7613_000062",
+      "text": "el agua llegábales ya al pecho cuando tocaron tierra dónde no sabían un pajonal pero en la misma orilla quedaron inmóviles tendidos de espaldas",
+      "audio": "dev/audio/8630/7613/8630_7613_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1543.47,
+        "original_end_s": 1557.29
+      }
+    },
+    {
+      "id": "8630_7613_000063",
+      "text": "cayé pues construyó solo la jangada diez tacuaras atadas longitudinalmente con lianas llevando en cada extremo una atravesada",
+      "audio": "dev/audio/8630/7613/8630_7613_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1447.57,
+        "original_end_s": 1458.99
+      }
+    },
+    {
+      "id": "8630_7613_000064",
+      "text": "por favor te pido lloriqueó ante el capitán no me bajen en puerto equis me van a matar te lo pido de veras",
+      "audio": "dev/audio/8630/7613/8630_7613_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1725.88,
+        "original_end_s": 1736.45
+      }
+    },
+    {
+      "id": "8630_7613_000065",
+      "text": "esto era económico y bastante juicioso pero como el mensú parecía gustar realmente de la dama cosa rara en el gremio cayé ofreciósela en venta por un revólver con balas que él mismo sacaría del almacén",
+      "audio": "dev/audio/8630/7613/8630_7613_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 851.26,
+        "original_end_s": 869.22
+      }
+    },
+    {
+      "id": "8630_7613_000066",
+      "text": "entrá gritó cayé a su compañero y parapetándose tras un árbol descargó hacia allá los cinco tiros de su revólver",
+      "audio": "dev/audio/8630/7613/8630_7613_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1299.82,
+        "original_end_s": 1310.1
+      }
+    },
+    {
+      "id": "8630_7613_000067",
+      "text": "el dolor en el pie aumentaba con sensación de tirante abultamiento y de pronto el hombre sintió dos o tres fulgurantes puntadas que como relámpagos habían irradiado desde la herida hasta la mitad de la pantorrilla",
+      "audio": "dev/audio/8630/7613/8630_7613_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 91.48,
+        "original_end_s": 108.71
+      }
+    },
+    {
+      "id": "8630_7613_000068",
+      "text": "curarse de una fiebre perniciosa allí donde se la adquirió no por cierto pero el mensú que se va puede no volver y el mayordomo prefería hombre muerto a deudor lejano",
+      "audio": "dev/audio/8630/7613/8630_7613_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1132.8,
+        "original_end_s": 1146.78
+      }
+    },
+    {
+      "id": "8630_7613_000069",
+      "text": "podeley se incorporó de pronto chorreando agua apoyándose en el revólver para levantarse y apuntó volaba de fiebre",
+      "audio": "dev/audio/8630/7613/8630_7613_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1597.81,
+        "original_end_s": 1607.89
+      }
+    },
+    {
+      "id": "8630_7613_000070",
+      "text": "sentóse en la popa y comenzó a palear hasta el centro del paraná allí la corriente del río que en las inmediaciones del iguazú corre seis millas lo llevaría antes de cinco horas a tacuru pucu",
+      "audio": "dev/audio/8630/7613/8630_7613_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 242.11,
+        "original_end_s": 258.96
+      }
+    },
+    {
+      "id": "8630_7613_000071",
+      "text": "que sintió celos del mayor adelanto acordado a podeley vos tenés suerte dijo grande tu anticipo vos traés compañera objetó podeley eso te cuesta para tu bolsillo",
+      "audio": "dev/audio/8630/7613/8630_7613_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 398.02,
+        "original_end_s": 415.49
+      }
+    },
+    {
+      "id": "8630_7613_000072",
+      "text": "flacos despeinados en calzoncillos la camisa abierta en largos tajos descalzos como la mayoría sucios como todos ellos",
+      "audio": "dev/audio/8630/7613/8630_7613_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 60.07,
+        "original_end_s": 72.28
+      }
+    },
+    {
+      "id": "8630_7613_000073",
+      "text": "y podeley cuyas últimas fuerzas fueron dedicadas a cortar los isipós tuvo apenas tiempo de hacerlo antes de enroscarse a tiritar",
+      "audio": "dev/audio/8630/7613/8630_7613_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1437.23,
+        "original_end_s": 1447.57
+      }
+    },
+    {
+      "id": "8630_7613_000074",
+      "text": "después el almuerzo esta vez porotos y maíz flotando en la inevitable grasa para concluir de noche tras nueva lucha con las piezas de ocho por treinta con el yopará del mediodía",
+      "audio": "dev/audio/8630/7613/8630_7613_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 660.81,
+        "original_end_s": 676.29
+      }
+    },
+    {
+      "id": "8630_7613_000075",
+      "text": "el hombre con sombría energía pudo efectivamente llegar hasta el medio del río pero allí sus manos dormidas dejaron caer la pala en la canoa",
+      "audio": "dev/audio/8630/7613/8630_7613_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 258.96,
+        "original_end_s": 270.69
+      }
+    },
+    {
+      "id": "8630_7613_000076",
+      "text": "y en el mismo pajonal sitiado siete días por el bosque el río y la lluvia el mensú agotó las raíces y gusanos posible",
+      "audio": "dev/audio/8630/7613/8630_7613_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1687.03,
+        "original_end_s": 1698.8
+      }
+    },
+    {
+      "id": "8630_7613_000077",
+      "text": "cayé miró a su mujer y aunque la belleza y otras cualidades de orden más moral pesan muy poco en la elección de un mensú quedó satisfecho",
+      "audio": "dev/audio/8630/7613/8630_7613_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 415.49,
+        "original_end_s": 427.65
+      }
+    },
+    {
+      "id": "8630_7613_000078",
+      "text": "cayé llevó compañera y ambos borrachos como los demás peones se instalaron en el puente donde ya diez mulas se hacinaban en íntimo contacto con baúles atados perros mujeres y hombres",
+      "audio": "dev/audio/8630/7613/8630_7613_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 321.21,
+        "original_end_s": 337.99
+      }
+    },
+    {
+      "id": "8630_7613_000079",
+      "text": "de pronto sintió que estaba helado hasta el pecho qué sería y la respiración también al recibidor de maderas de míster dougald lorenzo cubilla lo había conocido en puerto deseado un viernes santo viernes",
+      "audio": "dev/audio/8630/7613/8630_7613_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 542.42,
+        "original_end_s": 562.35
+      }
+    },
+    {
+      "id": "8630_7613_000080",
+      "text": "y aún lo último corría el riesgo de naufragar tras el anticipo por minúscula que fuera su tentación de tallar a dos metros de él sobre un baúl de punta los mensú jugaban concienzudamente al monte cuanto tenían",
+      "audio": "dev/audio/8630/7613/8630_7613_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 460.57,
+        "original_end_s": 478.09
+      }
+    },
+    {
+      "id": "8630_7613_000081",
+      "text": "ocupábanse entonces los mensú en la planchada tumbando piezas entre inacabable gritería que subía de punto cuando las mulas",
+      "audio": "dev/audio/8630/7613/8630_7613_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 761.01,
+        "original_end_s": 772.0
+      }
+    },
+    {
+      "id": "8630_7613_000082",
+      "text": "el otoño finalizaba y el cielo fijo en sequía con chubascos de cinco minutos se descomponía por fin en mal tiempo constante cuya humedad hinchaba el hombro de los",
+      "audio": "dev/audio/8630/7613/8630_7613_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 899.66,
+        "original_end_s": 914.45
+      }
+    },
+    {
+      "id": "8630_7613_000083",
+      "text": "podeley se envolvió en el poncho y recostado en la espalda de su compañero sufrió con dos terribles horas de chucho el contragolpe de aquel esfuerzo",
+      "audio": "dev/audio/8630/7613/8630_7613_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1386.21,
+        "original_end_s": 1398.44
+      }
+    },
+    {
+      "id": "8630_7613_000084",
+      "text": "allá abajo sobre el río de oro la canoa derivaba velozmente girando a ratos sobre sí misma ante el borbollón de un remolino",
+      "audio": "dev/audio/8630/7613/8630_7613_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 505.95,
+        "original_end_s": 517.71
+      }
+    },
+    {
+      "id": "8630_7613_000085",
+      "text": "la piel parecía adelgazada y a punto de ceder de tensa quiso llamar a su mujer y la voz se quebró en un ronco arrastre de garganta reseca la sed lo devoraba",
+      "audio": "dev/audio/8630/7613/8630_7613_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 133.73,
+        "original_end_s": 148.21
+      }
+    },
+    {
+      "id": "8630_7613_000086",
+      "text": "pero estas no volvían tan rápidamente como era de desear dado que los cogollos y gusanos de tacuara son tardos fortificantes",
+      "audio": "dev/audio/8630/7613/8630_7613_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1576.2,
+        "original_end_s": 1586.83
+      }
+    },
+    {
+      "id": "8630_7613_000087",
+      "text": "cuentan con el anticipo de una nueva contrata como intermediario y coadyuvante espera en la playa un grupo de muchachas alegres de carácter y de profesión ante las cuales los mensú sedientos lanzan su ahijú de urgente locura",
+      "audio": "dev/audio/8630/7613/8630_7613_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 109.51,
+        "original_end_s": 128.91
+      }
+    },
+    {
+      "id": "8630_7613_000088",
+      "text": "en el silencio de la selva no se oyó un sólo rumor el hombre tuvo aún valor para llegar hasta su canoa y la corriente cogiéndola de nuevo la llevó velozmente a la deriva",
+      "audio": "dev/audio/8630/7613/8630_7613_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 344.75,
+        "original_end_s": 360.83
+      }
+    },
+    {
+      "id": "8630_7613_000089",
+      "text": "concluyóse por fin el mercado y mientras el fresco matrimonio se instalaba en su rancho cayé cargaba concienzudamente su cuarenta y cuatro para dirigirse a concluir la tarde lluviosa tomando mate con aquellos",
+      "audio": "dev/audio/8630/7613/8630_7613_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 882.75,
+        "original_end_s": 899.66
+      }
+    },
+    {
+      "id": "8630_7613_000090",
+      "text": "desde las orillas bordeadas de negros bloques de basalto asciende el bosque negro también adelante a los costados detrás",
+      "audio": "dev/audio/8630/7613/8630_7613_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 371.81,
+        "original_end_s": 382.7
+      }
+    },
+    {
+      "id": "8630_7613_000091",
+      "text": "sabían sí que tenían cuarenta pesos en el bolsillo y facultad para llegar a mucho más en gastos babeantes de descanso y dicha alcohólica dóciles y torpes siguieron ambos a las muchachas a vestirse",
+      "audio": "dev/audio/8630/7613/8630_7613_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 160.01,
+        "original_end_s": 177.78
+      }
+    },
+    {
+      "id": "8630_7613_000092",
+      "text": "y si esta ambición no estaba en todos los pechos todos los peones comprendían esa mordedura de contra justicia que iba en caso de llegar a clavar los dientes en la entraña misma del patrón",
+      "audio": "dev/audio/8630/7613/8630_7613_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 734.99,
+        "original_end_s": 750.12
+      }
+    },
+    {
+      "id": "8630_7613_000093",
+      "text": "este por su parte llevaba la lucha a su extremo final vigilando día y noche a su gente y en especial a los mensualeros",
+      "audio": "dev/audio/8630/7613/8630_7613_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 750.12,
+        "original_end_s": 761.01
+      }
+    },
+    {
+      "id": "8630_7613_000094",
+      "text": "pero de todos modos una hora después lanzaban a un coche descubierto sus flamantes personas calzados de botas poncho al hombro y revólver cuarenta y cuatro en el cinto desde luego",
+      "audio": "dev/audio/8630/7613/8630_7613_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 239.78,
+        "original_end_s": 254.72
+      }
+    },
+    {
+      "id": "8630_7613_000095",
+      "text": "sí oh jueves el hombre estiró lentamente los dedos de la mano un jueves y cesó de respirar",
+      "audio": "dev/audio/8630/7613/8630_7613_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 562.35,
+        "original_end_s": 576.84
+      }
+    },
+    {
+      "id": "8630_7613_000096",
+      "text": "el hombre cortó la ligadura y abrió el pantalón con su cuchillo el bajo vientre desbordó hinchado con grandes manchas lívidas y terriblemente dolorido",
+      "audio": "dev/audio/8630/7613/8630_7613_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 287.55,
+        "original_end_s": 299.78
+      }
+    },
+    {
+      "id": "8630_7613_000097",
+      "text": "el cielo al poniente se abría ahora en pantalla de oro y el río se había coloreado también desde la costa paraguaya ya entenebrecida",
+      "audio": "dev/audio/8630/7613/8630_7613_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 477.82,
+        "original_end_s": 489.78
+      }
+    },
+    {
+      "id": "8630_7613_000098",
+      "text": "llegó por fin al rancho y se echó de brazos sobre la rueda de un trapiche los dos puntitos violeta desaparecían ahora en la monstruosa hinchazón del pie entero",
+      "audio": "dev/audio/8630/7613/8630_7613_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 120.22,
+        "original_end_s": 133.73
+      }
+    },
+    {
+      "id": "8630_7613_000099",
+      "text": "perdió poco a poco sus fuerzas hasta quedar sentado muriéndose de frío y hambre con los ojos fijos en el paraná",
+      "audio": "dev/audio/8630/7613/8630_7613_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1698.8,
+        "original_end_s": 1708.98
+      }
+    },
+    {
+      "id": "8630_7613_000100",
+      "text": "construyó con hojas de palmera su cobertizo techo y pared sur dió nombre de cama a ocho varas horizontales nada más y de un horcón colgó la provista semanal",
+      "audio": "dev/audio/8630/7613/8630_7613_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 618.35,
+        "original_end_s": 632.63
+      }
+    },
+    {
+      "id": "8630_7613_000101",
+      "text": "el hombre pensó que no podría jamás llegar él solo a tacurú pucú y se decidió a pedir ayuda a su compadre alves aunque hacía mucho tiempo que estaban disgustados",
+      "audio": "dev/audio/8630/7613/8630_7613_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 299.78,
+        "original_end_s": 311.76
+      }
+    },
+    {
+      "id": "8630_7613_000102",
+      "text": "cuando pretendió incorporarse un fulminante vómito lo mantuvo medio minuto con la frente apoyada en la rueda de palo pero el hombre no quería morir y descendiendo hasta la costa subió a su canoa",
+      "audio": "dev/audio/8630/7613/8630_7613_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 225.38,
+        "original_end_s": 242.11
+      }
+    },
+    {
+      "id": "8630_7613_000103",
+      "text": "podeley jamás había dejado de cumplir nada única altanería que se permite ante su patrón un mensú de talla no me importa que hayas dejado o no de cumplir replicó el mayordomo pagá tu cuenta primero y después veremos",
+      "audio": "dev/audio/8630/7613/8630_7613_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1146.78,
+        "original_end_s": 1164.96
+      }
+    },
+    {
+      "id": "8630_7613_000104",
+      "text": "fuera de algún incidente con sus colegas labradores que invadían su jurisdicción del hastío de los días de lluvia que lo relegaban en cuclillas frente a la pava la tarea proseguía hasta el sábado de tarde",
+      "audio": "dev/audio/8630/7613/8630_7613_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 676.29,
+        "original_end_s": 692.31
+      }
+    },
+    {
+      "id": "8630_7613_000105",
+      "text": "el monte dejaba caer sobre el río su frescura crepuscular en penetrantes efluvios de azahar y miel silvestre una pareja de guacamayos cruzó muy alto y en silencio hacia el paraguay",
+      "audio": "dev/audio/8630/7613/8630_7613_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 489.78,
+        "original_end_s": 505.95
+      }
+    },
+    {
+      "id": "8630_7613_000106",
+      "text": "la decisión de huir y sus peligros para los que el mensú necesita todas sus fuerzas es capaz de contener algo más que una fiebre perniciosa",
+      "audio": "dev/audio/8630/7613/8630_7613_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1210.84,
+        "original_end_s": 1222.15
+      }
+    },
+    {
+      "id": "8630_7613_000107",
+      "text": "a los diez segundos de concluída se embarcaron y la hangadilla arrastrada a la deriva entró en el paraná las noches son esa época excesivamente frescas",
+      "audio": "dev/audio/8630/7613/8630_7613_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1458.99,
+        "original_end_s": 1473.46
+      }
+    },
+    {
+      "id": "8630_7613_000108",
+      "text": "y los dos mensú con los pies en el agua pasaron la noche helados uno junto al otro la corriente del paraná que llegaba cargado de inmensas lluvias retorcía la jangada en el borbollón de sus remolinos y aflojaba lentamente los nudos de isipó",
+      "audio": "dev/audio/8630/7613/8630_7613_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1473.46,
+        "original_end_s": 1492.62
+      }
+    },
+    {
+      "id": "8630_7613_000109",
+      "text": "y con ahijús y terribles invectivas en guaraní bien que alegres todos despidieron al vapor que debía ahogar en una baldeada de tres horas la nauseabunda atmósfera de desaseo pachuli",
+      "audio": "dev/audio/8630/7613/8630_7613_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 564.86,
+        "original_end_s": 580.82
+      }
+    },
+    {
+      "id": "8630_7613_000110",
+      "text": "sobre el río salvaje encajonado en los lúgubres murallones de bosque desierto del más remoto ay los dos hombres sumergidos hasta la rodilla derivaban girando sobre sí mismos",
+      "audio": "dev/audio/8630/7613/8630_7613_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1512.06,
+        "original_end_s": 1526.9
+      }
+    },
+    {
+      "id": "8630_7613_000111",
+      "text": "los dos mensú quedaron solos charlando resultas de lo cual convinieron en vivir juntos a cuyo efecto el seductor se instaló con la pareja",
+      "audio": "dev/audio/8630/7613/8630_7613_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 839.58,
+        "original_end_s": 851.26
+      }
+    },
+    {
+      "id": "8630_7613_000112",
+      "text": "volvé o te tiro llegó otra voz cuando estén más cerca comenzó cayé una bala de winchester pasó silbando por la picada",
+      "audio": "dev/audio/8630/7613/8630_7613_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1286.97,
+        "original_end_s": 1299.82
+      }
+    },
+    {
+      "id": "8630_7613_000113",
+      "text": "el paraná corre allí en el fondo de una inmensa hoya cuyas paredes altas de cien metros encajonan fúnebremente el río",
+      "audio": "dev/audio/8630/7613/8630_7613_000113.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 360.83,
+        "original_end_s": 371.81
+      }
+    },
+    {
+      "id": "8630_7613_000114",
+      "text": "bueno esto se pone feo murmuró entonces mirando su pie lívido y ya con lustre gangrenoso sobre la honda ligadura del pañuelo la carne desbordaba como una monstruosa morcilla",
+      "audio": "dev/audio/8630/7613/8630_7613_000114.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 192.23,
+        "original_end_s": 209.51
+      }
+    },
+    {
+      "id": "8630_7613_000115",
+      "text": "podeley labrador de madera tornaba a los nueve meses la contrata concluída y con pasaje gratis por lo tanto",
+      "audio": "dev/audio/8630/7613/8630_7613_000115.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 39.26,
+        "original_end_s": 49.91
+      }
+    },
+    {
+      "id": "8630_7613_000116",
+      "text": "cayé observó un rato riéndose como se ríen siempre los peones cuando están juntos sea cual fuere el motivo y se aproximó al baúl colocando a una carta y sobre ella cinco cigarros",
+      "audio": "dev/audio/8630/7613/8630_7613_000116.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 478.09,
+        "original_end_s": 494.04
+      }
+    },
+    {
+      "id": "8630_7613_000117",
+      "text": "añá cayé vió que poco podía esperar de aquel delirio y se inclinó disimuladamente para alcanzar a su compañero de un palo pero el otro insistió andá al agua vos me trajiste bandeá el río",
+      "audio": "dev/audio/8630/7613/8630_7613_000117.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1607.89,
+        "original_end_s": 1626.65
+      }
+    },
+    {
+      "id": "8630_7613_000118",
+      "text": "y con ella la bailanta donde las mismas damiselas avisadas inducían a beber a los mensú cuya realeza en dinero de anticipo les hacía lanzar diez pesos por una botella de cerveza para recibir en cambio uno cuarenta que guardaban sin ojear siquiera",
+      "audio": "dev/audio/8630/7613/8630_7613_000118.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 287.19,
+        "original_end_s": 306.75
+      }
+    },
+    {
+      "id": "8630_7613_000119",
+      "text": "y hundió más la cabeza en el centro mismo de su espiral pero el machete cayó de plano dislocándole las vértebras el hombre se bajó hasta la mordedura quitó las gotitas de sangre y durante un instante contempló",
+      "audio": "dev/audio/8630/7613/8630_7613_000119.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 58.7,
+        "original_end_s": 76.17
+      }
+    },
+    {
+      "id": "8630_7613_000120",
+      "text": "podeley ganó tras infinito cambio de dueño el collar en cuestión y una caja de jabones de olor que halló modo de jugar contra un machete y media docena de medias quedando así satisfecho",
+      "audio": "dev/audio/8630/7613/8630_7613_000120.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 534.87,
+        "original_end_s": 550.54
+      }
+    },
+    {
+      "id": "8630_7613_000121",
+      "text": "desde allí y de atrás acechó a su compañero recogiendo el revólver caído pero podeley yacía de nuevo de costado con las rodillas recogidas hasta el pecho bajo la lluvia incesante al aproximarse cayé alzó la cabeza",
+      "audio": "dev/audio/8630/7613/8630_7613_000121.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1642.15,
+        "original_end_s": 1661.38
+      }
+    },
+    {
+      "id": "8630_7613_000122",
+      "text": "y tras un nuevo vómito de sangre esta vez dirigió una mirada al sol que ya trasponía el monte la pierna entera hasta medio muslo era ya un bloque deforme y durísimo que reventaba la ropa",
+      "audio": "dev/audio/8630/7613/8630_7613_000122.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 270.69,
+        "original_end_s": 287.55
+      }
+    },
+    {
+      "id": "8630_7613_000123",
+      "text": "y de pronto con asombro enderezó pesadamente la cabeza se sentía mejor la pierna le dolía apenas la sed disminuía y su pecho libre ya se abría en lenta inspiración",
+      "audio": "dev/audio/8630/7613/8630_7613_000123.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 414.96,
+        "original_end_s": 433.91
+      }
+    },
+    {
+      "id": "8630_7613_000124",
+      "text": "al día siguiente ya despejadas las cabezas podeley y cayé examinaron sus libretas era la primera vez que lo hacían desde la contrata",
+      "audio": "dev/audio/8630/7613/8630_7613_000124.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 337.99,
+        "original_end_s": 350.2
+      }
+    },
+    {
+      "id": "8630_7613_000125",
+      "text": "detenidos un momento inmóviles ante un remolino siguiendo de nuevo sosteniéndose apenas sobre las tacuaras casi sueltas que se escapaban de sus pies en una noche de tinta que no alcanzaban a romper sus ojos desesperados",
+      "audio": "dev/audio/8630/7613/8630_7613_000125.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1526.9,
+        "original_end_s": 1543.47
+      }
+    },
+    {
+      "id": "8630_7613_000126",
+      "text": "alves gritó con cuanta fuerza pudo y prestó oído en vano compadre alves no me niegue este favor clamó de nuevo alzando la cabeza del suelo",
+      "audio": "dev/audio/8630/7613/8630_7613_000126.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 328.91,
+        "original_end_s": 344.75
+      }
+    },
+    {
+      "id": "8630_7613_000127",
+      "text": "mientras no se sintieran perseguidos no abandonarían la picada podeley caminaba mal y aún así la resonancia peculiar del bosque trájoles lejana una voz ronca",
+      "audio": "dev/audio/8630/7613/8630_7613_000127.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1240.83,
+        "original_end_s": 1256.31
+      }
+    },
+    {
+      "id": "8630_7613_000128",
+      "text": "hay fiebre y fiebre si la quinina no había cortado a ras el segundo ataque era inútil que se quedara allá arriba a morir hecho un ovillo en cualquier vuelta de picada y bajó de nuevo al almacén",
+      "audio": "dev/audio/8630/7613/8630_7613_000128.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1068.72,
+        "original_end_s": 1084.05
+      }
+    },
+    {
+      "id": "8630_7613_000129",
+      "text": "prosiguieron la fuga siempre a la vista de la picada y cuando la noche llegó por fin acamparon cayé había llevado chipas",
+      "audio": "dev/audio/8630/7613/8630_7613_000129.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1398.44,
+        "original_end_s": 1409.66
+      }
+    },
+    {
+      "id": "8630_7613_000130",
+      "text": "mientras podeley más juicioso insistía en un traje de paño posiblemente pagaron muy cara una cuenta entreoída y abonada con un montón de papeles tirados al mostrador",
+      "audio": "dev/audio/8630/7613/8630_7613_000130.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 224.46,
+        "original_end_s": 239.78
+      }
+    },
+    {
+      "id": "8630_7613_000131",
+      "text": "la eterna muralla lúgubre en cuyo fondo el río arremolinado se precipita en incesantes borbollones de agua fangosa el paisaje es agresivo y reina en él un silencio de muerte",
+      "audio": "dev/audio/8630/7613/8630_7613_000131.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 382.7,
+        "original_end_s": 398.3
+      }
+    },
+    {
+      "id": "8630_7613_000132",
+      "text": "podeley libre hasta entonces sintióse un día con tal desgano al llegar a su viga que se detuvo mirando a todas partes qué podía hacer",
+      "audio": "dev/audio/8630/7613/8630_7613_000132.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 914.45,
+        "original_end_s": 925.33
+      }
+    },
+    {
+      "id": "8630_7613_000133",
+      "text": "sentóse filosóficamente a tomar mate y media hora después un hondo y largo escalofrío recorrióle la espalda bajo la camisa",
+      "audio": "dev/audio/8630/7613/8630_7613_000133.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 942.11,
+        "original_end_s": 952.67
+      }
+    },
+    {
+      "id": "8630_7613_000134",
+      "text": "habían llegado por fin los peones treparon la interminable cinta roja que escalaba la barranca desde cuya cima el silex aparecía mezquino y hundido en el lúgubre río",
+      "audio": "dev/audio/8630/7613/8630_7613_000134.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 550.54,
+        "original_end_s": 564.86
+      }
+    },
+    {
+      "id": "8630_7613_000135",
+      "text": "el hombre echó una veloz ojeada a su pie donde dos gotitas de sangre engrosaban dificultosamente y sacó el machete de la cintura la víbora vio la amenaza",
+      "audio": "dev/audio/8630/7613/8630_7613_000135.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 45.91,
+        "original_end_s": 58.7
+      }
+    },
+    {
+      "id": "8630_7613_000136",
+      "text": "lanzáronse rabiosos adelante fusilando golpe tras golpe de winchester el derrotero probable de los fugitivos a cien metros de la picada y paralelos a ella cayé y podeley se alejaban doblados hasta el suelo para evitar las lianas",
+      "audio": "dev/audio/8630/7613/8630_7613_000136.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1336.22,
+        "original_end_s": 1355.8
+      }
+    },
+    {
+      "id": "8630_7613_000137",
+      "text": "modesto principio que podía llegar a proporcionarle el dinero suficiente para pagar el adelanto en el obraje y volverse en el mismo vapor a posadas a derrochar un nuevo anticipo",
+      "audio": "dev/audio/8630/7613/8630_7613_000137.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 494.04,
+        "original_end_s": 508.98
+      }
+    },
+    {
+      "id": "8630_7613_000138",
+      "text": "pero en una u otro las muchachas renovaron el lujo detonante de sus trapos anidáronse la cabeza de peinetones ahorcáronse de cintas robado todo con perfecta sangre fría al hidalgo alcohol de su compañero pues lo único que el mensú realmente posee",
+      "audio": "dev/audio/8630/7613/8630_7613_000138.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 190.58,
+        "original_end_s": 209.59
+      }
+    },
+    {
+      "id": "8630_7613_000139",
+      "text": "el mismo fatalismo que aceptaba esto con un añá y una riente mirada a los demás compañeros le dictaba en elemental desagravio el deber de huir del obraje en cuanto pudiera",
+      "audio": "dev/audio/8630/7613/8630_7613_000139.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 720.07,
+        "original_end_s": 734.99
+      }
+    },
+    {
+      "id": "8630_7613_000140",
+      "text": "el domingo por lo demás había ya llegado y con falsas maniobras de lavaje de ropa simulados guitarreos en el rancho de tal o cual la vigilancia pudo ser burlada y podeley y cayé se encontraron de pronto a mil metros de la comisaría",
+      "audio": "dev/audio/8630/7613/8630_7613_000140.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1222.15,
+        "original_end_s": 1240.83
+      }
+    },
+    {
+      "id": "8630_7613_000141",
+      "text": "los dolores fulgurantes se sucedían en continuos relampagueos y llegaban ahora a la ingle la atroz sequedad de garganta que el aliento parecía caldear más aumentaba a la par",
+      "audio": "dev/audio/8630/7613/8630_7613_000141.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 209.51,
+        "original_end_s": 225.38
+      }
+    },
+    {
+      "id": "8630_7613_000142",
+      "text": "los perseguidores lo presumían pero como dentro del monte el que ataca tiene cien probabilidades contra una de ser detenido por una bala en mitad de la frente el capataz se contentaba con salvas de winchester y aullidos desafiantes",
+      "audio": "dev/audio/8630/7613/8630_7613_000142.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1355.8,
+        "original_end_s": 1372.85
+      }
+    },
+    {
+      "id": "8630_7613_000143",
+      "text": "pedí caña no agua rugió de nuevo dame caña pero es caña paulino protestó la mujer espantada no me diste agua quiero caña te digo",
+      "audio": "dev/audio/8630/7613/8630_7613_000143.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_10_quiroga_64kb.mp3",
+        "original_start_s": 165.37,
+        "original_end_s": 180.67
+      }
+    },
+    {
+      "id": "8630_7613_000144",
+      "text": "al día siguiente recuperó las botas pero nada más mientras la muchacha compensaba la desnudez de su pescuezo con incesantes cigarros despreciativos",
+      "audio": "dev/audio/8630/7613/8630_7613_000144.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 522.64,
+        "original_end_s": 534.87
+      }
+    },
+    {
+      "id": "8630_7613_000145",
+      "text": "esta injusticia para con él creó lógica y velozmente el deseo de desquite fué a instalarse con cayé cuyo espíritu conocía bien y ambos decidieron escaparse el próximo domingo",
+      "audio": "dev/audio/8630/7613/8630_7613_000145.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1164.96,
+        "original_end_s": 1181.62
+      }
+    },
+    {
+      "id": "8630_7613_000146",
+      "text": "sobrellevando con fatalismo indígena la suba siempre creciente de la provista que alcanzaba entonces a cinco pesos por machete y ochenta centavos por kilo de galleta",
+      "audio": "dev/audio/8630/7613/8630_7613_000146.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 706.8,
+        "original_end_s": 720.07
+      }
+    },
+    {
+      "id": "8630_7613_000147",
+      "text": "las avisadas doncellas condujéronlos a una tienda con la que tenían relaciones especiales de un tanto por ciento o tal vez al almacén de la casa contratista",
+      "audio": "dev/audio/8630/7613/8630_7613_000147.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 177.78,
+        "original_end_s": 190.58
+      }
+    },
+    {
+      "id": "8630_7613_000148",
+      "text": "el silex volvió a posadas llevando con él al mensú empapado aún en pesadillas nocturnas pero a los diez minutos de bajar a tierra estaba ya borracho con nueva contrata y se encaminaba tambaleando a comprar extractos",
+      "audio": "dev/audio/8630/7613/8630_7613_000148.opus",
+      "tags": {
+        "speaker_id": "mls-es-8630",
+        "gender": "m",
+        "book_id": "7613",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosquiroga_1312_librivox/cuentosdeamor_13_quiroga_64kb.mp3",
+        "original_start_s": 1736.45,
+        "original_end_s": 1756.29
+      }
+    }
+  ]
+}

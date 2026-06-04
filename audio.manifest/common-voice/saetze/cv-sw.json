@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sw",
+  "lang": "sw",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sw",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "28246354",
+      "text": "Mazao mengi ni vyakula kama nafaka, mboga, au matunda.",
+      "audio": "sw/unknown/sw_u_28246354.mp3",
+      "tags": {
+        "source_item_id": "28246354",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28581466",
+      "text": "Mitume pia walipokea katika Kanisa familia nzima, si wazazi tu.",
+      "audio": "sw/unknown/sw_u_28581466.mp3",
+      "tags": {
+        "source_item_id": "28581466",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28581540",
+      "text": "kwenye kifo cha mama yake.",
+      "audio": "sw/unknown/sw_u_28581540.mp3",
+      "tags": {
+        "source_item_id": "28581540",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28581620",
+      "text": "Kila kundi likiwa na shule mia moja bora.",
+      "audio": "sw/unknown/sw_u_28581620.mp3",
+      "tags": {
+        "source_item_id": "28581620",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28648712",
+      "text": "Kiwango kikubwa cha bajeti za watu maskini hutumika kununua chakula ikilinganishwa na matajiri.",
+      "audio": "sw/unknown/sw_u_28648712.mp3",
+      "tags": {
+        "source_item_id": "28648712",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28660555",
+      "text": "Ina bandari kubwa na ni kitovu cha biashara ya nje.",
+      "audio": "sw/unknown/sw_u_28660555.mp3",
+      "tags": {
+        "source_item_id": "28660555",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28660674",
+      "text": "Aliwahi kuwa waziri wa elimu, kazi na maendeleo ya vijana, wizara ya ulinzi nakadhalika.",
+      "audio": "sw/unknown/sw_u_28660674.mp3",
+      "tags": {
+        "source_item_id": "28660674",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28661604",
+      "text": "Mji mkuu wa mkoa huu ni Port-Gentil.",
+      "audio": "sw/unknown/sw_u_28661604.mp3",
+      "tags": {
+        "source_item_id": "28661604",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28661852",
+      "text": "Polepole wakazi wengi walipata kuwa Wakristo wa Kanisa Katoliki.",
+      "audio": "sw/unknown/sw_u_28661852.mp3",
+      "tags": {
+        "source_item_id": "28661852",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28662814",
+      "text": "Kwa kawaida hufanyika Jumamosi usiku mwishoni mwa Machi au mwanzoni mwa Aprili.",
+      "audio": "sw/unknown/sw_u_28662814.mp3",
+      "tags": {
+        "source_item_id": "28662814",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — fi",
+  "lang": "fi",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-fi",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "22987633",
+      "text": "Heillä ei ollut kaulaa eikä erillistä päätä.",
+      "audio": "fi/unknown/fi_u_22987633.mp3",
+      "tags": {
+        "source_item_id": "22987633",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25002715",
+      "text": "En nähnyt siellä ketään, mutta huomioni kiinnittyy avonaisen häkkiin.",
+      "audio": "fi/unknown/fi_u_25002715.mp3",
+      "tags": {
+        "source_item_id": "25002715",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25004261",
+      "text": "Tuonne pakenivat kauemmas nuo väijyävät henget.",
+      "audio": "fi/unknown/fi_u_25004261.mp3",
+      "tags": {
+        "source_item_id": "25004261",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25259239",
+      "text": "Teobromiinia on kaakaopuun siementen lisäksi muun muassa matessa",
+      "audio": "fi/unknown/fi_u_25259239.mp3",
+      "tags": {
+        "source_item_id": "25259239",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25299466",
+      "text": "Mokomakin tyhjäntoimittaja - ihan puistattaa.",
+      "audio": "fi/unknown/fi_u_25299466.mp3",
+      "tags": {
+        "source_item_id": "25299466",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26984669",
+      "text": "Ja sen auttamisen ne ihmiset muistavat.",
+      "audio": "fi/unknown/fi_u_26984669.mp3",
+      "tags": {
+        "source_item_id": "26984669",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25595192",
+      "text": "Hänhän oli juuri menettämäisillään vaimonsa, ja nyt häneltä vaadittiin vielä omasta tyttärestä luopumista.",
+      "audio": "fi/unknown/fi_u_25595192.mp3",
+      "tags": {
+        "source_item_id": "25595192",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25263300",
+      "text": "Ei, hiljaa oli Topi ystäväänsä huudellut.",
+      "audio": "fi/unknown/fi_u_25263300.mp3",
+      "tags": {
+        "source_item_id": "25263300",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23391574",
+      "text": "Muutamien välissä on melkoinen rako.",
+      "audio": "fi/unknown/fi_u_23391574.mp3",
+      "tags": {
+        "source_item_id": "23391574",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25002803",
+      "text": "Äänestän siksi erittäin vakuuttuneena kansalaisaloitteen puolesta.",
+      "audio": "fi/unknown/fi_u_25002803.mp3",
+      "tags": {
+        "source_item_id": "25002803",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28976992",
+      "text": "Kuta alkeellisempia, sen tarkempia omastaan.",
+      "audio": "fi/unknown/fi_u_28976992.mp3",
+      "tags": {
+        "source_item_id": "28976992",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25020941",
+      "text": "Kuuntelin ihmeissäni miehen sanoja Nancyn ja Diegon ilmoittautuessa miekkoselle Hydruksen johtajina.",
+      "audio": "fi/unknown/fi_u_25020941.mp3",
+      "tags": {
+        "source_item_id": "25020941",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22997065",
+      "text": "Puhdistelee marjoja mummolle.",
+      "audio": "fi/unknown/fi_u_22997065.mp3",
+      "tags": {
+        "source_item_id": "22997065",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25259356",
+      "text": "Olin hämmentynyt.",
+      "audio": "fi/unknown/fi_u_25259356.mp3",
+      "tags": {
+        "source_item_id": "25259356",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25299531",
+      "text": "Kun sulhanen silloin, ensimmäinen, jätti hänet.",
+      "audio": "fi/unknown/fi_u_25299531.mp3",
+      "tags": {
+        "source_item_id": "25299531",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23945155",
+      "text": "Ehkä hän piti koko asiaa vitsinä, mutta minulle se oli totista totta.",
+      "audio": "fi/unknown/fi_u_23945155.mp3",
+      "tags": {
+        "source_item_id": "23945155",
+        "gender": "u"
+      }
+    }
+  ]
+}

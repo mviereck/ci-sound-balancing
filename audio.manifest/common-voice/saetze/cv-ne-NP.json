@@ -1,0 +1,127 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ne-NP",
+  "lang": "ne-NP",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ne-NP",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37910991",
+      "text": "काम गर्ने कालु मकै खाने भालु",
+      "audio": "ne-NP/unknown/ne-NP_u_37910991_native.mp3",
+      "tags": {
+        "source_item_id": "37910991",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "37911012",
+      "text": "म अहिले भक्तपुरमा छु यहाँ पनि सितल नै छ।",
+      "audio": "ne-NP/unknown/ne-NP_u_37911012_native.mp3",
+      "tags": {
+        "source_item_id": "37911012",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "35314179",
+      "text": "कहीं नभा जात्रा हाँडीगाउमा ।",
+      "audio": "ne-NP/unknown/ne-NP_u_35314179_nepali.mp3",
+      "tags": {
+        "source_item_id": "35314179",
+        "gender": "u",
+        "accent": "nepali"
+      }
+    },
+    {
+      "id": "37913808",
+      "text": "नेपालमा अझै पनि भुकम्पको झट्का अाइरन्छ ।",
+      "audio": "ne-NP/unknown/ne-NP_u_37913808_native.mp3",
+      "tags": {
+        "source_item_id": "37913808",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "37913737",
+      "text": "मानव विकासको आवश्यकता चार बुदाँँमा भन्नुहोस् ।",
+      "audio": "ne-NP/unknown/ne-NP_u_37913737_native.mp3",
+      "tags": {
+        "source_item_id": "37913737",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "37911060",
+      "text": "अहिले अलिकति सञ्चो भएको अनुभूति भइरहेको छ।",
+      "audio": "ne-NP/unknown/ne-NP_u_37911060_native.mp3",
+      "tags": {
+        "source_item_id": "37911060",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "35314762",
+      "text": "मेरो स्थायी घर चाहिँ चितवन हो ।",
+      "audio": "ne-NP/unknown/ne-NP_u_35314762_nepali.mp3",
+      "tags": {
+        "source_item_id": "35314762",
+        "gender": "u",
+        "accent": "nepali"
+      }
+    },
+    {
+      "id": "37911076",
+      "text": "अखिलका यी भाइहरूले कसैले लगाएअनुसार विरोध गरेका हुन् भन्ने स्पष्टै बुझिन्थ्यो ।",
+      "audio": "ne-NP/unknown/ne-NP_u_37911076_native.mp3",
+      "tags": {
+        "source_item_id": "37911076",
+        "gender": "u",
+        "accent": "native"
+      }
+    },
+    {
+      "id": "35314174",
+      "text": "मलाई बाबालाई फोन गर्न याद दिलाउ है ।",
+      "audio": "ne-NP/unknown/ne-NP_u_35314174_nepali.mp3",
+      "tags": {
+        "source_item_id": "35314174",
+        "gender": "u",
+        "accent": "nepali"
+      }
+    },
+    {
+      "id": "35314707",
+      "text": "मेरो पनि त्यहि टिम को समर्थन छ ।",
+      "audio": "ne-NP/unknown/ne-NP_u_35314707_nepali.mp3",
+      "tags": {
+        "source_item_id": "35314707",
+        "gender": "u",
+        "accent": "nepali"
+      }
+    },
+    {
+      "id": "35314499",
+      "text": "पैसा लाग्ला जस्तो लाग्छ।",
+      "audio": "ne-NP/unknown/ne-NP_u_35314499_nepali.mp3",
+      "tags": {
+        "source_item_id": "35314499",
+        "gender": "u",
+        "accent": "nepali"
+      }
+    }
+  ]
+}

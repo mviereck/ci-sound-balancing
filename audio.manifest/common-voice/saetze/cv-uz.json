@@ -1,0 +1,179 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — uz",
+  "lang": "uz",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-uz",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "28907245",
+      "text": "Bundan tashqari puxta jamlangan kutubxona bor.",
+      "audio": "uz/unknown/uz_u_28907245.mp3",
+      "tags": {
+        "source_item_id": "28907245",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28937686",
+      "text": "Ayniqsa Toshkent arxitektorlariga mos keladi.",
+      "audio": "uz/unknown/uz_u_28937686.mp3",
+      "tags": {
+        "source_item_id": "28937686",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28966370",
+      "text": "Yana shu ishlari uchun mukofotlarga loyiq.",
+      "audio": "uz/unknown/uz_u_28966370.mp3",
+      "tags": {
+        "source_item_id": "28966370",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29262655",
+      "text": "Hududlarda aholining yashash sharoitini yaxshilash uchun urbanizatsiya siyosatini yanada takomillashtiramiz.",
+      "audio": "uz/unknown/uz_u_29262655.mp3",
+      "tags": {
+        "source_item_id": "29262655",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29315864",
+      "text": "Vujudi zindondir, vujudi – qamoq.",
+      "audio": "uz/unknown/uz_u_29315864.mp3",
+      "tags": {
+        "source_item_id": "29315864",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29420863",
+      "text": "Statistika kimga tayyorlanganiga qarab ikki turga bo'linadi:",
+      "audio": "uz/unknown/uz_u_29420863.mp3",
+      "tags": {
+        "source_item_id": "29420863",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29571005",
+      "text": "mahsulot narxi dehqonni kuydiradigan darajada pastlashiga yo‘l qo‘ymaslik",
+      "audio": "uz/unknown/uz_u_29571005.mp3",
+      "tags": {
+        "source_item_id": "29571005",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29610100",
+      "text": "Amalda “gaz zapravka”larda vaziyatni barqarorlashtirish uchun taklif ishlab chiqilmoqda.",
+      "audio": "uz/unknown/uz_u_29610100.mp3",
+      "tags": {
+        "source_item_id": "29610100",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29583064",
+      "text": "Uni chin qalbdan taqdim etmadim.",
+      "audio": "uz/unknown/uz_u_29583064.mp3",
+      "tags": {
+        "source_item_id": "29583064",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29610979",
+      "text": "Berdimuhamedov Ashxoboddagi Maxtumquli yodgorligi qurilishiga tashrif buyurdi",
+      "audio": "uz/unknown/uz_u_29610979.mp3",
+      "tags": {
+        "source_item_id": "29610979",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29408871",
+      "text": "Talablaringiz juda yuqori ekanligidan afsuslanmang",
+      "audio": "uz/unknown/uz_u_29408871.mp3",
+      "tags": {
+        "source_item_id": "29408871",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28907414",
+      "text": "Ular ustida unchalik ilhom bilan ishlamaganimni aytdim.",
+      "audio": "uz/unknown/uz_u_28907414.mp3",
+      "tags": {
+        "source_item_id": "28907414",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29037180",
+      "text": "Xitoyning internetga nisbatan cheklovlari dunyoning boshqa barcha mamlakatlariga qaraganda ancha keng va murakkabdir.",
+      "audio": "uz/unknown/uz_u_29037180.mp3",
+      "tags": {
+        "source_item_id": "29037180",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29327617",
+      "text": "homiylikka olish, ular uchun maktablar ochishga chaqiradi.",
+      "audio": "uz/unknown/uz_u_29327617.mp3",
+      "tags": {
+        "source_item_id": "29327617",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29556101",
+      "text": "Biz uni Zoya xolamiz, der edik.",
+      "audio": "uz/unknown/uz_u_29556101.mp3",
+      "tags": {
+        "source_item_id": "29556101",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29610397",
+      "text": "C vitaminiga boy tabiiy mahsulotlar",
+      "audio": "uz/unknown/uz_u_29610397.mp3",
+      "tags": {
+        "source_item_id": "29610397",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30177887",
+      "text": "Johil elga qaramas.",
+      "audio": "uz/unknown/uz_u_30177887.mp3",
+      "tags": {
+        "source_item_id": "30177887",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29672859",
+      "text": "Bola bu xabarni eshitib, esankiradi",
+      "audio": "uz/unknown/uz_u_29672859.mp3",
+      "tags": {
+        "source_item_id": "29672859",
+        "gender": "u"
+      }
+    }
+  ]
+}

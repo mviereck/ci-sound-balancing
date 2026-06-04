@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — pt",
+  "lang": "pt",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-pt",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "19286968",
+      "text": "Você pode pagar em dinheiro ou com cartão de crédito.",
+      "audio": "pt/unknown/pt_u_19286968.mp3",
+      "tags": {
+        "source_item_id": "19286968",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19288263",
+      "text": "Um galgo vestindo uma jaqueta amarela faz uma corrida",
+      "audio": "pt/unknown/pt_u_19288263.mp3",
+      "tags": {
+        "source_item_id": "19288263",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19289339",
+      "text": "Era incrivelmente quente, não uma nuvem no céu nem um sopro de vento.",
+      "audio": "pt/unknown/pt_u_19289339.mp3",
+      "tags": {
+        "source_item_id": "19289339",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19289438",
+      "text": "Quando você é amado, você pode fazer qualquer coisa na criação.",
+      "audio": "pt/unknown/pt_u_19289438.mp3",
+      "tags": {
+        "source_item_id": "19289438",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19295031",
+      "text": "O gato pulou na mesa e derrubou o vaso.",
+      "audio": "pt/unknown/pt_u_19295031.mp3",
+      "tags": {
+        "source_item_id": "19295031",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19305018",
+      "text": "É uma pessoa que traz infelicidade",
+      "audio": "pt/unknown/pt_u_19305018.mp3",
+      "tags": {
+        "source_item_id": "19305018",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19310502",
+      "text": "Nós afiamos nossa inteligência na universidade para que pudéssemos lidar com essa crise.",
+      "audio": "pt/unknown/pt_u_19310502.mp3",
+      "tags": {
+        "source_item_id": "19310502",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19332654",
+      "text": "um grupo de pessoas olhando para suas câmeras",
+      "audio": "pt/unknown/pt_u_19332654.mp3",
+      "tags": {
+        "source_item_id": "19332654",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19334199",
+      "text": "Modifique e altere o conteúdo e os detalhes das atividades relacionadas",
+      "audio": "pt/unknown/pt_u_19334199.mp3",
+      "tags": {
+        "source_item_id": "19334199",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19334555",
+      "text": "Eu tenho uma casa em Luzhou.",
+      "audio": "pt/unknown/pt_u_19334555.mp3",
+      "tags": {
+        "source_item_id": "19334555",
+        "gender": "u"
+      }
+    }
+  ]
+}

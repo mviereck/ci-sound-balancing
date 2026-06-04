@@ -1,0 +1,183 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tok",
+  "lang": "tok",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tok",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "31168501",
+      "text": "mi anpa e jan utala.",
+      "audio": "tok/unknown/tok_u_31168501.mp3",
+      "tags": {
+        "source_item_id": "31168501",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31170994",
+      "text": "sina wile tawa tomo pi jan Sa la o tawa lon nasin ni.",
+      "audio": "tok/unknown/tok_u_31170994_polish.mp3",
+      "tags": {
+        "source_item_id": "31170994",
+        "gender": "u",
+        "accent": "Polish"
+      }
+    },
+    {
+      "id": "31171187",
+      "text": "telo li kama anpa tan sewi.",
+      "audio": "tok/unknown/tok_u_31171187.mp3",
+      "tags": {
+        "source_item_id": "31171187",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31198643",
+      "text": "ni li pana e ken sin tawa kulupu pi toki pona.",
+      "audio": "tok/unknown/tok_u_31198643.mp3",
+      "tags": {
+        "source_item_id": "31198643",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31214953",
+      "text": "linja lawa mi li jaki. mi wile telo e ona.",
+      "audio": "tok/unknown/tok_u_31214953_ipa.mp3",
+      "tags": {
+        "source_item_id": "31214953",
+        "gender": "u",
+        "accent": "IPA"
+      }
+    },
+    {
+      "id": "31218270",
+      "text": "mi wile tawa, taso mi ken ala.",
+      "audio": "tok/unknown/tok_u_31218270.mp3",
+      "tags": {
+        "source_item_id": "31218270",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36866436",
+      "text": "jan Kuntuli li alasa weka e noka ona tan ko.",
+      "audio": "tok/unknown/tok_u_36866436.mp3",
+      "tags": {
+        "source_item_id": "36866436",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37269635",
+      "text": "taso kepeken tenpo pi mute ni la, mi ken lukin e ni.",
+      "audio": "tok/unknown/tok_u_37269635.mp3",
+      "tags": {
+        "source_item_id": "37269635",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31202229",
+      "text": "jan ike mi li pali sama ni: ona li mi.",
+      "audio": "tok/unknown/tok_u_31202229.mp3",
+      "tags": {
+        "source_item_id": "31202229",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31217699",
+      "text": "sina ken kama tawa kulupu musi ni.",
+      "audio": "tok/unknown/tok_u_31217699_ipa.mp3",
+      "tags": {
+        "source_item_id": "31217699",
+        "gender": "u",
+        "accent": "IPA"
+      }
+    },
+    {
+      "id": "31218334",
+      "text": "ma Mewika li lon poka pi ma Kanata pi ma Mekiko.",
+      "audio": "tok/unknown/tok_u_31218334.mp3",
+      "tags": {
+        "source_item_id": "31218334",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37311328",
+      "text": "jan suwi mi o tawa lon ni.",
+      "audio": "tok/unknown/tok_u_37311328.mp3",
+      "tags": {
+        "source_item_id": "37311328",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31225677",
+      "text": "ona li jan lawa lon tenpo ni.",
+      "audio": "tok/unknown/tok_u_31225677.mp3",
+      "tags": {
+        "source_item_id": "31225677",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31391106",
+      "text": "sina tawa e kiwen lon nasin mi.",
+      "audio": "tok/unknown/tok_u_31391106_polish.mp3",
+      "tags": {
+        "source_item_id": "31391106",
+        "gender": "u",
+        "accent": "Polish"
+      }
+    },
+    {
+      "id": "31437314",
+      "text": "lipu pi tenpo kama ike li ike nanpa wan tawa mi.",
+      "audio": "tok/unknown/tok_u_31437314.mp3",
+      "tags": {
+        "source_item_id": "31437314",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36866527",
+      "text": "sitelen tawa ni li musi tawa jan lili.",
+      "audio": "tok/unknown/tok_u_36866527.mp3",
+      "tags": {
+        "source_item_id": "36866527",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31241450",
+      "text": "mi alasa e akesi.",
+      "audio": "tok/unknown/tok_u_31241450.mp3",
+      "tags": {
+        "source_item_id": "31241450",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36866653",
+      "text": "tenpo ale ni la ona li wile ala jo e misikeke.",
+      "audio": "tok/unknown/tok_u_36866653.mp3",
+      "tags": {
+        "source_item_id": "36866653",
+        "gender": "u"
+      }
+    }
+  ]
+}

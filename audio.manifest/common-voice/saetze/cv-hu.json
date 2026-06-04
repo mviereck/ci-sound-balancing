@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — hu",
+  "lang": "hu",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-hu",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "23079816",
+      "text": "De legyen szíves, ne nógasson sietésre, mert nem értem, miért kellene engedelmeskednem magának.",
+      "audio": "hu/unknown/hu_u_23079816.mp3",
+      "tags": {
+        "source_item_id": "23079816",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23136124",
+      "text": "Nem vett észre, pedig tíz méterre voltam fenn a lesen.",
+      "audio": "hu/unknown/hu_u_23136124.mp3",
+      "tags": {
+        "source_item_id": "23136124",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23356250",
+      "text": "Az udvarnál még nem mutatták be.",
+      "audio": "hu/unknown/hu_u_23356250.mp3",
+      "tags": {
+        "source_item_id": "23356250",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23528568",
+      "text": "Így mindenki csak a saját üzeneteit teheti fel.",
+      "audio": "hu/unknown/hu_u_23528568.mp3",
+      "tags": {
+        "source_item_id": "23528568",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23629269",
+      "text": "Ha idejekorán érkeznek, nemcsak a rablást akadályozzák meg, hanem elfoghatják a bandát is.",
+      "audio": "hu/unknown/hu_u_23629269.mp3",
+      "tags": {
+        "source_item_id": "23629269",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23629639",
+      "text": "De amikor te játszottad, racionális voltál.",
+      "audio": "hu/unknown/hu_u_23629639.mp3",
+      "tags": {
+        "source_item_id": "23629639",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23637220",
+      "text": "A magabiztosság csak egy trükk.",
+      "audio": "hu/unknown/hu_u_23637220.mp3",
+      "tags": {
+        "source_item_id": "23637220",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23703380",
+      "text": "Jól van, ez majd meglátszik a borravalóján.",
+      "audio": "hu/unknown/hu_u_23703380.mp3",
+      "tags": {
+        "source_item_id": "23703380",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23790656",
+      "text": "Királyfit nem láttam, de láttam tegnap tizenegy hattyút.",
+      "audio": "hu/unknown/hu_u_23790656.mp3",
+      "tags": {
+        "source_item_id": "23790656",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24746876",
+      "text": "Középiskolai és jogi tanulmányai Budapesten végezte.",
+      "audio": "hu/unknown/hu_u_24746876.mp3",
+      "tags": {
+        "source_item_id": "24746876",
+        "gender": "u"
+      }
+    }
+  ]
+}

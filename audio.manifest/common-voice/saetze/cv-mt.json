@@ -1,0 +1,152 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mt",
+  "lang": "mt",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mt",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "21108330",
+      "text": "Nafu li l-akbar sfida hija dik tal-Air Malta.",
+      "audio": "mt/unknown/mt_u_21108330.mp3",
+      "tags": {
+        "source_item_id": "21108330",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21171709",
+      "text": "Esponewlu bhima bi tliet saqajn.",
+      "audio": "mt/unknown/mt_u_21171709.mp3",
+      "tags": {
+        "source_item_id": "21171709",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21188597",
+      "text": "Il-parti li tirrelata mal-bail in.",
+      "audio": "mt/unknown/mt_u_21188597.mp3",
+      "tags": {
+        "source_item_id": "21188597",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21239412",
+      "text": "Iżda wara ngħaqadt ma' Valletta grazzi għall-President Victor Sciriha.",
+      "audio": "mt/unknown/mt_u_21239412.mp3",
+      "tags": {
+        "source_item_id": "21239412",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21372299",
+      "text": "U hemmhekk irridu nħarsu biex naraw jekk dik hijiex ħierġa.",
+      "audio": "mt/unknown/mt_u_21372299.mp3",
+      "tags": {
+        "source_item_id": "21372299",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21388867",
+      "text": "Hija combination ta' tnejn, kemm il-probation u kemm il-community service.",
+      "audio": "mt/unknown/mt_u_21388867.mp3",
+      "tags": {
+        "source_item_id": "21388867",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21278028",
+      "text": "Zita kienet kollega wkoll fil-Parlament Ewropew.",
+      "audio": "mt/unknown/mt_u_21278028.mp3",
+      "tags": {
+        "source_item_id": "21278028",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21370198",
+      "text": "Dan huwa terminu tekniku li ta' min jispjega fil-qosor x'inhuwa.",
+      "audio": "mt/unknown/mt_u_21370198.mp3",
+      "tags": {
+        "source_item_id": "21370198",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21240971",
+      "text": "Dan il-ktieb fih diversi attentati u anke attentati li ma twettqux.",
+      "audio": "mt/unknown/mt_u_21240971.mp3",
+      "tags": {
+        "source_item_id": "21240971",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21196227",
+      "text": "S'issa qatt ma naf li kellna pjanta li turina s-soffitt.",
+      "audio": "mt/unknown/mt_u_21196227.mp3",
+      "tags": {
+        "source_item_id": "21196227",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21178921",
+      "text": "Pereżempju ċertu mezzi tax-xandir ma jimxux l-istess ma' kulħadd.",
+      "audio": "mt/unknown/mt_u_21178921.mp3",
+      "tags": {
+        "source_item_id": "21178921",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21176427",
+      "text": "Irrid nitkellem ftit ukoll dwar is-sussidjarjetà.",
+      "audio": "mt/unknown/mt_u_21176427.mp3",
+      "tags": {
+        "source_item_id": "21176427",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21388871",
+      "text": "Bikram Arora u Haroon Majeed kienu ferm dominanti.",
+      "audio": "mt/unknown/mt_u_21388871.mp3",
+      "tags": {
+        "source_item_id": "21388871",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21250956",
+      "text": "Din aħjar inneħħuha.",
+      "audio": "mt/unknown/mt_u_21250956.mp3",
+      "tags": {
+        "source_item_id": "21250956",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21175952",
+      "text": "L-għażla tal-kumpanija saret wara sejħa għall-offerti.",
+      "audio": "mt/unknown/mt_u_21175952.mp3",
+      "tags": {
+        "source_item_id": "21175952",
+        "gender": "u"
+      }
+    }
+  ]
+}

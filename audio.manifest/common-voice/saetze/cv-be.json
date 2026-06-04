@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — be",
+  "lang": "be",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-be",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26760377",
+      "text": "Раскулачванне было фактычна барацьбой дзяржавы супраць заможнага і сярэдняга сялянства ў мірны час.",
+      "audio": "be/unknown/be_u_26760377.mp3",
+      "tags": {
+        "source_item_id": "26760377",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26762418",
+      "text": "У гэты час надавалі больш увагі кантролю за замежнікамі якія знаходзіліся ў краіне.",
+      "audio": "be/unknown/be_u_26762418.mp3",
+      "tags": {
+        "source_item_id": "26762418",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26765765",
+      "text": "У ахвяру прыносіліся мядовыя соты, плады, свінні.",
+      "audio": "be/unknown/be_u_26765765.mp3",
+      "tags": {
+        "source_item_id": "26765765",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26765872",
+      "text": "Сярод жывёл сустракаюцца кіты, дэльфіны, дзюгоні, марскія змеі.",
+      "audio": "be/unknown/be_u_26765872.mp3",
+      "tags": {
+        "source_item_id": "26765872",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766016",
+      "text": "Пад карнізам праходзіць пояс аб'ёмнага геаметрычнага арнаменту, выкладзены з цэглы.",
+      "audio": "be/unknown/be_u_26766016.mp3",
+      "tags": {
+        "source_item_id": "26766016",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766083",
+      "text": "Прыцягваў да службы іншаземных, у тым ліку турэцкіх, воінаў.",
+      "audio": "be/unknown/be_u_26766083.mp3",
+      "tags": {
+        "source_item_id": "26766083",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766261",
+      "text": "Агульны кірунак з поўначы на поўдзень.",
+      "audio": "be/unknown/be_u_26766261.mp3",
+      "tags": {
+        "source_item_id": "26766261",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766302",
+      "text": "Дваранства перашкаджала аб'яднанню, бо жадала захаваць свае дробязныя прэрагатывы.",
+      "audio": "be/unknown/be_u_26766302.mp3",
+      "tags": {
+        "source_item_id": "26766302",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766547",
+      "text": "Гэта трагедыя стала вядомая ў большасці краін свету.",
+      "audio": "be/unknown/be_u_26766547.mp3",
+      "tags": {
+        "source_item_id": "26766547",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26766622",
+      "text": "Паколькі расліна занесена ў спіс відаў, якія маюць патрэбу ў ахове, нарыхтоўка каранёў забароненая.",
+      "audio": "be/unknown/be_u_26766622.mp3",
+      "tags": {
+        "source_item_id": "26766622",
+        "gender": "u"
+      }
+    }
+  ]
+}

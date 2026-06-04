@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tt",
+  "lang": "tt",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tt",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17516346",
+      "text": "Авыл малайлары белән дә таныштым.",
+      "audio": "tt/unknown/tt_u_17516346.mp3",
+      "tags": {
+        "source_item_id": "17516346",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17520299",
+      "text": "Баралар-баралар, бара торгач, барып җитәләр тагын да матуррак бер биек яр буена.",
+      "audio": "tt/unknown/tt_u_17520299.mp3",
+      "tags": {
+        "source_item_id": "17520299",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18821591",
+      "text": "Күңелдәге бар ризасызлыкны да тышка чыгарып булмый.",
+      "audio": "tt/unknown/tt_u_18821591.mp3",
+      "tags": {
+        "source_item_id": "18821591",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17669977",
+      "text": "Адәм кулыннан килә торган эш түгел.",
+      "audio": "tt/unknown/tt_u_17669977.mp3",
+      "tags": {
+        "source_item_id": "17669977",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17431733",
+      "text": "Болар тиз генә йортка кереп бикләнәләр.",
+      "audio": "tt/unknown/tt_u_17431733.mp3",
+      "tags": {
+        "source_item_id": "17431733",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18886301",
+      "text": "Ана — шәфкать диңгезе.",
+      "audio": "tt/unknown/tt_u_18886301.mp3",
+      "tags": {
+        "source_item_id": "18886301",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17920174",
+      "text": "Утыз тештән чыккан утыз илгә җәелә.",
+      "audio": "tt/unknown/tt_u_17920174.mp3",
+      "tags": {
+        "source_item_id": "17920174",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17431710",
+      "text": "Йокыдан уянгач, алманы яңадан санап карады, элек икәү юк иде, хәзер өчәү юк.",
+      "audio": "tt/unknown/tt_u_17431710.mp3",
+      "tags": {
+        "source_item_id": "17431710",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17766357",
+      "text": "Алар тырышлыгы белән ел дәвамында мәчет каршындагы мәдрәсәләрдә дини укулар оештырылган.",
+      "audio": "tt/unknown/tt_u_17766357.mp3",
+      "tags": {
+        "source_item_id": "17766357",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17626690",
+      "text": "Ул мине ярата.",
+      "audio": "tt/unknown/tt_u_17626690.mp3",
+      "tags": {
+        "source_item_id": "17626690",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17630807",
+      "text": "Әсәр шундый бәя алды.",
+      "audio": "tt/unknown/tt_u_17630807.mp3",
+      "tags": {
+        "source_item_id": "17630807",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17343449",
+      "text": "Теге аждаһалы елгага кайтып җитә.",
+      "audio": "tt/unknown/tt_u_17343449.mp3",
+      "tags": {
+        "source_item_id": "17343449",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — hsb",
+  "lang": "hsb",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-hsb",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20359372",
+      "text": "Z prěnim wobzamknjenjom je sejmik nowu wersiju wozjewjenskich wustawkow wobzamknył.",
+      "audio": "hsb/unknown/hsb_u_20359372.mp3",
+      "tags": {
+        "source_item_id": "20359372",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20404861",
+      "text": "Tak hodźeli so wobstejace synergije wužiwać.",
+      "audio": "hsb/unknown/hsb_u_20404861.mp3",
+      "tags": {
+        "source_item_id": "20404861",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20369058",
+      "text": "Ty bě tołsta, dokelž sy přewjele słódkosćow jědła.",
+      "audio": "hsb/unknown/hsb_u_20369058.mp3",
+      "tags": {
+        "source_item_id": "20369058",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20359374",
+      "text": "Tójšto zarjadowanjow wotmě so w małoměstach a na wsach.",
+      "audio": "hsb/unknown/hsb_u_20359374.mp3",
+      "tags": {
+        "source_item_id": "20359374",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20367430",
+      "text": "Wón skutkuje tež jako solo-gitarist na koncertach we Łužicy a zwonka njeje.",
+      "audio": "hsb/unknown/hsb_u_20367430.mp3",
+      "tags": {
+        "source_item_id": "20367430",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20492850",
+      "text": "Klimowi aktiwisća su wčera před čěskim wobswětowym ministerstwom přećiwo dalšemu wudobywanju brunicy protestowali.",
+      "audio": "hsb/unknown/hsb_u_20492850.mp3",
+      "tags": {
+        "source_item_id": "20492850",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20367464",
+      "text": "Wonej chcyštej z wowku hodowne dariki nakupować hić.",
+      "audio": "hsb/unknown/hsb_u_20367464.mp3",
+      "tags": {
+        "source_item_id": "20367464",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20952081",
+      "text": "Šula njeměješe jenož dwě rjadowni, ale samo štyri.",
+      "audio": "hsb/unknown/hsb_u_20952081.mp3",
+      "tags": {
+        "source_item_id": "20952081",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20376680",
+      "text": "Pućowacy zeznaja tak rozdźělne kónčiny a njeličomne zajimawostki.",
+      "audio": "hsb/unknown/hsb_u_20376680.mp3",
+      "tags": {
+        "source_item_id": "20376680",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20359330",
+      "text": "Woni běchu w měsće a nětko po puću domoj.",
+      "audio": "hsb/unknown/hsb_u_20359330.mp3",
+      "tags": {
+        "source_item_id": "20359330",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20369204",
+      "text": "Tež tónraz chcedźa serbske nałožki, tradicije a rěč Hanza Njepile zjawnosći předstajić.",
+      "audio": "hsb/unknown/hsb_u_20369204.mp3",
+      "tags": {
+        "source_item_id": "20369204",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ha",
+  "lang": "ha",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ha",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26694102",
+      "text": "Bude kofar. Na san kina ciki.",
+      "audio": "ha/unknown/ha_u_26694102.mp3",
+      "tags": {
+        "source_item_id": "26694102",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26874968",
+      "text": "Duk da dai gwamnati ta ki yarda, tattalin arzikinta na cikin matsala.",
+      "audio": "ha/unknown/ha_u_26874968.mp3",
+      "tags": {
+        "source_item_id": "26874968",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26874651",
+      "text": "An harbi mayen da harsashin azurfa.",
+      "audio": "ha/unknown/ha_u_26874651.mp3",
+      "tags": {
+        "source_item_id": "26874651",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26808107",
+      "text": "Na dakatar da bidiyon.",
+      "audio": "ha/unknown/ha_u_26808107.mp3",
+      "tags": {
+        "source_item_id": "26808107",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26878223",
+      "text": "Sojojin da ke kan kwale-kwalen za su sami saukin harin.",
+      "audio": "ha/unknown/ha_u_26878223.mp3",
+      "tags": {
+        "source_item_id": "26878223",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26804451",
+      "text": "An fi saninsa da a Ingilishi da Sarki Aliyu.",
+      "audio": "ha/unknown/ha_u_26804451.mp3",
+      "tags": {
+        "source_item_id": "26804451",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26872763",
+      "text": "Akwai shahararrun litattafan turanci waɗanda gaba ɗaya babin ƙarshe jimla ɗaya ne kawai.",
+      "audio": "ha/unknown/ha_u_26872763.mp3",
+      "tags": {
+        "source_item_id": "26872763",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26837342",
+      "text": "Ya bani tsoro ni kada in gan ka akan zanar gizo duk ranar.",
+      "audio": "ha/unknown/ha_u_26837342.mp3",
+      "tags": {
+        "source_item_id": "26837342",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26803196",
+      "text": "Yi hakuri, amma ina son zuwa wajen motsa jiki.",
+      "audio": "ha/unknown/ha_u_26803196.mp3",
+      "tags": {
+        "source_item_id": "26803196",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26812508",
+      "text": "Mutumin dake zaune kusa da Jalal maihaifin shi ne.",
+      "audio": "ha/unknown/ha_u_26812508.mp3",
+      "tags": {
+        "source_item_id": "26812508",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26804621",
+      "text": "Mun yi gumi a cikin zafi.",
+      "audio": "ha/unknown/ha_u_26804621.mp3",
+      "tags": {
+        "source_item_id": "26804621",
+        "gender": "u"
+      }
+    }
+  ]
+}

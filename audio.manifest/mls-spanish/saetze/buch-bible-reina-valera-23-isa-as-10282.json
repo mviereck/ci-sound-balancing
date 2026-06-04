@@ -1,0 +1,1208 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Bible (Reina Valera) 23: Isaías",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "10282",
+    "book_title": "Bible (Reina Valera) 23: Isaías",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10367_10282_000000",
+      "text": "y á los hijos de los extranjeros que se allegaren á jehová para ministrarle y que amaren el nombre de jehová para ser sus siervos á todos los que guardaren el sábado de profanarlo y abrazaren mi pacto",
+      "audio": "dev/audio/10367/10282/10367_10282_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 193.17,
+        "original_end_s": 205.18
+      }
+    },
+    {
+      "id": "10367_10282_000001",
+      "text": "que me busquen cada día y quieren saber mis caminos como gente que hubiese obrado justicia y que no hubiese dejado el derecho de su dios pregúntanme derechos de justicia y quieren acercarse a dios por qué dicen ayunamos y no hiciste caso humillamos nuestras almas y no te diste por entendido",
+      "audio": "dev/audio/10367/10282/10367_10282_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 218.54,
+        "original_end_s": 237.99
+      }
+    },
+    {
+      "id": "10367_10282_000002",
+      "text": "no es antes el ayuno que yo escogí desatar las ligaduras de impiedad deshacer los haces de opresión y dejar libres a los quebrantados y que rompáis todo yugo",
+      "audio": "dev/audio/10367/10282/10367_10282_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 265.78,
+        "original_end_s": 276.28
+      }
+    },
+    {
+      "id": "10367_10282_000003",
+      "text": "del trabajo de su alma verá y será saciado con su conocimiento justificará mi siervo justo a muchos y él llevará las iniquidades de ellos por tanto yo le daré parte con los grandes y con los fuertes repartirá despojos por cuanto derramó su vida hasta la muerte y fue contado con los perversos",
+      "audio": "dev/audio/10367/10282/10367_10282_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 124.33,
+        "original_end_s": 143.25
+      }
+    },
+    {
+      "id": "10367_10282_000004",
+      "text": "mas él herido fué por nuestras rebeliones molido por nuestros pecados el castigo de nuestra paz sobre él y por su llaga fuimos nosotros curados todos nosotros nos descarriamos como ovejas cada cual se apartó por su camino mas jehová cargó en él el pecado de todos nosotros",
+      "audio": "dev/audio/10367/10282/10367_10282_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 60.51,
+        "original_end_s": 79.63
+      }
+    },
+    {
+      "id": "10367_10282_000005",
+      "text": "el hablar calumnia y rebelión concebir y proferir de corazón palabras de mentira y el derecho se retiró y la justicia se puso lejos porque la verdad tropezó en la plaza y la equidad no pudo venir",
+      "audio": "dev/audio/10367/10282/10367_10282_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 141.09,
+        "original_end_s": 154.45
+      }
+    },
+    {
+      "id": "10367_10282_000006",
+      "text": "y mamarás la leche de las gentes y el pecho de los reyes mamarás y conocerás que yo jehová soy el salvador tuyo y redentor tuyo el fuerte de jacob",
+      "audio": "dev/audio/10367/10282/10367_10282_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 374.17,
+        "original_end_s": 384.91
+      }
+    },
+    {
+      "id": "10367_10282_000007",
+      "text": "porque como desciende de los cielos la lluvia y la nieve y no vuelve allá sino que harta la tierra y la hace germinar y producir y da simiente al que siembra y pan al que come así será mi palabra que sale de mi boca no volverá á mí vacía antes hará todo lo que yo quiero",
+      "audio": "dev/audio/10367/10282/10367_10282_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 100.53,
+        "original_end_s": 118.58
+      }
+    },
+    {
+      "id": "10367_10282_000008",
+      "text": "entrará en la paz descansarán en sus lechos todos los que andan delante de dios mas vosotros llegaos acá hijos de la agorera generación de adúltero y de fornicaria",
+      "audio": "dev/audio/10367/10282/10367_10282_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 32.62,
+        "original_end_s": 43.67
+      }
+    },
+    {
+      "id": "10367_10282_000009",
+      "text": "sus telas no servirán para vestir ni de sus obras serán cubiertos sus obras son obras de iniquidad y obra de rapiña está en sus manos sus pies corren al mal y se apresuran para derramar la sangre inocente sus pensamientos pensamientos de iniquidad destrucción y quebrantamiento en sus caminos",
+      "audio": "dev/audio/10367/10282/10367_10282_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 66.42,
+        "original_end_s": 86.35
+      }
+    },
+    {
+      "id": "10367_10282_000010",
+      "text": "y subirá cual renuevo delante de él y como raíz de tierra seca no hay parecer en él ni hermosura verlo hemos mas sin atractivo para que le deseemos",
+      "audio": "dev/audio/10367/10282/10367_10282_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 29.88,
+        "original_end_s": 40.52
+      }
+    },
+    {
+      "id": "10367_10282_000011",
+      "text": "y será a jehová por nombre por señal eterna que nunca será raída isaías cincuenta y seis así dijo jehová guardad derecho y haced justicia porque cercana está mi salud para venir y mi justicia para manifestarse",
+      "audio": "dev/audio/10367/10282/10367_10282_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 138.43,
+        "original_end_s": 156.81
+      }
+    },
+    {
+      "id": "10367_10282_000012",
+      "text": "si alguno conspirare contra ti será sin mí el que contra ti conspirare delante de ti caerá he aquí que yo crié al herrero que sopla las ascuas en el fuego y que saca la herramienta para su obra y yo he criado al destruidor para destruir",
+      "audio": "dev/audio/10367/10282/10367_10282_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 285.23,
+        "original_end_s": 301.12
+      }
+    },
+    {
+      "id": "10367_10282_000013",
+      "text": "si retrajeres del sábado tu pie de hacer tu voluntad en mi día santo y al sábado llamares delicias santo glorioso de jehová y lo venerares no andando en tus caminos ni buscando tu voluntad ni hablando tus palabras",
+      "audio": "dev/audio/10367/10282/10367_10282_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 339.61,
+        "original_end_s": 354.04
+      }
+    },
+    {
+      "id": "10367_10282_000014",
+      "text": "porque los montes se moverán y los collados temblarán mas no se apartará de ti mi misericordia ni el pacto de mi paz vacilará dijo jehová el que tiene misericordia de ti",
+      "audio": "dev/audio/10367/10282/10367_10282_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 242.87,
+        "original_end_s": 254.36
+      }
+    },
+    {
+      "id": "10367_10282_000015",
+      "text": "no conocieron camino de paz ni hay derecho en sus caminos sus veredas son torcidas cualquiera que por ellas fuere no conocerá paz por esto se alejó de nosotros el juicio y no nos alcanzó justicia esperamos luz y he aquí tinieblas resplandores y andamos en oscuridad",
+      "audio": "dev/audio/10367/10282/10367_10282_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 86.35,
+        "original_end_s": 104.49
+      }
+    },
+    {
+      "id": "10367_10282_000016",
+      "text": "el sol nunca más te servirá de luz para el día ni el resplandor de la luna te alumbrará sino que jehová te será por luz perpetua y el dios tuyo por tu gloria",
+      "audio": "dev/audio/10367/10282/10367_10282_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 407.4,
+        "original_end_s": 417.89
+      }
+    },
+    {
+      "id": "10367_10282_000017",
+      "text": "habiendo él llevado el pecado de muchos y orado por los transgresores",
+      "audio": "dev/audio/10367/10282/10367_10282_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 143.25,
+        "original_end_s": 154.37
+      }
+    },
+    {
+      "id": "10367_10282_000018",
+      "text": "porque mis pensamientos no son vuestros pensamientos ni vuestros caminos mis caminos dijo jehová como son más altos los cielos que la tierra así son mis caminos más altos que vuestros caminos y mis pensamientos más que vuestros pensamientos",
+      "audio": "dev/audio/10367/10282/10367_10282_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 85.07,
+        "original_end_s": 100.53
+      }
+    },
+    {
+      "id": "10367_10282_000019",
+      "text": "pues de justicia se vistió como de loriga con capacete de salud en su cabeza y vistióse de vestido de venganza por vestidura y cubrióse de celo como de manto",
+      "audio": "dev/audio/10367/10282/10367_10282_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 172.02,
+        "original_end_s": 183.46
+      }
+    },
+    {
+      "id": "10367_10282_000020",
+      "text": "entonces te delelitarás en jehová y yo te haré subir sobre las alturas de la tierra y te daré á comer la heredad de jacob tu padre porque la boca de jehová lo ha hablado",
+      "audio": "dev/audio/10367/10282/10367_10282_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 354.04,
+        "original_end_s": 365.41
+      }
+    },
+    {
+      "id": "10367_10282_000021",
+      "text": "pobrecita fatigada con tempestad sin consuelo he aquí que yo cimentaré tus piedras sobre carbunclo y sobre zafiros te fundaré tus ventanas pondré de piedras preciosas tus puertas de piedra de carbunclo y todo tu término de piedras de buen gusto",
+      "audio": "dev/audio/10367/10282/10367_10282_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 254.36,
+        "original_end_s": 271.96
+      }
+    },
+    {
+      "id": "10367_10282_000022",
+      "text": "he aquí llamarás a gente que no conociste y gentes que no te conocieron correrán a ti por causa de jehová tu dios y del santo de israel que te ha honrado buscad a jehová mientras pueda ser hallado llamadle en tanto que está cercano",
+      "audio": "dev/audio/10367/10282/10367_10282_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 59.51,
+        "original_end_s": 74.57
+      }
+    },
+    {
+      "id": "10367_10282_000023",
+      "text": "no es que partas tu pan con el hambriento y a los hombres errantes metas en casa que cuando vieres al desnudo lo cubras y no te escondas de tu carne entonces nacerá tu luz como el alba y tu salud se dejará ver presto e irá tu justicia delante de ti y la gloria de jehová será tu retaguardia",
+      "audio": "dev/audio/10367/10282/10367_10282_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 276.28,
+        "original_end_s": 295.6
+      }
+    },
+    {
+      "id": "10367_10282_000024",
+      "text": "quiénes son estos que vuelan como nubes y como palomas a sus ventanas ciertamente a mí esperarán las islas y las naves de tarsis desde el principio para traer tus hijos de lejos y su plata y su oro con ellos al nombre de jehová tu dios y al santo de israel que te ha glorificado",
+      "audio": "dev/audio/10367/10282/10367_10282_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 296.48,
+        "original_end_s": 315.08
+      }
+    },
+    {
+      "id": "10367_10282_000025",
+      "text": "porque nuestras rebeliones se han multiplicado delante de ti y nuestros pecados han atestiguado contra nosotros porque con nosotros están nuestras iniquidades y conocemos nuestros pecados el prevaricar y mentir contra jehová y tornar de en pos de nuestro dios",
+      "audio": "dev/audio/10367/10282/10367_10282_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 124.27,
+        "original_end_s": 141.09
+      }
+    },
+    {
+      "id": "10367_10282_000026",
+      "text": "alza tus ojos en derredor y mira todos estos se han juntado vinieron a ti tus hijos vendrán de lejos y tus hijas sobre el lado serán criadas",
+      "audio": "dev/audio/10367/10282/10367_10282_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 251.73,
+        "original_end_s": 262.86
+      }
+    },
+    {
+      "id": "10367_10282_000027",
+      "text": "porque así dijo jehová a los eunucos que guardaren mis sábados y escogieren lo que yo quiero y abrazaren mi pacto yo les daré lugar en mi casa y dentro de mis muros y nombre mejor que el de hijos e hijas nombre perpetuo les daré que nunca perecerá",
+      "audio": "dev/audio/10367/10282/10367_10282_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 176.65,
+        "original_end_s": 193.17
+      }
+    },
+    {
+      "id": "10367_10282_000028",
+      "text": "bienaventurado el hombre que esto hiciere y el hijo del hombre que esto abrazare que guarda el sábado de profanarlo y que guarda su mano de hacer todo mal y el hijo del extranjero allegado á jehová no hable diciendo apartaráme totalmente jehová de su pueblo ni diga el eunuco he aquí yo soy árbol seco",
+      "audio": "dev/audio/10367/10282/10367_10282_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 156.81,
+        "original_end_s": 176.65
+      }
+    },
+    {
+      "id": "10367_10282_000029",
+      "text": "y esos perros ansiosos no conocen hartura y los mismos pastores no supieron entender todos ellos miran á sus caminos cada uno a su provecho cada uno por su cabo venid dicen tomaré vino",
+      "audio": "dev/audio/10367/10282/10367_10282_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 239.3,
+        "original_end_s": 253.52
+      }
+    },
+    {
+      "id": "10367_10282_000030",
+      "text": "y los hijos de los extranjeros edificarán tus muros y sus reyes te servirán porque en mi ira te herí mas en mi buena voluntad tendré de ti misericordia",
+      "audio": "dev/audio/10367/10282/10367_10282_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 315.08,
+        "original_end_s": 325.17
+      }
+    },
+    {
+      "id": "10367_10282_000031",
+      "text": "e hiciste con ellos alianza amaste su cama donde quiera que la veías y fuiste al rey con ungüento y multiplicaste tus perfumes y enviaste tus embajadores lejos y te abatiste hasta el profundo",
+      "audio": "dev/audio/10367/10282/10367_10282_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 88.07,
+        "original_end_s": 101.33
+      }
+    },
+    {
+      "id": "10367_10282_000032",
+      "text": "despreciado y desechado entre los hombres varón de dolores experimentado en quebranto y como que escondimos de él el rostro fue menospreciado y no lo estimamos ciertamente llevó él nuestras enfermedades y sufrió nuestros dolores y nosotros le tuvimos por azotado por herido de dios y abatido",
+      "audio": "dev/audio/10367/10282/10367_10282_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 40.52,
+        "original_end_s": 60.51
+      }
+    },
+    {
+      "id": "10367_10282_000033",
+      "text": "nunca más se oirá en tu tierra violencia destrucción ni quebrantamiento en tus términos mas a tus muros llamarás salud y a tus puertas alabanza",
+      "audio": "dev/audio/10367/10282/10367_10282_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 397.22,
+        "original_end_s": 407.4
+      }
+    },
+    {
+      "id": "10367_10282_000034",
+      "text": "alégrate oh estéril la que no paría levanta canción y da voces de júbilo la que nunca estuvo de parto porque más son los hijos de la dejada que los de la casada ha dicho jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 154.37,
+        "original_end_s": 170.42
+      }
+    },
+    {
+      "id": "10367_10282_000035",
+      "text": "mas vuestras iniquidades han hecho división entre vosotros y vuestro dios y vuestros pecados han hecho ocultar su rostro de vosotros para no oir porque vuestras manos están contaminadas de sangre y vuestros dedos de iniquidad vuestros labios pronuncian mentira habla maldad vuestra lengua",
+      "audio": "dev/audio/10367/10282/10367_10282_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 30.48,
+        "original_end_s": 48.64
+      }
+    },
+    {
+      "id": "10367_10282_000036",
+      "text": "yo los llevaré al monte de mi santidad y los recrearé en mi casa de oración sus holocaustos y sus sacrificios serán aceptos sobre mi altar porque mi casa casa de oración será llamada de todos los pueblos dice el señor jehová el que junta los echados de israel aun juntaré sobre él sus congregados",
+      "audio": "dev/audio/10367/10282/10367_10282_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 205.18,
+        "original_end_s": 224.56
+      }
+    },
+    {
+      "id": "10367_10282_000037",
+      "text": "mas los impíos son como la mar en tempestad que no puede estarse quieta y sus aguas arrojan cieno y lodo no hay paz dijo mi dios para los impíos",
+      "audio": "dev/audio/10367/10282/10367_10282_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 195.47,
+        "original_end_s": 206.26
+      }
+    },
+    {
+      "id": "10367_10282_000038",
+      "text": "y todos tus hijos serán enseñados de jehová y multiplicará la paz de tus hijos con justicia serás adornada estarás lejos de opresión porque no temerás y de temor porque no se acercará a ti",
+      "audio": "dev/audio/10367/10282/10367_10282_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 271.96,
+        "original_end_s": 285.23
+      }
+    },
+    {
+      "id": "10367_10282_000039",
+      "text": "tus puertas estarán de continuo abiertas no se cerrarán de día ni de noche para que sea traída a ti fortaleza de gentes y sus reyes conducidos porque la gente o el reino que no te sirviere perecerá",
+      "audio": "dev/audio/10367/10282/10367_10282_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 325.17,
+        "original_end_s": 339.14
+      }
+    },
+    {
+      "id": "10367_10282_000040",
+      "text": "porque nunca hizo él maldad ni hubo engaño en su boca con todo eso jehová quiso quebrantarlo sujetándole á padecimiento cuando hubiere puesto su vida en expiación por el pecado verá linaje vivirá por largos días y la voluntad de jehová será en su mano prosperada",
+      "audio": "dev/audio/10367/10282/10367_10282_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 107.27,
+        "original_end_s": 124.33
+      }
+    },
+    {
+      "id": "10367_10282_000041",
+      "text": "y como manadero de aguas cuyas aguas nunca faltan y edificarán los de ti los desiertos antiguos los cimientos de generación en generación levantarás y serás llamado reparador de portillos restaurador de calzadas para habitar",
+      "audio": "dev/audio/10367/10282/10367_10282_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 324.13,
+        "original_end_s": 339.61
+      }
+    },
+    {
+      "id": "10367_10282_000042",
+      "text": "angustiado él y afligido no abrió su boca como cordero fue llevado al matadero y como oveja delante de sus trasquiladores enmudeció y no abrió su boca",
+      "audio": "dev/audio/10367/10282/10367_10282_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 79.63,
+        "original_end_s": 91.01
+      }
+    },
+    {
+      "id": "10367_10282_000043",
+      "text": "en vez de cobre traeré oro y por hierro plata y por madera metal y en lugar de piedras hierro y pondré paz por tu tributo y justicia por tus exactores",
+      "audio": "dev/audio/10367/10282/10367_10282_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 384.91,
+        "original_end_s": 397.22
+      }
+    },
+    {
+      "id": "10367_10282_000044",
+      "text": "sobre el monte alto y empinado pusiste tu cama allí también subiste á hacer sacrificio y tras la puerta y el umbral pusiste tu recuerdo porque á otro que á mí te descubriste y subiste y ensanchaste tu cama",
+      "audio": "dev/audio/10367/10282/10367_10282_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 73.76,
+        "original_end_s": 88.07
+      }
+    },
+    {
+      "id": "10367_10282_000045",
+      "text": "porque he aquí que tinieblas cubrirán la tierra y oscuridad los pueblos mas sobre ti nacerá jehová y sobre ti será vista su gloria y andarán las gentes á tu luz y los reyes al resplandor de tu nacimiento",
+      "audio": "dev/audio/10367/10282/10367_10282_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 237.59,
+        "original_end_s": 251.73
+      }
+    },
+    {
+      "id": "10367_10282_000046",
+      "text": "no hay quien clame por la justicia ni quien juzgue por la verdad confían en vanidad y hablan vanidades conciben trabajo y paren iniquidad ponen huevos de áspides y tejen telas de arañas y el que comiere de sus huevos morirá y si lo apretaren saldrá un basilisco",
+      "audio": "dev/audio/10367/10282/10367_10282_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 48.64,
+        "original_end_s": 66.42
+      }
+    },
+    {
+      "id": "10367_10282_000047",
+      "text": "y del todo serán asoladas la gloria del líbano vendrá á ti hayas pinos y bojes juntamente para decorar el lugar de mi santuario y yo honraré el lugar de mis pies y vendrán á ti humillados los hijos de los que te afligieron y á las pisadas de tus pies se encorvarán todos los que te escarnecían",
+      "audio": "dev/audio/10367/10282/10367_10282_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 339.14,
+        "original_end_s": 358.96
+      }
+    },
+    {
+      "id": "10367_10282_000048",
+      "text": "isaías cincuenta y ocho clama a voz en cuello no te detengas alza tu voz como trompeta y anuncia á mi pueblo su rebelión y á la casa de jacob su pecado",
+      "audio": "dev/audio/10367/10282/10367_10282_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 206.26,
+        "original_end_s": 218.54
+      }
+    },
+    {
+      "id": "10367_10282_000049",
+      "text": "no he yo disimulado desde tiempos antiguos y nunca me has temido yo publicaré tu justicia y tus obras que no te aprovecharán cuando clamares líbrente tus allegados empero á todos ellos llevará el viento un soplo los arrebatará",
+      "audio": "dev/audio/10367/10282/10367_10282_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 117.63,
+        "original_end_s": 133.77
+      }
+    },
+    {
+      "id": "10367_10282_000050",
+      "text": "porque así dijo el alto y sublime el que habita la eternidad y cuyo nombre es el santo yo habito en la altura y la santidad y con el quebrantado y humilde de espíritu para hacer vivir el espíritu de los humildes y para vivificar el corazón de los quebrantados",
+      "audio": "dev/audio/10367/10282/10367_10282_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 146.3,
+        "original_end_s": 162.37
+      }
+    },
+    {
+      "id": "10367_10282_000051",
+      "text": "porque esto me será como las aguas de noé que juré que nunca más las aguas de noé pasarían sobre la tierra así he jurado que no me enojaré contra ti ni te reñiré",
+      "audio": "dev/audio/10367/10282/10367_10282_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 232.08,
+        "original_end_s": 242.87
+      }
+    },
+    {
+      "id": "10367_10282_000052",
+      "text": "quién ha creído á nuestro anuncio y sobre quién se ha manifestado el brazo de jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 19.42,
+        "original_end_s": 29.88
+      }
+    },
+    {
+      "id": "10367_10282_000053",
+      "text": "entonces invocarás y oirte ha jehová clamarás y dirá él heme aquí si quitares de en medio de ti el yugo el extender el dedo y hablar vanidad",
+      "audio": "dev/audio/10367/10282/10367_10282_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 295.6,
+        "original_end_s": 306.9
+      }
+    },
+    {
+      "id": "10367_10282_000054",
+      "text": "grabado por rodrigo hinojosa isaías cincuenta y nueve he aquí que no se ha acortado la mano de jehová para salvar ni hase agravado su oído para oír",
+      "audio": "dev/audio/10367/10282/10367_10282_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 19.21,
+        "original_end_s": 30.48
+      }
+    },
+    {
+      "id": "10367_10282_000055",
+      "text": "multitud de camellos te cubrirá dromedarios de madián y de epha vendrán todos los de seba traerán oro e incienso y publicarán alabanzas de jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 274.0,
+        "original_end_s": 284.71
+      }
+    },
+    {
+      "id": "10367_10282_000056",
+      "text": "no se pondrá jamás tu sol ni menguará tu luna porque te será jehová por luz perpetua y los días de tu luto serán acabados y tu pueblo todos ellos serán justos para siempre heredarán la tierra",
+      "audio": "dev/audio/10367/10282/10367_10282_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 417.89,
+        "original_end_s": 431.82
+      }
+    },
+    {
+      "id": "10367_10282_000057",
+      "text": "toda herramienta que fuere fabricada contra ti no prosperará y tú condenarás toda lengua que se levante contra ti en juicio esta es la heredad de los siervos de jehová y su justicia de por mí dijo jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 301.12,
+        "original_end_s": 315.28
+      }
+    },
+    {
+      "id": "10367_10282_000058",
+      "text": "en la multitud de tus caminos te cansaste mas no dijiste no hay remedio hallaste la vida de tu mano por tanto no te arrepentiste y de quién te asustaste y temiste que has faltado á la fe y no te has acordado de mí ni te vino al pensamiento",
+      "audio": "dev/audio/10367/10282/10367_10282_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 101.33,
+        "original_end_s": 117.63
+      }
+    },
+    {
+      "id": "10367_10282_000059",
+      "text": "porque tu marido es tu hacedor jehová de los ejércitos es su nombre y tu redentor el santo de israel dios de toda la tierra será llamado porque como á mujer dejada y triste de espíritu te llamó jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 201.12,
+        "original_end_s": 214.71
+      }
+    },
+    {
+      "id": "10367_10282_000060",
+      "text": "palpamos la pared como ciegos y andamos á tiento como sin ojos tropezamos al medio día como de noche estamos en oscuros lugares como muertos aullamos como osos todos nosotros y gemimos lastimeramente como palomas esperamos juicio y no lo hay salud y alejóse de nosotros",
+      "audio": "dev/audio/10367/10282/10367_10282_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 104.49,
+        "original_end_s": 124.27
+      }
+    },
+    {
+      "id": "10367_10282_000061",
+      "text": "ensancha el sitio de tu cabaña y las cortinas de tus tiendas sean extendidas no seas escasa alarga tus cuerdas y fortifica tus estacas porque a la mano derecha y a la mano izquierda has de crecer y tu simiente heredará gentes y habitarán las ciudades asoladas",
+      "audio": "dev/audio/10367/10282/10367_10282_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 170.42,
+        "original_end_s": 188.65
+      }
+    },
+    {
+      "id": "10367_10282_000062",
+      "text": "grabado por rodrigo hinojosa isaías cincuenta y cinco a todos los sedientos venid a las aguas y los que no tienen dinero venid comprad y comed venid comprad sin dinero y sin precio vino y leche",
+      "audio": "dev/audio/10367/10282/10367_10282_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 18.43,
+        "original_end_s": 33.8
+      }
+    },
+    {
+      "id": "10367_10282_000063",
+      "text": "de quién os habéis mofado contra quién ensanchasteis la boca y alargasteis la lengua no sois vosotros hijos rebeldes simiente mentirosa que os enfervorizáis con los ídolos debajo de todo árbol umbroso que sacrificáis los hijos en los valles debajo de los peñascos",
+      "audio": "dev/audio/10367/10282/10367_10282_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 43.67,
+        "original_end_s": 61.61
+      }
+    },
+    {
+      "id": "10367_10282_000064",
+      "text": "grabado por rodrigo hinojosa isaías cincuenta y siete perece el justo y no hay quien pare mientes y los píos son recogidos y no hay quien entienda que delante de la aflicción es recogido el justo",
+      "audio": "dev/audio/10367/10282/10367_10282_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 19.1,
+        "original_end_s": 32.62
+      }
+    },
+    {
+      "id": "10367_10282_000065",
+      "text": "embriaguémonos de sidra y será el día de mañana como este o mucho más excelente fin del capítulo cincuenta y seis del libro de isaías grabado por rodrigo hinojosa",
+      "audio": "dev/audio/10367/10282/10367_10282_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 253.52,
+        "original_end_s": 272.48
+      }
+    },
+    {
+      "id": "10367_10282_000066",
+      "text": "visto he sus caminos y le sanaré y le pastorearé y daréle consolaciones a él y a sus enlutados crío fruto de labios paz paz al lejano y al cercano dijo jehová y sanarélo",
+      "audio": "dev/audio/10367/10282/10367_10282_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 180.73,
+        "original_end_s": 195.47
+      }
+    },
+    {
+      "id": "10367_10282_000067",
+      "text": "todas las bestias del campo todas las bestias del monte venid á devorar sus atalayas ciegos son todos ellos ignorantes todos ellos perros mudos no pueden ladrar soñolientos echados aman el dormir",
+      "audio": "dev/audio/10367/10282/10367_10282_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 224.56,
+        "original_end_s": 239.3
+      }
+    },
+    {
+      "id": "10367_10282_000068",
+      "text": "como para retribuir como para retornar ira á sus enemigos y dar el pago á sus adversarios el pago dará á sus islas y temerán desde el occidente el nombre de jehová y desde el nacimiento del sol su gloria porque vendrá el enemigo como río mas el espíritu de jehová levantará bandera sobre él",
+      "audio": "dev/audio/10367/10282/10367_10282_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 183.46,
+        "original_end_s": 202.98
+      }
+    },
+    {
+      "id": "10367_10282_000069",
+      "text": "no temas que no serás avergonzada y no te avergüences que no serás afrentada antes te olvidarás de la vergüenza de tu mocedad y de la afrenta de tu viudez no tendrás más memoria",
+      "audio": "dev/audio/10367/10282/10367_10282_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 188.65,
+        "original_end_s": 201.12
+      }
+    },
+    {
+      "id": "10367_10282_000070",
+      "text": "y si derramares tu alma al hambriento y saciares el alma afligida en las tinieblas nacerá tu luz y tu oscuridad será como el medio día y jehová te pastoreará siempre y en las sequías hartará tu alma y engordará tus huesos y serás como huerta de riego",
+      "audio": "dev/audio/10367/10282/10367_10282_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 306.9,
+        "original_end_s": 324.13
+      }
+    },
+    {
+      "id": "10367_10282_000071",
+      "text": "he aquí que en el día de vuestro ayuno halláis lo que queréis y todos demandáis vuestras haciendas he aquí que para contiendas y debates ayunáis y para herir con el puño inicuamente no ayunéis como hoy para que vuestra voz sea oída en lo alto",
+      "audio": "dev/audio/10367/10282/10367_10282_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 237.99,
+        "original_end_s": 253.83
+      }
+    },
+    {
+      "id": "10367_10282_000072",
+      "text": "y la verdad fué detenida y el que se apartó del mal fué puesto en presa y viólo jehová y desagradó en sus ojos porque pereció el derecho y vió que no había hombre y maravillóse que no hubiera quien se interpusiese y salvólo su brazo y afirmóle su misma justicia",
+      "audio": "dev/audio/10367/10282/10367_10282_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 154.45,
+        "original_end_s": 172.02
+      }
+    },
+    {
+      "id": "10367_10282_000073",
+      "text": "deje el impío su camino y el hombre inicuo a sus pensamientos y vuélvase a jehová el cual tendrá de él misericordia y al dios nuestro el cual será amplio en perdonar",
+      "audio": "dev/audio/10367/10282/10367_10282_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 74.57,
+        "original_end_s": 85.07
+      }
+    },
+    {
+      "id": "10367_10282_000074",
+      "text": "es tal el ayuno que yo escogí que de día aflije el hombre su alma que encorve su cabeza como junco y haga cama de saco y de ceniza llamaréis esto ayuno y día agradable a jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 253.83,
+        "original_end_s": 265.78
+      }
+    },
+    {
+      "id": "10367_10282_000075",
+      "text": "y llamarte han ciudad de jehová sión del santo de israel en lugar de que has sido desechada y aborrecida y que no había quien por ti pasase ponerte he en gloria perpetua gozo de generación en generación",
+      "audio": "dev/audio/10367/10282/10367_10282_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 358.96,
+        "original_end_s": 374.17
+      }
+    },
+    {
+      "id": "10367_10282_000076",
+      "text": "y vendrá el redentor a sion y a los que se volvieren de la iniquidad en jacob dice jehová y este será mi pacto con ellos dijo jehová el espíritu mío que está sobre ti y mis palabras que puse en tu boca no faltarán de tu boca ni de la boca de tu simiente dijo jehová",
+      "audio": "dev/audio/10367/10282/10367_10282_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 202.98,
+        "original_end_s": 221.66
+      }
+    },
+    {
+      "id": "10367_10282_000077",
+      "text": "en las pulimentadas piedras del valle está tu parte ellas ellas son tu suerte y a ellas derramaste libación y ofreciste presente no me tengo de vengar de estas cosas",
+      "audio": "dev/audio/10367/10282/10367_10282_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 61.61,
+        "original_end_s": 73.76
+      }
+    },
+    {
+      "id": "10367_10282_000078",
+      "text": "entonces verás y resplandecerás y se maravillará y ensanchará tu corazón que se haya vuelto á ti la multitud de la mar y la fortaleza de las gentes haya venido á ti",
+      "audio": "dev/audio/10367/10282/10367_10282_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 262.86,
+        "original_end_s": 274.0
+      }
+    },
+    {
+      "id": "10367_10282_000079",
+      "text": "renuevos de mi plantío obra de mis manos para glorificarme el pequeño será por mil el menor por gente fuerte yo jehová a su tiempo haré que esto sea presto",
+      "audio": "dev/audio/10367/10282/10367_10282_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 431.82,
+        "original_end_s": 445.31
+      }
+    },
+    {
+      "id": "10367_10282_000080",
+      "text": "inclinad vuestros oídos y venid a mí oíd y vivirá vuestra alma y haré con vosotros pacto eterno las misericordias firmes a david he aquí que yo lo di por testigo a los pueblos y por jefe y por maestro a las naciones",
+      "audio": "dev/audio/10367/10282/10367_10282_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 44.35,
+        "original_end_s": 59.51
+      }
+    },
+    {
+      "id": "10367_10282_000081",
+      "text": "ni de la boca de la simiente de tu simiente desde ahora y para siempre isaías sesenta levántate resplandece que ha venido tu lumbre y la gloria de jehová ha nacido sobre ti",
+      "audio": "dev/audio/10367/10282/10367_10282_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
+        "original_start_s": 221.66,
+        "original_end_s": 237.59
+      }
+    },
+    {
+      "id": "10367_10282_000082",
+      "text": "mas el que en mí espera tendrá la tierra por heredad y poseerá el monte de mi santidad y dirá allanad allanad barred el camino quitad los tropiezos del camino de mi pueblo",
+      "audio": "dev/audio/10367/10282/10367_10282_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
+        "original_start_s": 133.77,
+        "original_end_s": 146.3
+      }
+    },
+    {
+      "id": "10367_10282_000083",
+      "text": "de la cárcel y del juicio fue quitado y su generación quién la contará porque fue cortado de la tierra de los vivientes por la rebelión de mi pueblo fue herido y dipúsose con los impíos su sepultura mas con los ricos fue en su muerte",
+      "audio": "dev/audio/10367/10282/10367_10282_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
+        "original_start_s": 91.01,
+        "original_end_s": 107.27
+      }
+    },
+    {
+      "id": "10367_10282_000084",
+      "text": "por qué gastáis el dinero no en pan y vuestro trabajo no en hartura oidme atentamente y comed del bien y deleitaráse vuestra alma con grosura",
+      "audio": "dev/audio/10367/10282/10367_10282_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-10367",
+        "gender": "m",
+        "book_id": "10282",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
+        "original_start_s": 33.8,
+        "original_end_s": 44.35
+      }
+    }
+  ]
+}

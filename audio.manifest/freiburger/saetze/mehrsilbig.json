@@ -1,0 +1,916 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Freiburger Sprachtest — Mehrsilbig",
+  "lang": "de",
+  "license": "CC-BY-4.0",
+  "credit": "Freiburger Sprachtest (Zenodo 10082491)",
+  "url": "https://zenodo.org/records/10082491",
+  "tags": {
+    "speaker_id": "freiburger-poly",
+    "style": "test"
+  },
+  "items": [
+    {
+      "id": "L01-W01",
+      "text": "98",
+      "audio": "Mehrsilbig/Testliste_01/L01_W01_98.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L01-W02",
+      "text": "22",
+      "audio": "Mehrsilbig/Testliste_01/L01_W02_22.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L01-W03",
+      "text": "54",
+      "audio": "Mehrsilbig/Testliste_01/L01_W03_54.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L01-W04",
+      "text": "19",
+      "audio": "Mehrsilbig/Testliste_01/L01_W04_19.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L01-W05",
+      "text": "86",
+      "audio": "Mehrsilbig/Testliste_01/L01_W05_86.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L01-W06",
+      "text": "71",
+      "audio": "Mehrsilbig/Testliste_01/L01_W06_71.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L01-W07",
+      "text": "35",
+      "audio": "Mehrsilbig/Testliste_01/L01_W07_35.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L01-W08",
+      "text": "47",
+      "audio": "Mehrsilbig/Testliste_01/L01_W08_47.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L01-W09",
+      "text": "80",
+      "audio": "Mehrsilbig/Testliste_01/L01_W09_80.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L01-W10",
+      "text": "63",
+      "audio": "Mehrsilbig/Testliste_01/L01_W10_63.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L02-W01",
+      "text": "53",
+      "audio": "Mehrsilbig/Testliste_02/L02_W01_53.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L02-W02",
+      "text": "14",
+      "audio": "Mehrsilbig/Testliste_02/L02_W02_14.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L02-W03",
+      "text": "39",
+      "audio": "Mehrsilbig/Testliste_02/L02_W03_39.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L02-W04",
+      "text": "68",
+      "audio": "Mehrsilbig/Testliste_02/L02_W04_68.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L02-W05",
+      "text": "57",
+      "audio": "Mehrsilbig/Testliste_02/L02_W05_57.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L02-W06",
+      "text": "90",
+      "audio": "Mehrsilbig/Testliste_02/L02_W06_90.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L02-W07",
+      "text": "85",
+      "audio": "Mehrsilbig/Testliste_02/L02_W07_85.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L02-W08",
+      "text": "33",
+      "audio": "Mehrsilbig/Testliste_02/L02_W08_33.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L02-W09",
+      "text": "72",
+      "audio": "Mehrsilbig/Testliste_02/L02_W09_72.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L02-W10",
+      "text": "46",
+      "audio": "Mehrsilbig/Testliste_02/L02_W10_46.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L03-W01",
+      "text": "51",
+      "audio": "Mehrsilbig/Testliste_03/L03_W01_51.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L03-W02",
+      "text": "36",
+      "audio": "Mehrsilbig/Testliste_03/L03_W02_36.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L03-W03",
+      "text": "43",
+      "audio": "Mehrsilbig/Testliste_03/L03_W03_43.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L03-W04",
+      "text": "17",
+      "audio": "Mehrsilbig/Testliste_03/L03_W04_17.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L03-W05",
+      "text": "99",
+      "audio": "Mehrsilbig/Testliste_03/L03_W05_99.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L03-W06",
+      "text": "45",
+      "audio": "Mehrsilbig/Testliste_03/L03_W06_45.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L03-W07",
+      "text": "82",
+      "audio": "Mehrsilbig/Testliste_03/L03_W07_82.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L03-W08",
+      "text": "24",
+      "audio": "Mehrsilbig/Testliste_03/L03_W08_24.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L03-W09",
+      "text": "60",
+      "audio": "Mehrsilbig/Testliste_03/L03_W09_60.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L03-W10",
+      "text": "48",
+      "audio": "Mehrsilbig/Testliste_03/L03_W10_48.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L04-W01",
+      "text": "67",
+      "audio": "Mehrsilbig/Testliste_04/L04_W01_67.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L04-W02",
+      "text": "81",
+      "audio": "Mehrsilbig/Testliste_04/L04_W02_81.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L04-W03",
+      "text": "55",
+      "audio": "Mehrsilbig/Testliste_04/L04_W03_55.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L04-W04",
+      "text": "13",
+      "audio": "Mehrsilbig/Testliste_04/L04_W04_13.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L04-W05",
+      "text": "28",
+      "audio": "Mehrsilbig/Testliste_04/L04_W05_28.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L04-W06",
+      "text": "92",
+      "audio": "Mehrsilbig/Testliste_04/L04_W06_92.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L04-W07",
+      "text": "34",
+      "audio": "Mehrsilbig/Testliste_04/L04_W07_34.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L04-W08",
+      "text": "70",
+      "audio": "Mehrsilbig/Testliste_04/L04_W08_70.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L04-W09",
+      "text": "49",
+      "audio": "Mehrsilbig/Testliste_04/L04_W09_49.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L04-W10",
+      "text": "76",
+      "audio": "Mehrsilbig/Testliste_04/L04_W10_76.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L05-W01",
+      "text": "62",
+      "audio": "Mehrsilbig/Testliste_05/L05_W01_62.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L05-W02",
+      "text": "58",
+      "audio": "Mehrsilbig/Testliste_05/L05_W02_58.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L05-W03",
+      "text": "23",
+      "audio": "Mehrsilbig/Testliste_05/L05_W03_23.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L05-W04",
+      "text": "16",
+      "audio": "Mehrsilbig/Testliste_05/L05_W04_16.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L05-W05",
+      "text": "41",
+      "audio": "Mehrsilbig/Testliste_05/L05_W05_41.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L05-W06",
+      "text": "37",
+      "audio": "Mehrsilbig/Testliste_05/L05_W06_37.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L05-W07",
+      "text": "89",
+      "audio": "Mehrsilbig/Testliste_05/L05_W07_89.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L05-W08",
+      "text": "30",
+      "audio": "Mehrsilbig/Testliste_05/L05_W08_30.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L05-W09",
+      "text": "95",
+      "audio": "Mehrsilbig/Testliste_05/L05_W09_95.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L05-W10",
+      "text": "74",
+      "audio": "Mehrsilbig/Testliste_05/L05_W10_74.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L06-W01",
+      "text": "32",
+      "audio": "Mehrsilbig/Testliste_06/L06_W01_32.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L06-W02",
+      "text": "65",
+      "audio": "Mehrsilbig/Testliste_06/L06_W02_65.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L06-W03",
+      "text": "83",
+      "audio": "Mehrsilbig/Testliste_06/L06_W03_83.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L06-W04",
+      "text": "50",
+      "audio": "Mehrsilbig/Testliste_06/L06_W04_50.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L06-W05",
+      "text": "91",
+      "audio": "Mehrsilbig/Testliste_06/L06_W05_91.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L06-W06",
+      "text": "27",
+      "audio": "Mehrsilbig/Testliste_06/L06_W06_27.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L06-W07",
+      "text": "18",
+      "audio": "Mehrsilbig/Testliste_06/L06_W07_18.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L06-W08",
+      "text": "44",
+      "audio": "Mehrsilbig/Testliste_06/L06_W08_44.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L06-W09",
+      "text": "79",
+      "audio": "Mehrsilbig/Testliste_06/L06_W09_79.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L06-W10",
+      "text": "56",
+      "audio": "Mehrsilbig/Testliste_06/L06_W10_56.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L07-W01",
+      "text": "59",
+      "audio": "Mehrsilbig/Testliste_07/L07_W01_59.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L07-W02",
+      "text": "77",
+      "audio": "Mehrsilbig/Testliste_07/L07_W02_77.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L07-W03",
+      "text": "61",
+      "audio": "Mehrsilbig/Testliste_07/L07_W03_61.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L07-W04",
+      "text": "40",
+      "audio": "Mehrsilbig/Testliste_07/L07_W04_40.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L07-W05",
+      "text": "96",
+      "audio": "Mehrsilbig/Testliste_07/L07_W05_96.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L07-W06",
+      "text": "73",
+      "audio": "Mehrsilbig/Testliste_07/L07_W06_73.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L07-W07",
+      "text": "19",
+      "audio": "Mehrsilbig/Testliste_07/L07_W07_19.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L07-W08",
+      "text": "84",
+      "audio": "Mehrsilbig/Testliste_07/L07_W08_84.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L07-W09",
+      "text": "38",
+      "audio": "Mehrsilbig/Testliste_07/L07_W09_38.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L07-W10",
+      "text": "25",
+      "audio": "Mehrsilbig/Testliste_07/L07_W10_25.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L08-W01",
+      "text": "93",
+      "audio": "Mehrsilbig/Testliste_08/L08_W01_93.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L08-W02",
+      "text": "78",
+      "audio": "Mehrsilbig/Testliste_08/L08_W02_78.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L08-W03",
+      "text": "13",
+      "audio": "Mehrsilbig/Testliste_08/L08_W03_13.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L08-W04",
+      "text": "66",
+      "audio": "Mehrsilbig/Testliste_08/L08_W04_66.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L08-W05",
+      "text": "57",
+      "audio": "Mehrsilbig/Testliste_08/L08_W05_57.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L08-W06",
+      "text": "39",
+      "audio": "Mehrsilbig/Testliste_08/L08_W06_39.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L08-W07",
+      "text": "80",
+      "audio": "Mehrsilbig/Testliste_08/L08_W07_80.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L08-W08",
+      "text": "75",
+      "audio": "Mehrsilbig/Testliste_08/L08_W08_75.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L08-W09",
+      "text": "62",
+      "audio": "Mehrsilbig/Testliste_08/L08_W09_62.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L08-W10",
+      "text": "24",
+      "audio": "Mehrsilbig/Testliste_08/L08_W10_24.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L09-W01",
+      "text": "88",
+      "audio": "Mehrsilbig/Testliste_09/L09_W01_88.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L09-W02",
+      "text": "42",
+      "audio": "Mehrsilbig/Testliste_09/L09_W02_42.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L09-W03",
+      "text": "65",
+      "audio": "Mehrsilbig/Testliste_09/L09_W03_65.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L09-W04",
+      "text": "21",
+      "audio": "Mehrsilbig/Testliste_09/L09_W04_21.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L09-W05",
+      "text": "76",
+      "audio": "Mehrsilbig/Testliste_09/L09_W05_76.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L09-W06",
+      "text": "15",
+      "audio": "Mehrsilbig/Testliste_09/L09_W06_15.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L09-W07",
+      "text": "94",
+      "audio": "Mehrsilbig/Testliste_09/L09_W07_94.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L09-W08",
+      "text": "87",
+      "audio": "Mehrsilbig/Testliste_09/L09_W08_87.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L09-W09",
+      "text": "29",
+      "audio": "Mehrsilbig/Testliste_09/L09_W09_29.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L09-W10",
+      "text": "60",
+      "audio": "Mehrsilbig/Testliste_09/L09_W10_60.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L10-W01",
+      "text": "31",
+      "audio": "Mehrsilbig/Testliste_10/L10_W01_31.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L10-W02",
+      "text": "18",
+      "audio": "Mehrsilbig/Testliste_10/L10_W02_18.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L10-W03",
+      "text": "64",
+      "audio": "Mehrsilbig/Testliste_10/L10_W03_64.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L10-W04",
+      "text": "52",
+      "audio": "Mehrsilbig/Testliste_10/L10_W04_52.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L10-W05",
+      "text": "97",
+      "audio": "Mehrsilbig/Testliste_10/L10_W05_97.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L10-W06",
+      "text": "45",
+      "audio": "Mehrsilbig/Testliste_10/L10_W06_45.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L10-W07",
+      "text": "30",
+      "audio": "Mehrsilbig/Testliste_10/L10_W07_30.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L10-W08",
+      "text": "69",
+      "audio": "Mehrsilbig/Testliste_10/L10_W08_69.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L10-W09",
+      "text": "26",
+      "audio": "Mehrsilbig/Testliste_10/L10_W09_26.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L10-W10",
+      "text": "78",
+      "audio": "Mehrsilbig/Testliste_10/L10_W10_78.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 10
+      }
+    }
+  ]
+}

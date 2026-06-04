@@ -1,0 +1,1670 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Comte de Monte-Cristo",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1259",
+    "book_title": "Comte de Monte-Cristo",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2216_1259_000000",
+      "text": "puis sur ce charmant ensemble la fleur de la jeunesse était répandue avec tout son éclat et tout son parfum haydée pouvait avoir dix-neuf ou vingt ans monte cristo appela la suivante grecque et fit demander à haydée la permission d'entrer auprès d'elle",
+      "audio": "test/audio/2216/1259/2216_1259_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 256.23,
+        "original_end_s": 272.7
+      }
+    },
+    {
+      "id": "2216_1259_000001",
+      "text": "pour toute réponse haydée fit signe à la suivante de relever la tapisserie qui pendait devant la porte dont le chambranle carré encadra la jeune fille couchée comme un charmant tableau monte cristo s'avança",
+      "audio": "test/audio/2216/1259/2216_1259_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 272.7,
+        "original_end_s": 285.13
+      }
+    },
+    {
+      "id": "2216_1259_000002",
+      "text": "quant au bas du corset et au haut du caleçon ils étaient perdus dans une des ceintures aux vives couleurs et aux longues franges soyeuses qui font l'ambition de nos élégantes parisiennes",
+      "audio": "test/audio/2216/1259/2216_1259_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 219.54,
+        "original_end_s": 230.44
+      }
+    },
+    {
+      "id": "2216_1259_000003",
+      "text": "mon père avait une longue barbe blanche cela ne m'empêchait point de l'aimer mon père avait soixante ans et il me paraissait plus beau que tous les jeunes hommes que je voyais mais voyons dis-moi crois-tu que tu t'habitueras ici te verrai-je tous les jours eh bien que me demandes-tu donc seigneur",
+      "audio": "test/audio/2216/1259/2216_1259_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 462.18,
+        "original_end_s": 481.25
+      }
+    },
+    {
+      "id": "2216_1259_000004",
+      "text": "écoute haydée peut-être cette réclusion tout orientale sera-t-elle impossible à paris continue d'apprendre la vie de nos pays du nord comme tu l'as fait à rome à florence à milan et à madrid cela te servira toujours que tu continues à vivre ici ou que tu retournes en orient",
+      "audio": "test/audio/2216/1259/2216_1259_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 416.24,
+        "original_end_s": 434.21
+      }
+    },
+    {
+      "id": "2216_1259_000005",
+      "text": "qui ne laissait arriver la vapeur à sa bouche que parfumée par l'eau de benjoin à travers laquelle sa douce aspiration la forçait de passer sa pose toute naturelle pour une femme d'orient eût été pour une française d'une coquetterie peut-être un peu affectée",
+      "audio": "test/audio/2216/1259/2216_1259_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 168.94,
+        "original_end_s": 183.66
+      }
+    },
+    {
+      "id": "2216_1259_000006",
+      "text": "mon père est mort et je ne suis pas morte tandis que toi si tu mourais je mourrais le comte tendit la main à la jeune fille avec un sourire de profonde tendresse elle y imprima ses lèvres comme d'habitude",
+      "audio": "test/audio/2216/1259/2216_1259_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 527.48,
+        "original_end_s": 540.06
+      }
+    },
+    {
+      "id": "2216_1259_000007",
+      "text": "selon ses ordres la voiture était prête il y monta et la voiture comme toujours partit au galop fin du chapitre quarante-neuf",
+      "audio": "test/audio/2216/1259/2216_1259_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 554.5,
+        "original_end_s": 574.12
+      }
+    },
+    {
+      "id": "2216_1259_000008",
+      "text": "et si parmi les beaux jeunes gens que tu rencontreras tu en trouvais quelqu'un qui te plût je ne serais pas assez injuste je n'ai jamais vu d'hommes plus beaux que toi et je n'ai jamais aimé que mon père et toi pauvre enfant dit monte-cristo c'est que tu n'as guère parlé qu'à ton père et à moi",
+      "audio": "test/audio/2216/1259/2216_1259_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 334.67,
+        "original_end_s": 351.35
+      }
+    },
+    {
+      "id": "2216_1259_000009",
+      "text": "je ne te quitterai jamais seigneur dit haydée car je suis sûre que je ne pourrais pas vivre sans toi pauvre enfant dans dix ans je serai vieux et dans dix ans tu seras jeune encore",
+      "audio": "test/audio/2216/1259/2216_1259_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 450.96,
+        "original_end_s": 462.18
+      }
+    },
+    {
+      "id": "2216_1259_000010",
+      "text": "la jeune fille leva sur le comte ses grands yeux humides et répondit ou que nous retournions en orient veux-tu dire n'est-ce pas mon seigneur oui ma fille dit monte cristo tu sais bien que ce n'est jamais moi qui te quitterai ce n'est point l'arbre qui quitte la fleur c'est la fleur qui quitte l'arbre",
+      "audio": "test/audio/2216/1259/2216_1259_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 434.21,
+        "original_end_s": 450.96
+      }
+    },
+    {
+      "id": "2216_1259_000011",
+      "text": "tu peux garder ton costume ou le quitter à ta fantaisie tu resteras ici quand tu voudras rester tu sortiras quand tu voudras sortir il y aura toujours une voiture attelée pour toi ali et myrto t'accompagneront partout et seront à tes ordres seulement une chose je te prie dis",
+      "audio": "test/audio/2216/1259/2216_1259_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 386.25,
+        "original_end_s": 404.07
+      }
+    },
+    {
+      "id": "2216_1259_000012",
+      "text": "monte cristo prit la main d'haydée pour la baiser mais la naïve enfant retira sa main et présenta son front maintenant haydée lui dit-il tu sais que tu es libre que tu es maîtresse que tu es reine",
+      "audio": "test/audio/2216/1259/2216_1259_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 373.95,
+        "original_end_s": 386.25
+      }
+    },
+    {
+      "id": "2216_1259_000013",
+      "text": "la jeune fille sourit il est là et là dit-elle en mettant la main sur ses yeux et sur son coeur et moi où suis-je demanda en souriant monte cristo toi dit-elle tu es partout",
+      "audio": "test/audio/2216/1259/2216_1259_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 362.0,
+        "original_end_s": 373.95
+      }
+    },
+    {
+      "id": "2216_1259_000014",
+      "text": "garde le secret sur ta naissance ne dis pas un mot de ton passé ne prononce dans aucune occasion le nom de ton illustre père ni celui de ta pauvre mère je te l'ai déjà dit seigneur je ne verrai personne",
+      "audio": "test/audio/2216/1259/2216_1259_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 404.07,
+        "original_end_s": 416.24
+      }
+    },
+    {
+      "id": "2216_1259_000015",
+      "text": "chapitre quarante-neuf haydée on se rappelle quelles étaient les nouvelles ou plutôt les anciennes connaissances du comte de monte-cristo qui demeuraient rue meslay c'étaient maximilien julie et emmanuel",
+      "audio": "test/audio/2216/1259/2216_1259_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 24.34,
+        "original_end_s": 39.41
+      }
+    },
+    {
+      "id": "2216_1259_000016",
+      "text": "l'espoir de cette bonne visite qu'il allait faire de ces quelques moments heureux qu'il allait passer de cette lueur du paradis glissant dans l'enfer où il s'était volontairement engagé avait répandu à partir du moment où il avait perdu de vue villefort",
+      "audio": "test/audio/2216/1259/2216_1259_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 39.41,
+        "original_end_s": 53.83
+      }
+    },
+    {
+      "id": "2216_1259_000017",
+      "text": "la tête était coiffée d'une petite calotte d'or brodée de perles inclinée sur le côté et au-dessous de la calotte du côté où elle inclinait une belle rose naturelle de couleur pourpre ressortait mêlée à des cheveux si noirs qu'ils paraissaient bleus",
+      "audio": "test/audio/2216/1259/2216_1259_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 230.44,
+        "original_end_s": 244.88
+      }
+    },
+    {
+      "id": "2216_1259_000018",
+      "text": "haydée reprit le comte tu sais que nous sommes en france et par conséquent que tu es libre libre de faire quoi demanda la jeune fille libre de me quitter te quitter et pourquoi te quitterais-je que sais-je moi nous allons voir le monde je ne veux voir personne",
+      "audio": "test/audio/2216/1259/2216_1259_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 316.86,
+        "original_end_s": 334.67
+      }
+    },
+    {
+      "id": "2216_1259_000019",
+      "text": "la jeune grecque était comme nous l'avons dit dans un appartement entièrement séparé de l'appartement du comte cet appartement était tout entier meublé à la manière orientale",
+      "audio": "test/audio/2216/1259/2216_1259_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 89.72,
+        "original_end_s": 100.36
+      }
+    },
+    {
+      "id": "2216_1259_000020",
+      "text": "haydée dit-il vous savez pourquoi ne me dis-tu pas tu comme d'habitude interrompit la jeune grecque ai-je donc commis quelque faute en ce cas il faut me punir mais non pas me dire vous",
+      "audio": "test/audio/2216/1259/2216_1259_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 305.03,
+        "original_end_s": 316.86
+      }
+    },
+    {
+      "id": "2216_1259_000021",
+      "text": "une veste à longues raies bleues et blanches à larges manches fendues pour les bras avec des boutonnières d'argent et des boutons de perles enfin une espèce de corset laissant par sa coupe ouverte en coeur voir le cou et tout le haut de la poitrine et se boutonnant au-dessous du sein par trois boutons de diamant",
+      "audio": "test/audio/2216/1259/2216_1259_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 201.4,
+        "original_end_s": 219.54
+      }
+    },
+    {
+      "id": "2216_1259_000022",
+      "text": "puis j'ai dans le coeur trois sentiments avec lesquels on ne s'ennuie jamais de la tristesse de l'amour et de la reconnaissance tu es une digne fille de l'épire haydée gracieuse et poétique et l'on voit que tu descends de cette famille de déesses",
+      "audio": "test/audio/2216/1259/2216_1259_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 497.51,
+        "original_end_s": 511.5
+      }
+    },
+    {
+      "id": "2216_1259_000023",
+      "text": "eh bien qu'ai-je besoin de parler à d'autres mon père m'appelait sa joie toi tu m'appelles ton amour et tous deux vous m'appelez votre enfant tu te rappelles ton père haydee",
+      "audio": "test/audio/2216/1259/2216_1259_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 351.35,
+        "original_end_s": 362.0
+      }
+    },
+    {
+      "id": "2216_1259_000024",
+      "text": "quant à la beauté de ce visage c'était la beauté grecque dans toute la perfection de son type avec ses grands yeux noirs veloutés son nez droit ses lèvres de corail et ses dents de perles",
+      "audio": "test/audio/2216/1259/2216_1259_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 244.88,
+        "original_end_s": 256.23
+      }
+    },
+    {
+      "id": "2216_1259_000025",
+      "text": "quant à sa toilette c'était celle des femmes épirotes c'est-à-dire un caleçon de satin blanc broché de fleurs roses et qui laissait à découvert deux pieds d'enfant qu'on eût crus de marbre de paros si on ne les eût vus se jouer avec deux petites sandales à la pointe recourbée brodée d'or et de perles",
+      "audio": "test/audio/2216/1259/2216_1259_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 183.66,
+        "original_end_s": 201.4
+      }
+    },
+    {
+      "id": "2216_1259_000026",
+      "text": "haydee se souleva sur le coude qui tenait le narguilé et tendant au comte sa main en même temps qu'elle l'accueillait avec un sourire pourquoi dit-elle dans la langue sonore des filles de sparte et d'athènes pourquoi me fais-tu demander la permission d'entrer chez moi n'es-tu plus mon maître ne suis-je plus ton esclave monte cristo sourit à son tour",
+      "audio": "test/audio/2216/1259/2216_1259_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 285.13,
+        "original_end_s": 305.03
+      }
+    },
+    {
+      "id": "2216_1259_000027",
+      "text": "qui est née dans ton pays sois donc tranquille ma fille je ferai en sorte que ta jeunesse ne soit pas perdue car si tu m'aimes comme ton père moi je t'aime comme mon enfant tu te trompes seigneur je n'aimais point mon père comme je t'aime mon amour pour toi est un autre amour",
+      "audio": "test/audio/2216/1259/2216_1259_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 511.5,
+        "original_end_s": 527.48
+      }
+    },
+    {
+      "id": "2216_1259_000028",
+      "text": "je crains que tu ne t'ennuies non seigneur car le matin je penserai que tu viendras et le soir je me rappellerai que tu es venu d'ailleurs quand je suis seule j'ai de grands souvenirs je revois d'immenses tableaux de grands horizons avec le pinde et l'olympe dans le lointain",
+      "audio": "test/audio/2216/1259/2216_1259_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 481.25,
+        "original_end_s": 497.51
+      }
+    },
+    {
+      "id": "2216_1259_000029",
+      "text": "il était midi le comte s'était réservé une heure pour monter chez haydée on eût dit que la joie ne pouvait rentrer tout à coup dans cette âme si longtemps brisée et qu'elle avait besoin de se préparer aux émotions douces comme les autres âmes ont besoin de se préparer aux émotions violentes",
+      "audio": "test/audio/2216/1259/2216_1259_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 72.76,
+        "original_end_s": 89.72
+      }
+    },
+    {
+      "id": "2216_1259_000030",
+      "text": "la plus charmante sérénité sur le visage du comte et ali qui était accouru au bruit du timbre en voyant ce visage si rayonnant d'une joie si rare s'était retiré sur la pointe du pied et la respiration suspendue comme pour ne pas effaroucher les bonnes pensées qu'il croyait voir voltiger autour de son maître",
+      "audio": "test/audio/2216/1259/2216_1259_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_049_dumas_64kb.mp3",
+        "original_start_s": 53.83,
+        "original_end_s": 72.76
+      }
+    },
+    {
+      "id": "2216_1259_000031",
+      "text": "il vient à paris avec l'intention d'y rester un an et de dépenser six millions pendant cette année cela promet une série de bals de dîners de médianoches dans lesquels j'espère que m le comte ne nous oubliera pas plus que nous ne l'oublierons nous-mêmes dans nos petites fêtes",
+      "audio": "test/audio/2216/1259/2216_1259_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 196.68,
+        "original_end_s": 211.37
+      }
+    },
+    {
+      "id": "2216_1259_000032",
+      "text": "madame dit danglars écoutez-moi oh je vous écoute monsieur car je suis curieuse de savoir ce que vous allez me dire je ferai ces messieurs juges entre nous et je vais commencer par leur dire ce qu'il en est",
+      "audio": "test/audio/2216/1259/2216_1259_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 327.33,
+        "original_end_s": 338.11
+      }
+    },
+    {
+      "id": "2216_1259_000033",
+      "text": "ali est mon esclave en vous sauvant la vie il me sert et c'est son devoir de me servir mais il a risqué sa vie dit mme de villefort à qui ce ton de maître imposait singulièrement j'ai sauvé cette vie madame répondit monte cristo par conséquent elle m'appartient",
+      "audio": "test/audio/2216/1259/2216_1259_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 956.42,
+        "original_end_s": 973.83
+      }
+    },
+    {
+      "id": "2216_1259_000034",
+      "text": "tout à coup on entendit un roulement lointain mais qui se rapprochait avec la rapidité de la foudre puis une calèche apparut dont le cocher essayait inutilement de retenir les chevaux qui s'avançaient furieux hérissés bondissant avec des élans insensés",
+      "audio": "test/audio/2216/1259/2216_1259_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 711.04,
+        "original_end_s": 725.64
+      }
+    },
+    {
+      "id": "2216_1259_000035",
+      "text": "eh bien au moment où madame de villefort en m'emprunte ma voiture où je la lui promets pour aller demain au bois voilà les deux chevaux qui ne se retrouvent plus monsieur danglars aura trouvé à gagner dessus quelques milliers de francs il les aura vendus oh la vilaine race mon dieu que celle des spéculateurs",
+      "audio": "test/audio/2216/1259/2216_1259_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 352.01,
+        "original_end_s": 369.08
+      }
+    },
+    {
+      "id": "2216_1259_000036",
+      "text": "oh vous allez voir madame dit monte cristo sous la main d'ali ils vont devenir doux comme des agneaux en effet ali s'était approché des chevaux qu'on avait remis sur leurs jambes avec beaucoup de peine",
+      "audio": "test/audio/2216/1259/2216_1259_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1151.56,
+        "original_end_s": 1162.45
+      }
+    },
+    {
+      "id": "2216_1259_000037",
+      "text": "moi madame dit monte-cristo je ferai tout ce qu'on fait à paris si j'ai le bonheur de trouver quelqu'un qui me renseigne convenablement sur les habitudes françaises vous êtes amateur de chevaux monsieur le comte j'ai passé une partie de ma vie en orient madame et les orientaux vous le savez n'estiment que deux choses au monde la noblesse des chevaux et la beauté des femmes",
+      "audio": "test/audio/2216/1259/2216_1259_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 260.12,
+        "original_end_s": 280.07
+      }
+    },
+    {
+      "id": "2216_1259_000038",
+      "text": "oui madame fit le comte moi monsieur je suis mme héloïse de villefort le comte salua en homme devant lequel on prononce un nom parfaitement inconnu",
+      "audio": "test/audio/2216/1259/2216_1259_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 913.43,
+        "original_end_s": 923.95
+      }
+    },
+    {
+      "id": "2216_1259_000039",
+      "text": "l'opéra italien est à londres l'opéra français est partout excepté à paris et quant au théâtre-français vous savez qu'il n'est plus nulle part il nous reste donc pour toute distraction quelques malheureuses courses au champ-de-mars et à satory ferez-vous courir monsieur le comte",
+      "audio": "test/audio/2216/1259/2216_1259_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 245.02,
+        "original_end_s": 260.12
+      }
+    },
+    {
+      "id": "2216_1259_000040",
+      "text": "ah monsieur envoyez chercher un médecin ma fortune à qui me rend mon fils monte-cristo fit de la main un geste pour calmer la mère éplorée et ouvrant un coffret il en tira un flacon de bohème incrusté d'or contenant une liqueur rouge comme du sang et dont il laissa tomber une seule goutte sur les lèvres de l'enfant",
+      "audio": "test/audio/2216/1259/2216_1259_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 838.51,
+        "original_end_s": 857.26
+      }
+    },
+    {
+      "id": "2216_1259_000041",
+      "text": "il était petit grêle blanc de peau comme les enfants roux et cependant une forêt de cheveux noirs rebelles à toute frisure couvrait son front bombé et tombant sur ses épaules en encadrant son visage redoublait la vivacité de ses yeux pleins de malice sournoise et de juvénile méchanceté",
+      "audio": "test/audio/2216/1259/2216_1259_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 988.31,
+        "original_end_s": 1005.75
+      }
+    },
+    {
+      "id": "2216_1259_000042",
+      "text": "il est vrai qu'elle avait échappé au plan général arrêté entre m danglars et son architecte une des plus hautes et des plus éminentes célébrités de l'empire et que c'était la baronne et lucien debray seulement qui s'en étaient réservé la décoration",
+      "audio": "test/audio/2216/1259/2216_1259_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 66.52,
+        "original_end_s": 80.98
+      }
+    },
+    {
+      "id": "2216_1259_000043",
+      "text": "sa bouche à peine redevenue vermeille était fine de lèvres et large d'ouverture les traits de cet enfant de huit ans annonçaient déjà douze ans au moins son premier mouvement fut de se débarrasser par une brusque secousse des bras de sa mère",
+      "audio": "test/audio/2216/1259/2216_1259_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1005.75,
+        "original_end_s": 1019.4
+      }
+    },
+    {
+      "id": "2216_1259_000044",
+      "text": "oh j'espère que vous me permettrez de récompenser dignement le dévouement de cet homme madame répondit monte cristo ne me gâtez pas ali je vous prie ni par des louanges ni par des récompenses ce sont des habitudes que je ne veux pas qu'il prenne",
+      "audio": "test/audio/2216/1259/2216_1259_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 941.36,
+        "original_end_s": 956.42
+      }
+    },
+    {
+      "id": "2216_1259_000045",
+      "text": "mais au bout de trois ou quatre pas le cheval enchaîné s'abat tombe sur la flèche qu'il brise et paralyse les efforts que fait le cheval resté debout pour continuer sa course le cocher saisit cet instant de répit pour sauter en bas de son siège",
+      "audio": "test/audio/2216/1259/2216_1259_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 758.1,
+        "original_end_s": 771.49
+      }
+    },
+    {
+      "id": "2216_1259_000046",
+      "text": "oui monsieur la connaissez-vous mme danglars j'ai cet honneur et ma joie est double de vous voir sauvée du péril que ces chevaux vous ont fait courir car ce péril c'est à moi que vous eussiez pu l'attribuer",
+      "audio": "test/audio/2216/1259/2216_1259_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 887.72,
+        "original_end_s": 899.73
+      }
+    },
+    {
+      "id": "2216_1259_000047",
+      "text": "puis au milieu d'une foule nombreuse que les débris de la voiture et le bruit de l'événement avaient attirée devant la maison ali fit atteler les chevaux au coupé du comte rassembla les rênes monta sur le siège et au grand étonnement des assistants qui avaient vu ces chevaux emportés comme par un tourbillon",
+      "audio": "test/audio/2216/1259/2216_1259_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1176.16,
+        "original_end_s": 1192.91
+      }
+    },
+    {
+      "id": "2216_1259_000048",
+      "text": "hier vous m'avez parlé de lui avec un enthousiasme que je n'ai pu m'empêcher de railler de toute la force de mon pauvre petit esprit mais aujourd'hui je trouve cet enthousiasme bien au-dessous de l'homme qui l'inspirait",
+      "audio": "test/audio/2216/1259/2216_1259_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1229.65,
+        "original_end_s": 1241.12
+      }
+    },
+    {
+      "id": "2216_1259_000049",
+      "text": "aussitôt cette besogne indispensable terminée un de mes attelages la reconduira directement chez madame danglars mais dit madame de villefort avec ces mêmes chevaux je n'oserai jamais m'en aller",
+      "audio": "test/audio/2216/1259/2216_1259_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1140.07,
+        "original_end_s": 1151.56
+      }
+    },
+    {
+      "id": "2216_1259_000050",
+      "text": "le comte m'a chargée de vous dire que deux jours de repos sur la litière et de l'orge pour toute nourriture les remettront dans un état aussi florissant ce qui veut dire aussi effrayant qu'hier",
+      "audio": "test/audio/2216/1259/2216_1259_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1284.13,
+        "original_end_s": 1294.21
+      }
+    },
+    {
+      "id": "2216_1259_000051",
+      "text": "et l'illustre étranger me paraît à part les millions dont il dispose un problème si curieux et si intéressant que je compte l'étudier à tout prix dussé-je recommencer une promenade au bois avec vos propres chevaux",
+      "audio": "test/audio/2216/1259/2216_1259_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1306.62,
+        "original_end_s": 1318.33
+      }
+    },
+    {
+      "id": "2216_1259_000052",
+      "text": "à peine arrivée chez elle et les premières émotions de famille apaisées elle écrivit le billet suivant à madame danglars chère hermine je viens d'être miraculeusement sauvée avec mon fils par ce même comte de monte-cristo dont nous avons tant parlé hier soir et que j'étais loin de me douter que je verrais aujourd'hui",
+      "audio": "test/audio/2216/1259/2216_1259_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1211.23,
+        "original_end_s": 1229.65
+      }
+    },
+    {
+      "id": "2216_1259_000053",
+      "text": "cependant il a suffi pour que de la maison en face de laquelle l'accident est arrivé un homme se soit élancé suivi de plusieurs serviteurs au moment où le cocher ouvre la portière il enlève de la calèche la dame qui d'une main se cramponne au coussin tandis que de l'autre elle serre contre sa poitrine son fils évanoui",
+      "audio": "test/audio/2216/1259/2216_1259_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 785.3,
+        "original_end_s": 802.86
+      }
+    },
+    {
+      "id": "2216_1259_000054",
+      "text": "oui madame je comprends dit le comte en examinant l'enfant mais soyez tranquille il ne lui est arrivé aucun mal et c'est la peur seule qui l'a mis dans cet état oh monsieur s'écria la mère ne me dites-vous pas cela pour me rassurer voyez comme il est pâle mon fils mon enfant mon édouard réponds donc à ta mère",
+      "audio": "test/audio/2216/1259/2216_1259_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 820.15,
+        "original_end_s": 838.51
+      }
+    },
+    {
+      "id": "2216_1259_000055",
+      "text": "lucien avait déjà avant son arrivée eu le temps de raconter à la baronne bien des choses relatives au comte on sait combien pendant le déjeuner chez albert monte cristo avait fait impression sur ses convives",
+      "audio": "test/audio/2216/1259/2216_1259_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 121.69,
+        "original_end_s": 133.77
+      }
+    },
+    {
+      "id": "2216_1259_000056",
+      "text": "j'avais acheté hier ces chevaux au baron mais la baronne a paru tellement les regretter que je les lui ai envoyés hier en la priant de les accepter de ma main mais alors vous êtes donc le comte de monte-cristo dont hermine m'a tant parlé hier",
+      "audio": "test/audio/2216/1259/2216_1259_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 899.73,
+        "original_end_s": 913.43
+      }
+    },
+    {
+      "id": "2216_1259_000057",
+      "text": "monsieur demanda mme de villefort en se levant pour se retirer est-ce votre demeure habituelle que cette maison non madame répondit le comte c'est une espèce de pied-à-terre que j'ai acheté j'habite avenue des champs-élysées numéro trente",
+      "audio": "test/audio/2216/1259/2216_1259_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1108.97,
+        "original_end_s": 1123.38
+      }
+    },
+    {
+      "id": "2216_1259_000058",
+      "text": "madame répondit danglars les chevaux étaient trop vifs ils avaient quatre ans à peine ils me faisaient pour vous des peurs horribles eh monsieur dit la baronne vous savez bien que j'ai depuis un mois à mon service le meilleur cocher de paris à moins toutefois que vous ne l'ayez vendu avec les chevaux",
+      "audio": "test/audio/2216/1259/2216_1259_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 369.08,
+        "original_end_s": 385.08
+      }
+    },
+    {
+      "id": "2216_1259_000059",
+      "text": "en ce moment la camériste favorite de mme la baronne danglars entra et s'approchant de sa maîtresse lui glissa quelques mots à l'oreille mme danglars pâlit impossible dit-elle c'est l'exacte vérité cependant madame répondit la camériste mme danglars se retourna du côté de son mari",
+      "audio": "test/audio/2216/1259/2216_1259_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 292.39,
+        "original_end_s": 311.28
+      }
+    },
+    {
+      "id": "2216_1259_000060",
+      "text": "il fut obligé d'user vigoureusement du fouet pour les faire partir et encore ne put-il obtenir des fameux gris pommelé maintenant stupides pétrifiés morts qu'un trot si mal assuré et si languissant qu'il fallut près de deux heures à mme de villefort pour regagner le faubourg saint-honoré où elle demeurait",
+      "audio": "test/audio/2216/1259/2216_1259_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1192.91,
+        "original_end_s": 1211.23
+      }
+    },
+    {
+      "id": "2216_1259_000061",
+      "text": "ne touchez pas à cela mon ami dit vivement le comte quelques-unes de ces liqueurs sont dangereuses non seulement à boire mais même à respirer mme de villefort pâlit et arrêta le bras de son fils qu'elle ramena vers elle mais sa crainte calmée elle jeta aussitôt sur le coffret un court mais expressif regard que le comte saisit au passage",
+      "audio": "test/audio/2216/1259/2216_1259_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1030.78,
+        "original_end_s": 1049.52
+      }
+    },
+    {
+      "id": "2216_1259_000062",
+      "text": "vos chevaux s'étaient emportés au ranelagh comme s'ils eussent été pris de frénésie et nous allions probablement être mis en morceaux mon pauvre édouard et moi contre le premier arbre de la route ou la première borne du village",
+      "audio": "test/audio/2216/1259/2216_1259_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1241.12,
+        "original_end_s": 1252.61
+      }
+    },
+    {
+      "id": "2216_1259_000063",
+      "text": "les dessus des portes représentaient des bergeries dans le genre de boucher enfin deux jolis pastels en médaillon en harmonie avec le reste de l'ameublement faisaient de cette petite chambre la seule de l'hôtel qui eût quelque caractère",
+      "audio": "test/audio/2216/1259/2216_1259_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 52.28,
+        "original_end_s": 66.52
+      }
+    },
+    {
+      "id": "2216_1259_000064",
+      "text": "remercie-le donc car probablement sans lui à cette heure serions-nous morts tous les deux l'enfant allongea les lèvres et tourna dédaigneusement la tête il est trop laid dit-il",
+      "audio": "test/audio/2216/1259/2216_1259_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1066.14,
+        "original_end_s": 1077.26
+      }
+    },
+    {
+      "id": "2216_1259_000065",
+      "text": "c'est dans sa propre voiture que j'ai été ramenée à l'hôtel la vôtre vous sera renvoyée demain vous trouverez vos chevaux bien affaiblis depuis cet accident ils sont comme hébétés on dirait qu'ils ne peuvent se pardonner à eux-mêmes de s'être laissé dompter par un homme",
+      "audio": "test/audio/2216/1259/2216_1259_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1270.92,
+        "original_end_s": 1284.13
+      }
+    },
+    {
+      "id": "2216_1259_000066",
+      "text": "en vérité je regrette de ne pas vous avoir connu plus tôt monsieur le comte dit-il vous montez votre maison mais oui dit le comte je vous les eusse proposés imaginez-vous que je les ai donnés pour rien mais comme je vous l'ai dit je voulais m'en défaire ce sont des chevaux de jeune homme",
+      "audio": "test/audio/2216/1259/2216_1259_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 402.98,
+        "original_end_s": 419.05
+      }
+    },
+    {
+      "id": "2216_1259_000067",
+      "text": "oh que monsieur de villefort sera reconnaissant reprit héloïse car enfin il vous devra notre vie à tous deux vous lui avez rendu sa femme et son fils assurément sans votre généreux serviteur ce cher enfant et moi nous étions tués hélas madame je frémis encore du péril que vous avez couru",
+      "audio": "test/audio/2216/1259/2216_1259_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 923.95,
+        "original_end_s": 941.36
+      }
+    },
+    {
+      "id": "2216_1259_000068",
+      "text": "mme danglars dont la beauté pouvait encore être citée malgré ses trente-six ans était à son piano petit chef-d'oeuvre de marqueterie tandis que lucien debray assis devant une table à ouvrage feuilletait un album",
+      "audio": "test/audio/2216/1259/2216_1259_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 108.13,
+        "original_end_s": 121.69
+      }
+    },
+    {
+      "id": "2216_1259_000069",
+      "text": "pendant la soirée monte-cristo partit pour auteuil accompagné d'ali le lendemain vers trois heures ali appelé par ce coup de timbre entra dans le cabinet du comte ali lui dit-il tu m'as souvent parlé de ton adresse à lancer le lasso",
+      "audio": "test/audio/2216/1259/2216_1259_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 611.73,
+        "original_end_s": 627.2
+      }
+    },
+    {
+      "id": "2216_1259_000070",
+      "text": "mme danglars laissa tomber sur son mari un regard écrasant oh mon dieu s'écria debray quoi donc demanda la baronne mais je ne me trompe pas ce sont vos chevaux vos propres chevaux attelés à la voiture du comte mes gris pommelé s'écria mme danglars",
+      "audio": "test/audio/2216/1259/2216_1259_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 449.08,
+        "original_end_s": 466.11
+      }
+    },
+    {
+      "id": "2216_1259_000071",
+      "text": "ali fit signe que oui et se redressa fièrement bien ainsi avec le lasso tu arrêterais un boeuf ali fit signe de la tête que oui un tigre ali fit le même signe un lion ali fit le geste d'un homme qui lance le lasso et imita un rugissement étranglé bien je comprends dit monte-cristo tu as chassé le lion",
+      "audio": "test/audio/2216/1259/2216_1259_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 627.2,
+        "original_end_s": 647.13
+      }
+    },
+    {
+      "id": "2216_1259_000072",
+      "text": "aussi cet arrangement de piano et d'album n'était-il qu'une de ces petites ruses du monde à l'aide desquelles on voile les plus fortes précautions la baronne reçut en conséquence monsieur danglars avec un sourire ce qui de sa part n'était pas chose habituelle",
+      "audio": "test/audio/2216/1259/2216_1259_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 152.74,
+        "original_end_s": 167.19
+      }
+    },
+    {
+      "id": "2216_1259_000073",
+      "text": "il tenait à la main une petite éponge imbibée de vinaigre aromatique il en frotta les naseaux et les tempes des chevaux couverts de sueur et d'écume et presque aussitôt ils se mirent à souffler bruyamment et à frissonner de tout leur corps durant quelques secondes",
+      "audio": "test/audio/2216/1259/2216_1259_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1162.45,
+        "original_end_s": 1176.16
+      }
+    },
+    {
+      "id": "2216_1259_000074",
+      "text": "et vous venez selon votre habitude à ce qu'on m'a dit du bout du monde de cadix cette fois madame purement et simplement oh vous arrivez dans une affreuse saison paris est détestable l'été il n'y a plus ni bals ni réunions ni fêtes",
+      "audio": "test/audio/2216/1259/2216_1259_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 230.94,
+        "original_end_s": 245.02
+      }
+    },
+    {
+      "id": "2216_1259_000075",
+      "text": "monsieur dit le comte je vous remercie j'en ai acheté ce matin d'assez bons et pas trop cher tenez voyez monsieur debray vous êtes amateur je crois pendant que debray s'approchait de la fenêtre danglars s'approcha de sa femme",
+      "audio": "test/audio/2216/1259/2216_1259_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 419.05,
+        "original_end_s": 432.34
+      }
+    },
+    {
+      "id": "2216_1259_000076",
+      "text": "debré alla reporter la réponse à la baronne danglars était si pâle et si décontenancé que le comte eut l'air de le prendre en pitié voyez lui dit-il combien les femmes sont ingrates cette prévenance de votre part n'a pas touché un instant la baronne ingrate n'est pas le mot c'est folle que je devrais dire",
+      "audio": "test/audio/2216/1259/2216_1259_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 495.41,
+        "original_end_s": 512.55
+      }
+    },
+    {
+      "id": "2216_1259_000077",
+      "text": "quand un arabe un nègre un nubien un homme noir enfin au service du comte a sur un signe de lui je crois arrêté l'élan des chevaux au risque d'être brisé lui-même et c'est vraiment un miracle qu'il ne l'ait pas été alors le comte est accouru nous a emportés chez lui édouard et moi et là a rappelé mon fils à la vie",
+      "audio": "test/audio/2216/1259/2216_1259_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1252.61,
+        "original_end_s": 1270.92
+      }
+    },
+    {
+      "id": "2216_1259_000078",
+      "text": "il se promenait dans une chambre donnant sur la rue prêtant l'oreille par intervalles et de temps en temps se rapprochant de la fenêtre par laquelle il apercevait ali poussant des bouffées de tabac avec une régularité indiquant que le nubien était tout à cette importante occupation",
+      "audio": "test/audio/2216/1259/2216_1259_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 695.68,
+        "original_end_s": 711.04
+      }
+    },
+    {
+      "id": "2216_1259_000079",
+      "text": "quoique la présentation fût assez grossièrement louangeuse c'est en général une chose si rare qu'un homme venant à paris pour dépenser en une année la fortune d'un prince que mme danglars jeta sur le comte un coup d'oeil qui n'était pas dépourvu d'un certain intérêt et vous êtes arrivé monsieur demanda la baronne depuis hier matin madame",
+      "audio": "test/audio/2216/1259/2216_1259_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 211.37,
+        "original_end_s": 230.94
+      }
+    },
+    {
+      "id": "2216_1259_000080",
+      "text": "ce n'était donc pas en réalité danglars qui présentait c'était au contraire lui qui était présenté et qui était bien ou mal reçu selon que le visage du visiteur était agréable ou désagréable à la baronne",
+      "audio": "test/audio/2216/1259/2216_1259_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 95.8,
+        "original_end_s": 108.13
+      }
+    },
+    {
+      "id": "2216_1259_000081",
+      "text": "madame la baronne dit danglars permettez que je vous présente m le comte de monte-cristo qui m'est adressé par mes correspondants de rome avec les recommandations les plus instantes je n'ai qu'un mot à en dire et qui va en un instant le rendre la coqueluche de toutes nos belles dames",
+      "audio": "test/audio/2216/1259/2216_1259_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 181.26,
+        "original_end_s": 196.68
+      }
+    },
+    {
+      "id": "2216_1259_000082",
+      "text": "est-ce vrai monsieur quoi madame demanda danglars visiblement agité ce que me dit cette fille et que vous dit-elle elle me dit qu'au moment où mon cocher a été pour mettre mes chevaux à ma voiture il ne les a pas trouvés à l'écurie que signifie cela je vous le demande",
+      "audio": "test/audio/2216/1259/2216_1259_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 311.28,
+        "original_end_s": 327.33
+      }
+    },
+    {
+      "id": "2216_1259_000083",
+      "text": "pensa monte cristo en se retirant j'en suis arrivé où j'en voulais venir voilà que je tiens dans mes mains la paix du ménage et que je vais gagner d'un seul coup le coeur de monsieur et le coeur de madame quel bonheur",
+      "audio": "test/audio/2216/1259/2216_1259_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 549.83,
+        "original_end_s": 560.59
+      }
+    },
+    {
+      "id": "2216_1259_000084",
+      "text": "mais que voulez-vous on aime toujours ce qui nuit aussi le plus court croyez-moi cher baron est toujours de les laisser faire à leur tête si elles se la brisent au moins ma foi elles ne peuvent s'en prendre qu'à elles",
+      "audio": "test/audio/2216/1259/2216_1259_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 512.55,
+        "original_end_s": 523.99
+      }
+    },
+    {
+      "id": "2216_1259_000085",
+      "text": "oh maudite curiosité dit la dame tout paris parlait de ces magnifiques chevaux de mme danglars et j'ai eu la folie de vouloir les essayer comment s'écria le comte avec une surprise admirablement jouée ces chevaux sont ceux de la baronne",
+      "audio": "test/audio/2216/1259/2216_1259_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 874.65,
+        "original_end_s": 887.72
+      }
+    },
+    {
+      "id": "2216_1259_000086",
+      "text": "messieurs continua la baronne m le baron danglars a dix chevaux à l'écurie parmi ces dix chevaux il y en a deux qui sont à moi des chevaux charmants les plus beaux chevaux de paris vous les connaissez monsieur debray mes gris pommelé",
+      "audio": "test/audio/2216/1259/2216_1259_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 338.11,
+        "original_end_s": 352.01
+      }
+    },
+    {
+      "id": "2216_1259_000087",
+      "text": "puis le nubien alla fumer sa chibouque sur la borne qui formait l'angle de la maison et de la rue tandis que monte cristo rentrait sans plus s'occuper de rien cependant vers cinq heures c'est-à-dire l'heure où le comte attendait la voiture on eût pu voir naître en lui les signes presque imperceptibles d'une légère impatience",
+      "audio": "test/audio/2216/1259/2216_1259_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 677.42,
+        "original_end_s": 695.68
+      }
+    },
+    {
+      "id": "2216_1259_000088",
+      "text": "sur cette réflexion monsieur le comte monta en voiture et rentra chez lui deux heures après madame danglars reçut une lettre charmante du comte de monte cristo dans laquelle il lui déclarait que ne voulant pas commencer ses débuts dans le monde parisien en désespérant une jolie femme il la suppliait de reprendre ses chevaux",
+      "audio": "test/audio/2216/1259/2216_1259_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 575.62,
+        "original_end_s": 592.21
+      }
+    },
+    {
+      "id": "2216_1259_000089",
+      "text": "imaginez-vous madame lui dit-il tout bas qu'on est venu m'offrir un prix exorbitant de ces chevaux je ne sais quel est le fou en train de se ruiner qui m'a envoyé ce matin son intendant mais le fait est que j'ai gagné seize mille francs dessus ne me boudez pas et je vous en donnerai quatre mille et deux mille à eugénie",
+      "audio": "test/audio/2216/1259/2216_1259_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 432.34,
+        "original_end_s": 449.08
+      }
+    },
+    {
+      "id": "2216_1259_000090",
+      "text": "mais déjà ali a saisi les naseaux du second cheval avec ses doigts de fer et l'animal hennissant de douleur s'est allongé convulsivement près de son compagnon il a fallu à tout cela le temps qu'il faut à la balle pour frapper le but",
+      "audio": "test/audio/2216/1259/2216_1259_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 771.49,
+        "original_end_s": 785.3
+      }
+    },
+    {
+      "id": "2216_1259_000091",
+      "text": "ils avaient le même harnais qu'elle leur avait vu le matin seulement au centre de chaque rosette qu'ils portaient sur l'oreille le comte avait fait coudre un diamant danglars aussi eut sa lettre le comte lui demandait la permission de passer à la baronne ce caprice de millionnaire le priant d'excuser les façons orientales dont le renvoi des chevaux était accompagné",
+      "audio": "test/audio/2216/1259/2216_1259_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 592.21,
+        "original_end_s": 611.73
+      }
+    },
+    {
+      "id": "2216_1259_000092",
+      "text": "danglars ne répondit rien il prévoyait dans un prochain avenir une scène désastreuse déjà le sourcil de mme la baronne s'était froncé et comme celui de jupiter olympien présageait un orage debray qui le sentait grossir prétexta une affaire et partit",
+      "audio": "test/audio/2216/1259/2216_1259_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 523.99,
+        "original_end_s": 539.61
+      }
+    },
+    {
+      "id": "2216_1259_000093",
+      "text": "dans la calèche une jeune femme et un enfant de sept à huit ans se tenant embrassés avaient perdu par l'excès de la terreur jusqu'à la force de pousser un cri il eût suffi d'une pierre sous la roue ou d'un arbre accroché pour briser tout à fait la voiture qui craquait",
+      "audio": "test/audio/2216/1259/2216_1259_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 725.64,
+        "original_end_s": 740.4
+      }
+    },
+    {
+      "id": "2216_1259_000094",
+      "text": "l'enfant quoique toujours pâle rouvrit aussitôt les yeux à cette vue la joie de la mère fut presque un délire où suis-je s'écria-t-elle et à qui dois-je tant de bonheur après une si cruelle épreuve vous êtes madame répondit monte cristo chez l'homme le plus heureux d'avoir pu vous épargner un chagrin",
+      "audio": "test/audio/2216/1259/2216_1259_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 857.26,
+        "original_end_s": 874.65
+      }
+    },
+    {
+      "id": "2216_1259_000095",
+      "text": "édouard a supporté l'accident avec un courage miraculeux il s'est évanoui mais il n'a pas poussé un cri auparavant et n'a pas versé une larme après vous me direz encore que mon amour maternel m'aveugle mais il y a une âme de fer dans ce pauvre petit corps si frêle et si délicat",
+      "audio": "test/audio/2216/1259/2216_1259_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1318.33,
+        "original_end_s": 1333.84
+      }
+    },
+    {
+      "id": "2216_1259_000096",
+      "text": "et d'aller ouvrir le coffret d'où le comte avait tiré le flacon d'élixir puis aussitôt sans en demander la permission à personne et en enfant habitué à satisfaire tous ses caprices il se mit à déboucher les fioles",
+      "audio": "test/audio/2216/1259/2216_1259_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1019.4,
+        "original_end_s": 1030.78
+      }
+    },
+    {
+      "id": "2216_1259_000097",
+      "text": "aussi m danglars grand admirateur de l'antique à la manière dont le comprenait le directoire méprisait-il fort ce coquet petit réduit où au reste il n'était admis en général qu'à la condition qu'il ferait excuser sa présence en amenant quelqu'un",
+      "audio": "test/audio/2216/1259/2216_1259_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 80.98,
+        "original_end_s": 95.8
+      }
+    },
+    {
+      "id": "2216_1259_000098",
+      "text": "ali fit un signe de tête orgueilleux mais arrêterais-tu dans leur course deux chevaux ali sourit eh bien écoute dit monte-cristo tout à l'heure une voiture passera emportée par deux chevaux gris-pommelé les mêmes que j'avais hier dusses-tu te faire écraser il faut que tu arrêtes cette voiture devant ma porte",
+      "audio": "test/audio/2216/1259/2216_1259_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 647.13,
+        "original_end_s": 664.78
+      }
+    },
+    {
+      "id": "2216_1259_000099",
+      "text": "quant au comte il eut en échange de son salut une cérémonieuse mais en même temps gracieuse révérence lucien de son côté échangea avec le comte un salut de demi connaissance et avec danglars un geste d'intimité",
+      "audio": "test/audio/2216/1259/2216_1259_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 167.19,
+        "original_end_s": 181.26
+      }
+    },
+    {
+      "id": "2216_1259_000100",
+      "text": "vois-tu dit en arabe le comte à ali cette dame prie son fils de te remercier pour la vie que tu leur as sauvée à tous deux et l'enfant répond que tu es trop laid ali détourna un instant sa tête intelligente et regarda l'enfant sans expression apparente mais un simple frémissement de sa narine apprit à monte cristo que l'arabe venait d'être blessé au coeur",
+      "audio": "test/audio/2216/1259/2216_1259_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1089.49,
+        "original_end_s": 1108.97
+      }
+    },
+    {
+      "id": "2216_1259_000101",
+      "text": "ali descendit dans la rue et traça devant la porte une ligne sur le pavé puis il rentra et montra la ligne au comte qui l'avait suivi des yeux le comte lui frappa doucement sur l'épaule c'était sa manière de remercier ali",
+      "audio": "test/audio/2216/1259/2216_1259_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 664.78,
+        "original_end_s": 677.42
+      }
+    },
+    {
+      "id": "2216_1259_000102",
+      "text": "en ce moment ali entra mme de villefort fit un mouvement de joie et ramena l'enfant plus près d'elle encore édouard dit-elle vois-tu ce bon serviteur il a été bien courageux car il a exposé sa vie pour arrêter les chevaux qui nous emportaient et la voiture qui allait se briser",
+      "audio": "test/audio/2216/1259/2216_1259_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1049.52,
+        "original_end_s": 1066.14
+      }
+    },
+    {
+      "id": "2216_1259_000103",
+      "text": "mme de villefort se tut peut-être réfléchissait-elle à cet homme qui du premier abord faisait une si profonde impression sur les esprits pendant cet instant de silence le comte put considérer à son aise l'enfant que sa mère couvrait de baisers",
+      "audio": "test/audio/2216/1259/2216_1259_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 973.83,
+        "original_end_s": 988.31
+      }
+    },
+    {
+      "id": "2216_1259_000104",
+      "text": "le comte sourit comme si l'enfant venait de remplir une de ses espérances quant à mme de villefort elle gourmanda son fils avec une modération qui n'eût certes pas été du goût de jean-jacques rousseau si le petit édouard se fût appelé émile",
+      "audio": "test/audio/2216/1259/2216_1259_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1077.26,
+        "original_end_s": 1089.49
+      }
+    },
+    {
+      "id": "2216_1259_000105",
+      "text": "le baron suivi du comte traversa une longue file d'appartements remarquables par leur lourde somptuosité et leur fastueux mauvais goût et arriva jusqu'au boudoir de mme danglars petite pièce octogone tendue de satin rose recouvert de mousseline des indes les fauteuils étaient en vieux bois doré et en vieilles étoffes",
+      "audio": "test/audio/2216/1259/2216_1259_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 32.53,
+        "original_end_s": 52.28
+      }
+    },
+    {
+      "id": "2216_1259_000106",
+      "text": "cette impression si peu impressionnable qu'il fût n'était pas encore effacée chez debray et les renseignements qu'il avait donnés à la baronne sur le comte s'en étaient ressentis la curiosité de mme danglars excitée par les anciens détails venus de morcerf et les nouveaux détails venus de lucien était donc portée à son comble",
+      "audio": "test/audio/2216/1259/2216_1259_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 133.77,
+        "original_end_s": 152.74
+      }
+    },
+    {
+      "id": "2216_1259_000107",
+      "text": "la baronne vous fait demander combien son mari vous a vendu son attelage mais je ne sais trop dit le comte c'est une surprise que mon intendant m'a faite et qui m'a coûté trente mille francs je crois",
+      "audio": "test/audio/2216/1259/2216_1259_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 483.69,
+        "original_end_s": 495.41
+      }
+    },
+    {
+      "id": "2216_1259_000108",
+      "text": "monte-cristo les emporta tous les deux dans le salon et les déposant sur un canapé ne craignez plus rien madame dit-il vous êtes sauvée la femme revint à elle et pour répondre elle lui présenta son fils avec un regard plus éloquent que toutes les prières en effet l'enfant était toujours évanoui",
+      "audio": "test/audio/2216/1259/2216_1259_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 802.86,
+        "original_end_s": 820.15
+      }
+    },
+    {
+      "id": "2216_1259_000109",
+      "text": "adieu je ne vous remercie pas de ma promenade et quand je réfléchis c'est pourtant de l'ingratitude que de vous garder rancune pour les caprices de votre attelage car c'est à l'un de ces caprices que je dois d'avoir vu le comte de monte-cristo",
+      "audio": "test/audio/2216/1259/2216_1259_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1294.21,
+        "original_end_s": 1306.62
+      }
+    },
+    {
+      "id": "2216_1259_000110",
+      "text": "ah monsieur le comte dit la baronne vous auriez dû avoir la galanterie de mettre les femmes les premières vous voyez madame que j'avais bien raison quand tout à l'heure je souhaitais un précepteur qui pût me guider dans les habitudes françaises",
+      "audio": "test/audio/2216/1259/2216_1259_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 280.07,
+        "original_end_s": 292.39
+      }
+    },
+    {
+      "id": "2216_1259_000111",
+      "text": "mais ajouta-t-il dans tout cela je n'ai point été présenté à mlle eugénie danglars que j'eusse été cependant fort aise de connaître mais reprit-il avec un sourire qui lui était particulier nous voici à paris et nous avons du temps devant nous ce sera pour plus tard",
+      "audio": "test/audio/2216/1259/2216_1259_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 560.59,
+        "original_end_s": 575.62
+      }
+    },
+    {
+      "id": "2216_1259_000112",
+      "text": "mais je vois que vous êtes tout à fait remise et que vous désirez vous retirer je viens d'ordonner qu'on attelle ces mêmes chevaux à ma voiture et ali ce garçon si laid dit-il en souriant à l'enfant va avoir l'honneur de vous reconduire chez vous tandis que votre cocher restera ici pour faire raccommoder la calèche",
+      "audio": "test/audio/2216/1259/2216_1259_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1123.38,
+        "original_end_s": 1140.07
+      }
+    },
+    {
+      "id": "2216_1259_000113",
+      "text": "beaucoup de gens allèrent se faire inscrire chez madame de villefort afin d'avoir le droit de renouveler leur visite en temps utile et d'entendre alors de sa bouche tous les détails de cette pittoresque aventure",
+      "audio": "test/audio/2216/1259/2216_1259_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1374.53,
+        "original_end_s": 1386.43
+      }
+    },
+    {
+      "id": "2216_1259_000114",
+      "text": "au reste je viens d'obtenir de m de villefort qu'il lui fasse une visite j'espère bien qu'il la lui rendra le soir l'événement d'auteuil faisait le sujet de toutes les conversations",
+      "audio": "test/audio/2216/1259/2216_1259_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1348.79,
+        "original_end_s": 1359.41
+      }
+    },
+    {
+      "id": "2216_1259_000115",
+      "text": "albert le racontait à sa mère château renaud au jockey-club debray dans le salon du ministre beauchamp lui-même fit au comte la galanterie dans son journal d'un fait divers de vingt lignes qui posa le noble étranger en héros auprès de toutes les femmes de l'aristocratie",
+      "audio": "test/audio/2216/1259/2216_1259_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1359.41,
+        "original_end_s": 1374.53
+      }
+    },
+    {
+      "id": "2216_1259_000116",
+      "text": "notre chère valentine dit bien des choses à votre chère eugénie moi je vous embrasse de tout coeur héloïse de villefort p s faites-moi donc trouver chez vous d'une façon quelconque avec ce comte de monte-cristo je veux absolument le revoir",
+      "audio": "test/audio/2216/1259/2216_1259_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1333.84,
+        "original_end_s": 1348.79
+      }
+    },
+    {
+      "id": "2216_1259_000117",
+      "text": "quant à monsieur de villefort comme l'avait dit héloïse il prit un habit noir des gants blancs sa plus belle livrée et monta dans son carrosse qui vint le même soir s'arrêter à la porte du numéro trente dans la maison des champs-élysées",
+      "audio": "test/audio/2216/1259/2216_1259_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1259",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/comte_monte_cristo_jg_librivox/montecristo_047_dumas_64kb.mp3",
+        "original_start_s": 1386.43,
+        "original_end_s": 1402.15
+      }
+    }
+  ]
+}

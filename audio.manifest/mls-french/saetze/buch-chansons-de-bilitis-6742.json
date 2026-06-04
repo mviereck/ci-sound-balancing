@@ -1,0 +1,2314 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Chansons De Bilitis",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "6742",
+    "book_title": "Chansons De Bilitis",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "7591_6742_000000",
+      "text": "une chanteuse en péplos brodé chantera des chansons de rhodes accompagnée par deux aulétrides qui auront des guirlandes de myrte enroulées à leurs jambes brunes c'est bien qu'elles soient épilées de frais lavées et parfumées des pieds à la tête prêtes à d'autres jeux si on les leur demande",
+      "audio": "dev/audio/7591/6742/7591_6742_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 225.12,
+        "original_end_s": 242.38
+      }
+    },
+    {
+      "id": "7591_6742_000001",
+      "text": "cent quatre les mystères dans l'enceinte trois fois mystérieuse où les hommes ne pénètrent pas nous t'avons fêtée astarté de la nuit mère du monde fontaine de la vie des dieux",
+      "audio": "dev/audio/7591/6742/7591_6742_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 165.8,
+        "original_end_s": 182.04
+      }
+    },
+    {
+      "id": "7591_6742_000002",
+      "text": "tu es malade ô kléôn mais une femme te peut guérir va chez la jeune satyra la fille de ma voisine gorgô sa croupe est une rose au soleil et elle ne te refusera pas le plaisir qu'elle-même préfère",
+      "audio": "dev/audio/7591/6742/7591_6742_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 121.17,
+        "original_end_s": 137.07
+      }
+    },
+    {
+      "id": "7591_6742_000003",
+      "text": "enfin quand l'acte religieux fut consommé et quand dans le triangle unique on eut plongé le phallos pourpré alors le mystère commença mais je n'en dirai pas davantage cent cinq les courtisanes égyptiennes",
+      "audio": "dev/audio/7591/6742/7591_6742_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 208.86,
+        "original_end_s": 226.66
+      }
+    },
+    {
+      "id": "7591_6742_000004",
+      "text": "j'en révélerai quelque chose mais pas plus qu'il n'est permis autour du phallos couronné cent vingt femmes se balançaient en criant les initiées étaient en habits d'hommes les autres en tunique fendue",
+      "audio": "dev/audio/7591/6742/7591_6742_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 182.04,
+        "original_end_s": 195.98
+      }
+    },
+    {
+      "id": "7591_6742_000005",
+      "text": "hélas ah gyrinno avec l'amour mes larmes aussi débordent essuie-les avec tes cheveux ne les baise pas ma chérie et enlace-moi de plus près encore pour maîtriser mes tremblements",
+      "audio": "dev/audio/7591/6742/7591_6742_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 58.91,
+        "original_end_s": 72.88
+      }
+    },
+    {
+      "id": "7591_6742_000006",
+      "text": "car le poison de ma beauté un jour a servi de remède on m'avait mandée en costume dans la chambre d'un jeune homme que les femmes ne tentaient point des caleçons crevés se collaient à mes cuisses et mes seins jaillissaient nus d'une brassière brodée d'or",
+      "audio": "dev/audio/7591/6742/7591_6742_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 153.46,
+        "original_end_s": 169.35
+      }
+    },
+    {
+      "id": "7591_6742_000007",
+      "text": "toi qui accordes en secret la grâce toi qui unis toi qui aimes toi qui saisis d'un furieux désir les races multipliées des bêtes sauvages et joins les sexes dans les forêts",
+      "audio": "dev/audio/7591/6742/7591_6742_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 224.01,
+        "original_end_s": 235.77
+      }
+    },
+    {
+      "id": "7591_6742_000008",
+      "text": "les fumées des parfums les fumées des torches flottaient entre nous comme des nuées je pleurais à larmes brûlantes toutes aux pieds de la borbeia nous nous sommes jetées sur le dos",
+      "audio": "dev/audio/7591/6742/7591_6742_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 195.98,
+        "original_end_s": 208.86
+      }
+    },
+    {
+      "id": "7591_6742_000009",
+      "text": "chevelures mouillées jambes agiles seins rougis et bousculés sueur des joues écume des lèvres ô dionysos elles t'offraient en retour l'ardeur que tu jetais en elles",
+      "audio": "dev/audio/7591/6742/7591_6742_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 47.69,
+        "original_end_s": 59.8
+      }
+    },
+    {
+      "id": "7591_6742_000010",
+      "text": "elles comprennent le hellène et feignent de le parler mal pour se rire de nous dans leur langue mais nous dent pour dent nous parlons lydien et elles s'inquiètent tout à coup",
+      "audio": "dev/audio/7591/6742/7591_6742_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 263.47,
+        "original_end_s": 275.32
+      }
+    },
+    {
+      "id": "7591_6742_000011",
+      "text": "bilitis n'est pas athêna mais elle ne se montre qu'à ses heures et châtie les yeux trop ardents cent vingt deux ô dieu de bois",
+      "audio": "dev/audio/7591/6742/7591_6742_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 58.83,
+        "original_end_s": 69.61
+      }
+    },
+    {
+      "id": "7591_6742_000012",
+      "text": "cinq chaînettes d'or qui font le tour de mes joues et de mon menton se suspendent aux cheveux par deux larges agrafes sur mes bras qu'envierait iris treize bracelets d'argent s'étagent qu'ils sont lourds mais ce sont des armes et je sais une ennemie qui en a souffert",
+      "audio": "dev/audio/7591/6742/7591_6742_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 205.13,
+        "original_end_s": 224.39
+      }
+    },
+    {
+      "id": "7591_6742_000013",
+      "text": "cent trente-sept conseil à un amant si tu veux être aimé d'une femme ô jeune ami quelle qu'elle soit ne lui dis pas que tu la veux mais fais qu'elle te voie tous les jours puis disparais pour revenir",
+      "audio": "dev/audio/7591/6742/7591_6742_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 59.96,
+        "original_end_s": 79.27
+      }
+    },
+    {
+      "id": "7591_6742_000014",
+      "text": "cent six je chante ma chair et ma vie certes je ne chanterai pas les amantes célèbres si elles ne sont plus pourquoi en parler ne suis-je pas semblable à elles n'ai-je pas trop de songer à moi-même je t'oublierai pasiphaë bien que ta passion fût extrême",
+      "audio": "dev/audio/7591/6742/7591_6742_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 18.74,
+        "original_end_s": 37.61
+      }
+    },
+    {
+      "id": "7591_6742_000015",
+      "text": "les roses sont encore sur la route les torches n'ont pas fini de brûler et je reviens par le même chemin avec maman et je songe ainsi ce qu'elle est aujourd'hui moi aussi j'aurais pu l'être suis-je déjà si grande fille",
+      "audio": "dev/audio/7591/6742/7591_6742_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 154.99,
+        "original_end_s": 170.11
+      }
+    },
+    {
+      "id": "7591_6742_000016",
+      "text": "son âge seize ans sa taille grande elle n'a connu personne ici hors psappha qui en est éperdument amoureuse et a voulu me l'acheter vingt mines si tu la loues elle est à toi",
+      "audio": "dev/audio/7591/6742/7591_6742_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 200.8,
+        "original_end_s": 214.43
+      }
+    },
+    {
+      "id": "7591_6742_000017",
+      "text": "entre ta chair et la mienne un rêve brûlant m'a possédée je te serrais sur moi comme sur une blessure et je criais mnasidika mnasidika mnasidika",
+      "audio": "dev/audio/7591/6742/7591_6742_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 155.85,
+        "original_end_s": 168.63
+      }
+    },
+    {
+      "id": "7591_6742_000018",
+      "text": "gyrinno c'est une tâche et de toutes la plus rude réveille-toi il ne faut pas que tu dormes que m'importent tes paupières bleues et la barre de douleur qui brûle tes jambes maigres astarté bouillonne dans mes reins",
+      "audio": "dev/audio/7591/6742/7591_6742_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 88.2,
+        "original_end_s": 99.79
+      }
+    },
+    {
+      "id": "7591_6742_000019",
+      "text": "cette enfant n'est pas courtisane bilitis nul ne la connaît vraiment n'est-ce pas un scandale et tolérerons-nous que ces filles viennent salir dans la journée les lits qui nous attendent le soir",
+      "audio": "dev/audio/7591/6742/7591_6742_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 268.49,
+        "original_end_s": 281.19
+      }
+    },
+    {
+      "id": "7591_6742_000020",
+      "text": "ô perpétuellement fécondée ô vierge et nourrice de tout chaste et lascive pure et jouissante ineffable nocturne douce respiratrice du feu écume de la mer",
+      "audio": "dev/audio/7591/6742/7591_6742_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 210.79,
+        "original_end_s": 224.01
+      }
+    },
+    {
+      "id": "7591_6742_000021",
+      "text": "je veux choisir dans toute la forêt une pauvre hamadryade aux bras levés et dans ses cheveux couleur de feuilles je piquerai ma plus lourde rose voyez j'en ai tant pris aux champs que je ne pourrai les rapporter si vous ne m'en faites un bouquet",
+      "audio": "dev/audio/7591/6742/7591_6742_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 235.3,
+        "original_end_s": 250.16
+      }
+    },
+    {
+      "id": "7591_6742_000022",
+      "text": "terre sacrée nourrice de tout accueille doucement la pauvre morte endors la dans tes bras ô mère et fais pousser autour de la stèle non les orties et les ronces mais les faibles violettes blanches",
+      "audio": "dev/audio/7591/6742/7591_6742_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 206.16,
+        "original_end_s": 223.77
+      }
+    },
+    {
+      "id": "7591_6742_000023",
+      "text": "dieu nous ne t'avons pas acheté pour te sacrifier nos virginités nul ne peut donner ce qu'il n'a plus et les zélatrices de pallas ne courent pas les rues d'amathonte non tu veillais autrefois sur les chevelures des arbres sur les fleurs bien arrosées sur les fruits lourds et savoureux c'est pourquoi nous t'avons choisi",
+      "audio": "dev/audio/7591/6742/7591_6742_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 81.19,
+        "original_end_s": 100.8
+      }
+    },
+    {
+      "id": "7591_6742_000024",
+      "text": "à l'entendre tu savais déjà lire pourtant tu n'étais pas sevrée et le soir penchée sur toi elle ouvrait sa tunique et te donnait le sein afin que tu ne pleures pas disait-elle",
+      "audio": "dev/audio/7591/6742/7591_6742_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 98.74,
+        "original_end_s": 109.6
+      }
+    },
+    {
+      "id": "7591_6742_000025",
+      "text": "je ne te louerai pas syrinx ni toi byblis ni toi par la déesse entre toutes choisie hélène aux bras blancs si quelqu'un souffrit je ne le sens qu'à peine si quelqu'un aima j'aime davantage",
+      "audio": "dev/audio/7591/6742/7591_6742_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 37.61,
+        "original_end_s": 52.78
+      }
+    },
+    {
+      "id": "7591_6742_000026",
+      "text": "dans une débauche que deux jeunes gens et des courtisanes firent chez moi où l'amour ruissela comme le vin damalis pour fêter son nom dansa la figure de pasiphae elle avait fait faire à kitiôn deux masques de vache et de taureau pour elle et pour",
+      "audio": "dev/audio/7591/6742/7591_6742_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 253.32,
+        "original_end_s": 270.52
+      }
+    },
+    {
+      "id": "7591_6742_000027",
+      "text": "cent trente deux la danse des fleurs anthis danseuse de lydie a sept voiles autour d'elle elle déroule le voile jaune sa chevelure noire se répand le voile rose glisse de sa bouche le voile blanc tombé laisse voir ses bras nus",
+      "audio": "dev/audio/7591/6742/7591_6742_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 71.54,
+        "original_end_s": 90.81
+      }
+    },
+    {
+      "id": "7591_6742_000028",
+      "text": "poupée si je voulais la revoir je te donnerais à l'aphrodite comme le plus cher de mes cadeaux mais je veux penser qu'elle est tout à fait morte",
+      "audio": "dev/audio/7591/6742/7591_6742_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 109.6,
+        "original_end_s": 119.78
+      }
+    },
+    {
+      "id": "7591_6742_000029",
+      "text": "et surtout si mon désespoir est une perpétuelle torture c'est que je sais instant par instant comment elle défaille dans les bras de l'autre et ce qu'elle lui demande et ce qu'elle lui donne",
+      "audio": "dev/audio/7591/6742/7591_6742_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 59.56,
+        "original_end_s": 71.81
+      }
+    },
+    {
+      "id": "7591_6742_000030",
+      "text": "seize les danses au clair de lune sur l'herbe molle dans la nuit les jeunes filles aux cheveux de violettes ont dansé toutes ensemble et l'une des deux faisait les réponses de l'amant",
+      "audio": "dev/audio/7591/6742/7591_6742_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 19.11,
+        "original_end_s": 33.35
+      }
+    },
+    {
+      "id": "7591_6742_000031",
+      "text": "cent vingt-trois la danseuse aux crotales tu attaches à tes mains légères tes crotales retentissants myrrhinidion ma chérie et à peine nue hors de la robe tu étires tes membres nerveux",
+      "audio": "dev/audio/7591/6742/7591_6742_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 113.74,
+        "original_end_s": 130.6
+      }
+    },
+    {
+      "id": "7591_6742_000032",
+      "text": "et le vent de la mer relevant vers le ciel les cheveux roux de héliokomis les tordait comme une flamme furieuse sur une torche de blanche cire cent-deux la mer de kypris",
+      "audio": "dev/audio/7591/6742/7591_6742_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 59.8,
+        "original_end_s": 74.07
+      }
+    },
+    {
+      "id": "7591_6742_000033",
+      "text": "je connaîtrai l'amour dans la nuit et plus tard des petits enfants se nourriront à mes seins gonflés vingt les confidences",
+      "audio": "dev/audio/7591/6742/7591_6742_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 184.49,
+        "original_end_s": 194.7
+      }
+    },
+    {
+      "id": "7591_6742_000034",
+      "text": "une nuit de repos vous fera du bien vous dormirez dans mon lit même sans fards et mal coiffées mettez une simple tunique de laine et laissez vos bijoux au coffre nul ne vous fera danser pour admirer vos jambes et les mouvements lourds de vos reins nul ne vous demandera les figures sacrées pour juger si vous êtes amoureuses",
+      "audio": "dev/audio/7591/6742/7591_6742_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 128.72,
+        "original_end_s": 146.6
+      }
+    },
+    {
+      "id": "7591_6742_000035",
+      "text": "les autres ont dit vous nous viendrez chercher elles avaient serré leurs robes en tunique d'homme et elles luttaient sans énergie en mêlant leurs jambes dansantes puis chacune se disant vaincue a pris son amie par les oreilles comme une coupe par les deux anses et la tête penchée a bu le baiser",
+      "audio": "dev/audio/7591/6742/7591_6742_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 44.12,
+        "original_end_s": 64.05
+      }
+    },
+    {
+      "id": "7591_6742_000036",
+      "text": "ah va maintenant c'est une belle victoire que de ravir à terre une jeune fille en larmes",
+      "audio": "dev/audio/7591/6742/7591_6742_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 189.21,
+        "original_end_s": 207.52
+      }
+    },
+    {
+      "id": "7591_6742_000037",
+      "text": "je me suis amusée de ton corps parce que tu as les cheveux courts les seins en pointe sur ton corps maigre et les mamelons noirs comme deux petites dattes comme il faut de l'eau et des fruits une femme aussi est nécessaire mais déjà je ne sais plus ton nom toi qui as passé dans mes bras comme l'ombre d'une autre adorée",
+      "audio": "dev/audio/7591/6742/7591_6742_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 139.77,
+        "original_end_s": 155.85
+      }
+    },
+    {
+      "id": "7591_6742_000038",
+      "text": "sur le plus haut promontoire je me suis couchée en avant la mer était noire comme un champ de violettes la voie lactée ruisselait de la grande mamelle divine",
+      "audio": "dev/audio/7591/6742/7591_6742_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 74.07,
+        "original_end_s": 85.25
+      }
+    },
+    {
+      "id": "7591_6742_000039",
+      "text": "petite colombe la plus joyeuse de toutes les courtisanes qui plus que toute autre aima les orgies les cheveux flottants les danses molles et les tuniques d'hyacinthe",
+      "audio": "dev/audio/7591/6742/7591_6742_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 169.36,
+        "original_end_s": 180.79
+      }
+    },
+    {
+      "id": "7591_6742_000040",
+      "text": "héraïos ô mois triste et doux les feuilles tombent doucement comme la neige le soleil est plus pénétrant dans la forêt plus éclaircie je n'entends plus rien que le silence",
+      "audio": "dev/audio/7591/6742/7591_6742_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 136.35,
+        "original_end_s": 149.17
+      }
+    },
+    {
+      "id": "7591_6742_000041",
+      "text": "le cortège les flûtes le chant nuptial et le char fleuri de l'époux toutes ces fêtes un autre soir se dérouleront autour de moi parmi les branches d'olivier comme à cette heure même melissa je me dévoilerai devant un homme",
+      "audio": "dev/audio/7591/6742/7591_6742_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 170.11,
+        "original_end_s": 184.49
+      }
+    },
+    {
+      "id": "7591_6742_000042",
+      "text": "cent trente-cinq la violence non tu ne me prendras pas de force n'y compte pas lamprias si tu as entendu dire qu'on a violé parthenis sache qu'elle y a mis du sien car on ne jouit pas de nous sans y être invité",
+      "audio": "dev/audio/7591/6742/7591_6742_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 145.43,
+        "original_end_s": 161.03
+      }
+    },
+    {
+      "id": "7591_6742_000043",
+      "text": "quatre vingt quinze le dernier essai que veux-tu vieille te consoler c'est peine perdue",
+      "audio": "dev/audio/7591/6742/7591_6742_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 168.63,
+        "original_end_s": 182.11
+      }
+    },
+    {
+      "id": "7591_6742_000044",
+      "text": "la pression de ses lèvres avaient déteint tes petites joues et à ta main gauche voici ce doigt cassé qui la fit tant pleurer cette petite cyclas que tu portes c'est elle qui te l'a brodée",
+      "audio": "dev/audio/7591/6742/7591_6742_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 87.42,
+        "original_end_s": 98.74
+      }
+    },
+    {
+      "id": "7591_6742_000045",
+      "text": "alors ils m'embrassent sur la joue ils posent leurs têtes sur mes seins ils me supplient avec les yeux je sais bien ce que cela veut dire cela veut dire bilitis chérie dis-nous car nous sommes gentils l'histoire du héros perseus ou la mort de la petite hellé",
+      "audio": "dev/audio/7591/6742/7591_6742_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 123.54,
+        "original_end_s": 142.15
+      }
+    },
+    {
+      "id": "7591_6742_000046",
+      "text": "toi tu ne m'as rien dit tu ne m'as rien donné car tu es pauvre et tu n'es pas beau mais c'est toi que j'aime",
+      "audio": "dev/audio/7591/6742/7591_6742_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 49.95,
+        "original_end_s": 59.96
+      }
+    },
+    {
+      "id": "7591_6742_000047",
+      "text": "voici l'oïnanthê des montagnes de kypre je la ferai couler entre mes seins la liqueur de rose qui vient de phasêlis embaumera ma nuque et mes joues",
+      "audio": "dev/audio/7591/6742/7591_6742_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 95.22,
+        "original_end_s": 105.31
+      }
+    },
+    {
+      "id": "7591_6742_000048",
+      "text": "ô vénérable priapos dieu de bois que j'ai fait sceller dans le marbre du bord de mes bains ce n'est pas sans raison gardien des vergers que tu veilles ici sur des courtisanes",
+      "audio": "dev/audio/7591/6742/7591_6742_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 69.61,
+        "original_end_s": 81.19
+      }
+    },
+    {
+      "id": "7591_6742_000049",
+      "text": "cent-vingt-huit thérapeutique ô asklêpios sois moi propice ô dieu de la santé divine le jour où l'éternelle nuit noire menacera mes yeux effrayés",
+      "audio": "dev/audio/7591/6742/7591_6742_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 137.07,
+        "original_end_s": 153.46
+      }
+    },
+    {
+      "id": "7591_6742_000050",
+      "text": "mais avant de la mettre au tombeau on l'a merveilleusement coiffée et on l'a couchée dans les roses la pierre même qui la recouvre est tout imprégnée d'essences et de parfums",
+      "audio": "dev/audio/7591/6742/7591_6742_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 193.76,
+        "original_end_s": 206.16
+      }
+    },
+    {
+      "id": "7591_6742_000051",
+      "text": "mais elles se teignent au pinceau et se parfument profondément les prêtresses de l'astarté font l'amour au coucher de la lune puis dans une salle de tapis où brûle une haute lampe d'or elles se couchent au hasard",
+      "audio": "dev/audio/7591/6742/7591_6742_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 149.43,
+        "original_end_s": 165.8
+      }
+    },
+    {
+      "id": "7591_6742_000052",
+      "text": "fin de la section dix-neuf des chansons de bilitis enregistrées par severine",
+      "audio": "dev/audio/7591/6742/7591_6742_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 281.19,
+        "original_end_s": 292.34
+      }
+    },
+    {
+      "id": "7591_6742_000053",
+      "text": "elle portait des cornes terribles et une queue véritable à son caleçon de cuir les autres femmes menées par moi tenant des fleurs et des flambeaux nous tournions sur nous-mêmes avec des cris et nous caressions damalis du bout de nos chevelures pendantes",
+      "audio": "dev/audio/7591/6742/7591_6742_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 270.52,
+        "original_end_s": 286.59
+      }
+    },
+    {
+      "id": "7591_6742_000054",
+      "text": "fin de la section dix-neuf des chansons de bilitis enregistrées par severine",
+      "audio": "dev/audio/7591/6742/7591_6742_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 232.17,
+        "original_end_s": 243.72
+      }
+    },
+    {
+      "id": "7591_6742_000055",
+      "text": "plus que toute autre elle aima les glottismes savoureux les caresses sur la joue les jeux que la lampe voit seule et l'amour qui brise les membres et maintenant elle est une petite ombre",
+      "audio": "dev/audio/7591/6742/7591_6742_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 180.79,
+        "original_end_s": 193.76
+      }
+    },
+    {
+      "id": "7591_6742_000056",
+      "text": "je chante ma chair et ma vie et non pas l'ombre stérile des amoureuses enterrées reste couché ô mon corps selon ta mission voluptueuse savoure la jouissance quotidienne et les passions sans lendemain ne laisse pas une joie inconnue aux regrets du jour de ta mort",
+      "audio": "dev/audio/7591/6742/7591_6742_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 52.78,
+        "original_end_s": 70.82
+      }
+    },
+    {
+      "id": "7591_6742_000057",
+      "text": "quatre-vingt quatorze à gyrinnô ne crois pas que je t'aie aimée je t'ai mangée comme une figue mûre je t'ai bue comme une eau ardente je t'ai portée autour de moi comme une ceinture de peau",
+      "audio": "dev/audio/7591/6742/7591_6742_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 126.81,
+        "original_end_s": 139.77
+      }
+    },
+    {
+      "id": "7591_6742_000058",
+      "text": "tu es plus grande qu'elle n'était ton corps différent m'étonne regarde je t'ai enfin cédé oui c'est moi tu peux jouer avec mes seins caresser ma hanche ouvrir mes genoux mon corps tout entier s'est livré à tes lèvres infatigables",
+      "audio": "dev/audio/7591/6742/7591_6742_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 42.93,
+        "original_end_s": 58.91
+      }
+    },
+    {
+      "id": "7591_6742_000059",
+      "text": "mélixô les jambes serrées le corps penché les bras en avant tu glisses ta double flûte légère entre tes lèvres mouillées de vin et tu joues au dessus de la couche où téléas m'étreint encore",
+      "audio": "dev/audio/7591/6742/7591_6742_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 179.66,
+        "original_end_s": 193.28
+      }
+    },
+    {
+      "id": "7591_6742_000060",
+      "text": "cent trente-neuf le tombeau d'une jeune courtisane ici gît le corps délicat de lydé",
+      "audio": "dev/audio/7591/6742/7591_6742_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 158.61,
+        "original_end_s": 169.36
+      }
+    },
+    {
+      "id": "7591_6742_000061",
+      "text": "et j'ajoutai en m'enfuyant ô gourmand de fruits et de légumes le petit jardin de bilitis n'a qu'une figue mais elle est bonne fin de la section vingt-cinq des chansons de bilitis",
+      "audio": "dev/audio/7591/6742/7591_6742_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 278.48,
+        "original_end_s": 291.56
+      }
+    },
+    {
+      "id": "7591_6742_000062",
+      "text": "que d'autres dis-tu ne songent qu'aux voluptés basses veillent la nuit dorment le jour et demandent encore à l'adultère une satiété criminelle oui ta femme travaille à l'étable on dit même qu'elle a mille tendresses pour le plus jeune de tes ânes ah ha c'est un bel animal il a une touffe noire sur les yeux",
+      "audio": "dev/audio/7591/6742/7591_6742_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 42.05,
+        "original_end_s": 61.64
+      }
+    },
+    {
+      "id": "7591_6742_000063",
+      "text": "les petits enfants la rivière est presque à sec les joncs flétris meurent dans la fange l'air brûle et loin des berges creuses un ruisseau clair coule sur les graviers",
+      "audio": "dev/audio/7591/6742/7591_6742_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 64.05,
+        "original_end_s": 78.24
+      }
+    },
+    {
+      "id": "7591_6742_000064",
+      "text": "achetez-moi quelque chose explique-toi petite car nous ne savons pas ce que tu vends toi tes roses ou tout à la fois si vous m'achetez toutes mes fleurs vous aurez la vendeuse pour rien",
+      "audio": "dev/audio/7591/6742/7591_6742_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 242.41,
+        "original_end_s": 255.26
+      }
+    },
+    {
+      "id": "7591_6742_000065",
+      "text": "nymphes des bois et des fontaines amies bienfaisantes je suis là ne vous cachez pas mais venez m'aider car je suis fort en peine de tant de fleurs cueillies",
+      "audio": "dev/audio/7591/6742/7591_6742_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 224.34,
+        "original_end_s": 235.3
+      }
+    },
+    {
+      "id": "7591_6742_000066",
+      "text": "je suis vraiment toute couverte d'or mes seins sont cuirassés de deux pectoraux d'or les images des dieux ne sont pas aussi riches que je le suis et je porte sur ma robe épaisse une cointure lamée d'argent",
+      "audio": "dev/audio/7591/6742/7591_6742_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 224.39,
+        "original_end_s": 238.11
+      }
+    },
+    {
+      "id": "7591_6742_000067",
+      "text": "enfant garde bien la porte et ne laisse pas entrer les passants car moi et six filles aux beaux bras nous nous baignons secrètement dans les eaux tièdes du bassin nous ne voulons que rire et nager laisse les amants dans la rue nous tremperons nos jambes dans l'eau et assises sur le bord du marbre nous jouerons aux osselets",
+      "audio": "dev/audio/7591/6742/7591_6742_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 25.62,
+        "original_end_s": 45.18
+      }
+    },
+    {
+      "id": "7591_6742_000068",
+      "text": "neuf la pluie la pluie fine a mouillé toutes choses très doucement et en silence il pleut encore un peu je vais sortir sous les arbres pieds nus pour ne pas tacher mes chaussures",
+      "audio": "dev/audio/7591/6742/7591_6742_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 169.17,
+        "original_end_s": 185.8
+      }
+    },
+    {
+      "id": "7591_6742_000069",
+      "text": "les jeunes gens la supplient elle secoue la tête en arrière au son des flûtes seulement elle le déchire un peu puis tout à fait et avec les gestes de la danse elle cueille les fleurs de son corps en chantant où sont mes roses où sont mes violettes parfumées où sont mes touffes de persil",
+      "audio": "dev/audio/7591/6742/7591_6742_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 105.73,
+        "original_end_s": 125.51
+      }
+    },
+    {
+      "id": "7591_6742_000070",
+      "text": "combien en as-tu et que savent-elles faire j'en ai sept trois dansent la kordax avec l'écharpe et le phallos néphélê aux aisselles lisses mimera l'amour de la colombe entre ses seins couleur de roses",
+      "audio": "dev/audio/7591/6742/7591_6742_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 211.64,
+        "original_end_s": 225.12
+      }
+    },
+    {
+      "id": "7591_6742_000071",
+      "text": "parfois elle faisait la roue sur les mains et sur les pieds ou bien les deux bras en l'air et les genoux écartés elle se courbait à la renverse et touchait la terre en riant",
+      "audio": "dev/audio/7591/6742/7591_6742_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 61.19,
+        "original_end_s": 71.54
+      }
+    },
+    {
+      "id": "7591_6742_000072",
+      "text": "puis je sentis qu'il revenait à moi et je vis même très clairement ses désirs réveillés qu'il ne me cachait point mais par ruse je sus résister non mon ami ce soir lysippos me possède adieu",
+      "audio": "dev/audio/7591/6742/7591_6742_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 263.63,
+        "original_end_s": 278.48
+      }
+    },
+    {
+      "id": "7591_6742_000073",
+      "text": "voici qu'on a porté au tombeau pittakos chargé d'années beaucoup sont morts que j'ai connus et celle qui vit est pour moi comme si elle n'était plus",
+      "audio": "dev/audio/7591/6742/7591_6742_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 149.17,
+        "original_end_s": 159.62
+      }
+    },
+    {
+      "id": "7591_6742_000074",
+      "text": "oh comme la saveur du matin est amère gyrinno appprécie-la les baisers sont plus difficiles mais plus étranges et plus lents quatre vingt treize myriné non traduite",
+      "audio": "dev/audio/7591/6742/7591_6742_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 110.55,
+        "original_end_s": 126.81
+      }
+    },
+    {
+      "id": "7591_6742_000075",
+      "text": "mais toi ne prends pas de repos prolonge les baisers à perte d'haleine ne la laisse pas dormir même si elle t'en prie baise toujours la partie de son corps vers laquelle elle tourne les yeux",
+      "audio": "dev/audio/7591/6742/7591_6742_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 98.78,
+        "original_end_s": 112.69
+      }
+    },
+    {
+      "id": "7591_6742_000076",
+      "text": "elle dégage ses petits seins du voile rouge qui se dénoue elle abaisse le voile vert de sa croupe jusqu'aux pieds elle tire le voile bleu de ses épaules mais elle presse sur sa pudeur le dernier voile transparent",
+      "audio": "dev/audio/7591/6742/7591_6742_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 90.81,
+        "original_end_s": 105.73
+      }
+    },
+    {
+      "id": "7591_6742_000077",
+      "text": "nous nous sommes couchées avant le crépuscule voici déjà la mauvaise aurore mais je ne suis pas lasse pour si peu je ne dormirai pas avant le second soir je ne dormirai pas il ne faut pas que tu dormes",
+      "audio": "dev/audio/7591/6742/7591_6742_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 99.79,
+        "original_end_s": 110.55
+      }
+    },
+    {
+      "id": "7591_6742_000078",
+      "text": "fin de la section dix-neuf des chansons de bilitis enregistrées par severine",
+      "audio": "dev/audio/7591/6742/7591_6742_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 228.56,
+        "original_end_s": 242.42
+      }
+    },
+    {
+      "id": "7591_6742_000079",
+      "text": "non mélixô petite musicienne tu es une honnête amie hier tu ne m'as pas refusé de changer ta flûte pour une autre quand je désespérais d'accomplir un amour plein de difficultés mais tu es sûre",
+      "audio": "dev/audio/7591/6742/7591_6742_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 204.42,
+        "original_end_s": 216.84
+      }
+    },
+    {
+      "id": "7591_6742_000080",
+      "text": "huit le réveil il fait déjà grand jour je devrais être levée mais le sommeil du matin est doux et la chaleur du lit me retient blottie je veux rester couchée encore",
+      "audio": "dev/audio/7591/6742/7591_6742_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 126.57,
+        "original_end_s": 140.21
+      }
+    },
+    {
+      "id": "7591_6742_000081",
+      "text": "louez la petite fille aux paupières bleues aux cheveux courts aux seins aigus vêtue seulement d'une ceinture d'où pendaient des rubans jaunes et des tiges d'iris noirs",
+      "audio": "dev/audio/7591/6742/7591_6742_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 40.91,
+        "original_end_s": 51.12
+      }
+    },
+    {
+      "id": "7591_6742_000082",
+      "text": "et qu'en ferai-je voici vingt-deux nuits que j'essaye en vain d'échapper au souvenir soit je prendrai celle-ci encore mais préviens la pauvre petite pour qu'elle ne s'effraye point si je sanglote dans ses bras",
+      "audio": "dev/audio/7591/6742/7591_6742_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 214.43,
+        "original_end_s": 228.56
+      }
+    },
+    {
+      "id": "7591_6742_000083",
+      "text": "toutes sous la bassaris et les couronnes de pampre couraient et criaient et sautaient les crotales claquaient dans les mains et les thyrses crevaient la peau des tympanôns retentissants",
+      "audio": "dev/audio/7591/6742/7591_6742_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 35.77,
+        "original_end_s": 47.69
+      }
+    },
+    {
+      "id": "7591_6742_000084",
+      "text": "le lendemain je suis allée chez elle et nous avons rougi dès que nous nous sommes vues elle m'a fait entrer dans sa chambre pour que nous fussions toutes seules j'avais beaucoup de choses à lui dire mais en la voyant j'oubliai",
+      "audio": "dev/audio/7591/6742/7591_6742_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 194.7,
+        "original_end_s": 208.05
+      }
+    },
+    {
+      "id": "7591_6742_000085",
+      "text": "je suis allée avec plango chez les courtisanes égyptiennes tout en haut de la vieille ville elles ont des amphores de terre des plateaux de cuivre et des nattes jaunes où elles s'accroupissent sans effort",
+      "audio": "dev/audio/7591/6742/7591_6742_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 226.66,
+        "original_end_s": 240.65
+      }
+    },
+    {
+      "id": "7591_6742_000086",
+      "text": "torti tortue que fais-tu là au milieu je taille un roseau pour la flûte funèbre hélas hélas qu'est-il arrivé je ne le dirai pas je ne le dirai pas",
+      "audio": "dev/audio/7591/6742/7591_6742_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 36.27,
+        "original_end_s": 49.57
+      }
+    },
+    {
+      "id": "7591_6742_000087",
+      "text": "cent vingt-neuf la commande vieille écoute-moi je donne un festin dans trois jours il me faut un divertissement tu me loueras toutes tes filles",
+      "audio": "dev/audio/7591/6742/7591_6742_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 197.27,
+        "original_end_s": 211.64
+      }
+    },
+    {
+      "id": "7591_6742_000088",
+      "text": "cent un les ménades à travers les forêts qui dominent la mer les ménades se sont ruées maskhalê aux seins fougueux hurlante brandissait le phallos qui était de bois de sycomore et barbouillé de vermillon",
+      "audio": "dev/audio/7591/6742/7591_6742_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 19.69,
+        "original_end_s": 35.77
+      }
+    },
+    {
+      "id": "7591_6742_000089",
+      "text": "il a voulu m'approcher j'ai pris une faux contre le mur et je lui aurais fendu la joue s'il avait avancé d'un pas alors reculant un peu il se mit à sourire et souffla vers moi dans sa main disant reçois le baiser",
+      "audio": "dev/audio/7591/6742/7591_6742_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 97.38,
+        "original_end_s": 112.8
+      }
+    },
+    {
+      "id": "7591_6742_000090",
+      "text": "torti tortue que fais-tu là au milieu je presse les olives pour l'huile de la stèle hélas hélas et qui donc est mort peux-tu le demander peux-tu le demander",
+      "audio": "dev/audio/7591/6742/7591_6742_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 49.57,
+        "original_end_s": 63.97
+      }
+    },
+    {
+      "id": "7591_6742_000091",
+      "text": "que tu es jolie les bras en l'air les reins arqués et les seins rouges tu commences tes pieds l'un devant l'autre se posent hésitent et glissent mollement ton corps se plie comme une écharpe tu caresses ta peau qui frissonne et la volupté inonde tes longs yeux évanouis",
+      "audio": "dev/audio/7591/6742/7591_6742_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 130.6,
+        "original_end_s": 148.39
+      }
+    },
+    {
+      "id": "7591_6742_000092",
+      "text": "elles se tiennent immobiles les mains posées sur les genoux quand elles offrent la bouillie elles murmurent bonheur et quand on les remercie elles disent grâce à toi",
+      "audio": "dev/audio/7591/6742/7591_6742_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 250.93,
+        "original_end_s": 263.47
+      }
+    },
+    {
+      "id": "7591_6742_000093",
+      "text": "peut-être plus que tu ne crois quel est ton nom charmant je ne dis pas cela si vite tu as quelqu'un ce soir toujours celui qui m'aime et comment l'aimes tu comme il veut soupons ensemble si tu le désires mais que donnes-tu ceci cinq drachmes c'est pour mon esclave et pour moi dis toi-même cent",
+      "audio": "dev/audio/7591/6742/7591_6742_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 125.81,
+        "original_end_s": 145.54
+      }
+    },
+    {
+      "id": "7591_6742_000094",
+      "text": "la pluie au printemps est délicieuse les branches chargées de fleurs mouillées ont un parfum qui m'étourdit on voit briller au soleil la peau délicate des écorces",
+      "audio": "dev/audio/7591/6742/7591_6742_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 185.8,
+        "original_end_s": 196.89
+      }
+    },
+    {
+      "id": "7591_6742_000095",
+      "text": "le sexe pur ou le sourire de kypris philommeïdès cent-trois les prêtresses de l'astarte",
+      "audio": "dev/audio/7591/6742/7591_6742_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 110.53,
+        "original_end_s": 122.58
+      }
+    },
+    {
+      "id": "7591_6742_000096",
+      "text": "je la vois tenant sa tasse de lait et me regardant de côté avec un sourire je la vois poudrée et coiffée ouvrant ses grands yeux devant son miroir et retouchant du doigt le rouge de ses lèvres",
+      "audio": "dev/audio/7591/6742/7591_6742_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 46.67,
+        "original_end_s": 59.56
+      }
+    },
+    {
+      "id": "7591_6742_000097",
+      "text": "fin de la section vingt-six des chansons de bilitis enregistrée par séverine",
+      "audio": "dev/audio/7591/6742/7591_6742_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 299.37,
+        "original_end_s": 310.99
+      }
+    },
+    {
+      "id": "7591_6742_000098",
+      "text": "cent hymne à la nuit les masses noires des arbres ne bougent pas plus que des montagnes les étoiles emplissent un ciel immense un air chaud comme un souffle humain caresse mes yeux et mes joues",
+      "audio": "dev/audio/7591/6742/7591_6742_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 248.22,
+        "original_end_s": 266.2
+      }
+    },
+    {
+      "id": "7591_6742_000099",
+      "text": "leurs chambres sont silencieuses sans angles et sans encoignures tant les couches successives de chaux bleue ont émoussé les chapiteaux et arrondi le pied des murs",
+      "audio": "dev/audio/7591/6742/7591_6742_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 240.65,
+        "original_end_s": 250.93
+      }
+    },
+    {
+      "id": "7591_6742_000100",
+      "text": "tout à coup tu claques des crotales cambre-toi sur les pieds dressés secoue les reins lance les jambes et que tes mains pleines de fracas appellent tous les désirs en bande autour de ton corps tournoyant",
+      "audio": "dev/audio/7591/6742/7591_6742_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 148.39,
+        "original_end_s": 160.67
+      }
+    },
+    {
+      "id": "7591_6742_000101",
+      "text": "je suis aimée des petits enfants dès qu'ils me voient ils courent à moi et s'accrochent à ma tunique et prennent mes jambes dans leurs petits bras s'ils ont cueilli des fleurs ils me les donnent toutes s'ils ont pris un scarabée ils le mettent dans ma main s'ils n'ont rien ils me caressent et me font asseoir devant eux",
+      "audio": "dev/audio/7591/6742/7591_6742_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 105.86,
+        "original_end_s": 123.54
+      }
+    },
+    {
+      "id": "7591_6742_000102",
+      "text": "ô nuit qui enfantait les dieux comme tu es douce sur mes lèvres comme tu es chaude dans mes cheveux comme tu entres en moi ce soir et comme je me sens grosse de tout ton printemps",
+      "audio": "dev/audio/7591/6742/7591_6742_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 266.2,
+        "original_end_s": 277.35
+      }
+    },
+    {
+      "id": "7591_6742_000103",
+      "text": "hélas que de fleurs sur la terre ayez pitié des fleurs tombées il ne faut pas les balayer et les mêler dans la boue mais les conserver aux abeilles les scarabées et les limaces traversent le chemin entre les flaques d'eau",
+      "audio": "dev/audio/7591/6742/7591_6742_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 196.89,
+        "original_end_s": 211.31
+      }
+    },
+    {
+      "id": "7591_6742_000104",
+      "text": "quatre vingt dix sept à la poupée de cire poupée de cire jouet chéri qu'elle appelait son enfant elle t'a laissée toi aussi et elle t'oublie comme moi qui fus avec elle ton père ou ta mère je ne sais",
+      "audio": "dev/audio/7591/6742/7591_6742_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 71.81,
+        "original_end_s": 87.42
+      }
+    },
+    {
+      "id": "7591_6742_000105",
+      "text": "nous jouerons aussi à la balle ne laisse pas entrer les amants nos chevelures sont trop mouillées nos gorges ont la chair de poule et le bout de nos doigts se ride d'ailleurs il s'en repentirait celui qui nous surprendrait nues",
+      "audio": "dev/audio/7591/6742/7591_6742_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 45.18,
+        "original_end_s": 58.83
+      }
+    },
+    {
+      "id": "7591_6742_000106",
+      "text": "soudain je m'assis sur ses genoux je la pris dans mes bras je lui parlai à l'oreille vivement anxieusement alors elle mit sa tête contre la mienne et me dit tout",
+      "audio": "dev/audio/7591/6742/7591_6742_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 221.17,
+        "original_end_s": 232.17
+      }
+    },
+    {
+      "id": "7591_6742_000107",
+      "text": "va donner les ordres adieu cent-trente la figure de pasiphaé",
+      "audio": "dev/audio/7591/6742/7591_6742_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 242.38,
+        "original_end_s": 253.32
+      }
+    },
+    {
+      "id": "7591_6742_000108",
+      "text": "garde aujourd'hui nos têtes blondes les pavots ouverts de nos lèvres et les violettes de nos yeux garde les fruits durs de nos seins et donne-nous des amants qui te ressemblent",
+      "audio": "dev/audio/7591/6742/7591_6742_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 100.8,
+        "original_end_s": 113.74
+      }
+    },
+    {
+      "id": "7591_6742_000109",
+      "text": "ses mugissements et nos chants et les danses effrénées ont duré plus que la nuit la chambre vide est encore chaude je regarde mes mains rougies et les canthares de khios où nagent des roses",
+      "audio": "dev/audio/7591/6742/7591_6742_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 286.59,
+        "original_end_s": 299.37
+      }
+    },
+    {
+      "id": "7591_6742_000110",
+      "text": "dix neuf l'amie mariée nos mères étaient grosses en même temps et ce soir elle s'est mariée melissa ma plus chère amie",
+      "audio": "dev/audio/7591/6742/7591_6742_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 142.15,
+        "original_end_s": 154.99
+      }
+    },
+    {
+      "id": "7591_6742_000111",
+      "text": "on dit qu'elle joue entre ses pattes sous son ventre gris et doux mais ceux qui disent cela sont des médisants si ton âne lui plaît agorakritès c'est que son regard sans doute lui rappelle le tien",
+      "audio": "dev/audio/7591/6742/7591_6742_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 61.64,
+        "original_end_s": 76.28
+      }
+    },
+    {
+      "id": "7591_6742_000112",
+      "text": "j'ai dansé selon le rite au son des crotales les douze désirs d'aphroditê et voici que l'amour est entré en lui tout à coup et sur le lit de sa virginité j'ai recommencé toute la danse",
+      "audio": "dev/audio/7591/6742/7591_6742_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 169.35,
+        "original_end_s": 182.03
+      }
+    },
+    {
+      "id": "7591_6742_000113",
+      "text": "si vous refusez prenez garde celle de vous qui a les cheveux orangés je l'ai vue hier saillie comme une bête par le satyre lamprosathès et je dénoncerai l'impudique",
+      "audio": "dev/audio/7591/6742/7591_6742_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 250.16,
+        "original_end_s": 261.25
+      }
+    },
+    {
+      "id": "7591_6742_000114",
+      "text": "à côté de leurs flancs étroits considère nos hanches luxuriantes large couche creusée pour l'amant dis enfin quelles lèvres humaines sinon celles qu'ils voudraient avoir élaborent les voluptés",
+      "audio": "dev/audio/7591/6742/7591_6742_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 107.61,
+        "original_end_s": 121.17
+      }
+    },
+    {
+      "id": "7591_6742_000115",
+      "text": "ta voix est-ce le bruit de la mer est-ce le silence de la plaine ta voix je ne la comprends pas mais elle me jette la tête aux pieds et mes larmes lavent mes deux mains",
+      "audio": "dev/audio/7591/6742/7591_6742_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 287.67,
+        "original_end_s": 298.75
+      }
+    },
+    {
+      "id": "7591_6742_000116",
+      "text": "cent quarante la petite marchande de roses hier m'a dit naïs j'étais sur la place quand une petite fille en loques rouges a passé portant des roses devant un groupe de jeunes gens et voici ce que j'ai entendu",
+      "audio": "dev/audio/7591/6742/7591_6742_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 223.77,
+        "original_end_s": 242.41
+      }
+    },
+    {
+      "id": "7591_6742_000117",
+      "text": "holà par les deux déesses qui est l'insolent qui a mis le pied sur ma robe c'est un amoureux c'est un sot j'ai été maladroit pardonne-moi l'imbécile ma robe jaune est toute déchirée par derrière et si je marche ainsi dans la rue on va me prendre pour une fille pauvre qui sert la kypris inverse",
+      "audio": "dev/audio/7591/6742/7591_6742_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 158.61,
+        "original_end_s": 174.77
+      }
+    },
+    {
+      "id": "7591_6742_000118",
+      "text": "et maintenant répands sur mes reins la bakkaris irrésistible il vaut mieux pour une courtisane connaître les parfums de lydie que les mœurs du péloponèse",
+      "audio": "dev/audio/7591/6742/7591_6742_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 105.31,
+        "original_end_s": 115.41
+      }
+    },
+    {
+      "id": "7591_6742_000119",
+      "text": "elles peignent leurs chevelures et leurs mains teintes de pourpre mêlées à leurs boucles noires semblent des branches de corail dans une mer sombre et flottante elles ne s'épilent jamais pour que le triangle de la déesse marque leur ventre comme un temple",
+      "audio": "dev/audio/7591/6742/7591_6742_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 133.85,
+        "original_end_s": 149.43
+      }
+    },
+    {
+      "id": "7591_6742_000120",
+      "text": "où demeures-tu dans cette maison bleue à quelle heure veux-tu que je t'envoie chercher tout de suite si tu veux tout de suite va devant cent neuf la robe déchirée",
+      "audio": "dev/audio/7591/6742/7591_6742_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 145.54,
+        "original_end_s": 158.61
+      }
+    },
+    {
+      "id": "7591_6742_000121",
+      "text": "et je n'ai pas commandé pour nous deux joueuses de flûte aux belles bouches mais deux marmites de pois rissolés des gâteaux au miel des croquettes frites et ma dernière outre de khios",
+      "audio": "dev/audio/7591/6742/7591_6742_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 146.6,
+        "original_end_s": 158.61
+      }
+    },
+    {
+      "id": "7591_6742_000122",
+      "text": "cent huit conversation bonjour bonjour aussi tu es bien pressée peut-être moins que tu ne penses tu es une jolie fille",
+      "audio": "dev/audio/7591/6742/7591_6742_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 115.41,
+        "original_end_s": 125.81
+      }
+    },
+    {
+      "id": "7591_6742_000123",
+      "text": "cent vingt sept à un égaré l'amour des femmes est le plus beau de tous ceux que les mortels éprouvent et tu penserais ainsi kléôn si tu avais l'âme vraiment voluptueuse mais tu ne rêves que vanités",
+      "audio": "dev/audio/7591/6742/7591_6742_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 76.28,
+        "original_end_s": 94.67
+      }
+    },
+    {
+      "id": "7591_6742_000124",
+      "text": "tu perds tes nuits à chérir les éphèbes qui nous méconnaissent regarde les donc qu'ils sont laids compare à leurs têtes rondes nos chevelures immenses cherche nos seins blancs sur leurs poitrines",
+      "audio": "dev/audio/7591/6742/7591_6742_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 94.67,
+        "original_end_s": 107.61
+      }
+    },
+    {
+      "id": "7591_6742_000125",
+      "text": "et quand une troupe de marchands qui passe mène boire au fleuve les énormes boeufs blancs ils croisent leurs mains derrière eux et regardent les grandes bêtes dix huit les contes",
+      "audio": "dev/audio/7591/6742/7591_6742_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 92.92,
+        "original_end_s": 105.86
+      }
+    },
+    {
+      "id": "7591_6742_000126",
+      "text": "oh va de ton mieux fais des efforts c'est manqué je me défends à peine cependant je n'appellerai pas au secours et je ne lutte même pas mais je bouge pauvre ami c'est manqué encore",
+      "audio": "dev/audio/7591/6742/7591_6742_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 161.03,
+        "original_end_s": 173.72
+      }
+    },
+    {
+      "id": "7591_6742_000127",
+      "text": "et combien veux-tu de tes roses il faut six oboles à ma mère ou bien je serai battue comme une chienne suis-nous tu auras une drachme alors je vais chercher ma petite soeur",
+      "audio": "dev/audio/7591/6742/7591_6742_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 255.26,
+        "original_end_s": 268.49
+      }
+    },
+    {
+      "id": "7591_6742_000128",
+      "text": "tu sais te faire aimer disait-il mais tu n'en es pas émue que faut-il faire pour que tu m'aimes je le regardais plus loin que les yeux et je lui dis avec lenteur t'imaginer que tu es femme",
+      "audio": "dev/audio/7591/6742/7591_6742_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 182.03,
+        "original_end_s": 197.27
+      }
+    },
+    {
+      "id": "7591_6742_000129",
+      "text": "c'est là que du matin au soir les petits enfants nus viennent jouer ils se baignent pas plus haut que leurs mollets tant la rivière est basse mais ils marchent dans le courant et glissent quelquefois sur les roches et les petits garçons jettent de l'eau sur les petites filles qui rient",
+      "audio": "dev/audio/7591/6742/7591_6742_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 78.24,
+        "original_end_s": 92.92
+      }
+    },
+    {
+      "id": "7591_6742_000130",
+      "text": "ne suis-je pas bien imprudente moi qui loue une aussi jeune fille pour distraire mes heures laborieuses moi qui la montre ainsi nue aux regards curieux de mes amants ne suis-je pas inconsidérée",
+      "audio": "dev/audio/7591/6742/7591_6742_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 193.28,
+        "original_end_s": 204.42
+      }
+    },
+    {
+      "id": "7591_6742_000131",
+      "text": "sept le passant comme j'étais assise le soir devant la porte de la maison un jeune homme est venu à passer il m'a regardée j'ai tourné la tête il m'a parlé je n'ai pas répondu",
+      "audio": "dev/audio/7591/6742/7591_6742_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 78.66,
+        "original_end_s": 97.38
+      }
+    },
+    {
+      "id": "7591_6742_000132",
+      "text": "continue ce petit jeu m'amuse d'autant que je suis sûre de vaincre encore un essai malheureux et peut-être tu seras moins disposé à me prouver tes désirs éteints bourreau que fais-tu chien tu me brises les poignets et ce genou qui m'éventre",
+      "audio": "dev/audio/7591/6742/7591_6742_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 173.72,
+        "original_end_s": 189.21
+      }
+    },
+    {
+      "id": "7591_6742_000133",
+      "text": "je me souviens d'une nuit qu'elle passa la joue sur mon sein si doucement que le bonheur me tint éveillée et le lendemain elle avait au visage la marque de la papille ronde",
+      "audio": "dev/audio/7591/6742/7591_6742_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 35.96,
+        "original_end_s": 46.67
+      }
+    },
+    {
+      "id": "7591_6742_000134",
+      "text": "tu nous attendais au passage et tu nous suivais dans la rue maintenant tu es selon tes voeux étendue à la place aimée et la tête sur ce coussin où flotte une autre odeur de femme",
+      "audio": "dev/audio/7591/6742/7591_6742_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 32.87,
+        "original_end_s": 42.93
+      }
+    },
+    {
+      "id": "7591_6742_000135",
+      "text": "les chansons de bilitis par pierre louys section dix neuf quatre vingt onze la tentative tu étais jalouse de nous gyrinno fille trop ardente que de bouquets as-tu fait suspendre au marteau de notre porte",
+      "audio": "dev/audio/7591/6742/7591_6742_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 15.72,
+        "original_end_s": 32.87
+      }
+    },
+    {
+      "id": "7591_6742_000136",
+      "text": "et j'ai crié et j'ai pleuré tant que ma mère est accourue inquiète croyant que j'avais été piquée par un scorpion je pleurais il m'a embrassée ma mère aussi m'a embrassée et m'a emportée dans ses bras",
+      "audio": "dev/audio/7591/6742/7591_6742_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 112.8,
+        "original_end_s": 126.57
+      }
+    },
+    {
+      "id": "7591_6742_000137",
+      "text": "disant cela j'ai dénoué ma ceinture en moiteur et je l'ai roulée autour de sa tête elle était toute chaude encore de la chaleur de mon ventre le parfum de ma peau sortait de ses mailles fines il la respira longuement les yeux fermés",
+      "audio": "dev/audio/7591/6742/7591_6742_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 248.12,
+        "original_end_s": 263.63
+      }
+    },
+    {
+      "id": "7591_6742_000138",
+      "text": "amaltheia n'a-t-elle pas nourri dzeus j'irai donc mais pas encore le soleil s'est levé très tôt et ma mère n'est pas éveillée",
+      "audio": "dev/audio/7591/6742/7591_6742_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 158.82,
+        "original_end_s": 169.17
+      }
+    },
+    {
+      "id": "7591_6742_000139",
+      "text": "cent vingt-six à un mari heureux je t'envie agorakritès d'avoir une femme aussi zélée c'est elle-même qui soigne l'étable et le matin au lieu de faire l'amour elle donne à boire aux bestiaux tu t'en réjouis",
+      "audio": "dev/audio/7591/6742/7591_6742_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_26_louys_64kb.mp3",
+        "original_start_s": 26.06,
+        "original_end_s": 42.05
+      }
+    },
+    {
+      "id": "7591_6742_000140",
+      "text": "quatre-vingt-douze l'effort encore assez de soupirs et de bras étirés recommence penses-tu donc que l'amour soit un délassement",
+      "audio": "dev/audio/7591/6742/7591_6742_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 72.88,
+        "original_end_s": 88.2
+      }
+    },
+    {
+      "id": "7591_6742_000141",
+      "text": "les vierges ont dit nous ne sommes pas pour vous et comme si elles étaient honteuses elles cachaient leur virginité un aegipan jouait de la flûte sous les arbres",
+      "audio": "dev/audio/7591/6742/7591_6742_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 33.35,
+        "original_end_s": 44.12
+      }
+    },
+    {
+      "id": "7591_6742_000142",
+      "text": "mille ménades autour de moi dormaient dans les fleurs déchirées les longues herbes se mêlaient aux chevelures et voici que le soleil naquit dans l'eau orientale",
+      "audio": "dev/audio/7591/6742/7591_6742_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 85.25,
+        "original_end_s": 96.08
+      }
+    },
+    {
+      "id": "7591_6742_000143",
+      "text": "cent trente-huit les amies à dîner myromêris et maskhalê mes amies venez avec moi car je n'ai pas d'amant ce soir et couchées sur des lits de byssos nous causerons autour du dîner",
+      "audio": "dev/audio/7591/6742/7591_6742_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 112.69,
+        "original_end_s": 128.72
+      }
+    },
+    {
+      "id": "7591_6742_000144",
+      "text": "cent sept les parfums je me parfumerai toute la peau pour attirer les amants sur mes belles jambes dans un bassin d'argent je verserai du nard de tarsos et du metôpiôn d'aigypte",
+      "audio": "dev/audio/7591/6742/7591_6742_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 70.82,
+        "original_end_s": 85.1
+      }
+    },
+    {
+      "id": "7591_6742_000145",
+      "text": "sous mes bras de la menthe crépue sur mes cils et sur mes yeux de la marjolaine de kôs esclave défais ma chevelure et emplis-la de fumée d'encens",
+      "audio": "dev/audio/7591/6742/7591_6742_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 85.1,
+        "original_end_s": 95.22
+      }
+    },
+    {
+      "id": "7591_6742_000146",
+      "text": "je n'osais pas même me jeter à son cou je regardais sa ceinture haute je m'étonnais que rien n'eût changé sur son visage qu'elle semblât encore mon amie et que cependant depuis la veille elle eût appris tant de choses qui m'effarouchaient",
+      "audio": "dev/audio/7591/6742/7591_6742_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_04_louys_64kb.mp3",
+        "original_start_s": 208.05,
+        "original_end_s": 221.17
+      }
+    },
+    {
+      "id": "7591_6742_000147",
+      "text": "quatre vingt dix huit chant funèbre chantez un chant funèbre muses mytiléniennes chantez la terre est sombre comme un vêtement de deuil et les arbres jaunes frissonnent comme des chevelures coupées",
+      "audio": "dev/audio/7591/6742/7591_6742_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 119.78,
+        "original_end_s": 136.35
+      }
+    },
+    {
+      "id": "7591_6742_000148",
+      "text": "quand la première aube se mêla aux lueurs affaiblies des flambeaux je fis entrer dans l'orgie une joueuse de flûte vicieuse et agile qui tremblait un peu ayant froid",
+      "audio": "dev/audio/7591/6742/7591_6742_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_27_louys_64kb.mp3",
+        "original_start_s": 29.48,
+        "original_end_s": 40.91
+      }
+    },
+    {
+      "id": "7591_6742_000149",
+      "text": "le second fit pour moi des vers il disait que mes cheveux sont noirs comme ceux de la nuit sur la mer et mes yeux bleus comme ceux du matin le troisième était si beau que sa mère ne l'embrassait pas sans rougir il mit ses mains sur mes genoux et ses lèvres sur mon pied nu",
+      "audio": "dev/audio/7591/6742/7591_6742_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 32.97,
+        "original_end_s": 49.95
+      }
+    },
+    {
+      "id": "7591_6742_000150",
+      "text": "on m'a dit que depuis ta rupture tu allais d'amour en amour sans trouver l'oubli ni la paix je viens te proposer quelqu'un parle c'est une jeune esclave née à sardes elle n'a pas sa pareille au monde car elle est à la fois homme et femme bien que sa poitrine et ses longs cheveux et sa voix claire fassent illusion",
+      "audio": "dev/audio/7591/6742/7591_6742_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_19_louys_64kb.mp3",
+        "original_start_s": 182.11,
+        "original_end_s": 200.8
+      }
+    },
+    {
+      "id": "7591_6742_000151",
+      "text": "cent vingt cinq la ceinture chaude tu crois que tu ne m'aimes plus téléas et depuis un mois tu passes tes nuits à table comme si les fruits les vins les miels pouvaient te faire oublier ma bouche tu crois que tu ne m'aimes plus pauvre fou",
+      "audio": "dev/audio/7591/6742/7591_6742_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 230.37,
+        "original_end_s": 248.12
+      }
+    },
+    {
+      "id": "7591_6742_000152",
+      "text": "ô astarté irrésistible entends-moi prends-moi possède-moi ô lune et treize fois chaque année arrache à mes entrailles la libation de mon sang",
+      "audio": "dev/audio/7591/6742/7591_6742_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 235.77,
+        "original_end_s": 248.22
+      }
+    },
+    {
+      "id": "7591_6742_000153",
+      "text": "nous applaudissons à grands cris soit que souriant sur l'épaule tu agites d'un frémissement ta croupe convulsive et musclée soit que tu ondules presque étendue au rythme de tes souvenirs cent vingt quatre la joueuse de flûte",
+      "audio": "dev/audio/7591/6742/7591_6742_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 160.67,
+        "original_end_s": 179.66
+      }
+    },
+    {
+      "id": "7591_6742_000154",
+      "text": "ne t'arrêteras-tu pas je crois qu'il me parle encore me quitteras-tu ainsi fâchée tu ne réponds pas hélas je n'ose plus parler il faut bien que je rentre chez moi pour changer de robe et je ne puis te suivre qui est ton père c'est le riche armateur nikias tu as de beaux yeux je te pardonne",
+      "audio": "dev/audio/7591/6742/7591_6742_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 174.77,
+        "original_end_s": 193.97
+      }
+    },
+    {
+      "id": "7591_6742_000155",
+      "text": "cent-dix les bijoux un diadème d'or ajouré couronne mon front étroit et blanc",
+      "audio": "dev/audio/7591/6742/7591_6742_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_22_louys_64kb.mp3",
+        "original_start_s": 193.97,
+        "original_end_s": 205.13
+      }
+    },
+    {
+      "id": "7591_6742_000156",
+      "text": "les fleurs qui vont fleurir vont toutes naître de moi le vent qui respire est mon haleine le parfum qui passe est mon désir toutes les étoiles sont dans mes yeux",
+      "audio": "dev/audio/7591/6742/7591_6742_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 277.35,
+        "original_end_s": 287.67
+      }
+    },
+    {
+      "id": "7591_6742_000157",
+      "text": "car je sais bien à quoi tu penses tu attends la fin de cette nuit excessive qui t'anime cruellement en vain et au premier matin tu courras dans la rue avec ton seul ami psyllos vers ton petit matelas défoncé",
+      "audio": "dev/audio/7591/6742/7591_6742_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_25_louys_64kb.mp3",
+        "original_start_s": 216.84,
+        "original_end_s": 230.37
+      }
+    },
+    {
+      "id": "7591_6742_000158",
+      "text": "les prêtresses de l'astarté font l'amour au lever de la lune puis elles se relèvent et se baignent dans un bassin vaste aux margelles d'argent de leurs doigts recourbés",
+      "audio": "dev/audio/7591/6742/7591_6742_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 122.58,
+        "original_end_s": 133.85
+      }
+    },
+    {
+      "id": "7591_6742_000159",
+      "text": "tout à l'heure j'irai dans l'étable je donnerai aux chèvres de l'herbe et des fleurs et l'outre d'eau fraîche tirée du puits où je boirai en même temps qu'elles puis je les attacherai au poteau pour traire les douces mamelles tièdes et si les chevreaux n'en sont pas jaloux je sucerai avec eux les tettes assouplies",
+      "audio": "dev/audio/7591/6742/7591_6742_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 140.21,
+        "original_end_s": 158.82
+      }
+    },
+    {
+      "id": "7591_6742_000160",
+      "text": "le premier me donna un collier un collier de perles qui vaut une ville avec les palais et les temples et les trésors et les esclaves",
+      "audio": "dev/audio/7591/6742/7591_6742_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_28_louys_64kb.mp3",
+        "original_start_s": 19.92,
+        "original_end_s": 32.97
+      }
+    },
+    {
+      "id": "7591_6742_000161",
+      "text": "c'étaient les mêmes flots et les mêmes rivages qui virent un jour apparaître le corps blanc d'aphrodita je cachai tout à coup mes yeux dans mes mains car j'avais vu trembler sur l'eau mille petites lèvres de lumière",
+      "audio": "dev/audio/7591/6742/7591_6742_000161.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_21_louys_64kb.mp3",
+        "original_start_s": 96.08,
+        "original_end_s": 110.53
+      }
+    },
+    {
+      "id": "7591_6742_000162",
+      "text": "je ne veux pas marcher sur eux ni effrayer ce lézard doré qui s'étire et cligne des paupières dix les fleurs",
+      "audio": "dev/audio/7591/6742/7591_6742_000162.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_02_louys_64kb.mp3",
+        "original_start_s": 211.31,
+        "original_end_s": 224.34
+      }
+    },
+    {
+      "id": "7591_6742_000163",
+      "text": "quatre vingt seize le souvenir déchirant je me souviens à quelle heure du jour ne l'ai-je pas devant mes yeux je me souviens de la façon dont elle soulevait ses cheveux avec ses faibles doigts si pâles",
+      "audio": "dev/audio/7591/6742/7591_6742_000163.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7591",
+        "gender": "w",
+        "book_id": "6742",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/chansons_bilitis_1401_librivox/chansons_de_bilitis_20_louys_64kb.mp3",
+        "original_start_s": 19.13,
+        "original_end_s": 35.96
+      }
+    }
+  ]
+}

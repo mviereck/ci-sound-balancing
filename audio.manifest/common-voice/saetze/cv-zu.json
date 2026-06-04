@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zu",
+  "lang": "zu",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zu",
+    "style": "crowdsourced",
+    "split_used": "other"
+  },
+  "items": [
+    {
+      "id": "39879169",
+      "text": "Iqembu ngalinye lisebenza nothisha kabili ngesonto.",
+      "audio": "zu/unknown/zu_u_39879169.mp3",
+      "tags": {
+        "source_item_id": "39879169",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879094",
+      "text": "Bahleli kuliphi igumbi lendlu laba abakhulumayo.",
+      "audio": "zu/unknown/zu_u_39879094.mp3",
+      "tags": {
+        "source_item_id": "39879094",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879159",
+      "text": "Izimayini ziqashe abantu abevile kwisigamu sesigidi.",
+      "audio": "zu/unknown/zu_u_39879159.mp3",
+      "tags": {
+        "source_item_id": "39879159",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879162",
+      "text": "Izimbali zafa sabona umdumba omncane kabhontshisi.",
+      "audio": "zu/unknown/zu_u_39879162.mp3",
+      "tags": {
+        "source_item_id": "39879162",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879116",
+      "text": "Kwangithatha iminyaka ukuba ngixoxele abazali bami.",
+      "audio": "zu/unknown/zu_u_39879116.mp3",
+      "tags": {
+        "source_item_id": "39879116",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879160",
+      "text": "Umqashi wakho kufanele akudedele uye enkantolo.",
+      "audio": "zu/unknown/zu_u_39879160.mp3",
+      "tags": {
+        "source_item_id": "39879160",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879152",
+      "text": "Ababaningi abantu abangaphila kulo msebenzi wenu.",
+      "audio": "zu/unknown/zu_u_39879152.mp3",
+      "tags": {
+        "source_item_id": "39879152",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879126",
+      "text": "Ngeke zamukelwe izicelo ezifike emva kwalolu suku.",
+      "audio": "zu/unknown/zu_u_39879126.mp3",
+      "tags": {
+        "source_item_id": "39879126",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879096",
+      "text": "Abafundi babhekisa phansi amakhadi abo ezinombolo.",
+      "audio": "zu/unknown/zu_u_39879096.mp3",
+      "tags": {
+        "source_item_id": "39879096",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879148",
+      "text": "Faka amanzi abilayo phezu kwezikhwanyana zetiye.",
+      "audio": "zu/unknown/zu_u_39879148.mp3",
+      "tags": {
+        "source_item_id": "39879148",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39879115",
+      "text": "Ubusika bafaka izinzipho zabo edolobheni laseKapa.",
+      "audio": "zu/unknown/zu_u_39879115.mp3",
+      "tags": {
+        "source_item_id": "39879115",
+        "gender": "u"
+      }
+    }
+  ]
+}

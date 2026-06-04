@@ -1,0 +1,256 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Gaucho Martín Fierro",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "8509",
+    "book_title": "Gaucho Martín Fierro",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "8306_8509_000000",
+      "text": "le asiguro que esa vez se me achicó el corazón hablaban de hacerse ricos con campos en la fronteras de sacarla más ajuera donde había campos baldidos y llevar de los partidos gente que la defendiera",
+      "audio": "test/audio/8306/8509/8306_8509_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
+        "original_start_s": 188.79,
+        "original_end_s": 203.44
+      }
+    },
+    {
+      "id": "8306_8509_000001",
+      "text": "conozco sus cucañas sé como hacen la partida la enriedan y la manejan deshaceré la madeja aunque me cueste la vida",
+      "audio": "test/audio/8306/8509/8306_8509_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 347.05,
+        "original_end_s": 357.1
+      }
+    },
+    {
+      "id": "8306_8509_000002",
+      "text": "la hacienda se la vendieron pa pagar arrendamientos y qué sé yo cuantos cuentos pero todo lo fundieron los pobrecitos muchachos entre tantas afliciones se conchabaron de piones",
+      "audio": "test/audio/8306/8509/8306_8509_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 214.94,
+        "original_end_s": 228.14
+      }
+    },
+    {
+      "id": "8306_8509_000003",
+      "text": "yo juré en esa ocasión ser mas malo que una fiera quién no sentirá lo mesmo cuando ansí padece tanto puedo asigurar que el llanto como una mujer largué",
+      "audio": "test/audio/8306/8509/8306_8509_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 175.72,
+        "original_end_s": 186.32
+      }
+    },
+    {
+      "id": "8306_8509_000004",
+      "text": "yo no sé qué tantos meses esta vida me duró a veces nos obligó la miseria a comer potro me había acompañao con otros tan desgraciaos como yo mas para qué platicar sobre esos males canejos",
+      "audio": "test/audio/8306/8509/8306_8509_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
+        "original_start_s": 17.51,
+        "original_end_s": 30.8
+      }
+    },
+    {
+      "id": "8306_8509_000005",
+      "text": "en lo escuro le brillaban los ojos como linterna lo conocí retobao me acerqué y le dije presto po r rudo que un hombre sea nunca se enoja por esto",
+      "audio": "test/audio/8306/8509/8306_8509_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",
+        "original_start_s": 137.82,
+        "original_end_s": 151.01
+      }
+    },
+    {
+      "id": "8306_8509_000006",
+      "text": "buenos aires argentina el gaucho martín fierro de josé hernández capítulo seis desertor las ruinas del rancho vamos entrando recién a la parte más sentida aunque es todita mi vida de males una cadena a cada alma dolorida le gusta cantar sus penas",
+      "audio": "test/audio/8306/8509/8306_8509_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 19.19,
+        "original_end_s": 38.87
+      }
+    },
+    {
+      "id": "8306_8509_000007",
+      "text": "ninguno dende hoy ha de llevarme en la armada yo he sido manso primero y seré gaucho matrero en mi triste circunstancia aunque es mi mal tan projundo nací y me he criado en estancia pero ya conozco el mundo ya les conozco sus mañas",
+      "audio": "test/audio/8306/8509/8306_8509_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 328.63,
+        "original_end_s": 347.05
+      }
+    },
+    {
+      "id": "8306_8509_000008",
+      "text": "y que traiba unos cañones con más rayas que un cotín pucha las conversaciones por allá no tenían fin pero esas trampas no enriedan a los zorros de mi laya que esa ganza venga o vaya poco le importa a un matrero yo también dejé las rayasen",
+      "audio": "test/audio/8306/8509/8306_8509_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 71.98,
+        "original_end_s": 88.7
+      }
+    },
+    {
+      "id": "8306_8509_000009",
+      "text": "supe una vez por desgracia que había un baile por allí y medio desesperao a ver la milonga fui riunidos al pericón tantos amigos hallé que alegre de verme entre ellos esa noche me apedé",
+      "audio": "test/audio/8306/8509/8306_8509_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",
+        "original_start_s": 60.28,
+        "original_end_s": 75.91
+      }
+    },
+    {
+      "id": "8306_8509_000010",
+      "text": "pero también los que mandan debieran cuidarnos algo una noche que riunidos estaban en la carpeta empinando una limeta el jefe y el juez de paz yo no quise aguardar más",
+      "audio": "test/audio/8306/8509/8306_8509_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 119.19,
+        "original_end_s": 130.89
+      }
+    },
+    {
+      "id": "8306_8509_000011",
+      "text": "de los males que sufrimos hablan mucho los puebleros pero hacen como los teros para esconder sus niditos en un lao pegan los gritos y en otro tienen los güevos",
+      "audio": "test/audio/8306/8509/8306_8509_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
+        "original_start_s": 215.65,
+        "original_end_s": 226.98
+      }
+    },
+    {
+      "id": "8306_8509_000012",
+      "text": "puede que alguna ocasión aunque los vean tiritando los echen de algún jogón pa que no estén estorbando y al verse ansina espantaos como se espanta a los perros irán los hijos de fierro con la cola entre las piernas",
+      "audio": "test/audio/8306/8509/8306_8509_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 301.36,
+        "original_end_s": 317.0
+      }
+    },
+    {
+      "id": "8306_8509_000013",
+      "text": "o hasta que venga algún criollo en esta tierra a mandar todos se huelguen proyectos de colonias y carriles y tirar la plata a miles en los gringos enganchaos mientras al pobre soldao le pelan la cucha ay viles",
+      "audio": "test/audio/8306/8509/8306_8509_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_12_hernandez_64kb.mp3",
+        "original_start_s": 144.17,
+        "original_end_s": 159.87
+      }
+    },
+    {
+      "id": "8306_8509_000014",
+      "text": "ay mi dios si me quedé más triste que jueves santo sólo se oíban los aullidos de un gato que se salvó el pobre se guareció cerca en una vizcachera venía como si supiera que estaba de güelta yo al dirme dejé la hacienda que era todito mi haber",
+      "audio": "test/audio/8306/8509/8306_8509_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 186.32,
+        "original_end_s": 204.09
+      }
+    },
+    {
+      "id": "8306_8509_000015",
+      "text": "y me hice humo en un sotreta me parece el campo orégano dende que libre me veo donde me lleva el deseo allí mis pasos dirijo y hasta en las sombras de fijo",
+      "audio": "test/audio/8306/8509/8306_8509_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_06_hernandez_64kb.mp3",
+        "original_start_s": 130.89,
+        "original_end_s": 142.23
+      }
+    },
+    {
+      "id": "8306_8509_000016",
+      "text": "ahi nomás pegó el de hollín más gruñidos que un chanchito y pelando el envenao me atropelló dando gritos pegué un brinco y abrí cancha diciéndoles caballeros dejen venir a ese toro solo nací solo muero",
+      "audio": "test/audio/8306/8509/8306_8509_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "8509",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/martinfierro_1402_librivox/martinfierro_07_hernandez_64kb.mp3",
+        "original_start_s": 166.96,
+        "original_end_s": 184.28
+      }
+    }
+  ]
+}

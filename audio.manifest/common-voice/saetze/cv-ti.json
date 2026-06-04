@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ti",
+  "lang": "ti",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ti",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "33577624",
+      "text": "ፔድሮ ሞቶሳይክል ኣላቶ፣ ንዓኣ ክዝውራ ይፈቱ እዩ።",
+      "audio": "ti/unknown/ti_u_33577624.mp3",
+      "tags": {
+        "source_item_id": "33577624",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049772",
+      "text": "ርእሰይ ስለ ዝሓመምኩ፡ ክገብሮ ኣይከኣልኩን።",
+      "audio": "ti/unknown/ti_u_35049772.mp3",
+      "tags": {
+        "source_item_id": "35049772",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049766",
+      "text": "ቻርሊ፡ ነቲ ጥርሙዝ ሻምፓኝ ናብቲ መንደቅ ሓምሽሽዎ።",
+      "audio": "ti/unknown/ti_u_35049766.mp3",
+      "tags": {
+        "source_item_id": "35049766",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049776",
+      "text": "ሃሪ ጽቡቕ ገይሩ እዩ ከበሮ ዝሃርም።",
+      "audio": "ti/unknown/ti_u_35049776.mp3",
+      "tags": {
+        "source_item_id": "35049776",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33577625",
+      "text": "ጆ ኣበይ ከምዝተወልደ ኣይፈልጥን እዩ።",
+      "audio": "ti/unknown/ti_u_33577625.mp3",
+      "tags": {
+        "source_item_id": "33577625",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049775",
+      "text": "ዓሚ ኣብ ቻይና ነይረ።",
+      "audio": "ti/unknown/ti_u_35049775.mp3",
+      "tags": {
+        "source_item_id": "35049775",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33577627",
+      "text": "ኣብ ህዝባዊ ሰውራ ኣይተሳተፉን።",
+      "audio": "ti/unknown/ti_u_33577627.mp3",
+      "tags": {
+        "source_item_id": "33577627",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049764",
+      "text": "ከምዚ ኣንጸባራቒ ኩኾብ ርእየ ኣይፈልጥን እየ።",
+      "audio": "ti/unknown/ti_u_35049764.mp3",
+      "tags": {
+        "source_item_id": "35049764",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049763",
+      "text": "ኩባንያና፡ ናይ ሽሕ ሚልዮን የን ዓመታዊ መሸጣ ኣለዎ።",
+      "audio": "ti/unknown/ti_u_35049763.mp3",
+      "tags": {
+        "source_item_id": "35049763",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35049762",
+      "text": "ካብ ጤል ብእተሰርሐ ፎርማጆ ንእተዳለወ ፓኒኖ በሊዑ።",
+      "audio": "ti/unknown/ti_u_35049762.mp3",
+      "tags": {
+        "source_item_id": "35049762",
+        "gender": "u"
+      }
+    }
+  ]
+}

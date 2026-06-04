@@ -1,0 +1,1726 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Maîtres sonneurs",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1902",
+    "book_title": "Maîtres sonneurs",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "3267_1902_000000",
+      "text": "térence qui connaît bien les mules de son frère dit qu'il n'y en a pas une seule à lui dans cette bande et d'ailleurs ce n'est point là son cheval ni ses chiens or j'ai peur de tous les muletiers hormis huriel et j'ai envie que nous nous retirions ici",
+      "audio": "dev/audio/3267/1902/3267_1902_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 613.16,
+        "original_end_s": 631.32
+      }
+    },
+    {
+      "id": "3267_1902_000001",
+      "text": "en sorte que les mulets qui sont animaux têtus et très durs de leurs os accoutumés de trancher où le clairin tranchait avaient pris leur passage emmi les danseurs s'embarrassant peu qu'on leur battît en grange sur les reins bousculant tout le monde",
+      "audio": "dev/audio/3267/1902/3267_1902_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 502.45,
+        "original_end_s": 520.36
+      }
+    },
+    {
+      "id": "3267_1902_000002",
+      "text": "mais il s'agit pour moi d'une autre affaire dans la question que nous avons eue ensemble devant vous au bois de la roche et dont je ne suis point appelé à dire le motif",
+      "audio": "dev/audio/3267/1902/3267_1902_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1375.86,
+        "original_end_s": 1388.93
+      }
+    },
+    {
+      "id": "3267_1902_000003",
+      "text": "maître vous avez été convoqué comme témoin par ce garçon s'il vous plaît de lui donner raison je n'ai pas à vous confirmer dans la vérité de vos paroles",
+      "audio": "dev/audio/3267/1902/3267_1902_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1344.53,
+        "original_end_s": 1357.23
+      }
+    },
+    {
+      "id": "3267_1902_000004",
+      "text": "cependant brulette qui au milieu de la confusion s'était retirée à côté de moi et de joseph paraissait angoissée et ne riait que du bout des dents",
+      "audio": "dev/audio/3267/1902/3267_1902_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 589.24,
+        "original_end_s": 601.32
+      }
+    },
+    {
+      "id": "3267_1902_000005",
+      "text": "et j'avoue que le coeur me battait fort autant de crainte pour huriel que de colère contre son ennemi pendant deux ou trois minutes qui me parurent des heures d'horloge",
+      "audio": "dev/audio/3267/1902/3267_1902_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1565.12,
+        "original_end_s": 1579.9
+      }
+    },
+    {
+      "id": "3267_1902_000006",
+      "text": "au point que la chose était divertissante à voir et que le grand bûcheux s'arrêta de sonner pour se tenir le ventre à force de rire",
+      "audio": "dev/audio/3267/1902/3267_1902_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 546.1,
+        "original_end_s": 556.63
+      }
+    },
+    {
+      "id": "3267_1902_000007",
+      "text": "le père bastien sonna en la propre manière qu'il fallait et tout aussitôt le clairin et ses suivants accourant autour de la piotte où il était monté",
+      "audio": "dev/audio/3267/1902/3267_1902_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 567.03,
+        "original_end_s": 579.2
+      }
+    },
+    {
+      "id": "3267_1902_000008",
+      "text": "nous n'avons pas droit ici et vous y êtes maître merci pour vos bonnes intentions mais nous ne nous connaissez point et devez garder votre vin pour vos amis",
+      "audio": "dev/audio/3267/1902/3267_1902_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 704.77,
+        "original_end_s": 718.95
+      }
+    },
+    {
+      "id": "3267_1902_000009",
+      "text": "m'étant bien assuré que brulette était aussi en sûreté en ce pays que dans le nôtre je commençai à chercher de l'occupation et j'offris au grand bûcheux de l'aider à sa tâche",
+      "audio": "dev/audio/3267/1902/3267_1902_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 240.1,
+        "original_end_s": 252.82
+      }
+    },
+    {
+      "id": "3267_1902_000010",
+      "text": "elle affichait même devant joseph de n'aimer plus la couture et le soin des nippes afin de se dispenser de travailler pour lui et de le forcer à remercier thérence qui s'y employait si bien",
+      "audio": "dev/audio/3267/1902/3267_1902_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 112.41,
+        "original_end_s": 126.2
+      }
+    },
+    {
+      "id": "3267_1902_000011",
+      "text": "qu'as-tu lui dis-je c'est peut-être notre ami huriel qui repasse par ici et qui va venir danser avec toi non non répondit-elle",
+      "audio": "dev/audio/3267/1902/3267_1902_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 601.32,
+        "original_end_s": 613.16
+      }
+    },
+    {
+      "id": "3267_1902_000012",
+      "text": "j'étais en train de lui remplir sa tasse m'ébahissant de ne le pouvoir soûler de boire quand il se fit dans la danse un grand dérangement et un grand vacarme",
+      "audio": "dev/audio/3267/1902/3267_1902_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 461.18,
+        "original_end_s": 474.01
+      }
+    },
+    {
+      "id": "3267_1902_000013",
+      "text": "car elle y était adroite et c'était merveille de voir une fille de campagne faire des ouvrages si fins et si beaux comme elle les faisait",
+      "audio": "dev/audio/3267/1902/3267_1902_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 101.18,
+        "original_end_s": 112.41
+      }
+    },
+    {
+      "id": "3267_1902_000014",
+      "text": "joset tout enivré des grâces de brulette qui n'avait point oublié d'apporter de chez nous un peu de toilette et qui charmait tous les yeux par sa bonne mine et ses jolis airs la regardait danser",
+      "audio": "dev/audio/3267/1902/3267_1902_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 383.1,
+        "original_end_s": 398.14
+      }
+    },
+    {
+      "id": "3267_1902_000015",
+      "text": "et qu'on m'a retenu la main au moment que j'allais cogner je vous dis la chose comme elle est mais lâchez-moi et je ne le ferai point mentir et quant à moi dit huriel je l'ai pris au collet comme on prend un lièvre mais sans le frapper et ce n'est pas ma faute si ses habits n'ont pas garanti sa peau",
+      "audio": "dev/audio/3267/1902/3267_1902_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1074.82,
+        "original_end_s": 1094.61
+      }
+    },
+    {
+      "id": "3267_1902_000016",
+      "text": "ainsi qu'à maître bastien mon père d'être entendu sur l'heure ou après la fête et de me faire justice si mon droit est reconnu bon",
+      "audio": "dev/audio/3267/1902/3267_1902_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1106.1,
+        "original_end_s": 1116.35
+      }
+    },
+    {
+      "id": "3267_1902_000017",
+      "text": "mêmement la blanche thérence avec ses grands yeux un peu enfoncés et son signe noir auprès de la bouche m'aurait bien lapé sur la tête si elle l'eût souhaité",
+      "audio": "dev/audio/3267/1902/3267_1902_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 196.34,
+        "original_end_s": 209.7
+      }
+    },
+    {
+      "id": "3267_1902_000018",
+      "text": "archignat consulta tout bas les autres muletiers et il paraît que tous approuvèrent huriel car ils se formèrent en rond et le chef dit un seul mot allez sur quoi malzac et huriel se mirent en présence",
+      "audio": "dev/audio/3267/1902/3267_1902_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1410.5,
+        "original_end_s": 1427.82
+      }
+    },
+    {
+      "id": "3267_1902_000019",
+      "text": "on avait allumé deux torchères de résine et mesuré avec des pas la place dont les deux combattants ne devaient point sortir on leur donna à chacun un bâton de courza noueux et court",
+      "audio": "dev/audio/3267/1902/3267_1902_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1511.77,
+        "original_end_s": 1526.6
+      }
+    },
+    {
+      "id": "3267_1902_000020",
+      "text": "il était aussi fier que chez nous le père brulet de la sienne mais comme il criait à brulette de venir lui faire vis-à-vis un vilain diable sortant je ne sais d'où se présenta et la voulut prendre par la main",
+      "audio": "dev/audio/3267/1902/3267_1902_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 810.03,
+        "original_end_s": 827.45
+      }
+    },
+    {
+      "id": "3267_1902_000021",
+      "text": "mais le grand bûcheux réclama encore le silence et s'adressant à maître archignat lui demanda s'il y avait du faux dans mon rapport",
+      "audio": "dev/audio/3267/1902/3267_1902_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1232.66,
+        "original_end_s": 1243.62
+      }
+    },
+    {
+      "id": "3267_1902_000022",
+      "text": "l'homme reçut au châgnon du cou une si jolie empoignade que les yeux durent lui en grossir comme ceux d'un rat pris au pilon",
+      "audio": "dev/audio/3267/1902/3267_1902_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 969.74,
+        "original_end_s": 979.87
+      }
+    },
+    {
+      "id": "3267_1902_000023",
+      "text": "malzac m'a par trois fois dit que je mentais et menacé personnellement je ne sais si vous y avez fait attention",
+      "audio": "dev/audio/3267/1902/3267_1902_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1388.93,
+        "original_end_s": 1399.99
+      }
+    },
+    {
+      "id": "3267_1902_000024",
+      "text": "et qu'il ne s'y joint pas l'idée d'un profit pour soi-même ou pour les siens brulette me dit le quatrième jour tiennet je vois que tu as de l'ennui",
+      "audio": "dev/audio/3267/1902/3267_1902_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 316.6,
+        "original_end_s": 328.73
+      }
+    },
+    {
+      "id": "3267_1902_000025",
+      "text": "et allant devant eux comme ils eussent fait en un champ de chardons ces bêtes n'allaient pas assez vite chargées qu'elles étaient pour qu'on n'eût point le temps de s'en garer",
+      "audio": "dev/audio/3267/1902/3267_1902_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 520.36,
+        "original_end_s": 532.87
+      }
+    },
+    {
+      "id": "3267_1902_000026",
+      "text": "et comme elle disait cela nous vîmes une vingtaine de muletiers qui débouchaient du bois environnant et venaient pour écarter leurs bêtes et regarder la danse",
+      "audio": "dev/audio/3267/1902/3267_1902_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 631.32,
+        "original_end_s": 642.7
+      }
+    },
+    {
+      "id": "3267_1902_000027",
+      "text": "car du pied en se sauvant ils renversèrent les torches et je me sentis comme quand d'un mauvais rêve tout plein de bruits et de clartés on s'éveille dans le silence et l'épaisseur de la nuit",
+      "audio": "dev/audio/3267/1902/3267_1902_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1792.17,
+        "original_end_s": 1808.83
+      }
+    },
+    {
+      "id": "3267_1902_000028",
+      "text": "là-dessus arriva le frère capucin qui voulut prêcher la paix chrétienne mais il avait trop fêté le vin bourbonnais pour mener bien subtilement sa langue et il ne put se faire entendre dans le bruit",
+      "audio": "dev/audio/3267/1902/3267_1902_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1116.35,
+        "original_end_s": 1130.03
+      }
+    },
+    {
+      "id": "3267_1902_000029",
+      "text": "aucun coup ne porta étant bien paré de part et d'autre enfin on commença à entendre que le bois ne frappait plus toujours le bois et le bruit sourd que faisaient ces bâtons sur les corps qu'ils rencontraient me donnait chaque fois comme une sueur froide",
+      "audio": "dev/audio/3267/1902/3267_1902_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1579.9,
+        "original_end_s": 1599.25
+      }
+    },
+    {
+      "id": "3267_1902_000030",
+      "text": "malice et pitié et pourtant j'ouvrais la bouche et les yeux pour n'en rien perdre car le vent secouait les torches et par moments on ne voyait quasi plus rien qu'un moulinet blanchâtre autour des batailleurs mais",
+      "audio": "dev/audio/3267/1902/3267_1902_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1638.7,
+        "original_end_s": 1653.87
+      }
+    },
+    {
+      "id": "3267_1902_000031",
+      "text": "car huriel encore qu'adroit au bâton était d'un naturel si bon qu'il avait eu bien peu souvent l'occasion de s'en servir voilà ce qu'il me fut dit pendant qu'ils commençaient à se tâter",
+      "audio": "dev/audio/3267/1902/3267_1902_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1550.41,
+        "original_end_s": 1565.12
+      }
+    },
+    {
+      "id": "3267_1902_000032",
+      "text": "ce qui beaucoup me divertissait encore que ce fût à mes dépens car c'était la première fois que je voyais boire un carme et j'avais toujours ouï dire que pour lever le coude c'étaient les premiers hommes de la chrétienté",
+      "audio": "dev/audio/3267/1902/3267_1902_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 443.73,
+        "original_end_s": 461.18
+      }
+    },
+    {
+      "id": "3267_1902_000033",
+      "text": "brulette plus morte que vive suppliait huriel et moi de ne pas donner suite à la querelle mais il était trop tard pour l'écouter je la confiai à joseph qui l'emmena à distance et posant ma veste",
+      "audio": "dev/audio/3267/1902/3267_1902_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1481.23,
+        "original_end_s": 1498.25
+      }
+    },
+    {
+      "id": "3267_1902_000034",
+      "text": "ne voyant pas bien et m'imaginant d'entendre brulette m'appeler mais je n'eus point le temps de lui faire justice moi-même car devant que cette laide figure encharbonnée eût touché la sienne",
+      "audio": "dev/audio/3267/1902/3267_1902_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 953.44,
+        "original_end_s": 969.74
+      }
+    },
+    {
+      "id": "3267_1902_000035",
+      "text": "mais il lui parla aussi dans l'oreille et au premier mot elle lui répondit oui oui adieu alors huriel prit le bras de maître archignat et tous deux disparurent aussitôt dans l'ombre",
+      "audio": "dev/audio/3267/1902/3267_1902_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1775.25,
+        "original_end_s": 1792.17
+      }
+    },
+    {
+      "id": "3267_1902_000036",
+      "text": "je rassurai brulette car en plein jour et à la vue de tant de monde je ne craignais point d'embûche et me sentais bon pour la défendre seulement",
+      "audio": "dev/audio/3267/1902/3267_1902_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 642.7,
+        "original_end_s": 654.97
+      }
+    },
+    {
+      "id": "3267_1902_000037",
+      "text": "je ne voyais plus j'avais des orblutes dans les yeux mais j'entendis la voix de thérence qui disait dieu soit béni mon frère a gagné",
+      "audio": "dev/audio/3267/1902/3267_1902_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1664.13,
+        "original_end_s": 1675.63
+      }
+    },
+    {
+      "id": "3267_1902_000038",
+      "text": "qu'elles se retirent si elles veulent dit thérence qui était aussi pâle mais aussi ferme que lui moi je dois être là pour mon frère s'il y a du sang à arrêter",
+      "audio": "dev/audio/3267/1902/3267_1902_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1469.03,
+        "original_end_s": 1481.23
+      }
+    },
+    {
+      "id": "3267_1902_000039",
+      "text": "thérence s'était attachée à son frère et lui essuyait la sueur de la figure avec son mouchoir lui demandant s'il était blessé et le voulant retenir pour l'examiner",
+      "audio": "dev/audio/3267/1902/3267_1902_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1762.98,
+        "original_end_s": 1775.25
+      }
+    },
+    {
+      "id": "3267_1902_000040",
+      "text": "ses yeux vairons étaient assez doux et n'annonçaient point la fausseté mais sa bouche qui était cachée à moitié sous sa barbe de renard souriait de temps en temps d'un air sot qui cachait mal un bon fonds de malice",
+      "audio": "dev/audio/3267/1902/3267_1902_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1260.56,
+        "original_end_s": 1277.17
+      }
+    },
+    {
+      "id": "3267_1902_000041",
+      "text": "et je lui montrai en cela que les berrichons ne sont pas plus sots que d'autres ni plus aisés à mettre dans leur tort tous les assistants qui déjà faisaient bonne estime de brulette et de moi réprouvèrent la conduite de malzac",
+      "audio": "dev/audio/3267/1902/3267_1902_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1214.57,
+        "original_end_s": 1232.66
+      }
+    },
+    {
+      "id": "3267_1902_000042",
+      "text": "mais quand la bourrée fut finie j'eus beau le chercher il s'était si bien caché que je ne pus mettre la main dessus brulette voyant comme il était lâche cessa de le craindre et dansa avec d'autres qui tous bien joliment",
+      "audio": "dev/audio/3267/1902/3267_1902_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 909.14,
+        "original_end_s": 927.93
+      }
+    },
+    {
+      "id": "3267_1902_000043",
+      "text": "et comme cet homme nous accâgnait de sottises nous traitant de lâches pour nous être mis deux contre lui la musique s'arrêta on se rassembla sur le lieu de la querelle et le grand bûcheux vint avec le grand archignat",
+      "audio": "dev/audio/3267/1902/3267_1902_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1009.18,
+        "original_end_s": 1025.32
+      }
+    },
+    {
+      "id": "3267_1902_000044",
+      "text": "je recommençai à voir clair huriel était debout et attendait en franc compagnon que l'autre se relevât sans pourtant l'approcher dans la crainte d'une trahison dont il le savait bien capable",
+      "audio": "dev/audio/3267/1902/3267_1902_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1675.63,
+        "original_end_s": 1689.98
+      }
+    },
+    {
+      "id": "3267_1902_000045",
+      "text": "si bien qu'après avoir passé deux jours à fafioter avec ces trois personnes tranquilles autour des loges ou à m'asseoir avec elle de place en place dans la forêt",
+      "audio": "dev/audio/3267/1902/3267_1902_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 228.15,
+        "original_end_s": 240.1
+      }
+    },
+    {
+      "id": "3267_1902_000046",
+      "text": "ce grand compère rouge était un homme fin et prudent il avait la figure aussi blanche qu'un linge et quelque dépit qu'on lui pût causer il ne paraissait pas avoir une goutte de sang de plus ou de moins dans le corps",
+      "audio": "dev/audio/3267/1902/3267_1902_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1243.62,
+        "original_end_s": 1260.56
+      }
+    },
+    {
+      "id": "3267_1902_000047",
+      "text": "lui faisaient hommage mais en un moment où je n'avais plus les yeux sur elle ce coquin la vint prendre au milieu d'une bande d'autres fillettes",
+      "audio": "dev/audio/3267/1902/3267_1902_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 927.93,
+        "original_end_s": 940.57
+      }
+    },
+    {
+      "id": "3267_1902_000048",
+      "text": "cette fille m'a promis la danse dis-je au muletier qui s'y entêtait laissez-nous et cherchez en une autre c'est bien dit-il mais quand elle aura ballé cette bourrée avec vous ce sera mon tour",
+      "audio": "dev/audio/3267/1902/3267_1902_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 856.81,
+        "original_end_s": 872.9
+      }
+    },
+    {
+      "id": "3267_1902_000049",
+      "text": "malzac c'est moi ne touchez point malzac ne parut pas en avoir grande envie car il se mut non plus qu'une pierre et le chef",
+      "audio": "dev/audio/3267/1902/3267_1902_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1705.39,
+        "original_end_s": 1719.2
+      }
+    },
+    {
+      "id": "3267_1902_000050",
+      "text": "tandis que le grand bûcheux alla leur parler et marqua beaucoup d'égards à leur chef le grand rouge qui s'appelait archignat et passait pour un homme juste autant que peut l'être un muletier",
+      "audio": "dev/audio/3267/1902/3267_1902_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 729.75,
+        "original_end_s": 743.95
+      }
+    },
+    {
+      "id": "3267_1902_000051",
+      "text": "et invoquer le témoignage du chef archignat lui-même à qui je rendis justice peut-être un peu meilleure qu'il ne la méritait mais je voyais bien que je ne devais point jeter de blâme sur lui pour me l'avoir favorable",
+      "audio": "dev/audio/3267/1902/3267_1902_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1199.06,
+        "original_end_s": 1214.57
+      }
+    },
+    {
+      "id": "3267_1902_000052",
+      "text": "je ne me fis point prier pour parler et malgré que l'assemblée des muletiers et des anciens me causât un peu de trouble je sus assez bien dérouiller ma langue pour raconter comme il faut l'histoire du bois de la roche",
+      "audio": "dev/audio/3267/1902/3267_1902_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1184.4,
+        "original_end_s": 1199.06
+      }
+    },
+    {
+      "id": "3267_1902_000053",
+      "text": "lequel s'était mis en tête de traverser l'assemblée et qui repoussé d'un chacun à beaux coups de pied et de trique s'en allait épeuré sautant de droite et de gauche",
+      "audio": "dev/audio/3267/1902/3267_1902_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 489.29,
+        "original_end_s": 502.45
+      }
+    },
+    {
+      "id": "3267_1902_000054",
+      "text": "je sortis de la ramée que je m'étais bâtie et où je recevais le monde altéré pour regarder ce que c'était et vis une bande de trois cents peut-être quatre cents mulets qui suivaient un clairin",
+      "audio": "dev/audio/3267/1902/3267_1902_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 474.01,
+        "original_end_s": 489.29
+      }
+    },
+    {
+      "id": "3267_1902_000055",
+      "text": "mais en même temps j'avais tant de rage de ne pouvoir m'en mêler que si on ne m'eût retenu je me serais jeté au milieu la chose me faisait dégoût",
+      "audio": "dev/audio/3267/1902/3267_1902_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1626.44,
+        "original_end_s": 1638.7
+      }
+    },
+    {
+      "id": "3267_1902_000056",
+      "text": "la chose n'était guère malaisée à obtenir car joseph s'était juré à lui-même de ne rien dire avant le moment où il se croirait digne d'attention et il eût fallu que brulette fût provocante avec lui pour lui arracher un mot d'amourette",
+      "audio": "dev/audio/3267/1902/3267_1902_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 47.48,
+        "original_end_s": 64.02
+      }
+    },
+    {
+      "id": "3267_1902_000057",
+      "text": "le dimanche est un beau jour parce qu'il vous repose de six jours de fatigue mais sept dimanches par semaine c'est trop pour un homme habitué à faire service de ses membres je ne m'en serais point aperçu si l'une de ces belles eût voulu faire attention à moi",
+      "audio": "dev/audio/3267/1902/3267_1902_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 178.21,
+        "original_end_s": 196.34
+      }
+    },
+    {
+      "id": "3267_1902_000058",
+      "text": "ne voulant point avoir des mots avec un homme si bon et si agréable en toutes autres choses je m'employai avec les scieurs de long et je m'en acquittai à leur contentement mais là je connus bien que l'ouvrage est triste et lourd quand ce n'est qu'un exercice de notre corps",
+      "audio": "dev/audio/3267/1902/3267_1902_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 297.75,
+        "original_end_s": 316.6
+      }
+    },
+    {
+      "id": "3267_1902_000059",
+      "text": "pour malzac et huriel ici moi et les anciens de la forêt servant de parrains et juges à ce garçon du berry parle tiennet et porte ta plainte quelles raisons avais-tu d'en vouloir à ce muletier",
+      "audio": "dev/audio/3267/1902/3267_1902_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1149.73,
+        "original_end_s": 1166.63
+      }
+    },
+    {
+      "id": "3267_1902_000060",
+      "text": "dans notre pays on ne se bat jamais comme cela dans les règles avec d'autres armes que les poignets et je confesse que je n'avais pas l'esprit endurci à l'idée des têtes fendues et des mâchoires brisées",
+      "audio": "dev/audio/3267/1902/3267_1902_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1599.25,
+        "original_end_s": 1614.13
+      }
+    },
+    {
+      "id": "3267_1902_000061",
+      "text": "le grand bûcheux cornemusait sa fille superbe en son attifage bourbonnais était grandement fêtée sans se départir de son air sérieux",
+      "audio": "dev/audio/3267/1902/3267_1902_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 370.46,
+        "original_end_s": 383.1
+      }
+    },
+    {
+      "id": "3267_1902_000062",
+      "text": "non dit brulette vivement j'aimerais mieux ne baller de ma vie c'est ce que nous verrons fit-il et il nous suivit à la danse où il se tint derrière nous nous critiquant je pense en son langage",
+      "audio": "dev/audio/3267/1902/3267_1902_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 872.9,
+        "original_end_s": 889.39
+      }
+    },
+    {
+      "id": "3267_1902_000063",
+      "text": "brulette croyant que ce secours lui venait de moi se jeta vitement aux bras de son défenseur et bien étonnée fut de se trouver dans ceux d'huriel",
+      "audio": "dev/audio/3267/1902/3267_1902_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 979.87,
+        "original_end_s": 993.24
+      }
+    },
+    {
+      "id": "3267_1902_000064",
+      "text": "la peur et l'aversion lui firent refuser bien vite et se serrer contre moi qui ayant épuisé mes provisions me rendais à la danse avec elle",
+      "audio": "dev/audio/3267/1902/3267_1902_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 845.58,
+        "original_end_s": 856.81
+      }
+    },
+    {
+      "id": "3267_1902_000065",
+      "text": "il ne fut plus retenu par son bon coeur qui lui aurait fait excuser mes fautes et commença de me montrer qu'il n'y avait point d'homme plus malpatient que lui en fait d'ouvrage",
+      "audio": "dev/audio/3267/1902/3267_1902_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 265.7,
+        "original_end_s": 277.9
+      }
+    },
+    {
+      "id": "3267_1902_000066",
+      "text": "mais voyez un peu comme on est ingrat quand on s'est laissé déranger l'esprit par une femelle joseph ne regardait quasiment point les doigts de thérence usés à son service il avait toujours les yeux sur les mains douces de brulette",
+      "audio": "dev/audio/3267/1902/3267_1902_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 126.2,
+        "original_end_s": 143.03
+      }
+    },
+    {
+      "id": "3267_1902_000067",
+      "text": "et je ne te cache pas que j'en ai aussi ma bonne part mais c'est demain dimanche et il nous faut inventer quelque réjouissance je sais que les gens de la forêt se réunissent dans un bel endroit où le grand bûcheux les fait danser",
+      "audio": "dev/audio/3267/1902/3267_1902_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 328.73,
+        "original_end_s": 342.99
+      }
+    },
+    {
+      "id": "3267_1902_000068",
+      "text": "il dit quelques mots aux autres dans son patois et les emmena à l'écart où ils s'assirent par terre et firent leur souper très sagement",
+      "audio": "dev/audio/3267/1902/3267_1902_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 718.95,
+        "original_end_s": 729.75
+      }
+    },
+    {
+      "id": "3267_1902_000069",
+      "text": "pour surplus de précaution elle s'arrangea de manière à n'être jamais seule avec lui elle retint si bien thérence à son côté",
+      "audio": "dev/audio/3267/1902/3267_1902_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 64.02,
+        "original_end_s": 74.12
+      }
+    },
+    {
+      "id": "3267_1902_000070",
+      "text": "ces trois jeunes gens ne s'ennuyaient pas ensemble thérence cousait toujours pour joseph et brulette m'ayant fait acheter un mouchoir de mousseline blanche se mit à le festonner et à le broder pour en faire offre à thérence",
+      "audio": "dev/audio/3267/1902/3267_1902_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 84.46,
+        "original_end_s": 101.18
+      }
+    },
+    {
+      "id": "3267_1902_000071",
+      "text": "et s'il vous convient de lui donner tort les coutumes de ma confrérie me défendent de vous porter un démenti personne ici n'a rien à voir dans nos affaires et si malzac a été blâmable je sais d'avance que vous l'aurez blâmé",
+      "audio": "dev/audio/3267/1902/3267_1902_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1357.23,
+        "original_end_s": 1375.86
+      }
+    },
+    {
+      "id": "3267_1902_000072",
+      "text": "on l'avait pris pour chef à cause de la froideur de son sang qui lui permettait d'opérer par la ruse et par là d'éviter à sa bande les querelles voire les procédures où il paraissait pour être aussi clerc qu'un procureur",
+      "audio": "dev/audio/3267/1902/3267_1902_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1293.1,
+        "original_end_s": 1309.11
+      }
+    },
+    {
+      "id": "3267_1902_000073",
+      "text": "plusieurs de ceux qui étaient là savaient cornemuser non pas comme le grand bûcheux qui n'avait pas son pareil dans le monde et qui eut fait sauter les pierres et batifoler les chênes de la forêt s'il l'eût souhaité mais beaucoup mieux que carnat et son garçon",
+      "audio": "dev/audio/3267/1902/3267_1902_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 776.05,
+        "original_end_s": 793.45
+      }
+    },
+    {
+      "id": "3267_1902_000074",
+      "text": "mais archignat me repoussa en disant si huriel est battu tu te présenteras après lui mais si c'est malzac qui a le dessous il faudra bien que tu te contentes de ce que tu auras vu faire",
+      "audio": "dev/audio/3267/1902/3267_1902_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1439.31,
+        "original_end_s": 1453.12
+      }
+    },
+    {
+      "id": "3267_1902_000075",
+      "text": "si c'est pour avoir tenté d'embrasser ta payse à la danse je sais que c'est la coutume en ton endroit comme chez nous ça ne suffirait donc pas pour avoir eu même l'intention de frapper un homme dis-nous le sujet de ton dépit contre lui c'est par là qu'il faut commencer",
+      "audio": "dev/audio/3267/1902/3267_1902_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1166.63,
+        "original_end_s": 1184.4
+      }
+    },
+    {
+      "id": "3267_1902_000076",
+      "text": "voilà que l'un des deux fit entendre un soupir comme celui d'un arbre cassé en deux par un coup de vent et roula dans la poussière lequel était-ce",
+      "audio": "dev/audio/3267/1902/3267_1902_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1653.87,
+        "original_end_s": 1664.13
+      }
+    },
+    {
+      "id": "3267_1902_000077",
+      "text": "mais elle n'était point d'une humeur à se laisser détourner de son idée elle causait peu riait encore moins et si l'on essayait le moindre badinage elle vous regardait d'un air si étonné qu'elle vous ôtait la hardiesse de lui en donner l'explication",
+      "audio": "dev/audio/3267/1902/3267_1902_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 209.7,
+        "original_end_s": 228.15
+      }
+    },
+    {
+      "id": "3267_1902_000078",
+      "text": "l'attira de force au milieu du bal et profitant de la nuit qui empêchait de voir la résistance de brulette il la voulut embrasser en ce moment j'accourais",
+      "audio": "dev/audio/3267/1902/3267_1902_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 940.57,
+        "original_end_s": 953.44
+      }
+    },
+    {
+      "id": "3267_1902_000079",
+      "text": "les maîtres sonneurs de george sand veillée numéro quatorze je ne vous ferai point le récit de chaque jour que nous passâmes en la forêt ils furent d'abord peu différents les uns des autres",
+      "audio": "dev/audio/3267/1902/3267_1902_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 18.53,
+        "original_end_s": 33.79
+      }
+    },
+    {
+      "id": "3267_1902_000080",
+      "text": "comme je n'étais point là dans mon métier et ne savais pas bien me servir des outils je le fâchais par la moindre maladresse et je vis bien qu'il se faisait tant de violence pour ne point me traiter d'imbécile et de lourdaud que les yeux lui en sortaient de la tête et que la sueur lui en découlait du front",
+      "audio": "dev/audio/3267/1902/3267_1902_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 277.9,
+        "original_end_s": 297.75
+      }
+    },
+    {
+      "id": "3267_1902_000081",
+      "text": "eh bien il nous faut acheter du vin et quelque victuaille pour leur donner un plus beau dimanche que de coutume et faire honneur à notre pays chez ces étrangers",
+      "audio": "dev/audio/3267/1902/3267_1902_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 342.99,
+        "original_end_s": 354.51
+      }
+    },
+    {
+      "id": "3267_1902_000082",
+      "text": "l'un défendant aux muletiers l'autre aux bûcheux et fendeux de prendre parti avant que l'affaire fût éclaircie malzac c'était le nom de notre ennemi",
+      "audio": "dev/audio/3267/1902/3267_1902_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1025.32,
+        "original_end_s": 1037.5
+      }
+    },
+    {
+      "id": "3267_1902_000083",
+      "text": "malzac petit et maigre n'était pas aussi fort qu'huriel mais il était plus vif de ses mouvements et connaissait mieux la bataille",
+      "audio": "dev/audio/3267/1902/3267_1902_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1539.02,
+        "original_end_s": 1550.41
+      }
+    },
+    {
+      "id": "3267_1902_000084",
+      "text": "que les femmes se retirent cria le grand bûcheux elles sont de trop ici en disant cela il était pâle mais il ne reculait point devant le danger que son fils pouvait courir",
+      "audio": "dev/audio/3267/1902/3267_1902_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1453.12,
+        "original_end_s": 1469.03
+      }
+    },
+    {
+      "id": "3267_1902_000085",
+      "text": "et il avait une langue aussi mauvaise que celle d'un aspic porta sa plainte le premier prétendit qu'il avait honnêtement invité la berrichonne qu'en l'embrassant il n'avait fait qu'user du droit et de la coutume de la bourrée",
+      "audio": "dev/audio/3267/1902/3267_1902_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1037.5,
+        "original_end_s": 1051.79
+      }
+    },
+    {
+      "id": "3267_1902_000086",
+      "text": "jamais temps ne m'a paru plus long et souffrance pire que dans cette occasion-là avoir malzac si adroit je tremblais de peur pour moi aussi peut-être",
+      "audio": "dev/audio/3267/1902/3267_1902_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1614.13,
+        "original_end_s": 1626.44
+      }
+    },
+    {
+      "id": "3267_1902_000087",
+      "text": "et que deux galants de cette fille à savoir huriel et moi l'avions pris en traître et mauvaisement frappé le fait est faux répondis-je",
+      "audio": "dev/audio/3267/1902/3267_1902_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1051.79,
+        "original_end_s": 1063.11
+      }
+    },
+    {
+      "id": "3267_1902_000088",
+      "text": "mais je lui dois une meilleure leçon et ne suis venu ici ce soir que pour en trouver l'occasion or donc je demande à maître archignat mon chef",
+      "audio": "dev/audio/3267/1902/3267_1902_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1094.61,
+        "original_end_s": 1106.1
+      }
+    },
+    {
+      "id": "3267_1902_000089",
+      "text": "si bien que la musette changea de mains et arriva en celles du muletier chef que je vous ai nommé archignat tandis que le grand bûcheux qui avait le coeur et le corps encore jeunes prit le plaisir de faire danser sa fille dont à bon droit",
+      "audio": "dev/audio/3267/1902/3267_1902_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 793.45,
+        "original_end_s": 810.03
+      }
+    },
+    {
+      "id": "3267_1902_000090",
+      "text": "comme au reste ces gens étaient aussi considérés que d'autres par ceux de la forêt nous nous gardâmes brulette et moi de dire à personne qu'ils nous répugnaient et elle retourna à la danse sans plus de crainte car sauf le chef",
+      "audio": "dev/audio/3267/1902/3267_1902_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 743.95,
+        "original_end_s": 761.95
+      }
+    },
+    {
+      "id": "3267_1902_000091",
+      "text": "et c'est à mon grand regret que je n'ai point roué de coups celui qui vous parle mais la vérité est que je suis arrivé trop tard pour le prendre soit en franchise soit en trahison",
+      "audio": "dev/audio/3267/1902/3267_1902_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1063.11,
+        "original_end_s": 1074.82
+      }
+    },
+    {
+      "id": "3267_1902_000092",
+      "text": "j'eus beau essayer de peler de l'osier et de faire des paniers ou avec des pailles de seigle des tresses pour les chapeaux je ne fus point là deux fois vingt-quatre heures sans avoir un si gros ennui que j'en étais malade",
+      "audio": "dev/audio/3267/1902/3267_1902_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 162.42,
+        "original_end_s": 178.21
+      }
+    },
+    {
+      "id": "3267_1902_000093",
+      "text": "il se mit à rire de plus belle d'avoir au lieu d'une brave compagnie endimanchée une troupe de bêtes noires à faire danser",
+      "audio": "dev/audio/3267/1902/3267_1902_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 579.2,
+        "original_end_s": 589.24
+      }
+    },
+    {
+      "id": "3267_1902_000094",
+      "text": "à l'heure de la vesprée tout allait au mieux et chacun disait que de mémoire d'homme les gens des bois ne s'étaient si bien divertis entre eux",
+      "audio": "dev/audio/3267/1902/3267_1902_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 418.02,
+        "original_end_s": 429.1
+      }
+    },
+    {
+      "id": "3267_1902_000095",
+      "text": "joseph allait de mieux en mieux et thérence voulait qu'on le maintînt dans ses espérances s'associant toutefois à la résolution que brulette avait prise de ne point l'encourager à expliquer ses sentiments",
+      "audio": "dev/audio/3267/1902/3267_1902_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 33.79,
+        "original_end_s": 47.48
+      }
+    },
+    {
+      "id": "3267_1902_000096",
+      "text": "mais malzac ne se releva point et archignat faisant défense à personne de bouger l'appela par trois fois il n'eut point de réponse et s'avança jusqu'à lui disant",
+      "audio": "dev/audio/3267/1902/3267_1902_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1689.98,
+        "original_end_s": 1705.39
+      }
+    },
+    {
+      "id": "3267_1902_000097",
+      "text": "que thérence en vint bientôt à comprendre qu'on ne la trompait point et qu'on souhaitait même lui laisser gouverner la santé et l'esprit du malade en toutes choses",
+      "audio": "dev/audio/3267/1902/3267_1902_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 74.12,
+        "original_end_s": 84.46
+      }
+    },
+    {
+      "id": "3267_1902_000098",
+      "text": "se penchant vers lui le toucha le regarda et appelant par leurs noms deux muletiers leur dit c'est partie perdue pour lui faites ce qui est à faire",
+      "audio": "dev/audio/3267/1902/3267_1902_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1719.2,
+        "original_end_s": 1733.62
+      }
+    },
+    {
+      "id": "3267_1902_000099",
+      "text": "nous n'avions reconnu parmi eux aucun de ceux qui avaient manqué de nous faire un si mauvais parti durant notre voyage et en fin de compte ce chef nous avait sauvés du méchant vouloir de ses compagnons",
+      "audio": "dev/audio/3267/1902/3267_1902_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 761.95,
+        "original_end_s": 776.05
+      }
+    },
+    {
+      "id": "3267_1902_000100",
+      "text": "noce ou non lui dis-je c'est moi qui régale et c'est de bon coeur envers qui me plaît mais il ne me laissa pas achever et répondit",
+      "audio": "dev/audio/3267/1902/3267_1902_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 693.26,
+        "original_end_s": 704.77
+      }
+    },
+    {
+      "id": "3267_1902_000101",
+      "text": "il m'y reçut bien et je commençais à me divertir en sa compagnie mais quand je lui eus dit que je ne voulais point être payé et que je bûchais à seules fins de me désennuyer en travaillant",
+      "audio": "dev/audio/3267/1902/3267_1902_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 252.82,
+        "original_end_s": 265.7
+      }
+    },
+    {
+      "id": "3267_1902_000102",
+      "text": "je voulus profiter de ce que notre ami était embarrassé de ses mains pour empoigner à mon tour le méchant coquin et je lui aurais payé tout ce que je lui devais si le monde ne se fût mis entre nous",
+      "audio": "dev/audio/3267/1902/3267_1902_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 993.24,
+        "original_end_s": 1009.18
+      }
+    },
+    {
+      "id": "3267_1902_000103",
+      "text": "et le grand bûcheux assista maître archignat dans toutes ces préparations avec une tranquillité qu'il n'avait guère dans le coeur et qui faisait de la peine à voir",
+      "audio": "dev/audio/3267/1902/3267_1902_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1526.6,
+        "original_end_s": 1539.02
+      }
+    },
+    {
+      "id": "3267_1902_000104",
+      "text": "il n'aimait point huriel mais il faisait tout comme et il passait pour se conduire en homme juste au fond c'était le plus grand pillard qu'il y eût et sa conscience mettait les intérêts de sa confrérie au-dessus de tout",
+      "audio": "dev/audio/3267/1902/3267_1902_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1277.17,
+        "original_end_s": 1293.1
+      }
+    },
+    {
+      "id": "3267_1902_000105",
+      "text": "je me tins prêt à venger huriel s'il avait le dessous je ne savais point quel serait le combat et je regardai bien pour n'être pas pris au dépourvu quand mon tour viendrait",
+      "audio": "dev/audio/3267/1902/3267_1902_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1498.25,
+        "original_end_s": 1511.77
+      }
+    },
+    {
+      "id": "3267_1902_000106",
+      "text": "encore qu'il commençât de faire nuit brulette le reconnut tout d'abord pour celui qui au bois de la roche avait menacé le plus et même proposé d'assassiner ses deux défenseurs et de les enterrer sous quelque arbre qui n'en dirait mot",
+      "audio": "dev/audio/3267/1902/3267_1902_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 827.45,
+        "original_end_s": 845.58
+      }
+    },
+    {
+      "id": "3267_1902_000107",
+      "text": "et que s'ils le voulaient honnêtement requérir je serais content de leur donner le coup de vespres c'est donc une noce dit le plus grand de tous que je reconnus alors à son poil rouge pour le chef de ceux dont nous avions fait si mauvaise rencontre au bois de la roche",
+      "audio": "dev/audio/3267/1902/3267_1902_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 674.28,
+        "original_end_s": 693.26
+      }
+    },
+    {
+      "id": "3267_1902_000108",
+      "text": "je voulais m'y opposer disant que c'était à moi de venger ma cousine et que la plainte que j'avais portée était d'une plus grande conséquence que celle d'huriel",
+      "audio": "dev/audio/3267/1902/3267_1902_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1427.82,
+        "original_end_s": 1439.31
+      }
+    },
+    {
+      "id": "3267_1902_000109",
+      "text": "maître archignat les suivit le dernier après avoir parlé dans l'oreille du grand bûcheux qui lui répondit seulement ça suffit adieu",
+      "audio": "dev/audio/3267/1902/3267_1902_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1751.1,
+        "original_end_s": 1762.98
+      }
+    },
+    {
+      "id": "3267_1902_000110",
+      "text": "aussitôt ils le prirent par les pieds et la tête et s'en allèrent toujours courant suivis des autres muletiers qui s'enfoncèrent dans la forêt défendant à tout ce qui n'était pas de leur bande de s'enquérir du résultat de l'affaire",
+      "audio": "dev/audio/3267/1902/3267_1902_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1733.62,
+        "original_end_s": 1751.1
+      }
+    },
+    {
+      "id": "3267_1902_000111",
+      "text": "je lui dis de ne point s'écarter de moi et retournai à ma ramée dont je voyais les muletiers s'approcher avec peu de façons et comme ils criaient à boire à boire comme gens qui se croient au cabaret je leur fis observer honnêtement que je ne vendais point le vin",
+      "audio": "dev/audio/3267/1902/3267_1902_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 654.97,
+        "original_end_s": 674.28
+      }
+    },
+    {
+      "id": "3267_1902_000112",
+      "text": "il n'y eut donc personne de foulé ni de blessé seulement beaucoup de garçons qui étaient échauffés à la danse impatientés d'être interrompus dans leur plaisir tapaient et juraient fort",
+      "audio": "dev/audio/3267/1902/3267_1902_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 532.87,
+        "original_end_s": 546.1
+      }
+    },
+    {
+      "id": "3267_1902_000113",
+      "text": "je me démenais à régaler tout le monde de mes rafraîchissements et comme je tenais à bien faire les choses je n'y avais rien épargné il m'en coûta bien trois bons écus de ma poche mais je n'y ai jamais eu regret tant on se montra sensible à mes honnêtetés",
+      "audio": "dev/audio/3267/1902/3267_1902_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 398.14,
+        "original_end_s": 418.02
+      }
+    },
+    {
+      "id": "3267_1902_000114",
+      "text": "je fis comme brulette me commandait et le lendemain nous étions sur un bel herbage avec tous les ouvriers de la forêt et plusieurs filles et femmes des environs que thérence avait invitées pour la danse",
+      "audio": "dev/audio/3267/1902/3267_1902_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 354.51,
+        "original_end_s": 370.46
+      }
+    },
+    {
+      "id": "3267_1902_000115",
+      "text": "il ne répondit rien à la question du grand bûcheux et on n'eût su dire si c'était bêtise ou prudence car tant plus il avait l'esprit éveillé tant plus il se donnait l'air d'un homme endormi qui rêvasse en lui-même et n'entend point ce qu'on lui demande",
+      "audio": "dev/audio/3267/1902/3267_1902_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1309.11,
+        "original_end_s": 1328.96
+      }
+    },
+    {
+      "id": "3267_1902_000116",
+      "text": "et lâchant à chaque fois que brulette repassait devant lui des paroles que ses mauvais yeux me faisaient juger insolentes attends que j'aie fini lui dis-je en le heurtant au passage je te baillerai ton compte en un langage que ton dos saura bien entendre",
+      "audio": "dev/audio/3267/1902/3267_1902_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 889.39,
+        "original_end_s": 909.14
+      }
+    },
+    {
+      "id": "3267_1902_000117",
+      "text": "mais je le déclare par serment et comme je m'en trouve offensé et déshonoré je réclame le droit de bataille selon la coutume de notre ordre",
+      "audio": "dev/audio/3267/1902/3267_1902_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1399.99,
+        "original_end_s": 1410.5
+      }
+    },
+    {
+      "id": "3267_1902_000118",
+      "text": "silence cria le grand bûcheux d'une voix qui eût couvert le tonnerre du ciel écartez-vous tous et laissez-nous régler nos affaires vous pouvez écouter mais non point prendre voix à ce chapitre ici tous les muletiers",
+      "audio": "dev/audio/3267/1902/3267_1902_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1130.03,
+        "original_end_s": 1149.73
+      }
+    },
+    {
+      "id": "3267_1902_000119",
+      "text": "mais connaissant l'air de musique qui rassemble les mules et que je connaissais aussi pour l'avoir ouï en la forêt de saint chartier",
+      "audio": "dev/audio/3267/1902/3267_1902_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 556.63,
+        "original_end_s": 567.03
+      }
+    },
+    {
+      "id": "3267_1902_000120",
+      "text": "il se contenta de faire un signe à huriel comme pour lui demander si le témoignage qu'il allait faire serait conforme au sien mais huriel qui sans être sournois était aussi bien avisé que lui répondit",
+      "audio": "dev/audio/3267/1902/3267_1902_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 1328.96,
+        "original_end_s": 1344.53
+      }
+    },
+    {
+      "id": "3267_1902_000121",
+      "text": "et on eût dit qu'à la voir tirer son aiguille il comptait chaque point comme un moment de son bonheur je m'étonnais comment l'amour pouvait ainsi remplir son esprit et occuper tout son temps sans qu'il songeât seulement à faire quelque ouvrage de ses mains quant à moi",
+      "audio": "dev/audio/3267/1902/3267_1902_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-3267",
+        "gender": "w",
+        "book_id": "1902",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/maitressonneurs_1001_librivox/maitressonneurs_14_sand_64kb.mp3",
+        "original_start_s": 143.03,
+        "original_end_s": 162.42
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — cs",
+  "lang": "cs",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-cs",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20459745",
+      "text": "Holka modrooká nesedávej u potoka.",
+      "audio": "cs/unknown/cs_u_20459745.mp3",
+      "tags": {
+        "source_item_id": "20459745",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20476444",
+      "text": "Je to výstava anglického obchodu.",
+      "audio": "cs/unknown/cs_u_20476444.mp3",
+      "tags": {
+        "source_item_id": "20476444",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20521064",
+      "text": "Pasta z vody a louhu ti propálí hliníkovej hrnec.",
+      "audio": "cs/unknown/cs_u_20521064.mp3",
+      "tags": {
+        "source_item_id": "20521064",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20686474",
+      "text": "A pokud to nevíte, z toho nápisu si to nevyvodíte.",
+      "audio": "cs/unknown/cs_u_20686474.mp3",
+      "tags": {
+        "source_item_id": "20686474",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20748070",
+      "text": "Ve Velké Británii stávkují horníci.",
+      "audio": "cs/unknown/cs_u_20748070.mp3",
+      "tags": {
+        "source_item_id": "20748070",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21259091",
+      "text": "Stesk padne na srdce a není rady ani pomoci.",
+      "audio": "cs/unknown/cs_u_21259091.mp3",
+      "tags": {
+        "source_item_id": "21259091",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21421003",
+      "text": "Ale nesmím zapomenouti na krystaly, formy, zákony a barvy.",
+      "audio": "cs/unknown/cs_u_21421003.mp3",
+      "tags": {
+        "source_item_id": "21421003",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22324292",
+      "text": "Je to tak jistě správné.",
+      "audio": "cs/unknown/cs_u_22324292.mp3",
+      "tags": {
+        "source_item_id": "22324292",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22473504",
+      "text": "Podílela se i na projektu Rekonstrukce státu jakožto členka pracovní skupiny pro státní správu.",
+      "audio": "cs/unknown/cs_u_22473504.mp3",
+      "tags": {
+        "source_item_id": "22473504",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22839171",
+      "text": "Na dolním toku je značně členitá.",
+      "audio": "cs/unknown/cs_u_22839171.mp3",
+      "tags": {
+        "source_item_id": "22839171",
+        "gender": "u"
+      }
+    }
+  ]
+}

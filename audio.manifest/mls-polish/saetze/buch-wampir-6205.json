@@ -1,0 +1,1992 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Wampir",
+  "lang": "pl",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "6205",
+    "book_title": "Wampir",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "8502_6205_000000",
+      "text": "powtarzał rozkoszując się jej groźną pięknością zbudził się w nim artysta z taką siłą że już nie słyszał otoczenia porwany potęgą tej pieśni dzikiej ognistej a przesyconej tęsknicą ale im głębiej wsłuchiwał się w te dźwięki tem silniej wyrastały z nich przypomnienia jakieś blade i odległe słów gdzieś usłyszanych",
+      "audio": "dev/audio/8502/6205/8502_6205_000000.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2532.22,
+        "original_end_s": 2552.01
+      }
+    },
+    {
+      "id": "8502_6205_000001",
+      "text": "błądził oczyma słuchał a uwierzyć jeszcze nie mógł przymykał oczy szczypał się w ręce sprawdzał swój stan ale ta krwawa szaleńcza wizyja nie znikała dopiero po tym hymnie zrywającym się kilkakrotnie zrozumiał że to co się działo przed jego oczyma było najrealniejszą rzeczywistością próbował rozpoznać kogo ale żadnej twarzy nie można było wyrwać z pod zasłony",
+      "audio": "dev/audio/8502/6205/8502_6205_000001.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1190.36,
+        "original_end_s": 1210.09
+      }
+    },
+    {
+      "id": "8502_6205_000002",
+      "text": "będę u nich jutro rozeszli się dosyć chłodno zenon niecierpliwie otworzył depeszę czekamy na ciebie od dwóch dni przyjdź lub odpowiedz henryk depesza była po polsku i mimo srogich przekręceń zrozumiał jej treść nie mogąc tylko pojąć od kogo pochodzi",
+      "audio": "dev/audio/8502/6205/8502_6205_000002.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 903.75,
+        "original_end_s": 919.98
+      }
+    },
+    {
+      "id": "8502_6205_000003",
+      "text": "stado wron zerwało się z gałęzi ginąc w mrocznej kurzawie świtów posypały się nań połamane gałęzie i przysiadł bezwiednie w jakimś gąszczu aby przeczekać huragan szalejący coraz potężniej i pozostał już tam jakby uwięzły w wichurze i oczarowany rozwieją żywiołów",
+      "audio": "dev/audio/8502/6205/8502_6205_000003.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 2757.01,
+        "original_end_s": 2773.92
+      }
+    },
+    {
+      "id": "8502_6205_000004",
+      "text": "adzie zamigotały oczy ale powiedziała swobodnie o tak narzeczona ma pierwszeństwo nawet przed nami henryk z ciekawością jął się o nią rozpytywać jutro opowiem szczegółowiej musicie ją poznać dobrze się nawet złożyło że pozna kogoś z moich do widzenia",
+      "audio": "dev/audio/8502/6205/8502_6205_000004.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2218.52,
+        "original_end_s": 2232.84
+      }
+    },
+    {
+      "id": "8502_6205_000005",
+      "text": "więc się rozdwoiła na dwie bliźniaczo podobne tożsamości nie żartuj ze mnie nie przekonywaj nawet bo to by przeczyło wszystkiemu co wiemy i bluźniło przeciw rozumowi wołał rozdrażniony",
+      "audio": "dev/audio/8502/6205/8502_6205_000005.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 2197.0,
+        "original_end_s": 2207.93
+      }
+    },
+    {
+      "id": "8502_6205_000006",
+      "text": "stłumiła jednak ból i rozpacz rozrywającą jej serce i spytała łagodnie dotykając jego ręki o czem myślisz trudno nawet określić o wszystkiem i o niczem zarazem pogrążyła się znowu w bolesnem milczeniu",
+      "audio": "dev/audio/8502/6205/8502_6205_000006.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 3157.97,
+        "original_end_s": 3171.44
+      }
+    },
+    {
+      "id": "8502_6205_000007",
+      "text": "najwyraźniej zobaczył ruch portjery odsłaniający drzwi usłyszał szmer kroków i szelest wlokącej się po ziemi sukni zamilkli strwożeni jego głosem i postawą bo pochylony blady z rozbłysłemi oczyma nasłuchiwał jak ten",
+      "audio": "dev/audio/8502/6205/8502_6205_000007.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1695.55,
+        "original_end_s": 1710.75
+      }
+    },
+    {
+      "id": "8502_6205_000008",
+      "text": "dziewczynka przemógłszy nieśmiałość rzuciła mu się w ramiona całował ją z wymuszoną czułością i zbyt nieco ostentacyjnie żeby pokryć jakieś niewytłumaczone wzruszenie bardzo ładna typowe polskie dziecko",
+      "audio": "dev/audio/8502/6205/8502_6205_000008.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 1504.57,
+        "original_end_s": 1516.81
+      }
+    },
+    {
+      "id": "8502_6205_000009",
+      "text": "par tańczących rozchwianym bezładnym i dzikim kręgiem i smagających się długiemi wiciami zielonych bambusów joe siedział w pośrodku na dywanie nagi cały zgięty we czworo nieruchomy zapatrzony tępym jakby zmarzłym wzrokiem był jak trup głuchy na wszystko ślepy i zgoła i nieczuły na ten wir wzburzony",
+      "audio": "dev/audio/8502/6205/8502_6205_000009.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1070.56,
+        "original_end_s": 1088.23
+      }
+    },
+    {
+      "id": "8502_6205_000010",
+      "text": "prawie nieprawdopodobne bo zaledwie od kilkunastu dni jest w europie tak przypominam ją sobie dobrze widziałam ją w muzeum ciągle się przypatrywała panu to zwróciło moją uwagę",
+      "audio": "dev/audio/8502/6205/8502_6205_000010.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 1106.03,
+        "original_end_s": 1117.35
+      }
+    },
+    {
+      "id": "8502_6205_000011",
+      "text": "a dookoła w zielonym mroku jakby z dna morskiego leżały kręgiem bezładnym głazy ogromne chwiały się jakieś drzewa o gałęziach podobnych do pazurów drgały jakieś ruchy rzeczy niewiadomych tak",
+      "audio": "dev/audio/8502/6205/8502_6205_000011.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 2070.21,
+        "original_end_s": 2082.4
+      }
+    },
+    {
+      "id": "8502_6205_000012",
+      "text": "ześlizgnęła się po jego twarzy zimnem jak ostrze szafirowe lśnieniem spojrzenia rozmawiając z mrs tracy stojącą przy niej słuchał uważnie nie mogąc jednak skupić sobie dźwięków i zrozumieć był jakby w śnie autohipnotycznym ani wiedząc co się z nim stało obecny a zgoła przepadły w mgławicach nagłej niepamięci wszystkiego",
+      "audio": "dev/audio/8502/6205/8502_6205_000012.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2206.57,
+        "original_end_s": 2226.1
+      }
+    },
+    {
+      "id": "8502_6205_000013",
+      "text": "kto tam pytał donośnie nie było odpowiedzi kroki przycichły ale jakieś ręce przebiegły po klawiszach ciche przebudzone dźwięki zadrgały na mgnienie",
+      "audio": "dev/audio/8502/6205/8502_6205_000013.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 2284.42,
+        "original_end_s": 2294.5
+      }
+    },
+    {
+      "id": "8502_6205_000014",
+      "text": "pochwycił mnie przykry paroksyzm takiej apatyji że przez parę dni targałem się w bezsilnej męce nie miałem sił nawet na ucieczkę do ciebie czemuż nie mogę być zawsze przy tobie",
+      "audio": "dev/audio/8502/6205/8502_6205_000014.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 374.36,
+        "original_end_s": 385.47
+      }
+    },
+    {
+      "id": "8502_6205_000015",
+      "text": "przyjmowała je z pokorą pochylała głowę i szła dalej niestrudzenie czyniąc święte dzieło miłosierdzia i litości zenon zatrzymał się przed nią wyciągając rękę podniosła na niego bladą piękną twarz podając mu całą garść kartek przemówił nieśmiało sieje pani niestrudzenie dobre słowo",
+      "audio": "dev/audio/8502/6205/8502_6205_000015.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1791.11,
+        "original_end_s": 1808.38
+      }
+    },
+    {
+      "id": "8502_6205_000016",
+      "text": "nie nie zaprzeczał żywo a może temu winien klimat przecież wciąż deszcz zimno mgły i tak wokoło aż do rozpaczy a może słońce zgasło i już nigdy nie doczekam się ciepła i jasności nigdy nostalgia za słońcem",
+      "audio": "dev/audio/8502/6205/8502_6205_000016.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 166.21,
+        "original_end_s": 180.91
+      }
+    },
+    {
+      "id": "8502_6205_000017",
+      "text": "milczeli już obaj joe postanowił w tej chwili że nic mu nie powie o wziętej dymisyi nie pragnął kłótni chciał mu oszczędzić gniewu tak dobry był dzisiaj i tak wyjątkowo łagodny że nie śmiał mu psuć tak rzadkich chwil a zresztą rachował i na to iż wiadomość o przeznaczeniu jego pułku na plac boju życzliwiej go usposobi",
+      "audio": "dev/audio/8502/6205/8502_6205_000017.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 612.24,
+        "original_end_s": 631.09
+      }
+    },
+    {
+      "id": "8502_6205_000018",
+      "text": "czekałem na jego przebudzenie aby go uśpić zaraz zanim zdoła się w nim rozbudzić świadomość potem byłoby za późno już by nikt nie spętał rozbudzonej myśli ale czyż można ją tak uśpić że przebudzony nie będzie pamiętał o niczym ale można ją wyrwać i zatracić w niepamięci",
+      "audio": "dev/audio/8502/6205/8502_6205_000018.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 183.87,
+        "original_end_s": 201.78
+      }
+    },
+    {
+      "id": "8502_6205_000019",
+      "text": "jakieś stępione odgłosy kroków ogłuchłe słowa jakieś błędne rozmowy i martwiejące dźwięki niewiadomo przez kogo wywołane i skąd płynące błądziły w mgłach trzepocząc się bezdźwięcznym i niepokojącym szelestem",
+      "audio": "dev/audio/8502/6205/8502_6205_000019.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 978.37,
+        "original_end_s": 992.54
+      }
+    },
+    {
+      "id": "8502_6205_000020",
+      "text": "co było jakby wonią dusz rozmodlonych betsy często obejmowała jego głowę namiętnie całującem spojrzeniem i choć niepochwycona odwracała oczy spłoszone",
+      "audio": "dev/audio/8502/6205/8502_6205_000020.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 860.49,
+        "original_end_s": 871.07
+      }
+    },
+    {
+      "id": "8502_6205_000021",
+      "text": "ja swoje dziecko obronię choćbym sama paść miała ale co ono komu zawiniło to mnie tak męczy że nie mam ani chwili spokoju na domiar złego i ciebie tyle dni nie widziałam poskarżyła się ocierając załzawione oczy byłem również chory pierwszy raz od soboty wyszedłem na ulicę",
+      "audio": "dev/audio/8502/6205/8502_6205_000021.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 327.88,
+        "original_end_s": 344.17
+      }
+    },
+    {
+      "id": "8502_6205_000022",
+      "text": "mr smith wyszedł naprzeciw niego i odezwał się dziwnie ponuro myślałem że się już pana nie doczekam to pan mnie wołał nieprawdaż nie wołałem ale bardzo pragnąłem aby pan przyszedł jak najprędzej",
+      "audio": "dev/audio/8502/6205/8502_6205_000022.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2508.78,
+        "original_end_s": 2520.94
+      }
+    },
+    {
+      "id": "8502_6205_000023",
+      "text": "znowu cichy ledwie dosłyszany dźwięk fortepianu wionął z drugiego pokoju ta tajemnicza dziwna melodyja którą słyszał wtedy na seansie kto ale zamilkł zdławiony śmiertelnem przerażeniem",
+      "audio": "dev/audio/8502/6205/8502_6205_000023.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 2365.88,
+        "original_end_s": 2380.19
+      }
+    },
+    {
+      "id": "8502_6205_000024",
+      "text": "s o f wyrzekł wolno prawie mimo woli jak się mówi nieraz słowa tkwiące uparcie w mózgu i same płynące z ust czuł że się zachwiała i wsparła na mgnienie o jego ramię ale nie rozumiał powodu",
+      "audio": "dev/audio/8502/6205/8502_6205_000024.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 557.71,
+        "original_end_s": 571.39
+      }
+    },
+    {
+      "id": "8502_6205_000025",
+      "text": "były mu również obojętne jak wszystko był jak ten dzień znużony mglisty i nudny wreszcie ukazała się ada piękna strojna i czarująca że spoglądano na nią z podziwem przywitali się w milczeniu on bowiem nie miał nic do powiedzenia",
+      "audio": "dev/audio/8502/6205/8502_6205_000025.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2566.46,
+        "original_end_s": 2580.54
+      }
+    },
+    {
+      "id": "8502_6205_000026",
+      "text": "w tej chwili poszła tam mrs bławatskaja i mr smith a czy mr joe nie wyszedł jeszcze o mr joe bardzo chory mówiła mrs tracy że możesz odejść wybuchnął gwałtownie spostrzegłszy naraz wzrok jego skierowany z głupio domyślnym uśmieszkiem na jakiś szal porzucony na kanapę szal był indyjski",
+      "audio": "dev/audio/8502/6205/8502_6205_000026.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 1118.35,
+        "original_end_s": 1137.72
+      }
+    },
+    {
+      "id": "8502_6205_000027",
+      "text": "słowa twoje mnie budzą zmartwychwstaję w tobie bom jest tobą jak kwiatem jest jego aromat musiałem cię już dawniej kochać dawniej i zawsze bo zawsze byłam przy tobie i zawsze byłam twoją duszą",
+      "audio": "dev/audio/8502/6205/8502_6205_000027.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 1524.55,
+        "original_end_s": 1539.45
+      }
+    },
+    {
+      "id": "8502_6205_000028",
+      "text": "nie jeśli to tajemnicą mówić o tem choć z boleścią mogę ale jeśliby pan słuchać nie chciał jeśliby i jąkał się lękliwie przeciwnie joe obchodzi mnie bardzo zaniepokoił się jego trwożnym głosem",
+      "audio": "dev/audio/8502/6205/8502_6205_000028.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 488.69,
+        "original_end_s": 501.29
+      }
+    },
+    {
+      "id": "8502_6205_000029",
+      "text": "zerwał się gwałtownie głos brzmiał już w pewnej odległości ścichał gdzie jesteś gdzie wołał przeszukując całe mieszkanie a musiała gdzieś być poczuł bowiem zapach jej perfum słyszał jej kroki szelest sukien roznosił się wyraźnie",
+      "audio": "dev/audio/8502/6205/8502_6205_000029.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 156.06,
+        "original_end_s": 171.24
+      }
+    },
+    {
+      "id": "8502_6205_000030",
+      "text": "a betsy ciebie pytała mi się czy jesteś piękna królewskie oczy ady spoczęły na nim niespokojnie rozchwiane powiedziałem najszczerszą prawdę na cóż mi ta uroda",
+      "audio": "dev/audio/8502/6205/8502_6205_000030.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 968.87,
+        "original_end_s": 979.03
+      }
+    },
+    {
+      "id": "8502_6205_000031",
+      "text": "żartujesz a corocznie twoi wielbiciele zamawiają żałobne nabożeństwo za twoją duszę aż tak to pewnie moi wydawcy w obawie abym nie ożył i nie upomniał się o swoje prawa chcą mi zapewnić niebo nie umiał pan dawniej żartować ze wszystkiego człowiek się wciąż uczy czegoś nowego wciąż",
+      "audio": "dev/audio/8502/6205/8502_6205_000031.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 1681.67,
+        "original_end_s": 1699.36
+      }
+    },
+    {
+      "id": "8502_6205_000032",
+      "text": "daisy była milczącą i jakby owiana melancholią tylko bagh co chwila czołgała się do niego kładła mu głowę na kolanach i jakoś miłośnie patrzała zielonemi źrenicami mam dzisiaj u bahg jakieś nadzwyczajne łaski ona wie kogo ma niemi darzyć odpowiedziała daisy ogarniając go jakiemś długiem a niewidzącym spojrzeniem",
+      "audio": "dev/audio/8502/6205/8502_6205_000032.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 598.15,
+        "original_end_s": 617.83
+      }
+    },
+    {
+      "id": "8502_6205_000033",
+      "text": "musiał go zdradzić mój dzierżawca nie mordowaliśmy go nieraz i nie zdradził twój zaś adwokat nieustannie nas przekonywał o twojej śmierci a jako najważniejszy dowód przytaczał to że cały majątek obciążony jakiemś dożywociem zapisałeś na cele publiczne musieliśmy w końcu uwierzyć tylko ada nie dała sobie wmówić ona jedna przeczuwała prawdę",
+      "audio": "dev/audio/8502/6205/8502_6205_000033.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 1256.32,
+        "original_end_s": 1275.82
+      }
+    },
+    {
+      "id": "8502_6205_000034",
+      "text": "wydało mu się to wszystko tak niepojęcie dziwnem że jeszcze wrzaskliwsza cisza niepokojów zatopiła mu serce wytrącając z resztek równowagi spróbował się wyrwać z błędnego koła wspomnień lecz czar z nich promieniejący",
+      "audio": "dev/audio/8502/6205/8502_6205_000034.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 1403.32,
+        "original_end_s": 1416.48
+      }
+    },
+    {
+      "id": "8502_6205_000035",
+      "text": "przecież widział a nie mógł tego pojąć że wkońcu zgroza nim zatrzęsła i rzuciła w proch ukorzeń przed jakąś nieznaną potęgą jakby naraz przejrzał i zatopiwszy olśnione oczy w niezmierzonych dalach chwiał się na krawędziach tajemnicy a byłby może",
+      "audio": "dev/audio/8502/6205/8502_6205_000035.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2398.62,
+        "original_end_s": 2412.86
+      }
+    },
+    {
+      "id": "8502_6205_000036",
+      "text": "dlatego przyjechałam wziąć swój dział szczęścia uśmiechnął się bardzo smutnie i rzekł z cichym wyrzutem gdybyś była przeczytała mój list przeczuwałam żeś mi proponował rozwód i małżeństwo i wróciłaś mi go nierozpieczętowany bo nie mogłam zostać twoją żoną",
+      "audio": "dev/audio/8502/6205/8502_6205_000036.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2947.8,
+        "original_end_s": 2964.81
+      }
+    },
+    {
+      "id": "8502_6205_000037",
+      "text": "a jeżeli to prawda a jeżeli to ona temu winna zrozumiał kogo ma na myśli lecz nie próbując bronić spytał wykrętnie cóż powiedział doktór a jeżeli ona i wandzię zaczarowała ciągnęła coraz lękliwiej widzę że ada nie oszczędziła pani swoich zabobonnych przywidzeń",
+      "audio": "dev/audio/8502/6205/8502_6205_000037.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2186.48,
+        "original_end_s": 2204.31
+      }
+    },
+    {
+      "id": "8502_6205_000038",
+      "text": "pamiętał opowiadanie wandzi wszystko aż do chwili siadania do powozu ale potem nieprzebita ciemnica noc i niepokój przesiany oślepiającemi błyskawicami trwogi wszedł służący",
+      "audio": "dev/audio/8502/6205/8502_6205_000038.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 1095.29,
+        "original_end_s": 1106.39
+      }
+    },
+    {
+      "id": "8502_6205_000039",
+      "text": "jakieś wyblakłe zarysy postaci zatarte ruchy to jakby zatopione w cieniach oczy to rozpostarte dłonie tliły się złotawo a przez wąskie drzwi z boku zaglądały blady chory dzień",
+      "audio": "dev/audio/8502/6205/8502_6205_000039.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 1542.96,
+        "original_end_s": 1554.44
+      }
+    },
+    {
+      "id": "8502_6205_000040",
+      "text": "jakże w tej chwili stała mu się drogą ta złota główka i te niebieskie mądre oczy drgnęła w nim przebudzona nagle miłość ojcowska i na usta przyszły słowa pełne przedziwnej czułości kochania i troski serdecznej ogarnął ją ramieniem i całował z najgłębszą tkliwością",
+      "audio": "dev/audio/8502/6205/8502_6205_000040.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 485.04,
+        "original_end_s": 500.17
+      }
+    },
+    {
+      "id": "8502_6205_000041",
+      "text": "pełnym stolików do pisania osłoniętych ekranami głębokich foteli biegunowych krzeseł zacisznych kątów oddzielonych parawanikami i wykwintnych drobiazgów jasno było i cicho gruby dywan tłumił kroki zasłonięte okna ciężkiemi kotarami nie przepuszczały odgłosów miasta",
+      "audio": "dev/audio/8502/6205/8502_6205_000041.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 1942.75,
+        "original_end_s": 1959.75
+      }
+    },
+    {
+      "id": "8502_6205_000042",
+      "text": "może to się nie miało stać dzisiaj ani nigdy a on jak głupiec czekał z drżeniem ciekawości i lęku bardzo często bowiem przychodziła grać do reading roomu i grywała po parę godzin z rzędu więc i dzisiaj robiła to samo nie zważając na niego nawet może gniewna że jej przeszkadza swoją obecnością",
+      "audio": "dev/audio/8502/6205/8502_6205_000042.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 255.43,
+        "original_end_s": 272.68
+      }
+    },
+    {
+      "id": "8502_6205_000043",
+      "text": "przerażający obraz prawdziwe piekło westchnął ze współczuciem stworzone przez ich boga poruszył się niespokojnie wpierając w nią rozciekawione oczy tak prawdziwe i jedyne piekło",
+      "audio": "dev/audio/8502/6205/8502_6205_000043.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 2007.17,
+        "original_end_s": 2017.82
+      }
+    },
+    {
+      "id": "8502_6205_000044",
+      "text": "pierś jej się podniosła w szybkiem tłumionem wzburzeniu a innych nie znam więc i nie wiem dotąd o ich istnieniu muszą być istnieją na pewno bywają takie o jakich i sny nie dają wyobrażenia najbardziej dręczące sny przypuszczam że w zamętach dusz w chorych mózgach mogą brać początek przerażające i straszliwe zjawy",
+      "audio": "dev/audio/8502/6205/8502_6205_000044.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2423.63,
+        "original_end_s": 2442.08
+      }
+    },
+    {
+      "id": "8502_6205_000045",
+      "text": "bóg wywiedzie nowe światy z chaosu nową weselną hierusalem stanie się ziemia i oswobodzona od grzechu ludzkość zaśpiewa hosanna czyste nieśmiertelne duchy zapełnią wszechświat i wszystko niebo rozebrzmi szczęściem wiekuistego trwania w bogu tak w to gorąco wierzę",
+      "audio": "dev/audio/8502/6205/8502_6205_000045.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 1716.17,
+        "original_end_s": 1732.21
+      }
+    },
+    {
+      "id": "8502_6205_000046",
+      "text": "prawdziwego i szczerego kultu piękna a szekspir a grecy a tylu tylu innych nie są ż sztuką prawdziwą te wszystkie sławne i ze czcią powtarzane nazwiska to puste dźwięki dawno już umarła ich treść prawdziwa",
+      "audio": "dev/audio/8502/6205/8502_6205_000046.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1406.4,
+        "original_end_s": 1421.01
+      }
+    },
+    {
+      "id": "8502_6205_000047",
+      "text": "i joe stracił w jego oczach swoje dawne kontury przestał go interesować i spotykając się z nim w bartelet court traktował go jakby dopiero co poznanego człowieka czuł się tak trzeźwym że spostrzegał tylko samą powierzchnię życia i jej najgrubsze zarysy",
+      "audio": "dev/audio/8502/6205/8502_6205_000047.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 564.74,
+        "original_end_s": 579.1
+      }
+    },
+    {
+      "id": "8502_6205_000048",
+      "text": "w tej ciszy uśpionego miasta tylko sypki i boleśnie nużący szmer bezustannego deszczu i to wstrętne przegniłe powietrze które niby oddechem pokrywało im twarze śliską i lepką rosą",
+      "audio": "dev/audio/8502/6205/8502_6205_000048.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1992.22,
+        "original_end_s": 2003.64
+      }
+    },
+    {
+      "id": "8502_6205_000049",
+      "text": "każdy ruch duszy każda myśl i każde drgnienie czucia było w nim podwójnem i tożsamem rozdzielonem a jednem to ja tam jestem ja myślał czuł raczej pochylając się naprzód",
+      "audio": "dev/audio/8502/6205/8502_6205_000049.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 697.43,
+        "original_end_s": 708.85
+      }
+    },
+    {
+      "id": "8502_6205_000050",
+      "text": "powtórzył nagle wezbraną goryczą nie nie słyszał go zoroaster dostrzegli prorocy ale dopiero w hinduskiej duszy usłał swoje gniazdo nieśmiertelne i tam w dżunglach żyje do dzisiaj i panuje litośnie",
+      "audio": "dev/audio/8502/6205/8502_6205_000050.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2068.15,
+        "original_end_s": 2082.05
+      }
+    },
+    {
+      "id": "8502_6205_000051",
+      "text": "co jak wąż zimnymi skrętami owija serce dusi zwolna i krew wszystką i myśl każdą wypija miss daisy grała jakąś ściszoną i zagmatwaną w rysunku piosenkę",
+      "audio": "dev/audio/8502/6205/8502_6205_000051.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 60.35,
+        "original_end_s": 70.68
+      }
+    },
+    {
+      "id": "8502_6205_000052",
+      "text": "mr bartelet nie mógł już dłużej wytrzymać rzucał srogie spojrzenia na syna marszczył brwi trzaskał nożem o talerz ale nie doczekawszy się ani słowa pierwszy zaczął mówić do niego w swój ironiczny zwykły sposób cóż to za sława zamieszkuje w waszym pensjonacie joe podniósł zamyślone posępne oczy na niego",
+      "audio": "dev/audio/8502/6205/8502_6205_000052.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 360.13,
+        "original_end_s": 378.49
+      }
+    },
+    {
+      "id": "8502_6205_000053",
+      "text": "zadrżał do głębi dałby w tej chwili całe życie za możność dojrzenia jej twarzy widział tylko jak przez gęstą mgłę wysmukłe nagie ciało owiane płaszczem rdzawych w oddali włosów stojące między kolanami bafometa",
+      "audio": "dev/audio/8502/6205/8502_6205_000053.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 2391.16,
+        "original_end_s": 2405.29
+      }
+    },
+    {
+      "id": "8502_6205_000054",
+      "text": "zupełnie bo nietylko dzień ale i statki do przewozu przeznaczone a po wylądowaniu zaraz w ogień prawdopodobnie mr bartelet wybuchnął gniewem klął siarczyście i bił kijem w podłogę aż wystraszona betsy przybiegła mój ojcze mój drogi nie można się gniewać doktór zakazywał prosiła ogarniając mu głowę rękoma",
+      "audio": "dev/audio/8502/6205/8502_6205_000054.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1023.38,
+        "original_end_s": 1043.32
+      }
+    },
+    {
+      "id": "8502_6205_000055",
+      "text": "tylko mrs tracy spacerowała wraz z kotami w dalszym ciągu a daisy milcząc przeglądała jakieś pismo widziałem panią na skwerze trafalgarskim ozwał się niespodziewanie zenon ale jakby to mówił nie on tak obcy miał głos poruszał ustami ale twarz nie wyrażała nic a spojrzenie było puste i również obce słowom",
+      "audio": "dev/audio/8502/6205/8502_6205_000055.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2280.01,
+        "original_end_s": 2298.79
+      }
+    },
+    {
+      "id": "8502_6205_000056",
+      "text": "jak codzień jak zwykle dnie wlokły się wolno i nudnie poranki wstawały senne i mgliste południa przychodziły blade wyczerpane i smutne wieczory były rozdygotane gorączką i znerwowane a noce ciągnęły się bez końca zasłuchane w pluski nieustannych deszczów i w krzyki szamocących się",
+      "audio": "dev/audio/8502/6205/8502_6205_000056.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 631.77,
+        "original_end_s": 648.61
+      }
+    },
+    {
+      "id": "8502_6205_000057",
+      "text": "serce poczyna się znowu trwożyć a świadomość podnosi beznadziejnie smutne oczy i pyta co to właściwie było oprzytomnił go dźwięk własnego głosu i znowu otwarł oczy szary przemglony poranek zalewa pokój a ulice już szumią zwykłą melodyją ruchu taki sam dzień jak wczoraj",
+      "audio": "dev/audio/8502/6205/8502_6205_000057.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 1051.96,
+        "original_end_s": 1068.67
+      }
+    },
+    {
+      "id": "8502_6205_000058",
+      "text": "że taki mnie strach ogarnia i tak się ze mną coś okropnego robi aż tego nie umiem wujciowi opowiedzieć ani się wtedy mogę ruszyć ani mamy zawołać ani nic rozłożyła bezradnie rączki i dlaczego ona mnie straszy jęknęła żałośnie przytulając się do niego jakby pod wpływem obawy",
+      "audio": "dev/audio/8502/6205/8502_6205_000058.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 593.2,
+        "original_end_s": 609.35
+      }
+    },
+    {
+      "id": "8502_6205_000059",
+      "text": "otwarte szeroko oczy patrzyły nieruchomie szklisto a czujnie napięte strasznem oczekiwaniem widzenia parł się zwolna z siebie wydzierał z więzów ciała smagał z nieubłagalnością własnego trupa szponami woli wyłupywał z siebie własną duszę stwarzając z niej drugi swój własny i tylko przez siebie widziany i czuty byt",
+      "audio": "dev/audio/8502/6205/8502_6205_000059.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 502.95,
+        "original_end_s": 522.81
+      }
+    },
+    {
+      "id": "8502_6205_000060",
+      "text": "z wściekłością roztrącał przechodniów i zaczął biec jak warjat aż ludzie przystawali a jakiś policjant popędził za nim ale on biegł coraz prędzej gnany tym świstem bambusów i jawą jej okrwawionego ciała że tylko wyciągnąć ręce i schwytać",
+      "audio": "dev/audio/8502/6205/8502_6205_000060.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1480.32,
+        "original_end_s": 1494.86
+      }
+    },
+    {
+      "id": "8502_6205_000061",
+      "text": "nie mógł już odpowiedzieć gdyż pozostał sam w przedsionku ada wchodziła na białe marmurowe schody pochwycił tylko jej ostatnie spojrzenia co jak upajający okwiat spłynęły na niego nim utonął w gwarze ulicy i mgłach",
+      "audio": "dev/audio/8502/6205/8502_6205_000061.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 16.05,
+        "original_end_s": 30.04
+      }
+    },
+    {
+      "id": "8502_6205_000062",
+      "text": "nie odstąpię go do rana upewniał szczerze i prawie natychmiast zapomniał o przyrzeczeniu gdyż zaraz po ich odjeździe poszedł do daisy mimo dość spóźnionej godziny ale cofnął się od samych drzwi",
+      "audio": "dev/audio/8502/6205/8502_6205_000062.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2414.16,
+        "original_end_s": 2424.48
+      }
+    },
+    {
+      "id": "8502_6205_000063",
+      "text": "bo powinien pan na jakiś czas wyjechać radziła jak siostra wyjadę wypocznę i powrócę z nowemi siłami odpowiadał potakująco uśmiechnęła się bladym uśmiechem żałości żegnającej go na zawsze krótki spazm targnął jej sercem a w mózgu zahuczało złowrogie nigdy nigdy cię już nie zobaczę",
+      "audio": "dev/audio/8502/6205/8502_6205_000063.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2364.43,
+        "original_end_s": 2383.07
+      }
+    },
+    {
+      "id": "8502_6205_000064",
+      "text": "joe leżał omdlały na środku i był tylko sam jeden przenieśli go na łóżko trzeźwiąc tak energicznie że wkrótce otworzył oczy rozejrzał się przenikliwie i zupełnie przytomnie szepnął czy on jest jeszcze coś jakby trwoga zadrgała mu w głosie nie ma nikogo jak się czujesz",
+      "audio": "dev/audio/8502/6205/8502_6205_000064.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2521.21,
+        "original_end_s": 2538.76
+      }
+    },
+    {
+      "id": "8502_6205_000065",
+      "text": "nie rozumiejąc zgoła co się dzieje dokoła i gdzie go niesie ta rozkołysana fala ludzka a tłumy wciąż się zwiększały płynęły zewsząd jak lawina parły się zgiełkliwemi potokami z bocznych ulic zalewając całą",
+      "audio": "dev/audio/8502/6205/8502_6205_000065.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1274.73,
+        "original_end_s": 1286.8
+      }
+    },
+    {
+      "id": "8502_6205_000066",
+      "text": "dlatego właśnie radzę ci wyjazd czasem w ucieczce leży największe zwycięstwo wiesz ojciec z betsy planują podróż na kontynent jedź z nimi uciekaj z tego domu póki jeszcze czas ratuj się prosił żarliwie patrząc błagalnie mu w oczy",
+      "audio": "dev/audio/8502/6205/8502_6205_000066.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 849.86,
+        "original_end_s": 863.49
+      }
+    },
+    {
+      "id": "8502_6205_000067",
+      "text": "a nie zawołał myśląc że to pokojówka nie było odpowiedzi szelesty ucichły ale natomiast jakby z ostatniego pokoju rozległ się przyciszony daleki śpiew rzucił się tam gorączkowo również nie było nikogo lecz śpiew spotężniał i brzmiał donośnie w ciszy mieszkania że poznał głos daisy i tę dziwną tajemniczą piosenkę",
+      "audio": "dev/audio/8502/6205/8502_6205_000067.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1317.95,
+        "original_end_s": 1337.73
+      }
+    },
+    {
+      "id": "8502_6205_000068",
+      "text": "wskrzeszając przeszłość z niesłychaną mocą chwilami mam wrażenie jakbym siedział u was na wsi przed laty nawet ten garson podobny jest do walentego wrócisz i wszystko znowu będzie po dawnemu u nas w domu nic się nie zmieniło nie poznasz żeś tak długo nie był nie wróciłbym już do dawnego",
+      "audio": "dev/audio/8502/6205/8502_6205_000068.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 1751.82,
+        "original_end_s": 1769.97
+      }
+    },
+    {
+      "id": "8502_6205_000069",
+      "text": "naturalnie na stu reporterów zaledwie może jeden widział go i mówił z nim a wszyscy przecież coś napisać musieli bo cały londyn się nim zajmuje znacie go osobiście",
+      "audio": "dev/audio/8502/6205/8502_6205_000069.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 475.44,
+        "original_end_s": 485.64
+      }
+    },
+    {
+      "id": "8502_6205_000070",
+      "text": "ma on dość swoich rupii a przy tym pieniądze mają dla niego wartość istotną to jest żadną dodał z naciskiem więc za darmo pokazują tu jakieś cuda spirytystyczne ależ nie pokazują żadnych cudów i spirytystą zupełnie nie jest",
+      "audio": "dev/audio/8502/6205/8502_6205_000070.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 406.01,
+        "original_end_s": 419.83
+      }
+    },
+    {
+      "id": "8502_6205_000071",
+      "text": "nagie ściany gładkie lśniące kamienie z których gdzie niegdzie wyrywały się zgaszone w nocy malowidła jakieś głoski złote tajemnicze symbole ognia wody i powietrza",
+      "audio": "dev/audio/8502/6205/8502_6205_000071.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1845.53,
+        "original_end_s": 1855.85
+      }
+    },
+    {
+      "id": "8502_6205_000072",
+      "text": "mr smith zakręcił się po pokoju obejrzał swoim taksatorskim głodnym wzrokiem wszystkie obrazy popieścił lubieżnymi palcami brązy i przesunąwszy się krętym kocim ruchem zapytał pokornie czy naprawdę występujesz z naszego kościoła",
+      "audio": "dev/audio/8502/6205/8502_6205_000072.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 235.58,
+        "original_end_s": 250.87
+      }
+    },
+    {
+      "id": "8502_6205_000073",
+      "text": "cóż u diabła za żarty rebusowe kto mi to nabazgrał wybuchnął ani na chwilę nie przypuszczając czego innego rzucił papier na biurko i poszedł z powrotem do łóżka był pewnym że uległ złudzeniu zgasił światło okręcił się w kołdrę i próbował zasnąć",
+      "audio": "dev/audio/8502/6205/8502_6205_000073.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 2350.21,
+        "original_end_s": 2365.88
+      }
+    },
+    {
+      "id": "8502_6205_000074",
+      "text": "żarzyło się złotym brzaskiem w ciemnościach a reszta mieszkania zanurzała się w gruby nieprzenikniony mrok joe pozamykał drzwi pospuszczał story u okien i długo stał w najgłębszem skupieniu w niemej modlitwie jaką odprawiał zawsze przed seansem aż wreszcie poszedł do pierwszego pokoju i usiadł na podłodze obok kominka",
+      "audio": "dev/audio/8502/6205/8502_6205_000074.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 411.02,
+        "original_end_s": 430.13
+      }
+    },
+    {
+      "id": "8502_6205_000075",
+      "text": "miał wir pod czaszką i chaos postrzępionych obrazów i myśli wujcio taki dobry taki kochany taki strasznie mój jak tatuś któż to szczebiocze czyjeż to rączki okręcają mu szyję czyjeż to kwietne oczy patrzą w niego z taką bezgraniczną miłością",
+      "audio": "dev/audio/8502/6205/8502_6205_000075.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2789.84,
+        "original_end_s": 2804.68
+      }
+    },
+    {
+      "id": "8502_6205_000076",
+      "text": "betsy powiedz ciotce że jeśli to do mnie betsy powiedz ojcu że na taki ton gminny i posądzenia nie odpowiadam betsy powiedz jej że żadnych uwag nie przyjmuję i nie znoszę",
+      "audio": "dev/audio/8502/6205/8502_6205_000076.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 292.46,
+        "original_end_s": 303.85
+      }
+    },
+    {
+      "id": "8502_6205_000077",
+      "text": "że zdenerwowany jeszcze bardziej rzucił go z niechęcią i poszedł wyjrzeć na korytarz pusty już i cichy był już teraz zupełnie pewny swojej omyłki a to sprawiło mu taką głęboką przykrość że długo nie mógł się uspokoić bo i cóż mogła mi powiedzieć",
+      "audio": "dev/audio/8502/6205/8502_6205_000077.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 317.84,
+        "original_end_s": 332.49
+      }
+    },
+    {
+      "id": "8502_6205_000078",
+      "text": "bagh pana zdziwiła się niezmiernie jedna z pań prawie nie spałem całą noc tak skomlała to dziwne mam pokój tuż przy oranżerji a nie słyszałam szepnęła mrs tracy spoglądając na panie jakieś domyślne przytajone uśmiechy przewinęły się po wszystkich ustach",
+      "audio": "dev/audio/8502/6205/8502_6205_000078.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 223.86,
+        "original_end_s": 240.02
+      }
+    },
+    {
+      "id": "8502_6205_000079",
+      "text": "malajczyk podrapał się frasobliwie za ucho zamknął drzwi na cały system zatrzasków i wprowadził go do bocznego pokoju gdzie na niskim stole w siedmioramiennym miedzianym świeczniku paliło się siedem wysokich woskowych i żółtych świec",
+      "audio": "dev/audio/8502/6205/8502_6205_000079.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 870.36,
+        "original_end_s": 883.26
+      }
+    },
+    {
+      "id": "8502_6205_000080",
+      "text": "a dalekie mosty huczały sennie i połyskiwały łukami kolorowych świateł na rozdrganej zasępionej rzece czasem statek jakiś przesunął się wskroś ciemności zamajaczył rozgorzałymi oknami i przepadał jak to czego nigdy nie było",
+      "audio": "dev/audio/8502/6205/8502_6205_000080.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1542.91,
+        "original_end_s": 1557.21
+      }
+    },
+    {
+      "id": "8502_6205_000081",
+      "text": "wyjeżdżałem odparł krótko spostrzegając miss daisy siedzącą już na swojem miejscu ze łbem bagh na kolanach zielone oczy pantery wpijały się w niego z taką siłą że usiadł zmieszany i niespokojny",
+      "audio": "dev/audio/8502/6205/8502_6205_000081.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 805.28,
+        "original_end_s": 817.86
+      }
+    },
+    {
+      "id": "8502_6205_000082",
+      "text": "daisy i zasłuchany w ponurą gędźbę drzew rozkołysanych nie myślał w tej chwili o niczym cienie pełne tajemniczych jaśnień zalały mu duszę rozkołysanymi nieujętymi jawami tego co się stać miało te przyszłe chwile rodziły się w niewiadomych głębiach i osuwały go w mroczny nieuchwytny lęk tajemnicy",
+      "audio": "dev/audio/8502/6205/8502_6205_000082.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1664.53,
+        "original_end_s": 1682.45
+      }
+    },
+    {
+      "id": "8502_6205_000083",
+      "text": "my tu zaraz na dorham street tambyśmy pogadali po naszemu niech pan pójdzie obsiadły go ale umilkły onieśmielone jego wyniosłą dumną twarzą i milczeniem a może i jakiemś utajonem w głębi serca wzruszeniem",
+      "audio": "dev/audio/8502/6205/8502_6205_000083.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1985.76,
+        "original_end_s": 1998.53
+      }
+    },
+    {
+      "id": "8502_6205_000084",
+      "text": "wyskoczył z łóżka i chwycił rewolwer kto tam zawołał znowu i znowu żadnej odpowiedzi usłyszał natomiast ostry i szybki skrzyp pióra po papierze i szelest przewracanych kartek",
+      "audio": "dev/audio/8502/6205/8502_6205_000084.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 2294.5,
+        "original_end_s": 2305.41
+      }
+    },
+    {
+      "id": "8502_6205_000085",
+      "text": "później zabroniła ruszać się z miejsc światła same pogasły i wyszła nie tysiąc razy niemożebne bajka czy obłęd jakże spotkałem ją na korytarzu idąc z przeciwnej strony a ona równocześnie miałaby być pomiędzy wami była tu i tam w tym samym czasie",
+      "audio": "dev/audio/8502/6205/8502_6205_000085.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 2165.37,
+        "original_end_s": 2181.06
+      }
+    },
+    {
+      "id": "8502_6205_000086",
+      "text": "był zupełnie przytomny i absolutnie zdawał sobie sprawę ze wszystkiego co się z nim działo w tej chwili więc nie bacząc na żadne względy zapragnął dowiedzieć się skąd ten śpiew płynie przypuszczał bowiem że daisy musi być u siebie w przyległem mieszkaniu",
+      "audio": "dev/audio/8502/6205/8502_6205_000086.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1365.57,
+        "original_end_s": 1379.87
+      }
+    },
+    {
+      "id": "8502_6205_000087",
+      "text": "dla medycyny dla nikogo odparł z naciskiem podnosząc dumnie głowę joe uśmiechnął się ze słodką lecz zabijającą pobłażliwością i znowu zapadła cisza i przydławione zniecierpliwienie",
+      "audio": "dev/audio/8502/6205/8502_6205_000087.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 57.51,
+        "original_end_s": 71.02
+      }
+    },
+    {
+      "id": "8502_6205_000088",
+      "text": "jestem o tem najgłębiej przekonana nie wiem tylko dlaczego i za co a niech będzie przeklęta ta zła i niegodziwa moc niech będzie przeklęta powiedziała groźnie i oczy jej wystrzeliły błyskawicami potężnej nienawiści",
+      "audio": "dev/audio/8502/6205/8502_6205_000088.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 316.18,
+        "original_end_s": 327.88
+      }
+    },
+    {
+      "id": "8502_6205_000089",
+      "text": "że tylko niekiedy brzękliwe drgania kandelabrów stojących na kominku mówiły iż gdzieś niedaleko jest ulica i przejeżdżają powozy a zielonawe ściany rozjaśnione bukietami kwiatów malowanych akwarelą",
+      "audio": "dev/audio/8502/6205/8502_6205_000089.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 1959.75,
+        "original_end_s": 1972.13
+      }
+    },
+    {
+      "id": "8502_6205_000090",
+      "text": "poszedł za nią w mrok tylko górą w poczerniałym gąszczu gotyckich żebrowań tliły się jeszcze trwożnie resztki dnia ale dołem zalegała już zupełna noc z gotyckich kaplic oddzielonych kratami sączyły się ostygłe brzaski fioletów złota i purpur witrażowych w których ledwie majaczyły królewskie łoża sarkofagów w ciszy niezgłębionej",
+      "audio": "dev/audio/8502/6205/8502_6205_000090.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 461.09,
+        "original_end_s": 480.68
+      }
+    },
+    {
+      "id": "8502_6205_000091",
+      "text": "być może ale te dzieciństwa są bliższe prawdziwej sztuki szczersze i głębsze dają wrażenia niźli dzisiejszy teatr nie nie chciało już mu się mówić poczuł się ogromnie znużonym",
+      "audio": "dev/audio/8502/6205/8502_6205_000091.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1671.31,
+        "original_end_s": 1682.31
+      }
+    },
+    {
+      "id": "8502_6205_000092",
+      "text": "że nim się go spostrzegło zapadał w nocy z krzykiem przelatywał tunele i wypełzał jak wąż na wysokie nasypy zadyszany spieniony w kłębach białej pary skąpany i to jak smok zionący strugami krwawych skier przystawał na jakichś stacyjach poślepłych i śpiących",
+      "audio": "dev/audio/8502/6205/8502_6205_000092.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 2033.28,
+        "original_end_s": 2050.9
+      }
+    },
+    {
+      "id": "8502_6205_000093",
+      "text": "nie nie jestem okropnie zdenerwowany obejrzał się trwożliwie i zaczął mówić prędko jakby chcąc się zagłuszyć chciał być swobodny silił się nawet na serdeczność ale jej obaw nie rozproszył ni zbudził umierającą nadzieję bo jego słowa były lodowate przypadkowe i krążyły na oślep niby płatki błądzące w ciemnościach",
+      "audio": "dev/audio/8502/6205/8502_6205_000093.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2326.88,
+        "original_end_s": 2346.25
+      }
+    },
+    {
+      "id": "8502_6205_000094",
+      "text": "i zwyciężą muszą przecież zwyciężyć szeptała gorąco niestety musi zwyciężyć najpierwotniejszy instynkt życia strasznie mi żal chrystusa i moich chłopów ale niema już dla nich miejsca na świecie muszą przepaść",
+      "audio": "dev/audio/8502/6205/8502_6205_000094.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 1054.72,
+        "original_end_s": 1067.29
+      }
+    },
+    {
+      "id": "8502_6205_000095",
+      "text": "byli jak te drzewa obumarłe w czas zimowy i wynurzające się z mgieł pierwszej budzącej się wiosny któreż z nich wie którem jest i gdzie bezwiednie chciał wsiąść do jednego z nią przedziału ale nim doszedł zamknęła drzwi więc siadł do sąsiedniego i stał w oknie całą drogę",
+      "audio": "dev/audio/8502/6205/8502_6205_000095.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1568.16,
+        "original_end_s": 1584.64
+      }
+    },
+    {
+      "id": "8502_6205_000096",
+      "text": "niedługo to jednak trwało ustępując miejsca niewytłumaczonemu niepokojowi i zdenerwowaniu nie potrafił myśleć o niczem i nie był w stanie zająć się czemkolwiek zrywał się co chwila z miejsca bo zdawało mu się że go ktoś woła w przestrzeni że musi gdzieś biec coś robić z kimś się spotkać",
+      "audio": "dev/audio/8502/6205/8502_6205_000096.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 1184.74,
+        "original_end_s": 1201.95
+      }
+    },
+    {
+      "id": "8502_6205_000097",
+      "text": "ale o jedenastej już był w british museum pod kolumnadą czuł się dzisiaj dziwnie smutny i ociężały i mimo usiłowań nie potrafił na niczem skupić uwagi wszystkie myśli przeciekały przez niego jak woda przez sito nawet wspomnienia nocy nie wywoływały żadnych żywszych uczuć",
+      "audio": "dev/audio/8502/6205/8502_6205_000097.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2551.22,
+        "original_end_s": 2566.46
+      }
+    },
+    {
+      "id": "8502_6205_000098",
+      "text": "runął w głąb nagle rozwartą gdyby nie to straszliwie gorzkie poczucie całej swojej ludzkiej nicości boże mój boże westchnął żałośnie i modlitewna tkliwość przejęła mu wylęknione serce pierwszy raz w życiu zaciężyło nad nim nieznane pierwszy raz w życiu spojrzał w ślepe oczy nieznanej zagadki i padł struchlały w świętem przerażeniu",
+      "audio": "dev/audio/8502/6205/8502_6205_000098.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2412.86,
+        "original_end_s": 2432.35
+      }
+    },
+    {
+      "id": "8502_6205_000099",
+      "text": "rozciąga się straszliwa przepaść w której kłębią się jakieś przerażające potwory jakieś tajemnicze byty i larwy zgoła niepojęte a kto raz uwiedziony ciekawością zajrzy na to dno musi być zgubiony ja głęboko wierzę w boga kocham słońce i jasny dzień kocham życie i bardzo się lękam wszystkiego co nie jest z tego świata",
+      "audio": "dev/audio/8502/6205/8502_6205_000099.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 810.02,
+        "original_end_s": 828.11
+      }
+    },
+    {
+      "id": "8502_6205_000100",
+      "text": "chór głosów odległych stłumionych i głębokich podobnych do szmerów fal konających u dalekich wybrzeży rozbrzmiewał gdzieś przed nim łkał jakby w głuchej próżni drgał coraz ciszej i bliżej bliżej",
+      "audio": "dev/audio/8502/6205/8502_6205_000100.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1907.69,
+        "original_end_s": 1921.27
+      }
+    },
+    {
+      "id": "8502_6205_000101",
+      "text": "idę w wieczny sen o tobie majaczył padając na ławkę koniec rozdziału szóstego",
+      "audio": "dev/audio/8502/6205/8502_6205_000101.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 1571.24,
+        "original_end_s": 1584.33
+      }
+    },
+    {
+      "id": "8502_6205_000102",
+      "text": "wąsy i pocałować go w same usta w te czerwone wiecznie tak głodne pocałunków usta ale tylko westchnęła żałośnie rumieniąc się na tę myśl niespełnioną i już tylko całujęcymi oczyma obejmowała jego piękną znużoną nieco twarz i te oczy jasne i słodkie drapieżne usta ach",
+      "audio": "dev/audio/8502/6205/8502_6205_000102.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 817.83,
+        "original_end_s": 833.81
+      }
+    },
+    {
+      "id": "8502_6205_000103",
+      "text": "ukazywała się wysoka czarno ubrana kobieta odważnie rozdająca wszystkim święte sentencje a nieraz czaiła się wprost w jakimś cieniu i nagle zastępowała drogę parom chwilowo skojarzonym nie bacząc na obelgi szturchańce i plugawe okropne wymyślania jakiemi ją co chwila obrzucały rozwścieklone dziewczyny",
+      "audio": "dev/audio/8502/6205/8502_6205_000103.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1772.74,
+        "original_end_s": 1791.11
+      }
+    },
+    {
+      "id": "8502_6205_000104",
+      "text": "może dzisiaj jeszcze może jutro nie wiem ale kiedy nadejdzie ta chwila zjawię się przed tobą i ty a ja pójdę za tobą o daisy o daisy ja śnię rzeczy nieopowiedziane będziemy śnili o sobie prześnimy nasze dawne istnienia i awatary",
+      "audio": "dev/audio/8502/6205/8502_6205_000104.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 1508.87,
+        "original_end_s": 1524.55
+      }
+    },
+    {
+      "id": "8502_6205_000105",
+      "text": "mr bartelet osunął się w głęboki fotel wziął filiżankę i popijając zwolna zapadł w głęboką zadumę ciotki też zjawiły się wkrótce poprzedzane przez dicka niosącego stołeczki pod nogi miss dolly była już jak zwykle wyniosła i majestatycznie piękna",
+      "audio": "dev/audio/8502/6205/8502_6205_000105.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 649.1,
+        "original_end_s": 664.12
+      }
+    },
+    {
+      "id": "8502_6205_000106",
+      "text": "ślepy byłem przejrzałem jeno trupem ludzkim byłem wywiódł mnie z martwych na rozwonione lotosem brzegi prawdy wiecznej jedynej więc do niego wszystek należę i z pokorą i szczęśliwością i dumą mówię ci o tem pójdziesz za nim zapytał ze drżeniem czekając odpowiedzi",
+      "audio": "dev/audio/8502/6205/8502_6205_000106.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 2270.07,
+        "original_end_s": 2287.07
+      }
+    },
+    {
+      "id": "8502_6205_000107",
+      "text": "prawie nigdy nie pijał więc teraz odczuwał dziwnie bolesną i drażniącą rozkosz wypróżniając kieliszek po kieliszku uspokajała go wódka znużenie ustępowało bezwładna myśl rozjaśniała się zwolna jak zarzewie a całego przejmowało kojące ciepło",
+      "audio": "dev/audio/8502/6205/8502_6205_000107.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1897.08,
+        "original_end_s": 1912.56
+      }
+    },
+    {
+      "id": "8502_6205_000108",
+      "text": "a że zegar na kominku zaczął dzwonić dziesiątą miss ellen nie odpowiedziała kryjąc wylękłą twarz za biblię joe natomiast siedzący wprost ojca powstał i zwrócił się do zenona czas już na nas",
+      "audio": "dev/audio/8502/6205/8502_6205_000108.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 982.31,
+        "original_end_s": 994.07
+      }
+    },
+    {
+      "id": "8502_6205_000109",
+      "text": "lecz dziwnie nie chciało mu się tam jechać czuł się niesłychanie znużonym a ta ostatnia scena z daisy rozstrajała go do reszty rozważając jej dziwny nierówny stosunek do siebie tę chwilami lodowatą obojętność",
+      "audio": "dev/audio/8502/6205/8502_6205_000109.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1208.09,
+        "original_end_s": 1220.7
+      }
+    },
+    {
+      "id": "8502_6205_000110",
+      "text": "upijał się prędko dolewając sobie bez pamięci ogarniała go cicha rzewliwość i błoga rozkoszna ociężałość uśmiechał się sam do siebie głupim pijanym śmiechem a szynk porykiwał chwilami pijanym gwarem przez cienkie przegrody rwały się szczęki butelek",
+      "audio": "dev/audio/8502/6205/8502_6205_000110.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1912.56,
+        "original_end_s": 1927.41
+      }
+    },
+    {
+      "id": "8502_6205_000111",
+      "text": "posadzka zaskrzypiała w drugim pokoju odsunęło się jakieś krzesło ktoś tam był z pewnością ktoś przechodził z pokoju do pokoju drgały sprzęty szelest cichych kroków rozlegał się wyraźnie",
+      "audio": "dev/audio/8502/6205/8502_6205_000111.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 1306.79,
+        "original_end_s": 1317.95
+      }
+    },
+    {
+      "id": "8502_6205_000112",
+      "text": "więc zagraża mi takie straszne niebezpieczeństwo żartujesz nie wierzysz a ja ci mówię że już się chwiejesz nad przepaścią i lada chwila możesz w nią runąć",
+      "audio": "dev/audio/8502/6205/8502_6205_000112.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 863.49,
+        "original_end_s": 873.6
+      }
+    },
+    {
+      "id": "8502_6205_000113",
+      "text": "po prostu zdawało ci się coś w rodzaju słuchowej halucynacji ja sam ulegałem temu dość często w pierwszym roku mojego pobytu w indjach to zwykły wynik upałów ale wyleczyłem się prędko i zupełnie objaśniał spokojnie joe chcąc usilnie zatrzeć niemiłe wrażenie istotnie jest tutaj wyjątkowo ciepło gorąco nawet zauważył zenon",
+      "audio": "dev/audio/8502/6205/8502_6205_000113.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1756.08,
+        "original_end_s": 1775.02
+      }
+    },
+    {
+      "id": "8502_6205_000114",
+      "text": "a mimo wszystkiego chce im się jeszcze żyć myślał powróciwszy do mieszkania i dość długo nie mógł się otrząsnąć z przykrego wrażenia długo pamiętał tę dziecinną twarzyczkę z krwawą pręgą jej błędne zdziczałe oczy i te męczeńskie wynędzniałe głowy nędzarzy",
+      "audio": "dev/audio/8502/6205/8502_6205_000114.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 530.67,
+        "original_end_s": 546.07
+      }
+    },
+    {
+      "id": "8502_6205_000115",
+      "text": "zajęli miejsca w milczeniu tylko betsy rozdzielając kwiaty po wazonach ustawiała je na stole i usiłowała rozniecić weselny nastrój ale napróżno bo jej słodki napoły dziecinny głos przygasał jak kwiat w mroźnej atmosferze jakichś uraz gniewów i niechęci",
+      "audio": "dev/audio/8502/6205/8502_6205_000115.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 188.99,
+        "original_end_s": 204.78
+      }
+    },
+    {
+      "id": "8502_6205_000116",
+      "text": "pod drzewami noc się jeszcze tłukła strwożona szedł aleją drzew ogromnych szarpanych wichurą i wyjących dziką pieśń zimowego poranku jakiś paw zbłąkany krzyczał w żywopłotach",
+      "audio": "dev/audio/8502/6205/8502_6205_000116.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 2744.79,
+        "original_end_s": 2757.01
+      }
+    },
+    {
+      "id": "8502_6205_000117",
+      "text": "o betsy drgnęło mu naraz serce miłością skoczył ku niej pochwycił ręce i zaczął je gorąco całować bo ja tak tęsknię za tobą tak kocham tak czekam szeptała wzruszona",
+      "audio": "dev/audio/8502/6205/8502_6205_000117.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1881.04,
+        "original_end_s": 1891.91
+      }
+    },
+    {
+      "id": "8502_6205_000118",
+      "text": "cichszy był jakiś w tej chwili spokojniejszy a co trochę mocnem spojrzeniem obejmował pochyloną głowę syna betsy pobiegła naprzód słychać było dudnienie schodów pod jej stopami",
+      "audio": "dev/audio/8502/6205/8502_6205_000118.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 530.5,
+        "original_end_s": 541.22
+      }
+    },
+    {
+      "id": "8502_6205_000119",
+      "text": "są tylko jedne prawa rządzące światem prawa ducha nieśmiertelnego reszta to pozór oman lub zarozumiała uczona głupota nie słuchał już więcej bo bezwiednie zadźwięczała mu pod palcami ta melodja której nie mógł sobie przypomnieć wychodząc z seansu",
+      "audio": "dev/audio/8502/6205/8502_6205_000119.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2501.12,
+        "original_end_s": 2516.21
+      }
+    },
+    {
+      "id": "8502_6205_000120",
+      "text": "trapi się teraz stanem brata domyślam się z jej niedomówień iż obawiają się aby nie zwariował czy to możliwe pan go dobrze zna trudno przewidywać ale zajmuje się zagadnieniami które dość często wiodą na drogi szaleństwa betsy wspomniała że i pan bywa na spirytystycznych seansach",
+      "audio": "dev/audio/8502/6205/8502_6205_000120.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 752.7,
+        "original_end_s": 769.16
+      }
+    },
+    {
+      "id": "8502_6205_000121",
+      "text": "nie wiem wiem tylko że do otwarcia szynków trwa ich panowanie bo później braknie słuchaczów i pensów dawno pan widział mojego brata zagadnęła niespodziewanie przed trzema dniami byłem u niego na seansie",
+      "audio": "dev/audio/8502/6205/8502_6205_000121.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 644.91,
+        "original_end_s": 657.71
+      }
+    },
+    {
+      "id": "8502_6205_000122",
+      "text": "niema rzeczywistość prawdy zupełnie zbyteczne ohydny bełkot skazanych na wieczną zagładę a przytem nie cierpię tych jarmarcznych cudowności sprawiają mi bowiem wstręt i obrzydzenie",
+      "audio": "dev/audio/8502/6205/8502_6205_000122.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 1960.81,
+        "original_end_s": 1971.64
+      }
+    },
+    {
+      "id": "8502_6205_000123",
+      "text": "rozmowa stawała się coraz żywsza gdyż i milczący zazwyczaj joe jął dowodzić dość zresztą ostrożnie ze względu na ojca że źródła moralnego upadku leżą w kapitalistycznym ustroju w zgniliźnie warstw panujących i w ogólnym zmaterializowaniu ludzkości a w końcu napadł na chrześcijaństwo",
+      "audio": "dev/audio/8502/6205/8502_6205_000123.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 615.57,
+        "original_end_s": 632.69
+      }
+    },
+    {
+      "id": "8502_6205_000124",
+      "text": "może dlatego że siedzę naprzeciw krzesła jej pani że byłem najbliżej trudno przecież czemś innem tłumaczyć a jednak musi być w tem coś innego musi upierał się siwy o żółtej i pomarszczonej twarzy pan siedzący za gospodynią",
+      "audio": "dev/audio/8502/6205/8502_6205_000124.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 1808.76,
+        "original_end_s": 1822.37
+      }
+    },
+    {
+      "id": "8502_6205_000125",
+      "text": "co się z tobą działo pytał joe siadając obok nie odpowiedział podał mu depeszę betsy pojadę tam zaraz po obiedzie niepotrzebnie się niepokoi pojedziesz ze mną",
+      "audio": "dev/audio/8502/6205/8502_6205_000125.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 817.86,
+        "original_end_s": 829.12
+      }
+    },
+    {
+      "id": "8502_6205_000126",
+      "text": "poczuł nagle niezmierny ciężar samotności i opuszczenia niezmierne oddalenie od jakiegoś życia którego nie mógł sobie teraz przypomnieć a przytem był już tak pijany że się nie mógł poruszać położył głowę na stole i usiłując sobie coś przypomnieć zapadał w gorączkową drzemkę budził się z niej niekiedy próbował wstać i znowu spał",
+      "audio": "dev/audio/8502/6205/8502_6205_000126.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_04_reymont_64kb.mp3",
+        "original_start_s": 1946.45,
+        "original_end_s": 1966.26
+      }
+    },
+    {
+      "id": "8502_6205_000127",
+      "text": "poszli już w milczeniu dalej przystając kolejno przed kaplicami które mrok coraz gęstszą zasnuwał przysłoną że widniały w cichych brzaskach witraży jak przez gąszcz leśną widać ostatnie zorze zachodów dawno nie widziałam pana ozwała się dziwnie miękko jakby z wyrzutem",
+      "audio": "dev/audio/8502/6205/8502_6205_000127.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_05_reymont_64kb.mp3",
+        "original_start_s": 571.39,
+        "original_end_s": 587.06
+      }
+    },
+    {
+      "id": "8502_6205_000128",
+      "text": "przymknął oczy aby ciszej i radośniej śnić ten cudowny sen o sobie pogrążał się w marzenie niewyrażalne zgoła w marzenie o marzeniach niekiedy powracał z nieśmiertelnych krain tęsknoty",
+      "audio": "dev/audio/8502/6205/8502_6205_000128.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 743.84,
+        "original_end_s": 754.64
+      }
+    },
+    {
+      "id": "8502_6205_000129",
+      "text": "przysunęli się bliżej aż do wysokiej mównicy przenośnej na której stał pod parasolem wysoki czerwony i opasły człowiek i przerzucając ustawicznie rozpięty parasol z ręki do ręki krzyczał ochrypłym a wielce namaszczonym głosem coś w rodzaju kazania",
+      "audio": "dev/audio/8502/6205/8502_6205_000129.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 470.28,
+        "original_end_s": 485.38
+      }
+    },
+    {
+      "id": "8502_6205_000130",
+      "text": "mógłżebym myśleć o czem innym przenikliwszy nieodgadniony uśmiech przewiał po jej ustach gdyby nie to spotkanie byłbym zapomniał szepnął jakby z wyrzutem byłbym zapomniał na zawsze",
+      "audio": "dev/audio/8502/6205/8502_6205_000130.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2000.24,
+        "original_end_s": 2012.52
+      }
+    },
+    {
+      "id": "8502_6205_000131",
+      "text": "wysunęli się z tłumu i szli prędko pustym trotuarem na tamtym rogu tak samo zbawiają zauważył ironicznie jakoż w istocie i tam nieco w głębi czarnej i wąskiej uliczki",
+      "audio": "dev/audio/8502/6205/8502_6205_000131.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 605.48,
+        "original_end_s": 616.37
+      }
+    },
+    {
+      "id": "8502_6205_000132",
+      "text": "wionęły na świat dźwiękiem zupełnie mu obcym i treścią zgoła niezrozumianą chodziłam z dobrym przewodnikiem odparła po chwili podnosząc zwolna głowę i spoglądając mu prosto w oczy",
+      "audio": "dev/audio/8502/6205/8502_6205_000132.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_02_reymont_64kb.mp3",
+        "original_start_s": 2325.73,
+        "original_end_s": 2336.01
+      }
+    },
+    {
+      "id": "8502_6205_000133",
+      "text": "cud trwał przez mgnienie wskrzeszony umiera śmiercią wieczną rozmyślał z gryzącym smutkiem bo w tej chwili poczuł tę prawdę gorzką serca że ady już nie kocha i wandzia jest mu obcą i również obojętną ale nie chciał się jeszcze przyznać do tego",
+      "audio": "dev/audio/8502/6205/8502_6205_000133.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 157.89,
+        "original_end_s": 172.5
+      }
+    },
+    {
+      "id": "8502_6205_000134",
+      "text": "usta zacięte cierpieniem a we wszystkich wyraz drapieżnego nieubłagania chciwości i egoizmu a ten ruch olbrzymi te tysiące tysięcy kręcących się wkółko jakby w szale i zapamiętaniu ta dzika walka wszystkich ze wszystkimi te niezliczone hordy wciąż węszące za łupem",
+      "audio": "dev/audio/8502/6205/8502_6205_000134.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2056.82,
+        "original_end_s": 2073.23
+      }
+    },
+    {
+      "id": "8502_6205_000135",
+      "text": "dopiero przez te długie długie lata samotności zmierzyłam całą otchłań cierpienia zaczęła roztaczać taki przebolesny obraz męki tęsknoty i daremnego oczekiwania że dusza mu spokorniała i już ze współczuciem wsłuchiwał się w te echa przesiąknięte łzami ale gdy potem jęła snuć przędzę przyszłości schmurzył się nagle i wtrącił z rozmysłem",
+      "audio": "dev/audio/8502/6205/8502_6205_000135.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_07_reymont_64kb.mp3",
+        "original_start_s": 2860.07,
+        "original_end_s": 2879.2
+      }
+    },
+    {
+      "id": "8502_6205_000136",
+      "text": "że gdy się znowu podniósł w sobie nie mógł zrozumieć gdzie jest którym jest z tych dwóch rozszczepień podniósł się nagle z ziemi pod wpływem świętej radości cudu ten drugi on podniósł się również stali naprzeciw siebie z tym samym cichym szczęsnym uśmiechem z tem czuciem",
+      "audio": "dev/audio/8502/6205/8502_6205_000136.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_06_reymont_64kb.mp3",
+        "original_start_s": 680.9,
+        "original_end_s": 697.43
+      }
+    },
+    {
+      "id": "8502_6205_000137",
+      "text": "wspominała mi o tem szukałem pana i w naszym klubie a kiedy powróciłem już u joego nie było nikogo prócz doktora i pielęgniarki właśnie zasiedliśmy do herbaty rozmawiając o chorym",
+      "audio": "dev/audio/8502/6205/8502_6205_000137.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 2548.2,
+        "original_end_s": 2558.81
+      }
+    },
+    {
+      "id": "8502_6205_000138",
+      "text": "rozmyślać spokojnie znowu zagłębił się we wspomnienia poznanie daisy i wszystko co o niej słyszał na co patrzył co sam z jej powodu przeżył nawet to co zaledwie się prześlizgnęło przez mózg i tylko majakiem padło nieświadomym jawiło się teraz w nim jakby zwolna po raz drugi przeżywane",
+      "audio": "dev/audio/8502/6205/8502_6205_000138.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_09_reymont_64kb.mp3",
+        "original_start_s": 1801.25,
+        "original_end_s": 1817.37
+      }
+    },
+    {
+      "id": "8502_6205_000139",
+      "text": "to są tylko zarodzie zbrodni zła i podłości powstałe w ciemnicach ziemi wiecznie unoszące się nad nią i niezdolne do nieśmiertelnych słonecznych bytowań jak psy w mroźną noc głodne i bezdomne cisną się do izb ogrzanych tak i one krążą w świetlanych orbitach dusz twórczych władczych i nieśmiertelnych",
+      "audio": "dev/audio/8502/6205/8502_6205_000139.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_08_reymont_64kb.mp3",
+        "original_start_s": 1989.46,
+        "original_end_s": 2007.17
+      }
+    },
+    {
+      "id": "8502_6205_000140",
+      "text": "sixteen o odpowiedział żartobliwie to jest mój kalendarz na którym obliczam pozostałe do niedzieli dni bo ja nimi tylko żyję ozwała się jeszcze ciszej i bliżej już o parę stopni od niego",
+      "audio": "dev/audio/8502/6205/8502_6205_000140.opus",
+      "tags": {
+        "speaker_id": "mls-pl-8502",
+        "gender": "w",
+        "book_id": "6205",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/wampir_1309_librivox/wampir_03_reymont_64kb.mp3",
+        "original_start_s": 1869.67,
+        "original_end_s": 1881.04
+      }
+    }
+  ]
+}

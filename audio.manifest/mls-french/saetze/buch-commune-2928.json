@@ -1,0 +1,3966 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Commune",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "2928",
+    "book_title": "Commune",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "4937_2928_000000",
+      "text": "le seize août une sorte d'avantage remporté par bazaine à borny et grandi à dessein par le gouvernement afin de le brandir devant la crédulité populaire semblait retarder encore la marche de l'armée française",
+      "audio": "dev/audio/4937/2928/4937_2928_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 157.85,
+        "original_end_s": 173.69
+      }
+    },
+    {
+      "id": "4937_2928_000001",
+      "text": "on savait que quatre mille cadavres et le reste prisonnier c'était tout ce qui restait du corps d'armée de frossard on savait les prussiens établis en france mais plus terrible était la situation plus grands étaient les courages la république fermerait les plaies grandirait les âmes",
+      "audio": "dev/audio/4937/2928/4937_2928_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 79.02,
+        "original_end_s": 96.62
+      }
+    },
+    {
+      "id": "4937_2928_000002",
+      "text": "l'impression en fut si grande que le vieux guillaume s'écria ô les braves gens la boucherie fut telle que la ville et les champs environnants étaient couverts de cadavres à ce lac de sang les empereurs de france et d'allemagne eussent pu largement étancher leur soif",
+      "audio": "dev/audio/4937/2928/4937_2928_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 637.84,
+        "original_end_s": 654.18
+      }
+    },
+    {
+      "id": "4937_2928_000003",
+      "text": "il y avait dans l'armée même quelques officiers républicains l'un d'eux nathaniel rossel écrivait à son père en ce même quatorze août où l'on tenta de proclamer la république à paris la lettre suivante conservée dans ses papiers posthumes",
+      "audio": "dev/audio/4937/2928/4937_2928_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 220.25,
+        "original_end_s": 235.53
+      }
+    },
+    {
+      "id": "4937_2928_000004",
+      "text": "c'en est fait désormais on ne pourra jamais remuer que la cendre de la légende impériale il semble sur le vallon de sedan voir pareille à un vol de fantômes passer la fête impériale menée avec les dieux d'offenbach par l'orchestre railleur de la belle hélène tandis que spectral monte l'océan des morts",
+      "audio": "dev/audio/4937/2928/4937_2928_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 696.81,
+        "original_end_s": 715.85
+      }
+    },
+    {
+      "id": "4937_2928_000005",
+      "text": "le seize l'armée avait passé la moselle et trouvait l'ennemi devant elle aussitôt je fus débarrassé de mon service les convois de blessés qui arrivaient annonçaient une grande bataille",
+      "audio": "dev/audio/4937/2928/4937_2928_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 315.31,
+        "original_end_s": 326.14
+      }
+    },
+    {
+      "id": "4937_2928_000006",
+      "text": "les combats de gravelotte rézonville vionville mars-la-tour furent les derniers avant la jonction des deux armées prussiennes qui entourèrent d'un demi-cercle l'armée française bientôt le cercle allait se fermer le gouvernement continuait à annoncer des victoires",
+      "audio": "dev/audio/4937/2928/4937_2928_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 173.69,
+        "original_end_s": 192.58
+      }
+    },
+    {
+      "id": "4937_2928_000007",
+      "text": "à metz je n'ai pas tardé à reconnaître l'incapacité de nos chefs généraux et états-majors incapacité sans remède confessée par toute l'armée et comme j'ai l'habitude de pousser les déductions jusqu'au bout je rêvais avant même le quatorze au moyen d'expulser toute cette clique",
+      "audio": "dev/audio/4937/2928/4937_2928_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 251.07,
+        "original_end_s": 267.94
+      }
+    },
+    {
+      "id": "4937_2928_000008",
+      "text": "nous nous promenions devant ces hôtels bruyants de la rue des clercs remplis à toute heure de chevaux de voitures d'intendants couverts de galons et de tout le et de tout le tumulte d'un état-major insolent et viveur",
+      "audio": "dev/audio/4937/2928/4937_2928_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 280.72,
+        "original_end_s": 292.65
+      }
+    },
+    {
+      "id": "4937_2928_000009",
+      "text": "les blanquistes surtout croyaient pouvoir proclamer la république avant que l'empire vermoulu s'écroulât de lui-même pour cela il fallait des armes et comme on n'en avait pas assez on voulut commencer par prendre la caserne des pompiers boulevard de la villette au cent quarante et un je crois dont on aurait pris les armes",
+      "audio": "dev/audio/4937/2928/4937_2928_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 106.94,
+        "original_end_s": 126.01
+      }
+    },
+    {
+      "id": "4937_2928_000010",
+      "text": "les prisonniers de sedan furent conduits en allemagne six mois après la commission d'assainissement des champs de bataille fit déblayer les fossés dans lesquels à la hâte les morts avaient été entassés on versa sur eux de la poix et à l'aide de bois de mélèze on alluma un bûcher",
+      "audio": "dev/audio/4937/2928/4937_2928_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 733.31,
+        "original_end_s": 750.08
+      }
+    },
+    {
+      "id": "4937_2928_000011",
+      "text": "les mélodieuses voix allemandes toutes pleines de rêve planèrent inconscientes sur le sang versé napoléon iii ne voulut pas la déchéance du désespoir il se rendit et avec lui plus de quatre-vingt mille hommes les armes les drapeaux cent mille chevaux six cent cinquante pièces de canon",
+      "audio": "dev/audio/4937/2928/4937_2928_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 666.68,
+        "original_end_s": 685.59
+      }
+    },
+    {
+      "id": "4937_2928_000012",
+      "text": "comme il y allait surtout de la tête de nos amis eudes et brideau j'avoue pour ma part n'avoir voulu rendre aucune de ces signatures sur les listes qui m'étaient confiées nous fûmes chargées adèle esquiros andré leo et moi de porter le volumineux dossier chez le gouverneur de paris c'était le général trochu",
+      "audio": "dev/audio/4937/2928/4937_2928_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 449.4,
+        "original_end_s": 468.89
+      }
+    },
+    {
+      "id": "4937_2928_000013",
+      "text": "on espérait nous chasser poliment mais après nous être assises sur une de banquettes nous déclarâmes que nous venions de la part du peuple de paris pour remettre en mains propres au général trochu des papiers dont il fallait qu'il eût connaissance",
+      "audio": "dev/audio/4937/2928/4937_2928_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 494.66,
+        "original_end_s": 510.3
+      }
+    },
+    {
+      "id": "4937_2928_000014",
+      "text": "ces bruits de victoires rendirent plus facile la condamnation à mort d'eudes et de brideau certains radicaux eux-mêmes appelèrent bandits les héros de la villette gambetta avait tout d'abord proposé contre eux l'exécution immédiate et sans jugement",
+      "audio": "dev/audio/4937/2928/4937_2928_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 192.58,
+        "original_end_s": 208.92
+      }
+    },
+    {
+      "id": "4937_2928_000015",
+      "text": "le complot de la villette fut pendant quelque temps à l'ordre du jour de la terreur bourgeoise les révolutionnaires cependant n'étaient pas les seuls à juger la situation et les hommes à leur juste valeur",
+      "audio": "dev/audio/4937/2928/4937_2928_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 208.92,
+        "original_end_s": 220.25
+      }
+    },
+    {
+      "id": "4937_2928_000016",
+      "text": "nous examinions les entrées comment étaient placées les portes et comment avec cinquante hommes résolus on pouvait enlever ces gaillards-là et nous cherchions ces cinquante hommes et nous n'en avons pas trouvé dix",
+      "audio": "dev/audio/4937/2928/4937_2928_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 292.65,
+        "original_end_s": 304.69
+      }
+    },
+    {
+      "id": "4937_2928_000017",
+      "text": "la république ce n'était point assez de vivre pour elle on y voulait mourir c'est dans ces aspirations que le quatorze août soixante dix eut lieu l'affaire de la villette",
+      "audio": "dev/audio/4937/2928/4937_2928_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 96.62,
+        "original_end_s": 106.94
+      }
+    },
+    {
+      "id": "4937_2928_000018",
+      "text": "le deux septembre dans la brume du soir l'armée victorieuse debout sur les hauteurs chanta un cantique d'actions de grâces au dieu des armées qu'invoquaient également bonaparte et trochu",
+      "audio": "dev/audio/4937/2928/4937_2928_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 654.18,
+        "original_end_s": 666.68
+      }
+    },
+    {
+      "id": "4937_2928_000019",
+      "text": "tandis que les victoires par dépêches continuaient sonnaient leurs troupes sur toutes les défaites on eût exécuté eudes et brideau sans les retards apportés à cette exécution par une lettre de michelet couverte de milliers de signatures protestant contre cette criminelle mesure",
+      "audio": "dev/audio/4937/2928/4937_2928_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 421.28,
+        "original_end_s": 435.67
+      }
+    },
+    {
+      "id": "4937_2928_000020",
+      "text": "j'ai rarement éprouvé un plus grand serrement de cœur qu'en voyant les dernières chances qui nous restaient aussi honteusement abandonnées car chaque fois qu'on se battait je reprenais confiance",
+      "audio": "dev/audio/4937/2928/4937_2928_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 393.37,
+        "original_end_s": 404.51
+      }
+    },
+    {
+      "id": "4937_2928_000021",
+      "text": "le quatorze août vers le soir nous vîmes du haut des remparts de serpenoise l'horizon depuis saint-julien jusqu'à queuleu illuminé de feux de la bataille",
+      "audio": "dev/audio/4937/2928/4937_2928_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 304.69,
+        "original_end_s": 315.31
+      }
+    },
+    {
+      "id": "4937_2928_000022",
+      "text": "on a depuis attribué à gallifet ce que fit baufremont pour diminuer l'inoubliable horreur de l'égorgement de paris nous savons que gallifet était à sedan puisqu'il y ramassa le chapeau à plumes blanches de margueritte cela ne fait absolument rien au sang dont il est couvert et qui ne s'effacera jamais",
+      "audio": "dev/audio/4937/2928/4937_2928_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 715.85,
+        "original_end_s": 733.31
+      }
+    },
+    {
+      "id": "4937_2928_000023",
+      "text": "ceux de montmartre arrivés tard vinrent sur le boulevard désert dont les volets étaient fermés avec bruit la voiture dans laquelle avaient été jetés eudes et brideau prisonniers entourée de mouchards et d'imbéciles qui criaient aux prussiens tout était fini pour cette fois encore mais l'occasion reviendrait",
+      "audio": "dev/audio/4937/2928/4937_2928_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 139.42,
+        "original_end_s": 157.85
+      }
+    },
+    {
+      "id": "4937_2928_000024",
+      "text": "ce secrétaire ne semblait pas hostile à ce que nous demandions et il trouva naturelles les précautions prises par nous le temps pressait et malgré l'assurance du secrétaire que le gouverneur de paris avait un grand respect pour la volonté populaire nous vivions en continuelle crainte d'apprendre l'exécution faite tout à coup",
+      "audio": "dev/audio/4937/2928/4937_2928_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 543.15,
+        "original_end_s": 561.49
+      }
+    },
+    {
+      "id": "4937_2928_000025",
+      "text": "le malheureux lebœuf chercha dit-on à se faire tuer et réussit seulement à faire tuer sottement beaucoup de braves gens j'allai le soir du trente-et-un voir la bataille du au fort de saint julien",
+      "audio": "dev/audio/4937/2928/4937_2928_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 370.09,
+        "original_end_s": 382.34
+      }
+    },
+    {
+      "id": "4937_2928_000026",
+      "text": "et le lendemain premier septembre à la queue du champ de bataille j'y rencontrai en particulier saillard devenu chef d'escadron qui attendait avec deux batteries le moment de s'engager",
+      "audio": "dev/audio/4937/2928/4937_2928_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 382.34,
+        "original_end_s": 393.37
+      }
+    },
+    {
+      "id": "4937_2928_000027",
+      "text": "ce n'était pas chose facile d'y parvenir mais on avait eu raison de compter sur l'audace féminine plus on nous disait qu'il était impossible de pénétrer chez le gouverneur plus nous avancions",
+      "audio": "dev/audio/4937/2928/4937_2928_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 468.89,
+        "original_end_s": 480.37
+      }
+    },
+    {
+      "id": "4937_2928_000028",
+      "text": "je courus à cheval par moulins et châtel jusqu'au plateau de gravelotte où j'assistai à une partie de l'action à côté d'une batterie de mitrailleuses magnifiquement commandée j'ai revu une fois depuis le jour de la capitulation le capitaine de cette batterie",
+      "audio": "dev/audio/4937/2928/4937_2928_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 326.14,
+        "original_end_s": 341.96
+      }
+    },
+    {
+      "id": "4937_2928_000029",
+      "text": "celui-ci entra en pourparlers avec nous dit que trochu était absent il avait l'ordre de recevoir à sa place ce qui était adressé au général il voulut bien consigner sur un registre le dépôt du dossier que nous lui remîmes après des preuves que nous n'étions pas trompés",
+      "audio": "dev/audio/4937/2928/4937_2928_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 528.08,
+        "original_end_s": 543.15
+      }
+    },
+    {
+      "id": "4937_2928_000030",
+      "text": "nous parvînmes à entrer d'assaut dans une sorte d'antichambre entourée de banquettes appuyées contre les murs au milieu une petite table couverte de papiers là attendaient d'ordinaire ceux qui voulaient voir le gouverneur nous étions seules",
+      "audio": "dev/audio/4937/2928/4937_2928_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 480.37,
+        "original_end_s": 494.66
+      }
+    },
+    {
+      "id": "4937_2928_000031",
+      "text": "j'en avais imaginé pour cela qui ne seraient pas impraticables je me rappelle que le soir avec mon camarade x esprit généreux et résolu qui était tout à fait gagné à mes idées",
+      "audio": "dev/audio/4937/2928/4937_2928_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 267.94,
+        "original_end_s": 280.72
+      }
+    },
+    {
+      "id": "4937_2928_000032",
+      "text": "dans quelques accès de délire impérialiste une armée allemande descendant la meuse les français se replièrent sur sedan on lit à ce propos dans le rapport officiel du général ducrot celui qui ne devait rentrer que mort ou victorieux mais ne fut ni l'un ni l'autre",
+      "audio": "dev/audio/4937/2928/4937_2928_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 561.49,
+        "original_end_s": 579.16
+      }
+    },
+    {
+      "id": "4937_2928_000033",
+      "text": "quelques pièces avaient trente coups à tirer d'autres six mais la plupart manquaient d'écouvillons le premier septembre les français furent enveloppés et broyés comme en un creuset par l'artillerie allemande qui occupait les hauteurs",
+      "audio": "dev/audio/4937/2928/4937_2928_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 597.56,
+        "original_end_s": 612.69
+      }
+    },
+    {
+      "id": "4937_2928_000034",
+      "text": "j'ai eu depuis le début de la guerre des aventures étranges et assez nombreuses mais un trait particulier qui t'étonnera c'est que je n'ai jamais été envoyé au feu j'y suis allé quelquefois mais pour mon seul agrément et j'ai couru peu de dangers",
+      "audio": "dev/audio/4937/2928/4937_2928_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 235.53,
+        "original_end_s": 251.07
+      }
+    },
+    {
+      "id": "4937_2928_000035",
+      "text": "n'était-ce pas une chose étrange que ces hommes inconnus les uns aux autres songeant à la fois à la même heure néfaste où les despotes achèveraient leur œuvre les uns à proclamer la république libératrice les autres à débarrasser l'armée des états-majors insolents et viveurs de l'empire",
+      "audio": "dev/audio/4937/2928/4937_2928_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 404.51,
+        "original_end_s": 421.28
+      }
+    },
+    {
+      "id": "4937_2928_000036",
+      "text": "cette place de sedan avait son importance stratégique puisque se ralliant à tous par mézières et l'embranchement d'huson elle était l'unique moyen de ravitaillement d'une armée opérant par le nord sur metz était à peine à l'abri d'un coup de main ni vivres ni munitions ni approvisionnements d'aucune sorte",
+      "audio": "dev/audio/4937/2928/4937_2928_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 579.16,
+        "original_end_s": 597.56
+      }
+    },
+    {
+      "id": "4937_2928_000037",
+      "text": "un tel vent d'effroi passait sur paris pendant cette dernière phase de l'agonie impériale que plusieurs de ceux qui avaient d'abord avec enthousiasme donné leur signature venaient la redemander il y allait disaient-ils de leur tête",
+      "audio": "dev/audio/4937/2928/4937_2928_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 435.67,
+        "original_end_s": 449.4
+      }
+    },
+    {
+      "id": "4937_2928_000038",
+      "text": "ces mots de la part du peuple firent un peu réfléchir on n'osait pas nous jeter dehors et la douceur fut employée pour nous faire déposer notre dossier sur la table cela fut impossible à obtenir de nous l'un de ceux qui étaient là se détacha alors et revint avec un individu qu'on nous dit être le secrétaire de trochu",
+      "audio": "dev/audio/4937/2928/4937_2928_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 510.3,
+        "original_end_s": 528.08
+      }
+    },
+    {
+      "id": "4937_2928_000039",
+      "text": "lendemain le blocus fut complété je n'en continuai pas moins à chercher des ennemis à ces ineptes généraux le trente et un août et le premier septembre ils essayèrent de livrer une bataille et ne savaient même pas engager leurs troupes",
+      "audio": "dev/audio/4937/2928/4937_2928_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 356.11,
+        "original_end_s": 370.09
+      }
+    },
+    {
+      "id": "4937_2928_000040",
+      "text": "la république seule pouvait délivrer la france de l'invasion la laver des vingt ans d'empire qu'elle avait subis ouvrir toutes grandes les portes de l'avenir fermées par des monceaux de cadavres",
+      "audio": "dev/audio/4937/2928/4937_2928_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 51.16,
+        "original_end_s": 63.33
+      }
+    },
+    {
+      "id": "4937_2928_000041",
+      "text": "sur les débris pour que tout fût consumé on jeta de la chaux vive elle fut ces années-là la chaux vive une terrible mangeuse d'hommes",
+      "audio": "dev/audio/4937/2928/4937_2928_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 750.08,
+        "original_end_s": 760.62
+      }
+    },
+    {
+      "id": "4937_2928_000042",
+      "text": "dans montmartre belleville au quartier latin les esprits révolutionnaires et par dessus tous les autres les blanquistes criaient aux armes on savait l'écrasement dont le gouvernement n'avouait qu'une seule chose la charge des cuirassiers",
+      "audio": "dev/audio/4937/2928/4937_2928_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 63.33,
+        "original_end_s": 79.02
+      }
+    },
+    {
+      "id": "4937_2928_000043",
+      "text": "un pompier a-t-on dit avait été tué il n'était que blessé et l'a fait connaître lui-même depuis le poste était nombreux bien armé la police prévenue on ne sait comment tomba sur les révolutionnaires",
+      "audio": "dev/audio/4937/2928/4937_2928_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 126.01,
+        "original_end_s": 139.42
+      }
+    },
+    {
+      "id": "4937_2928_000044",
+      "text": "le dix-huit j'allai encore le soir voir la bataille quand je rencontrai le général grenier il en revenait ayant perdu sa division qui se débandait tranquillement ayant combattu sept heures sans être relevé",
+      "audio": "dev/audio/4937/2928/4937_2928_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 341.96,
+        "original_end_s": 356.11
+      }
+    },
+    {
+      "id": "4937_2928_000045",
+      "text": "il y avait le premier hussard et le sixième chasseur brigade tillard les premiers deuxièmes et quatrièmes chasseurs d'afrique brigade marguerite ce fut horrible et beau c'est ce qu'on appelle la charge de sedan",
+      "audio": "dev/audio/4937/2928/4937_2928_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 624.84,
+        "original_end_s": 637.84
+      }
+    },
+    {
+      "id": "4937_2928_000046",
+      "text": "l'empire était fini et si profondément enseveli que rien jamais n'en peut revenir l'homme de décembre aboutissant à l'homme de sedan entraînait avec lui toute la dynastie",
+      "audio": "dev/audio/4937/2928/4937_2928_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_07_michel_64kb.mp3",
+        "original_start_s": 685.59,
+        "original_end_s": 696.81
+      }
+    },
+    {
+      "id": "4937_2928_000047",
+      "text": "je n'ai ni infirmiers ni ouvriers d'administration ni caissons d'ambulances ni foins de campagne ni trains ni instruments de pesage et à la quatrième division de cavalerie je n'ai pas même un fonctionnaire",
+      "audio": "dev/audio/4937/2928/4937_2928_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 274.77,
+        "original_end_s": 289.03
+      }
+    },
+    {
+      "id": "4937_2928_000048",
+      "text": "et que les vieilles culottes de peau nommaient par avance napoléon quatre ramassait niaisement des balles dans les champs après la bataille à l'âge où tant d'héroïques enfants combattirent comme des hommes aux jours de mai le grotesque se mêlait à l'horrible",
+      "audio": "dev/audio/4937/2928/4937_2928_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 688.18,
+        "original_end_s": 705.48
+      }
+    },
+    {
+      "id": "4937_2928_000049",
+      "text": "major général à guerre paris metz le vingt-sept juillet dix-huit cent soixante-dix une heure et quart du soir les détachements qui rejoignent l'armée continuent à arriver sans cartouches et sans campement",
+      "audio": "dev/audio/4937/2928/4937_2928_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 332.11,
+        "original_end_s": 347.92
+      }
+    },
+    {
+      "id": "4937_2928_000050",
+      "text": "c'était l'armée de frédéric de prusse quand il y eut environ cent vingt mille hommes traînant quatre cents canons ils attaquèrent défonçant les deux ailes des français à la fois",
+      "audio": "dev/audio/4937/2928/4937_2928_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 448.25,
+        "original_end_s": 459.67
+      }
+    },
+    {
+      "id": "4937_2928_000051",
+      "text": "vous aurez peine à croire qu'à strasbourg dans ce grand arsenal de l'est il a été impossible de trouver des aiguilles des rondelles et des têtes mobiles pour nos fusils la première chose que ils que nous disaient les commandants de batteries de mitrailleuses c'était qu'il faudrait ménager les munitions parce qu'il n'y en avait pas",
+      "audio": "dev/audio/4937/2928/4937_2928_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 619.34,
+        "original_end_s": 638.13
+      }
+    },
+    {
+      "id": "4937_2928_000052",
+      "text": "pendant que ces dépêches alors secrètes étaient échangées la poignée d'hommes disséminés sur l'étendue des frontières disparaissait sous le nombre des soldats de guillaume",
+      "audio": "dev/audio/4937/2928/4937_2928_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 407.09,
+        "original_end_s": 417.51
+      }
+    },
+    {
+      "id": "4937_2928_000053",
+      "text": "major général à guerre paris metz le vingt neuf juillet dix huit cent soixante dix cinq heures trente six du matin je manque de biscuits pour marcher en avant",
+      "audio": "dev/audio/4937/2928/4937_2928_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 347.92,
+        "original_end_s": 360.56
+      }
+    },
+    {
+      "id": "4937_2928_000054",
+      "text": "il manque à verdun comme approvisionnements vins eau-de-vie sucre et café lard légumes secs viande fraîche prière de prévoir d'urgence pour les quatre mille hommes mobiles sans armes",
+      "audio": "dev/audio/4937/2928/4937_2928_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 489.51,
+        "original_end_s": 503.55
+      }
+    },
+    {
+      "id": "4937_2928_000055",
+      "text": "à froeschwiller mac-mahon appuyé d'un côté sur reichshoffen de l'autre sur elsanhaussen attendait paisiblement de failly qui ne venait pas sans s'apercevoir que peu à peu par insignifiantes poignées des soldats prussiens montaient s'entassant dans la plaine",
+      "audio": "dev/audio/4937/2928/4937_2928_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 428.41,
+        "original_end_s": 448.25
+      }
+    },
+    {
+      "id": "4937_2928_000056",
+      "text": "thionville ce vingt quatre juillet dix huit cent soixante dix neuf heures douze du matin le quatrième corps n'a encore ni cantines ni ambulances ni voitures d'équipages pour les corps et les états-majors tout est complètement dégarni l'incroyable oubli continue",
+      "audio": "dev/audio/4937/2928/4937_2928_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 243.36,
+        "original_end_s": 263.0
+      }
+    },
+    {
+      "id": "4937_2928_000057",
+      "text": "mac mahon fut ainsi surpris avec quarante mille hommes alors comme jadis les cuirassiers se sacrifièrent c'est ce qu'on appelle la charge de reichshoffen",
+      "audio": "dev/audio/4937/2928/4937_2928_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 459.67,
+        "original_end_s": 470.65
+      }
+    },
+    {
+      "id": "4937_2928_000058",
+      "text": "le grand état-major général accuse deux cent quarante trois mille cent soixante et onze hommes au premier août dix huit cent soixante dix l'organisation matérielle était incomplète les commandants de corps d'armée n'avaient encore connaissance d'aucun plan de campagne",
+      "audio": "dev/audio/4937/2928/4937_2928_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 551.07,
+        "original_end_s": 566.68
+      }
+    },
+    {
+      "id": "4937_2928_000059",
+      "text": "qu'aux jours d'émeute pour mitrailler et qui en temps de paix ne figurait que sur les registres du ministère de la guerre fut équipée paris apprenait on ne sait comment qu'un certain général n'avait pu trouver ses troupes",
+      "audio": "dev/audio/4937/2928/4937_2928_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 187.94,
+        "original_end_s": 202.74
+      }
+    },
+    {
+      "id": "4937_2928_000060",
+      "text": "la déclaration sur la situation par le général frossard ne laisse aucun doute l'effectif total atteignait dit-il à peine deux cent mille hommes au commencement après l'arrivée des contingents divers il put s'élever à deux cent cinquante mille mais ne dépassa jamais ce chiffre",
+      "audio": "dev/audio/4937/2928/4937_2928_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 532.96,
+        "original_end_s": 551.07
+      }
+    },
+    {
+      "id": "4937_2928_000061",
+      "text": "le six l'ordre ayant été donné de faire sauter un pont il ne s'est pas trouvé de poudre de laine dans tout le corps d'armée ni au génie ni à l'artillerie",
+      "audio": "dev/audio/4937/2928/4937_2928_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 651.09,
+        "original_end_s": 661.96
+      }
+    },
+    {
+      "id": "4937_2928_000062",
+      "text": "le sentiment populaire était avec eux devinant sous les impostures officielles la vérité qui depuis éclata au grand jour de la publication des dépêches officielles dans l'enquête officielle sur la guerre de soixante et onze apparaît la vérité telle qu'on la jugeait à travers tout",
+      "audio": "dev/audio/4937/2928/4937_2928_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 53.27,
+        "original_end_s": 72.29
+      }
+    },
+    {
+      "id": "4937_2928_000063",
+      "text": "mais personne ne pouvait croire cette plaisanterie il fallut bien longtemps plus tard reconnaître que la chose était vraie en lisant dans l'enquête sur la guerre de soixante-dix général michel à guerre paris",
+      "audio": "dev/audio/4937/2928/4937_2928_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 202.74,
+        "original_end_s": 217.27
+      }
+    },
+    {
+      "id": "4937_2928_000064",
+      "text": "le même jour à forbach défaite du deuxième corps la débâcle allait vite les dépêches se succédaient lamentables général subdivision à général division metz verdun sept août dix-huit cent soixante-dix cinq heures quarante-cinq minutes du soir",
+      "audio": "dev/audio/4937/2928/4937_2928_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 470.65,
+        "original_end_s": 489.51
+      }
+    },
+    {
+      "id": "4937_2928_000065",
+      "text": "rien ne pouvait être envoyé comme le prouve ce qui suit intendant sixième corps à guerre paris camp de châlons le huit août dix-huit-cent-soixante-dix dix heures cinquante-deux minutes matin",
+      "audio": "dev/audio/4937/2928/4937_2928_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 503.55,
+        "original_end_s": 517.47
+      }
+    },
+    {
+      "id": "4937_2928_000066",
+      "text": "lorsqu'on eut déclaré la guerre à la prusse aucune des villes voisines de la frontière allemande ne possédait l'armement convenable surtout en fait d'affûts les pièces rayées les canons nouveaux y étaient rares il en était de même pour les munitions et les vivres les approvisionnements de toutes sortes",
+      "audio": "dev/audio/4937/2928/4937_2928_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 585.43,
+        "original_end_s": 604.82
+      }
+    },
+    {
+      "id": "4937_2928_000067",
+      "text": "il paraît positif que les prussiens sont déjà maîtres de tous les défilés de la forêt noire dans les premiers jours d'août moins de deux cent vingt mille hommes gardaient les frontières la garde mobile dont jusqu'alors on n'avait fait usage",
+      "audio": "dev/audio/4937/2928/4937_2928_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 171.19,
+        "original_end_s": 187.94
+      }
+    },
+    {
+      "id": "4937_2928_000068",
+      "text": "demain il y aura à peine cinquante hommes pour garder la place de neuf brissac et le fort mortier la petite pierre et lichlemberg sont également dégarnis c'est la conséquence des ordres que nous exécutons",
+      "audio": "dev/audio/4937/2928/4937_2928_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 156.73,
+        "original_end_s": 171.19
+      }
+    },
+    {
+      "id": "4937_2928_000069",
+      "text": "j'ai vu hier soir l'empereur à saint-cloud rien n'est encore arrêté sur les opérations que doit entreprendre l'armée française il semble cependant que l'on penche vers un mouvement offensif en avant du troisième corps",
+      "audio": "dev/audio/4937/2928/4937_2928_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 379.3,
+        "original_end_s": 392.83
+      }
+    },
+    {
+      "id": "4937_2928_000070",
+      "text": "suis arrivé à belfort pas trouvé ma brigade pas trouvé général de division que dois-je faire sais pas où sont mes régiments toujours d'après les dépêches officielles",
+      "audio": "dev/audio/4937/2928/4937_2928_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 217.27,
+        "original_end_s": 229.26
+      }
+    },
+    {
+      "id": "4937_2928_000071",
+      "text": "ou peut-être de concert avec eugénie qui appelait sa guerre cette désastreuse suite de défaites implorait quelque madone andalouse le jeune bonaparte que nous appelions le petit badingue",
+      "audio": "dev/audio/4937/2928/4937_2928_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 675.62,
+        "original_end_s": 688.18
+      }
+    },
+    {
+      "id": "4937_2928_000072",
+      "text": "c'est à ce moment même que rouher disait à son souverain grâce à vos soins sire la france est prête presque aussitôt on s'aperçut qu'il n'y avait rien de prêt pas la dixième partie du nécessaire",
+      "audio": "dev/audio/4937/2928/4937_2928_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 392.83,
+        "original_end_s": 407.09
+      }
+    },
+    {
+      "id": "4937_2928_000073",
+      "text": "nous savions seulement que nous allions nous trouver en présence de forces allemandes d'environ deux cent cinquante mille hommes pouvant en très peu de temps être portées au double on lit dans les forteresses françaises pendant la guerre de dix cent soixante-dix par le lieutenant-colonel prévost un témoignage non moins terrible",
+      "audio": "dev/audio/4937/2928/4937_2928_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 566.68,
+        "original_end_s": 585.43
+      }
+    },
+    {
+      "id": "4937_2928_000074",
+      "text": "il n'y a à metz ni sucre ni café ni riz ni eau-de-vie ni sel peu de lard et de biscuit envoyez d'urgence au moins un million de rations sur thionville",
+      "audio": "dev/audio/4937/2928/4937_2928_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 131.39,
+        "original_end_s": 144.84
+      }
+    },
+    {
+      "id": "4937_2928_000075",
+      "text": "c'est pourquoi dès le commencement toutes les défaites s'appelaient des victoires alors ceux qui sous l'assommade avaient crié la paix la paix ceux qui avaient écrit on n'ira pas à berlin en promenade militaire se levèrent ne voulant pas de l'invasion",
+      "audio": "dev/audio/4937/2928/4937_2928_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 34.78,
+        "original_end_s": 53.27
+      }
+    },
+    {
+      "id": "4937_2928_000076",
+      "text": "colonel directeur parc troisième corps à directeur artillerie ministère de la guerre paris les munitions de canons à balles n'arrivent pas",
+      "audio": "dev/audio/4937/2928/4937_2928_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 320.16,
+        "original_end_s": 332.11
+      }
+    },
+    {
+      "id": "4937_2928_000077",
+      "text": "en effet à la bataille du sept les batteries de mitrailleuses et autres ont quitté pendant longtemps le champ de bataille pour aller chercher de nouvelles provisions au parc de réserve lequel lui-même était assez pauvre",
+      "audio": "dev/audio/4937/2928/4937_2928_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 638.13,
+        "original_end_s": 651.09
+      }
+    },
+    {
+      "id": "4937_2928_000078",
+      "text": "metz dix neuf juillet dix huit cent soixante dix le général de failly me prévient que le dix septième bataillon de son corps d'armée sont arrivés et je transcris ci-après sa dépêche qui a un caractère d'urgence",
+      "audio": "dev/audio/4937/2928/4937_2928_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 84.68,
+        "original_end_s": 100.3
+      }
+    },
+    {
+      "id": "4937_2928_000079",
+      "text": "quarante mille prussiens suivaient les bords de la lauter et rencontraient des bandes éparses qu'ils broyaient en passant c'était la division du général douay",
+      "audio": "dev/audio/4937/2928/4937_2928_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 417.51,
+        "original_end_s": 428.41
+      }
+    },
+    {
+      "id": "4937_2928_000080",
+      "text": "le maréchal bazaine au général ladimrault à thionville boulet trente juillet dix huit cent soixante dix vous avez reçu la feuille de renseignements numéro cinq par laquelle on vous avise des grands mouvements de troupes sur la sarre et de l'arrivée du roi de prusse à coblence",
+      "audio": "dev/audio/4937/2928/4937_2928_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 360.56,
+        "original_end_s": 379.3
+      }
+    },
+    {
+      "id": "4937_2928_000081",
+      "text": "intendant troisième corps à guerre metz le vingt-quatre juillet dix-huit-cent-soixante-dix sept heures du soir le troisième corps quitte demain",
+      "audio": "dev/audio/4937/2928/4937_2928_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 263.0,
+        "original_end_s": 274.77
+      }
+    },
+    {
+      "id": "4937_2928_000082",
+      "text": "la série se continue en juillet et août sans interruption y eut-il fatalité affolement ignorance les dépêches avouent l'incurie",
+      "audio": "dev/audio/4937/2928/4937_2928_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 289.03,
+        "original_end_s": 300.29
+      }
+    },
+    {
+      "id": "4937_2928_000083",
+      "text": "on trouve dans les ouvrages du général de palikao cette lettre d'un officier général dès mon arrivée à strasbourg il y a environ douze jours j'ai été frappé de l'insuffisance de l'administration et de l'artillerie",
+      "audio": "dev/audio/4937/2928/4937_2928_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 604.82,
+        "original_end_s": 619.34
+      }
+    },
+    {
+      "id": "4937_2928_000084",
+      "text": "voici quels étaient les renseignements envoyés des provinces de l'est au ministre de la guerre lequel assurait que pas un bouton de guêtres ne manquait à l'armée et faisait bon marché des réclamations",
+      "audio": "dev/audio/4937/2928/4937_2928_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 72.29,
+        "original_end_s": 84.68
+      }
+    },
+    {
+      "id": "4937_2928_000085",
+      "text": "le vingt juillet suivant l'intendant général blondeau directeur administratif de la guerre écrivait à paris metz le vingt juillet dix huit cent soixante dix neuf heures cinquante du matin",
+      "audio": "dev/audio/4937/2928/4937_2928_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 116.49,
+        "original_end_s": 131.39
+      }
+    },
+    {
+      "id": "4937_2928_000086",
+      "text": "je reçois de l'intendant en chef de l'armée du rhin la demande cinq cent mille de rations de vivres de campagne je n'ai pas une ration de biscuit ni de vivres de campagne à l'exception du sucre et du café",
+      "audio": "dev/audio/4937/2928/4937_2928_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 517.47,
+        "original_end_s": 532.96
+      }
+    },
+    {
+      "id": "4937_2928_000087",
+      "text": "aucunes ressources point d'argent dans les caisses ou dans les corps je réclame de l'argent sonnant nous avons besoin de tout sous tous les rapports envoyez des voitures pour les états majors personne n'en a envoyez aussi les cantines d'ambulance",
+      "audio": "dev/audio/4937/2928/4937_2928_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 100.3,
+        "original_end_s": 116.49
+      }
+    },
+    {
+      "id": "4937_2928_000088",
+      "text": "sous-intendant à guerre sixième division bureau des subsistances paris mézières vingt cinq juillet dix huit cent soixante dix neuf heures vingt minutes du matin il n'existe aujourd'hui dans la place de mézières ni biscuits ni salaisons",
+      "audio": "dev/audio/4937/2928/4937_2928_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 300.29,
+        "original_end_s": 320.16
+      }
+    },
+    {
+      "id": "4937_2928_000089",
+      "text": "les envois demandés d'urgence par le général blondeau le vingt juillet n'étaient pas arrivés à thionville le vingt-quatre état de choses attesté par le général commandant le quatrième corps du major général à paris",
+      "audio": "dev/audio/4937/2928/4937_2928_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-4937",
+        "gender": "m",
+        "book_id": "2928",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_06_michel_64kb.mp3",
+        "original_start_s": 229.26,
+        "original_end_s": 243.36
+      }
+    },
+    {
+      "id": "5207_2928_000000",
+      "text": "il avait fondé presque à lui seul une école professionnelle gratuite rue thévenot les cours y avaient lieu le soir celles d'entre nous qui en faisaient pouvaient ainsi se rendre rue thévenot après leur classe",
+      "audio": "test/audio/5207/2928/5207_2928_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 140.29,
+        "original_end_s": 155.81
+      }
+    },
+    {
+      "id": "5207_2928_000001",
+      "text": "n'étais là que pour partager les dangers des femmes ne reconnaissant pas le gouvernement madame meurice au nom de la société pour les victimes de la guerre vint me réclamer au même moment où au nom des clubs ferré avronsart et christ y venaient également combien de choses tentèrent les",
+      "audio": "test/audio/5207/2928/5207_2928_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 343.77,
+        "original_end_s": 363.77
+      }
+    },
+    {
+      "id": "5207_2928_000002",
+      "text": "des femmes m'est resté présent c'était le soir après la classe elles étaient assises contre le mur excoffons ébouriffée avec ses cheveux blonds la mère blin déjà vieille avec une capeline de tricot madame poirier ayant un capuchon d'indienne rouge sans",
+      "audio": "test/audio/5207/2928/5207_2928_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 543.77,
+        "original_end_s": 563.77
+      }
+    },
+    {
+      "id": "5207_2928_000003",
+      "text": "femmes en soixante et onze toutes et partout nous avions d'abord établi des ambulances dans les forts et comme nous avions contre l'ordinaire usage trouvé la défense nationale disposée à nous accueillir nous commencions déjà à croire les gouvernants bien disposés pour le combat",
+      "audio": "test/audio/5207/2928/5207_2928_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 363.77,
+        "original_end_s": 383.77
+      }
+    },
+    {
+      "id": "5207_2928_000004",
+      "text": "on a voulu faire des femmes une caste et sous la force qui les écrase à travers les événements la sélection s'est faite on ne nous a pas consultées pour cela et nous n'avons à consulter personne",
+      "audio": "test/audio/5207/2928/5207_2928_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 63.78,
+        "original_end_s": 79.01
+      }
+    },
+    {
+      "id": "5207_2928_000005",
+      "text": "parmi les plus implacables lutteurs qui combattirent l'invasion et défendirent la république comme l'aurore de la liberté les femmes sont en nombre",
+      "audio": "test/audio/5207/2928/5207_2928_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 52.55,
+        "original_end_s": 63.78
+      }
+    },
+    {
+      "id": "5207_2928_000006",
+      "text": "ramenaient aux recherches et aux noms présents où il faisait si bon évoquer l'avenir sur les ruines que je me passionnais pour ces cours j'avais encore le jeudi celui de dessin où la police impériale me fit l'honneur de venir voir un victor noir",
+      "audio": "test/audio/5207/2928/5207_2928_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 183.16,
+        "original_end_s": 201.55
+      }
+    },
+    {
+      "id": "5207_2928_000007",
+      "text": "menacer s'ils ne se taisaient pas de les envoyer chez trochu aussitôt ils crièrent avec effroi mademoiselle nous serons bien sages ne nous envoyez pas chez trochu ces cris et la patience avec laquelle ils attendirent me donnèrent l'idée qu'ils entendaient chez eux tenir en médiocre estime",
+      "audio": "test/audio/5207/2928/5207_2928_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 623.77,
+        "original_end_s": 643.77
+      }
+    },
+    {
+      "id": "5207_2928_000008",
+      "text": "faites pour la circonstance nous partons tous les trois chez les gens riches avec des visages sombres nous commençons par les églises le garde national marchant dans l'allée en frappant son fusil sur les dalles nous prenant chacune un côté de la nef nous quêtons en commençant par les prêtres à",
+      "audio": "test/audio/5207/2928/5207_2928_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 483.77,
+        "original_end_s": 503.77
+      }
+    },
+    {
+      "id": "5207_2928_000009",
+      "text": "quand les événements se multiplièrent charles de sivry prit le cours de littérature et mademoiselle potin ma voisine d'institution et mon amie prit le cours de dessin",
+      "audio": "test/audio/5207/2928/5207_2928_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 212.22,
+        "original_end_s": 225.78
+      }
+    },
+    {
+      "id": "5207_2928_000010",
+      "text": "le monde nouveau nous réunira à l'humanité libre dans laquelle chaque être aura sa place le droit des femmes avec maria deresme marchait courageusement mais exclusivement pour un seul côté de l'humanité",
+      "audio": "test/audio/5207/2928/5207_2928_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 79.01,
+        "original_end_s": 95.85
+      }
+    },
+    {
+      "id": "5207_2928_000011",
+      "text": "on était les femmes de paris tout comme dans les faubourgs comme il me souvient de la société pour l'instruction élémentaire où à droite du bureau dans le petit cabinet j'avais ma place sur la boîte du squelette j'avais à la société de secours ma place sur un tabouret aux pieds de madame goodchaux",
+      "audio": "test/audio/5207/2928/5207_2928_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 283.77,
+        "original_end_s": 303.77
+      }
+    },
+    {
+      "id": "5207_2928_000012",
+      "text": "fonder il n'y avait pas un sou mais nous avions une idée pour faire les fonds nous emmenons avec nous un garde national de haute taille à la physionomie d'une gravure de quatre-vingt-treize marchant devant la baïonnette au fusil nous avec de larges ceintures rouges tenant à la main des bourses",
+      "audio": "test/audio/5207/2928/5207_2928_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 463.77,
+        "original_end_s": 483.77
+      }
+    },
+    {
+      "id": "5207_2928_000013",
+      "text": "je le dis sans esprit de secte puisque j'étais plus souvent à la partie en danger et au comité de vigilance qu'au comité de secours pour les victimes de la guerre",
+      "audio": "test/audio/5207/2928/5207_2928_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 243.62,
+        "original_end_s": 255.78
+      }
+    },
+    {
+      "id": "5207_2928_000014",
+      "text": "garçons et filles dont ma mère s'était chargée et qu'elle gâtait beaucoup les grandes de ma classe l'aidaient tantôt l'une tantôt l'autre les petits dont les parents étaient des gens de la campagne réfugiés à paris avaient été envoyés par clemenceau la mairie s'était chargée de leur nourriture",
+      "audio": "test/audio/5207/2928/5207_2928_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 583.77,
+        "original_end_s": 603.77
+      }
+    },
+    {
+      "id": "5207_2928_000015",
+      "text": "matériel l'ambulance était fondée on rit beaucoup à la mairie de montmartre de cette expédition que nul n'eût encouragée si nous en eussions fait confidence avant la réussite le jour où mesdames poirier blin excoffons vinrent me trouver à ma classe pour commencer le comité de vigilance",
+      "audio": "test/audio/5207/2928/5207_2928_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 523.77,
+        "original_end_s": 543.77
+      }
+    },
+    {
+      "id": "5207_2928_000016",
+      "text": "qui ressemblant sous ses cheveux blancs à une marquise d'autrefois jetait parfois en souriant quelque petite goutte d'eau froide sur mes rêves pourquoi étais-je là une privilégiée je n'en sais rien il est vrai peut-être que les femmes aiment les révoltes nous ne valons",
+      "audio": "test/audio/5207/2928/5207_2928_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 303.77,
+        "original_end_s": 323.77
+      }
+    },
+    {
+      "id": "5207_2928_000017",
+      "text": "avaient fraternisé sous l'empire dans une si large acception que les plus actives faisaient partie de tous les groupements à la fois",
+      "audio": "test/audio/5207/2928/5207_2928_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 113.3,
+        "original_end_s": 123.77
+      }
+    },
+    {
+      "id": "5207_2928_000018",
+      "text": "compliments sans hésitation elles me dirent simplement il faut que vous veniez avec nous et je leur répondis j'y vais il y avait en ce moment à ma classe presque deux cents élèves des fillettes de six à douze ans que nous instruisions ma sous-maîtresse et moi et de tout petits enfants de trois à six ans",
+      "audio": "test/audio/5207/2928/5207_2928_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 563.77,
+        "original_end_s": 583.77
+      }
+    },
+    {
+      "id": "5207_2928_000019",
+      "text": "toutes les sociétés de femmes ne pensant qu'à l'heure terrible où on était se rallièrent à la société de secours pour les victimes de la guerre où les bourgeoises les femmes de ces membres de la défense nationale qui défendait si peu furent héroïques",
+      "audio": "test/audio/5207/2928/5207_2928_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 225.78,
+        "original_end_s": 243.62
+      }
+    },
+    {
+      "id": "5207_2928_000020",
+      "text": "retrouvé l'an dernier l'une de ces braves ambulancières madame gaspard les ambulances les comités de vigilance les ateliers des mairies où surtout à montmartre mesdames poirier escoffons blin jarry trouvaient moyen que toutes eussent un salaire également rétribué la",
+      "audio": "test/audio/5207/2928/5207_2928_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 403.77,
+        "original_end_s": 423.77
+      }
+    },
+    {
+      "id": "5207_2928_000021",
+      "text": "j'en avais trois la littérature où il était si facile de trouver des citations d'auteurs d'autrefois s'adaptant à l'instant présent la géographie ancienne où les noms et les recherches du passé",
+      "audio": "test/audio/5207/2928/5207_2928_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 169.33,
+        "original_end_s": 183.16
+      }
+    },
+    {
+      "id": "5207_2928_000022",
+      "text": "révolutionnaire où pendant tout le siège madame lemel de la chambre syndicale des relieurs empêcha je ne sais comment tant de gens de mourir de faim fut un véritable tour de force de dévouement et d'intelligence les femmes ne se demandaient pas si une chose était possible mais si elle était",
+      "audio": "test/audio/5207/2928/5207_2928_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 423.77,
+        "original_end_s": 443.77
+      }
+    },
+    {
+      "id": "5207_2928_000023",
+      "text": "alors on réussissait à l'accomplir un jour il fut décidé que montmartre n'avait pas assez d'ambulances alors avec une amie de la société d'instruction élémentaire toute jeune à cette époque nous résolûmes de la fonder c'était jeanne a depuis",
+      "audio": "test/audio/5207/2928/5207_2928_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 443.77,
+        "original_end_s": 463.77
+      }
+    },
+    {
+      "id": "5207_2928_000024",
+      "text": "ils avaient du lait du cheval des légumes et très souvent quelques friandises un jour que le lait tardait les plus jeunes peu habitués à attendre se mirent à pleurer ma mère en les consolant pleurait avec eux je ne sais comment je m'avisai pour les faire attendre avec plus de patience de",
+      "audio": "test/audio/5207/2928/5207_2928_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 603.77,
+        "original_end_s": 623.77
+      }
+    },
+    {
+      "id": "5207_2928_000025",
+      "text": "envoyèrent également dans les forts une foule de jeunes gens absolument inutiles ignorantins et petits crevés qui criaient leurs craintes tandis que les forts regardaient de vivre les unes et les autres nous nous empressâmes de donner nos démissions cherchant à nous employer plus utilement",
+      "audio": "test/audio/5207/2928/5207_2928_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 383.77,
+        "original_end_s": 403.77
+      }
+    },
+    {
+      "id": "5207_2928_000026",
+      "text": "sur son lit de mort dessiné à la craie blanche et estompé avec le doigt sur le tableau noir ce qui fait un relief d'une douceur de rêve",
+      "audio": "test/audio/5207/2928/5207_2928_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 201.55,
+        "original_end_s": 212.22
+      }
+    },
+    {
+      "id": "5207_2928_000027",
+      "text": "à leur tour les dévotes pâles d'épouvante versaient en tremblant leur monnaie dans nos aumônières quelques-uns d'assez bonne grâce tous les curés donnaient puis ce fut le tour de quelques financiers juifs ou chrétiens puis des braves gens un pharmacien de la butte offrit le",
+      "audio": "test/audio/5207/2928/5207_2928_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 503.77,
+        "original_end_s": 523.77
+      }
+    },
+    {
+      "id": "5207_2928_000028",
+      "text": "l'esprit en fut généreux et large les secours furent donnés émiettés même afin de soulager un peu toutes les détresses et aussi afin d'engager encore et toujours à ne jamais se rendre",
+      "audio": "test/audio/5207/2928/5207_2928_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 255.78,
+        "original_end_s": 269.81
+      }
+    },
+    {
+      "id": "5207_2928_000029",
+      "text": "nous avions pour cela comme complice m francolin de l'instruction élémentaire qu'à cause de sa ressemblance avec les savants du temps de l'alchimie et aussi par amitié nous appelions le docteur francolinus",
+      "audio": "test/audio/5207/2928/5207_2928_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 123.77,
+        "original_end_s": 140.29
+      }
+    },
+    {
+      "id": "5207_2928_000030",
+      "text": "mieux que les hommes mais le pouvoir ne nous a pas encore corrompues et le fait est qu'elles m'aimaient et que je les aimais lorsqu'après le trente et un octobre je fus prisonnière de m cresson non pas pour avoir pris part à une manifestation mais pour avoir dit",
+      "audio": "test/audio/5207/2928/5207_2928_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 323.77,
+        "original_end_s": 343.77
+      }
+    },
+    {
+      "id": "5207_2928_000031",
+      "text": "les écoles professionnelles de mesdames jules simon paulin julie toussaint l'enseignement des petits de madame pape carpentier se rencontrant rue hautefeuille à la société d'instruction élémentaire",
+      "audio": "test/audio/5207/2928/5207_2928_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 95.85,
+        "original_end_s": 113.3
+      }
+    },
+    {
+      "id": "5207_2928_000032",
+      "text": "gouvernement de paris on a souvent parlé des jalousies entre institutrices je ne les ai pas éprouvées avant la guerre nous faisions des échanges de leçons avec ma plus proche voisine mademoiselle potin donnant les leçons de dessin chez moi et moi les leçons de musique chez elle conduisant tant",
+      "audio": "test/audio/5207/2928/5207_2928_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 643.77,
+        "original_end_s": 663.77
+      }
+    },
+    {
+      "id": "5207_2928_000033",
+      "text": "nous étions presque toutes institutrices il y avait maria la cecillia alors jeune fille la directrice était maria andreux plusieurs autres femmes y faisaient des cours",
+      "audio": "test/audio/5207/2928/5207_2928_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 155.81,
+        "original_end_s": 169.33
+      }
+    },
+    {
+      "id": "5207_2928_000034",
+      "text": "on eût dit que la gaule en elles s'éveillait libres voulant mourir augmentant de courage pour des périls plus grands l m",
+      "audio": "test/audio/5207/2928/5207_2928_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 39.33,
+        "original_end_s": 52.55
+      }
+    },
+    {
+      "id": "5207_2928_000035",
+      "text": "si quelqu'un devant le comité de secours pour les victimes de la guerre eût parlé de reddition il eût été mis à la porte aussi énergiquement que dans les clubs de belleville ou de montmartre",
+      "audio": "test/audio/5207/2928/5207_2928_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_16_michel_64kb.mp3",
+        "original_start_s": 269.81,
+        "original_end_s": 283.77
+      }
+    },
+    {
+      "id": "7400_2928_000000",
+      "text": "lefrançais entre comme un coin au milieu d'eux et le vieux beslay faisant monter sur ses épaules lacour de la chambre syndicale des relieurs le fait passer par une petite fenêtre près de la grande porte",
+      "audio": "test/audio/7400/2928/7400_2928_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 241.42,
+        "original_end_s": 256.9
+      }
+    },
+    {
+      "id": "7400_2928_000001",
+      "text": "alors comme on criait au quatre septembre vive la république on cria au trente et un octobre vive la commune ceux qui le quatre septembre s'étaient dirigés sur la chambre allèrent vers l'hôtel de ville",
+      "audio": "test/audio/7400/2928/7400_2928_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 78.68,
+        "original_end_s": 95.46
+      }
+    },
+    {
+      "id": "7400_2928_000002",
+      "text": "parfois sur le chemin on rencontrait quelque troupeau moutonnier racontant que l'armée prussienne avait manqué être coupée en deux ou trois tronçons je ne sais plus par qui",
+      "audio": "test/audio/7400/2928/7400_2928_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 95.46,
+        "original_end_s": 108.41
+      }
+    },
+    {
+      "id": "7400_2928_000003",
+      "text": "la confiance est morte au fond des cœurs farouches homme tu mens soleil cieux vous mentez soufflez vents de la nuit emportez emportez l'honneur et la vertu cette sombre chimère victor hugo",
+      "audio": "test/audio/7400/2928/7400_2928_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 31.78,
+        "original_end_s": 47.05
+      }
+    },
+    {
+      "id": "7400_2928_000004",
+      "text": "un nouveau venu s'élance à la tribune il raconte que le cent sixième bataillon a délivré le gouvernement que l'affiche a menti",
+      "audio": "test/audio/7400/2928/7400_2928_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 689.69,
+        "original_end_s": 700.17
+      }
+    },
+    {
+      "id": "7400_2928_000005",
+      "text": "les juges chargés du dossier du trente et un octobre étaient quesenet ancien juge de l'empire henri didier procureur de la république",
+      "audio": "test/audio/7400/2928/7400_2928_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 846.58,
+        "original_end_s": 857.49
+      }
+    },
+    {
+      "id": "7400_2928_000006",
+      "text": "à qui sévèrement des hommes du peuple demandaient compte de la lâcheté du gouvernement trochu par phrases interrompues de cris indignés",
+      "audio": "test/audio/7400/2928/7400_2928_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 272.57,
+        "original_end_s": 283.52
+      }
+    },
+    {
+      "id": "7400_2928_000007",
+      "text": "ou bien déplorant que les officiers français n'eussent pas connu un petit chemin qui les eût menés droit au cœur de l'ennemi d'autres encore ajoutaient nous tenons toutes les routes les trois tronçons c'étaient trois armées allemandes et c'étaient elles qui tenaient toutes les routes",
+      "audio": "test/audio/7400/2928/7400_2928_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 108.41,
+        "original_end_s": 128.19
+      }
+    },
+    {
+      "id": "7400_2928_000008",
+      "text": "on venait de lui passer un papier sur lequel étaient écrites les volontés populaires déchéance du gouvernement la commune résistance à mort pas d'amnistie",
+      "audio": "test/audio/7400/2928/7400_2928_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 298.21,
+        "original_end_s": 311.06
+      }
+    },
+    {
+      "id": "7400_2928_000009",
+      "text": "ces tristes figurants ne manquent jamais dans toutes les révoltes quelques-uns y apprennent pourquoi il y a des révoltés l'affaire du trente et un octobre fut ainsi libellée par les juges au service de la défense nationale",
+      "audio": "test/audio/7400/2928/7400_2928_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 799.97,
+        "original_end_s": 816.78
+      }
+    },
+    {
+      "id": "7400_2928_000010",
+      "text": "moins naïf que les autres le capitaine greffier avait arrêté ibos mais trochu jules favre et jules ferry donnant de nouveau leur parole de la nomination de la commune promirent en outre que la liberté serait garantie à tous",
+      "audio": "test/audio/7400/2928/7400_2928_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 446.64,
+        "original_end_s": 464.36
+      }
+    },
+    {
+      "id": "7400_2928_000011",
+      "text": "de premiers délégués furent éconduits avec les ordinaires serments que paris ne serait jamais rendu trochu essaya de parler affirmant qu'il ne restait plus qu'à battre et chasser les prussiens avec le patriotisme et l'union",
+      "audio": "test/audio/7400/2928/7400_2928_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 203.15,
+        "original_end_s": 220.46
+      }
+    },
+    {
+      "id": "7400_2928_000012",
+      "text": "une poussée énorme précipite les manifestants sur l'hôtel de ville où les mobiles bretons étaient entassés dans les escaliers",
+      "audio": "test/audio/7400/2928/7400_2928_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 231.4,
+        "original_end_s": 241.42
+      }
+    },
+    {
+      "id": "7400_2928_000013",
+      "text": "leurs yeux bleus fixés dans le vague se demandaient si monsieur trochu ne débarrasserait pas bientôt la france des criminels qui y causaient tant de désastre afin qu'il leur fût permis de revoir la mer",
+      "audio": "test/audio/7400/2928/7400_2928_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 885.83,
+        "original_end_s": 901.35
+      }
+    },
+    {
+      "id": "7400_2928_000014",
+      "text": "se sentant deviné trochu regarda autour de lui où les réactionnaires en grand nombre commençaient à se glisser il parut se rassurer",
+      "audio": "test/audio/7400/2928/7400_2928_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 339.16,
+        "original_end_s": 349.82
+      }
+    },
+    {
+      "id": "7400_2928_000015",
+      "text": "expliqua qu'il avait été avantageux pour la france d'abandonner les places prises la veille par l'armée allemande étant donné les circonstances l'entêté breton continuait quand même lorsque tout à coup il pâlit",
+      "audio": "test/audio/7400/2928/7400_2928_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 283.52,
+        "original_end_s": 298.21
+      }
+    },
+    {
+      "id": "7400_2928_000016",
+      "text": "quelle que fût l'issue des événements les membres du gouvernement restés à l'hôtel de ville se groupèrent dans l'embrasure d'une fenêtre d'où l'on voyait rangés les hommes du cent sixième bataillon",
+      "audio": "test/audio/7400/2928/7400_2928_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 464.36,
+        "original_end_s": 478.91
+      }
+    },
+    {
+      "id": "7400_2928_000017",
+      "text": "déposa sa démission sur la table et fut emmené par des révolutionnaires à belleville où disaient-ils on le demandait autour de trochu",
+      "audio": "test/audio/7400/2928/7400_2928_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 368.54,
+        "original_end_s": 379.97
+      }
+    },
+    {
+      "id": "7400_2928_000018",
+      "text": "la foule applaudissait et parfois sentant l'ennemi poussait en clameurs formidables le cri à bas thiers on eût dit qu'elle hurlait à la mort beaucoup de ceux qui avaient été trompés criaient plus fort que les autres trahison trahison",
+      "audio": "test/audio/7400/2928/7400_2928_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 183.33,
+        "original_end_s": 203.15
+      }
+    },
+    {
+      "id": "7400_2928_000019",
+      "text": "blanqui et millière sortirent également le gouvernement n'osant pas d'abord montrer son mépris de la parole donnée le soir même du octobre avait lieu à la bourse une réunion des officiers de la garde nationale",
+      "audio": "test/audio/7400/2928/7400_2928_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 604.71,
+        "original_end_s": 621.37
+      }
+    },
+    {
+      "id": "7400_2928_000020",
+      "text": "se rangeaient les bretons comme lui naïfs et têtus le gardant ainsi qu'ils auraient fait d'une notre-dame dans les landes d'armorique ils attendaient ses ordres mais trochu n'en donna pas",
+      "audio": "test/audio/7400/2928/7400_2928_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 379.97,
+        "original_end_s": 394.99
+      }
+    },
+    {
+      "id": "7400_2928_000021",
+      "text": "que la défense nationale a menti que plus que jamais le plan de trochu réglait la marche et l'ordre des défaites et que paris devait plus que jamais veiller lui-même à n'être pas livré",
+      "audio": "test/audio/7400/2928/7400_2928_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 700.17,
+        "original_end_s": 714.68
+      }
+    },
+    {
+      "id": "7400_2928_000022",
+      "text": "picard faisait battre le rappel et le cent sixième bataillon de la garde nationale composé entièrement de réactionnaires vint sous la conduite d'ibos dont le courage était digne d'une meilleure cause se ranger à la grille de l'hôtel de ville",
+      "audio": "test/audio/7400/2928/7400_2928_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 408.97,
+        "original_end_s": 428.38
+      }
+    },
+    {
+      "id": "7400_2928_000023",
+      "text": "à la porte de la mairie un soldat croise la baïonnette constant martin relève le fusil et entre avec ses amis à la salle du conseil méline épouvanté va chercher le maire non moins épouvanté",
+      "audio": "test/audio/7400/2928/7400_2928_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 574.26,
+        "original_end_s": 591.09
+      }
+    },
+    {
+      "id": "7400_2928_000024",
+      "text": "c'est la fin de la france dit trochu profondément convaincu il comprenait enfin ce que depuis plusieurs heures on ne cessait de lui répéter la déchéance du gouvernement de la défense nationale",
+      "audio": "test/audio/7400/2928/7400_2928_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 311.06,
+        "original_end_s": 324.63
+      }
+    },
+    {
+      "id": "7400_2928_000025",
+      "text": "précipité dans un volcan en ignition on respirait du feu de la fumée ardente paris qui ne voulait ni se rendre ni être rendu et qui en avait assez des mensonges officiels se leva",
+      "audio": "test/audio/7400/2928/7400_2928_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 62.62,
+        "original_end_s": 78.68
+      }
+    },
+    {
+      "id": "7400_2928_000026",
+      "text": "les courants suivaient la marche vers l'hôtel de ville venant de tous les côtés on bousculait les gobeurs et les mouchards la mer humaine grossissait",
+      "audio": "test/audio/7400/2928/7400_2928_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 158.9,
+        "original_end_s": 169.53
+      }
+    },
+    {
+      "id": "7400_2928_000027",
+      "text": "le gaz ayant été éteint pour le guet-apens les bretons baïonnette en avant se glissaient par le souterrain tandis que les bataillons de l'ordre conduits par jules ferry entraient par la grille",
+      "audio": "test/audio/7400/2928/7400_2928_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 544.33,
+        "original_end_s": 558.55
+      }
+    },
+    {
+      "id": "7400_2928_000028",
+      "text": "à ce moment trochu détacha une décoration qu'il portait et la passa à un officier des mobiles bretons ceci est un signal s'écria cipriani le compagnon de flourens",
+      "audio": "test/audio/7400/2928/7400_2928_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 324.63,
+        "original_end_s": 339.16
+      }
+    },
+    {
+      "id": "7400_2928_000029",
+      "text": "millière à ce moment ayant l'idée d'une trahison probable voulait faire appel aux gardes nationaux des faubourgs mais flourens refusa disant que c'était une défiance inutile la parole étant donnée",
+      "audio": "test/audio/7400/2928/7400_2928_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 478.91,
+        "original_end_s": 493.77
+      }
+    },
+    {
+      "id": "7400_2928_000030",
+      "text": "les membres du gouvernement se retirèrent pour délibérer et sur leur demande rochefort consentit à annoncer la nomination de la commune car personne ne les croyait plus il se mit à l'une des fenêtres de l'hôtel de ville fit part à la foule de la promesse du gouvernement",
+      "audio": "test/audio/7400/2928/7400_2928_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 349.82,
+        "original_end_s": 368.54
+      }
+    },
+    {
+      "id": "7400_2928_000031",
+      "text": "edmond adam préfet de police donna sa démission ne voulant pas opérer les arrestations qui lui étaient ordonnées à l'hôtel de ville les mobiles bretons",
+      "audio": "test/audio/7400/2928/7400_2928_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 873.57,
+        "original_end_s": 885.83
+      }
+    },
+    {
+      "id": "7400_2928_000032",
+      "text": "les nouvelles des défaites l'incroyable mystère dont le gouvernement avait voulu les couvrir la résolution de ne jamais se rendre et la certitude qu'on se rendait en secret firent l'effet d'un courant glacé",
+      "audio": "test/audio/7400/2928/7400_2928_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 47.05,
+        "original_end_s": 62.62
+      }
+    },
+    {
+      "id": "7400_2928_000033",
+      "text": "ce qui était depuis le commencement de la guerre et fut pendant tout le temps qu'elle dura la phrase consacrée pour entraver la résistance et arrêter tous les généreux élans",
+      "audio": "test/audio/7400/2928/7400_2928_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 145.49,
+        "original_end_s": 158.9
+      }
+    },
+    {
+      "id": "7400_2928_000034",
+      "text": "millière se rangeant à son avis renvoya son bataillon qui était venu se ranger sur la grève la foule s'était calmée devant l'affiche qu'on placardait annonçant la nomination de la commune par voie d'élection",
+      "audio": "test/audio/7400/2928/7400_2928_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 493.77,
+        "original_end_s": 507.92
+      }
+    },
+    {
+      "id": "7400_2928_000035",
+      "text": "étaient déjà arrêtés les prisons s'emplissaient contenant parmi les révolutionnaires bon nombre de pauvres gens arrêtés comme toujours par méprise et qui n'avaient rien fait",
+      "audio": "test/audio/7400/2928/7400_2928_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 785.84,
+        "original_end_s": 799.97
+      }
+    },
+    {
+      "id": "7400_2928_000036",
+      "text": "à propos des événements des trois derniers jours comme on criait du dehors tous les officiers à leurs postes un homme tenant une affiche blanche s'élança au bureau",
+      "audio": "test/audio/7400/2928/7400_2928_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 621.37,
+        "original_end_s": 634.57
+      }
+    },
+    {
+      "id": "7400_2928_000037",
+      "text": "en même temps par le souterrain qui allait de la caserne napoléon à l'hôtel de ville arrivaient de nouveaux renforts de mobiles bretons trochu l'avait dit ils allaient monsieur de charette a dit à ceux de chez nous venez tous il faut combattre les loups",
+      "audio": "test/audio/7400/2928/7400_2928_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 525.24,
+        "original_end_s": 544.33
+      }
+    },
+    {
+      "id": "7400_2928_000038",
+      "text": "il remet les sceaux et le coffre-fort aux envoyés de blanqui mais le soir la mairie était reprise flourens était sorti avec le vieux tamisier entre deux haies de soldats",
+      "audio": "test/audio/7400/2928/7400_2928_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 591.09,
+        "original_end_s": 604.71
+      }
+    },
+    {
+      "id": "7400_2928_000039",
+      "text": "la garde nationale se massait devant la grille des placards étaient promenés à travers la foule pas d'armistice la commune résistance à mort vive la république",
+      "audio": "test/audio/7400/2928/7400_2928_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 169.53,
+        "original_end_s": 183.33
+      }
+    },
+    {
+      "id": "7400_2928_000040",
+      "text": "on ne le laissa pas continuer et toujours comme au quatre septembre un seul cri montait jusqu'au ciel la commune vive la commune",
+      "audio": "test/audio/7400/2928/7400_2928_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 220.46,
+        "original_end_s": 231.4
+      }
+    },
+    {
+      "id": "7400_2928_000041",
+      "text": "la générale battait dans paris l'affiche c'était le décret de convocation pour le lendemain afin de nommer la commune vive la commune crièrent les gardes nationaux présents",
+      "audio": "test/audio/7400/2928/7400_2928_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 634.57,
+        "original_end_s": 647.92
+      }
+    },
+    {
+      "id": "7400_2928_000042",
+      "text": "des acclamations s'élèvent on veut nommer rochebrune général de la garde nationale mais il s'écrie la commune d'abord alors",
+      "audio": "test/audio/7400/2928/7400_2928_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 679.32,
+        "original_end_s": 689.69
+      }
+    },
+    {
+      "id": "7400_2928_000043",
+      "text": "les rochers de granit durs comme leurs crânes les landes où s'ébattent les poulpiquets et de danser aux pardons les jours où armor est en fête",
+      "audio": "test/audio/7400/2928/7400_2928_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 901.35,
+        "original_end_s": 913.17
+      }
+    },
+    {
+      "id": "7400_2928_000044",
+      "text": "mieux eût valu dit une voix la commune révolutionnaire nommée par la foule qu'importe s'écria rochebrune pourvu qu'elle laisse paris se défendre de l'envahissement",
+      "audio": "test/audio/7400/2928/7400_2928_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 647.92,
+        "original_end_s": 660.32
+      }
+    },
+    {
+      "id": "7400_2928_000045",
+      "text": "quelques gobeurs entraînés par des mouchards continuaient à hurler devant les affiches du gouvernement que c'étaient de fausses dépêches fabriquées par félix pyat rochefort et flourens pour apporter le trouble et l'émeute devant l'ennemi",
+      "audio": "test/audio/7400/2928/7400_2928_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 128.19,
+        "original_end_s": 145.49
+      }
+    },
+    {
+      "id": "7400_2928_000046",
+      "text": "on crie vive la commune un gros homme qui attend on ne sait pourquoi sur la place se mêle aux gardes nationaux et cherche à exprimer son opinion il faut toujours des chefs dit-il il faut toujours un gouvernement pour vous mener",
+      "audio": "test/audio/7400/2928/7400_2928_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 714.68,
+        "original_end_s": 732.21
+      }
+    },
+    {
+      "id": "7400_2928_000047",
+      "text": "le cent sixième criant vive la commune on le laissa entrer bientôt quarante mille hommes entourèrent l'hôtel de ville et pour éviter un conflit dit jules ferry les conventions étant faites les compagnies de flourens devaient se retirer",
+      "audio": "test/audio/7400/2928/7400_2928_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 428.38,
+        "original_end_s": 446.64
+      }
+    },
+    {
+      "id": "7400_2928_000048",
+      "text": "il émit alors cette idée la même que lullier proposait quelques semaines auparavant que paris investi n'aurait jamais sur un seul point de l'enceinte que quelques milliers d'hommes dont une sortie de deux cent mille pouvait et devait avoir raison",
+      "audio": "test/audio/7400/2928/7400_2928_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 660.32,
+        "original_end_s": 679.32
+      }
+    },
+    {
+      "id": "7400_2928_000049",
+      "text": "un attentat dont le but était d'exciter à la guerre civile en armant les citoyens les uns contre les autres comprenant séquestration arbitraire et menaces sous conditions",
+      "audio": "test/audio/7400/2928/7400_2928_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 816.78,
+        "original_end_s": 829.34
+      }
+    },
+    {
+      "id": "7400_2928_000050",
+      "text": "l'empire va-t-il donc revenir disaient les naïfs il n'était jamais disparu ses lois n'ont pas cessé encore d'exister elles se sont aggravées même mais le recul des flots rend plus terribles les tempêtes",
+      "audio": "test/audio/7400/2928/7400_2928_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 829.34,
+        "original_end_s": 846.58
+      }
+    },
+    {
+      "id": "7400_2928_000051",
+      "text": "pendant ce temps quelques membres du gouvernement escomptant la bonne foi de flourens et des gardes nationaux sortirent sous divers prétextes et mirent pour trahir le temps à profit",
+      "audio": "test/audio/7400/2928/7400_2928_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 394.99,
+        "original_end_s": 408.97
+      }
+    },
+    {
+      "id": "7400_2928_000052",
+      "text": "des volontaires de tibaldi s'y précipitent la porte est ouverte et engloutit la foule tant qu'elle y peut tenir autour de la table dans la grande salle étaient trochu jules favre jules simon",
+      "audio": "test/audio/7400/2928/7400_2928_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 256.9,
+        "original_end_s": 272.57
+      }
+    },
+    {
+      "id": "7400_2928_000053",
+      "text": "ce doit être un orateur de la réaction on a bien autre chose à faire que de l'écouter oui l'affiche avait menti le gouvernement avait menti paris ne nommait pas sa commune",
+      "audio": "test/audio/7400/2928/7400_2928_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 732.21,
+        "original_end_s": 746.08
+      }
+    },
+    {
+      "id": "7400_2928_000054",
+      "text": "tous ceux qui la veille avaient été acclamés étaient décrétés d'accusation blanqui millière flourens jaclard vermorel félix pyat lefrançais",
+      "audio": "test/audio/7400/2928/7400_2928_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 746.08,
+        "original_end_s": 760.55
+      }
+    },
+    {
+      "id": "7400_2928_000055",
+      "text": "ceux qui confiants rentrèrent chez eux apprirent le lendemain avec stupeur la nouvelle trahison du gouvernement ferry qui était allé rejoindre picard revint à la tête des colonnes nombreuses qui se rangèrent en bataille",
+      "audio": "test/audio/7400/2928/7400_2928_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_10_michel_64kb.mp3",
+        "original_start_s": 507.92,
+        "original_end_s": 525.24
+      }
+    },
+    {
+      "id": "7400_2928_000056",
+      "text": "son occupation était d'une importance bien secondaire et les bruits qui attribuent de la gravité aux incidents qui viennent d'être exposés sont sans gravité",
+      "audio": "test/audio/7400/2928/7400_2928_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1472.02,
+        "original_end_s": 1484.19
+      }
+    },
+    {
+      "id": "7400_2928_000057",
+      "text": "il nous parut que nous n'avions pas le droit de garder le silence nous aurions donné raison aux calomnies du journal le combat conformément à notre décision l'officiel du trente et un publiait ce qui suit",
+      "audio": "test/audio/7400/2928/7400_2928_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1318.52,
+        "original_end_s": 1335.45
+      }
+    },
+    {
+      "id": "7400_2928_000058",
+      "text": "l'évacuation du bourget avait été sue à paris dès le matin du trente le soir tout le monde à paris la connaissait l'hésitation n'était permise que pour metz nous n'avions pas un rapport officiel mais malheureusement nous ne pouvions douter",
+      "audio": "test/audio/7400/2928/7400_2928_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1299.83,
+        "original_end_s": 1318.52
+      }
+    },
+    {
+      "id": "7400_2928_000059",
+      "text": "dans les parcs le luxembourg le bois de boulogne deux cent mille moutons quarante mille bœufs douze mille porcs entassés mouraient de faim et de tristesse les pauvres bêtes mais donnaient une espérance visible aux yeux de ceux qui s'inquiétaient",
+      "audio": "test/audio/7400/2928/7400_2928_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 137.04,
+        "original_end_s": 154.23
+      }
+    },
+    {
+      "id": "7400_2928_000060",
+      "text": "enfin le rapport militaire annonçait dans les termes suivants le désastre et l'abandon du bourget trente octobre une heure et demie du soir",
+      "audio": "test/audio/7400/2928/7400_2928_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1385.84,
+        "original_end_s": 1398.17
+      }
+    },
+    {
+      "id": "7400_2928_000061",
+      "text": "il a mieux aimé en référer à l'opinion publique qui est sa vraie force c'est à elle qu'il dénonce les lignes odieuses qui suivent et qui sont écrites dans le journal le combat dirigé par m félix pyat",
+      "audio": "test/audio/7400/2928/7400_2928_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 973.25,
+        "original_end_s": 987.82
+      }
+    },
+    {
+      "id": "7400_2928_000062",
+      "text": "ne réglementez plus débarrassez-vous une bonne fois des vieux colliers et des vieilles cordes c'est le conseil que donnait l'autre jour notre ami joigneaux et ce conseil-là c'est le salut le siècle du sept septembre dix huit cent soixante dix",
+      "audio": "test/audio/7400/2928/7400_2928_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 327.27,
+        "original_end_s": 345.66
+      }
+    },
+    {
+      "id": "7400_2928_000063",
+      "text": "le trente au soir une nouvelle dépêche avouait presque tel qu'il avait été le massacre du bourget le lendemain matin on lisait l'affiche suivante",
+      "audio": "test/audio/7400/2928/7400_2928_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1208.4,
+        "original_end_s": 1221.48
+      }
+    },
+    {
+      "id": "7400_2928_000064",
+      "text": "mieux eût valu que tout manquât le provisoire à ses premiers jours n'eût pas entravé l'élan héroïque de paris on aurait pu vaincre encore l'invasion",
+      "audio": "test/audio/7400/2928/7400_2928_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 204.02,
+        "original_end_s": 216.13
+      }
+    },
+    {
+      "id": "7400_2928_000065",
+      "text": "il y en avait de la rue du faubourg du temple que j'ai revues depuis j'y rencontrai pour la première fois madame vincent qui peut-être garda de cette manifestation l'idée de groupements féminins",
+      "audio": "test/audio/7400/2928/7400_2928_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 509.88,
+        "original_end_s": 523.09
+      }
+    },
+    {
+      "id": "7400_2928_000066",
+      "text": "qui bien réellement était la volonté de paris des bruits de victoire se répandirent comme sous l'empire annonçant la prochaine arrivée de l'armée de la loire",
+      "audio": "test/audio/7400/2928/7400_2928_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 803.78,
+        "original_end_s": 815.19
+      }
+    },
+    {
+      "id": "7400_2928_000067",
+      "text": "les prussiens continuaient d'avancer ils étaient au point où le chemin de fer cessait de fonctionner pour paris plus près toujours plus près",
+      "audio": "test/audio/7400/2928/7400_2928_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 115.76,
+        "original_end_s": 126.29
+      }
+    },
+    {
+      "id": "7400_2928_000068",
+      "text": "qu'est-ce que cela vous fait que strasbourg périsse puisque vous n'y êtes pas c'était un gros homme de figure régulière et bête carré des épaules bien campé un exemplaire doré sur tranches du grade de colonel",
+      "audio": "test/audio/7400/2928/7400_2928_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 619.4,
+        "original_end_s": 635.69
+      }
+    },
+    {
+      "id": "7400_2928_000069",
+      "text": "le village de drancey occupé depuis vingt-quatre heures seulement ne se trouvait plus occupé à sa gauche et le temps a manqué pour le mettre en état respectable de défense",
+      "audio": "test/audio/7400/2928/7400_2928_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1444.76,
+        "original_end_s": 1458.21
+      }
+    },
+    {
+      "id": "7400_2928_000070",
+      "text": "quelques heures plus tard un membre du gouvernement arrivant à l'hôtel de ville nous fit mettre en liberté l'étudiant andrée leo et moi moitié par la force moitié avec des mensonges la manifestation avait été dispersée",
+      "audio": "test/audio/7400/2928/7400_2928_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 647.64,
+        "original_end_s": 665.63
+      }
+    },
+    {
+      "id": "7400_2928_000071",
+      "text": "c'est le citoyen flourens qui m'a dénoncé pour le salut du peuple le plan bazaine et qui m'a dit le tenir directement du citoyen rochefort membre du gouvernement provisoire de la défense nationale",
+      "audio": "test/audio/7400/2928/7400_2928_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1140.3,
+        "original_end_s": 1155.14
+      }
+    },
+    {
+      "id": "7400_2928_000072",
+      "text": "en attendant chacun trouvait du temps pour s'exercer au tir dans les baraques j'y étais pour ma part devenue assez forte ce que nous avons pu constater plus tard aux compagnies de marche de la commune",
+      "audio": "test/audio/7400/2928/7400_2928_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 692.15,
+        "original_end_s": 707.33
+      }
+    },
+    {
+      "id": "7400_2928_000073",
+      "text": "nous croyons celui de l'opinion le plus efficace elle flétrira comme ils le méritent ces prétendus patriotes dont le métier est de semer les défiances en face de l'ennemi et de ruiner par leurs mensonges l'autorité de ceux qui le combattent",
+      "audio": "test/audio/7400/2928/7400_2928_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1067.94,
+        "original_end_s": 1086.71
+      }
+    },
+    {
+      "id": "7400_2928_000074",
+      "text": "quand ayant été conduites dans une vaste salle où il n'y avait que des banquettes on ferma la porte sur nous il y avait déjà deux prisonniers",
+      "audio": "test/audio/7400/2928/7400_2928_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 537.17,
+        "original_end_s": 547.88
+      }
+    },
+    {
+      "id": "7400_2928_000075",
+      "text": "le journal le combat de félix pyat le vingt sept octobre annonçait la reddition de metz la nouvelle disait-il venait de source certaine",
+      "audio": "test/audio/7400/2928/7400_2928_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 870.64,
+        "original_end_s": 882.78
+      }
+    },
+    {
+      "id": "7400_2928_000076",
+      "text": "on finit par se comprendre elle sortit tremblant sur ses jambes essayant de ne pas laisser tomber sa burette dont l'huile continuait à se répandre",
+      "audio": "test/audio/7400/2928/7400_2928_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 592.48,
+        "original_end_s": 602.72
+      }
+    },
+    {
+      "id": "7400_2928_000077",
+      "text": "il n'y avait rien à répondre qu'à le regarder en face comme je disais tout haut le numéro de son képi il comprit peut-être ce qu'il venait de dire et s'en alla",
+      "audio": "test/audio/7400/2928/7400_2928_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 635.69,
+        "original_end_s": 647.64
+      }
+    },
+    {
+      "id": "7400_2928_000078",
+      "text": "monsieur thiers est arrivé aujourd'hui à paris il s'est transporté sur-le-champ au ministère des affaires étrangères il a rendu compte au gouvernement de sa mission",
+      "audio": "test/audio/7400/2928/7400_2928_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1221.48,
+        "original_end_s": 1232.68
+      }
+    },
+    {
+      "id": "7400_2928_000079",
+      "text": "les plus fiers courages devenaient inutiles dans les vieux engrenages de l'empire où sous des noms nouveaux on continuait à moudre les déshérités les prussiens gagnaient du terrain le dix huit septembre ils étaient sous les forts le dix neuf ils s'établissaient au plateau de chatillon",
+      "audio": "test/audio/7400/2928/7400_2928_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 238.38,
+        "original_end_s": 258.06
+      }
+    },
+    {
+      "id": "7400_2928_000080",
+      "text": "mais en même temps que les journaux publiaient la marche des prussiens une note officielle donnant le chiffre des approvisionnements rassurait la foule",
+      "audio": "test/audio/7400/2928/7400_2928_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 126.29,
+        "original_end_s": 137.04
+      }
+    },
+    {
+      "id": "7400_2928_000081",
+      "text": "journal officiel du gouvernement vingt huit octobre mille huit cent soixante dix le lendemain vingt neuf la déclaration du gouvernement insérée dans le combat était suivie de cette note",
+      "audio": "test/audio/7400/2928/7400_2928_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1125.62,
+        "original_end_s": 1140.3
+      }
+    },
+    {
+      "id": "7400_2928_000082",
+      "text": "et dans la conviction profonde du devoir on demandait des armes que le gouvernement refusait peut-être craignait-il d'armer les révolutionnaires peut-être en manquait-il réellement on avait des promesses c'était tout",
+      "audio": "test/audio/7400/2928/7400_2928_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 100.23,
+        "original_end_s": 115.76
+      }
+    },
+    {
+      "id": "7400_2928_000083",
+      "text": "la provision de farine réunie à celles des boulangers était de plus de cinq cents mille quintaux il y en avait environ cent mille de riz",
+      "audio": "test/audio/7400/2928/7400_2928_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 154.23,
+        "original_end_s": 164.38
+      }
+    },
+    {
+      "id": "7400_2928_000084",
+      "text": "s'adressaient surtout au peuple de paris dans les comités de vigilance et les clubs strasbourg investie le treize août ne s'était pas encore rendue le dix-huit septembre",
+      "audio": "test/audio/7400/2928/7400_2928_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 430.2,
+        "original_end_s": 442.08
+      }
+    },
+    {
+      "id": "7400_2928_000085",
+      "text": "ne me parlez pas de cette stupidité disait le général guyard en parlant de ceux se chargeant par la culasse il est vrai que les plus mauvais eussent été bons employés dans l'élan du désespoir par des hommes décidés à reconquérir leur liberté",
+      "audio": "test/audio/7400/2928/7400_2928_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 394.75,
+        "original_end_s": 413.35
+      }
+    },
+    {
+      "id": "7400_2928_000086",
+      "text": "depuis le dix-sept août aucune dépêche directe du maréchal bazaine n'a pu franchir les lignes mais nous savons que loin de songer à la félonie",
+      "audio": "test/audio/7400/2928/7400_2928_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1086.71,
+        "original_end_s": 1098.75
+      }
+    },
+    {
+      "id": "7400_2928_000087",
+      "text": "malgré les inconvénients qu'elle peut quelquefois présenter dans une ville assiégée il aurait pu au nom du salut public la supprimer ou la restreindre",
+      "audio": "test/audio/7400/2928/7400_2928_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 961.84,
+        "original_end_s": 973.25
+      }
+    },
+    {
+      "id": "7400_2928_000088",
+      "text": "ce n'était pas l'armée de la loire qui arrivait mais la nouvelle de la défaite du bourget et de la reddition de metz par le maréchal bazaine",
+      "audio": "test/audio/7400/2928/7400_2928_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 815.19,
+        "original_end_s": 825.71
+      }
+    },
+    {
+      "id": "7400_2928_000089",
+      "text": "une dépêche officielle affichée à paris le vingt neuf octobre annonçait avec des précautions infinies la prise du bourget devant le rapport signé schmidt",
+      "audio": "test/audio/7400/2928/7400_2928_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1178.77,
+        "original_end_s": 1191.06
+      }
+    },
+    {
+      "id": "7400_2928_000090",
+      "text": "le gouvernement vient d'apprendre la douloureuse nouvelle de la reddition de metz le maréchal bazaine et son armée ont dû se rendre après d'héroïques efforts que le manque de vivres et de munitions ne leur permettait plus de continuer",
+      "audio": "test/audio/7400/2928/7400_2928_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1335.45,
+        "original_end_s": 1354.77
+      }
+    },
+    {
+      "id": "7400_2928_000091",
+      "text": "certain nombre d'hommes qui étaient dans la partie nord du bourget ont été coupés du corps principal et sont restés entre les mains de l'ennemi on n'en connaît pas exactement le nombre il sera précis demain",
+      "audio": "test/audio/7400/2928/7400_2928_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1428.72,
+        "original_end_s": 1444.76
+      }
+    },
+    {
+      "id": "7400_2928_000092",
+      "text": "au bout de trois ou quatre heures un colonel vint nous interroger mais nous ne voulûmes rien répondre avant que la pauvre vieille eût été mise en liberté sa frayeur et la burette d'huile vacillant dans ses mains témoignaient assez qu'elle n'avait pas manifesté",
+      "audio": "test/audio/7400/2928/7400_2928_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 572.68,
+        "original_end_s": 592.48
+      }
+    },
+    {
+      "id": "7400_2928_000093",
+      "text": "avait été arrêtée elle ne savait pourquoi et ceux qui l'avaient prise n'en savaient pas davantage elle tremblait si fort que l'huile tombait tout autour d'elle et arrosait sa robe",
+      "audio": "test/audio/7400/2928/7400_2928_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 560.15,
+        "original_end_s": 572.68
+      }
+    },
+    {
+      "id": "7400_2928_000094",
+      "text": "il la fera tant que la force soutiendra le privilège le moment était venu où si les gouvernants eussent tourné contre les révolutionnaires les gueules des canons ils n'en eussent été nullement étonnés",
+      "audio": "test/audio/7400/2928/7400_2928_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 273.3,
+        "original_end_s": 287.81
+      }
+    },
+    {
+      "id": "7400_2928_000095",
+      "text": "au nouvel opéra dont le gros œuvre était achevé l'architecte garnier fit forer la couche de béton sur laquelle reposaient les fondations un courant qui descend de montmartre s'en échappa on aurait de l'eau",
+      "audio": "test/audio/7400/2928/7400_2928_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 188.54,
+        "original_end_s": 204.02
+      }
+    },
+    {
+      "id": "7400_2928_000096",
+      "text": "qu'on ne rougit pas de lui imputer le maréchal n'a cessé de harceler l'ennemi par de brillantes sorties le général bourbaki a pu s'échapper",
+      "audio": "test/audio/7400/2928/7400_2928_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1098.75,
+        "original_end_s": 1111.07
+      }
+    },
+    {
+      "id": "7400_2928_000097",
+      "text": "notre petit groupe prit la direction de l'hôtel-de-ville en criant à strasbourg à strasbourg des volontaires pour strasbourg à chaque pas venaient de nouveaux manifestants les femmes et les jeunes gens la plupart étudiants dominaient",
+      "audio": "test/audio/7400/2928/7400_2928_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 468.5,
+        "original_end_s": 486.19
+      }
+    },
+    {
+      "id": "7400_2928_000098",
+      "text": "mais elle n'abattra pas notre courage pleine de reconnaissance pour les braves soldats pour la généreuse population qui a combattu pied à pied pour la patrie la ville de paris voudra être digne d'eux elle sera soutenue par leur exemple et par l'espoir de les venger",
+      "audio": "test/audio/7400/2928/7400_2928_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1366.1,
+        "original_end_s": 1385.84
+      }
+    },
+    {
+      "id": "7400_2928_000099",
+      "text": "comme on était ce jour-là dans paris plus angoissé sentant l'agonie de strasbourg qui blessée bombardée de toutes parts ne voulait pas mourir",
+      "audio": "test/audio/7400/2928/7400_2928_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 442.08,
+        "original_end_s": 452.66
+      }
+    },
+    {
+      "id": "7400_2928_000100",
+      "text": "mais plutôt que de se rendre paris s'allumerait comme jadis moscou des bruits de trahison du gouvernement commençaient à circuler il n'était qu'incapable le pouvoir faisait son œuvre éternelle",
+      "audio": "test/audio/7400/2928/7400_2928_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 258.06,
+        "original_end_s": 273.3
+      }
+    },
+    {
+      "id": "7400_2928_000101",
+      "text": "celui-ci le transmit à félix pyat qui le publia dans le combat aussitôt la nouvelle fut démentie et les presses du combat brisées par les gens de l'ordre mais chaque instant apportait des preuves nouvelles",
+      "audio": "test/audio/7400/2928/7400_2928_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 898.25,
+        "original_end_s": 913.8
+      }
+    },
+    {
+      "id": "7400_2928_000102",
+      "text": "l'évacuation en a été ordonnée pour ne pas compromettre les troupes qui s'y trouvaient le village du bourget ne faisait pas partie de notre système général de défense",
+      "audio": "test/audio/7400/2928/7400_2928_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1458.21,
+        "original_end_s": 1472.02
+      }
+    },
+    {
+      "id": "7400_2928_000103",
+      "text": "guillaume approchait tant mieux paris en sortie torrentielle écraserait l'invasion les armées de province se rejoindraient n'avait-on pas la république",
+      "audio": "test/audio/7400/2928/7400_2928_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 73.71,
+        "original_end_s": 85.97
+      }
+    },
+    {
+      "id": "7400_2928_000104",
+      "text": "répondant d'avance à l'accusation qui devait être formulée après la prise de metz assurant que bazaine ne trahirait jamais c'était sa sœur peut-être fut-il plus lâche que traître le résultat est identique",
+      "audio": "test/audio/7400/2928/7400_2928_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 853.92,
+        "original_end_s": 870.64
+      }
+    },
+    {
+      "id": "7400_2928_000105",
+      "text": "la confiance au gouvernement diminuait de jour en jour on le jugeait incapable comme tout gouvernement du reste mais on comptait sur l'élan de paris",
+      "audio": "test/audio/7400/2928/7400_2928_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 679.81,
+        "original_end_s": 692.15
+      }
+    },
+    {
+      "id": "7400_2928_000106",
+      "text": "de là en silence on se dirigea vers l'hôtel de ville nous étions toute une petite armée bon nombre d'institutrices étaient venues",
+      "audio": "test/audio/7400/2928/7400_2928_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 499.03,
+        "original_end_s": 509.88
+      }
+    },
+    {
+      "id": "7400_2928_000107",
+      "text": "le siècle lui-même publia le cinq septembre un article intitulé appel aux audacieux et commençant ainsi à nous les audacieux dans les circonstances difficiles il faut l'intelligence prompte et les hardiesses inconnues",
+      "audio": "test/audio/7400/2928/7400_2928_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 299.02,
+        "original_end_s": 316.53
+      }
+    },
+    {
+      "id": "7400_2928_000108",
+      "text": "mais plus la situation empirait plus grandissait l'ardeur de la lutte l'élan était si général que tous sentaient le besoin d'en finir",
+      "audio": "test/audio/7400/2928/7400_2928_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 287.81,
+        "original_end_s": 299.02
+      }
+    },
+    {
+      "id": "7400_2928_000109",
+      "text": "quelques maires marchaient d'accord avec la population de paris malon aux batignolles clémenceau à montmartre furent ouvertement révolutionnaires",
+      "audio": "test/audio/7400/2928/7400_2928_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 216.13,
+        "original_end_s": 227.36
+      }
+    },
+    {
+      "id": "7400_2928_000110",
+      "text": "là se réunissaient les délégués des clubs ainsi fut formé le comité central des vingt arrondissements qui à son tour créa dans chaque arrondissement des comités de vigilance formés d'ardents révolutionnaires",
+      "audio": "test/audio/7400/2928/7400_2928_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 717.47,
+        "original_end_s": 734.41
+      }
+    },
+    {
+      "id": "7400_2928_000111",
+      "text": "et ses relations avec la délégation de tours son acceptation d'un commandement important démontrent suffisamment les nouvelles fabriquées que nous livrons à l'indignation de tous les honnêtes gens",
+      "audio": "test/audio/7400/2928/7400_2928_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1111.07,
+        "original_end_s": 1125.62
+      }
+    },
+    {
+      "id": "7400_2928_000112",
+      "text": "était-ce donc le pouvoir qui changeait ainsi les hommes de septembre eux que nous avons vus fiers devant l'empire étaient pris d'épouvante de la révolution",
+      "audio": "test/audio/7400/2928/7400_2928_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 45.78,
+        "original_end_s": 56.6
+      }
+    },
+    {
+      "id": "7400_2928_000113",
+      "text": "devant le gouffre à franchir ils refusaient de prendre leur élan ils promettaient juraient contemplaient la situation et y voulaient rester éternellement enfermés avec d'autres sentiments nous aussi nous nous rendions compte",
+      "audio": "test/audio/7400/2928/7400_2928_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 56.6,
+        "original_end_s": 73.71
+      }
+    },
+    {
+      "id": "7400_2928_000114",
+      "text": "l'auteur de cette infâme calomnie n'a pas osé faire connaître son nom il a signé le combat c'est à coup sûr le combat de la prusse contre la france car à défaut d'une balle qui aille au cœur du pays",
+      "audio": "test/audio/7400/2928/7400_2928_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1018.64,
+        "original_end_s": 1034.24
+      }
+    },
+    {
+      "id": "7400_2928_000115",
+      "text": "continuaient à nier affolés entre la défaite et la marée populaire une note parut dans le journal officiel annonçant presque qu'il était question de livrer félix pyat",
+      "audio": "test/audio/7400/2928/7400_2928_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 932.93,
+        "original_end_s": 946.84
+      }
+    },
+    {
+      "id": "7400_2928_000116",
+      "text": "qui en cas désespéré eussent certainement passé avec les autres provisions pour la vie générale les gares les halles tous les monuments étaient remplis",
+      "audio": "test/audio/7400/2928/7400_2928_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 177.32,
+        "original_end_s": 188.54
+      }
+    },
+    {
+      "id": "7400_2928_000117",
+      "text": "à nous les jeunes les téméraires les audacieux indisciplinés deviennent nos hommes l'idée et l'action doivent être libres ne vous gênez plus",
+      "audio": "test/audio/7400/2928/7400_2928_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 316.53,
+        "original_end_s": 327.27
+      }
+    },
+    {
+      "id": "7400_2928_000118",
+      "text": "et la paix reconquise elle ne serait pas la république guerroyeuse agressive aux autres peuples l'internationale remplirait le monde sous la brûlante poussée du germinal social",
+      "audio": "test/audio/7400/2928/7400_2928_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 85.97,
+        "original_end_s": 100.23
+      }
+    },
+    {
+      "id": "7400_2928_000119",
+      "text": "la mairie de montmartre avec jaclard dereure lafont pour adjoints de clemenceau fit par instants trembler la réaction elle se rassura bientôt",
+      "audio": "test/audio/7400/2928/7400_2928_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 227.36,
+        "original_end_s": 238.38
+      }
+    },
+    {
+      "id": "7400_2928_000120",
+      "text": "ce matin de bonne heure des masses d'infanterie évaluées à plus de dix-huit-mille hommes se sont présentées de front avec une nombreuse artillerie tandis que d'autres colonnes ont tourné le village venant de dugny et blanc-mesnil",
+      "audio": "test/audio/7400/2928/7400_2928_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1411.04,
+        "original_end_s": 1428.72
+      }
+    },
+    {
+      "id": "7400_2928_000121",
+      "text": "la levée en masse l'accéleration de l'armement le rationnement les signataires étaient avrial beslay briosne chalain combaud",
+      "audio": "test/audio/7400/2928/7400_2928_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 761.88,
+        "original_end_s": 774.67
+      }
+    },
+    {
+      "id": "7400_2928_000122",
+      "text": "grâce à la forte impression produite en europe par la résistance de paris quatre grandes puissances neutres l'angleterre la suisse l'autriche et l'italie se sont ralliées à une idée commune",
+      "audio": "test/audio/7400/2928/7400_2928_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1232.68,
+        "original_end_s": 1246.63
+      }
+    },
+    {
+      "id": "7400_2928_000123",
+      "text": "déposé suivant la chanson et suivant l'histoire aussi chez me duclou son notaire mais encore du plan bazaine lequel consistait à lâcher tout",
+      "audio": "test/audio/7400/2928/7400_2928_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1166.46,
+        "original_end_s": 1178.77
+      }
+    },
+    {
+      "id": "7400_2928_000124",
+      "text": "le quatre septembre lorsque andrée leo et moi nous parcourions paris une dame nous ayant invités à monter dans sa voiture nous raconta que l'armée était à bout de vivres de munitions de tout",
+      "audio": "test/audio/7400/2928/7400_2928_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 837.63,
+        "original_end_s": 853.92
+      }
+    },
+    {
+      "id": "7400_2928_000125",
+      "text": "ce jour-là même strasbourg succombait on parlait beaucoup de l'armée de la loire guillaume disait-on se trouverait pris entre cette armée et une formidable sortie des parisiens",
+      "audio": "test/audio/7400/2928/7400_2928_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 665.63,
+        "original_end_s": 679.81
+      }
+    },
+    {
+      "id": "7400_2928_000126",
+      "text": "enregistré par françoise d la commune par louise michel deuxième partie république du quatre septembre chapitre deux la réforme nationale",
+      "audio": "test/audio/7400/2928/7400_2928_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 18.47,
+        "original_end_s": 32.02
+      }
+    },
+    {
+      "id": "7400_2928_000127",
+      "text": "le gain scandaleux des fournisseurs l'armement insuffisant ne faisaient aucun doute c'était la même chose de l'aveu du ministre de la guerre le seul bataillon complètement armé était celui des employés des ministères",
+      "audio": "test/audio/7400/2928/7400_2928_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 376.78,
+        "original_end_s": 394.75
+      }
+    },
+    {
+      "id": "7400_2928_000128",
+      "text": "signé félix pyat le combat vingt-neuf octobre dix-huit cent soixante-dix il ne s'agissait plus seulement du plan trochu",
+      "audio": "test/audio/7400/2928/7400_2928_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1155.14,
+        "original_end_s": 1166.46
+      }
+    },
+    {
+      "id": "7400_2928_000129",
+      "text": "comme une haute trahison le maréchal bazaine a envoyé un colonel au roi de prusse pour traiter de la reddition de metz et de la paix au nom de sa majesté l'empereur napoléon trois le combat",
+      "audio": "test/audio/7400/2928/7400_2928_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1003.46,
+        "original_end_s": 1018.64
+      }
+    },
+    {
+      "id": "7400_2928_000130",
+      "text": "on nous délégua andrée léo et moi pour réclamer des armes à notre grand étonnement on nous reçut sans difficulté et nous regardions la demande comme accueillie",
+      "audio": "test/audio/7400/2928/7400_2928_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 523.09,
+        "original_end_s": 537.17
+      }
+    },
+    {
+      "id": "7400_2928_000131",
+      "text": "il dirige contre ceux qui le défendent une double accusation aussi infâme qu'elle est fausse il affirme que le gouvernement trompe le public en lui cachant d'importantes nouvelles et que le glorieux soldat de metz",
+      "audio": "test/audio/7400/2928/7400_2928_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1034.24,
+        "original_end_s": 1050.62
+      }
+    },
+    {
+      "id": "7400_2928_000132",
+      "text": "un étudiant appartenant à la manifestation et qui se nommait je crois senart et une vieille femme qui ayant traversé la place en tenant la burette d'huile qu'elle venait d'acheter",
+      "audio": "test/audio/7400/2928/7400_2928_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 547.88,
+        "original_end_s": 560.15
+      }
+    },
+    {
+      "id": "7400_2928_000133",
+      "text": "l'officiel du trente et un octobre cité par jules favre dans le premier volume de l'histoire de la défense nationale c'est avec ces flots d'eau bénite de cour que fut avouée la catastrophe",
+      "audio": "test/audio/7400/2928/7400_2928_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1484.19,
+        "original_end_s": 1499.34
+      }
+    },
+    {
+      "id": "7400_2928_000134",
+      "text": "alors on procéda à notre interrogatoire et comme nous saisissions l'occasion pour exposer notre demande d'armes pour notre bataillon de volontaires l'officier qui ne paraissait pas comprendre s'écria stupidement",
+      "audio": "test/audio/7400/2928/7400_2928_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 602.72,
+        "original_end_s": 619.4
+      }
+    },
+    {
+      "id": "7400_2928_000135",
+      "text": "dix mille de café trente à quarante mille de viandes salées sans compter l'énorme quantité de denrées que faisaient venir les spéculateurs comptant au centuple le prix",
+      "audio": "test/audio/7400/2928/7400_2928_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 164.38,
+        "original_end_s": 177.32
+      }
+    },
+    {
+      "id": "7400_2928_000136",
+      "text": "elles proposent aux belligérants un armistice qui aurait pour objet la convocation d'une assemblée nationale il est bien entendu qu'un tel armistice devrait avoir pour conditions le ravitaillement proportionné à sa durée pour le pays tout entier",
+      "audio": "test/audio/7400/2928/7400_2928_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1246.63,
+        "original_end_s": 1266.11
+      }
+    },
+    {
+      "id": "7400_2928_000137",
+      "text": "nous ne pouvions dit jules favre dans son histoire de la défense nationale retarder la divulgation des deux premières nouvelles l'arrivée de m thiers ayant été annoncée il fallait dire au public ce qu'il allait faire à versailles",
+      "audio": "test/audio/7400/2928/7400_2928_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1281.09,
+        "original_end_s": 1299.83
+      }
+    },
+    {
+      "id": "7400_2928_000138",
+      "text": "il y eut bientôt une masse considérable sur les genoux de la statue de strasbourg était ouvert un livre nous y allâmes signer notre engagement volontaire",
+      "audio": "test/audio/7400/2928/7400_2928_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 486.19,
+        "original_end_s": 499.03
+      }
+    },
+    {
+      "id": "7400_2928_000139",
+      "text": "les policiers pouvaient entendre les réflexions des parisiens peu favorables au gouvernement les imbéciles prétendaient que la dépêche était fausse et les gens de l'ordre s'empressaient pour gagner du temps d'appuyer cette opinion insensée",
+      "audio": "test/audio/7400/2928/7400_2928_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1191.06,
+        "original_end_s": 1208.4
+      }
+    },
+    {
+      "id": "7400_2928_000140",
+      "text": "paris voulant se défendre veillait lui-même le conseil fédéral de l'internationale siégeait à la corderie du temple",
+      "audio": "test/audio/7400/2928/7400_2928_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 707.33,
+        "original_end_s": 717.47
+      }
+    },
+    {
+      "id": "7400_2928_000141",
+      "text": "le bourget village en avant de nos lignes qui avait été occupé par nos troupes a été canonné pendant toute la journée d'hier sans succès pour l'ennemi",
+      "audio": "test/audio/7400/2928/7400_2928_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1398.17,
+        "original_end_s": 1411.04
+      }
+    },
+    {
+      "id": "7400_2928_000142",
+      "text": "ils sont prisonniers de guerre cette cruelle issue d'une lutte de près de trois mois causera dans toute la france une profonde et pénible émotion",
+      "audio": "test/audio/7400/2928/7400_2928_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1354.77,
+        "original_end_s": 1366.1
+      }
+    },
+    {
+      "id": "7400_2928_000143",
+      "text": "à une cour martiale voici cette note datée du vingt huit octobre mille huit cent soixante dix le gouvernement a tenu à honneur de respecter la liberté de la presse",
+      "audio": "test/audio/7400/2928/7400_2928_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 946.84,
+        "original_end_s": 961.84
+      }
+    },
+    {
+      "id": "7400_2928_000144",
+      "text": "la reddition de bazaine fait vrai sûr et certain que le gouvernement de la défense nationale retient par devers lui comme un secret d'état et que nous dénonçons à l'indignation de la france",
+      "audio": "test/audio/7400/2928/7400_2928_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 987.82,
+        "original_end_s": 1003.46
+      }
+    },
+    {
+      "id": "7400_2928_000145",
+      "text": "un des premiers actes du comité central fut d'exposer au gouvernement la volonté de paris elle était exprimée en peu de mots sur une affiche rouge qui fut déchirée dans le centre de paris par les gens de l'ordre",
+      "audio": "test/audio/7400/2928/7400_2928_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 734.41,
+        "original_end_s": 750.75
+      }
+    },
+    {
+      "id": "7400_2928_000146",
+      "text": "pelletan non plus n'avait pas gardé le silence sur la reddition de metz les autres membres de la défense nationale hypnotisés par leur mauvais génie le nain foutriquet qui rentrait dans paris après avoir préparé la reddition chez tous les souverains de l'europe",
+      "audio": "test/audio/7400/2928/7400_2928_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 913.8,
+        "original_end_s": 932.93
+      }
+    },
+    {
+      "id": "7400_2928_000147",
+      "text": "ils vinrent en foule les audacieux on n'avait pas besoin de les appeler c'était la république bientôt le lent fonctionnement des administrations les mêmes que sous l'empire eut tout paralysé",
+      "audio": "test/audio/7400/2928/7400_2928_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 345.66,
+        "original_end_s": 359.39
+      }
+    },
+    {
+      "id": "7400_2928_000148",
+      "text": "déshonore son pays par une trahison nous donnons à ces deux inventions le démenti le plus net dénoncées à un conseil de guerre elles exposeraient leur fabricateur au châtiment le plus sévère",
+      "audio": "test/audio/7400/2928/7400_2928_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1050.62,
+        "original_end_s": 1067.94
+      }
+    },
+    {
+      "id": "7400_2928_000149",
+      "text": "félix pyat trop soupçonneux mais payé pour l'être et les échappés de juin et de décembre revoyaient les jours qu'ils avaient vécus déjà les révolutionnaires espérant se passer pour vaincre du gouvernement",
+      "audio": "test/audio/7400/2928/7400_2928_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 413.35,
+        "original_end_s": 430.2
+      }
+    },
+    {
+      "id": "7400_2928_000150",
+      "text": "livrant à l'ennemi une place de guerre que nul avant n'avait pu prendre les forts les munitions cent mille hommes laissant sans défense le nord et l'est",
+      "audio": "test/audio/7400/2928/7400_2928_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 825.71,
+        "original_end_s": 837.63
+      }
+    },
+    {
+      "id": "7400_2928_000151",
+      "text": "des farouches tribuns qui combattaient l'empire plus rien ne restait ils étaient entrés comme des écureuils dans la loge où avant eux d'autres couraient tournant inutilement la même roue que d'autres avaient tournée avant eux",
+      "audio": "test/audio/7400/2928/7400_2928_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 1499.34,
+        "original_end_s": 1516.93
+      }
+    },
+    {
+      "id": "7400_2928_000152",
+      "text": "acclamée dans les faubourgs et bêtement attribuée par le gouvernement à des agents prussiens c'était chez eux une obsession voici cette affiche",
+      "audio": "test/audio/7400/2928/7400_2928_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 750.75,
+        "original_end_s": 761.88
+      }
+    },
+    {
+      "id": "7400_2928_000153",
+      "text": "l'idée nous plut à quelques-uns plutôt quelques-unes car nous étions en majorité des femmes d'obtenir des armes et de partir à travers tout pour aider strasbourg à se défendre ou mourir avec elle",
+      "audio": "test/audio/7400/2928/7400_2928_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 452.66,
+        "original_end_s": 468.5
+      }
+    },
+    {
+      "id": "7400_2928_000154",
+      "text": "en effet elle venait de rochefort qui imposé par la foule au gouvernement le quatre septembre ne pouvait sans trahir garder le silence et l'avait dit à flourens commandant des bataillons de belleville",
+      "audio": "test/audio/7400/2928/7400_2928_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 882.78,
+        "original_end_s": 898.25
+      }
+    },
+    {
+      "id": "7400_2928_000155",
+      "text": "rien n'était changé puisque tous les rouages n'avaient que pris des noms nouveaux ils avaient un masque c'était tout les munitions falsifiées les fournitures par écrit le manque de tout ce qui était de première nécessité pour le combat",
+      "audio": "test/audio/7400/2928/7400_2928_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7400",
+        "gender": "w",
+        "book_id": "2928",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_commune_1312_librivox/commune_09_michel_64kb.mp3",
+        "original_start_s": 359.39,
+        "original_end_s": 376.78
+      }
+    }
+  ]
+}

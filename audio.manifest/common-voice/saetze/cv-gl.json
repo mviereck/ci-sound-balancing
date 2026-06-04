@@ -1,0 +1,112 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — gl",
+  "lang": "gl",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-gl",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "25383340",
+      "text": "Toma, Alberte, aí tes as pasaxes.",
+      "audio": "gl/unknown/gl_u_25383340.mp3",
+      "tags": {
+        "source_item_id": "25383340",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25385524",
+      "text": "Pode consultar os detalles se quere saber máis.",
+      "audio": "gl/unknown/gl_u_25385524.mp3",
+      "tags": {
+        "source_item_id": "25385524",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25387783",
+      "text": "Á noitiña é cando se pon coa consola",
+      "audio": "gl/unknown/gl_u_25387783_normativo_est_ndar.mp3",
+      "tags": {
+        "source_item_id": "25387783",
+        "gender": "u",
+        "accent": "Normativo (estándar)"
+      }
+    },
+    {
+      "id": "25400234",
+      "text": "Ao teren sido excomungados non tiñan dereito a voto",
+      "audio": "gl/unknown/gl_u_25400234.mp3",
+      "tags": {
+        "source_item_id": "25400234",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25508403",
+      "text": "De regreso a Ordes contactou co grupo de Manuel Ponte Pedreira.",
+      "audio": "gl/unknown/gl_u_25508403.mp3",
+      "tags": {
+        "source_item_id": "25508403",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25998188",
+      "text": "A proba iníciase cunha carreira de impulso.",
+      "audio": "gl/unknown/gl_u_25998188.mp3",
+      "tags": {
+        "source_item_id": "25998188",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26185302",
+      "text": "A historia clínica é onde se recollen todos os datos clínicos.",
+      "audio": "gl/unknown/gl_u_26185302_neofalante.mp3",
+      "tags": {
+        "source_item_id": "26185302",
+        "gender": "u",
+        "accent": "Neofalante"
+      }
+    },
+    {
+      "id": "26186911",
+      "text": "Ten tamén un pequeno número de voos chárter internacionais.",
+      "audio": "gl/unknown/gl_u_26186911_neofalante.mp3",
+      "tags": {
+        "source_item_id": "26186911",
+        "gender": "u",
+        "accent": "Neofalante"
+      }
+    },
+    {
+      "id": "26195061",
+      "text": "Foi un bo amigo do xornalista Avelino Rodríguez Elías.",
+      "audio": "gl/unknown/gl_u_26195061_central_gheada.mp3",
+      "tags": {
+        "source_item_id": "26195061",
+        "gender": "u",
+        "accent": "Central (gheada)"
+      }
+    },
+    {
+      "id": "26285229",
+      "text": "A evolución dirixida é unha imitación feita no laboratorio do ciclo da evolución natural.",
+      "audio": "gl/unknown/gl_u_26285229_neofalante.mp3",
+      "tags": {
+        "source_item_id": "26285229",
+        "gender": "u",
+        "accent": "Neofalante"
+      }
+    }
+  ]
+}

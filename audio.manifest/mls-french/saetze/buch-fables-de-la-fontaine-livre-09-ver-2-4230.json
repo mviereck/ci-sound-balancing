@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Fables de La Fontaine, livre 09 (ver 2)",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "4230",
+    "book_title": "Fables de La Fontaine, livre 09 (ver 2)",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "5207_4230_000000",
+      "text": "non dit l'autre je n'ai qu'un tour dans mon bissac mais je soutiens qu'il en vaut mille eux de recommencer la dispute à l'envi sur le que si que non tout deux étant ainsi",
+      "audio": "test/audio/5207/4230/5207_4230_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 54.61,
+        "original_end_s": 66.41
+      }
+    },
+    {
+      "id": "5207_4230_000001",
+      "text": "fin de la fable quatorze le chat et le renard cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/5207/4230/5207_4230_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 111.79,
+        "original_end_s": 125.05
+      }
+    },
+    {
+      "id": "5207_4230_000002",
+      "text": "une meute apaisa la noise le chat dit au renard fouille en ton sac ami cherche en ta cervelle matoise un stratagème sûr pour moi voici le mien",
+      "audio": "test/audio/5207/4230/5207_4230_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 66.41,
+        "original_end_s": 77.56
+      }
+    },
+    {
+      "id": "5207_4230_000003",
+      "text": "la fumée y pourvut ainsi que les bassets au sortir d'un terrier deux chiens aux pieds agiles l'étranglèrent du premier bond le trop d'expédients peut gâter une affaire on perd du temps au choix on tente on veut tout faire n'en ayons qu'un mais qu'il soit bon",
+      "audio": "test/audio/5207/4230/5207_4230_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 93.12,
+        "original_end_s": 111.79
+      }
+    },
+    {
+      "id": "5207_4230_000004",
+      "text": "ayant bien disputé l'on parla du prochain le renard au chat dit enfin tu prétends être fort habile en sais-tu tant que moi j'ai cent ruses au sac",
+      "audio": "test/audio/5207/4230/5207_4230_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 42.85,
+        "original_end_s": 54.61
+      }
+    },
+    {
+      "id": "5207_4230_000005",
+      "text": "à ces mots sur un arbre il grimpa bel et bien l'autre fit cent tours inutiles entra dans cent terriers mit cent fois en défaut tous les confrères de brifaut partout il tenta des asiles et ce fut partout sans succès",
+      "audio": "test/audio/5207/4230/5207_4230_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 77.56,
+        "original_end_s": 93.12
+      }
+    },
+    {
+      "id": "5207_4230_000006",
+      "text": "croquant mainte volaille escroquant maint fromage s'indemnisaient à qui mieux mieux le chemin était long et partant ennuyeux pour l'accourcir ils disputèrent la dispute est d'un grand secours sans elle on dormirait toujours nos pèlerins s'égosillèrent",
+      "audio": "test/audio/5207/4230/5207_4230_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "4230",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_09-v2_1102_librivox/fables_09_14_lafontaine_64kb.mp3",
+        "original_start_s": 24.38,
+        "original_end_s": 42.85
+      }
+    }
+  ]
+}

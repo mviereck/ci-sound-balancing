@@ -1,0 +1,1670 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Tajemnica Baskerville'ów",
+  "lang": "pl",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "5541",
+    "book_title": "Tajemnica Baskerville'ów",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "7775_5541_000000",
+      "text": "oboje z bratem zmartwiliśmy się bardzo śmiercią sir karola odwiedzał nas często mówił z przejęciem o klątwie ciążącej nad jego rodem nie dziw że po jego tragicznej śmierci gotowa byłam uwierzyć w słuszność jego obaw a widząc jego spadkobiercę przedstawiciela tejże rodziny",
+      "audio": "dev/audio/7775/5541/7775_5541_000000.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1197.09,
+        "original_end_s": 1214.06
+      }
+    },
+    {
+      "id": "7775_5541_000001",
+      "text": "mam nadzieję że trzymaliście się panowie razem prawie ciągle wczoraj wyjątkowo spędziłem całe popołudnie u sir henryka w muzeum chirurgicznym odparł doktor mortimer było to wielką nieostrożnością rzekł holmes z zadumą",
+      "audio": "dev/audio/7775/5541/7775_5541_000001.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 153.02,
+        "original_end_s": 166.06
+      }
+    },
+    {
+      "id": "7775_5541_000002",
+      "text": "czy nie należałoby przedewszystkiem pozbyć się małżonków barrymore byłoby to wielką nieostrożnością jeżeli są niewinni stałaby się im krzywda jeśli są winni ułatwiłoby im to zatarcie śladów nie trzeba ich zatrzymać ale nie spuszczać z nich oka jest tam jeszcze groom",
+      "audio": "dev/audio/7775/5541/7775_5541_000002.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 86.18,
+        "original_end_s": 104.99
+      }
+    },
+    {
+      "id": "7775_5541_000003",
+      "text": "dla siebie nie żałuję tego bo mam czas oddawać się moim ulubionym badaniom i znalazłem tu obfite pole do studyów nad botaniką i zoologią siostra dzieli moje upodobania przyrodnicze mówię to żeby panu ułatwić rozwiązanie zagadki nad którą pan zastanawiał się patrząc na oparzeniska",
+      "audio": "dev/audio/7775/5541/7775_5541_000003.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1024.3,
+        "original_end_s": 1042.82
+      }
+    },
+    {
+      "id": "7775_5541_000004",
+      "text": "miałem ochotę odmówić ze względu na sir henryka ale przypomniałem sobie że jest zajęty korespondencyą nie mogłem mu dopomóc a z drugiej strony holmes kazał mi poznawać sąsiedztwo więc przyjąłem zaproszenie pana stapleton i weszliśmy razem na ścieżkę",
+      "audio": "dev/audio/7775/5541/7775_5541_000004.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 503.24,
+        "original_end_s": 518.92
+      }
+    },
+    {
+      "id": "7775_5541_000005",
+      "text": "jeszcze jedno pytanie miss stapleton jeżeli w słowach pani nie było ukrytego znaczenia to dlaczego nie chciałaś aby je brat usłyszał mój brat pragnie żeby dwór był zamieszkany bo sądzi że obecność właściciela jest konieczną dla dobra okolicy",
+      "audio": "dev/audio/7775/5541/7775_5541_000005.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1257.02,
+        "original_end_s": 1272.87
+      }
+    },
+    {
+      "id": "7775_5541_000006",
+      "text": "wydawała się jakby cudownem nadprzyrodzonem zjawiskiem na tle ponurego krajobrazu oczy jej biegły niespokojnie za bratem przyśpieszyła kroku i zrównała się ze mną uchyliłem kapelusza i chciałem się przedstawić lecz nie dała mi dojść do słowa wyjeżdżaj pan stąd szepnęła wracaj natychmiast do londynu",
+      "audio": "dev/audio/7775/5541/7775_5541_000006.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 830.82,
+        "original_end_s": 850.43
+      }
+    },
+    {
+      "id": "7775_5541_000007",
+      "text": "przed udaniem się na spoczynek podniosłem roletę i wyjrzałem przez okno widok był na trawnik przed portykiem pośrodku stały dwa dęby miotane wiatrem księżyc w ostatniej kwadrze przeświecał blado przez chmury z dala widniały nagie skały a poza nimi trzęsawisko",
+      "audio": "dev/audio/7775/5541/7775_5541_000007.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 724.09,
+        "original_end_s": 740.36
+      }
+    },
+    {
+      "id": "7775_5541_000008",
+      "text": "pan stapleton mówił to z uśmiechem ale z oczu jego było widać że przywiązuje wiarę do tych pogłosek owa legenda oddziałała na wyobraźnię sir karola ciągnął dalej i pewien jestem że sprowadziła śmierć nagłą w jaki sposób",
+      "audio": "dev/audio/7775/5541/7775_5541_000008.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 366.4,
+        "original_end_s": 380.96
+      }
+    },
+    {
+      "id": "7775_5541_000009",
+      "text": "zdziwiło mnie takie pytanie można je było wziąć za zasadzkę ale twarz mówiącego była chłodna i obojętna więc moje podejrzenia musiały pierzchnąć nie dziw że znam pańskie stosunki ze słynnym detektywem rzekł pan stapleton",
+      "audio": "dev/audio/7775/5541/7775_5541_000009.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 413.79,
+        "original_end_s": 428.09
+      }
+    },
+    {
+      "id": "7775_5541_000010",
+      "text": "bałem się o niego byłem mimo woli pod wrażeniem smutnego krajobrazu a zapewne i ostrzeżeń miss stapleton wypowiedzianych tak poważnie uroczyście niemal że musiały osłaniać jakąś tajemnicę to też mimo naglących zaprosin na śniadanie pożegnałem rodzeństwo i wracałem do dworu tą samą ścieżką",
+      "audio": "dev/audio/7775/5541/7775_5541_000010.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1095.75,
+        "original_end_s": 1115.15
+      }
+    },
+    {
+      "id": "7775_5541_000011",
+      "text": "doszliśmy do ścieżki wiodącej przez piaski i trzęsawiska na prawo sterczał odłam skały po za nią w pewnej odległości unosił się dym z komina ta ścieżka prowadzi do merripit house rzekł stapleton może mnie pan zechce zaszczycić swojemi odwiedzinami",
+      "audio": "dev/audio/7775/5541/7775_5541_000011.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 487.32,
+        "original_end_s": 503.24
+      }
+    },
+    {
+      "id": "7775_5541_000012",
+      "text": "nagle przerwał ją płacz niewieści usiadłem na łóżku i począłem nasłuchiwać przez pół godziny czekałem w natężeniu ale oprócz płaczu nie usłyszałem nic zgoła",
+      "audio": "dev/audio/7775/5541/7775_5541_000012.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 755.9,
+        "original_end_s": 769.08
+      }
+    },
+    {
+      "id": "7775_5541_000013",
+      "text": "sądzę że nikt tutaj nie zna jej lepiej ode mnie czy okolica jest tak trudną do poznania bardzo trudną widzisz pan na przykład tę rozległą równinę na północ obramowaną wzgórzami czy dostrzegasz pan coś niezwykłego",
+      "audio": "dev/audio/7775/5541/7775_5541_000013.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 552.97,
+        "original_end_s": 567.01
+      }
+    },
+    {
+      "id": "7775_5541_000014",
+      "text": "w domu są tylko dwie kobiety odparł mleczarka która śpi w drugiem skrzydle i moja żona co do mojej mogę ręczyć że nie płakała a jednak mówiąc to kłamał",
+      "audio": "dev/audio/7775/5541/7775_5541_000014.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 91.72,
+        "original_end_s": 103.66
+      }
+    },
+    {
+      "id": "7775_5541_000015",
+      "text": "tok moich myśli został przerwany odgłosem kroków ktoś biegł za mną i wołał mnie po nazwisku odwróciłem się pewien że ujrzę doktora mortimer lecz ku mojemu zdziwieniu zobaczyłem nieznajomego",
+      "audio": "dev/audio/7775/5541/7775_5541_000015.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 272.9,
+        "original_end_s": 285.28
+      }
+    },
+    {
+      "id": "7775_5541_000016",
+      "text": "skąd pan wiedział o wadzie serca od mego przyjaciela doktora mortimer zatem sądzisz pan że jakiś pies ścigał sir karola i że biedak zmarł skutkiem strachu czy pan znasz jaki inny powód śmierci dotychczas nie wyprowadziłem wniosków a pan sherlock holmes czy wyraził już swój pogląd na tę sprawę",
+      "audio": "dev/audio/7775/5541/7775_5541_000016.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 393.97,
+        "original_end_s": 413.79
+      }
+    },
+    {
+      "id": "7775_5541_000017",
+      "text": "może pan zechce obejrzeć mój zbiór motyli sądzę że niema obfitszego w całej anglii południowej nie mogłem przyjąć zaproszenia pilno mi już było do mego towarzysza",
+      "audio": "dev/audio/7775/5541/7775_5541_000017.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1084.38,
+        "original_end_s": 1095.75
+      }
+    },
+    {
+      "id": "7775_5541_000018",
+      "text": "najzupełniej obawialiśmy się tu wszyscy że nowy baronet po tragicznej śmierci sir karola nie zechce zamieszkać tutaj spełnia ofiarę zagrzebując się w takiem ustroniu ale okolica na tem zyska i powinna mu być wdzięczna spodziewam się że sir henryk nie żywi przesądnych obaw jest na to zbyt rozumny",
+      "audio": "dev/audio/7775/5541/7775_5541_000018.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 335.26,
+        "original_end_s": 353.5
+      }
+    },
+    {
+      "id": "7775_5541_000019",
+      "text": "więc chcecie mnie opuścić powtórzył sir henryk wszak twoja rodzina służyła mojej przez kilka pokoleń przykroby mi było rozpoczynać nowe życie od zrywania tak dawnego stosunku",
+      "audio": "dev/audio/7775/5541/7775_5541_000019.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 601.44,
+        "original_end_s": 613.44
+      }
+    },
+    {
+      "id": "7775_5541_000020",
+      "text": "barrymore zaniósłszy kuferki do naszych pokojów wrócił i stał przy drzwiach jako wytrawny służbista nie chcąc przerywać naszej rozmowy był to mężczyzna lat średnich niezwykłej urody o twarzy bladej z dużą czarną brodą i regularnymi rysami",
+      "audio": "dev/audio/7775/5541/7775_5541_000020.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 560.97,
+        "original_end_s": 576.28
+      }
+    },
+    {
+      "id": "7775_5541_000021",
+      "text": "ja słyszałem płacz najwyraźniej i mógłbym ręczyć że płakała kobieta trzeba to sprawdzić oświadczył sir henryk zadzwonił na barrymora i spytał go o wyjaśnienie tej zagadki zdało mi się że blada twarz kamerdynera zbladła jeszcze bardziej",
+      "audio": "dev/audio/7775/5541/7775_5541_000021.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 76.0,
+        "original_end_s": 91.72
+      }
+    },
+    {
+      "id": "7775_5541_000022",
+      "text": "widzę że to była wina naszego usposobienia nie zaś dworu mówił baronet byliśmy wczoraj zmęczeni drogą zziębli więc wszystko ukazywało nam się w ponurem świetle dziś jesteśmy rzeźwi wypoczęci to też dom wydaje nam się weselszym",
+      "audio": "dev/audio/7775/5541/7775_5541_000022.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 46.8,
+        "original_end_s": 61.74
+      }
+    },
+    {
+      "id": "7775_5541_000023",
+      "text": "dlatego właśnie że grozi taki już jego charakter jeżeli pani nie może przytoczyć mi ważniejszego powodu to tym argumentem nie zdołam go skłonić do opuszczenia baskerville hall nie mogę przytoczyć innego powodu bo żadnego innego nie znam",
+      "audio": "dev/audio/7775/5541/7775_5541_000023.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1240.51,
+        "original_end_s": 1257.02
+      }
+    },
+    {
+      "id": "7775_5541_000024",
+      "text": "mówiłam do doktora watson jak do stałego mieszkańca tych stron nie zaś do gościa ale może pan zechce nas odwiedzić w merripit house przyjąłem zaproszenie droga była niedaleka wiodła brzegiem łąki",
+      "audio": "dev/audio/7775/5541/7775_5541_000024.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 942.91,
+        "original_end_s": 955.28
+      }
+    },
+    {
+      "id": "7775_5541_000025",
+      "text": "od pierwszej chwili gdym zawitał w te strony czuję coś złowróżebnego w powietrzu stąpamy jakby po onych zielonych kępach na bagnie lada chwila możemy w nich utonąć a nikt nie chce nam wskazać gdzie jest niebezpieczeństwo",
+      "audio": "dev/audio/7775/5541/7775_5541_000025.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1167.66,
+        "original_end_s": 1182.46
+      }
+    },
+    {
+      "id": "7775_5541_000026",
+      "text": "niebezpiecznie jest zapuszczać się tutaj nawet wśród letniej suszy ale podczas jesiennych roztopów miejsce to jest cmentarzem a jednak potrafię przejść i wrócić bezpiecznie przez sam środek bagna widzisz pan znowu jakiś źrebiec ugrzązł w błocie",
+      "audio": "dev/audio/7775/5541/7775_5541_000026.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 594.12,
+        "original_end_s": 609.1
+      }
+    },
+    {
+      "id": "7775_5541_000027",
+      "text": "mąż wiedział o tem napewno jednak zaprzeczył nam jaki miał w tem cel dlaczego ona płakała ten blady mężczyzna z czarną brodą wydawał mi się podejrzanym on pierwszy znalazł trupa sir karola o okolicznościach towarzyszących jego śmierci wiedzieliśmy tylko to co barrymore opowiadał",
+      "audio": "dev/audio/7775/5541/7775_5541_000027.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 119.24,
+        "original_end_s": 138.31
+      }
+    },
+    {
+      "id": "7775_5541_000028",
+      "text": "głowa biednego sir karola była na wpół galijska na wpół celtycka wszak pan sir henryku opuściłeś baskerville hall w bardzo młodym wieku miałem zaledwie lat dziesięć gdy mój ojciec umarł zresztą nie znam pałacu mieszkaliśmy w ustronnym dworku na południowym wybrzeżu stamtąd pojechałem wprost do ameryki",
+      "audio": "dev/audio/7775/5541/7775_5541_000028.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 234.64,
+        "original_end_s": 253.95
+      }
+    },
+    {
+      "id": "7775_5541_000029",
+      "text": "po południu sir henryk chciał załatwić korespondencyę mogłem udać się do grimpen był to spacer niedaleki droga wiodła brzegiem trzęsawiska w grimpen były tylko dwie murowane budowle austerya i dom doktora mortimera",
+      "audio": "dev/audio/7775/5541/7775_5541_000029.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 164.87,
+        "original_end_s": 179.19
+      }
+    },
+    {
+      "id": "7775_5541_000030",
+      "text": "o jakich faktach chcesz wiedzieć spytałem chcę wiedzieć o wszystkim co się zdarzy choćby to na pozór nie miało żadnego związku z naszą sprawą pragnę zwłaszcza poznać stosunki młodego baskervilla z sąsiedztwem oraz wszelkie szczegóły odnośnie do śmierci sir karola",
+      "audio": "dev/audio/7775/5541/7775_5541_000030.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 55.41,
+        "original_end_s": 71.58
+      }
+    },
+    {
+      "id": "7775_5541_000031",
+      "text": "po śniadaniu spotkałem mrs barrymore w sieni słońce padało na jej twarz chłodną płaską i brzydką duże wyraziste oczy były zaczerwienione spojrzała na mnie z pod zapuchłych powiek a więc to ona płakała wśród nocy",
+      "audio": "dev/audio/7775/5541/7775_5541_000031.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 103.66,
+        "original_end_s": 119.24
+      }
+    },
+    {
+      "id": "7775_5541_000032",
+      "text": "co to znaczy perkins spytał znowu doktor mortimer stangret odwrócił się ku nam i rzekł trzy dni temu jakiś więzień uciekł z więzienia w princetown wszystkie drogi kołowe i wszystkie dworce w pobliżu strzeżone są przez wojsko nie podoba się to naszym fermerom",
+      "audio": "dev/audio/7775/5541/7775_5541_000032.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 348.24,
+        "original_end_s": 364.11
+      }
+    },
+    {
+      "id": "7775_5541_000033",
+      "text": "patrząc przez okno na te bagna usiane kamieniami zastanawiałem się co mogło skłonić tak wykształconego mężczyznę i tak piękną kobietę do obrania tutaj siedziby",
+      "audio": "dev/audio/7775/5541/7775_5541_000033.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 972.21,
+        "original_end_s": 982.33
+      }
+    },
+    {
+      "id": "7775_5541_000034",
+      "text": "nasi przyjaciele znaleźli już przedział pierwszej klasy i czekali na platformie nie mamy żadnych wieści odparł doktor mortimer w odpowiedzi na pytanie holmesa jednego tylko jestem pewien a to że nas już nie śledzono przez te dwa dni ostatnie wychodziliśmy zawsze pod opieką tajnego policjanta który nic podejrzanego nie dostrzegł",
+      "audio": "dev/audio/7775/5541/7775_5541_000034.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 133.92,
+        "original_end_s": 153.02
+      }
+    },
+    {
+      "id": "7775_5541_000035",
+      "text": "włościanie powiadają że to pies baskervillów upomina się o zdobycz słyszałem ten głos parę razy ale nigdy jeszcze tak wyraźnie jak dzisiaj dookoła nie było widać żadnego żywego stworzenia jesteś pan człowiekiem wykształconym wszak pan nie wierzysz w przesądy",
+      "audio": "dev/audio/7775/5541/7775_5541_000035.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 681.04,
+        "original_end_s": 697.79
+      }
+    },
+    {
+      "id": "7775_5541_000036",
+      "text": "błota nieprzebyte jeden krok fałszywy a śmierć pewna niedalej jak wczoraj widziałem na własne oczy jak zapadł w nie młody źrebak pochłonęło go trzęsawisko",
+      "audio": "dev/audio/7775/5541/7775_5541_000036.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 582.67,
+        "original_end_s": 594.12
+      }
+    },
+    {
+      "id": "7775_5541_000037",
+      "text": "a zawierają tyle tajemnic pan je zgłębiłeś mieszkam tu od lat dwóch zaledwie tutejsi mieszkańcy mogliby mnie nazwać obcym przybyszem osiedliliśmy się tutaj wkrótce po przybyciu sir karola ale moje upodobania przyrodnicze skłaniają mnie do ciągłych wędrówek to też poznałem każdą niemal piędź ziemi",
+      "audio": "dev/audio/7775/5541/7775_5541_000037.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 534.3,
+        "original_end_s": 552.97
+      }
+    },
+    {
+      "id": "7775_5541_000038",
+      "text": "a jednak nie wszystko było grą wyobraźni odparłem czy pan słyszał wczoraj płacz istotnie zdawało mi się że słyszę zawodzenie żałosne natężyłem słuch ale płacz ustał więc byłem pewien że mi się śniło",
+      "audio": "dev/audio/7775/5541/7775_5541_000038.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 61.74,
+        "original_end_s": 76.0
+      }
+    },
+    {
+      "id": "7775_5541_000039",
+      "text": "można to było poczytywać za złą wróżbę hola cóż to znaczy zawołał doktor mortimer gdyśmy wyjechali na pole jak wryty w ziemię stał żołnierz na koniu z bagnetem przez ramię",
+      "audio": "dev/audio/7775/5541/7775_5541_000039.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 337.25,
+        "original_end_s": 348.24
+      }
+    },
+    {
+      "id": "7775_5541_000040",
+      "text": "mortimera pocztmistrz utrzymywał jednocześnie sklepik korzenny naturalnie odparł na moje pytanie depesza została wręczona panu barrymore stosownie do życzenia kto ją wręczył mój chłopak",
+      "audio": "dev/audio/7775/5541/7775_5541_000040.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 179.19,
+        "original_end_s": 191.48
+      }
+    },
+    {
+      "id": "7775_5541_000041",
+      "text": "istotnie dostrzegłem coś szamocącego się po chwili wysunęła się długa szyja i rozległ się okrzyk przeraźliwy drgnąłem mój towarzysz był chłodniejszy ode mnie już po nim rzekł pochłonęło go bagno dwóch źrebców w dwa dni",
+      "audio": "dev/audio/7775/5541/7775_5541_000041.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 609.1,
+        "original_end_s": 626.36
+      }
+    },
+    {
+      "id": "7775_5541_000042",
+      "text": "amerykan wjechał na boczną drogę mknęliśmy wśród łąk żyznych i pól uprawnych przy każdym zakręcie ujawniającym nowe horyzonty baskerville wydawał ciche okrzyki zachwytu minęliśmy lasek dębowy zeschłe liście uściełały drogę nowemu dziedzicowi",
+      "audio": "dev/audio/7775/5541/7775_5541_000042.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 321.47,
+        "original_end_s": 337.25
+      }
+    },
+    {
+      "id": "7775_5541_000043",
+      "text": "sędziowie nie mogli uwierzyć aby dopuścił się tak potwornej zbrodni będąc przy zdrowych zmysłach nasz amerykan toczył się teraz brzegiem trzęsawiska najeżonego wysokiemi kamieniami widok był groźny nawet sir henryk przestał się zachwycać krajobrazem",
+      "audio": "dev/audio/7775/5541/7775_5541_000043.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 395.22,
+        "original_end_s": 410.98
+      }
+    },
+    {
+      "id": "7775_5541_000044",
+      "text": "poznałbym pana po siatce odparłem bo wiadomo mi że pan stapleton jest naturalistą ale w jaki sposób pan mnie poznał byłem u mortimera i pokazał mi pana przez okno ponieważ idę w tę samą stronę więc dogoniłem pana czy sir henryk już wypoczął po podróży",
+      "audio": "dev/audio/7775/5541/7775_5541_000044.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 318.21,
+        "original_end_s": 335.26
+      }
+    },
+    {
+      "id": "7775_5541_000045",
+      "text": "spojrzał na mnie ze zdziwieniem niechże pana bóg strzeże od takich prób miałbym pańskie życie na sumieniu zawołał pan nie wróciłbyś z tej wycieczki mnie za drogowskaz służą rośliny",
+      "audio": "dev/audio/7775/5541/7775_5541_000045.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 651.01,
+        "original_end_s": 663.3
+      }
+    },
+    {
+      "id": "7775_5541_000046",
+      "text": "turkot kół zamierał na zwiędłych liściach stare drzewa tworzyły tunel nad naszemi głowami baskerville drgnął widząc tę aleję czy to było tutaj spytał półgłosem nie aleja wiązów jest po drugiej stronie objaśnił go doktor mortimer",
+      "audio": "dev/audio/7775/5541/7775_5541_000046.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 447.31,
+        "original_end_s": 465.55
+      }
+    },
+    {
+      "id": "7775_5541_000047",
+      "text": "warunki zmieniły się my dwoje wystarczaliśmy sir karolowi ale jaśnie pan zechce zapewne żyć dworniej przyjmować gości i będzie potrzebował więcej służby",
+      "audio": "dev/audio/7775/5541/7775_5541_000047.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 591.24,
+        "original_end_s": 601.44
+      }
+    },
+    {
+      "id": "7775_5541_000048",
+      "text": "sir karol był tak zdenerwowany że ukazanie się psa mogło go zabić zdaje mi się że ujrzał istotnie jakieś dziwne stworzenie w alei wiązów obawiałem się zawsze anewryzmu serca bo byłem bardzo do niego przywiązany",
+      "audio": "dev/audio/7775/5541/7775_5541_000048.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 380.96,
+        "original_end_s": 393.97
+      }
+    },
+    {
+      "id": "7775_5541_000049",
+      "text": "szkoda wielka może by wyświetlił tę tajemnicę gdybyś pan potrzebował wskazówek gotów jestem służyć może mi pan powie w jaki sposób zamierzasz pan prowadzić sprawę a kto wie czy nie mógłbym udzielić panu pomocy",
+      "audio": "dev/audio/7775/5541/7775_5541_000049.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 456.78,
+        "original_end_s": 471.04
+      }
+    },
+    {
+      "id": "7775_5541_000050",
+      "text": "mamy książki mamy nasze zajęcia naukowe zresztą mamy sąsiadów doktor mortimer jest człowiekiem uczonym w swoim zakresie biedny sir karol był miłym towarzyszem widywaliśmy go często i jego śmierć była dla nas ciosem",
+      "audio": "dev/audio/7775/5541/7775_5541_000050.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1053.19,
+        "original_end_s": 1067.59
+      }
+    },
+    {
+      "id": "7775_5541_000051",
+      "text": "jestem przyjacielem sir henryka chodzi mi o jego bezpieczeństwo niechże mi pani wytłumaczy dlaczego radzisz mu pani opuścić te strony i wracać do londynu",
+      "audio": "dev/audio/7775/5541/7775_5541_000051.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1138.47,
+        "original_end_s": 1148.96
+      }
+    },
+    {
+      "id": "7775_5541_000052",
+      "text": "przypomniała mi się dziwna przestroga wycięta ze wstępnego artykułu timesa kto ją przesłał on czy też ktoś kto chciał pokrzyżować jego plany może kamerdyner chciał zabezpieczyć sobie w dalszym ciągu spokojne i niezależne stanowisko w pałacu w którym podczas nieobecności właścicieli był prawdziwym panem",
+      "audio": "dev/audio/7775/5541/7775_5541_000052.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 243.47,
+        "original_end_s": 261.95
+      }
+    },
+    {
+      "id": "7775_5541_000053",
+      "text": "dziwne to trzęsawisko mówił wskazując mi olbrzymią płaszczyznę pokrytą piaskami i trawą dla nieoswojonego oka wydaje się monotonnem i smutnem ale kto się przyzwyczai do tych fal piaszczystych dla tego mają one urok nieprzeparty",
+      "audio": "dev/audio/7775/5541/7775_5541_000053.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 518.92,
+        "original_end_s": 534.3
+      }
+    },
+    {
+      "id": "7775_5541_000054",
+      "text": "jedno wydaje mi się pewnem a mianowicie że pan jerzy desmond najbliższy spadkobierca jest człowiekiem bezinteresownym i że nie on był sprawcą morderstwa możemy go zupełnie pominąć szukajmy wśród najbliższego otoczenia sir henryka",
+      "audio": "dev/audio/7775/5541/7775_5541_000054.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 71.58,
+        "original_end_s": 86.18
+      }
+    },
+    {
+      "id": "7775_5541_000055",
+      "text": "to był kaprys kobiecy doktorze watson gdy mnie pan poznasz przekonasz się że nie zawsze umiem wytłumaczyć pobudki moich słów i czynów nie nie pamiętam jak głos pani drżał pamiętam jak pani na mnie patrzyła z trwogą na miłość boską bądź ze mną szczera miss stapleton",
+      "audio": "dev/audio/7775/5541/7775_5541_000055.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1148.96,
+        "original_end_s": 1167.66
+      }
+    },
+    {
+      "id": "7775_5541_000056",
+      "text": "wszak wiadomo powszechnie iż jesteście w przyjaźni ze sobą gdy doktor mortimer wymienił mi pańskie nazwisko domyśliłem się od razu że pan sherlock holmes wziął w swoje ręce tę sprawę i że pan tutaj przybyłeś z jego ramienia rzecz naturalna że chciałem się dowiedzieć co pan sherlock holmes o tem myśli",
+      "audio": "dev/audio/7775/5541/7775_5541_000056.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 428.09,
+        "original_end_s": 446.31
+      }
+    },
+    {
+      "id": "7775_5541_000057",
+      "text": "byłem tem bardziej zdumiony że miss stapleton stanowiła zupełny kontrast ze swoim bratem o ile on był blady szczupły o tyle ona wspaniale rozwinięta o ile on niepozorny o tyle ona wytworną",
+      "audio": "dev/audio/7775/5541/7775_5541_000057.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 801.69,
+        "original_end_s": 816.05
+      }
+    },
+    {
+      "id": "7775_5541_000058",
+      "text": "dziwisz się pan zapewne że rozpięliśmy tutaj namioty rzekł stapleton jakby w odpowiedzi namoje myśli a jednak dobrze nam i czujemy się szczęśliwi prawda beryl zupełnie szczęśliwi potwierdziła bez zapału",
+      "audio": "dev/audio/7775/5541/7775_5541_000058.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 982.33,
+        "original_end_s": 995.38
+      }
+    },
+    {
+      "id": "7775_5541_000059",
+      "text": "wybiegłam naprzód aby pana tu spotkać nie wzięłam nawet kapelusza mówiła zdyszana chcę pana prosić abyś zapomniał moje słowa nie tyczyły się pana nie mogę ich zapomnieć miss miss stapleton odparłem",
+      "audio": "dev/audio/7775/5541/7775_5541_000059.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1125.68,
+        "original_end_s": 1138.47
+      }
+    },
+    {
+      "id": "7775_5541_000060",
+      "text": "nie będę bałamucił twego własnego sądu poddając ci moje podejrzenia mówił pragnę tylko abyś mi doniósł o faktach z największymi szczegółami pozostaw mi wysnuwanie z nich wniosków",
+      "audio": "dev/audio/7775/5541/7775_5541_000060.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 43.45,
+        "original_end_s": 55.41
+      }
+    },
+    {
+      "id": "7775_5541_000061",
+      "text": "słuchaj-no james wszak w zeszłym tygodniu oddałeś telegram do rąk pana barrymore w baskerville hall tak ojcze do rąk własnych spytałem był wtedy na strychu więc nie mogłem oddać mu do rąk ale wręczyłem depeszę jego żonie która powiedziała że ją zaraz zaniesie mężowi czy widziałeś pana barrymore",
+      "audio": "dev/audio/7775/5541/7775_5541_000061.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 191.48,
+        "original_end_s": 209.66
+      }
+    },
+    {
+      "id": "7775_5541_000062",
+      "text": "powiedz mi pani co znaczyły jej słowa a w zamian obiecuję że je powtórzę sir henrykowi na twarzy miss stapleton odbiło się wahanie ale trwało krótko przywiązujesz pan zbyt wielką wagę do moich słów odrzekła",
+      "audio": "dev/audio/7775/5541/7775_5541_000062.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1182.46,
+        "original_end_s": 1197.09
+      }
+    },
+    {
+      "id": "7775_5541_000063",
+      "text": "chętnie bym został i oprowadził pana po tej rezydencyi ale barrymore spełni to lepiej ode mnie muszę wracać do widzenia a proszę pamiętać że jestem na pańskie usługi o każdej porze dnia i nocy",
+      "audio": "dev/audio/7775/5541/7775_5541_000063.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 514.44,
+        "original_end_s": 526.37
+      }
+    },
+    {
+      "id": "7775_5541_000064",
+      "text": "gniewałby się na mnie gdyby wiedział że radzę sir henrykowi opuścić te strony spełniłam swój obowiązek i nic już więcej nie dodam muszę wracać bo brat domyśli się żem rozmawiała z panem do widzenia odeszła pozostawiając mnie na pastwę obaw i niepokojów o sir henryka",
+      "audio": "dev/audio/7775/5541/7775_5541_000064.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1272.87,
+        "original_end_s": 1291.99
+      }
+    },
+    {
+      "id": "7775_5541_000065",
+      "text": "miałem szkołę w jednem z hrabstw północnych mówił stapleton ale ten rodzaj pracy nie odpowiadał mojemu temperamentowi chociaż obcowanie z dziećmi urabianie ich umysłów miało dla mnie dużo uroku losy popchnęły mnie jednak w inną drogę wybuchła epidemia",
+      "audio": "dev/audio/7775/5541/7775_5541_000065.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 995.38,
+        "original_end_s": 1012.17
+      }
+    },
+    {
+      "id": "7775_5541_000066",
+      "text": "co panu zależało na przebyciu tych błot widzi pan te wzgórza w oddali to jak wyspy odcięte od świata rosną tam rzadkie krzewy i fruwają niezwykłe motyle warto się trudzić po takie okazy i ja spróbuję",
+      "audio": "dev/audio/7775/5541/7775_5541_000066.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 636.56,
+        "original_end_s": 651.01
+      }
+    },
+    {
+      "id": "7775_5541_000067",
+      "text": "ma się rozumieć słyszałeś już pan legendę o psie prześladującym tę rodzinę słyszałem to dziwna jak tutejsi włościanie są łatwowierni każdy z nich gotów przysiądz że widział psa na własne oczy",
+      "audio": "dev/audio/7775/5541/7775_5541_000067.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 353.5,
+        "original_end_s": 366.4
+      }
+    },
+    {
+      "id": "7775_5541_000068",
+      "text": "stangret wskazał biczem to baskerville hall oznajmił pan tej rezydencyi z roziskrzonemi oczyma przyglądał się swojej siedzibie w parę minut potem wjeżdżaliśmy już w pałacową bramę staroświecką sklepioną po chwili ukazał nam się gmach przebudowany za południowo afrykańskie złoto sir karola",
+      "audio": "dev/audio/7775/5541/7775_5541_000068.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 427.42,
+        "original_end_s": 447.31
+      }
+    },
+    {
+      "id": "7775_5541_000069",
+      "text": "zdało mi się że dostrzegam wzruszenie na chłodnej twarzy kamerdynera i nam będzie przykro odparł ale byliśmy oboje bardzo przywiązani do sir karola jego śmierć wstrząsnęła nas do głębi",
+      "audio": "dev/audio/7775/5541/7775_5541_000069.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 613.44,
+        "original_end_s": 625.63
+      }
+    },
+    {
+      "id": "7775_5541_000070",
+      "text": "obejrzałem się i zobaczyłem kobietę zdążającą ku mnie szła od strony merripit house domyśliłem się odrazu że to jest miss stapleton bom słyszał o jej niepospolitej urodzie jakoż nawet w stolicy taka piękność musiałaby zwrócić uwagę a olśniewała wprost na tym pustkowiu",
+      "audio": "dev/audio/7775/5541/7775_5541_000070.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 783.59,
+        "original_end_s": 801.69
+      }
+    },
+    {
+      "id": "7775_5541_000071",
+      "text": "on miał włosy i oczy szare płeć wyblakłą ona była brunetką tak silną że podobnych nie widuje się w anglii miała rysy nadzwyczaj regularne oczy ogniste usta prześlicznie wykrojone i płeć z gorącym rumieńcem",
+      "audio": "dev/audio/7775/5541/7775_5541_000071.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 816.05,
+        "original_end_s": 830.82
+      }
+    },
+    {
+      "id": "7775_5541_000072",
+      "text": "skądże się tu wzięłaś beryl rzekł ostro widzę że jesteś zmęczony zagadnęła tak goniłem motyla piękny okaz spotyka się go rzadko zwłaszcza na jesieni mówił to lekko ale patrzał na siostrę badawczo i groźnie zapoznaliście się państwo jak widzę rzekł prezentacya już zbyteczna",
+      "audio": "dev/audio/7775/5541/7775_5541_000072.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 896.44,
+        "original_end_s": 916.28
+      }
+    },
+    {
+      "id": "7775_5541_000073",
+      "text": "to zależy od rasy tłumaczył doktor mortimer dość spojrzeć na okrągłą czaszkę sir henryka aby poznać że jest celtyckiego pochodzenia a celtowie mają wrodzony zapał i zdolności przywiązywania się do ludzi i kraju",
+      "audio": "dev/audio/7775/5541/7775_5541_000073.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 222.5,
+        "original_end_s": 234.64
+      }
+    },
+    {
+      "id": "7775_5541_000074",
+      "text": "słyszałeś pan legendę o psie nie wierzę w te brednie ale ja wierzę jeżeli pan ma wpływ na sir henryka wywieź go pan z tej okolicy świat szeroki dlaczego sir henryk ma koniecznie mieszkać tutaj gdzie mu grozi niebezpieczeństwo",
+      "audio": "dev/audio/7775/5541/7775_5541_000074.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1224.24,
+        "original_end_s": 1240.51
+      }
+    },
+    {
+      "id": "7775_5541_000075",
+      "text": "jak pan uważa czy bez natręctwa mógłbym złożyć dziś wizytę sir henrykowi jestem pewien że będzie panu rad a więc odwiedzę go popołudniu pragnąłbym o ile możności uprzyjemnić mu pobyt w tych stronach zanim przywyknie do ponurej okolicy",
+      "audio": "dev/audio/7775/5541/7775_5541_000075.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1067.59,
+        "original_end_s": 1084.38
+      }
+    },
+    {
+      "id": "7775_5541_000076",
+      "text": "nie potrafię pana objaśnić w tym względzie czy zamierza odwiedzić naszą okolicę chwilowo nie może opuścić londynu ważniejsze sprawy pochłaniają jego czas i uwagę",
+      "audio": "dev/audio/7775/5541/7775_5541_000076.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 446.31,
+        "original_end_s": 456.78
+      }
+    },
+    {
+      "id": "7775_5541_000077",
+      "text": "cały stok był usiany okrągłemi foremnymi kamieniami co to takiego spytałem to siedziby naszych czcigodnych przodków człowiek przedhistoryczny zaludniał gęsto te bagna a ponieważ już od tych czasów nikt tu nie mieszkał ich jaskinie pozostały nietknięte",
+      "audio": "dev/audio/7775/5541/7775_5541_000077.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 734.23,
+        "original_end_s": 751.1
+      }
+    },
+    {
+      "id": "7775_5541_000078",
+      "text": "czy jaśnie pan każe podać obiad zapytał już gotów gotów jaśnie pan znajdzie wodę ciepłą w swojej ubieralni moja żona i ja będziemy starali się dogadzać jaśnie panu dopóki nie znajdzie nowej służby więc chcecie mnie opuścić",
+      "audio": "dev/audio/7775/5541/7775_5541_000078.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 576.28,
+        "original_end_s": 591.24
+      }
+    },
+    {
+      "id": "7775_5541_000079",
+      "text": "na nicby się zdały dalsze pytania mimo wybiegu holmesa nie pozyskaliśmy pewności że barrymore nie był wtedy w londynie on który ostatni widział sir karola żywym chciał może pierwszy zobaczyć swego nowego pana ale jaki mógł mieć cel w prześladowaniu rodziny baskerville",
+      "audio": "dev/audio/7775/5541/7775_5541_000079.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 226.1,
+        "original_end_s": 243.47
+      }
+    },
+    {
+      "id": "7775_5541_000080",
+      "text": "dom przerobiony widocznie ze starej fermy wznosił się wśród drzew niewielkich otoczony był murowanym parkanom wyglądał smutno i ponuro otworzył nam drzwi stary mrukliwy służący mieszkanie było obszerne w urządzeniu znać było rękę kobiecą",
+      "audio": "dev/audio/7775/5541/7775_5541_000080.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 955.28,
+        "original_end_s": 972.21
+      }
+    },
+    {
+      "id": "7775_5541_000081",
+      "text": "dziwiłem się istotnie że państwo obrali tę okolicę w której pobyt musi być smutny zwłaszcza dla pani jest mi tu dobrze oświadczyła",
+      "audio": "dev/audio/7775/5541/7775_5541_000081.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1042.82,
+        "original_end_s": 1053.19
+      }
+    },
+    {
+      "id": "7775_5541_000082",
+      "text": "cóż to takiego zawołałem z oddali doleciało jakby szczekanie niepodobna było zmiarkować skąd płynie ten głos okropny stapleton spojrzał na mnie z zagadkowym wyrazem twarzy dziwne te bagna prawda rzekł jakby z dumą co to takiego spytałem",
+      "audio": "dev/audio/7775/5541/7775_5541_000082.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 663.3,
+        "original_end_s": 681.04
+      }
+    },
+    {
+      "id": "7775_5541_000083",
+      "text": "amerykan potoczył się znowu ciemną aleją sir henryk przestąpił próg ja za nim znaleźliśmy się w ogromnej sklepionej sieni z wiązaniami z belek dębowych w staroświeckim kominku płonął ogień obaj wyciągnęliśmy ręce zziębnięte",
+      "audio": "dev/audio/7775/5541/7775_5541_000083.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 526.37,
+        "original_end_s": 542.13
+      }
+    },
+    {
+      "id": "7775_5541_000084",
+      "text": "podróż była przyjemna czas zeszedł mi na zawiązywaniu bliższej znajomości z moimi towarzyszami i na bawieniu się z pieskiem doktora mortimera po paru godzinach zazieleniły pola przez okno wagonu widać było pasące trzody młody baskerville przyglądał się krajobrazowi z widoczną przyjemnością",
+      "audio": "dev/audio/7775/5541/7775_5541_000084.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 185.95,
+        "original_end_s": 204.41
+      }
+    },
+    {
+      "id": "7775_5541_000085",
+      "text": "spojrzałem na nią ze zdumieniem oczy jej pałały nóżka uderzała o ziemię po co mam wracać zagadnąłem nie mogę panu tego wytłumaczyć odparła głosem przyciszonym ale na miłość boską zastosuj się pan do mojej rady wyjedź pan stąd i nigdy tu nie wracaj",
+      "audio": "dev/audio/7775/5541/7775_5541_000085.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 850.43,
+        "original_end_s": 868.32
+      }
+    },
+    {
+      "id": "7775_5541_000086",
+      "text": "tak prosiłam właśnie sir henryka żeby zerwał dla mnie parę storczyków więc bierzesz pana sadziłam że to sir henryk baskerville wtrąciła pani się myli rzekłem jestem tylko jego przyjacielem nazywam się watson",
+      "audio": "dev/audio/7775/5541/7775_5541_000086.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 916.28,
+        "original_end_s": 930.47
+      }
+    },
+    {
+      "id": "7775_5541_000087",
+      "text": "cały ten kraj jest dla mnie tak obcym i nowym jak dla doktora watson a chciałbym już jak najprędzej zobaczyć łąkę i przyległe trzęsawisko pańskie życzenie już się spełniło doktor mortimer wskazywał nam przez szybę rozległą pustą przestrzeń",
+      "audio": "dev/audio/7775/5541/7775_5541_000087.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 253.95,
+        "original_end_s": 269.1
+      }
+    },
+    {
+      "id": "7775_5541_000088",
+      "text": "musiała być jednak inna krótsza droga bo zanim doszedłem do gościńca ku wielkiemu mojemu zdziwieniu ujrzałem miss stapleton siedzącą na kamieniu przy drodze",
+      "audio": "dev/audio/7775/5541/7775_5541_000088.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1115.15,
+        "original_end_s": 1125.68
+      }
+    },
+    {
+      "id": "7775_5541_000089",
+      "text": "trzeba było tę rzecz sprawdzić ale w jaki sposób przede wszystkim należało dowiedzieć się od pocztmistrza w grimpen czy telegram został oddany do własnych rąk barrymora",
+      "audio": "dev/audio/7775/5541/7775_5541_000089.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 154.47,
+        "original_end_s": 164.87
+      }
+    },
+    {
+      "id": "7775_5541_000090",
+      "text": "z tymi słowami pod portyk wyszedł mężczyzna wysoki blady i otworzył drzwiczki amerykana poza nim stała kobieta pomagała mu wyjmować kuferki pozwoli pan że nie zsiadając odjadę do domu rzekł doktor mortimer czeka na mnie żona jak to nie chce pan zostać na obiad",
+      "audio": "dev/audio/7775/5541/7775_5541_000090.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 496.2,
+        "original_end_s": 514.44
+      }
+    },
+    {
+      "id": "7775_5541_000091",
+      "text": "przybyłem tu w odwiedziny do mego przyjaciela sir henryka i nie potrzebuję żadnej pomocy jesteś pan ostrożny to się chwali rzekł stapleton a ja zostałem ukarany za natręctwo i nie ponowię już propozycyi uczynionej ze szczerego serca i w najlepszej chęci",
+      "audio": "dev/audio/7775/5541/7775_5541_000091.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 471.04,
+        "original_end_s": 487.32
+      }
+    },
+    {
+      "id": "7775_5541_000092",
+      "text": "to bagno jest ciekawą kartą dziejową ale przepraszam pana stapleton urwał nagle i podążył za jakimś rzadkim okazem motyla ścigał go zapamiętale podskakiwał kręcił się w kółko ubawiony tem przyrodniczem intermezzo postanowiłem czekać na rezultat pościgu wtem doleciał mnie znowu odgłos kroków",
+      "audio": "dev/audio/7775/5541/7775_5541_000092.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 764.67,
+        "original_end_s": 783.59
+      }
+    },
+    {
+      "id": "7775_5541_000093",
+      "text": "pociąg zatrzymał się przy małej stacyjce wysiedliśmy z wagonu po drugiej stronie dworca czekał nas amerykan zaprzężony w dwa rosłe konie nasz przyjazd był widocznie wypadkiem dnia gdyż obstąpili nas tragarze a naczelnik stacyi ze swoim sztabem przyglądał nam się ciekawie",
+      "audio": "dev/audio/7775/5541/7775_5541_000093.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 285.13,
+        "original_end_s": 301.48
+      }
+    },
+    {
+      "id": "7775_5541_000094",
+      "text": "widzę że możnaby galopować po tej równinie wielu już przypłaciło życiem taką chętkę czy widzisz pan zielone plamy któremi usiana jest ta płaszczyzna są to zapewne kępki traw stapleton roześmiał się to tak zwane grimpen mire",
+      "audio": "dev/audio/7775/5541/7775_5541_000094.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 567.01,
+        "original_end_s": 582.67
+      }
+    },
+    {
+      "id": "7775_5541_000095",
+      "text": "uczynię co tylko w mojej mocy wszak masz broń przy sobie tak na wszelki przypadek wziąłem rewolwer niech cię nie opuszcza we dnie i w nocy bądź w zbrojnem pogotowiu",
+      "audio": "dev/audio/7775/5541/7775_5541_000095.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 123.25,
+        "original_end_s": 133.92
+      }
+    },
+    {
+      "id": "7775_5541_000096",
+      "text": "uważałam sobie za obowiązek przestrzedz go o możliwem niebezpieczeństwie to był jedyny cel moich słów ale na czem owe niebezpieczeństwo polega",
+      "audio": "dev/audio/7775/5541/7775_5541_000096.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1214.06,
+        "original_end_s": 1224.24
+      }
+    },
+    {
+      "id": "7775_5541_000097",
+      "text": "jakże pan tłumaczysz sobie te głosy spytałem stwardniałe błoto pękając wydaje czasem takie jęki odparł nie nie to był głos żywego stworzenia",
+      "audio": "dev/audio/7775/5541/7775_5541_000097.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 697.79,
+        "original_end_s": 708.45
+      }
+    },
+    {
+      "id": "7775_5541_000098",
+      "text": "ależ ja zaledwie przyjechałem dlaczego pan nie chce zrozumieć że ta przestroga ma pańskie dobro na względzie raz jeszcze powtarzam wracaj pan do londynu zaraz dziś wieczorem opuść to strony cicho mój brat nadchodzi",
+      "audio": "dev/audio/7775/5541/7775_5541_000098.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 868.32,
+        "original_end_s": 883.01
+      }
+    },
+    {
+      "id": "7775_5541_000099",
+      "text": "baskerville hall sir henryk baskerville i doktor mortimer byli gotowi do drogi i w dniu oznaczonym wyruszyliśmy do devonshire sherlock holmes odwiózł mnie na dworzec i udzielił ostatnich rad i wskazówek",
+      "audio": "dev/audio/7775/5541/7775_5541_000099.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 30.4,
+        "original_end_s": 43.45
+      }
+    },
+    {
+      "id": "7775_5541_000100",
+      "text": "zaczynałem przypuszczać że to on barrymore ukrywał się w dorożce i śledził sir henryka broda była podobna wprawdzie według rysopisu dorożkarza rzekomy sherlock holmes był niższego wzrostu lecz rysopisy bywają niedokładne",
+      "audio": "dev/audio/7775/5541/7775_5541_000100.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 138.31,
+        "original_end_s": 154.47
+      }
+    },
+    {
+      "id": "7775_5541_000101",
+      "text": "nie proszę pana mówiłem już że był na strychu jeżeliś go nie widział to skądże wiesz że był na strychu jego własna żona musiała chyba wiedzieć gdzie się obraca wtrącił pocztmistrz czyżby nie dostał depeszy jeżeli zaszła pomyłka niech sam barrymore wniesie skargę",
+      "audio": "dev/audio/7775/5541/7775_5541_000101.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 209.66,
+        "original_end_s": 226.1
+      }
+    },
+    {
+      "id": "7775_5541_000102",
+      "text": "był to widok smutny ponury baskerville przyglądał mu się ze wzruszeniem jak pobojowisku na którem rozegrały się tragiczne losy jego rodziny w jego brwiach ściągniętych w zarysie ust znać było niezłomną wolę i energię",
+      "audio": "dev/audio/7775/5541/7775_5541_000102.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 269.1,
+        "original_end_s": 285.13
+      }
+    },
+    {
+      "id": "7775_5541_000103",
+      "text": "ofiarą jej padło trzech chłopców z mojej szkoły ucierpiała skutkiem tego na opinii i nie mogła już utrzymać się dalej naraziło mnie to na dużą stratę pieniężną ale żal mi tylko zmarłych dzieci",
+      "audio": "dev/audio/7775/5541/7775_5541_000103.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 1012.17,
+        "original_end_s": 1024.3
+      }
+    },
+    {
+      "id": "7775_5541_000104",
+      "text": "był to mężczyzna niewielkiego wzrostu o twarzy wygolonej o włosach ciemnych gładko przyczesanych mógł mieć lat trzydzieści parę do czterdziestu przez ramię zwieszała mu się puszka w jednej ręce niósł siatkę do łowienia owadów",
+      "audio": "dev/audio/7775/5541/7775_5541_000104.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 285.28,
+        "original_end_s": 300.03
+      }
+    },
+    {
+      "id": "7775_5541_000105",
+      "text": "zwłaszcza gdyśmy wjechali w jego rodzinne devonshire od chwili gdym je opuścił objechałem świat dokoła mówił a nie widziałem nigdzie nic podobnego wszyscy obywatele devonshire dzielą pańskie zdanie wtrąciłem żadna okolica nie wzbudza tak wielkiego przywiązania w swoich mieszkańcach jak ta właśnie",
+      "audio": "dev/audio/7775/5541/7775_5541_000105.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 204.41,
+        "original_end_s": 222.5
+      }
+    },
+    {
+      "id": "7775_5541_000106",
+      "text": "niezbyt wesoła rezydencja rzekł sir henryk przypuszczam że można się do niej przyzwyczaić ale na razie czuję się nieswój nic dziwnego że mój stryj stał się dziwakiem połóżmy się wcześniej może jutro przy blasku słonecznym te komnaty przedstawią nam się weselej",
+      "audio": "dev/audio/7775/5541/7775_5541_000106.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 706.47,
+        "original_end_s": 724.09
+      }
+    },
+    {
+      "id": "7775_5541_000107",
+      "text": "nie mów mu pan o tem ani słowa proszę mi zerwać parę storczyków z tej kępy traw rzekła innym zupełnie głosem mamy dużo dzikich storczyków lubię ten kwiat stapleton zaniechał pościgu i wracał zdyszany",
+      "audio": "dev/audio/7775/5541/7775_5541_000107.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 883.01,
+        "original_end_s": 896.44
+      }
+    },
+    {
+      "id": "7775_5541_000108",
+      "text": "rumieniec oblał jej śliczną twarzyczkę była widocznie zmieszana zaszło nieporozumienie rzekła nie mieliście przecież dużo czasu na rozmowę wtrącił jej brat przeszywając ją wzrokiem badawczym",
+      "audio": "dev/audio/7775/5541/7775_5541_000108.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 930.47,
+        "original_end_s": 942.91
+      }
+    },
+    {
+      "id": "7775_5541_000109",
+      "text": "bądź co bądź w życiu mojem nie słyszałem podobnego dźwięku tak to pustkowie zawiera dużo dziwnych rzeczy spojrzyj pan na to wzgórze co pan dostrzegasz",
+      "audio": "dev/audio/7775/5541/7775_5541_000109.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 723.78,
+        "original_end_s": 734.23
+      }
+    },
+    {
+      "id": "7775_5541_000110",
+      "text": "ale taki cel byłby niedostateczną pobudką do zbrodni sam holmes powiadał że nigdy jeszcze nie zdarzyła mu się sprawa tak zawiła pragnąłem już jak najprędzej oddać ją w ręce mojego przyjaciela",
+      "audio": "dev/audio/7775/5541/7775_5541_000110.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 261.95,
+        "original_end_s": 272.9
+      }
+    },
+    {
+      "id": "7775_5541_000111",
+      "text": "niebezpiecznie zapuszczać się na te trzęsawiska pan jednak przebywa je bez szwanku wtrąciłem tak po długich wędrówkach znalazłem parę ścieżek bezpiecznych",
+      "audio": "dev/audio/7775/5541/7775_5541_000111.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 626.36,
+        "original_end_s": 636.56
+      }
+    },
+    {
+      "id": "7775_5541_000112",
+      "text": "powinni być radzi policyja płaci dobrze za wiadomości o zbiegach można zarobić kilka funtów ale można też stracić głowę bo taki nie daruje i gardło poderznie każdemu kto policyję na jego trop wsadzi cóż to za jeden nazywa się seldon",
+      "audio": "dev/audio/7775/5541/7775_5541_000112.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 364.11,
+        "original_end_s": 379.96
+      }
+    },
+    {
+      "id": "7775_5541_000113",
+      "text": "proszę cię sir henryku nie wychodź nigdy sam bo może cię spotkać wielkie nieszczęście czy znalazł się drugi but przepadł z kretesem do widzenia mówił holmes gdy pociąg ruszył a pamiętaj sir henryku jedno zdanie z owej legendy po zachodzie słońca unikaj łąki i przyległego trzęsawiska",
+      "audio": "dev/audio/7775/5541/7775_5541_000113.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 166.06,
+        "original_end_s": 185.95
+      }
+    },
+    {
+      "id": "7775_5541_000114",
+      "text": "wszystkie cztery ściany były ozdobione wizerunkami przodków poczynając od rycerzy z czasów elżbiety a kończąc na przedostatnim właścicielu baskerville hall mówiliśmy mało i przyznam że byłem rad gdy obiad skończył się i mogliśmy wyjść do bilardowego pokoju na cygaro",
+      "audio": "dev/audio/7775/5541/7775_5541_000114.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 688.72,
+        "original_end_s": 706.47
+      }
+    },
+    {
+      "id": "7775_5541_000115",
+      "text": "środkowy korpus ozdobiony był wspaniałym portykiem po bokach wznosiły się wieże średniowieczne zębate ze strzelnicami witaj nam sir henryku witaj w domu swych przodków w baskerville hall",
+      "audio": "dev/audio/7775/5541/7775_5541_000115.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 482.96,
+        "original_end_s": 496.2
+      }
+    },
+    {
+      "id": "7775_5541_000116",
+      "text": "ten dom budzi w nas tak smutne wspomnienia że wolelibyśmy go opuścić cóż zamierzacie uczynić chcielibyśmy rozpocząć jakiś interes hojność sir karola dostarczyła nam środków po temu może jaśnie pan zechce obejrzeć swoją rezydencyę",
+      "audio": "dev/audio/7775/5541/7775_5541_000116.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_06_doyle_64kb.mp3",
+        "original_start_s": 625.63,
+        "original_end_s": 640.57
+      }
+    },
+    {
+      "id": "7775_5541_000117",
+      "text": "widzi się tam łoża stołki misy z jakiej epoki neolitycznej zapewne cóż ci ludzie robili paśli trzody na stokach gór osuszali bagna wyrabiali broń i sprzęty z kamienia tak",
+      "audio": "dev/audio/7775/5541/7775_5541_000117.opus",
+      "tags": {
+        "speaker_id": "mls-pl-7775",
+        "gender": "m",
+        "book_id": "5541",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tajemnica_baskervile_1302_librivox/tajemnicabaskervillow_07_doyle_64kb.mp3",
+        "original_start_s": 751.1,
+        "original_end_s": 764.67
+      }
+    }
+  ]
+}

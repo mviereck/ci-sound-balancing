@@ -1,0 +1,2594 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Novelas Cortas de Asensi",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "7405",
+    "book_title": "Novelas Cortas de Asensi",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "8306_7405_000000",
+      "text": "pero no para que forme parte de tu colección muerta sino para que nos alegre con sus gorjeos dentro de nuestra jaula severo no pudo dominar un gesto de disgusto al ver de lo que se trataba supongo dijo que eso será una broma y que no pensarás en conservar aquí ese muñeco",
+      "audio": "test/audio/8306/7405/8306_7405_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 309.57,
+        "original_end_s": 329.14
+      }
+    },
+    {
+      "id": "8306_7405_000001",
+      "text": "el capitán era una persona muy estimada y conocida por su experiencia y su valor qué habría ocurrido para que tuviese su viaje tan mala fortuna se habló de una horrible tormenta se imaginó un incendio se inventaron cien historias a cual más absurdas",
+      "audio": "test/audio/8306/7405/8306_7405_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 49.47,
+        "original_end_s": 67.72
+      }
+    },
+    {
+      "id": "8306_7405_000002",
+      "text": "una tarde este lleno de júbilo mostró a benigno una mariposa de alas azules que había roto aquel día su crisálida pero al volar por vez primera el insecto desapareció a su vista y severo la buscó inútilmente",
+      "audio": "test/audio/8306/7405/8306_7405_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 493.15,
+        "original_end_s": 508.49
+      }
+    },
+    {
+      "id": "8306_7405_000003",
+      "text": "el anciano la contemplaba con profunda emoción y al fin olvidándose de sus libros que no se cuidó de recoger penetró en el jardín con la niña mira severo exclamó cuando llegó al despacho te traigo una avecilla que sin duda se cayó de su nido",
+      "audio": "test/audio/8306/7405/8306_7405_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 291.54,
+        "original_end_s": 309.57
+      }
+    },
+    {
+      "id": "8306_7405_000004",
+      "text": "no puede ser tú dices que no vivirás muchos años continuó el adolescente y que yo no podré salir nunca de aquí porque estamos en un oasis en medio de un desierto de agua",
+      "audio": "test/audio/8306/7405/8306_7405_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 652.72,
+        "original_end_s": 662.83
+      }
+    },
+    {
+      "id": "8306_7405_000005",
+      "text": "gigantescas mariposas azules como el cielo las unas negras como mis sombrías ideas las otras encarnadas y de variados matices las más volaban de una en otra planta bebiendo en los cálices de las flores las perlas de la aurora",
+      "audio": "test/audio/8306/7405/8306_7405_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 361.43,
+        "original_end_s": 376.37
+      }
+    },
+    {
+      "id": "8306_7405_000006",
+      "text": "y de qué muerte en aquel paraje había caza que yo no podía matar para mi sustento porque no tenía armas veía en el mar peces para coger los cuales no tenía redes",
+      "audio": "test/audio/8306/7405/8306_7405_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 499.2,
+        "original_end_s": 509.67
+      }
+    },
+    {
+      "id": "8306_7405_000007",
+      "text": "era grato nuestro aislamiento pero ya que está aquí y que víctor se interesa por usted viva pero ojalá no tengamos nunca que arrepentirnos usted de haber llegado ni de haberle recibido yo",
+      "audio": "test/audio/8306/7405/8306_7405_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 743.46,
+        "original_end_s": 755.99
+      }
+    },
+    {
+      "id": "8306_7405_000008",
+      "text": "no los olvido y victoria y yo los amamos y bendecimos con todo nuestro corazón después de estas líneas gerardo ávalos había firmado el manuscrito poniéndole luego la dirección de la casa de su familia donde como hemos dicho al principio lo había llevado el pescador",
+      "audio": "test/audio/8306/7405/8306_7405_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1169.13,
+        "original_end_s": 1186.78
+      }
+    },
+    {
+      "id": "8306_7405_000009",
+      "text": "temía que compartiese conmigo el cariño que antes el joven le profesaba únicamente a él cuanto más se obstinaba en separarnos más el niño deseaba aproximarse a mí buscaba mi conversación y mi presencia y por mi parte también me sentía atraído hacia él por una misteriosa simpatía",
+      "audio": "test/audio/8306/7405/8306_7405_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 869.68,
+        "original_end_s": 886.25
+      }
+    },
+    {
+      "id": "8306_7405_000010",
+      "text": "ya hombre había dedicado su existencia a la ciencia coleccionando antigüedades primero minerales y plantas raras después siendo su último encanto las aves y los insectos",
+      "audio": "test/audio/8306/7405/8306_7405_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 53.57,
+        "original_end_s": 67.47
+      }
+    },
+    {
+      "id": "8306_7405_000011",
+      "text": "victoria confirmó lo que había yo sospechado y nuestros coloquios de amor no tuvieron fin ya no me importaba haber muerto para el mundo ni mis estudios inútiles en aquel desierto ni las zozobras pasadas amaba y era amado qué más podía desear sí",
+      "audio": "test/audio/8306/7405/8306_7405_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1065.91,
+        "original_end_s": 1081.89
+      }
+    },
+    {
+      "id": "8306_7405_000012",
+      "text": "víctor deseaba estar a solas conmigo pero su padre nos acompañaba siempre a pesar de su avanzada edad el cansancio nunca le rendía y ya fuésemos de caza ya a recorrer la isla no nos abandonaba jamás",
+      "audio": "test/audio/8306/7405/8306_7405_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 886.25,
+        "original_end_s": 899.83
+      }
+    },
+    {
+      "id": "8306_7405_000013",
+      "text": "y a mi entender de una manera hostil es cierto que las huellas del pie del hombre no podían hacer pensar en la belleza de adán pero en cambio las del pequeño como el príncipe de la cenicienta yo empezaba a encantarme no ante un zapatillo de seda sino ante la señal dejada en la tierra por un precioso pie",
+      "audio": "test/audio/8306/7405/8306_7405_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 421.62,
+        "original_end_s": 439.54
+      }
+    },
+    {
+      "id": "8306_7405_000014",
+      "text": "cuánto hemos luchado con las olas qué capitán tan valiente qué tripulación tan admirable no he visto una tormenta semejante nunca lejos de todo puerto sin ningún buque próximo teníamos forzosamente que perecer",
+      "audio": "test/audio/8306/7405/8306_7405_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 206.91,
+        "original_end_s": 221.74
+      }
+    },
+    {
+      "id": "8306_7405_000015",
+      "text": "había concentrado en aquella niña su ternura pero no sabía enseñarla a hablar y no se atrevía a hacerla andar más que breves instantes porque el pobre anciano se cansaba de inclinarse tanto para sostenerla",
+      "audio": "test/audio/8306/7405/8306_7405_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 468.87,
+        "original_end_s": 482.06
+      }
+    },
+    {
+      "id": "8306_7405_000016",
+      "text": "benigno había vivido con sus padres y una hermana hasta los veinticinco años a esa edad perdió en pocos meses a los primeros y vio casarse a la bella joven que con su fraternal cariño hubiera podido dulcificar los pesares de su orfandad",
+      "audio": "test/audio/8306/7405/8306_7405_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 96.41,
+        "original_end_s": 114.9
+      }
+    },
+    {
+      "id": "8306_7405_000017",
+      "text": "a su mujer que quería seguirle o imploraba su perdón fueron juguete de las olas mucho tiempo y ya de noche sin saber dónde estaban la balsa se estrelló contra las peñas arrojando al agua al padre y al niño después de inauditos esfuerzos llegaron a la isla de la que no pudieron salir más",
+      "audio": "test/audio/8306/7405/8306_7405_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 822.05,
+        "original_end_s": 840.41
+      }
+    },
+    {
+      "id": "8306_7405_000018",
+      "text": "al ver ante sí aquel terreno con árboles gigantes aquel suelo sembrado de margaritas y amapolas se encaminó hacia allí y siguió una ancha senda que estaba cortada por un riachuelo",
+      "audio": "test/audio/8306/7405/8306_7405_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 536.59,
+        "original_end_s": 548.57
+      }
+    },
+    {
+      "id": "8306_7405_000019",
+      "text": "había jurado que no verías a un hombre jamás murmuró el padre dios te hace faltar al juramento y no tu voluntad vamos sé complaciente déjame darle de beber el niño se arrodilló a mi lado y me presentó una redoma hecha de una extraña raíz",
+      "audio": "test/audio/8306/7405/8306_7405_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 682.56,
+        "original_end_s": 698.13
+      }
+    },
+    {
+      "id": "8306_7405_000020",
+      "text": "compraré para lo primero una cabra que vivirá comiendo lo que halle en el campo y en cuanto a lo segundo le bastarán las migas que siempre sobran en nuestra mesa pero crecerá",
+      "audio": "test/audio/8306/7405/8306_7405_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 341.51,
+        "original_end_s": 353.24
+      }
+    },
+    {
+      "id": "8306_7405_000021",
+      "text": "empleó sus alas para buscar el fuego que debía consumirla la mía tenía también aunque invisibles las alas del ángel y apenas ha podido volar las ha elevado para buscar el camino del cielo de donde nunca debió bajar",
+      "audio": "test/audio/8306/7405/8306_7405_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 617.24,
+        "original_end_s": 633.63
+      }
+    },
+    {
+      "id": "8306_7405_000022",
+      "text": "en el húmedo suelo vi las huellas de unos pies grandes y mal formados seguidas de otras de pie de niño o de mujer pie breve elegante digno de ser esculpido por el más hábil artista",
+      "audio": "test/audio/8306/7405/8306_7405_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 392.7,
+        "original_end_s": 405.08
+      }
+    },
+    {
+      "id": "8306_7405_000023",
+      "text": "arrojé al suelo el licor verde que me fue servido y perdoné al padre que quería asesinarme por afecto a la hija cuántas veces burlamos la vigilancia del anciano para vernos a solas",
+      "audio": "test/audio/8306/7405/8306_7405_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1055.01,
+        "original_end_s": 1065.91
+      }
+    },
+    {
+      "id": "8306_7405_000024",
+      "text": "no sin dificultad conseguí levantarme y caminando muy despacio subí por las peñas estando a bastante altura vi que al lado opuesto había un paisaje encantador una isla de verdura con magníficos árboles bellos arbustos y preciosas y variadísimas flores",
+      "audio": "test/audio/8306/7405/8306_7405_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 279.7,
+        "original_end_s": 295.61
+      }
+    },
+    {
+      "id": "8306_7405_000025",
+      "text": "no le mates padre dijo el niño con su dulce voz por qué preguntó el viejo preocupado porque es joven y bello y porque me es simpático a ti",
+      "audio": "test/audio/8306/7405/8306_7405_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 623.67,
+        "original_end_s": 634.19
+      }
+    },
+    {
+      "id": "8306_7405_000026",
+      "text": "es mía y la he dado el nombre de mi hijo ah es de usted nadie conoce este lugar más que los tres la casualidad nos trajo a esta tierra hace catorce años de igual modo que a usted hace cuatro días",
+      "audio": "test/audio/8306/7405/8306_7405_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 730.44,
+        "original_end_s": 743.46
+      }
+    },
+    {
+      "id": "8306_7405_000027",
+      "text": "desde entonces benigno llamó siempre a la niña su mariposa y cuando ella empezó a comprender no atendió por otro nombre el tiempo pasaba despacio",
+      "audio": "test/audio/8306/7405/8306_7405_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 426.66,
+        "original_end_s": 437.65
+      }
+    },
+    {
+      "id": "8306_7405_000028",
+      "text": "ya a su lado oyó un gemido que le pareció de una criatura pero apenas se fijó en aquello y cuidando que no se cayesen las orugas que llevaba abrió la puerta y penetró en su jardín",
+      "audio": "test/audio/8306/7405/8306_7405_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 229.02,
+        "original_end_s": 242.03
+      }
+    },
+    {
+      "id": "8306_7405_000029",
+      "text": "la noche estaba hermosa y despejada la luna iluminaba el paisaje cantaban los pájaros y las flores me enviaban sus mágicos perfumes de repente creí escuchar rumor de pasos pero de pasos que se recataban y una sombra se divisó a corta distancia que fue acercándose a mí lentamente",
+      "audio": "test/audio/8306/7405/8306_7405_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 540.83,
+        "original_end_s": 559.79
+      }
+    },
+    {
+      "id": "8306_7405_000030",
+      "text": "los pájaros de mil colores cantaban en las ramas de los árboles y jamás concierto alguno fue para mí tan bello como aquella encantadora música cosa extraña algunas avecillas comían los frutos caídos ya maduros y al acercarme yo no se asustaron ni huyeron de mí hubiera podido cogerlos sin la menor dificultad",
+      "audio": "test/audio/8306/7405/8306_7405_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 341.96,
+        "original_end_s": 361.43
+      }
+    },
+    {
+      "id": "8306_7405_000031",
+      "text": "y con el que podría hablar de ella ante quien podría llorar a sus amados muertos porque la excelente hermana había partido también a un mundo mejor esto era cuanto deseaba benigno en el último tercio de su existencia",
+      "audio": "test/audio/8306/7405/8306_7405_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 153.56,
+        "original_end_s": 167.98
+      }
+    },
+    {
+      "id": "8306_7405_000032",
+      "text": "desde entonces el padre de victoria cambió totalmente y me trató con el mayor afecto con él he aprendido mucho todo lo que un hombre puede estudiar excepto el medio de salir de esta isla ninguna barca nos llevaría lejos y son tantos los escollos que hay en este sitio que con toda certeza naufragaríamos no",
+      "audio": "test/audio/8306/7405/8306_7405_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1114.18,
+        "original_end_s": 1133.78
+      }
+    },
+    {
+      "id": "8306_7405_000033",
+      "text": "habían muerto todos los hombres que llevaba a bordo no quedó sobre esto la menor duda cuando transcurrieron algunos meses y se vio que ni uno parecía",
+      "audio": "test/audio/8306/7405/8306_7405_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 37.24,
+        "original_end_s": 49.47
+      }
+    },
+    {
+      "id": "8306_7405_000034",
+      "text": "di un mudo adiós a mis padres a mis hermanos a mis amigos pensé en mis ilusiones desvanecidas en mis irrealizables esperanzas y ambiciones que me habían separado de los seres que amé y me amaron en la tierra y cerré los ojos pensando que no volvería a abrirlos jamás",
+      "audio": "test/audio/8306/7405/8306_7405_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 523.64,
+        "original_end_s": 540.83
+      }
+    },
+    {
+      "id": "8306_7405_000035",
+      "text": "iba con su preciosa carga cuando encontró a severo estoy desolado por mi mariposa dijo este a su amigo tu mariposa replicó benigno con amargura",
+      "audio": "test/audio/8306/7405/8306_7405_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 605.75,
+        "original_end_s": 617.24
+      }
+    },
+    {
+      "id": "8306_7405_000036",
+      "text": "tú tendrás otras mariposas azules en cuanto a mí solo cuando me muera me será devuelta mi mariposa qué objeto tendrá en lo sucesivo mi vida severo se encogió de hombros murmurando",
+      "audio": "test/audio/8306/7405/8306_7405_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 633.63,
+        "original_end_s": 647.06
+      }
+    },
+    {
+      "id": "8306_7405_000037",
+      "text": "habían decidido vivir juntos uniendo sus modestas rentas para pasar el resto de sus días algo mejor severo había perdido muy niño a sus padres creciendo sin afectos de familia y careciendo de los dulces encantos del hogar",
+      "audio": "test/audio/8306/7405/8306_7405_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 36.17,
+        "original_end_s": 53.57
+      }
+    },
+    {
+      "id": "8306_7405_000038",
+      "text": "no era posible que salieran de otros labios que de los de una mujer miré fijamente al niño y al ver su rubor comprendí que no me había engañado el viejo había trocado el nombre y el traje de su hija víctor o mejor dicho victoria",
+      "audio": "test/audio/8306/7405/8306_7405_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1005.65,
+        "original_end_s": 1020.22
+      }
+    },
+    {
+      "id": "8306_7405_000039",
+      "text": "al llegar severo cerca de la puerta del jardín de la que se había llevado una de las llaves vio junto a la tapia un pequeño bulto blanco que se movía",
+      "audio": "test/audio/8306/7405/8306_7405_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 218.7,
+        "original_end_s": 229.02
+      }
+    },
+    {
+      "id": "8306_7405_000040",
+      "text": "una tarde que habían salido los dos amigos el uno al campo en busca de orugas el otro a comprar unos libros en la ciudad ocurrió un suceso que vino a alterar en parte la monotonía de la vida de los tres viejos",
+      "audio": "test/audio/8306/7405/8306_7405_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 203.54,
+        "original_end_s": 218.7
+      }
+    },
+    {
+      "id": "8306_7405_000041",
+      "text": "grabado por libon jorn la mariposa la mariposa siendo ya viejos severo y benigno amigos desde la infancia compañeros de estudios después solteros ambos",
+      "audio": "test/audio/8306/7405/8306_7405_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 19.83,
+        "original_end_s": 36.17
+      }
+    },
+    {
+      "id": "8306_7405_000042",
+      "text": "salvada mi existencia gracias a la intercesión del mancebo fui curado por su padre pero no me dieron un asilo en su morada esta estaba en las rocas formada por grutas naturales en las que",
+      "audio": "test/audio/8306/7405/8306_7405_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 755.99,
+        "original_end_s": 768.76
+      }
+    },
+    {
+      "id": "8306_7405_000043",
+      "text": "el pescador desapareció en seguida y al quedarse solos los dos viejos no tuvieron más afán que el de enterarse del contenido de aquellos pliegos no sin dificultad",
+      "audio": "test/audio/8306/7405/8306_7405_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 184.94,
+        "original_end_s": 196.08
+      }
+    },
+    {
+      "id": "8306_7405_000044",
+      "text": "me incorporé dirigí mis miradas al océano apaciguado ya y no vi los restos del juan antonio que debía haberse sumergido por completo era indudablemente el solo náufrago salvado",
+      "audio": "test/audio/8306/7405/8306_7405_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 250.25,
+        "original_end_s": 262.74
+      }
+    },
+    {
+      "id": "8306_7405_000045",
+      "text": "quizá porque en su niñez le faltaron las caricias maternales y no pudo compartir con algún hermano los juegos y las efímeras penas de los años infantiles",
+      "audio": "test/audio/8306/7405/8306_7405_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 83.96,
+        "original_end_s": 96.41
+      }
+    },
+    {
+      "id": "8306_7405_000046",
+      "text": "estas memorias destinadas al mismo objeto pero trazadas bajo una más grata impresión cuatro días habían trascurrido desde mi llegada a la isla sin que lograra hacer ningún descubrimiento una violenta fiebre me consumía y perdida toda esperanza de salvación me resigné a morir",
+      "audio": "test/audio/8306/7405/8306_7405_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 483.04,
+        "original_end_s": 499.2
+      }
+    },
+    {
+      "id": "8306_7405_000047",
+      "text": "llevaba un traje masculino de pieles y plumas un verdadero traje de salvaje que completaban un arco echado a la espalda y un carcax con flechas víctor gritó una voz de lejos padre contestó el ser que me miraba",
+      "audio": "test/audio/8306/7405/8306_7405_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 573.49,
+        "original_end_s": 589.17
+      }
+    },
+    {
+      "id": "8306_7405_000048",
+      "text": "del buque en que iba él que pudo recuperar milagrosamente sacándolos más tarde del mar la mesa estaba puesta sobre ella se veían apetitosos manjares y extrañas bebidas aprovechando una momentánea salida de su padre víctor me dijo",
+      "audio": "test/audio/8306/7405/8306_7405_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 968.79,
+        "original_end_s": 983.02
+      }
+    },
+    {
+      "id": "8306_7405_000049",
+      "text": "el buen viejo dejó caer los libros y corrió hacia donde se hallaba el tierno ser que parecía reclamar su amparo era una niña envuelta en unos trapos una niña rubia y de ojos negros que alguna madre infeliz o desnaturalizada había depositado allí",
+      "audio": "test/audio/8306/7405/8306_7405_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 261.84,
+        "original_end_s": 280.3
+      }
+    },
+    {
+      "id": "8306_7405_000050",
+      "text": "de carácter bueno y sencillo se amoldaba pronto a los gustos ajenos así es que aunque jamás se había dedicado a coleccionar insectos y aves no tardó en aficionarse a ellos pasando largas horas en el despacho de severo contemplando a los unos o disecando a las otras",
+      "audio": "test/audio/8306/7405/8306_7405_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 167.98,
+        "original_end_s": 187.48
+      }
+    },
+    {
+      "id": "8306_7405_000051",
+      "text": "no lo extrañes prosiguió víctor no he tenido un amigo jamás tú eres ya viejo para acompañarme este pobre náufrago vendrá a cazar conmigo tenderemos juntos nuestras redes nos haremos mutuas confidencias él explicándome lo que ha visto más allá de estos mares yo contándole mis sueños",
+      "audio": "test/audio/8306/7405/8306_7405_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 634.19,
+        "original_end_s": 652.72
+      }
+    },
+    {
+      "id": "8306_7405_000052",
+      "text": "media hora después llegaba benigno con dos o tres tomos de historia natural de diversos autores en la mano y antes de abrir la puerta con una llave igual a la que tenía severo un débil quejido le hizo detenerse miró en su derredor y vio a su vez el pequeño bulto blanco",
+      "audio": "test/audio/8306/7405/8306_7405_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 242.03,
+        "original_end_s": 261.84
+      }
+    },
+    {
+      "id": "8306_7405_000053",
+      "text": "costumbres seguían a estas páginas otras muchas en las que gerardo ávalos narraba sucesos sin importancia de su monótona existencia viendo pasarse los días y los meses sin pena por hallarse en aquel destierro",
+      "audio": "test/audio/8306/7405/8306_7405_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 923.58,
+        "original_end_s": 936.49
+      }
+    },
+    {
+      "id": "8306_7405_000054",
+      "text": "elevaron a la memoria de este un sencillo mausoleo que rodearon de plantas y la tristeza reinó para siempre en su hogar mucho tiempo después cuando ya se habían casado los otros hijos y vivían solos los dos ancianos un hombre solicitó con empeño verlos y logró ser al cabo recibido",
+      "audio": "test/audio/8306/7405/8306_7405_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 107.27,
+        "original_end_s": 127.0
+      }
+    },
+    {
+      "id": "8306_7405_000055",
+      "text": "este naufragó después de extraviarse como el juan antonio y como este quedó sin capitán sin tripulación y sin pasajeros el padre de víctor sabía nadar muy bien cogió a su hijo lo sujetó como pudo a su cuello y se arrojó a una balsa rechazando duramente",
+      "audio": "test/audio/8306/7405/8306_7405_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 805.21,
+        "original_end_s": 822.05
+      }
+    },
+    {
+      "id": "8306_7405_000056",
+      "text": "entre los pasajeros iba un joven que por vez primera se separaba de sus padres y hermanos que había acabado con lucimiento dos carreras y que no llevaba al nuevo mundo más objeto que el de estudiar aquella tierra desconocida para él",
+      "audio": "test/audio/8306/7405/8306_7405_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 77.98,
+        "original_end_s": 93.16
+      }
+    },
+    {
+      "id": "8306_7405_000057",
+      "text": "un rostro se inclinó sobre el mío o le miré y vi una figura encantadora con cabellos castaños largos y flotantes ojos claros delicada frente boca de grana los rizos rozaron mis labios y los besé",
+      "audio": "test/audio/8306/7405/8306_7405_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 559.79,
+        "original_end_s": 573.49
+      }
+    },
+    {
+      "id": "8306_7405_000058",
+      "text": "moría de sed y aquella agua salada que bebía en mi mano no hacía sino aumentarla de una manera cruel ya no tenía fuerzas para moverme y en aquel lecho de césped donde me eché la primera noche me acosté también para dormir el sueño eterno",
+      "audio": "test/audio/8306/7405/8306_7405_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 509.67,
+        "original_end_s": 523.64
+      }
+    },
+    {
+      "id": "8306_7405_000059",
+      "text": "y me guardé todo proponiéndome trazar mis impresiones en aquellas abandonadas páginas por si acaso algún día me era fácil enviarlas a europa o llevarlas yo mismo a mis padres",
+      "audio": "test/audio/8306/7405/8306_7405_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 458.04,
+        "original_end_s": 468.35
+      }
+    },
+    {
+      "id": "8306_7405_000060",
+      "text": "yo también guardo mi crisálida que un día tendrá alas y se hará mariposa pero las alas de ella serán las de la inteligencia y sus bellos colores darán luz a mi vejez",
+      "audio": "test/audio/8306/7405/8306_7405_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 414.73,
+        "original_end_s": 426.66
+      }
+    },
+    {
+      "id": "8306_7405_000061",
+      "text": "por lo cual vivía en el campo habiendo alquilado una sencilla casa con jardín no menos duro su corazón que aquellos minerales que fueron el solo placer de su juventud jamás conoció las inefables dichas del amor",
+      "audio": "test/audio/8306/7405/8306_7405_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 67.47,
+        "original_end_s": 83.96
+      }
+    },
+    {
+      "id": "8306_7405_000062",
+      "text": "y cuando los pájaros cantaban gritaba con júbilo como si comprendiese lo que entre sí decían las flores la acariciaban con su aroma reemplazando los besos de una madre que acaso no había recibido jamás benigno la quería con todas las fuerzas de su alma",
+      "audio": "test/audio/8306/7405/8306_7405_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 452.03,
+        "original_end_s": 468.87
+      }
+    },
+    {
+      "id": "8306_7405_000063",
+      "text": "la pobre criatura miraba vagamente a benigno y en sus labios parecía dibujarse ya una sonrisa debía contar pocos meses y era muy pequeña y delgada",
+      "audio": "test/audio/8306/7405/8306_7405_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 280.3,
+        "original_end_s": 291.54
+      }
+    },
+    {
+      "id": "8306_7405_000064",
+      "text": "sí contestó riendo respira y besa el padre alarmado se acercó a mí yo volví a cerrar los ojos y procuré no moverme como todos murmuró sin que entendiera el significado de sus frases si no quiero tener graves disgustos será preciso que me libere de él",
+      "audio": "test/audio/8306/7405/8306_7405_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 607.03,
+        "original_end_s": 623.67
+      }
+    },
+    {
+      "id": "8306_7405_000065",
+      "text": "dos veces le sorprendí pronto a lanzarme una flecha una de esas flechas de los salvajes cuya herida es mortal pero al verse descubierto cambió con destreza la dirección y no me atreví a reprocharle nada",
+      "audio": "test/audio/8306/7405/8306_7405_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 899.83,
+        "original_end_s": 911.93
+      }
+    },
+    {
+      "id": "8306_7405_000066",
+      "text": "si dios quiere que ellos sepan que vivo y soy dichoso la hará llegar más o menos tarde a sus manos si no me llorarán perdido para siempre y sus oraciones aumentarán mi ventura",
+      "audio": "test/audio/8306/7405/8306_7405_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1158.55,
+        "original_end_s": 1169.13
+      }
+    },
+    {
+      "id": "8306_7405_000067",
+      "text": "y se acercó más no sabiendo el peligro que la amenazaba la tierna criatura continuó avanzando perdió pie y el pequeño río la arrastró sin que nadie escuchara su débil grito",
+      "audio": "test/audio/8306/7405/8306_7405_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 561.98,
+        "original_end_s": 575.92
+      }
+    },
+    {
+      "id": "8306_7405_000068",
+      "text": "los encantos del mundo entero la comida fue triste el anciano no hablaba y victoria y yo sosteníamos un diálogo con los ojos haciéndonos confidencias enviándonos promesas y suspiros y jurándonos eterno amor",
+      "audio": "test/audio/8306/7405/8306_7405_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1040.02,
+        "original_end_s": 1055.01
+      }
+    },
+    {
+      "id": "8306_7405_000069",
+      "text": "él llamábase gerardo ávalos y se había captado las simpatías de cuantos le trataban por su ameno trato y excelente carácter convencidos los padres de que el mar había servido de tumba a su hijo",
+      "audio": "test/audio/8306/7405/8306_7405_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 93.16,
+        "original_end_s": 107.27
+      }
+    },
+    {
+      "id": "8306_7405_000070",
+      "text": "era buena cristiana y sospechando que no la habían bautizado la llevó al día siguiente a la parroquia donde le pusieron un nombre cualquiera que la débil criatura no escuchó jamás",
+      "audio": "test/audio/8306/7405/8306_7405_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 386.69,
+        "original_end_s": 398.86
+      }
+    },
+    {
+      "id": "8306_7405_000071",
+      "text": "a la mañana siguiente estaba tan profundamente abstraído que salió al campo olvidando cerrar la puerta mariposa que contaba ya dos años y medio jugaba con algunas florecillas y poco a poco se fue acercando a la salida del jardín",
+      "audio": "test/audio/8306/7405/8306_7405_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 521.06,
+        "original_end_s": 536.59
+      }
+    },
+    {
+      "id": "8306_7405_000072",
+      "text": "era una bellísima joven que me amaba y de la que yo había hecho mi ídolo sin sospecharlo ahora me explicaba la influencia misteriosa que ejercía sobre mí por qué me sometía con placer a todos sus gustos por qué vivía contento allí desde el momento en que había una mujer en la isla ya podía comprenderse que se encerraban en ella",
+      "audio": "test/audio/8306/7405/8306_7405_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1020.22,
+        "original_end_s": 1040.02
+      }
+    },
+    {
+      "id": "8306_7405_000073",
+      "text": "qué quieres que haga solo cuando tú me faltes catorce años hace que estamos aquí y este es el primer hombre que llega a la isla acógele como a hermano y ofrécele tu leal hospedaje esto era dicho en correcto castellano y el viejo respondía en la misma lengua indudablemente me hallaba entre dos compatriotas míos",
+      "audio": "test/audio/8306/7405/8306_7405_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 662.83,
+        "original_end_s": 682.56
+      }
+    },
+    {
+      "id": "8306_7405_000074",
+      "text": "por una muñeca los chiquillos se reemplazan todos son iguales pero no ocurre lo propio con los insectos aquellos dos hombres tan amigos hasta entonces no pudieron comprenderse ni simpatizar ya nunca",
+      "audio": "test/audio/8306/7405/8306_7405_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 647.06,
+        "original_end_s": 662.6
+      }
+    },
+    {
+      "id": "8306_7405_000075",
+      "text": "mariposa estaba muerta benigno la cogió en sus brazos y besó llorando los restos del único ser que hacía venturosa su ancianidad",
+      "audio": "test/audio/8306/7405/8306_7405_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 595.02,
+        "original_end_s": 605.75
+      }
+    },
+    {
+      "id": "8306_7405_000076",
+      "text": "ella no había visto nunca tanta agua se sentó a la orilla se inclinó un poco y vio su imagen reflejada en la cristalina corriente una nena dijo señalando con su dedo índice",
+      "audio": "test/audio/8306/7405/8306_7405_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 548.57,
+        "original_end_s": 561.98
+      }
+    },
+    {
+      "id": "8306_7405_000077",
+      "text": "si eso te agrada o te entretiene dijo el frío egoísta no puedo oponer a tu deseo pero procura que no entre mucho en mi despacho cuando ande sola la criada tampoco acogió muy bien a la niña pero viendo que no había más remedio que admitirla se comprometió a cuidarla",
+      "audio": "test/audio/8306/7405/8306_7405_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 368.34,
+        "original_end_s": 386.69
+      }
+    },
+    {
+      "id": "8306_7405_000078",
+      "text": "donde sin duda sería espléndidamente recompensado soy pobre y vengo a vender estos pliegos que considero si no de utilidad material de alguna importancia para ustedes los dos ancianos se conmovieron al ver la letra de su hijo perdido y pagaron más que se les había exigido sin titubear",
+      "audio": "test/audio/8306/7405/8306_7405_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 166.28,
+        "original_end_s": 184.94
+      }
+    },
+    {
+      "id": "8306_7405_000079",
+      "text": "entonces comerá lo que nosotros aunque no soy rico puedo mantener a esta niña porque es una niña severo una niña preciosa a la que querré como a mi hija y que me llamará papá acaso no apruebas mi conducta",
+      "audio": "test/audio/8306/7405/8306_7405_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 353.24,
+        "original_end_s": 368.34
+      }
+    },
+    {
+      "id": "8306_7405_000080",
+      "text": "un amigo con quien conversar a todas horas con quien evocar los recuerdos ya que las ilusiones y las esperanzas estaban muertas un ser que había conocido a su familia",
+      "audio": "test/audio/8306/7405/8306_7405_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 142.36,
+        "original_end_s": 153.56
+      }
+    },
+    {
+      "id": "8306_7405_000081",
+      "text": "el nuestro se iba a pique por momentos los botes donde se arrojaban los pasajeros con desesperación desaparecían pronto en el revuelto mar recuerdo que me así a una tabla y que perdí el conocimiento qué pasó después",
+      "audio": "test/audio/8306/7405/8306_7405_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 221.74,
+        "original_end_s": 236.28
+      }
+    },
+    {
+      "id": "8306_7405_000082",
+      "text": "el sol bañaba la isla con sus puros rayos las flores cuajadas de rocío despedían gratísimos aromas y parecían adornadas con magníficos brillantes",
+      "audio": "test/audio/8306/7405/8306_7405_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 331.86,
+        "original_end_s": 341.96
+      }
+    },
+    {
+      "id": "8306_7405_000083",
+      "text": "los leyeron repetidas veces llamando después a los hermanos de gerardo para enterarles de tan singulares sucesos el manuscrito del náufrago decía así",
+      "audio": "test/audio/8306/7405/8306_7405_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 196.08,
+        "original_end_s": 206.91
+      }
+    },
+    {
+      "id": "8306_7405_000084",
+      "text": "era amado como jamás lo fue mortal alguno por una mujer que no había conocido a otro hombre ni había de tratar a ninguno nunca el anciano supo al fin nuestras relaciones se mostró muy afectado al principio pero al cabo nos perdonó",
+      "audio": "test/audio/8306/7405/8306_7405_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1081.89,
+        "original_end_s": 1096.29
+      }
+    },
+    {
+      "id": "8306_7405_000085",
+      "text": "dónde se ocultaban ambos seres en balde los busqué por todos lados y sospeché que se escondían de mí la soledad me aburría felizmente el hallazgo de una caja que contenía algunos pliegos de papel una pluma de ave y un líquido que aunque no era tinta podía suplirla bien me sirvió de distracción",
+      "audio": "test/audio/8306/7405/8306_7405_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 439.54,
+        "original_end_s": 458.04
+      }
+    },
+    {
+      "id": "8306_7405_000086",
+      "text": "y aunque no volvió a amar ni pensó nunca en casarse su corazón latía ansioso de cariño y así acogió con júbilo la proposición que le hiciera severo muchos años después de vivir unidos",
+      "audio": "test/audio/8306/7405/8306_7405_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 127.35,
+        "original_end_s": 142.36
+      }
+    },
+    {
+      "id": "8306_7405_000087",
+      "text": "por qué repitió mirándome con ternura porque yo te adoro y tienes celos aquellas palabras fueron una revelación para mí no eran las frases que podía emplear un amigo para otro amigo",
+      "audio": "test/audio/8306/7405/8306_7405_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 994.97,
+        "original_end_s": 1005.65
+      }
+    },
+    {
+      "id": "8306_7405_000088",
+      "text": "la acercó a mis labios y yo dejando ya el disimulo bebí con avidez no sé lo que era aquel líquido pero lo encontré delicioso víctor me contemplaba con infantil curiosidad mientras su padre triste y pensativo fijaba en nuestro grupo una distraída mirada",
+      "audio": "test/audio/8306/7405/8306_7405_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 698.13,
+        "original_end_s": 714.59
+      }
+    },
+    {
+      "id": "8306_7405_000089",
+      "text": "este manuscrito lo dedico a mis padres voy a encerrarlo en una botella única que tenemos a falta de lacre la cubriré con una resina que he visto lo puede sustituir y luego la arrojaré al mar",
+      "audio": "test/audio/8306/7405/8306_7405_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1147.83,
+        "original_end_s": 1158.55
+      }
+    },
+    {
+      "id": "8306_7405_000090",
+      "text": "al verme solo en mi casa y contenía un rollo de papeles muy finos escritos con letra menuda y dirigidos a ustedes su lectura no tenía interés para mí el que había trazado esas líneas y hablaba desde un país desconocido con sus padres rogaba encarecidamente al que encontrara la botella que la trajera aquí",
+      "audio": "test/audio/8306/7405/8306_7405_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 148.16,
+        "original_end_s": 166.28
+      }
+    },
+    {
+      "id": "8306_7405_000091",
+      "text": "la isla no parecía grande pero no la pude recorrer aquel día porque era tarde temía me sorprendiese la noche y además estaba muy cansado busqué un sitio donde pudiera dormir y encontré un lecho de césped cerré los ojos y permanecí en profundo reposo hasta la mañana siguiente",
+      "audio": "test/audio/8306/7405/8306_7405_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 313.79,
+        "original_end_s": 331.86
+      }
+    },
+    {
+      "id": "8306_7405_000092",
+      "text": "aquellas líneas sin embargo las he roto después el estado de excitación en que me hallaba el hambre y la sed que sufrí mis luchas con inmundos reptiles no me permitían escribir con orden ni concierto y solo muchos días después empecé",
+      "audio": "test/audio/8306/7405/8306_7405_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 468.35,
+        "original_end_s": 483.04
+      }
+    },
+    {
+      "id": "8306_7405_000093",
+      "text": "habitaba con los dos viejos una criada casi de la misma edad que ellos mujer fría como uno de sus amos pero servicial y buena como el otro no había más sirvientes porque benigno y severo cuidaban el jardín",
+      "audio": "test/audio/8306/7405/8306_7405_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 187.48,
+        "original_end_s": 203.54
+      }
+    },
+    {
+      "id": "8306_7405_000094",
+      "text": "benigno al no hallarla en la casa corrió al jardín y al ver la puerta abierta tuvo un triste presentimiento siguió a la casualidad el mismo camino que mariposa y encontró el cuerpo de la niña cerca del río donde las aguas lo habían arrojado",
+      "audio": "test/audio/8306/7405/8306_7405_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 575.92,
+        "original_end_s": 595.02
+      }
+    },
+    {
+      "id": "8306_7405_000095",
+      "text": "no importa he aquí el paraíso terrenal para nosotros no hay más mundo que este nido donde somos felices porque nos amamos solo tiene un inconveniente no somos inmortales y el fin del primero traerá la desesperación a los otros",
+      "audio": "test/audio/8306/7405/8306_7405_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1133.78,
+        "original_end_s": 1147.83
+      }
+    },
+    {
+      "id": "8306_7405_000096",
+      "text": "bebe de todo lo que quieras menos de ese licor verde acaso está envenenado niño le pregunté pudiera ser me respondió tan mal me quiere tu padre te odia y por qué",
+      "audio": "test/audio/8306/7405/8306_7405_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 983.02,
+        "original_end_s": 994.97
+      }
+    },
+    {
+      "id": "8306_7405_000097",
+      "text": "no me permitieron entrar la más dulce amistad nos unió en breve el viejo era un sabio el niño una criatura encantadora buena y sencilla a la que no se podía menos de amar el primero me refirió su historia ya anciano se había casado con una bella joven que pagó sus beneficios",
+      "audio": "test/audio/8306/7405/8306_7405_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 768.76,
+        "original_end_s": 786.38
+      }
+    },
+    {
+      "id": "8306_7405_000098",
+      "text": "pero mariposa iba estando cada día más bonita y su protector se complacía en mirarla esperando con paciencia a que pronunciase su primera palabra y a que diera su primer paso estaba casi siempre en el jardín",
+      "audio": "test/audio/8306/7405/8306_7405_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 437.65,
+        "original_end_s": 452.03
+      }
+    },
+    {
+      "id": "8306_7405_000099",
+      "text": "el buque mercante juan antonio que iba de españa a américa con una numerosa tripulación y pasajeros no escasos se perdió durante la travesía sin que nadie lograse saber su paradero",
+      "audio": "test/audio/8306/7405/8306_7405_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 23.83,
+        "original_end_s": 37.24
+      }
+    },
+    {
+      "id": "8306_7405_000100",
+      "text": "hace menos de un mes encontré en el mar una botella perfectamente cerrada que supuse contendría algún licor y que se habría perdido en algún naufragio la abrí",
+      "audio": "test/audio/8306/7405/8306_7405_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 137.77,
+        "original_end_s": 148.16
+      }
+    },
+    {
+      "id": "8306_7405_000101",
+      "text": "como era hombre entendido encontró el medio de vivir en aquel país inculto no careciendo de nada enseñó a leer y a escribir a su hijo y la caja encontrada por mí contenía un papel y una tinta hechos por él no le hablé de aquel hallazgo porque me convenía conservarlo",
+      "audio": "test/audio/8306/7405/8306_7405_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 840.41,
+        "original_end_s": 856.82
+      }
+    },
+    {
+      "id": "8306_7405_000102",
+      "text": "aquel ignorado edén a pesar de su hermosura no dejó de entristecerme porque parecía inhabitado casi arrastrándome bajé a él y vi en algunos de sus árboles y al pie de estos desconocidos frutos que mitigaron mi sed y reanimaron mis desfallecidas fuerzas",
+      "audio": "test/audio/8306/7405/8306_7405_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 295.61,
+        "original_end_s": 313.79
+      }
+    },
+    {
+      "id": "8306_7405_000103",
+      "text": "al fin como todo llega mariposa anduvo y habló a benigno le llamaba papá y mamá a la vieja criada severo no era más que el coco",
+      "audio": "test/audio/8306/7405/8306_7405_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 482.06,
+        "original_end_s": 493.15
+      }
+    },
+    {
+      "id": "8306_7405_000104",
+      "text": "no puedo sino hacer conjeturas sin duda una ola me lanzó a unas peñas donde me herí ligeramente y en las que me hallé casi desnudo rendido calenturiento sintiendo el doble martirio del hambre y de la sed",
+      "audio": "test/audio/8306/7405/8306_7405_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 236.28,
+        "original_end_s": 250.25
+      }
+    },
+    {
+      "id": "8306_7405_000105",
+      "text": "qué iba a ser de mí la tormenta había cesado esta nos había sorprendido muy de mañana y era bien entrada la tarde cuando logré hacerme cargo de mi situación hacia qué punto me encontraba había alguna hospitalaria tierra cerca de allí hallaría quien me socorriese",
+      "audio": "test/audio/8306/7405/8306_7405_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 262.74,
+        "original_end_s": 279.7
+      }
+    },
+    {
+      "id": "8306_7405_000106",
+      "text": "yo no tenía historia y le referí lo poco que mi pasado encerraba creo que llegó a reconciliarse conmigo sin embargo notaba siempre en él algún recelo y mi amistad por víctor le contrariaba vivamente",
+      "audio": "test/audio/8306/7405/8306_7405_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 856.82,
+        "original_end_s": 869.68
+      }
+    },
+    {
+      "id": "8306_7405_000107",
+      "text": "pasó algún tiempo severo se ocupaba de sus crisálidas próximas a romper el capullo convirtiéndose en mariposas y quería que benigno compartiese su entusiasmo pero cada vez que le hablaba de ello el excelente anciano respondía",
+      "audio": "test/audio/8306/7405/8306_7405_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 398.86,
+        "original_end_s": 414.73
+      }
+    },
+    {
+      "id": "8306_7405_000108",
+      "text": "que había caído en poder de un pirata en fin lo cierto es que no pocas familias vistieron luto a consecuencia de aquella espantosas desdichas",
+      "audio": "test/audio/8306/7405/8306_7405_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 67.72,
+        "original_end_s": 77.98
+      }
+    },
+    {
+      "id": "8306_7405_000109",
+      "text": "parecía un pescador por su traje y por su traza y se mostró muy turbado al hallarse en presencia de los dos señores instado por ellos a hablar se expresó de este modo",
+      "audio": "test/audio/8306/7405/8306_7405_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 127.0,
+        "original_end_s": 137.77
+      }
+    },
+    {
+      "id": "8306_7405_000110",
+      "text": "oh desencanto mi eva era un niño o más bien un adolescente en aquel paraíso faltaba el mejor ornato la mujer qué haces repuso el padre ver si se ha muerto ya de hambre el forastero está ahí seguramente muerto no vivo respira",
+      "audio": "test/audio/8306/7405/8306_7405_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 589.17,
+        "original_end_s": 607.03
+      }
+    },
+    {
+      "id": "8306_7405_000111",
+      "text": "pues la había sacado de la miseria con la más negra ingratitud un día huyó de su hogar dejándole un hijo de pocos meses triste fruto de aquella unión vivió él desesperado anhelando vengarse de aquella infame mujer supo que iba a partir para américa y tomó la resolución de seguirla en el mismo buque",
+      "audio": "test/audio/8306/7405/8306_7405_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 786.38,
+        "original_end_s": 805.21
+      }
+    },
+    {
+      "id": "8306_7405_000112",
+      "text": "benigno amó después a una hermosa mujer que jamás compartió su sentimiento pero aquellas amarguras y este desengaño no mataron en él el germen de lo bueno que encerraba su alma",
+      "audio": "test/audio/8306/7405/8306_7405_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 114.9,
+        "original_end_s": 127.35
+      }
+    },
+    {
+      "id": "8306_7405_000113",
+      "text": "al encender la lámpara por la noche la mariposa atraída por la luz fue a quemarse en ella perdiendo severo uno de sus más bellos y raros ejemplares lo que le ocasionó hondo disgusto",
+      "audio": "test/audio/8306/7405/8306_7405_000113.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 508.49,
+        "original_end_s": 521.06
+      }
+    },
+    {
+      "id": "8306_7405_000114",
+      "text": "habiendo recuperado mis fuerzas casi por completo quise conocer aquel desierto que era mayor de lo que suponía y anduve por él largo rato sin que nada nuevo excitase mi atención pero de repente me detuve ante lo más extraño que hubiese podido hallar allí",
+      "audio": "test/audio/8306/7405/8306_7405_000114.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 376.37,
+        "original_end_s": 392.7
+      }
+    },
+    {
+      "id": "8306_7405_000115",
+      "text": "la niña fue enterrada a expensas de su protector en una sencilla sepultura no faltaron en ella las más hermosas flores mientras vivió benigno flores que fueron a besar sus hermanas las mariposas",
+      "audio": "test/audio/8306/7405/8306_7405_000115.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_07_asensi_64kb.mp3",
+        "original_start_s": 662.6,
+        "original_end_s": 677.33
+      }
+    },
+    {
+      "id": "8306_7405_000116",
+      "text": "si se exceptúa la que le causaba el estar separado quizá para siempre de su familia y luego continuaba así el manuscrito para celebrar el aniversario de mi llegada a la isla victoria el viejo me convidó a visitar su gruta por la primera vez quería que comiésemos allí",
+      "audio": "test/audio/8306/7405/8306_7405_000116.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 936.49,
+        "original_end_s": 955.1
+      }
+    },
+    {
+      "id": "8306_7405_000117",
+      "text": "había pues en la isla dos seres humanos pensé en el paraíso en aquel edén perdido por nuestros primeros padres que debió ser algo semejante a este lugar y para que la ilusión fuese completa una serpiente enroscada a un árbol me miró con sus brillantes ojos",
+      "audio": "test/audio/8306/7405/8306_7405_000117.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 405.08,
+        "original_end_s": 421.62
+      }
+    },
+    {
+      "id": "8306_7405_000118",
+      "text": "era su morada bellísima y no carecía en absoluto de comodidades como había sospechado había en ella muchos objetos que no podían estar fabricados por el anciano y este me dijo que en efecto eran restos de un naufragio",
+      "audio": "test/audio/8306/7405/8306_7405_000118.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 955.1,
+        "original_end_s": 968.79
+      }
+    },
+    {
+      "id": "8306_7405_000119",
+      "text": "debía ser bastante viejo tenía los cabellos y la larga barba de una blancura deslumbradora e iba vestido igual que el adolescente cómo se llama esta isla le pregunté victoria contestó el anciano pertenece a la inglaterra no",
+      "audio": "test/audio/8306/7405/8306_7405_000119.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 714.59,
+        "original_end_s": 730.44
+      }
+    },
+    {
+      "id": "8306_7405_000120",
+      "text": "tenía que ser así dijo en balde quise hacer de mi hija un hombre sin corazón el amor germina en todas las almas y bajo todos los climas y la mujer es siempre mujer quiérela mucho gerardo y después de mi muerte cuando te falten mis consejos considérala lo mismo que hoy",
+      "audio": "test/audio/8306/7405/8306_7405_000120.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_09_asensi_64kb.mp3",
+        "original_start_s": 1096.29,
+        "original_end_s": 1114.18
+      }
+    },
+    {
+      "id": "8306_7405_000121",
+      "text": "pensando a su pesar en el ingrato causa de su desgracia y su clausura el año de novicia se pasó así llegó la época de pronunciar para siempre los votos de renunciar a todo lo terreno al amor al hogar a la familia",
+      "audio": "test/audio/8306/7405/8306_7405_000121.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 200.51,
+        "original_end_s": 216.47
+      }
+    },
+    {
+      "id": "8306_7405_000122",
+      "text": "paseando por el patio aquella tarde triste y sola como de costumbre se inclinó para coger una flor y vio junto a la planta una carta rota en menudos pedazos le pareció que conocía la letra guardó los papeles y al subir a su celda se entregó al minucioso y difícil trabajo de unir aquellos fragmentos",
+      "audio": "test/audio/8306/7405/8306_7405_000122.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 290.64,
+        "original_end_s": 310.17
+      }
+    },
+    {
+      "id": "8306_7405_000123",
+      "text": "mariposas casado bernardo qué le importaba a ella el mundo ya había sido el compañero de su infancia el que había enjugado sus primeras lágrimas producido su sonrisa primera y recogido el primer suspiro que exhaló su pecho virginal",
+      "audio": "test/audio/8306/7405/8306_7405_000123.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 19.68,
+        "original_end_s": 37.65
+      }
+    },
+    {
+      "id": "8306_7405_000124",
+      "text": "aún era niña cuando bernardo era hombre una mujer malvada y astuta conquistó el corazón del joven y logró ser conducida al pie de los altares donde fueron unidos en eterno lazo",
+      "audio": "test/audio/8306/7405/8306_7405_000124.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 48.76,
+        "original_end_s": 61.44
+      }
+    },
+    {
+      "id": "8306_7405_000125",
+      "text": "quién sabe si sus almas subieron juntas por el celeste espacio y la de la triste e inocente joven logró el perdón de la de su ingrato y criminal amante para que entrase con ella en el paraíso",
+      "audio": "test/audio/8306/7405/8306_7405_000125.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 361.17,
+        "original_end_s": 375.45
+      }
+    },
+    {
+      "id": "8306_7405_000126",
+      "text": "no podía entonces volver al seno de esta vivir para el mundo bernardo estaba casado y no había esperanza de felicidad para ella blanca pronunció sus votos dos días después las campanas de la iglesia doblaron tristemente",
+      "audio": "test/audio/8306/7405/8306_7405_000126.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 216.47,
+        "original_end_s": 231.92
+      }
+    },
+    {
+      "id": "8306_7405_000127",
+      "text": "acaso si blanca no hubiese ido en carruaje él la hubiera detenido dirigiéndole la palabra quién sabe si le hubiera pedido perdón por su conducta porque bernardo era culpable",
+      "audio": "test/audio/8306/7405/8306_7405_000127.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 103.7,
+        "original_end_s": 115.95
+      }
+    },
+    {
+      "id": "8306_7405_000128",
+      "text": "los días se deslizaban iguales siempre tristes ella no tomaba parte en nada de lo que ocurría en el convento apenas sabía los nombres de las religiosas y cuando la abadesa la amonestaba por alguna involuntaria distracción",
+      "audio": "test/audio/8306/7405/8306_7405_000128.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 167.64,
+        "original_end_s": 181.91
+      }
+    },
+    {
+      "id": "8306_7405_000129",
+      "text": "la carta decía así blanca mía después de un año de crueles pero merecidos sufrimientos soy libre no renuncio a tu amor sin él no puedo vivir y espero me perdones necesito verte y hablarte hay algún medio de conseguirlo tuyo bernardo",
+      "audio": "test/audio/8306/7405/8306_7405_000129.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 310.17,
+        "original_end_s": 329.16
+      }
+    },
+    {
+      "id": "8306_7405_000130",
+      "text": "llenarse ocupándolos varios hombres al parecer de elevada clase todos vestidos de negro dio principio el funeral las monjas oraban desde el coro por el eterno descanso de la difunta porque era una mujer",
+      "audio": "test/audio/8306/7405/8306_7405_000130.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 247.08,
+        "original_end_s": 260.8
+      }
+    },
+    {
+      "id": "8306_7405_000131",
+      "text": "la mujer de bernardo gómez contestó el otro hace hoy nueve días blanca se estremeció al oírlo y se puso densamente pálida al retirarse a su celda lloró amargamente considerando que cuando ella se unió a jesucristo el hombre a quien tanto había amado era libre",
+      "audio": "test/audio/8306/7405/8306_7405_000131.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 272.21,
+        "original_end_s": 290.64
+      }
+    },
+    {
+      "id": "8306_7405_000132",
+      "text": "blanca buscó un consuelo en la religión no había en la tierra remedio a su pesar y volvió los ojos al cielo en la ciudad donde habitaba",
+      "audio": "test/audio/8306/7405/8306_7405_000132.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 61.44,
+        "original_end_s": 71.55
+      }
+    },
+    {
+      "id": "8306_7405_000133",
+      "text": "ella le había amado con toda su alma con todo el entusiasmo de la primera juventud cómo él no la había correspondido blanca tenía algunos años menos que él",
+      "audio": "test/audio/8306/7405/8306_7405_000133.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 37.65,
+        "original_end_s": 48.76
+      }
+    },
+    {
+      "id": "8306_7405_000134",
+      "text": "acabada la misa y rezados los responsos dos hombres se pararon delante de la celosía tras de la cual se hallaban las religiosas quién ha muerto preguntó uno",
+      "audio": "test/audio/8306/7405/8306_7405_000134.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 260.8,
+        "original_end_s": 272.21
+      }
+    },
+    {
+      "id": "8306_7405_000135",
+      "text": "el conocido abogado d bernardo gómez se había suicidado no pudiendo sin duda resistir la pena que le produjo la reciente muerte de su esposa y la joven religiosa que se llamó en el mundo blanca y en el claustro sor maría había muerto repentinamente",
+      "audio": "test/audio/8306/7405/8306_7405_000135.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 344.6,
+        "original_end_s": 361.17
+      }
+    },
+    {
+      "id": "8306_7405_000136",
+      "text": "se elevaba un sombrío convento de altos muros fuertes rejas y espesas celosías y allí se encerró la infortunada niña sin ver las lágrimas de su madre ni atender a los consejos de su padre ni escuchar los ruegos de sus amigos",
+      "audio": "test/audio/8306/7405/8306_7405_000136.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 71.55,
+        "original_end_s": 88.89
+      }
+    },
+    {
+      "id": "8306_7405_000137",
+      "text": "empezó la vida de convento resignada y acaso indiferente martirizó su cuerpo con ayunos y penitencias y pasó casi todas las horas dedicada a las oraciones",
+      "audio": "test/audio/8306/7405/8306_7405_000137.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 131.14,
+        "original_end_s": 142.55
+      }
+    },
+    {
+      "id": "8306_7405_000138",
+      "text": "lo mismo en el interior de su celda que en el austero templo que en el coro cuando con las otras monjas rezaba con monótono acento o elevaba cantando himnos de gloria al creador",
+      "audio": "test/audio/8306/7405/8306_7405_000138.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 155.52,
+        "original_end_s": 167.64
+      }
+    },
+    {
+      "id": "8306_7405_000139",
+      "text": "el día en que fue llevada al templo vio a bernardo en el camino él la miró con una indefinible expresión y blanca creyó adivinar que el hombre a quien tanto quería no debía ser feliz",
+      "audio": "test/audio/8306/7405/8306_7405_000139.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 88.89,
+        "original_end_s": 103.7
+      }
+    },
+    {
+      "id": "8306_7405_000140",
+      "text": "la abadesa había abierto la carta de amor profano dirigida a una de sus hijas y la había roto a no ser así la novicia hubiera salido del convento poco después los periódicos de aquella ciudad daban cuenta de dos sucesos ocurridos el mismo día y a la misma hora",
+      "audio": "test/audio/8306/7405/8306_7405_000140.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 329.16,
+        "original_end_s": 344.6
+      }
+    },
+    {
+      "id": "8306_7405_000141",
+      "text": "las paredes se cubrieron de negros paños un túmulo se elevó en el centro rodeado de amarillentas velas varios bancos fueron colocados uno al frente otros a los lados del catafalco y poco a poco empezaron a llenarse",
+      "audio": "test/audio/8306/7405/8306_7405_000141.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 231.92,
+        "original_end_s": 247.08
+      }
+    },
+    {
+      "id": "8306_7405_000142",
+      "text": "distracción oía sus palabras sin sentimiento por la ligera falta cometida en la que incurría de nuevo muchas veces por el triste patio adornado de raquíticos árboles y mustias flores paseaba melancólica y solitaria huyendo en cuanto le era dado de halagadores fantasmas y locas ilusiones",
+      "audio": "test/audio/8306/7405/8306_7405_000142.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 181.91,
+        "original_end_s": 200.51
+      }
+    },
+    {
+      "id": "8306_7405_000143",
+      "text": "pero en balde intentó sujetar también el pensamiento no se había hecho religiosa por vocación sino para mitigar sus penas y el recuerdo del hombre querido le asaltaba sin cesar",
+      "audio": "test/audio/8306/7405/8306_7405_000143.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 142.55,
+        "original_end_s": 155.52
+      }
+    },
+    {
+      "id": "8306_7405_000144",
+      "text": "había adivinado el amor de blanca lo había alentado con vanas esperanzas abandonándola sin remordimientos después la niña trocó sus galas por el severo traje religioso la novicia sin libertad de palabra ni de acción",
+      "audio": "test/audio/8306/7405/8306_7405_000144.opus",
+      "tags": {
+        "speaker_id": "mls-es-8306",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_08_asensi_64kb.mp3",
+        "original_start_s": 115.95,
+        "original_end_s": 131.14
+      }
+    },
+    {
+      "id": "8585_7405_000000",
+      "text": "ser su administrador no te dejaré que guardes las vacas quién había de decir exclamó con amargura damián",
+      "audio": "test/audio/8585/7405/8585_7405_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 569.39,
+        "original_end_s": 582.69
+      }
+    },
+    {
+      "id": "8585_7405_000001",
+      "text": "los dos sacaban las vacas a pastar en el campo y mientras damián echado en la hierba procuraba dormir o no hacer nada cosme deletreaba en cualquier papel o libro viejo que buscaba sin que nadie supiera cómo",
+      "audio": "test/audio/8585/7405/8585_7405_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 75.2,
+        "original_end_s": 90.56
+      }
+    },
+    {
+      "id": "8585_7405_000002",
+      "text": "al cabo de un año cosme leía y escribía perfectamente por lo que fue recomendado por su maestro a un rico comerciante que le recibió con agrado haciéndole que trabajase en su casa",
+      "audio": "test/audio/8585/7405/8585_7405_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 276.53,
+        "original_end_s": 289.57
+      }
+    },
+    {
+      "id": "8585_7405_000003",
+      "text": "pues si es cosme exclamó damián no se da poco tono en coche y todo como si fuera un personaje",
+      "audio": "test/audio/8585/7405/8585_7405_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 507.78,
+        "original_end_s": 518.71
+      }
+    },
+    {
+      "id": "8585_7405_000004",
+      "text": "y no pudo menos de sonreírse al dar este tratamiento al que fue su amigo de la infancia pienso comprar aquí unas tierras prosiguió cosme hacer una granja si quieres",
+      "audio": "test/audio/8585/7405/8585_7405_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 553.6,
+        "original_end_s": 569.39
+      }
+    },
+    {
+      "id": "8585_7405_000005",
+      "text": "al volverse encolerizado vio que ocupaba el coche un caballero a quien a duras penas logró reconocer era cosme que había heredado la inmensa fortuna de su amo muerto hacía pocos meses",
+      "audio": "test/audio/8585/7405/8585_7405_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 354.05,
+        "original_end_s": 368.88
+      }
+    },
+    {
+      "id": "8585_7405_000006",
+      "text": "y dónde iremos preguntó damián donde haya en qué ganar un trozo de pan le dijo su padre iremos juntos interrogó cosme como queráis les contestaron",
+      "audio": "test/audio/8585/7405/8585_7405_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 108.01,
+        "original_end_s": 123.28
+      }
+    },
+    {
+      "id": "8585_7405_000007",
+      "text": "hacía ya muchos años que no habían visto ni su pueblo ni a su familia los dos tuvieron a la vez la idea de volver a contemplar al uno y de abrazar a la otra",
+      "audio": "test/audio/8585/7405/8585_7405_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 392.87,
+        "original_end_s": 403.83
+      }
+    },
+    {
+      "id": "8585_7405_000008",
+      "text": "damián se hizo mozo de cuerda y en una ocasión llevó los muebles de cosme sin atreverse a presentarse a él por temor de ser conocido",
+      "audio": "test/audio/8585/7405/8585_7405_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 331.42,
+        "original_end_s": 341.94
+      }
+    },
+    {
+      "id": "8585_7405_000009",
+      "text": "fueron al pronto areneros los dos no pasaremos de aquí decía el primero no servimos para otra cosa y tú verás cómo en la vida tendremos un cuarto",
+      "audio": "test/audio/8585/7405/8585_7405_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 230.39,
+        "original_end_s": 243.38
+      }
+    },
+    {
+      "id": "8585_7405_000010",
+      "text": "ya viene poco después se divisó un coche abierto en el que iban sentados un caballero elegantemente vestido llevando a su izquierda al alcalde de aquel pueblo viva el gobernador",
+      "audio": "test/audio/8585/7405/8585_7405_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 462.42,
+        "original_end_s": 479.43
+      }
+    },
+    {
+      "id": "8585_7405_000011",
+      "text": "los dos niños se despidieron de sus respectivas familias y partieron sin llevar más equipaje que un poco de ropa vieja atada en la punta de un palo y algunas monedas escasas y de corto valor y un escapulario que les puso la abuela de cosme",
+      "audio": "test/audio/8585/7405/8585_7405_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 123.28,
+        "original_end_s": 141.15
+      }
+    },
+    {
+      "id": "8585_7405_000012",
+      "text": "damián seguía vendiendo arena y después fue aguador pero como era tan holgazán decía que la cuba le pesaba y no cumplía bien en ninguna parte",
+      "audio": "test/audio/8585/7405/8585_7405_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 289.57,
+        "original_end_s": 301.79
+      }
+    },
+    {
+      "id": "8585_7405_000013",
+      "text": "habían levantado artísticos arcos de ramaje algunas ventanas lucían colgaduras y los músicos del pueblo una docena de mozos que damián había dejado muy pequeños esperaban a la entrada del lugar dispuestos a tocar a una señal convenida",
+      "audio": "test/audio/8585/7405/8585_7405_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 427.42,
+        "original_end_s": 444.55
+      }
+    },
+    {
+      "id": "8585_7405_000014",
+      "text": "todo esto con un marcado acento gallego del que hago gracia a mis lectores pero que ellos suplirán si así les place al cabo entraron en la ciudad anhelada damián más desanimado que nunca y cosme más lleno de ilusiones",
+      "audio": "test/audio/8585/7405/8585_7405_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 212.86,
+        "original_end_s": 230.39
+      }
+    },
+    {
+      "id": "8585_7405_000015",
+      "text": "se lanzaron al aire los primeros cohetes a los que siguieron atronadoras bombas las mujeres arrojaron flores al carruaje y el gobernador conmovido saludaba a derecha e izquierda con afecto",
+      "audio": "test/audio/8585/7405/8585_7405_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 492.69,
+        "original_end_s": 507.78
+      }
+    },
+    {
+      "id": "8585_7405_000016",
+      "text": "tú nunca quisiste ser nada y lo has logrado el pueblo seguía aclamándole damián se separó de él murmurando mientras se alejaba me parece que me ha llamado mosca ah si no fuera porque lo necesito",
+      "audio": "test/audio/8585/7405/8585_7405_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 602.09,
+        "original_end_s": 621.51
+      }
+    },
+    {
+      "id": "8585_7405_000017",
+      "text": "cosme seguía aprendiendo lo que podía mientras su amigo dormía ya en una obra en construcción o en alguna posada según tenían o no dinero",
+      "audio": "test/audio/8585/7405/8585_7405_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 255.52,
+        "original_end_s": 266.29
+      }
+    },
+    {
+      "id": "8585_7405_000018",
+      "text": "y en el que estudiaba solo pues sus padres no le mandaban a la escuela yendo únicamente el hermano mayor el tiempo pasó así para los dos chicos hasta que un día sus familias decidieron que salieran del pueblo en busca de trabajo muy escaso allí",
+      "audio": "test/audio/8585/7405/8585_7405_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 90.56,
+        "original_end_s": 108.01
+      }
+    },
+    {
+      "id": "8585_7405_000019",
+      "text": "los dos galleguitos dejaron de verse por completo damián vivía en un cuarto muy malo que compartía con una docena de compañeros cosme habitaba una gran casa propiedad de su amo y vivía con extraordinario lujo",
+      "audio": "test/audio/8585/7405/8585_7405_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 315.7,
+        "original_end_s": 331.42
+      }
+    },
+    {
+      "id": "8585_7405_000020",
+      "text": "damián caminaba triste y silencioso su compañero iba más animado contemplando con placer ya la verde campiña que cruzaban ya el cristalino río o el arroyo donde mitigaban su sed o los altos campanarios y las casitas blancas de los pueblos damián se cansaba pronto de andar",
+      "audio": "test/audio/8585/7405/8585_7405_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 141.15,
+        "original_end_s": 160.94
+      }
+    },
+    {
+      "id": "8585_7405_000021",
+      "text": "pero dónde quieres ir que nunca acabamos de andar preguntaba damián que se hallaba rendido pues a la capital respondía cosme",
+      "audio": "test/audio/8585/7405/8585_7405_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 202.08,
+        "original_end_s": 212.86
+      }
+    },
+    {
+      "id": "8585_7405_000022",
+      "text": "qué te haces preguntó el gobernador a su antiguo compañero pues nada contestó el otro no he tenido suerte al paso que vuesta excelencia",
+      "audio": "test/audio/8585/7405/8585_7405_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 537.64,
+        "original_end_s": 553.6
+      }
+    },
+    {
+      "id": "8585_7405_000023",
+      "text": "que los dos galleguitos que echaron a volar en un día tendrían al regresar a su tierra tan diversa suerte es que hay muchas maneras de volar dijo el gobernador vuela el insecto que se detiene en lo más inmundo y el águila que se eleva a la mayor altura",
+      "audio": "test/audio/8585/7405/8585_7405_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 582.69,
+        "original_end_s": 602.09
+      }
+    },
+    {
+      "id": "8585_7405_000024",
+      "text": "que vivían mal alimentados y casi desnudos junto a las vacas que constituían toda la fortuna de aquellas familias les pusieron por nombres al uno cosme y al otro damián",
+      "audio": "test/audio/8585/7405/8585_7405_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 42.14,
+        "original_end_s": 56.34
+      }
+    },
+    {
+      "id": "8585_7405_000025",
+      "text": "enterado el buen galleguito de que había escuelas gratuitas para niños pobres logró ser admitido en una sin que pudiese hacer que damián le imitase",
+      "audio": "test/audio/8585/7405/8585_7405_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 266.29,
+        "original_end_s": 276.53
+      }
+    },
+    {
+      "id": "8585_7405_000026",
+      "text": "pues yo pienso ser millonario decía el otro no hay nada que en el mundo no se logre con buena voluntad y perseverancia durante la noche",
+      "audio": "test/audio/8585/7405/8585_7405_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 243.38,
+        "original_end_s": 255.52
+      }
+    },
+    {
+      "id": "8585_7405_000027",
+      "text": "gritó la muchedumbre que esperaba ansiosa cerca del primer arco y aquel grito se extinguió bien pronto apagado por la música de los instrumentos que tocaban un precioso pasa calle",
+      "audio": "test/audio/8585/7405/8585_7405_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 479.43,
+        "original_end_s": 492.69
+      }
+    },
+    {
+      "id": "8585_7405_000028",
+      "text": "dormían bajo los árboles o en cualquiera tierra inculta y a pesar de eso su modesto capital disminuía de tal manera porque las monedas que lo componían eran de cobre que a los pocos días de haber salido de su aldea ya no poseían casi nada",
+      "audio": "test/audio/8585/7405/8585_7405_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 173.41,
+        "original_end_s": 189.66
+      }
+    },
+    {
+      "id": "8585_7405_000029",
+      "text": "salió damián primero y no sin trabajo logró pagar un asiento de tercera en el tren que debía dejarle a pocas leguas de su tierra al llegar a esta",
+      "audio": "test/audio/8585/7405/8585_7405_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 403.83,
+        "original_end_s": 415.83
+      }
+    },
+    {
+      "id": "8585_7405_000030",
+      "text": "fueron por fin admitidos como segadores trabajaron con ahínco para un labrador muy rico de un lugar y al terminar la faena con el dinero que cobraron pudieron continuar su viaje",
+      "audio": "test/audio/8585/7405/8585_7405_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 189.66,
+        "original_end_s": 202.08
+      }
+    },
+    {
+      "id": "8585_7405_000031",
+      "text": "los niños fueron buenos amigos desde sus primeros años a pesar de la diferencia de gustos y de caracteres cosme era activo amante del estudio inteligente y damián por el contrario perezoso torpe y de escaso talento",
+      "audio": "test/audio/8585/7405/8585_7405_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 56.34,
+        "original_end_s": 75.2
+      }
+    },
+    {
+      "id": "8585_7405_000032",
+      "text": "siguieron separados cosme fue elegido diputado primero y nombrado gobernador después damián no pasó de mozo de cuerda",
+      "audio": "test/audio/8585/7405/8585_7405_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 382.52,
+        "original_end_s": 392.87
+      }
+    },
+    {
+      "id": "8585_7405_000033",
+      "text": "y tenían que detenerse a menudo lo que no era del agrado de cosme que deseaba verse en alguna población de más importancia comían poco y mal en las posadas de más pobre aspecto",
+      "audio": "test/audio/8585/7405/8585_7405_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 160.94,
+        "original_end_s": 173.41
+      }
+    },
+    {
+      "id": "8585_7405_000034",
+      "text": "una tarde yendo damián por una de las principales calles con una mesa a cuestas hubo de tropezarle un carruaje que le derribó el mueble sin hacerle daño felizmente",
+      "audio": "test/audio/8585/7405/8585_7405_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 341.94,
+        "original_end_s": 354.05
+      }
+    },
+    {
+      "id": "8585_7405_000035",
+      "text": "cosme salió de la tienda para ir al escritorio de allí pasó a ser secretario y como era listo y tenía inventiva fue colocado al servicio de un personaje al que ayudó a hacer fortuna",
+      "audio": "test/audio/8585/7405/8585_7405_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 301.79,
+        "original_end_s": 315.7
+      }
+    },
+    {
+      "id": "8585_7405_000036",
+      "text": "y después de mirarla con los ojos llenos de lágrimas observó que estaba engalanada cosa que le extrañó muchísimo pues no era la fiesta del patrón ni estaba siquiera cerca",
+      "audio": "test/audio/8585/7405/8585_7405_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 415.83,
+        "original_end_s": 427.42
+      }
+    },
+    {
+      "id": "8585_7405_000037",
+      "text": "ambos habían nacido el mismo día en un pueblo de los más pobres de la coruña sus padres eran parientes lejanos y cada cual tenía ya al venir los muchachos al mundo seis o siete chiquillos",
+      "audio": "test/audio/8585/7405/8585_7405_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 27.26,
+        "original_end_s": 42.14
+      }
+    },
+    {
+      "id": "8585_7405_000038",
+      "text": "poco después averiguó que el pobre galleguito que muchos años antes salió del lugar con él volvía siendo gobernador de la provincia fue presentado a cosme que le recibió con cariño pero sin la familiaridad que damián hubiera deseado",
+      "audio": "test/audio/8585/7405/8585_7405_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-8585",
+        "gender": "m",
+        "book_id": "7405",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/novelascortasdeasensi_1308_librivox/novelascortas_10_asensi_64kb.mp3",
+        "original_start_s": 518.71,
+        "original_end_s": 537.64
+      }
+    }
+  ]
+}

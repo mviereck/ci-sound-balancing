@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — br",
+  "lang": "br",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-br",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17333698",
+      "text": "Marc'hadmatoc'h a-leizh eo ar pellgomzer-mañ eget hennezh.",
+      "audio": "br/unknown/br_u_17333698.mp3",
+      "tags": {
+        "source_item_id": "17333698",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17878244",
+      "text": "mont a ra skuizh an den dre forzh klevet sotonioù an devezh-pad.",
+      "audio": "br/unknown/br_u_17878244.mp3",
+      "tags": {
+        "source_item_id": "17878244",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17962762",
+      "text": "n'eus ket anv e taolfe e droad amañ.",
+      "audio": "br/unknown/br_u_17962762.mp3",
+      "tags": {
+        "source_item_id": "17962762",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17965012",
+      "text": "tremen poent eo mont kuit.",
+      "audio": "br/unknown/br_u_17965012.mp3",
+      "tags": {
+        "source_item_id": "17965012",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17967734",
+      "text": "hi a zo bet karet.",
+      "audio": "br/unknown/br_u_17967734.mp3",
+      "tags": {
+        "source_item_id": "17967734",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17970915",
+      "text": "An nor emaoc'h o livañ.",
+      "audio": "br/unknown/br_u_17970915.mp3",
+      "tags": {
+        "source_item_id": "17970915",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17972586",
+      "text": "Me a garfe goût peur e vo glav.",
+      "audio": "br/unknown/br_u_17972586.mp3",
+      "tags": {
+        "source_item_id": "17972586",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17975145",
+      "text": "me zo deuet d'ho kwelet.",
+      "audio": "br/unknown/br_u_17975145.mp3",
+      "tags": {
+        "source_item_id": "17975145",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17976896",
+      "text": "Miret eo bet ma flas.",
+      "audio": "br/unknown/br_u_17976896.mp3",
+      "tags": {
+        "source_item_id": "17976896",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17987526",
+      "text": "Seul vui e kerzhemp, seul vui e skuizhemp.",
+      "audio": "br/unknown/br_u_17987526.mp3",
+      "tags": {
+        "source_item_id": "17987526",
+        "gender": "u"
+      }
+    }
+  ]
+}

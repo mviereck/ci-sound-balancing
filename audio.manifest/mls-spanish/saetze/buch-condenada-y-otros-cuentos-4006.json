@@ -1,0 +1,2622 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Condenada y Otros Cuentos",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "4006",
+    "book_title": "Condenada y Otros Cuentos",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "5870_4006_000000",
+      "text": "cuando se tiene el corazón destrozado hay que aturdirse olvidar y yo tengo derecho a todo a todo lo entiende usted para olvidar que se me ha sido muy desgraciado",
+      "audio": "test/audio/5870/4006/5870_4006_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 929.33,
+        "original_end_s": 943.24
+      }
+    },
+    {
+      "id": "5870_4006_000001",
+      "text": "se sintió cogido por  sus brazos de su mujer que lanzaba un grito de sorpresa de loco júbilo por fin luis mío yo ya lo decía si eres muy bueno",
+      "audio": "test/audio/5870/4006/5870_4006_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1196.87,
+        "original_end_s": 1210.15
+      }
+    },
+    {
+      "id": "5870_4006_000002",
+      "text": "ernestina dudó algunos instantes como si temiera hablar y por fin dijo con maliciosa sonrisa ah señor mío no creas que me engañas lo que te vuelve a mí no es el amor tal como yo lo quiero",
+      "audio": "test/audio/5870/4006/5870_4006_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1297.22,
+        "original_end_s": 1315.53
+      }
+    },
+    {
+      "id": "5870_4006_000003",
+      "text": "le encantaba sus palabras pero no pudo seguir qué calor el sol metía sus rayos por debajo de la capota el ambiente parecía impregnado de fuego",
+      "audio": "test/audio/5870/4006/5870_4006_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 943.24,
+        "original_end_s": 955.08
+      }
+    },
+    {
+      "id": "5870_4006_000004",
+      "text": "mira ese es quien ha hecho el milagro de unirnos de soltera le rezaba pidiéndole un buen marido y por segunda vez me protege dándome mi luis no vida mía el milagro lo has hecho tú con tu belleza",
+      "audio": "test/audio/5870/4006/5870_4006_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1277.73,
+        "original_end_s": 1297.22
+      }
+    },
+    {
+      "id": "5870_4006_000005",
+      "text": "creyó una traición alguien había avisado a su mujer qué situación tan ridícula y la otra que iba a llegar a qué vienes qué buscas",
+      "audio": "test/audio/5870/4006/5870_4006_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 488.75,
+        "original_end_s": 500.23
+      }
+    },
+    {
+      "id": "5870_4006_000006",
+      "text": "y los esposos con la cabeza reclinada en el paño azul de la tendida capota se espiaban sin mirarse como abrumados por la situación y sin atreverse uno de los dos a ser el primero en hablar ella comenzó ah la maldita",
+      "audio": "test/audio/5870/4006/5870_4006_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 558.0,
+        "original_end_s": 577.94
+      }
+    },
+    {
+      "id": "5870_4006_000007",
+      "text": "pero como a luis le habían dicho esto mismo todos los que fueron a hablarle en favor de ernestina lo escuchaba como quien oye una música antigua y empalagosa",
+      "audio": "test/audio/5870/4006/5870_4006_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 721.51,
+        "original_end_s": 733.09
+      }
+    },
+    {
+      "id": "5870_4006_000008",
+      "text": "luis percibía en el mismo perfume de la carta que guardaba en el bolsillo sí era ella pero cuando estuvo a pocos pasos el movimiento de sorpresa de su cochero le avisó antes que su vista ernestina",
+      "audio": "test/audio/5870/4006/5870_4006_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 471.1,
+        "original_end_s": 488.75
+      }
+    },
+    {
+      "id": "5870_4006_000009",
+      "text": "aquello repugnaba a luis todo dios se casaba qué brutos cuánta gente inexperta queda en el mundo atrás se quedaron los viveros con sus regocijadas bodas los valses sonaban lejanos como vagos estremecimientos del aire",
+      "audio": "test/audio/5870/4006/5870_4006_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 784.75,
+        "original_end_s": 803.42
+      }
+    },
+    {
+      "id": "5870_4006_000010",
+      "text": "el cochero sin aguardar órdenes arreó los caballos camino de madrid ya tenemos ama murmuraba soltando latigazos a sus bestias a casa pronto antes de que el señorito se arrepienta",
+      "audio": "test/audio/5870/4006/5870_4006_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1223.12,
+        "original_end_s": 1236.91
+      }
+    },
+    {
+      "id": "5870_4006_000011",
+      "text": "propias de la inexperiencia y acariciándolo con el perfume de su aliento aquel mismo perfume de la carta que estremeciéndolo envolvía su cerebro en humareda embriagadora",
+      "audio": "test/audio/5870/4006/5870_4006_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1003.86,
+        "original_end_s": 1018.76
+      }
+    },
+    {
+      "id": "5870_4006_000012",
+      "text": "que diría su amigo el marqués un verdadero filósofo que contento con su libertad de marido divorciado saludaba a su mujer en la calle y besaba a los niños nacidos mucho después de la separación",
+      "audio": "test/audio/5870/4006/5870_4006_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1029.9,
+        "original_end_s": 1045.34
+      }
+    },
+    {
+      "id": "5870_4006_000013",
+      "text": "él hacía su santa voluntad estamos no tenía que dar cuentas a nadie pues de darlas también tendría que exigírselas a ella y recuerde usted señora piense si siempre ha sido fiel a sus deberes",
+      "audio": "test/audio/5870/4006/5870_4006_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 857.63,
+        "original_end_s": 871.72
+      }
+    },
+    {
+      "id": "5870_4006_000014",
+      "text": "vengo a cumplir mi promesa te cité a las diez y aquí estoy y ernestina añadió con triste sonrisa a ti luis para verte hay que apelar a estragemas que repugnan a una mujer honrada",
+      "audio": "test/audio/5870/4006/5870_4006_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 500.23,
+        "original_end_s": 517.98
+      }
+    },
+    {
+      "id": "5870_4006_000015",
+      "text": "y él otra vez a su cuarto de soltero como si nada hubiese pasado y sus dos años de matrimonio fuese un largo viaje por el país de las quimeras",
+      "audio": "test/audio/5870/4006/5870_4006_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 241.99,
+        "original_end_s": 253.01
+      }
+    },
+    {
+      "id": "5870_4006_000016",
+      "text": "arrepentido de su brutalidad dio orden al cochero de detener el carruaje estaba fuera de la puerta de hierro no pasaba nadie en aquel momento por el camino trae agua cualquier cosa la señorita está enferma",
+      "audio": "test/audio/5870/4006/5870_4006_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1097.98,
+        "original_end_s": 1111.76
+      }
+    },
+    {
+      "id": "5870_4006_000017",
+      "text": "y mientras el cochero corría a un ventorro inmediato luis intentó tranquilizar a su mujer vamos ernestina serenidad no es para tanto esto es ridículo pareces una niña",
+      "audio": "test/audio/5870/4006/5870_4006_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1111.76,
+        "original_end_s": 1127.4
+      }
+    },
+    {
+      "id": "5870_4006_000018",
+      "text": "ah señora olvida usted sin duda que hay cosas que jamás se perdonan cosas en fin que quien bien está que no se mueva",
+      "audio": "test/audio/5870/4006/5870_4006_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 652.22,
+        "original_end_s": 664.3
+      }
+    },
+    {
+      "id": "5870_4006_000019",
+      "text": "el milagro de san antonio por vicente blasco ibáñez hacía años que luis no había visto las calles de madrid a las nueve de la mañana",
+      "audio": "test/audio/5870/4006/5870_4006_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 18.69,
+        "original_end_s": 29.9
+      }
+    },
+    {
+      "id": "5870_4006_000020",
+      "text": "alguna mujer que le habría conocido en los salones y tenía interés en rodear de misterio su pasión ella había tomado la iniciativa en una carta insinuante",
+      "audio": "test/audio/5870/4006/5870_4006_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 349.84,
+        "original_end_s": 361.01
+      }
+    },
+    {
+      "id": "5870_4006_000021",
+      "text": "pero no pudo continuar su mujer se volvía ahora la espalda lloraba descansando la cabeza en el respaldo del asiento y su enguantada mano introducía el pañuelo bajo el velillo para secarse las lágrimas",
+      "audio": "test/audio/5870/4006/5870_4006_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1068.49,
+        "original_end_s": 1084.28
+      }
+    },
+    {
+      "id": "5870_4006_000022",
+      "text": "al volver a su casa después de amanecido le habían entregado una carta traída en la noche anterior era de aquella desconocida que mantenía con él extraña correspondencia durante dos semanas",
+      "audio": "test/audio/5870/4006/5870_4006_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 44.59,
+        "original_end_s": 58.98
+      }
+    },
+    {
+      "id": "5870_4006_000023",
+      "text": "pero ni el ceremonioso usted ni las razones de luis convencían a la señora ella no podía seguir así ocupaba en la sociedad una posición muy equivocada casi la igualaban a mujeres infieles era objeto de declaraciones y asiduidades que la sublevaban",
+      "audio": "test/audio/5870/4006/5870_4006_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 690.15,
+        "original_end_s": 708.39
+      }
+    },
+    {
+      "id": "5870_4006_000024",
+      "text": "los cinco años de separación había hecho de ella una mujer adorable espléndida con las redondeces  y el color y la suavidad de un fruto de primavera",
+      "audio": "test/audio/5870/4006/5870_4006_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 903.69,
+        "original_end_s": 915.1
+      }
+    },
+    {
+      "id": "5870_4006_000025",
+      "text": "porque ella se sentía celosa sí luis ríe cuanto quieras celosa desde hacía un año en vista de sus amoríos y sus escándalos",
+      "audio": "test/audio/5870/4006/5870_4006_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 815.22,
+        "original_end_s": 825.65
+      }
+    },
+    {
+      "id": "5870_4006_000026",
+      "text": "que hiela una joven alegre y fácil sin cariño ni familia iba de una parte a otra como el judío errante di luis es esto vivir",
+      "audio": "test/audio/5870/4006/5870_4006_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 708.39,
+        "original_end_s": 721.51
+      }
+    },
+    {
+      "id": "5870_4006_000027",
+      "text": "todo hablaba allí del amor legítimo sometido a la reglamentación oficial aquí dos bodas en el restaurant de más allá otras en el último termino un cortejo nupcial zarandeándose al compás de los pianos con la panza repleta del peleón",
+      "audio": "test/audio/5870/4006/5870_4006_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 765.39,
+        "original_end_s": 784.75
+      }
+    },
+    {
+      "id": "5870_4006_000028",
+      "text": "ella misma fue varias veces a la casa sin conseguir que le franqueasen la puerta y tan tenaz era la resistencia de luis que hasta dejó de asistir a ciertas reuniones adivinando que allí protegían a su esposa y algún día procurarían que se encontrasen casualmente",
+      "audio": "test/audio/5870/4006/5870_4006_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 284.12,
+        "original_end_s": 303.84
+      }
+    },
+    {
+      "id": "5870_4006_000029",
+      "text": "dos lavanderas se pararon en el camino a corta distancia con pretexto de descansar sentándose sobre sus talegas de ropa querían oír algo de lo que se decían aquellos señoritos",
+      "audio": "test/audio/5870/4006/5870_4006_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 531.16,
+        "original_end_s": 544.79
+      }
+    },
+    {
+      "id": "5870_4006_000030",
+      "text": "y qué educación dan en esos colegios franceses mira luis pocas palabras te quiero y vengo decidida a todo",
+      "audio": "test/audio/5870/4006/5870_4006_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 594.23,
+        "original_end_s": 605.9
+      }
+    },
+    {
+      "id": "5870_4006_000031",
+      "text": "bien sabía luis que la cosa no tenía malicia pero qué demonio él no servía para casado le abrumaba aquella vida y aprovechó la ocasión tomando el asunto en serio con el americano se arregló propinándole una estocada leve",
+      "audio": "test/audio/5870/4006/5870_4006_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 212.24,
+        "original_end_s": 229.09
+      }
+    },
+    {
+      "id": "5870_4006_000032",
+      "text": "esto no es parís ni londres pero resulta suficientemente grande para que no se tropiecen nunca dos personas cuando una hace la vida de mujer abandonada visitando más las iglesias que los teatros",
+      "audio": "test/audio/5870/4006/5870_4006_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 120.42,
+        "original_end_s": 134.03
+      }
+    },
+    {
+      "id": "5870_4006_000033",
+      "text": "él quería callar mostrarse altivo y desdeñoso fatigarla con su frialdad para que la dejara tranquilo pero aquellas palabras le pusieron fuera de sí volver a unirse en seguida acabo estaba loco",
+      "audio": "test/audio/5870/4006/5870_4006_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 634.98,
+        "original_end_s": 652.22
+      }
+    },
+    {
+      "id": "5870_4006_000034",
+      "text": "luego hizo un gesto de fastidio lagrimitas a él pero no lloraba de veras con toda su alma con quejidos de angustia y estremecimientos nerviosos que conmovían todo su cuerpo",
+      "audio": "test/audio/5870/4006/5870_4006_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1084.28,
+        "original_end_s": 1097.98
+      }
+    },
+    {
+      "id": "5870_4006_000035",
+      "text": "bueno era él para ablandarse era un marido ultrajado y ciertas cosas vive dios nunca se olvidan pero su conciencia de buen muchacho le replicaba con dureza",
+      "audio": "test/audio/5870/4006/5870_4006_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 303.84,
+        "original_end_s": 317.6
+      }
+    },
+    {
+      "id": "5870_4006_000036",
+      "text": "lo sabía todo su vida entre bastidores sus apasionamientos momentáneos y ruidosos por mujerzuelas que se le comían la fortuna",
+      "audio": "test/audio/5870/4006/5870_4006_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 825.65,
+        "original_end_s": 836.5
+      }
+    },
+    {
+      "id": "5870_4006_000037",
+      "text": "buena mañana de primavera la gente alegre gritaba en los merenderos paseaban por entre la arboleada rápidos como pájaros de colores los encorvados ciclistas con sus camisetas rayadas",
+      "audio": "test/audio/5870/4006/5870_4006_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 403.8,
+        "original_end_s": 417.38
+      }
+    },
+    {
+      "id": "5870_4006_000038",
+      "text": "lástima que fuese su mujer cómo debían desearla los que no estaban en su caso sí señora puedo hacer lo que guste y no tengo que dar cuenta de mis acciones además",
+      "audio": "test/audio/5870/4006/5870_4006_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 915.1,
+        "original_end_s": 929.33
+      }
+    },
+    {
+      "id": "5870_4006_000039",
+      "text": "primero los arrebatos de pasión una dicha que encontrando estrecho el elegante nido de los recién casados paseaba su insolencia feliz por los salones para dar envidia al mundo",
+      "audio": "test/audio/5870/4006/5870_4006_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 163.18,
+        "original_end_s": 176.46
+      }
+    },
+    {
+      "id": "5870_4006_000040",
+      "text": "ernestina no se resignaba y se volvió queriendo volver a él le amaba de veras lo pasado eran niñadas ligerezas pero aun cuando esto halagaba a luis provocaba su indignación como una amenaza a su libertad milagrosamente recobrada",
+      "audio": "test/audio/5870/4006/5870_4006_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 253.01,
+        "original_end_s": 272.96
+      }
+    },
+    {
+      "id": "5870_4006_000041",
+      "text": "tú eres un pillo que finges ultrajes por conservar tu libertad te presentas como marido infeliz para seguir soltero haciendo infelices de veras a otros maridos te conozco egoísta",
+      "audio": "test/audio/5870/4006/5870_4006_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 317.6,
+        "original_end_s": 333.3
+      }
+    },
+    {
+      "id": "5870_4006_000042",
+      "text": "es eso que llama mi belleza y los deseos que en ti despierta pero he aprendido bastante en estos años de consuelo y soledad",
+      "audio": "test/audio/5870/4006/5870_4006_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1315.53,
+        "original_end_s": 1326.51
+      }
+    },
+    {
+      "id": "5870_4006_000043",
+      "text": "a esta hora comenzaban a dormir todos sus amigos del casino pero él en vez de meterse en la cama había cambiado de traje y se dirigía a la florida mecido por el dulce vaivén de su elegante carruaje",
+      "audio": "test/audio/5870/4006/5870_4006_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 29.9,
+        "original_end_s": 44.59
+      }
+    },
+    {
+      "id": "5870_4006_000044",
+      "text": "después la monotonía el cansancio la separación lenta e insensible sin dejar por eso de amarse a él le atraían sus amistades de soltero y ella protestaba con escenas y choques que hacían odiosa para luis la vida conyugal",
+      "audio": "test/audio/5870/4006/5870_4006_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 176.46,
+        "original_end_s": 195.18
+      }
+    },
+    {
+      "id": "5870_4006_000045",
+      "text": "y el obligado contacto dentro del carruaje comenzaba a comunicarle el suave y voluptuoso calor de aquel cuerpo adorable qué desgracia que aquella mujer tan hermosa fuera ernestina era una mujer nueva",
+      "audio": "test/audio/5870/4006/5870_4006_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 955.08,
+        "original_end_s": 969.46
+      }
+    },
+    {
+      "id": "5870_4006_000046",
+      "text": "y la otra se agita en el mundo de noche y vuelve a casa todos los días a la hora en que el frac arrugado y la pechera abombeada se impregnan del polvo que levantan los barrenderos y del humo de las buñolerías",
+      "audio": "test/audio/5870/4006/5870_4006_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 134.03,
+        "original_end_s": 148.92
+      }
+    },
+    {
+      "id": "5870_4006_000047",
+      "text": "era el eterno testigo de sus aventuras le seguía fiel y obediente en todas las correrías de su viudez pero pensaba con envidia en los pasados tiempos deseando trasnochar menos",
+      "audio": "test/audio/5870/4006/5870_4006_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 389.51,
+        "original_end_s": 403.8
+      }
+    },
+    {
+      "id": "5870_4006_000048",
+      "text": "era un muchacho con faldas siempre lo había dicho luis por esto la huía teniéndola mucho miedo porque a pesar de su dulzura de gatita cariñosa y sumisa acababa siempre por imponer su voluntad señor",
+      "audio": "test/audio/5870/4006/5870_4006_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 577.94,
+        "original_end_s": 594.23
+      }
+    },
+    {
+      "id": "5870_4006_000049",
+      "text": "experimentaba junto a ella impresiones sólo sentidas en sus épocas de noviazgo se veía aún en aquel vagón de express que años atrás los había llevado a parís ebrios de dicha y palpitantes de deseo y ella",
+      "audio": "test/audio/5870/4006/5870_4006_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 969.46,
+        "original_end_s": 987.21
+      }
+    },
+    {
+      "id": "5870_4006_000050",
+      "text": "por esto oponía la más terminante negativa a los señores respetables antiguos amigos de la familia que su mujer le enviaba como embajadores",
+      "audio": "test/audio/5870/4006/5870_4006_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 272.96,
+        "original_end_s": 284.12
+      }
+    },
+    {
+      "id": "5870_4006_000051",
+      "text": "luis iba fijándose en su mujer qué hermosa estaba la indina ya no era aquella muchacha bonita pero débil y delicada que tenía horror al oscu no queriendo enseñar lo saliente de sus clavículas",
+      "audio": "test/audio/5870/4006/5870_4006_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 889.07,
+        "original_end_s": 903.69
+      }
+    },
+    {
+      "id": "5870_4006_000052",
+      "text": "luis huía de todo contacto se recogía como una doncella medrósica en su asiento el recuerdo de los amigotes era su única defensa",
+      "audio": "test/audio/5870/4006/5870_4006_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1018.76,
+        "original_end_s": 1029.9
+      }
+    },
+    {
+      "id": "5870_4006_000053",
+      "text": "cristo y para tener este encuentro desagradable había salido de casa tan temprano citado por su propia mujer cómo reirían los amigos del casino al saber aquello",
+      "audio": "test/audio/5870/4006/5870_4006_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 517.98,
+        "original_end_s": 531.16
+      }
+    },
+    {
+      "id": "5870_4006_000054",
+      "text": "y mientras enumeraba sus desdichas que en el fondo no le importaban un comino y llamaba infidelidades a lo que fuera imprudentes coqueterías todo con voz y ademanes que recordaban sus abonos en el español y la comedia",
+      "audio": "test/audio/5870/4006/5870_4006_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 871.72,
+        "original_end_s": 889.07
+      }
+    },
+    {
+      "id": "5870_4006_000055",
+      "text": "el carruaje se detuvo ante san antonio de la florida bajó luis haciendo seña a su cochero de que esperase había entrado a su servicio cuando él vivía aún con ernestina",
+      "audio": "test/audio/5870/4006/5870_4006_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 375.39,
+        "original_end_s": 389.51
+      }
+    },
+    {
+      "id": "5870_4006_000056",
+      "text": "nos van a tomar por novios impacientes creerán que escapamos de los viveros para estar solos y libres de convidados al pasar frente a san antonio ernestina reclinada en su hombro de su esposo se incorporó",
+      "audio": "test/audio/5870/4006/5870_4006_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1262.0,
+        "original_end_s": 1277.73
+      }
+    },
+    {
+      "id": "5870_4006_000057",
+      "text": "una inicial por firma y la letra de carácter inglés fina correcta e igual a la de todos los que han sido pensionistas del sacré coeur hasta su mujer lo tenía así",
+      "audio": "test/audio/5870/4006/5870_4006_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 58.98,
+        "original_end_s": 73.13
+      }
+    },
+    {
+      "id": "5870_4006_000058",
+      "text": "parecía que era ella la que le escribía citándole a las diez en la florida frente a la iglesia de san antonio qué disparate hacíale gracia pensar mientras marchaba a una cita de amor en su mujer",
+      "audio": "test/audio/5870/4006/5870_4006_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 73.13,
+        "original_end_s": 87.9
+      }
+    },
+    {
+      "id": "5870_4006_000059",
+      "text": "por la parte del río sonaban cornetas y sobre el follaje enjambres de insectos ebrios de luz moscardoneaban brillando como chispas de oro",
+      "audio": "test/audio/5870/4006/5870_4006_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 417.38,
+        "original_end_s": 427.47
+      }
+    },
+    {
+      "id": "5870_4006_000060",
+      "text": "pero ella aún gemía cuando llegó el cochero con la botella llena de agua en la precipitación había olvidado el vaso no importa bebe",
+      "audio": "test/audio/5870/4006/5870_4006_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1127.4,
+        "original_end_s": 1139.2
+      }
+    },
+    {
+      "id": "5870_4006_000061",
+      "text": "bebía con dificultad una gota se escapaba resbalando lentamente por la barbilla redonda y graciosa rodaba con pereza enredándose en la imperceptible película de la epidermis",
+      "audio": "test/audio/5870/4006/5870_4006_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1166.54,
+        "original_end_s": 1182.36
+      }
+    },
+    {
+      "id": "5870_4006_000062",
+      "text": "fin de milagro de san antonio",
+      "audio": "test/audio/5870/4006/5870_4006_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1341.68,
+        "original_end_s": 1354.19
+      }
+    },
+    {
+      "id": "5870_4006_000063",
+      "text": "su cutis tratado al agua fría tenía una palidez fresca de rosada transparencia luis se fijó en aquellos labios adorables que fruncían para ajustarse al cuello de la botella",
+      "audio": "test/audio/5870/4006/5870_4006_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1152.06,
+        "original_end_s": 1166.54
+      }
+    },
+    {
+      "id": "5870_4006_000064",
+      "text": "el sombrero de luis estaba a sus pies y ella le acariciaba la cabeza despeinándole el juego favorito de su luna de miel y luis reía encontrando el suceso graciosísimo",
+      "audio": "test/audio/5870/4006/5870_4006_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1248.18,
+        "original_end_s": 1262.0
+      }
+    },
+    {
+      "id": "5870_4006_000065",
+      "text": "él se encontraba bien a ella no le probaba mal la separación pues estaba más hermosa que antes palabra de honor señora y sería una locura deshacer por tonterías lo que el tiempo había hecho sabiamente",
+      "audio": "test/audio/5870/4006/5870_4006_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 674.9,
+        "original_end_s": 690.15
+      }
+    },
+    {
+      "id": "5870_4006_000066",
+      "text": "con aquella facilidad que siempre había tenido para leer sus pensamientos se aproximaba a él tierna y sumisa como una víctima pidiendo el martirio a cambio de un poco de cariño arrepintiéndose de sus pasados ligerezas",
+      "audio": "test/audio/5870/4006/5870_4006_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 987.21,
+        "original_end_s": 1003.86
+      }
+    },
+    {
+      "id": "5870_4006_000067",
+      "text": "esbelta y de gracioso andar sus caderas movíanse con armónica cadencia y a cada paso resonaba el fru fru de la fina",
+      "audio": "test/audio/5870/4006/5870_4006_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 460.41,
+        "original_end_s": 471.1
+      }
+    },
+    {
+      "id": "5870_4006_000068",
+      "text": "hasta le habían dicho que tenía hijos podía permanecer tranquila no debía defender la posesión de su marido que era lo único que tenía en el mundo",
+      "audio": "test/audio/5870/4006/5870_4006_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 836.5,
+        "original_end_s": 847.28
+      }
+    },
+    {
+      "id": "5870_4006_000069",
+      "text": "después mediaron preguntas y respuestas en los planes de anuncios de los periódicos ilustrados y por fin aquella cita a la que acudía luis con la ansiedad que despierta lo desconocido",
+      "audio": "test/audio/5870/4006/5870_4006_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 361.01,
+        "original_end_s": 375.39
+      }
+    },
+    {
+      "id": "5870_4006_000070",
+      "text": "ernestina cogió la botella y se levantó el velillo ahora la veía bien su marido nada de menjurjes de tocador como en los tiempos que frecuentaba el mundo",
+      "audio": "test/audio/5870/4006/5870_4006_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1139.2,
+        "original_end_s": 1152.06
+      }
+    },
+    {
+      "id": "5870_4006_000071",
+      "text": "y con la tranquila serenidad de los que no tienen por qué ocultarse su amor se besaron ruidosamente sin fijarse en el asombro de la mujer del ventorrillo que recogía la botella",
+      "audio": "test/audio/5870/4006/5870_4006_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1210.15,
+        "original_end_s": 1223.12
+      }
+    },
+    {
+      "id": "5870_4006_000072",
+      "text": "olvidemos lo pasado y aún podemos ser felices luis luis mío qué mujer puede quererte como la tuya vaya un modo de entrar en materia",
+      "audio": "test/audio/5870/4006/5870_4006_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 620.65,
+        "original_end_s": 634.98
+      }
+    },
+    {
+      "id": "5870_4006_000073",
+      "text": "valses y polcas formaban el acompañamiento de aquella voz triste que dentro del carruaje relataba sus desdichas luis pensaba que el sitio para el encuentro había sido escogido con premeditación",
+      "audio": "test/audio/5870/4006/5870_4006_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 749.88,
+        "original_end_s": 765.39
+      }
+    },
+    {
+      "id": "5870_4006_000074",
+      "text": "aquel era un hombre había que terminar una escena que juzgaba ridícula no ernestina dijo por fin tuteando a su mujer",
+      "audio": "test/audio/5870/4006/5870_4006_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1045.34,
+        "original_end_s": 1056.94
+      }
+    },
+    {
+      "id": "5870_4006_000075",
+      "text": "pobre muchacho qué gran servicio le había prestado sin saberlo y de ernestina se separó sin escándalo sin intervenciones judiciales ella con sus parientes con quien le diese la gana",
+      "audio": "test/audio/5870/4006/5870_4006_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 229.09,
+        "original_end_s": 241.99
+      }
+    },
+    {
+      "id": "5870_4006_000076",
+      "text": "el coche volaba por la carretera con la arrogancia de un carro triunfal y en su interior los dos esposos agarrados de talle mirábanse con pasión",
+      "audio": "test/audio/5870/4006/5870_4006_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1236.91,
+        "original_end_s": 1248.18
+      }
+    },
+    {
+      "id": "5870_4006_000077",
+      "text": "la seguía con la vista aproximándose cada vez más iba a caer ya caía pero no cayó pues luis sin saber casi lo que hacía la recogió en sus labios",
+      "audio": "test/audio/5870/4006/5870_4006_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1182.36,
+        "original_end_s": 1196.87
+      }
+    },
+    {
+      "id": "5870_4006_000078",
+      "text": "qué haría ella a tales horas cinco años que no se veían y apenas si tenía noticias suyas unas veces viajaba por el extranjero",
+      "audio": "test/audio/5870/4006/5870_4006_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 99.0,
+        "original_end_s": 110.06
+      }
+    },
+    {
+      "id": "5870_4006_000079",
+      "text": "aquella ernestina cuyo recuerdo raras veces venía a turbar las alegrías de su vida de soltero o como decía él de marido emancipado",
+      "audio": "test/audio/5870/4006/5870_4006_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 87.9,
+        "original_end_s": 99.0
+      }
+    },
+    {
+      "id": "5870_4006_000080",
+      "text": "y la conciencia no se engañaba sus cinco años de emancipación habían sido para él muy alegres sonreía recordando sus éxitos y ahora mismo pensaba con fatuidad en aquella desconocida que la aguardaba",
+      "audio": "test/audio/5870/4006/5870_4006_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 333.3,
+        "original_end_s": 349.84
+      }
+    },
+    {
+      "id": "5870_4006_000081",
+      "text": "las toses insistentes y maliciosas de su cochero le avisaron una señora bajaba del tranvía y se dirigía al encuentro de luis vestía de negro y el velillo del sombrero cubría su cara",
+      "audio": "test/audio/5870/4006/5870_4006_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 446.18,
+        "original_end_s": 460.41
+      }
+    },
+    {
+      "id": "5870_4006_000082",
+      "text": "y ernestina seguía infatigable hablando cada vez más cerca del oído de su esposo ella viviría tranquila sin molestarle si no existieran los celos",
+      "audio": "test/audio/5870/4006/5870_4006_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 803.42,
+        "original_end_s": 815.22
+      }
+    },
+    {
+      "id": "5870_4006_000083",
+      "text": "luis ya no estaba de espaldas sino de frente soberbio y magnífico ah señora y cuán mal la aconsejaban sus amigos",
+      "audio": "test/audio/5870/4006/5870_4006_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 847.28,
+        "original_end_s": 857.63
+      }
+    },
+    {
+      "id": "5870_4006_000084",
+      "text": "eres mi marido y contigo debo vivir trátame como quieras pégame te querré como esas mujeres que admiten los golpes como prueba de cariño lo que te digo es que eres mío y no te suelto",
+      "audio": "test/audio/5870/4006/5870_4006_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 605.9,
+        "original_end_s": 620.65
+      }
+    },
+    {
+      "id": "5870_4006_000085",
+      "text": "otras sabía que estaba en provincias en casa de viejos parientes y aunque residía largas temporadas en madrid nunca se habían encontrado",
+      "audio": "test/audio/5870/4006/5870_4006_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 110.06,
+        "original_end_s": 120.42
+      }
+    },
+    {
+      "id": "5870_4006_000086",
+      "text": "ernestina quiso vengarse haciendo sentir celos a su marido se entregó con entusiasmo a tan peligroso juego y tuvo sus coqueteos comprometedores con cierto attaché de legación americana que hasta alcanzaron visos de infidelidad",
+      "audio": "test/audio/5870/4006/5870_4006_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 195.18,
+        "original_end_s": 212.24
+      }
+    },
+    {
+      "id": "5870_4006_000087",
+      "text": "nunca nos uniremos te conozco todas sois iguales es mentira lo que dices sigue tu camino como si no nos conociéramos",
+      "audio": "test/audio/5870/4006/5870_4006_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1056.94,
+        "original_end_s": 1068.49
+      }
+    },
+    {
+      "id": "5870_4006_000088",
+      "text": "vuelto casi de espaldas a su mujer miraba el camino los viveros bajo cuyas arboledas bullía una alegre multitud los pianos de manubrio lanzaban sus chillonas notas semejantes al parloteo de pájaros mecánicos",
+      "audio": "test/audio/5870/4006/5870_4006_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 733.09,
+        "original_end_s": 749.88
+      }
+    },
+    {
+      "id": "5870_4006_000089",
+      "text": "luis influido por el sitio pensaba en goya y en las duquesas graciosas y atrevidas que vestidas de majas venían a sentarse bajo aquellos árboles con sus galanes de capa de grana y sombrero de medio queso aquellos eran buenos tiempos",
+      "audio": "test/audio/5870/4006/5870_4006_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 427.47,
+        "original_end_s": 446.18
+      }
+    },
+    {
+      "id": "5870_4006_000090",
+      "text": "ya verás luis mío seré muy buena te querré mucho me tomas como una amante pero con bondad y con cariño yo he de conseguir que me adores como a esposa",
+      "audio": "test/audio/5870/4006/5870_4006_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 1326.51,
+        "original_end_s": 1341.68
+      }
+    },
+    {
+      "id": "5870_4006_000091",
+      "text": "se casaron muy jóvenes casi unos niños y los revisteros mundanos hablaron mucho de aquella hermosa pareja que todo lo tenían para ser felices ricos y casi sin familia",
+      "audio": "test/audio/5870/4006/5870_4006_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 148.92,
+        "original_end_s": 163.18
+      }
+    },
+    {
+      "id": "5870_4006_000092",
+      "text": "ellos no servían para casados no congeniaban bastaba recordar el infierno en que se desarrollaron sus últimos meses de matrimonio",
+      "audio": "test/audio/5870/4006/5870_4006_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-5870",
+        "gender": "m",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_15_blasco_64kb.mp3",
+        "original_start_s": 664.3,
+        "original_end_s": 674.9
+      }
+    },
+    {
+      "id": "6306_4006_000000",
+      "text": "y mientras tanto el compadre dominado por el egoísmo brutal de la vida regateaba bravamente con los compradores de pescado que querían adquirir la hermosa pieza",
+      "audio": "test/audio/6306/4006/6306_4006_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1373.07,
+        "original_end_s": 1387.08
+      }
+    },
+    {
+      "id": "6306_4006_000001",
+      "text": "a una mujer alta escueta y negruzca erguida sobre un peñasco y cuyas faldas arremolinaba el viento llegaron al muelle",
+      "audio": "test/audio/6306/4006/6306_4006_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1199.09,
+        "original_end_s": 1211.42
+      }
+    },
+    {
+      "id": "6306_4006_000002",
+      "text": "y en el mismo instante apareció el atún junto a la borda casi a flor de agua levantando enormes espumarajos con su cola poderosa ah ladrón por fin se ponía a tiro",
+      "audio": "test/audio/6306/4006/6306_4006_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 779.12,
+        "original_end_s": 794.7
+      }
+    },
+    {
+      "id": "6306_4006_000003",
+      "text": "y salió a la superficie el anzuelo pero roto partido por la mitad a pesar de su tamaño el compadre meneó tristemente la cabeza antonio",
+      "audio": "test/audio/6306/4006/6306_4006_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 648.41,
+        "original_end_s": 662.2
+      }
+    },
+    {
+      "id": "6306_4006_000004",
+      "text": "justamente vieron ayer algunos un atún que va suelto un viejo que se calcula pesa más de treinta arrobas figúrate si lo cogiéramos lo menos sesenta duros",
+      "audio": "test/audio/6306/4006/6306_4006_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 201.85,
+        "original_end_s": 219.08
+      }
+    },
+    {
+      "id": "6306_4006_000005",
+      "text": "la levantaron sosteniéndola con sus poderosos brazos y emprendieron la marcha hacia su casa unos pescadores dieron un vaso de vino a antonio que no cesaba de llorar",
+      "audio": "test/audio/6306/4006/6306_4006_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1358.28,
+        "original_end_s": 1373.07
+      }
+    },
+    {
+      "id": "6306_4006_000006",
+      "text": "ayer ya no querían fiarme en la tienda ay señor y qué oficio tan perro calla mujer malo está el mar pero dios proveerá",
+      "audio": "test/audio/6306/4006/6306_4006_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 186.05,
+        "original_end_s": 201.85
+      }
+    },
+    {
+      "id": "6306_4006_000007",
+      "text": "el pobre hombre aún bajó más su cabeza la hundió entre los hombros como si quisiera hacerla desaparecer para no oír para no ver nada pero dónde está antoñico",
+      "audio": "test/audio/6306/4006/6306_4006_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1248.43,
+        "original_end_s": 1265.1
+      }
+    },
+    {
+      "id": "6306_4006_000008",
+      "text": "pero de sus ojos rodaban lágrimas y más lágrimas que mezclándose con el agua de la cala caían en el mar sobre la tumba del hijo",
+      "audio": "test/audio/6306/4006/6306_4006_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1088.12,
+        "original_end_s": 1099.62
+      }
+    },
+    {
+      "id": "6306_4006_000009",
+      "text": "volvió a cubierta como un loco el chico el chico mi antoñico el compadre torció el gesto tristemente no estuvieron ellos próximos a ir al agua",
+      "audio": "test/audio/6306/4006/6306_4006_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 888.88,
+        "original_end_s": 905.6
+      }
+    },
+    {
+      "id": "6306_4006_000010",
+      "text": "y rabiosamente como si se tratara de un enemigo implacable antonio le tiró varios golpes con el bichero hundiendo el hierro en aquella piel viscosa las aguas se tiñeron de sangre y el animal se hundió en un rojo remolino",
+      "audio": "test/audio/6306/4006/6306_4006_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 794.7,
+        "original_end_s": 813.94
+      }
+    },
+    {
+      "id": "6306_4006_000011",
+      "text": "antonio respiró al fin de buena se habían librado todo duró algunos segundos pero un poco más y se hubieran ido al fondo",
+      "audio": "test/audio/6306/4006/6306_4006_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 813.94,
+        "original_end_s": 826.98
+      }
+    },
+    {
+      "id": "6306_4006_000012",
+      "text": "la barca se arrastró primero mansamente sobre la tranquila superficie de la bahía después ondularon las aguas y comenzó a cabecear estaban fuera de puntas en el mar libre",
+      "audio": "test/audio/6306/4006/6306_4006_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 360.87,
+        "original_end_s": 376.95
+      }
+    },
+    {
+      "id": "6306_4006_000013",
+      "text": "a las once todavía charlaba con rufina su pobre mujer que se revolvía inquieta en la cama hablando de los negocios no podían marchar peor vaya un verano",
+      "audio": "test/audio/6306/4006/6306_4006_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 47.43,
+        "original_end_s": 63.25
+      }
+    },
+    {
+      "id": "6306_4006_000014",
+      "text": "agua por todas partes sobre el mar solo estaban él la barca que se aproximaba y una curva negra que acababa de surgir y que se contraía espantosamente sobre una gran mancha de sangre",
+      "audio": "test/audio/6306/4006/6306_4006_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 955.75,
+        "original_end_s": 972.61
+      }
+    },
+    {
+      "id": "6306_4006_000015",
+      "text": "creí que nos ahogábamos antonio hasta he tragado agua maldito animal pero buenos golpes le has atizado ya verás como no tarda en salir a flote y el chico",
+      "audio": "test/audio/6306/4006/6306_4006_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 838.82,
+        "original_end_s": 855.44
+      }
+    },
+    {
+      "id": "6306_4006_000016",
+      "text": "rítmico y voluptuoso himno de la alegre locura deslizábase armonioso sobre las aguas acariciando con su soplo la eterna hermosura del mar",
+      "audio": "test/audio/6306/4006/6306_4006_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1432.19,
+        "original_end_s": 1445.72
+      }
+    },
+    {
+      "id": "6306_4006_000017",
+      "text": "el compadre miraba el horizonte antonio cambia el viento ya lo noto tendremos mar gruesa lo sé pero adentro alejémonos de todos estos que barren el mar",
+      "audio": "test/audio/6306/4006/6306_4006_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 394.04,
+        "original_end_s": 409.21
+      }
+    },
+    {
+      "id": "6306_4006_000018",
+      "text": "y rufina con los ojos ardientes como si fuera a devorar a su marido le agarraba de la pechera zarandeando rudamente a aquel hombrón pero no tardó en soltarle",
+      "audio": "test/audio/6306/4006/6306_4006_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1265.1,
+        "original_end_s": 1279.47
+      }
+    },
+    {
+      "id": "6306_4006_000019",
+      "text": "los niños vestidos de blanco y rosa saltaban y corrían tras sus juguetes o formaban alegres corros girando como ruedas de colores",
+      "audio": "test/audio/6306/4006/6306_4006_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1168.86,
+        "original_end_s": 1181.36
+      }
+    },
+    {
+      "id": "6306_4006_000020",
+      "text": "antonio enrojeció de emoción y apresuradamente echó al mar el aparejo con un anzuelo grueso como un dedo",
+      "audio": "test/audio/6306/4006/6306_4006_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 595.46,
+        "original_end_s": 605.79
+      }
+    },
+    {
+      "id": "6306_4006_000021",
+      "text": "miró a antonio y la barca comenzó a correr bordadas pero sin dirigirse a tierra ahora dijo alegremente tomemos un bocado compadre trae el capazo ya se presentará la pesca cuando ella quiera",
+      "audio": "test/audio/6306/4006/6306_4006_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 508.4,
+        "original_end_s": 527.37
+      }
+    },
+    {
+      "id": "6306_4006_000022",
+      "text": "isa isa que van muchos delante el compadre y antoñico tiraron de las cuerdas y lentamente se remontó la vela latina estremeciéndose al ser curvada por el viento",
+      "audio": "test/audio/6306/4006/6306_4006_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 344.95,
+        "original_end_s": 360.87
+      }
+    },
+    {
+      "id": "6306_4006_000023",
+      "text": "y sin soltar el timón agarró un agudo bichero flojo golpe iba a soltarle a aquella bestia estúpida y fornida como se pusiera a su alcance",
+      "audio": "test/audio/6306/4006/6306_4006_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 701.87,
+        "original_end_s": 715.56
+      }
+    },
+    {
+      "id": "6306_4006_000024",
+      "text": "el viento les favorecía pero la barca estaba inundada navegaba mal y los dos hombres marineros ante todo",
+      "audio": "test/audio/6306/4006/6306_4006_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1058.6,
+        "original_end_s": 1068.75
+      }
+    },
+    {
+      "id": "6306_4006_000025",
+      "text": "a ver si hoy tenéis más fortuna murmuró la mujer desde la cama en la cocina encontraréis el capazo de las provisiones",
+      "audio": "test/audio/6306/4006/6306_4006_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 174.68,
+        "original_end_s": 186.05
+      }
+    },
+    {
+      "id": "6306_4006_000026",
+      "text": "las aguas se enturbiaron y la barca se conmovió como si alguien con fuerza colosal tirase de ella deteniéndola en su marcha e intentándola hacerla zozobrar",
+      "audio": "test/audio/6306/4006/6306_4006_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 605.79,
+        "original_end_s": 620.56
+      }
+    },
+    {
+      "id": "6306_4006_000027",
+      "text": "cerca del muelle un caserón mostraba sus ventanas como hornos encendidos trazando regueros de luz sobre las inquietas aguas",
+      "audio": "test/audio/6306/4006/6306_4006_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 316.77,
+        "original_end_s": 328.17
+      }
+    },
+    {
+      "id": "6306_4006_000028",
+      "text": "rufina estaba aterrada por esta situación no había dinero en casa debían en el horno y en la tienda y el señor tomás",
+      "audio": "test/audio/6306/4006/6306_4006_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 126.83,
+        "original_end_s": 138.47
+      }
+    },
+    {
+      "id": "6306_4006_000029",
+      "text": "en el anterior los atunes habían corrido el mediterráneo en bandadas interminables el día que menos se mataban doscientas o trescientas arrobas el dinero circulaba como una bendición de dios",
+      "audio": "test/audio/6306/4006/6306_4006_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 63.25,
+        "original_end_s": 80.14
+      }
+    },
+    {
+      "id": "6306_4006_000030",
+      "text": "y levantando los brazos prorrumpió en espantoso alarido ay señor ha muerto mi antoñico se ha ahogado está en el mar",
+      "audio": "test/audio/6306/4006/6306_4006_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1279.47,
+        "original_end_s": 1293.14
+      }
+    },
+    {
+      "id": "6306_4006_000031",
+      "text": "rufina se abrió paso entre la gente llegando hasta su marido que con la cabeza baja y una expresión estúpida oía las felicitaciones de los amigos y el chico dónde está el chico",
+      "audio": "test/audio/6306/4006/6306_4006_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1230.8,
+        "original_end_s": 1248.43
+      }
+    },
+    {
+      "id": "6306_4006_000032",
+      "text": "miró la mojada cubierta y vio al compadre al pie del mástil agarrado a él pálido pero con inalterable tranquilidad",
+      "audio": "test/audio/6306/4006/6306_4006_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 826.98,
+        "original_end_s": 838.82
+      }
+    },
+    {
+      "id": "6306_4006_000033",
+      "text": "todo es cuestión de más pronto o más tarde pero ahora a lo que estamos a pensar que somos unos pobres",
+      "audio": "test/audio/6306/4006/6306_4006_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1035.72,
+        "original_end_s": 1046.19
+      }
+    },
+    {
+      "id": "6306_4006_000034",
+      "text": "lejos en el sitio donde la barca había estado próxima a zozobrar flotaba un objeto negro sobre las aguas allá está",
+      "audio": "test/audio/6306/4006/6306_4006_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 918.0,
+        "original_end_s": 929.26
+      }
+    },
+    {
+      "id": "6306_4006_000035",
+      "text": "trazaba sobre el mar un triángulo de fuego y las aguas hervían como si reflejasen un incendio antonio empuñaba el timón el compañero estaba junto al mástil y el chicuelo en la proa explorando el mar",
+      "audio": "test/audio/6306/4006/6306_4006_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 423.14,
+        "original_end_s": 440.12
+      }
+    },
+    {
+      "id": "6306_4006_000036",
+      "text": "mi hijo mi antoñico las vecinas del barrio de los pescadores acudieron a ella bien sabían lo que era aquello casi todas habían pasado por trances iguales",
+      "audio": "test/audio/6306/4006/6306_4006_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1342.55,
+        "original_end_s": 1358.28
+      }
+    },
+    {
+      "id": "6306_4006_000037",
+      "text": "al frente el oscuro infinito en el que parpadeaban las estrellas y por todos lados sobre la mar negra barcas y más barcas que se alejaban como puntiagudos fantasmas resbalando sobre las olas",
+      "audio": "test/audio/6306/4006/6306_4006_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 376.95,
+        "original_end_s": 394.04
+      }
+    },
+    {
+      "id": "6306_4006_000038",
+      "text": "flotaba poderosamente pero con una ligera contracción de su fuerte cola pasaba de un lado a otro de la barca y tan pronto se perdía de vista como reaparecía instantáneamente",
+      "audio": "test/audio/6306/4006/6306_4006_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 579.56,
+        "original_end_s": 595.46
+      }
+    },
+    {
+      "id": "6306_4006_000039",
+      "text": "antoñico estaba ya de pie y listo para partir con la gravedad y satisfacción del que se gana el pan a la edad en que otros juegan al hombro el capazo de las provisiones y en una mano la banasta de los roveles",
+      "audio": "test/audio/6306/4006/6306_4006_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 234.63,
+        "original_end_s": 253.23
+      }
+    },
+    {
+      "id": "6306_4006_000040",
+      "text": "de la popa y las bordas pendían cabelleras de hilos que arrastraban sus cebos dentro del agua de vez en cuando tirón y arriba un pez que se revolvía y brillaba como estaño animado",
+      "audio": "test/audio/6306/4006/6306_4006_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 440.12,
+        "original_end_s": 455.88
+      }
+    },
+    {
+      "id": "6306_4006_000041",
+      "text": "tan esbelta y tan velera que consumió todos sus ahorros antonio mientras se vestía despertó a su hijo un grumete de nueve años que le acompañaba en la pesca y hacía el trabajo de un hombre",
+      "audio": "test/audio/6306/4006/6306_4006_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 155.84,
+        "original_end_s": 174.68
+      }
+    },
+    {
+      "id": "6306_4006_000042",
+      "text": "todo un mundo que no había sentido pasar la desgracia junto a él que no había lanzado una mirada sobre el drama de la miseria y el vals elegante",
+      "audio": "test/audio/6306/4006/6306_4006_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1419.81,
+        "original_end_s": 1432.19
+      }
+    },
+    {
+      "id": "6306_4006_000043",
+      "text": "terminaba la tarde las aguas ondeando suavemente tomaban reflejos de oro a intervalos sonaba cada vez más lejos el grito desesperado de aquella pobre mujer desgreñada y loca que las amigas empujaban a casa",
+      "audio": "test/audio/6306/4006/6306_4006_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1387.08,
+        "original_end_s": 1406.96
+      }
+    },
+    {
+      "id": "6306_4006_000044",
+      "text": "qué ovación todos querían ver de cerca el enorme animal los pescadores desde sus botes lanzaban envidiosas miradas los pilletes desnudos de color de ladrillo echábanse al agua para tocarle la enorme cola",
+      "audio": "test/audio/6306/4006/6306_4006_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1211.42,
+        "original_end_s": 1230.8
+      }
+    },
+    {
+      "id": "6306_4006_000045",
+      "text": "pero antonio exclamó el compadre es que vamos a orán cuando la pesca no quiere presentarse lo mismo da aquí que más adentro",
+      "audio": "test/audio/6306/4006/6306_4006_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 495.36,
+        "original_end_s": 508.4
+      }
+    },
+    {
+      "id": "6306_4006_000046",
+      "text": "y la barca dando un salto volvió a emprender su marcha el aparejo antes rígido y tirante pendía flojo y desmayado tiraron de él",
+      "audio": "test/audio/6306/4006/6306_4006_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 634.43,
+        "original_end_s": 648.41
+      }
+    },
+    {
+      "id": "6306_4006_000047",
+      "text": "esto lo preguntó el padre con inquietud con zozobra como si temiera la respuesta no estaba sobre cubierta antonio se deslizó por la escotilla esperando encontrarlo en la cala",
+      "audio": "test/audio/6306/4006/6306_4006_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 855.44,
+        "original_end_s": 871.38
+      }
+    },
+    {
+      "id": "6306_4006_000048",
+      "text": "el viento de tierra saludaba a la barca con melodías vivas y alegres era la música que tocaba en el paseo frente al casino",
+      "audio": "test/audio/6306/4006/6306_4006_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1142.19,
+        "original_end_s": 1152.56
+      }
+    },
+    {
+      "id": "6306_4006_000049",
+      "text": "en el mar a las dos de la mañana llamaron a la puerta de la barraca antonio antonio y antonio saltó de la cama",
+      "audio": "test/audio/6306/4006/6306_4006_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 17.47,
+        "original_end_s": 37.05
+      }
+    },
+    {
+      "id": "6306_4006_000050",
+      "text": "hacía calor y antoñico escurríase por la escotilla para beber del tonel de agua metido en estrecha cala a las diez habían perdido de vista la tierra",
+      "audio": "test/audio/6306/4006/6306_4006_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 471.17,
+        "original_end_s": 485.12
+      }
+    },
+    {
+      "id": "6306_4006_000051",
+      "text": "y el padre se arrojó al agua nadando vigorosamente mientras el compañero amainaba la vela nadó y nadó",
+      "audio": "test/audio/6306/4006/6306_4006_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 929.26,
+        "original_end_s": 939.65
+      }
+    },
+    {
+      "id": "6306_4006_000052",
+      "text": "el aparejo pendía de la popa casi recto la barca volvió a estremecerse pero esta vez de un modo terrible",
+      "audio": "test/audio/6306/4006/6306_4006_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 715.56,
+        "original_end_s": 726.15
+      }
+    },
+    {
+      "id": "6306_4006_000053",
+      "text": "para cada uno un enorme mendrugo y una cebolla cruda machacada a puñetazos sobre la borda el viento soplaba fuerte y la barca cabeceaba rudamente sobre las olas de larga y profunda ondulación",
+      "audio": "test/audio/6306/4006/6306_4006_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 527.37,
+        "original_end_s": 545.27
+      }
+    },
+    {
+      "id": "6306_4006_000054",
+      "text": "y temblaba como todos los hombres enérgicos y audaces que en el hogar son esclavos de la familia sobre el mar deslizábase como una caricia el ritmo de alegres valses",
+      "audio": "test/audio/6306/4006/6306_4006_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1127.87,
+        "original_end_s": 1142.19
+      }
+    },
+    {
+      "id": "6306_4006_000055",
+      "text": "y el pescador acabó de arreglarse pensando en aquel pescadote un solitario que separado de su manada volvía por la fuerza de la costumbre a las mismas aguas que el año anterior",
+      "audio": "test/audio/6306/4006/6306_4006_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 219.08,
+        "original_end_s": 234.63
+      }
+    },
+    {
+      "id": "6306_4006_000056",
+      "text": "atolondrado por algún golpe se habría ido al fondo como una bala pero el compañero aunque pensó todo esto nada dijo",
+      "audio": "test/audio/6306/4006/6306_4006_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 905.6,
+        "original_end_s": 918.0
+      }
+    },
+    {
+      "id": "6306_4006_000057",
+      "text": "el pueblo extendía hasta cerca del agua sus calles rectas orladas de casitas blancas donde se albergaban por una temporada los veraneantes todas aquellas familias venidas del interior en busca del mar",
+      "audio": "test/audio/6306/4006/6306_4006_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 299.18,
+        "original_end_s": 316.77
+      }
+    },
+    {
+      "id": "6306_4006_000058",
+      "text": "ese animal puede más que nosotros que se vaya y demos gracias porque ha roto el anzuelo por poco más vamos al fondo",
+      "audio": "test/audio/6306/4006/6306_4006_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 662.2,
+        "original_end_s": 672.39
+      }
+    },
+    {
+      "id": "6306_4006_000059",
+      "text": "y los que como antonio guardaron buena conducta e hicieron sus ahorrillos se emanciparon de la condición de simples marineros comprándose una barca para pescar por cuenta propia",
+      "audio": "test/audio/6306/4006/6306_4006_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 80.14,
+        "original_end_s": 95.59
+      }
+    },
+    {
+      "id": "6306_4006_000060",
+      "text": "era su compadre el compañero de pesca que le avisaba para hacerse a la mar había dormido poco aquella noche",
+      "audio": "test/audio/6306/4006/6306_4006_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 37.05,
+        "original_end_s": 47.43
+      }
+    },
+    {
+      "id": "6306_4006_000061",
+      "text": "está donde su abuelo donde estaré yo cualquier día del mar comemos y el mar ha de tragarnos qué remedio no todos nacen para obispos",
+      "audio": "test/audio/6306/4006/6306_4006_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1308.14,
+        "original_end_s": 1322.99
+      }
+    },
+    {
+      "id": "6306_4006_000062",
+      "text": "el atún estaba bien agarrado y tiraba del sólido gancho deteniendo la barca haciéndola danzar locamente sobre las olas el agua parecía hervir subían a la superficie espumas y burbujas en turbio remolino",
+      "audio": "test/audio/6306/4006/6306_4006_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 726.15,
+        "original_end_s": 746.0
+      }
+    },
+    {
+      "id": "6306_4006_000063",
+      "text": "la vista de tierra despertó en antonio el dolor y el espanto adormecidos qué dirá mi mujer qué dirá mi rufina gemía el infeliz",
+      "audio": "test/audio/6306/4006/6306_4006_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1114.83,
+        "original_end_s": 1127.87
+      }
+    },
+    {
+      "id": "6306_4006_000064",
+      "text": "el puertecillo estaba lleno una verdadera flota lo ocupaba todas las noches sin espacio apenas para moverse pero con el aumento de barcas había venido la carencia de pesca",
+      "audio": "test/audio/6306/4006/6306_4006_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 95.59,
+        "original_end_s": 109.95
+      }
+    },
+    {
+      "id": "6306_4006_000065",
+      "text": "dejarlo gritó el patrón un demonio sabes cuánto vale esa pieza no está el tiempo para escrúpulos ni miedos a él a él",
+      "audio": "test/audio/6306/4006/6306_4006_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 672.39,
+        "original_end_s": 686.83
+      }
+    },
+    {
+      "id": "6306_4006_000066",
+      "text": "un patrón retirado dueño del pueblo por sus judiadas les amenazaba continuamente si no entregaban algo de los cincuenta duros con intereses que les había prestado para la terminación de aquella barca",
+      "audio": "test/audio/6306/4006/6306_4006_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 138.47,
+        "original_end_s": 155.84
+      }
+    },
+    {
+      "id": "6306_4006_000067",
+      "text": "era esto manera de ganarse el pan nadó más de una hora creyendo a cada rozamiento que el cuerpo de su hijo iba a surgir bajo sus piernas imaginándose que las sombras de las olas eran el cadáver del niño que flotaba entre dos aguas",
+      "audio": "test/audio/6306/4006/6306_4006_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 986.88,
+        "original_end_s": 1006.75
+      }
+    },
+    {
+      "id": "6306_4006_000068",
+      "text": "olvidaron la catástrofe y con los achicadores en la mano encorváronse dentro de la cala arrojando paletadas de agua al mar así pasaron las horas aquella ruda faena embrutecía a antonio le impedía pensar",
+      "audio": "test/audio/6306/4006/6306_4006_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1068.75,
+        "original_end_s": 1088.12
+      }
+    },
+    {
+      "id": "6306_4006_000069",
+      "text": "cual si en la profundidad se desarrollase una lucha de gigantes y de pronto la barca como agarrada por oculta mano se acostó invadiendo el agua hasta la mitad de la cubierta",
+      "audio": "test/audio/6306/4006/6306_4006_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 746.0,
+        "original_end_s": 762.23
+      }
+    },
+    {
+      "id": "6306_4006_000070",
+      "text": "aquel tirón derribó a los tripulantes antonio soltando el timón se vio casi en las olas pero sonó un crujido y la barca recobró su posición normal se había roto el aparejo",
+      "audio": "test/audio/6306/4006/6306_4006_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 762.23,
+        "original_end_s": 779.12
+      }
+    },
+    {
+      "id": "6306_4006_000071",
+      "text": "por debajo de las achatadas palmeras desfilaban como las cuentas de un rosario de colores las sombrillas de seda los sombreritos de paja los trajes claros y vistosos de toda la gente de veraneo",
+      "audio": "test/audio/6306/4006/6306_4006_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1152.56,
+        "original_end_s": 1168.86
+      }
+    },
+    {
+      "id": "6306_4006_000072",
+      "text": "en el muelle se agolpaban los del oficio su vista acostumbrada a las inmensidades del mar había reconocido lo que remolcaba la barca pero antonio sólo miraba al extremo de la escollera",
+      "audio": "test/audio/6306/4006/6306_4006_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1181.36,
+        "original_end_s": 1199.09
+      }
+    },
+    {
+      "id": "6306_4006_000073",
+      "text": "y preparando dos nudos corredizos apresó el cuerpo del atún y lo llevó a remolque de la barca tiñendo con sangre las espumas de la estela",
+      "audio": "test/audio/6306/4006/6306_4006_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1046.19,
+        "original_end_s": 1058.6
+      }
+    },
+    {
+      "id": "6306_4006_000074",
+      "text": "no hay que tomarlo así hombre son cosas de la vida el chico ha muerto donde murieron todos nuestros parientes donde moriremos nosotros",
+      "audio": "test/audio/6306/4006/6306_4006_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1023.76,
+        "original_end_s": 1035.72
+      }
+    },
+    {
+      "id": "6306_4006_000075",
+      "text": "el pez favorito de los atunes el mejor cebo para atraerles padre e hijo salieron de la barraca y siguieron la playa hasta llegar al muelle de los pescadores el compadre les esperaba en la barca preparando la vela",
+      "audio": "test/audio/6306/4006/6306_4006_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 253.23,
+        "original_end_s": 272.35
+      }
+    },
+    {
+      "id": "6306_4006_000076",
+      "text": "y la barca en vez de ir tras las otras que seguían la costa continuó con la proa mar adentro amaneció el sol rojo y recortado cual enorme oblea",
+      "audio": "test/audio/6306/4006/6306_4006_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 409.21,
+        "original_end_s": 423.14
+      }
+    },
+    {
+      "id": "6306_4006_000077",
+      "text": "pero su mujer no le oía estaba en el suelo agitada por una crisis nerviosa y se revolcaba pataleando mostrando sus flacas y tostadas desnudeces de animal de trabajo mientras se tiraba de las greñas arañándose el rostro",
+      "audio": "test/audio/6306/4006/6306_4006_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1322.99,
+        "original_end_s": 1342.55
+      }
+    },
+    {
+      "id": "6306_4006_000078",
+      "text": "se hundió en agua hasta la rodilla el mar la había inundado pero quién pensaba en esto buscó a tientas en el reducido y oscuro espacio sin encontrar más que el tonel de agua y los aparejos de repuesto",
+      "audio": "test/audio/6306/4006/6306_4006_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 871.38,
+        "original_end_s": 888.88
+      }
+    },
+    {
+      "id": "6306_4006_000079",
+      "text": "la barca navegaba con creciente rapidez sintiendo que se vaciaban sus entrañas el puertecillo estaba a la vista con sus masas de blancas casitas doradas por el sol de la tarde",
+      "audio": "test/audio/6306/4006/6306_4006_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1099.62,
+        "original_end_s": 1114.83
+      }
+    },
+    {
+      "id": "6306_4006_000080",
+      "text": "la flotilla removíase en la oscuridad agitando su empalizada de mástiles corrían sobre ella las negras siluetas de los tripulantes",
+      "audio": "test/audio/6306/4006/6306_4006_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 272.35,
+        "original_end_s": 285.11
+      }
+    },
+    {
+      "id": "6306_4006_000081",
+      "text": "gritó antoñico desde la proa un pez grande mu grande un atún rodaron por la popa las cebollas y el pan y los dos hombres asomáronse a la borda sí",
+      "audio": "test/audio/6306/4006/6306_4006_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 545.27,
+        "original_end_s": 564.07
+      }
+    },
+    {
+      "id": "6306_4006_000082",
+      "text": "pero sus fuerzas casi le abandonaron al convencerse de que el objeto era un remo un despojo de su barca cuando las olas le levantaban sacaba el cuerpo fuera para ver más lejos",
+      "audio": "test/audio/6306/4006/6306_4006_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 939.65,
+        "original_end_s": 955.75
+      }
+    },
+    {
+      "id": "6306_4006_000083",
+      "text": "antoñico hijo mío y bajo las palmeras seguían desfilando los vistosos trajes los rostros felices y sonrientes",
+      "audio": "test/audio/6306/4006/6306_4006_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1406.96,
+        "original_end_s": 1419.81
+      }
+    },
+    {
+      "id": "6306_4006_000084",
+      "text": "y haciendo virar la barca volvió a las mismas aguas donde se había verificado el encuentro puso un anzuelo nuevo un enorme gancho en el que ensartó varios roveles",
+      "audio": "test/audio/6306/4006/6306_4006_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 686.83,
+        "original_end_s": 701.87
+      }
+    },
+    {
+      "id": "6306_4006_000085",
+      "text": "rasgaba el silencio el ruido de los palos cayendo sobre cubierta el chirriar de las garruchas y las cuerdas y las velas desplegábanse en la oscuridad como enormes sábanas",
+      "audio": "test/audio/6306/4006/6306_4006_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 285.11,
+        "original_end_s": 299.18
+      }
+    },
+    {
+      "id": "6306_4006_000086",
+      "text": "era el casino antonio lanzó hacia él una mirada de odio cómo trasnochaban aquellas gentes estarían jugándose el dinero si tuvieran que madrugar para ganarse el pan",
+      "audio": "test/audio/6306/4006/6306_4006_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 328.17,
+        "original_end_s": 344.95
+      }
+    },
+    {
+      "id": "6306_4006_000087",
+      "text": "las redes sólo sacaban algas o pez menudo morralla de la que se deshace en la sartén los atunes habían tomado este año otro camino y nadie conseguía izar uno sobre su barca",
+      "audio": "test/audio/6306/4006/6306_4006_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 109.95,
+        "original_end_s": 126.83
+      }
+    },
+    {
+      "id": "6306_4006_000088",
+      "text": "sí mujer dijo el marido lentamente con torpeza balbuceando y como si le ahogaran las lágrimas somos muy desgraciados el chico ha muerto",
+      "audio": "test/audio/6306/4006/6306_4006_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1293.14,
+        "original_end_s": 1308.14
+      }
+    },
+    {
+      "id": "6306_4006_000089",
+      "text": "allí se hubiera quedado allí habría muerto con su hijo el compadre tuvo que pescarlo y meterlo en la barca como un niño rebelde qué hacemos antonio él no contestó no",
+      "audio": "test/audio/6306/4006/6306_4006_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 1006.75,
+        "original_end_s": 1023.76
+      }
+    },
+    {
+      "id": "6306_4006_000090",
+      "text": "la cubierta se bamboleaba como si huyese bajo los pies de los tripulantes y el mástil crujía a impulsos de la hinchada vela pero de pronto el obstáculo cedió",
+      "audio": "test/audio/6306/4006/6306_4006_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 620.56,
+        "original_end_s": 634.43
+      }
+    },
+    {
+      "id": "6306_4006_000091",
+      "text": "el atún había muerto valiente cosa le importaba la vida de su hijo único de su antoñico a cambio de la de aquella bestia dios",
+      "audio": "test/audio/6306/4006/6306_4006_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 972.61,
+        "original_end_s": 986.88
+      }
+    },
+    {
+      "id": "6306_4006_000092",
+      "text": "era un atún pero enorme ventrudo poderoso arrastrando casi a flor de agua su negro lomo de terciopelo el solitario tal vez de que tanto hablaban los pescadores",
+      "audio": "test/audio/6306/4006/6306_4006_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-6306",
+        "gender": "w",
+        "book_id": "4006",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/condenada_1107_librivox/lacondenada_05_blasco_64kb.mp3",
+        "original_start_s": 564.07,
+        "original_end_s": 579.56
+      }
+    }
+  ]
+}

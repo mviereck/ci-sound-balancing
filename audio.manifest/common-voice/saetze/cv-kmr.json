@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — kmr",
+  "lang": "kmr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-kmr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24840510",
+      "text": "Her wiha li mal û kolanê jî demê bê sûd derbas nake.",
+      "audio": "kmr/unknown/kmr_u_24840510.mp3",
+      "tags": {
+        "source_item_id": "24840510",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24840627",
+      "text": "Ew, nivîskarekî kedkar, zimanzan û lêkolînvanekî hêja ye",
+      "audio": "kmr/unknown/kmr_u_24840627.mp3",
+      "tags": {
+        "source_item_id": "24840627",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24840695",
+      "text": "Ez ji înternetê hez dikim.",
+      "audio": "kmr/unknown/kmr_u_24840695.mp3",
+      "tags": {
+        "source_item_id": "24840695",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24840738",
+      "text": "barana ku hewayê sar dike.",
+      "audio": "kmr/unknown/kmr_u_24840738.mp3",
+      "tags": {
+        "source_item_id": "24840738",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24840764",
+      "text": "Wergerandin, ne hêsantirîn xebateke wêjeyî ye",
+      "audio": "kmr/unknown/kmr_u_24840764.mp3",
+      "tags": {
+        "source_item_id": "24840764",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24841462",
+      "text": "li bav û kalên xwe",
+      "audio": "kmr/unknown/kmr_u_24841462.mp3",
+      "tags": {
+        "source_item_id": "24841462",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24841836",
+      "text": "Hewil bide ku tu bi rêbazê rast rengîn bikî.",
+      "audio": "kmr/unknown/kmr_u_24841836.mp3",
+      "tags": {
+        "source_item_id": "24841836",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24841885",
+      "text": "Zarok hêviya civaka xwe ne.",
+      "audio": "kmr/unknown/kmr_u_24841885.mp3",
+      "tags": {
+        "source_item_id": "24841885",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24843180",
+      "text": "Ez mezin bûm û bejna min dirêj bû.",
+      "audio": "kmr/unknown/kmr_u_24843180.mp3",
+      "tags": {
+        "source_item_id": "24843180",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24843416",
+      "text": "çanda me kirine foqlorên xwe.",
+      "audio": "kmr/unknown/kmr_u_24843416.mp3",
+      "tags": {
+        "source_item_id": "24843416",
+        "gender": "u"
+      }
+    }
+  ]
+}

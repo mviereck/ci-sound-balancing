@@ -1,0 +1,110 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — de",
+  "lang": "de",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-de",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17300375",
+      "text": "An der Wand hängen Porträts aller ehemaligen Bonzen des Hauses.",
+      "audio": "de/unknown/de_u_17300375.mp3",
+      "tags": {
+        "source_item_id": "17300375",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17300423",
+      "text": "Valerie wohnt in einem alten Plattenbau aus DDR-Zeiten.",
+      "audio": "de/unknown/de_u_17300423_deutschland_deutsch.mp3",
+      "tags": {
+        "source_item_id": "17300423",
+        "gender": "u",
+        "accent": "Deutschland Deutsch"
+      }
+    },
+    {
+      "id": "17300571",
+      "text": "Heute Mittag bin ich mit meinen Kollegen zum Döner um die Ecke gegangen.",
+      "audio": "de/unknown/de_u_17300571.mp3",
+      "tags": {
+        "source_item_id": "17300571",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17300660",
+      "text": "Wenn ich mich recht erinnere, war die erste Programmiersprache, die ich gelernt habe, Pascal.",
+      "audio": "de/unknown/de_u_17300660.mp3",
+      "tags": {
+        "source_item_id": "17300660",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17300781",
+      "text": "Beate denkt inzwischen ernsthaft über eine Scheidung nach.",
+      "audio": "de/unknown/de_u_17300781.mp3",
+      "tags": {
+        "source_item_id": "17300781",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17301792",
+      "text": "Jemand hat mir mein Portmonee geklaut.",
+      "audio": "de/unknown/de_u_17301792_deutschland_deutsch.mp3",
+      "tags": {
+        "source_item_id": "17301792",
+        "gender": "u",
+        "accent": "Deutschland Deutsch"
+      }
+    },
+    {
+      "id": "17301852",
+      "text": "Schwarzfahren kostet sechzig Euro und wird in jedem Fall zur Anzeige gebracht.",
+      "audio": "de/unknown/de_u_17301852.mp3",
+      "tags": {
+        "source_item_id": "17301852",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17302455",
+      "text": "Jetzt habe ich den Faden verloren.",
+      "audio": "de/unknown/de_u_17302455.mp3",
+      "tags": {
+        "source_item_id": "17302455",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17302476",
+      "text": "Lukas kommt langsam in den Stimmbruch.",
+      "audio": "de/unknown/de_u_17302476.mp3",
+      "tags": {
+        "source_item_id": "17302476",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17302554",
+      "text": "Sein dunkles Haar war etwa schulterlang und er hatte Sommersprossen im Gesicht.",
+      "audio": "de/unknown/de_u_17302554_deutschland_deutsch.mp3",
+      "tags": {
+        "source_item_id": "17302554",
+        "gender": "u",
+        "accent": "Deutschland Deutsch"
+      }
+    }
+  ]
+}

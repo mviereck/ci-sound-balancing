@@ -1,0 +1,27 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "musan",
+  "name": "MUSAN — Music And Speech And Noise",
+  "url": "https://www.openslr.org/17/",
+  "license": "mixed",
+  "credit": "MUSAN-Korpus (Snyder et al. 2015), Lizenzen pro Item",
+  "base": "musan/",
+  "categories": [
+    "musik",
+    "geraeusche"
+  ],
+  "manifests": {
+    "musik": [
+      "musik/fma.json",
+      "musik/fma-western-art.json",
+      "musik/hd-classical.json",
+      "musik/jamendo.json",
+      "musik/rfm.json"
+    ],
+    "geraeusche": [
+      "geraeusche/free-sound.json",
+      "geraeusche/sound-bible.json"
+    ]
+  },
+  "notes": "kind/stationary/loop_safe für Geräusche noch leer, manuell zu ergänzen."
+}

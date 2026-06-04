@@ -1,0 +1,127 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tw",
+  "lang": "tw",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tw",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "35280492",
+      "text": "Ná wasi gyinae a etwa to.",
+      "audio": "tw/unknown/tw_u_35280492_native.mp3",
+      "tags": {
+        "source_item_id": "35280492",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292449",
+      "text": "Me ne no traa dan biako mu.",
+      "audio": "tw/unknown/tw_u_35292449_native.mp3",
+      "tags": {
+        "source_item_id": "35292449",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35280546",
+      "text": "Wɔtɔn Asetra a Enni Awiei",
+      "audio": "tw/unknown/tw_u_35280546_native.mp3",
+      "tags": {
+        "source_item_id": "35280546",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292434",
+      "text": "Ahude Ho Anigye a Wɔkyerɛ",
+      "audio": "tw/unknown/tw_u_35292434_native.mp3",
+      "tags": {
+        "source_item_id": "35292434",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292427",
+      "text": "Nhwehwɛmufo foforo nnye saa nneɛma a wɔahu yi ntom.",
+      "audio": "tw/unknown/tw_u_35292427_native.mp3",
+      "tags": {
+        "source_item_id": "35292427",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292440",
+      "text": "Ɔkwan no so ankasa na menam yi? ’",
+      "audio": "tw/unknown/tw_u_35292440_native.mp3",
+      "tags": {
+        "source_item_id": "35292440",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35280548",
+      "text": "German kasa ho nimdeɛ a mewɔ no sua.",
+      "audio": "tw/unknown/tw_u_35280548_native.mp3",
+      "tags": {
+        "source_item_id": "35280548",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35280547",
+      "text": "Mehwɛ kwan sɛ ɔbɛba bere biara.",
+      "audio": "tw/unknown/tw_u_35280547_native.mp3",
+      "tags": {
+        "source_item_id": "35280547",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292425",
+      "text": "mɛyɛ deɛ metumi biara.",
+      "audio": "tw/unknown/tw_u_35292425_native.mp3",
+      "tags": {
+        "source_item_id": "35292425",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35280594",
+      "text": "Me ne no gyee nhyehyɛe foforow no ho akyinnye.",
+      "audio": "tw/unknown/tw_u_35280594_native.mp3",
+      "tags": {
+        "source_item_id": "35280594",
+        "gender": "u",
+        "accent": "Native"
+      }
+    },
+    {
+      "id": "35292437",
+      "text": "Nkurɔfo kae sɛ wabɔ dam.",
+      "audio": "tw/unknown/tw_u_35292437_native.mp3",
+      "tags": {
+        "source_item_id": "35292437",
+        "gender": "u",
+        "accent": "Native"
+      }
+    }
+  ]
+}

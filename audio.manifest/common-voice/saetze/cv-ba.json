@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ba",
+  "lang": "ba",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ba",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "25417823",
+      "text": "Шунан уңға боролдоҡ, йәнә тура барҙыҡ.",
+      "audio": "ba/unknown/ba_u_25417823.mp3",
+      "tags": {
+        "source_item_id": "25417823",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25422230",
+      "text": "— Тәүҙә хирургҡа ныҡлап күрһәтеп алырға кәрәк",
+      "audio": "ba/unknown/ba_u_25422230.mp3",
+      "tags": {
+        "source_item_id": "25422230",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25424056",
+      "text": "Уралған мамыҡ шәле лә ямғырҙа әҙәм ҡарағыһыҙ төҫкә ингән",
+      "audio": "ba/unknown/ba_u_25424056.mp3",
+      "tags": {
+        "source_item_id": "25424056",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25428468",
+      "text": "Баяғы ҡосаҡлауҙары, иркәләү-наҙлауҙары ялған булған, ширма, унан көлгән, мыҫҡыл иткән",
+      "audio": "ba/unknown/ba_u_25428468.mp3",
+      "tags": {
+        "source_item_id": "25428468",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25433763",
+      "text": "Дилбегә тотоп килгән Харис, үҙе лә һиҙмәҫтән:",
+      "audio": "ba/unknown/ba_u_25433763.mp3",
+      "tags": {
+        "source_item_id": "25433763",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25480127",
+      "text": "Тәжрибәләрен үткәрергә уға барыбер мөмкинлек буласаҡ",
+      "audio": "ba/unknown/ba_u_25480127.mp3",
+      "tags": {
+        "source_item_id": "25480127",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25481923",
+      "text": "Бир әле ҡырынғысыңды, һин ҡапҡыларға әҙерләгәнсе",
+      "audio": "ba/unknown/ba_u_25481923.mp3",
+      "tags": {
+        "source_item_id": "25481923",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25494795",
+      "text": "Әммә мин туҡтарға тейеш түгелмен, өс минут эсендә өлгөрөргә кәрәк.",
+      "audio": "ba/unknown/ba_u_25494795.mp3",
+      "tags": {
+        "source_item_id": "25494795",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25495809",
+      "text": "Үҙенә бынамын тигән яңыһын алдыртты",
+      "audio": "ba/unknown/ba_u_25495809.mp3",
+      "tags": {
+        "source_item_id": "25495809",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25641962",
+      "text": "Бының ҡаршыһында ултырған хужа ямау һалған кейемен утҡа яҡыныраҡ ҡуйҙы.",
+      "audio": "ba/unknown/ba_u_25641962.mp3",
+      "tags": {
+        "source_item_id": "25641962",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ko",
+  "lang": "ko",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ko",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "35844569",
+      "text": "등 뒤 송림 속에서 누군지 청승 맞게 단소를 부는 소리가 들린다.",
+      "audio": "ko/unknown/ko_u_35844569.mp3",
+      "tags": {
+        "source_item_id": "35844569",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36880045",
+      "text": "옥점이는 어느 때나 신철이를 잊지 못하는 반면에 그만큼 더 미웠던 것이다.",
+      "audio": "ko/unknown/ko_u_36880045.mp3",
+      "tags": {
+        "source_item_id": "36880045",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "36880067",
+      "text": "그 이웃을 쳐서 거짓 증거하는 사람은 방망이요 칼이요 뾰족한 살이니라",
+      "audio": "ko/unknown/ko_u_36880067.mp3",
+      "tags": {
+        "source_item_id": "36880067",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "35844225",
+      "text": "춘우는 목이 몹시 마름을 깨닫고 약물터로 향하는 좁은 길로 들어섰다.",
+      "audio": "ko/unknown/ko_u_35844225.mp3",
+      "tags": {
+        "source_item_id": "35844225",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36880207",
+      "text": "계집애들은 동요를 부르듯 하면서 영신의 손에 소매에 치맛자락에 매어달려서 까치처럼 깡충깡충 뛴다.",
+      "audio": "ko/unknown/ko_u_36880207.mp3",
+      "tags": {
+        "source_item_id": "36880207",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "36880408",
+      "text": "안개 같은 감정이 그의 가슴에서 이리 서리고 저리 엉클어진다.",
+      "audio": "ko/unknown/ko_u_36880408.mp3",
+      "tags": {
+        "source_item_id": "36880408",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "35891712",
+      "text": "하는 소문이 쫙 퍼지자 이삼 일 동안에 조기회원이 부쩍 늘었다.",
+      "audio": "ko/unknown/ko_u_35891712.mp3",
+      "tags": {
+        "source_item_id": "35891712",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35890848",
+      "text": "신발 소리가 차츰 가까워지더니 산등으로 계집애 하나가 뛰어 올라온다.",
+      "audio": "ko/unknown/ko_u_35890848.mp3",
+      "tags": {
+        "source_item_id": "35890848",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36880081",
+      "text": "병원에만 계속 있으면 병납니다.",
+      "audio": "ko/unknown/ko_u_36880081.mp3",
+      "tags": {
+        "source_item_id": "36880081",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "36880358",
+      "text": "무어가 무언지 분간할 수 없는 나는 이렇게 물었다.",
+      "audio": "ko/unknown/ko_u_36880358.mp3",
+      "tags": {
+        "source_item_id": "36880358",
+        "gender": "u",
+        "accent": "서울"
+      }
+    },
+    {
+      "id": "35845211",
+      "text": "이튿날 새벽에 개똥 어머니는 덕호네 집으로 갔다.",
+      "audio": "ko/unknown/ko_u_35845211.mp3",
+      "tags": {
+        "source_item_id": "35845211",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35971984",
+      "text": "말 한마디에 천냥 빚도 갚는다",
+      "audio": "ko/unknown/ko_u_35971984.mp3",
+      "tags": {
+        "source_item_id": "35971984",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36985085",
+      "text": "이 말을 들은 영숙은 다시 자기 어머니를 쳐다보았다.",
+      "audio": "ko/unknown/ko_u_36985085.mp3",
+      "tags": {
+        "source_item_id": "36985085",
+        "gender": "u"
+      }
+    }
+  ]
+}

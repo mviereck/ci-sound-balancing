@@ -1,0 +1,188 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — oc",
+  "lang": "oc",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-oc",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "36518884",
+      "text": "Que deu èster en un martiri òrre damb aguest emplastre ena cara.",
+      "audio": "oc/unknown/oc_u_36518884.mp3",
+      "tags": {
+        "source_item_id": "36518884",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36609083",
+      "text": "Mès es marinèrs non podien compréner es paraules.",
+      "audio": "oc/unknown/oc_u_36609083_lengua_abituau_e_mat_rna_aran_s_de_miei_aran.mp3",
+      "tags": {
+        "source_item_id": "36609083",
+        "gender": "u",
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+      }
+    },
+    {
+      "id": "36669469",
+      "text": "Alavetz siguec quan es lapiti comencèren eth combat e era luta.",
+      "audio": "oc/unknown/oc_u_36669469.mp3",
+      "tags": {
+        "source_item_id": "36669469",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36670048",
+      "text": "Ei ua manèra de pensar claraments racionau.",
+      "audio": "oc/unknown/oc_u_36670048_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36670048",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36670730",
+      "text": "Escorcolhèc eth sòn justet e non trapèc arren.",
+      "audio": "oc/unknown/oc_u_36670730.mp3",
+      "tags": {
+        "source_item_id": "36670730",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36672502",
+      "text": "Mès ara me lo trapi aciu.",
+      "audio": "oc/unknown/oc_u_36672502_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36672502",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36674051",
+      "text": "Non sai arren, absoludaments arren, ne ac posqui saber.",
+      "audio": "oc/unknown/oc_u_36674051.mp3",
+      "tags": {
+        "source_item_id": "36674051",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36681334",
+      "text": "Atau, aumens, servirà entà quauquarren.",
+      "audio": "oc/unknown/oc_u_36681334_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36681334",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36505431",
+      "text": "Sofia non sabec se qué respóner.",
+      "audio": "oc/unknown/oc_u_36505431.mp3",
+      "tags": {
+        "source_item_id": "36505431",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36674832",
+      "text": "Que jo è bona memòria.",
+      "audio": "oc/unknown/oc_u_36674832.mp3",
+      "tags": {
+        "source_item_id": "36674832",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36669583",
+      "text": "Mès que non li poiram mentir, didec era religiosa, a mieja votz.",
+      "audio": "oc/unknown/oc_u_36669583.mp3",
+      "tags": {
+        "source_item_id": "36669583",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36685631",
+      "text": "Auie eth pòt superior un shinhau holat.",
+      "audio": "oc/unknown/oc_u_36685631_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36685631",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36680079",
+      "text": "Non senhor, responec er ostalièr.",
+      "audio": "oc/unknown/oc_u_36680079.mp3",
+      "tags": {
+        "source_item_id": "36680079",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36672679",
+      "text": "Quan era vielheta auec era midalha enes dits, se la guardèc atentiuament.",
+      "audio": "oc/unknown/oc_u_36672679_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36672679",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36670146",
+      "text": "Òc, mos cau aclarir que non auem estat nosati.",
+      "audio": "oc/unknown/oc_u_36670146_aran_s.mp3",
+      "tags": {
+        "source_item_id": "36670146",
+        "gender": "u",
+        "accent": "Aranés"
+      }
+    },
+    {
+      "id": "36686701",
+      "text": "Se lheuèc e se n'anèc.",
+      "audio": "oc/unknown/oc_u_36686701_lengua_abituau_e_mat_rna_aran_s_de_miei_aran.mp3",
+      "tags": {
+        "source_item_id": "36686701",
+        "gender": "u",
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+      }
+    },
+    {
+      "id": "37205420",
+      "text": "Ei un principi plan senzilh.",
+      "audio": "oc/unknown/oc_u_37205420_lengua_abituau_e_mat_rna_aran_s_de_miei_aran.mp3",
+      "tags": {
+        "source_item_id": "37205420",
+        "gender": "u",
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+      }
+    },
+    {
+      "id": "36682040",
+      "text": "Per çò dera aigua dera gèrra, l'ac cambiauen cada dia.",
+      "audio": "oc/unknown/oc_u_36682040.mp3",
+      "tags": {
+        "source_item_id": "36682040",
+        "gender": "u"
+      }
+    }
+  ]
+}

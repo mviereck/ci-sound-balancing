@@ -1,0 +1,2916 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Cuentos de la selva para los niños",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "6706",
+    "book_title": "Cuentos de la selva para los niños",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10667_6706_000000",
+      "text": "todas las tardes a la hora del té se acordaban siempre del loro y recordaban también cuánto le gustaba comer pan mojado en té con leche pobre pedrito nunca más lo verían porque había muerto",
+      "audio": "test/audio/10667/6706/10667_6706_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 418.49,
+        "original_end_s": 433.5
+      }
+    },
+    {
+      "id": "10667_6706_000001",
+      "text": "ahora bien en medio de esta felicidad sucedió que una tarde de lluvia salió por fin el sol después de cinco días de temporal y pedrito se puso a volar gritando qué lindo día lorito",
+      "audio": "test/audio/10667/6706/10667_6706_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 147.8,
+        "original_end_s": 160.59
+      }
+    },
+    {
+      "id": "10667_6706_000002",
+      "text": "le gustaba también burlarse de las gallinas a las cuatro o cinco de la tarde que era la hora en que tomaban el té en la casa el loro entraba también en el comedor y se subía por el mantel a comer pan mojado en leche tenía locura por el té con leche",
+      "audio": "test/audio/10667/6706/10667_6706_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 88.3,
+        "original_end_s": 104.09
+      }
+    },
+    {
+      "id": "10667_6706_000003",
+      "text": "vivieron en adelante muy contentos pero el loro no se olvidaba de lo que le había hecho el tigre y todas las tardes cuando entraba en el comedor para tomar el té se acercaba siempre a la piel del tigre tendida delante de la estufa y lo invitaba a tomar té con leche",
+      "audio": "test/audio/10667/6706/10667_6706_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 711.3,
+        "original_end_s": 726.76
+      }
+    },
+    {
+      "id": "10667_6706_000004",
+      "text": "pero pedrito no había muerto sino que continuaba en su cueva sin dejarse ver por nadie porque sentía mucha vergüenza de verse pelado como un ratón de noche bajaba a comer y subía enseguida",
+      "audio": "test/audio/10667/6706/10667_6706_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 433.5,
+        "original_end_s": 446.45
+      }
+    },
+    {
+      "id": "10667_6706_000005",
+      "text": "rica papa en casa repitió gritando cuanto podía más cerca no oigo respondió el tigre con su voz ronca",
+      "audio": "test/audio/10667/6706/10667_6706_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 292.89,
+        "original_end_s": 304.25
+      }
+    },
+    {
+      "id": "10667_6706_000006",
+      "text": "y volviendo a entrar en la casa para tomar la escopeta emprendió junto con pedrito el viaje al paraguay convinieron en que cuando pedrito viera al tigre lo distraería charlando para que el hombre pudiera acercarse despacito con la escopeta y así pasó el loro",
+      "audio": "test/audio/10667/6706/10667_6706_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 528.18,
+        "original_end_s": 544.24
+      }
+    },
+    {
+      "id": "10667_6706_000007",
+      "text": "pero entretanto en el comedor todos extrañaban su ausencia dónde estará pedrito decían y llamaban pedrito rica papa pedrito té con leche pedrito pero pedrito no se movía de su cueva ni respondía nada mudo y quieto",
+      "audio": "test/audio/10667/6706/10667_6706_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 390.66,
+        "original_end_s": 407.98
+      }
+    },
+    {
+      "id": "10667_6706_000008",
+      "text": "y he aquí que de pronto vio brillar en el suelo a través de las ramas dos luces verdes como enormes bichos de luz qué será se dijo el loro",
+      "audio": "test/audio/10667/6706/10667_6706_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 176.6,
+        "original_end_s": 190.04
+      }
+    },
+    {
+      "id": "10667_6706_000009",
+      "text": "entonces vio que aquellas dos luces verdes eran los ojos de un tigre que estaba agachado mirándolo fijamente pero pedrito estaba tan contento con el lindo día que no tuvo ningún miedo",
+      "audio": "test/audio/10667/6706/10667_6706_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 205.54,
+        "original_end_s": 218.93
+      }
+    },
+    {
+      "id": "10667_6706_000010",
+      "text": "rica pata la pata pedrito y volaba lejos hasta que vio debajo de él muy abajo el río paraná que parecía una lejana y ancha cinta blanca y siguió siguió volando hasta que se asentó por fin en un árbol a descansar",
+      "audio": "test/audio/10667/6706/10667_6706_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 160.59,
+        "original_end_s": 176.6
+      }
+    },
+    {
+      "id": "10667_6706_000011",
+      "text": "rico té con leche le dijo buen día pedrito quieres tomar té con leche conmigo amigo tigre pero el tigre se puso furioso porque creyó que el loro se reía de él",
+      "audio": "test/audio/10667/6706/10667_6706_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 250.72,
+        "original_end_s": 263.23
+      }
+    },
+    {
+      "id": "10667_6706_000012",
+      "text": "sentado en una rama del árbol charlaba y charlaba mirando al mismo tiempo a todos lados para ver si veía al tigre y por fin sintió un ruido de ramas partidas y vio de repente debajo del árbol dos luces verdes fijas en él",
+      "audio": "test/audio/10667/6706/10667_6706_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 544.24,
+        "original_end_s": 559.33
+      }
+    },
+    {
+      "id": "10667_6706_000013",
+      "text": "cuando el tiempo se componía volaba entonces gritando como un loco era como se ve un loro bien feliz que además de ser libre como lo desean todos los pájaros tenía también como las personas ricas su",
+      "audio": "test/audio/10667/6706/10667_6706_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 131.28,
+        "original_end_s": 147.8
+      }
+    },
+    {
+      "id": "10667_6706_000014",
+      "text": "y además como tenía a su vez hambre se quiso comer al pájaro hablador así que le contestó bueno acércate un poco que soy sordo",
+      "audio": "test/audio/10667/6706/10667_6706_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 263.23,
+        "original_end_s": 275.13
+      }
+    },
+    {
+      "id": "10667_6706_000015",
+      "text": "y alcanzó con la punta de las uñas a pedrito no alcanzó a matarlo pero le arrancó todas las plumas del lomo y la cola entera no le quedó una sola pluma en la cola tomá rugió el tigre andá a tomar té con leche",
+      "audio": "test/audio/10667/6706/10667_6706_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 321.77,
+        "original_end_s": 340.28
+      }
+    },
+    {
+      "id": "10667_6706_000016",
+      "text": "de madrugada descendía de nuevo muy ligero iba a mirarse en el espejo de la cocinera siempre muy triste porque las plumas tardaban mucho en crecer",
+      "audio": "test/audio/10667/6706/10667_6706_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 446.45,
+        "original_end_s": 456.82
+      }
+    },
+    {
+      "id": "10667_6706_000017",
+      "text": "lo buscaron por todas partes pero el loro no apareció todos creyeron entonces que pedrito había muerto y los chicos se echaron a llorar",
+      "audio": "test/audio/10667/6706/10667_6706_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 407.98,
+        "original_end_s": 418.49
+      }
+    },
+    {
+      "id": "10667_6706_000018",
+      "text": "a quién le has dicho que estoy al pie de este árbol a nadie a nadie gritó el loro buen día pedrito la pata lorito y seguía charlando y saltando de rama en rama y acercándose pero él había dicho",
+      "audio": "test/audio/10667/6706/10667_6706_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 606.27,
+        "original_end_s": 621.62
+      }
+    },
+    {
+      "id": "10667_6706_000019",
+      "text": "porque si no caía en la boca del tigre y entonces gritó rica papa atención más cerca aún rugió el tigre agachándose para saltar rico té con leche cuidado va a saltar",
+      "audio": "test/audio/10667/6706/10667_6706_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 633.93,
+        "original_end_s": 650.59
+      }
+    },
+    {
+      "id": "10667_6706_000020",
+      "text": "está al pie de este árbol para avisarle al hombre que se iba arrimando bien agachado y con escopeta al hombro y llegó un momento en que el loro no pudo acercarse más",
+      "audio": "test/audio/10667/6706/10667_6706_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 621.62,
+        "original_end_s": 633.93
+      }
+    },
+    {
+      "id": "10667_6706_000021",
+      "text": "por fin pudo llegar a la casa y lo primero que hizo fue mirarse en el espejo de la cocinera pobre pedrito era el pájaro más raro y más feo que puede darse todo pelado todo rabón y temblando de frío",
+      "audio": "test/audio/10667/6706/10667_6706_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 360.04,
+        "original_end_s": 376.69
+      }
+    },
+    {
+      "id": "10667_6706_000022",
+      "text": "el loro voló a otra rama más próxima siempre charlando rico pan con leche está al pie de este árbol al oír estas últimas palabras el tigre lanzó un rugido y se levantó de un salto con quién estás hablando rugió",
+      "audio": "test/audio/10667/6706/10667_6706_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 589.14,
+        "original_end_s": 606.27
+      }
+    },
+    {
+      "id": "10667_6706_000023",
+      "text": "eran los ojos del tigre entonces el loro se puso a gritar lindo día rica papa rico té con leche querés té con leche",
+      "audio": "test/audio/10667/6706/10667_6706_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 559.33,
+        "original_end_s": 569.76
+      }
+    },
+    {
+      "id": "10667_6706_000024",
+      "text": "el tigre no era sordo lo que quería era que pedrito se acercara mucho para agarrarlo de un zarpazo pero el loro no pensaba sino en el gusto que tendrían en la casa cuando él se presentara a tomar té con leche con aquel magnífico amigo y voló hasta otra rama más cerca del suelo",
+      "audio": "test/audio/10667/6706/10667_6706_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 275.13,
+        "original_end_s": 292.89
+      }
+    },
+    {
+      "id": "10667_6706_000025",
+      "text": "y el tigre saltó en efecto dio un enorme salto que el loro evitó lanzándose al mismo tiempo como una flecha en el aire pero también en ese mismo instante el hombre que tenía el cañón de la escopeta recostado contra un tronco para hacer bien la puntería apretó el gatillo",
+      "audio": "test/audio/10667/6706/10667_6706_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 650.59,
+        "original_end_s": 668.46
+      }
+    },
+    {
+      "id": "10667_6706_000026",
+      "text": "los chicos lo curaron porque no tenía más que un ala rota el loro se curó muy bien y se amansó completamente se llamaba pedrito aprendió a dar la pata le gustaba estar en el hombro de las personas y les hacía cosquillas en la oreja vivía suelto y pasaba casi todo el día en los naranjos y eucaliptos del jardín",
+      "audio": "test/audio/10667/6706/10667_6706_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 68.52,
+        "original_end_s": 88.3
+      }
+    },
+    {
+      "id": "10667_6706_000027",
+      "text": "los loros son tan dañinos como la langosta porque abren los choclos para picotearlos los cuales después se pudren con la lluvia y como al mismo tiempo los loros son ricos para comerlos guisados los peones los cazaban a tiros",
+      "audio": "test/audio/10667/6706/10667_6706_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 43.31,
+        "original_end_s": 57.55
+      }
+    },
+    {
+      "id": "10667_6706_000028",
+      "text": "cómo iba a presentarse en el comedor con esa figura voló entonces hasta el hueco que había en el tronco de un eucalipto y que era como una cueva y se escondió en el fondo tiritando de frío y de vergüenza",
+      "audio": "test/audio/10667/6706/10667_6706_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 376.69,
+        "original_end_s": 390.66
+      }
+    },
+    {
+      "id": "10667_6706_000029",
+      "text": "el loro se acercó un poco más y dijo rico té con leche más cerca toda vía repitió el tigre el pobre loro se acercó aún más y en ese momento el tigre dio un terrible salto tan alto como una casa",
+      "audio": "test/audio/10667/6706/10667_6706_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 304.25,
+        "original_end_s": 321.77
+      }
+    },
+    {
+      "id": "10667_6706_000030",
+      "text": "decía otras cosas más que no se pueden decir porque los loros como los chicos aprenden con gran facilidad malas palabras cuando llovía pedrito se encrespaba y se contaba a sí mismo una porción de cosas muy bajito",
+      "audio": "test/audio/10667/6706/10667_6706_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 116.3,
+        "original_end_s": 131.28
+      }
+    },
+    {
+      "id": "10667_6706_000031",
+      "text": "cayó muerto pero el loro qué gritos de alegría daba estaba loco de contento porque se había vengado y bien vengado del feísimo animal que le había sacado las plumas",
+      "audio": "test/audio/10667/6706/10667_6706_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 679.39,
+        "original_end_s": 692.65
+      }
+    },
+    {
+      "id": "10667_6706_000032",
+      "text": "por eso el dueño de casa se sorprendió mucho cuando a la mañana siguiente el loro fue volando a pararse en su hombro charlando como un loco en dos minutos le contó lo que le había pasado un paseo al paraguay su encuentro con el tigre y lo demás y concluía cada cuento cantando",
+      "audio": "test/audio/10667/6706/10667_6706_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 491.55,
+        "original_end_s": 509.55
+      }
+    },
+    {
+      "id": "10667_6706_000033",
+      "text": "rica papa le decía querés té con leche la papa para el tigre y todos se morían de risa y pedrito también fin del loro pelado",
+      "audio": "test/audio/10667/6706/10667_6706_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 726.76,
+        "original_end_s": 738.13
+      }
+    },
+    {
+      "id": "10667_6706_000034",
+      "text": "y nueve balines del tamaño de un garbanzo cada uno entraron como un rayo en el corazón del tigre que lanzando un rugido que hizo temblar el monte entero",
+      "audio": "test/audio/10667/6706/10667_6706_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 668.46,
+        "original_end_s": 679.39
+      }
+    },
+    {
+      "id": "10667_6706_000035",
+      "text": "pero no sabían que eran plumas nuevas y pedrito muy serio no decía tampoco una palabra no hacia sino comer pan mojado en té con leche pero lo que es hablar ni una sola palabra",
+      "audio": "test/audio/10667/6706/10667_6706_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 478.76,
+        "original_end_s": 491.55
+      }
+    },
+    {
+      "id": "10667_6706_000036",
+      "text": "había una vez una bandada de loros que vivía en el monte de mañana temprano iban a comer choclos a la chacra y de tarde comían naranjas hacían gran barullo con sus gritos y tenían siempre un loro de centinela en los árboles más altos para ver si venía alguien",
+      "audio": "test/audio/10667/6706/10667_6706_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 28.06,
+        "original_end_s": 43.31
+      }
+    },
+    {
+      "id": "10667_6706_000037",
+      "text": "buen día tigre le dijo la pata pedrito y el tigre con esa voz terriblemente ronca que tiene le respondió buen día",
+      "audio": "test/audio/10667/6706/10667_6706_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 218.93,
+        "original_end_s": 230.77
+      }
+    },
+    {
+      "id": "10667_6706_000038",
+      "text": "el hombre estaba también muy contento porque matar a un tigre es cosa difícil y además tenía la piel para la estufa del comedor cuando llegaron a la casa todos supieron por qué pedrito había estado tanto tiempo oculto en el hueco del árbol y todos lo felicitaron por la hazaña que había hecho",
+      "audio": "test/audio/10667/6706/10667_6706_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 692.65,
+        "original_end_s": 711.3
+      }
+    },
+    {
+      "id": "10667_6706_000039",
+      "text": "ni una pluma en la cola de pedrito ni una pluma ni una pluma y lo invitó a ir a cazar al tigre entre los dos el dueño de casa que precisamente iba en ese momento a comprar una piel de tigre que le hacía falta para la estufa quedó muy contento de poderla tener gratis",
+      "audio": "test/audio/10667/6706/10667_6706_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 509.55,
+        "original_end_s": 528.18
+      }
+    },
+    {
+      "id": "10667_6706_000040",
+      "text": "el tigre enojadísimo al reconocer a aquel loro pelado que él creía haber muerto y que tenía otra vez lindísimas plumas juró que esta vez no se le escaparía y de sus ojos brotaron dos rayos de ira cuando respondió con su voz ronca acercate más soy sordo",
+      "audio": "test/audio/10667/6706/10667_6706_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 569.76,
+        "original_end_s": 589.14
+      }
+    },
+    {
+      "id": "10667_6706_000041",
+      "text": "buen día tigre repitió el loro rica papa rica papa rica papa y decía tantas veces rica papa porque ya eran las cuatro de la tarde y tenía muchas ganas de tomar té con leche el loro se había olvidado de que los bichos del monte no toman té con leche y por esto lo convidó al tigre",
+      "audio": "test/audio/10667/6706/10667_6706_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 230.77,
+        "original_end_s": 250.72
+      }
+    },
+    {
+      "id": "10667_6706_000042",
+      "text": "tanto se daba pedrito con los chicos y tantas cosas le decían las criaturas que el loro aprendió a hablar decía buen día lorito rica la papa papa para pedrito",
+      "audio": "test/audio/10667/6706/10667_6706_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 104.09,
+        "original_end_s": 116.3
+      }
+    },
+    {
+      "id": "10667_6706_000043",
+      "text": "morir de gusto cuando lo vieron bien vivo y con lindísimas plumas pedrito lorito le decían qué te pasó pedrito qué plumas brillantes que tiene el lorito",
+      "audio": "test/audio/10667/6706/10667_6706_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 468.25,
+        "original_end_s": 478.76
+      }
+    },
+    {
+      "id": "10667_6706_000044",
+      "text": "el loro gritando de dolor y de miedo se fue volando pero no podía volar bien porque le faltaba la cola que es como el timón de los pájaros volaba cayéndose en el aire de un lado para otro y todos los pájaros que lo encontraban se alejaban asustados de aquel bicho raro",
+      "audio": "test/audio/10667/6706/10667_6706_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 340.28,
+        "original_end_s": 360.04
+      }
+    },
+    {
+      "id": "10667_6706_000045",
+      "text": "qué será eso buen día pedrito el loro hablaba siempre así como todos los loros mezclando las palabras sin ton ni son y a veces costaba entenderlo y como era muy curioso fue bajando de rama en rama hasta acercarse",
+      "audio": "test/audio/10667/6706/10667_6706_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 190.04,
+        "original_end_s": 205.54
+      }
+    },
+    {
+      "id": "10667_6706_000046",
+      "text": "un día un hombre bajó de un tiro a un loro centinela el que cayó herido y peleó un buen rato antes de dejarse agarrar el peón lo llevó a la casa para los hijos del patrón",
+      "audio": "test/audio/10667/6706/10667_6706_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 57.55,
+        "original_end_s": 68.52
+      }
+    },
+    {
+      "id": "10667_6706_000047",
+      "text": "hasta que por fin un día o una tarde la familia sentada a la mesa a la hora del té vio entrar a pedrito muy tranquilo balanceándose como si nada hubiera pasado todos se querían morir",
+      "audio": "test/audio/10667/6706/10667_6706_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "6706",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_06_quiroga_64kb.mp3",
+        "original_start_s": 456.82,
+        "original_end_s": 468.25
+      }
+    },
+    {
+      "id": "7331_6706_000000",
+      "text": "así es afirmó la abeja pues bien dijo la culebra vamos a verlo vamos a hacer dos pruebas la que haga la prueba más rara esa gana si gano yo te como",
+      "audio": "dev/audio/7331/6706/7331_6706_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 440.12,
+        "original_end_s": 451.64
+      }
+    },
+    {
+      "id": "7331_6706_000001",
+      "text": "y cuando era de madrugada todavía el director del jardín zoológico vio llegar a una tortuga embarrada y sumamente flaca que traía acostado en su lomo y atado con enredaderas para que no se cayera a un hombre que se estaba muriendo",
+      "audio": "dev/audio/7331/6706/7331_6706_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 610.88,
+        "original_end_s": 629.22
+      }
+    },
+    {
+      "id": "7331_6706_000002",
+      "text": "cada vez más débil y cerró entonces los ojos para morir junto con el cazador pensando con tristeza que no había podido salvar al hombre que había sido bueno con ella",
+      "audio": "dev/audio/7331/6706/7331_6706_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 515.17,
+        "original_end_s": 526.64
+      }
+    },
+    {
+      "id": "7331_6706_000003",
+      "text": "miró arriba abajo a todos lados recorrió los rincones la plantita tanteó todo con la lengua inútil la abeja había desaparecido",
+      "audio": "dev/audio/7331/6706/7331_6706_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 605.96,
+        "original_end_s": 616.76
+      }
+    },
+    {
+      "id": "7331_6706_000004",
+      "text": "había una vez un hombre que vivía en buenos aires y estaba muy contento porque era un hombre sano y trabajador pero un día se enfermó y los médicos le dijeron que solamente yéndose al campo podría curarse él no quería ir porque tenía hermanos chicos a quienes daba de comer",
+      "audio": "dev/audio/7331/6706/7331_6706_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 16.08,
+        "original_end_s": 35.07
+      }
+    },
+    {
+      "id": "7331_6706_000005",
+      "text": "tuvo fiebre y le dolía todo el cuerpo después no pudo levantarse más la fiebre aumentaba siempre y la garganta le quemaba de tanta sed",
+      "audio": "dev/audio/7331/6706/7331_6706_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 216.11,
+        "original_end_s": 228.07
+      }
+    },
+    {
+      "id": "7331_6706_000006",
+      "text": "la había llevado arrastrando porque la tortuga era inmensa tan alta como una silla y pesaba como un hombre la tortuga quedó arrimada a un rincón y allí pasó días y días sin moverse",
+      "audio": "dev/audio/7331/6706/7331_6706_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 187.28,
+        "original_end_s": 203.17
+      }
+    },
+    {
+      "id": "7331_6706_000007",
+      "text": "no se entra le dijeron fríamente yo quiero entrar clamó la abejita esta es mi colmena esta es la colmena de unas pobres abejas trabajadoras le contestaron las otras no hay entrada para las haraganas",
+      "audio": "dev/audio/7331/6706/7331_6706_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 213.86,
+        "original_end_s": 228.8
+      }
+    },
+    {
+      "id": "7331_6706_000008",
+      "text": "hacía mucho frío además y adentro reinaba la oscuridad más completa de cuando en cuando la culebra sentía impulsos de lanzarse sobre la abeja y ésta creía entonces llegado el término de su vida",
+      "audio": "dev/audio/7331/6706/7331_6706_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 720.81,
+        "original_end_s": 733.18
+      }
+    },
+    {
+      "id": "7331_6706_000009",
+      "text": "perdón gimió la abeja déjenme entrar ya es tarde le respondieron por favor hermanas tengo sueño es más tarde aún",
+      "audio": "dev/audio/7331/6706/7331_6706_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 280.18,
+        "original_end_s": 291.35
+      }
+    },
+    {
+      "id": "7331_6706_000010",
+      "text": "no es cuestión de que lo hagas uno de estos días le respondieron sino mañana mismo acuérdate de esto y la dejaron pasar al anochecer siguiente se repitió la misma cosa antes de que le dijeran nada la abejita exclamó si sí hermanas ya me acuerdo de lo que he prometido",
+      "audio": "dev/audio/7331/6706/7331_6706_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 153.64,
+        "original_end_s": 172.75
+      }
+    },
+    {
+      "id": "7331_6706_000011",
+      "text": "esto es lo que voy a hacer dijo la culebra fíjate bien atención y arrollando vivamente la cola alrededor del trompito como un piolín la desenvolvió a toda velocidad con tanta rapidez que el trompito quedó bailando y zumbando como un loco",
+      "audio": "dev/audio/7331/6706/7331_6706_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 493.29,
+        "original_end_s": 509.82
+      }
+    },
+    {
+      "id": "7331_6706_000012",
+      "text": "la culebra se reía y con mucha razón porque jamás una abeja ha hecho ni podrá hacer bailar a un trompito pero cuando el trompito que se había quedado dormido zumbando como les pasa a los trompos de naranjo cayó por fin al suelo la abeja dijo",
+      "audio": "dev/audio/7331/6706/7331_6706_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 509.82,
+        "original_end_s": 526.24
+      }
+    },
+    {
+      "id": "7331_6706_000013",
+      "text": "la abeja temblando exclamo entonces no es justo eso no es justo no es justo que usted me coma porque es más fuerte que yo los hombres saben lo que es justicia",
+      "audio": "dev/audio/7331/6706/7331_6706_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 386.18,
+        "original_end_s": 398.04
+      }
+    },
+    {
+      "id": "7331_6706_000014",
+      "text": "la abejita contestó yo ando todo el día volando y me canso mucho no es cuestión de que te canses mucho respondieron sino de que trabajes un poco es la primera advertencia que te hacemos y diciendo así la dejaron pasar",
+      "audio": "dev/audio/7331/6706/7331_6706_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 122.15,
+        "original_end_s": 139.74
+      }
+    },
+    {
+      "id": "7331_6706_000015",
+      "text": "y como él no podía tenerla en su casa que era muy chica el director del zoológico se comprometió a tenerla en el jardín y a cuidarla como si fuera su propia hija",
+      "audio": "dev/audio/7331/6706/7331_6706_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 648.36,
+        "original_end_s": 659.34
+      }
+    },
+    {
+      "id": "7331_6706_000016",
+      "text": "me he cansado tanto volando de aquí para allá como trabajando lo que me faltaba era la noción del deber que adquirí aquella noche trabajen compañeras pensando que el fin a que tienden nuestros esfuerzos la felicidad de todos es muy superior a la fatiga de cada uno",
+      "audio": "dev/audio/7331/6706/7331_6706_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 807.34,
+        "original_end_s": 825.83
+      }
+    },
+    {
+      "id": "7331_6706_000017",
+      "text": "compañeras por piedad tengo frío imposible por última vez me voy a morir entonces le dijeron no no morirás aprenderás en una sola noche lo que es el descanso ganado con el trabajo vete y la echaron",
+      "audio": "dev/audio/7331/6706/7331_6706_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 291.35,
+        "original_end_s": 309.77
+      }
+    },
+    {
+      "id": "7331_6706_000018",
+      "text": "como las abejas son muy serias comenzaron a disgustarse con el proceder de la hermana haragana en la puerta de las colmenas hay siempre unas cuantas abejas que están de guardia para cuidar que no entren bichos en la colmena",
+      "audio": "dev/audio/7331/6706/7331_6706_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 83.14,
+        "original_end_s": 97.5
+      }
+    },
+    {
+      "id": "7331_6706_000019",
+      "text": "la tortuga cargada así caminó caminó y caminó de día y de noche atravesó montes campos cruzó a nado ríos de una legua de ancho atravesó pantanos en que quedaba casi enterrada siempre con el hombre moribundo encima",
+      "audio": "dev/audio/7331/6706/7331_6706_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 379.89,
+        "original_end_s": 399.17
+      }
+    },
+    {
+      "id": "7331_6706_000020",
+      "text": "ay mi dios clamó la desamparada va a llover y me voy a morir de frío y tentó entrar en la colmena pero de nuevo le cerraron el paso",
+      "audio": "dev/audio/7331/6706/7331_6706_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 269.97,
+        "original_end_s": 280.18
+      }
+    },
+    {
+      "id": "7331_6706_000021",
+      "text": "a veces se quedaba tendida completamente sin fuerzas y el hombre recobraba a medias el conocimiento y decía en voz alta voy a morir estoy cada vez más enfermo y sólo en buenos aires me podría curar pero voy a morir aquí solo en el monte",
+      "audio": "dev/audio/7331/6706/7331_6706_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 455.14,
+        "original_end_s": 474.85
+      }
+    },
+    {
+      "id": "7331_6706_000022",
+      "text": "pero llegó un día un atardecer en que la pobre tortuga no pudo más había llegado al límite de sus fuerzas y no podía más no había comido desde hacía una semana para llegar más pronto no tenía más fuerza para nada",
+      "audio": "dev/audio/7331/6706/7331_6706_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 486.03,
+        "original_end_s": 504.77
+      }
+    },
+    {
+      "id": "7331_6706_000023",
+      "text": "el hombre tenía otra vez buen color estaba fuerte y tenía apetito precisamente un día que tenía mucha hambre porque hacía dos días que no cazaba nada",
+      "audio": "dev/audio/7331/6706/7331_6706_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 111.92,
+        "original_end_s": 123.05
+      }
+    },
+    {
+      "id": "7331_6706_000024",
+      "text": "y así pasó en efecto la culebra dijo rápidamente uno dos tres y se volvió y abrió la boca cuan grande era de sorpresa allí no había nadie",
+      "audio": "dev/audio/7331/6706/7331_6706_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 593.09,
+        "original_end_s": 605.96
+      }
+    },
+    {
+      "id": "7331_6706_000025",
+      "text": "exclamó la culebra enroscándose ligero tú crees que los hombres que les quitan la miel a ustedes son más justos grandísima tonta no no es por eso que nos quitan la miel respondió la abeja y por qué entonces",
+      "audio": "dev/audio/7331/6706/7331_6706_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 398.04,
+        "original_end_s": 415.1
+      }
+    },
+    {
+      "id": "7331_6706_000026",
+      "text": "al ver al hombre el tigre lanzó un rugido espantoso y se lanzó de un salto sobre él pero el cazador que tenía una gran puntería le apuntó entre los dos ojos y le rompió la cabeza después le sacó el cuero tan grande que él solo podría servir de alfombra para un cuarto",
+      "audio": "dev/audio/7331/6706/7331_6706_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 134.91,
+        "original_end_s": 153.93
+      }
+    },
+    {
+      "id": "7331_6706_000027",
+      "text": "la abejita se asomaba a la puerta de la colmena veía que hacía buen tiempo se peinaba con las patas como hacen las moscas y echaba entonces a volar muy contenta del lindo día",
+      "audio": "dev/audio/7331/6706/7331_6706_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 53.53,
+        "original_end_s": 65.94
+      }
+    },
+    {
+      "id": "7331_6706_000028",
+      "text": "vio a la orilla de una gran laguna un tigre enorme que quería comer una tortuga y la ponía parada de canto para meter dentro una pata y sacar la carne con las uñas",
+      "audio": "dev/audio/7331/6706/7331_6706_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 123.05,
+        "original_end_s": 134.91
+      }
+    },
+    {
+      "id": "7331_6706_000029",
+      "text": "no me vas a hacer nada dijo la voz puedo contar con tu juramento sí respondió la culebra te lo juro dónde estás aquí respondió la abejita apareciendo súbitamente de entre una hoja cerrada de la plantita qué había pasado",
+      "audio": "dev/audio/7331/6706/7331_6706_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 641.1,
+        "original_end_s": 658.3
+      }
+    },
+    {
+      "id": "7331_6706_000030",
+      "text": "pues bien hazlo y si no lo haces te como en seguida dijo la culebra el caso es que mientras el trompito bailaba la abeja había tenido tiempo de examinar la caverna y había visto una plantita que crecía allí",
+      "audio": "dev/audio/7331/6706/7331_6706_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 554.29,
+        "original_end_s": 570.02
+      }
+    },
+    {
+      "id": "7331_6706_000031",
+      "text": "a esto los hombres llaman ideal y tienen razón no hay otra filosofía en la vida de un hombre y de una abeja",
+      "audio": "dev/audio/7331/6706/7331_6706_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 825.83,
+        "original_end_s": 839.12
+      }
+    },
+    {
+      "id": "7331_6706_000032",
+      "text": "cuando cayó del todo la noche vio una luz lejana en el horizonte un resplandor que iluminaba el cielo y no supo qué era se sentía",
+      "audio": "dev/audio/7331/6706/7331_6706_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 504.77,
+        "original_end_s": 515.17
+      }
+    },
+    {
+      "id": "7331_6706_000033",
+      "text": "cuando estaban arriba de los árboles y sentían un gran ruido se tiraban al suelo de cabeza y salían corriendo con la cola levantada una vez que los coaticitos fueron un poco grandes su madre los reunió un día arriba de un naranjo y les habló así",
+      "audio": "dev/audio/7331/6706/7331_6706_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 33.01,
+        "original_end_s": 51.13
+      }
+    },
+    {
+      "id": "7331_6706_000034",
+      "text": "pero el veinte de abril pasó en vano como todos los demás con la diferencia de que al caer el sol el tiempo se descompuso y comenzó a soplar un viento frío",
+      "audio": "dev/audio/7331/6706/7331_6706_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 191.2,
+        "original_end_s": 202.0
+      }
+    },
+    {
+      "id": "7331_6706_000035",
+      "text": "pero la abeja haragana no se corregía de modo que a la tarde siguiente las abejas que estaban de guardia le dijeron hay que trabajar hermana y ella respondió en seguida uno de estos días lo voy a hacer",
+      "audio": "dev/audio/7331/6706/7331_6706_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 139.74,
+        "original_end_s": 153.64
+      }
+    },
+    {
+      "id": "7331_6706_000036",
+      "text": "coaticitos ustedes son bastante grandes para buscarse la comida solos deben aprenderlo porque cuando sean viejos andarán siempre solos como todos los coatís",
+      "audio": "dev/audio/7331/6706/7331_6706_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 51.13,
+        "original_end_s": 64.05
+      }
+    },
+    {
+      "id": "7331_6706_000037",
+      "text": "después de ocho o diez horas de caminar se detenía deshacía los nudos y acostaba al hombre con mucho cuidado en un lugar donde hubiera pasto bien seco",
+      "audio": "dev/audio/7331/6706/7331_6706_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 399.17,
+        "original_end_s": 409.43
+      }
+    },
+    {
+      "id": "7331_6706_000038",
+      "text": "y se echó atrás para lanzarse sobre la abeja pero ésta exclamó usted hace eso porque es menos inteligente que yo yo menos inteligente que tú mocosa se rió la culebra",
+      "audio": "dev/audio/7331/6706/7331_6706_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 427.57,
+        "original_end_s": 440.12
+      }
+    },
+    {
+      "id": "7331_6706_000039",
+      "text": "entonces temblando de frío con las alas mojadas y tropezando la abeja se arrastró se arrastró hasta que de pronto rodó por un agujero cayó rodando mejor dicho al fondo de una caverna",
+      "audio": "dev/audio/7331/6706/7331_6706_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 309.77,
+        "original_end_s": 324.84
+      }
+    },
+    {
+      "id": "7331_6706_000040",
+      "text": "no es nuestra inteligencia sino nuestro trabajo quien nos hace tan fuertes yo usé una sola vez de mi inteligencia y fue para salvar mi vida no habría necesitado de ese esfuerzo si hubiera trabajado como todas",
+      "audio": "dev/audio/7331/6706/7331_6706_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 792.97,
+        "original_end_s": 807.34
+      }
+    },
+    {
+      "id": "7331_6706_000041",
+      "text": "es cierto murmuró la abeja no trabajo y yo tengo la culpa siendo así agregó la culebra burlona voy a quitar del mundo a un mal bicho como tú te voy a comer abeja",
+      "audio": "dev/audio/7331/6706/7331_6706_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 374.05,
+        "original_end_s": 386.18
+      }
+    },
+    {
+      "id": "7331_6706_000042",
+      "text": "era un arbustillo casi un yuyito con grandes hojas del tamaño de una moneda de dos centavos la abeja se arrimó a la plantita teniendo cuidado de no tocarla y dijo así",
+      "audio": "dev/audio/7331/6706/7331_6706_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 570.02,
+        "original_end_s": 582.86
+      }
+    },
+    {
+      "id": "7331_6706_000043",
+      "text": "porque son más inteligentes así dijo la abejita pero la culebra se echó a reír exclamando ja bueno con justicia o sin ella te voy a comer apróntate",
+      "audio": "dev/audio/7331/6706/7331_6706_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 415.1,
+        "original_end_s": 427.57
+      }
+    },
+    {
+      "id": "7331_6706_000044",
+      "text": "ahora me toca a mí señora culebra me va a hacer el favor de darse vuelta y contar hasta tres cuando diga tres búsqueme por todas partes y  ya no estaré más",
+      "audio": "dev/audio/7331/6706/7331_6706_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 582.86,
+        "original_end_s": 593.09
+      }
+    },
+    {
+      "id": "7331_6706_000045",
+      "text": "vivía solo en el bosque y él mismo se cocinaba comía pájaros y bichos del monte que cazaba con la escopeta y después comía frutos dormía bajo los árboles",
+      "audio": "dev/audio/7331/6706/7331_6706_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 71.83,
+        "original_end_s": 83.26
+      }
+    },
+    {
+      "id": "7331_6706_000046",
+      "text": "salió un instante afuera tan velozmente que la abeja no tuvo tiempo de nada y volvió trayendo una cápsula de semillas de eucalipto de un eucalipto que estaba al lado de la colmena y que le daba sombra los muchachos hacen bailar como trompos esas cápsulas y les llaman trompitos de eucalipto",
+      "audio": "dev/audio/7331/6706/7331_6706_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 473.87,
+        "original_end_s": 493.29
+      }
+    },
+    {
+      "id": "7331_6706_000047",
+      "text": "ja ja zonza zonza dijo riendo el ratoncito nunca vi una tortuga más zonza si ya has llegado a buenos aires la luz que ves allá es buenos aires",
+      "audio": "dev/audio/7331/6706/7331_6706_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 587.81,
+        "original_end_s": 600.48
+      }
+    },
+    {
+      "id": "7331_6706_000048",
+      "text": "iba entonces a buscar agua y raíces tiernas y le daba al hombre enfermo ella comía también aunque estaba tan cansada que prefería dormir",
+      "audio": "dev/audio/7331/6706/7331_6706_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 409.43,
+        "original_end_s": 420.73
+      }
+    },
+    {
+      "id": "7331_6706_000049",
+      "text": "el cazador comió así días y días sin saber quién le daba la comida y un día recobró el conocimiento miró a todos lados y vio que estaba solo pues allí no había más que él y la tortuga que era un animal y dijo otra vez en voz alta",
+      "audio": "dev/audio/7331/6706/7331_6706_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 308.26,
+        "original_end_s": 327.41
+      }
+    },
+    {
+      "id": "7331_6706_000050",
+      "text": "cuando llegó el día y salió el sol porque el tiempo se había compuesto la abejita voló y lloró otra vez en silencio ante la puerta de la colmena hecha por el esfuerzo de la familia",
+      "audio": "dev/audio/7331/6706/7331_6706_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 748.79,
+        "original_end_s": 759.56
+      }
+    },
+    {
+      "id": "7331_6706_000051",
+      "text": "así anduvo días y días semana tras semana cada vez estaban más cerca de buenos aires pero también cada día la tortuga se iba debilitando cada día tenía menos fuerza aunque ella no se quejaba",
+      "audio": "dev/audio/7331/6706/7331_6706_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 437.1,
+        "original_end_s": 455.14
+      }
+    },
+    {
+      "id": "7331_6706_000052",
+      "text": "nunca jamás creyó la abejita que una noche podría ser tan fría tan larga tan horrible recordaba su vida anterior durmiendo noche tras noche en la colmena bien calentita y lloraba entonces en silencio",
+      "audio": "dev/audio/7331/6706/7331_6706_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 733.18,
+        "original_end_s": 748.79
+      }
+    },
+    {
+      "id": "7331_6706_000053",
+      "text": "y si gano yo preguntó la abejita si ganas tú repuso su enemiga tienes el derecho de pasar la noche aquí hasta que sea de día te conviene",
+      "audio": "dev/audio/7331/6706/7331_6706_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 451.64,
+        "original_end_s": 462.71
+      }
+    },
+    {
+      "id": "7331_6706_000054",
+      "text": "el hombre comprendió entonces que estaba gravemente enfermo y habló en voz alta aunque estaba solo porque tenía mucha fiebre voy a morir dijo el hombre estoy solo ya no puedo levantarme más y no tengo quien me dé agua siquiera",
+      "audio": "dev/audio/7331/6706/7331_6706_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 228.07,
+        "original_end_s": 245.04
+      }
+    },
+    {
+      "id": "7331_6706_000055",
+      "text": "al oír esto la tortuga se sintió con una fuerza inmensa porque aún tenía tiempo de salvar al cazador y emprendió la marcha",
+      "audio": "dev/audio/7331/6706/7331_6706_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 600.48,
+        "original_end_s": 610.88
+      }
+    },
+    {
+      "id": "7331_6706_000056",
+      "text": "solamente que esta aventura pasaba en misiones donde la vegetación es muy rica y por lo tanto muy grandes las hojas de las sensitivas de aquí que al contacto de la abeja las hojas se cerraran ocultando completamente al insecto",
+      "audio": "dev/audio/7331/6706/7331_6706_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 670.37,
+        "original_end_s": 686.41
+      }
+    },
+    {
+      "id": "7331_6706_000057",
+      "text": "mañana sin falta voy a trabajar insistió la abejita no hay mañana para las que no trabajan respondieron las abejas que saben mucha filosofía y diciendo esto la empujaron afuera",
+      "audio": "dev/audio/7331/6706/7331_6706_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 228.8,
+        "original_end_s": 241.9
+      }
+    },
+    {
+      "id": "7331_6706_000058",
+      "text": "y así se enfermaba cada día más hasta que un amigo suyo que era director del zoológico le dijo un día usted es amigo mío y es un hombre bueno y trabajador por eso",
+      "audio": "dev/audio/7331/6706/7331_6706_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 35.07,
+        "original_end_s": 45.72
+      }
+    },
+    {
+      "id": "7331_6706_000059",
+      "text": "pero también esta vez la tortuga lo había oído y se dijo si queda aquí en el monte se va a morir porque no hay remedios y tengo que llevarlo a buenos aires",
+      "audio": "dev/audio/7331/6706/7331_6706_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 340.22,
+        "original_end_s": 352.87
+      }
+    },
+    {
+      "id": "7331_6706_000060",
+      "text": "bueno exclamó por fin me doy por vencida dónde estás una voz que apenas se oía la voz de la abejita salió del medio de la cueva",
+      "audio": "dev/audio/7331/6706/7331_6706_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 630.28,
+        "original_end_s": 641.1
+      }
+    },
+    {
+      "id": "7331_6706_000061",
+      "text": "estas abejas suelen ser muy viejas con gran experiencia de la vida y tienen el lomo pelado porque han perdido todos los pelos al rozar contra la puerta de la colmena",
+      "audio": "dev/audio/7331/6706/7331_6706_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 97.5,
+        "original_end_s": 109.51
+      }
+    },
+    {
+      "id": "7331_6706_000062",
+      "text": "no es cuestión de que te acuerdes de lo prometido le respondieron sino de que trabajes hoy es diecinueve de abril pues bien trata de que mañana veinte hayas traído una gota siquiera de miel y ahora pasa y diciendo esto se apartaron para dejarla entrar",
+      "audio": "dev/audio/7331/6706/7331_6706_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 172.75,
+        "original_end_s": 191.2
+      }
+    },
+    {
+      "id": "7331_6706_000063",
+      "text": "creyó que no iba a concluir nunca de bajar al fin llegó al fondo y se halló bruscamente ante una víbora una culebra verde de lomo color ladrillo que la miraba enroscada y presta a lanzarse sobre ella",
+      "audio": "dev/audio/7331/6706/7331_6706_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 324.84,
+        "original_end_s": 340.18
+      }
+    },
+    {
+      "id": "7331_6706_000064",
+      "text": "y adónde vas con ese hombre añadió el curioso ratón voy voy quería ir a buenos aires respondió la pobre tortuga en una voz tan baja que apenas se oía pero vamos a morir aquí porque nunca llegaré",
+      "audio": "dev/audio/7331/6706/7331_6706_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 568.06,
+        "original_end_s": 587.81
+      }
+    },
+    {
+      "id": "7331_6706_000065",
+      "text": "una cosa muy sencilla la plantita en cuestión era una sensitiva muy común también aquí en buenos aires y que tiene la particularidad de que sus hojas se cierran al menor contacto",
+      "audio": "dev/audio/7331/6706/7331_6706_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 658.3,
+        "original_end_s": 670.37
+      }
+    },
+    {
+      "id": "7331_6706_000066",
+      "text": "el mayor de ustedes que es muy amigo de cazar cascarudos puede encontrarlos entre los palos podridos porque allí hay muchos cascarudos y cucarachas",
+      "audio": "dev/audio/7331/6706/7331_6706_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 64.05,
+        "original_end_s": 75.15
+      }
+    },
+    {
+      "id": "7331_6706_000067",
+      "text": "pero en vez de conservarlo para convertirlo en miel se lo tomaba del todo era pues una abeja haragana todas las mañanas apenas el sol calentaba el aire",
+      "audio": "dev/audio/7331/6706/7331_6706_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 42.64,
+        "original_end_s": 53.53
+      }
+    },
+    {
+      "id": "7331_6706_000068",
+      "text": "y así pasó la tortuga feliz y contenta con el cariño que le tienen pasea por todo el jardín y es la misma gran tortuga que vemos todos los días comiendo el pastito alrededor de las jaulas de los monos",
+      "audio": "dev/audio/7331/6706/7331_6706_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 659.34,
+        "original_end_s": 676.13
+      }
+    },
+    {
+      "id": "7331_6706_000069",
+      "text": "hizo muchas pruebas para acomodar bien la escopeta los cueros y el mate con víboras y al fin consiguió lo que quería sin molestar al cazador y emprendió entonces el viaje",
+      "audio": "dev/audio/7331/6706/7331_6706_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 366.65,
+        "original_end_s": 379.89
+      }
+    },
+    {
+      "id": "7331_6706_000070",
+      "text": "la culebra no dijo nada pero quedó muy irritada con su derrota tanto que la abeja pasó toda la noche recordando a su enemiga la promesa que había hecho de respetarla",
+      "audio": "dev/audio/7331/6706/7331_6706_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 696.48,
+        "original_end_s": 708.37
+      }
+    },
+    {
+      "id": "7331_6706_000071",
+      "text": "así fue en efecto en adelante ninguna como ella recogió tanto polen ni fabricó tanta miel y cuando el otoño llegó y llegó también el término de sus días tuvo aún tiempo de dar una última lección antes de morir a las jóvenes abejas que la rodeaban",
+      "audio": "dev/audio/7331/6706/7331_6706_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 775.1,
+        "original_end_s": 792.97
+      }
+    },
+    {
+      "id": "7331_6706_000072",
+      "text": "la abejita haragana voló apresurada hacia su colmena pensando en lo calentito que estaría allá adentro pero cuando quiso entrar las abejas que estaban de guardia se lo impidieron",
+      "audio": "dev/audio/7331/6706/7331_6706_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 202.0,
+        "original_end_s": 213.86
+      }
+    },
+    {
+      "id": "7331_6706_000073",
+      "text": "las abejas de guardia la dejaron pasar sin decirle nada porque comprendieron que la que volvía no era la paseandera haragana sino una abeja que había hecho en solo una noche un duro aprendizaje de la vida",
+      "audio": "dev/audio/7331/6706/7331_6706_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 759.56,
+        "original_end_s": 775.1
+      }
+    },
+    {
+      "id": "7331_6706_000074",
+      "text": "fue una noche larga interminable que las dos pasaron arrimadas contra la pared más alta de la caverna porque la tormenta se había desencadenado y el agua entraba como un río adentro",
+      "audio": "dev/audio/7331/6706/7331_6706_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 708.37,
+        "original_end_s": 720.81
+      }
+    },
+    {
+      "id": "7331_6706_000075",
+      "text": "en verdad aquella caverna era el hueco de un árbol que habían trasplantado hacía tiempo y que la culebra había elegido de guarida las culebras comen abejas que les gustan mucho por eso la abejita al encontrarse ante su enemiga murmuró cerrando los ojos",
+      "audio": "dev/audio/7331/6706/7331_6706_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 340.18,
+        "original_end_s": 358.37
+      }
+    },
+    {
+      "id": "7331_6706_000076",
+      "text": "dicho esto cortó enredaderas finas y fuertes que son como piolas acostó con mucho cuidado al hombre encima de su lomo y lo sujetó bien con las enredaderas para que no se cayese",
+      "audio": "dev/audio/7331/6706/7331_6706_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 352.87,
+        "original_end_s": 366.65
+      }
+    },
+    {
+      "id": "7331_6706_000077",
+      "text": "la inteligencia de la culebra no había alcanzado nunca a darse cuenta de este fenómeno pero la abeja lo había observado y se aprovechaba de él para salvar su vida",
+      "audio": "dev/audio/7331/6706/7331_6706_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 686.41,
+        "original_end_s": 696.48
+      }
+    },
+    {
+      "id": "7331_6706_000078",
+      "text": "dijo el ratón nunca he visto una tortuga tan grande y eso que llevas en el lomo qué es es leña no le respondió con tristeza la tortuga es un hombre",
+      "audio": "dev/audio/7331/6706/7331_6706_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 552.61,
+        "original_end_s": 568.06
+      }
+    },
+    {
+      "id": "7331_6706_000079",
+      "text": "el hombre no me comió la otra vez aunque tenía mucha hambre y me curó yo le voy a curar a él ahora fue entonces a la laguna buscó una cáscara de tortuga chiquita",
+      "audio": "dev/audio/7331/6706/7331_6706_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 260.89,
+        "original_end_s": 272.83
+      }
+    },
+    {
+      "id": "7331_6706_000080",
+      "text": "esa prueba es muy linda y yo nunca podré hacer eso entonces te como exclamó la culebra un momento yo no puedo hacer eso pero hago una cosa que nadie hace qué es eso desaparecer",
+      "audio": "dev/audio/7331/6706/7331_6706_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 526.24,
+        "original_end_s": 541.88
+      }
+    },
+    {
+      "id": "7331_6706_000081",
+      "text": "la culebra comprendió entonces que si su prueba del trompito era muy buena la prueba de la abeja era simplemente extraordinaria qué se había hecho dónde estaba no había modo de hallarla",
+      "audio": "dev/audio/7331/6706/7331_6706_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 616.76,
+        "original_end_s": 630.28
+      }
+    },
+    {
+      "id": "7331_6706_000082",
+      "text": "él creía que estaba siempre en la ramada porque no se daba cuenta de nada la tortuga se levantaba entonces y emprendía de nuevo el camino",
+      "audio": "dev/audio/7331/6706/7331_6706_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 474.85,
+        "original_end_s": 486.03
+      }
+    },
+    {
+      "id": "7331_6706_000083",
+      "text": "ay adiós mi vida esta es la última hora que yo veo la luz pero con gran sorpresa suya la culebra no solamente no la devoró sino que le dijo qué tal abejita no has de ser muy trabajadora para estar aquí a estas horas",
+      "audio": "dev/audio/7331/6706/7331_6706_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 358.37,
+        "original_end_s": 374.05
+      }
+    },
+    {
+      "id": "7331_6706_000084",
+      "text": "cómo exclamó la culebra dando un salto de sorpresa desaparecer sin salir de aquí sin salir de aquí y sin esconderte en la tierra sin esconderme en la tierra",
+      "audio": "dev/audio/7331/6706/7331_6706_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 541.88,
+        "original_end_s": 554.29
+      }
+    },
+    {
+      "id": "7331_6706_000085",
+      "text": "la abejita sin saber qué hacer voló un rato aún pero ya la noche caía y se veía apenas quiso cogerse de una hoja y cayó al suelo tenía el cuerpo entumecido por el aire frío y no podía volar más",
+      "audio": "dev/audio/7331/6706/7331_6706_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 241.9,
+        "original_end_s": 256.69
+      }
+    },
+    {
+      "id": "7331_6706_000086",
+      "text": "el hombre comía sin darse cuenta de quién le daba la comida porque tenía delirio con la fiebre y no conocía a nadie todas las mañanas la tortuga recorría el monte buscando raíces cada vez más ricas para darle al hombre y sentía no poder subirse a los árboles para llevarle frutas",
+      "audio": "dev/audio/7331/6706/7331_6706_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 288.55,
+        "original_end_s": 308.26
+      }
+    },
+    {
+      "id": "7331_6706_000087",
+      "text": "a veces tenía que caminar al sol y como era verano el cazador tenía tanta fiebre que deliraba y se moría de sed gritaba agua agua a cada rato y cada vez la tortuga tenía que darle de beber",
+      "audio": "dev/audio/7331/6706/7331_6706_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 420.73,
+        "original_end_s": 437.1
+      }
+    },
+    {
+      "id": "7331_6706_000088",
+      "text": "y después de limpiarla bien con arena y ceniza la llenó de agua y le dio de beber al hombre que estaba tendido sobre su manta y se moría de sed se puso a buscar enseguida raíces ricas y yuyitos tiernos que le llevó al hombre para que comiera",
+      "audio": "dev/audio/7331/6706/7331_6706_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 272.83,
+        "original_end_s": 288.55
+      }
+    },
+    {
+      "id": "7331_6706_000089",
+      "text": "y sin embargo estaba ya en buenos aires y ella no lo sabía aquella luz que veía en el cielo era el resplandor de la ciudad e iba a morir cuando estaba ya al fin de su heroico viaje",
+      "audio": "dev/audio/7331/6706/7331_6706_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 526.64,
+        "original_end_s": 541.56
+      }
+    },
+    {
+      "id": "7331_6706_000090",
+      "text": "aceptado contestó la abeja la culebra se echó a reír de nuevo porque se le había ocurrido una cosa que jamás podría hacer una abeja y he aquí lo que hizo",
+      "audio": "dev/audio/7331/6706/7331_6706_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 462.71,
+        "original_end_s": 473.87
+      }
+    },
+    {
+      "id": "7331_6706_000091",
+      "text": "voy a morir aquí de hambre y de sed y al poco rato la fiebre subió más aún y perdió el conocimiento pero la tortuga lo había oído y entendió lo que el cazador decía y ella pensó entonces",
+      "audio": "dev/audio/7331/6706/7331_6706_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 245.04,
+        "original_end_s": 260.89
+      }
+    },
+    {
+      "id": "7331_6706_000092",
+      "text": "un día pues detuvieron a la abeja haragana cuando iba a entrar diciéndole compañera es necesario que trabajes porque todas las abejas debemos trabajar",
+      "audio": "dev/audio/7331/6706/7331_6706_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 109.51,
+        "original_end_s": 122.15
+      }
+    },
+    {
+      "id": "7331_6706_000093",
+      "text": "y cuando hacía mal tiempo construía en cinco minutos una ramada con hojas de palmera y allí pasaba sentado y fumando muy contento en medio del bosque que bramaba con el viento y la lluvia",
+      "audio": "dev/audio/7331/6706/7331_6706_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 83.26,
+        "original_end_s": 96.38
+      }
+    },
+    {
+      "id": "7331_6706_000094",
+      "text": "ahora se dijo el hombre voy a comer tortuga que es una carne muy rica pero cuando se acercó a la tortuga vio que estaba ya herida y tenía la cabeza casi separada del cuello y la cabeza colgaba casi de dos o tres hilos de carne",
+      "audio": "dev/audio/7331/6706/7331_6706_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 153.93,
+        "original_end_s": 170.9
+      }
+    },
+    {
+      "id": "7331_6706_000095",
+      "text": "a pesar del hambre que sentía el hombre tuvo lástima de la pobre tortuga y la llevó arrastrando con una soga hasta su ramada y le vendó la cabeza con tiras de género que sacó de su camisa porque no tenía nada más que una sola camisa y no tenía trapos",
+      "audio": "dev/audio/7331/6706/7331_6706_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 170.9,
+        "original_end_s": 187.28
+      }
+    },
+    {
+      "id": "7331_6706_000096",
+      "text": "quiero que se vaya a vivir al monte a hacer mucho ejercicio al aire libre para curarse y como usted tiene mucha puntería con la escopeta cace bichos del monte para traerme los cueros y yo le daré plata adelantada para que sus hermanitos puedan comer bien",
+      "audio": "dev/audio/7331/6706/7331_6706_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 45.72,
+        "original_end_s": 61.2
+      }
+    },
+    {
+      "id": "7331_6706_000097",
+      "text": "zumbaba muerta de gusto de flor en flor entraba en la colmena volvía a salir y así se lo pasaba todo el día mientras las otras abejas se mataban trabajando para llenar la colmena de miel porque la miel es el alimento de las abejas recién nacidas",
+      "audio": "dev/audio/7331/6706/7331_6706_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 65.94,
+        "original_end_s": 83.14
+      }
+    },
+    {
+      "id": "7331_6706_000098",
+      "text": "pero un ratón de la ciudad posiblemente el ratoncito pérez encontró a los dos viajeros moribundos qué tortuga",
+      "audio": "dev/audio/7331/6706/7331_6706_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 541.56,
+        "original_end_s": 552.61
+      }
+    },
+    {
+      "id": "7331_6706_000099",
+      "text": "el hombre la curaba todos los días y después le daba golpecitos con la mano sobre el lomo la tortuga sanó por fin pero entonces fue el hombre quien se enfermó",
+      "audio": "dev/audio/7331/6706/7331_6706_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 203.17,
+        "original_end_s": 216.11
+      }
+    },
+    {
+      "id": "7331_6706_000100",
+      "text": "estoy solo en el bosque la fiebre va a volver de nuevo y voy a morir aquí porque solamente en buenos aires hay remedios para curarme pero nunca podré ir y voy a morir aquí",
+      "audio": "dev/audio/7331/6706/7331_6706_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 327.41,
+        "original_end_s": 340.22
+      }
+    },
+    {
+      "id": "7331_6706_000101",
+      "text": "arrastrándose entonces por el suelo trepando y bajando de los palitos y piedritas que le parecían montañas llegó a la puerta de la colmena a tiempo que comenzaba a caer frías gotas de lluvia",
+      "audio": "dev/audio/7331/6706/7331_6706_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_01_quiroga_64kb.mp3",
+        "original_start_s": 256.69,
+        "original_end_s": 269.97
+      }
+    },
+    {
+      "id": "7331_6706_000102",
+      "text": "el hombre enfermo aceptó y se fue a vivir al monte lejos más lejos que misiones todavía y hacía allá mucho calor y eso le hacía bien",
+      "audio": "dev/audio/7331/6706/7331_6706_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_04_quiroga_64kb.mp3",
+        "original_start_s": 61.2,
+        "original_end_s": 71.83
+      }
+    },
+    {
+      "id": "7331_6706_000103",
+      "text": "el caso es que se llamó diecisiete le dieron pan uvas chocolate carne langostas huevos riquísimos huevos de gallina lograron que en un solo día se dejara rascar la cabeza",
+      "audio": "dev/audio/7331/6706/7331_6706_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 618.0,
+        "original_end_s": 633.01
+      }
+    },
+    {
+      "id": "7331_6706_000104",
+      "text": "y pensó en la recomendación de su madre por qué no querrá mamá se dijo que vaya a buscar nidos en el campo estaba pensando así cuando oyó muy lejos el canto de un pájaro",
+      "audio": "dev/audio/7331/6706/7331_6706_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 198.95,
+        "original_end_s": 213.06
+      }
+    },
+    {
+      "id": "7331_6706_000105",
+      "text": "al verlo así su madre y sus hermanos lloraron un largo rato después como nada más tenían que hacer allí salieron de la jaula se dieron vuelta para mirar por última vez la casa donde tan feliz había sido el coaticito y se fueron otra vez al monte",
+      "audio": "dev/audio/7331/6706/7331_6706_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 833.16,
+        "original_end_s": 853.05
+      }
+    },
+    {
+      "id": "7331_6706_000106",
+      "text": "vamos a buscar las herramientas del hombre los hombres tienen herramientas para cortar fierro se llaman limas tienen tres lados como las víboras de cascabel se empuja y se retira vamos a buscarla",
+      "audio": "dev/audio/7331/6706/7331_6706_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 545.32,
+        "original_end_s": 560.21
+      }
+    },
+    {
+      "id": "7331_6706_000107",
+      "text": "qué nombre le pondremos preguntó la nena a su hermano ya sé respondió el varoncito le pondremos diecisiete por qué diecisiete nunca hubo bicho del monte con nombre más raro pero el varoncito estaba aprendiendo a contar y tal vez le había llamado la atención aquel número",
+      "audio": "dev/audio/7331/6706/7331_6706_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 599.0,
+        "original_end_s": 618.0
+      }
+    },
+    {
+      "id": "7331_6706_000108",
+      "text": "papá no lo mates dijeron las criaturas es muy chiquito dánoslo para nosotros bueno se lo voy a dar respondió el padre pero cuídenlo bien y sobre todo no se olviden de que los coatís toman agua como ustedes",
+      "audio": "dev/audio/7331/6706/7331_6706_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 445.15,
+        "original_end_s": 464.12
+      }
+    },
+    {
+      "id": "7331_6706_000109",
+      "text": "hasta que una noche muy oscura en que hacía mucho calor y tronaba los coatís salvajes llamaron al coaticito y nadie les respondió",
+      "audio": "dev/audio/7331/6706/7331_6706_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 731.12,
+        "original_end_s": 742.1
+      }
+    },
+    {
+      "id": "7331_6706_000110",
+      "text": "como estaban enterados de muchos secretos de la casa por los cuentos del coaticito los chicos no desconocerían nada extrañarían un poco algunas cosas pero nada más",
+      "audio": "dev/audio/7331/6706/7331_6706_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 897.33,
+        "original_end_s": 909.01
+      }
+    },
+    {
+      "id": "7331_6706_000111",
+      "text": "el coaticito les daba pan por entre el tejido de alambre y los coatís salvajes se sentaban a comer frente a la jaula al cabo de quince días el coaticito andaba suelto y él mismo se iba de noche a su jaula",
+      "audio": "dev/audio/7331/6706/7331_6706_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 700.06,
+        "original_end_s": 713.73
+      }
+    },
+    {
+      "id": "7331_6706_000112",
+      "text": "qué zonzo soy ahora ya sé qué pájaro es este es un gallo mamá me lo mostró un día de arriba de un árbol los gallos tienen un canto lindísimo y tienen muchas gallinas que ponen huevos si yo pudiera comer huevos de gallina",
+      "audio": "dev/audio/7331/6706/7331_6706_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 255.08,
+        "original_end_s": 274.16
+      }
+    },
+    {
+      "id": "7331_6706_000113",
+      "text": "vio a la luz de la luna tres sombras que se acercaban con gran sigilo el corazón le dio un vuelco al pobre coaticito al reconocer a su madre y a sus dos hermanos que lo estaban buscando",
+      "audio": "dev/audio/7331/6706/7331_6706_000113.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 494.27,
+        "original_end_s": 507.87
+      }
+    },
+    {
+      "id": "7331_6706_000114",
+      "text": "pensó un instante en dejarlo para el final como postre porque era un huevo muy grande pero la boca se le hizo agua y clavó los dientes en el huevo",
+      "audio": "dev/audio/7331/6706/7331_6706_000114.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 326.06,
+        "original_end_s": 338.0
+      }
+    },
+    {
+      "id": "7331_6706_000115",
+      "text": "hablaron un largo rato y al fin decidieron lo siguiente el segundo de los coatís que se parecía muchísimo al menor en cuerpo y en modo de ser iba a quedarse en la jaula en vez del difunto",
+      "audio": "dev/audio/7331/6706/7331_6706_000115.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 882.56,
+        "original_end_s": 897.33
+      }
+    },
+    {
+      "id": "7331_6706_000116",
+      "text": "el padre se caía también con gran alegría de los chicos dejaron por fin de jugar porque ya era de noche y el hombre dijo entonces voy a poner la trampa para cazar a la comadreja que viene a matar los pollos y robar los huevos y fue y armó la trampa",
+      "audio": "dev/audio/7331/6706/7331_6706_000116.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 373.83,
+        "original_end_s": 391.18
+      }
+    },
+    {
+      "id": "7331_6706_000117",
+      "text": "fueron al taller del hombre y volvieron con la lima creyendo que uno solo no tendría fuerzas bastantes sujetaron la lima entre los tres y comenzaron el trabajo",
+      "audio": "dev/audio/7331/6706/7331_6706_000117.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 560.21,
+        "original_end_s": 571.53
+      }
+    },
+    {
+      "id": "7331_6706_000118",
+      "text": "ha caído la comadreja en la trampa tuké está ladrando nosotros también queremos ir papá el padre consintió pero no sin que las criaturas se pusieran las sandalias pues nunca los dejaba andar descalzos de noche por temor a las víboras",
+      "audio": "dev/audio/7331/6706/7331_6706_000118.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 409.27,
+        "original_end_s": 426.8
+      }
+    },
+    {
+      "id": "7331_6706_000119",
+      "text": "de modo que al caer la tarde el coaticito tenía tanta hambre como de mañana y se sentó muy triste a la orilla del monte desde allí veía el campo",
+      "audio": "dev/audio/7331/6706/7331_6706_000119.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 187.05,
+        "original_end_s": 198.95
+      }
+    },
+    {
+      "id": "7331_6706_000120",
+      "text": "detrás de los perros vienen siempre los hombres con un gran ruido que mata cuando oigan cerca este ruido tírense de cabeza al suelo por alto que sea el árbol si no lo hacen así los matarán con seguridad de un tiro",
+      "audio": "dev/audio/7331/6706/7331_6706_000120.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 111.48,
+        "original_end_s": 128.18
+      }
+    },
+    {
+      "id": "7331_6706_000121",
+      "text": "después comieron y se acostaron pero las criaturas no tenían sueño y saltaban de la cama del uno a la del otro y se enredaban en el camisón el padre que leía en el comedor los dejaba hacer pero los chicos de repente se detuvieron en sus saltos y gritaron papá",
+      "audio": "dev/audio/7331/6706/7331_6706_000121.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 391.18,
+        "original_end_s": 409.27
+      }
+    },
+    {
+      "id": "7331_6706_000122",
+      "text": "lo llevaron despacio al monte y la cabeza colgaba balanceándose y la cola iba arrastrando por el suelo al día siguiente los chicos extrañaron efectivamente algunas costumbres raras del coaticito",
+      "audio": "dev/audio/7331/6706/7331_6706_000122.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 921.9,
+        "original_end_s": 937.19
+      }
+    },
+    {
+      "id": "7331_6706_000123",
+      "text": "los chicos le querían muchísimo y ellos los coatís querían también a los cachorritos rubios así es que los tres coatís tenían el mismo pensamiento y era evitarles ese gran dolor a los chicos",
+      "audio": "dev/audio/7331/6706/7331_6706_000123.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 868.19,
+        "original_end_s": 882.56
+      }
+    },
+    {
+      "id": "7331_6706_000124",
+      "text": "así habló la madre todos se bajaron entonces y se separaron caminando de derecha a izquierda y de izquierda a derecha como si hubieran perdido algo porque así caminan los coatís",
+      "audio": "dev/audio/7331/6706/7331_6706_000124.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 128.18,
+        "original_end_s": 142.23
+      }
+    },
+    {
+      "id": "7331_6706_000125",
+      "text": "y así pasó en efecto volvieron a la casa y un nuevo coaticito reemplazó al primero mientras la madre y el otro hermano se llevaban sujetos de los dientes el cadáver del menor",
+      "audio": "dev/audio/7331/6706/7331_6706_000125.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 909.01,
+        "original_end_s": 921.9
+      }
+    },
+    {
+      "id": "7331_6706_000126",
+      "text": "los coatís salvajes quedaron muy tristes pero se resignaron prometiendo al coaticito venir todas las noches a visitarlo efectivamente todas las noches lloviera o no su madre y sus hermanos iban a pasar un rato con él",
+      "audio": "dev/audio/7331/6706/7331_6706_000126.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 683.16,
+        "original_end_s": 700.06
+      }
+    },
+    {
+      "id": "7331_6706_000127",
+      "text": "en balde los coatís salvajes lo movieron lo lamieron en balde por todo el cuerpo durante un cuarto de hora el coaticito abrió por fin la boca y dejó de respirar porque estaba muerto",
+      "audio": "dev/audio/7331/6706/7331_6706_000127.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 790.13,
+        "original_end_s": 804.53
+      }
+    },
+    {
+      "id": "7331_6706_000128",
+      "text": "el mayor que quería comer cascarudos buscó entre los palos podridos y las hojas de los yuyos y encontró tantos que comió hasta quedarse dormido",
+      "audio": "dev/audio/7331/6706/7331_6706_000128.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 142.23,
+        "original_end_s": 153.18
+      }
+    },
+    {
+      "id": "7331_6706_000129",
+      "text": "con toda seguridad el coaticito había sido mordido en una arteria o una vena porque entonces la sangre se envenena en seguida y el animal muere esto le había pasado al coaticito",
+      "audio": "dev/audio/7331/6706/7331_6706_000129.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 818.95,
+        "original_end_s": 833.16
+      }
+    },
+    {
+      "id": "7331_6706_000130",
+      "text": "los coatís son casi refractarios como se dice al veneno de las víboras no les hace casi nada al veneno y hay otros animales como la mangosta que resisten muy bien el veneno de las víboras",
+      "audio": "dev/audio/7331/6706/7331_6706_000130.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 804.53,
+        "original_end_s": 818.95
+      }
+    },
+    {
+      "id": "7331_6706_000131",
+      "text": "pero como éste era tan bueno y cariñoso como el otro las criaturas no tuvieron la menor sospecha formaron la misma familia de cachorritos de antes y como antes los coatíes salvajes venían noche a noche a visitar al coaticito civilizado",
+      "audio": "dev/audio/7331/6706/7331_6706_000131.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 937.19,
+        "original_end_s": 953.56
+      }
+    },
+    {
+      "id": "7331_6706_000132",
+      "text": "lejos vio la casa de los hombres y vio a un hombre con botas que llevaba un caballo de la soga vio también un pájaro muy grande que cantaba y entonces el coaticito se golpeó la frente y dijo",
+      "audio": "dev/audio/7331/6706/7331_6706_000132.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 240.37,
+        "original_end_s": 255.08
+      }
+    },
+    {
+      "id": "7331_6706_000133",
+      "text": "mamá mamá murmuró el prisionero en voz muy baja para no hacer ruido estoy aquí sáquenme de aquí no quiero quedarme mamá",
+      "audio": "dev/audio/7331/6706/7331_6706_000133.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 507.87,
+        "original_end_s": 520.1
+      }
+    },
+    {
+      "id": "7331_6706_000134",
+      "text": "pero que no vaya nunca a buscar nidos al campo porque es peligroso coaticitos hay una sola cosa a la cual deben tener  miedo son los perros yo peleé una vez con ellos y sé lo que les digo por eso tengo un diente roto",
+      "audio": "dev/audio/7331/6706/7331_6706_000134.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 91.91,
+        "original_end_s": 111.48
+      }
+    },
+    {
+      "id": "7331_6706_000135",
+      "text": "el segundo que es gran comedor de frutas puede encontrarlas en este naranjal hasta diciembre habrá naranjas el tercero que no quiere comer sino huevos de pájaros puede ir a todas partes porque en todas partes hay nidos de pájaros",
+      "audio": "dev/audio/7331/6706/7331_6706_000135.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 75.15,
+        "original_end_s": 91.91
+      }
+    },
+    {
+      "id": "7331_6706_000136",
+      "text": "y se entusiasmaron tanto que al rato la jaula entera temblaba con las sacudidas y hacía un  ruido terrible tal ruido hacía que el perro se despertó lanzando un ronco ladrido",
+      "audio": "dev/audio/7331/6706/7331_6706_000136.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 571.53,
+        "original_end_s": 584.54
+      }
+    },
+    {
+      "id": "7331_6706_000137",
+      "text": "qué canto tan fuerte dijo admirado qué huevos tan grandes debe tener ese pájaro el canto se repitió",
+      "audio": "dev/audio/7331/6706/7331_6706_000137.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 213.06,
+        "original_end_s": 223.74
+      }
+    },
+    {
+      "id": "7331_6706_000138",
+      "text": "pero lo iban a vengar bien en un segundo entre los tres enloquecieron a la serpiente de cascabel saltando de aquí para allá y en otro segundo cayeron sobre ella deshaciéndole la cabeza a mordiscones",
+      "audio": "dev/audio/7331/6706/7331_6706_000138.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 764.03,
+        "original_end_s": 779.49
+      }
+    },
+    {
+      "id": "7331_6706_000139",
+      "text": "mientras el coatí esperaba en la orilla del monte que cerrara bien la noche para ir al gallinero el hombre de la casa jugaba sobre la gramilla con sus hijos dos criaturas rubias de cinco y seis años que corrían riendo se caían se levantaban riendo otra vez y volvían a caerse",
+      "audio": "dev/audio/7331/6706/7331_6706_000139.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 354.28,
+        "original_end_s": 373.83
+      }
+    },
+    {
+      "id": "7331_6706_000140",
+      "text": "los coatís comprendieron enseguida que el coaticito había sido mordido al entrar y no había respondido a su llamado porque acaso estaba ya muerto",
+      "audio": "dev/audio/7331/6706/7331_6706_000140.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 753.09,
+        "original_end_s": 764.03
+      }
+    },
+    {
+      "id": "7331_6706_000141",
+      "text": "se acercaron muy inquietos y vieron entonces en el momento en que casi la pisaban una enorme víbora que estaba enroscada en la entrada de la jaula",
+      "audio": "dev/audio/7331/6706/7331_6706_000141.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 742.1,
+        "original_end_s": 753.09
+      }
+    },
+    {
+      "id": "7331_6706_000142",
+      "text": "mamá yo no quiero irme más de aquí me dan huevos y son muy buenos conmigo hoy me dijeron que si me portaba bien me iban a dejar suelto muy pronto son como nosotros son cachorritos también y jugamos juntos",
+      "audio": "dev/audio/7331/6706/7331_6706_000142.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 668.18,
+        "original_end_s": 683.16
+      }
+    },
+    {
+      "id": "7331_6706_000143",
+      "text": "es sabido que nada gusta tanto a los bichos chicos de monte como los huevos de gallina durante un rato el coaticito se acordó de la recomendación de su madre pero el deseo pudo más y se sentó a la orilla del monte esperando que cerrara bien la noche para ir al gallinero",
+      "audio": "dev/audio/7331/6706/7331_6706_000143.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 274.16,
+        "original_end_s": 293.92
+      }
+    },
+    {
+      "id": "7331_6706_000144",
+      "text": "la noche cerró por fin y entonces en puntas de pie y paso a paso se encaminó a la casa llegó allá y escuchó atentamente no se sentía el menor ruido",
+      "audio": "dev/audio/7331/6706/7331_6706_000144.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 293.92,
+        "original_end_s": 310.42
+      }
+    },
+    {
+      "id": "7331_6706_000145",
+      "text": "pero los tres coatís sin embargo iban muy preocupados y su preocupación era ésta qué iban a decir los chicos cuando al día siguiente vieran muerto a su querido coaticito",
+      "audio": "dev/audio/7331/6706/7331_6706_000145.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 853.05,
+        "original_end_s": 868.19
+      }
+    },
+    {
+      "id": "7331_6706_000146",
+      "text": "el coaticito loco de alegría porque iba a comer cien mil dos mil huevos de gallina entró en el gallinero y lo primero que vio bien en la entrada fue un huevo que estaba solo en el suelo",
+      "audio": "dev/audio/7331/6706/7331_6706_000146.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 310.42,
+        "original_end_s": 326.06
+      }
+    },
+    {
+      "id": "7331_6706_000147",
+      "text": "y lloraba desconsolado pero a pesar de todo estaban contentos porque se habían encontrado y se hacían mil caricias en el hocico",
+      "audio": "dev/audio/7331/6706/7331_6706_000147.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 520.1,
+        "original_end_s": 530.38
+      }
+    },
+    {
+      "id": "7331_6706_000148",
+      "text": "fueron qué vieron allí vieron a su padre que se agachaba teniendo al perro con una mano mientras con la otra levantaba por la cola a un coatí un coaticito chico aún que gritaba con un chillido rapidísimo y estridente como un grillo",
+      "audio": "dev/audio/7331/6706/7331_6706_000148.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 426.8,
+        "original_end_s": 445.15
+      }
+    },
+    {
+      "id": "7331_6706_000149",
+      "text": "se trató en seguida de hacer salir al prisionero probaron primero cortar el alambre tejido y los cuatro se pusieron a trabajar con los dientes mas no conseguían nada entonces a la madre se le ocurrió de repente una idea y dijo",
+      "audio": "dev/audio/7331/6706/7331_6706_000149.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 530.38,
+        "original_end_s": 545.32
+      }
+    },
+    {
+      "id": "7331_6706_000150",
+      "text": "apenas lo mordió trac un terrible golpe en la cara y un inmenso dolor en el hocico mamá mamá gritó loco de dolor saltando a todos lados pero estaba sujeto y en ese momento oyó el ronco ladrido de un perro",
+      "audio": "dev/audio/7331/6706/7331_6706_000150.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 338.0,
+        "original_end_s": 354.28
+      }
+    },
+    {
+      "id": "7331_6706_000151",
+      "text": "durante dos noches seguidas el perro durmió tan cerca de la jaula que la familia del prisionero no se atrevió a acercarse con gran sentimiento cuando a la tercera noche llegaron de nuevo a buscar la lima para dar libertad al coaticito éste les dijo",
+      "audio": "dev/audio/7331/6706/7331_6706_000151.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 650.49,
+        "original_end_s": 668.18
+      }
+    },
+    {
+      "id": "7331_6706_000152",
+      "text": "en consecuencia pusieron al coatí en la misma jaula del gato montés que estaba cerca del gallinero y se acostaron todos otra vez y cuando era más de medianoche y había un gran silencio el coaticito que sufría mucho por los dientes de la trampa",
+      "audio": "dev/audio/7331/6706/7331_6706_000152.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 476.25,
+        "original_end_s": 494.27
+      }
+    },
+    {
+      "id": "7331_6706_000153",
+      "text": "y entonces el coatí se puso a correr por entre el monte cortando camino porque el canto había sonado muy a su derecha el sol caía ya pero el coatí volaba con la cola levantada llegó a la orilla del monte por fin y miró al campo",
+      "audio": "dev/audio/7331/6706/7331_6706_000153.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 223.74,
+        "original_end_s": 240.37
+      }
+    },
+    {
+      "id": "7331_6706_000154",
+      "text": "mas los coatís no esperaron a que el perro les pidiera cuenta de ese escándalo y dispararon al monte dejando la lima tirada al día siguiente los chicos fueron temprano a ver a su nuevo huésped que estaba muy triste",
+      "audio": "dev/audio/7331/6706/7331_6706_000154.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 584.54,
+        "original_end_s": 599.0
+      }
+    },
+    {
+      "id": "7331_6706_000155",
+      "text": "esto lo decía porque los chicos habían tenido una vez un gatito montés al cual a cada rato le llevaban carne que sacaban de la fiambrera pero nunca le dieron agua y se murió",
+      "audio": "dev/audio/7331/6706/7331_6706_000155.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 464.12,
+        "original_end_s": 476.25
+      }
+    },
+    {
+      "id": "7331_6706_000156",
+      "text": "salvo algunos tirones de orejas que se llevaba por andar muy cerca del gallinero todo marchaba bien él y las criaturas se querían mucho y los mismos coatís salvajes al ver lo buenos que eran aquellos cachorritos de hombre habían concluido por tomar cariño a las dos criaturas",
+      "audio": "dev/audio/7331/6706/7331_6706_000156.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 713.73,
+        "original_end_s": 731.12
+      }
+    },
+    {
+      "id": "7331_6706_000157",
+      "text": "el segundo que prefería las frutas a cualquier cosa comió cuantas naranjas quiso porque aquel naranjal estaba dentro del monte como pasa en el paraguay y en misiones y ningún hombre vino a incomodarlo",
+      "audio": "dev/audio/7331/6706/7331_6706_000157.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 153.18,
+        "original_end_s": 167.63
+      }
+    },
+    {
+      "id": "7331_6706_000158",
+      "text": "el tercero que era loco por los huevos de pájaros tuvo que andar todo el día para encontrar únicamente dos nidos uno de tucán que tenía tres huevos y uno de tórtolas que tenía solo dos total cinco huevos chiquitos que era muy poca comida",
+      "audio": "dev/audio/7331/6706/7331_6706_000158.opus",
+      "tags": {
+        "speaker_id": "mls-es-7331",
+        "gender": "w",
+        "book_id": "6706",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/cuentosdelaselva_1603_librivox/cuentosdelaselva_02_quiroga_64kb.mp3",
+        "original_start_s": 167.63,
+        "original_end_s": 187.05
+      }
+    }
+  ]
+}

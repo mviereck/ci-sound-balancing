@@ -1,0 +1,1931 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "musik",
+  "title": "MUSAN — fma",
+  "lang": null,
+  "license": "mixed",
+  "credit": "MUSAN (fma), Lizenzen pro Item",
+  "url": "https://www.openslr.org/17/",
+  "items": [
+    {
+      "id": "music-fma-0026",
+      "title": "Cullah",
+      "audio": "music/fma/music-fma-0026.opus",
+      "tags": {
+        "genres": [
+          "blues"
+        ],
+        "artist": null,
+        "album": "Cullah",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/MC_Cullah_1450/Cullah_The_Wild/"
+      }
+    },
+    {
+      "id": "music-fma-0097",
+      "title": "Quiet Music for Tiny Robots",
+      "audio": "music/fma/music-fma-0097.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Quiet Music for Tiny Robots",
+        "vocal": "y",
+        "license": "CC-BY-4.0",
+        "license_url": "http://freemusicarchive.org/music/Quiet_Music_for_Tiny_Robots/The_February_Album"
+      }
+    },
+    {
+      "id": "music-fma-0099",
+      "title": "Quiet Music for Tiny Robots",
+      "audio": "music/fma/music-fma-0099.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Quiet Music for Tiny Robots",
+        "vocal": "y",
+        "license": "CC-BY-4.0",
+        "license_url": "http://freemusicarchive.org/music/Quiet_Music_for_Tiny_Robots/The_February_Album"
+      }
+    },
+    {
+      "id": "music-fma-0098",
+      "title": "Quiet Music for Tiny Robots",
+      "audio": "music/fma/music-fma-0098.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Quiet Music for Tiny Robots",
+        "vocal": "n",
+        "license": "CC-BY-4.0",
+        "license_url": "http://freemusicarchive.org/music/Quiet_Music_for_Tiny_Robots/The_February_Album"
+      }
+    },
+    {
+      "id": "music-fma-0100",
+      "title": "Quiet Music for Tiny Robots",
+      "audio": "music/fma/music-fma-0100.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Quiet Music for Tiny Robots",
+        "vocal": "n",
+        "license": "CC-BY-4.0",
+        "license_url": "http://freemusicarchive.org/music/Quiet_Music_for_Tiny_Robots/The_February_Album"
+      }
+    },
+    {
+      "id": "music-fma-0062",
+      "title": "J Mano",
+      "audio": "music/fma/music-fma-0062.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "J Mano",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/J_Mano/Life_Rhymes_Showtime_EP"
+      }
+    },
+    {
+      "id": "music-fma-0064",
+      "title": "J Mano",
+      "audio": "music/fma/music-fma-0064.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "J Mano",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/J_Mano/Life_Rhymes_Showtime_EP"
+      }
+    },
+    {
+      "id": "music-fma-0066",
+      "title": "J Mano",
+      "audio": "music/fma/music-fma-0066.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "J Mano",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/J_Mano/Life_Rhymes_Showtime_EP"
+      }
+    },
+    {
+      "id": "music-fma-0063",
+      "title": "J Mano",
+      "audio": "music/fma/music-fma-0063.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "J Mano",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/J_Mano/Life_Rhymes_Showtime_EP"
+      }
+    },
+    {
+      "id": "music-fma-0065",
+      "title": "J Mano",
+      "audio": "music/fma/music-fma-0065.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "J Mano",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/J_Mano/Life_Rhymes_Showtime_EP"
+      }
+    },
+    {
+      "id": "music-fma-0092",
+      "title": "Cullah",
+      "audio": "music/fma/music-fma-0092.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Cullah",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/MC_Cullah_1450/E-MC_Cullah"
+      }
+    },
+    {
+      "id": "music-fma-0093",
+      "title": "Cullah",
+      "audio": "music/fma/music-fma-0093.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Cullah",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/MC_Cullah_1450/E-MC_Cullah"
+      }
+    },
+    {
+      "id": "music-fma-0094",
+      "title": "Cullah",
+      "audio": "music/fma/music-fma-0094.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Cullah",
+        "vocal": "y",
+        "license": "CC-BY-SA-4.0",
+        "license_url": "http://freemusicarchive.org/music/MC_Cullah_1450/E-MC_Cullah"
+      }
+    },
+    {
+      "id": "music-fma-0010",
+      "title": "Arne Huseby",
+      "audio": "music/fma/music-fma-0010.opus",
+      "tags": {
+        "genres": [
+          "blues"
+        ],
+        "artist": null,
+        "album": "Arne Huseby",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/arnebhus/arnebhus_-_Singles/"
+      }
+    },
+    {
+      "id": "music-fma-0011",
+      "title": "Arne Huseby",
+      "audio": "music/fma/music-fma-0011.opus",
+      "tags": {
+        "genres": [
+          "blues"
+        ],
+        "artist": null,
+        "album": "Arne Huseby",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/arnebhus/arnebhus_-_Singles/"
+      }
+    },
+    {
+      "id": "music-fma-0118",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0118.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0121",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0121.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0124",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0124.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0119",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0119.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0122",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0122.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0120",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0120.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0123",
+      "title": "US Army Blues",
+      "audio": "music/fma/music-fma-0123.opus",
+      "tags": {
+        "genres": [
+          "jazz",
+          "blues"
+        ],
+        "artist": null,
+        "album": "US Army Blues",
+        "vocal": "n",
+        "license": "PD",
+        "license_url": "http://freemusicarchive.org/music/US_Army_Blues/Live_At_Blues_Alley/"
+      }
+    },
+    {
+      "id": "music-fma-0048",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0048.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0052",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0052.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0056",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0056.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0049",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0049.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0053",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0053.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "experimental"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0057",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0057.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0050",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0050.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "experimental"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0054",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0054.opus",
+      "tags": {
+        "genres": [
+          "blues"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0051",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0051.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0055",
+      "title": "Jahzzar",
+      "audio": "music/fma/music-fma-0055.opus",
+      "tags": {
+        "genres": [
+          "indierock",
+          "folk",
+          "pop"
+        ],
+        "artist": null,
+        "album": "Jahzzar",
+        "vocal": "n",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Jahzzar/Paris_Lisboa/Jardins_du_Luxembourg"
+      }
+    },
+    {
+      "id": "music-fma-0088",
+      "title": "Lorenzo",
+      "audio": "music/fma/music-fma-0088.opus",
+      "tags": {
+        "genres": [
+          "blues",
+          "rock",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "Lorenzo",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Lorenzos_Music/Just_Had_To_Let_You_Know/"
+      }
+    },
+    {
+      "id": "music-fma-0090",
+      "title": "Lorenzo",
+      "audio": "music/fma/music-fma-0090.opus",
+      "tags": {
+        "genres": [
+          "blues",
+          "rock",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "Lorenzo",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Lorenzos_Music/Just_Had_To_Let_You_Know/"
+      }
+    },
+    {
+      "id": "music-fma-0089",
+      "title": "Lorenzo",
+      "audio": "music/fma/music-fma-0089.opus",
+      "tags": {
+        "genres": [
+          "blues",
+          "rock",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "Lorenzo",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Lorenzos_Music/Just_Had_To_Let_You_Know/"
+      }
+    },
+    {
+      "id": "music-fma-0091",
+      "title": "Lorenzo",
+      "audio": "music/fma/music-fma-0091.opus",
+      "tags": {
+        "genres": [
+          "blues",
+          "rock",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "Lorenzo",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/Lorenzos_Music/Just_Had_To_Let_You_Know/"
+      }
+    },
+    {
+      "id": "music-fma-0058",
+      "title": "Jason",
+      "audio": "music/fma/music-fma-0058.opus",
+      "tags": {
+        "genres": [
+          "country",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Jason",
+        "vocal": "n",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "id": "music-fma-0059",
+      "title": "Jason",
+      "audio": "music/fma/music-fma-0059.opus",
+      "tags": {
+        "genres": [
+          "country",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Jason",
+        "vocal": "n",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "id": "music-fma-0060",
+      "title": "Jason",
+      "audio": "music/fma/music-fma-0060.opus",
+      "tags": {
+        "genres": [
+          "country",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Jason",
+        "vocal": "n",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "id": "music-fma-0061",
+      "title": "Jason",
+      "audio": "music/fma/music-fma-0061.opus",
+      "tags": {
+        "genres": [
+          "country",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Jason",
+        "vocal": "n",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "id": "music-fma-0000",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0000.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0002",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0002.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0004",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0004.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0001",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0001.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0003",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0003.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0005",
+      "title": "Airglow",
+      "audio": "music/fma/music-fma-0005.opus",
+      "tags": {
+        "genres": [
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Airglow",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Airglow/Memory_Bank"
+      }
+    },
+    {
+      "id": "music-fma-0067",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0067.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0071",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0071.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0068",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0068.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0072",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0072.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0069",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0069.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0073",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0073.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0070",
+      "title": "Josh Woodward",
+      "audio": "music/fma/music-fma-0070.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Josh Woodward",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Josh_Woodward/Crawford_Street"
+      }
+    },
+    {
+      "id": "music-fma-0104",
+      "title": "The Copycuts",
+      "audio": "music/fma/music-fma-0104.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "The Copycuts",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Copycuts/Sketches_1599"
+      }
+    },
+    {
+      "id": "music-fma-0105",
+      "title": "The Copycuts",
+      "audio": "music/fma/music-fma-0105.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "The Copycuts",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Copycuts/Sketches_1599"
+      }
+    },
+    {
+      "id": "music-fma-0106",
+      "title": "The Copycuts",
+      "audio": "music/fma/music-fma-0106.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "The Copycuts",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Copycuts/Sketches_1599"
+      }
+    },
+    {
+      "id": "music-fma-0029",
+      "title": "Fabian Measures",
+      "audio": "music/fma/music-fma-0029.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Fabian Measures",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Fabian_Measures/Emotion_Music"
+      }
+    },
+    {
+      "id": "music-fma-0031",
+      "title": "Fabian Measures",
+      "audio": "music/fma/music-fma-0031.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Fabian Measures",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Fabian_Measures/Emotion_Music"
+      }
+    },
+    {
+      "id": "music-fma-0033",
+      "title": "Fabian Measures",
+      "audio": "music/fma/music-fma-0033.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Fabian Measures",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Fabian_Measures/Emotion_Music"
+      }
+    },
+    {
+      "id": "music-fma-0030",
+      "title": "Fabian Measures",
+      "audio": "music/fma/music-fma-0030.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Fabian Measures",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Fabian_Measures/Emotion_Music"
+      }
+    },
+    {
+      "id": "music-fma-0032",
+      "title": "Fabian Measures",
+      "audio": "music/fma/music-fma-0032.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Fabian Measures",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Fabian_Measures/Emotion_Music"
+      }
+    },
+    {
+      "id": "music-fma-0006",
+      "title": "Alecs Band",
+      "audio": "music/fma/music-fma-0006.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Alecs Band",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Alecs_Band/none_given_1794"
+      }
+    },
+    {
+      "id": "music-fma-0008",
+      "title": "Alecs Band",
+      "audio": "music/fma/music-fma-0008.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Alecs Band",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Alecs_Band/none_given_1794"
+      }
+    },
+    {
+      "id": "music-fma-0007",
+      "title": "Alecs Band",
+      "audio": "music/fma/music-fma-0007.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Alecs Band",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Alecs_Band/none_given_1794"
+      }
+    },
+    {
+      "id": "music-fma-0009",
+      "title": "Alecs Band",
+      "audio": "music/fma/music-fma-0009.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Alecs Band",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Alecs_Band/none_given_1794"
+      }
+    },
+    {
+      "id": "music-fma-0101",
+      "title": "Rolemusic",
+      "audio": "music/fma/music-fma-0101.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Rolemusic",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Rolemusic/Pop_Singles_Compilation_2014"
+      }
+    },
+    {
+      "id": "music-fma-0102",
+      "title": "Rolemusic",
+      "audio": "music/fma/music-fma-0102.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Rolemusic",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Rolemusic/Pop_Singles_Compilation_2014"
+      }
+    },
+    {
+      "id": "music-fma-0103",
+      "title": "Rolemusic",
+      "audio": "music/fma/music-fma-0103.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "electronica"
+        ],
+        "artist": null,
+        "album": "Rolemusic",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Rolemusic/Pop_Singles_Compilation_2014"
+      }
+    },
+    {
+      "id": "music-fma-0095",
+      "title": "Morgan Sadler",
+      "audio": "music/fma/music-fma-0095.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Morgan Sadler",
+        "vocal": "y",
+        "license": "CC-BY-ND-3.0",
+        "license_url": "http://freemusicarchive.org/music/Morgan_Sadler/Go_On"
+      }
+    },
+    {
+      "id": "music-fma-0096",
+      "title": "Morgan Sadler",
+      "audio": "music/fma/music-fma-0096.opus",
+      "tags": {
+        "genres": [
+          "pop"
+        ],
+        "artist": null,
+        "album": "Morgan Sadler",
+        "vocal": "y",
+        "license": "CC-BY-ND-3.0",
+        "license_url": "http://freemusicarchive.org/music/Morgan_Sadler/Go_On"
+      }
+    },
+    {
+      "id": "music-fma-0021",
+      "title": "buenosaires",
+      "audio": "music/fma/music-fma-0021.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "rock",
+          "dance"
+        ],
+        "artist": null,
+        "album": "buenosaires",
+        "vocal": "y",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://freemusicarchive.org/music/buenosaires/Singles_1973"
+      }
+    },
+    {
+      "id": "music-fma-0023",
+      "title": "buenosaires",
+      "audio": "music/fma/music-fma-0023.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "rock",
+          "dance"
+        ],
+        "artist": null,
+        "album": "buenosaires",
+        "vocal": "y",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://freemusicarchive.org/music/buenosaires/Singles_1973"
+      }
+    },
+    {
+      "id": "music-fma-0025",
+      "title": "buenosaires",
+      "audio": "music/fma/music-fma-0025.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "rock",
+          "dance"
+        ],
+        "artist": null,
+        "album": "buenosaires",
+        "vocal": "y",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://freemusicarchive.org/music/buenosaires/Singles_1973"
+      }
+    },
+    {
+      "id": "music-fma-0022",
+      "title": "buenosaires",
+      "audio": "music/fma/music-fma-0022.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "rock",
+          "dance"
+        ],
+        "artist": null,
+        "album": "buenosaires",
+        "vocal": "y",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://freemusicarchive.org/music/buenosaires/Singles_1973"
+      }
+    },
+    {
+      "id": "music-fma-0024",
+      "title": "buenosaires",
+      "audio": "music/fma/music-fma-0024.opus",
+      "tags": {
+        "genres": [
+          "pop",
+          "rock",
+          "dance"
+        ],
+        "artist": null,
+        "album": "buenosaires",
+        "vocal": "y",
+        "license": "CC-BY-SA-2.5",
+        "license_url": "http://freemusicarchive.org/music/buenosaires/Singles_1973"
+      }
+    },
+    {
+      "id": "music-fma-0017",
+      "title": "Bryan Mathys",
+      "audio": "music/fma/music-fma-0017.opus",
+      "tags": {
+        "genres": [
+          "country"
+        ],
+        "artist": null,
+        "album": "Bryan Mathys",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Bryan_Mathys/Wild_Heart"
+      }
+    },
+    {
+      "id": "music-fma-0019",
+      "title": "Bryan Mathys",
+      "audio": "music/fma/music-fma-0019.opus",
+      "tags": {
+        "genres": [
+          "country"
+        ],
+        "artist": null,
+        "album": "Bryan Mathys",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Bryan_Mathys/Wild_Heart"
+      }
+    },
+    {
+      "id": "music-fma-0018",
+      "title": "Bryan Mathys",
+      "audio": "music/fma/music-fma-0018.opus",
+      "tags": {
+        "genres": [
+          "country"
+        ],
+        "artist": null,
+        "album": "Bryan Mathys",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Bryan_Mathys/Wild_Heart"
+      }
+    },
+    {
+      "id": "music-fma-0020",
+      "title": "Bryan Mathys",
+      "audio": "music/fma/music-fma-0020.opus",
+      "tags": {
+        "genres": [
+          "country"
+        ],
+        "artist": null,
+        "album": "Bryan Mathys",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Bryan_Mathys/Wild_Heart"
+      }
+    },
+    {
+      "id": "music-fma-0074",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0074.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0075",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0075.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0076",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0076.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0077",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0077.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0078",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0078.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0079",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0079.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0080",
+      "title": "Kellee Maize",
+      "audio": "music/fma/music-fma-0080.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Kellee Maize",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kellee_Maize/The_Remixes"
+      }
+    },
+    {
+      "id": "music-fma-0081",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0081.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0084",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0084.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0087",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0087.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0082",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0082.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0083",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0083.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0086",
+      "title": "Kelly Latimore",
+      "audio": "music/fma/music-fma-0086.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Kelly Latimore",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Kelly_Latimore/Prelude"
+      }
+    },
+    {
+      "id": "music-fma-0038",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0038.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0034",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0034.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0039",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0039.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0035",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0035.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0040",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0040.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0036",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0036.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0041",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0041.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0037",
+      "title": "Factory Sounds",
+      "audio": "music/fma/music-fma-0037.opus",
+      "tags": {
+        "genres": [
+          "rock",
+          "folk"
+        ],
+        "artist": null,
+        "album": "Factory Sounds",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Factory_Sounds/baby_boys_summer_1411"
+      }
+    },
+    {
+      "id": "music-fma-0107",
+      "title": "The Freak",
+      "audio": "music/fma/music-fma-0107.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "The Freak",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Freak_Fandango_Orchestra/Wild_Goats_and_Useless_Heroes"
+      }
+    },
+    {
+      "id": "music-fma-0110",
+      "title": "The Freak",
+      "audio": "music/fma/music-fma-0110.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "The Freak",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Freak_Fandango_Orchestra/Wild_Goats_and_Useless_Heroes"
+      }
+    },
+    {
+      "id": "music-fma-0108",
+      "title": "The Freak",
+      "audio": "music/fma/music-fma-0108.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "The Freak",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Freak_Fandango_Orchestra/Wild_Goats_and_Useless_Heroes"
+      }
+    },
+    {
+      "id": "music-fma-0111",
+      "title": "The Freak",
+      "audio": "music/fma/music-fma-0111.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "The Freak",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Freak_Fandango_Orchestra/Wild_Goats_and_Useless_Heroes"
+      }
+    },
+    {
+      "id": "music-fma-0109",
+      "title": "The Freak",
+      "audio": "music/fma/music-fma-0109.opus",
+      "tags": {
+        "genres": [
+          "folk",
+          "indierock"
+        ],
+        "artist": null,
+        "album": "The Freak",
+        "vocal": "y",
+        "license": "CC-BY-SA-3.0",
+        "license_url": "http://freemusicarchive.org/music/The_Freak_Fandango_Orchestra/Wild_Goats_and_Useless_Heroes"
+      }
+    },
+    {
+      "id": "music-fma-0042",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0042.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0045",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0045.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0043",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0043.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0046",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0046.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0044",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0044.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0047",
+      "title": "Hi Rez",
+      "audio": "music/fma/music-fma-0047.opus",
+      "tags": {
+        "genres": [
+          "hiphop",
+          "rap"
+        ],
+        "artist": null,
+        "album": "Hi Rez",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Hi-Rez/Lost_Time"
+      }
+    },
+    {
+      "id": "music-fma-0112",
+      "title": "Three Jolly Rogues",
+      "audio": "music/fma/music-fma-0112.opus",
+      "tags": {
+        "genres": [
+          "folk"
+        ],
+        "artist": null,
+        "album": "Three Jolly Rogues",
+        "vocal": "y",
+        "license": "CC-BY-3.0"
+      }
+    },
+    {
+      "id": "music-fma-0113",
+      "title": "Tricky Diesel",
+      "audio": "music/fma/music-fma-0113.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Tricky Diesel",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Tricky_Diesel/Give_Me_a_Beat"
+      }
+    },
+    {
+      "id": "music-fma-0115",
+      "title": "Tricky Diesel",
+      "audio": "music/fma/music-fma-0115.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Tricky Diesel",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Tricky_Diesel/Give_Me_a_Beat"
+      }
+    },
+    {
+      "id": "music-fma-0117",
+      "title": "Tricky Diesel",
+      "audio": "music/fma/music-fma-0117.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Tricky Diesel",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Tricky_Diesel/Give_Me_a_Beat"
+      }
+    },
+    {
+      "id": "music-fma-0114",
+      "title": "Tricky Diesel",
+      "audio": "music/fma/music-fma-0114.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Tricky Diesel",
+        "vocal": "n",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Tricky_Diesel/Give_Me_a_Beat"
+      }
+    },
+    {
+      "id": "music-fma-0116",
+      "title": "Tricky Diesel",
+      "audio": "music/fma/music-fma-0116.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "Tricky Diesel",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/Tricky_Diesel/Give_Me_a_Beat"
+      }
+    },
+    {
+      "id": "music-fma-0012",
+      "title": "BrokeMC",
+      "audio": "music/fma/music-fma-0012.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "BrokeMC",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/BrokeMC/Seeing_Things"
+      }
+    },
+    {
+      "id": "music-fma-0014",
+      "title": "BrokeMC",
+      "audio": "music/fma/music-fma-0014.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "BrokeMC",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/BrokeMC/Seeing_Things"
+      }
+    },
+    {
+      "id": "music-fma-0016",
+      "title": "BrokeMC",
+      "audio": "music/fma/music-fma-0016.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "BrokeMC",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/BrokeMC/Seeing_Things"
+      }
+    },
+    {
+      "id": "music-fma-0013",
+      "title": "BrokeMC",
+      "audio": "music/fma/music-fma-0013.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "BrokeMC",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/BrokeMC/Seeing_Things"
+      }
+    },
+    {
+      "id": "music-fma-0015",
+      "title": "BrokeMC",
+      "audio": "music/fma/music-fma-0015.opus",
+      "tags": {
+        "genres": [
+          "hiphop"
+        ],
+        "artist": null,
+        "album": "BrokeMC",
+        "vocal": "y",
+        "license": "CC-BY-3.0",
+        "license_url": "http://freemusicarchive.org/music/BrokeMC/Seeing_Things"
+      }
+    }
+  ]
+}

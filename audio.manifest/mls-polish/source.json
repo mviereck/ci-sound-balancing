@@ -1,0 +1,21 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "mls-polish",
+  "name": "MLS Polnisch",
+  "url": "https://www.openslr.org/94/",
+  "license": "CC-BY-4.0",
+  "credit": "MLS Polnisch — basiert auf LibriVox-Hörbüchern (CC-BY 4.0)",
+  "base": "mls_polish_opus/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/buch-ballady-i-romanse-11059.json",
+      "saetze/buch-sklepy-cynamonowe-1447.json",
+      "saetze/buch-tajemnica-baskerville-w-5541.json",
+      "saetze/buch-wampir-6205.json",
+      "saetze/buch-dokt-r-mucho-apski-fantastyczne-przygody-8338.json"
+    ]
+  }
+}

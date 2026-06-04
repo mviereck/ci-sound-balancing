@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mdf",
+  "lang": "mdf",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mdf",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "28970037",
+      "text": "Дюрган таргась соткскя потмоста тозеронь копша, путозе шра лангс.",
+      "audio": "mdf/unknown/mdf_u_28970037.mp3",
+      "tags": {
+        "source_item_id": "28970037",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29089362",
+      "text": "Видеста азомс, кой-кит ваныхть кичкорста.",
+      "audio": "mdf/unknown/mdf_u_29089362.mp3",
+      "tags": {
+        "source_item_id": "29089362",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28957917",
+      "text": "Сембе весялат, а моннесь озай шра ваксс и ащи, бта кукшень.",
+      "audio": "mdf/unknown/mdf_u_28957917.mp3",
+      "tags": {
+        "source_item_id": "28957917",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28970151",
+      "text": "Но тейне омба масторонь рай аф эряви.",
+      "audio": "mdf/unknown/mdf_u_28970151.mp3",
+      "tags": {
+        "source_item_id": "28970151",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29089293",
+      "text": "Шамац то кевоннекс арсесь, то щёканза срмосевсть пеедемати.",
+      "audio": "mdf/unknown/mdf_u_29089293.mp3",
+      "tags": {
+        "source_item_id": "29089293",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29088986",
+      "text": "Луганява тёждяста аськолясь акша щамса стирь.",
+      "audio": "mdf/unknown/mdf_u_29088986.mp3",
+      "tags": {
+        "source_item_id": "29088986",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28958099",
+      "text": "Мольхтяма агитпоездть васьфтема.",
+      "audio": "mdf/unknown/mdf_u_28958099.mp3",
+      "tags": {
+        "source_item_id": "28958099",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28957990",
+      "text": "Аш мезенксовок кепсесть кяшт-сялондомат, кой-кит лисендсть коммунаста, или синь сраткшнесть ёфси.",
+      "audio": "mdf/unknown/mdf_u_28957990.mp3",
+      "tags": {
+        "source_item_id": "28957990",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28957964",
+      "text": "Ламотне, пяк ламотне эсь кялень печатлаф валть лангс ваныхть безярдезь.",
+      "audio": "mdf/unknown/mdf_u_28957964.mp3",
+      "tags": {
+        "source_item_id": "28957964",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28957830",
+      "text": "Получань од приказ —тонадомс вертолетса лиендема.",
+      "audio": "mdf/unknown/mdf_u_28957830.mp3",
+      "tags": {
+        "source_item_id": "28957830",
+        "gender": "u"
+      }
+    }
+  ]
+}

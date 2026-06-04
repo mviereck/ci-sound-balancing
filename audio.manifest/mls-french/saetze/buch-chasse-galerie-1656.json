@@ -1,0 +1,1180 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Chasse-galerie",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1656",
+    "book_title": "Chasse-galerie",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2114_1656_000000",
+      "text": "je vous avertis qu'ils font mieux d'aller voir dehors si les chats-huants font le sabbat car je vais commencer mon histoire en faisant un grand signe de croix pour chasser le diable et ses diablotins j'en ai eu assez de ces maudits-là dans mon jeune temps",
+      "audio": "test/audio/2114/1656/2114_1656_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 118.33,
+        "original_end_s": 135.06
+      }
+    },
+    {
+      "id": "2114_1656_000001",
+      "text": "pas un homme ne fit mine de sortir au contraire tous se rapprochèrent de la cambuse où le cook finissait son préambule et se préparait à raconter une histoire de circonstance",
+      "audio": "test/audio/2114/1656/2114_1656_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 135.06,
+        "original_end_s": 147.33
+      }
+    },
+    {
+      "id": "2114_1656_000002",
+      "text": "il s'agit tout simplement de ne pas prononcer le nom du bon dieu pendant le trajet et de ne pas s'accrocher aux croix des clochers en voyageant c'est facile à faire et pour éviter tout danger il faut penser à ce qu'on dit avoir l'oeil où l'on va et ne pas prendre de boisson en route j'ai déjà fait le voyage cinq fois et tu vois bien qu'il ne m'est jamais arrivé malheur",
+      "audio": "test/audio/2114/1656/2114_1656_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 405.67,
+        "original_end_s": 424.91
+      }
+    },
+    {
+      "id": "2114_1656_000003",
+      "text": "et il n'était pas rare de voir finir les fêtes par des coups de poings et des tirages de tignasse la jamaïque était bonne pas meilleure que ce soir mais elle était bougrement bonne je vous le parsouête",
+      "audio": "test/audio/2114/1656/2114_1656_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 279.12,
+        "original_end_s": 293.29
+      }
+    },
+    {
+      "id": "2114_1656_000004",
+      "text": "et baptiste fit instinctivement tourner le canot vers la droite en mettant le cap sur la montagne de montréal que nous apercevions déjà dans le lointain j'avoue que la peur commençait à me tortiller car si baptiste continuait à nous conduire de travers nous étions flambés comme des gorets qu'on grille après la boucherie",
+      "audio": "test/audio/2114/1656/2114_1656_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1191.5,
+        "original_end_s": 1209.35
+      }
+    },
+    {
+      "id": "2114_1656_000005",
+      "text": "et je vous assure que la dégringolade ne se fit pas attendre car au moment où nous passions au-dessus de montréal baptiste nous fit prendre un sheer et avant d'avoir eu le temps de m'y préparer le canot s'enfonçait dans un banc de neige dans une éclaircie sur le flanc de la montagne",
+      "audio": "test/audio/2114/1656/2114_1656_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1209.35,
+        "original_end_s": 1225.61
+      }
+    },
+    {
+      "id": "2114_1656_000006",
+      "text": "ce fut encore baptiste qui nous tira d'affaire en prenant la parole d'abord laissez-nous nous décapoter et puis ensuite laissez-nous danser nous sommes venus exprès pour ça demain matin je répondrai à toutes vos questions et nous vous raconterons tout ce que vous voudrez",
+      "audio": "test/audio/2114/1656/2114_1656_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 980.96,
+        "original_end_s": 996.6
+      }
+    },
+    {
+      "id": "2114_1656_000007",
+      "text": "on voit que cela ne date pas d'hier le récit lui-même est basé sur une croyance populaire qui remonte à l'époque des coureurs des bois et des voyageurs du nord-ouest les gens de chantier ont continué la tradition et c'est surtout dans les paroisses riveraines du saint-laurent que l'on connaît les légendes de la chasse-galerie",
+      "audio": "test/audio/2114/1656/2114_1656_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 58.79,
+        "original_end_s": 77.94
+      }
+    },
+    {
+      "id": "2114_1656_000008",
+      "text": "joe le cook était un petit homme assez mal fait que l'on appelait assez généralement le bossu sans qu'il s'en formalisât et qui faisait chantier depuis au moins quarante ans",
+      "audio": "test/audio/2114/1656/2114_1656_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 210.0,
+        "original_end_s": 221.2
+      }
+    },
+    {
+      "id": "2114_1656_000009",
+      "text": "animal répondit mon homme il ne s'agit pas de cela nous ferons le voyage en canot d'écorce à l'aviron et demain matin à six heures nous serons de retour au chantier",
+      "audio": "test/audio/2114/1656/2114_1656_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 355.25,
+        "original_end_s": 366.47
+      }
+    },
+    {
+      "id": "2114_1656_000010",
+      "text": "elle accepta avec un sourire qui me fit oublier que j'avais risqué le salut de mon âme pour avoir le plaisir de me trémousser et de battre des ailes de pigeon en sa compagnie pendant deux heures de temps une danse n'attendait pas l'autre",
+      "audio": "test/audio/2114/1656/2114_1656_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1011.82,
+        "original_end_s": 1024.97
+      }
+    },
+    {
+      "id": "2114_1656_000011",
+      "text": "la chasse-galerie chapitre un pour lors que je vais vous raconter une rôdeuse d'histoire dans le fin fil mais s'il y a parmi vous autres des lurons qui auraient envie de courir la chasse-galerie ou le loup-garou",
+      "audio": "test/audio/2114/1656/2114_1656_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 102.59,
+        "original_end_s": 118.33
+      }
+    },
+    {
+      "id": "2114_1656_000012",
+      "text": "puis petit à petit nous aperçûmes des lumières dans les maisons d'habitants puis des clochers d'églises qui reluisaient comme des baïonnettes de soldats quand ils font l'exercice sur le champ de mars de montréal",
+      "audio": "test/audio/2114/1656/2114_1656_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 619.21,
+        "original_end_s": 631.19
+      }
+    },
+    {
+      "id": "2114_1656_000013",
+      "text": "qui me menait canot d'écorce qui vole qui vole canot d'écorce qui va voler le marinier qui me menait canot d'écorce qui va voler me dit ma belle embrassez-moi canot d'écorce qui vole qui",
+      "audio": "test/audio/2114/1656/2114_1656_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 714.39,
+        "original_end_s": 732.06
+      }
+    },
+    {
+      "id": "2114_1656_000014",
+      "text": "sûr qu'il me battrait canot d'écorce qui vole qui vole canot d'écorce qui va voler chapitre quatre",
+      "audio": "test/audio/2114/1656/2114_1656_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 768.5,
+        "original_end_s": 779.8
+      }
+    },
+    {
+      "id": "2114_1656_000015",
+      "text": "allons rigodon chez batissette augé nous dit baptiste on est certain d'y rencontrer nos blondes allons chez batissette et nous retournâmes au canot tout en nous mettant mutuellement en garde sur le danger qu'il y avait de prononcer certaines paroles",
+      "audio": "test/audio/2114/1656/2114_1656_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 866.67,
+        "original_end_s": 883.12
+      }
+    },
+    {
+      "id": "2114_1656_000016",
+      "text": "c'est baptiste le possédé qui gouvernait car il connaissait la route et nous arrivâmes bientôt à la rivière des outaouais qui nous servit de guide pour descendre jusqu'au lac des deux montagnes",
+      "audio": "test/audio/2114/1656/2114_1656_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 648.03,
+        "original_end_s": 660.06
+      }
+    },
+    {
+      "id": "2114_1656_000017",
+      "text": "et mon dernier souvenir était comme celui d'un homme qui rêve qu'il tombe dans un puits qui n'a pas de fond chapitre sept",
+      "audio": "test/audio/2114/1656/2114_1656_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1358.86,
+        "original_end_s": 1369.16
+      }
+    },
+    {
+      "id": "2114_1656_000018",
+      "text": "des lueurs rougeâtres qui tremblotaient en éclairant par des effets merveilleux de clair-obscur les mâles figures de ces rudes travailleurs des grands bois",
+      "audio": "test/audio/2114/1656/2114_1656_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 198.37,
+        "original_end_s": 210.0
+      }
+    },
+    {
+      "id": "2114_1656_000019",
+      "text": "la mélasse mijotait dans le grand chaudron pour la partie de tire qui devait terminer la soirée chacun avait bourré sa pipe de bon tabac canadien et un nuage épais obscurcissait l'intérieur de la cabane où un feu pétillant de pin résineux jetait cependant par intervalles",
+      "audio": "test/audio/2114/1656/2114_1656_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 178.67,
+        "original_end_s": 198.37
+      }
+    },
+    {
+      "id": "2114_1656_000020",
+      "text": "à lavaltrie lui répondis-je es-tu fou nous en sommes à plus de cent lieues et d'ailleurs aurais-tu deux mois pour faire le voyage qu'il n'y a pas de chemin de sortie dans la neige et puis le travail du lendemain du jour de l'an",
+      "audio": "test/audio/2114/1656/2114_1656_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 341.49,
+        "original_end_s": 355.25
+      }
+    },
+    {
+      "id": "2114_1656_000021",
+      "text": "pour faire un petit somme en attendant l'heure de sauter à pieds joints par-dessus la tête d'un quart de lard de la vieille année dans la nouvelle comme nous allons le faire ce soir sur l'heure de minuit avant d'aller chanter la guignolée et souhaiter la bonne année aux hommes du chantier voisin",
+      "audio": "test/audio/2114/1656/2114_1656_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 305.25,
+        "original_end_s": 321.63
+      }
+    },
+    {
+      "id": "2114_1656_000022",
+      "text": "allons mon vieux prends ton courage à deux mains et si le coeur t'en dit dans deux heures de temps nous serons à lavaltrie pense à la petite liza guimbette et au plaisir de l'embrasser",
+      "audio": "test/audio/2114/1656/2114_1656_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 424.91,
+        "original_end_s": 436.69
+      }
+    },
+    {
+      "id": "2114_1656_000023",
+      "text": "si j'ai été forcé de me servir d'expressions plus ou moins académiques on voudra bien se rappeler que je mets en scène des hommes au langage aussi rude que leur difficile métier honoré beaugrand",
+      "audio": "test/audio/2114/1656/2114_1656_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 89.67,
+        "original_end_s": 102.59
+      }
+    },
+    {
+      "id": "2114_1656_000024",
+      "text": "ça se comprend aisément puisque c'était le diable qui nous menait et je vous assure que ce n'était pas sur le train de la blanche nous aperçûmes bientôt une éclaircie c'était la gatineau dont la surface glacée et polie étincelait au-dessous de nous comme un immense miroir",
+      "audio": "test/audio/2114/1656/2114_1656_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 601.34,
+        "original_end_s": 619.21
+      }
+    },
+    {
+      "id": "2114_1656_000025",
+      "text": "et de prendre un coup de trop car il fallait reprendre la route des chantiers et y arriver avant six heures du matin sans quoi nous étions flambés comme des carcajous et le diable nous emportait au fin fond des enfers",
+      "audio": "test/audio/2114/1656/2114_1656_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 883.12,
+        "original_end_s": 896.77
+      }
+    },
+    {
+      "id": "2114_1656_000026",
+      "text": "il me semblait que j'étais léger comme une plume et au commandement de baptiste nous commençâmes à nager comme des possédés que nous étions aux premiers coups d'aviron le canot s'élança dans les airs comme une flèche et c'est le cas de le dire le diable nous emportait",
+      "audio": "test/audio/2114/1656/2114_1656_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 554.07,
+        "original_end_s": 570.47
+      }
+    },
+    {
+      "id": "2114_1656_000027",
+      "text": "à cent pieds du clocher de contrecoeur et au lieu de nous diriger à l'ouest vers montréal baptiste nous fit prendre les bordées vers la rivière richelieu quelques instants plus tard nous passâmes par-dessus la montagne de beloeil",
+      "audio": "test/audio/2114/1656/2114_1656_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1164.94,
+        "original_end_s": 1177.33
+      }
+    },
+    {
+      "id": "2114_1656_000028",
+      "text": "j'ai rencontré plus d'un vieux voyageur qui affirmait avoir vu voguer dans les airs des canots d'écorce remplis de possédés s'en allant voir leurs blondes sous l'égide de belzébuth",
+      "audio": "test/audio/2114/1656/2114_1656_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 77.94,
+        "original_end_s": 89.67
+      }
+    },
+    {
+      "id": "2114_1656_000029",
+      "text": "qui s'arrache son bâillon et qui se lève tout droit dans le canot en lâchant un sacre qui me fit frémir jusque dans la pointe des cheveux impossible de lutter contre lui dans le canot sans courir le risque de tomber d'une hauteur de deux ou trois cents pieds",
+      "audio": "test/audio/2114/1656/2114_1656_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1306.58,
+        "original_end_s": 1320.85
+      }
+    },
+    {
+      "id": "2114_1656_000030",
+      "text": "et ce n'est pas pour me vanter si je vous dis que dans ce temps-là il n'y avait pas mon pareil à dix lieues à la ronde pour la gigue simple ou la voleuse mes camarades de leur côté s'amusaient comme des lurons et tout ce que je puis vous dire c'est que les garçons d'habitants étaient fatigués de nous autres lorsque quatre heures sonnèrent à la pendule",
+      "audio": "test/audio/2114/1656/2114_1656_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1024.97,
+        "original_end_s": 1044.59
+      }
+    },
+    {
+      "id": "2114_1656_000031",
+      "text": "je vous disais donc continua-t-il que si j'ai été un peu tough dans ma jeunesse je n'entends plus risée sur les choses de la religion j'vas à confesse régulièrement tous les ans",
+      "audio": "test/audio/2114/1656/2114_1656_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 235.1,
+        "original_end_s": 248.8
+      }
+    },
+    {
+      "id": "2114_1656_000032",
+      "text": "non monsieur je ne saurais",
+      "audio": "test/audio/2114/1656/2114_1656_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 732.06,
+        "original_end_s": 752.06
+      }
+    },
+    {
+      "id": "2114_1656_000033",
+      "text": "j'avais cru apercevoir baptiste durand qui s'approchait du buffet où les hommes prenaient des nippes de whisky blanc de temps en temps mais j'étais tellement occupé avec ma partenaire que je n'y portai pas beaucoup d'attention",
+      "audio": "test/audio/2114/1656/2114_1656_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1044.59,
+        "original_end_s": 1056.16
+      }
+    },
+    {
+      "id": "2114_1656_000034",
+      "text": "en effet nous apercevions déjà les mille lumières de la grande ville et baptiste d'un coup d'aviron nous fit descendre à peu près au niveau des tours de notre-dame j'enlevai ma chique pour ne pas l'avaler et j'entonnai à tue-tête cette chanson de circonstance que les canotiers répétèrent en chœur",
+      "audio": "test/audio/2114/1656/2114_1656_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 674.51,
+        "original_end_s": 694.39
+      }
+    },
+    {
+      "id": "2114_1656_000035",
+      "text": "vers les huit heures du matin je m'éveillai dans mon lit dans la cabane où nous avaient transportés des bûcherons qui nous avaient trouvés sans connaissance enfoncés jusqu'au cou dans un banc de neige du voisinage heureusement que personne ne s'était cassé les reins",
+      "audio": "test/audio/2114/1656/2114_1656_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1369.16,
+        "original_end_s": 1383.71
+      }
+    },
+    {
+      "id": "2114_1656_000036",
+      "text": "il faisait une nuit superbe et la lune dans son plein illuminait le firmament comme un beau soleil du midi il faisait un froid du tonnerre et nos moustaches étaient couvertes de givre mais nous étions cependant tous en nage",
+      "audio": "test/audio/2114/1656/2114_1656_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 585.92,
+        "original_end_s": 601.34
+      }
+    },
+    {
+      "id": "2114_1656_000037",
+      "text": "il était bien vrai que j'étais un peu ivrogne et débauché et que la religion ne me fatiguait pas à cette époque mais risquer de vendre mon âme au diable ça me surpassait",
+      "audio": "test/audio/2114/1656/2114_1656_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 379.39,
+        "original_end_s": 390.31
+      }
+    },
+    {
+      "id": "2114_1656_000038",
+      "text": "le canot heurta la tête d'un gros pin et que nous voilà tous précipités en bas dégringolant de branche en branche comme des perdrix que l'on tue dans les épinettes je ne sais pas combien je mis de temps à descendre jusqu'en bas car je perdis connaissance avant d'arriver",
+      "audio": "test/audio/2114/1656/2114_1656_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1344.1,
+        "original_end_s": 1358.86
+      }
+    },
+    {
+      "id": "2114_1656_000039",
+      "text": "l'aviron pendant sur le plat-bord attendant le signal du départ j'avoue que j'étais un peu troublé mais baptiste qui passait dans le chantier pour n'être pas allé à confesse depuis sept ans ne me laissa pas le temps de me débrouiller il était à l'arrière debout et d'une voix vibrante il nous dit répétez après moi",
+      "audio": "test/audio/2114/1656/2114_1656_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 487.18,
+        "original_end_s": 506.62
+      }
+    },
+    {
+      "id": "2114_1656_000040",
+      "text": "je dormais donc depuis assez longtemps lorsque je me sentis secouer rudement par le boss des piqueurs baptiste durand qui me dit joe minuit vient de sonner et tu es en retard pour le saut du quart les camarades sont partis pour faire leur tournée et moi je m'en vais à lavaltrie voir ma blonde veux-tu venir avec moi",
+      "audio": "test/audio/2114/1656/2114_1656_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 321.63,
+        "original_end_s": 341.49
+      }
+    },
+    {
+      "id": "2114_1656_000041",
+      "text": "la position était terrible comme vous le comprenez bien heureusement que nous arrivions mais j'étais tellement excité que par une fausse manoeuvre que je fis pour éviter l'aviron de baptiste",
+      "audio": "test/audio/2114/1656/2114_1656_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1332.81,
+        "original_end_s": 1344.1
+      }
+    },
+    {
+      "id": "2114_1656_000042",
+      "text": "c'était déjà pas si beau d'avoir risqué de vendre son âme au diable pour s'en vanter parmi les camarades et ce n'est que bien des années plus tard que je racontai l'histoire telle qu'elle m'était arrivée",
+      "audio": "test/audio/2114/1656/2114_1656_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1412.36,
+        "original_end_s": 1424.08
+      }
+    },
+    {
+      "id": "2114_1656_000043",
+      "text": "la légende qui suit a déjà été publiée dans la patrie il y a quelque dix ans et en anglais dans le century magazine de new york du mois d'août mille huit cent quatre vingt douze avec illustrations par henri julien",
+      "audio": "test/audio/2114/1656/2114_1656_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 43.75,
+        "original_end_s": 58.79
+      }
+    },
+    {
+      "id": "2114_1656_000044",
+      "text": "en deux tours d'aviron nous avions traversé le fleuve et nous étions rendus chez batissette augé dont la maison était tout illuminée on entendait vaguement au dehors les sons du violon et les éclats de rire des danseurs dont on voyait les ombres se trémousser à travers les vitres couvertes de givre",
+      "audio": "test/audio/2114/1656/2114_1656_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 912.52,
+        "original_end_s": 930.35
+      }
+    },
+    {
+      "id": "2114_1656_000045",
+      "text": "le bourgeois avait selon la coutume ordonné la distribution du contenu d'un petit baril de rhum parmi les hommes du chantier et le cuisinier avait terminé de bonne heure les préparatifs du fricot de pattes et des glissantes pour le repas du lendemain",
+      "audio": "test/audio/2114/1656/2114_1656_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 162.59,
+        "original_end_s": 178.67
+      }
+    },
+    {
+      "id": "2114_1656_000046",
+      "text": "tout ce que je puis vous dire mes amis c'est que ce n'est pas si drôle qu'on le pense que d'aller voir sa blonde en canot d'écorce en plein coeur d'hiver en courant la chasse galerie surtout si vous avez un maudit ivrogne qui se mêle de gouverner si vous m'en croyez",
+      "audio": "test/audio/2114/1656/2114_1656_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1424.08,
+        "original_end_s": 1439.22
+      }
+    },
+    {
+      "id": "2114_1656_000047",
+      "text": "il ne s'en manqua pas de dix pieds que l'avant du canot n'allait se briser sur la grande croix de tempérance que l'évêque de québec avait plantée là à droite baptiste à droite mon vieux car tu vas nous envoyer chez le diable si tu ne gouvernes pas mieux que ça",
+      "audio": "test/audio/2114/1656/2114_1656_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1177.33,
+        "original_end_s": 1191.5
+      }
+    },
+    {
+      "id": "2114_1656_000048",
+      "text": "la lune avait disparue et il ne faisait plus aussi clair qu'auparavant et ce n'était pas sans crainte que je pris ma position à l'avant du canot bien décidé à avoir l'oeil sur la route que nous allions suivre",
+      "audio": "test/audio/2114/1656/2114_1656_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1111.84,
+        "original_end_s": 1123.86
+      }
+    },
+    {
+      "id": "2114_1656_000049",
+      "text": "et nous répétâmes satan roi des enfers nous te promettons de te livrer nos âmes si d'ici à six heures nous prononçons le nom de ton maître et du nôtre le bon dieu et nous touchons une croix dans le voyage",
+      "audio": "test/audio/2114/1656/2114_1656_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 506.62,
+        "original_end_s": 523.92
+      }
+    },
+    {
+      "id": "2114_1656_000050",
+      "text": "je dis un mot à mes autres compagnons qui avaient aussi peur que moi et nous nous jetons tous sur baptiste que nous terrassons sans lui faire de mal et que nous plaçons ensuite au fond du canot après l'avoir ligoté comme un bout de saucisse et lui avoir mis un bâillon pour l'empêcher de prononcer des paroles dangereuses lorsque nous serions en l'air et",
+      "audio": "test/audio/2114/1656/2114_1656_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1258.0,
+        "original_end_s": 1276.83
+      }
+    },
+    {
+      "id": "2114_1656_000051",
+      "text": "enfin le principal c'est que le diable ne nous avait pas tous emportés et je n'ai pas besoin de vous dire que je ne m'empressai pas de démentir ceux qui prétendirent qu'ils m'avaient trouvé avec baptiste et les six autres tous saouls comme des grives et en train de cuver notre jamaïque dans un banc de neige des environs",
+      "audio": "test/audio/2114/1656/2114_1656_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1396.16,
+        "original_end_s": 1412.36
+      }
+    },
+    {
+      "id": "2114_1656_000052",
+      "text": "bien qu'il fût près de deux heures du matin nous vîmes des groupes s'arrêter dans les rues pour nous voir passer mais nous filions si vite qu'en un clin d'oeil nous avions dépassé montréal et ses faubourgs et alors je commençai à compter les clochers",
+      "audio": "test/audio/2114/1656/2114_1656_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 779.8,
+        "original_end_s": 793.83
+      }
+    },
+    {
+      "id": "2114_1656_000053",
+      "text": "je me laissai entraîner hors de la cabane où je vis en effet six de nos hommes qui nous attendaient l'aviron à la main le grand canot était sur la neige dans une clairière et avant d'avoir eu le temps de réfléchir j'étais déjà assis dans le devant",
+      "audio": "test/audio/2114/1656/2114_1656_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 471.8,
+        "original_end_s": 487.18
+      }
+    },
+    {
+      "id": "2114_1656_000054",
+      "text": "avant de nous enlever dans les airs je me retournai et dis à baptiste attention là mon vieux pique tout droit sur la montagne de montréal aussitôt que tu pourras l'apercevoir je connais mon affaire répliqua baptiste et mêle-toi des tiennes",
+      "audio": "test/audio/2114/1656/2114_1656_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1123.86,
+        "original_end_s": 1140.46
+      }
+    },
+    {
+      "id": "2114_1656_000055",
+      "text": "on passait ces clochers aussi vite qu'on passe les poteaux de télégraphe quand on voyage en chemin de fer et nous filions toujours comme tous les diables passant par-dessus les villages les forêts les rivières et laissant derrière nous comme une traînée d'étincelles",
+      "audio": "test/audio/2114/1656/2114_1656_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 631.19,
+        "original_end_s": 648.03
+      }
+    },
+    {
+      "id": "2114_1656_000056",
+      "text": "nous cachâmes notre canot derrière les tas de bourdillons qui bordaient la rive car la glace avait refoulé cette année-là maintenant nous répéta baptiste pas de bêtises les amis et attention à vos paroles dansons comme des perdus mais pas un seul verre de molson ni de jamaïque vous m'entendez",
+      "audio": "test/audio/2114/1656/2114_1656_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 930.35,
+        "original_end_s": 949.87
+      }
+    },
+    {
+      "id": "2114_1656_000057",
+      "text": "nous sortîmes donc les uns après les autres sans faire semblant de rien et cinq minutes plus tard nous étions remontés en canot après avoir quitté le bal comme des sauvages sans dire bonjour à personne pas même à liza que j'avais invitée pour danser un foin",
+      "audio": "test/audio/2114/1656/2114_1656_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1072.59,
+        "original_end_s": 1087.19
+      }
+    },
+    {
+      "id": "2114_1656_000058",
+      "text": "mais maintenant que l'heure de remonter en canot était arrivée je vis clairement que baptiste avait pris un coup de trop et je fus obligé d'aller le prendre par le bras pour le faire sortir avec moi en faisant signe aux autres de se préparer à nous suivre sans attirer l'attention des danseuses",
+      "audio": "test/audio/2114/1656/2114_1656_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1056.16,
+        "original_end_s": 1072.59
+      }
+    },
+    {
+      "id": "2114_1656_000059",
+      "text": "j'en avais bien lampé une douzaine de petits gobelets pour ma part et sur les douze heures je vous l'avoue franchement la tête me tournait et je me laissai tomber sur ma robe de carriole",
+      "audio": "test/audio/2114/1656/2114_1656_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 293.29,
+        "original_end_s": 305.25
+      }
+    },
+    {
+      "id": "2114_1656_000060",
+      "text": "cré poule mouillée continua baptiste tu sais bien qu'il n'y a pas de danger il s'agit d'aller à lavaltrie et de revenir dans six heures tu sais bien qu'avec la chasse galerie on voyage au moins cinquante lieues à l'heure lorsqu'on sait manier l'aviron comme nous",
+      "audio": "test/audio/2114/1656/2114_1656_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 390.31,
+        "original_end_s": 405.67
+      }
+    },
+    {
+      "id": "2114_1656_000061",
+      "text": "mais que les farauds et les filles de la paroisse étaient presque tous rendus chez batissette augé à la petite misère en bas de contrecoeur de l'autre côté du fleuve là où il y avait un rigodon du jour de l'an",
+      "audio": "test/audio/2114/1656/2114_1656_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 854.48,
+        "original_end_s": 866.67
+      }
+    },
+    {
+      "id": "2114_1656_000062",
+      "text": "attendez un peu cria baptiste nous allons raser montréal et nous allons effrayer les coureux qui sont encore dehors à c'te heure cite toi joe là en avant éclaircis-toi le gosier et chante nous une chanson sur l'aviron",
+      "audio": "test/audio/2114/1656/2114_1656_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 660.06,
+        "original_end_s": 674.51
+      }
+    },
+    {
+      "id": "2114_1656_000063",
+      "text": "et nous voilà repartis à toute vitesse mais il devint aussitôt évident que notre pilote n'avait plus la main aussi sûre car le canot décrivait des zigzags inquiétants nous ne passâmes pas à",
+      "audio": "test/audio/2114/1656/2114_1656_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1153.31,
+        "original_end_s": 1164.94
+      }
+    },
+    {
+      "id": "2114_1656_000064",
+      "text": "nous remontâmes la rivière outaouais comme une poussière jusqu'à la pointe à gatineau et de là nous piquâmes au nord vers le chantier nous n'en étions plus qu'à quelques lieues quand voilà-t-il que cet animal de baptiste qui se tortille de la corde avec laquelle nous l'avions ficelé",
+      "audio": "test/audio/2114/1656/2114_1656_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1291.92,
+        "original_end_s": 1306.58
+      }
+    },
+    {
+      "id": "2114_1656_000065",
+      "text": "et ce que je vais vous raconter là ça se passait aux jours de ma jeunesse quand je ne craignais ni dieu ni diable c'était un soir comme celui-ci la veille du jour de l'an il y a de cela trente-quatre ou trente-cinq ans",
+      "audio": "test/audio/2114/1656/2114_1656_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 248.8,
+        "original_end_s": 262.81
+      }
+    },
+    {
+      "id": "2114_1656_000066",
+      "text": "à cette condition tu nous transporteras à travers les airs au lieu où nous voulons aller et tu nous ramèneras de même au chantier chapitre trois",
+      "audio": "test/audio/2114/1656/2114_1656_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 523.92,
+        "original_end_s": 537.27
+      }
+    },
+    {
+      "id": "2114_1656_000067",
+      "text": "nous sommes déjà sept pour faire le voyage mais il faut être deux quatre six ou huit et tu seras le huitième oui tout cela est très bien mais il faut faire un serment au diable et c'est un animal qui n'entend pas à rire lorsqu'on s'engage à lui",
+      "audio": "test/audio/2114/1656/2114_1656_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 436.69,
+        "original_end_s": 453.59
+      }
+    },
+    {
+      "id": "2114_1656_000068",
+      "text": "je vous avoue que nous étions rudement embêtés de voir que baptiste durand avait bu un coup car c'était lui qui gouvernait et nous n'avions juste que le temps de revenir au chantier pour six heures du matin avant le réveil des hommes qui ne travaillaient pas le jour du jour de l'an",
+      "audio": "test/audio/2114/1656/2114_1656_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1098.46,
+        "original_end_s": 1111.84
+      }
+    },
+    {
+      "id": "2114_1656_000069",
+      "text": "le père batissette vint ouvrir lui-même et nous fûmes reçus à bras ouverts par les invités que nous connaissions presque tous nous fûmes d'abord assaillis de questions d'où venez-vous je vous croyais dans les chantiers vous arrivez bien tard venez prendre une larme",
+      "audio": "test/audio/2114/1656/2114_1656_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 963.35,
+        "original_end_s": 980.96
+      }
+    },
+    {
+      "id": "2114_1656_000070",
+      "text": "j'essayai de raisonner avec lui mais allez donc faire entendre raison à un ivrogne qui veut se mouiller la luette alors rendu à bout de patience et plutôt que de laisser nos âmes au diable qui se léchait déjà les babines en nous voyant dans l'embarras",
+      "audio": "test/audio/2114/1656/2114_1656_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1243.06,
+        "original_end_s": 1258.0
+      }
+    },
+    {
+      "id": "2114_1656_000071",
+      "text": "heureusement que c'était de la neige molle et personne n'attrapa de mal et que le canot ne fut pas brisé mais à peine étions-nous sortis de la neige que voilà baptiste qui commence à sacrer comme un possédé et qui déclare qu'avant de repartir pour gatineau il veut descendre en ville prendre un verre",
+      "audio": "test/audio/2114/1656/2114_1656_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1225.61,
+        "original_end_s": 1243.06
+      }
+    },
+    {
+      "id": "2114_1656_000072",
+      "text": "attention vous autres nous cria baptiste nous allons atterrir à l'entrée du bois dans le champ de mon parrain jean jean gabriel et nous nous rendrons ensuite à pied pour aller surprendre nos connaissances dans quelque fricot ou quelque danse du voisinage",
+      "audio": "test/audio/2114/1656/2114_1656_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 805.1,
+        "original_end_s": 821.61
+      }
+    },
+    {
+      "id": "2114_1656_000073",
+      "text": "il en avait vu de toutes les couleurs dans son existence bigarrée et il suffisait de lui faire prendre un petit coup de jamaïque pour lui délier la langue et lui faire raconter ses exploits",
+      "audio": "test/audio/2114/1656/2114_1656_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 221.2,
+        "original_end_s": 235.1
+      }
+    },
+    {
+      "id": "2114_1656_000074",
+      "text": "baptiste qui était plus effronté que les autres s'en alla frapper à la porte de la maison de son parrain où l'on apercevait encore de la lumière mais il n'y trouva qu'une fille engagère qui lui annonça que les vieilles gens étaient à un snack chez le père robillard",
+      "audio": "test/audio/2114/1656/2114_1656_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 840.06,
+        "original_end_s": 854.48
+      }
+    },
+    {
+      "id": "2114_1656_000075",
+      "text": "et l'animal gesticulait comme lin perdu en nous menaçant tous de son aviron qu'il avait saisi et qu'il faisait tournoyer sur nos têtes en faisant le moulinet comme un irlandais avec son shilelag",
+      "audio": "test/audio/2114/1656/2114_1656_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1320.85,
+        "original_end_s": 1332.81
+      }
+    },
+    {
+      "id": "2114_1656_000076",
+      "text": "on était à la veille du jour de l'an mille huit cent cinquante huit en pleine forêt vierge dans les chantiers des ross en haut de la gatineau la saison avait été dure et la neige atteignait déjà la hauteur du toit de la cabane",
+      "audio": "test/audio/2114/1656/2114_1656_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 147.33,
+        "original_end_s": 162.59
+      }
+    },
+    {
+      "id": "2114_1656_000077",
+      "text": "une simple formalité mon joe il s'agit simplement de ne pas se griser et de faire attention à sa langue et à son aviron un homme n'est pas un enfant que diable viens viens nos camarades nous attendent dehors et le grand canot de la drave est tout prêt pour le voyage",
+      "audio": "test/audio/2114/1656/2114_1656_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 453.59,
+        "original_end_s": 471.8
+      }
+    },
+    {
+      "id": "2114_1656_000078",
+      "text": "au premier signe suivez-moi tous car il faudra repartir sans attirer l'attention et nous allâmes frapper à la porte chapitre cinq",
+      "audio": "test/audio/2114/1656/2114_1656_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 949.87,
+        "original_end_s": 963.35
+      }
+    },
+    {
+      "id": "2114_1656_000079",
+      "text": "mais je n'ai pas besoin de vous dire que j'avais les côtes sur le long comme un homme qui a couché sur les ravalements pendant toute une semaine sans parler d'un blackeye et de deux ou trois déchirures sur les mains et dans la figure",
+      "audio": "test/audio/2114/1656/2114_1656_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 1383.71,
+        "original_end_s": 1396.16
+      }
+    },
+    {
+      "id": "2114_1656_000080",
+      "text": "acabris acabras acabram fais-nous voyager par-dessus les montagnes à peine avions-nous prononcé les dernières paroles que nous sentîmes le canot s'élever dans les airs à une hauteur de cinq à six cents pieds",
+      "audio": "test/audio/2114/1656/2114_1656_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 537.27,
+        "original_end_s": 554.07
+      }
+    },
+    {
+      "id": "2114_1656_000081",
+      "text": "réunis avec tous mes camarades autour de la cambuse nous prenions un petit coup mais si les petits ruisseaux font les grandes rivières les petits verres finissent par vider les grosses cruches et dans ces temps-là on buvait plus sec et plus souvent qu'aujourd'hui",
+      "audio": "test/audio/2114/1656/2114_1656_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 262.81,
+        "original_end_s": 279.12
+      }
+    },
+    {
+      "id": "2114_1656_000082",
+      "text": "ça nous en coupait le respire et le poil en frisait sur nos bonnets de carcajou nous filions plus vite que le vent pendant un quart d'heure environ nous naviguâmes au-dessus de la forêt sans apercevoir autre chose que les bouquets des grands pins noirs",
+      "audio": "test/audio/2114/1656/2114_1656_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2114",
+        "gender": "m",
+        "book_id": "1656",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/la_chasse_galerie_0802_librivox/chasse-galerie_1_beaugrand_64kb.mp3",
+        "original_start_s": 570.47,
+        "original_end_s": 585.92
+      }
+    }
+  ]
+}

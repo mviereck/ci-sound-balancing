@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — nso",
+  "lang": "nso",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-nso",
+    "style": "crowdsourced",
+    "split_used": "other"
+  },
+  "items": [
+    {
+      "id": "39974132",
+      "text": "Boati o adimile phensele ya ka.",
+      "audio": "nso/unknown/nso_u_39974132.mp3",
+      "tags": {
+        "source_item_id": "39974132",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974142",
+      "text": "Mošidi o rata roko ya gagwe kudu.",
+      "audio": "nso/unknown/nso_u_39974142.mp3",
+      "tags": {
+        "source_item_id": "39974142",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974138",
+      "text": "Mongwe le mongwe o hwetša tše tshela.",
+      "audio": "nso/unknown/nso_u_39974138.mp3",
+      "tags": {
+        "source_item_id": "39974138",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974144",
+      "text": "Tloga o hlaloša seo o se bonago.",
+      "audio": "nso/unknown/nso_u_39974144.mp3",
+      "tags": {
+        "source_item_id": "39974144",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974134",
+      "text": "Go bapala ka go namela mehlare.",
+      "audio": "nso/unknown/nso_u_39974134.mp3",
+      "tags": {
+        "source_item_id": "39974134",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974129",
+      "text": "Ke be ke nyaka go swana le yena.",
+      "audio": "nso/unknown/nso_u_39974129.mp3",
+      "tags": {
+        "source_item_id": "39974129",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974139",
+      "text": "Ngwala mafoko a mabedi ka seswantšho.",
+      "audio": "nso/unknown/nso_u_39974139.mp3",
+      "tags": {
+        "source_item_id": "39974139",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974141",
+      "text": "Eupša kanegelo e fela ka maswabi.",
+      "audio": "nso/unknown/nso_u_39974141.mp3",
+      "tags": {
+        "source_item_id": "39974141",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974136",
+      "text": "Yo wa lehono yena ga ke mmone phošo.",
+      "audio": "nso/unknown/nso_u_39974136.mp3",
+      "tags": {
+        "source_item_id": "39974136",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39974127",
+      "text": "Tlou e kgona go hema ka mmogo wa yona.",
+      "audio": "nso/unknown/nso_u_39974127.mp3",
+      "tags": {
+        "source_item_id": "39974127",
+        "gender": "u"
+      }
+    }
+  ]
+}

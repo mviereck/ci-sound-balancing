@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ro",
+  "lang": "ro",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ro",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20349114",
+      "text": "Am avut o întâlnire de grup.",
+      "audio": "ro/unknown/ro_u_20349114.mp3",
+      "tags": {
+        "source_item_id": "20349114",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20356789",
+      "text": "Europa trebuie să facă mai mult.",
+      "audio": "ro/unknown/ro_u_20356789.mp3",
+      "tags": {
+        "source_item_id": "20356789",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20755739",
+      "text": "Vă mulţumesc din nou pentru sprijin.",
+      "audio": "ro/unknown/ro_u_20755739.mp3",
+      "tags": {
+        "source_item_id": "20755739",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21279674",
+      "text": "Aș dori să adresez aceeași întrebare.",
+      "audio": "ro/unknown/ro_u_21279674.mp3",
+      "tags": {
+        "source_item_id": "21279674",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21368551",
+      "text": "Haideți să nu avem concepții greșite.",
+      "audio": "ro/unknown/ro_u_21368551.mp3",
+      "tags": {
+        "source_item_id": "21368551",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24224813",
+      "text": "Din acest motiv am renunțat la fotografii.",
+      "audio": "ro/unknown/ro_u_24224813.mp3",
+      "tags": {
+        "source_item_id": "24224813",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25475808",
+      "text": "Niciunul dintre aceste atacuri nu a fost investigat.",
+      "audio": "ro/unknown/ro_u_25475808.mp3",
+      "tags": {
+        "source_item_id": "25475808",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25790070",
+      "text": "Cu siguranță, aceasta nu va fi ultima criză.",
+      "audio": "ro/unknown/ro_u_25790070.mp3",
+      "tags": {
+        "source_item_id": "25790070",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25903806",
+      "text": "Va face la fel şi în acest caz.",
+      "audio": "ro/unknown/ro_u_25903806.mp3",
+      "tags": {
+        "source_item_id": "25903806",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25952698",
+      "text": "Acum, guvernul a devenit interesat de acest conflict.",
+      "audio": "ro/unknown/ro_u_25952698.mp3",
+      "tags": {
+        "source_item_id": "25952698",
+        "gender": "u"
+      }
+    }
+  ]
+}

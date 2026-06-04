@@ -1,0 +1,3854 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Liaisons dangereuses",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "394",
+    "book_title": "Liaisons dangereuses",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "577_394_000000",
+      "text": "il n'est donc pas surprenant que ce succès dû à moi seul m'en devienne plus précieux et le surcroît de plaisir que j'ai éprouvé dans mon triomphe et que je ressens encore n'est que la douce impression du sentiment de la gloire",
+      "audio": "dev/audio/577/394/577_394_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1301.32,
+        "original_end_s": 1316.37
+      }
+    },
+    {
+      "id": "577_394_000001",
+      "text": "enfin soit dit entre nous je n'aurais pas voulu que vous le vissiez ainsi car il avait l'air très touchant et très propre à ce que je crois à inspirer cette tendre pitié qui est un des plus dangereux pièges de l'amour",
+      "audio": "dev/audio/577/394/577_394_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 391.11,
+        "original_end_s": 407.16
+      }
+    },
+    {
+      "id": "577_394_000002",
+      "text": "enfin je le verrai s'éloigner s'éloigner pour jamais et mes regards qui le suivront ne verront pas les siens se retourner sur moi et j'étais réservée à tant d'humiliation que du moins",
+      "audio": "dev/audio/577/394/577_394_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 968.99,
+        "original_end_s": 982.1
+      }
+    },
+    {
+      "id": "577_394_000003",
+      "text": "non je connais trop bien votre cœur pour croire qu'il pense ainsi du mien aussi la peine que m'a faite votre lettre est-elle bien moins relative à moi qu'à vous-même ô ma jeune amie je vous le dis avec douleur mais vous êtes bien trop digne d'être aimée pour que jamais l'amour vous rende heureuse",
+      "audio": "dev/audio/577/394/577_394_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3191.87,
+        "original_end_s": 3210.25
+      }
+    },
+    {
+      "id": "577_394_000004",
+      "text": "l'ivresse fut complète et réciproque et pour la première fois la mienne survécut au plaisir je ne sortis pas de ses bras que pour tomber à genoux pour lui jurer un amour éternel",
+      "audio": "dev/audio/577/394/577_394_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2210.21,
+        "original_end_s": 2221.73
+      }
+    },
+    {
+      "id": "577_394_000005",
+      "text": "j'ai reçu votre lettre mon trop jeune ami mais avant de vous remercier il faut que je vous gronde je vous préviens que si vous ne vous corrigez pas vous n'aurez plus de réponse de moi quittez donc si vous m'en croyez ce ton de cajolerie qui n'est plus que du jargon dès qu'il n'est pas l'expression de l'amour",
+      "audio": "dev/audio/577/394/577_394_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 26.99,
+        "original_end_s": 43.74
+      }
+    },
+    {
+      "id": "577_394_000006",
+      "text": "je cherche vainement une cause à cette étrange idée il me semble pourtant qu'elle tient de plus ou moins près aux éloges que je me suis permis de donner à d'autres femmes je l'infère au moins de votre affectation à relever les épithètes d'adorable de céleste d'attachante dont je me suis servi en vous parlant de madame de tourvel ou de la petite volanges",
+      "audio": "dev/audio/577/394/577_394_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3021.29,
+        "original_end_s": 3038.62
+      }
+    },
+    {
+      "id": "577_394_000007",
+      "text": "et si je remarquai d'abord un peu plus de confusion et une sorte de recueillement j'attribuai l'un et l'autre à l'état de prude aussi sans m'occuper des légères différences que je croyais purement locales",
+      "audio": "dev/audio/577/394/577_394_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2050.81,
+        "original_end_s": 2062.65
+      }
+    },
+    {
+      "id": "577_394_000008",
+      "text": "mais monsieur de valmont qu'avez-vous et que voulez-vous dire la démarche que vous faites aujourd'hui n'est-elle pas volontaire n'est-ce pas le fruit de vos propres réflexions",
+      "audio": "dev/audio/577/394/577_394_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1864.1,
+        "original_end_s": 1874.74
+      }
+    },
+    {
+      "id": "577_394_000009",
+      "text": "il était à la vérité sans toilette et sans poudre mais je l'ai trouvé pâle et défait et ayant surtout la physionomie altérée son regard que nous avons vu si vif et si gai était triste et abattu",
+      "audio": "dev/audio/577/394/577_394_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 377.67,
+        "original_end_s": 391.11
+      }
+    },
+    {
+      "id": "577_394_000010",
+      "text": "j'ai cru ma chère belle qu'il pourrait vous être utile d'avoir ces réflexions à opposer aux idées chimériques d'un bonheur parfait dont l'amour ne manque jamais d'abuser notre imagination espoir trompeur auquel on tient encore même alors qu'on se voit forcé de l'abandonner",
+      "audio": "dev/audio/577/394/577_394_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3338.47,
+        "original_end_s": 3354.21
+      }
+    },
+    {
+      "id": "577_394_000011",
+      "text": "et moi de nouvelles raisons de vous aimer davantage je vous attends ici sous peu de jours mon aimable fille comme vous me l'annoncez venez retrouver le calme et le bonheur dans les mêmes lieux où vous l'aviez perdu venez surtout vous réjouir avec votre tendre mère d'avoir si heureusement tenu la parole que vous lui avez donnée",
+      "audio": "dev/audio/577/394/577_394_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2521.66,
+        "original_end_s": 2541.41
+      }
+    },
+    {
+      "id": "577_394_000012",
+      "text": "vous ne trouverez donc dans ma lettre que ce qui manque à la vôtre franchise et simplesse je vous dirai bien par exemple que j'aurais grand plaisir à vous voir et que je suis contrariée de n'avoir auprès de moi que des gens qui m'ennuient au lieu de gens qui me plaisent mais vous cette même phrase vous la traduisez ainsi",
+      "audio": "dev/audio/577/394/577_394_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 71.1,
+        "original_end_s": 90.5
+      }
+    },
+    {
+      "id": "577_394_000013",
+      "text": "mais vous choisissez vos maîtresses si jeunes que vous m'avez fait apercevoir pour la première fois que je commence à être vieille c'est bien fait à vous de préparer ainsi une longue carrière de constance et je vous souhaite de tout mon cœur qu'elle soit réciproque",
+      "audio": "dev/audio/577/394/577_394_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 202.09,
+        "original_end_s": 217.59
+      }
+    },
+    {
+      "id": "577_394_000014",
+      "text": "si je vous donnais une préférence marquée sur toutes deux puisque enfin je ne pouvais renouveler notre première liaison qu'au préjudice des deux autres je ne crois pas qu'il y ait là si grand sujet de reproche",
+      "audio": "dev/audio/577/394/577_394_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3055.04,
+        "original_end_s": 3065.55
+      }
+    },
+    {
+      "id": "577_394_000015",
+      "text": "et sans me dire qu'elle soit bonne il ne m'a point articulé qu'elle fût mauvaise alors je me suis plainte de sa retraite qui avait un peu l'air d'une manie et je tâchais de mêler un peu de gaieté à ma petite réprimande mais lui m'a répondu seulement d'un ton pénétré",
+      "audio": "dev/audio/577/394/577_394_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 418.02,
+        "original_end_s": 435.44
+      }
+    },
+    {
+      "id": "577_394_000016",
+      "text": "la voilà donc vaincue cette femme superbe qui avait osé croire qu'elle pourrait me résister oui mon amie elle est à moi entièrement à moi et depuis hier elle n'a plus rien à m'accorder",
+      "audio": "dev/audio/577/394/577_394_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1129.18,
+        "original_end_s": 1142.34
+      }
+    },
+    {
+      "id": "577_394_000017",
+      "text": "quoique frappée de mes remarques j'ai pourtant commencé la conversation comme si je ne m'étais aperçue de rien je lui ai d'abord parlé de sa santé",
+      "audio": "dev/audio/577/394/577_394_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 407.16,
+        "original_end_s": 418.02
+      }
+    },
+    {
+      "id": "577_394_000018",
+      "text": "et la certitude des ressources en cas de défaite enfin je n'ai engagé l'action qu'avec une retraite assurée par où je puisse couvrir et conserver tout ce que j'avais conquis précédemment",
+      "audio": "dev/audio/577/394/577_394_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2024.57,
+        "original_end_s": 2035.87
+      }
+    },
+    {
+      "id": "577_394_000019",
+      "text": "cette visite m'importune je me repens d'avoir promis qu'a-t-il besoin de me revoir encore que sommes-nous à présent l'un à l'autre s'il m'a offensée je le lui pardonne je le félicite même de vouloir réparer ses torts je l'en loue",
+      "audio": "dev/audio/577/394/577_394_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1033.64,
+        "original_end_s": 1048.61
+      }
+    },
+    {
+      "id": "577_394_000020",
+      "text": "mais ne savez-vous pas que ces mots plus souvent pris au hasard que par réflexion expriment moins le cas qu'on fait de la personne que la situation dans laquelle on se trouve quand on en parle et si dans le moment même où j'étais si vivement affecté ou par l'une ou par l'autre je ne vous en désirais pourtant pas moins",
+      "audio": "dev/audio/577/394/577_394_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3038.62,
+        "original_end_s": 3055.04
+      }
+    },
+    {
+      "id": "577_394_000021",
+      "text": "je m'y consacre tout entière dès ce moment je me donne à vous et vous n'éprouverez de ma part ni refus ni regrets ce fut avec cette candeur naïve et sublime qu'elle me livra sa personne et ses charmes et qu'elle augmenta mon bonheur en le partageant",
+      "audio": "dev/audio/577/394/577_394_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2194.42,
+        "original_end_s": 2210.21
+      }
+    },
+    {
+      "id": "577_394_000022",
+      "text": "et le son de sa voix commençait à annoncer une émotion assez forte aussi me précipitant à ses genoux et d'un ton dramatique que vous me connaissez ah cruelle me suis-je écrié peut-il exister pour moi un bonheur que vous ne partagiez pas où donc le trouver loin de vous ah jamais jamais",
+      "audio": "dev/audio/577/394/577_394_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1639.73,
+        "original_end_s": 1659.31
+      }
+    },
+    {
+      "id": "577_394_000023",
+      "text": "vous avez raison de vous rendre aux motifs tendres et honnêtes qui à ce que vous me mandez retardent votre bonheur la longue défense est le seul mérite qui reste à celles qui ne résistent pas toujours et ce que je trouverais impardonnable à toute autre qu'à un enfant comme la petite volanges",
+      "audio": "dev/audio/577/394/577_394_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 217.59,
+        "original_end_s": 236.03
+      }
+    },
+    {
+      "id": "577_394_000024",
+      "text": "je consens à en avoir de la reconnaissance et je vous en aimerai mieux et davantage sur ce mon cher chevalier je prie dieu qu'il vous ait en sainte et digne garde du château de ce vingt-deux octobre dix sept cent",
+      "audio": "dev/audio/577/394/577_394_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 273.8,
+        "original_end_s": 288.23
+      }
+    },
+    {
+      "id": "577_394_000025",
+      "text": "ce départ était nécessaire et que vous m'éloignez de vous il le faut et pour toujours je le dois je n'ai pas besoin de vous dire que pendant ce court dialogue la voix de la tendre prude était oppressée et que ses yeux ne s'élevaient pas jusqu'à moi",
+      "audio": "dev/audio/577/394/577_394_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1583.98,
+        "original_end_s": 1601.52
+      }
+    },
+    {
+      "id": "577_394_000026",
+      "text": "et qu'il suffisait de l'étonner par un grand mouvement pour que l'impression en restât profonde et favorable je suppléai donc par la terreur à la sensibilité qui se trouvait en défaut",
+      "audio": "dev/audio/577/394/577_394_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1678.42,
+        "original_end_s": 1689.9
+      }
+    },
+    {
+      "id": "577_394_000027",
+      "text": "je l'ai trouvé écrivant et entouré de différents tas de papiers qui avaient l'air d'être l'objet de son travail il s'en occupait au point que j'étais au milieu de sa chambre qu'il n'avait pas encore tourné la tête pour savoir qui entrait",
+      "audio": "dev/audio/577/394/577_394_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 350.25,
+        "original_end_s": 365.29
+      }
+    },
+    {
+      "id": "577_394_000028",
+      "text": "du château de ce quatre novembre dix sept cents fin des lettres cent vingt et une à cent trente cet enregistrement fait partie du domaine public",
+      "audio": "dev/audio/577/394/577_394_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3420.5,
+        "original_end_s": 3440.5
+      }
+    },
+    {
+      "id": "577_394_000029",
+      "text": "si j'ai eu tort de m'y livrer songez au moins que c'est pour la dernière fois ah calmez-vous calmez-vous je vous en conjure et pendant ce long discours je me rapprochais insensiblement",
+      "audio": "dev/audio/577/394/577_394_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1805.58,
+        "original_end_s": 1818.15
+      }
+    },
+    {
+      "id": "577_394_000030",
+      "text": "que si la bonté divine est infinie l'usage en est pourtant réglé par la justice et qu'il peut venir un moment où le dieu de miséricorde se change en un dieu de vengeance si vous continuez à m'honorer de votre confiance je vous prie de croire que tous mes soins vous seront acquis",
+      "audio": "dev/audio/577/394/577_394_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 684.91,
+        "original_end_s": 703.41
+      }
+    },
+    {
+      "id": "577_394_000031",
+      "text": "et le moment le plus beau de ma vie celui où je verrai mes efforts prospérer par la bénédiction du tout-puissant faibles pêcheurs que nous sommes",
+      "audio": "dev/audio/577/394/577_394_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 716.46,
+        "original_end_s": 726.62
+      }
+    },
+    {
+      "id": "577_394_000032",
+      "text": "mais je trouvai une résistance vraiment effrayante moins encore par son excès que par la forme sous laquelle elle se montrait figurez-vous une femme assise d'une raideur immobile",
+      "audio": "dev/audio/577/394/577_394_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2075.9,
+        "original_end_s": 2086.22
+      }
+    },
+    {
+      "id": "577_394_000033",
+      "text": "si quelque jour il en juge autrement il n'entendra de ma part ni plainte ni reproche j'ai déjà osé fixer les yeux sur ce moment fatal et mon parti est pris",
+      "audio": "dev/audio/577/394/577_394_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2843.19,
+        "original_end_s": 2854.19
+      }
+    },
+    {
+      "id": "577_394_000034",
+      "text": "je sais fort bien que l'usage a introduit dans ce cas un doute respectueux mais vous savez aussi que ce n'est qu'une forme un simple protocole et j'étais ce me semble autorisé à croire que ces précautions minutieuses n'étaient plus nécessaires entre nous",
+      "audio": "dev/audio/577/394/577_394_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2959.9,
+        "original_end_s": 2973.55
+      }
+    },
+    {
+      "id": "577_394_000035",
+      "text": "ne rencontre-t-on pas presque partout une résistance plus ou moins bien feinte au premier triomphe et ai-je trouvé nulle part le charme dont je parle ce n'est pourtant pas non plus celui de l'amour",
+      "audio": "dev/audio/577/394/577_394_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1160.09,
+        "original_end_s": 1172.27
+      }
+    },
+    {
+      "id": "577_394_000036",
+      "text": "et malgré votre petit murmure vous avez je crois quelques actions de grâces à lui rendre ce n'est pas que je ne sente fort bien qu'il vous eût été plus agréable que cette résolution vous fût venue la première et que celle de valmont n'en eût été que la suite il me semble même humainement parlant que les droits de notre sexe en eussent été mieux conservés",
+      "audio": "dev/audio/577/394/577_394_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2346.89,
+        "original_end_s": 2366.83
+      }
+    },
+    {
+      "id": "577_394_000037",
+      "text": "j'en ai fondé la preuve sur la méfiance et l'effroi que j'avais inspirés sur la fuite scandaleuse qui s'en était suivie le refus de répondre à mes lettres celui même de les recevoir et cetera",
+      "audio": "dev/audio/577/394/577_394_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1503.08,
+        "original_end_s": 1515.27
+      }
+    },
+    {
+      "id": "577_394_000038",
+      "text": "pour le champ de ma gloire et en effet elle ne revint à elle que soumise et déjà livrée à son heureux vainqueur jusque-là ma belle amie vous me trouverez je crois une pureté de méthode qui vous fera plaisir et vous verrez que je ne me suis écarté en rien des vrais principes de cette guerre",
+      "audio": "dev/audio/577/394/577_394_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1977.76,
+        "original_end_s": 1994.48
+      }
+    },
+    {
+      "id": "577_394_000039",
+      "text": "ce n'est pas que plusieurs ne soient honnêtes dans leurs procédés et constants dans leur affection mais parmi ceux-là même combien peu savent encore se mettre à l'unisson de notre cœur",
+      "audio": "dev/audio/577/394/577_394_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3220.27,
+        "original_end_s": 3230.36
+      }
+    },
+    {
+      "id": "577_394_000040",
+      "text": "j'ai ajouté que pour cette fois je ne lui ferais aucune instance aimant mes amis pour eux-mêmes c'est à cette phrase si simple que serrant mes mains et parlant avec une véhémence que je ne puis vous rendre",
+      "audio": "dev/audio/577/394/577_394_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 478.11,
+        "original_end_s": 493.36
+      }
+    },
+    {
+      "id": "577_394_000041",
+      "text": "mais je remarquai qu'en face d'elle était le portrait du mari et j'eus peur je l'avoue qu'avec une femme si singulière un seul regard que le hasard dirigerait de ce côté ne détruisît en un moment l'ouvrage de tant de soins enfin nous restâmes seuls et j'entrai en matière",
+      "audio": "dev/audio/577/394/577_394_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1464.19,
+        "original_end_s": 1483.24
+      }
+    },
+    {
+      "id": "577_394_000042",
+      "text": "c'est donc à votre neveu que je me suis consacrée c'est pour lui que je me suis perdue il est devenu le centre unique de mes pensées de mes sentiments de mes actions tant que ma vie sera nécessaire à son bonheur elle me sera précieuse et je la trouverai fortunée",
+      "audio": "dev/audio/577/394/577_394_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2826.68,
+        "original_end_s": 2843.19
+      }
+    },
+    {
+      "id": "577_394_000043",
+      "text": "répétez-moi que vous m'aimez que vous me pardonnez oui vous me pardonnerez je connais votre bonté mais comment espérer la même indulgence de ceux que j'ai tant offensés alors il s'est baissé sur moi pour me cacher je crois des marques de douleur que le son de sa voix me décelait malgré lui",
+      "audio": "dev/audio/577/394/577_394_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 508.47,
+        "original_end_s": 525.94
+      }
+    },
+    {
+      "id": "577_394_000044",
+      "text": "oh mon indulgente amie pardonnez-moi cette plainte je sais qu'il ne m'appartient pas de sonder les secrets de dieu mais tandis que je lui demande sans cesse et toujours vainement la force de vaincre mon malheureux amour il la prodigue à celui qui ne la lui demandait pas et me laisse sans secours entièrement livrée à ma faiblesse",
+      "audio": "dev/audio/577/394/577_394_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 822.56,
+        "original_end_s": 841.27
+      }
+    },
+    {
+      "id": "577_394_000045",
+      "text": "je ferai plus je l'imiterai et séduite par les mêmes erreurs son exemple me ramènera mais quand son projet est de me fuir pourquoi commencer par me chercher le plus pressé pour chacun de nous n'est-il pas d'oublier l'autre",
+      "audio": "dev/audio/577/394/577_394_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1048.61,
+        "original_end_s": 1061.84
+      }
+    },
+    {
+      "id": "577_394_000046",
+      "text": "vous verrez par les deux copies des lettres ci-jointes quel médiateur j'avais choisi pour me rapprocher de ma belle et avec quel zèle le saint personnage s'est employé pour nous réunir",
+      "audio": "dev/audio/577/394/577_394_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1373.34,
+        "original_end_s": 1384.64
+      }
+    },
+    {
+      "id": "577_394_000047",
+      "text": "tandis que dans les femmes c'est un sentiment profond qui non seulement anéantit tout désir étranger mais qui plus fort que la nature et soustrait à son empire ne leur laisse éprouver que répugnance dégoût là même où semble devoir naître la volupté",
+      "audio": "dev/audio/577/394/577_394_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3294.67,
+        "original_end_s": 3309.97
+      }
+    },
+    {
+      "id": "577_394_000048",
+      "text": "dans les maux sans remèdes les conseils ne peuvent plus porter que sur le régime ce que je vous demande seulement c'est de vous souvenir que plaindre un malade ce n'est pas le blâmer",
+      "audio": "dev/audio/577/394/577_394_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3367.0,
+        "original_end_s": 3378.54
+      }
+    },
+    {
+      "id": "577_394_000049",
+      "text": "et cependant le même charme subsiste j'aurais même je l'avoue un plaisir assez doux à m'y livrer s'il ne me causait quelque inquiétude serai-je donc à mon âge maîtrisé comme un écolier par un sentiment involontaire et inconnu non",
+      "audio": "dev/audio/577/394/577_394_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1197.18,
+        "original_end_s": 1214.76
+      }
+    },
+    {
+      "id": "577_394_000050",
+      "text": "je suivais simplement la grande route des consolations bien persuadé que comme il arrive d'ordinaire les sensations aideraient le sentiment et qu'une seule action ferait plus que tous les discours que pourtant je ne négligeais pas",
+      "audio": "dev/audio/577/394/577_394_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2062.65,
+        "original_end_s": 2075.9
+      }
+    },
+    {
+      "id": "577_394_000051",
+      "text": "pour en sortir en vainqueur couronné il était six heures du soir quand j'arrivai chez la belle recluse car depuis son retour sa porte était restée fermée à tout le monde elle essaya de se lever quand on m'annonça mais ses genoux tremblants ne lui permirent pas de rester dans cette situation",
+      "audio": "dev/audio/577/394/577_394_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1415.18,
+        "original_end_s": 1433.78
+      }
+    },
+    {
+      "id": "577_394_000052",
+      "text": "vous éprouverez bientôt ma chère fille que les peines que vous redoutez s'allégeront d'elles-mêmes et quand elles devraient subsister toujours et dans leur entier vous n'en sentirez pas moins qu'elles seraient encore plus faciles à supporter que le remords du crime et le mépris de soi-même",
+      "audio": "dev/audio/577/394/577_394_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2379.37,
+        "original_end_s": 2394.48
+      }
+    },
+    {
+      "id": "577_394_000053",
+      "text": "ajouter un mot de plus pourrait vous faire soupçonner que j'ai l'orgueil d'y compter encore quand au contraire je me rends justice en cessant d'y prétendre je suis avec respect madame votre très humble et très obéissante servante",
+      "audio": "dev/audio/577/394/577_394_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2895.34,
+        "original_end_s": 2908.04
+      }
+    },
+    {
+      "id": "577_394_000054",
+      "text": "car enfin si j'ai eu quelquefois auprès de cette femme étonnante des moments de faiblesse qui ressemblaient à cette passion pusillanime j'ai toujours su les vaincre et revenir à mes principes",
+      "audio": "dev/audio/577/394/577_394_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1172.27,
+        "original_end_s": 1183.99
+      }
+    },
+    {
+      "id": "577_394_000055",
+      "text": "c'est à moi de porter la peine de mon audacieuse imprudence ne devrais-je pas sentir que puisqu'il m'était défendu de l'aimer je ne devais pas me permettre de le voir ma faute ou mon malheur est de m'être refusée trop longtemps à cette vérité vous m'êtes témoin ma chère et digne amie que je me suis soumise à ce sacrifice",
+      "audio": "dev/audio/577/394/577_394_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 883.86,
+        "original_end_s": 902.9
+      }
+    },
+    {
+      "id": "577_394_000056",
+      "text": "et qui peut-être exigent quelques remèdes ne sont pourtant rien en comparaison de la maladie effrayante dont voilà la guérison assurée ensuite comme votre amie",
+      "audio": "dev/audio/577/394/577_394_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2438.58,
+        "original_end_s": 2448.59
+      }
+    },
+    {
+      "id": "577_394_000057",
+      "text": "cependant monsieur le vicomte permettez-moi de vous inviter à ne pas différer sans de fortes raisons afin de pouvoir vous livrer plus tôt et plus entièrement aux dispositions louables que vous me témoignez songez que celui qui tarde à profiter du moment de la grâce s'expose à ce qu'elle lui soit retirée",
+      "audio": "dev/audio/577/394/577_394_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 665.66,
+        "original_end_s": 684.91
+      }
+    },
+    {
+      "id": "577_394_000058",
+      "text": "il me semble que vous auriez trop de sacrifices à me faire et moi au lieu d'en avoir la reconnaissance que vous ne manqueriez pas d'en attendre je serais capable de croire que vous m'en devriez encore vous voyez bien qu'aussi éloignés l'un de l'autre par notre façon de penser nous ne pouvons nous rapprocher d'aucune manière",
+      "audio": "dev/audio/577/394/577_394_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2696.45,
+        "original_end_s": 2714.74
+      }
+    },
+    {
+      "id": "577_394_000059",
+      "text": "il vous faut fuir il le faut non s'écria-t-elle à ce dernier mot elle se précipita ou plutôt tomba évanouie dans mes bras comme je doutais encore d'un si heureux succès je feignis un grand effroi mais tout en m'effrayant je la conduisis ou la portais vers le lieu précisément désigné",
+      "audio": "dev/audio/577/394/577_394_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1958.07,
+        "original_end_s": 1977.76
+      }
+    },
+    {
+      "id": "577_394_000060",
+      "text": "ce fut pour y parvenir que je passai le plus tôt possible à une apparente tranquillité propre à calmer les effets de cet état violent sans en affaiblir l'impression ma transition fut",
+      "audio": "dev/audio/577/394/577_394_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1774.92,
+        "original_end_s": 1787.07
+      }
+    },
+    {
+      "id": "577_394_000061",
+      "text": "elle se rassit sur-le-champ comme le domestique qui m'avait introduit avait quelque service à faire dans l'appartement elle en parut impatientée nous remplîmes cet intervalle par les compliments d'usage mais pour ne rien perdre d'un temps dont tous les moments étaient précieux",
+      "audio": "dev/audio/577/394/577_394_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1433.78,
+        "original_end_s": 1450.6
+      }
+    },
+    {
+      "id": "577_394_000062",
+      "text": "oui ma tante m'a-t-il dit aimez aimez beaucoup un neveu qui vous respecte et vous chérit et comme vous dites aimez-le pour lui-même ne vous affligez pas de son bonheur et ne troublez par aucun regret l'éternelle tranquillité dont il espère bientôt jouir",
+      "audio": "dev/audio/577/394/577_394_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 493.36,
+        "original_end_s": 508.47
+      }
+    },
+    {
+      "id": "577_394_000063",
+      "text": "aujourd'hui est encore en dessous du jargon des compliments et ne devient plus qu'un simple protocole auquel on ne croit pas davantage qu'au très humble serviteur",
+      "audio": "dev/audio/577/394/577_394_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 113.39,
+        "original_end_s": 123.83
+      }
+    },
+    {
+      "id": "577_394_000064",
+      "text": "mais d'abord il pourrait fort bien qu'il n'y en ait aucune car le caprice qui vous ferait préférer peut également vous faire exclure je veux pourtant bien par politesse vous motiver mon avis",
+      "audio": "dev/audio/577/394/577_394_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2684.99,
+        "original_end_s": 2696.45
+      }
+    },
+    {
+      "id": "577_394_000065",
+      "text": "et les siennes je les brûlerai comme infectées du poisson dangereux qui a corrompu mon âme qu'est-ce donc que l'amour s'il nous fait regretter jusqu'aux dangers auxquels il nous expose si surtout on peut craindre de le ressentir encore même lorsqu'on ne l'inspire plus",
+      "audio": "dev/audio/577/394/577_394_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 998.93,
+        "original_end_s": 1015.44
+      }
+    },
+    {
+      "id": "577_394_000066",
+      "text": "voici le récit de ce qui s'est passé vous pouvez être sûre qu'il est fidèle car je vivrais quatre-vingts autres années que je n'oublierais pas l'impression que m'a faite cette triste scène j'ai donc été ce matin chez mon neveu",
+      "audio": "dev/audio/577/394/577_394_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 334.2,
+        "original_end_s": 350.25
+      }
+    },
+    {
+      "id": "577_394_000067",
+      "text": "mais par là même il me serait plus pénible encore de vous voir en juger autrement voilà pourtant le seul tort que je me connaisse car je n'imagine pas que vous ayez pu penser sérieusement qu'il existât une femme dans le monde qui me parût préférable à vous et encore moins que j'aie pu vous apprécier aussi mal que vous feignez de le croire",
+      "audio": "dev/audio/577/394/577_394_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2988.84,
+        "original_end_s": 3006.16
+      }
+    },
+    {
+      "id": "577_394_000068",
+      "text": "adieu comme autrefois oui adieu mon ange je t'envoie tous les baisers de l'amour p s savez-vous que prévan au bout de son mois de prison a été obligé de quitter son corps c'est aujourd'hui la nouvelle de tout paris en vérité le voilà cruellement puni d'un tort qu'il n'a pas eu et votre succès est complet",
+      "audio": "dev/audio/577/394/577_394_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2285.96,
+        "original_end_s": 2305.39
+      }
+    },
+    {
+      "id": "577_394_000069",
+      "text": "seul il sera mon juge comme je n'aurai vécu que pour lui ce sera en lui que reposera ma mémoire et s'il est forcé de reconnaître que je l'aimais je serai suffisamment justifiée",
+      "audio": "dev/audio/577/394/577_394_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2868.02,
+        "original_end_s": 2881.03
+      }
+    },
+    {
+      "id": "577_394_000070",
+      "text": "je suis encore trop plein de mon bonheur pour pouvoir l'apprécier mais je m'étonne du charme inconnu que j'ai ressenti serait-il donc vrai que la vertu augmentât le prix d'une femme jusque dans le moment de sa faiblesse mais reléguons cette idée puérile avec les contes de bonnes femmes",
+      "audio": "dev/audio/577/394/577_394_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1142.34,
+        "original_end_s": 1160.09
+      }
+    },
+    {
+      "id": "577_394_000071",
+      "text": "cependant tandis qu'elle se dérobait à moi j'ajoutai d'un ton bas et sinistre mais de façon qu'elle pût m'entendre hé bien la mort",
+      "audio": "dev/audio/577/394/577_394_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1732.16,
+        "original_end_s": 1742.7
+      }
+    },
+    {
+      "id": "577_394_000072",
+      "text": "ces crises revinrent plusieurs fois et toujours plus fortes la dernière fut même si violente que j'en fus entièrement découragé et craignis un moment d'avoir remporté une victoire inutile je me rabattis sur les lieux communs d'usage et dans le nombre se trouva celui-ci",
+      "audio": "dev/audio/577/394/577_394_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2115.44,
+        "original_end_s": 2131.53
+      }
+    },
+    {
+      "id": "577_394_000073",
+      "text": "ce ne fut qu'alors que je pris le parti de feindre de m'éloigner aussi me retenant avec force non écoutez-moi dit-elle vivement laissez-moi répondis-je vous m'écouterez je le veux",
+      "audio": "dev/audio/577/394/577_394_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1945.2,
+        "original_end_s": 1958.07
+      }
+    },
+    {
+      "id": "577_394_000074",
+      "text": "sur ce que je lui ai remontré qu'elle risquait peut-être par son refus de mettre obstacle à votre heureux retour et de s'opposer ainsi en quelque sorte aux vues miséricordieuses de la providence",
+      "audio": "dev/audio/577/394/577_394_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 635.37,
+        "original_end_s": 647.08
+      }
+    },
+    {
+      "id": "577_394_000075",
+      "text": "l'homme jouit du bonheur qu'il ressent et la femme de celui qu'il procure cette différence si essentielle et si peu remarquée influe pourtant d'une manière bien sensible sur la totalité de leur conduite respective le plaisir de l'un est de satisfaire des désirs celui de l'autre est surtout de les faire naître",
+      "audio": "dev/audio/577/394/577_394_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3248.72,
+        "original_end_s": 3268.49
+      }
+    },
+    {
+      "id": "577_394_000076",
+      "text": "vous voyez à présent combien peu doit m'affecter la crainte que vous paraissez avoir qu'un jour m de valmont ne me perde car avant de le vouloir il aura donc cessé de m'aimer et que me feront alors de vains reproches que je n'entendrai pas",
+      "audio": "dev/audio/577/394/577_394_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2854.19,
+        "original_end_s": 2868.02
+      }
+    },
+    {
+      "id": "577_394_000077",
+      "text": "adieu ma belle amie j'attends votre réponse avec beaucoup d'empressement paris ce trois novembre mille sept cents lettre cent trente mme de rosemonde à la présidente de tourvel",
+      "audio": "dev/audio/577/394/577_394_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3162.5,
+        "original_end_s": 3176.8
+      }
+    },
+    {
+      "id": "577_394_000078",
+      "text": "pour la petite cécile je crois bien inutile de vous en parler vous n'avez pas oublié que c'est à votre demande que je me suis chargé de cette enfant et je n'attends que votre congé pour m'en défaire",
+      "audio": "dev/audio/577/394/577_394_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3103.28,
+        "original_end_s": 3113.76
+      }
+    },
+    {
+      "id": "577_394_000079",
+      "text": "ces mêmes lettres qu'il refusa si longtemps à mes demandes réitérées je les recevrai de son indifférence il me les remettra comme des objets inutiles et qui ne l'intéressent plus et mes mains tremblantes en recevant ce dépôt honteux sentiront qu'il leur est remis d'une main ferme et tranquille",
+      "audio": "dev/audio/577/394/577_394_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 949.95,
+        "original_end_s": 968.99
+      }
+    },
+    {
+      "id": "577_394_000080",
+      "text": "j'avais donc cru n'avoir rien de mieux à faire que de la laisser dans l'oubli mais puisque vous revenez sur elle que vous paraissez tenir aux idées qu'elle contient et que vous prenez mon silence pour un consentement il faut vous dire clairement mon avis j'ai pu avoir quelquefois la prétention de remplacer à moi seule tout un sérail",
+      "audio": "dev/audio/577/394/577_394_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2564.38,
+        "original_end_s": 2583.91
+      }
+    },
+    {
+      "id": "577_394_000081",
+      "text": "un peu surprise de ce ton de reproche elle voulut répliquer la résolution que vous avez prise dit-elle n'est que l'effet de mon désespoir repris-je avec emportement et vous avez voulu que je sois malheureux je vous prouverai que vous avez réussi au-delà de vos souhaits je désire votre bonheur reprit-elle",
+      "audio": "dev/audio/577/394/577_394_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1620.0,
+        "original_end_s": 1639.73
+      }
+    },
+    {
+      "id": "577_394_000082",
+      "text": "et nous ne voulons en perdre aucun mais qu'est-ce que ces considérations légères auprès des objets importants qui se trouvent remplis voit-on celui qui se sauve du naufrage se plaindre de n'avoir pas le choix des moyens",
+      "audio": "dev/audio/577/394/577_394_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2366.83,
+        "original_end_s": 2379.37
+      }
+    },
+    {
+      "id": "577_394_000083",
+      "text": "dites-moi donc ma belle amie d'où peut venir ce ton d'aigreur et de persiflage qui règne dans votre dernière lettre quel est donc ce crime que j'ai commis apparemment sans m'en douter et qui vous donne tant d'humeur",
+      "audio": "dev/audio/577/394/577_394_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2919.25,
+        "original_end_s": 2930.72
+      }
+    },
+    {
+      "id": "577_394_000084",
+      "text": "et n'allez pas croire que des exceptions plus ou moins nombreuses et qu'on peut citer puissent s'opposer avec succès à ces vérités générales elles ont pour garant la voix publique qui pour les hommes seulement a distingué l'infidélité de l'inconstance",
+      "audio": "dev/audio/577/394/577_394_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3309.97,
+        "original_end_s": 3323.53
+      }
+    },
+    {
+      "id": "577_394_000085",
+      "text": "il ne me sera pas plus difficile de me justifier sur le charme inconnu dont vous me paraissez aussi un peu choquée car d'abord de ce qu'il est inconnu il ne s'ensuit pas qu'il soit plus fort",
+      "audio": "dev/audio/577/394/577_394_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3065.55,
+        "original_end_s": 3077.05
+      }
+    },
+    {
+      "id": "577_394_000086",
+      "text": "tandis que je parlais ainsi je sentais son cœur palpiter avec violence j'observais l'altération de la figure je voyais surtout les larmes la suffoquer et ne couler cependant que rares pénibles",
+      "audio": "dev/audio/577/394/577_394_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1933.58,
+        "original_end_s": 1945.2
+      }
+    },
+    {
+      "id": "577_394_000087",
+      "text": "j'avoue qu'en me livrant à ce point j'avais beaucoup compté sur le secours des larmes mais soit mauvaise disposition soit peut-être seulement l'effet de l'attention pénible et continuelle que je mettais à tout il me fut impossible de pleurer par bonheur je me ressouvins que pour subjuguer une femme tout moyen était également bon",
+      "audio": "dev/audio/577/394/577_394_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1659.31,
+        "original_end_s": 1678.42
+      }
+    },
+    {
+      "id": "577_394_000088",
+      "text": "je me la rende utile en me pénétrant par elle du sentiment de ma faiblesse oui ces lettres qu'il ne se soucie plus de garder je les conserverai précieusement je m'imposerai la honte de les relire chaque jour jusqu'à ce que mes larmes aient effacé les dernières traces",
+      "audio": "dev/audio/577/394/577_394_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 982.1,
+        "original_end_s": 998.93
+      }
+    },
+    {
+      "id": "577_394_000089",
+      "text": "ah je vaincrai ce cœur rebelle je l'accoutumerai aux humiliations c'est surtout pour y parvenir que j'ai enfin consenti à recevoir jeudi prochain la pénible visite de m de valmont",
+      "audio": "dev/audio/577/394/577_394_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 921.71,
+        "original_end_s": 933.54
+      }
+    },
+    {
+      "id": "577_394_000090",
+      "text": "nous nous sommes donc remis à causer tranquillement il m'a dit peu de temps après que peut-être une affaire la plus grande affaire de sa vie le rappellerait bientôt à paris",
+      "audio": "dev/audio/577/394/577_394_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 450.55,
+        "original_end_s": 462.39
+      }
+    },
+    {
+      "id": "577_394_000091",
+      "text": "dans la foule des femmes auprès desquelles j'ai rempli jusqu'à ce jour le rôle et les fonctions d'amant j'en avais encore rencontré aucune qui n'eût au moins autant d'envie de se rendre que j'en avais de l'y déterminer",
+      "audio": "dev/audio/577/394/577_394_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1227.49,
+        "original_end_s": 1240.92
+      }
+    },
+    {
+      "id": "577_394_000092",
+      "text": "mon ami quand vous m'écrirez que ce soit pour me dire votre façon de penser et de sentir et non pour m'envoyer des phrases que je trouverai sans vous plus ou moins bien dites dans le premier roman du jour",
+      "audio": "dev/audio/577/394/577_394_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 123.83,
+        "original_end_s": 137.64
+      }
+    },
+    {
+      "id": "577_394_000093",
+      "text": "mais il est sage d'éclairer un convalescent sur les dangers qu'il a courus pour lui inspirer la prudence dont il a besoin et la soumission aux conseils qui peuvent encore lui être nécessaires puisque vous me choisissez pour votre médecin c'est comme tel que je vous parle que je vous dis que les petites incommodités que vous ressentez à présent",
+      "audio": "dev/audio/577/394/577_394_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2421.63,
+        "original_end_s": 2438.58
+      }
+    },
+    {
+      "id": "577_394_000094",
+      "text": "c'est je crois tout ce qu'on peut faire mais je crains à présent de m'être amolli comme annibal dans les délices de capoue voilà ce qui s'est passé depuis je m'attendais bien qu'un si grand événement ne se passerait pas sans les larmes et le désespoir d'usage",
+      "audio": "dev/audio/577/394/577_394_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2035.87,
+        "original_end_s": 2050.81
+      }
+    },
+    {
+      "id": "577_394_000095",
+      "text": "s'il s'y trouvait quelques sentiments dont j'aie à rougir couvrez-les de votre indulgente amitié je m'en remets entièrement à elle ce n'est pas à vous que je veux dérober aucun de mes mouvements de mon cœur",
+      "audio": "dev/audio/577/394/577_394_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1100.93,
+        "original_end_s": 1112.92
+      }
+    },
+    {
+      "id": "577_394_000096",
+      "text": "il faut avant tout le combattre et l'approfondir peut-être au reste en ai-je déjà entrevu la cause je me plais au moins dans cette idée et je voudrais qu'elle fût vraie",
+      "audio": "dev/audio/577/394/577_394_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1214.76,
+        "original_end_s": 1227.49
+      }
+    },
+    {
+      "id": "577_394_000097",
+      "text": "apprenez-moi à vivre où vous n'êtes pas en sorte que quand vous serez je suppose auprès de votre maîtresse vous ne sauriez pas y vivre que je n'y sois en tiers quelle pitié",
+      "audio": "dev/audio/577/394/577_394_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 90.5,
+        "original_end_s": 102.08
+      }
+    },
+    {
+      "id": "577_394_000098",
+      "text": "il me semble même que cette marche franche et libre quand elle est fondée sur une ancienne liaison est bien préférable à l'insipide cajolerie qui affadit si souvent l'amour peut-être au reste le prix que je trouve à cette manière ne vient-il que de celui que j'attache au bonheur qu'elle me rappelle",
+      "audio": "dev/audio/577/394/577_394_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2973.55,
+        "original_end_s": 2988.84
+      }
+    },
+    {
+      "id": "577_394_000099",
+      "text": "je n'en veux recevoir que de vous vous seule savez m'entendre et parler à mon cœur votre précieuse amitié remplira toute mon existence rien ne me paraîtra difficile pour sonder les soins que vous voudrez bien vous donner",
+      "audio": "dev/audio/577/394/577_394_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1074.05,
+        "original_end_s": 1086.11
+      }
+    },
+    {
+      "id": "577_394_000100",
+      "text": "quelle femme vraiment délicate et sensible n'a pas trouvé l'infortune dans ce même sentiment qui lui promettait tant de bonheur les hommes savent-ils apprécier la femme qu'ils possèdent",
+      "audio": "dev/audio/577/394/577_394_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3210.25,
+        "original_end_s": 3220.27
+      }
+    },
+    {
+      "id": "577_394_000101",
+      "text": "payez au moins ce vœu sincère par un regret par une larme et croyez que le dernier de mes sacrifices ne sera pas le plus pénible à mon cœur adieu",
+      "audio": "dev/audio/577/394/577_394_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1923.53,
+        "original_end_s": 1933.58
+      }
+    },
+    {
+      "id": "577_394_000102",
+      "text": "émue plus que je ne puis vous dire je me suis levée précipitamment et sans doute a-t-il remarqué mon effroi car sur-le-champ se composant davantage pardon a-t-il repris pardon madame je sens que je m'égare malgré moi",
+      "audio": "dev/audio/577/394/577_394_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 525.94,
+        "original_end_s": 541.31
+      }
+    },
+    {
+      "id": "577_394_000103",
+      "text": "est-ce donc là le style de l'amitié non mon ami chaque sentiment a son langage qui lui convient et se servir d'un autre c'est déguiser la pensée qu'on exprime",
+      "audio": "dev/audio/577/394/577_394_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 43.74,
+        "original_end_s": 53.89
+      }
+    },
+    {
+      "id": "577_394_000104",
+      "text": "si tant de charmes ai-je donc repris ont fait sur mon cœur une impression si profonde tant de vertus n'en ont pas moins fait sur mon âme séduit sans doute par le désir de m'en rapprocher j'avais osé m'en croire digne je ne vous reproche point d'en avoir jugé autrement",
+      "audio": "dev/audio/577/394/577_394_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1526.05,
+        "original_end_s": 1543.58
+      }
+    },
+    {
+      "id": "577_394_000105",
+      "text": "non mes souffrances me seront chères si son bonheur en est le prix sans doute il fallait qu'il revînt à son tour au père commun le dieu qui l'a formé devait chérir son ouvrage il n'avait point créé cet être charmant pour n'en faire qu'un réprouvé",
+      "audio": "dev/audio/577/394/577_394_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 868.78,
+        "original_end_s": 883.86
+      }
+    },
+    {
+      "id": "577_394_000106",
+      "text": "aussitôt que j'en ai reconnu la nécessité mais pour qu'il fût entier il y manquait que m de valmont ne le partageât point vous avouerai-je que cette idée est à présent ce qui me tourmente le plus insupportable orgueil qui adoucit les maux que nous éprouvons par ceux que nous faisons souffrir",
+      "audio": "dev/audio/577/394/577_394_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 902.9,
+        "original_end_s": 921.71
+      }
+    },
+    {
+      "id": "577_394_000107",
+      "text": "car j'ai beau me regarder je ne peux pas me trouver déchue jusque-là c'est peut-être un tort que j'ai mais je vous préviens que j'en ai beaucoup d'autres encore j'ai surtout celui de croire que l'écolier le doucereux danceny uniquement occupé de moi",
+      "audio": "dev/audio/577/394/577_394_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2647.16,
+        "original_end_s": 2660.49
+      }
+    },
+    {
+      "id": "577_394_000108",
+      "text": "inutilement vous aurais-je parlé plus tôt avec cette apparente vérité l'amour est un sentiment indépendant que la prudence peut faire éviter mais qu'elle ne saurait vaincre et qui une fois né ne meurt que de sa belle mort et du défaut absolu d'espoir",
+      "audio": "dev/audio/577/394/577_394_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2394.48,
+        "original_end_s": 2409.79
+      }
+    },
+    {
+      "id": "577_394_000109",
+      "text": "quand même la scène d'hier m'aurait comme je le crois emporté un peu plus loin que je ne comptais quand j'aurais un moment partagé le trouble et l'ivresse que je faisais naître cette illusion passagère serait dissipée à présent",
+      "audio": "dev/audio/577/394/577_394_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1183.99,
+        "original_end_s": 1197.18
+      }
+    },
+    {
+      "id": "577_394_000110",
+      "text": "et je crains qu'il ne me faille beaucoup de temps mais beaucoup avant de changer de sentiment quand je serai corrigée je vous promets de vous en avertir jusque-là croyez-moi faites d'autres arrangements et gardez vos baisers vous avez tant à les placer mieux",
+      "audio": "dev/audio/577/394/577_394_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2714.74,
+        "original_end_s": 2729.29
+      }
+    },
+    {
+      "id": "577_394_000111",
+      "text": "ou quand vous craindrez de compromettre auprès de l'attachante cécile l'idée supérieure que vous êtes bien aise qu'elle conserve de vous alors descendant jusqu'à moi vous viendrez y chercher",
+      "audio": "dev/audio/577/394/577_394_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2619.05,
+        "original_end_s": 2631.44
+      }
+    },
+    {
+      "id": "577_394_000112",
+      "text": "et qui comptait déjà deux années de triomphe enfin des démarches éclatantes inspirées par ces différents motifs et qui toutes n'avaient pour but que de se soustraire à mes poursuites",
+      "audio": "dev/audio/577/394/577_394_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1272.45,
+        "original_end_s": 1283.61
+      }
+    },
+    {
+      "id": "577_394_000113",
+      "text": "serait de ne pas savoir fuir un danger dont elle a été suffisamment avertie par l'aveu qu'elle a fait de son amour vous autres hommes vous n'avez pas d'idée de ce que c'est la vertu",
+      "audio": "dev/audio/577/394/577_394_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 236.03,
+        "original_end_s": 246.32
+      }
+    },
+    {
+      "id": "577_394_000114",
+      "text": "en prononçant ces dernières paroles nos regards se rencontrèrent et je ne sais ce que la timide personne vu ou crut voir dans les miens mais elle se leva d'un air effrayé et s'échappa de mes bras dont je l'avais entourée",
+      "audio": "dev/audio/577/394/577_394_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1701.21,
+        "original_end_s": 1715.61
+      }
+    },
+    {
+      "id": "577_394_000115",
+      "text": "mais le bonheur porte à l'indulgence et puis je n'oublie pas qu'en me replaçant au nombre de vos soupirants je dois me soumettre de nouveau à vos petites fantaisies souvenez-vous cependant que le nouvel amant ne veut rien perdre de ses anciens droits de l'ami",
+      "audio": "dev/audio/577/394/577_394_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2271.04,
+        "original_end_s": 2285.96
+      }
+    },
+    {
+      "id": "577_394_000116",
+      "text": "et vous pouvez être sûre que je ne me laisserai pas tellement enchaîner que je ne puisse toujours briser ces nouveaux liens en jouant et à ma volonté mais déjà je vous parle de ma rupture et vous ignorez encore par quels moyens j'en ai acquis le droit",
+      "audio": "dev/audio/577/394/577_394_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1341.46,
+        "original_end_s": 1356.84
+      }
+    },
+    {
+      "id": "577_394_000117",
+      "text": "elle a consenti à recevoir votre visite à condition toutefois que ce sera la dernière et m'a chargé de vous annoncer qu'elle serait chez elle jeudi prochain vingt huit si ce jour ne pouvait pas vous convenir vous voudrez bien l'en informer et lui en indiquer un autre votre lettre sera reçue",
+      "audio": "dev/audio/577/394/577_394_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 647.08,
+        "original_end_s": 665.66
+      }
+    },
+    {
+      "id": "577_394_000118",
+      "text": "vous vous êtes regardée me dites-vous à ce sujet et vous ne vous êtes pas trouvée déchue à ce point je le crois bien et cela prouve seulement que votre miroir est fidèle mais n'auriez-vous pas pu en conclure avec plus de facilité et de justice qu'à coup sûr je n'avais pas jugé ainsi de vous",
+      "audio": "dev/audio/577/394/577_394_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3006.16,
+        "original_end_s": 3021.29
+      }
+    },
+    {
+      "id": "577_394_000119",
+      "text": "fuyons cette passion funeste qui ne laisse de choix qu'entre la honte et le malheur et souvent même les réunit tous deux et qu'au moins la prudence remplace la vertu que ce jeudi est encore loin que ne puis-je consommer à l'instant ce douloureux sacrifice et en oublier à la fois et la cause et l'objet",
+      "audio": "dev/audio/577/394/577_394_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1015.44,
+        "original_end_s": 1033.64
+      }
+    },
+    {
+      "id": "577_394_000120",
+      "text": "femme adorable lui dis-je en risquant l'enthousiasme vous n'avez pas d'idée de l'amour que vous inspirez vous ne saurez jamais à quel point vous fûtes adorée et de combien ce sentiment m'était plus cher que mon existence puissent tous vos jours être fortunés et tranquilles puissent-ils s'embellir de tout le bonheur dont vous m'avez privé",
+      "audio": "dev/audio/577/394/577_394_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1903.73,
+        "original_end_s": 1923.53
+      }
+    },
+    {
+      "id": "577_394_000121",
+      "text": "je redoublai mes protestations et heureux par moi j'ajoutai des louanges à ses tendres propos tandis que je parlais tous ses membres s'assoupirent elle retomba avec mollesse appuyée sur son fauteuil et m'abandonnant une main que j'avais osé prendre je sens dit-elle que cette idée me console et me soulage",
+      "audio": "dev/audio/577/394/577_394_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2148.37,
+        "original_end_s": 2167.49
+      }
+    },
+    {
+      "id": "577_394_000122",
+      "text": "enfin ce goût exclusif qui caractérise particulièrement l'amour n'est dans l'homme qu'une préférence qui sert au plus à augmenter un plaisir qu'un autre objet affaiblirait peut-être mais ne détruirait pas",
+      "audio": "dev/audio/577/394/577_394_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3282.22,
+        "original_end_s": 3294.67
+      }
+    },
+    {
+      "id": "577_394_000123",
+      "text": "je ne m'en vante pas ni ne m'en accuse je dis simplement ce qui est vous sentirez aisément d'après cela quelle impression a dû me faire votre lettre et les vérités sévères qu'elle contient ne croyez pas cependant qu'elle ait pu faire naître un regret en moi ni qu'elle puisse jamais me faire changer de sentiment ni de conduite",
+      "audio": "dev/audio/577/394/577_394_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2791.5,
+        "original_end_s": 2810.18
+      }
+    },
+    {
+      "id": "577_394_000124",
+      "text": "et ces femmes à qui il manque toujours d'être moi vous trouvez peut-être aussi que cela manque à votre cécile voilà pourtant où conduit un langage qui par l'abus que l'on en fait",
+      "audio": "dev/audio/577/394/577_394_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 102.08,
+        "original_end_s": 113.39
+      }
+    },
+    {
+      "id": "577_394_000125",
+      "text": "plaire n'est pour lui qu'un moyen de succès tandis que pour elle c'est le succès lui-même et la coquetterie si souvent reprochée aux femmes n'est autre chose que l'abus de cette façon de sentir et par là même en prouve la vérité",
+      "audio": "dev/audio/577/394/577_394_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3268.49,
+        "original_end_s": 3282.22
+      }
+    },
+    {
+      "id": "577_394_000126",
+      "text": "m'ayant appelé à mon secours cette même idée de mon bonheur j'en ressentis bientôt les favorables effets vous avez raison me dit la tendre personne et je ne puis plus supporter mon existence qu'autant qu'elle servira à vous rendre heureux",
+      "audio": "dev/audio/577/394/577_394_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2181.78,
+        "original_end_s": 2194.42
+      }
+    },
+    {
+      "id": "577_394_000127",
+      "text": "au milieu de l'étonnement où m'a jetée madame la nouvelle que j'ai apprise hier je n'oublie pas la satisfaction qu'elle doit vous causer et je me hâte de vous en faire part m de valmont ne s'occupe plus ni de moi ni de son amour et ne veut plus que réparer par une vie plus édifiante les fautes ou plutôt les erreurs de sa jeunesse",
+      "audio": "dev/audio/577/394/577_394_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 767.83,
+        "original_end_s": 786.17
+      }
+    },
+    {
+      "id": "577_394_000128",
+      "text": "aussitôt qu'il m'a aperçue j'ai très bien remarqué qu'en se levant il s'efforçait de composer sa figure peut-être même est-ce là ce qui m'y a fait faire plus attention",
+      "audio": "dev/audio/577/394/577_394_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 365.29,
+        "original_end_s": 377.67
+      }
+    },
+    {
+      "id": "577_394_000129",
+      "text": "et la difficulté d'achever le mensonge que le devoir exigeait n'a pas permis de finir la phrase j'ai donc repris du ton le plus tendre il est donc vrai que c'est moi que vous avez fui",
+      "audio": "dev/audio/577/394/577_394_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1571.96,
+        "original_end_s": 1583.98
+      }
+    },
+    {
+      "id": "577_394_000130",
+      "text": "lisez donc et voyez à quoi s'expose la sagesse en essayant de secourir la folie j'étudiais si attentivement mes discours et les réponses que j'obtenais que j'espère vous rendre les uns et les autres avec une exactitude dont vous serez contente",
+      "audio": "dev/audio/577/394/577_394_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1356.84,
+        "original_end_s": 1373.34
+      }
+    },
+    {
+      "id": "577_394_000131",
+      "text": "de ce qu'il en coûte pour la sacrifier mais pour peu qu'une femme raisonne elle doit savoir qu'indépendamment de la faute qu'elle commet une faiblesse est pour elle le plus grand des malheurs et je ne conçois pas qu'aucune s'y laisse jamais prendre quand elle peut avoir un moment pour y réfléchir",
+      "audio": "dev/audio/577/394/577_394_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 246.32,
+        "original_end_s": 263.48
+      }
+    },
+    {
+      "id": "577_394_000132",
+      "text": "qui pourrait l'emporter sur les délicieux plaisirs que vous seule savez rendre toujours nouveaux comme toujours plus vifs j'ai donc voulu dire seulement que celui-là était d'un genre que je n'avais pas encore éprouvé",
+      "audio": "dev/audio/577/394/577_394_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3077.05,
+        "original_end_s": 3088.22
+      }
+    },
+    {
+      "id": "577_394_000133",
+      "text": "et pourquoi ma chère belle ne voulez-vous plus être ma fille pourquoi semblez vous m'annoncer que toute correspondance va être rompue entre nous est-ce pour me punir de n'avoir pas deviné ce qui était contre toute vraisemblance ou me soupçonnez vous de vous avoir affligée volontairement",
+      "audio": "dev/audio/577/394/577_394_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3176.8,
+        "original_end_s": 3191.87
+      }
+    },
+    {
+      "id": "577_394_000134",
+      "text": "je vous prie d'oublier mes discours et de vous souvenir seulement de mon profond respect je ne manquerai pas a-t-il ajouté d'aller vous en renouveler l'hommage avant mon départ",
+      "audio": "dev/audio/577/394/577_394_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 541.31,
+        "original_end_s": 552.83
+      }
+    },
+    {
+      "id": "577_394_000135",
+      "text": "mais repris-je aussitôt d'un air égaré je suis venu n'est-il pas vrai pour vous rendre vos lettres de grâce daignez les reprendre ce douloureux sacrifice me reste à faire ne me laissez rien qui puisse affaiblir mon courage et tirant de ma poche le précieux recueil",
+      "audio": "dev/audio/577/394/577_394_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1833.42,
+        "original_end_s": 1849.61
+      }
+    },
+    {
+      "id": "577_394_000136",
+      "text": "j'ai pu remarquer son ingénuité et sa fraîcheur j'ai pu même la croire un moment attachante parce que plus ou moins on se complaît toujours un peu dans son ouvrage mais assurément elle n'a assez de consistance en aucun genre pour fixer en rien l'attention",
+      "audio": "dev/audio/577/394/577_394_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3113.76,
+        "original_end_s": 3128.45
+      }
+    },
+    {
+      "id": "577_394_000137",
+      "text": "dépêchez-vous donc de renvoyer votre pesant belleroche et laissez là le doucereux danceny pour ne vous occuper que de moi mais que faites-vous donc tant à cette campagne que vous ne me répondez pas seulement savez-vous que je vous gronderais volontiers",
+      "audio": "dev/audio/577/394/577_394_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2255.93,
+        "original_end_s": 2271.04
+      }
+    },
+    {
+      "id": "577_394_000138",
+      "text": "et moi les moyens de vous y conduire c'est avec son secours que j'espère vous convaincre bientôt que la religion sainte peut donner seule même en ce monde le bonheur solide et durable qu'on cherche vainement dans l'aveuglement des passions humaines",
+      "audio": "dev/audio/577/394/577_394_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 737.04,
+        "original_end_s": 752.53
+      }
+    },
+    {
+      "id": "577_394_000139",
+      "text": "il me semble qu'à tout prendre vous valez mieux qu'un procès et deux avocats et peut-être même encore que l'attentif belleroche vous voyez qu'au lieu de vous désoler de mon absence vous devriez vous en féliciter car jamais je ne vous ai fait un si beau compliment",
+      "audio": "dev/audio/577/394/577_394_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 154.88,
+        "original_end_s": 171.1
+      }
+    },
+    {
+      "id": "577_394_000140",
+      "text": "mais je ne perdrai rien pour attendre n'est-il pas vrai et j'espère pouvoir regarder comme convenu entre nous l'heureux arrangement que je vous ai proposé dans ma dernière lettre vous voyez que je m'exécute et comme je vous l'ai promis mes affaires seront assez avancées pour pouvoir vous donner une partie de mon temps",
+      "audio": "dev/audio/577/394/577_394_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2238.31,
+        "original_end_s": 2255.93
+      }
+    },
+    {
+      "id": "577_394_000141",
+      "text": "comme l'amie d'une femme raisonnable et vertueuse je me permettrai d'ajouter que cette passion qui vous avait subjuguée déjà si malheureuse par elle-même le devenait encore plus par son objet si j'en crois ce qu'on me dit mon neveu",
+      "audio": "dev/audio/577/394/577_394_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2448.59,
+        "original_end_s": 2462.12
+      }
+    },
+    {
+      "id": "577_394_000142",
+      "text": "quel compte avons-nous à demander à celui qui ne nous doit rien et quand il serait possible que nous eussions quelques droits auprès de lui quels pourraient être les miens me vanterais-je d'une sagesse que déjà je ne dois qu'à valmont il m'a sauvée et j'oserais me plaindre en souffrant pour lui",
+      "audio": "dev/audio/577/394/577_394_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 851.64,
+        "original_end_s": 868.78
+      }
+    },
+    {
+      "id": "577_394_000143",
+      "text": "là je la pressai dans mes bras sans qu'elle se défendît aucunement et jugeant par cet oubli des bienséances combien l'émotion était forte puissante",
+      "audio": "dev/audio/577/394/577_394_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1893.01,
+        "original_end_s": 1903.73
+      }
+    },
+    {
+      "id": "577_394_000144",
+      "text": "d'une figure invariable n'ayant l'air ni de penser ni d'écouter ni d'entendre dont les yeux fixes laissent échapper des larmes assez continues mais qui coulent sans effort telle était mme de tourvel pendant mes discours mais si j'essayais de ramener son attention vers moi par une caresse par le geste même",
+      "audio": "dev/audio/577/394/577_394_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2086.22,
+        "original_end_s": 2105.22
+      }
+    },
+    {
+      "id": "577_394_000145",
+      "text": "mais étouffons ce coupable murmure ne sais-je pas que l'enfant prodigue à son retour obtint plus de grâces de son père que le fils qui ne s'était jamais absenté",
+      "audio": "dev/audio/577/394/577_394_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 841.27,
+        "original_end_s": 851.64
+      }
+    },
+    {
+      "id": "577_394_000146",
+      "text": "tout me prouvait assez que l'effet était tel que j'avais voulu le produire mais comme en amour rien ne se finit que de très près et que nous étions alors assez loin l'un de l'autre il fallait avant tout se rapprocher",
+      "audio": "dev/audio/577/394/577_394_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1761.78,
+        "original_end_s": 1774.92
+      }
+    },
+    {
+      "id": "577_394_000147",
+      "text": "il est fort doux d'avoir un jeune ami dont le cœur est occupé ailleurs ce n'est pas là le système de toutes les femmes mais c'est le mien il me semble qu'on se livre avec plus de plaisir à un sentiment dont on ne peut rien avoir à craindre aussi j'ai passé pour vous d'assez bonne heure peut-être au rôle de confidente",
+      "audio": "dev/audio/577/394/577_394_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 183.98,
+        "original_end_s": 202.09
+      }
+    },
+    {
+      "id": "577_394_000148",
+      "text": "mais je me punis de mon erreur comme on gardait le silence de l'embarras j'ai continué j'ai désiré madame ou me justifier à vos yeux ou d'obtenir de vous le pardon des torts que vous me supposez",
+      "audio": "dev/audio/577/394/577_394_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1543.58,
+        "original_end_s": 1558.35
+      }
+    },
+    {
+      "id": "577_394_000149",
+      "text": "le voilà dis-je ce dépôt trompeur des assurances de votre amitié il m'attachait à la vie reprenez-le donnez ainsi vous-même le signal qui doit me séparer de vous pour jamais ici l'amante craintive céda entièrement à sa tendre inquiétude",
+      "audio": "dev/audio/577/394/577_394_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1849.61,
+        "original_end_s": 1864.1
+      }
+    },
+    {
+      "id": "577_394_000150",
+      "text": "et met presque un prix égal à les séduire et à les perdre je crois bien que vous l'auriez converti jamais personne sans doute n'en fut plus digne mais tant d'autres s'en sont flattées de même dont l'espoir a été déçu que j'aime bien mieux que vous n'en soyez pas réduite à cette ressource",
+      "audio": "dev/audio/577/394/577_394_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2472.59,
+        "original_end_s": 2489.54
+      }
+    },
+    {
+      "id": "577_394_000151",
+      "text": "là je l'entendrai me dire lui-même que je ne lui suis plus rien que l'impression faible et passagère que j'avais faite sur lui est entièrement effacée je verrai ses regards se porter sur moi sans émotion tandis que la crainte de déceler la mienne me fera baisser les yeux",
+      "audio": "dev/audio/577/394/577_394_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 933.54,
+        "original_end_s": 949.95
+      }
+    },
+    {
+      "id": "577_394_000152",
+      "text": "si vous voulez que je me calme répondit la belle effarouchée vous-même soyez donc plus tranquille hé bien oui je vous le promets lui dis-je j'ajoutai d'une voix plus faible si l'effort est grand au moins ne doit-il pas être long",
+      "audio": "dev/audio/577/394/577_394_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1818.15,
+        "original_end_s": 1833.42
+      }
+    },
+    {
+      "id": "577_394_000153",
+      "text": "aussitôt que vous le désirerez quelque grandes que soient mes occupations mon affaire la plus importante sera toujours de remplir les devoirs du saint ministère auquel je me suis particulièrement dévoué",
+      "audio": "dev/audio/577/394/577_394_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 703.41,
+        "original_end_s": 716.46
+      }
+    },
+    {
+      "id": "577_394_000154",
+      "text": "je ne puis sans doute qu'applaudir à cet heureux changement et m'en féliciter si comme il le dit et j'ai pu y concourir en quelque chose mais pourquoi fallait-il que j'en fusse l'instrument et qu'il m'en coûtât le repos de ma vie le bonheur de monsieur de valmont ne pouvait-il arriver jamais que par mon infortune",
+      "audio": "dev/audio/577/394/577_394_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 804.51,
+        "original_end_s": 822.56
+      }
+    },
+    {
+      "id": "577_394_000155",
+      "text": "ici au contraire j'ai trouvé une première prévention défavorable et fondée depuis sur les conseils et les rapports d'une femme haineuse mais clairvoyante une timidité naturelle et extrême que fortifiait une pudeur éclairée un attachement à la vertu que la religion dirigeait",
+      "audio": "dev/audio/577/394/577_394_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1255.23,
+        "original_end_s": 1272.45
+      }
+    },
+    {
+      "id": "577_394_000156",
+      "text": "que nous avons remarqué souvent être si semblable à l'autre jugez-moi donc comme turenne ou comme frédéric j'ai forcé à combattre l'ennemi qui ne voulait que temporiser je me suis donné par de savantes manœuvres le choix du terrain et celui des dispositions",
+      "audio": "dev/audio/577/394/577_394_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1994.48,
+        "original_end_s": 2009.32
+      }
+    },
+    {
+      "id": "577_394_000157",
+      "text": "je me permettrai même d'ajouter que s'il me venait en fantaisie de lui donner un adjoint ce ne serait pas vous au moins pour le moment et par quelles raisons m'allez-vous demander",
+      "audio": "dev/audio/577/394/577_394_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2674.93,
+        "original_end_s": 2684.99
+      }
+    },
+    {
+      "id": "577_394_000158",
+      "text": "je vous devrai ma tranquillité mon bonheur ma vertu et le fruit de vos bontés pour moi sera de m'avoir enfin rendue digne je me suis je crois beaucoup égarée dans cette lettre je le présume au moins par le trouble où je n'ai pas cessé d'être en vous écrivant",
+      "audio": "dev/audio/577/394/577_394_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 1086.11,
+        "original_end_s": 1100.93
+      }
+    },
+    {
+      "id": "577_394_000159",
+      "text": "mais comme j'avais peur de la deviner ma chère belle et que ce début ne me menât à une confidence dont je ne voulais pas je ne lui ai fait aucune question et je me suis contentée de lui répondre que plus de dissipation serait utile à sa santé",
+      "audio": "dev/audio/577/394/577_394_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 462.39,
+        "original_end_s": 478.11
+      }
+    },
+    {
+      "id": "577_394_000160",
+      "text": "eh qui sommes-nous pour nous blâmer les uns les autres laissons le droit de juger à celui seul qui lit dans les cœurs et j'ose même croire qu'à ses yeux paternels une foule de vertus peut racheter une faiblesse",
+      "audio": "dev/audio/577/394/577_394_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 3378.54,
+        "original_end_s": 3390.41
+      }
+    },
+    {
+      "id": "577_394_000161",
+      "text": "nous ne pouvons rien par nous-mêmes mais le dieu qui vous rappelle peut tout et nous devons également à sa bonté vous le désir constant de vous rejoindre à lui",
+      "audio": "dev/audio/577/394/577_394_000161.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 726.62,
+        "original_end_s": 737.04
+      }
+    },
+    {
+      "id": "577_394_000162",
+      "text": "paris ce premier novembre dix-sept cent lettre cent vingt-neuf le vicomte de valmont à la marquise de merteuil",
+      "audio": "dev/audio/577/394/577_394_000162.opus",
+      "tags": {
+        "speaker_id": "mls-fr-577",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_121-130_laclos_64kb.mp3",
+        "original_start_s": 2908.04,
+        "original_end_s": 2919.25
+      }
+    },
+    {
+      "id": "579_394_000000",
+      "text": "si sa belle ingénue veut être docile tout sera terminé peu de temps après son arrivée à la campagne j'ai cent moyens tous prêts",
+      "audio": "dev/audio/579/394/579_394_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2672.72,
+        "original_end_s": 2684.0
+      }
+    },
+    {
+      "id": "579_394_000001",
+      "text": "je vous envoie le billet de votre maman et la copie de ma réponse j'espère que vous approuverez ce que je lui dis j'ai bien besoin que vous approuviez aussi les démarches que j'ai faites depuis ce fatal événement",
+      "audio": "dev/audio/579/394/579_394_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2341.25,
+        "original_end_s": 2357.44
+      }
+    },
+    {
+      "id": "579_394_000002",
+      "text": "je ne mentirai pas beaucoup sûrement je souffre plus que si j'avais la fièvre les yeux me brûlent à force d'avoir pleuré et j'ai un poids sur l'estomac qui m'empêche de respirer",
+      "audio": "dev/audio/579/394/579_394_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 273.76,
+        "original_end_s": 288.21
+      }
+    },
+    {
+      "id": "579_394_000003",
+      "text": "vous ne sauriez croire combien la douleur l'embellit pour peu qu'elle prenne de coquetterie je vous garantis qu'elle pleurera souvent pour cette fois elle pleurait sans malice",
+      "audio": "dev/audio/579/394/579_394_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1161.98,
+        "original_end_s": 1177.97
+      }
+    },
+    {
+      "id": "579_394_000004",
+      "text": "apprenez donc ce que j'ai fait en rentrant chez moi avant-hier matin je lus votre lettre je la trouvai lumineuse",
+      "audio": "dev/audio/579/394/579_394_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 570.12,
+        "original_end_s": 586.89
+      }
+    },
+    {
+      "id": "579_394_000005",
+      "text": "vraiment oui je vous expliquerai le billet de danceny l'événement qui le lui a fait écrire est mon ouvrage et c'est je crois mon chef-d'œuvre",
+      "audio": "dev/audio/579/394/579_394_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 481.48,
+        "original_end_s": 498.28
+      }
+    },
+    {
+      "id": "579_394_000006",
+      "text": "et si vous refusez de le prendre ce sera quoique vous puissiez dire me prouver assez combien peu vous y mettez de prix quittez donc un langage que je ne puis ni ne veux entendre",
+      "audio": "dev/audio/579/394/579_394_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2967.84,
+        "original_end_s": 2983.67
+      }
+    },
+    {
+      "id": "579_394_000007",
+      "text": "je vous ai permis de m'écrire dites-vous j'en conviens mais quand vous me rappelez cette permission croyez-vous que j'oublie à quelles conditions elle vous fut donnée",
+      "audio": "dev/audio/579/394/579_394_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2928.85,
+        "original_end_s": 2942.27
+      }
+    },
+    {
+      "id": "579_394_000008",
+      "text": "si j'y eusse été aussi fidèle que vous l'avez été peu auriez-vous reçu une seule réponse de moi voilà pourtant la troisième",
+      "audio": "dev/audio/579/394/579_394_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2942.27,
+        "original_end_s": 2953.72
+      }
+    },
+    {
+      "id": "579_394_000009",
+      "text": "ou si ce n'est qu'un sot comme je suis tentée quelquefois de le croire il sera désespéré et se tiendra pour battu",
+      "audio": "dev/audio/579/394/579_394_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 944.15,
+        "original_end_s": 954.81
+      }
+    },
+    {
+      "id": "579_394_000010",
+      "text": "vous avez il est vrai le secret de mlle de volanges mais permettez-moi de le dire je suis autorisé à croire que c'est l'effet de la surprise non de la confiance",
+      "audio": "dev/audio/579/394/579_394_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2112.18,
+        "original_end_s": 2130.12
+      }
+    },
+    {
+      "id": "579_394_000011",
+      "text": "ce sera elle qui vous remettra cette lettre et vous pourrez lui donner votre réponse ce secours ne vous sera guère utile si comme le croit m de valmont",
+      "audio": "dev/audio/579/394/579_394_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2488.19,
+        "original_end_s": 2504.97
+      }
+    },
+    {
+      "id": "579_394_000012",
+      "text": "à dieu ne plaise dit-il en se levant que je doute de la sagesse de mme de merteuil mais j'oserais croire qu'elle la doit plus à sa légèreté qu'à ses principes",
+      "audio": "dev/audio/579/394/579_394_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3639.04,
+        "original_end_s": 3656.71
+      }
+    },
+    {
+      "id": "579_394_000013",
+      "text": "en choisissant bien dans cette correspondance et n'en produisant qu'une partie la petite volanges paraîtrait avoir fait toutes les premières démarches et s'être absolument jetée à la tête",
+      "audio": "dev/audio/579/394/579_394_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2799.0,
+        "original_end_s": 2813.41
+      }
+    },
+    {
+      "id": "579_394_000014",
+      "text": "je fis naître en elle l'espoir de voir danceny en secret et m'asseyant sur le lit s'il était là lui dis-je",
+      "audio": "dev/audio/579/394/579_394_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1270.47,
+        "original_end_s": 1282.89
+      }
+    },
+    {
+      "id": "579_394_000015",
+      "text": "je n'aimais pas monsieur de valmont et je ne le croyais pas tant votre ami je tâcherai de m'accoutumer à lui et je l'aimerai à cause de vous",
+      "audio": "dev/audio/579/394/579_394_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3532.84,
+        "original_end_s": 3545.88
+      }
+    },
+    {
+      "id": "579_394_000016",
+      "text": "tout le monde paraissait être de mon avis et la conversation languissait comme il arrive toujours quand on ne dit que du bien de son prochain lorsqu'il s'éleva un contradicteur c'était prévan",
+      "audio": "dev/audio/579/394/579_394_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3619.69,
+        "original_end_s": 3639.04
+      }
+    },
+    {
+      "id": "579_394_000017",
+      "text": "la crainte de ce qui pourrait compromettre sa réputation m'engage à ce sacrifice et le bonheur de la voir quelquefois m'en dédommagera",
+      "audio": "dev/audio/579/394/579_394_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1944.25,
+        "original_end_s": 1958.5
+      }
+    },
+    {
+      "id": "579_394_000018",
+      "text": "or dans ce cas au moins me serai-je vengée de lui autant qu'il était en moi chemin faisant",
+      "audio": "dev/audio/579/394/579_394_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 954.81,
+        "original_end_s": 966.84
+      }
+    },
+    {
+      "id": "579_394_000019",
+      "text": "mais cette absence subite et totale ne donnera-t-elle donc pas autant de prise aux remarques que vous voulez éviter que l'ordre que par cette raison même vous n'avez point voulu donner à votre porte",
+      "audio": "dev/audio/579/394/579_394_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1864.48,
+        "original_end_s": 1883.55
+      }
+    },
+    {
+      "id": "579_394_000020",
+      "text": "qu'aujourd'hui pourtant on nomme amour je me hâterais de tirer avantage de tout ce que je pourrais obtenir",
+      "audio": "dev/audio/579/394/579_394_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3218.21,
+        "original_end_s": 3230.02
+      }
+    },
+    {
+      "id": "579_394_000021",
+      "text": "et il n'y a peu de moyens plus sûrs pour la répandre ou si par miracle ils ne parlaient pas nous parlerions nous et il sera plus commode de mettre l'indiscrétion sur leur compte",
+      "audio": "dev/audio/579/394/579_394_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1356.65,
+        "original_end_s": 1375.33
+      }
+    },
+    {
+      "id": "579_394_000022",
+      "text": "la mienne a besoin que vous m'assuriez que vous pardonnez à l'amour les maux qu'il vous fait souffrir adieu ma cécile adieu ma tendre amie",
+      "audio": "dev/audio/579/394/579_394_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2596.55,
+        "original_end_s": 2611.86
+      }
+    },
+    {
+      "id": "579_394_000023",
+      "text": "cela me rappelle ajoutai-je qu'un jour elle ouvrit devant moi un tiroir de son secrétaire dans lequel je vis beaucoup de papiers que sans doute elle conserve",
+      "audio": "dev/audio/579/394/579_394_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 700.96,
+        "original_end_s": 716.52
+      }
+    },
+    {
+      "id": "579_394_000024",
+      "text": "je n'ai pas perdu mon temps depuis votre dernière lettre et j'ai dit comme l'architecte athénien ce qu'il a dit je le ferai",
+      "audio": "dev/audio/579/394/579_394_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 498.28,
+        "original_end_s": 511.82
+      }
+    },
+    {
+      "id": "579_394_000025",
+      "text": "quand on est occupé d'ailleurs et c'est le cas où vous serez c'est de vos soins que va dépendre le dénouement de cette intrigue jugez du moment où il faudra réunir les acteurs",
+      "audio": "dev/audio/579/394/579_394_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1572.82,
+        "original_end_s": 1588.75
+      }
+    },
+    {
+      "id": "579_394_000026",
+      "text": "vous ne serez pas surpris sans doute de ne plus être reçu dans une maison où vous n'avez répondu aux preuves de l'amitié la plus sincère que par l'oubli de tous les procédés",
+      "audio": "dev/audio/579/394/579_394_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 357.4,
+        "original_end_s": 368.82
+      }
+    },
+    {
+      "id": "579_394_000027",
+      "text": "j'imagine que je n'ai pas besoin de vous recommander le secret vis-à-vis de mme de volanges sur mon projet de campagne",
+      "audio": "dev/audio/579/394/579_394_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2854.81,
+        "original_end_s": 2864.97
+      }
+    },
+    {
+      "id": "579_394_000028",
+      "text": "j'ai droit d'espérer que vous ne me forcerez pas de recourir à ce moyen je vous préviens aussi que si vous faites à l'avenir la moindre tentative pour entretenir ma fille dans l'égarement où vous l'avez plongée",
+      "audio": "dev/audio/579/394/579_394_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 382.51,
+        "original_end_s": 400.85
+      }
+    },
+    {
+      "id": "579_394_000029",
+      "text": "je sens bien que le scrupuleux danceny se révolterait d'abord mais comme il serait personnellement attaqué je crois qu'on en viendrait à bout",
+      "audio": "dev/audio/579/394/579_394_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2823.67,
+        "original_end_s": 2835.08
+      }
+    },
+    {
+      "id": "579_394_000030",
+      "text": "cet article de ma lettre est aussi la seule réponse que je puisse faire à ce que vous me dites sur le sort que vous destinez à mlle de volanges et que vous voulez rendre dépendant de ma conduite",
+      "audio": "dev/audio/579/394/579_394_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1958.5,
+        "original_end_s": 1974.34
+      }
+    },
+    {
+      "id": "579_394_000031",
+      "text": "persuadée que vous aviez très bien indiqué la cause du mal je ne m'occupai plus qu'à trouver le moyen de le guérir je commençai pourtant par me coucher",
+      "audio": "dev/audio/579/394/579_394_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 586.89,
+        "original_end_s": 602.39
+      }
+    },
+    {
+      "id": "579_394_000032",
+      "text": "je m'amusais à lui monter la tête sur le plaisir qu'elle aurait à le voir le lendemain il n'est sorte de folies que je ne lui aie fait dire il fallait bien lui rendre en espérance ce que je lui ôtais en réalité",
+      "audio": "dev/audio/579/394/579_394_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 834.77,
+        "original_end_s": 852.79
+      }
+    },
+    {
+      "id": "579_394_000033",
+      "text": "ce parti que je prends doit vous prouver ainsi que mes refus ne portent pas sur la crainte que vous trouviez dans ces lettres un seul sentiment dont vous ayez personnellement à vous plaindre",
+      "audio": "dev/audio/579/394/579_394_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2222.49,
+        "original_end_s": 2236.46
+      }
+    },
+    {
+      "id": "579_394_000034",
+      "text": "de points de suspension ce neuf septembre mille sept cent quelque chose lettre soixante sept la présidente de tourvel au vicomte de valmont",
+      "audio": "dev/audio/579/394/579_394_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2882.42,
+        "original_end_s": 2901.96
+      }
+    },
+    {
+      "id": "579_394_000035",
+      "text": "nous nous serions séparées parfaitement contentes l'une de l'autre si elle n'avait voulu me charger d'une lettre pour danceny ce que j'ai constamment refusé en voici les raisons que vous approuverez sans doute",
+      "audio": "dev/audio/579/394/579_394_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1293.96,
+        "original_end_s": 1311.22
+      }
+    },
+    {
+      "id": "579_394_000036",
+      "text": "je parlai enfin presque aussi bien qu'aurait pu faire une dévote et pour frapper le coup décisif j'allai jusqu'à dire que je croyais avoir vu donner et recevoir une lettre",
+      "audio": "dev/audio/579/394/579_394_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 681.41,
+        "original_end_s": 700.96
+      }
+    },
+    {
+      "id": "579_394_000037",
+      "text": "il faudra donc que vous donniez aujourd'hui cette idée à danceny et comme je ne suis pas sûre de la femme de chambre de la petite volanges dont elle-même paraît se méfier indiquez lui la mienne ma fidèle victoire",
+      "audio": "dev/audio/579/394/579_394_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1375.33,
+        "original_end_s": 1394.0
+      }
+    },
+    {
+      "id": "579_394_000038",
+      "text": "vous m'y parlez avec franchise vous me témoignez de la confiance vous m'offrez enfin votre amitié que de biens madame et quels regrets de ne pouvoir en profiter",
+      "audio": "dev/audio/579/394/579_394_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3184.9,
+        "original_end_s": 3200.19
+      }
+    },
+    {
+      "id": "579_394_000039",
+      "text": "frappée de ce nouvel agrément que je ne lui connaissais pas et que j'étais bien aise d'observer je ne lui donnai d'abord que de ces consolations gauches qui augmentent plus les peines qu'elles ne les soulagent",
+      "audio": "dev/audio/579/394/579_394_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1177.97,
+        "original_end_s": 1194.44
+      }
+    },
+    {
+      "id": "579_394_000040",
+      "text": "elles peuvent devenir utiles je m'explique malgré la prudence que nous mettrons il peut arriver un éclat",
+      "audio": "dev/audio/579/394/579_394_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2769.56,
+        "original_end_s": 2781.54
+      }
+    },
+    {
+      "id": "579_394_000041",
+      "text": "sans lui je serais réduit au désespoir de ne pouvoir même adoucir les chagrins que je vous cause ils finiront je l'espère mais ma tendre amie promettez-moi de ne pas trop vous y livrer de ne point vous en laisser abattre",
+      "audio": "dev/audio/579/394/579_394_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2558.95,
+        "original_end_s": 2578.74
+      }
+    },
+    {
+      "id": "579_394_000042",
+      "text": "maman sait tout je ne conçois pas comment elle a pu se douter de quelque chose et pourtant elle a tout découvert hier au soir maman me parut bien avoir un peu d'humeur mais je n'y fis pas grande attention",
+      "audio": "dev/audio/579/394/579_394_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 48.28,
+        "original_end_s": 66.37
+      }
+    },
+    {
+      "id": "579_394_000043",
+      "text": "voilà madame une bien longue lettre elle ne le serait pas encore assez si elle vous laissait le moindre doute de l'honnêteté de mes sentiments",
+      "audio": "dev/audio/579/394/579_394_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2236.46,
+        "original_end_s": 2247.97
+      }
+    },
+    {
+      "id": "579_394_000044",
+      "text": "il a besoin de repos et j'ai remarqué qu'une cajolerie était pour toutes l'oreiller le plus doux à leur offrir adieu ma belle amie je pars demain si vous avez des ordres à me donner pour la comtesse de",
+      "audio": "dev/audio/579/394/579_394_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3995.5,
+        "original_end_s": 4013.06
+      }
+    },
+    {
+      "id": "579_394_000045",
+      "text": "c'est l'amour qui m'a conduit c'est lui qui réclame votre indulgence qui vous demande de pardonner une confidence nécessaire et sans laquelle nous resterions peut-être à jamais séparés",
+      "audio": "dev/audio/579/394/579_394_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2433.53,
+        "original_end_s": 2451.72
+      }
+    },
+    {
+      "id": "579_394_000046",
+      "text": "c'est de vous seule que j'attends quelque consolation n'est-il pas plaisant en effet de consoler pour et contre et d'être le seul agent de deux intérêts directement contraires",
+      "audio": "dev/audio/579/394/579_394_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1028.28,
+        "original_end_s": 1045.83
+      }
+    },
+    {
+      "id": "579_394_000047",
+      "text": "de ne pas la conduire si vite que le remords ne puisse la suivre de faire expirer sa vertu dans une lente agonie de la fixer sans cesse sur ce désolant spectacle",
+      "audio": "dev/audio/579/394/579_394_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3899.65,
+        "original_end_s": 3914.91
+      }
+    },
+    {
+      "id": "579_394_000048",
+      "text": "je ne crains pas d'ajouter que celui que m'a inspiré mademoiselle votre fille est tel qu'il peut vous déplaire mais non vous offenser",
+      "audio": "dev/audio/579/394/579_394_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1829.4,
+        "original_end_s": 1841.73
+      }
+    },
+    {
+      "id": "579_394_000049",
+      "text": "car l'infatigable chevalier ne m'avait pas laissé dormir un moment et je croyais avoir sommeil",
+      "audio": "dev/audio/579/394/579_394_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 602.39,
+        "original_end_s": 613.68
+      }
+    },
+    {
+      "id": "579_394_000050",
+      "text": "je l'embrassai elle se laissa aller dans mes bras et ses larmes recommencèrent à couler sans effort dieu qu'elle était belle",
+      "audio": "dev/audio/579/394/579_394_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1228.49,
+        "original_end_s": 1244.92
+      }
+    },
+    {
+      "id": "579_394_000051",
+      "text": "elle a emporté toutes les lettres de danceny je frémis toutes les fois que je songe qu'il me faudra reparaître devant elle je n'ai fait que pleurer toute la nuit",
+      "audio": "dev/audio/579/394/579_394_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 167.83,
+        "original_end_s": 182.56
+      }
+    },
+    {
+      "id": "579_394_000052",
+      "text": "j'ai fini la mienne par une cajolerie et c'est encore une suite de mes profondes observations après que le cœur d'une femme a été exercé quelque temps",
+      "audio": "dev/audio/579/394/579_394_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3982.96,
+        "original_end_s": 3995.5
+      }
+    },
+    {
+      "id": "579_394_000053",
+      "text": "sans chercher madame à justifier ma conduite et sans me plaindre de la vôtre je ne puis que m'affliger d'un événement qui fait le malheur de trois personnes toutes trois dignes d'un sort plus heureux",
+      "audio": "dev/audio/579/394/579_394_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1740.56,
+        "original_end_s": 1760.2
+      }
+    },
+    {
+      "id": "579_394_000054",
+      "text": "je ne t'écrirai pas plus longtemps parce que je veux avoir le temps d'écrire à madame de merteuil et aussi à danceny pour avoir ma lettre toute prête si elle veut bien s'en charger",
+      "audio": "dev/audio/579/394/579_394_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 245.05,
+        "original_end_s": 259.53
+      }
+    },
+    {
+      "id": "579_394_000055",
+      "text": "mais je vous en supplie écoutez mes raisons et daignez vous souvenir pour les apprécier que la seule consolation au malheur d'avoir perdu votre amitié est l'espoir de conserver votre estime",
+      "audio": "dev/audio/579/394/579_394_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2047.28,
+        "original_end_s": 2063.7
+      }
+    },
+    {
+      "id": "579_394_000056",
+      "text": "qui moi je consentirais à partager avec quelqu'un un sentiment émané de votre âme si jamais je vous le dis ne me croyez plus",
+      "audio": "dev/audio/579/394/579_394_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3272.2,
+        "original_end_s": 3287.4
+      }
+    },
+    {
+      "id": "579_394_000057",
+      "text": "et je me trompe ou son sommeil ne sera plus tranquille il fallait bien lui apprendre le prix du temps et je me flatte qu'à présent il regrette celui qu'il a perdu",
+      "audio": "dev/audio/579/394/579_394_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 526.57,
+        "original_end_s": 542.65
+      }
+    },
+    {
+      "id": "579_394_000058",
+      "text": "je saurai le défendre s'il est la source de mes maux il en est aussi le remède non encore une fois non persistez dans vos refus cruels mais laissez-moi mon amour",
+      "audio": "dev/audio/579/394/579_394_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3379.94,
+        "original_end_s": 3396.95
+      }
+    },
+    {
+      "id": "579_394_000059",
+      "text": "vous pourrez le désespérer mais non l'anéantir de quel droit prétendez-vous disposer d'un cœur dont vous refusez l'hommage",
+      "audio": "dev/audio/579/394/579_394_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3351.93,
+        "original_end_s": 3366.86
+      }
+    },
+    {
+      "id": "579_394_000060",
+      "text": "une retraite austère et éternelle la soustraira à vos poursuites c'est à vous de voir monsieur si vous craindrez aussi peu de causer son infortune que vous avez peu craint de tenter son déshonneur",
+      "audio": "dev/audio/579/394/579_394_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 400.85,
+        "original_end_s": 420.7
+      }
+    },
+    {
+      "id": "579_394_000061",
+      "text": "mais pour éviter que cette idée ne lui vînt ou au moins qu'elle ne pût s'en servir j'ai pris mon parti sur-le-champ et en rentrant chez la mère je l'ai décidée à éloigner sa fille pour quelque temps à la mener à la campagne",
+      "audio": "dev/audio/579/394/579_394_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1443.47,
+        "original_end_s": 1463.05
+      }
+    },
+    {
+      "id": "579_394_000062",
+      "text": "elles sont l'unique bien qui me reste elles seules me retracent encore un sentiment qui fait tout le charme de ma vie cependant vous pouvez m'en croire je ne balancerais pas un instant à vous en faire le sacrifice",
+      "audio": "dev/audio/579/394/579_394_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2075.34,
+        "original_end_s": 2094.49
+      }
+    },
+    {
+      "id": "579_394_000063",
+      "text": "me voilà comme la divinité recevant les vœux opposés des aveugles mortels et ne changeant rien à mes décrets immuables",
+      "audio": "dev/audio/579/394/579_394_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1045.83,
+        "original_end_s": 1058.32
+      }
+    },
+    {
+      "id": "579_394_000064",
+      "text": "ne serait-ce pas risquer le fruit de mes travaux que de donner si tôt à nos jeunes gens un moyen si facile d'adoucir leurs peines",
+      "audio": "dev/audio/579/394/579_394_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1327.25,
+        "original_end_s": 1337.32
+      }
+    },
+    {
+      "id": "579_394_000065",
+      "text": "et de toutes celles qui se donneraient dans cette aventure ce serait sûrement la plus religieusement gardée mais vous voilà bien avertie et vous savez le proverbe",
+      "audio": "dev/audio/579/394/579_394_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3745.45,
+        "original_end_s": 3761.23
+      }
+    },
+    {
+      "id": "579_394_000066",
+      "text": "ah si magdeleine était ainsi elle dut être bien plus dangereuse pénitente que pécheresse",
+      "audio": "dev/audio/579/394/579_394_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1244.92,
+        "original_end_s": 1258.09
+      }
+    },
+    {
+      "id": "579_394_000067",
+      "text": "je me couchai dans ces douces idées aussi je dormis et me réveillai fort tard",
+      "audio": "dev/audio/579/394/579_394_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 997.89,
+        "original_end_s": 1009.03
+      }
+    },
+    {
+      "id": "579_394_000068",
+      "text": "vous partez incessamment pour la campagne mais alors c'est lui-même qui veut nous servir la femme chez qui vous allez est sa parente il profitera de ce prétexte pour s'y rendre dans le même temps que vous",
+      "audio": "dev/audio/579/394/579_394_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2504.97,
+        "original_end_s": 2523.19
+      }
+    },
+    {
+      "id": "579_394_000069",
+      "text": "et levez cet obstacle sur-le-champ en lui indiquant la voie de ma femme de chambre il n'y a point de doute qu'il n'accepte et vous aurez pour prix de vos peines la confidence d'un cœur neuf qui est toujours intéressante",
+      "audio": "dev/audio/579/394/579_394_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1534.24,
+        "original_end_s": 1554.0
+      }
+    },
+    {
+      "id": "579_394_000070",
+      "text": "en réunissant tous ces sentiments en leur donnant plus d'énergie ne saurait se prêter comme eux à cette tranquillité à cette froideur de l'âme qui permet des comparaisons qui souffre même des préférences",
+      "audio": "dev/audio/579/394/579_394_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3318.48,
+        "original_end_s": 3336.37
+      }
+    },
+    {
+      "id": "579_394_000071",
+      "text": "ce besoin là ne lui manquera plus j'ai cela de bon moi c'est qu'il ne faut que me faire apercevoir de mes fautes je ne prends point de repos que je n'aie tout réparé",
+      "audio": "dev/audio/579/394/579_394_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 552.84,
+        "original_end_s": 570.12
+      }
+    },
+    {
+      "id": "579_394_000072",
+      "text": "j'aurai soin que la démarche réussisse cette idée me plaît d'autant plus que la confidence ne sera utile qu'à nous et point à eux car je ne suis pas à la fin de mon récit",
+      "audio": "dev/audio/579/394/579_394_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1394.0,
+        "original_end_s": 1413.46
+      }
+    },
+    {
+      "id": "579_394_000073",
+      "text": "et loin de consentir à vos offres insidieuses je renouvelle à vos pieds le serment de vous aimer toujours de points de suspension ce dix septembre mille-sept-cents quelque chose",
+      "audio": "dev/audio/579/394/579_394_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3465.83,
+        "original_end_s": 3485.13
+      }
+    },
+    {
+      "id": "579_394_000074",
+      "text": "adieu vicomte voilà bien longtemps que je suis à vous écrire et mon dîner en a été retardé mais l'amour-propre et l'amitié dictaient ma lettre et tous deux sont bavards",
+      "audio": "dev/audio/579/394/579_394_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1658.99,
+        "original_end_s": 1675.4
+      }
+    },
+    {
+      "id": "579_394_000075",
+      "text": "je lui serai fidèle elle en a reçu le serment je le renouvelle en ce jour pardon madame je m'égare il faut revenir",
+      "audio": "dev/audio/579/394/579_394_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2015.95,
+        "original_end_s": 2032.67
+      }
+    },
+    {
+      "id": "579_394_000076",
+      "text": "vous me défendez de me présenter chez vous à l'avenir et sans doute je me soumettrai à tout ce qu'il vous plaira d'ordonner à ce sujet",
+      "audio": "dev/audio/579/394/579_394_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1852.62,
+        "original_end_s": 1864.48
+      }
+    },
+    {
+      "id": "579_394_000077",
+      "text": "ce qu'elle me promit d'autant plus volontiers que je lui fis observer combien il serait heureux que cette enfant prît assez de confiance en moi pour m'ouvrir son cœur et me mettre à portée de lui donner mes sages conseils",
+      "audio": "dev/audio/579/394/579_394_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 758.8,
+        "original_end_s": 775.63
+      }
+    },
+    {
+      "id": "579_394_000078",
+      "text": "et dussiez-vous me refuser toujours un bonheur que je désirerai sans cesse il faut vous prouver au moins que mon cœur en est digne",
+      "audio": "dev/audio/579/394/579_394_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3159.8,
+        "original_end_s": 3170.44
+      }
+    },
+    {
+      "id": "579_394_000079",
+      "text": "celle-ci vient de m'envoyer un projet de capitulation toute sa lettre annonce le désir d'être trompée il est impossible d'en offrir un moyen plus commode et aussi plus usé",
+      "audio": "dev/audio/579/394/579_394_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3854.19,
+        "original_end_s": 3868.97
+      }
+    },
+    {
+      "id": "579_394_000080",
+      "text": "j'y gagnais encore d'être par la suite aussi longtemps et aussi secrètement que je voudrais avec la jeune personne sans que la mère en prît jamais ombrage",
+      "audio": "dev/audio/579/394/579_394_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 801.67,
+        "original_end_s": 818.01
+      }
+    },
+    {
+      "id": "579_394_000081",
+      "text": "pour me livrer à ce sentiment si doux si bien fait pour mon cœur je n'attends que votre aveu et la parole que j'exige de vous que cette amitié suffira à votre bonheur",
+      "audio": "dev/audio/579/394/579_394_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3043.24,
+        "original_end_s": 3058.11
+      }
+    },
+    {
+      "id": "579_394_000082",
+      "text": "mais adieu j'ai faim de points de suspension ce neuf septembre mille sept cent quelque chose",
+      "audio": "dev/audio/579/394/579_394_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1706.35,
+        "original_end_s": 1720.59
+      }
+    },
+    {
+      "id": "579_394_000083",
+      "text": "vous connaissez l'ami dont je vous parle il est celui de la femme que vous aimez le mieux c'est le vicomte de valmont",
+      "audio": "dev/audio/579/394/579_394_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2451.72,
+        "original_end_s": 2464.49
+      }
+    },
+    {
+      "id": "579_394_000084",
+      "text": "renoncez à un sentiment qui m'offense et m'effraie et auquel peut-être vous devriez être moins attaché en songeant qu'il est l'obstacle qui nous sépare",
+      "audio": "dev/audio/579/394/579_394_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2983.67,
+        "original_end_s": 2997.85
+      }
+    },
+    {
+      "id": "579_394_000085",
+      "text": "dans la lettre soixante-six du vicomte ô ma cécile qu'allons-nous devenir quel dieu nous sauvera des malheurs qui nous menacent",
+      "audio": "dev/audio/579/394/579_394_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2283.46,
+        "original_end_s": 2299.45
+      }
+    },
+    {
+      "id": "579_394_000086",
+      "text": "j'oublierai tout ce qu'on a pu me dire je me reposerai sur vous du soin de justifier mon choix vous voyez ma franchise elle doit vous prouver ma confiance",
+      "audio": "dev/audio/579/394/579_394_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3058.11,
+        "original_end_s": 3073.94
+      }
+    },
+    {
+      "id": "579_394_000087",
+      "text": "sinon je le mettrai dans ta lettre et tu voudras bien l'envoyer comme de toi ce n'est que d'elle que je puis recevoir quelque consolation",
+      "audio": "dev/audio/579/394/579_394_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 198.72,
+        "original_end_s": 212.52
+      }
+    },
+    {
+      "id": "579_394_000088",
+      "text": "quoique toutes deux soient datées d'aujourd'hui elles ont été écrites hier chez moi et sous mes yeux celle à la petite fille dit tout ce que nous voulions",
+      "audio": "dev/audio/579/394/579_394_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2643.38,
+        "original_end_s": 2657.28
+      }
+    },
+    {
+      "id": "579_394_000089",
+      "text": "concevez vous ma cécile quel plaisir de nous retrouver ensemble de pouvoir nous jurer de nouveau un amour éternel et de voir dans nos yeux de sentir dans nos âmes que ce serment ne sera pas trompeur",
+      "audio": "dev/audio/579/394/579_394_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2372.36,
+        "original_end_s": 2391.47
+      }
+    },
+    {
+      "id": "579_394_000090",
+      "text": "j'étais si troublée que quand elle me demanda ce que c'était je ne sus lui répondre autre chose sinon que ce n'était rien",
+      "audio": "dev/audio/579/394/579_394_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 127.92,
+        "original_end_s": 140.72
+      }
+    },
+    {
+      "id": "579_394_000091",
+      "text": "je serais bien malheureuse et bien maladroite si maîtresse de l'esprit de sa femme comme je le suis et vas l'être plus encore je ne trouvais pas mille moyens d'en faire ce que je veux qu'il soit",
+      "audio": "dev/audio/579/394/579_394_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 981.09,
+        "original_end_s": 997.89
+      }
+    },
+    {
+      "id": "579_394_000092",
+      "text": "j'ai cependant tant de choses à vous dire qu'il faut bien faire un effort sur soi-même et si cette lettre a peu d'ordre et de suite vous devez sentir assez combien ma situation est douloureuse pour m'accorder quelque indulgence",
+      "audio": "dev/audio/579/394/579_394_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1777.95,
+        "original_end_s": 1797.3
+      }
+    },
+    {
+      "id": "579_394_000093",
+      "text": "il me reste un autre objet à traiter avec vous celui des lettres que vous me demandez je suis vraiment peiné d'ajouter un refus aux torts que vous me trouvez déjà",
+      "audio": "dev/audio/579/394/579_394_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2032.67,
+        "original_end_s": 2047.28
+      }
+    },
+    {
+      "id": "579_394_000094",
+      "text": "c'est un mauvais rêve dont le réveil sera délicieux et à tout prendre il me semble qu'elle me doit de la reconnaissance au fait quand j'y aurais mis un peu de malice",
+      "audio": "dev/audio/579/394/579_394_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 897.87,
+        "original_end_s": 914.67
+      }
+    },
+    {
+      "id": "579_394_000095",
+      "text": "aussitôt que je revins à moi ma mère qui avait appelé ma femme de chambre se retira en me disant de me coucher",
+      "audio": "dev/audio/579/394/579_394_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 155.02,
+        "original_end_s": 167.83
+      }
+    },
+    {
+      "id": "579_394_000096",
+      "text": "et de ne lui accorder le bonheur de m'avoir dans ses bras qu'après l'avoir forcée à n'en plus dissimuler le désir au fait je vaux bien peu si je ne vaux pas la peine d'être demandé",
+      "audio": "dev/audio/579/394/579_394_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3914.91,
+        "original_end_s": 3931.05
+      }
+    },
+    {
+      "id": "579_394_000097",
+      "text": "je m'arrêterai chez elle au moins pour dîner je suis fâché de partir sans vous voir faites-moi passer vos sublimes instructions et aidez-moi de vos sages conseils dans ce moment décisif",
+      "audio": "dev/audio/579/394/579_394_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 4013.06,
+        "original_end_s": 4032.75
+      }
+    },
+    {
+      "id": "579_394_000098",
+      "text": "et pendant le rire qu'elle excitait prévan reprit sa place et la conversation générale changea mais les deux comtesses de b auprès de qui était notre incrédule",
+      "audio": "dev/audio/579/394/579_394_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3713.4,
+        "original_end_s": 3727.74
+      }
+    },
+    {
+      "id": "579_394_000099",
+      "text": "plus sensible encore au chagrin d'en être la cause qu'à celui d'en être victime j'ai souvent essayé depuis hier d'avoir l'honneur de vous répondre sans pouvoir en trouver la force",
+      "audio": "dev/audio/579/394/579_394_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1760.2,
+        "original_end_s": 1777.95
+      }
+    },
+    {
+      "id": "579_394_000100",
+      "text": "elle s'est enfin si mal conduite que je n'ai eu qu'à applaudir il est vrai qu'elle a pensé rompre tous nos projets par le parti qu'elle avait pris de faire rentrer sa fille au couvent",
+      "audio": "dev/audio/579/394/579_394_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1121.29,
+        "original_end_s": 1136.56
+      }
+    },
+    {
+      "id": "579_394_000101",
+      "text": "comme je ne me dissimule point que ce titre qui ne paraît d'abord qu'une dispute de mots est pourtant d'une importance réelle à obtenir j'ai mis beaucoup de soin à ma lettre et j'ai tâché d'y répandre ce désordre qui peut seul peindre le sentiment",
+      "audio": "dev/audio/579/394/579_394_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3948.25,
+        "original_end_s": 3967.45
+      }
+    },
+    {
+      "id": "579_394_000102",
+      "text": "ma seule inquiétude était que mme de vollange ne profitât de ce moment pour gagner la confiance de sa fille ce qui eût été bien facile en n'employant avec elle que le langage de la douceur de l'amitié",
+      "audio": "dev/audio/579/394/579_394_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1091.7,
+        "original_end_s": 1107.53
+      }
+    },
+    {
+      "id": "579_394_000103",
+      "text": "et puis je ne serais pas fâchée de les obliger à mêler quelques domestiques dans cette aventure car enfin si elle se conduit à bien comme je l'espère il faudra qu'elle se sache immédiatement après le mariage",
+      "audio": "dev/audio/579/394/579_394_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1337.32,
+        "original_end_s": 1356.65
+      }
+    },
+    {
+      "id": "579_394_000104",
+      "text": "de ce moment je chercherai à vous tromper je pourrai vous désirer encore mais à coup sûr je ne vous aimerai plus",
+      "audio": "dev/audio/579/394/579_394_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 3287.4,
+        "original_end_s": 3299.94
+      }
+    },
+    {
+      "id": "579_394_000105",
+      "text": "j'en profitai dès le soir même et après ma partie finie je chambrai la petite dans un coin et la mis sur le chapitre de danceny sur lequel elle ne tarit jamais",
+      "audio": "dev/audio/579/394/579_394_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 818.01,
+        "original_end_s": 834.77
+      }
+    },
+    {
+      "id": "579_394_000106",
+      "text": "si vous jugez qu'elle ait besoin de quelque encouragement de ma part mandez le moi je crois lui avoir donné une assez bonne leçon sur le danger de garder des lettres pour oser lui écrire à présent",
+      "audio": "dev/audio/579/394/579_394_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1614.29,
+        "original_end_s": 1630.39
+      }
+    },
+    {
+      "id": "579_394_000107",
+      "text": "et le regret d'en être privé céderait au désir de vous prouver ma déférence respectueuse mais des considérations puissantes me retiennent et je m'assure que vous-même ne pourrez les blâmer",
+      "audio": "dev/audio/579/394/579_394_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2094.49,
+        "original_end_s": 2112.18
+      }
+    },
+    {
+      "id": "579_394_000108",
+      "text": "quant au mystère dans lequel vous désirez que cet événement reste enseveli soyez tranquille madame sur tout ce qui intéresse mlle de volanges je peux défier le cœur même d'une mère",
+      "audio": "dev/audio/579/394/579_394_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 2186.59,
+        "original_end_s": 2202.91
+      }
+    },
+    {
+      "id": "579_394_000109",
+      "text": "la pauvre petite comme elle rougira en vous remettant sa première lettre au vrai ce rôle de confident contre lequel il s'est établi des préjugés me paraît un très joli délassement",
+      "audio": "dev/audio/579/394/579_394_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1554.0,
+        "original_end_s": 1572.82
+      }
+    },
+    {
+      "id": "579_394_000110",
+      "text": "et par ce moyen je la menai au point d'être véritablement suffoquée elle ne pleurait plus et je craignis un moment des convulsions",
+      "audio": "dev/audio/579/394/579_394_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "394",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/liaisons_dangereuses_librivox/liaisons_061-070_laclos_64kb.mp3",
+        "original_start_s": 1194.44,
+        "original_end_s": 1208.66
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ar",
+  "lang": "ar",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ar",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24023369",
+      "text": "فَأَسْرِ بِأَهْلِكَ بِقِطْعٍ مِنَ اللَّيْلِ وَاتَّبِعْ أَدْبَارَهُمْ وَلَا يَلْتَفِتْ مِنْكُمْ أَحَدٌ وَامْضُوا حَيْثُ تُؤْمَرُونَ",
+      "audio": "ar/unknown/ar_u_24023369.mp3",
+      "tags": {
+        "source_item_id": "24023369",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24023514",
+      "text": "قُلْ كُلٌّ يَعْمَلُ عَلَى شَاكِلَتِهِ فَرَبُّكُمْ أَعْلَمُ بِمَنْ هُوَ أَهْدَى سَبِيلًا",
+      "audio": "ar/unknown/ar_u_24023514.mp3",
+      "tags": {
+        "source_item_id": "24023514",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24023688",
+      "text": "لَا تُحَرِّكْ بِهِ لِسَانَكَ لِتَعْجَلَ بِهِ",
+      "audio": "ar/unknown/ar_u_24023688.mp3",
+      "tags": {
+        "source_item_id": "24023688",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24023702",
+      "text": "أنا لا أفهم هذه الكلمة.",
+      "audio": "ar/unknown/ar_u_24023702.mp3",
+      "tags": {
+        "source_item_id": "24023702",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24023852",
+      "text": "نصحه طبيبه بالإقلاع عن التدخين.",
+      "audio": "ar/unknown/ar_u_24023852.mp3",
+      "tags": {
+        "source_item_id": "24023852",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24025731",
+      "text": "عمي يدخن كثيرًا جدا ، ولا غنى له عن التبغ.",
+      "audio": "ar/unknown/ar_u_24025731.mp3",
+      "tags": {
+        "source_item_id": "24025731",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24026002",
+      "text": "بل هو آيات بينات في صدور الذين أوتوا العلم وما يجحد بآياتنا إلا الظالمون",
+      "audio": "ar/unknown/ar_u_24026002.mp3",
+      "tags": {
+        "source_item_id": "24026002",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24028817",
+      "text": "هَلْ ثُوِّبَ الْكُفَّارُ مَا كَانُوا يَفْعَلُونَ",
+      "audio": "ar/unknown/ar_u_24028817.mp3",
+      "tags": {
+        "source_item_id": "24028817",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24028954",
+      "text": "ثُمَّ قَبَضْنَاهُ إِلَيْنَا قَبْضًا يَسِيرًا",
+      "audio": "ar/unknown/ar_u_24028954.mp3",
+      "tags": {
+        "source_item_id": "24028954",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24029316",
+      "text": "الاولمبيات تقام كل اربعة سنوات.",
+      "audio": "ar/unknown/ar_u_24029316.mp3",
+      "tags": {
+        "source_item_id": "24029316",
+        "gender": "u"
+      }
+    }
+  ]
+}

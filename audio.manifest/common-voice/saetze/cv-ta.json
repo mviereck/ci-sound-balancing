@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ta",
+  "lang": "ta",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ta",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24931457",
+      "text": "இதைத்தான் நான் என்று கருதுகிறேன் உணர்ச்சியால் அறிகிறேன்.",
+      "audio": "ta/unknown/ta_u_24931457.mp3",
+      "tags": {
+        "source_item_id": "24931457",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25045118",
+      "text": "சாவக நோன்பி என்று அவனைப் பற்றிக் கூறுகிறாள்.",
+      "audio": "ta/unknown/ta_u_25045118.mp3",
+      "tags": {
+        "source_item_id": "25045118",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25067040",
+      "text": "இந்த அடிமைத் தனத்தை ஒழிக்கவேண்டு மானால் பேத புத்தியை ஒழித்துக்கட்ட வேண்டும்.",
+      "audio": "ta/unknown/ta_u_25067040.mp3",
+      "tags": {
+        "source_item_id": "25067040",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25457603",
+      "text": "கொல்லி மலைகள், கல்ராயன் மலைகள், சேர்வராயன் மலைகள், பச்சை மலைகள், கஞ்சமலை, போதமலை என்பன அவைகளில் குறிப்பிடத் தக்கவை.",
+      "audio": "ta/unknown/ta_u_25457603.mp3",
+      "tags": {
+        "source_item_id": "25457603",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25927833",
+      "text": "ஓய்வு பெற்ற அவர் ரோட் தீவின் நியூபோர்ட்டில் வசித்து வந்தார்.",
+      "audio": "ta/unknown/ta_u_25927833.mp3",
+      "tags": {
+        "source_item_id": "25927833",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25955269",
+      "text": "நிலக்கரி ரன்னில் நிலக்கரி சுரங்கங்களையும், \" Barney Hill \" தாது சுரங்கங்களையும் Knapp திறந்தார்.",
+      "audio": "ta/unknown/ta_u_25955269.mp3",
+      "tags": {
+        "source_item_id": "25955269",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25961298",
+      "text": "மிகவும் பொதுவாக, தமனியின் சிறிய எச்சங்கள் தங்கி இருக்கலாம்.",
+      "audio": "ta/unknown/ta_u_25961298.mp3",
+      "tags": {
+        "source_item_id": "25961298",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26613587",
+      "text": "அந்தத் திருவாசகம் எழுவதற்குக் காரணமாக இருந்த தலம் தான் இந்தத் திருப்பெருந்துறை.",
+      "audio": "ta/unknown/ta_u_26613587.mp3",
+      "tags": {
+        "source_item_id": "26613587",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26613807",
+      "text": "இவளை நான் எப்படியும் கல்யாணம் செய்துதான் ஆகவேண்டும்.",
+      "audio": "ta/unknown/ta_u_26613807.mp3",
+      "tags": {
+        "source_item_id": "26613807",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26649081",
+      "text": "பாதுகாப்பைத்தேடித்தான் உன்னை தேடிக் கொண்டு சட்டென்று இங்கு வந்து விட்டேன்? என்றான் விஜயன்.",
+      "audio": "ta/unknown/ta_u_26649081.mp3",
+      "tags": {
+        "source_item_id": "26649081",
+        "gender": "u"
+      }
+    }
+  ]
+}

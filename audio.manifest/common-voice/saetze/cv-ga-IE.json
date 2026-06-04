@@ -1,0 +1,111 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ga-IE",
+  "lang": "ga-IE",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ga-IE",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17360287",
+      "text": "Níl ann ach nach n-oireann sé di.",
+      "audio": "ga-IE/unknown/ga-IE_u_17360287.mp3",
+      "tags": {
+        "source_item_id": "17360287",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17395673",
+      "text": "Is mór an pléisiúir dom é MayFest dhá mhíle a sé déag a oscailt",
+      "audio": "ga-IE/unknown/ga-IE_u_17395673_gaeilge_na_mumhan.mp3",
+      "tags": {
+        "source_item_id": "17395673",
+        "gender": "u",
+        "accent": "Gaeilge na Mumhan"
+      }
+    },
+    {
+      "id": "17401286",
+      "text": "Guím gach rath ar Chomhdháil Oileán na hÉireann.",
+      "audio": "ga-IE/unknown/ga-IE_u_17401286.mp3",
+      "tags": {
+        "source_item_id": "17401286",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17410229",
+      "text": "D'eitil an t-éan thar an bhfarraige chiúin.",
+      "audio": "ga-IE/unknown/ga-IE_u_17410229.mp3",
+      "tags": {
+        "source_item_id": "17410229",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17571342",
+      "text": "Is ar, a dhuine uasail",
+      "audio": "ga-IE/unknown/ga-IE_u_17571342.mp3",
+      "tags": {
+        "source_item_id": "17571342",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17582208",
+      "text": "Contae Chorcaí, an deichiú lá de mhí an Mheitheamh dhá mhíle a cúig déag",
+      "audio": "ga-IE/unknown/ga-IE_u_17582208_gaeilge_chonnacht.mp3",
+      "tags": {
+        "source_item_id": "17582208",
+        "gender": "u",
+        "accent": "Gaeilge Chonnacht"
+      }
+    },
+    {
+      "id": "17687632",
+      "text": "Cuir an bosca ar an mbord, a Dhiarmaid",
+      "audio": "ga-IE/unknown/ga-IE_u_17687632_gaeilge_uladh.mp3",
+      "tags": {
+        "source_item_id": "17687632",
+        "gender": "u",
+        "accent": "Gaeilge Uladh"
+      }
+    },
+    {
+      "id": "18181607",
+      "text": "Ólann an cat ciúin bainne leis",
+      "audio": "ga-IE/unknown/ga-IE_u_18181607.mp3",
+      "tags": {
+        "source_item_id": "18181607",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18182023",
+      "text": "Tá cuid agaibh ar bheagán Gaeilge agus cuid eile líofa ar fad",
+      "audio": "ga-IE/unknown/ga-IE_u_18182023.mp3",
+      "tags": {
+        "source_item_id": "18182023",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18183349",
+      "text": "Guím gach rath agus beannacht oraibh don todhchaí",
+      "audio": "ga-IE/unknown/ga-IE_u_18183349_gaeilge_na_mumhan.mp3",
+      "tags": {
+        "source_item_id": "18183349",
+        "gender": "u",
+        "accent": "Gaeilge na Mumhan"
+      }
+    }
+  ]
+}

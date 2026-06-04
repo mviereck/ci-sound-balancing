@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — et",
+  "lang": "et",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-et",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18138127",
+      "text": "Kui sellist lihtsustamist nimetatakse maailmavaateks, siis võin mina end nimetada Taani printsiks.",
+      "audio": "et/unknown/et_u_18138127.mp3",
+      "tags": {
+        "source_item_id": "18138127",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18138703",
+      "text": "Fännidel on põhjust olla pettunud.",
+      "audio": "et/unknown/et_u_18138703.mp3",
+      "tags": {
+        "source_item_id": "18138703",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18139451",
+      "text": "See on olnud kogudusele hästi suur abi ja oleme selle toetuse eest väga tänulikud.",
+      "audio": "et/unknown/et_u_18139451.mp3",
+      "tags": {
+        "source_item_id": "18139451",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18146846",
+      "text": "Sealjuures Keskerakonna fraktsiooni liikmed ei varjagi, et tegu on kättemaksuga, kirjutab ERRi uudisportaal.",
+      "audio": "et/unknown/et_u_18146846.mp3",
+      "tags": {
+        "source_item_id": "18146846",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18146987",
+      "text": "Toona peeti vajalikuks seda otsust avalikult mitte rõhutada.",
+      "audio": "et/unknown/et_u_18146987.mp3",
+      "tags": {
+        "source_item_id": "18146987",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18147429",
+      "text": "Grillimise hooaeg on täiega käimas ja seetõttu tasub kutsuda kõiki grillisõpru ettevaatusele.",
+      "audio": "et/unknown/et_u_18147429.mp3",
+      "tags": {
+        "source_item_id": "18147429",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18157812",
+      "text": "Uue süüdlasekandidaadina toovad teadlased nüüd välja hoopis muutunud kliima, mis megafauna järk-järgult välja suretas.",
+      "audio": "et/unknown/et_u_18157812.mp3",
+      "tags": {
+        "source_item_id": "18157812",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18177896",
+      "text": "Üksus peab olema valmis massiliste korratuste lahendamiseks.",
+      "audio": "et/unknown/et_u_18177896.mp3",
+      "tags": {
+        "source_item_id": "18177896",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18178034",
+      "text": "Kui kesklinnas täidab bussi sumisev inimsülem, siis Viimsis saabub pärast uste avamist vaikus.",
+      "audio": "et/unknown/et_u_18178034.mp3",
+      "tags": {
+        "source_item_id": "18178034",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18181996",
+      "text": "B-vitamiini puuduse peamiseks tunnuseks ongi väsimus ja meeleolumuutused.",
+      "audio": "et/unknown/et_u_18181996.mp3",
+      "tags": {
+        "source_item_id": "18181996",
+        "gender": "u"
+      }
+    }
+  ]
+}

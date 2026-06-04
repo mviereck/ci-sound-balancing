@@ -1,0 +1,168 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — af",
+  "lang": "af",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-af",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "39597078",
+      "text": "Skryf die persentasie Facebook-gebruikers neer wat met behulp van mobiele toestelle ingeteken het.",
+      "audio": "af/unknown/af_u_39597078.mp3",
+      "tags": {
+        "source_item_id": "39597078",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39809233",
+      "text": "Beplanning is 'n dinamiese proses wat voorsiening maak vir aanpassing as gevolg van toestande.",
+      "audio": "af/unknown/af_u_39809233_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39809233",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597091",
+      "text": "Daar is kritiek dat Somali's geteister word wanneer hulle sake by die polisiestasie aanmeld.",
+      "audio": "af/unknown/af_u_39597091.mp3",
+      "tags": {
+        "source_item_id": "39597091",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39809234",
+      "text": "Maak die leerders deurgaans van die gebruik van hoofletters, spasiëring en leestekens bewus.",
+      "audio": "af/unknown/af_u_39809234_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39809234",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597093",
+      "text": "Die Program van Assessering vir Besigheidstudies bestaan uit sewe take wat intern geassesseer word.",
+      "audio": "af/unknown/af_u_39597093.mp3",
+      "tags": {
+        "source_item_id": "39597093",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39809235",
+      "text": "Beskryf die tipe gesteente en onderliggende struktuur wat met dreineerpatroon C geassosieer word.",
+      "audio": "af/unknown/af_u_39809235_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39809235",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597119",
+      "text": "Daar is verskillende maniere om 'n argument- en 'n teenargument te struktureer.",
+      "audio": "af/unknown/af_u_39597119.mp3",
+      "tags": {
+        "source_item_id": "39597119",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39812027",
+      "text": "Ons het die groot skoffel gebruik om die hardnekkige onkruid uit te grawe.",
+      "audio": "af/unknown/af_u_39812027_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39812027",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597210",
+      "text": "Die verkoopsyfers van twee motorvervaardigers in Suid-Afrika vir 'n sesmaande-tydperk is vrygestel.",
+      "audio": "af/unknown/af_u_39597210.mp3",
+      "tags": {
+        "source_item_id": "39597210",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39809371",
+      "text": "Getal subsidies wat na naskoolse sorgfasiliteite oorgedra is om dienste aan kinders te verskaf.",
+      "audio": "af/unknown/af_u_39809371_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39809371",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597176",
+      "text": "Die regering beskou ook marikultuur as belangrik omdat die mariene bronne aangevul moet word.",
+      "audio": "af/unknown/af_u_39597176.mp3",
+      "tags": {
+        "source_item_id": "39597176",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39597042",
+      "text": "Vertraging in die aanstelling van diensverskaffers maak dit moeilik om projekte betyds te voltooi.",
+      "audio": "af/unknown/af_u_39597042.mp3",
+      "tags": {
+        "source_item_id": "39597042",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39597146",
+      "text": "Sy het gesteun toe sy die swaar pot oplig.",
+      "audio": "af/unknown/af_u_39597146.mp3",
+      "tags": {
+        "source_item_id": "39597146",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39812025",
+      "text": "Die kamer is leeg - daar is niemand daar nie.",
+      "audio": "af/unknown/af_u_39812025_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39812025",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39812015",
+      "text": "Benoemings moet ingedien word deur die Amptelike Benoemingsvorm by hierdie Kennisgewing te gebruik.",
+      "audio": "af/unknown/af_u_39812015_capetonian.mp3",
+      "tags": {
+        "source_item_id": "39812015",
+        "gender": "u",
+        "accent": "Capetonian"
+      }
+    },
+    {
+      "id": "39597123",
+      "text": "Die ingrypings is deel van die Program vir Grondhervorming en Geïntegreerde Steun vir Boere.",
+      "audio": "af/unknown/af_u_39597123.mp3",
+      "tags": {
+        "source_item_id": "39597123",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sat",
+  "lang": "sat",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sat",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "29800975",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱤᱣᱮᱥ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_29800975_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "29800975",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "30085857",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱤᱡᱩᱣᱟᱱ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_30085857_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "30085857",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "30677900",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱮᱥᱟ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_30677900_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "30677900",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "32385202",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱷᱟᱭᱟ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_32385202_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "32385202",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "29854481",
+      "text": "ᱣᱤᱰᱤᱭᱚ",
+      "audio": "sat/unknown/sat_u_29854481_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "29854481",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "29934107",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱮᱭᱨᱟᱼᱢᱟᱭ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_29934107_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "29934107",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "29934070",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱷᱟᱞᱮᱰᱟ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_29934070_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "29934070",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "29931364",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱤᱨᱥᱦᱟ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_29931364_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "29931364",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "30487776",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱷᱤᱞᱮᱭᱜᱷ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_30487776_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "30487776",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "30677897",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱤᱨᱟᱴᱥᱚᱣ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_30677897_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "30677897",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    },
+    {
+      "id": "30677917",
+      "text": "ᱩᱱᱤᱭᱟᱜ ᱧᱩᱛᱩᱢ ᱫᱚ ᱠᱮᱱᱭᱮᱞ ᱠᱟᱱᱟ᱾",
+      "audio": "sat/unknown/sat_u_30677917_western_odisha_india.mp3",
+      "tags": {
+        "source_item_id": "30677917",
+        "gender": "u",
+        "accent": "Western Odisha, India"
+      }
+    }
+  ]
+}

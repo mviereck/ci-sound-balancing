@@ -1,0 +1,110 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — fr",
+  "lang": "fr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-fr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17301107",
+      "text": "Vous être désolé que les Français ne vous fassent pas confiance.",
+      "audio": "fr/unknown/fr_u_17301107.mp3",
+      "tags": {
+        "source_item_id": "17301107",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17301876",
+      "text": "Du coup, on est obligé de changer le titre.",
+      "audio": "fr/unknown/fr_u_17301876.mp3",
+      "tags": {
+        "source_item_id": "17301876",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17301909",
+      "text": "La parole est à Monsieur Gérald Darmanin.",
+      "audio": "fr/unknown/fr_u_17301909.mp3",
+      "tags": {
+        "source_item_id": "17301909",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17302240",
+      "text": "L'eau est composée d'atomes d'hydrogène et d'oxygène.",
+      "audio": "fr/unknown/fr_u_17302240.mp3",
+      "tags": {
+        "source_item_id": "17302240",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17303225",
+      "text": "Rien de tel dans votre budget",
+      "audio": "fr/unknown/fr_u_17303225.mp3",
+      "tags": {
+        "source_item_id": "17303225",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17303270",
+      "text": "Je vais conclure, monsieur le président.",
+      "audio": "fr/unknown/fr_u_17303270.mp3",
+      "tags": {
+        "source_item_id": "17303270",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17303636",
+      "text": "Les réorganisations hospitalières ont évidemment contribué à ce mouvement.",
+      "audio": "fr/unknown/fr_u_17303636.mp3",
+      "tags": {
+        "source_item_id": "17303636",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17303641",
+      "text": "Les pharmacies surtout m'étonnaient par la grandeur et l'éclat de leurs bocaux.",
+      "audio": "fr/unknown/fr_u_17303641_fran_ais_de_france.mp3",
+      "tags": {
+        "source_item_id": "17303641",
+        "gender": "u",
+        "accent": "Français de France"
+      }
+    },
+    {
+      "id": "17304146",
+      "text": "mais nous tenions à remettre les choses au clair.",
+      "audio": "fr/unknown/fr_u_17304146_fran_ais_de_france.mp3",
+      "tags": {
+        "source_item_id": "17304146",
+        "gender": "u",
+        "accent": "Français de France"
+      }
+    },
+    {
+      "id": "17304740",
+      "text": "Le candidat Hollande avait repris cette idée.",
+      "audio": "fr/unknown/fr_u_17304740_fran_ais_de_france.mp3",
+      "tags": {
+        "source_item_id": "17304740",
+        "gender": "u",
+        "accent": "Français de France"
+      }
+    }
+  ]
+}

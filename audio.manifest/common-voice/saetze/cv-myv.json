@@ -1,0 +1,125 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — myv",
+  "lang": "myv",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-myv",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "28458364",
+      "text": "Шабрань кенкшка лиси рестамо чине... истямо — аштевлить удалонзо ды никсевлить, аволить тукшнояк.",
+      "audio": "myv/unknown/myv_u_28458364.mp3",
+      "tags": {
+        "source_item_id": "28458364",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28483843",
+      "text": "Берянь ли, овсе минек судо ало кирдемс станция, козонь можна ускомс мезе мелеть.",
+      "audio": "myv/unknown/myv_u_28483843.mp3",
+      "tags": {
+        "source_item_id": "28483843",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28520555",
+      "text": "Мерят, валгсть сынь певтеме менельстэнть лей чирес ды шнасть моданть лангс празь тундонть.",
+      "audio": "myv/unknown/myv_u_28520555.mp3",
+      "tags": {
+        "source_item_id": "28520555",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28525849",
+      "text": "Алкукс мазыльть кавонест, прок сырнень вейкеть монетат, ансяк аволь ве шкасто чеканязь.",
+      "audio": "myv/unknown/myv_u_28525849.mp3",
+      "tags": {
+        "source_item_id": "28525849",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28268629",
+      "text": "Нолдыде государственной торговлянь товар, а сень, мезе полавтыде, саинк эстенк.",
+      "audio": "myv/unknown/myv_u_28268629.mp3",
+      "tags": {
+        "source_item_id": "28268629",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29609936",
+      "text": "Сюпалгадомо ды ламо ракшань раштамо эзь кенере.",
+      "audio": "myv/unknown/myv_u_29609936.mp3",
+      "tags": {
+        "source_item_id": "29609936",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28734085",
+      "text": "Пазонтень, келя, истят озныцятне а эрявить.",
+      "audio": "myv/unknown/myv_u_28734085.mp3",
+      "tags": {
+        "source_item_id": "28734085",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28431238",
+      "text": "Вечкевиксэнзэ сон, нама, седе кунсолосы.",
+      "audio": "myv/unknown/myv_u_28431238.mp3",
+      "tags": {
+        "source_item_id": "28431238",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28540230",
+      "text": "Ведьмедицын лиссь таркастонзо, куйсь сценанть лангс.",
+      "audio": "myv/unknown/myv_u_28540230.mp3",
+      "tags": {
+        "source_item_id": "28540230",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28470469",
+      "text": "Бердышенть кадызе крепостьс, вельть налкстась кантнемензэ.",
+      "audio": "myv/unknown/myv_u_28470469.mp3",
+      "tags": {
+        "source_item_id": "28470469",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28431619",
+      "text": "Вальматнестэ ушов венстевсть сияждыця сулейть.",
+      "audio": "myv/unknown/myv_u_28431619.mp3",
+      "tags": {
+        "source_item_id": "28431619",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28458363",
+      "text": "Паркснесь нолгов алашакс.",
+      "audio": "myv/unknown/myv_u_28458363.mp3",
+      "tags": {
+        "source_item_id": "28458363",
+        "gender": "u"
+      }
+    }
+  ]
+}

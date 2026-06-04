@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — vot",
+  "lang": "vot",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-vot",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "19887064",
+      "text": "Kaunsihatukkõin tuli, katsob, uhsi on avõ, meeb rihhe.",
+      "audio": "vot/unknown/vot_u_19887064.mp3",
+      "tags": {
+        "source_item_id": "19887064",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887158",
+      "text": "Nämäd õlla laizgad i eväd suvva tehhä tüüte.",
+      "audio": "vot/unknown/vot_u_19887158.mp3",
+      "tags": {
+        "source_item_id": "19887158",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887083",
+      "text": "repo on pesumašinõz",
+      "audio": "vot/unknown/vot_u_19887083.mp3",
+      "tags": {
+        "source_item_id": "19887083",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887089",
+      "text": "irvi on čirkkõz",
+      "audio": "vot/unknown/vot_u_19887089.mp3",
+      "tags": {
+        "source_item_id": "19887089",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887112",
+      "text": "lentäjä eb õõ mettsez",
+      "audio": "vot/unknown/vot_u_19887112.mp3",
+      "tags": {
+        "source_item_id": "19887112",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887146",
+      "text": "Vikahtõ viippezi.",
+      "audio": "vot/unknown/vot_u_19887146.mp3",
+      "tags": {
+        "source_item_id": "19887146",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887117",
+      "text": "lentäjä Petteriz",
+      "audio": "vot/unknown/vot_u_19887117.mp3",
+      "tags": {
+        "source_item_id": "19887117",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887088",
+      "text": "politseinikkõ on lavgöz",
+      "audio": "vot/unknown/vot_u_19887088.mp3",
+      "tags": {
+        "source_item_id": "19887088",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887096",
+      "text": "jänez on Jõgõperäll",
+      "audio": "vot/unknown/vot_u_19887096.mp3",
+      "tags": {
+        "source_item_id": "19887096",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887149",
+      "text": "Tänäve piäb õlla mitäle erinomaissõ.",
+      "audio": "vot/unknown/vot_u_19887149.mp3",
+      "tags": {
+        "source_item_id": "19887149",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19887138",
+      "text": "Pädrä õli Jõgõperälle kõikka suurõp praaznikkõ.",
+      "audio": "vot/unknown/vot_u_19887138.mp3",
+      "tags": {
+        "source_item_id": "19887138",
+        "gender": "u"
+      }
+    }
+  ]
+}

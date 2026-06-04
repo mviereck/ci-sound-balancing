@@ -1,0 +1,2832 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Tour du monde en quatre-vingts jours",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "486",
+    "book_title": "Tour du monde en quatre-vingts jours",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "296_486_000000",
+      "text": "phileas fogg était libre il alla au détective il le regarda bien en face et faisant le seul mouvement rapide qu'il eût jamais fait eût qu'il dût jamais faire de sa vie",
+      "audio": "test/audio/296/486/296_486_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 449.37,
+        "original_end_s": 463.28
+      }
+    },
+    {
+      "id": "296_486_000001",
+      "text": "à deux heures trente-trois minutes un bruit retentit au-dehors un vacarme de portes qui s'ouvraient on entendait la voix de passepartout on entendait la voix de fix",
+      "audio": "test/audio/296/486/296_486_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 398.3,
+        "original_end_s": 413.52
+      }
+    },
+    {
+      "id": "296_486_000002",
+      "text": "on ne sait mais phileas fogg était là calme attendant quoi conservait-il quelque espoir croyait-il encore au succès quand la porte de cette prison était fermée sur lui",
+      "audio": "test/audio/296/486/296_486_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 265.23,
+        "original_end_s": 282.51
+      }
+    },
+    {
+      "id": "296_486_000003",
+      "text": "quoi qu'il en soit mister fogg avait soigneusement posé sa montre sur une table et il en regardait les aiguilles marcher pas une parole ne s'échappait de ses lèvres mais son regard avait une fixité singulière",
+      "audio": "test/audio/296/486/296_486_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 282.51,
+        "original_end_s": 300.48
+      }
+    },
+    {
+      "id": "296_486_000004",
+      "text": "arrivé à midi moins vingt à liverpool le vingt-et-un décembre il avait jusqu'à huit heures quarante-cinq minutes pour se présenter au reform club soit neuf heures quinze minutes",
+      "audio": "test/audio/296/486/296_486_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 210.83,
+        "original_end_s": 225.53
+      }
+    },
+    {
+      "id": "296_486_000005",
+      "text": "missis aouda et lui étaient restés malgré le froid sous le péristyle de la douane ils ne voulaient ni l'un ni l'autre quitter la place ils voulaient revoir encore une fois mister fogg",
+      "audio": "test/audio/296/486/296_486_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 181.64,
+        "original_end_s": 197.63
+      }
+    },
+    {
+      "id": "296_486_000006",
+      "text": "phileas fogg était en prison on l'avait enfermé dans le poste de custom house la douane de liverpool et il devait y passer la nuit en attendant son transfèrement à londres au moment de l'arrestation passepartout avait voulu se précipiter",
+      "audio": "test/audio/296/486/296_486_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 35.22,
+        "original_end_s": 52.33
+      }
+    },
+    {
+      "id": "296_486_000007",
+      "text": "fix était hors d'haleine les cheveux en désordre il ne pouvait parler monsieur balbutia-t-il",
+      "audio": "test/audio/296/486/296_486_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 428.18,
+        "original_end_s": 438.25
+      }
+    },
+    {
+      "id": "296_486_000008",
+      "text": "mais il y eut des retards forcés et quand le gentleman arriva à la gare neuf heures moins dix sonnaient à toutes les horloges de londres phileas fogg après avoir accompli ce voyage autour du monde arrivait avec un retard de cinq minutes",
+      "audio": "test/audio/296/486/296_486_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 566.0,
+        "original_end_s": 585.66
+      }
+    },
+    {
+      "id": "296_486_000009",
+      "text": "il n'eût pas véhiculé à ses frais et à ses trousses ce malencontreux agent dont le premier soin avait été de l'arrêter au moment où il mettait le pied sur le sol du royaume-uni",
+      "audio": "test/audio/296/486/296_486_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 149.33,
+        "original_end_s": 164.45
+      }
+    },
+    {
+      "id": "296_486_000010",
+      "text": "la jeune femme protesta contre une telle allégation son coeur s'indigna et des pleurs coulèrent de ses yeux quand elle vit qu'elle ne pouvait rien faire rien tenter pour sauver son sauveur",
+      "audio": "test/audio/296/486/296_486_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 76.77,
+        "original_end_s": 92.72
+      }
+    },
+    {
+      "id": "296_486_000011",
+      "text": "n'y pouvait rien comprendre passepartout lui expliqua la situation mr fogg cet honnête et courageux gentleman auquel elle devait la vie était arrêté comme voleur",
+      "audio": "test/audio/296/486/296_486_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 62.62,
+        "original_end_s": 76.77
+      }
+    },
+    {
+      "id": "296_486_000012",
+      "text": "mister fogg constata que sa montre avançait de deux minutes sur cette horloge deux heures en admettant qu'il montât en ce moment dans un express",
+      "audio": "test/audio/296/486/296_486_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 373.21,
+        "original_end_s": 386.58
+      }
+    },
+    {
+      "id": "296_486_000013",
+      "text": "quand fix avait révélé et sa qualité d'inspecteur de police et la mission dont il était chargé pourquoi avait-il pris sur lui de ne point avertir son maître",
+      "audio": "test/audio/296/486/296_486_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 123.04,
+        "original_end_s": 137.01
+      }
+    },
+    {
+      "id": "296_486_000014",
+      "text": "le train spécial ne put quitter la gare avant trois heures à trois heures phileas fogg après avoir dit quelques mots au mécanicien d'une certaine prime à gagner filait dans la direction de londres en compagnie de la jeune femme et de son fidèle serviteur",
+      "audio": "test/audio/296/486/296_486_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 534.61,
+        "original_end_s": 553.76
+      }
+    },
+    {
+      "id": "296_486_000015",
+      "text": "fix renversé ne prononça pas un mot il n'avait que ce qu'il méritait mais aussitôt mr fogg mrs aouda passepartout quittèrent la douane",
+      "audio": "test/audio/296/486/296_486_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 489.65,
+        "original_end_s": 504.61
+      }
+    },
+    {
+      "id": "296_486_000016",
+      "text": "le regard de phileas fogg brilla un instant la porte du poste s'ouvrit et il vit missis aouda passepartout fix qui se précipitèrent vers lui",
+      "audio": "test/audio/296/486/296_486_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 413.52,
+        "original_end_s": 428.18
+      }
+    },
+    {
+      "id": "296_486_000017",
+      "text": "en tout cas la situation était terrible et pour qui ne pouvait lire dans cette conscience elle se résumait ainsi honnête homme",
+      "audio": "test/audio/296/486/296_486_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 300.48,
+        "original_end_s": 313.17
+      }
+    },
+    {
+      "id": "296_486_000018",
+      "text": "celui-ci prévenu aurait sans doute donné à fix des preuves de son innocence il lui aurait démontré son erreur",
+      "audio": "test/audio/296/486/296_486_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 137.01,
+        "original_end_s": 149.33
+      }
+    },
+    {
+      "id": "296_486_000019",
+      "text": "et il ne lui en fallait que six pour atteindre londres en ce moment qui eût pénétré dans le poste de la douane eût trouvé mr fogg immobile assis sur un banc de bois",
+      "audio": "test/audio/296/486/296_486_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 225.53,
+        "original_end_s": 239.89
+      }
+    },
+    {
+      "id": "296_486_000020",
+      "text": "s'était-il formé en lui une de ces rages secrètes terribles parce qu'elles sont contenues et qui n'éclatent qu'au dernier moment avec une force irrésistible",
+      "audio": "test/audio/296/486/296_486_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 251.95,
+        "original_end_s": 265.23
+      }
+    },
+    {
+      "id": "296_486_000021",
+      "text": "quatre vingtième jour onze heures quarante du matin et il attendit une heure sonna à l'horloge de custom house",
+      "audio": "test/audio/296/486/296_486_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 361.9,
+        "original_end_s": 373.21
+      }
+    },
+    {
+      "id": "296_486_000022",
+      "text": "monsieur pardon une ressemblance déplorable voleur arrêté depuis trois jours vous libre",
+      "audio": "test/audio/296/486/296_486_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 438.25,
+        "original_end_s": 449.37
+      }
+    },
+    {
+      "id": "296_486_000023",
+      "text": "ils se jetèrent dans une voiture et en quelques minutes ils arrivèrent à la gare de liverpool phileas fogg demanda s'il y avait un express prêt à partir pour londres",
+      "audio": "test/audio/296/486/296_486_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 504.61,
+        "original_end_s": 517.4
+      }
+    },
+    {
+      "id": "296_486_000024",
+      "text": "on serait tenté de le croire car à un certain moment il fit le tour de la chambre mais la porte était solidement fermée et la fenêtre garnie de barreaux de fer",
+      "audio": "test/audio/296/486/296_486_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 329.64,
+        "original_end_s": 344.15
+      }
+    },
+    {
+      "id": "296_486_000025",
+      "text": "il pouvait encore arriver à londres et au reform club avant huit heures quarante-cinq du soir son front se plissa légèrement",
+      "audio": "test/audio/296/486/296_486_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 386.58,
+        "original_end_s": 398.3
+      }
+    },
+    {
+      "id": "296_486_000026",
+      "text": "quant à fix il avait arrêté le gentleman parce que son devoir lui commandait de l'arrêter fût-il coupable ou non",
+      "audio": "test/audio/296/486/296_486_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 92.72,
+        "original_end_s": 103.86
+      }
+    },
+    {
+      "id": "296_486_000027",
+      "text": "quant à ce gentleman il était bien et dûment ruiné et cela au moment où il allait atteindre son but cette arrestation le perdait sans",
+      "audio": "test/audio/296/486/296_486_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 197.63,
+        "original_end_s": 210.83
+      }
+    },
+    {
+      "id": "296_486_000028",
+      "text": "il était deux heures quarante l'express était parti depuis trente cinq minutes phileas fogg commanda alors un train spécial il y avait plusieurs locomotives de grande vitesse en pression mais attendu les exigences du service",
+      "audio": "test/audio/296/486/296_486_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 517.4,
+        "original_end_s": 534.61
+      }
+    },
+    {
+      "id": "296_486_000029",
+      "text": "il vint donc se rasseoir et il tira de son portefeuille l'itinéraire du voyage sur la ligne qui portait ces mots vingt et un décembre samedi liverpool il ajouta",
+      "audio": "test/audio/296/486/296_486_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 344.15,
+        "original_end_s": 361.9
+      }
+    },
+    {
+      "id": "296_486_000030",
+      "text": "sans colère imperturbable résigné on n'eût pu le dire mais ce dernier coup n'avait pu l'émouvoir au moins en apparence",
+      "audio": "test/audio/296/486/296_486_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 239.89,
+        "original_end_s": 251.95
+      }
+    },
+    {
+      "id": "296_486_000031",
+      "text": "était ruiné malhonnête homme il était pris eut-il alors la pensée de se sauver songea-t-il à chercher si ce poste présentait une issue praticable pensa-t-il à fuir",
+      "audio": "test/audio/296/486/296_486_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 313.17,
+        "original_end_s": 329.64
+      }
+    },
+    {
+      "id": "296_486_000032",
+      "text": "il fallait franchir en cinq heures et demie la distance qui sépare liverpool de londres chose très faisable quand la voie est libre sur tout le parcours",
+      "audio": "test/audio/296/486/296_486_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 553.76,
+        "original_end_s": 566.0
+      }
+    },
+    {
+      "id": "296_486_000033",
+      "text": "en songeant à ses fautes à ses imprudences le pauvre garçon était pris d'irrésistibles remords il pleurait il faisait peine à voir il voulait se briser la tête",
+      "audio": "test/audio/296/486/296_486_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 164.45,
+        "original_end_s": 181.64
+      }
+    },
+    {
+      "id": "296_486_000034",
+      "text": "bien tapé s'écria passepartout qui se permettant un atroce jeu de mots bien digne d'un français ajouta pardieu voilà ce qu'on peut appeler une belle application de poings d'angleterre",
+      "audio": "test/audio/296/486/296_486_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 473.53,
+        "original_end_s": 489.65
+      }
+    },
+    {
+      "id": "296_486_000035",
+      "text": "ramena ses deux bras en arrière puis avec la précision d'un automate il frappa de ses deux poings le malheureux inspecteur",
+      "audio": "test/audio/296/486/296_486_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 463.28,
+        "original_end_s": 473.53
+      }
+    },
+    {
+      "id": "296_486_000036",
+      "text": "sur le détective des policemen le retinrent mrs aouda épouvantée par la brutalité du fait ne sachant rien",
+      "audio": "test/audio/296/486/296_486_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 52.33,
+        "original_end_s": 62.62
+      }
+    },
+    {
+      "id": "296_486_000037",
+      "text": "la justice en déciderait mais alors une pensée vint à passepartout cette pensée terrible qu'il était décidément la cause de tout ce malheur en effet pourquoi avait-il caché cette aventure à mr fogg",
+      "audio": "test/audio/296/486/296_486_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 103.86,
+        "original_end_s": 123.04
+      }
+    },
+    {
+      "id": "296_486_000038",
+      "text": "il avait perdu",
+      "audio": "test/audio/296/486/296_486_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-296",
+        "gender": "m",
+        "book_id": "486",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_34_verne_64kb.mp3",
+        "original_start_s": 585.66,
+        "original_end_s": 600.76
+      }
+    },
+    {
+      "id": "928_486_000000",
+      "text": "dans lequel phileas fogg passepartout fix chacun de son côté va à ses affaires pendant les derniers jours de la traversée le temps fut assez mauvais le vent devint très fort",
+      "audio": "dev/audio/928/486/928_486_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 30.53,
+        "original_end_s": 48.55
+      }
+    },
+    {
+      "id": "928_486_000001",
+      "text": "mr fogg il est vrai était en retard de vingt-quatre heures mais ce retard ne pouvait avoir de conséquences fâcheuses pour le reste du voyage",
+      "audio": "dev/audio/928/486/928_486_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 604.93,
+        "original_end_s": 616.75
+      }
+    },
+    {
+      "id": "928_486_000002",
+      "text": "quant à passepartout on devine dans quelle colère peu dissimulée il passa ce temps d'épreuve jusqu'alors tout avait si bien marché",
+      "audio": "dev/audio/928/486/928_486_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 219.44,
+        "original_end_s": 231.8
+      }
+    },
+    {
+      "id": "928_486_000003",
+      "text": "au débarqué du bateau il offrit son bras à la jeune femme et la conduisit vers un palanquin il demanda aux porteurs de lui indiquer un hôtel",
+      "audio": "dev/audio/928/486/928_486_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 676.15,
+        "original_end_s": 687.92
+      }
+    },
+    {
+      "id": "928_486_000004",
+      "text": "il avait confié ses inquiétudes à fix qui le fin renard essayait de le consoler en lui disant que mr fogg en serait quitte pour prendre le prochain paquebot ce qui mettait passepartout dans une colère bleue",
+      "audio": "dev/audio/928/486/928_486_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 440.64,
+        "original_end_s": 460.56
+      }
+    },
+    {
+      "id": "928_486_000005",
+      "text": "oui monsieur mais on a dû réparer une de ses chaudières et son départ a été remis à demain je vous remercie répondit mr fogg qui de son pas automatique redescendit dans le salon du rangoon",
+      "audio": "dev/audio/928/486/928_486_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 516.74,
+        "original_end_s": 534.91
+      }
+    },
+    {
+      "id": "928_486_000006",
+      "text": "le pilote ne sut jamais sans doute pourquoi ses réponses lui valurent cette amicale expansion a un coup de sifflet il remonta sur la passerelle et dirigea le paquebot",
+      "audio": "dev/audio/928/486/928_486_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 545.92,
+        "original_end_s": 559.52
+      }
+    },
+    {
+      "id": "928_486_000007",
+      "text": "mais je ne puis abuser vous n'abusez pas et votre présence ne gêne en rien mon programme passepartout monsieur répondit passepartout allez au carnatic et retenez trois cabines",
+      "audio": "dev/audio/928/486/928_486_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 824.4,
+        "original_end_s": 842.5
+      }
+    },
+    {
+      "id": "928_486_000008",
+      "text": "le rangoon dut mettre à la cape pendant un demi-jour se maintenant avec dix tours d'hélice seulement de manière à biaiser avec les lames",
+      "audio": "dev/audio/928/486/928_486_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 79.87,
+        "original_end_s": 91.83
+      }
+    },
+    {
+      "id": "928_486_000009",
+      "text": "quant à passepartout il saisit la main du pilote et l'étreignit vigoureusement en disant vous pilote vous êtes un brave homme",
+      "audio": "dev/audio/928/486/928_486_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 534.91,
+        "original_end_s": 545.92
+      }
+    },
+    {
+      "id": "928_486_000010",
+      "text": "mais depuis deux ans celui-ci n'habitait plus la chine sa fortune faite il s'était établi en europe en hollande croyait-on",
+      "audio": "dev/audio/928/486/928_486_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 751.43,
+        "original_end_s": 762.93
+      }
+    },
+    {
+      "id": "928_486_000011",
+      "text": "et les passagers furent en droit de garder rancune à ces longues lames affadissantes que le vent soulevait du large pendant les journées du trois et du quatre novembre ce fut une sorte de tempête la bourrasque battit la mer avec véhémence",
+      "audio": "dev/audio/928/486/928_486_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 59.87,
+        "original_end_s": 79.87
+      }
+    },
+    {
+      "id": "928_486_000012",
+      "text": "en cette circonstance le hasard avait singulièrement servi phileas fogg il faut en convenir sans cette nécessité de réparer ses chaudières",
+      "audio": "dev/audio/928/486/928_486_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 579.25,
+        "original_end_s": 593.03
+      }
+    },
+    {
+      "id": "928_486_000013",
+      "text": "enregistré par christophe le tour du monde en quatre vingts jours de jules verne chapitre dix huit",
+      "audio": "dev/audio/928/486/928_486_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 18.61,
+        "original_end_s": 30.53
+      }
+    },
+    {
+      "id": "928_486_000014",
+      "text": "passepartout mourait du désir d'interroger cet homme de lui demander si le paquebot de yokohama avait quitté hong kong mais il n'osait pas aimant mieux conserver un peu d'espoir jusqu'au dernier instant",
+      "audio": "dev/audio/928/486/928_486_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 423.13,
+        "original_end_s": 440.64
+      }
+    },
+    {
+      "id": "928_486_000015",
+      "text": "passepartout pendant toute la durée de la bourrasque demeura sur le pont du rangoon il n'aurait pas pu rester en bas il grimpait dans la mâture il étonnait l'équipage et aidait à tout avec une adresse de singe",
+      "audio": "dev/audio/928/486/928_486_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 288.89,
+        "original_end_s": 306.33
+      }
+    },
+    {
+      "id": "928_486_000016",
+      "text": "l'itinéraire de phileas fogg portait l'arrivée du paquebot aux cinq or il n'arrivait que le six",
+      "audio": "dev/audio/928/486/928_486_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 388.98,
+        "original_end_s": 399.63
+      }
+    },
+    {
+      "id": "928_486_000017",
+      "text": "passepartout enchanté de continuer son voyage dans la compagnie de la jeune femme qui était fort gracieuse pour lui quitta aussitôt l'hôtel du club",
+      "audio": "dev/audio/928/486/928_486_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 842.5,
+        "original_end_s": 856.85
+      }
+    },
+    {
+      "id": "928_486_000018",
+      "text": "là on connaîtrait immanquablement un personnage tel que l'honorable jejeeh qui comptait parmi les plus riches commerçants de la ville le courtier auquel s'adressa mister fogg connaissait en effet le négociant parsi",
+      "audio": "dev/audio/928/486/928_486_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 731.71,
+        "original_end_s": 751.43
+      }
+    },
+    {
+      "id": "928_486_000019",
+      "text": "évidemment il y aurait vingt-quatre heures de retard à yokohama mais pendant les vingt-deux jours que dure la traversée du pacifique il serait facile de les regagner",
+      "audio": "dev/audio/928/486/928_486_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 636.3,
+        "original_end_s": 649.85
+      }
+    },
+    {
+      "id": "928_486_000020",
+      "text": "la terre et l'eau semblaient être à la dévotion de son maître steamers et railways lui obéissaient le vent et la vapeur s'unissaient pour favoriser son voyage l'heure des mécomptes avait-elle donc enfin sonné",
+      "audio": "dev/audio/928/486/928_486_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 231.8,
+        "original_end_s": 249.77
+      }
+    },
+    {
+      "id": "928_486_000021",
+      "text": "a cela mrs aouda ne répondit rien d'abord elle passa sa main sur son front et resta quelques instants à réfléchir puis de sa douce voix",
+      "audio": "dev/audio/928/486/928_486_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 795.01,
+        "original_end_s": 810.68
+      }
+    },
+    {
+      "id": "928_486_000022",
+      "text": "mais cet homme sans nerfs ne ressentait ni impatience ni ennui il semblait vraiment que cette tempête rentrât dans son programme qu'elle fût prévue",
+      "audio": "dev/audio/928/486/928_486_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 144.81,
+        "original_end_s": 160.68
+      }
+    },
+    {
+      "id": "928_486_000023",
+      "text": "fogg assistait à ce spectacle d'une mer furieuse qui semblait lutter directement contre lui avec son habituelle impassibilité",
+      "audio": "dev/audio/928/486/928_486_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 119.01,
+        "original_end_s": 130.98
+      }
+    },
+    {
+      "id": "928_486_000024",
+      "text": "et ceux-ci lui désignèrent l'hôtel du club le palanquin se mit en route suivi de passepartout et vingt minutes après il arrivait à destination",
+      "audio": "dev/audio/928/486/928_486_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 687.92,
+        "original_end_s": 699.93
+      }
+    },
+    {
+      "id": "928_486_000025",
+      "text": "cent fois il interrogea le capitaine les officiers les matelots qui ne pouvaient s'empêcher de rire en voyant un garçon si décontenancé",
+      "audio": "dev/audio/928/486/928_486_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 306.33,
+        "original_end_s": 318.87
+      }
+    },
+    {
+      "id": "928_486_000026",
+      "text": "le carnatic fût parti à la date du cinq novembre et les voyageurs pour le japon auraient dû attendre pendant huit jours le départ du paquebot suivant",
+      "audio": "dev/audio/928/486/928_486_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 593.03,
+        "original_end_s": 604.93
+      }
+    },
+    {
+      "id": "928_486_000027",
+      "text": "son front ne s'assombrit pas un instant et cependant un retard de vingt heures pouvait compromettre son voyage en lui faisant manquer le départ du paquebot de yokohama",
+      "audio": "dev/audio/928/486/928_486_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 130.98,
+        "original_end_s": 144.81
+      }
+    },
+    {
+      "id": "928_486_000028",
+      "text": "et l'on put estimer qu'il arriverait à hong kong avec vingt heures de retard sur l'heure réglementaire et plus même si la tempête ne cessait pas",
+      "audio": "dev/audio/928/486/928_486_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 105.91,
+        "original_end_s": 119.01
+      }
+    },
+    {
+      "id": "928_486_000029",
+      "text": "toutes les voiles avaient été serrées et c'était encore trop de ces agrès qui sifflaient au milieu des rafales la vitesse du paquebot on le conçoit fut notablement diminuée",
+      "audio": "dev/audio/928/486/928_486_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 91.83,
+        "original_end_s": 105.91
+      }
+    },
+    {
+      "id": "928_486_000030",
+      "text": "sa satisfaction aurait même été sans bornes si le rangoon eût été obligé de fuir devant la tourmente tous ces retards lui allaient car ils obligeraient le sieur fogg à rester quelques jours à hong kong",
+      "audio": "dev/audio/928/486/928_486_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 179.12,
+        "original_end_s": 198.09
+      }
+    },
+    {
+      "id": "928_486_000031",
+      "text": "demain à la marée du matin répondit le pilote ah fit mr fogg sans manifester aucun étonnement",
+      "audio": "dev/audio/928/486/928_486_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 482.86,
+        "original_end_s": 494.61
+      }
+    },
+    {
+      "id": "928_486_000032",
+      "text": "aussitôt il fit demander à mrs aouda la permission de se présenter devant elle et sans autre préambule il lui apprit que l'honorable jejeeh ne résidait plus à hong kong et qu'il habitait vraisemblablement la hollande",
+      "audio": "dev/audio/928/486/928_486_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 776.06,
+        "original_end_s": 795.01
+      }
+    },
+    {
+      "id": "928_486_000033",
+      "text": "fin du chapitre dix huit cet enregistrement fait partie du domaine public",
+      "audio": "dev/audio/928/486/928_486_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 856.85,
+        "original_end_s": 872.49
+      }
+    },
+    {
+      "id": "928_486_000034",
+      "text": "il ne comptait pas ses nausées et quand son corps se tordait sous le mal de mer son esprit s'ébaudissait d'une immense satisfaction",
+      "audio": "dev/audio/928/486/928_486_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 208.17,
+        "original_end_s": 219.44
+      }
+    },
+    {
+      "id": "928_486_000035",
+      "text": "quel est le nom de ce steamer demanda mr fogg le carnatic répondit le pilote n'était-ce pas hier qu'il devait partir",
+      "audio": "dev/audio/928/486/928_486_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 504.93,
+        "original_end_s": 516.74
+      }
+    },
+    {
+      "id": "928_486_000036",
+      "text": "un appartement fut retenu pour la jeune femme et phileas fogg veilla à ce qu'elle ne manquât de rien puis il dit à mrs aouda qu'il allait immédiatement se mettre à la recherche de ce parent aux soins duquel il devait la laisser à hong kong",
+      "audio": "dev/audio/928/486/928_486_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 699.93,
+        "original_end_s": 718.02
+      }
+    },
+    {
+      "id": "928_486_000037",
+      "text": "fixé dans la partie du nord-ouest il contraria la marche du paquebot le rangoon trop instable roula considérablement",
+      "audio": "dev/audio/928/486/928_486_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 48.55,
+        "original_end_s": 59.87
+      }
+    },
+    {
+      "id": "928_486_000038",
+      "text": "en effet le steamer qui fait de yokohama à san francisco la traversée du pacifique était en correspondance directe avec le paquebot de hong kong et il ne pouvait partir avant que celui-ci fût arrivé",
+      "audio": "dev/audio/928/486/928_486_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 616.75,
+        "original_end_s": 636.3
+      }
+    },
+    {
+      "id": "928_486_000039",
+      "text": "passepartout comme si les vingt mille livres du pari eussent dû sortir de sa bourse ne vivait plus cette tempête l'exaspérait cette rafale le mettait en fureur et il eût volontiers fouetté cette mer désobéissante",
+      "audio": "dev/audio/928/486/928_486_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 249.77,
+        "original_end_s": 269.44
+      }
+    },
+    {
+      "id": "928_486_000040",
+      "text": "que dois-je faire monsieur fogg dit-elle c'est très simple répondit le gentleman revenir en europe",
+      "audio": "dev/audio/928/486/928_486_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 810.68,
+        "original_end_s": 824.4
+      }
+    },
+    {
+      "id": "928_486_000041",
+      "text": "passepartout secouait le baromètre mais rien n'y faisait ni les secousses ni les injures dont il accablait",
+      "audio": "dev/audio/928/486/928_486_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 332.88,
+        "original_end_s": 345.04
+      }
+    },
+    {
+      "id": "928_486_000042",
+      "text": "enfin le ciel avec ses rafales et ses bourrasques entrait dans son jeu il était bien un peu malade mais qu'importe",
+      "audio": "dev/audio/928/486/928_486_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 198.09,
+        "original_end_s": 208.17
+      }
+    },
+    {
+      "id": "928_486_000043",
+      "text": "a six heures le pilote monta à bord du rangoon et prit place sur la passerelle afin de diriger le navire à travers les passes jusqu'au port",
+      "audio": "dev/audio/928/486/928_486_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 410.36,
+        "original_end_s": 423.13
+      }
+    },
+    {
+      "id": "928_486_000044",
+      "text": "mais on ne pouvait regagner tout le temps perdu il fallait bien en prendre son parti et la terre ne fut signalée que le six à cinq heures du matin",
+      "audio": "dev/audio/928/486/928_486_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 375.6,
+        "original_end_s": 388.98
+      }
+    },
+    {
+      "id": "928_486_000045",
+      "text": "en même temps il donnait à passepartout l'ordre de demeurer à l'hôtel jusqu'à son retour afin que la jeune femme n'y restât pas seule le gentleman se fit conduire à la bourse",
+      "audio": "dev/audio/928/486/928_486_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 718.02,
+        "original_end_s": 731.71
+      }
+    },
+    {
+      "id": "928_486_000046",
+      "text": "passepartout se rasséréna avec le temps les huniers et les basses voiles purent être établis et le rangoon reprit sa course avec une merveilleuse vitesse",
+      "audio": "dev/audio/928/486/928_486_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 360.96,
+        "original_end_s": 375.6
+      }
+    },
+    {
+      "id": "928_486_000047",
+      "text": "mais si passepartout ne se hasarda pas à interroger le pilote mr fogg après avoir consulté son",
+      "audio": "dev/audio/928/486/928_486_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 460.56,
+        "original_end_s": 471.72
+      }
+    },
+    {
+      "id": "928_486_000048",
+      "text": "enfin la tourmente s'apaisa l'état de la mer se modifia dans la journée du quatre novembre le vent sauta de deux quarts dans le sud et redevint favorable",
+      "audio": "dev/audio/928/486/928_486_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 345.04,
+        "original_end_s": 360.96
+      }
+    },
+    {
+      "id": "928_486_000049",
+      "text": "passepartout qui était présent eût volontiers embrassé le pilote auquel fix aurait voulu tordre le cou",
+      "audio": "dev/audio/928/486/928_486_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 494.61,
+        "original_end_s": 504.93
+      }
+    },
+    {
+      "id": "928_486_000050",
+      "text": "demanda de son air tranquille au dit pilote s'il savait quand il partirait un bateau de hong kong pour yokohama",
+      "audio": "dev/audio/928/486/928_486_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 471.72,
+        "original_end_s": 482.86
+      }
+    },
+    {
+      "id": "928_486_000051",
+      "text": "passepartout voulait absolument savoir combien de temps durerait la tempête on le renvoyait alors au baromètre qui ne se décidait pas à remonter",
+      "audio": "dev/audio/928/486/928_486_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 318.87,
+        "original_end_s": 332.88
+      }
+    },
+    {
+      "id": "928_486_000052",
+      "text": "c'était donc vingt-quatre heures de retard et le départ pour yokohama serait nécessairement manqué",
+      "audio": "dev/audio/928/486/928_486_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 399.63,
+        "original_end_s": 410.36
+      }
+    },
+    {
+      "id": "928_486_000053",
+      "text": "le carnatic ne devant partir que le lendemain matin à cinq heures mr fogg avait devant lui seize heures pour s'occuper de ses affaires c'est-à-dire de celles qui concernaient mrs aouda",
+      "audio": "dev/audio/928/486/928_486_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 662.27,
+        "original_end_s": 676.15
+      }
+    },
+    {
+      "id": "928_486_000054",
+      "text": "au milieu de cette flottille de jonques de tankas de bateaux pêcheurs de navires de toutes sortes qui encombraient les pertuis de hong kong à une heure le rangoon était à quai et les passagers débarquaient",
+      "audio": "dev/audio/928/486/928_486_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 559.52,
+        "original_end_s": 579.25
+      }
+    },
+    {
+      "id": "928_486_000055",
+      "text": "pauvre garçon fix lui cacha soigneusement sa satisfaction personnelle et il fit bien car si passepartout eût deviné le secret contentement de fix fix eût passé un mauvais quart d'heure",
+      "audio": "dev/audio/928/486/928_486_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 269.44,
+        "original_end_s": 288.89
+      }
+    },
+    {
+      "id": "928_486_000056",
+      "text": "missis aouda qui s'entretint avec son compagnon de ce contretemps le trouva aussi calme que par le passé fix lui ne voyait pas les choses du même œil bien au contraire cette tempête lui plaisait",
+      "audio": "dev/audio/928/486/928_486_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 160.68,
+        "original_end_s": 179.12
+      }
+    },
+    {
+      "id": "928_486_000057",
+      "text": "phileas fogg se trouvait donc à vingt-quatre heures près dans les conditions de son programme trente-cinq jours après avoir quitté londres",
+      "audio": "dev/audio/928/486/928_486_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 649.85,
+        "original_end_s": 662.27
+      }
+    },
+    {
+      "id": "928_486_000058",
+      "text": "ce qui s'expliquait par suite de nombreuses relations qu'il avait eues avec ce pays pendant son existence commerciale phileas fogg revint à l'hôtel du club",
+      "audio": "dev/audio/928/486/928_486_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_18_verne_64kb.mp3",
+        "original_start_s": 762.93,
+        "original_end_s": 776.06
+      }
+    },
+    {
+      "id": "928_486_000059",
+      "text": "passepartout était enchanté de l'aimable compagnon que le hasard lui avait procuré en la personne de fix le dimanche vingt octobre vers midi on eut connaissance de la côte indienne",
+      "audio": "dev/audio/928/486/928_486_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 893.27,
+        "original_end_s": 908.51
+      }
+    },
+    {
+      "id": "928_486_000060",
+      "text": "au souper de huit heures les tables pliaient sous les plats de viande fraîche et les entremets fournis par la boucherie et les offices du paquebot les passagères il y en avait quelques-unes changeaient de toilette deux fois par jour",
+      "audio": "dev/audio/928/486/928_486_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 177.63,
+        "original_end_s": 193.93
+      }
+    },
+    {
+      "id": "928_486_000061",
+      "text": "le paquebot pénétra dans cette rade formée par les îles salcette colaba éléphanta butcher et à quatre heures et demie il accostait les quais de bombay",
+      "audio": "dev/audio/928/486/928_486_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 926.43,
+        "original_end_s": 941.21
+      }
+    },
+    {
+      "id": "928_486_000062",
+      "text": "un mouvement involontaire faillit lui échapper la feuille trembla dans sa main le signalement libellé sur le passeport était identique à celui qu'il avait reçu du directeur de la police métropolitaine",
+      "audio": "dev/audio/928/486/928_486_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 766.31,
+        "original_end_s": 785.41
+      }
+    },
+    {
+      "id": "928_486_000063",
+      "text": "le mongolia ne devait arriver que le vingt-deux octobre à bombay or il y arrivait le vingt c'était donc depuis son départ de londres",
+      "audio": "dev/audio/928/486/928_486_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 960.22,
+        "original_end_s": 972.23
+      }
+    },
+    {
+      "id": "928_486_000064",
+      "text": "en ce moment il donnait certaines marques d'impatience allant venant ne pouvant tenir en place cet homme se nommait fix",
+      "audio": "dev/audio/928/486/928_486_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 175.2,
+        "original_end_s": 186.98
+      }
+    },
+    {
+      "id": "928_486_000065",
+      "text": "et c'est curieux cette inde là très curieux des mosquées des minarets des temples des fakirs des pagodes des tigres des serpents des bayadères mais il faut espérer que vous aurez le temps de visiter le pays",
+      "audio": "dev/audio/928/486/928_486_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 510.83,
+        "original_end_s": 530.59
+      }
+    },
+    {
+      "id": "928_486_000066",
+      "text": "une dizaine de canots se détachèrent de la rive et allèrent au-devant du mongolia bientôt",
+      "audio": "dev/audio/928/486/928_486_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 671.12,
+        "original_end_s": 681.62
+      }
+    },
+    {
+      "id": "928_486_000067",
+      "text": "c'est là qu'il devait se réapprovisionner de combustible grave et importante affaire que cette alimentation du foyer des paquebots à de telles distances des centres de production",
+      "audio": "dev/audio/928/486/928_486_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 705.98,
+        "original_end_s": 720.9
+      }
+    },
+    {
+      "id": "928_486_000068",
+      "text": "pendant la nuit suivante le mongolia franchit le détroit de bab el mandeb dont le nom arabe signifie la porte des larmes et le lendemain quatorze il faisait escale à steamer point au nord-ouest de la route d'aden",
+      "audio": "dev/audio/928/486/928_486_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 686.32,
+        "original_end_s": 705.98
+      }
+    },
+    {
+      "id": "928_486_000069",
+      "text": "et pourtant malgré la rafale malgré la houle le paquebot poussé par sa puissante machine courait sans retard vers le détroit de bab el mandeb",
+      "audio": "dev/audio/928/486/928_486_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 228.42,
+        "original_end_s": 241.41
+      }
+    },
+    {
+      "id": "928_486_000070",
+      "text": "il s'inquiétait peu d'observer cette mer rouge si féconde en souvenirs ce théâtre des premières scènes historiques de l'humanité il ne venait pas reconnaître les curieuses villes semées sur ses bords et dont la pittoresque silhouette se découpait quelquefois à l'horizon",
+      "audio": "dev/audio/928/486/928_486_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 300.28,
+        "original_end_s": 319.53
+      }
+    },
+    {
+      "id": "928_486_000071",
+      "text": "quatre heures le temps d'embarquer son charbon de suez à aden à l'extrémité de la mer rouge on compte treize cent dix milles et il faut faire provision de combustible",
+      "audio": "dev/audio/928/486/928_486_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 535.63,
+        "original_end_s": 551.15
+      }
+    },
+    {
+      "id": "928_486_000072",
+      "text": "le navire mieux appuyé roula moins les passagères en fraîches toilettes reparurent sur le pont les chants et les danses recommencèrent le voyage s'accomplit donc dans les meilleures conditions",
+      "audio": "dev/audio/928/486/928_486_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 876.84,
+        "original_end_s": 893.27
+      }
+    },
+    {
+      "id": "928_486_000073",
+      "text": "non toute cette gymnastique cessera à bombay n'en doutez pas et il se porte bien mr fogg demanda fix du ton le plus naturel",
+      "audio": "dev/audio/928/486/928_486_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 549.65,
+        "original_end_s": 565.08
+      }
+    },
+    {
+      "id": "928_486_000074",
+      "text": "l'inspecteur de police demeura seul pris d'une impatience nerveuse avec ce pressentiment assez bizarre que son voleur devait se trouver à bord du mongolia",
+      "audio": "dev/audio/928/486/928_486_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 613.81,
+        "original_end_s": 627.2
+      }
+    },
+    {
+      "id": "928_486_000075",
+      "text": "je vous le répète dans les conditions où vous êtes je crains que ce ne soit difficile savez-vous bien que d'après le signalement que vous avez reçu ce voleur ressemble absolument à un honnête homme",
+      "audio": "dev/audio/928/486/928_486_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 385.98,
+        "original_end_s": 401.85
+      }
+    },
+    {
+      "id": "928_486_000076",
+      "text": "devait avoir obtenu sa préférence fix ne fut pas longtemps livré à ses réflexions de vifs coups de sifflet annoncèrent l'arrivée du paquebot",
+      "audio": "dev/audio/928/486/928_486_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 643.89,
+        "original_end_s": 658.96
+      }
+    },
+    {
+      "id": "928_486_000077",
+      "text": "et neuf milles cinquante-trois centièmes entre suez et bombay il les avait toujours dépassées",
+      "audio": "dev/audio/928/486/928_486_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 89.93,
+        "original_end_s": 100.22
+      }
+    },
+    {
+      "id": "928_486_000078",
+      "text": "depuis cette rencontre passepartout et fix causèrent souvent ensemble l'inspecteur de police tenait à se lier avec le domestique du sieur",
+      "audio": "dev/audio/928/486/928_486_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 610.59,
+        "original_end_s": 623.83
+      }
+    },
+    {
+      "id": "928_486_000079",
+      "text": "en attendant l'arrivée du mongolia deux hommes se promenaient sur le quai au milieu de la foule d'indigènes et d'étrangers qui affluent dans cette ville naguère une bourgade à laquelle la grande oeuvre de m de lesseps",
+      "audio": "dev/audio/928/486/928_486_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 100.22,
+        "original_end_s": 117.23
+      }
+    },
+    {
+      "id": "928_486_000080",
+      "text": "là-dessus le passager salua fix et retourna à bord du steamer fin du chapitre six",
+      "audio": "dev/audio/928/486/928_486_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 831.01,
+        "original_end_s": 844.26
+      }
+    },
+    {
+      "id": "928_486_000081",
+      "text": "le détective très alléché évidemment par la forte prime promise en cas de succès attendait donc avec une impatience facile à comprendre l'arrivée du mongolia",
+      "audio": "dev/audio/928/486/928_486_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 240.31,
+        "original_end_s": 253.61
+      }
+    },
+    {
+      "id": "928_486_000082",
+      "text": "un gain de deux jours que phileas fogg inscrivit méthodiquement sur son itinéraire à la colonne des bénéfices",
+      "audio": "dev/audio/928/486/928_486_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 972.23,
+        "original_end_s": 984.31
+      }
+    },
+    {
+      "id": "928_486_000083",
+      "text": "sur lequel il désirait sans doute faire apposer le visa britannique fix instinctivement prit le passeport et d'un rapide coup d'oeil il en lut le signalement",
+      "audio": "dev/audio/928/486/928_486_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 750.13,
+        "original_end_s": 766.31
+      }
+    },
+    {
+      "id": "928_486_000084",
+      "text": "mais ce retard ne pouvait nuire en aucune façon au programme de phileas fogg il était prévu d'ailleurs le mongolia au lieu d'arriver à aden le quinze octobre seulement au matin y entrait le quatorze au soir c'était un gain de quinze heures",
+      "audio": "dev/audio/928/486/928_486_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 757.33,
+        "original_end_s": 777.23
+      }
+    },
+    {
+      "id": "928_486_000085",
+      "text": "précisément depuis deux jours fix avait reçu du directeur de la police métropolitaine le signalement de l'auteur présumé du vol",
+      "audio": "dev/audio/928/486/928_486_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 217.63,
+        "original_end_s": 229.41
+      }
+    },
+    {
+      "id": "928_486_000086",
+      "text": "rien que pour la compagnie péninsulaire c'est une dépense annuelle qui se chiffre par huit cent mille livres vingt millions de francs il a fallu en effet établir des dépôts en plusieurs ports et dans ces mers éloignées",
+      "audio": "dev/audio/928/486/928_486_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 720.9,
+        "original_end_s": 738.62
+      }
+    },
+    {
+      "id": "928_486_000087",
+      "text": "il ne peut être éloigné répondit le consul combien de temps stationnera-t-il à suez demanda fix",
+      "audio": "dev/audio/928/486/928_486_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 524.54,
+        "original_end_s": 535.63
+      }
+    },
+    {
+      "id": "928_486_000088",
+      "text": "les passagers étaient assez nombreux à bord quelques-uns restèrent sur le spardeck à contempler le panorama pittoresque de la ville mais la plupart débarquèrent dans les canots qui étaient venus accoster le mongolia",
+      "audio": "dev/audio/928/486/928_486_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 701.23,
+        "original_end_s": 719.5
+      }
+    },
+    {
+      "id": "928_486_000089",
+      "text": "sous-lieutenants à sept mille francs brigadiers à soixante mille généraux à cent mille le traitement des fonctionnaires civils est encore plus élevé",
+      "audio": "dev/audio/928/486/928_486_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 113.85,
+        "original_end_s": 125.14
+      }
+    },
+    {
+      "id": "928_486_000090",
+      "text": "le charbon revient à quatre-vingts francs la tonne le mongolia avait encore seize cent cinquante milles à faire avant d'atteindre bombay et il devait rester quatre heures à steamer point afin de remplir ses soutes",
+      "audio": "dev/audio/928/486/928_486_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 738.62,
+        "original_end_s": 757.33
+      }
+    },
+    {
+      "id": "928_486_000091",
+      "text": "il a été signalé hier au large de port saïd et les cent soixante kilomètres du canal ne comptent pas pour un tel marcheur",
+      "audio": "dev/audio/928/486/928_486_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 265.34,
+        "original_end_s": 276.69
+      }
+    },
+    {
+      "id": "928_486_000092",
+      "text": "et il trouva même qu'avec ces murs circulaires et un fort démantelé qui se dessinait comme une anse elle ressemblait à une énorme demi-tasse",
+      "audio": "dev/audio/928/486/928_486_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 674.69,
+        "original_end_s": 686.32
+      }
+    },
+    {
+      "id": "928_486_000093",
+      "text": "cela pouvait le servir à l'occasion il lui offrait donc souvent au bar room du mongolia quelques verres de whisky ou de pale ale",
+      "audio": "dev/audio/928/486/928_486_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 623.83,
+        "original_end_s": 634.16
+      }
+    },
+    {
+      "id": "928_486_000094",
+      "text": "vers le sud une jetée longue de deux mille mètres s'allongeait comme un bras sur la rade de suez à la surface de la mer rouge roulaient plusieurs bateaux de pêche ou de cabotage dont quelques-uns",
+      "audio": "dev/audio/928/486/928_486_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 474.78,
+        "original_end_s": 491.95
+      }
+    },
+    {
+      "id": "928_486_000095",
+      "text": "je ne sais vraiment pas comment avec le signalement que vous avez reçu vous pourrez reconnaître votre homme s'il est à bord du mongolia monsieur le consul",
+      "audio": "dev/audio/928/486/928_486_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 308.19,
+        "original_end_s": 320.48
+      }
+    },
+    {
+      "id": "928_486_000096",
+      "text": "savez-vous monsieur passepartout que ce prétendu voyage en quatre-vingts jours pourrait bien cacher quelque mission secrète une mission diplomatique par exemple",
+      "audio": "dev/audio/928/486/928_486_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 583.75,
+        "original_end_s": 598.55
+      }
+    },
+    {
+      "id": "928_486_000097",
+      "text": "deux heures plus tard le pilote montait à bord du mongolia a l'horizon un arrière plan de collines se profilait harmonieusement sur le fond du ciel bientôt les rangs de palmiers qui couvrent la ville se détachèrent vivement",
+      "audio": "dev/audio/928/486/928_486_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 908.51,
+        "original_end_s": 926.43
+      }
+    },
+    {
+      "id": "928_486_000098",
+      "text": "retournant à bombay et un brigadier général de l'armée anglaise qui rejoignait son corps à bénarès ces trois passagers avaient pour le whist la même passion que mr fogg",
+      "audio": "dev/audio/928/486/928_486_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 379.76,
+        "original_end_s": 395.19
+      }
+    },
+    {
+      "id": "928_486_000099",
+      "text": "ma foi monsieur fix je n'en sais rien je vous l'avoue et au fond je ne donnerais pas une demi-couronne pour le savoir",
+      "audio": "dev/audio/928/486/928_486_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 598.55,
+        "original_end_s": 610.59
+      }
+    },
+    {
+      "id": "928_486_000100",
+      "text": "ce fix devait surveiller avec le plus grand soin tous les voyageurs prenant la route de suez et si l'un d'eux lui semblait suspect le filer en attendant un mandat d'arrestation",
+      "audio": "dev/audio/928/486/928_486_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 201.07,
+        "original_end_s": 217.63
+      }
+    },
+    {
+      "id": "928_486_000101",
+      "text": "en dépit des fâcheux pronostics du gouvernement britannique et des sinistres prédictions de l'ingénieur stephenson voyait chaque jour des navires anglais traverser ce canal",
+      "audio": "dev/audio/928/486/928_486_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 130.59,
+        "original_end_s": 143.99
+      }
+    },
+    {
+      "id": "928_486_000102",
+      "text": "il lui était accordé cent soixante-huit heures pour accomplir la traversée entre aden et bombay du reste cette mer indienne lui fut favorable le vent tenait dans le nord-ouest les voiles vinrent en aide à la vapeur",
+      "audio": "dev/audio/928/486/928_486_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 858.65,
+        "original_end_s": 876.84
+      }
+    },
+    {
+      "id": "928_486_000103",
+      "text": "bien nourri bien logé il voyait du pays et d'ailleurs il s'affirmait à lui-même que toute cette fantaisie finirait à bombay",
+      "audio": "dev/audio/928/486/928_486_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 422.37,
+        "original_end_s": 434.05
+      }
+    },
+    {
+      "id": "928_486_000104",
+      "text": "là au coin de la place répondit l'inspecteur en indiquant une maison éloignée de deux cents pas alors euh je vais aller chercher mon maître à qui pourtant cela ne plaira guère de se déranger",
+      "audio": "dev/audio/928/486/928_486_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 815.28,
+        "original_end_s": 831.01
+      }
+    },
+    {
+      "id": "928_486_000105",
+      "text": "les voleurs deviennent mesquins la race des sheppard s'étiole on se fait pendre maintenant pour quelques shillings monsieur fix répondit le consul vous parlez d'une telle façon que je vous souhaite vivement de réussir mais",
+      "audio": "dev/audio/928/486/928_486_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 368.05,
+        "original_end_s": 385.98
+      }
+    },
+    {
+      "id": "928_486_000106",
+      "text": "de parsis de juifs d'arabes d'européens composant les vingt-cinq-mille habitants d'aden il admira les fortifications qui font de cette ville le gibraltar de la mer des indes",
+      "audio": "dev/audio/928/486/928_486_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 807.89,
+        "original_end_s": 821.83
+      }
+    },
+    {
+      "id": "928_486_000107",
+      "text": "eh bien dit fix si le voleur a pris cette route et ce bateau il doit entrer dans son plan de débarquer à suez afin de gagner par une autre voie les possessions hollandaises ou françaises de l'asie",
+      "audio": "dev/audio/928/486/928_486_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 561.64,
+        "original_end_s": 578.81
+      }
+    },
+    {
+      "id": "928_486_000108",
+      "text": "monsieur fix répondit passepartout enchanté de vous retrouver à bord et où allez-vous donc mais ainsi que vous à bombay c'est au mieux est-ce que vous avez déjà fait ce voyage",
+      "audio": "dev/audio/928/486/928_486_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 474.85,
+        "original_end_s": 493.09
+      }
+    },
+    {
+      "id": "928_486_000109",
+      "text": "le mongolia faisait régulièrement les voyages de brindisi à bombay par le canal de suez c'était un des plus rapides marcheurs de la compagnie et les vitesses réglementaires soit dix milles à l'heure entre brindisi et suez",
+      "audio": "dev/audio/928/486/928_486_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 71.37,
+        "original_end_s": 89.93
+      }
+    },
+    {
+      "id": "928_486_000110",
+      "text": "on aperçut la gigantesque coque du mongolia passant entre les rives du canal et onze heures sonnaient quand le steamer vint mouiller en rade pendant que sa vapeur fusait à grand bruit par les tuyaux d'échappement",
+      "audio": "dev/audio/928/486/928_486_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 681.62,
+        "original_end_s": 701.23
+      }
+    },
+    {
+      "id": "928_486_000111",
+      "text": "il ne rêvait même pas aux dangers de ce golfe arabique dont les anciens historiens strabon arrien arthémidore edrisi",
+      "audio": "dev/audio/928/486/928_486_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 319.53,
+        "original_end_s": 331.0
+      }
+    },
+    {
+      "id": "928_486_000112",
+      "text": "en effet répondit le détective je vous reconnais vous êtes le domestique de cet anglais original précisément monsieur",
+      "audio": "dev/audio/928/486/928_486_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 461.71,
+        "original_end_s": 474.85
+      }
+    },
+    {
+      "id": "928_486_000113",
+      "text": "j'ai arrêté dans ma vie plus d'un de ces gentlemen et pourvu que mon voleur soit à bord je vous réponds qu'il ne me glissera pas entre les mains je le souhaite monsieur fix car il s'agit d'un vol important",
+      "audio": "dev/audio/928/486/928_486_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 338.11,
+        "original_end_s": 356.1
+      }
+    },
+    {
+      "id": "928_486_000114",
+      "text": "les physionomies honnêtes sont celles-là qu'il faut dévisager surtout travail difficile j'en conviens et qui n'est plus du métier mais de l'art",
+      "audio": "dev/audio/928/486/928_486_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 426.07,
+        "original_end_s": 440.02
+      }
+    },
+    {
+      "id": "928_486_000115",
+      "text": "où la mer rouge et la mer des indes se montrent propices aux desseins de phileas fogg la distance entre suez et aden est exactement de treize cent dix milles",
+      "audio": "dev/audio/928/486/928_486_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 31.95,
+        "original_end_s": 46.92
+      }
+    },
+    {
+      "id": "928_486_000116",
+      "text": "je m'aperçois qu'il n'est pas inutile de voyager si l'on veut voir du nouveau a six heures du soir le mongolia battait des branches de son hélice les eaux de la rade d'aden et courait bientôt sur la mer des indes",
+      "audio": "dev/audio/928/486/928_486_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 838.96,
+        "original_end_s": 858.65
+      }
+    },
+    {
+      "id": "928_486_000117",
+      "text": "la formalité du visa accomplie phileas fogg revint à bord reprendre sa partie interrompue passepartout lui flâna suivant sa coutume au milieu de cette population de somanlis de banians",
+      "audio": "dev/audio/928/486/928_486_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 791.24,
+        "original_end_s": 807.89
+      }
+    },
+    {
+      "id": "928_486_000118",
+      "text": "cependant le paquebot s'avançait rapidement le treize on eut connaissance de moka qui apparut dans sa ceinture de murailles ruinées au-dessus desquelles se détachaient quelques dattiers verdoyants",
+      "audio": "dev/audio/928/486/928_486_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 647.02,
+        "original_end_s": 664.13
+      }
+    },
+    {
+      "id": "928_486_000119",
+      "text": "ou tout au moins si ce gentleman songeait à ces éventualités il n'en laissait rien paraître c'était toujours l'homme impassible le membre imperturbable du",
+      "audio": "dev/audio/928/486/928_486_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 271.9,
+        "original_end_s": 287.09
+      }
+    },
+    {
+      "id": "928_486_000120",
+      "text": "et il lui demanda fort poliment s'il pouvait lui indiquer les bureaux de l'agent consulaire anglais et en même temps ce passager présentait un passeport",
+      "audio": "dev/audio/928/486/928_486_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 736.1,
+        "original_end_s": 750.13
+      }
+    },
+    {
+      "id": "928_486_000121",
+      "text": "ce passeport n'est pas le vôtre dit-il au passager non répondit celui-ci c'est le passeport de mon maître et votre maître il est resté à bord",
+      "audio": "dev/audio/928/486/928_486_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 785.41,
+        "original_end_s": 800.36
+      }
+    },
+    {
+      "id": "928_486_000122",
+      "text": "parmi ces passagers du mongolia on comptait divers fonctionnaires civils et des officiers de tout grade de ceux-ci les uns appartenaient à l'armée britannique proprement dite",
+      "audio": "dev/audio/928/486/928_486_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 88.01,
+        "original_end_s": 100.17
+      }
+    },
+    {
+      "id": "928_486_000123",
+      "text": "ont conservé dans leurs façons l'élégant gabarit de la galère antique tout en circulant au milieu de ce populaire fix",
+      "audio": "dev/audio/928/486/928_486_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 491.95,
+        "original_end_s": 504.83
+      }
+    },
+    {
+      "id": "928_486_000124",
+      "text": "je vous répète que le mongolia a toujours gagné la prime de vingt-cinq livres que le gouvernement accorde pour chaque avance de vingt-quatre heures sur les temps réglementaires",
+      "audio": "dev/audio/928/486/928_486_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 276.69,
+        "original_end_s": 290.41
+      }
+    },
+    {
+      "id": "928_486_000125",
+      "text": "mais via bombay car depuis qu'un chemin de fer traverse dans toute sa largeur la péninsule indienne il n'est plus nécessaire de doubler la pointe de ceylan",
+      "audio": "dev/audio/928/486/928_486_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 76.07,
+        "original_end_s": 88.01
+      }
+    },
+    {
+      "id": "928_486_000126",
+      "text": "que le brave garçon acceptait sans cérémonie et rendait même pour ne pas être en reste trouvant d'ailleurs ce fix un gentleman bien honnête",
+      "audio": "dev/audio/928/486/928_486_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 634.16,
+        "original_end_s": 647.02
+      }
+    },
+    {
+      "id": "928_486_000127",
+      "text": "un vol magnifique répondit l'agent enthousiasmé cinquante-cinq mille livres nous n'avons pas souvent de pareilles",
+      "audio": "dev/audio/928/486/928_486_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 356.1,
+        "original_end_s": 368.05
+      }
+    },
+    {
+      "id": "928_486_000128",
+      "text": "l'arrivée du paquebot était évidemment prochaine le temps était assez beau mais l'air froid par ce vent d'est quelques minarets se dessinaient au-dessus de la ville sous les pâles rayons du soleil",
+      "audio": "dev/audio/928/486/928_486_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 458.17,
+        "original_end_s": 474.78
+      }
+    },
+    {
+      "id": "928_486_000129",
+      "text": "les autres commandaient les troupes indigènes de cipayes tous chèrement appointés même à présent que le gouvernement s'est substitué aux droits et aux charges de l'ancienne compagnie des indes",
+      "audio": "dev/audio/928/486/928_486_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 100.17,
+        "original_end_s": 113.85
+      }
+    },
+    {
+      "id": "928_486_000130",
+      "text": "au loin dans les montagnes se développaient de vastes champs de caféiers passepartout fut ravi de contempler cette ville célèbre",
+      "audio": "dev/audio/928/486/928_486_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 664.13,
+        "original_end_s": 674.69
+      }
+    },
+    {
+      "id": "928_486_000131",
+      "text": "et ils jouaient pendant des heures entières non moins silencieusement que lui quant à passepartout le mal de mer n'avait aucune prise sur lui",
+      "audio": "dev/audio/928/486/928_486_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 395.19,
+        "original_end_s": 406.8
+      }
+    },
+    {
+      "id": "928_486_000132",
+      "text": "ont toujours parlé avec épouvante et sur lequel les navigateurs ne se hasardaient jamais autrefois sans avoir consacré leur voyage par des sacrifices propitiatoires que faisait donc cet original emprisonné dans le mongolia",
+      "audio": "dev/audio/928/486/928_486_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 331.0,
+        "original_end_s": 350.36
+      }
+    },
+    {
+      "id": "928_486_000133",
+      "text": "le paquebot mongolia de la compagnie péninsulaire et orientale steamer en fer à hélice et à spardeck jaugeant deux mille huit cents tonnes et possédant une force nominale de cinq cents chevaux",
+      "audio": "dev/audio/928/486/928_486_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 55.82,
+        "original_end_s": 71.37
+      }
+    },
+    {
+      "id": "928_486_000134",
+      "text": "on faisait de la musique on dansait même quand la mer le permettait mais la mer rouge est fort capricieuse et trop souvent mauvaise comme tous ces golfes étroits et longs",
+      "audio": "dev/audio/928/486/928_486_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 193.93,
+        "original_end_s": 209.04
+      }
+    },
+    {
+      "id": "928_486_000135",
+      "text": "phileas fogg achevait alors le trente-troisième robre de la journée et son partenaire et lui grâce à une manoeuvre audacieuse ayant fait les treize levées terminèrent cette belle traversée par un chelem admirable",
+      "audio": "dev/audio/928/486/928_486_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 941.21,
+        "original_end_s": 960.22
+      }
+    },
+    {
+      "id": "928_486_000136",
+      "text": "plusieurs fois répondit fix je suis un agent de la compagnie péninsulaire alors vous connaissez l'inde mais oui répondit fix qui ne voulait pas trop s'avancer",
+      "audio": "dev/audio/928/486/928_486_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 493.09,
+        "original_end_s": 510.83
+      }
+    },
+    {
+      "id": "928_486_000137",
+      "text": "et vous dites monsieur le consul demanda-t-il pour la dixième fois que ce bateau ne peut tarder non monsieur fix répondit le consul",
+      "audio": "dev/audio/928/486/928_486_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 253.61,
+        "original_end_s": 265.34
+      }
+    },
+    {
+      "id": "928_486_000138",
+      "text": "quand le vent soufflait soit de la côte d'asie soit de la côte d'afrique le mongolia long fuseau à hélice pris par le travers roulait épouvantablement les dames disparaissaient alors les pianos se taisaient chants et danses cessaient à la fois",
+      "audio": "dev/audio/928/486/928_486_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 209.04,
+        "original_end_s": 228.42
+      }
+    },
+    {
+      "id": "928_486_000139",
+      "text": "le lendemain du départ de suez le dix octobre ce ne fut pas sans un certain plaisir qu'il rencontra sur le pont l'obligeant personnage auquel il s'était adressé en débarquant en égypte",
+      "audio": "dev/audio/928/486/928_486_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 434.05,
+        "original_end_s": 449.85
+      }
+    },
+    {
+      "id": "928_486_000140",
+      "text": "il occupait une cabine à l'avant et mangeait lui aussi consciencieusement il faut dire que décidément ce voyage fait dans ces conditions ne lui déplaisait plus il en prenait son parti",
+      "audio": "dev/audio/928/486/928_486_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 406.8,
+        "original_end_s": 422.37
+      }
+    },
+    {
+      "id": "928_486_000141",
+      "text": "la plupart des passagers embarqués à brindisi avaient presque tous l'inde pour destination les uns se rendaient à bombay les autres à calcutta",
+      "audio": "dev/audio/928/486/928_486_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 63.88,
+        "original_end_s": 76.07
+      }
+    },
+    {
+      "id": "928_486_000142",
+      "text": "toute la horde des portefaix et des fellahs se précipita vers le quai dans un tumulte un peu inquiétant pour les membres et les vêtements des passagers",
+      "audio": "dev/audio/928/486/928_486_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 658.96,
+        "original_end_s": 671.12
+      }
+    },
+    {
+      "id": "928_486_000143",
+      "text": "je l'espère monsieur fix vous comprenez bien qu'il n'est pas permis à un homme sain d'esprit de passer sa vie à sauter d'un paquebot dans un chemin de fer et d'un chemin de fer dans un paquebot sous prétexte de faire le tour du monde en quatre-vingts jours",
+      "audio": "dev/audio/928/486/928_486_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 530.59,
+        "original_end_s": 549.65
+      }
+    },
+    {
+      "id": "928_486_000144",
+      "text": "le purser l'homme de confiance de la compagnie l'égal du capitaine à bord faisait somptueusement les choses au déjeuner du matin au lunch de deux heures au dîner de cinq heures et demie",
+      "audio": "dev/audio/928/486/928_486_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 161.68,
+        "original_end_s": 177.63
+      }
+    },
+    {
+      "id": "928_486_000145",
+      "text": "je ne me trompe pas dit-il en l'abordant avec son plus aimable sourire c'est bien vous monsieur qui m'avez si complaisamment servi de guide à suez",
+      "audio": "dev/audio/928/486/928_486_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 449.85,
+        "original_end_s": 461.71
+      }
+    },
+    {
+      "id": "928_486_000146",
+      "text": "mr fogg et son domestique descendirent à terre le gentleman voulait faire viser son passeport fix le suivit sans être remarqué",
+      "audio": "dev/audio/928/486/928_486_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 777.23,
+        "original_end_s": 791.24
+      }
+    },
+    {
+      "id": "928_486_000147",
+      "text": "mais reprit l'agent il faut qu'il se présente en personne aux bureaux du consulat afin d'établir son identité quoi cela est nécessaire indispensable et où sont ces bureaux",
+      "audio": "dev/audio/928/486/928_486_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 800.36,
+        "original_end_s": 815.28
+      }
+    },
+    {
+      "id": "928_486_000148",
+      "text": "qui contractait avec une persistance remarquable ses muscles sourciliers à travers ses longs cils brillait un oeil très vif mais dont il savait à volonté éteindre l'ardeur",
+      "audio": "dev/audio/928/486/928_486_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 159.28,
+        "original_end_s": 175.2
+      }
+    },
+    {
+      "id": "928_486_000149",
+      "text": "enfin de toutes les avaries possibles qui en obligeant le mongolia à relâcher dans quelque port auraient compromis son voyage aucunement",
+      "audio": "dev/audio/928/486/928_486_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 259.93,
+        "original_end_s": 271.9
+      }
+    },
+    {
+      "id": "928_486_000150",
+      "text": "très bien monsieur fix moi aussi d'ailleurs je mange comme un ogre qui serait à jeun c'est l'air de la mer et votre maître je ne le vois jamais sur le pont jamais il n'est pas curieux",
+      "audio": "dev/audio/928/486/928_486_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 565.08,
+        "original_end_s": 583.75
+      }
+    },
+    {
+      "id": "928_486_000151",
+      "text": "abrégeant ainsi de moitié l'ancienne route de l'angleterre aux indes par le cap de bonne-espérance l'autre était un petit homme maigre de figure assez intelligente nerveux",
+      "audio": "dev/audio/928/486/928_486_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 143.99,
+        "original_end_s": 159.28
+      }
+    },
+    {
+      "id": "928_486_000152",
+      "text": "et c'était un de ces détectives ou agents de police anglais qui avaient été envoyés dans les divers ports après le vol commis à la banque d'angleterre",
+      "audio": "dev/audio/928/486/928_486_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 186.98,
+        "original_end_s": 201.07
+      }
+    },
+    {
+      "id": "928_486_000153",
+      "text": "qu'aucun incident ou accident ne pouvait surprendre il ne paraissait pas plus ému que les chronomètres du bord on le voyait rarement sur le pont",
+      "audio": "dev/audio/928/486/928_486_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 287.09,
+        "original_end_s": 300.28
+      }
+    },
+    {
+      "id": "928_486_000154",
+      "text": "d'abord il faisait ses quatre repas par jour sans que jamais ni roulis ni tangage pussent détraquer une machine si merveilleusement organisée",
+      "audio": "dev/audio/928/486/928_486_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 350.36,
+        "original_end_s": 362.14
+      }
+    },
+    {
+      "id": "928_486_000155",
+      "text": "note de l'auteur on vivait donc bien à bord du mongolia dans cette société de fonctionnaires auxquels se mêlaient quelques jeunes anglais qui le million en poche allaient fonder au loin des comptoirs de commerce",
+      "audio": "dev/audio/928/486/928_486_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_09_verne_64kb.mp3",
+        "original_start_s": 144.03,
+        "original_end_s": 161.68
+      }
+    },
+    {
+      "id": "928_486_000156",
+      "text": "par une habitude de sa profession dévisageait les passants d'un rapide coup d'oeil il était alors dix heures et demie mais il n'arrivera pas ce paquebot s'écria-t-il en entendant sonner l'horloge du port",
+      "audio": "dev/audio/928/486/928_486_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 504.83,
+        "original_end_s": 524.54
+      }
+    },
+    {
+      "id": "928_486_000157",
+      "text": "il doit bien savoir qu'il ne serait pas en sûreté dans l'inde qui est une terre anglaise à moins que ce ne soit un homme très fort répondit le consul",
+      "audio": "dev/audio/928/486/928_486_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 578.81,
+        "original_end_s": 594.04
+      }
+    },
+    {
+      "id": "928_486_000158",
+      "text": "voici dans quelles circonstances avait été lancée cette dépêche concernant le sieur phileas fogg le mercredi neuf octobre on attendait pour onze heures du matin à suez",
+      "audio": "dev/audio/928/486/928_486_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 39.98,
+        "original_end_s": 55.82
+      }
+    },
+    {
+      "id": "928_486_000159",
+      "text": "répondit fix ces gens-là on les sent plutôt qu'on ne les reconnaît c'est du flair qu'il faut avoir et le flair est comme un sens spécial auquel concourent l'ouïe la vue et l'odorat",
+      "audio": "dev/audio/928/486/928_486_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 320.48,
+        "original_end_s": 338.11
+      }
+    },
+    {
+      "id": "928_486_000160",
+      "text": "monsieur le consul répondit dogmatiquement l'inspecteur de police les grands voleurs ressemblent toujours à d'honnêtes gens",
+      "audio": "dev/audio/928/486/928_486_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 401.85,
+        "original_end_s": 413.13
+      }
+    },
+    {
+      "id": "928_486_000161",
+      "text": "assure un avenir considérable de ces deux hommes l'un était l'agent consulaire du royaume-uni établi à suez qui",
+      "audio": "dev/audio/928/486/928_486_000161.opus",
+      "tags": {
+        "speaker_id": "mls-fr-928",
+        "gender": "m",
+        "book_id": "486",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/tour_du_monde_en_80_jours_librivox/tour_monde_06_verne_64kb.mp3",
+        "original_start_s": 117.23,
+        "original_end_s": 130.59
+      }
+    }
+  ]
+}

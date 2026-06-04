@@ -1,0 +1,1418 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Germinal",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "8734",
+    "book_title": "Germinal",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "7762_8734_000000",
+      "text": "sa surprise fut grande en y rencontrant la jeune fille assise l'haleine suspendue éveillée et aux aguets eh bien pourquoi ne réponds tu pas qu'est-ce que tu fais donc elle finit par dire je me lève à cette heure tu te lèves",
+      "audio": "test/audio/7762/8734/7762_8734_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1116.71,
+        "original_end_s": 1135.36
+      }
+    },
+    {
+      "id": "7762_8734_000001",
+      "text": "maintenant c'était en lui un tel calme une guérison si complète de ses doutes qu'il s'entêtait en homme sauvé par le hasard et qui avait trouvé enfin l'unique porte à son tourment",
+      "audio": "test/audio/7762/8734/7762_8734_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1297.6,
+        "original_end_s": 1309.64
+      }
+    },
+    {
+      "id": "7762_8734_000002",
+      "text": "jamais il n'y rencontrait personne mais ce jour-là il fut contrarié en voyant venir à lui un homme et sous la pâle lumière des étoiles les deux promeneurs solitaires ne se reconnurent que face à face tiens c'est toi murmura étienne",
+      "audio": "test/audio/7762/8734/7762_8734_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 58.07,
+        "original_end_s": 77.91
+      }
+    },
+    {
+      "id": "7762_8734_000003",
+      "text": "un ciel très pur criblé d'étoiles éclairait la terre d'une clarté bleue de crépuscule il descendit vers le canal il suivit lentement la berge en remontant du côté de marchiennes",
+      "audio": "test/audio/7762/8734/7762_8734_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 31.54,
+        "original_end_s": 44.88
+      }
+    },
+    {
+      "id": "7762_8734_000004",
+      "text": "la pesée des terrains contre les bois qui faisaient au puits une chemise de charpente les avait-elle tellement renflés à l'intérieur qu'une des cages d'extraction frottait au passage sur une longueur de plus de cinq mètres",
+      "audio": "test/audio/7762/8734/7762_8734_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 484.0,
+        "original_end_s": 498.52
+      }
+    },
+    {
+      "id": "7762_8734_000005",
+      "text": "c'était sa promenade favorite un sentier gazonné de deux lieues filant tout droit le long de cette eau géométrique qui se déroulait pareille à un lingot sans fin d'argent fondu",
+      "audio": "test/audio/7762/8734/7762_8734_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 44.88,
+        "original_end_s": 58.07
+      }
+    },
+    {
+      "id": "7762_8734_000006",
+      "text": "tandis que par les trous et les fentes l'eau qui s'échappait en jets minces l'aveuglait et le trempait d'une pluie glacée deux allumettes s'éteignirent toutes se mouillaient c'était la nuit une profondeur sans fond de ténèbres",
+      "audio": "test/audio/7762/8734/7762_8734_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 935.88,
+        "original_end_s": 952.32
+      }
+    },
+    {
+      "id": "7762_8734_000007",
+      "text": "enregistré par fanny germinal par émile zola septième partie chapitre deux le dimanche étienne s'échappa du coron dès la nuit tombée",
+      "audio": "test/audio/7762/8734/7762_8734_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 18.4,
+        "original_end_s": 31.54
+      }
+    },
+    {
+      "id": "7762_8734_000008",
+      "text": "va-t'en je vais m'habiller et ne dis rien n'est-ce pas si tu veux être gentil mais il demeurait près d'elle il l'avait prise à la taille dans une caresse de chagrin et de pitié",
+      "audio": "test/audio/7762/8734/7762_8734_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1167.47,
+        "original_end_s": 1181.37
+      }
+    },
+    {
+      "id": "7762_8734_000009",
+      "text": "souvarine redevenu silencieux répondait brièvement il avait encore travaillé la veille la cage frottait en effet les machineurs devaient même doubler la vitesse pour passer à cet endroit",
+      "audio": "test/audio/7762/8734/7762_8734_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 498.52,
+        "original_end_s": 511.42
+      }
+    },
+    {
+      "id": "7762_8734_000010",
+      "text": "étienne maintenant en était à darwin il en avait lu des fragments résumés et vulgarisés dans un volume à cinq sous et de cette lecture mal comprise il se faisait une idée révolutionnaire du combat pour l'existence",
+      "audio": "test/audio/7762/8734/7762_8734_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 123.56,
+        "original_end_s": 139.07
+      }
+    },
+    {
+      "id": "7762_8734_000011",
+      "text": "annouchka était tout debout à attendre elle ne me voyait pas elle me cherchait dans la foule je suis monté sur une borne et elle m'a vu nos yeux ne se sont plus quittés quand elle a été morte elle me regardait toujours j'ai agité mon chapeau je suis parti",
+      "audio": "test/audio/7762/8734/7762_8734_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 339.68,
+        "original_end_s": 359.63
+      }
+    },
+    {
+      "id": "7762_8734_000012",
+      "text": "sans hâte il souffla il rentra dans le goyot des échelles dont il boucha le trou en replaçant le panneau qu'il avait scié c'était assez il ne voulait pas donner l'éveil par un dégât trop grand qu'on aurait tenté de réparer tout de suite",
+      "audio": "test/audio/7762/8734/7762_8734_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1009.18,
+        "original_end_s": 1025.85
+      }
+    },
+    {
+      "id": "7762_8734_000013",
+      "text": "les pièces de bois faisaient ventre en dehors des cadres plusieurs même étaient sorties de leur épaulement des filtrations abondantes des pichoux comme disent les mineurs",
+      "audio": "test/audio/7762/8734/7762_8734_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 828.09,
+        "original_end_s": 839.31
+      }
+    },
+    {
+      "id": "7762_8734_000014",
+      "text": "on devait chauffer seulement à deux heures pour la reprise du travail d'abord il monta prendre au fond d'une armoire une veste qu'il feignait d'avoir oubliée",
+      "audio": "test/audio/7762/8734/7762_8734_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 630.79,
+        "original_end_s": 641.16
+      }
+    },
+    {
+      "id": "7762_8734_000015",
+      "text": "et les yeux du machineur allèrent de la jeune fille au camarade tandis qu'il reculait d'un pas avec un geste de brusque abandon quand il y avait une femme dans le coeur d'un homme l'homme était fini il pouvait mourir",
+      "audio": "test/audio/7762/8734/7762_8734_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1481.68,
+        "original_end_s": 1496.01
+      }
+    },
+    {
+      "id": "7762_8734_000016",
+      "text": "il n'écoutait point il la pressait éperdument le coeur noyé d'une tristesse immense un besoin de paix un invincible besoin d'être heureux l'envahissait",
+      "audio": "test/audio/7762/8734/7762_8734_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1240.42,
+        "original_end_s": 1251.65
+      }
+    },
+    {
+      "id": "7762_8734_000017",
+      "text": "elle aimait mieux courir le risque d'être bousculée là-bas par chaval et si sa mère refusait son argent quand elle le lui apporterait eh bien elle était assez grande pour se mettre à part et faire elle-même sa soupe",
+      "audio": "test/audio/7762/8734/7762_8734_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1152.84,
+        "original_end_s": 1167.47
+      }
+    },
+    {
+      "id": "7762_8734_000018",
+      "text": "et devant la masse noire de la fosse il continua il jura de ne jamais redescendre lui mais il pardonnait à ceux qui redescendraient ensuite comme le bruit courait que les charpentiers n'avaient pas eu le temps de réparer le cuvelage il désira savoir était-ce vrai",
+      "audio": "test/audio/7762/8734/7762_8734_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 465.38,
+        "original_end_s": 484.0
+      }
+    },
+    {
+      "id": "7762_8734_000019",
+      "text": "dans cette descente des roches parfois des lignes de cassure se produisaient se propageaient lentement jusqu'aux charpentes qu'elles déformaient à la longue en les repoussant à l'intérieur du puits et le grand danger était là",
+      "audio": "test/audio/7762/8734/7762_8734_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 797.5,
+        "original_end_s": 811.81
+      }
+    },
+    {
+      "id": "7762_8734_000020",
+      "text": "eh bien n'était-il pas à craindre que le monde nouveau ne repoussât gâté lentement des mêmes injustices les uns malades et les autres gaillards les uns plus adroits plus intelligents s'engraissant de tout et les autres imbéciles et paresseux redevenant des esclaves",
+      "audio": "test/audio/7762/8734/7762_8734_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 171.46,
+        "original_end_s": 189.47
+      }
+    },
+    {
+      "id": "7762_8734_000021",
+      "text": "et je devinais bien qu'elle me disait non de ses grands yeux fixes lorsqu'elle rencontrait les miens il toussa encore le dernier jour sur la place j'étais là",
+      "audio": "test/audio/7762/8734/7762_8734_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 312.75,
+        "original_end_s": 325.45
+      }
+    },
+    {
+      "id": "7762_8734_000022",
+      "text": "c'étaient de grands placards jaunes que la compagnie avait encore fait coller dans la matinée elle s'y montrait plus nette et plus conciliante elle promettait de reprendre le livret des mineurs qui redescendraient le lendemain tout serait oublié le pardon était offert même aux plus compromis",
+      "audio": "test/audio/7762/8734/7762_8734_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 422.01,
+        "original_end_s": 440.5
+      }
+    },
+    {
+      "id": "7762_8734_000023",
+      "text": "et il se voyait marié dans une petite maison propre sans autre ambition que de vivre et de mourir là tous les deux du pain le contenterait même s'il n'y en avait que pour un le morceau serait pour elle à quoi bon autre chose est-ce que la vie valait davantage",
+      "audio": "test/audio/7762/8734/7762_8734_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1251.65,
+        "original_end_s": 1270.64
+      }
+    },
+    {
+      "id": "7762_8734_000024",
+      "text": "tout de suite il commença par scier un panneau dans la cloison du goyot de manière à communiquer avec le compartiment d'extraction et à l'aide d'allumettes vivement enflammées et éteintes il put se rendre compte de l'état du cuvelage et des réparations récentes qu'on y avait faites",
+      "audio": "test/audio/7762/8734/7762_8734_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 692.06,
+        "original_end_s": 710.93
+      }
+    },
+    {
+      "id": "7762_8734_000025",
+      "text": "et lui-même s'étonna d'avoir dit cette chose il avait juré de ne pas redescendre d'où venait donc cette décision brusque sortie de ses lèvres sans qu'il y eût songé sans qu'il l'eût discutée un instant",
+      "audio": "test/audio/7762/8734/7762_8734_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1283.91,
+        "original_end_s": 1297.6
+      }
+    },
+    {
+      "id": "7762_8734_000026",
+      "text": "lui dans l'armoire prit une veste et une culotte et ils ne se lavèrent pas par crainte de remuer la terrine tous dormaient mais il fallait traverser le couloir étroit où couchait la mère quand ils partirent le malheur voulut qu'ils butèrent contre une chaise",
+      "audio": "test/audio/7762/8734/7762_8734_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1338.77,
+        "original_end_s": 1354.93
+      }
+    },
+    {
+      "id": "7762_8734_000027",
+      "text": "mais il tressaillit parmi ces hommes qui défilaient et dont il ne distinguait pas les visages il venait pourtant d'en reconnaître un à sa démarche il s'avança il l'arrêta où vas-tu",
+      "audio": "test/audio/7762/8734/7762_8734_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1424.33,
+        "original_end_s": 1438.14
+      }
+    },
+    {
+      "id": "7762_8734_000028",
+      "text": "d'abord il tâtait de la main puis il travaillait n'enflammant une allumette que lorsqu'il s'égarait au milieu de ces poutres gluantes après avoir desserré les vis il s'attaqua aux pièces mêmes",
+      "audio": "test/audio/7762/8734/7762_8734_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 909.22,
+        "original_end_s": 922.6
+      }
+    },
+    {
+      "id": "7762_8734_000029",
+      "text": "ils se turent ils restèrent un moment face à face sans trouver rien autre à se dire alors adieu adieu",
+      "audio": "test/audio/7762/8734/7762_8734_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 587.57,
+        "original_end_s": 598.11
+      }
+    },
+    {
+      "id": "7762_8734_000030",
+      "text": "à la même heure étienne qui ne dormait pas s'inquiéta d'un bruit léger dans l'épaisse nuit de la chambre il distinguait le petit souffle des enfants les ronflements de bonnemort et de la maheude tandis que près de lui jeanlin sifflait une note prolongée de flûte",
+      "audio": "test/audio/7762/8734/7762_8734_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1057.19,
+        "original_end_s": 1076.06
+      }
+    },
+    {
+      "id": "7762_8734_000031",
+      "text": "c'était une besogne de témérité folle pendant laquelle il manqua vingt fois de culbuter de faire le saut des cent quatre vingts mètres qui le séparaient du fond",
+      "audio": "test/audio/7762/8734/7762_8734_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 871.88,
+        "original_end_s": 882.0
+      }
+    },
+    {
+      "id": "7762_8734_000032",
+      "text": "il y eut un nouveau silence l'allée blanche du canal se déroulait à l'infini tous deux marchaient du même pas étouffé comme retombés chacun dans son isolement au fond de l'horizon l'eau pâle semblait ouvrir le ciel d'une mince trouée de lumière",
+      "audio": "test/audio/7762/8734/7762_8734_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 359.63,
+        "original_end_s": 378.06
+      }
+    },
+    {
+      "id": "7762_8734_000033",
+      "text": "elle s'éveilla elle demanda dans l'engourdissement du sommeil hein qui est-ce catherine tremblante s'était arrêtée en serrant violemment la main d'étienne c'est moi ne vous inquiétez pas dit celui-ci j'étouffe je sors respirer un peu bon bon",
+      "audio": "test/audio/7762/8734/7762_8734_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1354.93,
+        "original_end_s": 1373.47
+      }
+    },
+    {
+      "id": "7762_8734_000034",
+      "text": "le machineur haussa les épaules il avait le mépris des beaux parleurs des gaillards qui entrent dans la politique comme on entre au barreau pour y gagner des rentes à coups de phrases",
+      "audio": "test/audio/7762/8734/7762_8734_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 111.67,
+        "original_end_s": 123.56
+      }
+    },
+    {
+      "id": "7762_8734_000035",
+      "text": "jaillissaient des joints au travers du brandissage d'étoupes goudronnées dont on les garnissait et les charpentiers pressés par le temps s'étaient contentés de poser aux angles des équerres de fer avec une telle insouciance que toutes les vis n'étaient pas mises",
+      "audio": "test/audio/7762/8734/7762_8734_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 839.31,
+        "original_end_s": 856.72
+      }
+    },
+    {
+      "id": "7762_8734_000036",
+      "text": "sans doute il avait juré seulement ce n'était pas une existence d'attendre les bras croisés des choses qui arriveraient dans cent ans peut-être et d'ailleurs des raisons à lui le décidaient souvarine l'avait écouté frémissant il l'empoigna par une épaule il le rejeta vers le coron",
+      "audio": "test/audio/7762/8734/7762_8734_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1449.49,
+        "original_end_s": 1468.43
+      }
+    },
+    {
+      "id": "7762_8734_000037",
+      "text": "peut-être revit-il en une vision rapide là-bas à moscou sa maîtresse pendue ce dernier lien de sa chair coupé qui l'avait rendu libre de la vie des autres et de la sien il dit simplement va",
+      "audio": "test/audio/7762/8734/7762_8734_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1496.01,
+        "original_end_s": 1510.93
+      }
+    },
+    {
+      "id": "7762_8734_000038",
+      "text": "la bête avait sa blessure au ventre on verrait si elle vivait encore le soir et il avait signé le monde épouvanté saurait qu'elle n'était pas morte de sa belle mort il prit le temps de rouler méthodiquement les outils dans sa veste il remonta les échelles avec lenteur",
+      "audio": "test/audio/7762/8734/7762_8734_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1025.85,
+        "original_end_s": 1044.03
+      }
+    },
+    {
+      "id": "7762_8734_000039",
+      "text": "nous étions restés quatorze jours au fond d'un trou à miner la voie du chemin de fer et ce n'est pas le train impérial c'est un train de voyageurs qui a sauté alors on a arrêté annouchka",
+      "audio": "test/audio/7762/8734/7762_8734_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 268.52,
+        "original_end_s": 281.68
+      }
+    },
+    {
+      "id": "7762_8734_000040",
+      "text": "on s'était connu on avait peiné ensemble ça rend toujours triste l'idée de ne plus se voir tu pars et où vas-tu là-bas je n'en sais rien mais je te reverrai non je ne crois pas",
+      "audio": "test/audio/7762/8734/7762_8734_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 570.91,
+        "original_end_s": 587.57
+      }
+    },
+    {
+      "id": "7762_8734_000041",
+      "text": "mais tous les chefs accueillaient les observations de la même phrase irritée c'était du charbon qu'on voulait on consoliderait mieux plus tard vois-tu que ça crève murmura étienne on serait à la noce",
+      "audio": "test/audio/7762/8734/7762_8734_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 511.42,
+        "original_end_s": 527.01
+      }
+    },
+    {
+      "id": "7762_8734_000042",
+      "text": "il pleuvait les maladroits perdaient la tête dérangés par la pluie battante ils avaient mis vingt minutes pour en pendre quatre autres la corde cassait ils ne pouvaient achever le quatrième",
+      "audio": "test/audio/7762/8734/7762_8734_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 325.45,
+        "original_end_s": 339.68
+      }
+    },
+    {
+      "id": "7762_8734_000043",
+      "text": "les maigres mangeant les gras le peuple fort dévorant la blême bourgeoisie mais souvarine s'emporta se répandit sur la bêtise des socialistes qui acceptent darwin cet apôtre de l'inégalité scientifique dont la fameuse sélection n'était bon que pour des philosophes aristocrates",
+      "audio": "test/audio/7762/8734/7762_8734_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 139.07,
+        "original_end_s": 158.68
+      }
+    },
+    {
+      "id": "7762_8734_000044",
+      "text": "étienne fiévreusement excusa les camarades un homme peut être brave une foule qui meurt de faim est sans force pas à pas ils étaient revenus au voreux",
+      "audio": "test/audio/7762/8734/7762_8734_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 453.58,
+        "original_end_s": 465.38
+      }
+    },
+    {
+      "id": "7762_8734_000045",
+      "text": "puis celui du niveau inférieur directement au-dessus du terrain houiller dans un sable jaune d'une finesse de farine coulant avec une fluidité liquide",
+      "audio": "test/audio/7762/8734/7762_8734_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 756.37,
+        "original_end_s": 767.59
+      }
+    },
+    {
+      "id": "7762_8734_000046",
+      "text": "et souvarine immobile dans les ténèbres suivit du regard étienne et catherine qui entraient au voreux fin du chapitre deux de la septième partie",
+      "audio": "test/audio/7762/8734/7762_8734_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1537.04,
+        "original_end_s": 1554.31
+      }
+    },
+    {
+      "id": "7762_8734_000047",
+      "text": "elle cependant dénouait ses bras nus je t'en prie laisse alors dans un élan de son coeur il lui dit à l'oreille attends je vais avec toi",
+      "audio": "test/audio/7762/8734/7762_8734_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1270.64,
+        "original_end_s": 1283.91
+      }
+    },
+    {
+      "id": "7762_8734_000048",
+      "text": "et sa veste sous le bras il descendit doucement sans lampe mesurant la profondeur en comptant les échelles il savait que la cage frottait à trois cent soixante-quatorze mètres contre la cinquième passe du cuvelage inférieur",
+      "audio": "test/audio/7762/8734/7762_8734_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 659.37,
+        "original_end_s": 675.05
+      }
+    },
+    {
+      "id": "7762_8734_000049",
+      "text": "eut un geste vague étonné du tremblement de la voix de ce brusque besoin de confidence chez ce garçon impassible d'habitude dans son détachement stoïque des autres et de lui-même il savait seulement que la femme était une maîtresse et qu'on l'avait pendue à moscou",
+      "audio": "test/audio/7762/8734/7762_8734_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 240.43,
+        "original_end_s": 258.36
+      }
+    },
+    {
+      "id": "7762_8734_000050",
+      "text": "étienne saisi au lieu de répondre balbutiait tiens tu n'es pas encore parti puis il avoua il retournait à la fosse",
+      "audio": "test/audio/7762/8734/7762_8734_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1438.14,
+        "original_end_s": 1449.49
+      }
+    },
+    {
+      "id": "7762_8734_000051",
+      "text": "des outils un vilebrequin armé de sa mèche une petite scie très forte un marteau et un ciseau se trouvaient roulés dans cette veste puis il repartit mais au lieu de sortir par la baraque il enfila l'étroit couloir qui menait au goyot des échelles",
+      "audio": "test/audio/7762/8734/7762_8734_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 641.16,
+        "original_end_s": 659.37
+      }
+    },
+    {
+      "id": "7762_8734_000052",
+      "text": "il la tuerait à la fin cette bête mauvaise du voreux à la gueule toujours ouverte qui avait englouti tant de chair humaine on entendait la morsure de ses outils son échine s'allongeait il rampait descendait remontait se tenant encore par miracle dans un branle continu",
+      "audio": "test/audio/7762/8734/7762_8734_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 979.4,
+        "original_end_s": 997.61
+      }
+    },
+    {
+      "id": "7762_8734_000053",
+      "text": "il avait dû empoigner les guides de chêne les madriers où glissaient les cages et suspendu au-dessus du vide il voyageait le long des traverses dont ils étaient reliés de distance en distance",
+      "audio": "test/audio/7762/8734/7762_8734_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 882.0,
+        "original_end_s": 894.46
+      }
+    },
+    {
+      "id": "7762_8734_000054",
+      "text": "il ne discuta pas il dit simplement nous sommes loin veux-tu que nous retournions ils revinrent vers le voreux avec lenteur et il ajouta au bout de quelques pas as-tu vu les nouvelles affiches",
+      "audio": "test/audio/7762/8734/7762_8734_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 406.52,
+        "original_end_s": 422.01
+      }
+    },
+    {
+      "id": "7762_8734_000055",
+      "text": "elle nous apportait du pain tous les soirs déguisée en paysanne c'était elle aussi qui avait allumé la mèche parce qu'un homme aurait pu être remarqué j'ai suivi le procès caché dans la foule pendant six longues journées",
+      "audio": "test/audio/7762/8734/7762_8734_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 281.68,
+        "original_end_s": 296.8
+      }
+    },
+    {
+      "id": "7762_8734_000056",
+      "text": "pendant cinq minutes rien ne bougea puis il y eut un nouveau craquement et certain cette fois de ne pas s'être trompé il traversa la chambre il envoya les mains dans les ténèbres pour tâter le lit d'en face",
+      "audio": "test/audio/7762/8734/7762_8734_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1102.12,
+        "original_end_s": 1116.71
+      }
+    },
+    {
+      "id": "7762_8734_000057",
+      "text": "ah rien ni parents ni femme ni ami rien qui fasse trembler la main le jour où il faudra prendre la vie des autres ou donner le sien étienne s'était arrêté frissonnant sous la nuit fraîche",
+      "audio": "test/audio/7762/8734/7762_8734_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 392.93,
+        "original_end_s": 406.52
+      }
+    },
+    {
+      "id": "7762_8734_000058",
+      "text": "pendant qu'étienne montait au coron souvarine tourna le dos revint sur la berge du canal et là seul maintenant il marcha sans fin la tête basse si noyé de ténèbres qu'il n'était plus qu'une ombre mouvante de la nuit",
+      "audio": "test/audio/7762/8734/7762_8734_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 598.11,
+        "original_end_s": 614.78
+      }
+    },
+    {
+      "id": "7762_8734_000059",
+      "text": "oui je retourne travailler à la fosse très ému étienne dut s'asseoir au bord de la paillasse pendant que catherine lui expliquait ses raisons elle souffrait trop de vivre ainsi oisive en sentant peser sur elle de continuels regards de reproche",
+      "audio": "test/audio/7762/8734/7762_8734_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1135.36,
+        "original_end_s": 1152.84
+      }
+    },
+    {
+      "id": "7762_8734_000060",
+      "text": "aussi refusa-t-il de l'entendre lorsqu'elle s'alarma comprenant qu'il se dévouait pour elle redoutant les mauvaises paroles dont on l'accueillerait à la fosse il se moquait de tout les affiches promettaient le pardon et cela suffisait",
+      "audio": "test/audio/7762/8734/7762_8734_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1309.64,
+        "original_end_s": 1324.94
+      }
+    },
+    {
+      "id": "7762_8734_000061",
+      "text": "entre calais et valenciennes le fonçage des puits de mine rencontrait des difficultés inouïes pour traverser les masses d'eau séjournant sous terre en nappes immenses au niveau des vallées les plus basses",
+      "audio": "test/audio/7762/8734/7762_8734_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 710.93,
+        "original_end_s": 724.76
+      }
+    },
+    {
+      "id": "7762_8734_000062",
+      "text": "je veux travailler c'est mon idée habillons-nous et ne faisons pas de bruit ils s'habillèrent dans les ténèbres avec mille précautions elle secrètement avait préparé la veille ses vêtements de mineur",
+      "audio": "test/audio/7762/8734/7762_8734_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1324.94,
+        "original_end_s": 1338.77
+      }
+    },
+    {
+      "id": "7762_8734_000063",
+      "text": "souvarine était demeuré debout près de l'avantage à l'angle de la route depuis une demi-heure il regardait les charbonniers qui retournaient au travail confus dans l'ombre passant avec leur sourd piétinement de troupeau",
+      "audio": "test/audio/7762/8734/7762_8734_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1390.24,
+        "original_end_s": 1404.59
+      }
+    },
+    {
+      "id": "7762_8734_000064",
+      "text": "il se coulait s'asseyait se renversait simplement arc-bouté sur un coude ou sur un genou dans un tranquille mépris de la mort un souffle l'aurait précipité à trois reprises il se rattrapa dans un frisson",
+      "audio": "test/audio/7762/8734/7762_8734_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 894.46,
+        "original_end_s": 909.22
+      }
+    },
+    {
+      "id": "7762_8734_000065",
+      "text": "rentre chez toi je le veux entends-tu mais catherine s'étant approchée il la reconnut elle aussi étienne protestait déclarait qu'il ne laissait à personne le soin de juger sa conduite",
+      "audio": "test/audio/7762/8734/7762_8734_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1468.43,
+        "original_end_s": 1481.68
+      }
+    },
+    {
+      "id": "7762_8734_000066",
+      "text": "cependant le camarade s'entêtait voulait raisonner et il exprimait ses doutes par une hypothèse la vieille société n'existait plus on en avait balayé jusqu'aux miettes",
+      "audio": "test/audio/7762/8734/7762_8734_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 158.68,
+        "original_end_s": 171.46
+      }
+    },
+    {
+      "id": "7762_8734_000067",
+      "text": "sa voix s'embarrassa il fut pris d'un accès de toux comme s'il étranglait deux fois j'ai eu envie de crier de m'élancer par-dessus des têtes pour la rejoindre mais à quoi bon un homme de moins c'est un soldat de moins",
+      "audio": "test/audio/7762/8734/7762_8734_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 296.8,
+        "original_end_s": 312.75
+      }
+    },
+    {
+      "id": "7762_8734_000068",
+      "text": "il les comptait comme le boucher compte les bêtes à l'entrée de l'abattoir et il était surpris de leur nombre il ne prévoyait pas même dans son pessimisme que ce nombre de lâches pût être si grand la queue s'allongeait toujours il se raidissait très froid les dents serrées les yeux clairs",
+      "audio": "test/audio/7762/8734/7762_8734_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1404.59,
+        "original_end_s": 1424.33
+      }
+    },
+    {
+      "id": "7762_8734_000069",
+      "text": "et le péril grandit encore il avait cherché la clef la pièce qui tenait les autres il s'acharnait contre elle la trouait la sciait l'amincissait pour qu'elle perdît de sa résistance",
+      "audio": "test/audio/7762/8734/7762_8734_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 922.6,
+        "original_end_s": 935.88
+      }
+    },
+    {
+      "id": "7762_8734_000070",
+      "text": "puis elle s'était mise à pleurer tout bas en le prenant à son tour par le cou pour le garder contre elle dans une étreinte désespérée et ils restaient sans autre désir avec le passé de leurs amours malheureuses qu'ils n'avaient pas pu satisfaire était-ce donc à jamais fini",
+      "audio": "test/audio/7762/8734/7762_8734_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1194.81,
+        "original_end_s": 1213.58
+      }
+    },
+    {
+      "id": "7762_8734_000071",
+      "text": "d'ordinaire les cuvelages tenaient bon sous la pression énorme ils ne redoutaient guère que le tassement des terrains voisins ébranlés par le travail continu des anciennes galeries d'exploitation qui se comblaient",
+      "audio": "test/audio/7762/8734/7762_8734_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 783.63,
+        "original_end_s": 797.5
+      }
+    },
+    {
+      "id": "7762_8734_000072",
+      "text": "eh bien donne-moi la main mon vieux bon voyage et sans rancune l'autre lui tendit une main glacée ni ami ni femme adieu pour tout de bon cette fois oui adieu",
+      "audio": "test/audio/7762/8734/7762_8734_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1521.43,
+        "original_end_s": 1537.04
+      }
+    },
+    {
+      "id": "7762_8734_000073",
+      "text": "recouche-toi murmura-t-elle je ne veux pas allumer ça réveillerait maman il est l'heure laisse-moi",
+      "audio": "test/audio/7762/8734/7762_8734_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1229.52,
+        "original_end_s": 1240.42
+      }
+    },
+    {
+      "id": "7762_8734_000074",
+      "text": "il s'acharna au hasard contre le cuvelage tapant où il pouvait à coups de vilebrequin à coups de scie pris du besoin de l'éventrer tout de suite sur sa tête et il y mettait une férocité comme s'il eût joué du couteau dans la peau d'un être vivant qu'il exécrait",
+      "audio": "test/audio/7762/8734/7762_8734_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 963.01,
+        "original_end_s": 979.4
+      }
+    },
+    {
+      "id": "7762_8734_000075",
+      "text": "dès ce moment une rage l'emporta les haleines de l'invisible le grisaient l'horreur noire de ce trou battu d'une averse le jetait à une fureur de destruction",
+      "audio": "test/audio/7762/8734/7762_8734_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 952.32,
+        "original_end_s": 963.01
+      }
+    },
+    {
+      "id": "7762_8734_000076",
+      "text": "puis quand il fut sorti de la fosse sans être vu l'idée d'aller changer de vêtements ne lui vint même pas trois heures sonnaient il resta planté sur la route il attendit",
+      "audio": "test/audio/7762/8734/7762_8734_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1044.03,
+        "original_end_s": 1057.19
+      }
+    },
+    {
+      "id": "7762_8734_000077",
+      "text": "et la maheude se rendormit catherine n'osait plus bouger enfin elle descendit dans la salle elle partagea une tartine qu'elle avait réservée sur un pain donné par une dame de montsou puis doucement ils refermèrent la porte ils s'en allèrent",
+      "audio": "test/audio/7762/8734/7762_8734_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1373.47,
+        "original_end_s": 1390.24
+      }
+    },
+    {
+      "id": "7762_8734_000078",
+      "text": "oui j'ai vu répondit le machineur eh bien qu'est-ce que tu en penses j'en pense que c'est fini le troupeau redescendra vous êtes tous trop lâches",
+      "audio": "test/audio/7762/8734/7762_8734_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 440.5,
+        "original_end_s": 453.58
+      }
+    },
+    {
+      "id": "7762_8734_000079",
+      "text": "oui j'ai redemandé mon livret je vais ailleurs étienne stupéfait émotionné le regardait c'était après deux heures de promenade qu'il lui disait ça et d'une voix si calme lorsque la seule annonce de cette brusque séparation lui serrait le coeur à lui",
+      "audio": "test/audio/7762/8734/7762_8734_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 552.26,
+        "original_end_s": 570.91
+      }
+    },
+    {
+      "id": "7762_8734_000080",
+      "text": "quand il eut compté cinquante-quatre échelles il tâta de la main il sentit le renflement des pièces de bois c'était là alors avec l'adresse et le sang-froid d'un bon ouvrier qui a longtemps médité sur sa besogne il se mit au travail",
+      "audio": "test/audio/7762/8734/7762_8734_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 675.05,
+        "original_end_s": 692.06
+      }
+    },
+    {
+      "id": "7762_8734_000081",
+      "text": "un mouvement considérable se produisait évidemment derrière dans les sables du torrent alors avec son vilebrequin il desserra les vis des équerres de façon à ce qu'une dernière poussée pût les arracher toutes",
+      "audio": "test/audio/7762/8734/7762_8734_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 856.72,
+        "original_end_s": 871.88
+      }
+    },
+    {
+      "id": "7762_8734_000082",
+      "text": "les yeux fixés sur la fosse vague dans l'ombre souvarine conclut tranquillement si ça crève les camarades le sauront puisque tu conseilles de redescendre",
+      "audio": "test/audio/7762/8734/7762_8734_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 527.01,
+        "original_end_s": 538.21
+      }
+    },
+    {
+      "id": "7762_8734_000083",
+      "text": "alors devant cette vision de l'éternelle misère le machineur cria d'une voix farouche que si la justice n'était pas possible avec l'homme il fallait que l'homme disparût autant de sociétés pourries autant de massacres jusqu'à l'extermination du dernier être et le silence retomba",
+      "audio": "test/audio/7762/8734/7762_8734_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 189.47,
+        "original_end_s": 209.19
+      }
+    },
+    {
+      "id": "7762_8734_000084",
+      "text": "par instants il s'arrêtait il comptait les heures au loin lorsque minuit sonna il quitta la berge et se dirigea vers le voreux à ce moment la fosse était vide il n'y rencontra qu'un porion les yeux gros de sommeil",
+      "audio": "test/audio/7762/8734/7762_8734_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 614.78,
+        "original_end_s": 630.79
+      }
+    },
+    {
+      "id": "7762_8734_000085",
+      "text": "et c'était là que se trouvait le torrent cette mer souterrain la terreur des houillères du nord une mer avec ses tempêtes et ses naufrages une mer ignorée insondable roulant ses flots noirs à plus de trois cents mètres du soleil",
+      "audio": "test/audio/7762/8734/7762_8734_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 767.59,
+        "original_end_s": 783.63
+      }
+    },
+    {
+      "id": "7762_8734_000086",
+      "text": "puis il tressaillit sans cause comme s'il s'était heurté contre une ombre ses yeux se levèrent sa face apparut très pâle et il dit doucement à son compagnon est-ce que je t'ai conté comment elle est morte qui donc ma femme là-bas en russie",
+      "audio": "test/audio/7762/8734/7762_8734_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 221.8,
+        "original_end_s": 240.43
+      }
+    },
+    {
+      "id": "7762_8734_000087",
+      "text": "seule la construction des cuvelages de ces pièces de charpente jointes entre elles comme les douves d'un tonneau parvenait à contenir les sources affluentes à isoler les puits au milieu des lacs dont les vagues profondes et obscures en battaient les parois",
+      "audio": "test/audio/7762/8734/7762_8734_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 724.76,
+        "original_end_s": 740.57
+      }
+    },
+    {
+      "id": "7762_8734_000088",
+      "text": "un vol d'oiseau nocturne au travers des charpentes d'un clocher mais il se calma mécontent de lui est-ce qu'on ne pouvait faire les choses froidement",
+      "audio": "test/audio/7762/8734/7762_8734_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 997.61,
+        "original_end_s": 1009.18
+      }
+    },
+    {
+      "id": "7762_8734_000089",
+      "text": "neuf heures sonnaient au clocher de montsou et son compagnon ayant dit qu'il rentrait se coucher il ajouta sans même tendre la main eh bien adieu je pars comment tu pars",
+      "audio": "test/audio/7762/8734/7762_8734_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 538.21,
+        "original_end_s": 552.26
+      }
+    },
+    {
+      "id": "7762_8734_000090",
+      "text": "une menace d'éboulement et d'inondation la fosse emplie de l'avalanche des terres et du déluge des sources souvarine à cheval dans l'ouverture pratiquée par lui constata une déformation très grave de la cinquième passe du cuvelage",
+      "audio": "test/audio/7762/8734/7762_8734_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 811.81,
+        "original_end_s": 828.09
+      }
+    },
+    {
+      "id": "7762_8734_000091",
+      "text": "sans doute il avait rêvé et il se renfonçait lorsque le bruit recommença c'était un craquement de paillasse l'effort étouffé d'une personne qui se lève alors il s'imagina que catherine se trouvait indisposée",
+      "audio": "test/audio/7762/8734/7762_8734_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1076.06,
+        "original_end_s": 1091.24
+      }
+    },
+    {
+      "id": "7762_8734_000092",
+      "text": "il avait fallu en fonçant le voreux établir deux cuvelages celui du niveau supérieur dans les sables ébouleux et les argiles blanches qui avoisinent le terrain crétacé fissuré de toutes parts gonflé d'eau comme une éponge",
+      "audio": "test/audio/7762/8734/7762_8734_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 740.57,
+        "original_end_s": 756.37
+      }
+    },
+    {
+      "id": "7762_8734_000093",
+      "text": "longtemps la tête basse souvarine marcha sur l'herbe fine si absorbé qu'il suivait l'extrême bord de l'eau avec la tranquille certitude d'un homme endormi rêvant le long des gouttières",
+      "audio": "test/audio/7762/8734/7762_8734_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 209.19,
+        "original_end_s": 221.8
+      }
+    },
+    {
+      "id": "7762_8734_000094",
+      "text": "l'affaire n'avait pas marché raconta souvarine les yeux perdus à présent sur la fuite blanche du canal entre les colonnades bleuies des grands arbres",
+      "audio": "test/audio/7762/8734/7762_8734_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 258.36,
+        "original_end_s": 268.52
+      }
+    },
+    {
+      "id": "7762_8734_000095",
+      "text": "as-tu vu dans le journal le succès de pluchart à paris demanda enfin étienne on l'attendait sur le trottoir on lui a fait une ovation au sortir de cette réunion de belleville oh le voilà lancé malgré son rhume il ira où il voudra désormais",
+      "audio": "test/audio/7762/8734/7762_8734_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 93.15,
+        "original_end_s": 111.67
+      }
+    },
+    {
+      "id": "7762_8734_000096",
+      "text": "dis c'est toi qu'est-ce que tu as demanda-t-il à voix basse personne ne répondit seuls les ronflements des autres continuaient",
+      "audio": "test/audio/7762/8734/7762_8734_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1091.24,
+        "original_end_s": 1102.12
+      }
+    },
+    {
+      "id": "7762_8734_000097",
+      "text": "en chemise serrés l'un contre l'autre ils sentaient la chaleur de leur peau nue au bord de cette couche tiède du sommeil de la nuit elle d'un premier mouvement avait essayé de se dégager",
+      "audio": "test/audio/7762/8734/7762_8734_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 1181.37,
+        "original_end_s": 1194.81
+      }
+    },
+    {
+      "id": "7762_8734_000098",
+      "text": "souvarine hocha la tête sans répondre un instant ils restèrent immobiles puis côte à côte ils repartirent vers marchiennes chacun semblait continuer ses réflexions comme très loin l'un de l'autre",
+      "audio": "test/audio/7762/8734/7762_8734_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 77.91,
+        "original_end_s": 93.15
+      }
+    },
+    {
+      "id": "7762_8734_000099",
+      "text": "c'était notre punition continua durement souvarine nous étions coupables de nous aimer oui cela est bon qu'elle soit morte il naîtra des héros de son sang et moi je n'ai plus de lâcheté au coeur",
+      "audio": "test/audio/7762/8734/7762_8734_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7762",
+        "gender": "w",
+        "book_id": "8734",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
+        "original_start_s": 378.06,
+        "original_end_s": 392.93
+      }
+    }
+  ]
+}

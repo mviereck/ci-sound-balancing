@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ckb",
+  "lang": "ckb",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ckb",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "29309236",
+      "text": "لە ناوچە جیاوازەکانی سنووری سلێمانییەوە پێگەیشتووە",
+      "audio": "ckb/unknown/ckb_u_29309236.mp3",
+      "tags": {
+        "source_item_id": "29309236",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29310353",
+      "text": "پاکی مهتاڵی عهسڵ چەرمی گاکێوييه",
+      "audio": "ckb/unknown/ckb_u_29310353.mp3",
+      "tags": {
+        "source_item_id": "29310353",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29316846",
+      "text": "بهڵکوو بشکێن برووسکه و ئامانیان",
+      "audio": "ckb/unknown/ckb_u_29316846.mp3",
+      "tags": {
+        "source_item_id": "29316846",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29317526",
+      "text": "خوای دەکرد نرخی بەرمیلێک نەوت دەبووە دۆلارێک، بەمن چی",
+      "audio": "ckb/unknown/ckb_u_29317526.mp3",
+      "tags": {
+        "source_item_id": "29317526",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29321873",
+      "text": "گۆگڵ و ئەمازۆن بە هەماهەنگی قەدەغەکردنی هاوشێوەیان داناوە.",
+      "audio": "ckb/unknown/ckb_u_29321873.mp3",
+      "tags": {
+        "source_item_id": "29321873",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29333232",
+      "text": "دڵی هەر لە لا یارە تەواوە",
+      "audio": "ckb/unknown/ckb_u_29333232.mp3",
+      "tags": {
+        "source_item_id": "29333232",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29343838",
+      "text": "بۆ مهگهر نهتزانیوه گهر کاری نامهردانه",
+      "audio": "ckb/unknown/ckb_u_29343838.mp3",
+      "tags": {
+        "source_item_id": "29343838",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29350665",
+      "text": "نەت شکێ بهخت و ئیقبال",
+      "audio": "ckb/unknown/ckb_u_29350665.mp3",
+      "tags": {
+        "source_item_id": "29350665",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29353742",
+      "text": "بۆ وا ناڕهحەت بۆ وا شێواوی",
+      "audio": "ckb/unknown/ckb_u_29353742_hawleri_iraqi_kurdistan.mp3",
+      "tags": {
+        "source_item_id": "29353742",
+        "gender": "u",
+        "accent": "Hawleri,Iraqi Kurdistan"
+      }
+    },
+    {
+      "id": "29357429",
+      "text": "نا توانم بلێم ئاخر ئهمنیش وام",
+      "audio": "ckb/unknown/ckb_u_29357429.mp3",
+      "tags": {
+        "source_item_id": "29357429",
+        "gender": "u"
+      }
+    }
+  ]
+}

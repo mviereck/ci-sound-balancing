@@ -1,0 +1,1124 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "À se tordre",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1417",
+    "book_title": "À se tordre",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1406_1417_000000",
+      "text": "et le lendemain quand devant le maire du village on le décrocha une quantité incroyable de gens purent selon son désir suprême se partager l'interminable corde et ce fut pour eux tous la source infinie de bonheurs durables",
+      "audio": "test/audio/1406/1417/1406_1417_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 119.36,
+        "original_end_s": 133.58
+      }
+    },
+    {
+      "id": "1406_1417_000001",
+      "text": "aussi loin derrière lui qu'il reportât ses souvenirs il ne se rappelait pas une seule minute de veine dans sa pauvre vie la guigne toujours la guigne et pourtant chose étrange jamais de cette série obstinément noire n'était résultée pour lui l'ombre d'une jalousie ou d'une rancune",
+      "audio": "test/audio/1406/1417/1406_1417_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 29.51,
+        "original_end_s": 48.03
+      }
+    },
+    {
+      "id": "1406_1417_000002",
+      "text": "avec l'agilité du chat sauvage l'infortune n'avait pas abattu sa vigueur il y grimpa attacha une longue corde combien longue et s'y pendit ses pieds touchaient presque le sol",
+      "audio": "test/audio/1406/1417/1406_1417_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 107.43,
+        "original_end_s": 119.36
+      }
+    },
+    {
+      "id": "1406_1417_000003",
+      "text": "tranquillement sans phrases sans correspondance posthume sans attitude de mélodrame il résolut de mourir non pas pour se tuer mais très simplement pour cesser de vivre parce que vivre sans jouir lui semblait d'une inutilité flagrante",
+      "audio": "test/audio/1406/1417/1406_1417_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 61.24,
+        "original_end_s": 75.28
+      }
+    },
+    {
+      "id": "1406_1417_000004",
+      "text": "les différents genres de mort défilèrent dans son imagination lugubres et indifférents noyade coup de pistolet pendaison il s'arrêta à ce dernier mode de suicide puis au moment de mourir il lui vint une immense pitié pour ceux qui allaient continuer à vivre",
+      "audio": "test/audio/1406/1417/1406_1417_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 75.28,
+        "original_end_s": 93.37
+      }
+    },
+    {
+      "id": "1406_1417_000005",
+      "text": "il aimait son prochain et de tout son coeur le plaignait de la triste existence à laquelle il était voué un beau jour plutôt un fort vilain jour il en eut assez de cette vie par trop bête vraiment",
+      "audio": "test/audio/1406/1417/1406_1417_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 48.03,
+        "original_end_s": 61.24
+      }
+    },
+    {
+      "id": "1406_1417_000006",
+      "text": "une immense pitié et un vif désir de les soulager alors il s'enfonça dans la campagne arrivant des champs de colza bordés de hauts peupliers du plus haut de ces peupliers il choisit la plus haute branche",
+      "audio": "test/audio/1406/1417/1406_1417_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_17_allais_64kb.mp3",
+        "original_start_s": 93.37,
+        "original_end_s": 107.43
+      }
+    },
+    {
+      "id": "1406_1417_000007",
+      "text": "diable et dans quel but dans le but très simple de vous mitrailler tous si je n'obtiens pas le grand diplôme d'honneur vous n'y allez pas par quatre chemins vous jamais un seul c'est plus court laissez-moi au moins le temps de prévenir le jury comme il vous plaira",
+      "audio": "test/audio/1406/1417/1406_1417_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 333.45,
+        "original_end_s": 350.65
+      }
+    },
+    {
+      "id": "1406_1417_000008",
+      "text": "hurra my dear vous êtes un homme de parole et d'action vous n'aviez donc pas averti le jury jamais de la vie par exemple bien plus drôle comme ça et vous où étiez-vous pendant mes salves",
+      "audio": "test/audio/1406/1417/1406_1417_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 463.18,
+        "original_end_s": 480.04
+      }
+    },
+    {
+      "id": "1406_1417_000009",
+      "text": "dans une pharmacie où je me trouvais vers cette époque ou à peu près j'étais doué d'un patron qui aurait pu rendre des points à madame benoîton toujours sorti j'aimais autant cela n'ayant jamais été friand de surveillance incessante",
+      "audio": "test/audio/1406/1417/1406_1417_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 131.77,
+        "original_end_s": 143.6
+      }
+    },
+    {
+      "id": "1406_1417_000010",
+      "text": "la boutique était sous la garde du jeune athanase garçon apothicaire de beaucoup d'avenir mais malheureusement doué d'un esprit caustique et railleur en ce moment inoccupé athanase regardait sur le seuil de la porte les gens patauger dans la boue prenant grande joie à cette contemplation cruelle",
+      "audio": "test/audio/1406/1417/1406_1417_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 89.04,
+        "original_end_s": 105.29
+      }
+    },
+    {
+      "id": "1406_1417_000011",
+      "text": "je soumets le cas à l'académie de médecine le vieux serin dont j'ai parlé plus haut possède un chien mouton tout blanc dont il était très fier et qu'il appelait black sans doute parce que black signifie noir en anglais un beau jour black éprouva des démangeaisons et le vieux serin me demanda ce qu'on pourrait bien faire contre cet inconvénient je conseillai un bain sulfureux",
+      "audio": "test/audio/1406/1417/1406_1417_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 239.15,
+        "original_end_s": 257.28
+      }
+    },
+    {
+      "id": "1406_1417_000012",
+      "text": "représentait un cochon taquiné par des mouches et l'on se demandait ce qu'il fallait admirer le plus dans ce gracieux ensemble le cochon les mouches le cochon un cochon en bronze trente-six fois grandeur naturelle se vautrait sur un fumier également trente-six fois nature",
+      "audio": "test/audio/1406/1417/1406_1417_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 166.18,
+        "original_end_s": 183.31
+      }
+    },
+    {
+      "id": "1406_1417_000013",
+      "text": "le matin du jour où le jury devait proclamer les récompenses blagsmith invita poliment son confrère merrycalf à lui consacrer quelques instants d'entretien il l'amena devant son groupe",
+      "audio": "test/audio/1406/1417/1406_1417_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 291.29,
+        "original_end_s": 302.63
+      }
+    },
+    {
+      "id": "1406_1417_000014",
+      "text": "de leur côté les deux artistes s'étaient pris l'un pour l'autre d'une vive hostilité ils se saluaient se serraient la main s'informaient de leur santé réciproque mais on sentait que ces rapports courtois cachaient une glacialité polaire",
+      "audio": "test/audio/1406/1417/1406_1417_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 278.32,
+        "original_end_s": 291.29
+      }
+    },
+    {
+      "id": "1406_1417_000015",
+      "text": "bien répondit l'apothicaire aussitôt préparé athanase ira l'administrer lui-même en ce temps vous savez le grand eguisier n'avait pas accompli sa géniale invention et presque toujours les lavements étaient administrés par les apothicaires eux-mêmes ou par leurs garçons comme une invention modifie les moeurs",
+      "audio": "test/audio/1406/1417/1406_1417_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 156.9,
+        "original_end_s": 174.51
+      }
+    },
+    {
+      "id": "1406_1417_000016",
+      "text": "alors se portant à deux pas à droite de la jeune femme il dégaina le large bancal horizontalement fouetta l'air et s'abattit tranchant net la dame en deux morceaux qui roulèrent sur le trottoir tel un ver de terre tronçonné par la bêche du jardinier cruel c'est le gommeux qui faisait une tête",
+      "audio": "test/audio/1406/1417/1406_1417_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 136.51,
+        "original_end_s": 154.71
+      }
+    },
+    {
+      "id": "1406_1417_000017",
+      "text": "ils s'en allaient tous les deux remontant l'avenue de l'opéra lui un gommeux quelconque aux souliers plats relevés et pointus aux vêtements étriqués comme s'il avait dû sangloter pour les obtenir en un mot un de nos joyeux rétrécis",
+      "audio": "test/audio/1406/1417/1406_1417_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 24.66,
+        "original_end_s": 39.21
+      }
+    },
+    {
+      "id": "1406_1417_000018",
+      "text": "blagsmith endossait sa jaquette radieux comme un monsieur qui na pas perdu sa journée quand à sa grande stupeur il vit s'avancer vers lui qui son concurrent merrycalf merrycalf souriant affable lui tendit la main",
+      "audio": "test/audio/1406/1417/1406_1417_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 447.8,
+        "original_end_s": 463.18
+      }
+    },
+    {
+      "id": "1406_1417_000019",
+      "text": "je possédais un scepticisme effroyable à l'égard des matières vénéneuses j'éprouvais une horreur instinctive pour les centigrammes et les milligrammes que j'estimais si misérables ah parlez-moi des grammes",
+      "audio": "test/audio/1406/1417/1406_1417_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 88.34,
+        "original_end_s": 99.38
+      }
+    },
+    {
+      "id": "1406_1417_000020",
+      "text": "la mitrailleuse surtout recueillit les suffrages universels des artilleurs et armuriers américains pas une vis pas un boulon pas un rivet dont on put constater l'absence ou le mal placement une merveille",
+      "audio": "test/audio/1406/1417/1406_1417_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 251.66,
+        "original_end_s": 263.73
+      }
+    },
+    {
+      "id": "1406_1417_000021",
+      "text": "ce qui prouve que comme disent les français dans le cochon tout est bon même l'intérieur surtout quand il est creux enchantés de cette excellente plaisanterie blagsmith et merrycalf allèrent déjeuner avec un appétit qui frisait la voracité",
+      "audio": "test/audio/1406/1417/1406_1417_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 494.67,
+        "original_end_s": 512.1
+      }
+    },
+    {
+      "id": "1406_1417_000022",
+      "text": "le vieux serin me demanda si par hasard je ne me fichais pas de lui et il partit sans attendre la réponse je peux bien vous le dire à vous comment la chose s'était passée le matin du jour où black devait prendre son bain j'avais attiré le fidèle animal dans le laboratoire et là je l'avais amplement arrosé d'acétate de plomb",
+      "audio": "test/audio/1406/1417/1406_1417_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 309.52,
+        "original_end_s": 326.55
+      }
+    },
+    {
+      "id": "1406_1417_000023",
+      "text": "or on sait que le rapprochement d'un sel de plomb avec un sulfure détermine la formation d'un sulfure de plomb substance plus noire que les houilles à taupin je ne revis jamais le vieux serin mais à ma grande joie je ne cessai d'apercevoir black dans le quartier",
+      "audio": "test/audio/1406/1417/1406_1417_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 326.55,
+        "original_end_s": 340.34
+      }
+    },
+    {
+      "id": "1406_1417_000024",
+      "text": "le visage dathanase était là tout près à bout portant il n'en perdit pas une goutte alors le voyageur tourna son autre face vers le jeune apothicaire et lui demanda sur le ton de la politesse empressée voulez-vous une brosse fin du railleur puni",
+      "audio": "test/audio/1406/1417/1406_1417_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 219.16,
+        "original_end_s": 238.31
+      }
+    },
+    {
+      "id": "1406_1417_000025",
+      "text": "je me préparais par un stage pratique dans les meilleures maisons de paris à l'exercice de cette profession tant décriée où s'illustrèrent au dix-septième siècle m fleurant et de nos jours l'espiègle fenayrou dois-je ajouter que le seul fait de mon entrée dans une pharmacie déterminait les plus imminentes catastrophes et les plus irrémédiables",
+      "audio": "test/audio/1406/1417/1406_1417_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 54.66,
+        "original_end_s": 70.12
+      }
+    },
+    {
+      "id": "1406_1417_000026",
+      "text": "chaque jour dans l'après-midi une espèce de vieux serin rentier dans le quartier ennemi du progrès clérical enragé venait tailler avec moi d'interminables bavettes dont darwin était le sujet principal",
+      "audio": "test/audio/1406/1417/1406_1417_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 143.6,
+        "original_end_s": 153.61
+      }
+    },
+    {
+      "id": "1406_1417_000027",
+      "text": "le vaste hall ne désemplissait pas et bientôt les organisateurs ne surent plus où fourrer les dollars de leurs recettes d'ailleurs la chose en valait la peine la sculpture surtout intéressait les visiteurs au plus haut point",
+      "audio": "test/audio/1406/1417/1406_1417_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 90.82,
+        "original_end_s": 104.65
+      }
+    },
+    {
+      "id": "1406_1417_000028",
+      "text": "les statuaires américains ont compris que dans l'art la vie seule intéresse et qu'il n'y a pas de vie sans mouvement aussi à l'exposition de pigtown les statues des groupes même les bustes tout était-il articulé",
+      "audio": "test/audio/1406/1417/1406_1417_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 122.15,
+        "original_end_s": 135.64
+      }
+    },
+    {
+      "id": "1406_1417_000029",
+      "text": "sortis de la poussière les marbres et les plâtres retournaient en poussière seuls les bronzes s'en tiraient avec quelques renfoncements négligeables c'était fini",
+      "audio": "test/audio/1406/1417/1406_1417_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 437.23,
+        "original_end_s": 447.8
+      }
+    },
+    {
+      "id": "1406_1417_000030",
+      "text": "je métais trompé d'étiquettes le pauvre homme avait bu la lotion et s'était consciencieusement frictionné la tête avec le sirop ma foi me dis-je puisque ça lui a réussi continuons j'appris depuis que ce pauvre monsieur qui avait une maladie du cuir chevelu réputée incurable s'était trouvé radicalement guéri au bout d'un mois de ce traitement à l'envers",
+      "audio": "test/audio/1406/1417/1406_1417_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 219.96,
+        "original_end_s": 239.15
+      }
+    },
+    {
+      "id": "1406_1417_000031",
+      "text": "dessous un sirop pour se purifier le sang huit jours après le pauvre monsieur revenait avec son ordonnance et ses bouteilles vides ça va beaucoup mieux fit-il mais nom d'un chien c'est effrayant ce que ça poisse les cheveux cette cochonnerie-là et ce que ça arrange les chapeaux je jetai un coup d'oeil sur les bouteilles oh",
+      "audio": "test/audio/1406/1417/1406_1417_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 202.15,
+        "original_end_s": 219.96
+      }
+    },
+    {
+      "id": "1406_1417_000032",
+      "text": "le boeuf était en gutta-percha et le boa en celluloïd me dites-vous ô poncifs vieux jeu qu'importe la substance l'idée est tout dans cet amoncellement d'art animé deux oeuvres surtout se disputaient l'engouement public la première due au génie si inventif du grand animalier k w",
+      "audio": "test/audio/1406/1417/1406_1417_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 147.66,
+        "original_end_s": 166.18
+      }
+    },
+    {
+      "id": "1406_1417_000033",
+      "text": "après un grand morceau exécuté par l'harmonie des abattoirs de pigtown le président du jury se leva et proclama le nom des heureux lauréats on commença par la peinture à part quelques coups de revolver échangés entre une mention honorable et une médaille d'argent la proclamation des lauréats peintres se passa assez tranquillement",
+      "audio": "test/audio/1406/1417/1406_1417_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 362.65,
+        "original_end_s": 381.06
+      }
+    },
+    {
+      "id": "1406_1417_000034",
+      "text": "justement il y avait dans le quartier un vétérinaire qui un jour par semaine administrait un bain sulfureux collectif aux chiens de sa clientèle le vieux serin conduisit black au bain et alla faire un tour pendant l'opération",
+      "audio": "test/audio/1406/1417/1406_1417_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 257.28,
+        "original_end_s": 269.25
+      }
+    },
+    {
+      "id": "1406_1417_000035",
+      "text": "note ce petit conte a été publié il y a cinq ans détail important pour éviter toute confusion avec une histoire analogue ô combien parue récemment sous la signature d'un jeune homme blême dont le père m'a accusé devant yvette guilbert de lui devoir deux termes ce qui est faux a a",
+      "audio": "test/audio/1406/1417/1406_1417_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 23.18,
+        "original_end_s": 40.94
+      }
+    },
+    {
+      "id": "1406_1417_000036",
+      "text": "hume mabrize prépara avec son soin ordinaire un bon liquide émollient sédatif et mucilagineux l'introduisit bouillant dans le cylindre d'étain que vous savez et voilà mon athanase parti pour accomplir sa mission la clef du voyageur était sur la porte athanase entra sans mot dire le voyageur découvrit la partie intéressée",
+      "audio": "test/audio/1406/1417/1406_1417_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 174.51,
+        "original_end_s": 192.32
+      }
+    },
+    {
+      "id": "1406_1417_000037",
+      "text": "elle beaucoup mieux toute petite mignonne comme tout avec des frissons fous plein le front mais surtout une taille invraisemblable la taille elle aurait certainement pu la petite blonde sans se gêner beaucoup employer comme ceinture son porte-bonheur d'or massif",
+      "audio": "test/audio/1406/1417/1406_1417_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 39.21,
+        "original_end_s": 56.14
+      }
+    },
+    {
+      "id": "1406_1417_000038",
+      "text": "le lendemain c'était le premier jour de l'an la boutique de m hume mabrize était à peine ouverte qu'un garçon de l'auberge du roi maure vint demander un lavement émollient pour un client qui se tordait dans les plus pénibles coliques",
+      "audio": "test/audio/1406/1417/1406_1417_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 145.28,
+        "original_end_s": 156.9
+      }
+    },
+    {
+      "id": "1406_1417_000039",
+      "text": "il avait beau le grand cavalier se remémorer les plus jolies demoiselles de son chef-lieu de canton pas une seule ne lui rappelait même de loin l'étroitesse inouïe de cette jolie guêpe très troublé le cuirassier résolut d'en avoir le coeur net et murmura nous verrons bien si c'est du faux",
+      "audio": "test/audio/1406/1417/1406_1417_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 120.15,
+        "original_end_s": 136.51
+      }
+    },
+    {
+      "id": "1406_1417_000040",
+      "text": "puis le président annonça sculpture grand diplôme d'honneur décerné à mathias moonman auteur de auteur de quoi je ne saurais vous dire car à ce moment précis il se produisit un vif désordre parmi les gentlemen qui garnissaient l'estrade et ceux qui l'entouraient",
+      "audio": "test/audio/1406/1417/1406_1417_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 381.06,
+        "original_end_s": 395.22
+      }
+    },
+    {
+      "id": "1406_1417_000041",
+      "text": "il y a longtemps qu'en matière de statues les américains ont déserté les errements surannés de la vieille europe plus de ces groupes inanimés assez de ces marbres froids et insensibles foin de ces lions de bronze dévorant des autruches de même métal sans que les autruches y perdent une seule de leurs plumes",
+      "audio": "test/audio/1406/1417/1406_1417_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 104.65,
+        "original_end_s": 122.15
+      }
+    },
+    {
+      "id": "1406_1417_000042",
+      "text": "c'était le trente et un décembre mille huit cent vingt six il avait beaucoup neigé depuis quelques jours sur la petite ville de potinbourg sur bec mais le dégel était survenu et la neige tournait en boue noire au coin de la rue saint gaspard et de la place du marché aux veaux se dressait la boutique du sieur hume mabrize maître apothicaire car à cette époque les pharmaciens n'étaient pas encore éclos",
+      "audio": "test/audio/1406/1417/1406_1417_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 56.9,
+        "original_end_s": 76.17
+      }
+    },
+    {
+      "id": "1406_1417_000043",
+      "text": "et se débarrassant de sa jaquette blagsmith arbora la tenue si commode dite en bras de chemise sur une splendide estrade drapée de peluche et ornée de plantes tropicales le jury se réunissait",
+      "audio": "test/audio/1406/1417/1406_1417_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 350.65,
+        "original_end_s": 362.65
+      }
+    },
+    {
+      "id": "1406_1417_000044",
+      "text": "mais l'édilité de pigtown ayant décidé que l'exposition serait exclusivement nationale exclusively national on ne répondit même pas à ces faquins d'europe la pigtown national picture and sculpture exhibition obtint tout de suite un prodigieux succès",
+      "audio": "test/audio/1406/1417/1406_1417_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 75.12,
+        "original_end_s": 90.82
+      }
+    },
+    {
+      "id": "1406_1417_000045",
+      "text": "ils étaient arrivés aux boulevards le couple prit à droite et bien que ce ne fût pas son chemin le cuirassier les suivit décidément non ce n'était pas possible cette taille n'était pas une vraie taille",
+      "audio": "test/audio/1406/1417/1406_1417_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 106.99,
+        "original_end_s": 120.15
+      }
+    },
+    {
+      "id": "1406_1417_000046",
+      "text": "on lança par la libre amérique des invitations aux artistes de deux sexes et l'on construisit en moins de temps qu'il ne faut pour l'écrire un vaste hall auprès duquel la galerie des machines semblerait une humble mansarde",
+      "audio": "test/audio/1406/1417/1406_1417_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 46.27,
+        "original_end_s": 60.34
+      }
+    },
+    {
+      "id": "1406_1417_000047",
+      "text": "franchement demanda-t-il comment trouvez-vous cela à la vérité répondit merrycalf je trouve cela parfait la mitrailleuse est d'une exactitude cette mitrailleuse n'a aucun mérite à être exacte attendu que c'est une vraie mitrailleuse voyez plutôt",
+      "audio": "test/audio/1406/1417/1406_1417_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 302.63,
+        "original_end_s": 315.7
+      }
+    },
+    {
+      "id": "1406_1417_000048",
+      "text": "on vendait non point des médicaments mais des drogues et entre nous le pauvre monde ne sen trouvait pas plus mal il pouvait être cinq heures du soir hume mabrize dans son laboratoire élaborait je ne sais quel bienfaisant électuaire",
+      "audio": "test/audio/1406/1417/1406_1417_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 76.17,
+        "original_end_s": 89.04
+      }
+    },
+    {
+      "id": "1406_1417_000049",
+      "text": "une grande voiture de coquetier arrivait par la rue saint-gaspard à fond de train éclaboussant les passants qui criaient et montraient le poing à cette brute de charretier justement devant la boutique de l'apothicaire s'étendait une large et profonde flaque de boue",
+      "audio": "test/audio/1406/1417/1406_1417_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 105.29,
+        "original_end_s": 117.81
+      }
+    },
+    {
+      "id": "1406_1417_000050",
+      "text": "il en avait plein ses culottes plein sa houppelande sur le visage et jusque dans les cheveux athanase conçut la plus vive allégresse de ce malheur il éclata de rire et comme le monsieur s'éloignait en grommelant il le rappela pour lui demander ironiquement voulez-vous une brosse",
+      "audio": "test/audio/1406/1417/1406_1417_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 131.18,
+        "original_end_s": 145.28
+      }
+    },
+    {
+      "id": "1406_1417_000051",
+      "text": "les narines battaient les seins haletaient les bouches s'ouvraient et quand un groupe représentait un boa dévorant un boeuf on n'avait qu'à demeurer cinq minutes devant cette oeuvre capitale le boeuf se trouvait effectivement dévoré par le boa",
+      "audio": "test/audio/1406/1417/1406_1417_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 135.64,
+        "original_end_s": 147.66
+      }
+    },
+    {
+      "id": "1406_1417_000052",
+      "text": "mais tout à coup comme un volcan comme une explosion il se produisit un phénomène inattendu projeté violemment dehors le bon liquide venait de sortir comme déshonoré d'avoir été amené en tel endroit",
+      "audio": "test/audio/1406/1417/1406_1417_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 208.35,
+        "original_end_s": 219.16
+      }
+    },
+    {
+      "id": "1406_1417_000053",
+      "text": "voletaient réellement tourbillonnaient et ne touchaient la hure du porc que pour se charger d'électricité et repartir de plus belle c'était charmant cette jolie pièce eût été certainement le clou de la national exhibition sans l'envoi d'un jeune sculpteur ignoré jusqu'à ce jour et portant le nom de julius blacksmith",
+      "audio": "test/audio/1406/1417/1406_1417_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 197.75,
+        "original_end_s": 215.98
+      }
+    },
+    {
+      "id": "1406_1417_000054",
+      "text": "le groupe de julius blagsmith portait cette indication au livret the death of the brave général george ernest baker l'intrépide officier était représenté au moment où frappé d'une balle en plein coeur il s'affaissa sur une mitrailleuse voisine",
+      "audio": "test/audio/1406/1417/1406_1417_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 215.98,
+        "original_end_s": 233.25
+      }
+    },
+    {
+      "id": "1406_1417_000055",
+      "text": "athanase avec une attention et une précision professionnelles fit son devoir doucement sans précipitation le piston s'enfonça dans le cylindre poussant devant lui le bon liquide tel un docile troupeau doux et tiède là ça y est il n'y avait plus qu'à se retirer et à s'en aller",
+      "audio": "test/audio/1406/1417/1406_1417_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 192.32,
+        "original_end_s": 208.35
+      }
+    },
+    {
+      "id": "1406_1417_000056",
+      "text": "mais ce cuirassier qui n'était d'ailleurs que de deuxième classe était aussi peu au courant de l'anatomie que des artifices de toilette et il continuait à murmurer très ahuri ça doit être postiche",
+      "audio": "test/audio/1406/1417/1406_1417_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 95.3,
+        "original_end_s": 106.99
+      }
+    },
+    {
+      "id": "1406_1417_000057",
+      "text": "et blagsmith grattant légèrement de la pointe de son canif un fragment de plâtre fit apparaître l'acier luisant et vous savez pas de l'acier pour rire oui poursuivit-il cette mitrailleuse est une réelle mitrailleuse en parfait état avec cette circonstance aggravante quelle est chargée et prête à faire feu",
+      "audio": "test/audio/1406/1417/1406_1417_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 315.7,
+        "original_end_s": 333.45
+      }
+    },
+    {
+      "id": "1406_1417_000058",
+      "text": "mon vieux serin considérait darwin comme un grand coupable et ne parlait rien moins que de le pendre darwin n'était pas encore mort à ce moment-là moi je lui répondais que bossuet était un drôle et que si je savais où se trouvait sa tombe j'irais la souiller d'excréments",
+      "audio": "test/audio/1406/1417/1406_1417_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 153.61,
+        "original_end_s": 166.22
+      }
+    },
+    {
+      "id": "1406_1417_000059",
+      "text": "complètement médusé par l'exiguïté phénoménale de cette taille de parisienne qu'il comparait dans son esprit aux robustesses de sa bonne amie il murmurait à part lui ça doit être postiche",
+      "audio": "test/audio/1406/1417/1406_1417_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 69.76,
+        "original_end_s": 81.67
+      }
+    },
+    {
+      "id": "1406_1417_000060",
+      "text": "et en effet c'était bien lui le black mais noirci comment le vétérinaire n'y comprenait rien ce n'était pas la faute du bain puisque les autres chiens gardaient leur couleur naturelle alors quoi",
+      "audio": "test/audio/1406/1417/1406_1417_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 283.29,
+        "original_end_s": 294.05
+      }
+    },
+    {
+      "id": "1406_1417_000061",
+      "text": "dans mon cochon parbleu vous pensez bien que je n'ai pas fait un cochon trente-six fois nature en bronze massif j'y ai fait ménager une logette très confortable et je vous prie de croire que je ne m'y embêtais pas tout à l'heure pendant votre petite séance d'artillerie",
+      "audio": "test/audio/1406/1417/1406_1417_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 480.04,
+        "original_end_s": 494.67
+      }
+    },
+    {
+      "id": "1406_1417_000062",
+      "text": "tant les gargousses étaient brûlées il en tirait d'autres du socle de son groupe et continuait tranquillement l'oeuvre de destruction comme tout prend une fin même les meilleures plaisanteries les provisions s'épuisèrent dois-je ajouter que le public n'avait pas attendu plus longtemps pour déserter le vaste hall",
+      "audio": "test/audio/1406/1417/1406_1417_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 421.07,
+        "original_end_s": 437.23
+      }
+    },
+    {
+      "id": "1406_1417_000063",
+      "text": "cent milliards de démons se seraient acharnés à déchirer cent milliards d'aunes de toile forte que le tapage n'eût pas été plus infernal cependant que des projectiles meurtriers semaient la mort et l'effroi parmi le jury et le public",
+      "audio": "test/audio/1406/1417/1406_1417_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 395.22,
+        "original_end_s": 406.34
+      }
+    },
+    {
+      "id": "1406_1417_000064",
+      "text": "un monsieur étranger à la localité n'eut que le temps pour ne pas être écrasé de sauter sur le trottoir mais la roue de la voiture entra violemment dans la flaque et en projeta le contenu tout alentour le monsieur étranger à la localité fut littéralement inondé de fange",
+      "audio": "test/audio/1406/1417/1406_1417_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 117.81,
+        "original_end_s": 131.18
+      }
+    },
+    {
+      "id": "1406_1417_000065",
+      "text": "jai voulu conter cette histoire à l'occasion de l'année qui vient pour prouver aux jeunes gens disposés à la raillerie qu'il est toujours malséant et parfois dangereux de se gausser des malheureux fasse le ciel que ce récit produise son effet et que la nouvelle année soit exempte de déplorables plaisanteries et de méchants brocards",
+      "audio": "test/audio/1406/1417/1406_1417_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_35_allais_64kb.mp3",
+        "original_start_s": 40.94,
+        "original_end_s": 56.9
+      }
+    },
+    {
+      "id": "1406_1417_000066",
+      "text": "ils remontaient l'avenue de l'opéra lui de son pas bête et plat de gommeux idiot elle trottinant allègrement portant haut sa petite tête effrontée derrière eux un grand cuirassier qui n'en revenait pas",
+      "audio": "test/audio/1406/1417/1406_1417_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 56.14,
+        "original_end_s": 69.76
+      }
+    },
+    {
+      "id": "1406_1417_000067",
+      "text": "le vieux serin vint me consulter je parus réfléchir et subitement comme inspiré nierez-vous maintenant mécriai-je la théorie de darwin non seulement les animaux s'adaptent à leur fonction mais encore au nom qu'ils portent vous avez baptisé votre chien black il était inéluctable qu'il devînt noir",
+      "audio": "test/audio/1406/1417/1406_1417_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 294.05,
+        "original_end_s": 309.52
+      }
+    },
+    {
+      "id": "1406_1417_000068",
+      "text": "il y a peu d'années l'édilité de pigtown ohio u s a eut l'idée d'organiser une exposition de peinture sculpture gravure et généralement tout ce qui s'ensuit",
+      "audio": "test/audio/1406/1417/1406_1417_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 33.25,
+        "original_end_s": 46.27
+      }
+    },
+    {
+      "id": "1406_1417_000069",
+      "text": "réflexion ridicule pour quiconque a fait tant soit peu de l'anatomie on peut avoir en effet des fausses dents des nattes artificielles des hanches et des seins rajoutés mais on conçoit qu'on ne peut avoir d'aucune façon une taille postiche",
+      "audio": "test/audio/1406/1417/1406_1417_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_13_allais_64kb.mp3",
+        "original_start_s": 81.67,
+        "original_end_s": 95.3
+      }
+    },
+    {
+      "id": "1406_1417_000070",
+      "text": "c'est mon mari monsieur oh ce n'est pas grave un petit enrouement alors je me disais ah il est enroué ton mari eh bien je me charge de lui rendre la pureté de son organe et il était bien rare le surlendemain de ne pas rencontrer un enterrement dans le quartier c'était le bon temps",
+      "audio": "test/audio/1406/1417/1406_1417_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 116.26,
+        "original_end_s": 131.77
+      }
+    },
+    {
+      "id": "1406_1417_000071",
+      "text": "à se tordre de alphonse allais le comble du darwinisme je n'ai pas toujours été le vieillard quinteux et cacochyme que vous connaissez aujourd'hui jeunes gens",
+      "audio": "test/audio/1406/1417/1406_1417_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 17.59,
+        "original_end_s": 28.51
+      }
+    },
+    {
+      "id": "1406_1417_000072",
+      "text": "il m'advint souvent d'ajouter copieusement les plus redoutables toxiques à des préparations réputées anodines jusqu'alors j'aimais surtout faire des veuves une idée à moi dès qu'une cliente un peu gentille se présentait à l'officine porteuse d'une ordonnance qui est-ce que vous avez donc de malade chez vous madame",
+      "audio": "test/audio/1406/1417/1406_1417_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 99.38,
+        "original_end_s": 116.26
+      }
+    },
+    {
+      "id": "1406_1417_000073",
+      "text": "à cette époque la muse de la prose n'avait que légèrement effleuré du bout de son aile vague mon front d'ivoire d'ailleurs la nature de mes occupations était peu faite pour m'impulser vers d'aériennes fantaisies",
+      "audio": "test/audio/1406/1417/1406_1417_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 43.53,
+        "original_end_s": 54.66
+      }
+    },
+    {
+      "id": "1406_1417_000074",
+      "text": "à l'intérêt historique de cet épisode émouvant venait s'adjoindre l'attrait d'une ingénieuse application du phonographe dans l'intérieur de george ernest baker était adroitement placé un appareil et toutes les cinq minutes le vaillant général portant sa main au coeur s'écriait en américain bien entendu je meurs pour le principe",
+      "audio": "test/audio/1406/1417/1406_1417_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 233.25,
+        "original_end_s": 251.66
+      }
+    },
+    {
+      "id": "1406_1417_000075",
+      "text": "mon patron devenait rapidement étonné puis inquiet et enfin insane dément parfois quant à la clientèle une forte partie était fauchée par un trépas prématuré l'autre manifestant de véhémentes méfiances s'adressait ailleurs bref je tramais dans les plis de mon veston le spectre de la faillite la faillite au sourire vert",
+      "audio": "test/audio/1406/1417/1406_1417_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 70.12,
+        "original_end_s": 88.34
+      }
+    },
+    {
+      "id": "1406_1417_000076",
+      "text": "votre darwin est une canaille votre fénelon est un singe pendant nos discussions pseudo scientifiques je vous laisse à penser comme les prescriptions étaient consciencieusement exécutées je me rappelle notamment un pauvre monsieur qui arriva au moment le plus chaud avec une ordonnance comportant deux médicaments primo une eau quelconque pour se frictionner le cuir chevelu",
+      "audio": "test/audio/1406/1417/1406_1417_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_12_allais_64kb.mp3",
+        "original_start_s": 184.08,
+        "original_end_s": 202.15
+      }
+    },
+    {
+      "id": "1406_1417_000077",
+      "text": "une nuée de mouches dans la même proportion s'ébattaient petites folles autour du monstrueux groin le cochon comme tout bon cochon qui se respecte était immobile mais les mouches mues par un petit appareil des plus ingénieux patent",
+      "audio": "test/audio/1406/1417/1406_1417_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 183.31,
+        "original_end_s": 197.75
+      }
+    },
+    {
+      "id": "1406_1417_000078",
+      "text": "l'estrade ne fut bientôt qu'un amas confus de draperies rouges d'arbustes verts et de jurés de toutes couleurs là-bas dans le fond blagsmith tournait sa manivelle avec autant de quiétude que s'il eût joué le yankie doodle sur un orgue de barbarie",
+      "audio": "test/audio/1406/1417/1406_1417_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "1417",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/a_se_tordre_0808_librivox_1/asetordre_18_allais_64kb.mp3",
+        "original_start_s": 406.34,
+        "original_end_s": 421.07
+      }
+    }
+  ]
+}

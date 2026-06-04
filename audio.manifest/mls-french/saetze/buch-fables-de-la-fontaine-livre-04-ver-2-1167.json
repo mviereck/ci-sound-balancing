@@ -1,0 +1,788 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Fables de La Fontaine, livre 04 (ver 2)",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1167",
+    "book_title": "Fables de La Fontaine, livre 04 (ver 2)",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1770_1167_000000",
+      "text": "et je veux chercher ici quelque herbe salutaire pour vous ne perdez point de temps rendez-moi mon argent j'en puis avoir affaire on déballe",
+      "audio": "dev/audio/1770/1167/1770_1167_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 168.89,
+        "original_end_s": 179.87
+      }
+    },
+    {
+      "id": "1770_1167_000001",
+      "text": "chacun se dit ami mais fol qui s'y repose rien n'est plus commun que ce nom rien n'est plus rare que la chose",
+      "audio": "dev/audio/1770/1167/1770_1167_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_17_lafontaine_64kb.mp3",
+        "original_start_s": 48.38,
+        "original_end_s": 58.9
+      }
+    },
+    {
+      "id": "1770_1167_000002",
+      "text": "on s'assemble au désert tous quittent leur tanière après divers avis on résout on conclut d'envoyer hommage et tribut pour l'hommage et pour la manière le singe en fut chargé l'on lui mit écrit ce qu'on voulait qui fût dit",
+      "audio": "dev/audio/1770/1167/1770_1167_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 63.19,
+        "original_end_s": 79.08
+      }
+    },
+    {
+      "id": "1770_1167_000003",
+      "text": "le lion n'y fut pas qu'à ces gens il se plaignit d'être malade continuez votre ambassade dit-il je sens un feu qui me brûle en dedans",
+      "audio": "dev/audio/1770/1167/1770_1167_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 158.32,
+        "original_end_s": 168.89
+      }
+    },
+    {
+      "id": "1770_1167_000004",
+      "text": "vouloir tromper le ciel c'est folie à la terre le dédale des cœurs en ses détours n'enserre rien qui ne soit d'abord éclairé par les dieux tout ce que l'homme fait il le fait à leurs yeux même les actions que dans l'ombre il croit faire",
+      "audio": "dev/audio/1770/1167/1770_1167_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_19_lafontaine_64kb.mp3",
+        "original_start_s": 17.34,
+        "original_end_s": 36.25
+      }
+    },
+    {
+      "id": "1770_1167_000005",
+      "text": "et puis nacelle et puis ballot enfin bâtons flottants sur l'onde j'en sais beaucoup de par le monde à qui ceci conviendrait bien de loin c'est quelque chose et de près ce n'est rien",
+      "audio": "dev/audio/1770/1167/1770_1167_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_10_lafontaine_64kb.mp3",
+        "original_start_s": 55.04,
+        "original_end_s": 71.02
+      }
+    },
+    {
+      "id": "1770_1167_000006",
+      "text": "et d'abord le lion s'écria d'un ton qui témoignait sa joie que de filles ô dieux mes pièces de monnaie ont produites voyez la plupart sont déjà aussi grandes que leurs mères le croît m'en appartient il prit tout là-dessus ou bien s'il ne prit tout il n'en demeura guère",
+      "audio": "dev/audio/1770/1167/1770_1167_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 179.87,
+        "original_end_s": 197.82
+      }
+    },
+    {
+      "id": "1770_1167_000007",
+      "text": "fin de la fable douze tribut envoyé par les animaux à alexandre cet enregistrement fait partie du domaine public",
+      "audio": "dev/audio/1770/1167/1770_1167_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 219.66,
+        "original_end_s": 233.3
+      }
+    },
+    {
+      "id": "1770_1167_000008",
+      "text": "la renommée ayant dit en cent lieux qu'un fils de jupiter un certain alexandre ne voulant rien laisser de libre sous les cieux commandait que sans plus attendre tout peuple à ses pieds s'allât rendre quadrupèdes humains éléphants vermisseaux",
+      "audio": "dev/audio/1770/1167/1770_1167_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 30.37,
+        "original_end_s": 48.42
+      }
+    },
+    {
+      "id": "1770_1167_000009",
+      "text": "le seul tribut les tint en peine car que donner il fallait de l'argent on en prit d'un prince obligeant qui possédant dans son domaine des mines d'or fournit ce qu'on voulut comme il fut question de porter ce tribut le mulet et l'âne s'offrirent assistés du cheval ainsi que du chameau",
+      "audio": "dev/audio/1770/1167/1770_1167_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 79.08,
+        "original_end_s": 98.68
+      }
+    },
+    {
+      "id": "1770_1167_000010",
+      "text": "le chameau et les bâtons flottants",
+      "audio": "dev/audio/1770/1167/1770_1167_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_10_lafontaine_64kb.mp3",
+        "original_start_s": 71.02,
+        "original_end_s": 83.41
+      }
+    },
+    {
+      "id": "1770_1167_000011",
+      "text": "dès qu'il fut en son sanctuaire ce que je tiens dit-il est-il en vie ou non il tenait un moineau dit-on prêt d'étouffer la pauvre bête ou de la lâcher aussitôt pour mettre apollon en défaut",
+      "audio": "dev/audio/1770/1167/1770_1167_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_19_lafontaine_64kb.mp3",
+        "original_start_s": 46.75,
+        "original_end_s": 63.3
+      }
+    },
+    {
+      "id": "1770_1167_000012",
+      "text": "ils arrivèrent dans un pré tout bordé de ruisseaux de fleurs tout diapré où maint mouton cherchait sa vie séjour du frais véritable patrie des zéphyrs",
+      "audio": "dev/audio/1770/1167/1770_1167_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 147.61,
+        "original_end_s": 158.32
+      }
+    },
+    {
+      "id": "1770_1167_000013",
+      "text": "éconduire un lion rarement se pratique le voilà donc admis soulagé bien reçu et malgré le héros de jupiter issu faisant chère et vivant sur la bourse publique",
+      "audio": "dev/audio/1770/1167/1770_1167_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 134.31,
+        "original_end_s": 147.61
+      }
+    },
+    {
+      "id": "1770_1167_000014",
+      "text": "apollon reconnut ce qu'il avait en tête mort ou vif lui dit-il montre-nous ton moineau et ne me tends plus de panneau tu te trouverais mal d'un pareil stratagème je vois de loin j'atteins de même",
+      "audio": "dev/audio/1770/1167/1770_1167_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_19_lafontaine_64kb.mp3",
+        "original_start_s": 63.3,
+        "original_end_s": 80.55
+      }
+    },
+    {
+      "id": "1770_1167_000015",
+      "text": "obligez-moi de me faire la grâce que d'en porter chacun un quart ce ne vous sera une charge trop grande et j'en serai plus libre et bien plus en état en cas que les voleurs attaquent notre bande et que l'on en vienne au combat",
+      "audio": "dev/audio/1770/1167/1770_1167_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 120.99,
+        "original_end_s": 134.31
+      }
+    },
+    {
+      "id": "1770_1167_000016",
+      "text": "nous nous rencontrons tout à point dit-il et nous voici compagnons de voyage j'allais offrir mon fait à part mais bien qu'il soit léger tout fardeau m'embarrasse",
+      "audio": "dev/audio/1770/1167/1770_1167_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 110.21,
+        "original_end_s": 120.99
+      }
+    },
+    {
+      "id": "1770_1167_000017",
+      "text": "socrate un jour faisant bâtir chacun censurait son ouvrage l'un trouvait les dedans pour ne lui point mentir indignes d'un tel personnage l'autre blâmait la face et tous étaient d'avis que les appartements en étaient trop petits quelle maison pour lui l'on y tournait à peine",
+      "audio": "dev/audio/1770/1167/1770_1167_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_17_lafontaine_64kb.mp3",
+        "original_start_s": 16.88,
+        "original_end_s": 36.1
+      }
+    },
+    {
+      "id": "1770_1167_000018",
+      "text": "le singe et les sommiers confus sans oser répliquer en chemin se remirent au fils de jupiter on dit qu'ils se plaignirent et n'en eurent point de raison",
+      "audio": "dev/audio/1770/1167/1770_1167_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 197.82,
+        "original_end_s": 209.44
+      }
+    },
+    {
+      "id": "1770_1167_000019",
+      "text": "un païen qui sentait quelque peu le fagot et qui croyait en dieu pour user de ce mot par bénéfice d'inventaire alla consulter apollon",
+      "audio": "dev/audio/1770/1167/1770_1167_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_19_lafontaine_64kb.mp3",
+        "original_start_s": 36.25,
+        "original_end_s": 46.75
+      }
+    },
+    {
+      "id": "1770_1167_000020",
+      "text": "puisque nous voici tombés sur ce sujet on avait mis des gens au guet qui voyant sur les eaux de loin certain objet ne purent s'empêcher de dire que c'était un puissant navire quelques moments après l'objet devient brûlot",
+      "audio": "dev/audio/1770/1167/1770_1167_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_10_lafontaine_64kb.mp3",
+        "original_start_s": 39.58,
+        "original_end_s": 55.04
+      }
+    },
+    {
+      "id": "1770_1167_000021",
+      "text": "les républiques des oiseaux la déesse aux cent bouches dis-je ayant mis partout la terreur en publiant l'édit du nouvel empereur les animaux et toute espèce lige de son seul appétit crurent que cette fois il fallait subir d'autres lois",
+      "audio": "dev/audio/1770/1167/1770_1167_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 48.42,
+        "original_end_s": 63.19
+      }
+    },
+    {
+      "id": "1770_1167_000022",
+      "text": "tous quatre en chemin se mirent avec le singe ambassadeur nouveau la caravane rencontre enfin en un passage monseigneur le lion cela ne leur plut point",
+      "audio": "dev/audio/1770/1167/1770_1167_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_12_lafontaine_64kb.mp3",
+        "original_start_s": 98.68,
+        "original_end_s": 110.21
+      }
+    },
+    {
+      "id": "1770_1167_000023",
+      "text": "l'accoutumance ainsi nous rend tout familier ce qui nous paraissait terrible et singulier s'apprivoise avec notre vue quand ce vient à la continue",
+      "audio": "dev/audio/1770/1167/1770_1167_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_10_lafontaine_64kb.mp3",
+        "original_start_s": 28.96,
+        "original_end_s": 39.58
+      }
+    },
+    {
+      "id": "1770_1167_000024",
+      "text": "plût au ciel que de vrais amis telle qu'elle est dit-il elle pût être pleine le bon socrate avait raison de trouver pour ceux-là trop grande sa maison",
+      "audio": "dev/audio/1770/1167/1770_1167_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "1167",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_17_lafontaine_64kb.mp3",
+        "original_start_s": 36.1,
+        "original_end_s": 48.38
+      }
+    },
+    {
+      "id": "2154_1167_000000",
+      "text": "c'était chez les grecs un usage que sur la mer tous voyageurs menaient avec eux en voyage singes et chiens de bateleurs un navire en cet équipage non loin d'athènes fit naufrage sans les dauphins tout eût péri",
+      "audio": "test/audio/2154/1167/2154_1167_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 14.41,
+        "original_end_s": 32.02
+      }
+    },
+    {
+      "id": "2154_1167_000001",
+      "text": "comme elle disait ces mots le loup de fortune passe il les recueille à propos et les garde en sa mémoire la bique comme on peut croire n'avait pas vu le glouton",
+      "audio": "test/audio/2154/1167/2154_1167_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 36.9,
+        "original_end_s": 53.65
+      }
+    },
+    {
+      "id": "2154_1167_000002",
+      "text": "eux repus tout s'endort les petits et la mère l'aube du jour arrive et d'amis point du tout l'alouette à l'essor le maître s'en vient faire sa ronde ainsi qu'à l'ordinaire",
+      "audio": "test/audio/2154/1167/2154_1167_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 155.19,
+        "original_end_s": 172.0
+      }
+    },
+    {
+      "id": "2154_1167_000003",
+      "text": "dès lors que ce dessein fut su de l'alouette c'est ce coup qu'il est bon de partir mes enfants et les petits en même temps voletants se culbutants délogèrent tous sans trompette",
+      "audio": "test/audio/2154/1167/2154_1167_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 244.33,
+        "original_end_s": 260.34
+      }
+    },
+    {
+      "id": "2154_1167_000004",
+      "text": "tous les jours il est mon ami c'est une vieille connaissance notre magot prit pour ce coup le nom d'un port pour un nom d'homme",
+      "audio": "test/audio/2154/1167/2154_1167_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 96.77,
+        "original_end_s": 109.55
+      }
+    },
+    {
+      "id": "2154_1167_000005",
+      "text": "l'alouette eut raison car personne ne vint pour la troisième fois le maître se souvint de visiter ses blés ah notre erreur est extrême dit-il de nous attendre à d'autres gens que nous",
+      "audio": "test/audio/2154/1167/2154_1167_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 205.66,
+        "original_end_s": 221.39
+      }
+    },
+    {
+      "id": "2154_1167_000006",
+      "text": "il n'est meilleur ami ni parent que soi-même retenez bien cela mon fils et savez-vous ce qu'il faut faire",
+      "audio": "test/audio/2154/1167/2154_1167_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 221.39,
+        "original_end_s": 231.57
+      }
+    },
+    {
+      "id": "2154_1167_000007",
+      "text": "elle bâtit un nid pond couve et fait éclore à la hâte le tout alla du mieux qu'il put les blés d'alentour mûrs avant que la nitée se trouvât assez forte encore pour voler et prendre l'essor",
+      "audio": "test/audio/2154/1167/2154_1167_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 62.75,
+        "original_end_s": 80.79
+      }
+    },
+    {
+      "id": "2154_1167_000008",
+      "text": "la bique allant remplir sa traînante mamelle et paître l'herbe nouvelle ferma sa porte au loquet non sans dire à son biquet",
+      "audio": "test/audio/2154/1167/2154_1167_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 15.84,
+        "original_end_s": 26.63
+      }
+    },
+    {
+      "id": "2154_1167_000009",
+      "text": "celui-ci fort surpris d'entendre ce langage comme il était venu s'en retourna chez soi où serait le biquet s'il eût ajouté foi au mot du guet que de fortune notre loup avait entendu",
+      "audio": "test/audio/2154/1167/2154_1167_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 87.35,
+        "original_end_s": 103.57
+      }
+    },
+    {
+      "id": "2154_1167_000010",
+      "text": "cet animal est fort ami de notre espèce en son histoire pline le dit il le faut croire il sauva donc tout ce qu'il put même un singe en cette occurrence profitant de la ressemblance lui pensa devoir son salut",
+      "audio": "test/audio/2154/1167/2154_1167_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 32.02,
+        "original_end_s": 50.53
+      }
+    },
+    {
+      "id": "2154_1167_000011",
+      "text": "le dauphin l'allait mettre à bord quand par hasard il lui demande êtes-vous d'athènes la grande oui dit l'autre on m'y connaît fort s'il vous survient quelque affaire employez-moi car mes parents y tiennent tous les premiers rangs",
+      "audio": "test/audio/2154/1167/2154_1167_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 60.79,
+        "original_end_s": 79.92
+      }
+    },
+    {
+      "id": "2154_1167_000012",
+      "text": "l'épouvante est au nid plus forte que jamais il a dit ses parents mère c'est à cette heure non mes enfants dormez en paix ne bougeons de notre demeure",
+      "audio": "test/audio/2154/1167/2154_1167_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 190.81,
+        "original_end_s": 205.66
+      }
+    },
+    {
+      "id": "2154_1167_000013",
+      "text": "ces blés ne devraient pas dit-il être debout nos amis ont grand tort et tort qui se repose sur de tels paresseux à servir ainsi lents mon fils allez chez nos parents les prier de la même chose",
+      "audio": "test/audio/2154/1167/2154_1167_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 172.0,
+        "original_end_s": 190.81
+      }
+    },
+    {
+      "id": "2154_1167_000014",
+      "text": "de mille soins divers l'alouette agitée s'en va chercher pâture avertit ses enfants d'être toujours au guet et faire sentinelle",
+      "audio": "test/audio/2154/1167/2154_1167_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 80.79,
+        "original_end_s": 91.78
+      }
+    },
+    {
+      "id": "2154_1167_000015",
+      "text": "ne t'attends qu'à toi seul c'est un commun proverbe voici comme ésope le mit en crédit",
+      "audio": "test/audio/2154/1167/2154_1167_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 16.51,
+        "original_end_s": 26.82
+      }
+    },
+    {
+      "id": "2154_1167_000016",
+      "text": "le dauphin rit tourne la tête et le magot considéré il s'aperçoit qu'il n'a tiré du fond des eaux rien qu'une bête il l'y replonge et va trouver quelque homme afin de le sauver",
+      "audio": "test/audio/2154/1167/2154_1167_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 119.75,
+        "original_end_s": 137.55
+      }
+    },
+    {
+      "id": "2154_1167_000017",
+      "text": "sitôt que l'alouette eut quitté sa famille le possesseur du champ vient avec son fils ces blés sont mûrs dit-il allez chez nos amis les prier que chacun apportant sa faucille nous vienne aider demain dès la pointe du jour",
+      "audio": "test/audio/2154/1167/2154_1167_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 106.96,
+        "original_end_s": 126.54
+      }
+    },
+    {
+      "id": "2154_1167_000018",
+      "text": "notre alouette de retour trouve en alarme sa couvée l'un commence il a dit que l'aurore levée l'on fît venir demain ses amis pour l'aider",
+      "audio": "test/audio/2154/1167/2154_1167_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 126.54,
+        "original_end_s": 138.16
+      }
+    },
+    {
+      "id": "2154_1167_000019",
+      "text": "si le possesseur de ces champs vient avec son fils comme il viendra dit-elle écoutez bien selon ce qu'il dira chacun de nous décampera",
+      "audio": "test/audio/2154/1167/2154_1167_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 91.78,
+        "original_end_s": 106.96
+      }
+    },
+    {
+      "id": "2154_1167_000020",
+      "text": "une pourtant de ces dernières avait laissé passer la moitié d'un printemps sans goûter le plaisir des amours printanières à toute force enfin elle se résolut d'imiter la nature et d'être mère encore",
+      "audio": "test/audio/2154/1167/2154_1167_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 46.35,
+        "original_end_s": 62.75
+      }
+    },
+    {
+      "id": "2154_1167_000021",
+      "text": "les alouettes font leur nid dans les blés quand ils sont en herbe c'est-à-dire environ le temps que tout aime et que tout pullule dans le monde monstres marins au fond de l'onde tigres dans les forêts alouettes aux champs",
+      "audio": "test/audio/2154/1167/2154_1167_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 26.82,
+        "original_end_s": 46.35
+      }
+    },
+    {
+      "id": "2154_1167_000022",
+      "text": "dès qu'il la voit partie il contrefait son ton et d'une voix papelarde il demande qu'on ouvre en disant foin du loup",
+      "audio": "test/audio/2154/1167/2154_1167_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 53.65,
+        "original_end_s": 67.84
+      }
+    },
+    {
+      "id": "2154_1167_000023",
+      "text": "de telles gens il est beaucoup qui prendraient vaugirard pour rome et qui caquetant au plus dru parlent de tout et n'ont rien vu",
+      "audio": "test/audio/2154/1167/2154_1167_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 109.55,
+        "original_end_s": 119.75
+      }
+    },
+    {
+      "id": "2154_1167_000024",
+      "text": "et croyant entrer tout d'un coup le biquet soupçonneux par la fente regarde montrez-moi patte blanche ou je n'ouvrirai point s'écria-t-il d'abord patte blanche est un point chez les loups comme on sait rarement en usage",
+      "audio": "test/audio/2154/1167/2154_1167_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 67.84,
+        "original_end_s": 87.35
+      }
+    },
+    {
+      "id": "2154_1167_000025",
+      "text": "s'il n'a dit que cela repartit l'alouette rien ne nous presse encore de changer de retraite mais c'est demain qu'il faut tout de bon écouter cependant soyez gais voilà de quoi manger",
+      "audio": "test/audio/2154/1167/2154_1167_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 138.16,
+        "original_end_s": 155.19
+      }
+    },
+    {
+      "id": "2154_1167_000026",
+      "text": "un mien cousin est juge-maire le dauphin dit bien grand merci et le pirée a part aussi à l'honneur de votre présence vous le voyez souvent je pense",
+      "audio": "test/audio/2154/1167/2154_1167_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 79.92,
+        "original_end_s": 96.77
+      }
+    },
+    {
+      "id": "2154_1167_000027",
+      "text": "il faut qu'avec notre famille nous prenions dès demain chacun une faucille c'est là notre plus court et nous achèverons notre moisson quand nous pourrons",
+      "audio": "test/audio/2154/1167/2154_1167_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_22_lafontaine_64kb.mp3",
+        "original_start_s": 231.57,
+        "original_end_s": 244.33
+      }
+    },
+    {
+      "id": "2154_1167_000028",
+      "text": "un dauphin le prit pour un homme et sur son dos le fit asseoir si gravement qu'on eût cru voir ce chanteur que tant on renomme",
+      "audio": "test/audio/2154/1167/2154_1167_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_07_lafontaine_64kb.mp3",
+        "original_start_s": 50.53,
+        "original_end_s": 60.79
+      }
+    },
+    {
+      "id": "2154_1167_000029",
+      "text": "gardez-vous sur votre vie d'ouvrir que l'on ne vous die pour enseigne et mot du guet foin du loup et de sa race",
+      "audio": "test/audio/2154/1167/2154_1167_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "1167",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_lafontaine_04_0712_librivox/fables_04_15_lafontaine_64kb.mp3",
+        "original_start_s": 26.63,
+        "original_end_s": 36.9
+      }
+    }
+  ]
+}

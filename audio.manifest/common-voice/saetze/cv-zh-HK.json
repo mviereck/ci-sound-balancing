@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zh-HK",
+  "lang": "zh-HK",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zh-HK",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "23703499",
+      "text": "一定會睇住我",
+      "audio": "zh-HK/unknown/zh-HK_u_23703499.mp3",
+      "tags": {
+        "source_item_id": "23703499",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23813751",
+      "text": "佢份人堅離地點溝通呀",
+      "audio": "zh-HK/unknown/zh-HK_u_23813751.mp3",
+      "tags": {
+        "source_item_id": "23813751",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "22222094",
+      "text": "請問我想去馬鞍山西沙路要搭乜嘢車先去到",
+      "audio": "zh-HK/unknown/zh-HK_u_22222094.mp3",
+      "tags": {
+        "source_item_id": "22222094",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24531712",
+      "text": "呢個時候打靶都有嘅？",
+      "audio": "zh-HK/unknown/zh-HK_u_24531712.mp3",
+      "tags": {
+        "source_item_id": "24531712",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23002173",
+      "text": "孔乙己長久沒有來了。還欠十九個錢呢",
+      "audio": "zh-HK/unknown/zh-HK_u_23002173.mp3",
+      "tags": {
+        "source_item_id": "23002173",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23682697",
+      "text": "核酸即係核突同肉酸加埋一齊",
+      "audio": "zh-HK/unknown/zh-HK_u_23682697.mp3",
+      "tags": {
+        "source_item_id": "23682697",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23613466",
+      "text": "對於學生寫作能力嘅培養十分緊要",
+      "audio": "zh-HK/unknown/zh-HK_u_23613466.mp3",
+      "tags": {
+        "source_item_id": "23613466",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23612111",
+      "text": "如果你再想知多啲嘅，唔啱跟我學兩堂功夫吖",
+      "audio": "zh-HK/unknown/zh-HK_u_23612111.mp3",
+      "tags": {
+        "source_item_id": "23612111",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23117265",
+      "text": "舉高雙手拍手鼓勵",
+      "audio": "zh-HK/unknown/zh-HK_u_23117265.mp3",
+      "tags": {
+        "source_item_id": "23117265",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32355579",
+      "text": "單車運動員都唔會跌落嚟",
+      "audio": "zh-HK/unknown/zh-HK_u_32355579.mp3",
+      "tags": {
+        "source_item_id": "32355579",
+        "gender": "u"
+      }
+    }
+  ]
+}

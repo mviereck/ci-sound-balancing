@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — vi",
+  "lang": "vi",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-vi",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "23926815",
+      "text": "Có ma ghé thì có",
+      "audio": "vi/unknown/vi_u_23926815.mp3",
+      "tags": {
+        "source_item_id": "23926815",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24125663",
+      "text": "Tuy nhiên đầu của trinh vẫn còn đang nhói",
+      "audio": "vi/unknown/vi_u_24125663.mp3",
+      "tags": {
+        "source_item_id": "24125663",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23926804",
+      "text": "Có ngó qua họ hàng được tí nào đâu",
+      "audio": "vi/unknown/vi_u_23926804.mp3",
+      "tags": {
+        "source_item_id": "23926804",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24362937",
+      "text": "bảo nó đây là viên đá thần kỳ",
+      "audio": "vi/unknown/vi_u_24362937.mp3",
+      "tags": {
+        "source_item_id": "24362937",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24172425",
+      "text": "Cô bạn thân nhất của Nhi",
+      "audio": "vi/unknown/vi_u_24172425.mp3",
+      "tags": {
+        "source_item_id": "24172425",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24398716",
+      "text": "Nay chúng em khôn lớn",
+      "audio": "vi/unknown/vi_u_24398716.mp3",
+      "tags": {
+        "source_item_id": "24398716",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24012815",
+      "text": "nhìn bạn Trinh nhà mình ngày càng sang đó nha",
+      "audio": "vi/unknown/vi_u_24012815.mp3",
+      "tags": {
+        "source_item_id": "24012815",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24425692",
+      "text": "vì anh nghĩ: thế vẫn còn xa lắm.",
+      "audio": "vi/unknown/vi_u_24425692.mp3",
+      "tags": {
+        "source_item_id": "24425692",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24298954",
+      "text": "Người ấy thường hay vuốt tóc tôi",
+      "audio": "vi/unknown/vi_u_24298954.mp3",
+      "tags": {
+        "source_item_id": "24298954",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "23926797",
+      "text": "Bơi ra tới biển",
+      "audio": "vi/unknown/vi_u_23926797.mp3",
+      "tags": {
+        "source_item_id": "23926797",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24424981",
+      "text": "tiếng xe chạy như mớ âm thanh hỗn tạp",
+      "audio": "vi/unknown/vi_u_24424981.mp3",
+      "tags": {
+        "source_item_id": "24424981",
+        "gender": "u"
+      }
+    }
+  ]
+}

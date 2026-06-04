@@ -1,0 +1,130 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "arbre de Noël: contes et légendes",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "14588",
+    "book_title": "arbre de Noël: contes et légendes",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10087_14588_000000",
+      "text": "non jamais malheureuse mère tu n'es sûre d'avoir un soutien dans l'enfant que tu élèves bientôt il sera loin il ira ailleurs avec ton espérance",
+      "audio": "dev/audio/10087/14588/10087_14588_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 114.55,
+        "original_end_s": 125.42
+      }
+    },
+    {
+      "id": "10087_14588_000001",
+      "text": "le sommeil est à la porte et demande n'y a-t-il pas ici un doux enfant au maillot un joli garçon dans son lit viens heureux sommeil près de son berceau enlace l'enfant assoupis ses paupières balançons balançons le petit fruit des champs",
+      "audio": "dev/audio/10087/14588/10087_14588_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 78.42,
+        "original_end_s": 95.72
+      }
+    },
+    {
+      "id": "10087_14588_000002",
+      "text": "peut-être la mort s'emparera-t-elle promptement de lui peut-être sera-t-il soldat exposé au tranchant du sabre au feu du canon peut-être deviendra-t-il l'esclave des riches",
+      "audio": "dev/audio/10087/14588/10087_14588_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 125.42,
+        "original_end_s": 140.44
+      }
+    },
+    {
+      "id": "10087_14588_000003",
+      "text": "mais pourquoi redirais je les chansons de ma grand'mère ou celles de ma mère j'en ai moi-même composé plusieurs sur chaque sentier j'ai trouvé un mot sur chaque bruyère j'ai pensé à un sujet j'ai pris mes vers sur chaque branche de la forêt je les ai recueillis sur chaque buisson",
+      "audio": "dev/audio/10087/14588/10087_14588_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 48.45,
+        "original_end_s": 66.78
+      }
+    },
+    {
+      "id": "10087_14588_000004",
+      "text": "la gelinotte est belle à voir sur la neige l'écume de la mer est blanche sur le rivage plus beau est mon petit garçon plus blanc est mon petit amour",
+      "audio": "dev/audio/10087/14588/10087_14588_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 66.78,
+        "original_end_s": 78.42
+      }
+    },
+    {
+      "id": "10087_14588_000005",
+      "text": "berçons la légère feuille des bois c'est un enfant que je berce c'est une couchette que je balance mais hélas combien celle qui lui a donné le jour sait peu si l'enfant qu'elle berce ainsi sera sa joie dans l'avenir son soutien dans la vieillesse",
+      "audio": "dev/audio/10087/14588/10087_14588_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 95.72,
+        "original_end_s": 114.55
+      }
+    },
+    {
+      "id": "10087_14588_000006",
+      "text": "l'arbre de noël contes et légendes par xavier marmier chant d'une mère près du berceau de son enfant poésie finlandaise",
+      "audio": "dev/audio/10087/14588/10087_14588_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 18.22,
+        "original_end_s": 28.5
+      }
+    },
+    {
+      "id": "10087_14588_000007",
+      "text": "j'aime à chanter pour mon enfant je cherche avec joie de douces paroles pour mon petit trésor faut-il lui répéter un chant de berceau ou un chant de bergère que ma mère m'apprenait quand elle m'asseyait devant sa quenouille je n'étais pas alors plus haute que son rouet je n'atteignais pas au genou de mon père",
+      "audio": "dev/audio/10087/14588/10087_14588_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14588",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
+        "original_start_s": 28.5,
+        "original_end_s": 48.45
+      }
+    }
+  ]
+}

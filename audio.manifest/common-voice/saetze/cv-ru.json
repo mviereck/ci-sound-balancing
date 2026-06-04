@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ru",
+  "lang": "ru",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ru",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18849619",
+      "text": "Для нас большая честь работать с такими сильными партнерами.",
+      "audio": "ru/unknown/ru_u_18849619.mp3",
+      "tags": {
+        "source_item_id": "18849619",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18853495",
+      "text": "Пятьдесят семь миллиардов тридцать восемь миллионов триста двадцать три тысячи пятьсот девяносто один.",
+      "audio": "ru/unknown/ru_u_18853495.mp3",
+      "tags": {
+        "source_item_id": "18853495",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18853960",
+      "text": "Поэтому мы также должны уважать выбор, который граждане арабских стран делают на избирательных участках.",
+      "audio": "ru/unknown/ru_u_18853960.mp3",
+      "tags": {
+        "source_item_id": "18853960",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18861237",
+      "text": "Но в комнате не было ничего особенного.",
+      "audio": "ru/unknown/ru_u_18861237.mp3",
+      "tags": {
+        "source_item_id": "18861237",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18862838",
+      "text": "При этом мы сожалеем, что резолюция не охватывает многие серьезные проблемы.",
+      "audio": "ru/unknown/ru_u_18862838.mp3",
+      "tags": {
+        "source_item_id": "18862838",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18873538",
+      "text": "Я хотел бы выразить искреннюю признательность всем странам, принявшим участие в этой конференции.",
+      "audio": "ru/unknown/ru_u_18873538.mp3",
+      "tags": {
+        "source_item_id": "18873538",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18875156",
+      "text": "В моем списке еще есть ораторы.",
+      "audio": "ru/unknown/ru_u_18875156.mp3",
+      "tags": {
+        "source_item_id": "18875156",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18878110",
+      "text": "И нет нужды говорить, что такой подход будет охватывать и проблему расщепляющегося материала.",
+      "audio": "ru/unknown/ru_u_18878110.mp3",
+      "tags": {
+        "source_item_id": "18878110",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18889615",
+      "text": "Предстоящие региональные конференции в Токио и Кабуле откроют дополнительные возможности для достижения прогресса.",
+      "audio": "ru/unknown/ru_u_18889615.mp3",
+      "tags": {
+        "source_item_id": "18889615",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18892570",
+      "text": "Это была крошечная, сухая старушонка, лет шестидесяти.",
+      "audio": "ru/unknown/ru_u_18892570.mp3",
+      "tags": {
+        "source_item_id": "18892570",
+        "gender": "u"
+      }
+    }
+  ]
+}

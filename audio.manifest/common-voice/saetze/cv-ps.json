@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ps",
+  "lang": "ps",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ps",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37289910",
+      "text": "زه یو ګرم چای جوړوم.",
+      "audio": "ps/unknown/ps_u_37289910.mp3",
+      "tags": {
+        "source_item_id": "37289910",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37903887",
+      "text": "ما یو څه ژوره ساه واخیسته.",
+      "audio": "ps/unknown/ps_u_37903887.mp3",
+      "tags": {
+        "source_item_id": "37903887",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37289876",
+      "text": "اوگره مې درلېږل ، خو پاته نسوه.",
+      "audio": "ps/unknown/ps_u_37289876.mp3",
+      "tags": {
+        "source_item_id": "37289876",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38012167",
+      "text": "د چر سو مردار سنگ مه جوړوه.",
+      "audio": "ps/unknown/ps_u_38012167.mp3",
+      "tags": {
+        "source_item_id": "38012167",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37921247",
+      "text": "مور او پلار د ماشوم لپاره ناری جوړوي.",
+      "audio": "ps/unknown/ps_u_37921247.mp3",
+      "tags": {
+        "source_item_id": "37921247",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37895773",
+      "text": "که تاسو موټر لرئ، دا ښه ده.",
+      "audio": "ps/unknown/ps_u_37895773.mp3",
+      "tags": {
+        "source_item_id": "37895773",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37921109",
+      "text": "پر دې نه ژاړم چې انا مړه سوه",
+      "audio": "ps/unknown/ps_u_37921109.mp3",
+      "tags": {
+        "source_item_id": "37921109",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37986942",
+      "text": "پيري ته غزنى څه دى ؟",
+      "audio": "ps/unknown/ps_u_37986942.mp3",
+      "tags": {
+        "source_item_id": "37986942",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37895716",
+      "text": "ایا ته ښه یې؟",
+      "audio": "ps/unknown/ps_u_37895716.mp3",
+      "tags": {
+        "source_item_id": "37895716",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37903857",
+      "text": "ایا تاسو کولی شئ په راتلونکې اونۍ کې ملاقات بدل کړئ؟",
+      "audio": "ps/unknown/ps_u_37903857.mp3",
+      "tags": {
+        "source_item_id": "37903857",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37921202",
+      "text": "په غڼ کې هډو کى مه لټوه.",
+      "audio": "ps/unknown/ps_u_37921202.mp3",
+      "tags": {
+        "source_item_id": "37921202",
+        "gender": "u"
+      }
+    }
+  ]
+}

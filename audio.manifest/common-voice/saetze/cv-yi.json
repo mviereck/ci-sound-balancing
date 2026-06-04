@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — yi",
+  "lang": "yi",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-yi",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38828826",
+      "text": "ער שווימט אין ים התּלמוד.",
+      "audio": "yi/unknown/yi_u_38828826.mp3",
+      "tags": {
+        "source_item_id": "38828826",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828825",
+      "text": "דאס מאל אבער האט ער נישט פונקטליך געוויסט",
+      "audio": "yi/unknown/yi_u_38828825.mp3",
+      "tags": {
+        "source_item_id": "38828825",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828798",
+      "text": "פון ווען איך בין געווען גאָר קליין",
+      "audio": "yi/unknown/yi_u_38828798.mp3",
+      "tags": {
+        "source_item_id": "38828798",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828861",
+      "text": "היינט גייט ער אלעס דורכברעכן",
+      "audio": "yi/unknown/yi_u_38828861.mp3",
+      "tags": {
+        "source_item_id": "38828861",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828853",
+      "text": "דורכאויס דער חופּה",
+      "audio": "yi/unknown/yi_u_38828853.mp3",
+      "tags": {
+        "source_item_id": "38828853",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828852",
+      "text": "אָבער איר אינטערעסע אין אידישקייט",
+      "audio": "yi/unknown/yi_u_38828852.mp3",
+      "tags": {
+        "source_item_id": "38828852",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828802",
+      "text": "אבער אינצווישן האט די עף-בי-איי אויסגעפונען איבער דער גניבה",
+      "audio": "yi/unknown/yi_u_38828802.mp3",
+      "tags": {
+        "source_item_id": "38828802",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828793",
+      "text": "דזשיני מילגרוים שילדערט איר דראַמאַטישע רייזע צוריק צו אידישקייט",
+      "audio": "yi/unknown/yi_u_38828793.mp3",
+      "tags": {
+        "source_item_id": "38828793",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828855",
+      "text": "זאל זיין וואס ס'זאל זיין",
+      "audio": "yi/unknown/yi_u_38828855.mp3",
+      "tags": {
+        "source_item_id": "38828855",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38824161",
+      "text": "צו זייער איבערראַשונג איז נישט געווען קיין גרעניץ",
+      "audio": "yi/unknown/yi_u_38824161.mp3",
+      "tags": {
+        "source_item_id": "38824161",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38828829",
+      "text": "די קינדער זענען געווען שטאַרק אומצופרידן",
+      "audio": "yi/unknown/yi_u_38828829.mp3",
+      "tags": {
+        "source_item_id": "38828829",
+        "gender": "u"
+      }
+    }
+  ]
+}

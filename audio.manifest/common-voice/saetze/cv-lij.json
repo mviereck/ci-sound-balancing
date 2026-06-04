@@ -1,0 +1,137 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — lij",
+  "lang": "lij",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-lij",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38539724",
+      "text": "O sätava i scæn doî à doî.",
+      "audio": "lij/unknown/lij_u_38539724_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38539724",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38735089",
+      "text": "Batte di denti, di euggi.",
+      "audio": "lij/unknown/lij_u_38735089_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38735089",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38743827",
+      "text": "Arrancâ unna cösa co-e tenagge.",
+      "audio": "lij/unknown/lij_u_38743827_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38743827",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "39869805",
+      "text": "A stava in sciâ carrega, co-a testa tra e moen.",
+      "audio": "lij/unknown/lij_u_39869805_zeneise.mp3",
+      "tags": {
+        "source_item_id": "39869805",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38735287",
+      "text": "Beseugna che fasse controllâ i fren da machina.",
+      "audio": "lij/unknown/lij_u_38735287_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38735287",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38743812",
+      "text": "Pe propòste de collaboraçion in sciâ traduçion da mæxima sciâ peuan scrivine.",
+      "audio": "lij/unknown/lij_u_38743812_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38743812",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38584248",
+      "text": "Fòscia st’anno chì no aniemo in villezzo.",
+      "audio": "lij/unknown/lij_u_38584248_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38584248",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38788861",
+      "text": "Ò mangiou un chigheumao.",
+      "audio": "lij/unknown/lij_u_38788861_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38788861",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38794735",
+      "text": "L’é passou o tempo che a Berta a fiava.",
+      "audio": "lij/unknown/lij_u_38794735_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38794735",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38787591",
+      "text": "Da-o dito a-o fæto passa un gran træto.",
+      "audio": "lij/unknown/lij_u_38787591_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38787591",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38609821",
+      "text": "Tiavan sciù i peixi.",
+      "audio": "lij/unknown/lij_u_38609821_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38609821",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    },
+    {
+      "id": "38789963",
+      "text": "Un assato trattegnuo.",
+      "audio": "lij/unknown/lij_u_38789963_zeneise.mp3",
+      "tags": {
+        "source_item_id": "38789963",
+        "gender": "u",
+        "accent": "Zeneise"
+      }
+    }
+  ]
+}

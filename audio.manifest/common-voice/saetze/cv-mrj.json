@@ -1,0 +1,152 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mrj",
+  "lang": "mrj",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mrj",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "33286448",
+      "text": "Мӹлӓнем ик семӹнь киӓш ак пуэп, сӓрӹкӓлӹлӹт, шит, мучыят.",
+      "audio": "mrj/unknown/mrj_u_33286448.mp3",
+      "tags": {
+        "source_item_id": "33286448",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33286689",
+      "text": "дӓ мӹнь вӹкемлӓ лӱӓш манын виктен шӹндӹш.",
+      "audio": "mrj/unknown/mrj_u_33286689.mp3",
+      "tags": {
+        "source_item_id": "33286689",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33510061",
+      "text": "Шукы якшарармеец кечӹ шокшеш, йӱмӹ шомашеш кола, кӓпӹштӹ хир мӱлӓндеш киэн колеш.",
+      "audio": "mrj/unknown/mrj_u_33510061.mp3",
+      "tags": {
+        "source_item_id": "33510061",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34955905",
+      "text": "кыдым шӱдӹ вӹцлӹ утла йӹлмӹш сӓрӹмӹ.",
+      "audio": "mrj/unknown/mrj_u_34955905.mp3",
+      "tags": {
+        "source_item_id": "34955905",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36053046",
+      "text": "Ма ылын шынымы — лоэштӹн",
+      "audio": "mrj/unknown/mrj_u_36053046.mp3",
+      "tags": {
+        "source_item_id": "36053046",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33995493",
+      "text": "Мӹнь техень худа ышым кычыделам... мӹнь вет первишӹ гань шӹдӓн ам ыл...",
+      "audio": "mrj/unknown/mrj_u_33995493.mp3",
+      "tags": {
+        "source_item_id": "33995493",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35070803",
+      "text": "Москва — мир вӹлнӹ кокшы кечӹ.",
+      "audio": "mrj/unknown/mrj_u_35070803.mp3",
+      "tags": {
+        "source_item_id": "35070803",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33286548",
+      "text": "Вара, Сопром Романым пӹцкемӹш лыкыш нӓнген, тӹдӹлӓн келесӓ:",
+      "audio": "mrj/unknown/mrj_u_33286548.mp3",
+      "tags": {
+        "source_item_id": "33286548",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33291943",
+      "text": "— Мондаш ак кел: айӹнӹшӹ ванжакышты шалгаш ак яры — кӹрӹн кеӓ.",
+      "audio": "mrj/unknown/mrj_u_33291943.mp3",
+      "tags": {
+        "source_item_id": "33291943",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36058193",
+      "text": "Вылге мадын якшар знамӹн шелк.",
+      "audio": "mrj/unknown/mrj_u_36058193.mp3",
+      "tags": {
+        "source_item_id": "36058193",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35263451",
+      "text": "Андакшы чуч, а вара шукым.",
+      "audio": "mrj/unknown/mrj_u_35263451.mp3",
+      "tags": {
+        "source_item_id": "35263451",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33288832",
+      "text": "Руаш вачкым кӱ тишкӹ пыртен шӹнден? — манеш.",
+      "audio": "mrj/unknown/mrj_u_33288832.mp3",
+      "tags": {
+        "source_item_id": "33288832",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33293484",
+      "text": "Йой Алешкин Кригори кӱ ылмым трӱкӹштӹ пӓлӓш ясырак.",
+      "audio": "mrj/unknown/mrj_u_33293484.mp3",
+      "tags": {
+        "source_item_id": "33293484",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33304610",
+      "text": "Теве Комиссар Ванькаат тамахань корны доно толшы оксаэшӹжӹ кого пӧртлӓн пурам нӓлӹн йӓмдӹлен",
+      "audio": "mrj/unknown/mrj_u_33304610.mp3",
+      "tags": {
+        "source_item_id": "33304610",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33293526",
+      "text": "– Скоро йӓрӹшкӹ кенӓ.",
+      "audio": "mrj/unknown/mrj_u_33293526.mp3",
+      "tags": {
+        "source_item_id": "33293526",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1334 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Bible (Reina Valera) 19: Salmos",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "9951",
+    "book_title": "Bible (Reina Valera) 19: Salmos",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "7510_9951_000000",
+      "text": "allí cayeron los obradores de iniquidad fueron rempujados y no pudieron levantarse salmo treinta y siete",
+      "audio": "test/audio/7510/9951/7510_9951_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 347.54,
+        "original_end_s": 359.03
+      }
+    },
+    {
+      "id": "7510_9951_000001",
+      "text": "si hoy oyereis su voz no endurezcáis vuestro corazón como en meriba como el día de masa en el desierto donde me tentaron vuestros padres probáronme y vieron mi obra",
+      "audio": "test/audio/7510/9951/7510_9951_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 252.2,
+        "original_end_s": 267.45
+      }
+    },
+    {
+      "id": "7510_9951_000002",
+      "text": "apártate del mal y haz el bien y vivirás para siempre porque jehová ama la rectitud y no desampara sus santos mas la simiente de los impíos será extirpada los justos heredarán la tierra y vivirán para siempre sobre ella",
+      "audio": "test/audio/7510/9951/7510_9951_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 549.14,
+        "original_end_s": 568.93
+      }
+    },
+    {
+      "id": "7510_9951_000003",
+      "text": "y tú perdonaste la maldad de mi pecado selah por esto orará a ti todo santo en el tiempo de poder hallarte ciertamente en la inundación de muchas aguas no llegarán estas á él",
+      "audio": "test/audio/7510/9951/7510_9951_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 66.01,
+        "original_end_s": 81.57
+      }
+    },
+    {
+      "id": "7510_9951_000004",
+      "text": "los que a jehová amáis aborreced el mal guarda él las almas de sus santos de mano de los impíos los libra",
+      "audio": "test/audio/7510/9951/7510_9951_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 473.96,
+        "original_end_s": 485.61
+      }
+    },
+    {
+      "id": "7510_9951_000005",
+      "text": "desde la morada de su asiento miró sobre todos los moradores de la tierra el formó el corazón de todos ellos el considera todas sus obras el rey no es salvo con la multitud del ejército no escapa el valiente por la mucha fuerza",
+      "audio": "test/audio/7510/9951/7510_9951_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 219.23,
+        "original_end_s": 239.01
+      }
+    },
+    {
+      "id": "7510_9951_000006",
+      "text": "los impíos desenvainaron espada y entesaron su arco para derribar al pobre y al menesteroso para matar a los de recto proceder",
+      "audio": "test/audio/7510/9951/7510_9951_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 453.3,
+        "original_end_s": 464.73
+      }
+    },
+    {
+      "id": "7510_9951_000007",
+      "text": "porque de día y de noche se agravó sobre mí tu mano volvióse mi verdor en sequedades de estío selah mi pecado te declaré y no encubrí mi iniquidad confesaré dije contra mí mis rebeliones a jehová",
+      "audio": "test/audio/7510/9951/7510_9951_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 48.31,
+        "original_end_s": 66.01
+      }
+    },
+    {
+      "id": "7510_9951_000008",
+      "text": "tú eres mi refugio me guardarás de angustia con cánticos de liberación me rodearás selah te haré entender y te enseñaré el camino en que debes andar sobre ti fijaré mis ojos",
+      "audio": "test/audio/7510/9951/7510_9951_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 81.57,
+        "original_end_s": 98.41
+      }
+    },
+    {
+      "id": "7510_9951_000009",
+      "text": "iniquidad piensa sobre su cama está en camino no bueno el mal no aborrece jehová hasta los cielos es tu misericordia tu verdad hasta las nubes",
+      "audio": "test/audio/7510/9951/7510_9951_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 284.31,
+        "original_end_s": 299.47
+      }
+    },
+    {
+      "id": "7510_9951_000010",
+      "text": "mozo fuí y he envejecido y no he visto justo desamparado ni su simiente que mendigue pan en todo tiempo tiene misericordia y presta y su simiente es para bendición",
+      "audio": "test/audio/7510/9951/7510_9951_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 533.7,
+        "original_end_s": 549.14
+      }
+    },
+    {
+      "id": "7510_9951_000011",
+      "text": "disputa oh jehová con los que contra mí contienden pelea con los que me combaten echa mano al escudo y al pavés y levántate en mi ayuda",
+      "audio": "test/audio/7510/9951/7510_9951_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 26.36,
+        "original_end_s": 39.27
+      }
+    },
+    {
+      "id": "7510_9951_000012",
+      "text": "no seáis como el caballo o como el mulo sin entendimiento con cabestro y con freno su boca ha de ser reprimida para que no lleguen a ti",
+      "audio": "test/audio/7510/9951/7510_9951_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 98.41,
+        "original_end_s": 110.3
+      }
+    },
+    {
+      "id": "7510_9951_000013",
+      "text": "jehová hace nulo el consejo de las gentes y frustra las maquinaciones de los pueblos el consejo de jehová permanecerá para siempre los pensamientos de su corazón por todas las generaciones",
+      "audio": "test/audio/7510/9951/7510_9951_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 187.84,
+        "original_end_s": 204.36
+      }
+    },
+    {
+      "id": "7510_9951_000014",
+      "text": "no se alegren de mí mis enemigos injustos ni los que me aborrecen sin causa hagan del ojo porque no hablan paz y contra los mansos de la tierra piensan palabras engañosas y ensancharon sobre mí su boca dijeron",
+      "audio": "test/audio/7510/9951/7510_9951_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 173.39,
+        "original_end_s": 192.55
+      }
+    },
+    {
+      "id": "7510_9951_000015",
+      "text": "lisonjéase por tanto en sus propios ojos hasta que su iniquidad sea hallada aborrecible las palabras de su boca son iniquidad y fraude no quiso entender para bien hacer",
+      "audio": "test/audio/7510/9951/7510_9951_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 268.87,
+        "original_end_s": 284.31
+      }
+    },
+    {
+      "id": "7510_9951_000016",
+      "text": "el ángel de jehová acampa en derredor de los que le temen y los defiende gustad y ved que es bueno jehová dichoso el hombre que confiará en él temed a jehová vosotros sus santos porque no hay falta para los que le temen",
+      "audio": "test/audio/7510/9951/7510_9951_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 328.97,
+        "original_end_s": 348.71
+      }
+    },
+    {
+      "id": "7510_9951_000017",
+      "text": "jehova dios de las venganzas dios de las venganzas muéstrate ensálzate oh juez de la tierra da el pago á los soberbios",
+      "audio": "test/audio/7510/9951/7510_9951_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 25.41,
+        "original_end_s": 37.89
+      }
+    },
+    {
+      "id": "7510_9951_000018",
+      "text": "y saca la lanza cierra contra mis perseguidores di a mi alma yo soy tu salud avergüéncense y confúndanse los que buscan mi alma vuelvan atrás y sean avergonzados los que mi mal intentan",
+      "audio": "test/audio/7510/9951/7510_9951_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 39.27,
+        "original_end_s": 56.56
+      }
+    },
+    {
+      "id": "7510_9951_000019",
+      "text": "por la palabra de jehová fueron hechos los cielos y todo el ejército de ellos por el espíritu de su boca el junta como en un montón las aguas de la mar el pone en depósitos los abismos",
+      "audio": "test/audio/7510/9951/7510_9951_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 159.48,
+        "original_end_s": 175.28
+      }
+    },
+    {
+      "id": "7510_9951_000020",
+      "text": "salmo treinta y tres alegraos justos en jehová a los rectos es hermosa la alabanza celebrad a jehová con arpa cantadle con salterio y decacordio",
+      "audio": "test/audio/7510/9951/7510_9951_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 125.86,
+        "original_end_s": 140.62
+      }
+    },
+    {
+      "id": "7510_9951_000021",
+      "text": "salmo noventa y siete su verdad jehova reinó regocíjese la tierra alégrense las muchas islas nube y oscuridad alrededor de él justicia y juicio son el asiento de su trono",
+      "audio": "test/audio/7510/9951/7510_9951_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 397.07,
+        "original_end_s": 415.34
+      }
+    },
+    {
+      "id": "7510_9951_000022",
+      "text": "cantadle canción nueva hacedlo bien tañendo con júbilo porque recta es la palabra de jehová y toda su obra con verdad hecha él ama justicia y juicio de la misericordia de jehová está llena la tierra",
+      "audio": "test/audio/7510/9951/7510_9951_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 140.62,
+        "original_end_s": 159.48
+      }
+    },
+    {
+      "id": "7510_9951_000023",
+      "text": "muchos son los males del justo mas de todos ellos lo librará jehová el guarda todos sus huesos ni uno de ellos será quebrantado",
+      "audio": "test/audio/7510/9951/7510_9951_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 409.51,
+        "original_end_s": 421.99
+      }
+    },
+    {
+      "id": "7510_9951_000024",
+      "text": "también afirmó el mundo no será conmovido juzgará á los pueblos en justicia alégrense los cielos y gócese la tierra brame la mar y su plenitud",
+      "audio": "test/audio/7510/9951/7510_9951_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 360.35,
+        "original_end_s": 375.16
+      }
+    },
+    {
+      "id": "7510_9951_000025",
+      "text": "extiende tu misericordia á los que te conocen y tu justicia á los rectos de corazón no venga contra mí pie de soberbia y mano de impíos no me mueva",
+      "audio": "test/audio/7510/9951/7510_9951_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 334.28,
+        "original_end_s": 347.54
+      }
+    },
+    {
+      "id": "7510_9951_000026",
+      "text": "la boca del justo hablara sabiduría y su lengua proferirá juicio la ley de su dios está en su corazón por tanto sus pasos no vacilarán",
+      "audio": "test/audio/7510/9951/7510_9951_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 568.93,
+        "original_end_s": 581.34
+      }
+    },
+    {
+      "id": "7510_9951_000027",
+      "text": "los cielos denunciaron su justicia y todos los pueblos vieron su gloria avergüéncense todos los que sirven a las imágenes de talla los que se alaban de los ídolos los dioses todos a él se encorven",
+      "audio": "test/audio/7510/9951/7510_9951_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 438.79,
+        "original_end_s": 456.66
+      }
+    },
+    {
+      "id": "7510_9951_000028",
+      "text": "mas los impíos perecerán y los enemigos de jehová como la grasa de los carneros serán consumidos se disiparán como humo",
+      "audio": "test/audio/7510/9951/7510_9951_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 497.1,
+        "original_end_s": 507.6
+      }
+    },
+    {
+      "id": "7510_9951_000029",
+      "text": "delante de jehová que vino porque vino á juzgar la tierra juzgará al mundo con justicia y á los pueblos con su verdad",
+      "audio": "test/audio/7510/9951/7510_9951_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 385.53,
+        "original_end_s": 397.07
+      }
+    },
+    {
+      "id": "7510_9951_000030",
+      "text": "oyó sión y alegróse y las hijas de judá oh jehová se gozaron por tus juicios porque tú jehová eres alto sobre toda la tierra eres muy ensalzado sobre todos los dioses",
+      "audio": "test/audio/7510/9951/7510_9951_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 456.66,
+        "original_end_s": 473.96
+      }
+    },
+    {
+      "id": "7510_9951_000031",
+      "text": "bienaventurada la gente de que jehová es su dios el pueblo á quien escogió por heredad para sí desde los cielos miró jehová vió á todos los hijos de los hombres",
+      "audio": "test/audio/7510/9951/7510_9951_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 204.36,
+        "original_end_s": 219.23
+      }
+    },
+    {
+      "id": "7510_9951_000032",
+      "text": "encomienda a jehová tu camino y espera en él y él hará y exhibirá tu justicia como la luz y tus derechos como el mediodía",
+      "audio": "test/audio/7510/9951/7510_9951_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 389.83,
+        "original_end_s": 401.93
+      }
+    },
+    {
+      "id": "7510_9951_000033",
+      "text": "espera en jehová y guarda su camino y él te ensalzará para heredar la tierra cuando serán talados los pecadores lo verás",
+      "audio": "test/audio/7510/9951/7510_9951_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 592.32,
+        "original_end_s": 603.09
+      }
+    },
+    {
+      "id": "7510_9951_000034",
+      "text": "los leoncillos necesitaron y tuvieron hambre pero los que buscan á jehová no tendrán falta de ningún bien venid hijos oidme el temor de jehová os enseñaré",
+      "audio": "test/audio/7510/9951/7510_9951_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 348.71,
+        "original_end_s": 365.11
+      }
+    },
+    {
+      "id": "7510_9951_000035",
+      "text": "tema á jehová toda la tierra teman de él todos los habitadores del mundo porque él dijo y fué hecho el mandó y existió",
+      "audio": "test/audio/7510/9951/7510_9951_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 175.28,
+        "original_end_s": 187.84
+      }
+    },
+    {
+      "id": "7510_9951_000036",
+      "text": "nuestra alma esperó á jehová nuestra ayuda y nuestro escudo es él por tanto en él se alegrará nuestro corazón porque en su santo nombre hemos confiado",
+      "audio": "test/audio/7510/9951/7510_9951_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 258.95,
+        "original_end_s": 272.34
+      }
+    },
+    {
+      "id": "7510_9951_000037",
+      "text": "muévete y despierta para mi juicio para mi causa dios mío y señor mío júzgame conforme á tu justicia jehová dios mío y no se alegren de mí",
+      "audio": "test/audio/7510/9951/7510_9951_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 203.16,
+        "original_end_s": 216.82
+      }
+    },
+    {
+      "id": "7510_9951_000038",
+      "text": "los ojos de jehová están sobre los justos y atentos sus oídos al clamor de ellos la ira de jehová contra los que mal hacen para cortar de la tierra la memoria de ellos",
+      "audio": "test/audio/7510/9951/7510_9951_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 380.91,
+        "original_end_s": 395.03
+      }
+    },
+    {
+      "id": "7510_9951_000039",
+      "text": "porque jehová es dios grande y rey grande sobre todos los dioses porque en su mano están las profundidades de la tierra y las alturas de los montes son suyas suya también la mar pues él la hizo y sus manos formaron la seca",
+      "audio": "test/audio/7510/9951/7510_9951_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 217.0,
+        "original_end_s": 236.94
+      }
+    },
+    {
+      "id": "7510_9951_000040",
+      "text": "juntáronse contra mí gentes despreciables y yo no lo entendía despedazábanme y no cesaban con los lisonjeros escarnecedores truhanes crujiendo sobre mí sus dientes",
+      "audio": "test/audio/7510/9951/7510_9951_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 140.94,
+        "original_end_s": 157.89
+      }
+    },
+    {
+      "id": "7510_9951_000041",
+      "text": "hasta cuándo los impíos hasta cuándo oh jehová se gozarán los impíos hasta cuándo pronunciarán hablarán cosas duras y se vanagloriarán todos los que obran iniquidad",
+      "audio": "test/audio/7510/9951/7510_9951_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 37.89,
+        "original_end_s": 53.77
+      }
+    },
+    {
+      "id": "7510_9951_000042",
+      "text": "regocíjese el campo y todo lo que en él está entonces todos los árboles del bosque rebosarán de contento",
+      "audio": "test/audio/7510/9951/7510_9951_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 375.16,
+        "original_end_s": 385.53
+      }
+    },
+    {
+      "id": "7510_9951_000043",
+      "text": "canten y alégrense los que están a favor de mi justa causa y digan siempre sea ensalzado jehová que ama la paz de su siervo y mi lengua hablará de tu justicia y de tu loor todo el día",
+      "audio": "test/audio/7510/9951/7510_9951_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 236.11,
+        "original_end_s": 253.73
+      }
+    },
+    {
+      "id": "7510_9951_000044",
+      "text": "reposo cantad a jehová canción nueva cantad a jehová toda la tierra cantad a jehová bendecid su nombre anunciad de día en día su salud",
+      "audio": "test/audio/7510/9951/7510_9951_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 285.95,
+        "original_end_s": 301.23
+      }
+    },
+    {
+      "id": "7510_9951_000045",
+      "text": "á jehová y espera en él no te alteres con motivo del que prospera en su camino por el hombre que hace maldades déjate de la ira y depón el enojo no te excites en manera alguna á hacer lo malo",
+      "audio": "test/audio/7510/9951/7510_9951_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 401.93,
+        "original_end_s": 419.43
+      }
+    },
+    {
+      "id": "7510_9951_000046",
+      "text": "a tu pueblo oh jehová quebrantan y a tu heredad afligen a la viuda y al extranjero matan y a los huérfanos quitan la vida y dijeron no verá jehová ni entenderá el dios de jacob",
+      "audio": "test/audio/7510/9951/7510_9951_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 53.77,
+        "original_end_s": 72.78
+      }
+    },
+    {
+      "id": "7510_9951_000047",
+      "text": "conoce jehová los días de los perfectos y la heredad de ellos será para siempre no serán avergonzados en el mal tiempo y en los días de hambre serán hartos",
+      "audio": "test/audio/7510/9951/7510_9951_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 483.59,
+        "original_end_s": 497.1
+      }
+    },
+    {
+      "id": "7510_9951_000048",
+      "text": "quién se levantará por mí contra los malignos quién estará por mí contra los que obran iniquidad si no me ayudara jehová presto morara mi alma en el silencio",
+      "audio": "test/audio/7510/9951/7510_9951_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 134.04,
+        "original_end_s": 149.49
+      }
+    },
+    {
+      "id": "7510_9951_000049",
+      "text": "encorvaos á jehová en la hermosura de su santuario temed delante de él toda la tierra decid en las gentes jehová reinó",
+      "audio": "test/audio/7510/9951/7510_9951_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 347.63,
+        "original_end_s": 360.35
+      }
+    },
+    {
+      "id": "7510_9951_000050",
+      "text": "espera en jehová y haz bien vivirás en la tierra y en verdad serás alimentado pon asimismo tu delicia en jehová y él te dará las peticiones de tu corazón",
+      "audio": "test/audio/7510/9951/7510_9951_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 375.64,
+        "original_end_s": 389.83
+      }
+    },
+    {
+      "id": "7510_9951_000051",
+      "text": "sea tu misericordia oh jehová sobre nosotros como esperamos en ti",
+      "audio": "test/audio/7510/9951/7510_9951_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 272.34,
+        "original_end_s": 282.81
+      }
+    },
+    {
+      "id": "7510_9951_000052",
+      "text": "considera al íntegro y mira al justo que la postrimería de cada uno de ellos es paz mas los transgresores fueron todos a una destruidos la postrimería de los impíos fue talada",
+      "audio": "test/audio/7510/9951/7510_9951_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 618.54,
+        "original_end_s": 633.9
+      }
+    },
+    {
+      "id": "7510_9951_000053",
+      "text": "por jehová son ordenados los pasos del hombre y aprueba su camino cuando cayere no quedará postrado porque jehová sostiene su mano",
+      "audio": "test/audio/7510/9951/7510_9951_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 521.77,
+        "original_end_s": 533.7
+      }
+    },
+    {
+      "id": "7510_9951_000054",
+      "text": "y estremecióse los montes que derritieron como cera delante de jehová delante del señor de toda la tierra",
+      "audio": "test/audio/7510/9951/7510_9951_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 427.73,
+        "original_end_s": 438.79
+      }
+    },
+    {
+      "id": "7510_9951_000055",
+      "text": "bienaventurado el hombre á quien no imputa jehová la iniquidad y en cuyo espíritu no hay superchería mientras callé envejeciéronse mis huesos en mi gemir todo el día",
+      "audio": "test/audio/7510/9951/7510_9951_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 33.83,
+        "original_end_s": 48.31
+      }
+    },
+    {
+      "id": "7510_9951_000056",
+      "text": "levantáronse testigos falsos demandáronme lo que no sabía volviéronme mal por bien para abatir a mi alma",
+      "audio": "test/audio/7510/9951/7510_9951_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 104.32,
+        "original_end_s": 115.76
+      }
+    },
+    {
+      "id": "7510_9951_000057",
+      "text": "señor hasta cuándo verás esto recobra mi alma de sus quebrantamientos mi única de los leones te confesaré en grande congregación te alabaré entre numeroso pueblo",
+      "audio": "test/audio/7510/9951/7510_9951_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 157.89,
+        "original_end_s": 173.39
+      }
+    },
+    {
+      "id": "7510_9951_000058",
+      "text": "clamaron los justos y jehová oyó y librólos de todas sus angustias cercano está jehová á los quebrantados de corazón y salvará á los contritos de espíritu",
+      "audio": "test/audio/7510/9951/7510_9951_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 395.03,
+        "original_end_s": 409.51
+      }
+    },
+    {
+      "id": "7510_9951_000059",
+      "text": "como por mi compañero como por mi hermano andaba como el que trae luto por madre enlutado me humillaba pero ellos se alegraron en mi adversidad y se juntaron",
+      "audio": "test/audio/7510/9951/7510_9951_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 126.45,
+        "original_end_s": 140.94
+      }
+    },
+    {
+      "id": "7510_9951_000060",
+      "text": "luz está sembrada para el justo y alegría para los rectos de corazón alegraos justos en jehová y alabad la memoria de su santidad",
+      "audio": "test/audio/7510/9951/7510_9951_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 485.61,
+        "original_end_s": 499.81
+      }
+    },
+    {
+      "id": "7510_9951_000061",
+      "text": "entended necios del pueblo y vosotros fatuos cuándo seréis sabios el que plantó el oído no oirá el que formó el ojo no verá",
+      "audio": "test/audio/7510/9951/7510_9951_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 72.78,
+        "original_end_s": 87.24
+      }
+    },
+    {
+      "id": "7510_9951_000062",
+      "text": "el impío toma prestado y no paga mas el justo tiene misericordia y da porque los benditos de él heredarán la tierra y los malditos de él serán talados",
+      "audio": "test/audio/7510/9951/7510_9951_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 507.6,
+        "original_end_s": 521.77
+      }
+    },
+    {
+      "id": "7510_9951_000063",
+      "text": "porque los malignos serán talados mas los que esperan en jehová ellos heredarán la tierra pues de aquí á poco no será el malo y contemplarás sobre su lugar y no parecerá",
+      "audio": "test/audio/7510/9951/7510_9951_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 419.43,
+        "original_end_s": 435.24
+      }
+    },
+    {
+      "id": "7510_9951_000064",
+      "text": "mas yo cuando ellos enfermaron me vestí de saco afligí con ayuno mi alma y mi oración se revolvía en mi seno",
+      "audio": "test/audio/7510/9951/7510_9951_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 115.76,
+        "original_end_s": 126.45
+      }
+    },
+    {
+      "id": "7510_9951_000065",
+      "text": "cuarenta años estuve disgustado con la nación y dije pueblo es que divaga de corazón y no han conocido mis caminos por tanto juré en mi furor que no entrarían en mi reposo",
+      "audio": "test/audio/7510/9951/7510_9951_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 267.45,
+        "original_end_s": 285.95
+      }
+    },
+    {
+      "id": "7510_9951_000066",
+      "text": "venid adoremos y postrémonos arrodillémonos delante de jehová nuestro hacedor porque él es nuestro dios nosotros el pueblo de su dehesa y ovejas de su mano",
+      "audio": "test/audio/7510/9951/7510_9951_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 236.94,
+        "original_end_s": 252.2
+      }
+    },
+    {
+      "id": "7510_9951_000067",
+      "text": "porque todos los dioses de los pueblos son ídolos mas jehová hizo los cielos alabanza y magnificencia delante de él fortaleza y gloria en su santuario",
+      "audio": "test/audio/7510/9951/7510_9951_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 315.48,
+        "original_end_s": 330.95
+      }
+    },
+    {
+      "id": "7510_9951_000068",
+      "text": "muchos dolores para el impío mas el que espera en jehová lo cercará misericordia alegraos en jehová y gozaos justos y cantad todos vosotros los rectos de corazón",
+      "audio": "test/audio/7510/9951/7510_9951_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 110.3,
+        "original_end_s": 125.86
+      }
+    },
+    {
+      "id": "7510_9951_000069",
+      "text": "no digan en su corazón ea alma nuestra no digan hémoslo devorado avergüencense y sean confundidos á una los que de mi mal se alegran vístanse de vergüenza y de confusión los que se engrandecen contra mí",
+      "audio": "test/audio/7510/9951/7510_9951_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 216.82,
+        "original_end_s": 236.11
+      }
+    },
+    {
+      "id": "7510_9951_000070",
+      "text": "salmo de david cuando mudó su semblante delante de abimelech y él lo echó y fuese bendeciré a jehová en todo tiempo su alabanza será siempre en mi boca en jehová se gloriará mi alma",
+      "audio": "test/audio/7510/9951/7510_9951_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 282.81,
+        "original_end_s": 299.91
+      }
+    },
+    {
+      "id": "7510_9951_000071",
+      "text": "vi yo al impío sumamente ensalzado y que se extendía como un laurel verde empero pasóse y he aquí no parece y busquélo y no fue hallado",
+      "audio": "test/audio/7510/9951/7510_9951_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 603.09,
+        "original_end_s": 618.54
+      }
+    },
+    {
+      "id": "7510_9951_000072",
+      "text": "sean como el tamo delante del viento y el ángel de jehová los acose sea su camino oscuridad y resbaladeros y el ángel de jehová los persiga",
+      "audio": "test/audio/7510/9951/7510_9951_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 56.56,
+        "original_end_s": 69.43
+      }
+    },
+    {
+      "id": "7510_9951_000073",
+      "text": "porque no dejará jehová su pueblo ni desamparará su heredad sino que el juicio será vuelto á justicia y en pos de ella irán todos los rectos de corazón",
+      "audio": "test/audio/7510/9951/7510_9951_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 118.09,
+        "original_end_s": 134.04
+      }
+    },
+    {
+      "id": "7510_9951_000074",
+      "text": "fuego irá delante de él y abrasará en derredor de sus enemigos sus relámpagos alumbraron el mundo la tierra vio",
+      "audio": "test/audio/7510/9951/7510_9951_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 415.34,
+        "original_end_s": 427.73
+      }
+    },
+    {
+      "id": "7510_9951_000075",
+      "text": "quién es el hombre que desea vida que codicia días para ver bien guarda tu lengua de mal y tus labios de hablar engaño apártate del mal y haz el bien busca la paz y síguela",
+      "audio": "test/audio/7510/9951/7510_9951_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 365.11,
+        "original_end_s": 380.91
+      }
+    },
+    {
+      "id": "7510_9951_000076",
+      "text": "salmo noventa y cincos venid celebremos alegremente a jehová cantemos con júbilo a la roca de nuestra salud lleguemos ante su acatamiento con alabanza aclamémosle con cánticos",
+      "audio": "test/audio/7510/9951/7510_9951_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 199.03,
+        "original_end_s": 217.0
+      }
+    },
+    {
+      "id": "7510_9951_000077",
+      "text": "acecha el impío al justo y procura matarlo jehová no lo dejará en sus manos ni lo condenará cuando le juzgaren",
+      "audio": "test/audio/7510/9951/7510_9951_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 581.34,
+        "original_end_s": 592.32
+      }
+    },
+    {
+      "id": "7510_9951_000078",
+      "text": "el que castiga las gentes no reprenderá no sabrá el que enseña al hombre la ciencia jehová conoce los pensamientos de los hombres que son vanidad",
+      "audio": "test/audio/7510/9951/7510_9951_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 87.24,
+        "original_end_s": 101.06
+      }
+    },
+    {
+      "id": "7510_9951_000079",
+      "text": "embriagarse han de la grosura de tu casa y tú los abrevarás del torrente de tus delicias porque contigo está el manantial de la vida en tu luz veremos la luz",
+      "audio": "test/audio/7510/9951/7510_9951_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 319.24,
+        "original_end_s": 334.28
+      }
+    },
+    {
+      "id": "7510_9951_000080",
+      "text": "pero la salvación de los justos es de jehová y él es su fortaleza en el tiempo de angustia y jehová los ayudará y los librará y libertarálos de los impíos y los salvará por cuanto en él esperaron",
+      "audio": "test/audio/7510/9951/7510_9951_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 633.9,
+        "original_end_s": 650.75
+      }
+    },
+    {
+      "id": "7510_9951_000081",
+      "text": "a él miraron y fueron alumbrados y sus rostros no se avergonzaron este pobre clamó y oyóle jehová y librólo de todas sus angustias",
+      "audio": "test/audio/7510/9951/7510_9951_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 316.0,
+        "original_end_s": 328.97
+      }
+    },
+    {
+      "id": "7510_9951_000082",
+      "text": "oiránlo los mansos y se alegrarán engrandeced a jehová conmigo y ensalcemos su nombre a una busqué a jehová y él me oyó y libróme de todos mis temores",
+      "audio": "test/audio/7510/9951/7510_9951_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 299.91,
+        "original_end_s": 316.0
+      }
+    },
+    {
+      "id": "7510_9951_000083",
+      "text": "salmo treinta y seis al músico principal salmo de david siervo del señor la iniquidad del impío me dice al corazón no hay temor de dios delante de sus ojos",
+      "audio": "test/audio/7510/9951/7510_9951_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 253.73,
+        "original_end_s": 268.87
+      }
+    },
+    {
+      "id": "7510_9951_000084",
+      "text": "mas jehová me ha sido por refugio y mi dios por roca de mi confianza y él hará tornar sobre ellos su iniquidad y los destruirá por su propia maldad los talará jehová nuestro dios",
+      "audio": "test/audio/7510/9951/7510_9951_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 180.45,
+        "original_end_s": 199.03
+      }
+    },
+    {
+      "id": "7510_9951_000085",
+      "text": "contad entre las gentes su gloria en todos los pueblos sus maravillas porque grande es jehová y digno de suprema alabanza terrible sobre todos los dioses",
+      "audio": "test/audio/7510/9951/7510_9951_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 301.23,
+        "original_end_s": 315.48
+      }
+    },
+    {
+      "id": "7510_9951_000086",
+      "text": "juntaráse contigo el trono de iniquidades que forma agravio en el mandamiento pónense en corros contra la vida del justo y condenan la sangre inocente",
+      "audio": "test/audio/7510/9951/7510_9951_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 164.98,
+        "original_end_s": 180.45
+      }
+    },
+    {
+      "id": "7510_9951_000087",
+      "text": "pero los mansos heredarán la tierra y se recrearán con abundancia de paz maquina el impío contra el justo y cruje sobre él sus dientes el señor se reirá de él porque ve que viene su día",
+      "audio": "test/audio/7510/9951/7510_9951_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 435.24,
+        "original_end_s": 453.3
+      }
+    },
+    {
+      "id": "7510_9951_000088",
+      "text": "porque sin causa escondieron para mí su red en un hoyo sin causa hicieron hoyo para mi alma véngale el quebrantamiento que no sepa y su red que escondió lo prenda con quebrantamiento en ella caiga",
+      "audio": "test/audio/7510/9951/7510_9951_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 69.43,
+        "original_end_s": 86.62
+      }
+    },
+    {
+      "id": "7510_9951_000089",
+      "text": "ea nuestros ojos lo han visto tú lo has visto oh jehová no calles señor de mí no te alejas",
+      "audio": "test/audio/7510/9951/7510_9951_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 192.55,
+        "original_end_s": 203.16
+      }
+    },
+    {
+      "id": "7510_9951_000090",
+      "text": "la espada de ellos entrará en su mismo corazón y su arco será quebrado mejor es lo poco del justo que las riquezas de muchos pecadores porque los brazos de los impíos serán quebrados mas el que sostiene a los justos es jehová",
+      "audio": "test/audio/7510/9951/7510_9951_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_10_rva_64kb.mp3",
+        "original_start_s": 464.73,
+        "original_end_s": 483.59
+      }
+    },
+    {
+      "id": "7510_9951_000091",
+      "text": "matará al malo la maldad y los que aborrecen al justo serán asolados jehová redime el alma de sus siervos y no serán asolados cuantos en él confían",
+      "audio": "test/audio/7510/9951/7510_9951_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 421.99,
+        "original_end_s": 436.54
+      }
+    },
+    {
+      "id": "7510_9951_000092",
+      "text": "es el caballo para salvarse por la grandeza de su fuerza no librará he aquí el ojo de jehová sobre los que le temen sobre los que esperan en su misericordia para librar sus almas de la muerte y para darles vida en el hambre",
+      "audio": "test/audio/7510/9951/7510_9951_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_09_rva_64kb.mp3",
+        "original_start_s": 239.01,
+        "original_end_s": 258.95
+      }
+    },
+    {
+      "id": "7510_9951_000093",
+      "text": "dad á jehová oh familias de los pueblos dad á jehová la gloria y la fortaleza dad á jehová la honra debida á su nombre tomad presentes y venid á sus atrios",
+      "audio": "test/audio/7510/9951/7510_9951_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-7510",
+        "gender": "w",
+        "book_id": "9951",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/salmos_1509_librivox/salmos_27_rva_64kb.mp3",
+        "original_start_s": 330.95,
+        "original_end_s": 347.63
+      }
+    }
+  ]
+}

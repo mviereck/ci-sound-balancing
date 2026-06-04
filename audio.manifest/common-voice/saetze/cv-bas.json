@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — bas",
+  "lang": "bas",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-bas",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24625615",
+      "text": "Kagô i ñgwel nye, a wo pôdô.",
+      "audio": "bas/unknown/bas_u_24625615.mp3",
+      "tags": {
+        "source_item_id": "24625615",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26073426",
+      "text": "Me ñédél ñwaa wem mbot.",
+      "audio": "bas/unknown/bas_u_26073426.mp3",
+      "tags": {
+        "source_item_id": "26073426",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24625618",
+      "text": "A nnyoñg me le me pot bañ.",
+      "audio": "bas/unknown/bas_u_24625618.mp3",
+      "tags": {
+        "source_item_id": "24625618",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26073430",
+      "text": "Ñwel u hyéé hi nyoo u léli ñgéda yoso.",
+      "audio": "bas/unknown/bas_u_26073430.mp3",
+      "tags": {
+        "source_item_id": "26073430",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26160205",
+      "text": "Hikok hi nhéya ni kwade a nhoo.",
+      "audio": "bas/unknown/bas_u_26160205.mp3",
+      "tags": {
+        "source_item_id": "26160205",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26466773",
+      "text": "A nhue banyañ ba makabô.",
+      "audio": "bas/unknown/bas_u_26466773.mp3",
+      "tags": {
+        "source_item_id": "26466773",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26187663",
+      "text": "Jinda li binuga, jinda li bôt.",
+      "audio": "bas/unknown/bas_u_26187663.mp3",
+      "tags": {
+        "source_item_id": "26187663",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26131759",
+      "text": "Mut nunu a yé kom.",
+      "audio": "bas/unknown/bas_u_26131759.mp3",
+      "tags": {
+        "source_item_id": "26131759",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26160745",
+      "text": "Nseghe bijek.",
+      "audio": "bas/unknown/bas_u_26160745.mp3",
+      "tags": {
+        "source_item_id": "26160745",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26160493",
+      "text": "A nhémb nye kodi.",
+      "audio": "bas/unknown/bas_u_26160493.mp3",
+      "tags": {
+        "source_item_id": "26160493",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26466878",
+      "text": "Mapam ma suglu.",
+      "audio": "bas/unknown/bas_u_26466878.mp3",
+      "tags": {
+        "source_item_id": "26466878",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26466712",
+      "text": "Hiñgonda hi mboñ liñweñ.",
+      "audio": "bas/unknown/bas_u_26466712.mp3",
+      "tags": {
+        "source_item_id": "26466712",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26624678",
+      "text": "Bana bôt ba nyuugana bé.",
+      "audio": "bas/unknown/bas_u_26624678.mp3",
+      "tags": {
+        "source_item_id": "26624678",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26160189",
+      "text": "U ntonda nunu mañge mudaa.",
+      "audio": "bas/unknown/bas_u_26160189.mp3",
+      "tags": {
+        "source_item_id": "26160189",
+        "gender": "u"
+      }
+    }
+  ]
+}

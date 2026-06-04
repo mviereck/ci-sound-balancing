@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — az",
+  "lang": "az",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-az",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "28316593",
+      "text": "Rus qoşunlarının İrəvan xanlığını işğal etməsində ermənilər xüsusi fəallıq göstərmişdilər.",
+      "audio": "az/unknown/az_u_28316593.mp3",
+      "tags": {
+        "source_item_id": "28316593",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35249838",
+      "text": "Kənddə Borsunlu kənd məscidi dini icması fəaliyyət göstərir.",
+      "audio": "az/unknown/az_u_35249838.mp3",
+      "tags": {
+        "source_item_id": "35249838",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27646598",
+      "text": "Yağıntı bir necə ildən bir düşür.",
+      "audio": "az/unknown/az_u_27646598.mp3",
+      "tags": {
+        "source_item_id": "27646598",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35249813",
+      "text": "Mədəniyyət öz təbiətinə görə tarixi mahiyyət kəsb edir.",
+      "audio": "az/unknown/az_u_35249813.mp3",
+      "tags": {
+        "source_item_id": "35249813",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27646512",
+      "text": "Rəsulzadənin həyat və fəaliyyətinə həsr edilib.",
+      "audio": "az/unknown/az_u_27646512.mp3",
+      "tags": {
+        "source_item_id": "27646512",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27646599",
+      "text": "Adalar Filippin dənizinin şimal sərhədlərini təşkil edir.",
+      "audio": "az/unknown/az_u_27646599.mp3",
+      "tags": {
+        "source_item_id": "27646599",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27646597",
+      "text": "Həmçinin Çin və Yaponiyada da məhdud şəkildə mövcuddur.",
+      "audio": "az/unknown/az_u_27646597.mp3",
+      "tags": {
+        "source_item_id": "27646597",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28316597",
+      "text": "Böyük Pyotr da ona Asiyadan da bir qədər adam göndərmişdi.",
+      "audio": "az/unknown/az_u_28316597.mp3",
+      "tags": {
+        "source_item_id": "28316597",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28316611",
+      "text": "Avstraliyanın ən yaxşı universitetlərindən sayılır və dünyanın iyirmi ən yaxşı universitetləri siyahısına daxildir.",
+      "audio": "az/unknown/az_u_28316611.mp3",
+      "tags": {
+        "source_item_id": "28316611",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35250051",
+      "text": "İqlimi kontinental mülayimdir.",
+      "audio": "az/unknown/az_u_35250051.mp3",
+      "tags": {
+        "source_item_id": "35250051",
+        "gender": "u"
+      }
+    }
+  ]
+}

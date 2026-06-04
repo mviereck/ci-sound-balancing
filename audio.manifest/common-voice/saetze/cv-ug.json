@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ug",
+  "lang": "ug",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ug",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26139746",
+      "text": "ئادەم بىردىنبىر گەپ قىلالايدىغان مەخلۇق.",
+      "audio": "ug/unknown/ug_u_26139746.mp3",
+      "tags": {
+        "source_item_id": "26139746",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26148627",
+      "text": "مال ئالساڭ كۆرۈپ ئال، قىز ئالساڭ بىلىپ.",
+      "audio": "ug/unknown/ug_u_26148627.mp3",
+      "tags": {
+        "source_item_id": "26148627",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26160182",
+      "text": "جاۋاب خەتنى ئىنتايىن قىسقا يازدىم.",
+      "audio": "ug/unknown/ug_u_26160182.mp3",
+      "tags": {
+        "source_item_id": "26160182",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26187993",
+      "text": "ئەپەندىمنىڭ بىر يېزىلىق ئاغىنىسى ئۇنىڭدىن شەھەردىكى دوستىغا خەت يېزىپ بېرىشنى ئىلتىماس قىلىپتۇ.",
+      "audio": "ug/unknown/ug_u_26187993.mp3",
+      "tags": {
+        "source_item_id": "26187993",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26188231",
+      "text": "ئاندىن ئۇ سىزگە بىر-بىرلەپ ئەمەلىيىتىنى كۆرسىتىپ قويىدۇ.",
+      "audio": "ug/unknown/ug_u_26188231.mp3",
+      "tags": {
+        "source_item_id": "26188231",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26188773",
+      "text": "ئۇلار ئۇچۇپ لەيلەپ كۈزنىڭ سالقىن ھاۋاسىنى ئېلىپ كەلدى.",
+      "audio": "ug/unknown/ug_u_26188773.mp3",
+      "tags": {
+        "source_item_id": "26188773",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26188783",
+      "text": "غۇلجا شەھىرىنىڭ بىر ئۆيىدە ھېلىھەم چىراغ يېنىق.",
+      "audio": "ug/unknown/ug_u_26188783.mp3",
+      "tags": {
+        "source_item_id": "26188783",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26194282",
+      "text": "ياسىن تەسىرلىك بىر كىنو كۆرگەندەك ھاياجانلاندى.",
+      "audio": "ug/unknown/ug_u_26194282.mp3",
+      "tags": {
+        "source_item_id": "26194282",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26201980",
+      "text": "بۇنداق سۆز ماڭا ئۇرۇلغان خەنجەر ئەمەسمۇ.",
+      "audio": "ug/unknown/ug_u_26201980.mp3",
+      "tags": {
+        "source_item_id": "26201980",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26209727",
+      "text": "ئۇلار ئۇنىڭغا «زامانىمىزنىڭ ئارستوتىلى» دېگەن شەرەپلىك نامنى بەردى.",
+      "audio": "ug/unknown/ug_u_26209727.mp3",
+      "tags": {
+        "source_item_id": "26209727",
+        "gender": "u"
+      }
+    }
+  ]
+}

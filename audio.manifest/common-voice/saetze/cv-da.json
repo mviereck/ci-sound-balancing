@@ -1,0 +1,146 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — da",
+  "lang": "da",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-da",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "27769156",
+      "text": "Se den om du kan",
+      "audio": "da/unknown/da_u_27769156.mp3",
+      "tags": {
+        "source_item_id": "27769156",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31401926",
+      "text": "Jeg venter grumme meget af den",
+      "audio": "da/unknown/da_u_31401926_sj_lland_k_benhavn.mp3",
+      "tags": {
+        "source_item_id": "31401926",
+        "gender": "u",
+        "accent": "Sjælland/København"
+      }
+    },
+    {
+      "id": "32175613",
+      "text": "Nej, så ved jeg noget bedre",
+      "audio": "da/unknown/da_u_32175613.mp3",
+      "tags": {
+        "source_item_id": "32175613",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36591912",
+      "text": "hun var så dejlig, at købmandssønnen måtte kysse hende.",
+      "audio": "da/unknown/da_u_36591912.mp3",
+      "tags": {
+        "source_item_id": "36591912",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31756435",
+      "text": "han blev tonernes mester, hvert land kan nu tænke.",
+      "audio": "da/unknown/da_u_31756435_sj_lland_k_benhavn.mp3",
+      "tags": {
+        "source_item_id": "31756435",
+        "gender": "u",
+        "accent": "Sjælland/København"
+      }
+    },
+    {
+      "id": "27769248",
+      "text": "Alle klokker i kirketårnet ringede til kirke.",
+      "audio": "da/unknown/da_u_27769248.mp3",
+      "tags": {
+        "source_item_id": "27769248",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34904470",
+      "text": "Inde i bondehuset boede to unge studenter.",
+      "audio": "da/unknown/da_u_34904470.mp3",
+      "tags": {
+        "source_item_id": "34904470",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36593001",
+      "text": "Det står enhver frit for at lave deres egne materialer",
+      "audio": "da/unknown/da_u_36593001.mp3",
+      "tags": {
+        "source_item_id": "36593001",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "36593864",
+      "text": "i den lå han og der tænkte han på sin geografilektie.",
+      "audio": "da/unknown/da_u_36593864.mp3",
+      "tags": {
+        "source_item_id": "36593864",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32806683",
+      "text": "Jeg fryser ihjel, jeg bliver til bare is",
+      "audio": "da/unknown/da_u_32806683.mp3",
+      "tags": {
+        "source_item_id": "32806683",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32175664",
+      "text": "Nu kan du fortælle",
+      "audio": "da/unknown/da_u_32175664.mp3",
+      "tags": {
+        "source_item_id": "32175664",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32219974",
+      "text": "Hendes perle må til, for at kransen kan bindes sammen",
+      "audio": "da/unknown/da_u_32219974.mp3",
+      "tags": {
+        "source_item_id": "32219974",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27776025",
+      "text": "Til natten blev kufferterne stillet op for døren.",
+      "audio": "da/unknown/da_u_27776025.mp3",
+      "tags": {
+        "source_item_id": "27776025",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37527603",
+      "text": "men hun havde nu skaffet ham derop.",
+      "audio": "da/unknown/da_u_37527603_sj_lland_k_benhavn.mp3",
+      "tags": {
+        "source_item_id": "37527603",
+        "gender": "u",
+        "accent": "Sjælland/København"
+      }
+    }
+  ]
+}

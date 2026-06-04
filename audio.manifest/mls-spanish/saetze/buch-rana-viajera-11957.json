@@ -1,0 +1,550 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Rana Viajera",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "11957",
+    "book_title": "Rana Viajera",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "11168_11957_000000",
+      "text": "por ahí por ahí dice mi amigo yo almuerzo de una a dos a veces me siento a la mesa cerca de las tres de todos modos a las cuatro siempre estoy libre perfectamente entonces podríamos citarnos para las cuatro mi amigo asiente",
+      "audio": "test/audio/11168/11957/11168_11957_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 57.3,
+        "original_end_s": 71.15
+      }
+    },
+    {
+      "id": "11168_11957_000001",
+      "text": "por mi parte yo creo que en efecto hemos cometido una gran ligereza un descuido imperdonable en vano sus enemigos dicen que ferrer no era un sabio ni un pedagogo si se va a fusilar a todos los españoles que no son sabios ni pedagogos entonces ya puede el gobierno solicitar un crédito extraordinario para comprar fusiles",
+      "audio": "test/audio/11168/11957/11168_11957_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 64.77,
+        "original_end_s": 83.48
+      }
+    },
+    {
+      "id": "11168_11957_000002",
+      "text": "adiós señor mío voy a revisar unas colecciones de periódicos a ver si algún artículo de un adversario suyo me inspira la intención de estrangularlo a usted hasta la vista y el extraño visitante se fue por donde había venido",
+      "audio": "test/audio/11168/11957/11168_11957_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 209.63,
+        "original_end_s": 222.59
+      }
+    },
+    {
+      "id": "11168_11957_000003",
+      "text": "yo carezco de cerebro señor mío respondió el asesino es que no lee usted la prensa conservadora los asesinos no somos más que brazos instrumentos que ejecutan las ideas de otros hombres",
+      "audio": "test/audio/11168/11957/11168_11957_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 138.25,
+        "original_end_s": 148.42
+      }
+    },
+    {
+      "id": "11168_11957_000004",
+      "text": "el cerebro es nuestra herramienta comprende usted mi situación yo quiero asesinar a un frutero de los cuatro caminos pero antes de ponerme a la obra necesito un cerebro que me sugiera la idea de este asesinato por eso venía a verla a usted",
+      "audio": "test/audio/11168/11957/11168_11957_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 163.89,
+        "original_end_s": 176.51
+      }
+    },
+    {
+      "id": "11168_11957_000005",
+      "text": "yo me disculpé como pude pero el asesino no se convenció usted me engaña me dijo usted podría perfectamente sugerirme la idea que yo le pido mil veces de seguro habrá tenido usted en su vida intenciones asesinas lo que ocurre es que no quiere usted complacerme es usted un tartufo caballero",
+      "audio": "test/audio/11168/11957/11168_11957_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 176.51,
+        "original_end_s": 195.14
+      }
+    },
+    {
+      "id": "11168_11957_000006",
+      "text": "yo no conozco más que un pedagogo de lorenzo luzuriaga y francamente no creo que este querido amigo se divierta mucho cuando llegue a quedarse solo consigo mismo en una españa despoblada por los fusilamientos",
+      "audio": "test/audio/11168/11957/11168_11957_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 83.48,
+        "original_end_s": 96.13
+      }
+    },
+    {
+      "id": "11168_11957_000007",
+      "text": "cómo convencerle de que acudiendo puntualmente a las citas se ahorra mucho tiempo para invertirlo en lo que se quiera imposible el español no acude puntualmente a las citas no porque considere que el tiempo es una cosa preciosa sino por el contrario porque el tiempo no tiene importancia para nadie en españa",
+      "audio": "test/audio/11168/11957/11168_11957_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 184.06,
+        "original_end_s": 202.24
+      }
+    },
+    {
+      "id": "11168_11957_000008",
+      "text": "pero ferrer ya es un apóstol todo hombre que muere por una idea es un apóstol y como los apóstoles estorban mucho a los ministros de gobernación el buen gobernante no debe matar a nadie por sus opiniones ni por sus doctrinas así como así qué necesidad hay de matar a la gente en el país de la viruela y de la gripe",
+      "audio": "test/audio/11168/11957/11168_11957_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 162.91,
+        "original_end_s": 180.9
+      }
+    },
+    {
+      "id": "11168_11957_000009",
+      "text": "hombre un cerebro quién no tiene un cerebro claro que son muy pocas las personas que lo usan pero todo el mundo tiene un cerebro usted mismo tiene uno de esos magníficos cerebros de criminal nato que ha estudiado minuciosamente en italia el profesor lombroso",
+      "audio": "test/audio/11168/11957/11168_11957_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 123.29,
+        "original_end_s": 138.25
+      }
+    },
+    {
+      "id": "11168_11957_000010",
+      "text": "no a ferrer no se le ha fusilado porque no era un pedagogo ni un sabio por lo menos las obras de colección sempere se las había leído y esto le ponía en un nivel de cultura muy superior al de los hombres que dispusieron su fusilamiento",
+      "audio": "test/audio/11168/11957/11168_11957_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 96.13,
+        "original_end_s": 110.21
+      }
+    },
+    {
+      "id": "11168_11957_000011",
+      "text": "nadie atendió mis consejos y ferrer fue fusilado ahora muchos españoles se indignan al ver que en el extranjero se le levantan estatuas a ferrer ferrer no es un apóstol dicen",
+      "audio": "test/audio/11168/11957/11168_11957_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 152.06,
+        "original_end_s": 162.91
+      }
+    },
+    {
+      "id": "11168_11957_000012",
+      "text": "ustedes se creen que ferrer es un genio pero yo que lo conozco les doy mi palabra de que no lo es fusilen ustedes al señor unamundo que sabe griego fusilen a don francisco giner fusilen aunque sea al doctor simarro pero yo les aseguro que sería una equivocación fusilar a ferrer",
+      "audio": "test/audio/11168/11957/11168_11957_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 135.96,
+        "original_end_s": 152.06
+      }
+    },
+    {
+      "id": "11168_11957_000013",
+      "text": "hay una nueva discusión para fijar en términos de reloj la hora del aperitivo por último quedamos en reunirnos de siete a ocho al día siguiente dan las ocho y claro está mi amigo no comparece llega a las ocho y media echando el bofe y el camarero le dice que yo me he marchado",
+      "audio": "test/audio/11168/11957/11168_11957_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 102.86,
+        "original_end_s": 119.33
+      }
+    },
+    {
+      "id": "11168_11957_000014",
+      "text": "un tartufo sí señor ah si alguien pudiera sugerirme la idea de asesinarle a usted cómo me vengaría yo entonces de su hipocresía pero yo soy un pobre asesino incapacitado por mi profesión para matar a nadie y por eso usted se permite abusar de mí",
+      "audio": "test/audio/11168/11957/11168_11957_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 195.14,
+        "original_end_s": 209.63
+      }
+    },
+    {
+      "id": "11168_11957_000015",
+      "text": "no de momento no dijo el hombre con una sonrisa helada soy un modesto asesino para servir a usted il n'y pas de sot métier como dicen los franceses la profesión de asesino desde que ha entrado en vigor esa ley de las ocho horas",
+      "audio": "test/audio/11168/11957/11168_11957_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 45.38,
+        "original_end_s": 59.12
+      }
+    },
+    {
+      "id": "11168_11957_000016",
+      "text": "no somos superiores somos inferiores al tiempo no estamos por encima sino por debajo de la puntualidad fin de sección seis grabado por patricia silveira",
+      "audio": "test/audio/11168/11957/11168_11957_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 202.24,
+        "original_end_s": 219.28
+      }
+    },
+    {
+      "id": "11168_11957_000017",
+      "text": "la rana viajera por julio canva la antipolítica once ferrer ferrer como se sabe tenía una estatua en bruselas los alemanes durante su ocupación de la ciudad echaron la estatua abajo y cuando se trató de erigirla algunos periódicos españoles protestaron y otros aplauden",
+      "audio": "test/audio/11168/11957/11168_11957_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 15.93,
+        "original_end_s": 32.89
+      }
+    },
+    {
+      "id": "11168_11957_000018",
+      "text": "de que yo había acudido a la cita en los cuatro caminos pues eso digo yo de usted cuando habiéndonos citado a las ocho veo que usted comparece a las ocho y media de despreciar el tiempo desprecie usted también el espacio y de respetar el espacio por qué no guardarle también al tiempo un poco de consideración",
+      "audio": "test/audio/11168/11957/11168_11957_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 155.24,
+        "original_end_s": 172.04
+      }
+    },
+    {
+      "id": "11168_11957_000019",
+      "text": "pero con esa percepción con esa exactitud la vida sería imposible opina mi amigo cómo explicarle que esa exactitud y esa precisión sirven al contrario para simplificar la vida",
+      "audio": "test/audio/11168/11957/11168_11957_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 172.04,
+        "original_end_s": 184.06
+      }
+    },
+    {
+      "id": "11168_11957_000020",
+      "text": "si se fusiló a ferrer fue al contrario porque se le consideraba un sabio y un pedagogo una especie de giordano bruno de la rambla de canaletas esto además era lo lógico y si no lo lógico lo tradicional esto era lo que tenía precedentes",
+      "audio": "test/audio/11168/11957/11168_11957_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 110.21,
+        "original_end_s": 124.47
+      }
+    },
+    {
+      "id": "11168_11957_000021",
+      "text": "ustedes matan a algunos hombres pero le dan de vivir a muchos más siéntese usted y dígame en qué puedo serle útil quiere usted quizá que le recomiende algunos amigos lo haré con mucho gusto",
+      "audio": "test/audio/11168/11957/11168_11957_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 72.52,
+        "original_end_s": 83.29
+      }
+    },
+    {
+      "id": "11168_11957_000022",
+      "text": "y lo más curioso es que la indignación de mi amigo es auténtica eso de que dos hombres que se citan a las ocho tengan que reunirse a las ocho le parece algo completamente absurdo lo lógico para él es que se vean media hora tres cuartos de hora o una hora después",
+      "audio": "test/audio/11168/11957/11168_11957_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 130.74,
+        "original_end_s": 144.61
+      }
+    },
+    {
+      "id": "11168_11957_000023",
+      "text": "a qué hora almuerza usted le pregunto que a qué hora almuerzo pues a la hora en que almuerza todo el mundo a la hora de almorzar pero qué hora es la hora de almorzar para usted el mediodía la una de la tarde las dos",
+      "audio": "test/audio/11168/11957/11168_11957_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 45.34,
+        "original_end_s": 57.3
+      }
+    },
+    {
+      "id": "11168_11957_000024",
+      "text": "le parece a usted que nos veamos mañana muy bien a qué hora a cualquier hora después de almorzar por ejemplo yo le hago observar a mi amigo que eso no constituye una hora después de almorzar es algo demasiado vago demasiado elástico",
+      "audio": "test/audio/11168/11957/11168_11957_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 31.43,
+        "original_end_s": 45.34
+      }
+    },
+    {
+      "id": "11168_11957_000025",
+      "text": "vengo a verle porque me han dicho que es usted un intelectual exageraciones calumnias de mis enemigos que tienen sin duda ganas de verme en la cárcel modelo le contesté es usted de la policía",
+      "audio": "test/audio/11168/11957/11168_11957_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 34.24,
+        "original_end_s": 45.38
+      }
+    },
+    {
+      "id": "11168_11957_000026",
+      "text": "pero en fin repuso el hombre que parecía dominado por una idea fija aunque usted no sea completamente un intelectual por lo menos tendrá usted un cerebro yo me rasqué instintivamente el cráneo",
+      "audio": "test/audio/11168/11957/11168_11957_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 111.95,
+        "original_end_s": 123.29
+      }
+    },
+    {
+      "id": "11168_11957_000027",
+      "text": "si es para asesinarlo le dije me parece absurdo aunque llevara usted luego su pelleja al ministerio de la gobernación no creo que el asesinato de un intelectual pudiese producirle siquiera lo necesario para cubrir gastos los intelectuales en este país se cotizan a menos que los conejos",
+      "audio": "test/audio/11168/11957/11168_11957_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 95.33,
+        "original_end_s": 111.95
+      }
+    },
+    {
+      "id": "11168_11957_000028",
+      "text": "yo creo que los españoles como tales españoles no tenemos voto en este asunto ferrer era español pero nosotros no quisimos que siguiera siéndolo y para conseguirlo lo hemos fusilado desde que lo fusilamos ferrer dejó de ser uno de los nuestros",
+      "audio": "test/audio/11168/11957/11168_11957_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 32.89,
+        "original_end_s": 46.08
+      }
+    },
+    {
+      "id": "11168_11957_000029",
+      "text": "mi visitante se dejó caer en una butaca yo venía en busca de un intelectual exclamó y usted niega serlo esto me contraría considerablemente necesito un intelectual a todo trance",
+      "audio": "test/audio/11168/11957/11168_11957_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 83.29,
+        "original_end_s": 95.33
+      }
+    },
+    {
+      "id": "11168_11957_000030",
+      "text": "no hay derecho exclama días después al encontrarme en la calle me hace usted fijar una hora me hace usted correr y resulta que no me aguarda usted ni diez minutos a las ocho y media en punto yo estaba en el café",
+      "audio": "test/audio/11168/11957/11168_11957_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 119.33,
+        "original_end_s": 130.74
+      }
+    },
+    {
+      "id": "11168_11957_000031",
+      "text": "en tiempos del señor lombroso teníamos en efecto unos cerebros especiales y cuando queríamos trabajar buscábamos de acuerdo con nuestros gustos particulares o según la inspiración del momento un hacha un cuchillo un revólver o una maza hoy en cambio buscamos un cerebro",
+      "audio": "test/audio/11168/11957/11168_11957_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 148.42,
+        "original_end_s": 163.89
+      }
+    },
+    {
+      "id": "11168_11957_000032",
+      "text": "yo quiero puntualizar digamos a las cinco a las cinco muy bien a las cinco es decir de cinco a cinco y media uno no es un tren qué diablos supóngase usted que me rompo una pierna pues citémonos para las cinco y media propongo yo entonces a mi amigo se le ocurre una idea genial por qué no nos citamos a la hora del aperitivo sugiere",
+      "audio": "test/audio/11168/11957/11168_11957_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 83.15,
+        "original_end_s": 102.86
+      }
+    },
+    {
+      "id": "11168_11957_000033",
+      "text": "pero fíjese usted bien le digo una cita es una cosa que tiene que estar tan limitada en el tiempo como el espacio qué diría usted si habiéndose citado conmigo en puerta del sol se enterase",
+      "audio": "test/audio/11168/11957/11168_11957_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 144.61,
+        "original_end_s": 155.24
+      }
+    },
+    {
+      "id": "11168_11957_000034",
+      "text": "puede con poco esfuerzo producir ingresos suficientes para cubrir todas las necesidades de un buen padre de familia conque asesino exclamé yo con una amabilidad que quizá no fuese completamente espontánea muy interesante",
+      "audio": "test/audio/11168/11957/11168_11957_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
+        "original_start_s": 59.12,
+        "original_end_s": 72.52
+      }
+    },
+    {
+      "id": "11168_11957_000035",
+      "text": "yo le hice en tiempo oportuno una prudente advertencia al sr maura por medio de un artículo que los ferreristas interpretaron por cierto bastante mal que no se fusile a ferrer decía yo",
+      "audio": "test/audio/11168/11957/11168_11957_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 124.47,
+        "original_end_s": 135.96
+      }
+    },
+    {
+      "id": "11168_11957_000036",
+      "text": "y hoy qué nos importa el que su cadáver suscite por ahí simpatías o antipatías al fusilarlo nosotros hemos roto con el señor ferrer toda solidaridad que actualmente ferrer nos denigra en bruselas pero cómo puede denigrarnos un muerto y si un muerto puede denigrarnos entonces no habremos cometido una ligereza al matar a ferrer",
+      "audio": "test/audio/11168/11957/11168_11957_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
+        "original_start_s": 46.08,
+        "original_end_s": 64.77
+      }
+    },
+    {
+      "id": "11168_11957_000037",
+      "text": "claro que si me retraso unos minutos añade usted me esperará quien dice a las cuatro dice a las cuatro y cuarto o cuatro y media en fin de cuatro a cinco yo estaré sin faltar en el café le parece a usted",
+      "audio": "test/audio/11168/11957/11168_11957_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "11957",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
+        "original_start_s": 71.15,
+        "original_end_s": 83.15
+      }
+    }
+  ]
+}

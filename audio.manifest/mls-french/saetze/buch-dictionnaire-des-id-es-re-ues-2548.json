@@ -1,0 +1,1264 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Dictionnaire des idées reçues",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "2548",
+    "book_title": "Dictionnaire des idées reçues",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1406_2548_000000",
+      "text": "radicalisme d'autant plus dangereux qu'il est latent la république nous mène au radicalisme ramoneur hirondelle de l'hiver rate autrefois on l'enlevait au coureur",
+      "audio": "test/audio/1406/2548/1406_2548_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 42.03,
+        "original_end_s": 57.3
+      }
+    },
+    {
+      "id": "1406_2548_000001",
+      "text": "est nécessaire pour le peuple cependant pas trop n'en faut la religion de nos pères doit se dire avec onction républicains les républicains ne sont pas tous des voleurs mais les voleurs sont tous républicains",
+      "audio": "test/audio/1406/2548/1406_2548_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 72.4,
+        "original_end_s": 86.81
+      }
+    },
+    {
+      "id": "1406_2548_000002",
+      "text": "jarretière doit toujours se porter au-dessus du genou quand on appartient au grand monde au-dessous pour les femmes du peuple une femme ne doit jamais négliger ce détail de toilette il y a tant d'impertinents en ce monde",
+      "audio": "test/audio/1406/2548/1406_2548_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 61.81,
+        "original_end_s": 74.5
+      }
+    },
+    {
+      "id": "1406_2548_000003",
+      "text": "jujube on ne sait pas avec quoi c'est fait jury s'évertuer à ne pas en être justice ne jamais s'en inquiéter fin de la lettre j",
+      "audio": "test/audio/1406/2548/1406_2548_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 219.74,
+        "original_end_s": 233.82
+      }
+    },
+    {
+      "id": "1406_2548_000004",
+      "text": "rince bouche signe de richesse dans une maison rire toujours homérique robe inspire le respect romances le chanteur de romances plaît aux dames",
+      "audio": "test/audio/1406/2548/1406_2548_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 116.22,
+        "original_end_s": 134.21
+      }
+    },
+    {
+      "id": "1406_2548_000005",
+      "text": "jouets devraient toujours être scientifiques jouissance mot obscène jour il y a les jours de monsieur le jour de barbe le jour de médecine et cetera il y a ceux de madame qu'elle appelle critiques à certaines époques du mois",
+      "audio": "test/audio/1406/2548/1406_2548_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 167.33,
+        "original_end_s": 184.19
+      }
+    },
+    {
+      "id": "1406_2548_000006",
+      "text": "jaspe tous les vases des musées sont en jaspe javelot vaut bien un fusil quand on sait s'en servir jésuites ont la main dans toutes les révolutions on ne se doute pas du nombre qu'il y en a ne point parler de la bataille des jésuites",
+      "audio": "test/audio/1406/2548/1406_2548_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 74.5,
+        "original_end_s": 92.95
+      }
+    },
+    {
+      "id": "1406_2548_000007",
+      "text": "marquer quelques passages au crayon rouge produit aussi un très bon effet lire le matin un article de ces feuilles sérieuses et graves et le soir en société amener adroitement la conversation sur le sujet étudié afin de pouvoir briller juif fils d'israël les juifs sont tous des marchands de lorgnettes",
+      "audio": "test/audio/1406/2548/1406_2548_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 201.01,
+        "original_end_s": 219.74
+      }
+    },
+    {
+      "id": "1406_2548_000008",
+      "text": "jardins anglais plus naturels que les jardins à la française jarnac coup de s'indigner contre ce coup qui du reste était fort loyal",
+      "audio": "test/audio/1406/2548/1406_2548_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 50.46,
+        "original_end_s": 61.81
+      }
+    },
+    {
+      "id": "1406_2548_000009",
+      "text": "rousses voir blondes brunes et négresses ruines font rêver et donnent de la poésie à un paysage",
+      "audio": "test/audio/1406/2548/1406_2548_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 162.95,
+        "original_end_s": 173.01
+      }
+    },
+    {
+      "id": "1406_2548_000010",
+      "text": "john bull quand on ne sait pas le nom d'un anglais on l'appelle john bull joie la mère des jeux et des ris on ne doit pas parler de ses filles",
+      "audio": "test/audio/1406/2548/1406_2548_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 145.36,
+        "original_end_s": 156.28
+      }
+    },
+    {
+      "id": "1406_2548_000011",
+      "text": "joli s'emploie pour tout ce qui est beau c'est joliment joli est le comble de l'admiration jonc une canne doit être en jonc",
+      "audio": "test/audio/1406/2548/1406_2548_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 156.28,
+        "original_end_s": 167.33
+      }
+    },
+    {
+      "id": "1406_2548_000012",
+      "text": "ratelier troisième dentition prendre garde de l'avaler en dormant reconnaissance n'a pas besoin d'être exprimée religion la fait partie des bases de la société",
+      "audio": "test/audio/1406/2548/1406_2548_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 57.3,
+        "original_end_s": 72.4
+      }
+    },
+    {
+      "id": "1406_2548_000013",
+      "text": "ronsard ridicule avec ses mots grecs et latins rousseau croire que j j rousseau et j b rousseau sont les deux frères comme l'étaient les deux corneille",
+      "audio": "test/audio/1406/2548/1406_2548_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 150.71,
+        "original_end_s": 162.95
+      }
+    },
+    {
+      "id": "1406_2548_000014",
+      "text": "jeu s'indigner contre cette fatale passion jeune fille articuler ce mot timidement toutes les jeunes filles sont pâles et frêles toujours pures éviter pour elles toute espèce de livres les visites dans les musées les théâtres et surtout le jardin des plantes côté singes",
+      "audio": "test/audio/1406/2548/1406_2548_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 92.95,
+        "original_end_s": 112.09
+      }
+    },
+    {
+      "id": "1406_2548_000015",
+      "text": "question la poser c'est la résoudre racine polisson radeau toujours de la méduse",
+      "audio": "test/audio/1406/2548/1406_2548_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 31.41,
+        "original_end_s": 42.03
+      }
+    },
+    {
+      "id": "1406_2548_000016",
+      "text": "o gioventù primavera della vita jockey déplorer la race des jockeys jockey-club ses membres sont tous des jeunes gens farceurs et très riches dire simplement le jockey très chic donne à croire qu'on en fait partie",
+      "audio": "test/audio/1406/2548/1406_2548_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
+        "original_start_s": 127.79,
+        "original_end_s": 145.36
+      }
+    },
+    {
+      "id": "1406_2548_000017",
+      "text": "restaurant on doit toujours y demander les mets qu'on ne mange pas habituellement chez soi quand on est embarrassé il suffit de choisir les plats que l'on sert aux voisins rêvasserie les idées élevées qu'on ne comprend pas réveillon c'est le boudin qui constitue le réveillon",
+      "audio": "test/audio/1406/2548/1406_2548_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 86.81,
+        "original_end_s": 106.0
+      }
+    },
+    {
+      "id": "1406_2548_000018",
+      "text": "romans pervertissent les masses sont moins immoraux en feuilletons qu'en volumes seuls les romans historiques peuvent être tolérés parce qu'ils enseignent l'histoire il y a des romans écrits avec la pointe d'un scalpel d'autres qui reposent sur la pointe d'une aiguille",
+      "audio": "test/audio/1406/2548/1406_2548_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1406",
+        "gender": "m",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
+        "original_start_s": 134.21,
+        "original_end_s": 150.71
+      }
+    },
+    {
+      "id": "2154_2548_000000",
+      "text": "talleyrand prince de s'indigner contre tartane viens dans ma tartane belle grecque à l'oeil noir romance",
+      "audio": "test/audio/2154/2548/2154_2548_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 50.28,
+        "original_end_s": 64.5
+      }
+    },
+    {
+      "id": "2154_2548_000001",
+      "text": "saint-barthélemy vieille blague sainte-beuve le vendredi saint dînait exclusivement de charcuterie",
+      "audio": "test/audio/2154/2548/2154_2548_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 62.15,
+        "original_end_s": 73.79
+      }
+    },
+    {
+      "id": "2154_2548_000002",
+      "text": "ses ennemis ce qui cause sa perte sombreuil mlle de rappeler le verre de sang",
+      "audio": "test/audio/2154/2548/2154_2548_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 192.47,
+        "original_end_s": 203.27
+      }
+    },
+    {
+      "id": "2154_2548_000003",
+      "text": "soupers de la régence on y dépensait encore plus d'esprit que de champagne soupir doit s'exhaler près d'une femme",
+      "audio": "test/audio/2154/2548/2154_2548_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 218.05,
+        "original_end_s": 231.57
+      }
+    },
+    {
+      "id": "2154_2548_000004",
+      "text": "terre dire les quatre coins de la terre puisqu'elle est ronde thème au collège prouve l'application comme la version prouve l'intelligence mais dans le monde il faut rire des forts en thème",
+      "audio": "test/audio/2154/2548/2154_2548_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 96.44,
+        "original_end_s": 115.63
+      }
+    },
+    {
+      "id": "2154_2548_000005",
+      "text": "scudéry on doit le blaguer sans savoir si c'était un homme ou une femme sénèque ecrivait sur un pupitre d'or serpent tous venimeux",
+      "audio": "test/audio/2154/2548/2154_2548_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 146.35,
+        "original_end_s": 163.1
+      }
+    },
+    {
+      "id": "2154_2548_000006",
+      "text": "tour indispensable à avoir dans son grenier à la campagne pour les jours de pluie transpiration des pieds signe de santé",
+      "audio": "test/audio/2154/2548/2154_2548_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 129.95,
+        "original_end_s": 144.62
+      }
+    },
+    {
+      "id": "2154_2548_000007",
+      "text": "témoin il faut toujours refuser d'être témoin en justice on ne sait pas où ça peut mener temps éternel sujet de conversation cause universelle des maladies toujours s'en plaindre",
+      "audio": "test/audio/2154/2548/2154_2548_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 77.53,
+        "original_end_s": 96.44
+      }
+    },
+    {
+      "id": "2154_2548_000008",
+      "text": "sabots un homme riche qui a eu des commencements difficiles est toujours venu à paris en sabots sabre les français veulent être gouvernés par le sabre",
+      "audio": "test/audio/2154/2548/2154_2548_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 29.46,
+        "original_end_s": 44.41
+      }
+    },
+    {
+      "id": "2154_2548_000009",
+      "text": "sacerdoce l'art la médecine et cetera sont des sacerdoces sacrilège c'est un sacrilège d'abattre un arbre saigner se faire saigner au printemps",
+      "audio": "test/audio/2154/2548/2154_2548_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 44.41,
+        "original_end_s": 62.15
+      }
+    },
+    {
+      "id": "2154_2548_000010",
+      "text": "taupe aveugle comme une taupe et cependant elle a des yeux taureau le père du veau le boeuf n'est que l'oncle",
+      "audio": "test/audio/2154/2548/2154_2548_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 64.5,
+        "original_end_s": 77.53
+      }
+    },
+    {
+      "id": "2154_2548_000011",
+      "text": "faire le début littéraire qui pose très bien son homme salutations toujours empressées santé trop de santé cause de maladie",
+      "audio": "test/audio/2154/2548/2154_2548_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 83.96,
+        "original_end_s": 101.75
+      }
+    },
+    {
+      "id": "2154_2548_000012",
+      "text": "ou bien s'il y a des dames de demander si l'une d'elles n'est pas enceinte troubadour beau sujet de pendule",
+      "audio": "test/audio/2154/2548/2154_2548_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 158.96,
+        "original_end_s": 170.87
+      }
+    },
+    {
+      "id": "2154_2548_000013",
+      "text": "sainte-hélène île connue par son rocher salière la renverser porte malheur",
+      "audio": "test/audio/2154/2548/2154_2548_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 73.79,
+        "original_end_s": 83.96
+      }
+    },
+    {
+      "id": "2154_2548_000014",
+      "text": "treize éviter d'être treize à table ça porte malheur les esprits forts ne devront jamais manquer de plaisanter qu'est-ce que ça fait je mangerai pour deux",
+      "audio": "test/audio/2154/2548/2154_2548_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 144.62,
+        "original_end_s": 158.96
+      }
+    },
+    {
+      "id": "2154_2548_000015",
+      "text": "suffrage universel dernier terme de la science politique suicide preuve de",
+      "audio": "test/audio/2154/2548/2154_2548_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 247.06,
+        "original_end_s": 257.89
+      }
+    },
+    {
+      "id": "2154_2548_000016",
+      "text": "sommeil épaissit le sang soufflet ne jamais s'en servir somnambule se promène la nuit sur la crête des toits",
+      "audio": "test/audio/2154/2548/2154_2548_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 203.27,
+        "original_end_s": 218.05
+      }
+    },
+    {
+      "id": "2154_2548_000017",
+      "text": "toilette des dames trouble l'imagination tolérance maison de n'est pas celle où l'on a des opinions tolérantes",
+      "audio": "test/audio/2154/2548/2154_2548_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 115.63,
+        "original_end_s": 129.95
+      }
+    },
+    {
+      "id": "2154_2548_000018",
+      "text": "spiritualisme le meilleur système de philosophie stoïcisme est impossible stuart marie s'apitoyer sur son sort",
+      "audio": "test/audio/2154/2548/2154_2548_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 231.57,
+        "original_end_s": 247.06
+      }
+    },
+    {
+      "id": "2154_2548_000019",
+      "text": "fin de la lettre s",
+      "audio": "test/audio/2154/2548/2154_2548_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
+        "original_start_s": 170.87,
+        "original_end_s": 181.84
+      }
+    },
+    {
+      "id": "2154_2548_000020",
+      "text": "sbire s'emploie par les républicains farouches pour désigner les agents de police science un peu de science écarte de la religion et beaucoup y ramène",
+      "audio": "test/audio/2154/2548/2154_2548_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 130.19,
+        "original_end_s": 146.35
+      }
+    },
+    {
+      "id": "2154_2548_000021",
+      "text": "saphique et adonique vers produit un excellent effet dans un article de littérature satrape",
+      "audio": "test/audio/2154/2548/2154_2548_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 101.75,
+        "original_end_s": 113.29
+      }
+    },
+    {
+      "id": "2154_2548_000022",
+      "text": "sybarites tonner contre syphilis plus ou moins tout le monde en est affecté",
+      "audio": "test/audio/2154/2548/2154_2548_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 257.89,
+        "original_end_s": 269.32
+      }
+    },
+    {
+      "id": "2154_2548_000023",
+      "text": "fin de la lettre s",
+      "audio": "test/audio/2154/2548/2154_2548_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 269.32,
+        "original_end_s": 280.29
+      }
+    },
+    {
+      "id": "2154_2548_000024",
+      "text": "séville célèbre endroit pour son barbier voir séville et mourir voir naples site endroits pour faire des vers société",
+      "audio": "test/audio/2154/2548/2154_2548_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 176.39,
+        "original_end_s": 192.47
+      }
+    },
+    {
+      "id": "2154_2548_000025",
+      "text": "service c'est rendre service aux enfants que de les calotter aux animaux que de les battre aux domestiques que de les chasser aux malfaiteurs que de les punir",
+      "audio": "test/audio/2154/2548/2154_2548_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 163.1,
+        "original_end_s": 176.39
+      }
+    },
+    {
+      "id": "2154_2548_000026",
+      "text": "homme riche et débauché saturnales fêtes du directoire savants les blaguer pour être savant il ne faut que de la mémoire et du travail",
+      "audio": "test/audio/2154/2548/2154_2548_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
+        "original_start_s": 113.29,
+        "original_end_s": 130.19
+      }
+    },
+    {
+      "id": "579_2548_000000",
+      "text": "port-royal sujet de conversation très bien porté pourpre mot plus noble que rouge",
+      "audio": "dev/audio/579/2548/579_2548_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 354.38,
+        "original_end_s": 367.25
+      }
+    },
+    {
+      "id": "579_2548_000001",
+      "text": "pérou pays où tout est en or peur donne des ailes",
+      "audio": "dev/audio/579/2548/579_2548_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 212.82,
+        "original_end_s": 223.06
+      }
+    },
+    {
+      "id": "579_2548_000002",
+      "text": "philosophie toujours en ricaner photographie détrônera la peinture voir daguerréotype",
+      "audio": "dev/audio/579/2548/579_2548_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 250.85,
+        "original_end_s": 265.08
+      }
+    },
+    {
+      "id": "579_2548_000003",
+      "text": "néologisme la perte de la langue française nerveux se dit à chaque fois qu'on ne comprend rien à une maladie cette explication satisfait l'auditeur",
+      "audio": "dev/audio/579/2548/579_2548_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 124.81,
+        "original_end_s": 143.24
+      }
+    },
+    {
+      "id": "579_2548_000004",
+      "text": "parallèle on ne doit choisir qu'entre les suivants césar et pompée horace et virgile voltaire et rousseau napoléon et charlemagne goethe et schiller bayard et",
+      "audio": "dev/audio/579/2548/579_2548_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 81.34,
+        "original_end_s": 100.23
+      }
+    },
+    {
+      "id": "579_2548_000005",
+      "text": "police a toujours tort ponsard seul poète qui ait eu du bon sens",
+      "audio": "dev/audio/579/2548/579_2548_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 330.41,
+        "original_end_s": 341.26
+      }
+    },
+    {
+      "id": "579_2548_000006",
+      "text": "paris la grande prostituée paradis des femmes enfer des chevaux parrain toujours le père du filleul",
+      "audio": "dev/audio/579/2548/579_2548_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 117.05,
+        "original_end_s": 130.88
+      }
+    },
+    {
+      "id": "579_2548_000007",
+      "text": "paganini n'accordait jamais son violon célèbre par la longueur de ses doigts pain on ne sait pas toutes les saletés qu'il y a dans le pain",
+      "audio": "dev/audio/579/2548/579_2548_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 29.93,
+        "original_end_s": 45.18
+      }
+    },
+    {
+      "id": "579_2548_000008",
+      "text": "palladium forteresse de l'antiquité palmier donne de la couleur locale palmyre une reine d'egypte des ruines on ne sait pas",
+      "audio": "dev/audio/579/2548/579_2548_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 45.18,
+        "original_end_s": 64.99
+      }
+    },
+    {
+      "id": "579_2548_000009",
+      "text": "pédérastie maladie dont tous les hommes sont affectés à un certain âge peinture sur verre le secret en est perdu",
+      "audio": "dev/audio/579/2548/579_2548_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 164.02,
+        "original_end_s": 179.08
+      }
+    },
+    {
+      "id": "579_2548_000010",
+      "text": "enregistré par christine dictionnaire des idées reçues de gustave flaubert lettre p",
+      "audio": "dev/audio/579/2548/579_2548_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 19.78,
+        "original_end_s": 29.93
+      }
+    },
+    {
+      "id": "579_2548_000011",
+      "text": "pucelle ne s'emploie que pour jeanne d'arc et avec d'orléans pudeur le plus bel ornement de la femme",
+      "audio": "dev/audio/579/2548/579_2548_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 489.49,
+        "original_end_s": 501.55
+      }
+    },
+    {
+      "id": "579_2548_000012",
+      "text": "pélican se perce les flancs pour nourrir ses petits emblème du père de famille penser pénible les choses qui nous y forcent sont généralement délaissées",
+      "audio": "dev/audio/579/2548/579_2548_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 179.08,
+        "original_end_s": 198.01
+      }
+    },
+    {
+      "id": "579_2548_000013",
+      "text": "paraphe plus il est compliqué plus il est beau parents toujours désagréables cacher ceux qui ne sont pas riches",
+      "audio": "dev/audio/579/2548/579_2548_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 100.23,
+        "original_end_s": 117.05
+      }
+    },
+    {
+      "id": "579_2548_000014",
+      "text": "nature que c'est beau la nature a dire chaque fois qu'on se trouve à la campagne navigateur toujours hardi",
+      "audio": "dev/audio/579/2548/579_2548_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 67.11,
+        "original_end_s": 81.44
+      }
+    },
+    {
+      "id": "579_2548_000015",
+      "text": "piano indispensable dans un salon pigeon ne doit se manger qu'avec des petits pois pipe pas comme il faut sauf aux bains de mer",
+      "audio": "dev/audio/579/2548/579_2548_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 265.08,
+        "original_end_s": 283.3
+      }
+    },
+    {
+      "id": "579_2548_000016",
+      "text": "philippe d'orléans égalité tonner contre encore une des causes de la révolution a commis tous les crimes de cette époque néfaste",
+      "audio": "dev/audio/579/2548/579_2548_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 236.47,
+        "original_end_s": 250.85
+      }
+    },
+    {
+      "id": "579_2548_000017",
+      "text": "professeur toujours savant progrès toujours mal entendu et trop hâtif",
+      "audio": "dev/audio/579/2548/579_2548_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 428.31,
+        "original_end_s": 439.5
+      }
+    },
+    {
+      "id": "579_2548_000018",
+      "text": "plante guérit toujours les parties du corps humain auxquelles elle ressemble plique polonaise si on coupe les cheveux ils saignent",
+      "audio": "dev/audio/579/2548/579_2548_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 299.56,
+        "original_end_s": 314.67
+      }
+    },
+    {
+      "id": "579_2548_000019",
+      "text": "normands croire qu'ils prononcent des hâvresâcs et les blaguer sur le bonnet de coton notaires maintenant ne",
+      "audio": "dev/audio/579/2548/579_2548_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 173.09,
+        "original_end_s": 189.98
+      }
+    },
+    {
+      "id": "579_2548_000020",
+      "text": "préoccupation est d'autant plus vive qu'étant profondément absorbé on reste immobile prêtres",
+      "audio": "dev/audio/579/2548/579_2548_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 385.72,
+        "original_end_s": 397.29
+      }
+    },
+    {
+      "id": "579_2548_000021",
+      "text": "promenade toujours faire une promenade après dîner ça facilite la digestion propriétaire les humains se divisent en deux classes les propriétaires et les locataires",
+      "audio": "dev/audio/579/2548/579_2548_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 439.5,
+        "original_end_s": 458.51
+      }
+    },
+    {
+      "id": "579_2548_000022",
+      "text": "pensionnat dites boarding school quand c'est un pensionnat de jeunes filles permuter le seul verbe conjugué par les militaires",
+      "audio": "dev/audio/579/2548/579_2548_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 198.01,
+        "original_end_s": 212.82
+      }
+    },
+    {
+      "id": "579_2548_000023",
+      "text": "nègre il faut parler nègre pour se faire comprendre d'un étranger quelle que soit sa nationalité s'emploie aussi dans le style télégraphique",
+      "audio": "dev/audio/579/2548/579_2548_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 93.2,
+        "original_end_s": 106.89
+      }
+    },
+    {
+      "id": "579_2548_000024",
+      "text": "navire on ne les construit bien qu'à bayonne nectar le confondre avec l'ambroisie",
+      "audio": "dev/audio/579/2548/579_2548_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 81.44,
+        "original_end_s": 93.2
+      }
+    },
+    {
+      "id": "579_2548_000025",
+      "text": "phaéton inventeur des voitures de ce nom phénix beau nom pour une compagnie d'assurances contre l'incendie",
+      "audio": "dev/audio/579/2548/579_2548_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 223.06,
+        "original_end_s": 236.47
+      }
+    },
+    {
+      "id": "579_2548_000026",
+      "text": "on devrait les châtrer couchent avec leurs bonnes et en ont des enfants qu'ils appellent leurs neveux c'est égal il y en a de bons tout de même",
+      "audio": "dev/audio/579/2548/579_2548_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 397.29,
+        "original_end_s": 409.82
+      }
+    },
+    {
+      "id": "579_2548_000027",
+      "text": "punch convient à une soirée de garçons source de délire eteindre les lumières quand on l'allume et ça produit des flammes fantastiques",
+      "audio": "dev/audio/579/2548/579_2548_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 501.55,
+        "original_end_s": 516.4
+      }
+    },
+    {
+      "id": "579_2548_000028",
+      "text": "panthéisme tonner contre absurde paradoxe se dit toujours sur le boulevards des italiens entre deux bouffées de cigarette",
+      "audio": "dev/audio/579/2548/579_2548_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 64.99,
+        "original_end_s": 81.34
+      }
+    },
+    {
+      "id": "579_2548_000029",
+      "text": "parties sont honteuses pour les uns naturelles pour les autres pauvres s'en occuper tient lieu de toutes les vertus",
+      "audio": "dev/audio/579/2548/579_2548_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 130.88,
+        "original_end_s": 146.52
+      }
+    },
+    {
+      "id": "579_2548_000030",
+      "text": "nègres s'étonner que leur salive soit blanche et de ce qu'ils parlent français nègresses plus chaudes que les blanches",
+      "audio": "dev/audio/579/2548/579_2548_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 106.89,
+        "original_end_s": 124.81
+      }
+    },
+    {
+      "id": "579_2548_000031",
+      "text": "noblesse la mépriser et l'envier noeud gordien a rapport à l'antiquité manière des anciens de nouer leur cravate",
+      "audio": "dev/audio/579/2548/579_2548_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 143.24,
+        "original_end_s": 160.24
+      }
+    },
+    {
+      "id": "579_2548_000032",
+      "text": "propriété une des bases de la société plus sacrée que la religion providence que deviendrons nous sans elle",
+      "audio": "dev/audio/579/2548/579_2548_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 458.51,
+        "original_end_s": 473.22
+      }
+    },
+    {
+      "id": "579_2548_000033",
+      "text": "poésie la est tout à fait inutile passée de mode poète synonyme noble de nigaud rêveur",
+      "audio": "dev/audio/579/2548/579_2548_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 314.67,
+        "original_end_s": 330.41
+      }
+    },
+    {
+      "id": "579_2548_000034",
+      "text": "nourritures toujours saine et abondante dans les collèges numismatique a rapport aux hautes sciences inspire un immense respect",
+      "audio": "dev/audio/579/2548/579_2548_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 189.98,
+        "original_end_s": 207.39
+      }
+    },
+    {
+      "id": "579_2548_000035",
+      "text": "paysages de peintres toujours des plats d'épinards pédantisme doit être bafoué si ce n'est quand il s'applique à des choses légères",
+      "audio": "dev/audio/579/2548/579_2548_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 146.52,
+        "original_end_s": 164.02
+      }
+    },
+    {
+      "id": "579_2548_000036",
+      "text": "nacelle tout batelet qui porte une femme viens dans ma nacelle nain raconter l'histoire du général tom pouce et si on lui a serré la main le dire avec orgueil",
+      "audio": "dev/audio/579/2548/579_2548_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 29.83,
+        "original_end_s": 48.85
+      }
+    },
+    {
+      "id": "579_2548_000037",
+      "text": "priapisme culte de l'antiquité principes toujours indiscutables on ne peut en dire ni la nature ni le nombre n'importe sont sacrés",
+      "audio": "dev/audio/579/2548/579_2548_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 409.82,
+        "original_end_s": 428.31
+      }
+    },
+    {
+      "id": "579_2548_000038",
+      "text": "popilius inventeur d'une espèce de cercle portefeuille en avoir un sous le bras donne l'air d'un ministre",
+      "audio": "dev/audio/579/2548/579_2548_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 341.26,
+        "original_end_s": 354.38
+      }
+    },
+    {
+      "id": "579_2548_000039",
+      "text": "pitié toujours s'en garder place toujours en demander une planètes toutes découvertes par m leverrier",
+      "audio": "dev/audio/579/2548/579_2548_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 283.3,
+        "original_end_s": 299.56
+      }
+    },
+    {
+      "id": "579_2548_000040",
+      "text": "naples si vous causez avec des savants dire parthénope voir naples et mourir voir yvetot narines relevées signe de lubricité",
+      "audio": "dev/audio/579/2548/579_2548_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
+        "original_start_s": 48.85,
+        "original_end_s": 67.11
+      }
+    },
+    {
+      "id": "579_2548_000041",
+      "text": "pradon ne pas lui pardonner d'avoir été l'émule de racine pragmatique sanction on ne sait pas ce que c'est pratique supérieure à la théorie",
+      "audio": "dev/audio/579/2548/579_2548_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 367.25,
+        "original_end_s": 385.72
+      }
+    },
+    {
+      "id": "579_2548_000042",
+      "text": "prose plus facile à faire que les vers pruneaux tiennent le ventre libre publicité source de fortune",
+      "audio": "dev/audio/579/2548/579_2548_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-579",
+        "gender": "w",
+        "book_id": "2548",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
+        "original_start_s": 473.22,
+        "original_end_s": 489.49
+      }
+    }
+  ]
+}

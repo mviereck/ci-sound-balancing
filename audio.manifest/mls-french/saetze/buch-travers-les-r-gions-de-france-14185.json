@@ -1,0 +1,536 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "À travers les régions de France",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "14185",
+    "book_title": "À travers les régions de France",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10087_14185_000000",
+      "text": "les découvertes et les rêveries de l'orient a senti longtemps le fagot raffineuse de soufre fabricante de vert-de-gris de produits chimiques et pharmaceutiques d'élixirs et de poisons elle fut un foyer d'opinions et de pratiques mal vues qui avaient un vague parfum d'hérésie voire de sorcellerie",
+      "audio": "dev/audio/10087/14185/10087_14185_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 323.17,
+        "original_end_s": 342.77
+      }
+    },
+    {
+      "id": "10087_14185_000001",
+      "text": "nous traversons une large plaine encerclée de montagnes modérées qui fut jadis le bas languedoc et qui se relève brusquement avec les vallées abruptes du roussillon",
+      "audio": "dev/audio/10087/14185/10087_14185_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 36.74,
+        "original_end_s": 47.33
+      }
+    },
+    {
+      "id": "10087_14185_000002",
+      "text": "mais les villes n'y ressemblent pas à ces nids de riches oisifs qui sont tant de bourgades provençales sauf béziers la bien située aigues-mortes la bien conservée",
+      "audio": "dev/audio/10087/14185/10087_14185_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 264.38,
+        "original_end_s": 275.41
+      }
+    },
+    {
+      "id": "10087_14185_000003",
+      "text": "l'hérault l'aude le têt le tech et quand on remonte les routes poudreuses qui mènent vers les hauteurs de grands troupeaux de moutons des pasquiers ou pâquis sillonnés de canaux d'irrigation comme en provence encore des souvenirs grecs romains sarrasins sète et agde",
+      "audio": "dev/audio/10087/14185/10087_14185_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 74.57,
+        "original_end_s": 93.98
+      }
+    },
+    {
+      "id": "10087_14185_000004",
+      "text": "fabre d'eglantine l'inventeur du calendrier républicain et l'auteur de il pleut bergère naquit à carcassonne comme armand barbes que proudhon surnomma le bayard de la démocratie",
+      "audio": "dev/audio/10087/14185/10087_14185_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 402.67,
+        "original_end_s": 416.02
+      }
+    },
+    {
+      "id": "10087_14185_000005",
+      "text": "n'était-il pas du pays ce médecin et alchimiste du treizième siècle arnaud de villeneuve qui propagea par le monde comme un remède à toutes les maladies cette liqueur ardente et dangereuse qu'il baptisait eau-de-vie",
+      "audio": "dev/audio/10087/14185/10087_14185_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 202.47,
+        "original_end_s": 217.15
+      }
+    },
+    {
+      "id": "10087_14185_000006",
+      "text": "s'il en faut croire ces vers de lefranc de pompignan visitant en dix-sept-cent-quarante l'abbaye de villemagne près de pézenas nos moines sont de bons vivants l'un pour l'autre fort indulgents",
+      "audio": "dev/audio/10087/14185/10087_14185_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 431.53,
+        "original_end_s": 445.31
+      }
+    },
+    {
+      "id": "10087_14185_000007",
+      "text": "des tours du maure éparses çà et là des édifices des églises même qui ont quelques traits de l'architecture arabe disent aussi que ce fut un champ de bataille entre chrétiens et musulmans",
+      "audio": "dev/audio/10087/14185/10087_14185_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 117.97,
+        "original_end_s": 129.93
+      }
+    },
+    {
+      "id": "10087_14185_000008",
+      "text": "les ports d'autrefois comme aigues-mortes où saint louis s'embarqua pour la croisade sont à l'heure qu'il est en pleine terre narbonne a vu envahir par la vase ses bassins où abordaient les vaisseaux",
+      "audio": "dev/audio/10087/14185/10087_14185_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 146.26,
+        "original_end_s": 159.0
+      }
+    },
+    {
+      "id": "10087_14185_000009",
+      "text": "le dix-huitième siècle me paraît avoir été l'époque où les hommes remarquables ont le plus vigoureusement poussé sur ce sol vigoureux en ce pays de pensée hardie et volontiers frondeuse la dévotion devient de bonne heure assez gaillarde",
+      "audio": "dev/audio/10087/14185/10087_14185_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 416.02,
+        "original_end_s": 431.53
+      }
+    },
+    {
+      "id": "10087_14185_000010",
+      "text": "elle a été naturellement féconde en médecins et en chirurgiens illustres la peyronie barthez l'éditeur responsable de la théorie vitaliste elle le fut aussi en artistes vien le plus connu dont louis david son élève fut peut-être le meilleur ouvrage est enterré au panthéon",
+      "audio": "dev/audio/10087/14185/10087_14185_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 342.77,
+        "original_end_s": 361.33
+      }
+    },
+    {
+      "id": "10087_14185_000011",
+      "text": "des îlots escarpés ont été rattachés au continent le sel et le salicor qui a fourni longtemps la soude aux verreries de venise sont les maigres récoltes de ce rivage changeant puis l'air les produits du sol l'esprit même de la population",
+      "audio": "dev/audio/10087/14185/10087_14185_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 159.0,
+        "original_end_s": 175.88
+      }
+    },
+    {
+      "id": "10087_14185_000012",
+      "text": "le musée fabre qu'elle possède peut passer pour un des mieux peuplés de la province française elle a aussi donné naissance à des politiques avisés et fins l'endormeur cardinal fleury le versatile cambacérès",
+      "audio": "dev/audio/10087/14185/10087_14185_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 361.33,
+        "original_end_s": 374.84
+      }
+    },
+    {
+      "id": "10087_14185_000013",
+      "text": "la noire est bâtie avec les laves d'un volcan éteint sur plusieurs points affleurent le bitume l'asphalte qui donc a dit que la france a dans les parages de collioure sa petite judée voici qu'on veut en faire la côte vermeille rivale à venir de la côte d'azur",
+      "audio": "dev/audio/10087/14185/10087_14185_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 246.35,
+        "original_end_s": 264.38
+      }
+    },
+    {
+      "id": "10087_14185_000014",
+      "text": "le bon administrateur et l'agréable littérateur daru l'habile financier de la révolution cambon en général les esprits vifs et les caractères passionnés que tente la vie publique abondent aux alentours pellisson et mairan sont natifs de béziers",
+      "audio": "dev/audio/10087/14185/10087_14185_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 374.84,
+        "original_end_s": 391.19
+      }
+    },
+    {
+      "id": "10087_14185_000015",
+      "text": "un ancêtre de mirabeau a frayé sa voie au canal des deux mers qui joint le rhône à la gironde un canal bien étroit et trop peu fréquenté mais qui pourrait le jour où les capitaux français cesseront de courir les aventures à l'étranger",
+      "audio": "dev/audio/10087/14185/10087_14185_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 572.68,
+        "original_end_s": 588.14
+      }
+    },
+    {
+      "id": "10087_14185_000016",
+      "text": "les thermes déjà fréquentés au temps où la province s'appelait la narbonaise la langue qui se parle dans les campagnes tout rappelle que le peuple roi a passé et régné par là",
+      "audio": "dev/audio/10087/14185/10087_14185_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 107.38,
+        "original_end_s": 117.97
+      }
+    },
+    {
+      "id": "10087_14185_000017",
+      "text": "au premier abord c'est semble-t-il une autre provence disposée seulement en ordre inverse des oliviers et des amandiers où crissent les cigales des chênes verts et des chênes lièges et même des recoins abrités où fleurit l'oranger",
+      "audio": "dev/audio/10087/14185/10087_14185_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 47.33,
+        "original_end_s": 63.9
+      }
+    },
+    {
+      "id": "10087_14185_000018",
+      "text": "ont je ne sais quoi de moins léger de plus robuste de plus violent que dans la région provençale les vins y sont plus forts plus épais plus colorés presque noirs parfois le raisin de roussillon tache les mains comme le sang",
+      "audio": "dev/audio/10087/14185/10087_14185_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 175.88,
+        "original_end_s": 192.36
+      }
+    },
+    {
+      "id": "10087_14185_000019",
+      "text": "perpignan dans le dédale de ses petites rues fraîches a de-ci et de-là des apparences mauresques si le portraitiste rigaud qui est un de ses enfants brilla dans la cour de louis xiv et de louis xv soler le sculpteur qui a décoré ses églises était de barcelone",
+      "audio": "dev/audio/10087/14185/10087_14185_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 470.71,
+        "original_end_s": 488.16
+      }
+    },
+    {
+      "id": "10087_14185_000020",
+      "text": "certes le pays est bien français mais il tient à l'espagne qu'il regarde et d'où lui vient le tiède autan montpellier fut sujette des rois de majorque le roussillon suivit les destinées de la catalogne",
+      "audio": "dev/audio/10087/14185/10087_14185_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 458.44,
+        "original_end_s": 470.71
+      }
+    },
+    {
+      "id": "10087_14185_000021",
+      "text": "et carcassonne dont la cité fortifiée vous donne une si nette vision de moyen âge elles n'attirent guère jusqu'ici les touristes ce sont des ruches plus laborieuses que coquettes on y travaille la laine les peaux les vins",
+      "audio": "dev/audio/10087/14185/10087_14185_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 275.41,
+        "original_end_s": 288.99
+      }
+    },
+    {
+      "id": "10087_14185_000022",
+      "text": "furent des colonies helléniques le cap de leucate doit à la langue d'homère son nom qui dit la blancheur de ses rochers port-vendres aigues-mortes elne qui vit annibal en route pour la conquête de l'italie",
+      "audio": "dev/audio/10087/14185/10087_14185_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 93.98,
+        "original_end_s": 107.38
+      }
+    },
+    {
+      "id": "10087_14185_000023",
+      "text": "les sept frères arago nés dans le voisinage du bourg d'estagel rappellent par leur nom même que l'aragon n'est pas loin je ne dirai point qu'il n'y a plus de pyrénées mais le val d'andorre cette petite république d'opéra comique sert de trait d'union entre les deux langues et les deux nations",
+      "audio": "dev/audio/10087/14185/10087_14185_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 488.16,
+        "original_end_s": 507.89
+      }
+    },
+    {
+      "id": "10087_14185_000024",
+      "text": "c'est par ce couloir qu'ont défilé les peuples allant du nord au midi et du midi au nord c'est par là que grimpent la route et le chemin de fer menant de narbonne à toulouse et à bordeaux c'est par là que paul riquet ou riqueti",
+      "audio": "dev/audio/10087/14185/10087_14185_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 557.26,
+        "original_end_s": 572.68
+      }
+    },
+    {
+      "id": "10087_14185_000025",
+      "text": "et pourtant non nous ne sommes plus en provence la côte inhospitalière au lieu de se découper en criques rocheuses qui offrent des abris aux bateaux est ourlée d'étangs et de marais malsains le sable les alluvions la modifient incessamment",
+      "audio": "dev/audio/10087/14185/10087_14185_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 129.93,
+        "original_end_s": 146.26
+      }
+    },
+    {
+      "id": "10087_14185_000026",
+      "text": "ses compatriotes n'ont pas rompu avec sa tradition pas de région en france où les vignes occupent plus d'espace où les bouilleurs de cru soient plus nombreux les distilleries plus actives",
+      "audio": "dev/audio/10087/14185/10087_14185_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 217.15,
+        "original_end_s": 229.75
+      }
+    },
+    {
+      "id": "10087_14185_000027",
+      "text": "il y a toute une vie pastorale et primitive qui se soucie peu des frontières politiques puycerda la capitale de la cerdagne espagnole n'est qu'à deux kilomètres de la ligne idéale qu'ont tracée les traités",
+      "audio": "dev/audio/10087/14185/10087_14185_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 527.17,
+        "original_end_s": 539.97
+      }
+    },
+    {
+      "id": "10087_14185_000028",
+      "text": "et ce n'est pas le seul point où la barrière soit entre elles incertaine et fragile au pied du canigou qui se dresse à deux mille sept cent quatre vingt cinq mètres des passages s'abaissent jusqu'à deux cent quatre vingt dix mètres bergers et moutons contrebandiers et chasseurs vont aisément d'un versant à l'autre",
+      "audio": "dev/audio/10087/14185/10087_14185_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 507.89,
+        "original_end_s": 527.17
+      }
+    },
+    {
+      "id": "10087_14185_000029",
+      "text": "pour se rabattre sur les entreprises nationales devenir une large coupure de ce qu'un vieux géographe appelait l'isthme gaulois un précieux raccourci offert aux vaisseaux allant de l'atlantique à la méditerranée",
+      "audio": "dev/audio/10087/14185/10087_14185_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 588.14,
+        "original_end_s": 601.86
+      }
+    },
+    {
+      "id": "10087_14185_000030",
+      "text": "des fruits en abondance des vignes des fleurs où les abeilles puisent le miel qui est une des gloires de narbonne des rivières courtes qui ont des allures de torrents",
+      "audio": "dev/audio/10087/14185/10087_14185_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 63.9,
+        "original_end_s": 74.57
+      }
+    },
+    {
+      "id": "10087_14185_000031",
+      "text": "c'est par là aussi que le languedoc se rattache au mouvement français c'est par là que nous passerons à notre tour pour continuer notre voyage fin de la section trois",
+      "audio": "dev/audio/10087/14185/10087_14185_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 601.86,
+        "original_end_s": 619.4
+      }
+    },
+    {
+      "id": "10087_14185_000032",
+      "text": "ne faisant rien qui les ennuie ayant leur cave bien garnie toujours reposés et contents visitant peu la sacristie mais quelquefois les jours de pluie priant dieu pour tuer le temps",
+      "audio": "dev/audio/10087/14185/10087_14185_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 445.31,
+        "original_end_s": 458.44
+      }
+    },
+    {
+      "id": "10087_14185_000033",
+      "text": "mais ces facilités à franchir le mur pyrénéen sont contrebalancées par le débouché que le languedoc trouve vers la vallée de la garonne par le col de naurouze à cent quatre-vingt-dix mètres seulement d'altitude le bassin de la méditerranée communique avec celui de l'océan",
+      "audio": "dev/audio/10087/14185/10087_14185_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 539.97,
+        "original_end_s": 557.26
+      }
+    },
+    {
+      "id": "10087_14185_000034",
+      "text": "narbonne déchue de sa splendeur romaine et archiépiscopale et qui a formé par endroits ses murs de bas-reliefs et de pierres tombales présente un aspect plus commercial qu'artistique les idées ont pourtant soufflé sur le pays en tempêtes",
+      "audio": "dev/audio/10087/14185/10087_14185_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 288.99,
+        "original_end_s": 304.89
+      }
+    },
+    {
+      "id": "10087_14185_000035",
+      "text": "la famille deschénier est originaire de limoux roucher le poète des mois qui fut conduit à l'échafaud sur la même charrette que son confrère et ami andré était de montpellier",
+      "audio": "dev/audio/10087/14185/10087_14185_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 391.19,
+        "original_end_s": 402.67
+      }
+    },
+    {
+      "id": "10087_14185_000036",
+      "text": "au temps des albigeois au temps de la réforme les querelles religieuses y ont flambé de toute leur ardeur montpellier l'héritière de l'antique maguelonne centre savant de la région siège d'une université six fois séculaire séjour de médecins juifs et arabes qui apportaient à l'occident",
+      "audio": "dev/audio/10087/14185/10087_14185_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14185",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/a_travers_les_regions_de_france_1908_librivox/regionsdefrance_03_renard_64kb.mp3",
+        "original_start_s": 304.89,
+        "original_end_s": 323.17
+      }
+    }
+  ]
+}

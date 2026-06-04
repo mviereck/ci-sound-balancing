@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — fy-NL",
+  "lang": "fy-NL",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-fy-NL",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20698971",
+      "text": "Yn it noardeasten fan Ingelân is fûgelgryp útbrutsen op in einefokkerij.",
+      "audio": "fy-NL/unknown/fy-NL_u_20698971.mp3",
+      "tags": {
+        "source_item_id": "20698971",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20699198",
+      "text": "Hy stekt syn beswieren net ûnder stuollen en banken.",
+      "audio": "fy-NL/unknown/fy-NL_u_20699198.mp3",
+      "tags": {
+        "source_item_id": "20699198",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20749462",
+      "text": "De man is al earder feroardiele foar it riden ûnder ynfloed.",
+      "audio": "fy-NL/unknown/fy-NL_u_20749462.mp3",
+      "tags": {
+        "source_item_id": "20749462",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20749848",
+      "text": "De stoarmwyn sil noch wol efkes oanhâlde.",
+      "audio": "fy-NL/unknown/fy-NL_u_20749848.mp3",
+      "tags": {
+        "source_item_id": "20749848",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20755604",
+      "text": "Ien tredde fan de befolking is fan hûs en hear ferdreaun.",
+      "audio": "fy-NL/unknown/fy-NL_u_20755604.mp3",
+      "tags": {
+        "source_item_id": "20755604",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20755785",
+      "text": "Sylvia waard de sneintenachts mei hartklachten opnommen yn it sikehûs.",
+      "audio": "fy-NL/unknown/fy-NL_u_20755785.mp3",
+      "tags": {
+        "source_item_id": "20755785",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20755944",
+      "text": "Rjochts yn de keamer is it kreas en oprêden.",
+      "audio": "fy-NL/unknown/fy-NL_u_20755944.mp3",
+      "tags": {
+        "source_item_id": "20755944",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20756703",
+      "text": "Hy hat him kenne litten as in man mei in soad talint.",
+      "audio": "fy-NL/unknown/fy-NL_u_20756703.mp3",
+      "tags": {
+        "source_item_id": "20756703",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20760163",
+      "text": "Ik ha al de hiele dei ôfgryslike pineholle.",
+      "audio": "fy-NL/unknown/fy-NL_u_20760163.mp3",
+      "tags": {
+        "source_item_id": "20760163",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20760636",
+      "text": "De bisten meitsje gongen en frette de woartels fan it gjers oan.",
+      "audio": "fy-NL/unknown/fy-NL_u_20760636.mp3",
+      "tags": {
+        "source_item_id": "20760636",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3350 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Poesías",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "10604",
+    "book_title": "Poesías",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "11266_10604_000000",
+      "text": "y las almas buscando algún alivio se revuelven ansiosas y hacen el mundo que así resulta ser del dolor obra el dolor o la nada quien tenga corazón venga y escoja",
+      "audio": "test/audio/11266/10604/11266_10604_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 427.24,
+        "original_end_s": 443.51
+      }
+    },
+    {
+      "id": "11266_10604_000001",
+      "text": "cuando calla el dolor se oye a la muerte las alas tenebrosas batir en los profundos cual si fuesen las olas del mar de la ilusión en que los seres sin rumbo bogan donde se mecen frágiles barquillas las fugitivas formas",
+      "audio": "test/audio/11266/10604/11266_10604_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 381.19,
+        "original_end_s": 399.81
+      }
+    },
+    {
+      "id": "11266_10604_000002",
+      "text": "echar fuera la vida y acallar las domésticas cuestiones con el huero fragor de las políticas no hagas caso á los hombres que se juntan y gritan hojas sus gritos son que el viento lleva mientras en silencio su dolor radica",
+      "audio": "test/audio/11266/10604/11266_10604_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 337.25,
+        "original_end_s": 355.11
+      }
+    },
+    {
+      "id": "11266_10604_000003",
+      "text": "el vivir con el hombre pobre bestia te ha dado acaso un anhelar oscuro que el lobo no conoce tal vez cuando acostabas la cabeza en mi regazo vagamente soñabas en ser hombre después de muerto ser hombre pobre bestia",
+      "audio": "test/audio/11266/10604/11266_10604_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 222.45,
+        "original_end_s": 240.54
+      }
+    },
+    {
+      "id": "11266_10604_000004",
+      "text": "no sabe lo que busca y tú para él mi alma sólo tienes esta palabra nunca a dar voces vacías pobrecillos se juntan y gritan y más gritan y sus penas ocultan y piden no sé que ni ellos saben aunque crean saberlo en su locura",
+      "audio": "test/audio/11266/10604/11266_10604_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 596.64,
+        "original_end_s": 615.84
+      }
+    },
+    {
+      "id": "11266_10604_000005",
+      "text": "como todas las penas aunque tantas son una sola pena una sola infinita soberana la pena de vivir llevando al todo temblando ante la nada",
+      "audio": "test/audio/11266/10604/11266_10604_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 681.24,
+        "original_end_s": 696.2
+      }
+    },
+    {
+      "id": "11266_10604_000006",
+      "text": "pero allí no tendremos en torno de nuestra alma las almas de las cosas de que vive el alma de los campos las almas de las rocas las almas de los árboles y ríos las de las bestias",
+      "audio": "test/audio/11266/10604/11266_10604_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 85.22,
+        "original_end_s": 99.93
+      }
+    },
+    {
+      "id": "11266_10604_000007",
+      "text": "tú has muerto en mansedumbre tú con dulzura entregándote á mí en la suprema sumisión de la vida pero él",
+      "audio": "test/audio/11266/10604/11266_10604_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 271.93,
+        "original_end_s": 282.42
+      }
+    },
+    {
+      "id": "11266_10604_000008",
+      "text": "el que gime junto a la tumba de su dios de su amo ni morir sabe tú al morir presentías vagamente vivir en mi memoria no morirte del todo",
+      "audio": "test/audio/11266/10604/11266_10604_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 282.42,
+        "original_end_s": 295.93
+      }
+    },
+    {
+      "id": "11266_10604_000009",
+      "text": "allá en el otro mundo tu alma pobre perro no habrá de recostar en mi regazo espiritual su espiritual cabeza la lengua de tu alma pobre amigo no lamerá la mano de mi alma",
+      "audio": "test/audio/11266/10604/11266_10604_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 99.93,
+        "original_end_s": 116.54
+      }
+    },
+    {
+      "id": "11266_10604_000010",
+      "text": "métete en tu dolor y en él trabaja por escardar la broza cinco no te acuerdas mi amor que te decía cómo en mi seno luchan por darse a luz oscuros pensamientos sin voz y sin figura",
+      "audio": "test/audio/11266/10604/11266_10604_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 511.62,
+        "original_end_s": 528.9
+      }
+    },
+    {
+      "id": "11266_10604_000011",
+      "text": "por eso te decía que callaras y así en silencio muda dejases que tu pena poco a poco desde la hondura de ese tu corazón que cual el mío bate la eterna angustia te subiese a la boca",
+      "audio": "test/audio/11266/10604/11266_10604_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 561.49,
+        "original_end_s": 577.04
+      }
+    },
+    {
+      "id": "11266_10604_000012",
+      "text": "lejos de esos afanes que al mundo abruman casemos nuestras penas en silencio y de este fuerte enlace acaso surja fruto consolador",
+      "audio": "test/audio/11266/10604/11266_10604_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 615.84,
+        "original_end_s": 628.33
+      }
+    },
+    {
+      "id": "11266_10604_000013",
+      "text": "será vuestro consuelo bañaros en las ondas de las eternas lágrimas que curan por fin toda congoja pues en lo eterno del dolor divino la amargura se borra y la miseria deja al miserable dulzura muy sabrosa",
+      "audio": "test/audio/11266/10604/11266_10604_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 493.99,
+        "original_end_s": 511.62
+      }
+    },
+    {
+      "id": "11266_10604_000014",
+      "text": "si tú no te perdonas cómo has de perdonar perdónate perdón solo perdón perdón tan solo solo perdón fin del poema",
+      "audio": "test/audio/11266/10604/11266_10604_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 216.88,
+        "original_end_s": 236.46
+      }
+    },
+    {
+      "id": "11266_10604_000015",
+      "text": "la paz viene del fondo del corazón es divino tesoro que en ti dios puso es tesoro de amor esa inquietud interna que te derrite ese anhelo infinito que no se extingue que no se sacia es porque no perdonas",
+      "audio": "test/audio/11266/10604/11266_10604_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 30.59,
+        "original_end_s": 49.81
+      }
+    },
+    {
+      "id": "11266_10604_000016",
+      "text": "ni tu deber alegues hay un deber tan solo y es el perdón perdón es sacrificio del que perdona es gracia don divino del que el perdón recibe es gracia y sacrificio fruto de amor de amor no de justicia de caridad",
+      "audio": "test/audio/11266/10604/11266_10604_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 133.82,
+        "original_end_s": 153.27
+      }
+    },
+    {
+      "id": "11266_10604_000017",
+      "text": "mira mi pobre amigo mi fiel creyente al ver morir tus ojos que me miran al ver cristalizarse tu mirada antes fluída yo también te pregunto á dónde vamos",
+      "audio": "test/audio/11266/10604/11266_10604_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 240.54,
+        "original_end_s": 257.4
+      }
+    },
+    {
+      "id": "11266_10604_000018",
+      "text": "tribunal no levantes dentro de tu alma mantenla pura no te juzgues en juicio oye a tus ansias ansias de paz",
+      "audio": "test/audio/11266/10604/11266_10604_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 170.36,
+        "original_end_s": 180.83
+      }
+    },
+    {
+      "id": "11266_10604_000019",
+      "text": "el otro mundo el otro mundo es el del puro espíritu del espíritu puro oh terrible pureza inanidad vacío no volveré á encontrarte manso amigo serás allí un recuerdo recuerdo puro",
+      "audio": "test/audio/11266/10604/11266_10604_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 140.75,
+        "original_end_s": 159.13
+      }
+    },
+    {
+      "id": "11266_10604_000020",
+      "text": "se fueron a moisés llenos de angustia confesaron su falta moisés oró al señor y a su mandado una serpiente de metal les labra y ante el pueblo rendido sereno la levanta",
+      "audio": "test/audio/11266/10604/11266_10604_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 724.27,
+        "original_end_s": 741.16
+      }
+    },
+    {
+      "id": "11266_10604_000021",
+      "text": "mis ojos fueron para ti ventana del otro mundo si supieras mi perro que triste está tu dios porque te has muerto también tu dios se morirá algún día",
+      "audio": "test/audio/11266/10604/11266_10604_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 191.89,
+        "original_end_s": 204.4
+      }
+    },
+    {
+      "id": "11266_10604_000022",
+      "text": "sabes lo que es sentir tus pensamientos agitarse en la sombra por debajo y no verles los ojos ni de su voz sentir el dulce llanto",
+      "audio": "test/audio/11266/10604/11266_10604_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 36.18,
+        "original_end_s": 48.5
+      }
+    },
+    {
+      "id": "11266_10604_000023",
+      "text": "calla que hay otro mundo por dentro del que vemos un mundo en el que tejen las tinieblas y es todo cielo tres",
+      "audio": "test/audio/11266/10604/11266_10604_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 210.36,
+        "original_end_s": 221.94
+      }
+    },
+    {
+      "id": "11266_10604_000024",
+      "text": "un día más que fue lo sabes pero vendrá mañana y no será otro día te aseguro pues en nuestra alma todos los días son un solo día",
+      "audio": "test/audio/11266/10604/11266_10604_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 667.56,
+        "original_end_s": 681.24
+      }
+    },
+    {
+      "id": "11266_10604_000025",
+      "text": "ve la tierra te arranca de quien fue tu ideal tu dios tu gloria pero él tu triste amo te tendrá en la otra vida",
+      "audio": "test/audio/11266/10604/11266_10604_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 128.91,
+        "original_end_s": 140.75
+      }
+    },
+    {
+      "id": "11266_10604_000026",
+      "text": "baja pues al silencio y espera á que el dolor allí te rinda cuatro es el dolor la fuente de que la vida brota",
+      "audio": "test/audio/11266/10604/11266_10604_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 355.11,
+        "original_end_s": 368.41
+      }
+    },
+    {
+      "id": "11266_10604_000027",
+      "text": "es gracia y no derecho nó deber sacrificio es libertad es libertad perfecta santo tesoro que soporta cadenas es libertad del alma fruto de amor",
+      "audio": "test/audio/11266/10604/11266_10604_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 153.27,
+        "original_end_s": 170.36
+      }
+    },
+    {
+      "id": "11266_10604_000028",
+      "text": "perdónate perdónate y perdona al perdonarte a todos á todos los que amargan nuestra vida con dolo en el juez está el mal",
+      "audio": "test/audio/11266/10604/11266_10604_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 98.63,
+        "original_end_s": 109.53
+      }
+    },
+    {
+      "id": "11266_10604_000029",
+      "text": "sus ojos mansos no clavará en los míos con la tristeza de faltarle el habla no lamerá mi mano ni en mi regazo su cabeza fina reposará",
+      "audio": "test/audio/11266/10604/11266_10604_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 29.18,
+        "original_end_s": 42.58
+      }
+    },
+    {
+      "id": "11266_10604_000030",
+      "text": "donde esas que llamamos leyes se alzan cual escarpadas rocas en que buscando aquellas su refugio pronto perecen rotas es el dolor del árbol de la vida la savia vigorosa",
+      "audio": "test/audio/11266/10604/11266_10604_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 399.81,
+        "original_end_s": 414.47
+      }
+    },
+    {
+      "id": "11266_10604_000031",
+      "text": "matarás una pena sólo con otra si ésta es más pura y grande más divina si ésta es más honda",
+      "audio": "test/audio/11266/10604/11266_10604_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 458.14,
+        "original_end_s": 468.62
+      }
+    },
+    {
+      "id": "11266_10604_000032",
+      "text": "y allí en los brazos de tu madre eterno oh mi alma sufridora juntándote á las almas que sufrieron como tú en una sola consolación las lágrimas recibirás que de sus ojos lloran será",
+      "audio": "test/audio/11266/10604/11266_10604_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 478.94,
+        "original_end_s": 493.99
+      }
+    },
+    {
+      "id": "11266_10604_000033",
+      "text": "bajo el grito común su propia queja para no oirla buscan pobres olvido buscan bregando en la común porfía adormecer sus penas",
+      "audio": "test/audio/11266/10604/11266_10604_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 322.16,
+        "original_end_s": 337.25
+      }
+    },
+    {
+      "id": "11266_10604_000034",
+      "text": "solo el derecho eterno darte vida podrá y es el derecho eterno ser perdonado perdónate y en ti perdona a todos perdónate",
+      "audio": "test/audio/11266/10604/11266_10604_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 123.41,
+        "original_end_s": 133.82
+      }
+    },
+    {
+      "id": "11266_10604_000035",
+      "text": "frutos de amor produzcan muere dentro del alma toda pena estéril e infecunda si tocándole otra alma dolorosa no le mete la suya",
+      "audio": "test/audio/11266/10604/11266_10604_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 547.8,
+        "original_end_s": 561.49
+      }
+    },
+    {
+      "id": "11266_10604_000036",
+      "text": "perdónate perdónate y perdona contigo a todos a todos los que amargan esta vida con dolo perdónate y perdona perdónate",
+      "audio": "test/audio/11266/10604/11266_10604_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 194.9,
+        "original_end_s": 206.66
+      }
+    },
+    {
+      "id": "11266_10604_000037",
+      "text": "desecha la justicia que es pobre cosa que mata al corazón si tu no te perdonas no te perdona dios perdonate",
+      "audio": "test/audio/11266/10604/11266_10604_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 206.66,
+        "original_end_s": 216.88
+      }
+    },
+    {
+      "id": "11266_10604_000038",
+      "text": "que al tocarte mi fiebre en ti despierte la fiebre de tu seno y se fundan así nuestros ardores en un mismo deseo calla mi amor cierra tu boca fresca que así te quiero donde dejó su huella la palabra no anida bien el beso",
+      "audio": "test/audio/11266/10604/11266_10604_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 191.07,
+        "original_end_s": 210.36
+      }
+    },
+    {
+      "id": "11266_10604_000039",
+      "text": "cuando el mundo va a hundirse en la inconsciencia dios surge y sopla y es su soplo dolor dolor intenso que a las almas azota",
+      "audio": "test/audio/11266/10604/11266_10604_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 414.47,
+        "original_end_s": 427.24
+      }
+    },
+    {
+      "id": "11266_10604_000040",
+      "text": "todo pensar callado así que toma voz y habla á los hombres del mundo en el teatro pierde la oscuridad en que guardaba todo el celeste encanto de su virtud fluida",
+      "audio": "test/audio/11266/10604/11266_10604_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 88.15,
+        "original_end_s": 101.63
+      }
+    },
+    {
+      "id": "11266_10604_000041",
+      "text": "más triste la suerte de tu dios que no la tuya los dioses lloran los dioses lloran cuando muere el perro que les lamió las manos que les miró á los ojos y al mirarles asi les preguntaba á dónde vamos",
+      "audio": "test/audio/11266/10604/11266_10604_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 310.4,
+        "original_end_s": 329.16
+      }
+    },
+    {
+      "id": "11266_10604_000042",
+      "text": "honda piedad inmensa tu corazón derrita al tocar tu miseria tu miseria infinita que es la miseria humana el lastre de la vida perdónate y en ti perdona a todos",
+      "audio": "test/audio/11266/10604/11266_10604_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 64.15,
+        "original_end_s": 80.74
+      }
+    },
+    {
+      "id": "11266_10604_000043",
+      "text": "dos uf no poder dar luz á las tinieblas voz al silencio que mi dolor cantara el salmo del misterio",
+      "audio": "test/audio/11266/10604/11266_10604_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 120.93,
+        "original_end_s": 134.66
+      }
+    },
+    {
+      "id": "11266_10604_000044",
+      "text": "tú corres tras de un hito mas hay un dios que dentro tuyo habita que es quien te lleva quien tu suerte encamina y ese tu dios en otro blanco tiene puesta la mira y mientras crees alzarte á tus estrellas á las suyas te guía",
+      "audio": "test/audio/11266/10604/11266_10604_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 247.2,
+        "original_end_s": 266.55
+      }
+    },
+    {
+      "id": "11266_10604_000045",
+      "text": "que les devuelva cuando yazgan en murria sepultados del tedio en lo profundo cuando la vida sufran cuando toquen lo vano de su empeño y deseen haber muerto en la cuna",
+      "audio": "test/audio/11266/10604/11266_10604_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 628.33,
+        "original_end_s": 640.48
+      }
+    },
+    {
+      "id": "11266_10604_000046",
+      "text": "tus sueños qué se hicieron qué la piedad con que leal seguiste de mi voz el mandato yo fui tu religión yo fui tu gloria á dios en mí soñaste",
+      "audio": "test/audio/11266/10604/11266_10604_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 177.54,
+        "original_end_s": 191.89
+      }
+    },
+    {
+      "id": "11266_10604_000047",
+      "text": "el tiempo muere ante el dolor supremo en él se anega el ansia es el dolor eternizado el único que cura del que mata",
+      "audio": "test/audio/11266/10604/11266_10604_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 696.2,
+        "original_end_s": 706.57
+      }
+    },
+    {
+      "id": "11266_10604_000048",
+      "text": "dónde está vuestro aroma de ambrosia oh flores del invierno que antes de abrir al sol vuestras corolas dulce consuelo volvisteis a los campos a que la muerte baña con su riego",
+      "audio": "test/audio/11266/10604/11266_10604_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 145.95,
+        "original_end_s": 160.68
+      }
+    },
+    {
+      "id": "11266_10604_000049",
+      "text": "ha sentido tu espíritu en congoja los apuros de un parto que no da á luz y queda entre dolores como un esfuerzo vano",
+      "audio": "test/audio/11266/10604/11266_10604_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 25.31,
+        "original_end_s": 36.18
+      }
+    },
+    {
+      "id": "11266_10604_000050",
+      "text": "les devuelva la savia de este fruto la entrañable dulzura que lleva en sí la pena que al casarse consiguió hacerse en el amor fecunda seis",
+      "audio": "test/audio/11266/10604/11266_10604_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 640.48,
+        "original_end_s": 655.61
+      }
+    },
+    {
+      "id": "11266_10604_000051",
+      "text": "contempla tu miseria que es la miseria humana la triste pena contémplala y aviva tu compasión compasión a ti mismo piedad del hombre pesar por el delito",
+      "audio": "test/audio/11266/10604/11266_10604_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 180.83,
+        "original_end_s": 194.9
+      }
+    },
+    {
+      "id": "11266_10604_000052",
+      "text": "terrible es la palabra y su poder poder de mal agüero muere en ella la idea cuando nace enterrada en su cuerpo como muere al dar fruto del todo nuestro anhelo",
+      "audio": "test/audio/11266/10604/11266_10604_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 176.78,
+        "original_end_s": 191.07
+      }
+    },
+    {
+      "id": "11266_10604_000053",
+      "text": "son mis dolores hijos desdichados que mueren en la cuna cuando no logran que de fuera a ellos otros acudan los llamen los saquen los abracen con ellos se confundan y en dolorosa comunión besándose",
+      "audio": "test/audio/11266/10604/11266_10604_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 528.9,
+        "original_end_s": 547.8
+      }
+    },
+    {
+      "id": "11266_10604_000054",
+      "text": "el otro mundo otro otro y no éste un mundo sin el perro sin las montañas blandas",
+      "audio": "test/audio/11266/10604/11266_10604_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 57.61,
+        "original_end_s": 68.03
+      }
+    },
+    {
+      "id": "11266_10604_000055",
+      "text": "la quietud sujetó con recia mano al pobre perro inquieto y para siempre fiel se acostó en su madre piadosa tierra",
+      "audio": "test/audio/11266/10604/11266_10604_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 16.7,
+        "original_end_s": 29.18
+      }
+    },
+    {
+      "id": "11266_10604_000056",
+      "text": "pero tu pobre hermano se ve ya muerto en vida se ve perdido y aúlla al cielo suplicando muerte descansa en paz mi pobre compañero descansa en paz",
+      "audio": "test/audio/11266/10604/11266_10604_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 295.93,
+        "original_end_s": 310.4
+      }
+    },
+    {
+      "id": "11266_10604_000057",
+      "text": "es el dolor la flor de lo divino es la corona del infinito anhelo es el dolor el beso de la boca de nuestra eterna madre la que en el cielo llora",
+      "audio": "test/audio/11266/10604/11266_10604_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 368.41,
+        "original_end_s": 381.19
+      }
+    },
+    {
+      "id": "11266_10604_000058",
+      "text": "es porque no amas desecha la justicia que es pobre cosa que mata al corazón busca la vida la vida inextinguible búscala en el perdón perdónate",
+      "audio": "test/audio/11266/10604/11266_10604_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 49.81,
+        "original_end_s": 64.15
+      }
+    },
+    {
+      "id": "11266_10604_000059",
+      "text": "dice un refrán antiguo y triste un clavo saca a otro clavo y toda la ciencia del dolor en él se encierra es la corona del saber que en su pecho dolorido quien padeció atesora",
+      "audio": "test/audio/11266/10604/11266_10604_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 443.51,
+        "original_end_s": 458.14
+      }
+    },
+    {
+      "id": "11266_10604_000060",
+      "text": "perdónate acude a tu tesoro al divino tesoro que en ti dios puso al tesoro de amor solo el perdón es justo él solo fluye del pecho puro sólo el perdón es justo",
+      "audio": "test/audio/11266/10604/11266_10604_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 80.74,
+        "original_end_s": 98.63
+      }
+    },
+    {
+      "id": "11266_10604_000061",
+      "text": "el otro mundo otro y no este oh ya no volverás mi pobre perro a sumergir tus ojos en los ojos que fueron tu mandato",
+      "audio": "test/audio/11266/10604/11266_10604_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 116.54,
+        "original_end_s": 128.91
+      }
+    },
+    {
+      "id": "11266_10604_000062",
+      "text": "tener dentro del alma hijos que viven atormentados que te piden la luz y tú no logras darles descanso",
+      "audio": "test/audio/11266/10604/11266_10604_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 48.5,
+        "original_end_s": 59.62
+      }
+    },
+    {
+      "id": "11266_10604_000063",
+      "text": "es el que juzga el que hace la maldad del delito es el que juzga sólo el perdón es hijo del absoluto amor no alegues tu derecho con qué derecho ese derecho alegas",
+      "audio": "test/audio/11266/10604/11266_10604_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 109.53,
+        "original_end_s": 123.41
+      }
+    },
+    {
+      "id": "11266_10604_000064",
+      "text": "y en invisible y silenciosa espuma se vertiera en la mía y en un canto probásemos su fruta no hago caso del mundo que en la plaza se agita y mete bulla creyendo que sus penas adormece con esas luchas sufre y brega sin tino",
+      "audio": "test/audio/11266/10604/11266_10604_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 577.04,
+        "original_end_s": 596.64
+      }
+    },
+    {
+      "id": "11266_10604_000065",
+      "text": "ves esa muchedumbre que con furor se agita dan todos una voz todos un grito la bandera es la misma mas si es una la queja son muchas las heridas cada cual con la suya que cela en sí y del mundo desconfía",
+      "audio": "test/audio/11266/10604/11266_10604_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 266.55,
+        "original_end_s": 285.22
+      }
+    },
+    {
+      "id": "11266_10604_000066",
+      "text": "sin los serenos ríos á que flanquean los serenos árboles sin pájaros ni flores sin perros sin caballos sin bueyes que aran el otro mundo mundo de los espíritus",
+      "audio": "test/audio/11266/10604/11266_10604_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 68.03,
+        "original_end_s": 85.22
+      }
+    },
+    {
+      "id": "11266_10604_000067",
+      "text": "no poder decir lo que se muere en sagrado secreto antes de haber nacido en el sepulcro cuna de lo eterno",
+      "audio": "test/audio/11266/10604/11266_10604_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 134.66,
+        "original_end_s": 145.95
+      }
+    },
+    {
+      "id": "11266_10604_000068",
+      "text": "cuando el pueblo judío en el desierto contra dios murmuraba fastidiado del pan que era liviano fastidiado del agua serpientes ardorosas sobre ellos va el señor y desata y morían mordidos por la boca de la cruel alimaña",
+      "audio": "test/audio/11266/10604/11266_10604_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 706.57,
+        "original_end_s": 724.27
+      }
+    },
+    {
+      "id": "11266_10604_000069",
+      "text": "abrázate al dolor eternizado abrázate a la cruz que se levanta por cima de los mundos abrázate a ella y calla callemos ya mi amor en el silencio la dulcedumbre de la pena guarda",
+      "audio": "test/audio/11266/10604/11266_10604_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 760.93,
+        "original_end_s": 778.9
+      }
+    },
+    {
+      "id": "11266_10604_000070",
+      "text": "y este recuerdo no correrá mis ojos no saltará blandiendo en alegría enhiesto el rabo no lamerá la mano de mi espíritu no mirará mis ojos ese recuerdo no serás tú tú mismo dueño de ti viviendo vida eterna",
+      "audio": "test/audio/11266/10604/11266_10604_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 159.13,
+        "original_end_s": 177.54
+      }
+    },
+    {
+      "id": "11266_10604_000071",
+      "text": "callemos ya mi amor harto te dije voy a callarme calla fin del poema",
+      "audio": "test/audio/11266/10604/11266_10604_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 778.9,
+        "original_end_s": 796.53
+      }
+    },
+    {
+      "id": "11266_10604_000072",
+      "text": "cantar lo que no cabe ni en palabras ni en tonos es mi empeño y decirte mi amor aquí al oído mi corazón entero con su ritmo sin música ni letra con todo su silencio",
+      "audio": "test/audio/11266/10604/11266_10604_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 160.68,
+        "original_end_s": 176.78
+      }
+    },
+    {
+      "id": "11266_10604_000073",
+      "text": "y no será mejor que allí lo deje sin al mundo sacarlo y que viva su vida de tinieblas en hermético arcano sin cobrar voz ni forma sin tener que encarnar en cuerpo extraño pues extraño á toda alma es todo cuerpo",
+      "audio": "test/audio/11266/10604/11266_10604_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 70.27,
+        "original_end_s": 88.15
+      }
+    },
+    {
+      "id": "11266_10604_000074",
+      "text": "es que acaso conoces tú la angustia de sentir tu regazo sacudido de un ser que desconoces y sin poder liberarlo",
+      "audio": "test/audio/11266/10604/11266_10604_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 14.96,
+        "original_end_s": 25.31
+      }
+    },
+    {
+      "id": "11266_10604_000075",
+      "text": "y es cual duro guijarro en vez de ser esencia vaporosa que del sol a los rayos se ha de bañar un día cuando vuelva al seno del océano de que surgió perdida nubecilla que el viento de rechazo me trajo al alma donde le doy amparo",
+      "audio": "test/audio/11266/10604/11266_10604_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 101.63,
+        "original_end_s": 120.93
+      }
+    },
+    {
+      "id": "11266_10604_000076",
+      "text": "si tú no te perdonas no te perdona dios perdónate si en paz no vives contigo mismo si no consigues paz en tu pecho no te dará dios paz",
+      "audio": "test/audio/11266/10604/11266_10604_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_042_unamuno_64kb.mp3",
+        "original_start_s": 15.19,
+        "original_end_s": 30.59
+      }
+    },
+    {
+      "id": "11266_10604_000077",
+      "text": "y cada cual ignora lo que a su hermano el corazón le mina no hagas caso a los hombres que se juntan y gritan si una endecha da el coro de cantares distintos va tejida y cada cual encubre dentro el alma intranquila",
+      "audio": "test/audio/11266/10604/11266_10604_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 304.81,
+        "original_end_s": 322.16
+      }
+    },
+    {
+      "id": "11266_10604_000078",
+      "text": "y a la serpiente de metal erguida quien quiera la miraba de las otras de carne y morideras libre quedaba al dolor de metal que siempre dura dolor que nunca pasa mira cuando te muerdan los dolores que comen y que matan",
+      "audio": "test/audio/11266/10604/11266_10604_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 741.16,
+        "original_end_s": 760.93
+      }
+    },
+    {
+      "id": "11266_10604_000079",
+      "text": "y cuanto más lo sea más lleva en sí sustancia de congoja puerta divina por donde se entra en la anhelada gloria",
+      "audio": "test/audio/11266/10604/11266_10604_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 468.62,
+        "original_end_s": 478.94
+      }
+    },
+    {
+      "id": "11266_10604_000080",
+      "text": "y ahora en qué sueñas dónde se fué tu espíritu sumiso no hay otro mundo en que revivas tú mi pobre bestia y encima de los cielos te pasees brincando al lado mío",
+      "audio": "test/audio/11266/10604/11266_10604_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 42.58,
+        "original_end_s": 57.61
+      }
+    },
+    {
+      "id": "11266_10604_000081",
+      "text": "pobre mortal que crees en tu locura buscar la dicha mira cómo te lleva de su mano la vida sueñas la libertad",
+      "audio": "test/audio/11266/10604/11266_10604_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 221.94,
+        "original_end_s": 232.86
+      }
+    },
+    {
+      "id": "11266_10604_000082",
+      "text": "serón pobre perro mira tu hermano es ese otro pobre perro junto a la tumba de su dios tendido aullando a los cielos llama a la muerte",
+      "audio": "test/audio/11266/10604/11266_10604_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_043_unamuno_64kb.mp3",
+        "original_start_s": 257.4,
+        "original_end_s": 271.93
+      }
+    },
+    {
+      "id": "11266_10604_000083",
+      "text": "perdido el seso y te imaginas que ella ha de hacerte hombre mas ay de ti aquel día en que en sus brazos caigas y en tu pecho reviente así que caigas el enigma",
+      "audio": "test/audio/11266/10604/11266_10604_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 232.86,
+        "original_end_s": 247.2
+      }
+    },
+    {
+      "id": "11266_10604_000084",
+      "text": "algo grande se agita en mis entrañas algo que es soberano algo que vive con un vivir oscuro y abismático",
+      "audio": "test/audio/11266/10604/11266_10604_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-11266",
+        "gender": "w",
+        "book_id": "10604",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_038_unamuno_64kb.mp3",
+        "original_start_s": 59.62,
+        "original_end_s": 70.27
+      }
+    },
+    {
+      "id": "11670_10604_000000",
+      "text": "nacer fué mi delito nacer á la conciencia sentir el mar en mí de lo infinito y amar á los humanos pensar es mi castigo dale dale de firme cruel amigo",
+      "audio": "dev/audio/11670/10604/11670_10604_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 234.81,
+        "original_end_s": 247.37
+      }
+    },
+    {
+      "id": "11670_10604_000001",
+      "text": "es lo seguro hundido para siempre en el sueño profundo habrás vencido al tiempo tu implacable enemigo ayer hoy y mañana cadena del dolor con eslabones de ansia",
+      "audio": "dev/audio/11670/10604/11670_10604_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 205.3,
+        "original_end_s": 219.0
+      }
+    },
+    {
+      "id": "11670_10604_000002",
+      "text": "lo que es en mí dolor en ti es delicia mi desgracia tu triunfo mientras tu corvo pico me acaricia con lo que sufro gozas para henchirte de vida me destrozas",
+      "audio": "dev/audio/11670/10604/11670_10604_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 292.32,
+        "original_end_s": 304.1
+      }
+    },
+    {
+      "id": "11670_10604_000003",
+      "text": "tupido hasta el gañote a la modorra abatirás tu brío y alicaído lacio te acostarás para dormir tu hartazgo colchón tendrás en mí sobre esta roca en que á merced de tus furores yazgo dormirás para siempre aquí mi buitre en mí sobre tu presa y yo tu pábulo hoy seré tu huesa",
+      "audio": "dev/audio/11670/10604/11670_10604_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 469.35,
+        "original_end_s": 488.32
+      }
+    },
+    {
+      "id": "11670_10604_000004",
+      "text": "pero no no te apartes de mi seno que a tu falta me duermo para siempre escarba en mis entrañas pensamiento mejor que no el vacío tu tormento",
+      "audio": "dev/audio/11670/10604/11670_10604_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 304.1,
+        "original_end_s": 315.79
+      }
+    },
+    {
+      "id": "11670_10604_000005",
+      "text": "el pábulo del fuego no era leña de bosque no sangraba como suele sangrar la leña lágrimas de jugo cuando la escarba el fuego por las entrañas",
+      "audio": "dev/audio/11670/10604/11670_10604_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 37.95,
+        "original_end_s": 48.06
+      }
+    },
+    {
+      "id": "11670_10604_000006",
+      "text": "interrogué á mi huésped con los ojos me comprendió y rompiendo su mutismo son los restos me dijo de naufragios que el mar en sus tormentas echa á la playa",
+      "audio": "dev/audio/11670/10604/11670_10604_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 93.06,
+        "original_end_s": 106.16
+      }
+    },
+    {
+      "id": "11670_10604_000007",
+      "text": "me abrazas y me estrechas en tus garras como en espasmo de fusión suprema tiembla mi cuerpo de dolor entre ellas palpitantes amarras pero mi alma mi alma a ti se vuelve mi verdugo pues que te debe de su vida el jugo",
+      "audio": "dev/audio/11670/10604/11670_10604_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 276.23,
+        "original_end_s": 292.32
+      }
+    },
+    {
+      "id": "11670_10604_000008",
+      "text": "vamos traga con calma y poco á poco deja que mis entrañas se renueven y escarba en mis redaños somos viejos amigos mi verdugo pasan los años y tú á tu faena destructora la tela de mi vida desgarrando",
+      "audio": "dev/audio/11670/10604/11670_10604_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 192.36,
+        "original_end_s": 209.5
+      }
+    },
+    {
+      "id": "11670_10604_000009",
+      "text": "suena el regato entre las frescas flores acompañando al canto de los pájaros y si este es de dolor y si es de júbilo igual el órgano",
+      "audio": "dev/audio/11670/10604/11670_10604_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 133.44,
+        "original_end_s": 143.92
+      }
+    },
+    {
+      "id": "11670_10604_000010",
+      "text": "una de tantas me decís se anega su luz del cielo en el inmenso coro no sabéis ver la inmensidad os ciega con polvo de oro vosotros no tenéis estrella propia la polar a su vez se os oscurece tenéis que caminar sobre la copia que en mí florece",
+      "audio": "dev/audio/11670/10604/11670_10604_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 152.77,
+        "original_end_s": 171.95
+      }
+    },
+    {
+      "id": "11670_10604_000011",
+      "text": "eres digno de mí yo de ti digno pero los cuervos los que aman la carroña aléjalos mi buitre a picotazos que sepan que estoy vivo lejos lejos de mí sepultureros nos bastamos tú y yo sin compañeros",
+      "audio": "dev/audio/11670/10604/11670_10604_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 400.13,
+        "original_end_s": 415.2
+      }
+    },
+    {
+      "id": "11670_10604_000012",
+      "text": "así nuestras pasiones arrastran a tu lecho sueño manso perdidas ilusiones que a favor del remanso entretejen en ti una isla vaga isla de libertad y de descanso",
+      "audio": "dev/audio/11670/10604/11670_10604_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 202.53,
+        "original_end_s": 217.66
+      }
+    },
+    {
+      "id": "11670_10604_000013",
+      "text": "la conciencia deshecha de la serie del tiempo qué es lo que queda qué de la luz si se rompió el espejo feroz saturno oh tiempo tiempo señor del mundo de tus hijos verdugo de nuestra esclavitud lazo supremo",
+      "audio": "dev/audio/11670/10604/11670_10604_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 34.71,
+        "original_end_s": 51.77
+      }
+    },
+    {
+      "id": "11670_10604_000014",
+      "text": "es torrente que corre de la nada a la nada toda dulce esperanza no bien la tocas cual por magia o encanto en recuerdo se torna recuerdo que se aleja y al fin se pierde se pierde para siempre",
+      "audio": "dev/audio/11670/10604/11670_10604_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 101.51,
+        "original_end_s": 116.7
+      }
+    },
+    {
+      "id": "11670_10604_000015",
+      "text": "será tu fin el fin de tu reinado sobre ti manda incontrastable el hado y después cuando cese el pensamiento de regir a los mundos y después",
+      "audio": "dev/audio/11670/10604/11670_10604_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 506.25,
+        "original_end_s": 517.77
+      }
+    },
+    {
+      "id": "11670_10604_000016",
+      "text": "graves y profundas palabras que recuerdan tiernas tardes languidecidas oh dejadme dormir y repetidme la letanía del dormir tranquilo dejad caer en mi alma las palabras sonoramente",
+      "audio": "dev/audio/11670/10604/11670_10604_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 43.31,
+        "original_end_s": 57.79
+      }
+    },
+    {
+      "id": "11670_10604_000017",
+      "text": "al débil das escudo robusto y bien ceñido para el combate rudo el escudo compacto del olvido fortificas al fuerte dando a su vida fuerzas de la muerte",
+      "audio": "dev/audio/11670/10604/11670_10604_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 55.88,
+        "original_end_s": 71.42
+      }
+    },
+    {
+      "id": "11670_10604_000018",
+      "text": "y al fuego me acerqué mientras el madero me daba su calor y pensativo vi sobre él extenuado y moribundo crispándose las manos al pobre náufrago",
+      "audio": "dev/audio/11670/10604/11670_10604_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 106.16,
+        "original_end_s": 116.8
+      }
+    },
+    {
+      "id": "11670_10604_000019",
+      "text": "quisiera no saber lo que dijese nada decir hablar hablar tan solo con palabras uncidas sin sentido verter el alma",
+      "audio": "dev/audio/11670/10604/11670_10604_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 17.38,
+        "original_end_s": 28.48
+      }
+    },
+    {
+      "id": "11670_10604_000020",
+      "text": "dejándole á la copa que entre nieblas busque la luz del cielo el que es hijo de luz es tu follaje que al sol se mece y al sol viste de gala su ropaje de ancha verdura y en la noche y la sombra languidece de honda tristura",
+      "audio": "dev/audio/11670/10604/11670_10604_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 117.08,
+        "original_end_s": 133.82
+      }
+    },
+    {
+      "id": "11670_10604_000021",
+      "text": "con las manos crispadas te agarras a la crin del caballo no quieres soltarla y él corre y más corre corre desbocado cuanto tú más le aprietas con más loco paso",
+      "audio": "dev/audio/11670/10604/11670_10604_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 219.0,
+        "original_end_s": 232.02
+      }
+    },
+    {
+      "id": "11670_10604_000022",
+      "text": "retiro de la maga soberana señora fantasía que da cuerpo y figura a cuanto el pecho ansía sacando de tu hondura en la dulce visión sin consistencia consuelo de la mísera existencia",
+      "audio": "dev/audio/11670/10604/11670_10604_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 217.66,
+        "original_end_s": 235.64
+      }
+    },
+    {
+      "id": "11670_10604_000023",
+      "text": "el sol de la vigilia engañadora oh sueño mar sin fondo y sin orilla mundos sin cuento surgen de tu seno en que palpita y brilla la creación del alma soñadora en campo tan sereno",
+      "audio": "dev/audio/11670/10604/11670_10604_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 303.1,
+        "original_end_s": 319.28
+      }
+    },
+    {
+      "id": "11670_10604_000024",
+      "text": "dale dale mi buitre sin cuidado no temas que me muera manjar tendrás en mí por largos siglos común es nuestra vida y en tanto me devores se mantendrá mi vida con dolores",
+      "audio": "dev/audio/11670/10604/11670_10604_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 91.32,
+        "original_end_s": 105.11
+      }
+    },
+    {
+      "id": "11670_10604_000025",
+      "text": "nunca alma desdeñosa tú cobarde buscaste adormecerte en el sosiego deje tu corazón que en sangre arde rastro de fuego",
+      "audio": "dev/audio/11670/10604/11670_10604_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 112.49,
+        "original_end_s": 123.45
+      }
+    },
+    {
+      "id": "11670_10604_000026",
+      "text": "quieto y pico a la presa que mi sangre la vista te oscurece y qué te importa no tienes que comer fiera insaciable según comes mi carne ella se acrece",
+      "audio": "dev/audio/11670/10604/11670_10604_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 78.81,
+        "original_end_s": 91.32
+      }
+    },
+    {
+      "id": "11670_10604_000027",
+      "text": "de las pálidas sombras en el gremio sea inmortal dolor mi eterno buitre y no placer efímero mi premio arrímate así más sobre mí hundido al calor de tu pecho arda mi pecho",
+      "audio": "dev/audio/11670/10604/11670_10604_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 329.45,
+        "original_end_s": 342.74
+      }
+    },
+    {
+      "id": "11670_10604_000028",
+      "text": "la huerta del pueblo la huerta formada de retazos de todos colores que se acerquen al verde la capa parece la capa del pueblo parece la huerta si la ves desde el cerro el sol y la lluvia le han dado ese tono ese tono tan suave y tan dulce",
+      "audio": "dev/audio/11670/10604/11670_10604_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 100.19,
+        "original_end_s": 117.1
+      }
+    },
+    {
+      "id": "11670_10604_000029",
+      "text": "te es tenderte del lago del misterio á las orillas fuera del remolino de las formas esclavas del destino y allí hundir tus raicillas y se miren tus frondas de sus aguas dormidas al espejo",
+      "audio": "dev/audio/11670/10604/11670_10604_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 158.99,
+        "original_end_s": 173.57
+      }
+    },
+    {
+      "id": "11670_10604_000030",
+      "text": "ved cómo a quien debéis vuestro sendero no es si no a ella fin del poema grabado por antonio soto patiño",
+      "audio": "dev/audio/11670/10604/11670_10604_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 187.74,
+        "original_end_s": 202.27
+      }
+    },
+    {
+      "id": "11670_10604_000031",
+      "text": "vamos quieto y devórame con calma yo te doy carne y sangre pensamiento y jove sólo luz luz sólo y aire y qué no estás contento aún pides más te has vuelto acaso loco te emborrachó mi sangre",
+      "audio": "dev/audio/11670/10604/11670_10604_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 174.92,
+        "original_end_s": 192.36
+      }
+    },
+    {
+      "id": "11670_10604_000032",
+      "text": "cuando en verano encone mis heridas el sol por el que vemos y él es ciego haz de tus recias alas abanico y oréame con ellas al compás de los golpes de tu pico",
+      "audio": "dev/audio/11670/10604/11670_10604_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 361.79,
+        "original_end_s": 373.52
+      }
+    },
+    {
+      "id": "11670_10604_000033",
+      "text": "jadeantes se tienden las pasiones á dormir á tu sombra bienhechora en tu divina escuela neta y desnuda y sin extraño adorno la verdad se revela",
+      "audio": "dev/audio/11670/10604/11670_10604_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 85.61,
+        "original_end_s": 99.13
+      }
+    },
+    {
+      "id": "11670_10604_000034",
+      "text": "no lograrás llegar te abate a tierra el buche con mi carne perinchido es muy alta la sierra que se te gasta el pico lo puedes afilar en mis costillas que pusiste al desnudo",
+      "audio": "dev/audio/11670/10604/11670_10604_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 222.49,
+        "original_end_s": 234.81
+      }
+    },
+    {
+      "id": "11670_10604_000035",
+      "text": "de mi sangre podéis seguir el hilo por donde voy sangrando es la vereda y allí donde yo muera es vuestro asilo allí la queda",
+      "audio": "dev/audio/11670/10604/11670_10604_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 80.29,
+        "original_end_s": 90.46
+      }
+    },
+    {
+      "id": "11670_10604_000036",
+      "text": "me hizo sentar junto a la llama viva de una hoguera atizola cuidadoso y en silencio arrimó luego a la llama el casco renegrido de una olla rota",
+      "audio": "dev/audio/11670/10604/11670_10604_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 26.9,
+        "original_end_s": 37.95
+      }
+    },
+    {
+      "id": "11670_10604_000037",
+      "text": "qué os importa el sentido de las cosas si su música oís y entre los labios os brotan las palabras como flores limpias de fruto palabras virginales dulces castas monorrítmicas",
+      "audio": "dev/audio/11670/10604/11670_10604_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 28.48,
+        "original_end_s": 43.31
+      }
+    },
+    {
+      "id": "11670_10604_000038",
+      "text": "al alba con sus llaves de oro encendido cantan las tinieblas canta la noche arrulla el sueño dulce de los rendidos hijos de la vida y en su regazo los acoge a todos bajo una sola manta negra y suave",
+      "audio": "dev/audio/11670/10604/11670_10604_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_047_unamuno_64kb.mp3",
+        "original_start_s": 29.2,
+        "original_end_s": 45.09
+      }
+    },
+    {
+      "id": "11670_10604_000039",
+      "text": "y un dia desde el monte en radiosa alborada muñéndose de viejo les muestre en lontananza brillar á nuestros nietos la tierra deseada les muestre bajo el cielo nacer por fin la patria",
+      "audio": "dev/audio/11670/10604/11670_10604_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_062_unamuno_64kb.mp3",
+        "original_start_s": 62.87,
+        "original_end_s": 78.48
+      }
+    },
+    {
+      "id": "11670_10604_000040",
+      "text": "oh no busquéis la letra la que mata lo que vida nos da buscad espíritu qué ha querido decir prosigue déjalo busca lo íntimo",
+      "audio": "dev/audio/11670/10604/11670_10604_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 143.92,
+        "original_end_s": 156.88
+      }
+    },
+    {
+      "id": "11670_10604_000041",
+      "text": "y allí cerca en oscuro camarote guardaba el solitario de la costa viejas tablas maderos carcomidos por los revueltos mares con dejo humano",
+      "audio": "dev/audio/11670/10604/11670_10604_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 58.94,
+        "original_end_s": 70.1
+      }
+    },
+    {
+      "id": "11670_10604_000042",
+      "text": "canta la noche y con su canto lava las visiones que al alma congojosa le metió bajo el sol que el cielo cierra el silencio mortal del medio día",
+      "audio": "dev/audio/11670/10604/11670_10604_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_047_unamuno_64kb.mp3",
+        "original_start_s": 64.34,
+        "original_end_s": 75.55
+      }
+    },
+    {
+      "id": "11670_10604_000043",
+      "text": "desde los bordes de tu córnea boca á mi abierto regazo mi propia sangre escurre como el orvallo cae sobre la grieta que guarda el manantial do nace el río río de que la nube luego brota nube que vuelve al río gota a gota",
+      "audio": "dev/audio/11670/10604/11670_10604_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 247.37,
+        "original_end_s": 263.54
+      }
+    },
+    {
+      "id": "11670_10604_000044",
+      "text": "se retratan los álamos del margen que en ellas tiemblan y ni un momento a la temblona imagen la misma agua sustenta qué es el pasado nada nada es tampoco el porvenir que sueñas y el instante que pasa transición misteriosa del vacío al vacío otra vez",
+      "audio": "dev/audio/11670/10604/11670_10604_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 82.0,
+        "original_end_s": 101.51
+      }
+    },
+    {
+      "id": "11670_10604_000045",
+      "text": "si os dejara en el alma un vago trémolo como el que baja de esa vieja torre que á la oración nos llama os dejaría mi alma toda acabo ya y continuad vosotros si os limpié de conceptos el espíritu por pagado me doy de estas estrofas tan sin sentido",
+      "audio": "dev/audio/11670/10604/11670_10604_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 194.3,
+        "original_end_s": 214.23
+      }
+    },
+    {
+      "id": "11670_10604_000046",
+      "text": "quien su estrella no ve si se hace día ni de su dulce luz siente la brasa dentro el pecho no puede ese ser guía quédese en casa os dejo de mi sangre en el reguero la luz cernida en mí de esa mi estrella",
+      "audio": "dev/audio/11670/10604/11670_10604_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 171.95,
+        "original_end_s": 187.74
+      }
+    },
+    {
+      "id": "11670_10604_000047",
+      "text": "creyéndose á seguro con agua soterraña que se remansa en el regazo oscuro quieren las raíces en lo oscuro riego sin luz alguna quieren sorber en íntimo sosiego dentro en su cuna las aguas que a favor de las tinieblas se aduermen bajo el suelo",
+      "audio": "dev/audio/11670/10604/11670_10604_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 97.18,
+        "original_end_s": 117.08
+      }
+    },
+    {
+      "id": "11670_10604_000048",
+      "text": "dueño amoroso y fuerte en los reveses de la ciega suerte y en los combates del amor abrigo del albedrío dueño del alma enferma cariñoso amigo fiel y discreto sueño",
+      "audio": "dev/audio/11670/10604/11670_10604_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 18.8,
+        "original_end_s": 35.94
+      }
+    },
+    {
+      "id": "11670_10604_000049",
+      "text": "y ahuyéntame las moscas las moscas asquerosas tercas blandas enjambre de gangrena mandaderas de sangre y podredumbre no envilezcas mi pena a ellas es imposible me acostumbre",
+      "audio": "dev/audio/11670/10604/11670_10604_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 373.52,
+        "original_end_s": 388.3
+      }
+    },
+    {
+      "id": "11670_10604_000050",
+      "text": "la alta verdad augusta la fuente de la calma que nos consuela de la adversa suerte la fe viva y robusta de que la vida vive de la muerte",
+      "audio": "dev/audio/11670/10604/11670_10604_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 143.84,
+        "original_end_s": 157.37
+      }
+    },
+    {
+      "id": "11670_10604_000051",
+      "text": "cogió un tablón con restos de pintura y echolo al fuego que subió de pronto al sentir del aceite que aún vivía deshacerse en su seno la dulce lágrima",
+      "audio": "dev/audio/11670/10604/11670_10604_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 70.1,
+        "original_end_s": 81.41
+      }
+    },
+    {
+      "id": "11670_10604_000052",
+      "text": "lejos del mundo de la luz y el ruido lejos de su tumulto que poco á poco el alma nos agota en el rincón oculto en que la fuente de la calma brota",
+      "audio": "dev/audio/11670/10604/11670_10604_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 114.32,
+        "original_end_s": 129.17
+      }
+    },
+    {
+      "id": "11670_10604_000053",
+      "text": "donde el recuerdo dulce se junta a la esperanza y con ella se funde donde en lago sereno se eternizan de los ríos que pasan las nunca quietas linfas donde el alma descansa sumida al fin en baño de consuelo donde saturno muere donde es vencido el tiempo",
+      "audio": "dev/audio/11670/10604/11670_10604_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 256.18,
+        "original_end_s": 275.87
+      }
+    },
+    {
+      "id": "11670_10604_000054",
+      "text": "mientras duermen los campos el rocío vivifica a las flores soñadoras duerme mi alma que el rocío dulce de la palabra caerá sobre tus flores tus sentires que luego beberán esa celeste esencia de la noche cuando el beso del sol les dore",
+      "audio": "dev/audio/11670/10604/11670_10604_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 156.88,
+        "original_end_s": 175.14
+      }
+    },
+    {
+      "id": "11670_10604_000055",
+      "text": "cual se lanzan ruidosos los torrentes de escarpadas montañas por abruptas vertientes á descansar del lago en las entrañas donde en mullido lecho los despojos que arrastran de desecho son de vidas innúmeras la cuna",
+      "audio": "dev/audio/11670/10604/11670_10604_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 184.24,
+        "original_end_s": 202.53
+      }
+    },
+    {
+      "id": "11670_10604_000056",
+      "text": "porque la luz mi alma es enemiga de la entrañada entraña en que vuelve el espíritu á sí mismo cuando la toca sin piedad la hostiga dentro el abismo en que en el seno de su dios se baña",
+      "audio": "dev/audio/11670/10604/11670_10604_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 83.47,
+        "original_end_s": 97.18
+      }
+    },
+    {
+      "id": "11670_10604_000057",
+      "text": "que el buen dios se lo pague hermanito que dios le bendiga dice á quien le paga y en limosna le da dios la vida la vida es limosna déjale al corazón que te diga qué es lo más hermoso déjale al corazón que en la vida el sabe sólo sólo él sabe la dicha",
+      "audio": "dev/audio/11670/10604/11670_10604_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 175.71,
+        "original_end_s": 194.01
+      }
+    },
+    {
+      "id": "11670_10604_000058",
+      "text": "voy sembrándome yo todo y entero por llano monte piedras polvo y lodo yo yo mismo yo soy vuestro sendero tomadme todo",
+      "audio": "dev/audio/11670/10604/11670_10604_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 90.46,
+        "original_end_s": 101.64
+      }
+    },
+    {
+      "id": "11670_10604_000059",
+      "text": "es la elegía que el silencio entona el silencio lenguaje de lo eterno mientras esclava vive la eternidad del tiempo hiciste añicos el reloj no basta acuéstate a dormir",
+      "audio": "dev/audio/11670/10604/11670_10604_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 189.87,
+        "original_end_s": 205.3
+      }
+    },
+    {
+      "id": "11670_10604_000060",
+      "text": "qué me cuentas qué viste allá en las nubes tu cuello acariciando el vil tirano le temblaba la mano era más suave y blanda que esta mía ay ay ay que me arrancas el sentido quieto quieto despacio déjame que te sienta pues te sacio",
+      "audio": "dev/audio/11670/10604/11670_10604_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 31.3,
+        "original_end_s": 49.75
+      }
+    },
+    {
+      "id": "11670_10604_000061",
+      "text": "pero es que aquí nada tengo ahora a mano nada con qué marcaros vuestro rumbo habréis de caminar al azar vano de tumbo en tumbo pero sí esperad traigo un cuchillo",
+      "audio": "dev/audio/11670/10604/11670_10604_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 49.46,
+        "original_end_s": 62.06
+      }
+    },
+    {
+      "id": "11670_10604_000062",
+      "text": "gota a gota mi sangre va mellando estos férreos lazos que hércules y la fuerza remacharon gota a gota las roe con la herrumbre y ha de quebrar al fin su pesadumbre",
+      "audio": "dev/audio/11670/10604/11670_10604_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 429.23,
+        "original_end_s": 440.81
+      }
+    },
+    {
+      "id": "11670_10604_000063",
+      "text": "tengo en ti compañero mi amigo y carnicero la soledad es la nada el dolor de pensar es ya un remedio mejor tus picotazos que no el tedio",
+      "audio": "dev/audio/11670/10604/11670_10604_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 134.06,
+        "original_end_s": 146.36
+      }
+    },
+    {
+      "id": "11670_10604_000064",
+      "text": "con el jugo inmortal de sus entrañas arrasar puede el hombre las montañas y tú verdugo te has de hartar un día llegarás á las bascas y al hastio",
+      "audio": "dev/audio/11670/10604/11670_10604_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 459.33,
+        "original_end_s": 469.35
+      }
+    },
+    {
+      "id": "11670_10604_000065",
+      "text": "esos son embrollos ve ahí te lo digo una limosnita por dios pide el pobre y se le contesta hermano perdone y él perdona la deuda para que dios le perdone",
+      "audio": "dev/audio/11670/10604/11670_10604_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 162.85,
+        "original_end_s": 175.71
+      }
+    },
+    {
+      "id": "11670_10604_000066",
+      "text": "y el mar no cesa su cantar prosigue devora nuestras vidas y á la orilla lanzando destrozados sus despojos nos dice consolándonos encendeos con ellos el hogar",
+      "audio": "dev/audio/11670/10604/11670_10604_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 173.07,
+        "original_end_s": 187.3
+      }
+    },
+    {
+      "id": "11670_10604_000067",
+      "text": "guárdamelo del duro aire serrano de su arreciente hostigo más cruel no me seas que el tirano y al cumplir su sentencia compasivo con tus alas protégeme y enjuga con tu redondo pecho mis heridas sea bizma su pluma blanda esponja sedeña como espuma",
+      "audio": "dev/audio/11670/10604/11670_10604_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 342.74,
+        "original_end_s": 361.79
+      }
+    },
+    {
+      "id": "11670_10604_000068",
+      "text": "oh tiempo tiempo duro tirano oh terrible misterio el pasado no vuelve nunca ya torna antigua historia antigua sí pero la misma siempre aterradora siempre presente",
+      "audio": "dev/audio/11670/10604/11670_10604_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 18.0,
+        "original_end_s": 34.71
+      }
+    },
+    {
+      "id": "11670_10604_000069",
+      "text": "un trozo de timón ardió enseguida y el leño que guio a la pobre barca por los revueltos mares en pavesas fue pronto a calentarme del fuego pasto",
+      "audio": "dev/audio/11670/10604/11670_10604_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 129.95,
+        "original_end_s": 140.68
+      }
+    },
+    {
+      "id": "11670_10604_000070",
+      "text": "cuna en que el cielo un niño dormido nos mandara y es el moisés que á todos nos finge la esperanza el moisés que nos saque de esta tierra encantada y nos lleve al desierto donde dios nos aguarda",
+      "audio": "dev/audio/11670/10604/11670_10604_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_062_unamuno_64kb.mp3",
+        "original_start_s": 48.95,
+        "original_end_s": 62.87
+      }
+    },
+    {
+      "id": "11670_10604_000071",
+      "text": "aquí al pié del sauce veré correr las aguas mientras en ellas pescan los pobres su mañana y esperaré que el cielo la patria al fin nos abra",
+      "audio": "dev/audio/11670/10604/11670_10604_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_062_unamuno_64kb.mp3",
+        "original_start_s": 78.48,
+        "original_end_s": 92.13
+      }
+    },
+    {
+      "id": "11670_10604_000072",
+      "text": "quieto quieto y devora vamos pasando sientes morriña de tu patria el cielo quieres volar á la escarpada roca que cobija tu nido sirviéndole las nubes de cortina",
+      "audio": "dev/audio/11670/10604/11670_10604_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 209.5,
+        "original_end_s": 222.49
+      }
+    },
+    {
+      "id": "11670_10604_000073",
+      "text": "de sus aguas sencillas de sus aguas sin ondas en que nacen de noche las estrellas meditando al reflejo que del cielo y de tí se junta en ellas",
+      "audio": "dev/audio/11670/10604/11670_10604_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 173.57,
+        "original_end_s": 184.58
+      }
+    },
+    {
+      "id": "11670_10604_000074",
+      "text": "sombra no se hacen entre sí los seres ni luchan por la luz todos se abrazan en el regazo de la buena madre canta la noche arrulla el sueño dulce de los rendidos hijos de la vida canta la noche y con su canto vierte un dulce olvido en los llagados pechos",
+      "audio": "dev/audio/11670/10604/11670_10604_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_047_unamuno_64kb.mp3",
+        "original_start_s": 45.09,
+        "original_end_s": 64.34
+      }
+    },
+    {
+      "id": "11670_10604_000075",
+      "text": "desgraciado si no encuentras gracia oh si el juez soberano tan solo justicia te diera justicia tan solo esas son monsergas son cosas de libros",
+      "audio": "dev/audio/11670/10604/11670_10604_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 150.9,
+        "original_end_s": 162.85
+      }
+    },
+    {
+      "id": "11670_10604_000076",
+      "text": "oh tiempo tiempo repite mi alma sí vuelve y repite la cantinela la letanía triste la inacabable endecha la elegía de siempre de cómo el tiempo corre y no remonta curso la corriente",
+      "audio": "dev/audio/11670/10604/11670_10604_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 116.7,
+        "original_end_s": 132.96
+      }
+    },
+    {
+      "id": "11670_10604_000077",
+      "text": "asomándose al cielo de la selva escuchan las estrellas en silencio del ruiseñor el canto voz alada de las entrañas de la noche augusta cantan amores al abierto cielo que cierra el sol",
+      "audio": "dev/audio/11670/10604/11670_10604_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_047_unamuno_64kb.mp3",
+        "original_start_s": 15.11,
+        "original_end_s": 29.2
+      }
+    },
+    {
+      "id": "11670_10604_000078",
+      "text": "estorban del lamento la desnudez profunda ahogan en floreos la solitaria nota honda y robusta pero imágenes sí acordes varios que el motivo melódico atenúen",
+      "audio": "dev/audio/11670/10604/11670_10604_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 177.13,
+        "original_end_s": 189.87
+      }
+    },
+    {
+      "id": "11670_10604_000079",
+      "text": "existir existir pensar sufriendo más bien que no dormir libre de penas el sueño sin ensueños que no acaba benditas tus cadenas ya que sin ellas pronto me hundiría",
+      "audio": "dev/audio/11670/10604/11670_10604_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 315.79,
+        "original_end_s": 329.45
+      }
+    },
+    {
+      "id": "11670_10604_000080",
+      "text": "y vi cómo las olas al navio tragaban de las llamas contemplando el ardoroso abrazo en que moría del timón confidente lo que duraba así pensé se queman los recuerdos á calentarnos en las noches tristes",
+      "audio": "dev/audio/11670/10604/11670_10604_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 140.68,
+        "original_end_s": 156.41
+      }
+    },
+    {
+      "id": "11670_10604_000081",
+      "text": "cual el del cielo en noche recojida que á la oración convida y brotan á lo lejos de remotas estrellas ideales los pálidos reflejos envolviéndose en malla soberana el fondo eterno de la vida humana",
+      "audio": "dev/audio/11670/10604/11670_10604_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 319.28,
+        "original_end_s": 335.66
+      }
+    },
+    {
+      "id": "11670_10604_000082",
+      "text": "eran tablas maderas que sirvieron a los hombres en ellas al quemarse señales se veían de algún clavo y el clavo mismo a veces que se encendía",
+      "audio": "dev/audio/11670/10604/11670_10604_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 48.06,
+        "original_end_s": 58.94
+      }
+    },
+    {
+      "id": "11670_10604_000083",
+      "text": "quiero dormir del tiempo quiero por fin rendido derretirme en lo eterno donde son el ayer hoy y mañana un solo modo desligado del tiempo que pasa",
+      "audio": "dev/audio/11670/10604/11670_10604_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 243.36,
+        "original_end_s": 256.18
+      }
+    },
+    {
+      "id": "11670_10604_000084",
+      "text": "a la roca del mundo prometeo que es de los hombres el mejor amigo con divinas cadenas atado y preso se alimenta de penas y al buitre acariciando su castigo al buitre pensamiento asi le dice",
+      "audio": "dev/audio/11670/10604/11670_10604_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 16.8,
+        "original_end_s": 31.3
+      }
+    },
+    {
+      "id": "11670_10604_000085",
+      "text": "la vida es limosna limosna del cielo te vendrá tu hora la vida es muy dura es como el mendrugo la vida es muy dura es como el mendrugo que echaron al pobre bésala piadoso antes de guardarla besa ese mendrugo antes de meterlo al zurrón de tu alma",
+      "audio": "dev/audio/11670/10604/11670_10604_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 194.01,
+        "original_end_s": 212.4
+      }
+    },
+    {
+      "id": "11670_10604_000086",
+      "text": "eres el lago silencioso y hondo de reposada orilla el lago en cuyo fondo descansa del desgaste el sedimento",
+      "audio": "dev/audio/11670/10604/11670_10604_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 235.64,
+        "original_end_s": 246.95
+      }
+    },
+    {
+      "id": "11670_10604_000087",
+      "text": "mira que volando las lleva en el pico migas del mendrugo se las lleva al nido hay que dar limosnan o hay más remedio que dar limosna el no darla es tan feo que no sirve de nada qué importa qué importa es tan feo",
+      "audio": "dev/audio/11670/10604/11670_10604_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 56.21,
+        "original_end_s": 74.6
+      }
+    },
+    {
+      "id": "11670_10604_000088",
+      "text": "el insondable mar del firmamento en que esta pobre tierra se pierde en la infinita muchedumbre de los mundos sin cuento al disiparse así en tu regazo",
+      "audio": "dev/audio/11670/10604/11670_10604_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 289.53,
+        "original_end_s": 303.1
+      }
+    },
+    {
+      "id": "11670_10604_000089",
+      "text": "sobre él luchó penó y oró aterido sobre él muerto de sed bebió el océano con la mirada viendo remolona acercarse la muerte sobre él muriose",
+      "audio": "dev/audio/11670/10604/11670_10604_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 116.8,
+        "original_end_s": 129.95
+      }
+    },
+    {
+      "id": "11670_10604_000090",
+      "text": "verás si miras bien cómo se asienta y como en el vacío la tierra sobre el cielo se sustenta el cielo está a tus pies corazón mío",
+      "audio": "dev/audio/11670/10604/11670_10604_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 214.48,
+        "original_end_s": 225.53
+      }
+    },
+    {
+      "id": "11670_10604_000091",
+      "text": "llegué empapado en agua de tormenta el mar bramando por sus miles de olas buscaba presa y allá arriba el cielo fruncía oseo su frente de soberano",
+      "audio": "dev/audio/11670/10604/11670_10604_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 15.39,
+        "original_end_s": 26.9
+      }
+    },
+    {
+      "id": "11670_10604_000092",
+      "text": "seguidme qué no veis la ruta acaso no oís mi voz tembláis ante el desierto las estrellas no veis van a vuestro paso sin rumbo cierto",
+      "audio": "dev/audio/11670/10604/11670_10604_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 16.13,
+        "original_end_s": 29.51
+      }
+    },
+    {
+      "id": "11670_10604_000093",
+      "text": "con sus rayos el sol ciego verdugo las raíces te seca de sus hebrillas rechupando el jugo y así te vas quedando mustia enteca poquito a poco huye mi corazón no seas loco",
+      "audio": "dev/audio/11670/10604/11670_10604_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 47.85,
+        "original_end_s": 61.6
+      }
+    },
+    {
+      "id": "11670_10604_000094",
+      "text": "y qué dice qué dice si dijera lo que decís que dice no diría lo que queréis que diga y al decirlo no le oirías",
+      "audio": "dev/audio/11670/10604/11670_10604_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 122.44,
+        "original_end_s": 133.44
+      }
+    },
+    {
+      "id": "11670_10604_000095",
+      "text": "oh qué pan tan duro no le ablandan los besos de fijo los besos del pobre hoy lo besa mañana lo muerde lo besa y lo guarda al zurrón se lo mete se guarda el mendrugo",
+      "audio": "dev/audio/11670/10604/11670_10604_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 27.79,
+        "original_end_s": 40.52
+      }
+    },
+    {
+      "id": "11670_10604_000096",
+      "text": "oh la primaveral verde tibieza que en mi pecho metiéndose susurra secretos a mi oido y misteriosa nada me dice",
+      "audio": "dev/audio/11670/10604/11670_10604_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 57.79,
+        "original_end_s": 69.17
+      }
+    },
+    {
+      "id": "11670_10604_000097",
+      "text": "no así me masculles en tu boca feroz saturno acaba acaba presto de tus horas implacable enemigo cesa el moler continuo acaba ya",
+      "audio": "dev/audio/11670/10604/11670_10604_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 232.02,
+        "original_end_s": 243.36
+      }
+    },
+    {
+      "id": "11670_10604_000098",
+      "text": "oh tiempo tiempo duro tirano del humano espíritu qué pobres las palabras la sed de eternidad para decirnos el lenguaje no basta es muy mezquino",
+      "audio": "dev/audio/11670/10604/11670_10604_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 147.21,
+        "original_end_s": 161.62
+      }
+    },
+    {
+      "id": "11670_10604_000099",
+      "text": "tú le sirves de atenta compañía tú con voz silenciosa le aconsejas y en horas de tristeza le das tu soledad por fortaleza",
+      "audio": "dev/audio/11670/10604/11670_10604_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 172.49,
+        "original_end_s": 184.24
+      }
+    },
+    {
+      "id": "11670_10604_000100",
+      "text": "de la divina estrella que es mi norte la luz toda en mi sangre aquí os dejo no la véis cómo brota no os importe yo soy su espejo",
+      "audio": "dev/audio/11670/10604/11670_10604_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 101.64,
+        "original_end_s": 112.49
+      }
+    },
+    {
+      "id": "11670_10604_000101",
+      "text": "mírale como viene tan dulce tan dulce y tan quedo mírale como viene tan dulce es el pordiosero parece su capa la huerta del pueblo",
+      "audio": "dev/audio/11670/10604/11670_10604_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 88.8,
+        "original_end_s": 100.19
+      }
+    },
+    {
+      "id": "11670_10604_000102",
+      "text": "viva es la sangre muertas las cadenas la guardo como arroyo de una savia perenne que en las venas tiene su cauce estrecho y vosotras innobles ligaduras que me surcáis el pecho sois solo hierro inerte y a la larga el que vive es el más fuerte",
+      "audio": "dev/audio/11670/10604/11670_10604_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 440.81,
+        "original_end_s": 459.33
+      }
+    },
+    {
+      "id": "11670_10604_000103",
+      "text": "y a la luz de la hoguera embravecida pude leer que la tabla agonizante que su calor nos daba en blancas letras decía en fondo negro firme esperanza",
+      "audio": "dev/audio/11670/10604/11670_10604_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 81.41,
+        "original_end_s": 93.06
+      }
+    },
+    {
+      "id": "11670_10604_000104",
+      "text": "una vez más la queja una vez más el sempiterno canto que nunca acaba de cómo todo se hunde y nada queda que el tiempo pasa irreparable irreparable irreparable lo oyes irreparable irreparable sí nunca lo olvides",
+      "audio": "dev/audio/11670/10604/11670_10604_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 51.77,
+        "original_end_s": 69.75
+      }
+    },
+    {
+      "id": "11670_10604_000105",
+      "text": "es hermoso y basta caridad no justicia me dices esas son monsergas son cosas de libros esos son embrollos ve ahí te lo digo es tan hermoso",
+      "audio": "dev/audio/11670/10604/11670_10604_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 74.6,
+        "original_end_s": 88.8
+      }
+    },
+    {
+      "id": "11670_10604_000106",
+      "text": "tú con tierno cariño nos meces en tu seno como la madre al niño cantándonos canciones con suave ritmo de caricias lleno y cuando llega tu hora",
+      "audio": "dev/audio/11670/10604/11670_10604_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 71.42,
+        "original_end_s": 85.61
+      }
+    },
+    {
+      "id": "11670_10604_000107",
+      "text": "dónde está respondéis dónde el camino no bien pasas se borran de él tus huellas y no hemos de esperar nuestro destino de las estrellas siembra algo en él pues vas tú muy de prisa clava de trecho en trecho piedra de hito buscárnoslo equivale a la requisa del infinito",
+      "audio": "dev/audio/11670/10604/11670_10604_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 29.51,
+        "original_end_s": 49.46
+      }
+    },
+    {
+      "id": "11670_10604_000108",
+      "text": "donde toda mancilla se purga a curso lento y en que por magia de sutil mudanza se convierte en recuerdo la esperanza",
+      "audio": "dev/audio/11670/10604/11670_10604_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 246.95,
+        "original_end_s": 258.46
+      }
+    },
+    {
+      "id": "11670_10604_000109",
+      "text": "agua sacó moisés de seca roca yo quiero con mi sangre marcar hierra fuego quiero que caiga de mi boca sobre la tierra sangre de fuego que la roca escalda la montaña os estorba mi trabajo de dolor me costó mas ved su falda quebrada en tajo",
+      "audio": "dev/audio/11670/10604/11670_10604_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 123.45,
+        "original_end_s": 142.21
+      }
+    },
+    {
+      "id": "11670_10604_000110",
+      "text": "todo todo devóralo no arrojes piltrafas a los cuervos no soy manjar de echar bajo la mesa nada nada de sobras a los siervos toda entera resérvate la presa",
+      "audio": "dev/audio/11670/10604/11670_10604_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 388.3,
+        "original_end_s": 400.13
+      }
+    },
+    {
+      "id": "11670_10604_000111",
+      "text": "te metiste alma mía en las corrientes revueltas de la vida perdido el tino y así te fue con furia los torrentes en recia acometida de torbellino te arrancaron la tierra mollar y grasa y rica en que la savia del vivir se encierra",
+      "audio": "dev/audio/11670/10604/11670_10604_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 17.55,
+        "original_end_s": 34.21
+      }
+    },
+    {
+      "id": "11670_10604_000112",
+      "text": "lo malo es cuando viene de soslayo cautelosa tapada y sin sentirla su violencia no temo sí su dolo gracias a ti mi buitre no estoy solo",
+      "audio": "dev/audio/11670/10604/11670_10604_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 121.08,
+        "original_end_s": 134.06
+      }
+    },
+    {
+      "id": "11670_10604_000113",
+      "text": "en él de sus dientes dejó un niño la marca y después de morderlo tuvo que dejarlo rendido de sueño rendidito el pobre mira un pajarito cómo allí se posa a coger las migajas del pan de limosna",
+      "audio": "dev/audio/11670/10604/11670_10604_000113.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 40.52,
+        "original_end_s": 56.21
+      }
+    },
+    {
+      "id": "11670_10604_000114",
+      "text": "bebe en los caminos agua cristalina agua que dios llueve limosna divina es que acaso somos más que unos mendigos de limosna y de gracia de mendrugos vivimos otra vez otra vez lo repites justicia tan sólo",
+      "audio": "dev/audio/11670/10604/11670_10604_000114.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 132.46,
+        "original_end_s": 150.9
+      }
+    },
+    {
+      "id": "11670_10604_000115",
+      "text": "terrible sed sed que marchita para siempre al alma que el océano contempla inmenso océano que nuestra sed no apaga sólo la vista llena océano inmenso de ondas amargas imágenes",
+      "audio": "dev/audio/11670/10604/11670_10604_000115.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 161.62,
+        "original_end_s": 177.13
+      }
+    },
+    {
+      "id": "11670_10604_000116",
+      "text": "no busques otro pasto mira mi vida cómo yo te basto bajo tus picotazos las entrañas muriendo me renacen de contínuo cuando la muerte viene así de cara sin vil disfraz ni engaño se puede combatirla",
+      "audio": "dev/audio/11670/10604/11670_10604_000116.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 105.11,
+        "original_end_s": 121.08
+      }
+    },
+    {
+      "id": "11670_10604_000117",
+      "text": "acójenos con paz entre tus brazos rompe con puño fuerte del sentido los lazos apóstol de la muerte pon tu mano intangible y redentora sobre el pecho que llora y danos á beber en tu bebida",
+      "audio": "dev/audio/11670/10604/11670_10604_000117.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 351.62,
+        "original_end_s": 367.57
+      }
+    },
+    {
+      "id": "11670_10604_000118",
+      "text": "cuando empapado el corazón en agua de tempestad del mundo tiembla de frío así con pobres restos de naufragios encendemos hogueras en las costas y a sus llamas soñamos melancólicos del mundo la tragedia que nos acaba",
+      "audio": "dev/audio/11670/10604/11670_10604_000118.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_066_unamuno_64kb.mp3",
+        "original_start_s": 156.41,
+        "original_end_s": 173.07
+      }
+    },
+    {
+      "id": "11670_10604_000119",
+      "text": "y esto se acabará todo se acaba en la más dura peña gota a gota el hilo de agua su sepulcro excava y desde el pétreo y funerario cáliz en vapor invisible va a derretirse al cielo",
+      "audio": "dev/audio/11670/10604/11670_10604_000119.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 415.2,
+        "original_end_s": 429.23
+      }
+    },
+    {
+      "id": "11670_10604_000120",
+      "text": "cuando al que sirve sin rencor ni dolo del ideal en el combate duro puesta la vista en el confín futuro a la verdad tan solo le dejan solo en la tenaz porfía tú no le dejas",
+      "audio": "dev/audio/11670/10604/11670_10604_000120.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 157.37,
+        "original_end_s": 172.49
+      }
+    },
+    {
+      "id": "11670_10604_000121",
+      "text": "paz derramando en torno al oscuro calor de tu regazo contenta y recogida como el ave en su nido libre de ajeno lazo desnuda alienta la callada vida acurrucada en recatado olvido",
+      "audio": "dev/audio/11670/10604/11670_10604_000121.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 99.13,
+        "original_end_s": 114.32
+      }
+    },
+    {
+      "id": "11670_10604_000122",
+      "text": "remedio contra el sueño de la vida",
+      "audio": "dev/audio/11670/10604/11670_10604_000122.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 367.57,
+        "original_end_s": 383.19
+      }
+    },
+    {
+      "id": "11670_10604_000123",
+      "text": "dale limosna que es tan hermoso mira el sol que es tan bueno su luz soberana le da de limosna sin negarle nada y el aire le envuelve le besa y le abraza y con tanto ahínco que por eso se pone la capa",
+      "audio": "dev/audio/11670/10604/11670_10604_000123.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 117.1,
+        "original_end_s": 132.46
+      }
+    },
+    {
+      "id": "11670_10604_000124",
+      "text": "a donde volver quieres la cabeza a ver tu patria el cielo por ventura buscas leer de júpiter la frente no te doy carne carne hasta la hartura",
+      "audio": "dev/audio/11670/10604/11670_10604_000124.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 146.36,
+        "original_end_s": 158.11
+      }
+    },
+    {
+      "id": "11670_10604_000125",
+      "text": "mira el pordiosero es el de siempre pobrecito que viene deshecho cómo resiste parece imposible mírale cómo besa el mendrugo que de allí le echaron",
+      "audio": "dev/audio/11670/10604/11670_10604_000125.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 15.53,
+        "original_end_s": 27.79
+      }
+    },
+    {
+      "id": "11670_10604_000126",
+      "text": "vencido á pesadumbre sin tener cura mas tu raigambre siente sed de agua y de tierra siente hambre mas no de lumbre",
+      "audio": "dev/audio/11670/10604/11670_10604_000126.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 133.82,
+        "original_end_s": 144.23
+      }
+    },
+    {
+      "id": "11670_10604_000127",
+      "text": "cuando se acuesta el sol en el ocaso deja tras su carrera vibrando luminoso en la alta esfera el áureo polvo de su augusto paso polvo que lento posa en las faldas oscuras de la noche callada y tenebrosa",
+      "audio": "dev/audio/11670/10604/11670_10604_000127.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 258.46,
+        "original_end_s": 273.74
+      }
+    },
+    {
+      "id": "11670_10604_000128",
+      "text": "mejor que junto al río que de pronto se sale de su cauce lleno de brío y como a pobre sauce de su ribera te desnuda las raíces de manera que te es la luz del sol ofensa y muerte mucho mejor mi alma",
+      "audio": "dev/audio/11670/10604/11670_10604_000128.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 144.23,
+        "original_end_s": 158.99
+      }
+    },
+    {
+      "id": "11670_10604_000129",
+      "text": "y tus pobres raíces descubiertas perdieron el sustento y quedaron al aire libre abiertas y al duro hostigo sin apoyo ni fuerza ni alimento faltas de todo abrigo recio castigo",
+      "audio": "dev/audio/11670/10604/11670_10604_000129.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 34.21,
+        "original_end_s": 47.85
+      }
+    },
+    {
+      "id": "11670_10604_000130",
+      "text": "brotan las melodías de los nidos y la armonía surge de las aguas el coro en el follaje y entre el césped concierta el órgano y no calla de día ni de noche nos canta sin cesar su canto eterno que como no empezó á nuestros oídos tampoco acaba",
+      "audio": "dev/audio/11670/10604/11670_10604_000130.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 102.98,
+        "original_end_s": 122.44
+      }
+    },
+    {
+      "id": "11670_10604_000131",
+      "text": "huye la luz y busca el secreto del tenebroso asilo que con agudas púas alto seto guarda de asaltos para tus ansias un lugar tranquilo",
+      "audio": "dev/audio/11670/10604/11670_10604_000131.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 61.6,
+        "original_end_s": 72.66
+      }
+    },
+    {
+      "id": "11670_10604_000132",
+      "text": "buscas cobrar de su sonrisa brío toma toma y bebe mi sangre deja deja al tirano eres ya mío y no has de leer su frente el claro cielo pues el vaho de la sangre en que te abrevas es de tus ojos velo",
+      "audio": "dev/audio/11670/10604/11670_10604_000132.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 158.11,
+        "original_end_s": 174.92
+      }
+    },
+    {
+      "id": "11670_10604_000133",
+      "text": "y allá por las alturas del infinito abriéndose encendida la creación augusta se revela en campo sin medida que con engaño el sol de día cela al mostrarnos cual sólida techumbre que a nuestro mundo encierra",
+      "audio": "dev/audio/11670/10604/11670_10604_000133.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 273.74,
+        "original_end_s": 289.53
+      }
+    },
+    {
+      "id": "11670_10604_000134",
+      "text": "podéis cortar donde queráis el cuento nunca se acaba y por lo tanto acaba donde se quiera fluye el regato entre las frescas flores y es el órgano vivo cuya música sirve de fondo al canto polifónico que alzan los pájaros",
+      "audio": "dev/audio/11670/10604/11670_10604_000134.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 85.51,
+        "original_end_s": 102.98
+      }
+    },
+    {
+      "id": "11670_10604_000135",
+      "text": "de tu apartado hogar en el asilo como una madre tierna da en su pecho tranquilo al hijo dulce leche nutritiva tú nos das la verdad eterna y viva que nos sostiene el alma",
+      "audio": "dev/audio/11670/10604/11670_10604_000135.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 129.17,
+        "original_end_s": 143.84
+      }
+    },
+    {
+      "id": "11670_10604_000136",
+      "text": "sección cuarenta y tres de poesías por miguel de unamuno esta grabación de librebox está en el dominio público grabado por antonio soto patiño meditaciones no busques luz mi corazón sino agua",
+      "audio": "dev/audio/11670/10604/11670_10604_000136.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 17.55
+      }
+    },
+    {
+      "id": "11670_10604_000137",
+      "text": "eres tú de la paz eterna y honda del último reposo el apóstol errante y misterioso que en torno nuestro ronda y que nos mete al alma cuando luchando por vivir padece la dulce y santa calma que á la par que la aquieta la enardece",
+      "audio": "dev/audio/11670/10604/11670_10604_000137.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 35.94,
+        "original_end_s": 55.88
+      }
+    },
+    {
+      "id": "11670_10604_000138",
+      "text": "el ay con que se queja el que padece de antigua pena es siempre el mismo el lamento de siempre repetirlo es consuelo es rosario incesante como lluvia una vez y otra y ciento",
+      "audio": "dev/audio/11670/10604/11670_10604_000138.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_045_unamuno_64kb.mp3",
+        "original_start_s": 132.96,
+        "original_end_s": 147.21
+      }
+    },
+    {
+      "id": "11670_10604_000139",
+      "text": "esa estrella que allá desde la cumbre frío apagado os manda su destello metióme al corazón toda su lumbre sangra por ello",
+      "audio": "dev/audio/11670/10604/11670_10604_000139.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 142.21,
+        "original_end_s": 152.77
+      }
+    },
+    {
+      "id": "11670_10604_000140",
+      "text": "enfrente en la otra orilla un pescador de caña me da cumplida imagen de eso que llaman masa del desdichado pueblo que ni odia ya ni ama aquí al pié del sauce veré correr las aguas por si ellas una cuna trajeran de pasada",
+      "audio": "dev/audio/11670/10604/11670_10604_000140.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_062_unamuno_64kb.mp3",
+        "original_start_s": 31.87,
+        "original_end_s": 48.95
+      }
+    },
+    {
+      "id": "11670_10604_000141",
+      "text": "no busques luz mi corazón sino agua de los abismos y allí hallarás la fragua de las visiones del amor eterno allí donde no llegan del invierno los temporales ni llegan cataclismos allí están las visiones cardinales",
+      "audio": "dev/audio/11670/10604/11670_10604_000141.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 184.58,
+        "original_end_s": 200.83
+      }
+    },
+    {
+      "id": "11670_10604_000142",
+      "text": "no no esos desgarrones come pausado la cabeza hundida mira que esos tirones me hacen desfallecer y no te siento dame un lento dolor sordo apacible dame un dolor de vida pensamiento",
+      "audio": "dev/audio/11670/10604/11670_10604_000142.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 64.01,
+        "original_end_s": 78.81
+      }
+    },
+    {
+      "id": "11670_10604_000143",
+      "text": "claras mañanas de esperanza henchidas serenas tardes del vivir desnudo noches calladas de sosiego dulce cual vuestra lengua y luego qué no sé y eso qué importa",
+      "audio": "dev/audio/11670/10604/11670_10604_000143.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 69.17,
+        "original_end_s": 85.51
+      }
+    },
+    {
+      "id": "11670_10604_000144",
+      "text": "su señal dejó en ella algún ángel antes de dormirse ha de despertarse cuando tú te duermas duermas para siempre la vida es limosna limosna la muerte",
+      "audio": "dev/audio/11670/10604/11670_10604_000144.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_041_unamuno_64kb.mp3",
+        "original_start_s": 212.4,
+        "original_end_s": 224.67
+      }
+    },
+    {
+      "id": "11670_10604_000145",
+      "text": "aquí al pié del sauce viendo correr las aguas apuraré en mi pecho las penas de mi patria aquí al pié del sauce la historia de mi españa recorreré en olvido de lo que en ella hoy pasa",
+      "audio": "dev/audio/11670/10604/11670_10604_000145.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_062_unamuno_64kb.mp3",
+        "original_start_s": 17.09,
+        "original_end_s": 31.87
+      }
+    },
+    {
+      "id": "11670_10604_000146",
+      "text": "queréis que acabe ya bueno ahí os queda ese zumbar que deja la campana muñéndose en el ámbito sereno de blanca tarde ese sagrado trémolo que muere derretido en la luz que se derrite cuando al angelus nacen las estrellas y se abre el cielo",
+      "audio": "dev/audio/11670/10604/11670_10604_000146.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_085_unamuno_64kb.mp3",
+        "original_start_s": 175.14,
+        "original_end_s": 194.3
+      }
+    },
+    {
+      "id": "11670_10604_000147",
+      "text": "sangre en el corazón fuerza en el brazo señalaros sendero me es sencillo con firme trazo lo véis con él me rasgo las entrañas las derramo fundidas por el suelo conmigo irá la huella a las montañas subirá al cielo",
+      "audio": "dev/audio/11670/10604/11670_10604_000147.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_065_unamuno_64kb.mp3",
+        "original_start_s": 62.06,
+        "original_end_s": 80.29
+      }
+    },
+    {
+      "id": "11670_10604_000148",
+      "text": "dueño amoroso y fuerte en los reveses de la ciega suerte y en los combates del amor abrigo del albedrío dueño del alma enferma cariñoso amigo fiel y discreto sueño",
+      "audio": "dev/audio/11670/10604/11670_10604_000148.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_027_unamuno_64kb.mp3",
+        "original_start_s": 335.66,
+        "original_end_s": 351.62
+      }
+    },
+    {
+      "id": "11670_10604_000149",
+      "text": "y esta misma agua mansa que de roer los duros peñascales jamás se cansa sustancia es de los cielos de que llueve y el cielo mismo el cielo en que se mueve el coro de las luces siderales",
+      "audio": "dev/audio/11670/10604/11670_10604_000149.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_044_unamuno_64kb.mp3",
+        "original_start_s": 200.83,
+        "original_end_s": 214.48
+      }
+    },
+    {
+      "id": "11670_10604_000150",
+      "text": "vamos vamos verdugo sumerge tu cabeza aquí en mi seno y engulle mis entrañas pero no alces el pico quedo aprende a comer sin feas mañas ni así me lo sacudas te suplico",
+      "audio": "dev/audio/11670/10604/11670_10604_000150.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 49.75,
+        "original_end_s": 64.01
+      }
+    },
+    {
+      "id": "11670_10604_000151",
+      "text": "y tú impasible júpiter celeste razón augusta idea soberana buitre del universo que devoras mundos soles y estrellas tú a quien los siglos son como las horas harto también un día la cabeza almenada de centellas doblegarás de la modorra al peso",
+      "audio": "dev/audio/11670/10604/11670_10604_000151.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 488.32,
+        "original_end_s": 506.25
+      }
+    },
+    {
+      "id": "11670_10604_000152",
+      "text": "cuánto me quieres buitre mío cuánto con que voraz cariño me devoras encendido en deseo de mi cebo sangre eres de mi sangre y es tu carne de mi carne renuevo",
+      "audio": "dev/audio/11670/10604/11670_10604_000152.opus",
+      "tags": {
+        "speaker_id": "mls-es-11670",
+        "gender": "m",
+        "book_id": "10604",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poesias_1805_librivox/poesias_037_unamuno_64kb.mp3",
+        "original_start_s": 263.54,
+        "original_end_s": 276.23
+      }
+    }
+  ]
+}

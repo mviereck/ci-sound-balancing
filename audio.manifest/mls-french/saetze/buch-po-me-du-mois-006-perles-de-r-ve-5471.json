@@ -1,0 +1,60 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Poème du Mois - 006 Perles de Rêve",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "5471",
+    "book_title": "Poème du Mois - 006 Perles de Rêve",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "6318_5471_000000",
+      "text": "perle de rêve de jean courdil enregistré pour librivox par sévès une perle luit et repose dans le sein d'une jeune rose au calice vermeil et pur que seras-tu perle éphémère",
+      "audio": "dev/audio/6318/5471/6318_5471_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5471",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1105.poem_librivox/perles_courdil_1ceb_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 19.97
+      }
+    },
+    {
+      "id": "6318_5471_000001",
+      "text": "a l'aurore vierge chimère je serai nuage d'azur une larme paraît et brille dans l'oeil doux de la blanche fille que nul frisson n'agite encor que seras-tu larme tremblante",
+      "audio": "dev/audio/6318/5471/6318_5471_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5471",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1105.poem_librivox/perles_courdil_1ceb_64kb.mp3",
+        "original_start_s": 19.97,
+        "original_end_s": 38.26
+      }
+    },
+    {
+      "id": "6318_5471_000002",
+      "text": "a la première aube troublante je m'envolerai rêve d'or",
+      "audio": "dev/audio/6318/5471/6318_5471_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-6318",
+        "gender": "m",
+        "book_id": "5471",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/poeme_du_mois_1105.poem_librivox/perles_courdil_1ceb_64kb.mp3",
+        "original_start_s": 38.26,
+        "original_end_s": 56.87
+      }
+    }
+  ]
+}

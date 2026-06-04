@@ -1,0 +1,22 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "freiburger",
+  "name": "Freiburger Sprachtest",
+  "url": "https://zenodo.org/records/10082491",
+  "license": "CC-BY-4.0",
+  "credit": "Freiburger Sprachtest (Zenodo 10082491)",
+  "base": "Freiburger/",
+  "categories": [
+    "saetze",
+    "geraeusche"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/einsilbig.json",
+      "saetze/mehrsilbig.json"
+    ],
+    "geraeusche": [
+      "geraeusche/ccitt-rauschen.json"
+    ]
+  }
+}

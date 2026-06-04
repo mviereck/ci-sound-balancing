@@ -1,0 +1,2300 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Puritanos Y Otros Cuentos",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "14016",
+    "book_title": "Puritanos Y Otros Cuentos",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "13325_14016_000000",
+      "text": "sí tiíto duerme duerme dijeron a un tiempo manolita y paquito echándole los brazos al cuello y cubriéndole de caricias",
+      "audio": "dev/audio/13325/14016/13325_14016_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1906.18,
+        "original_end_s": 1916.32
+      }
+    },
+    {
+      "id": "13325_14016_000001",
+      "text": "al observar la maestría con que iba venciendo las dificultades de la obra se comunicaron en voz bajo su sorpresa y dejaron algunos cuartos en el sombrero que había colgado del brazo",
+      "audio": "dev/audio/13325/14016/13325_14016_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 762.91,
+        "original_end_s": 774.78
+      }
+    },
+    {
+      "id": "13325_14016_000002",
+      "text": "llegó un día no obstante en que el cielo y la tierra le desampararon arrojado de todas partes sin tener un pedazo de pan que llevarse a la boca ni ropa con que preservarse del frío comprendió el cuitado con terror que se acercaba el instante de pedir limosna",
+      "audio": "dev/audio/13325/14016/13325_14016_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 646.77,
+        "original_end_s": 666.67
+      }
+    },
+    {
+      "id": "13325_14016_000003",
+      "text": "el defensor de su debilidad contra los ataques de los demás chicos y que siempre le hablaba con dulzura la voz de santiago al entrar por la mañana en su cuarto diciendo hola juanito arriba hombre no duermas tanto",
+      "audio": "dev/audio/13325/14016/13325_14016_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 80.73,
+        "original_end_s": 94.23
+      }
+    },
+    {
+      "id": "13325_14016_000004",
+      "text": "pero todavía quiso el infeliz disfrazar la humillación y decidió cantar por las calles de noche solamente poseía una voz regular y conocía a la perfección el arte del canto mas tropezó con la dificultad de no tener medio de acompañarse",
+      "audio": "dev/audio/13325/14016/13325_14016_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 694.8,
+        "original_end_s": 711.45
+      }
+    },
+    {
+      "id": "13325_14016_000005",
+      "text": "solo la voz de juan vibraba en el silencio de la noche saludando la madre de los desamparados y su canto más que himno de salutación parecía un grito de congoja algunas veces otras un gemido triste y resignado",
+      "audio": "dev/audio/13325/14016/13325_14016_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1225.5,
+        "original_end_s": 1242.98
+      }
+    },
+    {
+      "id": "13325_14016_000006",
+      "text": "que helaba el corazón más que el frío de la nieve en vano clamó el ciego largo rato pidiendo favor al cielo en vano repitió el dulce nombre de maría un sinnúmero de veces acomodándolo a los diversos tonos de la melodía",
+      "audio": "dev/audio/13325/14016/13325_14016_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1242.98,
+        "original_end_s": 1258.09
+      }
+    },
+    {
+      "id": "13325_14016_000007",
+      "text": "pronto divisé un grupo de niñas de su misma edad que se aproximaba en el centro venía una completamente enlutada morenita con grandes ojos negros y profundos que debía de ser la causante de los temores de asunción",
+      "audio": "dev/audio/13325/14016/13325_14016_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 474.55,
+        "original_end_s": 491.98
+      }
+    },
+    {
+      "id": "13325_14016_000008",
+      "text": "ya ves que le pasó en seguida sí pero esto es muy distinto ya lo sé que es distinto pero debes decírselo no me mandes eso por dios luisa de seguro no me vuelve a decir adiós y se lo cuenta en seguida a sus papás",
+      "audio": "dev/audio/13325/14016/13325_14016_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 321.61,
+        "original_end_s": 341.07
+      }
+    },
+    {
+      "id": "13325_14016_000009",
+      "text": "y todo el día siguió nevando sin cesar un instante lo cual les tenía sin cuidado a la mayoría de la gente y fue motivo de regocijo para muchos aficionados a la estética",
+      "audio": "dev/audio/13325/14016/13325_14016_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 979.72,
+        "original_end_s": 991.18
+      }
+    },
+    {
+      "id": "13325_14016_000010",
+      "text": "así que pasados los primeros quince días nuestro ciego vendió por algunos cuartos muy pocos por cierto el humilde ajuar de su morada despidió a la criada y se fue de pupilo a una casa de huéspedes pagando ocho reales los seis restantes le bastaban para atender a las demás necesidades",
+      "audio": "dev/audio/13325/14016/13325_14016_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 222.51,
+        "original_end_s": 242.11
+      }
+    },
+    {
+      "id": "13325_14016_000011",
+      "text": "seguía cayendo la nieve pausada y copiosamente decidida a prestar asunto al día siguiente a todos los revisteros de periódicos para encantar a sus aficionados con una docena de frases delicadas",
+      "audio": "dev/audio/13325/14016/13325_14016_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1183.9,
+        "original_end_s": 1196.73
+      }
+    },
+    {
+      "id": "13325_14016_000012",
+      "text": "el semblante pálido y las cejas fruncidas por último se levantó repentinamente y fue a reunirse con sus amigas que estaban algo apartadas formando un grupo",
+      "audio": "dev/audio/13325/14016/13325_14016_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 804.44,
+        "original_end_s": 815.3
+      }
+    },
+    {
+      "id": "13325_14016_000013",
+      "text": "y se durmió en efecto y despertó en el cielo al amanecer del día siguiente un agente de orden público tropezó con su cadáver entre la nieve el médico de la casa de socorro certificó que había muerto por la congelación de la sangre",
+      "audio": "dev/audio/13325/14016/13325_14016_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1916.32,
+        "original_end_s": 1932.97
+      }
+    },
+    {
+      "id": "13325_14016_000014",
+      "text": "paco de parte de luisa que sí y a la otra vuelta luisa le dijo a pepito pepito de parte de asunción que sí y quedamos novios",
+      "audio": "dev/audio/13325/14016/13325_14016_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 658.85,
+        "original_end_s": 671.25
+      }
+    },
+    {
+      "id": "13325_14016_000015",
+      "text": "el sol aún seguía bañando una parte no insignificante del paseo los chiquillos resaltaban sobre la arena como un enjambre de mosquitos en una mesa de mármol",
+      "audio": "dev/audio/13325/14016/13325_14016_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 87.32,
+        "original_end_s": 100.67
+      }
+    },
+    {
+      "id": "13325_14016_000016",
+      "text": "llegó un momento en que el frío y el dolor le apretaron tanto que se sintió casi desvanecido creyó morir y elevando el espíritu a la virgen del carmen su protectora exclamó con voz acongojada madre mía socórreme",
+      "audio": "dev/audio/13325/14016/13325_14016_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1128.22,
+        "original_end_s": 1145.01
+      }
+    },
+    {
+      "id": "13325_14016_000017",
+      "text": "utilizándolo para los juegos del aro de la rueda de la pelota pío campo escondite y otros no menos respetables",
+      "audio": "dev/audio/13325/14016/13325_14016_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 50.59,
+        "original_end_s": 61.06
+      }
+    },
+    {
+      "id": "13325_14016_000018",
+      "text": "y me pareció cómica pero observando mejor me convencí de que algo serio pasaba entre ellas y como no tenía otra cosa que hacer cambié de silla disimuladamente y me acerqué cuanto pude a fin de averiguarlo",
+      "audio": "dev/audio/13325/14016/13325_14016_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 241.06,
+        "original_end_s": 258.65
+      }
+    },
+    {
+      "id": "13325_14016_000019",
+      "text": "juan no podía persuadirse de ello y le buscaba un millón de disculpas unas veces achacaba la falta al correo otras se le figuraba que su hermano no quería escribir hasta que pudiera mandar mucho dinero",
+      "audio": "dev/audio/13325/14016/13325_14016_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 105.88,
+        "original_end_s": 119.7
+      }
+    },
+    {
+      "id": "13325_14016_000020",
+      "text": "únicamente cuando éste exasperado lanzaba algún amargo apóstrofe contra el hijo ausente se atrevía a decirle no se desespere usted padre santiago es bueno me da el corazón que ha de escribir uno de estos días",
+      "audio": "dev/audio/13325/14016/13325_14016_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 134.77,
+        "original_end_s": 151.04
+      }
+    },
+    {
+      "id": "13325_14016_000021",
+      "text": "vamos niñas que nos están mirando dijo luisa enjugad las lágrimas y vamos a pasear y en efecto llevándose el pañuelo a los ojos",
+      "audio": "dev/audio/13325/14016/13325_14016_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 957.39,
+        "original_end_s": 970.03
+      }
+    },
+    {
+      "id": "13325_14016_000022",
+      "text": "como el ministerio entrante no estaba dispuesto según había afirmado en el congreso por boca de uno de los miembros más autorizados a tolerar imposiciones de nadie procedió inmediatamente y con saludable energía a dejar cesante a juan buscándole un sustituto",
+      "audio": "dev/audio/13325/14016/13325_14016_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 313.41,
+        "original_end_s": 331.6
+      }
+    },
+    {
+      "id": "13325_14016_000023",
+      "text": "sabes lo que estoy pensando asunción qué que debías decírselo todo lola es buena niña aunque tenga el genio vivo no te acuerdas cuando nos pegamos y nos arañamos porque le quité de ser la mamá",
+      "audio": "dev/audio/13325/14016/13325_14016_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 303.87,
+        "original_end_s": 321.61
+      }
+    },
+    {
+      "id": "13325_14016_000024",
+      "text": "visto lo cual por su amiga tomó asiento al lado y la instó con mucha viveza para que le contase lo que la ponía tan triste mira lola",
+      "audio": "dev/audio/13325/14016/13325_14016_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 560.97,
+        "original_end_s": 571.94
+      }
+    },
+    {
+      "id": "13325_14016_000025",
+      "text": "y bajó por la carrera de san jerónimo caminando torpemente sobre la nieve cubierto ya de un blanco cendal y con los pies chapoteando agua el frío se le iba metiendo por los huesos el hambre le producía un fuerte dolor en el estómago",
+      "audio": "dev/audio/13325/14016/13325_14016_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1111.37,
+        "original_end_s": 1128.22
+      }
+    },
+    {
+      "id": "13325_14016_000026",
+      "text": "el padre algún tiempo antes de morir había conseguido que le diesen una plaza de organista en una de las iglesias de madrid retribuida con catorce reales diarios no era bastante como se comprende para sostener una casa abierta por modesta que fuese",
+      "audio": "dev/audio/13325/14016/13325_14016_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 205.53,
+        "original_end_s": 222.51
+      }
+    },
+    {
+      "id": "13325_14016_000027",
+      "text": "pues era cosa averiguada para los agentes de orden público que las personas que se reúnen en la calle a escuchar a un ciego demuestran por este hecho instintos peligrosos de rebelión",
+      "audio": "dev/audio/13325/14016/13325_14016_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 787.93,
+        "original_end_s": 799.56
+      }
+    },
+    {
+      "id": "13325_14016_000028",
+      "text": "yo no me enfado con nadie y mucho menos contigo yo me puse colorada y él también todos los días por la tarde iba a esperarme a la salida del colegio se estaba paseando por delante hasta que yo salía y después me seguía hasta casa",
+      "audio": "dev/audio/13325/14016/13325_14016_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 688.2,
+        "original_end_s": 706.35
+      }
+    },
+    {
+      "id": "13325_14016_000029",
+      "text": "está la pobre en camisa ji ji me hago como que no la veo se va a creer que estoy loco ji ji adelante juanillo adelante juan obedecía a su hermano aunque sin gusto ya porque deseaba conocer a su cuñada y besar a sus sobrinos",
+      "audio": "dev/audio/13325/14016/13325_14016_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1747.16,
+        "original_end_s": 1764.66
+      }
+    },
+    {
+      "id": "13325_14016_000030",
+      "text": "ya no tenía guitarra la había vendido por tres pesetas en un momento parecido de apuro la nieve caía con la misma constancia puede decirse con el mismo encarnizamiento",
+      "audio": "dev/audio/13325/14016/13325_14016_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1054.65,
+        "original_end_s": 1068.18
+      }
+    },
+    {
+      "id": "13325_14016_000031",
+      "text": "no lo tenía porque ya no cobraba en la iglesia fue necesario que llevase a empeñar el reloj de su padre para pagar la casa después se quedó otra vez tan tranquilo y siguió trabajando sin preocuparse de lo porvenir",
+      "audio": "dev/audio/13325/14016/13325_14016_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 359.05,
+        "original_end_s": 374.46
+      }
+    },
+    {
+      "id": "13325_14016_000032",
+      "text": "llamó desde luego la atención de los transeúntes un ciego que no cantaba peteneras o malagueñas y muchos hicieron círculo en torno suyo y no pocos",
+      "audio": "dev/audio/13325/14016/13325_14016_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 751.03,
+        "original_end_s": 762.91
+      }
+    },
+    {
+      "id": "13325_14016_000033",
+      "text": "adelante adelante si no quiere usted ir a la prevención es realmente consolador el ver con qué esmero procura la autoridad gubernativa que las vías públicas se hallen siempre limpias de ciegos que canten",
+      "audio": "dev/audio/13325/14016/13325_14016_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 825.81,
+        "original_end_s": 838.76
+      }
+    },
+    {
+      "id": "13325_14016_000034",
+      "text": "después de cambiadas las primeras impresiones observé que luisa hacía señas a asunción en ademán de pedirle algo y que asunción lo negaba también por señas pero con energía",
+      "audio": "dev/audio/13325/14016/13325_14016_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 514.41,
+        "original_end_s": 528.43
+      }
+    },
+    {
+      "id": "13325_14016_000035",
+      "text": "fueron inútiles cuantas gestiones hizo para averiguar su paradero afortunadamente la providencia se encargó de llevarlo a sus brazos santiago reía unas veces lloraba otras mostrando siempre el carácter franco generoso y jovial de cuando niño",
+      "audio": "dev/audio/13325/14016/13325_14016_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1581.76,
+        "original_end_s": 1599.37
+      }
+    },
+    {
+      "id": "13325_14016_000036",
+      "text": "los transeúntes como si viniesen perseguidos de cerca por la pulmonía no osaban detenerse al fin ya no pudo cantar más la voz expiraba en la garganta las piernas se le doblaban iba perdiendo la sensibilidad en las manos",
+      "audio": "dev/audio/13325/14016/13325_14016_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1275.78,
+        "original_end_s": 1294.4
+      }
+    },
+    {
+      "id": "13325_14016_000037",
+      "text": "y el poco o ningún efecto que les causaba la alegría de los demás muchachos al principio creí que aquella circunspección procedía de considerarse ya demasiado formales para corretear",
+      "audio": "dev/audio/13325/14016/13325_14016_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 226.54,
+        "original_end_s": 241.06
+      }
+    },
+    {
+      "id": "13325_14016_000038",
+      "text": "pues vamos a dar un susto a mi mujer y a mis hijos ven al salón y le condujo hasta sentarle delante del piano después levantó la tapa para que se oyera mejor",
+      "audio": "dev/audio/13325/14016/13325_14016_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1678.97,
+        "original_end_s": 1690.71
+      }
+    },
+    {
+      "id": "13325_14016_000039",
+      "text": "y pensó vagamente en que había llegado el último instante de su vida y volvió a rezar fervorosamente implorando la misericordia divina",
+      "audio": "dev/audio/13325/14016/13325_14016_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1306.01,
+        "original_end_s": 1316.07
+      }
+    },
+    {
+      "id": "13325_14016_000040",
+      "text": "la voz salía débil y enronquecida de la garganta nadie se acercaba a él ni siquiera por curiosidad vamos a otra parte se dijo",
+      "audio": "dev/audio/13325/14016/13325_14016_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1100.08,
+        "original_end_s": 1111.37
+      }
+    },
+    {
+      "id": "13325_14016_000041",
+      "text": "la una estaba pálida y tenía la vista fija constantemente en el suelo la otra miraba de vez en cuando con inquietud y tristeza",
+      "audio": "dev/audio/13325/14016/13325_14016_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 258.65,
+        "original_end_s": 270.13
+      }
+    },
+    {
+      "id": "13325_14016_000042",
+      "text": "otras veces llamaban imperiosamente al que se desmandaba y le residenciaban ante el consejo de doncellas y amas de cría amonestándole suavemente o recriminándole con dureza y administrándole algún leve correctivo en la parte posterior",
+      "audio": "dev/audio/13325/14016/13325_14016_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 149.62,
+        "original_end_s": 167.87
+      }
+    },
+    {
+      "id": "13325_14016_000043",
+      "text": "abrió con cuidado las puertas y ejecutó todas las maniobras conducentes a producir una sorpresa en la casa pero todo ello con tal esmero andando sobre la punta de los pies",
+      "audio": "dev/audio/13325/14016/13325_14016_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1690.71,
+        "original_end_s": 1702.97
+      }
+    },
+    {
+      "id": "13325_14016_000044",
+      "text": "pasó el día acurrucado sobre el colchón recordando los días de la infancia y acariciando la dulce manía de la vuelta de su hermano al llegar la noche apretado por la necesidad desfallecido bajó a la calle a implorar una limosna",
+      "audio": "dev/audio/13325/14016/13325_14016_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1038.77,
+        "original_end_s": 1054.65
+      }
+    },
+    {
+      "id": "13325_14016_000045",
+      "text": "ambas rubias y ambas vestidas con singular gracia y elegancia en madrid esta última no tiene nada de extraordinario porque las mamás que han renunciado a ser coquetas para sí",
+      "audio": "dev/audio/13325/14016/13325_14016_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 197.43,
+        "original_end_s": 211.92
+      }
+    },
+    {
+      "id": "13325_14016_000046",
+      "text": "entonces por consideración a su debilidad le tuvieron algunos días más de cortesía muy pocos y después le pusieron en la calle gloriándose mucho de dejarle libre el baúl y la ropa ya que con ella podían cobrarse de los pocos reales que les quedaba a deber",
+      "audio": "dev/audio/13325/14016/13325_14016_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 388.29,
+        "original_end_s": 406.74
+      }
+    },
+    {
+      "id": "13325_14016_000047",
+      "text": "y siguieron caminando en silencio al cabo este se detuvo un instante y le preguntó con voz alterada cómo se llama usted juan juan qué juan martínez",
+      "audio": "dev/audio/13325/14016/13325_14016_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1417.8,
+        "original_end_s": 1430.72
+      }
+    },
+    {
+      "id": "13325_14016_000048",
+      "text": "y que en concluyendo la carrera de abogado que era la que pensaba seguir nos casaríamos a mí me daba mucha vergüenza contestarle pero como a luisa le había escrito también paco núñez declarándose yo por encargo de ella le dije un día en el paseo",
+      "audio": "dev/audio/13325/14016/13325_14016_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 640.14,
+        "original_end_s": 658.85
+      }
+    },
+    {
+      "id": "13325_14016_000049",
+      "text": "otras pensaba que iba a darles una sorpresa el mejor día presentándose cargado de millones en el modesto entresuelo que habitaban pero ninguna de estas imaginaciones se atrevía a comunicar a su padre",
+      "audio": "dev/audio/13325/14016/13325_14016_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 119.7,
+        "original_end_s": 134.77
+      }
+    },
+    {
+      "id": "13325_14016_000050",
+      "text": "los poetas que gozaban de una posición desahogada muy particularmente pasaron gran parte del día mirando caer los copos al través de los cristales de su gabinete y meditando lindos e ingeniosos símiles de esos que hacen gritar al público en el teatro bravo bravo",
+      "audio": "dev/audio/13325/14016/13325_14016_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 991.18,
+        "original_end_s": 1009.25
+      }
+    },
+    {
+      "id": "13325_14016_000051",
+      "text": "luisa sin embargo se resolvió a hacer lo que pretendía a despecho de su amiga y llegándose a lola le dijo mira asunción tiene que decirte una cosa ve a sentarte junto a ella",
+      "audio": "dev/audio/13325/14016/13325_14016_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 528.43,
+        "original_end_s": 545.72
+      }
+    },
+    {
+      "id": "13325_14016_000052",
+      "text": "y los dos hermanos quedaron abrazados y sollozando algunos minutos en medio de la calle la nieve caía sobre ellos dulcemente santiago se desprendió bruscamente de los brazos de su hermano",
+      "audio": "dev/audio/13325/14016/13325_14016_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1458.29,
+        "original_end_s": 1471.63
+      }
+    },
+    {
+      "id": "13325_14016_000053",
+      "text": "juan no lo supo sino tarde y con daño el nuevo gabinete pasados algunos días juzgó que juan era un organista peligroso para el orden público",
+      "audio": "dev/audio/13325/14016/13325_14016_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 291.52,
+        "original_end_s": 301.91
+      }
+    },
+    {
+      "id": "13325_14016_000054",
+      "text": "arrimose a la pared de una casa descansó algunos instantes y repuesto un tanto empezó a cantar la romanza de tenor del primer acto de la favorita",
+      "audio": "dev/audio/13325/14016/13325_14016_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 740.85,
+        "original_end_s": 751.03
+      }
+    },
+    {
+      "id": "13325_14016_000055",
+      "text": "pero por qué me decías que después de contármelo no iba a darte más besos y todas aquellas cosas al contrario ahora te quiero más mira cómo te quiero y lolita al decir esto le daba apasionados besos espera espera no me beses",
+      "audio": "dev/audio/13325/14016/13325_14016_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 718.77,
+        "original_end_s": 737.47
+      }
+    },
+    {
+      "id": "13325_14016_000056",
+      "text": "aunque anduviese todavía por las ramas de los árboles y las fachadas de las casas la estatua de apolo que corona la fuente del centro recibía su postrera caricia los lejanos palacios del paseo de recoletos resplandecían en aquel instante como si fuesen de plata",
+      "audio": "dev/audio/13325/14016/13325_14016_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 864.05,
+        "original_end_s": 883.5
+      }
+    },
+    {
+      "id": "13325_14016_000057",
+      "text": "los domingos cuando bailábamos en tu casa o en la mía me sacaba más veces que a las demás pero no se atrevía a decirme nada a pesar de eso una vez bailando como estaba triste y hablaba poco le pregunté si estaba enfadado y él me contestó",
+      "audio": "dev/audio/13325/14016/13325_14016_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 671.25,
+        "original_end_s": 688.2
+      }
+    },
+    {
+      "id": "13325_14016_000058",
+      "text": "retirose a su zahurda el pobre juan pesaroso porque tenía buen corazón de haber comprometido por un instante la paz intestina y dado pie para una intervención del poder ejecutivo",
+      "audio": "dev/audio/13325/14016/13325_14016_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 849.42,
+        "original_end_s": 862.25
+      }
+    },
+    {
+      "id": "13325_14016_000059",
+      "text": "una melodía a la cual siempre había tenido mucha afición pero nadie se acercaba tampoco los habitantes de la villa estaban todos recogidos en los cafés y teatros o bien en sus hogares haciendo bailar a sus hijos sobre las rodillas al amor de la lumbre",
+      "audio": "dev/audio/13325/14016/13325_14016_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1166.16,
+        "original_end_s": 1183.9
+      }
+    },
+    {
+      "id": "13325_14016_000060",
+      "text": "al cabo como era de esperar venció el hambre después de pasar muchas horas sollozando y pidiendo fuerzas a dios para soportar su desdicha resolviose a implorar la caridad",
+      "audio": "dev/audio/13325/14016/13325_14016_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 681.39,
+        "original_end_s": 694.8
+      }
+    },
+    {
+      "id": "13325_14016_000061",
+      "text": "las niñeras guardianas fieles de aquel rebaño con sus cofias blancas y rizadas las trenzas del cabello sueltas las manos coloradas y las mejillas rebosando una salud que yo para mí deseo",
+      "audio": "dev/audio/13325/14016/13325_14016_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 100.67,
+        "original_end_s": 116.34
+      }
+    },
+    {
+      "id": "13325_14016_000062",
+      "text": "dio algunos pasos y se sentó en la acera al pie de la verja que rodea el jardín apoyó los codos en las rodillas y metió la cabeza entre las manos",
+      "audio": "dev/audio/13325/14016/13325_14016_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1294.4,
+        "original_end_s": 1306.01
+      }
+    },
+    {
+      "id": "13325_14016_000063",
+      "text": "hizo que le escribiesen a la habana sin poner señas a la carta porque no las sabía procuró informarse si le habían visto aunque sin resultado y todos los días se pasaba algunas horas pidiendo a dios de rodillas que le trajese en su auxilio",
+      "audio": "dev/audio/13325/14016/13325_14016_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 570.52,
+        "original_end_s": 587.32
+      }
+    },
+    {
+      "id": "13325_14016_000064",
+      "text": "dicho sea en honor suyo los inquietos y menudos objetos de su vigilancia tal vez que otra se levantaban corriendo para ir a socorrer a algún mosquito infeliz que se había caído boca abajo y que se revolcaba en la arena con horrísonos chillidos",
+      "audio": "dev/audio/13325/14016/13325_14016_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 129.96,
+        "original_end_s": 149.62
+      }
+    },
+    {
+      "id": "13325_14016_000065",
+      "text": "yo no quiero manolita no quiere tampoco ni papá ni mamá a que no le das tu cama paquito dijo santiago pasando a la alegría inmediatamente si no quepe en ella papá en la sala hay otra muy grande muy grande muy grande",
+      "audio": "dev/audio/13325/14016/13325_14016_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1861.74,
+        "original_end_s": 1880.58
+      }
+    },
+    {
+      "id": "13325_14016_000066",
+      "text": "el padre se murió sin ver carta de su hijo mayor entre un sacerdote que le exhortaba y el pobre ciego que le apretaba convulso la mano como si tratase de retenerle a la fuerza en este mundo",
+      "audio": "dev/audio/13325/14016/13325_14016_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 151.04,
+        "original_end_s": 163.98
+      }
+    },
+    {
+      "id": "13325_14016_000067",
+      "text": "nada de morirse no hable usted de eso ya lo que importa ahora es dar pronto con un simón vamos adelante qué es eso tropieza usted",
+      "audio": "dev/audio/13325/14016/13325_14016_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1388.43,
+        "original_end_s": 1400.5
+      }
+    },
+    {
+      "id": "13325_14016_000068",
+      "text": "porque le estremecía más que la muerte la idea de infringir los mandatos de la autoridad y turbar aunque fuese momentáneamente el orden de su país",
+      "audio": "dev/audio/13325/14016/13325_14016_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 896.02,
+        "original_end_s": 906.1
+      }
+    },
+    {
+      "id": "13325_14016_000069",
+      "text": "no toques más juan no toques más cesó el estrépito infernal vamos adela manolita paquito abrigaos un poco y venid a dar un abrazo a mi hermano juan este es juan de quien tanto os he hablado a quien acabo de encontrar en la calle a punto de morirse helado entre la nieve",
+      "audio": "dev/audio/13325/14016/13325_14016_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1779.13,
+        "original_end_s": 1798.92
+      }
+    },
+    {
+      "id": "13325_14016_000070",
+      "text": "era en el mes de noviembre el pobre juan que siempre había guardado en el pensamiento la quimera de la venida de su hermano ahogado ahora por la desgracia comenzó a alimentarla con afán",
+      "audio": "dev/audio/13325/14016/13325_14016_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 558.3,
+        "original_end_s": 570.52
+      }
+    },
+    {
+      "id": "13325_14016_000071",
+      "text": "su oído le decía que no cruzaba apenas ningún transeúnte los coches no hacían ruido y estuvo expuesto a ser atropellado por uno en una de las calles céntricas se puso al fin a cantar el primer pedazo de ópera que acudió a sus labios",
+      "audio": "dev/audio/13325/14016/13325_14016_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1083.17,
+        "original_end_s": 1100.08
+      }
+    },
+    {
+      "id": "13325_14016_000072",
+      "text": "asunción permaneció sentada con la cabeza baja y ocultando el rostro entre las manos en el grupo de lolita hubo acalorada deliberación las amigas se esforzaban en convencerla para que otorgase su perdón a la culpable",
+      "audio": "dev/audio/13325/14016/13325_14016_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 830.32,
+        "original_end_s": 846.83
+      }
+    },
+    {
+      "id": "13325_14016_000073",
+      "text": "a ver retírese usted a su casa inmediatamente y no se pare usted en ninguna calle pero yo no hago daño a nadie está usted impidiendo el tránsito",
+      "audio": "dev/audio/13325/14016/13325_14016_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 813.54,
+        "original_end_s": 825.81
+      }
+    },
+    {
+      "id": "13325_14016_000074",
+      "text": "vamos andando a ver si llegamos pronto a casa para que usted se seque y tome algo caliente dios se lo pagará a usted caballero la virgen se lo pagará creí que iba a morirme en ese sitio",
+      "audio": "dev/audio/13325/14016/13325_14016_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1375.01,
+        "original_end_s": 1388.43
+      }
+    },
+    {
+      "id": "13325_14016_000075",
+      "text": "se agrupaban a la sombra sentadas en algún banco desahogando con placer sus respectivos pechos henchidos de secretos domésticos sin que por eso perdiesen de vista un momento",
+      "audio": "dev/audio/13325/14016/13325_14016_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 116.34,
+        "original_end_s": 129.96
+      }
+    },
+    {
+      "id": "13325_14016_000076",
+      "text": "u obligan a exclamar cuando se leen en un tomo de versos qué talento tiene este joven juan no había tomado más alimento que una taza de café de ínfima clase y un panecillo",
+      "audio": "dev/audio/13325/14016/13325_14016_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1009.25,
+        "original_end_s": 1022.36
+      }
+    },
+    {
+      "id": "13325_14016_000077",
+      "text": "no no me querrás dame un beso ahora después que te lo diga no me darás ningún otro lolita se manifestó sorprendida pero le dio algunos besos sonoros",
+      "audio": "dev/audio/13325/14016/13325_14016_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 582.15,
+        "original_end_s": 595.06
+      }
+    },
+    {
+      "id": "13325_14016_000078",
+      "text": "y no será peor que se lo cuente otra persona hay niñas más mal intencionadas elvira lo sabe ya no sé quién se lo ha dicho",
+      "audio": "dev/audio/13325/14016/13325_14016_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 341.07,
+        "original_end_s": 352.09
+      }
+    },
+    {
+      "id": "13325_14016_000079",
+      "text": "santiago se golpeaba la cabeza su esposa lloraba los chicos atónitos le decían estrechándole la mano no volverás a tener hambre ni salir a la calle sin paraguas verdad tiíto",
+      "audio": "dev/audio/13325/14016/13325_14016_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1847.81,
+        "original_end_s": 1861.74
+      }
+    },
+    {
+      "id": "13325_14016_000080",
+      "text": "pasó dos días metido en su cuarto recorriéndolo de una esquina a otra como un lobo enjaulado sin probar alimento la criada ayudada por una vecina compasiva consiguió al cabo impedir aquel suicidio volvió a comer y pasó la vida desde entonces rezando y tocando el piano",
+      "audio": "dev/audio/13325/14016/13325_14016_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 185.76,
+        "original_end_s": 205.53
+      }
+    },
+    {
+      "id": "13325_14016_000081",
+      "text": "que en sus maniobras musicales ofreciese más garantías o fuese más adicto a las instituciones cuando le notificaron el cese nuestro ciego no experimentó más emoción que la sorpresa",
+      "audio": "dev/audio/13325/14016/13325_14016_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 331.6,
+        "original_end_s": 344.66
+      }
+    },
+    {
+      "id": "13325_14016_000082",
+      "text": "al fin otro desgraciado que no lo era tanto como él le facilitó una guitarra vieja y rota y después de arreglarla del mejor modo que pudo y después de derramar abundantes lágrimas salió cierta noche de diciembre a la calle",
+      "audio": "dev/audio/13325/14016/13325_14016_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 711.45,
+        "original_end_s": 727.91
+      }
+    },
+    {
+      "id": "13325_14016_000083",
+      "text": "vamos vestíos pronto la noble familia de santiago vino inmediatamente a abrazar al pobre ciego la voz de la esposa era dulce y armoniosa juan creía escuchar la de la virgen notó que lloraba cuando su marido relató de qué modo le habían encontrado",
+      "audio": "dev/audio/13325/14016/13325_14016_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1798.92,
+        "original_end_s": 1817.94
+      }
+    },
+    {
+      "id": "13325_14016_000084",
+      "text": "según el sistema y el temperamento de cada juez esperando la llegada de la gente me senté en una silla metálica de las que dividen el paseo y me puse a contemplar con ojos distraídos el juego de los chicos",
+      "audio": "dev/audio/13325/14016/13325_14016_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 167.87,
+        "original_end_s": 183.53
+      }
+    },
+    {
+      "id": "13325_14016_000085",
+      "text": "los transeúntes que casualmente cruzaban lo hacían apresuradamente arrebujados en sus capas y tapándose con el paraguas los faroles se habían puesto el gorro blanco de dormir y dejaban escapar melancólica claridad",
+      "audio": "dev/audio/13325/14016/13325_14016_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1196.73,
+        "original_end_s": 1213.52
+      }
+    },
+    {
+      "id": "13325_14016_000086",
+      "text": "se negaba a ello con una mímica lo único que yo percibía altiva y violenta luisa no cesaba de ir y venir consolando a su triste amiga y procurando calmar a la otra el sol se había retirado ya del paseo",
+      "audio": "dev/audio/13325/14016/13325_14016_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 846.83,
+        "original_end_s": 864.05
+      }
+    },
+    {
+      "id": "13325_14016_000087",
+      "text": "los únicos momentos felices del desdichado eran los que pasaba en oración en el ángulo de alguna iglesia solitaria oculto detrás de un pilar aspirando los acres olores de la cera y la humedad",
+      "audio": "dev/audio/13325/14016/13325_14016_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 587.32,
+        "original_end_s": 601.02
+      }
+    },
+    {
+      "id": "13325_14016_000088",
+      "text": "y después de pronunciar estas palabras se sintió un poco mejor y marchó o más propiamente se arrastró hasta la plaza de las cortes",
+      "audio": "dev/audio/13325/14016/13325_14016_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1145.01,
+        "original_end_s": 1155.72
+      }
+    },
+    {
+      "id": "13325_14016_000089",
+      "text": "el padre indignado mientras vivió de la ingratitud del hijo no quería oír su nombre pero el ciego le guardaba todavía mucho cariño no podía menos de recordar que aquel hermano mayor que él había sido su sostén en la niñez",
+      "audio": "dev/audio/13325/14016/13325_14016_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 65.5,
+        "original_end_s": 80.73
+      }
+    },
+    {
+      "id": "13325_14016_000090",
+      "text": "los niños revoloteaban en torno de la butaca acariciándole y dejándose acariciar de su tío todos escucharon en silencio y embargados por la emoción el breve relato que de sus desgracias les hizo",
+      "audio": "dev/audio/13325/14016/13325_14016_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1833.81,
+        "original_end_s": 1847.81
+      }
+    },
+    {
+      "id": "13325_14016_000091",
+      "text": "pero dónde me lleva usted a ningún sitio malo tiene usted miedo ah no el corazón me dice que es usted una persona caritativa",
+      "audio": "dev/audio/13325/14016/13325_14016_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1363.49,
+        "original_end_s": 1375.01
+      }
+    },
+    {
+      "id": "13325_14016_000092",
+      "text": "ni uno sólo cruza por aquí allá lejos veo uno gracias a dios se aleja el maldito aquí está otro ésta ya es mío a ver cochero",
+      "audio": "dev/audio/13325/14016/13325_14016_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1489.47,
+        "original_end_s": 1500.67
+      }
+    },
+    {
+      "id": "13325_14016_000093",
+      "text": "en el vasto salón del prado aún no había gente era temprano las cinco y media nada más a falta de personas formales los niños tomaban posesión del paseo",
+      "audio": "dev/audio/13325/14016/13325_14016_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 36.1,
+        "original_end_s": 50.59
+      }
+    },
+    {
+      "id": "13325_14016_000094",
+      "text": "entonces yo le ayudaré vamos arriba el caballero cogió a juan por los brazos y le puso en pie era un hombre vigoroso ahora apóyese usted bien en mí y vamos a ver si hallamos un coche",
+      "audio": "dev/audio/13325/14016/13325_14016_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1348.19,
+        "original_end_s": 1363.49
+      }
+    },
+    {
+      "id": "13325_14016_000095",
+      "text": "hablando en falsete y haciendo tantas y tantas graciosas muecas que juan al notarlo no pudo menos de reírse exclamando siempre el mismo santiago",
+      "audio": "dev/audio/13325/14016/13325_14016_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1702.97,
+        "original_end_s": 1715.09
+      }
+    },
+    {
+      "id": "13325_14016_000096",
+      "text": "tenía un hermano en américa que no daba cuenta de sí sin embargo sabía por referencias que estaba casado que tenía dos niños muy hermosos y ocupaba buena posición",
+      "audio": "dev/audio/13325/14016/13325_14016_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 52.01,
+        "original_end_s": 65.5
+      }
+    },
+    {
+      "id": "13325_14016_000097",
+      "text": "pero fue para despedirle a los pocos días la música de juan no agradaba a los parroquianos del café de la cebada no tocaba jotas ni polos ni sevillanas ni cosa ninguna flamenca ni siquiera polkas pasaba la noche interpretando sonatas de beethoven y conciertos de chopín",
+      "audio": "dev/audio/13325/14016/13325_14016_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 496.96,
+        "original_end_s": 516.73
+      }
+    },
+    {
+      "id": "13325_14016_000098",
+      "text": "sin amigos sin ropa sin dinero no hay duda que se pasa muy mal en el mundo mas si a esto se agrega el no ver la luz del sol y hallarse por lo mismo absolutamente desvalido apenas si alcanzamos a divisar el límite del dolor y la miseria",
+      "audio": "dev/audio/13325/14016/13325_14016_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 449.15,
+        "original_end_s": 466.61
+      }
+    },
+    {
+      "id": "13325_14016_000099",
+      "text": "los pequeños retrocedían ante la invasión de los grandes a los parajes más apartados donde establecían nuevamente sus juegos un chico rubio vestido de marinero con cara de desvergonzado se quedó fijo delante de nuestras niñas contemplándolas con insistencia",
+      "audio": "dev/audio/13325/14016/13325_14016_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 392.46,
+        "original_end_s": 412.35
+      }
+    },
+    {
+      "id": "13325_14016_000100",
+      "text": "entonces comenzó para el ciego una época tan miserable y angustiosa que pocos se darán cuenta cabal de los dolores mejor aún de los martirios que la suerte le deparó",
+      "audio": "dev/audio/13325/14016/13325_14016_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 436.85,
+        "original_end_s": 449.15
+      }
+    },
+    {
+      "id": "13325_14016_000101",
+      "text": "de qué murió tu hermano no dijeron los médicos que había muerto de una mojadura que había cogido sí pues esa mojadura lola la cogió por causa mía",
+      "audio": "dev/audio/13325/14016/13325_14016_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 737.47,
+        "original_end_s": 750.29
+      }
+    },
+    {
+      "id": "13325_14016_000102",
+      "text": "ella la primera con rostro sereno y risueño se mezclaron agrupadas entre la muchedumbre y las perdí muy pronto de vista",
+      "audio": "dev/audio/13325/14016/13325_14016_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 970.03,
+        "original_end_s": 981.1
+      }
+    },
+    {
+      "id": "13325_14016_000103",
+      "text": "tan respetables por lo menos y por de cantado más saludables que los del ajedrez tresillo ruleta y siete y media con que los hombres se divierten",
+      "audio": "dev/audio/13325/14016/13325_14016_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 61.06,
+        "original_end_s": 73.6
+      }
+    },
+    {
+      "id": "13325_14016_000104",
+      "text": "pepito nos siguió a descubierto llovía atrozmente y yo en vez de ofrecerle el paraguas y taparme con el de la criada le dejé ir mojándose hasta casa pero no fue por gusto mío lola por dios no lo creas fue que me daba vergüenza",
+      "audio": "dev/audio/13325/14016/13325_14016_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 773.16,
+        "original_end_s": 790.45
+      }
+    },
+    {
+      "id": "13325_14016_000105",
+      "text": "y si no temiera ofender las instituciones me atrevería a ponerlos en parangón con los del salón de conferencias del congreso y de la bolsa seguro de que tampoco habían de desmerecer",
+      "audio": "dev/audio/13325/14016/13325_14016_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 73.6,
+        "original_end_s": 87.32
+      }
+    },
+    {
+      "id": "13325_14016_000106",
+      "text": "en seguida le sirvieron en el mismo gabinete donde ardía un fuego delicioso una taza de caldo confortador y después algunas viandas aunque con la debida cautela por la flojedad en que debía hallarse su estómago subieron además de la bodega el vino más exquisito y añejo",
+      "audio": "dev/audio/13325/14016/13325_14016_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1625.85,
+        "original_end_s": 1644.91
+      }
+    },
+    {
+      "id": "13325_14016_000107",
+      "text": "pero qué soledad la suya ni padre ni madre ni parientes ni amigos hasta el sol le faltaba el amigo de todos los seres creados",
+      "audio": "dev/audio/13325/14016/13325_14016_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 174.95,
+        "original_end_s": 185.76
+      }
+    },
+    {
+      "id": "13325_14016_000108",
+      "text": "lo continúan siendo en sus hijas y han convenido en hacerse una competencia poco favorable a los bolsillos de los papás me llamó la atención desde luego la gravedad que las dos mostraban",
+      "audio": "dev/audio/13325/14016/13325_14016_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 211.92,
+        "original_end_s": 226.54
+      }
+    },
+    {
+      "id": "13325_14016_000109",
+      "text": "paró el coche al fin un criado vino a abrir la portezuela llevaron a juan casi en volandas hasta su casa al entrar percibió una temperatura tibia el aroma de bienestar que esparce la riqueza",
+      "audio": "dev/audio/13325/14016/13325_14016_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1599.37,
+        "original_end_s": 1614.09
+      }
+    },
+    {
+      "id": "13325_14016_000110",
+      "text": "sonaba en los oídos del ciego más grata y armoniosa que las teclas del piano y las cuerdas del violín cómo se había trasformado en malo aquel corazón tan bueno",
+      "audio": "dev/audio/13325/14016/13325_14016_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 94.23,
+        "original_end_s": 105.88
+      }
+    },
+    {
+      "id": "13325_14016_000111",
+      "text": "mañana hace un mes que murió tu hermano pepito yo sé que has tenido una convulsión por haber visto la caja a mí no me han dejado ir a tu casa porque decían que me iba a impresionar pero toda la tarde la pasé llorando",
+      "audio": "dev/audio/13325/14016/13325_14016_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 595.06,
+        "original_end_s": 610.84
+      }
+    },
+    {
+      "id": "13325_14016_000112",
+      "text": "de posada en posada arrojada de todas poco después de haber entrado metiéndose en la cama para que le lavasen la única camisa que tenía el calzado roto los pantalones con hilachas por debajo sin cortarse el pelo y sin afeitarse rodó juan por madrid",
+      "audio": "dev/audio/13325/14016/13325_14016_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 466.61,
+        "original_end_s": 484.97
+      }
+    },
+    {
+      "id": "13325_14016_000113",
+      "text": "me escribió una carta y me la dio un día al entrar en tu casa salió de un cuarto de repente me la dio y echó a correr me decía que desde la primera vez que me había visto le había gustado que podríamos ser novios si yo le quería",
+      "audio": "dev/audio/13325/14016/13325_14016_000113.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 622.92,
+        "original_end_s": 640.14
+      }
+    },
+    {
+      "id": "13325_14016_000114",
+      "text": "no se oía ruido alguno si no era el rumor vago y lejano de los coches y el caer incesante de los copos como un crujido levísimo y prolongado de sedería",
+      "audio": "dev/audio/13325/14016/13325_14016_000114.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1213.52,
+        "original_end_s": 1225.5
+      }
+    },
+    {
+      "id": "13325_14016_000115",
+      "text": "unos le dijeron que se había muerto también otros que reducido a la última miseria había ido por el mundo cantando y tocando la guitarra",
+      "audio": "dev/audio/13325/14016/13325_14016_000115.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1571.32,
+        "original_end_s": 1581.76
+      }
+    },
+    {
+      "id": "13325_14016_000116",
+      "text": "y siempre pensando en tornar a españa al año siguiente dejó de hacer averiguaciones proponiéndose darles una agradable sorpresa después se casó y este acontecimiento retardó mucho su vuelta",
+      "audio": "dev/audio/13325/14016/13325_14016_000116.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1545.93,
+        "original_end_s": 1560.4
+      }
+    },
+    {
+      "id": "13325_14016_000117",
+      "text": "al fin lolita volvió lentamente la cabeza hacia asunción la pobre niña seguía en la misma postura abatida ocultando siempre el rostro con las manos",
+      "audio": "dev/audio/13325/14016/13325_14016_000117.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 914.73,
+        "original_end_s": 926.49
+      }
+    },
+    {
+      "id": "13325_14016_000118",
+      "text": "sí sí es ella continuó luisa viene con pepita y con concha y eugenia es el primer domingo que viene después de la muerte de su hermano",
+      "audio": "dev/audio/13325/14016/13325_14016_000118.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 447.79,
+        "original_end_s": 459.79
+      }
+    },
+    {
+      "id": "13325_14016_000119",
+      "text": "dejaba claro y nítido el ambiente en el cual resaltaban con admirable pureza el obelisco del dos de mayo y las agujas del museo de artillería y de san jerónimo",
+      "audio": "dev/audio/13325/14016/13325_14016_000119.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 380.01,
+        "original_end_s": 392.46
+      }
+    },
+    {
+      "id": "13325_14016_000120",
+      "text": "los concurrentes se desesperaban al no poder llevar el compás con las cucharillas otra vez volvió a rodar el mísero por los sitios más hediondos de la capital",
+      "audio": "dev/audio/13325/14016/13325_14016_000120.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 516.73,
+        "original_end_s": 527.46
+      }
+    },
+    {
+      "id": "13325_14016_000121",
+      "text": "pero si iba adelante no ganaba un cuarto porque los transeúntes no podían escucharle sin embargo juan marchaba marchaba siempre",
+      "audio": "dev/audio/13325/14016/13325_14016_000121.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 885.94,
+        "original_end_s": 896.02
+      }
+    },
+    {
+      "id": "13325_14016_000122",
+      "text": "no quiero cama ahora interrumpió juan me encuentro tan bien aquí te duele el estómago como antes preguntó manolita abrazándole y besándole no hija mía no bendita seas no me duele nada",
+      "audio": "dev/audio/13325/14016/13325_14016_000122.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1880.58,
+        "original_end_s": 1895.07
+      }
+    },
+    {
+      "id": "13325_14016_000123",
+      "text": "había compuesto en honor suyo algunos himnos y plegarias y no se dormía jamás sin besar devotamente el escapulario del carmen que llevaba al cuello",
+      "audio": "dev/audio/13325/14016/13325_14016_000123.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 634.96,
+        "original_end_s": 646.77
+      }
+    },
+    {
+      "id": "13325_14016_000124",
+      "text": "en el portal de enfrente no traía paraguas cuando salimos yo me tapé perfectamente porque la criada había traído uno para mí y otro para ella",
+      "audio": "dev/audio/13325/14016/13325_14016_000124.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 761.7,
+        "original_end_s": 773.16
+      }
+    },
+    {
+      "id": "13325_14016_000125",
+      "text": "no tardó sin embargo en observar que se le iba recibiendo cada vez con menos amabilidad y dejó de ir por allá al poco tiempo le echaron de la nueva casa pero esta vez quedándose con el baúl en prenda",
+      "audio": "dev/audio/13325/14016/13325_14016_000125.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 422.64,
+        "original_end_s": 436.85
+      }
+    },
+    {
+      "id": "13325_14016_000126",
+      "text": "comía lo preciso para no morirse de hambre en alguna taberna de los barrios bajos y dormía por cuatro cuartos entre mendigos y malhechores en un desván destinado a este fin en cierta ocasión le robaron mientras dormía los pantalones y le dejaron otros de dril remendados",
+      "audio": "dev/audio/13325/14016/13325_14016_000126.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 538.43,
+        "original_end_s": 558.3
+      }
+    },
+    {
+      "id": "13325_14016_000127",
+      "text": "y esta esperanza mejor dicho esta quimera era lo único que le daba fuerzas para soportar la vida llegó otro día no obstante en que la angustia y el dolor no conocieron límites",
+      "audio": "dev/audio/13325/14016/13325_14016_000127.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 955.04,
+        "original_end_s": 968.41
+      }
+    },
+    {
+      "id": "13325_14016_000128",
+      "text": "por qué repuso la segunda de todos modos algún día os habíais de encontrar la primera no replicó nada a esta observación y callaron un buen rato al cabo la segunda dijo poniéndole una mano sobre el hombro",
+      "audio": "dev/audio/13325/14016/13325_14016_000128.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 285.1,
+        "original_end_s": 303.87
+      }
+    },
+    {
+      "id": "13325_14016_000129",
+      "text": "pero al pronunciar estas palabras lloraba también la cabecita rubia y la morena estuvieron un instante confundidas rodeáronla las amigas y ni una sola dejó de verter lágrimas",
+      "audio": "dev/audio/13325/14016/13325_14016_000129.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 943.53,
+        "original_end_s": 957.39
+      }
+    },
+    {
+      "id": "13325_14016_000130",
+      "text": "tenía la devoción de la virgen profundamente arraigada en el corazón desde la infancia como apenas había conocido a su madre buscó por instinto en la de dios la protección tierna y amorosa que solo la mujer puede dispensar al niño",
+      "audio": "dev/audio/13325/14016/13325_14016_000130.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 619.02,
+        "original_end_s": 634.96
+      }
+    },
+    {
+      "id": "13325_14016_000131",
+      "text": "luisa se levantó a recibirlas y echó una carrerita para cambiar con ellas buena partida de besos cuyo rumor llegó hasta mis oídos",
+      "audio": "dev/audio/13325/14016/13325_14016_000131.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 491.98,
+        "original_end_s": 502.71
+      }
+    },
+    {
+      "id": "13325_14016_000132",
+      "text": "mas otra vez volvió la patrona a pedirle dinero y otra vez se vio precisado a empeñar un objeto de la escasísima herencia paterna era un anillo de diamantes al cabo ya no tuvo qué empeñar",
+      "audio": "dev/audio/13325/14016/13325_14016_000132.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 374.46,
+        "original_end_s": 388.29
+      }
+    },
+    {
+      "id": "13325_14016_000133",
+      "text": "y todavía quiso añadir más cuidados a los de santiago mandó traer un calorífero y ella misma se lo puso debajo de los pies después le envolvió las piernas en una manta y le puso en la cabeza una gorra de terciopelo",
+      "audio": "dev/audio/13325/14016/13325_14016_000133.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1817.94,
+        "original_end_s": 1833.81
+      }
+    },
+    {
+      "id": "13325_14016_000134",
+      "text": "sí diremos que se entregaba a ella con alma y vida el cambio de ministerio le sorprendió cuando aún no la había terminado no sé si entraron los radicales o los conservadores o los constitucionales pero entraron algunos nuevos",
+      "audio": "dev/audio/13325/14016/13325_14016_000134.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 273.99,
+        "original_end_s": 291.52
+      }
+    },
+    {
+      "id": "13325_14016_000135",
+      "text": "en la noche anterior no había ganado más que seis cuartos había estado tan fría como que amaneció madrid envuelto en una sábana de nieve de media cuarta de espesor",
+      "audio": "dev/audio/13325/14016/13325_14016_000135.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 968.41,
+        "original_end_s": 979.72
+      }
+    },
+    {
+      "id": "13325_14016_000136",
+      "text": "este punto luminoso era la llegada de su hermano santiago todas las noches al salir de casa con la guitarra colgada del cuello se le ocurría el mismo pensamiento si santiago estuviese en madrid y me oyese cantar me conocería por la voz",
+      "audio": "dev/audio/13325/14016/13325_14016_000136.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 937.36,
+        "original_end_s": 955.04
+      }
+    },
+    {
+      "id": "13325_14016_000137",
+      "text": "había ganado cinco reales y un perro grande con este dinero comió al día siguiente y pagó el alquiler del miserable colchón de paja en que durmió",
+      "audio": "dev/audio/13325/14016/13325_14016_000137.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 862.25,
+        "original_end_s": 872.94
+      }
+    },
+    {
+      "id": "13325_14016_000138",
+      "text": "el cochero arreó a la bestia y el carruaje se deslizó velozmente y sin ruido sobre la nieve mientras caminaban santiago teniendo siempre abrazado al pobre ciego le contó rápidamente su vida",
+      "audio": "dev/audio/13325/14016/13325_14016_000138.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1513.14,
+        "original_end_s": 1527.18
+      }
+    },
+    {
+      "id": "13325_14016_000139",
+      "text": "cinco duros si usted nos lleva volando al hotel número diez de la castellana y cogiendo a su hermano en brazos como si fuera un chico lo metió en el coche y detrás se introdujo él",
+      "audio": "dev/audio/13325/14016/13325_14016_000139.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1500.67,
+        "original_end_s": 1513.14
+      }
+    },
+    {
+      "id": "13325_14016_000140",
+      "text": "el cielo y la virgen estaban lejos al parecer y no le oyeron los vecinos de la plaza estaban cerca pero no quisieron oírle nadie bajó a recogerlo ningún balcón se abrió siquiera para dejar caer sobre él una moneda de cobre",
+      "audio": "dev/audio/13325/14016/13325_14016_000140.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1258.09,
+        "original_end_s": 1275.78
+      }
+    },
+    {
+      "id": "13325_14016_000141",
+      "text": "por la noche tornó a salir y a cantar trozos de ópera y piezas de canto vuelta a reunirse la gente en torno suyo y vuelta a intervenir la autoridad gritándole con energía adelante adelante",
+      "audio": "dev/audio/13325/14016/13325_14016_000141.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 872.94,
+        "original_end_s": 885.94
+      }
+    },
+    {
+      "id": "13325_14016_000142",
+      "text": "cuando me acerqué guardaban silencio pero no tardó en romperlo la primera exclamando en voz baja y con acento melancólico si lo hubiera sabido no saldría hoy a paseo",
+      "audio": "dev/audio/13325/14016/13325_14016_000142.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 270.13,
+        "original_end_s": 285.1
+      }
+    },
+    {
+      "id": "13325_14016_000143",
+      "text": "detrás de mí estaban sentadas dos niñas de once a doce años de edad cuyos perfiles lo único que veía de ellas eran de una corrección y pureza encantadoras",
+      "audio": "dev/audio/13325/14016/13325_14016_000143.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 183.53,
+        "original_end_s": 197.43
+      }
+    },
+    {
+      "id": "13325_14016_000144",
+      "text": "era ciego de nacimiento le habían enseñado lo único que los ciegos suelen aprender la música y fue en este arte muy aventajado su madre murió pocos años después de darle la vida su padre músico mayor de un regimiento hacía un año solamente",
+      "audio": "dev/audio/13325/14016/13325_14016_000144.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 32.98,
+        "original_end_s": 52.01
+      }
+    },
+    {
+      "id": "13325_14016_000145",
+      "text": "profunda debió ser la impresión que esta noticia causó en el ánimo de asunción porque no volvió a despegar los labios y siguió escuchando consternada las razones de su amiga que las amontonaba de un modo incoherente pero con resolución",
+      "audio": "dev/audio/13325/14016/13325_14016_000145.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 352.09,
+        "original_end_s": 369.9
+      }
+    },
+    {
+      "id": "13325_14016_000146",
+      "text": "luisa te lo puede decir lloraba porque pepito y yo éramos novios no lo sabías no pues lo éramos desde hacía dos meses",
+      "audio": "dev/audio/13325/14016/13325_14016_000146.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 610.84,
+        "original_end_s": 622.92
+      }
+    },
+    {
+      "id": "13325_14016_000147",
+      "text": "las notas se atropellaban al salir del piano pero siempre con ritmo belicoso santiago exclamaba de vez en cuando más fuerte juanillo más fuerte y el ciego golpeaba el teclado cada vez con mayor brío ya veo a mi mujer detrás de las cortinas adelante juanillo adelante",
+      "audio": "dev/audio/13325/14016/13325_14016_000147.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1727.79,
+        "original_end_s": 1747.16
+      }
+    },
+    {
+      "id": "13325_14016_000148",
+      "text": "algún alma caritativa que por casualidad se enteraba de su estado socorríale indirectamente porque juan se estremecía a la idea de pedir limosna",
+      "audio": "dev/audio/13325/14016/13325_14016_000148.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 527.46,
+        "original_end_s": 538.43
+      }
+    },
+    {
+      "id": "13325_14016_000149",
+      "text": "no te pongas así niña no te asustes verás yo lo voy a arreglar todo asunción en efecto había empalidecido y estaba clavada e inmóvil en la silla como una estatua",
+      "audio": "dev/audio/13325/14016/13325_14016_000149.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 459.79,
+        "original_end_s": 474.55
+      }
+    },
+    {
+      "id": "13325_14016_000150",
+      "text": "el chico se alejó llorando al cabo de un rato cuando ya me disponía a dejar la silla para dar algunas vueltas oí exclamar a luisa calla calla me parece que ahí viene lola asunción se estremeció la cabeza vivamente",
+      "audio": "dev/audio/13325/14016/13325_14016_000150.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 428.66,
+        "original_end_s": 447.79
+      }
+    },
+    {
+      "id": "13325_14016_000151",
+      "text": "no pudo entretener el hambre contemplando la hermosura de la nieve en primer lugar porque no tenía vista y en segundo porque aunque la tuviese era difícil que al través de la reja de vidrio empañada y sucia de su desván pudiera verla",
+      "audio": "dev/audio/13325/14016/13325_14016_000151.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1022.36,
+        "original_end_s": 1038.77
+      }
+    },
+    {
+      "id": "13325_14016_000152",
+      "text": "los pies se le hundían en mullida alfombra por orden de santiago dos criados le despojaron inmediatamente de sus harapos empapados de agua y le pusieron ropa limpia y de abrigo",
+      "audio": "dev/audio/13325/14016/13325_14016_000152.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1614.09,
+        "original_end_s": 1625.85
+      }
+    },
+    {
+      "id": "13325_14016_000153",
+      "text": "y escuchó en su oído una voz temblorosa que exclamó dios mío qué horror y qué felicidad soy un criminal soy tu hermano santiago",
+      "audio": "dev/audio/13325/14016/13325_14016_000153.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1448.09,
+        "original_end_s": 1458.29
+      }
+    },
+    {
+      "id": "13325_14016_000154",
+      "text": "pero hacía cuatro meses que estaba en madrid donde supo por registro parroquial que su padre había muerto de juan le dieron noticias vagas y contradictorias",
+      "audio": "dev/audio/13325/14016/13325_14016_000154.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1560.4,
+        "original_end_s": 1571.32
+      }
+    },
+    {
+      "id": "13325_14016_000155",
+      "text": "asunción no se movió al llegar todas la saludaron con efusión no siendo por cierto la menos expansiva la enlutada lolita",
+      "audio": "dev/audio/13325/14016/13325_14016_000155.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_02_valdes_64kb.mp3",
+        "original_start_s": 502.71,
+        "original_end_s": 514.41
+      }
+    },
+    {
+      "id": "13325_14016_000156",
+      "text": "terminada la romanza empezó el aria del cuarto acto de la africana pero se había reunido demasiada gente a su alrededor y la autoridad temió que esto fuese causa de algún desorden",
+      "audio": "dev/audio/13325/14016/13325_14016_000156.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 774.78,
+        "original_end_s": 787.93
+      }
+    },
+    {
+      "id": "13325_14016_000157",
+      "text": "soy muy feliz lo único que tengo es sueño se me cierran los ojos sin poderlo remediar pues por nosotros no dejes de dormir juan dijo santiago",
+      "audio": "dev/audio/13325/14016/13325_14016_000157.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1895.07,
+        "original_end_s": 1906.18
+      }
+    },
+    {
+      "id": "13325_14016_000158",
+      "text": "trabose una lucha desesperada en el fondo de su espíritu el dolor y la vergüenza disputaron palmo a palmo el terreno a la necesidad las tinieblas que le rodeaban hacían aún más angustiosa esta batalla",
+      "audio": "dev/audio/13325/14016/13325_14016_000158.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 666.67,
+        "original_end_s": 681.39
+      }
+    },
+    {
+      "id": "13325_14016_000159",
+      "text": "santiago no dejaba de moverse dictando las órdenes oportunas acercándose a cada instante al ciego para preguntarle con ansiedad cómo te encuentras ahora juan estás bien quieres otro vino necesitas más ropa",
+      "audio": "dev/audio/13325/14016/13325_14016_000159.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1644.91,
+        "original_end_s": 1660.17
+      }
+    },
+    {
+      "id": "13325_14016_000160",
+      "text": "su padre de usted manuel verdad músico mayor del tercero de artillería no es cierto sí señor en el mismo instante el ciego se sintió apretado fuertemente por unos brazos vigorosos que casi le asfixiaron",
+      "audio": "dev/audio/13325/14016/13325_14016_000160.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1430.72,
+        "original_end_s": 1448.09
+      }
+    },
+    {
+      "id": "13325_14016_000161",
+      "text": "al cabo de un rato percibió que un transeúnte se paraba delante de él y se sintió cogido por el brazo levantó la cabeza y sospechando que sería lo de siempre preguntó tímidamente es usted algún guardia",
+      "audio": "dev/audio/13325/14016/13325_14016_000161.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 1316.07,
+        "original_end_s": 1333.4
+      }
+    },
+    {
+      "id": "13325_14016_000162",
+      "text": "durante algunos meses vivió el ciego sin salir a la calle más que para cumplir su obligación de casa a la iglesia y de la iglesia a casa la tristeza le tenía dominado y abatido de tal suerte que apenas despegaba los labios",
+      "audio": "dev/audio/13325/14016/13325_14016_000162.opus",
+      "tags": {
+        "speaker_id": "mls-es-13325",
+        "gender": "m",
+        "book_id": "14016",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/puritanos_1908_librivox/puritanos_01_valdes_64kb.mp3",
+        "original_start_s": 242.11,
+        "original_end_s": 257.55
+      }
+    }
+  ]
+}

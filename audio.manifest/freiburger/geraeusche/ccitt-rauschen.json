@@ -1,0 +1,23 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "Freiburger Sprachtest — CCITT-Rauschen",
+  "lang": null,
+  "license": "CC-BY-4.0",
+  "credit": "Freiburger Sprachtest (Zenodo 10082491)",
+  "url": "https://zenodo.org/records/10082491",
+  "items": [
+    {
+      "id": "ccitt",
+      "title": "CCITT Sprachsimulationsrauschen",
+      "audio": "CCITT_Siemens_CD.wav",
+      "tags": {
+        "kind": "rauschen-ccitt",
+        "stationary": "y",
+        "loop_safe": "y",
+        "spectrum": "bandpass"
+      }
+    }
+  ]
+}

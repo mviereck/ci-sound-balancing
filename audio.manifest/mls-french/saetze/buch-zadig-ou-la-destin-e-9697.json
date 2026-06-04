@@ -1,0 +1,2272 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Zadig ou la destinée",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "9697",
+    "book_title": "Zadig ou la destinée",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "9834_9697_000000",
+      "text": "c'était un grand seigneur dont le fond n'était pas mauvais mais qui était corrompu par la vanité et par la volupté il souffrait rarement qu'on lui parlât et jamais qu'on l'osât contredire les paons ne sont pas plus vains",
+      "audio": "test/audio/9834/9697/9834_9697_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 335.72,
+        "original_end_s": 351.1
+      }
+    },
+    {
+      "id": "9834_9697_000001",
+      "text": "zadig répondit modestement c'est une chienne et non pas un chien vous avez raison reprit le premier eunuque c'est une épagneule très petite ajouta zadig",
+      "audio": "test/audio/9834/9697/9834_9697_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 134.66,
+        "original_end_s": 146.58
+      }
+    },
+    {
+      "id": "9834_9697_000002",
+      "text": "il est sec et sans génie disaient-ils on ne voit chez lui ni la mer s'enfuir ni les étoiles tomber ni le soleil se fondre comme de la cire il n'a point le bon style oriental",
+      "audio": "test/audio/9834/9697/9834_9697_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 133.97,
+        "original_end_s": 148.58
+      }
+    },
+    {
+      "id": "9834_9697_000003",
+      "text": "la dame qui dans ces heureuses circonstances interprétait tout à son avantage s'imagina que cela voulait dire vous êtes plus belle que la reine astarté elle sortit du sérail de zadig avec de très beaux présents",
+      "audio": "test/audio/9834/9697/9834_9697_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 364.93,
+        "original_end_s": 380.47
+      }
+    },
+    {
+      "id": "9834_9697_000004",
+      "text": "l'ami cador un ami vaut mieux que cent prêtres alla trouver le vieux yébor et lui dit vivent le soleil et les griffons gardez-vous bien de punir zadig c'est un saint il a des griffons dans sa basse-cour et il n'en mange point",
+      "audio": "test/audio/9834/9697/9834_9697_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 110.29,
+        "original_end_s": 125.61
+      }
+    },
+    {
+      "id": "9834_9697_000005",
+      "text": "deux jours après l'abcès perça de lui-même zadig fut guéri parfaitement hermès écrivit un livre où il lui prouva qu'il n'avait pas dû guérir zadig ne le lut point",
+      "audio": "test/audio/9834/9697/9834_9697_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 622.12,
+        "original_end_s": 636.42
+      }
+    },
+    {
+      "id": "9834_9697_000006",
+      "text": "tous les juges admirèrent le profond et subtil discernement de zadig la nouvelle en vint jusqu'au roi et à la reine on ne parlait que de zadig dans les antichambres dans la chambre et dans le cabinet",
+      "audio": "test/audio/9834/9697/9834_9697_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 419.92,
+        "original_end_s": 434.6
+      }
+    },
+    {
+      "id": "9834_9697_000007",
+      "text": "l'arrosa de ses larmes et s'approcha pour couper le nez à zadig qu'elle trouva tout étendu dans la tombe zadig se relève en tenant son nez d'une main et arrêtant le rasoir de l'autre madame lui dit-il ne criez plus tant contre la jeune cosrou",
+      "audio": "test/audio/9834/9697/9834_9697_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 279.1,
+        "original_end_s": 297.31
+      }
+    },
+    {
+      "id": "9834_9697_000008",
+      "text": "il y avait une grande querelle dans babylone qui durait depuis quinze cents années et qui partageait l'empire en deux sectes opiniâtres l'une prétendait qu'il ne fallait jamais entrer dans le temple de mithra que du pied gauche l'autre avait cette coutume en abomination et n'entrait",
+      "audio": "test/audio/9834/9697/9834_9697_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 69.32,
+        "original_end_s": 89.32
+      }
+    },
+    {
+      "id": "9834_9697_000009",
+      "text": "la reine la babylonienne crut qu'enfin il était revenu à lui-même dans un bon moment et qu'il lui disait ma reine mais zadig toujours très distrait prononça le nom d'astarté",
+      "audio": "test/audio/9834/9697/9834_9697_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 351.18,
+        "original_end_s": 364.93
+      }
+    },
+    {
+      "id": "9834_9697_000010",
+      "text": "un prisonnier d'état s'échappa il passa sous les fenêtres de sa maison on interrogea zadig il ne répondit rien mais on lui prouva qu'il avait regardé par la fenêtre il fut condamné pour ce crime à cinq cents onces d'or et il remercia ses juges de leur indulgence",
+      "audio": "test/audio/9834/9697/9834_9697_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 476.41,
+        "original_end_s": 494.76
+      }
+    },
+    {
+      "id": "9834_9697_000011",
+      "text": "zadig qui avait signalé son courage dans cette courte guerre louait beaucoup le roi et encore plus la dame il prit ses tablettes et écrivit quatre vers qu'il fit sur-le-champ et qu'il donna à lire à cette belle personne",
+      "audio": "test/audio/9834/9697/9834_9697_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 319.66,
+        "original_end_s": 334.54
+      }
+    },
+    {
+      "id": "9834_9697_000012",
+      "text": "il était fermement persuadé que l'année était de trois cent soixante et cinq jours et un quart malgré la nouvelle philosophie de son temps et que le soleil était au centre du monde",
+      "audio": "test/audio/9834/9697/9834_9697_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 363.67,
+        "original_end_s": 375.97
+      }
+    },
+    {
+      "id": "9834_9697_000013",
+      "text": "dit zadig voilà une femme estimable qui aimait véritablement son mari ah reprit azora si vous saviez à quoi elle s'occupait quand je lui ai rendu visite à quoi donc belle azora",
+      "audio": "test/audio/9834/9697/9834_9697_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 73.32,
+        "original_end_s": 90.08
+      }
+    },
+    {
+      "id": "9834_9697_000014",
+      "text": "votre esprit n'emprunte jamais ses agréments des traits de la médisance vous ne dites de mal ni n'en faites malgré la prodigieuse facilité que vous y auriez",
+      "audio": "test/audio/9834/9697/9834_9697_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 143.64,
+        "original_end_s": 155.84
+      }
+    },
+    {
+      "id": "9834_9697_000015",
+      "text": "on allait aux voix le roi prononçait le jugement on venait à cette solennité des extrémités de la terre le vainqueur recevait des mains du monarque une coupe d'or garnie de pierreries",
+      "audio": "test/audio/9834/9697/9834_9697_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 52.1,
+        "original_end_s": 66.34
+      }
+    },
+    {
+      "id": "9834_9697_000016",
+      "text": "toutes les belles dames de babylone applaudirent à ce choix car depuis la fondation de l'empire il n'y avait jamais eu de ministre si jeune tous les courtisans furent fâchés l'envieux en eut un crachement de sang et le nez lui enfla prodigieusement",
+      "audio": "test/audio/9834/9697/9834_9697_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 33.46,
+        "original_end_s": 51.89
+      }
+    },
+    {
+      "id": "9834_9697_000017",
+      "text": "l'envieux qui resta dans le jardin chercha tant qu'il trouva un morceau de la feuille elle avait été tellement rompue que chaque moitié de vers qui remplissait la ligne faisait un sens",
+      "audio": "test/audio/9834/9697/9834_9697_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 364.24,
+        "original_end_s": 377.04
+      }
+    },
+    {
+      "id": "9834_9697_000018",
+      "text": "et quand les principaux mages lui disaient avec une hauteur insultante qu'il avait de mauvais sentiments et que c'était être ennemi de l'état que de croire que le soleil tournait sur lui-même et que l'année avait douze mois il se taisait sans colère et sans dédain",
+      "audio": "test/audio/9834/9697/9834_9697_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 375.97,
+        "original_end_s": 394.18
+      }
+    },
+    {
+      "id": "9834_9697_000019",
+      "text": "cette première journée lui parut délicieuse il crut que le roi des rois l'honorait selon ses mérites la seconde lui parut moins agréable la troisième fut gênante la quatrième fut insupportable la cinquième fut un supplice",
+      "audio": "test/audio/9834/9697/9834_9697_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 452.6,
+        "original_end_s": 468.99
+      }
+    },
+    {
+      "id": "9834_9697_000020",
+      "text": "jamais bouche plus ravissante n'exprima des sentiments plus touchants par ces paroles de feu qu'inspirent le sentiment du plus grand des bienfaits et le transport le plus tendre de l'amour le plus légitime",
+      "audio": "test/audio/9834/9697/9834_9697_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 534.89,
+        "original_end_s": 551.33
+      }
+    },
+    {
+      "id": "9834_9697_000021",
+      "text": "oh oh dit la fortunée à l'envieuse vous portez les mêmes jarretières que la reine vous les prenez donc chez la même faiseuse l'envieuse rêva profondément ne répondit rien et alla consulter son mari l'envieux",
+      "audio": "test/audio/9834/9697/9834_9697_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 397.78,
+        "original_end_s": 414.79
+      }
+    },
+    {
+      "id": "9834_9697_000022",
+      "text": "il avait un ami nommé cador qui était un de ces jeunes gens à qui sa femme trouvait plus de probité et de mérite qu'aux autres il le mit dans sa confidence et s'assura autant qu'il le pouvait de sa fidélité par un présent considérable",
+      "audio": "test/audio/9834/9697/9834_9697_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 107.58,
+        "original_end_s": 126.29
+      }
+    },
+    {
+      "id": "9834_9697_000023",
+      "text": "selon la coutume de babylone grand dieu dit-il en lui-même qu'on est à plaindre quand on se promène dans un bois où la chienne de la reine et le cheval du roi ont passé",
+      "audio": "test/audio/9834/9697/9834_9697_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 494.76,
+        "original_end_s": 507.75
+      }
+    },
+    {
+      "id": "9834_9697_000024",
+      "text": "il n'imaginait point de faire de la soie avec des toiles d'araignée ni de la porcelaine avec des bouteilles cassées mais il étudia surtout les propriétés des animaux et des plantes et il acquit bientôt une sagacité",
+      "audio": "test/audio/9834/9697/9834_9697_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 88.34,
+        "original_end_s": 103.52
+      }
+    },
+    {
+      "id": "9834_9697_000025",
+      "text": "à l'égard du cheval du roi des rois vous saurez que me promenant dans les routes de ce bois j'ai aperçu les marques des fers d'un cheval elles étaient toutes à égales distances voilà ai-je dit un cheval qui a un galop parfait",
+      "audio": "test/audio/9834/9697/9834_9697_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 346.4,
+        "original_end_s": 363.13
+      }
+    },
+    {
+      "id": "9834_9697_000026",
+      "text": "mais je n'ai jamais lu qu'un courtisan ait parlé avantageusement d'un ministre disgracié contre qui son souverain était en colère je donne vingt mille pièces d'or à chacun de ceux dont on vient de réciter les actions généreuses mais je donne la coupe à zadig",
+      "audio": "test/audio/9834/9697/9834_9697_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 229.33,
+        "original_end_s": 248.94
+      }
+    },
+    {
+      "id": "9834_9697_000027",
+      "text": "le roi ordonna aussitôt qu'on fît venir zadig devant lui et qu'on fît sortir de prison ses deux amis et la belle dame zadig se jeta le visage contre terre aux pieds du roi et de la reine il leur demanda très humblement pardon d'avoir fait de mauvais vers",
+      "audio": "test/audio/9834/9697/9834_9697_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 561.41,
+        "original_end_s": 579.53
+      }
+    },
+    {
+      "id": "9834_9697_000028",
+      "text": "mais que du pied droit on attendait le jour de la fête solennelle du feu sacré pour savoir quelle secte serait favorisée par zadig l'univers avait les yeux sur ses deux pieds et toute la ville était en agitation et en suspens",
+      "audio": "test/audio/9834/9697/9834_9697_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 89.32,
+        "original_end_s": 106.87
+      }
+    },
+    {
+      "id": "9834_9697_000029",
+      "text": "les juges penchaient pour ce soldat le roi prit la parole et dit son action et celles des autres sont belles mais elles ne m'étonnent point hier zadig en a fait une qui m'a étonné j'avais disgracié depuis quelques jours mon ministre et mon favori corèbe",
+      "audio": "test/audio/9834/9697/9834_9697_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 184.81,
+        "original_end_s": 203.05
+      }
+    },
+    {
+      "id": "9834_9697_000030",
+      "text": "il faut bien qu'il existe disaient les autres puisque zoroastre ne veut pas qu'on en mange zadig voulut les accorder en leur disant s'il y a des griffons n'en mangeons point",
+      "audio": "test/audio/9834/9697/9834_9697_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 64.95,
+        "original_end_s": 77.12
+      }
+    },
+    {
+      "id": "9834_9697_000031",
+      "text": "c'est l'aîné qui aime le mieux son père le cadet aime mieux sa soeur c'est à l'aîné qu'appartiennent les trente mille pièces zadig les fit venir tous deux l'un après l'autre il dit à l'aîné",
+      "audio": "test/audio/9834/9697/9834_9697_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 199.3,
+        "original_end_s": 213.7
+      }
+    },
+    {
+      "id": "9834_9697_000032",
+      "text": "zadig entra dans le temple en sautant à pieds joints et il prouva ensuite par un discours éloquent que le dieu du ciel et de la terre qui n'a d'acception de personne ne fait pas plus de cas de la jambe gauche que de la jambe droite",
+      "audio": "test/audio/9834/9697/9834_9697_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 106.87,
+        "original_end_s": 123.73
+      }
+    },
+    {
+      "id": "9834_9697_000033",
+      "text": "qu'il est dangereux de se mettre à la fenêtre et qu'il est difficile d'être heureux dans cette vie",
+      "audio": "test/audio/9834/9697/9834_9697_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 507.75,
+        "original_end_s": 525.44
+      }
+    },
+    {
+      "id": "9834_9697_000034",
+      "text": "ce jour mémorable venu le roi parut sur son trône environné des grands des mages et des députés de toutes les nations qui venaient à ces jeux où la gloire s'acquérait non par la légèreté des chevaux non par la force du corps mais par la vertu",
+      "audio": "test/audio/9834/9697/9834_9697_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 76.76,
+        "original_end_s": 95.83
+      }
+    },
+    {
+      "id": "9834_9697_000035",
+      "text": "les savants le regardaient comme leur oracle les prêtres même avouaient qu'il en savait plus que le vieux archimage yébor on était bien loin alors de lui faire des procès sur les griffons on ne croyait que ce qui lui semblait croyable",
+      "audio": "test/audio/9834/9697/9834_9697_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 50.87,
+        "original_end_s": 69.32
+      }
+    },
+    {
+      "id": "9834_9697_000036",
+      "text": "sémire ne demandait aux dieux que la guérison de son amant ses yeux étaient nuit et jour baignés de larmes elle attendait le moment où ceux de zadig pourraient jouir de ses regards",
+      "audio": "test/audio/9834/9697/9834_9697_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 564.3,
+        "original_end_s": 580.03
+      }
+    },
+    {
+      "id": "9834_9697_000037",
+      "text": "cette jalousie qui ne venait que de sa vanité lui fit penser qu'il aimait éperdument sémire il voulait l'enlever les ravisseurs la saisirent et dans les emportements de leur violence ils la blessèrent",
+      "audio": "test/audio/9834/9697/9834_9697_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 462.02,
+        "original_end_s": 477.36
+      }
+    },
+    {
+      "id": "9834_9697_000038",
+      "text": "hélas disait-il j'ai été longtemps couché sur ces herbes sèches et piquantes je suis maintenant sur le lit de roses mais quel sera le serpent",
+      "audio": "test/audio/9834/9697/9834_9697_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 450.15,
+        "original_end_s": 462.75
+      }
+    },
+    {
+      "id": "9834_9697_000039",
+      "text": "elle lui fit entendre que les dieux le punissaient en lui refusant les précieux effets de ce feu sacré par lequel seul l'homme est semblable aux immortels",
+      "audio": "test/audio/9834/9697/9834_9697_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 270.29,
+        "original_end_s": 282.43
+      }
+    },
+    {
+      "id": "9834_9697_000040",
+      "text": "la poussière des arbres dans une route étroite qui n'a que sept pieds de large était un peu enlevée à droite et à gauche à trois pieds et demi du milieu de la route",
+      "audio": "test/audio/9834/9697/9834_9697_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 363.13,
+        "original_end_s": 374.3
+      }
+    },
+    {
+      "id": "9834_9697_000041",
+      "text": "vous êtes discrète et vous n'êtes point défiante vous êtes douce sans être faible vous êtes bienfaisante avec discernement vous aimez vos amis et vous ne vous faites point d'ennemis",
+      "audio": "test/audio/9834/9697/9834_9697_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 129.07,
+        "original_end_s": 143.64
+      }
+    },
+    {
+      "id": "9834_9697_000042",
+      "text": "le roi disait le grand ministre la reine disait l'aimable ministre et tous deux ajoutaient c'eût été grand dommage qu'il eût été pendu",
+      "audio": "test/audio/9834/9697/9834_9697_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 230.8,
+        "original_end_s": 241.88
+      }
+    },
+    {
+      "id": "9834_9697_000043",
+      "text": "que son mérite est extrême que de grâces que de grandeur ah combien monseigneur doit être content de lui-même après l'exécution de la cantate un chambellan lui fit une harangue de trois quarts d'heure",
+      "audio": "test/audio/9834/9697/9834_9697_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 404.12,
+        "original_end_s": 418.91
+      }
+    },
+    {
+      "id": "9834_9697_000044",
+      "text": "le maître de musique entra suivi des voix et des violons on chanta une cantate qui dura deux heures et de trois minutes en trois minutes le refrain était",
+      "audio": "test/audio/9834/9697/9834_9697_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 392.66,
+        "original_end_s": 404.12
+      }
+    },
+    {
+      "id": "9834_9697_000045",
+      "text": "il faisait représenter des tragédies où l'on pleurait et des comédies où l'on riait ce qui était passé de mode depuis longtemps et ce qu'il fit renaître parce qu'il avait du goût",
+      "audio": "test/audio/9834/9697/9834_9697_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 204.17,
+        "original_end_s": 216.06
+      }
+    },
+    {
+      "id": "9834_9697_000046",
+      "text": "on lui donna tous les biens de l'envieux qui l'avait injustement accusé mais zadig les rendit tous et l'envieux ne fut touché que du plaisir de ne pas perdre son bien l'estime du roi s'accrut de jour en jour pour zadig",
+      "audio": "test/audio/9834/9697/9834_9697_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 589.57,
+        "original_end_s": 604.74
+      }
+    },
+    {
+      "id": "9834_9697_000047",
+      "text": "et le roi lui disait ces paroles recevez ce prix de la générosité et puissent les dieux me donner beaucoup de sujets qui vous ressemblent",
+      "audio": "test/audio/9834/9697/9834_9697_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 66.34,
+        "original_end_s": 76.76
+      }
+    },
+    {
+      "id": "9834_9697_000048",
+      "text": "et il osa en dire du bien j'avoue que j'ai vu dans nos histoires des exemples qu'on a payé de son bien une erreur qu'on a cédé sa maîtresse qu'on a préféré une mère à l'objet de son amour",
+      "audio": "test/audio/9834/9697/9834_9697_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 215.13,
+        "original_end_s": 229.33
+      }
+    },
+    {
+      "id": "9834_9697_000049",
+      "text": "il fait venir les deux mages qu'enseigneras-tu à ton pupille dit-il au premier je lui apprendrai dit le docteur les huit parties d'oraison la dialectique l'astrologie la démonomanie",
+      "audio": "test/audio/9834/9697/9834_9697_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 292.19,
+        "original_end_s": 306.92
+      }
+    },
+    {
+      "id": "9834_9697_000050",
+      "text": "j'ai connu que ce cheval y avait touché et qu'ainsi il avait cinq pieds de haut quant à son mors il doit être d'or à vingt-trois carats car il en a frotté les bossettes contre une pierre que j'ai reconnue être une pierre de touche et dont j'ai fait l'essai",
+      "audio": "test/audio/9834/9697/9834_9697_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 391.27,
+        "original_end_s": 409.55
+      }
+    },
+    {
+      "id": "9834_9697_000051",
+      "text": "c'était du temps où les arabes et les persans commençaient à écrire des mille et une nuits des mille et un jours et cetera ouloug aimait mieux la lecture de zadig mais les sultanes aimaient mieux les mille et un",
+      "audio": "test/audio/9834/9697/9834_9697_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 180.98,
+        "original_end_s": 198.1
+      }
+    },
+    {
+      "id": "9834_9697_000052",
+      "text": "zadig ou la destinée de voltaire chapitre un approbation je soussigné qui me suis fait passer pour savant et même pour homme d'esprit",
+      "audio": "test/audio/9834/9697/9834_9697_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 17.6,
+        "original_end_s": 31.99
+      }
+    },
+    {
+      "id": "9834_9697_000053",
+      "text": "est la lune du miel et que le second est la lune de l'absinthe il fut quelque temps après obligé de répudier azora qui était devenue trop difficile à vivre",
+      "audio": "test/audio/9834/9697/9834_9697_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 32.72,
+        "original_end_s": 45.28
+      }
+    },
+    {
+      "id": "9834_9697_000054",
+      "text": "ils le firent conduire devant l'assemblée du grand desterham qui le condamna au knout et à passer le reste de ses jours en sibérie à peine le jugement fut-il rendu qu'on retrouva le cheval et la chienne",
+      "audio": "test/audio/9834/9697/9834_9697_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 225.46,
+        "original_end_s": 239.54
+      }
+    },
+    {
+      "id": "9834_9697_000055",
+      "text": "zadig prononça que tu sois son père ou non tu épouseras sa mère il venait tous les jours des plaintes à la cour contre l'itimadoulet de médie nommé irax",
+      "audio": "test/audio/9834/9697/9834_9697_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 323.35,
+        "original_end_s": 335.72
+      }
+    },
+    {
+      "id": "9834_9697_000056",
+      "text": "quoiqu'on vous loue du soir au matin et que par toutes ces raisons vous soyez en droit de n'avoir pas le sens commun cependant vous avez l'esprit très sage et le goût très fin et je vous ai entendue raisonner mieux que de vieux derviches à longue barbe et à bonnet pointu",
+      "audio": "test/audio/9834/9697/9834_9697_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 110.23,
+        "original_end_s": 129.07
+      }
+    },
+    {
+      "id": "9834_9697_000057",
+      "text": "cador apaisa l'affaire par le moyen d'une fille d'honneur à laquelle il avait fait un enfant et qui avait beaucoup de crédit dans le collège des mages personne ne fut empalé de quoi plusieurs docteurs murmurèrent et en présagèrent la décadence de babylone",
+      "audio": "test/audio/9834/9697/9834_9697_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 143.51,
+        "original_end_s": 160.34
+      }
+    },
+    {
+      "id": "9834_9697_000058",
+      "text": "ce que c'est que la substance et l'accident l'abstrait et le concret les monades et l'harmonie préétablie moi dit le second je tâcherai de le rendre juste et digne d'avoir des amis",
+      "audio": "test/audio/9834/9697/9834_9697_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 306.92,
+        "original_end_s": 323.35
+      }
+    },
+    {
+      "id": "9834_9697_000059",
+      "text": "le grand veneur et tous les autres officiers couraient après lui avec autant d'inquiétude que le premier eunuque après la chienne le grand veneur s'adressa à zadig et lui demanda s'il n'avait point vu passer le cheval du roi",
+      "audio": "test/audio/9834/9697/9834_9697_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 177.01,
+        "original_end_s": 191.93
+      }
+    },
+    {
+      "id": "9834_9697_000060",
+      "text": "il brisa en deux la feuille des tablettes sur laquelle il venait d'écrire et jeta les deux moitiés dans un buisson de roses où on les chercha inutilement une petite pluie survint on regagna la maison",
+      "audio": "test/audio/9834/9697/9834_9697_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 350.02,
+        "original_end_s": 364.24
+      }
+    },
+    {
+      "id": "9834_9697_000061",
+      "text": "les plus implacables haines n'ont pas souvent des fondements plus importants cet homme qu'on appelait l'envieux dans babylone voulut perdre zadig parce qu'on l'appelait l'heureux",
+      "audio": "test/audio/9834/9697/9834_9697_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 279.12,
+        "original_end_s": 291.24
+      }
+    },
+    {
+      "id": "9834_9697_000062",
+      "text": "et comme j'ai remarqué que le sable était toujours moins creusé par une patte que par les trois autres j'ai compris que la chienne de notre auguste reine était un peu boiteuse si je l'ose dire",
+      "audio": "test/audio/9834/9697/9834_9697_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 334.82,
+        "original_end_s": 346.4
+      }
+    },
+    {
+      "id": "9834_9697_000063",
+      "text": "quoique riche et jeune il savait modérer ses passions il n'affectait rien il ne voulait point toujours avoir raison et savait respecter la faiblesse des hommes",
+      "audio": "test/audio/9834/9697/9834_9697_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 272.31,
+        "original_end_s": 283.02
+      }
+    },
+    {
+      "id": "9834_9697_000064",
+      "text": "enfin votre âme m'a toujours paru pure comme votre beauté vous avez même un petit fonds de philosophie qui m'a fait croire que vous prendriez plus de goût qu'une autre à cet ouvrage d'un sage",
+      "audio": "test/audio/9834/9697/9834_9697_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 155.84,
+        "original_end_s": 170.34
+      }
+    },
+    {
+      "id": "9834_9697_000065",
+      "text": "je plaignais de lui avec violence et tous mes courtisans m'assuraient que j'étais trop doux c'était à qui me dirait le plus de mal de coreb je demandai à zadig ce qu'il en pensait",
+      "audio": "test/audio/9834/9697/9834_9697_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 203.05,
+        "original_end_s": 215.13
+      }
+    },
+    {
+      "id": "9834_9697_000066",
+      "text": "comment pouvez-vous préférer leur disait le sage ouloug des contes qui sont sans raison et qui ne signifient rien c'est précisément pour cela que nous les aimons répondaient les sultanes",
+      "audio": "test/audio/9834/9697/9834_9697_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 198.1,
+        "original_end_s": 213.38
+      }
+    },
+    {
+      "id": "9834_9697_000067",
+      "text": "il quitta en pleurant sa maîtresse et courut délivrer sa mère il retourna ensuite vers celle qu'il aimait et la trouva expirante il voulut se tuer sa mère lui remontra qu'elle n'avait que lui pour tout secours et il eut le courage de souffrir la vie",
+      "audio": "test/audio/9834/9697/9834_9697_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 165.41,
+        "original_end_s": 184.81
+      }
+    },
+    {
+      "id": "9834_9697_000068",
+      "text": "le prince curieux y lut des mots qui ne formaient aucun sens et qui paraissaient des fins de vers il aimait la poésie et il y a toujours de la ressource avec les princes qui aiment les vers l'aventure de son perroquet le fit rêver",
+      "audio": "test/audio/9834/9697/9834_9697_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 509.73,
+        "original_end_s": 525.03
+      }
+    },
+    {
+      "id": "9834_9697_000069",
+      "text": "n'y pensa pas et la femme de l'envieux y pensa beaucoup d'autres dames se présentaient tous les jours les annales secrètes de babylone prétendent qu'il succomba une fois mais qu'il fut tout étonné de jouir sans",
+      "audio": "test/audio/9834/9697/9834_9697_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 298.95,
+        "original_end_s": 317.38
+      }
+    },
+    {
+      "id": "9834_9697_000070",
+      "text": "les colombes ne sont pas plus voluptueuses les tortues ont moins de paresse il ne respirait que la fausse gloire et les faux plaisirs zadig entreprit de le corriger",
+      "audio": "test/audio/9834/9697/9834_9697_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 351.1,
+        "original_end_s": 365.24
+      }
+    },
+    {
+      "id": "9834_9697_000071",
+      "text": "et qui couraient çà et là comme des hommes égarés qui cherchent ce qu'ils ont perdu de plus précieux jeune homme lui dit le premier eunuque n'avez-vous point vu le chien de la reine",
+      "audio": "test/audio/9834/9697/9834_9697_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 120.71,
+        "original_end_s": 134.66
+      }
+    },
+    {
+      "id": "9834_9697_000072",
+      "text": "elle lui jura par mithra par le zenda vesta et par le feu sacré qu'elle avait détesté la conduite de son mari elle lui confia ensuite que ce mari était un jaloux un brutal",
+      "audio": "test/audio/9834/9697/9834_9697_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 256.81,
+        "original_end_s": 270.29
+      }
+    },
+    {
+      "id": "9834_9697_000073",
+      "text": "il faut que cet homme-là ait prodigieusement d'affaires dans la tête puisqu'il y songe encore même en faisant l'amour il échappa à zadig dans les instants où plusieurs personnes ne disent mot et où d'autres ne prononcent que des paroles sacrées de s'écrier tout d'un coup",
+      "audio": "test/audio/9834/9697/9834_9697_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 333.85,
+        "original_end_s": 351.18
+      }
+    },
+    {
+      "id": "9834_9697_000074",
+      "text": "et même un vers d'une plus petite mesure mais par un hasard encore plus étrange ces petits vers se trouvaient former un sens qui contenait les injures les plus horribles contre le roi on y lisait",
+      "audio": "test/audio/9834/9697/9834_9697_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 377.04,
+        "original_end_s": 390.59
+      }
+    },
+    {
+      "id": "9834_9697_000075",
+      "text": "la dame pleura se fâcha s'adoucit le souper fut plus long que le dîner on se parla avec plus de confiance",
+      "audio": "test/audio/9834/9697/9834_9697_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 178.58,
+        "original_end_s": 189.24
+      }
+    },
+    {
+      "id": "9834_9697_000076",
+      "text": "il fallut d'abord payer cette amende après quoi il fut permis à zadig de plaider sa cause au conseil du grand desterham il parla en ces termes étoiles de justice abîmes de science miroirs de vérité qui avez la pesanteur du plomb",
+      "audio": "test/audio/9834/9697/9834_9697_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 251.6,
+        "original_end_s": 269.58
+      }
+    },
+    {
+      "id": "9834_9697_000077",
+      "text": "la dame inquiète et empressée fit apporter toutes les essences dont elle se parfumait pour essayer s'il n'y en avait pas quelqu'une qui fût bonne pour le mal de rate",
+      "audio": "test/audio/9834/9697/9834_9697_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 201.48,
+        "original_end_s": 212.47
+      }
+    },
+    {
+      "id": "9834_9697_000078",
+      "text": "il avait dans un faubourg de babylone une maison ornée avec goût où il rassemblait tous les arts et tous les plaisirs dignes d'un honnête homme le matin sa bibliothèque était ouverte à tous les savants le soir sa table l'était à la bonne compagnie mais il connut bientôt combien les savants sont dangereux",
+      "audio": "test/audio/9834/9697/9834_9697_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 32.24,
+        "original_end_s": 52.06
+      }
+    },
+    {
+      "id": "9834_9697_000079",
+      "text": "zadig ayant remercié le roi et la reine alla remercier aussi le perroquet bel oiseau lui dit-il c'est vous qui m'avez sauvé la vie et qui m'avez fait premier ministre la chienne et le cheval de leurs majestés m'avaient fait beaucoup de mal",
+      "audio": "test/audio/9834/9697/9834_9697_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 51.89,
+        "original_end_s": 71.42
+      }
+    },
+    {
+      "id": "9834_9697_000080",
+      "text": "zadig surtout ne se vantait pas de mépriser les femmes et de les subjuguer il était généreux il ne craignait point d'obliger des ingrats suivant ce grand précepte de zoroastre",
+      "audio": "test/audio/9834/9697/9834_9697_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 320.3,
+        "original_end_s": 335.3
+      }
+    },
+    {
+      "id": "9834_9697_000081",
+      "text": "et qu'ensuite il reposait mollement sur un lit de roses dont il sortait un serpent qui le blessait au coeur de sa langue acérée et envenimée",
+      "audio": "test/audio/9834/9697/9834_9697_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 439.62,
+        "original_end_s": 450.15
+      }
+    },
+    {
+      "id": "9834_9697_000082",
+      "text": "elle alla conter son aventure à l'envieuse qui était son amie intime celle-ci fut cruellement piquée de la préférence il n'a pas daigné seulement dit-elle me rattacher cette jarretière que voici et dont je ne veux plus me servir",
+      "audio": "test/audio/9834/9697/9834_9697_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 380.47,
+        "original_end_s": 397.78
+      }
+    },
+    {
+      "id": "9834_9697_000083",
+      "text": "azora ayant passé deux jours chez une de ses amies à la campagne revint le troisième jour à la maison des domestiques en pleurs lui annoncèrent que son mari était mort subitement",
+      "audio": "test/audio/9834/9697/9834_9697_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 126.29,
+        "original_end_s": 140.16
+      }
+    },
+    {
+      "id": "9834_9697_000084",
+      "text": "une pêche y avait été portée d'un arbre voisin par le vent elle était tombée sur un morceau de tablettes à écrire auquel elle s'était collée l'oiseau enleva la pêche et la tablette et les porta sur les genoux du monarque",
+      "audio": "test/audio/9834/9697/9834_9697_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 493.5,
+        "original_end_s": 509.73
+      }
+    },
+    {
+      "id": "9834_9697_000085",
+      "text": "qui lui découvrait mille différences où les autres hommes ne voient rien que d'uniforme un jour se promenant auprès d'un petit bois il vit accourir à lui un eunuque de la reine suivi de plusieurs officiers qui paraissaient dans la plus grande inquiétude",
+      "audio": "test/audio/9834/9697/9834_9697_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 103.52,
+        "original_end_s": 120.71
+      }
+    },
+    {
+      "id": "9834_9697_000086",
+      "text": "elle a promis aux dieux dans sa douleur de demeurer auprès de ce tombeau tant que l'eau de ce ruisseau coulerait auprès eh bien",
+      "audio": "test/audio/9834/9697/9834_9697_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 61.63,
+        "original_end_s": 73.32
+      }
+    },
+    {
+      "id": "9834_9697_000087",
+      "text": "l'ordre du roi portait que l'étiquette suivante serait inviolablement observée et voici comme les choses se passèrent le premier jour dès que le voluptueux irax fut éveillé",
+      "audio": "test/audio/9834/9697/9834_9697_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 378.58,
+        "original_end_s": 392.66
+      }
+    },
+    {
+      "id": "9834_9697_000088",
+      "text": "le bruit des chars qui entraient le soir chez zadig l'importunait le bruit de ses louanges l'irritait davantage il allait quelquefois chez zadig et se mettait à table sans être prié il y corrompait toute la joie de la société comme on dit que les harpies infectent les viandes qu'elles touchent",
+      "audio": "test/audio/9834/9697/9834_9697_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 241.89,
+        "original_end_s": 261.48
+      }
+    },
+    {
+      "id": "9834_9697_000089",
+      "text": "le plus sot des chaldéens et partant le plus fanatique cet homme aurait fait empaler zadig pour la plus grande gloire du soleil et en aurait récité le bréviaire de zoroastre d'un ton plus satisfait",
+      "audio": "test/audio/9834/9697/9834_9697_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 95.69,
+        "original_end_s": 110.29
+      }
+    },
+    {
+      "id": "9834_9697_000090",
+      "text": "elle regretta beaucoup que le grand hermès ne fût pas encore à babylone elle daigna même toucher le côté où cador sentait de si vives douleurs",
+      "audio": "test/audio/9834/9697/9834_9697_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 212.47,
+        "original_end_s": 222.74
+      }
+    },
+    {
+      "id": "9834_9697_000091",
+      "text": "son procès lui fut bientôt fait sans qu'on daignât l'entendre lorsqu'il vint recevoir sa sentence l'envieux se trouva sur son passage et lui dit tout haut que ses vers ne valaient rien",
+      "audio": "test/audio/9834/9697/9834_9697_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 421.1,
+        "original_end_s": 435.26
+      }
+    },
+    {
+      "id": "9834_9697_000092",
+      "text": "voici ce qui m'est arrivé je me promenais vers le petit bois où j'ai rencontré depuis le vénérable eunuque et le très illustre grand-veneur j'ai vu sur le sable les traces d'un animal et j'ai jugé aisément que c'étaient celles d'un petit chien",
+      "audio": "test/audio/9834/9697/9834_9697_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 288.44,
+        "original_end_s": 306.13
+      }
+    },
+    {
+      "id": "9834_9697_000093",
+      "text": "il s'éleva une grande dispute sur une loi de zoroastre qui défendait de manger du griffon comment défendre le griffon disaient les uns si cet animal n'existe pas",
+      "audio": "test/audio/9834/9697/9834_9697_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 52.06,
+        "original_end_s": 64.95
+      }
+    },
+    {
+      "id": "9834_9697_000094",
+      "text": "ensuite il fit paraître un soldat qui dans la guerre d'hyrcanie avait donné encore un plus grand exemple de générosité des soldats ennemis lui enlevaient sa maîtresse et il la défendait contre eux on vint lui dire que d'autres hyrcaniens enlevaient sa mère à quelques pas de là",
+      "audio": "test/audio/9834/9697/9834_9697_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 146.44,
+        "original_end_s": 165.41
+      }
+    },
+    {
+      "id": "9834_9697_000095",
+      "text": "il choisit azora la plus sage et la mieux née de la ville il l'épousa et vécut un mois avec elle dans les douceurs de l'union la plus tendre",
+      "audio": "test/audio/9834/9697/9834_9697_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 693.09,
+        "original_end_s": 705.3
+      }
+    },
+    {
+      "id": "9834_9697_000096",
+      "text": "l'ange asrael lui accordera-t-il moins le passage parce que son nez sera un peu moins long dans la seconde vie que dans la première elle prit donc un rasoir elle alla au tombeau de son époux",
+      "audio": "test/audio/9834/9697/9834_9697_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 265.47,
+        "original_end_s": 279.1
+      }
+    },
+    {
+      "id": "9834_9697_000097",
+      "text": "parce que vous ne marchez guère ou que vous marchez sur des tapis d'iran ou sur des roses je vous offre la traduction d'un livre d'un ancien sage qui ayant le bonheur de n'avoir rien à faire eut celui de s'amuser à écrire l'histoire de zadig",
+      "audio": "test/audio/9834/9697/9834_9697_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 73.26,
+        "original_end_s": 92.25
+      }
+    },
+    {
+      "id": "9834_9697_000098",
+      "text": "il croyait que les lois étaient faites pour secourir les citoyens autant que pour les intimider son principal talent était de démêler la vérité que tous les hommes cherchent à obscurcir",
+      "audio": "test/audio/9834/9697/9834_9697_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 147.77,
+        "original_end_s": 162.27
+      }
+    },
+    {
+      "id": "9834_9697_000099",
+      "text": "et il chercha son bonheur dans l'étude de la nature rien n'est plus heureux disait-il qu'un philosophe qui lit dans ce grand livre que dieu a mis sous nos yeux les vérités qu'il découvre sont à lui il nourrit et il élève son âme",
+      "audio": "test/audio/9834/9697/9834_9697_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 45.28,
+        "original_end_s": 60.98
+      }
+    },
+    {
+      "id": "9834_9697_000100",
+      "text": "instruit dans les sciences des anciens chaldéens il n'ignorait pas les principes physiques de la nature tels qu'on les connaissait alors et savait de la métaphysique ce qu'on en a su dans tous les âges c'est-à-dire fort peu de chose",
+      "audio": "test/audio/9834/9697/9834_9697_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 347.14,
+        "original_end_s": 363.67
+      }
+    },
+    {
+      "id": "9834_9697_000101",
+      "text": "ils virent venir à eux des hommes armés de sabres et de flèches c'étaient les satellites du jeune orcan neveu d'un ministre à qui les courtisans de son oncle avaient fait accroire que tout lui était permis",
+      "audio": "test/audio/9834/9697/9834_9697_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 436.34,
+        "original_end_s": 451.22
+      }
+    },
+    {
+      "id": "9834_9697_000102",
+      "text": "il se fit moins encenser eut moins de fêtes et fut plus heureux car comme dit le sadder toujours du plaisir n'est pas du plaisir",
+      "audio": "test/audio/9834/9697/9834_9697_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 493.91,
+        "original_end_s": 504.07
+      }
+    },
+    {
+      "id": "9834_9697_000103",
+      "text": "les juges furent dans la douloureuse nécessité de réformer leur arrêt mais ils condamnèrent zadig à payer quatre cents onces d'or pour avoir dit qu'il n'avait point vu ce qu'il avait vu",
+      "audio": "test/audio/9834/9697/9834_9697_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 239.54,
+        "original_end_s": 251.6
+      }
+    },
+    {
+      "id": "9834_9697_000104",
+      "text": "on était étonné de voir qu'avec beaucoup d'esprit il n'insultât jamais par des railleries à ces propos si vagues si rompus si tumultueux à ces médisances téméraires à ces décisions ignorantes à ces turlupinades grossières",
+      "audio": "test/audio/9834/9697/9834_9697_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 283.02,
+        "original_end_s": 301.3
+      }
+    },
+    {
+      "id": "9834_9697_000105",
+      "text": "zadig ne se piquait pas d'être bon poète mais il était au désespoir d'être condamné comme criminel de lèse-majesté et de voir qu'on retînt en prison une belle dame et deux amis pour un crime qu'il n'avait pas fait",
+      "audio": "test/audio/9834/9697/9834_9697_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 435.26,
+        "original_end_s": 449.94
+      }
+    },
+    {
+      "id": "9834_9697_000106",
+      "text": "la dureté du fer l'éclat du diamant et beaucoup d'affinité avec l'or puisqu'il m'est permis de parler devant cette auguste assemblée je vous jure par orosmade que je n'ai jamais vu la chienne respectable de la reine ni le cheval sacré du roi des rois",
+      "audio": "test/audio/9834/9697/9834_9697_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 269.58,
+        "original_end_s": 288.44
+      }
+    },
+    {
+      "id": "9834_9697_000107",
+      "text": "le dîner dura trois heures dès qu'il ouvrit la bouche pour parler le premier chambellan dit il aura raison à peine eut-il prononcé quatre paroles que le second chambellan s'écria il a raison",
+      "audio": "test/audio/9834/9697/9834_9697_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 429.23,
+        "original_end_s": 442.41
+      }
+    },
+    {
+      "id": "9834_9697_000108",
+      "text": "voilà un étrange remède dit azora pas plus étrange répondit-il que le sachet du sieur arnoult contre l'apoplexie",
+      "audio": "test/audio/9834/9697/9834_9697_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 241.9,
+        "original_end_s": 252.1
+      }
+    },
+    {
+      "id": "9834_9697_000109",
+      "text": "elle n'était point occupée de son danger elle ne pensait qu'à son cher zadig celui-ci dans le même temps la défendait avec toute la force que donnent la valeur et l'amour",
+      "audio": "test/audio/9834/9697/9834_9697_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 493.16,
+        "original_end_s": 506.19
+      }
+    },
+    {
+      "id": "9834_9697_000110",
+      "text": "il eut un songe il lui semblait qu'il était couché d'abord sur des herbes sèches parmi lesquelles il y en avait quelques unes de piquantes qui l'incommodaient",
+      "audio": "test/audio/9834/9697/9834_9697_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 428.52,
+        "original_end_s": 439.62
+      }
+    },
+    {
+      "id": "9834_9697_000111",
+      "text": "les noirs assuraient que dieu avait en horreur les prières des hommes qui se tournaient vers le couchant d'été zadig ordonna qu'on se tournât comme on voudrait",
+      "audio": "test/audio/9834/9697/9834_9697_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 181.25,
+        "original_end_s": 193.32
+      }
+    },
+    {
+      "id": "9834_9697_000112",
+      "text": "il fut écrit d'abord en ancien chaldéen que ni vous ni moi n'entendons on le traduisit en arabe pour amuser le célèbre sultan",
+      "audio": "test/audio/9834/9697/9834_9697_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 170.34,
+        "original_end_s": 180.98
+      }
+    },
+    {
+      "id": "9834_9697_000113",
+      "text": "chapitre un le borgne du temps du roi moabdar il y avait à babylone un jeune homme nommé zadig né avec un beau naturel fortifié par l'éducation",
+      "audio": "test/audio/9834/9697/9834_9697_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 258.38,
+        "original_end_s": 272.31
+      }
+    },
+    {
+      "id": "9834_9697_000114",
+      "text": "zadig s'écria à quoi tient le bonheur tout me persécute dans ce monde jusqu'aux êtres qui n'existent pas il maudit les savants et ne voulut plus vivre qu'en bonne compagnie",
+      "audio": "test/audio/9834/9697/9834_9697_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 160.34,
+        "original_end_s": 173.55
+      }
+    },
+    {
+      "id": "9834_9697_000115",
+      "text": "il rassemblait chez lui les plus honnêtes gens de babylone et les dames les plus aimables il donnait des soupers délicats souvent précédés de concerts et animés par des conversations charmantes dont il avait su bannir l'empressement de montrer de l'esprit",
+      "audio": "test/audio/9834/9697/9834_9697_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 173.55,
+        "original_end_s": 191.97
+      }
+    },
+    {
+      "id": "9834_9697_000116",
+      "text": "j'ai jugé enfin par les marques que ses fers ont laissées sur des cailloux d'une autre espèce qu'il était ferré d'argent à onze deniers de fin",
+      "audio": "test/audio/9834/9697/9834_9697_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 409.55,
+        "original_end_s": 419.92
+      }
+    },
+    {
+      "id": "9834_9697_000117",
+      "text": "zadig eut la coupe le roi acquit la réputation d'un bon prince qu'il ne garda pas longtemps ce jour fut consacré par des fêtes plus longues que la loi ne le portait",
+      "audio": "test/audio/9834/9697/9834_9697_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 284.21,
+        "original_end_s": 296.78
+      }
+    },
+    {
+      "id": "9834_9697_000118",
+      "text": "ils voulaient tous deux l'épouser je prendrai pour mon mari dit-elle celui des deux qui m'a mise en état de donner un citoyen à l'empire c'est moi qui ai fait cette bonne oeuvre dit l'un c'est moi qui ai eu cet avantage dit l'autre",
+      "audio": "test/audio/9834/9697/9834_9697_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 258.88,
+        "original_end_s": 276.78
+      }
+    },
+    {
+      "id": "9834_9697_000119",
+      "text": "les deux autres chambellans firent de grands éclats de rire des bons mots qu'irax avait dits ou qu'il avait dû dire après dîner on lui répéta la cantate",
+      "audio": "test/audio/9834/9697/9834_9697_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 442.41,
+        "original_end_s": 452.6
+      }
+    },
+    {
+      "id": "9834_9697_000120",
+      "text": "elle lui dit ô zadig je vous aimais comme mon époux je vous aime comme celui à qui je dois l'honneur et la vie jamais il n'y eut un coeur plus pénétré que celui de sémire",
+      "audio": "test/audio/9834/9697/9834_9697_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 519.31,
+        "original_end_s": 534.89
+      }
+    },
+    {
+      "id": "9834_9697_000121",
+      "text": "la reine qui se souvenait de ce qui avait été écrit sur une pièce de la tablette de zadig se la fit apporter on confronta les deux morceaux qui s'ajustaient ensemble parfaitement on lut alors les vers tels que zadig les avait faits",
+      "audio": "test/audio/9834/9697/9834_9697_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 525.03,
+        "original_end_s": 542.89
+      }
+    },
+    {
+      "id": "9834_9697_000122",
+      "text": "zadig se contentait d'avoir le style de la raison tout le monde fut pour lui non pas parce qu'il était dans le bon chemin non pas parce qu'il était raisonnable non pas parce qu'il était aimable mais parce qu'il était premier vizir",
+      "audio": "test/audio/9834/9697/9834_9697_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 148.58,
+        "original_end_s": 166.17
+      }
+    },
+    {
+      "id": "9834_9697_000123",
+      "text": "mais un abcès survenu à l'oeil blessé fit tout craindre on envoya jusqu'à memphis chercher le grand médecin hermès qui vint avec un nombreux cortège",
+      "audio": "test/audio/9834/9697/9834_9697_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 580.03,
+        "original_end_s": 592.58
+      }
+    },
+    {
+      "id": "9834_9697_000124",
+      "text": "il trouva ainsi le secret d'expédier le matin les affaires particulières et les générales le reste du jour il s'occupait des embellissements de babylone",
+      "audio": "test/audio/9834/9697/9834_9697_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 193.32,
+        "original_end_s": 204.17
+      }
+    },
+    {
+      "id": "9834_9697_000125",
+      "text": "c'était la coutume à babylone de déclarer solennellement au bout de cinq années celui des citoyens qui avait fait l'action la plus généreuse les grands et les mages étaient les juges le premier satrape chargé du soin de la ville exposait les plus belles actions qui s'étaient passées sous son gouvernement",
+      "audio": "test/audio/9834/9697/9834_9697_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 32.73,
+        "original_end_s": 52.1
+      }
+    },
+    {
+      "id": "9834_9697_000126",
+      "text": "elle finit par laisser tomber sa jarretière zadig la ramassa avec sa politesse ordinaire mais il ne la rattacha point au genou de la dame et cette petite faute si c'en est une fut la cause des plus horribles infortunes",
+      "audio": "test/audio/9834/9697/9834_9697_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 282.43,
+        "original_end_s": 298.95
+      }
+    },
+    {
+      "id": "9834_9697_000127",
+      "text": "ils touchaient au moment fortuné qui allait les unir lorsque se promenant ensemble vers une porte de babylone sous les palmiers qui ornaient le rivage de l'euphrate",
+      "audio": "test/audio/9834/9697/9834_9697_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 424.02,
+        "original_end_s": 436.34
+      }
+    },
+    {
+      "id": "9834_9697_000128",
+      "text": "il ne prétendait pas en savoir plus que les artistes il les récompensait par des bienfaits et des distinctions et n'était point jaloux en secret de leurs talents le soir il amusait beaucoup le roi et surtout la reine",
+      "audio": "test/audio/9834/9697/9834_9697_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 216.06,
+        "original_end_s": 230.8
+      }
+    },
+    {
+      "id": "9834_9697_000129",
+      "text": "une fille fort riche avait fait une promesse de mariage à deux mages et après avoir reçu quelques mois des instructions de l'un et de l'autre elle se trouva grosse",
+      "audio": "test/audio/9834/9697/9834_9697_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 246.06,
+        "original_end_s": 258.88
+      }
+    },
+    {
+      "id": "9834_9697_000130",
+      "text": "on l'admirait et cependant on l'aimait il passait pour le plus fortuné de tous les hommes tout l'empire était rempli de son nom toutes les femmes le lorgnaient tous les citoyens célébraient sa justice",
+      "audio": "test/audio/9834/9697/9834_9697_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 35.15,
+        "original_end_s": 50.87
+      }
+    },
+    {
+      "id": "9834_9697_000131",
+      "text": "n'ayant jamais pu réussir dans le monde il se vengeait par en médire tout riche qu'il était il avait de la peine à rassembler chez lui des flatteurs",
+      "audio": "test/audio/9834/9697/9834_9697_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 230.88,
+        "original_end_s": 241.89
+      }
+    },
+    {
+      "id": "9834_9697_000132",
+      "text": "vis-à-vis de sa maison demeurait arimaze personnage dont la méchante âme était peinte sur sa grossière physionomie il était rongé de fiel et bouffi d'orgueil et pour comble c'était un bel esprit ennuyeux",
+      "audio": "test/audio/9834/9697/9834_9697_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 214.36,
+        "original_end_s": 230.88
+      }
+    },
+    {
+      "id": "9834_9697_000133",
+      "text": "s'il n'y en a point nous en mangerons encore moins et par là nous obéirons tous à zoroastre un savant qui avait composé treize volumes sur les propriétés du griffon et qui de plus était grand théurgite se hâta d'aller accuser zadig devant un archimage nommé yébor",
+      "audio": "test/audio/9834/9697/9834_9697_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 77.12,
+        "original_end_s": 95.69
+      }
+    },
+    {
+      "id": "9834_9697_000134",
+      "text": "je me flatte que vous ne leur ressemblerez pas et que vous serez un vrai ouloug j'espère même que quand vous serez lasse des conversations générales qui ressemblent assez aux mille et un à cela près qu'elles sont moins amusantes",
+      "audio": "test/audio/9834/9697/9834_9697_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 213.38,
+        "original_end_s": 229.11
+      }
+    },
+    {
+      "id": "9834_9697_000135",
+      "text": "l'occasion de faire du mal se trouve cent fois par jour et celle de faire du bien une fois dans l'année comme dit zoroastre l'envieux alla chez zadig qui se promenait dans ses jardins avec deux amis et une dame",
+      "audio": "test/audio/9834/9697/9834_9697_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 291.24,
+        "original_end_s": 305.62
+      }
+    },
+    {
+      "id": "9834_9697_000136",
+      "text": "enfin outré d'entendre toujours chanter ah combien monseigneur doit être content de lui-même d'entendre toujours dire qu'il avait raison et d'être harangué chaque jour à la même heure",
+      "audio": "test/audio/9834/9697/9834_9697_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 468.99,
+        "original_end_s": 482.58
+      }
+    },
+    {
+      "id": "9834_9697_000137",
+      "text": "c'est répondit zadig le cheval qui galope le mieux il a cinq pieds de haut le sabot fort petit il porte une queue de trois pieds et demi de long les bossettes de son mors sont d'or à vingt-trois carats ses fers sont d'argent à onze deniers",
+      "audio": "test/audio/9834/9697/9834_9697_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 191.93,
+        "original_end_s": 209.36
+      }
+    },
+    {
+      "id": "9834_9697_000138",
+      "text": "il termina aussi heureusement le grand procès entre les mages blancs et les mages noirs les blancs soutenaient que c'était une impiété de se tourner en priant dieu vers l'orient d'hiver",
+      "audio": "test/audio/9834/9697/9834_9697_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 166.17,
+        "original_end_s": 181.25
+      }
+    },
+    {
+      "id": "9834_9697_000139",
+      "text": "il visita le malade et déclara qu'il perdrait l'oeil il prédit même le jour et l'heure où ce funeste accident devait arriver",
+      "audio": "test/audio/9834/9697/9834_9697_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 592.58,
+        "original_end_s": 603.56
+      }
+    },
+    {
+      "id": "9834_9697_000140",
+      "text": "il fit sentir à tout le monde le pouvoir sacré des lois et ne fit sentir à personne le poids de sa dignité il ne gêna point les voix du divan et chaque vizir pouvait avoir un avis sans lui déplaire",
+      "audio": "test/audio/9834/9697/9834_9697_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 104.8,
+        "original_end_s": 120.99
+      }
+    },
+    {
+      "id": "9834_9697_000141",
+      "text": "j'ai été consoler la jeune veuve cosrou qui vient d'élever depuis deux jours un tombeau à son jeune époux auprès du ruisseau qui borde cette prairie",
+      "audio": "test/audio/9834/9697/9834_9697_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 49.43,
+        "original_end_s": 61.63
+      }
+    },
+    {
+      "id": "9834_9697_000142",
+      "text": "etes-vous sujet à cette cruelle maladie lui dit-elle avec compassion elle me met quelquefois au bord du tombeau lui répondit cador et il n'y a qu'un seul remède qui puisse me soulager c'est de m'appliquer sur le côté le nez d'un homme qui soit mort la veille",
+      "audio": "test/audio/9834/9697/9834_9697_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 222.74,
+        "original_end_s": 241.9
+      }
+    },
+    {
+      "id": "9834_9697_000143",
+      "text": "n'étaient faits par la vanité car en tout il préférait l'être au paraître et par là il s'attirait la considération véritable à laquelle il ne prétendait pas",
+      "audio": "test/audio/9834/9697/9834_9697_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 202.46,
+        "original_end_s": 214.36
+      }
+    },
+    {
+      "id": "9834_9697_000144",
+      "text": "votre père n'est point mort il est guéri de sa dernière maladie il revient à babylone dieu soit loué répondit le jeune homme mais voilà un tombeau qui m'a coûté bien cher zadig dit ensuite la même chose au cadet",
+      "audio": "test/audio/9834/9697/9834_9697_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 213.7,
+        "original_end_s": 228.69
+      }
+    },
+    {
+      "id": "9834_9697_000145",
+      "text": "jamais homme en place ne fut obligé de donner tant d'audiences aux dames la plupart venaient lui parler des affaires qu'elles n'avaient point pour en avoir une avec lui la femme de l'envieux s'y présenta des premières",
+      "audio": "test/audio/9834/9697/9834_9697_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 241.88,
+        "original_end_s": 256.81
+      }
+    },
+    {
+      "id": "9834_9697_000146",
+      "text": "il vit tranquille il ne craint rien des hommes et sa tendre épouse ne vient point lui couper le nez plein de ces idées il se retira dans une maison de campagne sur les bords de l'euphrate",
+      "audio": "test/audio/9834/9697/9834_9697_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 60.98,
+        "original_end_s": 74.51
+      }
+    },
+    {
+      "id": "9834_9697_000147",
+      "text": "le premier satrape rapporta à haute voix les actions qui pouvaient mériter à leurs auteurs ce prix inestimable il ne parla point de la grandeur d'âme avec laquelle zadig avait rendu à l'envieux toute sa fortune",
+      "audio": "test/audio/9834/9697/9834_9697_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_05_voltaire_64kb.mp3",
+        "original_start_s": 95.83,
+        "original_end_s": 111.86
+      }
+    },
+    {
+      "id": "9834_9697_000148",
+      "text": "sa blessure était légère elle guérit bientôt zadig était blessé plus dangereusement un coup de flèche reçu près de l'oeil lui avait fait une plaie profonde",
+      "audio": "test/audio/9834/9697/9834_9697_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 551.33,
+        "original_end_s": 564.3
+      }
+    },
+    {
+      "id": "9834_9697_000149",
+      "text": "à laquelle il disait souvent des choses galantes sans autre intention que celle de les dire la conversation roulait sur une guerre que le roi venait de terminer heureusement contre le prince d'hyrcanie son vassal",
+      "audio": "test/audio/9834/9697/9834_9697_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 305.62,
+        "original_end_s": 319.66
+      }
+    },
+    {
+      "id": "9834_9697_000150",
+      "text": "mais vous m'avez fait du bien voilà donc de quoi dépendent les destins des hommes mais ajouta-t-il un bonheur si étrange sera peut-être bientôt évanoui",
+      "audio": "test/audio/9834/9697/9834_9697_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_06_voltaire_64kb.mp3",
+        "original_start_s": 71.42,
+        "original_end_s": 86.47
+      }
+    },
+    {
+      "id": "9834_9697_000151",
+      "text": "cependant zadig s'apercevait qu'il avait toujours des distractions quand il donnait des audiences et quand il jugeait il ne savait à quoi les attribuer c'était là sa seule peine",
+      "audio": "test/audio/9834/9697/9834_9697_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_07_voltaire_64kb.mp3",
+        "original_start_s": 414.79,
+        "original_end_s": 428.52
+      }
+    },
+    {
+      "id": "9834_9697_000152",
+      "text": "zadig commençait à croire qu'il n'est pas si difficile d'être heureux fin des chapitre quatre lu par dave scan",
+      "audio": "test/audio/9834/9697/9834_9697_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 621.38,
+        "original_end_s": 637.23
+      }
+    },
+    {
+      "id": "9834_9697_000153",
+      "text": "des sillons légers et longs imprimés sur de petites éminences de sable entre les traces des pattes m'ont fait connaître que c'était une chienne dont les mamelles étaient pendantes et qu'ainsi elle avait fait des petits il y a peu de jours",
+      "audio": "test/audio/9834/9697/9834_9697_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 306.13,
+        "original_end_s": 322.71
+      }
+    },
+    {
+      "id": "9834_9697_000154",
+      "text": "par les plus grands forfaits j'ai vu troubler la terre sur le trône affermi le roi sait tout dompter dans la publique paix l'amour seul fait la guerre c'est le seul ennemi qui soit à redouter",
+      "audio": "test/audio/9834/9697/9834_9697_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 542.89,
+        "original_end_s": 561.41
+      }
+    },
+    {
+      "id": "9834_9697_000155",
+      "text": "cette raison jointe à l'extrême mérite du jeune homme détermina enfin la dame après tout dit-elle quand mon mari passera du monde d'hier dans le monde du lendemain sur le pont",
+      "audio": "test/audio/9834/9697/9834_9697_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_02_voltaire_64kb.mp3",
+        "original_start_s": 252.1,
+        "original_end_s": 265.47
+      }
+    },
+    {
+      "id": "9834_9697_000156",
+      "text": "par les plus grands forfaits sur le trône affermi dans la publique paix c'est le seul ennemi l'envieux fut heureux pour la première fois de sa vie",
+      "audio": "test/audio/9834/9697/9834_9697_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 390.59,
+        "original_end_s": 404.58
+      }
+    },
+    {
+      "id": "9834_9697_000157",
+      "text": "il parla avec tant de grâce d'esprit et de raison que le roi et la reine voulurent le revoir il revint et plut encore davantage",
+      "audio": "test/audio/9834/9697/9834_9697_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_04_voltaire_64kb.mp3",
+        "original_start_s": 579.53,
+        "original_end_s": 589.57
+      }
+    },
+    {
+      "id": "9834_9697_000158",
+      "text": "quand tu manges donne à manger aux chiens dussent-ils te mordre il était aussi sage qu'on peut l'être car il cherchait à vivre avec des sages",
+      "audio": "test/audio/9834/9697/9834_9697_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 335.3,
+        "original_end_s": 347.14
+      }
+    },
+    {
+      "id": "9834_9697_000159",
+      "text": "d'autres traces en un sens différent qui paraissaient toujours avoir rasé la surface du sable à côté des pattes de devant m'ont appris qu'elle avait les oreilles très longues",
+      "audio": "test/audio/9834/9697/9834_9697_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_03_voltaire_64kb.mp3",
+        "original_start_s": 322.71,
+        "original_end_s": 334.82
+      }
+    },
+    {
+      "id": "9834_9697_000160",
+      "text": "à ce vain bruit de paroles qu'on appelait conversation dans babylone il avait appris dans le premier livre de zoroastre que l'amour-propre est un ballon gonflé de vent dont il sort des tempêtes quand on lui a fait une piqûre",
+      "audio": "test/audio/9834/9697/9834_9697_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-9834",
+        "gender": "m",
+        "book_id": "9697",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/zadig_ou_la_destinee_1812_librivox/zadig_01_voltaire_64kb.mp3",
+        "original_start_s": 301.3,
+        "original_end_s": 320.3
+      }
+    }
+  ]
+}

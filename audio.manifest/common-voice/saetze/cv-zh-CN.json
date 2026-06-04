@@ -1,0 +1,115 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zh-CN",
+  "lang": "zh-CN",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zh-CN",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "19427016",
+      "text": "该湖的沉积物主要为天然碱和石盐。",
+      "audio": "zh-CN/unknown/zh-CN_u_19427016_52.mp3",
+      "tags": {
+        "source_item_id": "19427016",
+        "gender": "u",
+        "accent": "出生地：52 贵州省"
+      }
+    },
+    {
+      "id": "18768077",
+      "text": "拉米森是位于美国阿拉巴马州威尔科克斯县的一个非建制地区。",
+      "audio": "zh-CN/unknown/zh-CN_u_18768077_37.mp3",
+      "tags": {
+        "source_item_id": "18768077",
+        "gender": "u",
+        "accent": "出生地：37 山东省"
+      }
+    },
+    {
+      "id": "18650517",
+      "text": "斯普雷克斯维尔是位于美国加利福尼亚州埃尔多拉多县的一个非建制地区。",
+      "audio": "zh-CN/unknown/zh-CN_u_18650517.mp3",
+      "tags": {
+        "source_item_id": "18650517",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18776487",
+      "text": "嫡母张氏；生母姚氏。",
+      "audio": "zh-CN/unknown/zh-CN_u_18776487_44.mp3",
+      "tags": {
+        "source_item_id": "18776487",
+        "gender": "u",
+        "accent": "出生地：44 广东省"
+      }
+    },
+    {
+      "id": "18848889",
+      "text": "凯利有一个双胞胎姐妹，职业是游戏设计师。",
+      "audio": "zh-CN/unknown/zh-CN_u_18848889.mp3",
+      "tags": {
+        "source_item_id": "18848889",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19266229",
+      "text": "群马县是位于关东地方中部的一个内陆县。",
+      "audio": "zh-CN/unknown/zh-CN_u_19266229_43.mp3",
+      "tags": {
+        "source_item_id": "19266229",
+        "gender": "u",
+        "accent": "出生地：43 湖南省"
+      }
+    },
+    {
+      "id": "18959687",
+      "text": "内务府正白旗满洲佐领下人。",
+      "audio": "zh-CN/unknown/zh-CN_u_18959687_23.mp3",
+      "tags": {
+        "source_item_id": "18959687",
+        "gender": "u",
+        "accent": "出生地：23 黑龙江省"
+      }
+    },
+    {
+      "id": "18627558",
+      "text": "对于此份工作，孙笑川觉得较为平淡，没有激情。",
+      "audio": "zh-CN/unknown/zh-CN_u_18627558_11.mp3",
+      "tags": {
+        "source_item_id": "18627558",
+        "gender": "u",
+        "accent": "出生地：11 北京市"
+      }
+    },
+    {
+      "id": "18797504",
+      "text": "潘辉湜，越南阮朝官员，阮初封圭岳侯。",
+      "audio": "zh-CN/unknown/zh-CN_u_18797504_34.mp3",
+      "tags": {
+        "source_item_id": "18797504",
+        "gender": "u",
+        "accent": "出生地：34 安徽省"
+      }
+    },
+    {
+      "id": "18992637",
+      "text": "库尔迈因是德国巴伐利亚州的一个市镇。",
+      "audio": "zh-CN/unknown/zh-CN_u_18992637_32.mp3",
+      "tags": {
+        "source_item_id": "18992637",
+        "gender": "u",
+        "accent": "出生地：32 江苏省"
+      }
+    }
+  ]
+}

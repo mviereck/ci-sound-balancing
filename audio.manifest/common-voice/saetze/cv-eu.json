@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — eu",
+  "lang": "eu",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-eu",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "18254572",
+      "text": "Hala bihurtu da Polonia nazioarteko garraioan Europako txapeldun.",
+      "audio": "eu/unknown/eu_u_18254572_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18254572",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    },
+    {
+      "id": "18257021",
+      "text": "Gure musikak eta hitzak gaur egungo pasibotasunaren inarrosteko sortzen ditugu.",
+      "audio": "eu/unknown/eu_u_18257021_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18257021",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    },
+    {
+      "id": "18257136",
+      "text": "Lana bukatzean kirola hasten da eta kirola bukatzean lana.",
+      "audio": "eu/unknown/eu_u_18257136_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18257136",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    },
+    {
+      "id": "18275742",
+      "text": "Haiek urteak daramatzate kalean bizitzen.",
+      "audio": "eu/unknown/eu_u_18275742_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18275742",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    },
+    {
+      "id": "18282921",
+      "text": "Buztana ukitu duenak, soka itxura ematen dio elefanteari.",
+      "audio": "eu/unknown/eu_u_18282921_mendebalekoa_araka_bizkaia_gipuzkoako_mendebaleko_herri_batzuk.mp3",
+      "tags": {
+        "source_item_id": "18282921",
+        "gender": "u",
+        "accent": "Mendebalekoa (Araka, Bizkaia, Gipuzkoako mendebaleko herri batzuk)"
+      }
+    },
+    {
+      "id": "18307320",
+      "text": "Gu jada estatutik kanpo kokatzen gara.",
+      "audio": "eu/unknown/eu_u_18307320_mendebalekoa_araka_bizkaia_gipuzkoako_mendebaleko_herri_batzuk.mp3",
+      "tags": {
+        "source_item_id": "18307320",
+        "gender": "u",
+        "accent": "Mendebalekoa (Araka, Bizkaia, Gipuzkoako mendebaleko herri batzuk)"
+      }
+    },
+    {
+      "id": "18333502",
+      "text": "Santxok horrela definitu du Bilboko sarearen helburua.",
+      "audio": "eu/unknown/eu_u_18333502_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18333502",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    },
+    {
+      "id": "18346581",
+      "text": "Gozatu zuten hazkunde ekonomiko eta bizi-baldintzen hobekuntza aldian.",
+      "audio": "eu/unknown/eu_u_18346581_mendebalekoa_araka_bizkaia_gipuzkoako_mendebaleko_herri_batzuk.mp3",
+      "tags": {
+        "source_item_id": "18346581",
+        "gender": "u",
+        "accent": "Mendebalekoa (Araka, Bizkaia, Gipuzkoako mendebaleko herri batzuk)"
+      }
+    },
+    {
+      "id": "18368504",
+      "text": "Baina azkenaldion urrunago heltzen ari garela dirudi.",
+      "audio": "eu/unknown/eu_u_18368504.mp3",
+      "tags": {
+        "source_item_id": "18368504",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "18383753",
+      "text": "Barne Produktu Gordinaren erdia dohainik ematen diogu kapitalismoari.",
+      "audio": "eu/unknown/eu_u_18383753_erdialdekoa_edo_nafarra_gipuzkoa_nafarroa.mp3",
+      "tags": {
+        "source_item_id": "18383753",
+        "gender": "u",
+        "accent": "Erdialdekoa edo Nafarra (Gipuzkoa, Nafarroa)"
+      }
+    }
+  ]
+}

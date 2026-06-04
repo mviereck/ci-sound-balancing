@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — pl",
+  "lang": "pl",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-pl",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20816190",
+      "text": "— Jeśli ciebie ludzie nie obchodzą, to jednak obchodzą nas.",
+      "audio": "pl/unknown/pl_u_20816190.mp3",
+      "tags": {
+        "source_item_id": "20816190",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20818255",
+      "text": "Nie znaczy to bynajmniej, że chirurg się mylił. Całe życie operował wątłe ludzkie istoty",
+      "audio": "pl/unknown/pl_u_20818255.mp3",
+      "tags": {
+        "source_item_id": "20818255",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20818551",
+      "text": "mknęła o krok za zdobyczą i uparcie utrzymywała dystans.",
+      "audio": "pl/unknown/pl_u_20818551_podlaski.mp3",
+      "tags": {
+        "source_item_id": "20818551",
+        "gender": "u",
+        "accent": "podlaski"
+      }
+    },
+    {
+      "id": "20820443",
+      "text": "I to: „nie bawię się” było takie śmieszne.",
+      "audio": "pl/unknown/pl_u_20820443.mp3",
+      "tags": {
+        "source_item_id": "20820443",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20820571",
+      "text": "Najgorzej grać z gwiazdą, gdy kaprysi.",
+      "audio": "pl/unknown/pl_u_20820571.mp3",
+      "tags": {
+        "source_item_id": "20820571",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20823164",
+      "text": "A mimo to każdego wieczoru pracowała cierpliwie.",
+      "audio": "pl/unknown/pl_u_20823164.mp3",
+      "tags": {
+        "source_item_id": "20823164",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20824172",
+      "text": "Każdy palacz jest ruiną tego, którym mógłby być, gdyby nie palił.",
+      "audio": "pl/unknown/pl_u_20824172.mp3",
+      "tags": {
+        "source_item_id": "20824172",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20840211",
+      "text": "Rozpoczęliby bójkę, gdyby nie fakt, że nawet zaloty i rywalizacja ustąpić musiały na razie",
+      "audio": "pl/unknown/pl_u_20840211.mp3",
+      "tags": {
+        "source_item_id": "20840211",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20840524",
+      "text": "głęboko w pamięć Białego Kła.",
+      "audio": "pl/unknown/pl_u_20840524.mp3",
+      "tags": {
+        "source_item_id": "20840524",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20840741",
+      "text": "— Popatrz, jak się ładnie bawię.",
+      "audio": "pl/unknown/pl_u_20840741.mp3",
+      "tags": {
+        "source_item_id": "20840741",
+        "gender": "u"
+      }
+    }
+  ]
+}

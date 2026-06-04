@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mk",
+  "lang": "mk",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mk",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "39663700",
+      "text": "Тоа е сѐ и нишо друго, брат.",
+      "audio": "mk/unknown/mk_u_39663700.mp3",
+      "tags": {
+        "source_item_id": "39663700",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39667744",
+      "text": "Обожавам кога не може да изговори одредени букви.",
+      "audio": "mk/unknown/mk_u_39667744_skopje_native.mp3",
+      "tags": {
+        "source_item_id": "39667744",
+        "gender": "u",
+        "accent": "Skopje,Native"
+      }
+    },
+    {
+      "id": "39674331",
+      "text": "Првата вечер ми се спиеше рано.",
+      "audio": "mk/unknown/mk_u_39674331.mp3",
+      "tags": {
+        "source_item_id": "39674331",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39825248",
+      "text": "Ако нема многу ветер, може да одиме на пливање во морето.",
+      "audio": "mk/unknown/mk_u_39825248.mp3",
+      "tags": {
+        "source_item_id": "39825248",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39696066",
+      "text": "Го рече тоа доволно пати за мојата мајка да запомни, и јас да запомнам.",
+      "audio": "mk/unknown/mk_u_39696066_skopje_native.mp3",
+      "tags": {
+        "source_item_id": "39696066",
+        "gender": "u",
+        "accent": "Skopje,Native"
+      }
+    },
+    {
+      "id": "39808769",
+      "text": "Сега ете плачам, оти немам што друго.",
+      "audio": "mk/unknown/mk_u_39808769.mp3",
+      "tags": {
+        "source_item_id": "39808769",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39774879",
+      "text": "Туризмот во Охрид доживува колапс.",
+      "audio": "mk/unknown/mk_u_39774879.mp3",
+      "tags": {
+        "source_item_id": "39774879",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39839663",
+      "text": "Се е во најдобар ред единствено што јас се чувствувам лошо.",
+      "audio": "mk/unknown/mk_u_39839663.mp3",
+      "tags": {
+        "source_item_id": "39839663",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39781807",
+      "text": "Се чини како по сенестите делови да има скриено малечки огледалца.",
+      "audio": "mk/unknown/mk_u_39781807.mp3",
+      "tags": {
+        "source_item_id": "39781807",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39709196",
+      "text": "Ме потсети на девојка ми која изговараше какоф.",
+      "audio": "mk/unknown/mk_u_39709196.mp3",
+      "tags": {
+        "source_item_id": "39709196",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39700572",
+      "text": "Денес отидов во продавница и купив леб.",
+      "audio": "mk/unknown/mk_u_39700572.mp3",
+      "tags": {
+        "source_item_id": "39700572",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39775172",
+      "text": "Би сакал да ја ослободам од појасот што ја дели на две.",
+      "audio": "mk/unknown/mk_u_39775172.mp3",
+      "tags": {
+        "source_item_id": "39775172",
+        "gender": "u",
+        "accent": "Типичен скопски акцент"
+      }
+    },
+    {
+      "id": "39900627",
+      "text": "Потоа ќе се стемни, а кога ќе се раздени, не ќе остане жив човек.",
+      "audio": "mk/unknown/mk_u_39900627.mp3",
+      "tags": {
+        "source_item_id": "39900627",
+        "gender": "u"
+      }
+    }
+  ]
+}

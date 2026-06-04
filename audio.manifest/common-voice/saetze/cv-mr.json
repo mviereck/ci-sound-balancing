@@ -1,0 +1,193 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mr",
+  "lang": "mr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "27565097",
+      "text": "पोप असताना ज्युलियस तिसऱ्याने अनेक सुंदर ईमारतींची रचना करवली व नावाजलेल्या संगीतकारांना राज्याश्रय दिला.",
+      "audio": "mr/unknown/mr_u_27565097.mp3",
+      "tags": {
+        "source_item_id": "27565097",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27872240",
+      "text": "कर्नाटक हे भारतातील एक आर्थिक दृष्ट्या विकसित राज्य आहे.",
+      "audio": "mr/unknown/mr_u_27872240_nashik_rural_dindori_west_maharashtra.mp3",
+      "tags": {
+        "source_item_id": "27872240",
+        "gender": "u",
+        "accent": "Nashik Rural - Dindori,West Maharashtra"
+      }
+    },
+    {
+      "id": "30388718",
+      "text": "त्यांचे जीवनावर देवकीनंदन गोपाला हा चित्रपटही निघाला आहे.",
+      "audio": "mr/unknown/mr_u_30388718_praman_boli.mp3",
+      "tags": {
+        "source_item_id": "30388718",
+        "gender": "u",
+        "accent": "Praman,Boli"
+      }
+    },
+    {
+      "id": "30584799",
+      "text": "नृसिंहवाडी, कुरुंदवाड, पुणे, सातारा, कोल्हापुर ही गावे पेढ्यासाठी प्रसिद्ध आहेत.",
+      "audio": "mr/unknown/mr_u_30584799.mp3",
+      "tags": {
+        "source_item_id": "30584799",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30584995",
+      "text": "योगेश्वर श्रीकृष्ण डॉ. सुमती क्षेत्रमाडे",
+      "audio": "mr/unknown/mr_u_30584995.mp3",
+      "tags": {
+        "source_item_id": "30584995",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30585613",
+      "text": "आईचे आजारपण वाढत चालले, तसतशी मथीही नीट खातपीतनाशी झाली.",
+      "audio": "mr/unknown/mr_u_30585613.mp3",
+      "tags": {
+        "source_item_id": "30585613",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30592694",
+      "text": "कंस हा महाभारतातील कृष्णाचा मामा होता.",
+      "audio": "mr/unknown/mr_u_30592694.mp3",
+      "tags": {
+        "source_item_id": "30592694",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30647129",
+      "text": "ती लाईत गावाजवळ पूर्णा नदीस मिळते.",
+      "audio": "mr/unknown/mr_u_30647129.mp3",
+      "tags": {
+        "source_item_id": "30647129",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30931794",
+      "text": "श्रीकृष्णाची सर्व आयुधे नावासकट माझ्याजवळ आहेत, अशी प्रोढी मारतो.",
+      "audio": "mr/unknown/mr_u_30931794.mp3",
+      "tags": {
+        "source_item_id": "30931794",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30932326",
+      "text": "म्यांव म्यांव म्हणून हाकही ती मारीनाशी झाली.",
+      "audio": "mr/unknown/mr_u_30932326.mp3",
+      "tags": {
+        "source_item_id": "30932326",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30928254",
+      "text": "त्यामुळे अतिशय कोरडा उन्हाळा व ओला हिवाळा हे येथील वैशिठ्य आहे.",
+      "audio": "mr/unknown/mr_u_30928254.mp3",
+      "tags": {
+        "source_item_id": "30928254",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30721587",
+      "text": "तिच्या रुपाकडे पाहून पांडूचा संयम तुटतो व माद्रीशी प्रणय करु पहातो.",
+      "audio": "mr/unknown/mr_u_30721587.mp3",
+      "tags": {
+        "source_item_id": "30721587",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30390762",
+      "text": "बाबा म्हणाले टिळक महाराज मी चुकलो.",
+      "audio": "mr/unknown/mr_u_30390762_praman_boli.mp3",
+      "tags": {
+        "source_item_id": "30390762",
+        "gender": "u",
+        "accent": "Praman,Boli"
+      }
+    },
+    {
+      "id": "30639338",
+      "text": "स्वातंत्र्यानंतर सिंगापूर सरकाराने अधिकृत प्रशासकीय व्यवहारात इंग्लिश भाषेचा पुरस्कार करण्याचे धोरण अवलंबले.",
+      "audio": "mr/unknown/mr_u_30639338.mp3",
+      "tags": {
+        "source_item_id": "30639338",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27843940",
+      "text": "तेथे जीवन पूर्ववत होण्यास, अनेक वर्षे लागू शकतात.",
+      "audio": "mr/unknown/mr_u_27843940.mp3",
+      "tags": {
+        "source_item_id": "27843940",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30400158",
+      "text": "मुंबई ही महाराष्ट्राची राजधानी ठरवली गेली.",
+      "audio": "mr/unknown/mr_u_30400158_nashik_rural_dindori_west_maharashtra.mp3",
+      "tags": {
+        "source_item_id": "30400158",
+        "gender": "u",
+        "accent": "Nashik Rural - Dindori,West Maharashtra"
+      }
+    },
+    {
+      "id": "30588196",
+      "text": "कुरुक्षेत्रातील युद्धात, कृष्ण व अर्जुन यांच्या सल्ल्याने, धृष्टद्युम्नास पांडवसेनेचा सरसेनापती बनविण्यात येते.",
+      "audio": "mr/unknown/mr_u_30588196.mp3",
+      "tags": {
+        "source_item_id": "30588196",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30657485",
+      "text": "भूगोलशास्त्रज्ञ चार पारंपरिक विचारांतून भूगोलाच्या अध्ययनावर भर देतात.",
+      "audio": "mr/unknown/mr_u_30657485.mp3",
+      "tags": {
+        "source_item_id": "30657485",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30390350",
+      "text": "संत ज्ञानेश्वरांचे ते समकालीन.",
+      "audio": "mr/unknown/mr_u_30390350_praman_boli.mp3",
+      "tags": {
+        "source_item_id": "30390350",
+        "gender": "u",
+        "accent": "Praman,Boli"
+      }
+    }
+  ]
+}

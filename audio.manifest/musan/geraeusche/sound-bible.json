@@ -1,0 +1,968 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "geraeusche",
+  "title": "MUSAN Geräusche — sound-bible",
+  "lang": null,
+  "license": "mixed",
+  "credit": "MUSAN (sound-bible), Lizenzen pro Item",
+  "url": "https://www.openslr.org/17/",
+  "items": [
+    {
+      "id": "noise-sound-bible-0000",
+      "audio": "noise/sound-bible/noise-sound-bible-0000.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0001",
+      "audio": "noise/sound-bible/noise-sound-bible-0001.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/5-Answering-Machine-Beep.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0002",
+      "audio": "noise/sound-bible/noise-sound-bible-0002.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1968-Apple-Bite.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0003",
+      "audio": "noise/sound-bible/noise-sound-bible-0003.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2087-Audience-Applause.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0004",
+      "audio": "noise/sound-bible/noise-sound-bible-0004.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1776-Babbling-Brook.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0005",
+      "audio": "noise/sound-bible/noise-sound-bible-0005.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/531-Background-Noise.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0006",
+      "audio": "noise/sound-bible/noise-sound-bible-0006.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2047-Banana-Slap.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0007",
+      "audio": "noise/sound-bible/noise-sound-bible-0007.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2056-Missile-Alert.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0008",
+      "audio": "noise/sound-bible/noise-sound-bible-0008.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1072-Busy-Signal.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0009",
+      "audio": "noise/sound-bible/noise-sound-bible-0009.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1198-Buzz-Fade-Out.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0010",
+      "audio": "noise/sound-bible/noise-sound-bible-0010.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1581-Buzz.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0011",
+      "audio": "noise/sound-bible/noise-sound-bible-0011.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1861-Canadian-Geese-Migration.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0012",
+      "audio": "noise/sound-bible/noise-sound-bible-0012.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1515-Best-Cardinal-Bird.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0013",
+      "audio": "noise/sound-bible/noise-sound-bible-0013.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1954-Cat-Meow-2.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0014",
+      "audio": "noise/sound-bible/noise-sound-bible-0014.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/920-Cicada.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0015",
+      "audio": "noise/sound-bible/noise-sound-bible-0015.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1266-City-Ambiance.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0016",
+      "audio": "noise/sound-bible/noise-sound-bible-0016.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2000-City-Centre.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0017",
+      "audio": "noise/sound-bible/noise-sound-bible-0017.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2081-Coin-Drop.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0018",
+      "audio": "noise/sound-bible/noise-sound-bible-0018.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2063-UFO-Landing.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0019",
+      "audio": "noise/sound-bible/noise-sound-bible-0019.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/418-Dialing-Phone-Number.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0020",
+      "audio": "noise/sound-bible/noise-sound-bible-0020.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1070-Dial-Tone.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0021",
+      "audio": "noise/sound-bible/noise-sound-bible-0021.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1667-Dishwasher.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0022",
+      "audio": "noise/sound-bible/noise-sound-bible-0022.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1850-Dove.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0023",
+      "audio": "noise/sound-bible/noise-sound-bible-0023.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/912-Eat-Chips.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0024",
+      "audio": "noise/sound-bible/noise-sound-bible-0024.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/976-Eating.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0025",
+      "audio": "noise/sound-bible/noise-sound-bible-0025.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1795-Electrical-Sweep.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0026",
+      "audio": "noise/sound-bible/noise-sound-bible-0026.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2048-Eye-Poke.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0027",
+      "audio": "noise/sound-bible/noise-sound-bible-0027.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1974-Falcon.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0028",
+      "audio": "noise/sound-bible/noise-sound-bible-0028.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/851-Fax-Machine.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0029",
+      "audio": "noise/sound-bible/noise-sound-bible-0029.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1978-Finger-Snapping.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0030",
+      "audio": "noise/sound-bible/noise-sound-bible-0030.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1511-Fire-Truck-Siren.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0031",
+      "audio": "noise/sound-bible/noise-sound-bible-0031.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1882-Football-Crowd.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0032",
+      "audio": "noise/sound-bible/noise-sound-bible-0032.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2057-Footsteps-On-Cement.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0033",
+      "audio": "noise/sound-bible/noise-sound-bible-0033.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1482-Frying-Chicken.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0034",
+      "audio": "noise/sound-bible/noise-sound-bible-0034.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2078-Gun-Battle-Sound.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0035",
+      "audio": "noise/sound-bible/noise-sound-bible-0035.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2082-Hammering.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0036",
+      "audio": "noise/sound-bible/noise-sound-bible-0036.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2074-Helicopter-Approach.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0037",
+      "audio": "noise/sound-bible/noise-sound-bible-0037.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1969-Hole-Punch.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0038",
+      "audio": "noise/sound-bible/noise-sound-bible-0038.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/315-Home-Phone-Ringing.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0039",
+      "audio": "noise/sound-bible/noise-sound-bible-0039.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1573-DTMF-Tones.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0040",
+      "audio": "noise/sound-bible/noise-sound-bible-0040.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1101-Large-Chains.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0041",
+      "audio": "noise/sound-bible/noise-sound-bible-0041.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1862-Mallard-Duck-Quacking.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0042",
+      "audio": "noise/sound-bible/noise-sound-bible-0042.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2062-Metal-Gong-1.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0043",
+      "audio": "noise/sound-bible/noise-sound-bible-0043.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1701-Modem.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0044",
+      "audio": "noise/sound-bible/noise-sound-bible-0044.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1591-Mosquito-Ringtone.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0045",
+      "audio": "noise/sound-bible/noise-sound-bible-0045.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2085-Annoying-Speaker-Pulsing.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0046",
+      "audio": "noise/sound-bible/noise-sound-bible-0046.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2091-MP5-SMG-9mm.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0047",
+      "audio": "noise/sound-bible/noise-sound-bible-0047.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1514-Neighborhood-Dogs-Barking.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0048",
+      "audio": "noise/sound-bible/noise-sound-bible-0048.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2059-Night-Rain-In-Russian-City.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0049",
+      "audio": "noise/sound-bible/noise-sound-bible-0049.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/2083-Crickets-Chirping-At-Night.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0050",
+      "audio": "noise/sound-bible/noise-sound-bible-0050.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2066-Page-Turn.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0051",
+      "audio": "noise/sound-bible/noise-sound-bible-0051.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/835-Pen-Clicking.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0052",
+      "audio": "noise/sound-bible/noise-sound-bible-0052.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1560-Phone-Dialing-With-Dialtone.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0053",
+      "audio": "noise/sound-bible/noise-sound-bible-0053.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1091-Phone-Off-Hook.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0054",
+      "audio": "noise/sound-bible/noise-sound-bible-0054.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1869-Phone-Ringing-8x.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0055",
+      "audio": "noise/sound-bible/noise-sound-bible-0055.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1518-Phone-Ringing.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0056",
+      "audio": "noise/sound-bible/noise-sound-bible-0056.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1994-Phone-Vibrating.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0057",
+      "audio": "noise/sound-bible/noise-sound-bible-0057.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2086-Piano-Breaking.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0058",
+      "audio": "noise/sound-bible/noise-sound-bible-0058.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1992-Pin-Dropping.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0059",
+      "audio": "noise/sound-bible/noise-sound-bible-0059.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1819-Police.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0060",
+      "audio": "noise/sound-bible/noise-sound-bible-0060.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2070-Railroad-Crossing-Bell.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0061",
+      "audio": "noise/sound-bible/noise-sound-bible-0061.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2065-Rain-Inside-House.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0062",
+      "audio": "noise/sound-bible/noise-sound-bible-0062.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1158-Rain.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0063",
+      "audio": "noise/sound-bible/noise-sound-bible-0063.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1674-Record-Player-Static.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0064",
+      "audio": "noise/sound-bible/noise-sound-bible-0064.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1987-Rockslide-Small.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0065",
+      "audio": "noise/sound-bible/noise-sound-bible-0065.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2075-RPG-Plus-Shrapnel.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0066",
+      "audio": "noise/sound-bible/noise-sound-bible-0066.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/895-Rustle.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0067",
+      "audio": "noise/sound-bible/noise-sound-bible-0067.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2022-School-Fire-Alarm.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0068",
+      "audio": "noise/sound-bible/noise-sound-bible-0068.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2025-Sharpen-Knife.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0069",
+      "audio": "noise/sound-bible/noise-sound-bible-0069.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1744-Shooting-Star.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0070",
+      "audio": "noise/sound-bible/noise-sound-bible-0070.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1118-Short-Dial-Tone.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0071",
+      "audio": "noise/sound-bible/noise-sound-bible-0071.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2088-Silly-Farts.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0072",
+      "audio": "noise/sound-bible/noise-sound-bible-0072.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1349-Skype-Feedback.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0073",
+      "audio": "noise/sound-bible/noise-sound-bible-0073.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1870-Sqeaking-Door.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0074",
+      "audio": "noise/sound-bible/noise-sound-bible-0074.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1537-Stapling-Paper.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0075",
+      "audio": "noise/sound-bible/noise-sound-bible-0075.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1264-Sunday-Church-Ambiance.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0076",
+      "audio": "noise/sound-bible/noise-sound-bible-0076.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1411-Telephone-Ring.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0077",
+      "audio": "noise/sound-bible/noise-sound-bible-0077.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1531-Temple-Bell.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0078",
+      "audio": "noise/sound-bible/noise-sound-bible-0078.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2053-Thunder-Sound-FX.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0079",
+      "audio": "noise/sound-bible/noise-sound-bible-0079.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2015-Thunder-Strike-1.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0080",
+      "audio": "noise/sound-bible/noise-sound-bible-0080.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1525-Triangle-Dinner-Bell.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0081",
+      "audio": "noise/sound-bible/noise-sound-bible-0081.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1116-Truck-Idle-And-Pull-Off.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0082",
+      "audio": "noise/sound-bible/noise-sound-bible-0082.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1846-Warbling-Vireo.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0083",
+      "audio": "noise/sound-bible/noise-sound-bible-0083.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2071-Winchester-1873-Single-Shots.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0084",
+      "audio": "noise/sound-bible/noise-sound-bible-0084.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "PD",
+        "license_url": "http://soundbible.com/1247-Wind.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0085",
+      "audio": "noise/sound-bible/noise-sound-bible-0085.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/1377-Woop-Woop.html"
+      }
+    },
+    {
+      "id": "noise-sound-bible-0086",
+      "audio": "noise/sound-bible/noise-sound-bible-0086.wav",
+      "tags": {
+        "kind": null,
+        "stationary": null,
+        "loop_safe": null,
+        "license": "CC-BY-3.0",
+        "license_url": "http://soundbible.com/2068-Woosh.html"
+      }
+    }
+  ]
+}

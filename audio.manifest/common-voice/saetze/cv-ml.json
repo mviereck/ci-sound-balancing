@@ -1,0 +1,110 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ml",
+  "lang": "ml",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ml",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37032362",
+      "text": "ഉന്നത വിദ്യാഭ്യാസസ്ഥാപനങ്ങളും തുറന്നു പ്രവര്ത്തിക്കാന് അനുമതി നല്കും.",
+      "audio": "ml/unknown/ml_u_37032362_central_kerala.mp3",
+      "tags": {
+        "source_item_id": "37032362",
+        "gender": "u",
+        "accent": "Central Kerala"
+      }
+    },
+    {
+      "id": "28930619",
+      "text": "നിങ്ങള് എന്തിനാ തകർച്ചയെക്കുറിച്ച് സ്വപ്നം കാണുന്നത്",
+      "audio": "ml/unknown/ml_u_28930619.mp3",
+      "tags": {
+        "source_item_id": "28930619",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37032363",
+      "text": "അതിനാലാണ് ഞാന് നിന്നെ കൊണ്ട് പോകാത്തത്",
+      "audio": "ml/unknown/ml_u_37032363_central_kerala.mp3",
+      "tags": {
+        "source_item_id": "37032363",
+        "gender": "u",
+        "accent": "Central Kerala"
+      }
+    },
+    {
+      "id": "28914077",
+      "text": "അവസാനം ഹിന്ദു വര്ഗീയവാദികളുടെ കയ്യയഞ്ഞ സഹായത്തോടെ ഉപതെരെഞ്ഞെടുപ്പില് ആചാര്യ നരേന്ദ്രദേവിനെ പരാജയപ്പെടുത്തുകയായിരുന്നു കോണ്ഗ്രസ്സ്.",
+      "audio": "ml/unknown/ml_u_28914077.mp3",
+      "tags": {
+        "source_item_id": "28914077",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28913913",
+      "text": "നീയെന്താണ് നോക്കുന്നത്",
+      "audio": "ml/unknown/ml_u_28913913.mp3",
+      "tags": {
+        "source_item_id": "28913913",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28931145",
+      "text": "അവള് അവള് വളര്ന്നു",
+      "audio": "ml/unknown/ml_u_28931145.mp3",
+      "tags": {
+        "source_item_id": "28931145",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37007605",
+      "text": "ഞങ്ങള്ക്കുവേണ്ടി നീയിത് ചെയ്യുമോ",
+      "audio": "ml/unknown/ml_u_37007605_central_kerala.mp3",
+      "tags": {
+        "source_item_id": "37007605",
+        "gender": "u",
+        "accent": "Central Kerala"
+      }
+    },
+    {
+      "id": "28913732",
+      "text": "വഴി മാറ്",
+      "audio": "ml/unknown/ml_u_28913732.mp3",
+      "tags": {
+        "source_item_id": "28913732",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28914626",
+      "text": "ആംസ്റ്റർഡാം അതെവിടെയാണ്",
+      "audio": "ml/unknown/ml_u_28914626.mp3",
+      "tags": {
+        "source_item_id": "28914626",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28914360",
+      "text": "എനിക്കറിയില്ലായിരുന്നു അത് അദ്ദേഹമായിരുന്നു",
+      "audio": "ml/unknown/ml_u_28914360.mp3",
+      "tags": {
+        "source_item_id": "28914360",
+        "gender": "u"
+      }
+    }
+  ]
+}

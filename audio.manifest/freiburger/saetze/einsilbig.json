@@ -1,0 +1,3616 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Freiburger Sprachtest — Einsilbig",
+  "lang": "de",
+  "license": "CC-BY-4.0",
+  "credit": "Freiburger Sprachtest (Zenodo 10082491)",
+  "url": "https://zenodo.org/records/10082491",
+  "tags": {
+    "speaker_id": "freiburger-mono",
+    "style": "test"
+  },
+  "items": [
+    {
+      "id": "L01-W01",
+      "text": "Ring",
+      "audio": "Einsilbig/Testliste_01/L01_W01_Ring.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L01-W02",
+      "text": "Spott",
+      "audio": "Einsilbig/Testliste_01/L01_W02_Spott.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L01-W03",
+      "text": "Farm",
+      "audio": "Einsilbig/Testliste_01/L01_W03_Farm.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L01-W04",
+      "text": "Hang",
+      "audio": "Einsilbig/Testliste_01/L01_W04_Hang.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L01-W05",
+      "text": "Geist",
+      "audio": "Einsilbig/Testliste_01/L01_W05_Geist.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L01-W06",
+      "text": "Zahl",
+      "audio": "Einsilbig/Testliste_01/L01_W06_Zahl.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L01-W07",
+      "text": "Hund",
+      "audio": "Einsilbig/Testliste_01/L01_W07_Hund.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L01-W08",
+      "text": "Bach",
+      "audio": "Einsilbig/Testliste_01/L01_W08_Bach.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L01-W09",
+      "text": "Floh",
+      "audio": "Einsilbig/Testliste_01/L01_W09_Floh.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L01-W10",
+      "text": "Lärm",
+      "audio": "Einsilbig/Testliste_01/L01_W10_Lärm.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L01-W11",
+      "text": "Durst",
+      "audio": "Einsilbig/Testliste_01/L01_W11_Durst.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L01-W12",
+      "text": "Teig",
+      "audio": "Einsilbig/Testliste_01/L01_W12_Teig.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L01-W13",
+      "text": "Prinz",
+      "audio": "Einsilbig/Testliste_01/L01_W13_Prinz.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L01-W14",
+      "text": "Aas",
+      "audio": "Einsilbig/Testliste_01/L01_W14_Aas.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L01-W15",
+      "text": "Schreck",
+      "audio": "Einsilbig/Testliste_01/L01_W15_Schreck.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L01-W16",
+      "text": "Nuss",
+      "audio": "Einsilbig/Testliste_01/L01_W16_Nuss.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L01-W17",
+      "text": "Wolf",
+      "audio": "Einsilbig/Testliste_01/L01_W17_Wolf.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L01-W18",
+      "text": "Braut",
+      "audio": "Einsilbig/Testliste_01/L01_W18_Braut.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L01-W19",
+      "text": "Kern",
+      "audio": "Einsilbig/Testliste_01/L01_W19_Kern.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L01-W20",
+      "text": "Stich",
+      "audio": "Einsilbig/Testliste_01/L01_W20_Stich.wav",
+      "tags": {
+        "list_no": 1,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L02-W01",
+      "text": "Holz",
+      "audio": "Einsilbig/Testliste_02/L02_W01_Holz.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L02-W02",
+      "text": "Ruß",
+      "audio": "Einsilbig/Testliste_02/L02_W02_Ruß.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L02-W03",
+      "text": "Mark",
+      "audio": "Einsilbig/Testliste_02/L02_W03_Mark.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L02-W04",
+      "text": "Stein",
+      "audio": "Einsilbig/Testliste_02/L02_W04_Stein.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L02-W05",
+      "text": "Glied",
+      "audio": "Einsilbig/Testliste_02/L02_W05_Glied.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L02-W06",
+      "text": "Fleck",
+      "audio": "Einsilbig/Testliste_02/L02_W06_Fleck.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L02-W07",
+      "text": "Busch",
+      "audio": "Einsilbig/Testliste_02/L02_W07_Busch.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L02-W08",
+      "text": "Schloss",
+      "audio": "Einsilbig/Testliste_02/L02_W08_Schloss.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L02-W09",
+      "text": "Bart",
+      "audio": "Einsilbig/Testliste_02/L02_W09_Bart.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L02-W10",
+      "text": "Ei",
+      "audio": "Einsilbig/Testliste_02/L02_W10_Ei.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L02-W11",
+      "text": "Werk",
+      "audio": "Einsilbig/Testliste_02/L02_W11_Werk.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L02-W12",
+      "text": "Dach",
+      "audio": "Einsilbig/Testliste_02/L02_W12_Dach.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L02-W13",
+      "text": "Knie",
+      "audio": "Einsilbig/Testliste_02/L02_W13_Knie.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L02-W14",
+      "text": "Traum",
+      "audio": "Einsilbig/Testliste_02/L02_W14_Traum.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L02-W15",
+      "text": "Pass",
+      "audio": "Einsilbig/Testliste_02/L02_W15_Pass.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L02-W16",
+      "text": "Kunst",
+      "audio": "Einsilbig/Testliste_02/L02_W16_Kunst.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L02-W17",
+      "text": "Mönch",
+      "audio": "Einsilbig/Testliste_02/L02_W17_Mönch.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L02-W18",
+      "text": "Los",
+      "audio": "Einsilbig/Testliste_02/L02_W18_Los.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L02-W19",
+      "text": "Schrift",
+      "audio": "Einsilbig/Testliste_02/L02_W19_Schrift.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L02-W20",
+      "text": "Fall",
+      "audio": "Einsilbig/Testliste_02/L02_W20_Fall.wav",
+      "tags": {
+        "list_no": 2,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L03-W01",
+      "text": "Blatt",
+      "audio": "Einsilbig/Testliste_03/L03_W01_Blatt.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L03-W02",
+      "text": "Stift",
+      "audio": "Einsilbig/Testliste_03/L03_W02_Stift.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L03-W03",
+      "text": "Hohn",
+      "audio": "Einsilbig/Testliste_03/L03_W03_Hohn.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L03-W04",
+      "text": "Zweck",
+      "audio": "Einsilbig/Testliste_03/L03_W04_Zweck.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L03-W05",
+      "text": "Aal",
+      "audio": "Einsilbig/Testliste_03/L03_W05_Aal.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L03-W06",
+      "text": "Furcht",
+      "audio": "Einsilbig/Testliste_03/L03_W06_Furcht.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L03-W07",
+      "text": "Leim",
+      "audio": "Einsilbig/Testliste_03/L03_W07_Leim.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L03-W08",
+      "text": "Dorf",
+      "audio": "Einsilbig/Testliste_03/L03_W08_Dorf.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L03-W09",
+      "text": "Tat",
+      "audio": "Einsilbig/Testliste_03/L03_W09_Tat.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L03-W10",
+      "text": "Kerl",
+      "audio": "Einsilbig/Testliste_03/L03_W10_Kerl.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L03-W11",
+      "text": "Schutz",
+      "audio": "Einsilbig/Testliste_03/L03_W11_Schutz.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L03-W12",
+      "text": "Wind",
+      "audio": "Einsilbig/Testliste_03/L03_W12_Wind.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L03-W13",
+      "text": "Maus",
+      "audio": "Einsilbig/Testliste_03/L03_W13_Maus.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L03-W14",
+      "text": "Reif",
+      "audio": "Einsilbig/Testliste_03/L03_W14_Reif.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L03-W15",
+      "text": "Bank",
+      "audio": "Einsilbig/Testliste_03/L03_W15_Bank.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L03-W16",
+      "text": "Klee",
+      "audio": "Einsilbig/Testliste_03/L03_W16_Klee.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L03-W17",
+      "text": "Stock",
+      "audio": "Einsilbig/Testliste_03/L03_W17_Stock.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L03-W18",
+      "text": "Wuchs",
+      "audio": "Einsilbig/Testliste_03/L03_W18_Wuchs.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L03-W19",
+      "text": "Mist",
+      "audio": "Einsilbig/Testliste_03/L03_W19_Mist.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L03-W20",
+      "text": "Gras",
+      "audio": "Einsilbig/Testliste_03/L03_W20_Gras.wav",
+      "tags": {
+        "list_no": 3,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L04-W01",
+      "text": "Schnee",
+      "audio": "Einsilbig/Testliste_04/L04_W01_Schnee.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L04-W02",
+      "text": "Wurst",
+      "audio": "Einsilbig/Testliste_04/L04_W02_Wurst.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L04-W03",
+      "text": "Zahn",
+      "audio": "Einsilbig/Testliste_04/L04_W03_Zahn.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L04-W04",
+      "text": "Pest",
+      "audio": "Einsilbig/Testliste_04/L04_W04_Pest.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L04-W05",
+      "text": "Griff",
+      "audio": "Einsilbig/Testliste_04/L04_W05_Griff.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L04-W06",
+      "text": "Laub",
+      "audio": "Einsilbig/Testliste_04/L04_W06_Laub.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L04-W07",
+      "text": "Mund",
+      "audio": "Einsilbig/Testliste_04/L04_W07_Mund.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L04-W08",
+      "text": "Grab",
+      "audio": "Einsilbig/Testliste_04/L04_W08_Grab.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L04-W09",
+      "text": "Heft",
+      "audio": "Einsilbig/Testliste_04/L04_W09_Heft.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L04-W10",
+      "text": "Kopf",
+      "audio": "Einsilbig/Testliste_04/L04_W10_Kopf.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L04-W11",
+      "text": "Reiz",
+      "audio": "Einsilbig/Testliste_04/L04_W11_Reiz.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L04-W12",
+      "text": "Frist",
+      "audio": "Einsilbig/Testliste_04/L04_W12_Frist.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L04-W13",
+      "text": "Drang",
+      "audio": "Einsilbig/Testliste_04/L04_W13_Drang.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L04-W14",
+      "text": "Fuß",
+      "audio": "Einsilbig/Testliste_04/L04_W14_Fuß.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L04-W15",
+      "text": "Öl",
+      "audio": "Einsilbig/Testliste_04/L04_W15_Öl.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L04-W16",
+      "text": "Schleim",
+      "audio": "Einsilbig/Testliste_04/L04_W16_Schleim.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L04-W17",
+      "text": "Takt",
+      "audio": "Einsilbig/Testliste_04/L04_W17_Takt.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L04-W18",
+      "text": "Kinn",
+      "audio": "Einsilbig/Testliste_04/L04_W18_Kinn.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L04-W19",
+      "text": "Stoß",
+      "audio": "Einsilbig/Testliste_04/L04_W19_Stoß.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L04-W20",
+      "text": "Ball",
+      "audio": "Einsilbig/Testliste_04/L04_W20_Ball.wav",
+      "tags": {
+        "list_no": 4,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L05-W01",
+      "text": "Punkt",
+      "audio": "Einsilbig/Testliste_05/L05_W01_Punkt.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L05-W02",
+      "text": "Ziel",
+      "audio": "Einsilbig/Testliste_05/L05_W02_Ziel.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L05-W03",
+      "text": "Fest",
+      "audio": "Einsilbig/Testliste_05/L05_W03_Fest.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L05-W04",
+      "text": "Darm",
+      "audio": "Einsilbig/Testliste_05/L05_W04_Darm.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L05-W05",
+      "text": "Schein",
+      "audio": "Einsilbig/Testliste_05/L05_W05_Schein.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L05-W06",
+      "text": "Torf",
+      "audio": "Einsilbig/Testliste_05/L05_W06_Torf.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L05-W07",
+      "text": "Lamm",
+      "audio": "Einsilbig/Testliste_05/L05_W07_Lamm.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L05-W08",
+      "text": "Wehr",
+      "audio": "Einsilbig/Testliste_05/L05_W08_Wehr.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L05-W09",
+      "text": "Glas",
+      "audio": "Einsilbig/Testliste_05/L05_W09_Glas.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L05-W10",
+      "text": "Huf",
+      "audio": "Einsilbig/Testliste_05/L05_W10_Huf.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L05-W11",
+      "text": "Spind",
+      "audio": "Einsilbig/Testliste_05/L05_W11_Spind.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L05-W12",
+      "text": "Pfau",
+      "audio": "Einsilbig/Testliste_05/L05_W12_Pfau.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L05-W13",
+      "text": "Block",
+      "audio": "Einsilbig/Testliste_05/L05_W13_Block.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L05-W14",
+      "text": "Arm",
+      "audio": "Einsilbig/Testliste_05/L05_W14_Arm.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L05-W15",
+      "text": "Neid",
+      "audio": "Einsilbig/Testliste_05/L05_W15_Neid.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L05-W16",
+      "text": "Stroh",
+      "audio": "Einsilbig/Testliste_05/L05_W16_Stroh.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L05-W17",
+      "text": "Wurf",
+      "audio": "Einsilbig/Testliste_05/L05_W17_Wurf.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L05-W18",
+      "text": "Rest",
+      "audio": "Einsilbig/Testliste_05/L05_W18_Rest.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L05-W19",
+      "text": "Blick",
+      "audio": "Einsilbig/Testliste_05/L05_W19_Blick.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L05-W20",
+      "text": "Schlag",
+      "audio": "Einsilbig/Testliste_05/L05_W20_Schlag.wav",
+      "tags": {
+        "list_no": 5,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L06-W01",
+      "text": "Seil",
+      "audio": "Einsilbig/Testliste_06/L06_W01_Seil.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L06-W02",
+      "text": "Pfand",
+      "audio": "Einsilbig/Testliste_06/L06_W02_Pfand.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L06-W03",
+      "text": "Netz",
+      "audio": "Einsilbig/Testliste_06/L06_W03_Netz.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L06-W04",
+      "text": "Flur",
+      "audio": "Einsilbig/Testliste_06/L06_W04_Flur.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L06-W05",
+      "text": "Schild",
+      "audio": "Einsilbig/Testliste_06/L06_W05_Schild.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L06-W06",
+      "text": "Ochs",
+      "audio": "Einsilbig/Testliste_06/L06_W06_Ochs.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L06-W07",
+      "text": "Draht",
+      "audio": "Einsilbig/Testliste_06/L06_W07_Draht.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L06-W08",
+      "text": "Hemd",
+      "audio": "Einsilbig/Testliste_06/L06_W08_Hemd.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L06-W09",
+      "text": "Schmutz",
+      "audio": "Einsilbig/Testliste_06/L06_W09_Schmutz.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L06-W10",
+      "text": "Rat",
+      "audio": "Einsilbig/Testliste_06/L06_W10_Rat.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L06-W11",
+      "text": "Tau",
+      "audio": "Einsilbig/Testliste_06/L06_W11_Tau.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L06-W12",
+      "text": "Milch",
+      "audio": "Einsilbig/Testliste_06/L06_W12_Milch.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L06-W13",
+      "text": "Rost",
+      "audio": "Einsilbig/Testliste_06/L06_W13_Rost.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L06-W14",
+      "text": "Kahn",
+      "audio": "Einsilbig/Testliste_06/L06_W14_Kahn.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L06-W15",
+      "text": "Tier",
+      "audio": "Einsilbig/Testliste_06/L06_W15_Tier.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L06-W16",
+      "text": "Brot",
+      "audio": "Einsilbig/Testliste_06/L06_W16_Brot.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L06-W17",
+      "text": "Dunst",
+      "audio": "Einsilbig/Testliste_06/L06_W17_Dunst.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L06-W18",
+      "text": "Haar",
+      "audio": "Einsilbig/Testliste_06/L06_W18_Haar.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L06-W19",
+      "text": "Feld",
+      "audio": "Einsilbig/Testliste_06/L06_W19_Feld.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L06-W20",
+      "text": "Schwein",
+      "audio": "Einsilbig/Testliste_06/L06_W20_Schwein.wav",
+      "tags": {
+        "list_no": 6,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L07-W01",
+      "text": "Spiel",
+      "audio": "Einsilbig/Testliste_07/L07_W01_Spiel.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L07-W02",
+      "text": "Moos",
+      "audio": "Einsilbig/Testliste_07/L07_W02_Moos.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L07-W03",
+      "text": "Lachs",
+      "audio": "Einsilbig/Testliste_07/L07_W03_Lachs.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L07-W04",
+      "text": "Glut",
+      "audio": "Einsilbig/Testliste_07/L07_W04_Glut.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L07-W05",
+      "text": "Erz",
+      "audio": "Einsilbig/Testliste_07/L07_W05_Erz.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L07-W06",
+      "text": "Baum",
+      "audio": "Einsilbig/Testliste_07/L07_W06_Baum.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L07-W07",
+      "text": "Sand",
+      "audio": "Einsilbig/Testliste_07/L07_W07_Sand.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L07-W08",
+      "text": "Reich",
+      "audio": "Einsilbig/Testliste_07/L07_W08_Reich.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L07-W09",
+      "text": "Kuh",
+      "audio": "Einsilbig/Testliste_07/L07_W09_Kuh.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L07-W10",
+      "text": "Schiff",
+      "audio": "Einsilbig/Testliste_07/L07_W10_Schiff.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L07-W11",
+      "text": "Wort",
+      "audio": "Einsilbig/Testliste_07/L07_W11_Wort.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L07-W12",
+      "text": "Hecht",
+      "audio": "Einsilbig/Testliste_07/L07_W12_Hecht.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L07-W13",
+      "text": "Mann",
+      "audio": "Einsilbig/Testliste_07/L07_W13_Mann.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L07-W14",
+      "text": "Bruch",
+      "audio": "Einsilbig/Testliste_07/L07_W14_Bruch.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L07-W15",
+      "text": "Schopf",
+      "audio": "Einsilbig/Testliste_07/L07_W15_Schopf.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L07-W16",
+      "text": "Fels",
+      "audio": "Einsilbig/Testliste_07/L07_W16_Fels.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L07-W17",
+      "text": "Kranz",
+      "audio": "Einsilbig/Testliste_07/L07_W17_Kranz.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L07-W18",
+      "text": "Teich",
+      "audio": "Einsilbig/Testliste_07/L07_W18_Teich.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L07-W19",
+      "text": "Dienst",
+      "audio": "Einsilbig/Testliste_07/L07_W19_Dienst.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L07-W20",
+      "text": "Star",
+      "audio": "Einsilbig/Testliste_07/L07_W20_Star.wav",
+      "tags": {
+        "list_no": 7,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L08-W01",
+      "text": "Luft",
+      "audio": "Einsilbig/Testliste_08/L08_W01_Luft.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L08-W02",
+      "text": "Band",
+      "audio": "Einsilbig/Testliste_08/L08_W02_Band.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L08-W03",
+      "text": "Kost",
+      "audio": "Einsilbig/Testliste_08/L08_W03_Kost.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L08-W04",
+      "text": "Ski",
+      "audio": "Einsilbig/Testliste_08/L08_W04_Ski.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L08-W05",
+      "text": "Feind",
+      "audio": "Einsilbig/Testliste_08/L08_W05_Feind.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L08-W06",
+      "text": "Herr",
+      "audio": "Einsilbig/Testliste_08/L08_W06_Herr.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L08-W07",
+      "text": "Pflug",
+      "audio": "Einsilbig/Testliste_08/L08_W07_Pflug.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L08-W08",
+      "text": "Tal",
+      "audio": "Einsilbig/Testliste_08/L08_W08_Tal.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L08-W09",
+      "text": "Gift",
+      "audio": "Einsilbig/Testliste_08/L08_W09_Gift.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L08-W10",
+      "text": "Raum",
+      "audio": "Einsilbig/Testliste_08/L08_W10_Raum.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L08-W11",
+      "text": "Ernst",
+      "audio": "Einsilbig/Testliste_08/L08_W11_Ernst.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L08-W12",
+      "text": "Zeug",
+      "audio": "Einsilbig/Testliste_08/L08_W12_Zeug.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L08-W13",
+      "text": "Fach",
+      "audio": "Einsilbig/Testliste_08/L08_W13_Fach.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L08-W14",
+      "text": "Groll",
+      "audio": "Einsilbig/Testliste_08/L08_W14_Groll.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L08-W15",
+      "text": "Speck",
+      "audio": "Einsilbig/Testliste_08/L08_W15_Speck.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L08-W16",
+      "text": "Sitz",
+      "audio": "Einsilbig/Testliste_08/L08_W16_Sitz.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L08-W17",
+      "text": "Moor",
+      "audio": "Einsilbig/Testliste_08/L08_W17_Moor.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L08-W18",
+      "text": "Last",
+      "audio": "Einsilbig/Testliste_08/L08_W18_Last.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L08-W19",
+      "text": "Krach",
+      "audio": "Einsilbig/Testliste_08/L08_W19_Krach.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L08-W20",
+      "text": "Schwung",
+      "audio": "Einsilbig/Testliste_08/L08_W20_Schwung.wav",
+      "tags": {
+        "list_no": 8,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L09-W01",
+      "text": "Schmerz",
+      "audio": "Einsilbig/Testliste_09/L09_W01_Schmerz.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L09-W02",
+      "text": "Thron",
+      "audio": "Einsilbig/Testliste_09/L09_W02_Thron.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L09-W03",
+      "text": "Eis",
+      "audio": "Einsilbig/Testliste_09/L09_W03_Eis.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L09-W04",
+      "text": "Funk",
+      "audio": "Einsilbig/Testliste_09/L09_W04_Funk.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L09-W05",
+      "text": "Bass",
+      "audio": "Einsilbig/Testliste_09/L09_W05_Bass.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L09-W06",
+      "text": "Rind",
+      "audio": "Einsilbig/Testliste_09/L09_W06_Rind.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L09-W07",
+      "text": "Lehm",
+      "audio": "Einsilbig/Testliste_09/L09_W07_Lehm.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L09-W08",
+      "text": "Grog",
+      "audio": "Einsilbig/Testliste_09/L09_W08_Grog.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L09-W09",
+      "text": "Blei",
+      "audio": "Einsilbig/Testliste_09/L09_W09_Blei.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L09-W10",
+      "text": "Markt",
+      "audio": "Einsilbig/Testliste_09/L09_W10_Markt.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L09-W11",
+      "text": "Schilf",
+      "audio": "Einsilbig/Testliste_09/L09_W11_Schilf.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L09-W12",
+      "text": "Hut",
+      "audio": "Einsilbig/Testliste_09/L09_W12_Hut.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L09-W13",
+      "text": "Zank",
+      "audio": "Einsilbig/Testliste_09/L09_W13_Zank.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L09-W14",
+      "text": "Korb",
+      "audio": "Einsilbig/Testliste_09/L09_W14_Korb.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L09-W15",
+      "text": "Lauf",
+      "audio": "Einsilbig/Testliste_09/L09_W15_Lauf.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L09-W16",
+      "text": "Dank",
+      "audio": "Einsilbig/Testliste_09/L09_W16_Dank.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L09-W17",
+      "text": "Sarg",
+      "audio": "Einsilbig/Testliste_09/L09_W17_Sarg.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L09-W18",
+      "text": "Kies",
+      "audio": "Einsilbig/Testliste_09/L09_W18_Kies.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L09-W19",
+      "text": "Schnur",
+      "audio": "Einsilbig/Testliste_09/L09_W19_Schnur.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L09-W20",
+      "text": "Pech",
+      "audio": "Einsilbig/Testliste_09/L09_W20_Pech.wav",
+      "tags": {
+        "list_no": 9,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L10-W01",
+      "text": "Horn",
+      "audio": "Einsilbig/Testliste_10/L10_W01_Horn.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L10-W02",
+      "text": "Pfeil",
+      "audio": "Einsilbig/Testliste_10/L10_W02_Pfeil.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L10-W03",
+      "text": "Kamm",
+      "audio": "Einsilbig/Testliste_10/L10_W03_Kamm.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L10-W04",
+      "text": "Turm",
+      "audio": "Einsilbig/Testliste_10/L10_W04_Turm.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L10-W05",
+      "text": "Spieß",
+      "audio": "Einsilbig/Testliste_10/L10_W05_Spieß.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L10-W06",
+      "text": "Laus",
+      "audio": "Einsilbig/Testliste_10/L10_W06_Laus.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L10-W07",
+      "text": "Recht",
+      "audio": "Einsilbig/Testliste_10/L10_W07_Recht.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L10-W08",
+      "text": "Zopf",
+      "audio": "Einsilbig/Testliste_10/L10_W08_Zopf.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L10-W09",
+      "text": "Schall",
+      "audio": "Einsilbig/Testliste_10/L10_W09_Schall.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L10-W10",
+      "text": "Mais",
+      "audio": "Einsilbig/Testliste_10/L10_W10_Mais.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L10-W11",
+      "text": "Fell",
+      "audio": "Einsilbig/Testliste_10/L10_W11_Fell.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L10-W12",
+      "text": "Gramm",
+      "audio": "Einsilbig/Testliste_10/L10_W12_Gramm.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L10-W13",
+      "text": "Ohr",
+      "audio": "Einsilbig/Testliste_10/L10_W13_Ohr.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L10-W14",
+      "text": "Sieb",
+      "audio": "Einsilbig/Testliste_10/L10_W14_Sieb.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L10-W15",
+      "text": "Pracht",
+      "audio": "Einsilbig/Testliste_10/L10_W15_Pracht.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L10-W16",
+      "text": "Lump",
+      "audio": "Einsilbig/Testliste_10/L10_W16_Lump.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L10-W17",
+      "text": "Gips",
+      "audio": "Einsilbig/Testliste_10/L10_W17_Gips.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L10-W18",
+      "text": "Bad",
+      "audio": "Einsilbig/Testliste_10/L10_W18_Bad.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L10-W19",
+      "text": "Sprung",
+      "audio": "Einsilbig/Testliste_10/L10_W19_Sprung.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L10-W20",
+      "text": "Dreck",
+      "audio": "Einsilbig/Testliste_10/L10_W20_Dreck.wav",
+      "tags": {
+        "list_no": 10,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L11-W01",
+      "text": "Bild",
+      "audio": "Einsilbig/Testliste_11/L11_W01_Bild.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L11-W02",
+      "text": "Frosch",
+      "audio": "Einsilbig/Testliste_11/L11_W02_Frosch.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L11-W03",
+      "text": "Abt",
+      "audio": "Einsilbig/Testliste_11/L11_W03_Abt.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L11-W04",
+      "text": "Ruhm",
+      "audio": "Einsilbig/Testliste_11/L11_W04_Ruhm.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L11-W05",
+      "text": "Herz",
+      "audio": "Einsilbig/Testliste_11/L11_W05_Herz.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L11-W06",
+      "text": "Mond",
+      "audio": "Einsilbig/Testliste_11/L11_W06_Mond.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L11-W07",
+      "text": "Garn",
+      "audio": "Einsilbig/Testliste_11/L11_W07_Garn.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L11-W08",
+      "text": "Bau",
+      "audio": "Einsilbig/Testliste_11/L11_W08_Bau.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L11-W09",
+      "text": "Sicht",
+      "audio": "Einsilbig/Testliste_11/L11_W09_Sicht.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L11-W10",
+      "text": "Huhn",
+      "audio": "Einsilbig/Testliste_11/L11_W10_Huhn.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L11-W11",
+      "text": "Lack",
+      "audio": "Einsilbig/Testliste_11/L11_W11_Lack.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L11-W12",
+      "text": "Kreis",
+      "audio": "Einsilbig/Testliste_11/L11_W12_Kreis.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L11-W13",
+      "text": "Pferd",
+      "audio": "Einsilbig/Testliste_11/L11_W13_Pferd.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L11-W14",
+      "text": "Pelz",
+      "audio": "Einsilbig/Testliste_11/L11_W14_Pelz.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L11-W15",
+      "text": "Schlacht",
+      "audio": "Einsilbig/Testliste_11/L11_W15_Schlacht.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L11-W16",
+      "text": "Witz",
+      "audio": "Einsilbig/Testliste_11/L11_W16_Witz.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L11-W17",
+      "text": "Form",
+      "audio": "Einsilbig/Testliste_11/L11_W17_Form.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L11-W18",
+      "text": "Stuhl",
+      "audio": "Einsilbig/Testliste_11/L11_W18_Stuhl.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L11-W19",
+      "text": "Teil",
+      "audio": "Einsilbig/Testliste_11/L11_W19_Teil.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L11-W20",
+      "text": "Rand",
+      "audio": "Einsilbig/Testliste_11/L11_W20_Rand.wav",
+      "tags": {
+        "list_no": 11,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L12-W01",
+      "text": "Brett",
+      "audio": "Einsilbig/Testliste_12/L12_W01_Brett.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L12-W02",
+      "text": "Schuss",
+      "audio": "Einsilbig/Testliste_12/L12_W02_Schuss.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L12-W03",
+      "text": "Saft",
+      "audio": "Einsilbig/Testliste_12/L12_W03_Saft.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L12-W04",
+      "text": "Pilz",
+      "audio": "Einsilbig/Testliste_12/L12_W04_Pilz.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L12-W05",
+      "text": "Ort",
+      "audio": "Einsilbig/Testliste_12/L12_W05_Ort.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L12-W06",
+      "text": "Kraut",
+      "audio": "Einsilbig/Testliste_12/L12_W06_Kraut.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L12-W07",
+      "text": "Schwert",
+      "audio": "Einsilbig/Testliste_12/L12_W07_Schwert.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L12-W08",
+      "text": "Tag",
+      "audio": "Einsilbig/Testliste_12/L12_W08_Tag.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L12-W09",
+      "text": "Gleis",
+      "audio": "Einsilbig/Testliste_12/L12_W09_Gleis.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L12-W10",
+      "text": "Vieh",
+      "audio": "Einsilbig/Testliste_12/L12_W10_Vieh.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L12-W11",
+      "text": "Spalt",
+      "audio": "Einsilbig/Testliste_12/L12_W11_Spalt.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L12-W12",
+      "text": "Sohn",
+      "audio": "Einsilbig/Testliste_12/L12_W12_Sohn.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L12-W13",
+      "text": "Druck",
+      "audio": "Einsilbig/Testliste_12/L12_W13_Druck.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L12-W14",
+      "text": "Held",
+      "audio": "Einsilbig/Testliste_12/L12_W14_Held.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L12-W15",
+      "text": "Bahn",
+      "audio": "Einsilbig/Testliste_12/L12_W15_Bahn.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L12-W16",
+      "text": "List",
+      "audio": "Einsilbig/Testliste_12/L12_W16_List.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L12-W17",
+      "text": "Flug",
+      "audio": "Einsilbig/Testliste_12/L12_W17_Flug.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L12-W18",
+      "text": "Narr",
+      "audio": "Einsilbig/Testliste_12/L12_W18_Narr.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L12-W19",
+      "text": "Kork",
+      "audio": "Einsilbig/Testliste_12/L12_W19_Kork.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L12-W20",
+      "text": "Reis",
+      "audio": "Einsilbig/Testliste_12/L12_W20_Reis.wav",
+      "tags": {
+        "list_no": 12,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L13-W01",
+      "text": "Staub",
+      "audio": "Einsilbig/Testliste_13/L13_W01_Staub.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L13-W02",
+      "text": "Licht",
+      "audio": "Einsilbig/Testliste_13/L13_W02_Licht.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L13-W03",
+      "text": "Tracht",
+      "audio": "Einsilbig/Testliste_13/L13_W03_Tracht.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L13-W04",
+      "text": "Herd",
+      "audio": "Einsilbig/Testliste_13/L13_W04_Herd.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L13-W05",
+      "text": "Not",
+      "audio": "Einsilbig/Testliste_13/L13_W05_Not.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L13-W06",
+      "text": "Wein",
+      "audio": "Einsilbig/Testliste_13/L13_W06_Wein.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L13-W07",
+      "text": "Fluch",
+      "audio": "Einsilbig/Testliste_13/L13_W07_Fluch.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L13-W08",
+      "text": "Kalk",
+      "audio": "Einsilbig/Testliste_13/L13_W08_Kalk.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L13-W09",
+      "text": "Biss",
+      "audio": "Einsilbig/Testliste_13/L13_W09_Biss.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L13-W10",
+      "text": "Grund",
+      "audio": "Einsilbig/Testliste_13/L13_W10_Grund.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L13-W11",
+      "text": "Weg",
+      "audio": "Einsilbig/Testliste_13/L13_W11_Weg.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L13-W12",
+      "text": "Fass",
+      "audio": "Einsilbig/Testliste_13/L13_W12_Fass.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L13-W13",
+      "text": "Schmied",
+      "audio": "Einsilbig/Testliste_13/L13_W13_Schmied.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L13-W14",
+      "text": "Ross",
+      "audio": "Einsilbig/Testliste_13/L13_W14_Ross.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L13-W15",
+      "text": "Amt",
+      "audio": "Einsilbig/Testliste_13/L13_W15_Amt.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L13-W16",
+      "text": "Puls",
+      "audio": "Einsilbig/Testliste_13/L13_W16_Puls.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L13-W17",
+      "text": "Meer",
+      "audio": "Einsilbig/Testliste_13/L13_W17_Meer.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L13-W18",
+      "text": "Graf",
+      "audio": "Einsilbig/Testliste_13/L13_W18_Graf.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L13-W19",
+      "text": "Schweiß",
+      "audio": "Einsilbig/Testliste_13/L13_W19_Schweiß.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L13-W20",
+      "text": "Dolch",
+      "audio": "Einsilbig/Testliste_13/L13_W20_Dolch.wav",
+      "tags": {
+        "list_no": 13,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L14-W01",
+      "text": "Schrift",
+      "audio": "Einsilbig/Testliste_14/L14_W01_Schrift.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L14-W02",
+      "text": "Ruf",
+      "audio": "Einsilbig/Testliste_14/L14_W02_Ruf.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L14-W03",
+      "text": "Gas",
+      "audio": "Einsilbig/Testliste_14/L14_W03_Gas.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L14-W04",
+      "text": "Wert",
+      "audio": "Einsilbig/Testliste_14/L14_W04_Wert.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L14-W05",
+      "text": "Korn",
+      "audio": "Einsilbig/Testliste_14/L14_W05_Korn.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L14-W06",
+      "text": "Schrei",
+      "audio": "Einsilbig/Testliste_14/L14_W06_Schrei.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L14-W07",
+      "text": "Pfahl",
+      "audio": "Einsilbig/Testliste_14/L14_W07_Pfahl.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L14-W08",
+      "text": "Blech",
+      "audio": "Einsilbig/Testliste_14/L14_W08_Blech.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L14-W09",
+      "text": "Faust",
+      "audio": "Einsilbig/Testliste_14/L14_W09_Faust.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L14-W10",
+      "text": "Rang",
+      "audio": "Einsilbig/Testliste_14/L14_W10_Rang.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L14-W11",
+      "text": "Lohn",
+      "audio": "Einsilbig/Testliste_14/L14_W11_Lohn.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L14-W12",
+      "text": "Nest",
+      "audio": "Einsilbig/Testliste_14/L14_W12_Nest.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L14-W13",
+      "text": "Pult",
+      "audio": "Einsilbig/Testliste_14/L14_W13_Pult.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L14-W14",
+      "text": "Schicht",
+      "audio": "Einsilbig/Testliste_14/L14_W14_Schicht.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L14-W15",
+      "text": "Zoll",
+      "audio": "Einsilbig/Testliste_14/L14_W15_Zoll.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L14-W16",
+      "text": "Heu",
+      "audio": "Einsilbig/Testliste_14/L14_W16_Heu.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L14-W17",
+      "text": "Angst",
+      "audio": "Einsilbig/Testliste_14/L14_W17_Angst.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L14-W18",
+      "text": "Brust",
+      "audio": "Einsilbig/Testliste_14/L14_W18_Brust.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L14-W19",
+      "text": "Dieb",
+      "audio": "Einsilbig/Testliste_14/L14_W19_Dieb.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L14-W20",
+      "text": "Stand",
+      "audio": "Einsilbig/Testliste_14/L14_W20_Stand.wav",
+      "tags": {
+        "list_no": 14,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L15-W01",
+      "text": "Knecht",
+      "audio": "Einsilbig/Testliste_15/L15_W01_Knecht.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L15-W02",
+      "text": "Schaf",
+      "audio": "Einsilbig/Testliste_15/L15_W02_Schaf.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L15-W03",
+      "text": "Lust",
+      "audio": "Einsilbig/Testliste_15/L15_W03_Lust.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L15-W04",
+      "text": "Berg",
+      "audio": "Einsilbig/Testliste_15/L15_W04_Berg.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L15-W05",
+      "text": "Docht",
+      "audio": "Einsilbig/Testliste_15/L15_W05_Docht.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L15-W06",
+      "text": "Zeit",
+      "audio": "Einsilbig/Testliste_15/L15_W06_Zeit.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L15-W07",
+      "text": "Schlamm",
+      "audio": "Einsilbig/Testliste_15/L15_W07_Schlamm.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L15-W08",
+      "text": "Kind",
+      "audio": "Einsilbig/Testliste_15/L15_W08_Kind.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L15-W09",
+      "text": "Preis",
+      "audio": "Einsilbig/Testliste_15/L15_W09_Preis.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L15-W10",
+      "text": "Uhr",
+      "audio": "Einsilbig/Testliste_15/L15_W10_Uhr.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L15-W11",
+      "text": "Mal",
+      "audio": "Einsilbig/Testliste_15/L15_W11_Mal.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L15-W12",
+      "text": "Speer",
+      "audio": "Einsilbig/Testliste_15/L15_W12_Speer.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L15-W13",
+      "text": "Fluss",
+      "audio": "Einsilbig/Testliste_15/L15_W13_Fluss.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L15-W14",
+      "text": "Sinn",
+      "audio": "Einsilbig/Testliste_15/L15_W14_Sinn.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L15-W15",
+      "text": "Rock",
+      "audio": "Einsilbig/Testliste_15/L15_W15_Rock.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L15-W16",
+      "text": "Haupt",
+      "audio": "Einsilbig/Testliste_15/L15_W16_Haupt.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L15-W17",
+      "text": "Gang",
+      "audio": "Einsilbig/Testliste_15/L15_W17_Gang.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L15-W18",
+      "text": "Trieb",
+      "audio": "Einsilbig/Testliste_15/L15_W18_Trieb.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L15-W19",
+      "text": "Boot",
+      "audio": "Einsilbig/Testliste_15/L15_W19_Boot.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L15-W20",
+      "text": "Schmalz",
+      "audio": "Einsilbig/Testliste_15/L15_W20_Schmalz.wav",
+      "tags": {
+        "list_no": 15,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L16-W01",
+      "text": "Bund",
+      "audio": "Einsilbig/Testliste_16/L16_W01_Bund.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L16-W02",
+      "text": "Stiel",
+      "audio": "Einsilbig/Testliste_16/L16_W02_Stiel.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L16-W03",
+      "text": "Wachs",
+      "audio": "Einsilbig/Testliste_16/L16_W03_Wachs.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L16-W04",
+      "text": "Reim",
+      "audio": "Einsilbig/Testliste_16/L16_W04_Reim.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L16-W05",
+      "text": "Geld",
+      "audio": "Einsilbig/Testliste_16/L16_W05_Geld.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L16-W06",
+      "text": "Tor",
+      "audio": "Einsilbig/Testliste_16/L16_W06_Tor.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L16-W07",
+      "text": "Duft",
+      "audio": "Einsilbig/Testliste_16/L16_W07_Duft.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L16-W08",
+      "text": "Stück",
+      "audio": "Einsilbig/Testliste_16/L16_W08_Stück.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L16-W09",
+      "text": "Arzt",
+      "audio": "Einsilbig/Testliste_16/L16_W09_Arzt.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L16-W10",
+      "text": "Mehl",
+      "audio": "Einsilbig/Testliste_16/L16_W10_Mehl.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L16-W11",
+      "text": "Trotz",
+      "audio": "Einsilbig/Testliste_16/L16_W11_Trotz.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L16-W12",
+      "text": "Pfad",
+      "audio": "Einsilbig/Testliste_16/L16_W12_Pfad.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L16-W13",
+      "text": "Heil",
+      "audio": "Einsilbig/Testliste_16/L16_W13_Heil.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L16-W14",
+      "text": "Brief",
+      "audio": "Einsilbig/Testliste_16/L16_W14_Brief.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L16-W15",
+      "text": "Sau",
+      "audio": "Einsilbig/Testliste_16/L16_W15_Sau.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L16-W16",
+      "text": "Fracht",
+      "audio": "Einsilbig/Testliste_16/L16_W16_Fracht.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L16-W17",
+      "text": "Dung",
+      "audio": "Einsilbig/Testliste_16/L16_W17_Dung.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L16-W18",
+      "text": "Stern",
+      "audio": "Einsilbig/Testliste_16/L16_W18_Stern.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L16-W19",
+      "text": "Loch",
+      "audio": "Einsilbig/Testliste_16/L16_W19_Loch.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L16-W20",
+      "text": "Maß",
+      "audio": "Einsilbig/Testliste_16/L16_W20_Maß.wav",
+      "tags": {
+        "list_no": 16,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L17-W01",
+      "text": "Fink",
+      "audio": "Einsilbig/Testliste_17/L17_W01_Fink.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L17-W02",
+      "text": "Schlauch",
+      "audio": "Einsilbig/Testliste_17/L17_W02_Schlauch.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L17-W03",
+      "text": "Reh",
+      "audio": "Einsilbig/Testliste_17/L17_W03_Reh.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L17-W04",
+      "text": "Grad",
+      "audio": "Einsilbig/Testliste_17/L17_W04_Grad.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L17-W05",
+      "text": "Floß",
+      "audio": "Einsilbig/Testliste_17/L17_W05_Floß.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L17-W06",
+      "text": "Hirn",
+      "audio": "Einsilbig/Testliste_17/L17_W06_Hirn.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L17-W07",
+      "text": "Fuchs",
+      "audio": "Einsilbig/Testliste_17/L17_W07_Fuchs.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L17-W08",
+      "text": "Bein",
+      "audio": "Einsilbig/Testliste_17/L17_W08_Bein.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L17-W09",
+      "text": "Napf",
+      "audio": "Einsilbig/Testliste_17/L17_W09_Napf.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L17-W10",
+      "text": "Teer",
+      "audio": "Einsilbig/Testliste_17/L17_W10_Teer.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L17-W11",
+      "text": "Stolz",
+      "audio": "Einsilbig/Testliste_17/L17_W11_Stolz.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L17-W12",
+      "text": "Art",
+      "audio": "Einsilbig/Testliste_17/L17_W12_Art.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L17-W13",
+      "text": "Wurm",
+      "audio": "Einsilbig/Testliste_17/L17_W13_Wurm.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L17-W14",
+      "text": "Ding",
+      "audio": "Einsilbig/Testliste_17/L17_W14_Ding.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L17-W15",
+      "text": "Trab",
+      "audio": "Einsilbig/Testliste_17/L17_W15_Trab.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L17-W16",
+      "text": "Bett",
+      "audio": "Einsilbig/Testliste_17/L17_W16_Bett.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L17-W17",
+      "text": "Kleid",
+      "audio": "Einsilbig/Testliste_17/L17_W17_Kleid.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L17-W18",
+      "text": "Schatz",
+      "audio": "Einsilbig/Testliste_17/L17_W18_Schatz.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L17-W19",
+      "text": "Wut",
+      "audio": "Einsilbig/Testliste_17/L17_W19_Wut.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L17-W20",
+      "text": "Pflock",
+      "audio": "Einsilbig/Testliste_17/L17_W20_Pflock.wav",
+      "tags": {
+        "list_no": 17,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L18-W01",
+      "text": "Schnitt",
+      "audio": "Einsilbig/Testliste_18/L18_W01_Schnitt.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L18-W02",
+      "text": "Frau",
+      "audio": "Einsilbig/Testliste_18/L18_W02_Frau.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L18-W03",
+      "text": "Land",
+      "audio": "Einsilbig/Testliste_18/L18_W03_Land.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L18-W04",
+      "text": "Helm",
+      "audio": "Einsilbig/Testliste_18/L18_W04_Helm.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L18-W05",
+      "text": "Bock",
+      "audio": "Einsilbig/Testliste_18/L18_W05_Bock.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L18-W06",
+      "text": "Flucht",
+      "audio": "Einsilbig/Testliste_18/L18_W06_Flucht.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L18-W07",
+      "text": "Scherz",
+      "audio": "Einsilbig/Testliste_18/L18_W07_Scherz.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L18-W08",
+      "text": "Keil",
+      "audio": "Einsilbig/Testliste_18/L18_W08_Keil.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L18-W09",
+      "text": "Rast",
+      "audio": "Einsilbig/Testliste_18/L18_W09_Rast.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L18-W10",
+      "text": "Gruß",
+      "audio": "Einsilbig/Testliste_18/L18_W10_Gruß.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L18-W11",
+      "text": "Wohl",
+      "audio": "Einsilbig/Testliste_18/L18_W11_Wohl.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L18-W12",
+      "text": "Plan",
+      "audio": "Einsilbig/Testliste_18/L18_W12_Plan.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L18-W13",
+      "text": "Krieg",
+      "audio": "Einsilbig/Testliste_18/L18_W13_Krieg.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L18-W14",
+      "text": "Ast",
+      "audio": "Einsilbig/Testliste_18/L18_W14_Ast.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L18-W15",
+      "text": "Pfiff",
+      "audio": "Einsilbig/Testliste_18/L18_W15_Pfiff.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L18-W16",
+      "text": "Weib",
+      "audio": "Einsilbig/Testliste_18/L18_W16_Weib.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L18-W17",
+      "text": "Sturm",
+      "audio": "Einsilbig/Testliste_18/L18_W17_Sturm.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L18-W18",
+      "text": "Fang",
+      "audio": "Einsilbig/Testliste_18/L18_W18_Fang.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L18-W19",
+      "text": "Tee",
+      "audio": "Einsilbig/Testliste_18/L18_W19_Tee.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L18-W20",
+      "text": "Mord",
+      "audio": "Einsilbig/Testliste_18/L18_W20_Mord.wav",
+      "tags": {
+        "list_no": 18,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L19-W01",
+      "text": "Frucht",
+      "audio": "Einsilbig/Testliste_19/L19_W01_Frucht.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L19-W02",
+      "text": "Schlitz",
+      "audio": "Einsilbig/Testliste_19/L19_W02_Schlitz.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L19-W03",
+      "text": "See",
+      "audio": "Einsilbig/Testliste_19/L19_W03_See.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L19-W04",
+      "text": "Schar",
+      "audio": "Einsilbig/Testliste_19/L19_W04_Schar.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L19-W05",
+      "text": "Gold",
+      "audio": "Einsilbig/Testliste_19/L19_W05_Gold.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L19-W06",
+      "text": "Leib",
+      "audio": "Einsilbig/Testliste_19/L19_W06_Leib.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L19-W07",
+      "text": "Wunsch",
+      "audio": "Einsilbig/Testliste_19/L19_W07_Wunsch.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L19-W08",
+      "text": "Fraß",
+      "audio": "Einsilbig/Testliste_19/L19_W08_Fraß.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L19-W09",
+      "text": "Stier",
+      "audio": "Einsilbig/Testliste_19/L19_W09_Stier.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L19-W10",
+      "text": "Ton",
+      "audio": "Einsilbig/Testliste_19/L19_W10_Ton.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L19-W11",
+      "text": "Heer",
+      "audio": "Einsilbig/Testliste_19/L19_W11_Heer.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L19-W12",
+      "text": "Dachs",
+      "audio": "Einsilbig/Testliste_19/L19_W12_Dachs.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L19-W13",
+      "text": "Bauch",
+      "audio": "Einsilbig/Testliste_19/L19_W13_Bauch.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L19-W14",
+      "text": "Kreuz",
+      "audio": "Einsilbig/Testliste_19/L19_W14_Kreuz.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L19-W15",
+      "text": "Akt",
+      "audio": "Einsilbig/Testliste_19/L19_W15_Akt.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L19-W16",
+      "text": "Pfund",
+      "audio": "Einsilbig/Testliste_19/L19_W16_Pfund.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L19-W17",
+      "text": "Sekt",
+      "audio": "Einsilbig/Testliste_19/L19_W17_Sekt.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L19-W18",
+      "text": "Glück",
+      "audio": "Einsilbig/Testliste_19/L19_W18_Glück.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L19-W19",
+      "text": "Molch",
+      "audio": "Einsilbig/Testliste_19/L19_W19_Molch.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L19-W20",
+      "text": "Rad",
+      "audio": "Einsilbig/Testliste_19/L19_W20_Rad.wav",
+      "tags": {
+        "list_no": 19,
+        "word_no": 20
+      }
+    },
+    {
+      "id": "L20-W01",
+      "text": "Fleisch",
+      "audio": "Einsilbig/Testliste_20/L20_W01_Fleisch.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 1
+      }
+    },
+    {
+      "id": "L20-W02",
+      "text": "Welt",
+      "audio": "Einsilbig/Testliste_20/L20_W02_Welt.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 2
+      }
+    },
+    {
+      "id": "L20-W03",
+      "text": "Rohr",
+      "audio": "Einsilbig/Testliste_20/L20_W03_Rohr.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 3
+      }
+    },
+    {
+      "id": "L20-W04",
+      "text": "Park",
+      "audio": "Einsilbig/Testliste_20/L20_W04_Park.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 4
+      }
+    },
+    {
+      "id": "L20-W05",
+      "text": "Flut",
+      "audio": "Einsilbig/Testliste_20/L20_W05_Flut.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 5
+      }
+    },
+    {
+      "id": "L20-W06",
+      "text": "Grieß",
+      "audio": "Einsilbig/Testliste_20/L20_W06_Grieß.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 6
+      }
+    },
+    {
+      "id": "L20-W07",
+      "text": "Saum",
+      "audio": "Einsilbig/Testliste_20/L20_W07_Saum.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 7
+      }
+    },
+    {
+      "id": "L20-W08",
+      "text": "Krebs",
+      "audio": "Einsilbig/Testliste_20/L20_W08_Krebs.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 8
+      }
+    },
+    {
+      "id": "L20-W09",
+      "text": "Hand",
+      "audio": "Einsilbig/Testliste_20/L20_W09_Hand.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 9
+      }
+    },
+    {
+      "id": "L20-W10",
+      "text": "Gott",
+      "audio": "Einsilbig/Testliste_20/L20_W10_Gott.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 10
+      }
+    },
+    {
+      "id": "L20-W11",
+      "text": "Schuh",
+      "audio": "Einsilbig/Testliste_20/L20_W11_Schuh.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 11
+      }
+    },
+    {
+      "id": "L20-W12",
+      "text": "Film",
+      "audio": "Einsilbig/Testliste_20/L20_W12_Film.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 12
+      }
+    },
+    {
+      "id": "L20-W13",
+      "text": "Damm",
+      "audio": "Einsilbig/Testliste_20/L20_W13_Damm.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 13
+      }
+    },
+    {
+      "id": "L20-W14",
+      "text": "Zelt",
+      "audio": "Einsilbig/Testliste_20/L20_W14_Zelt.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 14
+      }
+    },
+    {
+      "id": "L20-W15",
+      "text": "Koch",
+      "audio": "Einsilbig/Testliste_20/L20_W15_Koch.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 15
+      }
+    },
+    {
+      "id": "L20-W16",
+      "text": "Hanf",
+      "audio": "Einsilbig/Testliste_20/L20_W16_Hanf.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 16
+      }
+    },
+    {
+      "id": "L20-W17",
+      "text": "Leid",
+      "audio": "Einsilbig/Testliste_20/L20_W17_Leid.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 17
+      }
+    },
+    {
+      "id": "L20-W18",
+      "text": "Bier",
+      "audio": "Einsilbig/Testliste_20/L20_W18_Bier.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 18
+      }
+    },
+    {
+      "id": "L20-W19",
+      "text": "Spruch",
+      "audio": "Einsilbig/Testliste_20/L20_W19_Spruch.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 19
+      }
+    },
+    {
+      "id": "L20-W20",
+      "text": "Axt",
+      "audio": "Einsilbig/Testliste_20/L20_W20_Axt.wav",
+      "tags": {
+        "list_no": 20,
+        "word_no": 20
+      }
+    }
+  ]
+}

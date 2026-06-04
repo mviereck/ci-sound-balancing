@@ -1,0 +1,2328 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Alcools",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "7727",
+    "book_title": "Alcools",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1770_7727_000000",
+      "text": "le rossignol aveugle essaya de chanter mais l'effraie ululant il trembla dans sa cage ce cyprès là-bas a l'air du pape en voyage sous la neige",
+      "audio": "dev/audio/1770/7727/1770_7727_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 24.77,
+        "original_end_s": 38.93
+      }
+    },
+    {
+      "id": "1770_7727_000001",
+      "text": "le facteur vient de s'arrêter pour causer avec le nouveau maître d'école cet hiver est très froid le vin sera très bon le sacristain sourd et boiteux est moribond",
+      "audio": "dev/audio/1770/7727/1770_7727_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 38.93,
+        "original_end_s": 53.05
+      }
+    },
+    {
+      "id": "1770_7727_000002",
+      "text": "lenchen remplis le poêle et mets l'eau du café dessus le chat s'étire après s'être chauffé gertrude et son voisin martin enfin s'épousent",
+      "audio": "dev/audio/1770/7727/1770_7727_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 11.97,
+        "original_end_s": 24.77
+      }
+    },
+    {
+      "id": "1770_7727_000003",
+      "text": "le songe herr traum survint avec sa sœur frau sorge kæthi tu n'as pas bien raccommodé ces bas apporte le café le beurre et les tartines la marmelade le saindoux un pot de lait encore un peu de café lenchen s'il te plaît",
+      "audio": "dev/audio/1770/7727/1770_7727_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 66.62,
+        "original_end_s": 86.24
+      }
+    },
+    {
+      "id": "1770_7727_000004",
+      "text": "au-delà de notre atmosphère s'élève un théâtre que construisit le ver zamir sans instrument puis le soleil revint ensoleiller les places d'une ville marine apparue contremont sur les toits se reposaient les colombes lasses",
+      "audio": "dev/audio/1770/7727/1770_7727_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_30_apollinaire_64kb.mp3",
+        "original_start_s": 175.21,
+        "original_end_s": 193.31
+      }
+    },
+    {
+      "id": "1770_7727_000005",
+      "text": "il est mort écoutez la cloche de l'église sonnait tout doucement la mort du sacristain lise il faut attiser le poêle qui s'éteint les femmes se signaient dans la nuit indécise",
+      "audio": "dev/audio/1770/7727/1770_7727_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 147.4,
+        "original_end_s": 163.84
+      }
+    },
+    {
+      "id": "1770_7727_000006",
+      "text": "je crois qu'elle m'aime dieu garde pour ma part je n'aime que moi-même chut à présent grand'mère dit son chapelet il me faut du sucre candi leni je tousse pierre mène son furet chasser les lapins",
+      "audio": "dev/audio/1770/7727/1770_7727_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_39_apollinaire_64kb.mp3",
+        "original_start_s": 99.34,
+        "original_end_s": 118.86
+      }
+    },
+    {
+      "id": "7601_7727_000000",
+      "text": "j'humilie maintenant à une pauvre fille au rire horrible ma bouche tu es seul le matin va venir les laitiers font tinter leurs bidons dans les rues",
+      "audio": "dev/audio/7601/7727/7601_7727_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 785.19,
+        "original_end_s": 801.06
+      }
+    },
+    {
+      "id": "7601_7727_000001",
+      "text": "sur la côte du texas entre mobile et galveston il y a un grand jardin tout plein de roses il contient aussi une villa qui est une grande rose",
+      "audio": "dev/audio/7601/7727/7601_7727_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_08_apollinaire_64kb.mp3",
+        "original_start_s": 17.75,
+        "original_end_s": 32.7
+      }
+    },
+    {
+      "id": "7601_7727_000002",
+      "text": "ta mère ne t'habille que de bleu et de blanc tu es très pieux et avec le plus ancien de tes camarades rené dalize vous n'aimez rien tant que les pompes de l'église",
+      "audio": "dev/audio/7601/7727/7601_7727_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 163.99,
+        "original_end_s": 179.74
+      }
+    },
+    {
+      "id": "7601_7727_000003",
+      "text": "ni les maisons flambent parce qu'on partira pour ne plus revenir ni ces mains agitées travailleront demain pour nous tous ni même on a pendu ceux qui ne savaient pas profiter de la vie",
+      "audio": "dev/audio/7601/7727/7601_7727_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 52.04,
+        "original_end_s": 68.69
+      }
+    },
+    {
+      "id": "7601_7727_000004",
+      "text": "tu as fait de douloureux et de joyeux voyages avant de t'apercevoir du mensonge et de l'âge tu as souffert de l'amour à vingt et à trente ans j'ai vécu comme un fou et j'ai perdu mon temps",
+      "audio": "dev/audio/7601/7727/7601_7727_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 632.24,
+        "original_end_s": 651.46
+      }
+    },
+    {
+      "id": "7601_7727_000005",
+      "text": "la religion est restée simple comme les hangars de port aviation seul en europe tu n'es pas antique ô christianisme",
+      "audio": "dev/audio/7601/7727/7601_7727_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 47.94,
+        "original_end_s": 60.27
+      }
+    },
+    {
+      "id": "7601_7727_000006",
+      "text": "à tire-d'aile viennent les corbeaux les faucons les hiboux d'afrique arrivent les ibis les flamands les marabouts",
+      "audio": "dev/audio/7601/7727/7601_7727_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 310.67,
+        "original_end_s": 321.39
+      }
+    },
+    {
+      "id": "7601_7727_000007",
+      "text": "dont il faudra changer le sens trompés trompés pauvres petits et ne sachant pas encore rire la table et les deux verres devinrent un mourant qui nous jeta le dernier regard d'orphée",
+      "audio": "dev/audio/7601/7727/7601_7727_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 103.89,
+        "original_end_s": 122.99
+      }
+    },
+    {
+      "id": "7601_7727_000008",
+      "text": "on buvait aussi et de temps à autre une cloche annonçait qu'un autre tonneau allait être mis en perce une morte assise sur un banc près d'un buisson d'épine-vinette",
+      "audio": "dev/audio/7601/7727/7601_7727_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 233.3,
+        "original_end_s": 250.78
+      }
+    },
+    {
+      "id": "7601_7727_000009",
+      "text": "j'ai vu ce matin une jolie rue dont j'ai oublié le nom neuve et propre du soleil elle était le clairon",
+      "audio": "dev/audio/7601/7727/7601_7727_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 102.67,
+        "original_end_s": 113.62
+      }
+    },
+    {
+      "id": "7601_7727_000010",
+      "text": "d'un corsage noir avec des rubans bleus et d'un chapeau gris orné d'une seule petite plume défrisée je vous aime disait-il comme le pigeon aime la colombe comme l'insecte nocturne aime la lumière",
+      "audio": "dev/audio/7601/7727/7601_7727_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 404.2,
+        "original_end_s": 423.9
+      }
+    },
+    {
+      "id": "7601_7727_000011",
+      "text": "nous traversâmes la ville et rencontrions souvent des parents des amis qui se joignaient à la petite troupe des morts récents",
+      "audio": "dev/audio/7601/7727/7601_7727_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 176.85,
+        "original_end_s": 188.34
+      }
+    },
+    {
+      "id": "7601_7727_000012",
+      "text": "tant de tendresse même que les prenant en amitié tout à coup je les invitai à une promenade loin des arcades de leur maison",
+      "audio": "dev/audio/7601/7727/7601_7727_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 149.7,
+        "original_end_s": 163.01
+      }
+    },
+    {
+      "id": "7601_7727_000013",
+      "text": "les directeurs les ouvriers les belles sténodactylographes du lundi matin au samedi soir quatre fois par jour y passent le matin par trois fois la sirène y gémit",
+      "audio": "dev/audio/7601/7727/7601_7727_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 113.62,
+        "original_end_s": 131.48
+      }
+    },
+    {
+      "id": "7601_7727_000014",
+      "text": "et les morts m'accostèrent avec des mines de l'autre monde mais leur visage et leurs attitudes devinrent bientôt moins funèbres le ciel et la terre perdirent leur aspect fantasmagorique",
+      "audio": "dev/audio/7601/7727/7601_7727_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 100.37,
+        "original_end_s": 117.97
+      }
+    },
+    {
+      "id": "7601_7727_000015",
+      "text": "tu es dans le jardin d'une auberge aux environs de prague tu te sens tout heureux une rose est sur la table et tu observes au lieu d'écrire ton conte en prose",
+      "audio": "dev/audio/7601/7727/7601_7727_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 525.65,
+        "original_end_s": 541.93
+      }
+    },
+    {
+      "id": "7601_7727_000016",
+      "text": "je le revis près d'un moujik mourant compter les béatitudes en admirant la neige semblable aux femmes nues",
+      "audio": "dev/audio/7601/7727/7601_7727_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 158.94,
+        "original_end_s": 169.28
+      }
+    },
+    {
+      "id": "7601_7727_000017",
+      "text": "un instant voile tout de son ardente cendre les sirènes laissent les périlleux détroits arrivent en chantant bellement toutes trois et tous aigle phénix et pihis de la chine",
+      "audio": "dev/audio/7601/7727/7601_7727_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 365.52,
+        "original_end_s": 382.81
+      }
+    },
+    {
+      "id": "7601_7727_000018",
+      "text": "on reprit terre et ce fut le retour les amoureux s'entr'aimaient et par couples aux belles bouches marchaient à distances inégales",
+      "audio": "dev/audio/7601/7727/7601_7727_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 478.39,
+        "original_end_s": 490.79
+      }
+    },
+    {
+      "id": "7601_7727_000019",
+      "text": "tu marches vers auteuil tu veux aller chez toi à pied dormir parmi tes fétiches d'océanie et de guinée",
+      "audio": "dev/audio/7601/7727/7601_7727_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 819.21,
+        "original_end_s": 829.9
+      }
+    },
+    {
+      "id": "7601_7727_000020",
+      "text": "je m'en souviens j'y ai passé trois jours et autant à gouda tu es à paris chez le juge d'instruction comme un criminel on te met en état d'arrestation",
+      "audio": "dev/audio/7601/7727/7601_7727_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 614.65,
+        "original_end_s": 632.24
+      }
+    },
+    {
+      "id": "7601_7727_000021",
+      "text": "à maurice raynal s'étendant sur les côtés du cimetière la maison des morts l'encadrait comme un cloître",
+      "audio": "dev/audio/7601/7727/7601_7727_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 19.13,
+        "original_end_s": 31.85
+      }
+    },
+    {
+      "id": "7601_7727_000022",
+      "text": "aujourd'hui tu marches dans paris les femmes sont ensanglantées c'était et je voudrais ne pas m'en souvenir c'était au déclin de la beauté",
+      "audio": "dev/audio/7601/7727/7601_7727_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 442.36,
+        "original_end_s": 458.49
+      }
+    },
+    {
+      "id": "7601_7727_000023",
+      "text": "ils vivaient si noblement que ceux qui la veille encore les regardaient comme leurs égaux ou même quelque chose de moins admiraient maintenant leur puissance leur richesse et leur génie",
+      "audio": "dev/audio/7601/7727/7601_7727_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 575.73,
+        "original_end_s": 591.78
+      }
+    },
+    {
+      "id": "7601_7727_000024",
+      "text": "les barques étaient arrivées à un endroit où les chevaux légers savaient qu'un écho répondait de la rive on ne se lassait point de l'interroger il y eut des questions si extravagantes et des réponses tellement pleines d'à-propos",
+      "audio": "dev/audio/7601/7727/7601_7727_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 440.55,
+        "original_end_s": 460.07
+      }
+    },
+    {
+      "id": "7601_7727_000025",
+      "text": "que le lilas qui vient d'éclore que le thym la rose ou qu'un brin de lavande ou de romarin les musiciens s'en étaient allés nous continuâmes la promenade",
+      "audio": "dev/audio/7601/7727/7601_7727_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 354.28,
+        "original_end_s": 370.63
+      }
+    },
+    {
+      "id": "7601_7727_000026",
+      "text": "tu étais triste à mourir le jour où tu t'y vis tu ressembles au lazare affolé par le jour les aiguilles de l'horloge du quartier juif vont à rebours",
+      "audio": "dev/audio/7601/7727/7601_7727_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 553.85,
+        "original_end_s": 569.03
+      }
+    },
+    {
+      "id": "7601_7727_000027",
+      "text": "ni parce que nous pouvons pleurer sans ridicule et que nous savons rire ni parce que nous fumons et buvons comme autrefois",
+      "audio": "dev/audio/7601/7727/7601_7727_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 237.77,
+        "original_end_s": 248.2
+      }
+    },
+    {
+      "id": "7601_7727_000028",
+      "text": "elle est la fille d'un sergent de ville de jersey ses mains que je n'avais pas vues sont dures et gercées j'ai une pitié immense pour les coutures de son ventre",
+      "audio": "dev/audio/7601/7727/7601_7727_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 770.87,
+        "original_end_s": 785.19
+      }
+    },
+    {
+      "id": "7601_7727_000029",
+      "text": "arrivé à munich depuis quinze ou vingt jours j'étais entré pour la première fois et par hasard dans ce cimetière presque désert",
+      "audio": "dev/audio/7601/7727/7601_7727_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 45.83,
+        "original_end_s": 58.71
+      }
+    },
+    {
+      "id": "7601_7727_000030",
+      "text": "à la fin tu es las de ce monde ancien bergère ô tour eiffel le troupeau des ponts bêle ce matin",
+      "audio": "dev/audio/7601/7727/7601_7727_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 18.06,
+        "original_end_s": 31.72
+      }
+    },
+    {
+      "id": "7601_7727_000031",
+      "text": "ni la liberté en honneur fait qu'on imite maintenant les feuilles ô liberté végétale ô seule liberté",
+      "audio": "dev/audio/7601/7727/7601_7727_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 40.17,
+        "original_end_s": 52.04
+      }
+    },
+    {
+      "id": "7601_7727_000032",
+      "text": "tous étaient si gais si charmants si bien portants que bien malin qui aurait pu distinguer les morts des vivants",
+      "audio": "dev/audio/7601/7727/7601_7727_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 188.34,
+        "original_end_s": 199.18
+      }
+    },
+    {
+      "id": "7601_7727_000033",
+      "text": "vous avez honte quand vous vous surprenez à dire une prière tu te moques de toi et comme le feu de l'enfer ton rire pétille les étincelles de ton rire dorent le fonds de ta vie",
+      "audio": "dev/audio/7601/7727/7601_7727_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 414.75,
+        "original_end_s": 431.51
+      }
+    },
+    {
+      "id": "7601_7727_000034",
+      "text": "et tous bras dessus bras dessous fredonnant des airs militaires oui tous vos péchés sont absous nous quittâmes le cimetière",
+      "audio": "dev/audio/7601/7727/7601_7727_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 163.01,
+        "original_end_s": 176.85
+      }
+    },
+    {
+      "id": "7601_7727_000035",
+      "text": "ni parce que nos verres nous jettent encore une fois le regard d'orphée mourant ni parce que nous avons tant grandi que beaucoup pourraient confondre nos yeux et les étoiles",
+      "audio": "dev/audio/7601/7727/7601_7727_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 204.87,
+        "original_end_s": 218.96
+      }
+    },
+    {
+      "id": "7601_7727_000036",
+      "text": "je claquais des dents devant toute cette bourgeoisie exposée et vêtue le mieux possible en attendant la sépulture",
+      "audio": "dev/audio/7601/7727/7601_7727_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 58.71,
+        "original_end_s": 70.25
+      }
+    },
+    {
+      "id": "7601_7727_000037",
+      "text": "et tu recules aussi dans ta vie lentement en montant au hradschin et le soir en écoutant dans les tavernes chanter des chansons tchèques",
+      "audio": "dev/audio/7601/7727/7601_7727_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 569.03,
+        "original_end_s": 583.58
+      }
+    },
+    {
+      "id": "7601_7727_000038",
+      "text": "après que toute la troupe se fut embarquée et quelques morts ramaient avec autant de vigueur que les vivants à l'avant du bateau que je gouvernais un mort parlait avec une jeune femme vêtue d'une robe jaune",
+      "audio": "dev/audio/7601/7727/7601_7727_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 386.69,
+        "original_end_s": 404.2
+      }
+    },
+    {
+      "id": "7601_7727_000039",
+      "text": "la cétoine qui dort dans le cœur de la rose épouvanté tu te vois dessiné dans les agates de saint vit",
+      "audio": "dev/audio/7601/7727/7601_7727_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 541.93,
+        "original_end_s": 553.85
+      }
+    },
+    {
+      "id": "7601_7727_000040",
+      "text": "une femme se promène souvent dans le jardin toute seule et quand je pense sur la route bordée de tilleuls nous nous regardons comme cette femme est mennonite ses rosiers et ses vêtements n'ont pas de boutons",
+      "audio": "dev/audio/7601/7727/7601_7727_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_08_apollinaire_64kb.mp3",
+        "original_start_s": 32.7,
+        "original_end_s": 50.8
+      }
+    },
+    {
+      "id": "7601_7727_000041",
+      "text": "il y a surtout des juifs leurs femmes portent perruque elles restent assises exsangues au fond des boutiques",
+      "audio": "dev/audio/7601/7727/7601_7727_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 731.91,
+        "original_end_s": 743.85
+      }
+    },
+    {
+      "id": "7601_7727_000042",
+      "text": "les morts se réjouissaient de voir leurs corps trépassés entre eux et la lumière ils riaient de voir leur ombre et l'observaient comme si véritablement c'eût été leur vie passée",
+      "audio": "dev/audio/7601/7727/7601_7727_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 117.97,
+        "original_end_s": 134.39
+      }
+    },
+    {
+      "id": "7601_7727_000043",
+      "text": "fraternisent avec la volante machine maintenant tu marches dans paris tout seul parmi la foule des troupeaux d'autobus mugissants près de toi",
+      "audio": "dev/audio/7601/7727/7601_7727_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 382.81,
+        "original_end_s": 398.6
+      }
+    },
+    {
+      "id": "7601_7727_000044",
+      "text": "puis dans la campagne on s'éparpilla deux chevau-légers nous joignirent on leur fit fête ils coupèrent du bois de viorne et de sureau dont ils firent des sifflets qu'il distribuèrent aux enfants",
+      "audio": "dev/audio/7601/7727/7601_7727_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 199.18,
+        "original_end_s": 218.69
+      }
+    },
+    {
+      "id": "7601_7727_000045",
+      "text": "que la lumière de l'aurore que vos regards mon fiancé auront meilleure odeur encore hélas la bague était brisée",
+      "audio": "dev/audio/7601/7727/7601_7727_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 342.81,
+        "original_end_s": 354.28
+      }
+    },
+    {
+      "id": "7601_7727_000046",
+      "text": "l'européen le plus moderne c'est vous pape pie dixième et toi que les fenêtres observent la honte te retient d'entrer dans une église et de t'y confesser ce matin",
+      "audio": "dev/audio/7601/7727/7601_7727_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 60.27,
+        "original_end_s": 77.16
+      }
+    },
+    {
+      "id": "7601_7727_000047",
+      "text": "bientôt entraient dans les brasseries quelques-uns nous quittèrent devant une boucherie canine pour y acheter leur repas du soir",
+      "audio": "dev/audio/7601/7727/7601_7727_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 531.26,
+        "original_end_s": 541.98
+      }
+    },
+    {
+      "id": "7601_7727_000048",
+      "text": "trop tard répondait la vivante repoussez repoussez cet amour défendu je suis mariée voyez l'anneau qui brille mes mains tremblent je pleure et je voudrais mourir",
+      "audio": "dev/audio/7601/7727/7601_7727_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 423.9,
+        "original_end_s": 440.55
+      }
+    },
+    {
+      "id": "7601_7727_000049",
+      "text": "réjouissons-nous non pas parce que notre amitié a été le fleuve qui nous a fertilisés terrains riverains dont l'abondance est la nourriture que tous espèrent",
+      "audio": "dev/audio/7601/7727/7601_7727_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 188.56,
+        "original_end_s": 204.87
+      }
+    },
+    {
+      "id": "7601_7727_000050",
+      "text": "bientôt je restai seul avec ces morts qui s'en allaient tout droit au cimetière où sous les arcades je les reconnus couchés immobiles et bien vêtus attendant la sépulture derrière les vitrines",
+      "audio": "dev/audio/7601/7727/7601_7727_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 541.98,
+        "original_end_s": 559.97
+      }
+    },
+    {
+      "id": "7601_7727_000051",
+      "text": "te voici à marseille au milieu des pastèques te voici à coblence à l'hôtel du géant te voici à rome assis sous un néflier du japon",
+      "audio": "dev/audio/7601/7727/7601_7727_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 583.58,
+        "original_end_s": 598.15
+      }
+    },
+    {
+      "id": "7601_7727_000052",
+      "text": "laissait un étudiant agenouillé à ses pieds lui parler de fiançailles je vous attendrai dix ans vingt ans s'il le faut votre volonté sera la mienne",
+      "audio": "dev/audio/7601/7727/7601_7727_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 250.78,
+        "original_end_s": 266.01
+      }
+    },
+    {
+      "id": "7601_7727_000053",
+      "text": "ils sont des christs d'une autre forme et d'une autre croyance ce sont les christs inférieurs des obscures espérances adieu adieu soleil cou coupé",
+      "audio": "dev/audio/7601/7727/7601_7727_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 829.9,
+        "original_end_s": 849.23
+      }
+    },
+    {
+      "id": "7601_7727_000054",
+      "text": "une famille transporte un édredon rouge comme vous transportez votre cœur cet édredon et nos rêves sont aussi irréels quelques-uns de ces émigrants restent ici et se logent rue des rosiers",
+      "audio": "dev/audio/7601/7727/7601_7727_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 697.24,
+        "original_end_s": 717.04
+      }
+    },
+    {
+      "id": "7601_7727_000055",
+      "text": "tandis que les militaires chantaient des tyroliennes et se répondant comme on le fait dans la montagne",
+      "audio": "dev/audio/7601/7727/7601_7727_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 510.42,
+        "original_end_s": 520.61
+      }
+    },
+    {
+      "id": "7601_7727_000056",
+      "text": "au bord d'un lac on s'amusa à faire des ricochets avec des cailloux plats sur l'eau qui dansait à peine des barques étaient amarrées dans un havre on les détacha",
+      "audio": "dev/audio/7601/7727/7601_7727_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 370.63,
+        "original_end_s": 386.69
+      }
+    },
+    {
+      "id": "7601_7727_000057",
+      "text": "ils croient en dieu ils prient les femmes allaitent des enfants ils emplissent de leur odeur le hall de la gare saint-lazare",
+      "audio": "dev/audio/7601/7727/7601_7727_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 671.2,
+        "original_end_s": 683.36
+      }
+    },
+    {
+      "id": "7601_7727_000058",
+      "text": "alors je les dénombrais ils étaient quarante-neuf hommes et femmes et enfants qui embellissaient à vue d'œil et me regardaient maintenant avec tant de cordialité",
+      "audio": "dev/audio/7601/7727/7601_7727_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 134.39,
+        "original_end_s": 149.7
+      }
+    },
+    {
+      "id": "7601_7727_000059",
+      "text": "je vous attendrai toute votre vie répondait la morte des enfants de ce monde ou bien de l'autre chantaient de ces rondes aux paroles absurdes et lyriques",
+      "audio": "dev/audio/7601/7727/7601_7727_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 266.01,
+        "original_end_s": 280.54
+      }
+    },
+    {
+      "id": "7601_7727_000060",
+      "text": "pupille christ de l'œil vingtième pupille des siècles il sait y faire et changé en roseau ce siècle comme jésus se monte dans l'air les diables dans les abîmes lèvent la tête pour le regarder",
+      "audio": "dev/audio/7601/7727/7601_7727_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 247.43,
+        "original_end_s": 265.09
+      }
+    },
+    {
+      "id": "7601_7727_000061",
+      "text": "tu es la nuit dans un grand restaurant ces femmes ne sont pas méchantes elles ont des soucis cependant toutes même la plus laide a fait souffrir son amant",
+      "audio": "dev/audio/7601/7727/7601_7727_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 754.22,
+        "original_end_s": 770.87
+      }
+    },
+    {
+      "id": "7601_7727_000062",
+      "text": "nos enfants dit la fiancée seront plus beaux plus beaux encore hélas la bague était brisée que s'ils étaient d'argent ou d'or d'émeraude ou de diamant seront plus clairs plus clairs encore que les astres du firmament",
+      "audio": "dev/audio/7601/7727/7601_7727_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 322.83,
+        "original_end_s": 342.81
+      }
+    },
+    {
+      "id": "7601_7727_000063",
+      "text": "tu es debout devant le zinc d'un bar crapuleux et tu prends un café à deux sous parmi les malheureux",
+      "audio": "dev/audio/7601/7727/7601_7727_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 743.85,
+        "original_end_s": 754.22
+      }
+    },
+    {
+      "id": "7601_7727_000064",
+      "text": "et deux turbiasques nous regardons avec effroi les poulpes des profondeurs et parmi les algues nagent les poissons images du sauveur",
+      "audio": "dev/audio/7601/7727/7601_7727_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 511.3,
+        "original_end_s": 525.65
+      }
+    },
+    {
+      "id": "7601_7727_000065",
+      "text": "maintenant tu es au bord de la méditerranée sous les citronniers qui sont en fleur toute l'année avec tes amis tu te promènes en barque l'un est nissard il y a un mentonasque",
+      "audio": "dev/audio/7601/7727/7601_7727_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 493.57,
+        "original_end_s": 511.3
+      }
+    },
+    {
+      "id": "7601_7727_000066",
+      "text": "plus tard dans un bal champêtre les couples mains sur les épaules dansèrent au son aigre des cithares ils n'avaient pas oublié la danse ces morts et ces mortes",
+      "audio": "dev/audio/7601/7727/7601_7727_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 218.69,
+        "original_end_s": 233.3
+      }
+    },
+    {
+      "id": "7601_7727_000067",
+      "text": "voici le gage de mon amour de nos fiançailles ni le temps ni l'absence ne nous feront oublier nos promesses et un jour nous aurons une belle noce des touffes de myrthe",
+      "audio": "dev/audio/7601/7727/7601_7727_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 294.32,
+        "original_end_s": 309.14
+      }
+    },
+    {
+      "id": "7601_7727_000068",
+      "text": "située à paris entre la rue aumont thiéville et l'avenue des ternes voilà la jeune rue et tu n'es encore qu'un petit enfant",
+      "audio": "dev/audio/7601/7727/7601_7727_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 150.41,
+        "original_end_s": 163.99
+      }
+    },
+    {
+      "id": "7601_7727_000069",
+      "text": "ils ont foi dans leur étoile comme les rois mages ils espèrent gagner de l'argent dans l'argentine et revenir dans leur pays après avoir fait fortune",
+      "audio": "dev/audio/7601/7727/7601_7727_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 683.36,
+        "original_end_s": 697.24
+      }
+    },
+    {
+      "id": "7601_7727_000070",
+      "text": "tu lis les prospectus les catalogues les affiches qui chantent tout haut voilà la poésie ce matin et pour la prose il y a les journaux",
+      "audio": "dev/audio/7601/7727/7601_7727_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 77.16,
+        "original_end_s": 90.81
+      }
+    },
+    {
+      "id": "7601_7727_000071",
+      "text": "nous nous sommes rencontrés dans un caveau maudit au temps de notre jeunesse fumant tous deux et mal vêtus attendant l'aube épris épris des mêmes paroles",
+      "audio": "dev/audio/7601/7727/7601_7727_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 87.79,
+        "original_end_s": 103.89
+      }
+    },
+    {
+      "id": "7601_7727_000072",
+      "text": "tu en as assez de vivre dans l'antiquité grecque et romaine ici même les automobiles ont l'air d'être anciennes la religion seule est restée toute neuve",
+      "audio": "dev/audio/7601/7727/7601_7727_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 31.72,
+        "original_end_s": 47.94
+      }
+    },
+    {
+      "id": "7601_7727_000073",
+      "text": "flottent autour du premier aéroplane ils s'écartent parfois pour laisser passer ceux que transporte la sainte eucharistie",
+      "audio": "dev/audio/7601/7727/7601_7727_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 283.05,
+        "original_end_s": 295.77
+      }
+    },
+    {
+      "id": "7601_7727_000074",
+      "text": "le treize juillet mille neuf cent neuf en voyant des drapeaux ce matin je ne me suis pas dit voilà les riches vêtements des pauvres ni la pudeur démocratique veut me voiler sa douleur",
+      "audio": "dev/audio/7601/7727/7601_7727_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 21.48,
+        "original_end_s": 40.17
+      }
+    },
+    {
+      "id": "7601_7727_000075",
+      "text": "il est neuf heures le gaz est baissé tout bleu vous sortez du dortoir en cachette vous priez toute la nuit dans la chapelle du collège",
+      "audio": "dev/audio/7601/7727/7601_7727_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 179.74,
+        "original_end_s": 192.82
+      }
+    },
+    {
+      "id": "7601_7727_000076",
+      "text": "roulent l'angoisse de l'amour te serre le gosier comme si tu ne devais jamais plus être aimé si tu vivais dans l'ancien temps tu entrerais dans un monastère",
+      "audio": "dev/audio/7601/7727/7601_7727_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 398.6,
+        "original_end_s": 414.75
+      }
+    },
+    {
+      "id": "7601_7727_000077",
+      "text": "te voici à amsterdam avec une jeune fille que tu trouves belle et qui est laide elle doit se marier avec un étudiant de leyde on y loue des chambres en latin cubicula locanda",
+      "audio": "dev/audio/7601/7727/7601_7727_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 598.15,
+        "original_end_s": 614.65
+      }
+    },
+    {
+      "id": "7601_7727_000078",
+      "text": "que c'était à mourir de rire et le mort disait à la vivante nous serions si heureux ensemble sur nous l'eau se refermera mais vous pleurez et vos mains tremblent aucun de nous ne reviendra",
+      "audio": "dev/audio/7601/7727/7601_7727_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 460.07,
+        "original_end_s": 478.39
+      }
+    },
+    {
+      "id": "7601_7727_000079",
+      "text": "soudain rapide comme ma mémoire les yeux se rallumèrent de cellule vitrée en cellule vitrée le ciel se peupla d'une apocalypse vivace",
+      "audio": "dev/audio/7601/7727/7601_7727_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 70.25,
+        "original_end_s": 85.92
+      }
+    },
+    {
+      "id": "7601_7727_000080",
+      "text": "ils ne se doutaient pas de ce qui s'était passé mais les vivants en gardaient le souvenir c'était un bonheur inespéré et si certain qu'ils ne craignaient point de le perdre",
+      "audio": "dev/audio/7601/7727/7601_7727_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 559.97,
+        "original_end_s": 575.73
+      }
+    },
+    {
+      "id": "7601_7727_000081",
+      "text": "dans la ville notre troupe diminua peu à peu on se disait au revoir à demain à bientôt",
+      "audio": "dev/audio/7601/7727/7601_7727_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 520.61,
+        "original_end_s": 531.26
+      }
+    },
+    {
+      "id": "7601_7727_000082",
+      "text": "qui sans doute sont les restes des plus anciens monuments poétiques de l'humanité l'étudiant passa une bague à l'annulaire de la jeune morte",
+      "audio": "dev/audio/7601/7727/7601_7727_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 280.54,
+        "original_end_s": 294.32
+      }
+    },
+    {
+      "id": "7601_7727_000083",
+      "text": "l'image qui te possède te fait survivre dans l'insomnie et dans l'angoisse c'est toujours près de toi cette image qui passe",
+      "audio": "dev/audio/7601/7727/7601_7727_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 480.31,
+        "original_end_s": 493.57
+      }
+    },
+    {
+      "id": "7601_7727_000084",
+      "text": "l'aigle fond de l'horizon en poussant un grand cri et d'amérique vient le petit colibri de chine sont venus les pihis longs et souples qui n'ont qu'une seule aile et qui volent par couples",
+      "audio": "dev/audio/7601/7727/7601_7727_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 333.2,
+        "original_end_s": 352.09
+      }
+    },
+    {
+      "id": "7601_7727_000085",
+      "text": "où rue des étouffes dans des bouges je les ai vus souvent le soir ils prennent l'air dans la rue et se déplacent rarement comme les pièces aux échecs",
+      "audio": "dev/audio/7601/7727/7601_7727_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 717.04,
+        "original_end_s": 731.91
+      }
+    },
+    {
+      "id": "7601_7727_000086",
+      "text": "je le revis au bord du fleuve sur lequel flottait ophélie qui blanche flotte encore entre les nénuphars il s'en allait au milieu des hamlets blafards sur la flûte jouant les airs de la folie",
+      "audio": "dev/audio/7601/7727/7601_7727_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 139.47,
+        "original_end_s": 158.94
+      }
+    },
+    {
+      "id": "7601_7727_000087",
+      "text": "et l'on n'a plus besoin de personne fin enregistré par malone",
+      "audio": "dev/audio/7601/7727/7601_7727_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 611.23,
+        "original_end_s": 627.78
+      }
+    },
+    {
+      "id": "7601_7727_000088",
+      "text": "je suis malade d'ouïr les paroles bienheureuses l'amour dont je souffre est une maladie honteuse",
+      "audio": "dev/audio/7601/7727/7601_7727_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 470.09,
+        "original_end_s": 480.31
+      }
+    },
+    {
+      "id": "7601_7727_000089",
+      "text": "je le revis faisant ceci ou cela en l'honneur des mêmes paroles qui changent la face des enfants et je dis toutes ces choses souvenir et avenir parce que mon ami andré salmon se marie",
+      "audio": "dev/audio/7601/7727/7601_7727_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 169.28,
+        "original_end_s": 188.56
+      }
+    },
+    {
+      "id": "7601_7727_000090",
+      "text": "c'est un tableau pendu dans un sombre musée et quelquefois tu vas le regarder de près",
+      "audio": "dev/audio/7601/7727/7601_7727_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 431.51,
+        "original_end_s": 442.36
+      }
+    },
+    {
+      "id": "7601_7727_000091",
+      "text": "à nos vêtements et dans vos cheveux un beau sermon à l'église de longs discours après le banquet et la musique de la musique",
+      "audio": "dev/audio/7601/7727/7601_7727_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 309.14,
+        "original_end_s": 322.83
+      }
+    },
+    {
+      "id": "7601_7727_000092",
+      "text": "réjouissons-nous parce que directeur du feu et des poètes l'amour qui emplit ainsi que la lumière tout le solide espace entre les étoiles et les planètes l'amour veut qu'aujourd'hui mon ami andré salmon se marie",
+      "audio": "dev/audio/7601/7727/7601_7727_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 248.2,
+        "original_end_s": 268.14
+      }
+    },
+    {
+      "id": "7601_7727_000093",
+      "text": "tandis qu'éternelle et adorable profondeur améthyste tourne à jamais la flamboyante gloire du christ c'est le beau lys que tous nous cultivons c'est la torche aux cheveux roux",
+      "audio": "dev/audio/7601/7727/7601_7727_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 192.82,
+        "original_end_s": 211.37
+      }
+    },
+    {
+      "id": "7601_7727_000094",
+      "text": "tu n'oses plus regarder tes mains et à tous moments je voudrais sangloter sur toi sur celle que j'aime sur tout ce qui t'a épouvanté tu regardes les yeux pleins de larmes ces pauvres émigrants",
+      "audio": "dev/audio/7601/7727/7601_7727_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_01_apollinaire_64kb.mp3",
+        "original_start_s": 651.46,
+        "original_end_s": 671.2
+      }
+    },
+    {
+      "id": "7601_7727_000095",
+      "text": "les verres tombèrent se brisèrent et nous apprîmes à rire nous partîmes alors pèlerins de la perdition à travers les rues à travers les contrées à travers la raison",
+      "audio": "dev/audio/7601/7727/7601_7727_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_16_apollinaire_64kb.mp3",
+        "original_start_s": 122.99,
+        "original_end_s": 139.47
+      }
+    },
+    {
+      "id": "7601_7727_000096",
+      "text": "les morts avaient choisi les vivantes et les vivants des mortes un genévrier parfois faisait l'effet d'un fantôme les enfants déchiraient l'air en soufflant les joues creuses dans leurs sifflets de viorne ou de sureau",
+      "audio": "dev/audio/7601/7727/7601_7727_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 490.79,
+        "original_end_s": 510.42
+      }
+    },
+    {
+      "id": "7601_7727_000097",
+      "text": "car il y a-t-il rien qui vous élève comme d'avoir aimé un mort ou une morte on devient si pur qu'on en arrive dans les glaciers de la mémoire à se confondre avec le souvenir on est fortifié pour la vie",
+      "audio": "dev/audio/7601/7727/7601_7727_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_09_apollinaire_64kb.mp3",
+        "original_start_s": 591.78,
+        "original_end_s": 611.23
+      }
+    },
+    {
+      "id": "7601_7727_000098",
+      "text": "adieu faux amour confondu avec la femme qui s'éloigne avec celle que j'ai perdue l'année dernière en allemagne et que je ne reverrai plus",
+      "audio": "dev/audio/7601/7727/7601_7727_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 222.69,
+        "original_end_s": 237.14
+      }
+    },
+    {
+      "id": "7601_7727_000099",
+      "text": "à mademoiselle marie laurencin frôlée par les ombres des morts sur l'herbe où le jour s'exténue l'arlequine s'est mise nue et dans l'étang mire son corps",
+      "audio": "dev/audio/7601/7727/7601_7727_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_07_apollinaire_64kb.mp3",
+        "original_start_s": 18.25,
+        "original_end_s": 35.39
+      }
+    },
+    {
+      "id": "7601_7727_000100",
+      "text": "long collier des sommeils affreux d'yeux arrachés à coup de pique ta mère fit un pet foireux et tu naquis de sa colique",
+      "audio": "dev/audio/7601/7727/7601_7727_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 465.42,
+        "original_end_s": 479.25
+      }
+    },
+    {
+      "id": "7601_7727_000101",
+      "text": "oiseau tranquille au vol inverse oiseau qui nidifie en l'air à la limite où brille déjà ma mémoire",
+      "audio": "dev/audio/7601/7727/7601_7727_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 70.94,
+        "original_end_s": 82.31
+      }
+    },
+    {
+      "id": "7601_7727_000102",
+      "text": "moi qui sais des lais pour les reines les complaintes de mes années des hymnes d'esclave aux murènes la romance du mal aimé et des chansons pour les sirènes",
+      "audio": "dev/audio/7601/7727/7601_7727_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 1031.94,
+        "original_end_s": 1048.35
+      }
+    },
+    {
+      "id": "7601_7727_000103",
+      "text": "cherchais mon corps tous ceux qui survenaient et n'étaient pas moi-même amenaient un à un les morceaux de moi-même on me bâtit peu à peu comme on élève une tour les peuples s'entassaient et je parus moi-même",
+      "audio": "dev/audio/7601/7727/7601_7727_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 283.17,
+        "original_end_s": 303.08
+      }
+    },
+    {
+      "id": "7601_7727_000104",
+      "text": "vienne la nuit sonne l'heure les jours s'en vont je demeure les mains dans les mains restons face à face tandis que sous le pont de nos bras passe",
+      "audio": "dev/audio/7601/7727/7601_7727_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_02_apollinaire_64kb.mp3",
+        "original_start_s": 33.63,
+        "original_end_s": 49.5
+      }
+    },
+    {
+      "id": "7601_7727_000105",
+      "text": "au soleil parce que tu l'aimes je t'ai menée souviens t'en bien ténébreuse épouse que j'aime tu es à moi en n'étant rien",
+      "audio": "dev/audio/7601/7727/7601_7727_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 662.19,
+        "original_end_s": 675.59
+      }
+    },
+    {
+      "id": "7601_7727_000106",
+      "text": "il y vient aussi nos ombres que la nuit dissipera le soleil qui les rend sombres avec elles disparaîtra",
+      "audio": "dev/audio/7601/7727/7601_7727_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_10_apollinaire_64kb.mp3",
+        "original_start_s": 29.98,
+        "original_end_s": 41.19
+      }
+    },
+    {
+      "id": "7601_7727_000107",
+      "text": "ô mes cosaques zaporogues votre seigneur éblouissant devenez mes sujets fidèles",
+      "audio": "dev/audio/7601/7727/7601_7727_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 411.63,
+        "original_end_s": 422.02
+      }
+    },
+    {
+      "id": "7601_7727_000108",
+      "text": "regret des yeux de la putain et belle comme une panthère amour vos baisers florentins avaient une saveur amère qui a rebuté nos destins",
+      "audio": "dev/audio/7601/7727/7601_7727_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 515.54,
+        "original_end_s": 530.75
+      }
+    },
+    {
+      "id": "7601_7727_000109",
+      "text": "et le bruit éternel d'un fleuve large et sombre mais tandis que mourants roulaient vers l'estuaire",
+      "audio": "dev/audio/7601/7727/7601_7727_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 167.62,
+        "original_end_s": 178.02
+      }
+    },
+    {
+      "id": "7601_7727_000110",
+      "text": "la licorne et le capricorne mon âme et mon corps incertain te fuient ô bûcher divin qu'ornent des astres des fleurs du matin",
+      "audio": "dev/audio/7601/7727/7601_7727_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 613.7,
+        "original_end_s": 628.26
+      }
+    },
+    {
+      "id": "7601_7727_000111",
+      "text": "sont dans mon cœur et la folie veut raisonner pour mon malheur comment voulez-vous que j'oublie",
+      "audio": "dev/audio/7601/7727/7601_7727_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 736.64,
+        "original_end_s": 747.28
+      }
+    },
+    {
+      "id": "7601_7727_000112",
+      "text": "pour que je sache enfin celui que je suis moi qui connais les autres je les connais par les cinq sens et quelques autres",
+      "audio": "dev/audio/7601/7727/7601_7727_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 110.61,
+        "original_end_s": 122.78
+      }
+    },
+    {
+      "id": "7601_7727_000113",
+      "text": "c'était tu t'en souviens à la fin de l'été deux matelots qui ne s'étaient jamais quittés l'aîné portait au cou une chaîne de fer le plus jeune mettait ses cheveux blonds en tresse",
+      "audio": "dev/audio/7601/7727/7601_7727_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 245.82,
+        "original_end_s": 263.36
+      }
+    },
+    {
+      "id": "7601_7727_000114",
+      "text": "mon cœur et ma tête se vident tout le ciel s'écoule par eux ô mes tonneaux des danaïdes comment faire pour être heureux comme un petit enfant candide",
+      "audio": "dev/audio/7601/7727/7601_7727_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 562.17,
+        "original_end_s": 578.13
+      }
+    },
+    {
+      "id": "7601_7727_000115",
+      "text": "je suis fidèle comme un dogue au maître le lierre au tronc et les cosaques zaporogues ivrognes pieux et larrons aux steppes et au décalogue",
+      "audio": "dev/audio/7601/7727/7601_7727_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 384.18,
+        "original_end_s": 400.44
+      }
+    },
+    {
+      "id": "7601_7727_000116",
+      "text": "tu regardais un banc de nuages descendre avec le paquebot orphelin vers les fièvres futures et de tous ces regrets de tous ces repentirs te souviens-tu",
+      "audio": "dev/audio/7601/7727/7601_7727_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 32.7,
+        "original_end_s": 49.62
+      }
+    },
+    {
+      "id": "7601_7727_000117",
+      "text": "leur folie de machines les cafés gonflés de fumée crient tout l'amour de leurs tziganes de tous leurs siphons enrhumés de leurs garçons vêtus d'un pagne vers toi toi que j'ai tant aimée",
+      "audio": "dev/audio/7601/7727/7601_7727_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 1013.08,
+        "original_end_s": 1031.94
+      }
+    },
+    {
+      "id": "7601_7727_000118",
+      "text": "leur avait écrit le sultan ils rirent à cette nouvelle et répondirent à l'instant à la lueur d'une chandelle",
+      "audio": "dev/audio/7601/7727/7601_7727_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 422.02,
+        "original_end_s": 434.65
+      }
+    },
+    {
+      "id": "7601_7727_000119",
+      "text": "je connais des gens de toutes sortes ils n'égalent pas leurs destins indécis comme feuilles mortes leurs yeux sont des feux mal éteints",
+      "audio": "dev/audio/7601/7727/7601_7727_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_12_apollinaire_64kb.mp3",
+        "original_start_s": 55.07,
+        "original_end_s": 69.56
+      }
+    },
+    {
+      "id": "7601_7727_000120",
+      "text": "la quatrième malourène est un fleuve vert et doré c'est le soir quand les riveraines y baignent leurs corps adorés et des chants de rameurs s'y traînent",
+      "audio": "dev/audio/7601/7727/7601_7727_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 801.88,
+        "original_end_s": 816.78
+      }
+    },
+    {
+      "id": "7601_7727_000121",
+      "text": "tous les regards tous les regards de tous les yeux les bords étaient déserts herbeux silencieux et la montagne à l'autre rive était très claire",
+      "audio": "dev/audio/7601/7727/7601_7727_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 178.02,
+        "original_end_s": 192.89
+      }
+    },
+    {
+      "id": "7601_7727_000122",
+      "text": "ses regards laissaient une traîne d'étoiles dans les soirs tremblants dans ses yeux nageaient les sirènes et nos baisers mordus sanglants faisaient pleurer nos fées marraines",
+      "audio": "dev/audio/7601/7727/7601_7727_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 530.75,
+        "original_end_s": 547.3
+      }
+    },
+    {
+      "id": "7601_7727_000123",
+      "text": "les anges les anges dans le ciel l'un est vêtu en officier l'un est vêtu en cuisinier et les autres chantent",
+      "audio": "dev/audio/7601/7727/7601_7727_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_15_apollinaire_64kb.mp3",
+        "original_start_s": 19.52,
+        "original_end_s": 32.2
+      }
+    },
+    {
+      "id": "7601_7727_000124",
+      "text": "ô vous chers compagnons sonneries électriques des gares chant des moissonneuses traîneau d'un boucher régiment des rues sans nombre",
+      "audio": "dev/audio/7601/7727/7601_7727_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 124.77,
+        "original_end_s": 137.59
+      }
+    },
+    {
+      "id": "7601_7727_000125",
+      "text": "lorsqu'il fut de retour enfin dans sa patrie le sage ulysse son vieux chien de lui se souvint près d'un tapis de haute lisse sa femme attendait qu'il revînt",
+      "audio": "dev/audio/7601/7727/7601_7727_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 121.51,
+        "original_end_s": 137.28
+      }
+    },
+    {
+      "id": "7601_7727_000126",
+      "text": "c'était son regard d'inhumaine la cicatrice à son cou nu sortit saoule d'une taverne au moment où je reconnus la fausseté de l'amour même",
+      "audio": "dev/audio/7601/7727/7601_7727_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 105.83,
+        "original_end_s": 121.51
+      }
+    },
+    {
+      "id": "7601_7727_000127",
+      "text": "je suivis ce mauvais garçon qui sifflotait mains dans les poches nous semblions entre les maisons onde ouverte de la mer rouge lui les hébreux moi pharaon",
+      "audio": "dev/audio/7601/7727/7601_7727_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 54.56,
+        "original_end_s": 73.03
+      }
+    },
+    {
+      "id": "7601_7727_000128",
+      "text": "font danser notre race humaine sur la descente à reculons destins destins impénétrables rois secoués par la folie et ces grelottantes étoiles de fausses femmes dans vos lits",
+      "audio": "dev/audio/7601/7727/7601_7727_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 893.69,
+        "original_end_s": 913.46
+      }
+    },
+    {
+      "id": "7601_7727_000129",
+      "text": "violâtres comme leur cerne et comme cet automne et ma vie pour tes yeux lentement s'empoisonne les enfants de l'école viennent avec fracas vêtus de hoquetons et jouant de l'harmonica",
+      "audio": "dev/audio/7601/7727/7601_7727_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_04_apollinaire_64kb.mp3",
+        "original_start_s": 36.89,
+        "original_end_s": 54.18
+      }
+    },
+    {
+      "id": "7601_7727_000130",
+      "text": "baisse ta deuxième paupière la terre t'éblouit quand tu lèves la tête et moi aussi de près je suis sombre et terne",
+      "audio": "dev/audio/7601/7727/7601_7727_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 35.01,
+        "original_end_s": 46.21
+      }
+    },
+    {
+      "id": "7601_7727_000131",
+      "text": "alors sans bruit et sans qu'on pût voir rien de vivant contre le mont passèrent des ombres vivaces",
+      "audio": "dev/audio/7601/7727/7601_7727_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 192.89,
+        "original_end_s": 203.71
+      }
+    },
+    {
+      "id": "7601_7727_000132",
+      "text": "des éternels regards l'onde si lasse vienne la nuit sonne l'heure les jours s'en vont je demeure",
+      "audio": "dev/audio/7601/7727/7601_7727_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_02_apollinaire_64kb.mp3",
+        "original_start_s": 49.5,
+        "original_end_s": 63.7
+      }
+    },
+    {
+      "id": "7601_7727_000133",
+      "text": "en glissant pas à pas sur la montagne claire qui donc reconnais-tu sur ces vieilles photographies te souviens-tu du jour où une vieille abeille tomba dans le feu",
+      "audio": "dev/audio/7601/7727/7601_7727_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 228.33,
+        "original_end_s": 245.82
+      }
+    },
+    {
+      "id": "7601_7727_000134",
+      "text": "malheur dieu pâle aux yeux d'ivoire tes prêtres fous t'ont ils paré tes victimes en robe noire ont-elles vainement pleuré malheur dieu qu'il ne faut pas croire",
+      "audio": "dev/audio/7601/7727/7601_7727_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 628.26,
+        "original_end_s": 644.62
+      }
+    },
+    {
+      "id": "7601_7727_000135",
+      "text": "c'est sur eux qui pleurent les saules le grand pan l'amour jésus-christ sont bien morts et les chats miaulent dans la cour je pleure à paris",
+      "audio": "dev/audio/7601/7727/7601_7727_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 335.75,
+        "original_end_s": 351.19
+      }
+    },
+    {
+      "id": "7601_7727_000136",
+      "text": "vienne la nuit sonne l'heure les jours s'en vont je demeure passent les jours et passent les semaines",
+      "audio": "dev/audio/7601/7727/7601_7727_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_02_apollinaire_64kb.mp3",
+        "original_start_s": 76.8,
+        "original_end_s": 90.36
+      }
+    },
+    {
+      "id": "7601_7727_000137",
+      "text": "et le langage qu'ils inventaient en chemin je l'appris de leur bouche et je le parle encore le cortège passait",
+      "audio": "dev/audio/7601/7727/7601_7727_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 272.44,
+        "original_end_s": 283.17
+      }
+    },
+    {
+      "id": "7601_7727_000138",
+      "text": "mon beau navire ô ma mémoire avons-nous assez navigué dans une onde mauvaise à boire avons-nous assez divagué de la belle aube au triste soir",
+      "audio": "dev/audio/7601/7727/7601_7727_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 206.16,
+        "original_end_s": 222.69
+      }
+    },
+    {
+      "id": "7601_7727_000139",
+      "text": "ô mon ombre en deuil de moi-même l'hiver est mort tout enneigé on a brûlé les ruches blanches dans les jardins et les vergers",
+      "audio": "dev/audio/7601/7727/7601_7727_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 675.59,
+        "original_end_s": 688.69
+      }
+    },
+    {
+      "id": "7601_7727_000140",
+      "text": "où sous les roses qui feuillolent de beaux dieux roses dansent nus viens ma tendresse est la régente de la floraison qui paraît la nature est belle et touchante",
+      "audio": "dev/audio/7601/7727/7601_7727_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 306.3,
+        "original_end_s": 324.27
+      }
+    },
+    {
+      "id": "7601_7727_000141",
+      "text": "je ne veux jamais l'oublier ma colombe ma blanche rade ô marguerite exfoliée mon île au loin ma désirade ma rose mon giroflier les satyres et les pyraustes",
+      "audio": "dev/audio/7601/7727/7601_7727_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 578.13,
+        "original_end_s": 596.8
+      }
+    },
+    {
+      "id": "7601_7727_000142",
+      "text": "il est informe aussi près de ce qui parfait présente tout ensemble et l'effort et l'effet fin",
+      "audio": "dev/audio/7601/7727/7601_7727_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 334.23,
+        "original_end_s": 346.57
+      }
+    },
+    {
+      "id": "7601_7727_000143",
+      "text": "sur les tréteaux l'arlequin blême salue d'abord les spectateurs des sorciers venus de bohême quelques fées et les enchanteurs",
+      "audio": "dev/audio/7601/7727/7601_7727_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_07_apollinaire_64kb.mp3",
+        "original_start_s": 47.47,
+        "original_end_s": 60.74
+      }
+    },
+    {
+      "id": "7601_7727_000144",
+      "text": "et l'unique cordeau des trompettes marines fin enregistré par malone",
+      "audio": "dev/audio/7601/7727/7601_7727_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_06_apollinaire_64kb.mp3",
+        "original_start_s": 18.68,
+        "original_end_s": 36.93
+      }
+    },
+    {
+      "id": "7601_7727_000145",
+      "text": "la seconde nommée noubosse est un bel arc-en-ciel joyeux les dieux s'en servent à leurs noces elle a tué trente bé-rieux et fut douée par carabosse",
+      "audio": "dev/audio/7601/7727/7601_7727_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 769.07,
+        "original_end_s": 785.36
+      }
+    },
+    {
+      "id": "7601_7727_000146",
+      "text": "portez comme un joug le croissant qu'interrogent les astrologues je suis le sultan tout-puissant",
+      "audio": "dev/audio/7601/7727/7601_7727_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 400.44,
+        "original_end_s": 411.63
+      }
+    },
+    {
+      "id": "7601_7727_000147",
+      "text": "l'on jouait aux cartes et toi tu m'avais oublié te souviens-tu du long orphelinat des gares nous traversâmes des villes qui tout le jour tournaient",
+      "audio": "dev/audio/7601/7727/7601_7727_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 81.73,
+        "original_end_s": 97.48
+      }
+    },
+    {
+      "id": "7601_7727_000148",
+      "text": "il me suffit de sentir l'odeur de leurs églises l'odeur des fleuves dans leurs villes le parfum des fleurs dans les jardins publics",
+      "audio": "dev/audio/7601/7727/7601_7727_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 163.16,
+        "original_end_s": 174.41
+      }
+    },
+    {
+      "id": "7601_7727_000149",
+      "text": "les déités des eaux vives laissent couler leurs cheveux passe il faut que tu poursuives cette belle ombre que tu veux",
+      "audio": "dev/audio/7601/7727/7601_7727_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_10_apollinaire_64kb.mp3",
+        "original_start_s": 41.19,
+        "original_end_s": 55.41
+      }
+    },
+    {
+      "id": "7601_7727_000150",
+      "text": "les brebis s'en vont dans la neige flocons de laine et ceux d'argent des soldats passent et que n'ai-je un cœur à moi ce cœur changeant changeant et puis encore que sais-je",
+      "audio": "dev/audio/7601/7727/7601_7727_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_14_apollinaire_64kb.mp3",
+        "original_start_s": 50.1,
+        "original_end_s": 66.87
+      }
+    },
+    {
+      "id": "7601_7727_000151",
+      "text": "un jour le roi dans l'eau d'argent se noya puis la bouche ouverte il s'en revint en surnageant sur la rive dormir inerte face tournée au ciel changeant",
+      "audio": "dev/audio/7601/7727/7601_7727_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 951.51,
+        "original_end_s": 967.86
+      }
+    },
+    {
+      "id": "7601_7727_000152",
+      "text": "pan sifflote dans la forêt les grenouilles humides chantent beaucoup de ces dieux ont péri",
+      "audio": "dev/audio/7601/7727/7601_7727_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 324.27,
+        "original_end_s": 335.75
+      }
+    },
+    {
+      "id": "7601_7727_000153",
+      "text": "j'ai pensé à ces rois heureux lorsque le faux amour et celle dont je suis encore amoureux heurtant leurs ombres infidèles me rendirent si malheureux",
+      "audio": "dev/audio/7601/7727/7601_7727_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 155.75,
+        "original_end_s": 172.06
+      }
+    },
+    {
+      "id": "7601_7727_000154",
+      "text": "baisse ta deuxième paupière ni à cause du soleil ni à cause de la terre mais pour ce feu oblong dont l'intensité ira s'augmentant au point qu'il deviendra un jour l'unique lumière",
+      "audio": "dev/audio/7601/7727/7601_7727_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_11_apollinaire_64kb.mp3",
+        "original_start_s": 82.31,
+        "original_end_s": 100.32
+      }
+    },
+    {
+      "id": "7601_7727_000155",
+      "text": "à fernand fleuret ouvrez-moi cette porte où je frappe en pleurant la vie est variable aussi bien que l'euripe",
+      "audio": "dev/audio/7601/7727/7601_7727_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_13_apollinaire_64kb.mp3",
+        "original_start_s": 19.53,
+        "original_end_s": 32.7
+      }
+    },
+    {
+      "id": "7601_7727_000156",
+      "text": "un charlatan crépusculaire vante les tours que l'on va faire le ciel sans teinte n'est constellé d'astres pâles comme du lait",
+      "audio": "dev/audio/7601/7727/7601_7727_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_07_apollinaire_64kb.mp3",
+        "original_start_s": 35.39,
+        "original_end_s": 47.47
+      }
+    },
+    {
+      "id": "7601_7727_000157",
+      "text": "au tournant d'une rue brûlant de tous les feux de ses façades plaies du brouillard sanguinolent où se lamentaient les façades une femme lui ressemblant",
+      "audio": "dev/audio/7601/7727/7601_7727_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-7601",
+        "gender": "m",
+        "book_id": "7727",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/alcools_1712_librivox/alcools_03_apollinaire_64kb.mp3",
+        "original_start_s": 89.81,
+        "original_end_s": 105.83
+      }
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "fleurs du mal",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "14327",
+    "book_title": "fleurs du mal",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10087_14327_000000",
+      "text": "rubens fleuve d'oubli jardin de la paresse oreiller de chair fraîche où l'on ne peut aimer mais où la vie afflue et s'agite sans cesse comme l'air dans le ciel et la mer dans la mer",
+      "audio": "dev/audio/10087/14327/10087_14327_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 13.33,
+        "original_end_s": 28.27
+      }
+    },
+    {
+      "id": "10087_14327_000001",
+      "text": "le silence et la nuit s'installèrent en lui comme dans un caveau dont la clef est perdue dès lors il fut semblable aux bêtes de la rue",
+      "audio": "dev/audio/10087/14327/10087_14327_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 73.2,
+        "original_end_s": 83.45
+      }
+    },
+    {
+      "id": "10087_14327_000002",
+      "text": "en ces temps merveilleux où la théologie fleurit avec le plus de sève et d'énergie on raconte qu'un jour un docteur des plus grands après avoir forcé les cœurs indifférents",
+      "audio": "dev/audio/10087/14327/10087_14327_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 13.78,
+        "original_end_s": 25.72
+      }
+    },
+    {
+      "id": "10087_14327_000003",
+      "text": "car c'est vraiment seigneur le meilleur témoignage que nous puissions donner de notre dignité que cet ardent sanglot qui roule d'âge en âge et vient mourir au bord de votre éternité",
+      "audio": "dev/audio/10087/14327/10087_14327_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 154.95,
+        "original_end_s": 170.4
+      }
+    },
+    {
+      "id": "10087_14327_000004",
+      "text": "léonard de vinci miroir profond et sombre où les anges charmants avec un doux souris tout chargé de mystère apparaissent à l'ombre des glaciers et des pins qui ferment leur pays",
+      "audio": "dev/audio/10087/14327/10087_14327_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 28.27,
+        "original_end_s": 42.18
+      }
+    },
+    {
+      "id": "10087_14327_000005",
+      "text": "les phares de les fleurs du mal de charles baudelaire enregistré pour librivox point org par sandra schmidt cet enregistrement fait partie du domaine public les phares",
+      "audio": "dev/audio/10087/14327/10087_14327_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.33
+      }
+    },
+    {
+      "id": "10087_14327_000006",
+      "text": "à théodore de banville mille huit cent quarante deux de les fleurs du mal de charles beaudelaire enregistré pour librivox point org par sandra schmidt cet enregistrement fait partie du domaine public",
+      "audio": "dev/audio/10087/14327/10087_14327_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 14.25
+      }
+    },
+    {
+      "id": "10087_14327_000007",
+      "text": "à théodore de banville mille huit cent quarante deux vous avez empoigné les crins de la déesse avec un tel poignet qu'on vous eût pris à voir et cet air de maîtrise et ce beau nonchaloir pour un jeune ruffian terrassant sa maîtresse",
+      "audio": "dev/audio/10087/14327/10087_14327_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
+        "original_start_s": 14.25,
+        "original_end_s": 31.56
+      }
+    },
+    {
+      "id": "10087_14327_000008",
+      "text": "et quand il s'en allait sans rien voir à travers les champs sans distinguer les étés des hivers sale inutile et laid comme une chose usée il faisait des enfants la joie et la risée",
+      "audio": "dev/audio/10087/14327/10087_14327_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 83.45,
+        "original_end_s": 97.81
+      }
+    },
+    {
+      "id": "10087_14327_000009",
+      "text": "c'est un cri répété par mille sentinelles un ordre renvoyé par mille porte-voix c'est un phare allumé sur mille citadelles un appel de chasseurs perdus dans les grands bois",
+      "audio": "dev/audio/10087/14327/10087_14327_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 141.64,
+        "original_end_s": 154.95
+      }
+    },
+    {
+      "id": "10087_14327_000010",
+      "text": "le mauvais moine les cloîtres anciens sur les grandes murailles étalaient en tableaux la sainte vérité dont l'effet réchauffant les pieuses entrailles tempérait la froideur de leur austérité en ces temps où du christ florissaient les semailles",
+      "audio": "dev/audio/10087/14327/10087_14327_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
+        "original_start_s": 11.47,
+        "original_end_s": 29.36
+      }
+    },
+    {
+      "id": "10087_14327_000011",
+      "text": "delacroix lac de sang hanté des mauvais anges ombragé par un bois de sapins toujours vert où sous un ciel chagrin des fanfares étranges passent comme un soupir étouffé de weber",
+      "audio": "dev/audio/10087/14327/10087_14327_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 111.25,
+        "original_end_s": 125.99
+      }
+    },
+    {
+      "id": "10087_14327_000012",
+      "text": "ô douleur ô douleur le temps mange la vie et l'obscur ennemi qui nous ronge le cœur du sang que nous perdons croît et se fortifie",
+      "audio": "dev/audio/10087/14327/10087_14327_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
+        "original_start_s": 48.07,
+        "original_end_s": 61.21
+      }
+    },
+    {
+      "id": "10087_14327_000013",
+      "text": "et qui sait si les fleurs nouvelles que je rêve trouveront dans ce sol lavé comme une grève le mystique aliment qui ferait leur vigueur",
+      "audio": "dev/audio/10087/14327/10087_14327_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
+        "original_start_s": 38.02,
+        "original_end_s": 48.07
+      }
+    },
+    {
+      "id": "10087_14327_000014",
+      "text": "watteau ce carnaval où bien des cœurs illustres comme des papillons errent en flamboyant décors frais et légers éclairés par des lustresqui versent la folie à ce bal tournoyant",
+      "audio": "dev/audio/10087/14327/10087_14327_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 84.61,
+        "original_end_s": 97.91
+      }
+    },
+    {
+      "id": "10087_14327_000015",
+      "text": "immédiatement sa raison s'en alla l'éclat de ce soleil d'un crêpe se voila tout le chaos roula dans cette intelligence temple autrefois vivant plein d'ordre et d'opulence sous les plafonds duquel tant de pompe avait lui",
+      "audio": "dev/audio/10087/14327/10087_14327_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 57.06,
+        "original_end_s": 73.2
+      }
+    },
+    {
+      "id": "10087_14327_000016",
+      "text": "plus d'un illustre moine aujourd'hui peu cité prenant pour atelier le champ des funérailles glorifiait la mort avec simplicité mon âme est un tombeau que mauvais cénobite depuis l'éternité je parcours et j'habite",
+      "audio": "dev/audio/10087/14327/10087_14327_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
+        "original_start_s": 29.36,
+        "original_end_s": 45.89
+      }
+    },
+    {
+      "id": "10087_14327_000017",
+      "text": "ces malédictions ces blasphèmes ces plaintes ces extases ces cris ces pleurs ces te deum sont un écho redit par mille labyrinthes c'est pour les cœurs mortels un divin opium",
+      "audio": "dev/audio/10087/14327/10087_14327_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 125.99,
+        "original_end_s": 141.64
+      }
+    },
+    {
+      "id": "10087_14327_000018",
+      "text": "poète notre sang nous fuit par chaque pore est-ce que par hasard la robe du centaure qui changeait toute veine en funèbre ruisseau était teinte trois fois dans les baves subtiles de ces vindicatifs et monstrueux reptiles que le petit hercule étranglait au berceau",
+      "audio": "dev/audio/10087/14327/10087_14327_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
+        "original_start_s": 43.82,
+        "original_end_s": 63.46
+      }
+    },
+    {
+      "id": "10087_14327_000019",
+      "text": "l'oeil clair et plein du feu de la précocité vous avez prélassé votre orgueil d'architecte dans des constructions dont l'audace correcte fait voir quelle sera votre maturité",
+      "audio": "dev/audio/10087/14327/10087_14327_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
+        "original_start_s": 31.56,
+        "original_end_s": 43.82
+      }
+    },
+    {
+      "id": "10087_14327_000020",
+      "text": "rembrandt triste hôpital tout rempli de murmures et d'un grand crucifix décoré seulement où la prière en pleurs s'exhale des ordures et d'un rayon d'hiver traversé brusquement",
+      "audio": "dev/audio/10087/14327/10087_14327_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 42.18,
+        "original_end_s": 56.14
+      }
+    },
+    {
+      "id": "10087_14327_000021",
+      "text": "colères de boxeur impudences de faune toi qui sus ramasser la beauté des goujats grand cœur gonflé d'orgueil homme débile et jaune puget mélancolique empereur des forçats",
+      "audio": "dev/audio/10087/14327/10087_14327_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 70.11,
+        "original_end_s": 84.61
+      }
+    },
+    {
+      "id": "10087_14327_000022",
+      "text": "les avoir remués dans leurs profondeurs noires après avoir franchi vers les célestes gloires des chemins singuliers à lui-même inconnus où les purs esprits seuls peut-être étaient venus comme un homme monté trop haut pris de panique s'écria transporté d'un orgueil satanique",
+      "audio": "dev/audio/10087/14327/10087_14327_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 25.72,
+        "original_end_s": 43.82
+      }
+    },
+    {
+      "id": "10087_14327_000023",
+      "text": "goya cauchemar plein de choses inconnues de fœtus qu'on fait cuire au milieu des sabbats de vieilles au miroir et d'enfants toutes nues pour tenter les démons ajustant bien leurs bas",
+      "audio": "dev/audio/10087/14327/10087_14327_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 97.91,
+        "original_end_s": 111.25
+      }
+    },
+    {
+      "id": "10087_14327_000024",
+      "text": "rien n'embellit les murs de ce cloître odieux ô moine fainéant quand saurai-je donc faire du spectacle vivant de ma triste misère le travail de mes mains et l'amour de mes yeux",
+      "audio": "dev/audio/10087/14327/10087_14327_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
+        "original_start_s": 45.89,
+        "original_end_s": 61.8
+      }
+    },
+    {
+      "id": "10087_14327_000025",
+      "text": "jésus petit jésus je t'ai poussé bien haut mais si j'avais voulu t'attaquer au défaut de l'armure ta honte égalerait ta gloire et tu ne serais plus qu'un fœtus dérisoire",
+      "audio": "dev/audio/10087/14327/10087_14327_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
+        "original_start_s": 43.82,
+        "original_end_s": 57.06
+      }
+    },
+    {
+      "id": "10087_14327_000026",
+      "text": "michel-ange lieu vague où l'on voit des hercules se mêler à des christs et se lever tout droit des fantômes puissants qui dans les crépuscules déchirent leur suaire en étirant leurs doigts",
+      "audio": "dev/audio/10087/14327/10087_14327_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
+        "original_start_s": 56.14,
+        "original_end_s": 70.11
+      }
+    },
+    {
+      "id": "10087_14327_000027",
+      "text": "voilà que j'ai touché l'automne des idées et qu'il faut employer la pelle et les râteaux pour rassembler à neuf les terres inondées où l'eau creuse des trous grands comme des tombeaux",
+      "audio": "dev/audio/10087/14327/10087_14327_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
+        "original_start_s": 26.02,
+        "original_end_s": 38.02
+      }
+    },
+    {
+      "id": "10087_14327_000028",
+      "text": "ma jeunesse ne fut qu'un ténébreux orage traversé çà et là par de brillants soleils le tonnerre et la pluie ont fait un tel ravage qu'il reste en mon jardin bien peu de fruits vermeils",
+      "audio": "dev/audio/10087/14327/10087_14327_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10087",
+        "gender": "w",
+        "book_id": "14327",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
+        "original_start_s": 12.66,
+        "original_end_s": 26.02
+      }
+    }
+  ]
+}

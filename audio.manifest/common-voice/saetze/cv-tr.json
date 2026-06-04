@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — tr",
+  "lang": "tr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-tr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "25365444",
+      "text": "Görüyorum ki, Maria Puder'in ölümü sizi alakadar ediyor.",
+      "audio": "tr/unknown/tr_u_25365444.mp3",
+      "tags": {
+        "source_item_id": "25365444",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25713384",
+      "text": "Son günlerde pansiyona gitmekten çekiniyordum.",
+      "audio": "tr/unknown/tr_u_25713384.mp3",
+      "tags": {
+        "source_item_id": "25713384",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25843953",
+      "text": "Böyle bir şey hem elimden gelmez, hem de bir faydası olmazdı.",
+      "audio": "tr/unknown/tr_u_25843953_i_stanbul_t_rk_esi.mp3",
+      "tags": {
+        "source_item_id": "25843953",
+        "gender": "u",
+        "accent": "İstanbul türkçesi"
+      }
+    },
+    {
+      "id": "26531200",
+      "text": "On beş dakika istirahatten sonra feci dramlar, kahkahalı komediler başlayacaktı…",
+      "audio": "tr/unknown/tr_u_26531200.mp3",
+      "tags": {
+        "source_item_id": "26531200",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27175277",
+      "text": "Ne parası var, ne kimsesi var…",
+      "audio": "tr/unknown/tr_u_27175277.mp3",
+      "tags": {
+        "source_item_id": "27175277",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27764558",
+      "text": "Beni, bütün ömrümce bir meçhulü, mevcut olmayan bir şeyi aramaya mahkûm ediyordu.",
+      "audio": "tr/unknown/tr_u_27764558.mp3",
+      "tags": {
+        "source_item_id": "27764558",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28651153",
+      "text": "Sabahleyin karşı karşıya gelince dişi söylemek istediği şeyleri gözleriyle anlatmak istedi.",
+      "audio": "tr/unknown/tr_u_28651153.mp3",
+      "tags": {
+        "source_item_id": "28651153",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28856099",
+      "text": "Maksat sırf memlekete hayırlı bir evlat yetiştirmek…",
+      "audio": "tr/unknown/tr_u_28856099.mp3",
+      "tags": {
+        "source_item_id": "28856099",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28903923",
+      "text": "Avradı eri saklar, peyniri deri.",
+      "audio": "tr/unknown/tr_u_28903923.mp3",
+      "tags": {
+        "source_item_id": "28903923",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "28904240",
+      "text": "Zalim kadıdan insaflı subaşı yeğdir.",
+      "audio": "tr/unknown/tr_u_28904240.mp3",
+      "tags": {
+        "source_item_id": "28904240",
+        "gender": "u"
+      }
+    }
+  ]
+}

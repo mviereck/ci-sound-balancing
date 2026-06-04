@@ -1,0 +1,143 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — zza",
+  "lang": "zza",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-zza",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "40139228",
+      "text": "No çakêt zaf ro to ame",
+      "audio": "zza/unknown/zza_u_40139228.mp3",
+      "tags": {
+        "source_item_id": "40139228",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139230",
+      "text": "Hetê ilmê zonu ra qe jü delil çino ke Zazaki zonê do Kurdki bo.",
+      "audio": "zza/unknown/zza_u_40139230.mp3",
+      "tags": {
+        "source_item_id": "40139230",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139236",
+      "text": "Ey karê xo qedênay bi.",
+      "audio": "zza/unknown/zza_u_40139236.mp3",
+      "tags": {
+        "source_item_id": "40139236",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139252",
+      "text": "Her kes be derdê xuyo.",
+      "audio": "zza/unknown/zza_u_40139252.mp3",
+      "tags": {
+        "source_item_id": "40139252",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139261",
+      "text": "Ma her ca de vanê",
+      "audio": "zza/unknown/zza_u_40139261.mp3",
+      "tags": {
+        "source_item_id": "40139261",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139482",
+      "text": "O yeno",
+      "audio": "zza/unknown/zza_u_40139482.mp3",
+      "tags": {
+        "source_item_id": "40139482",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40154482",
+      "text": "Lajek rusna mekteb",
+      "audio": "zza/unknown/zza_u_40154482.mp3",
+      "tags": {
+        "source_item_id": "40154482",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139408",
+      "text": "Çehar sey",
+      "audio": "zza/unknown/zza_u_40139408.mp3",
+      "tags": {
+        "source_item_id": "40139408",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139489",
+      "text": "O nêwazeno.",
+      "audio": "zza/unknown/zza_u_40139489.mp3",
+      "tags": {
+        "source_item_id": "40139489",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139423",
+      "text": "Ez işliga xo cênu pıra.",
+      "audio": "zza/unknown/zza_u_40139423.mp3",
+      "tags": {
+        "source_item_id": "40139423",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40158935",
+      "text": "Cew be genım ra sanenê pê, pia rinê ra.",
+      "audio": "zza/unknown/zza_u_40158935.mp3",
+      "tags": {
+        "source_item_id": "40158935",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40139479",
+      "text": "Ê, mesın dosenê.",
+      "audio": "zza/unknown/zza_u_40139479.mp3",
+      "tags": {
+        "source_item_id": "40139479",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40154513",
+      "text": "Bıwere, xo mırd bıkere.",
+      "audio": "zza/unknown/zza_u_40154513.mp3",
+      "tags": {
+        "source_item_id": "40154513",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40158947",
+      "text": "Qısawate meke.",
+      "audio": "zza/unknown/zza_u_40158947.mp3",
+      "tags": {
+        "source_item_id": "40158947",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — mhr",
+  "lang": "mhr",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-mhr",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "31270376",
+      "text": "Корем пундашке волен шумек, Мичу вигак вес могырышкыла миен тӱкныш.",
+      "audio": "mhr/unknown/mhr_u_31270376.mp3",
+      "tags": {
+        "source_item_id": "31270376",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31834897",
+      "text": "Зинаида Васильевнан мутшо Григорий Петровичын шӱмжым чылт кӱртньӧ козыра денак удырале.",
+      "audio": "mhr/unknown/mhr_u_31834897.mp3",
+      "tags": {
+        "source_item_id": "31834897",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31858543",
+      "text": "— Адакше авам таче шыл подкогыльым ыштен.",
+      "audio": "mhr/unknown/mhr_u_31858543.mp3",
+      "tags": {
+        "source_item_id": "31858543",
+        "gender": "u",
+        "accent": "Шыман и лыжган"
+      }
+    },
+    {
+      "id": "32080644",
+      "text": "Сандене ачаже самырыкнекак уке лиймыжлан эргын чон коржын орланымыже раш палдырна.",
+      "audio": "mhr/unknown/mhr_u_32080644.mp3",
+      "tags": {
+        "source_item_id": "32080644",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32084524",
+      "text": "Тиде жапыште Эдвард савар йымалне ала-могай йӱкым кольо.",
+      "audio": "mhr/unknown/mhr_u_32084524.mp3",
+      "tags": {
+        "source_item_id": "32084524",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "33905295",
+      "text": "Шогалак ончышаш, — семынже кутыра Йыгнат, йолжо дене йыгкален, постамент олмым муэш.",
+      "audio": "mhr/unknown/mhr_u_33905295.mp3",
+      "tags": {
+        "source_item_id": "33905295",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34938479",
+      "text": "— Йӧршын уда айдемак огыл...",
+      "audio": "mhr/unknown/mhr_u_34938479.mp3",
+      "tags": {
+        "source_item_id": "34938479",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "34993001",
+      "text": "Иктаж минут жап гыч Эдвард кухньыш пурыш, но Темалым ыш уж.",
+      "audio": "mhr/unknown/mhr_u_34993001.mp3",
+      "tags": {
+        "source_item_id": "34993001",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35263412",
+      "text": "Салтак гыч пӧртылят, тунамак ӱдырым нале.",
+      "audio": "mhr/unknown/mhr_u_35263412.mp3",
+      "tags": {
+        "source_item_id": "35263412",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "35300133",
+      "text": "Марпа ден качымарий ӱстел ваштареш сукен шинчыт.",
+      "audio": "mhr/unknown/mhr_u_35300133.mp3",
+      "tags": {
+        "source_item_id": "35300133",
+        "gender": "u"
+      }
+    }
+  ]
+}

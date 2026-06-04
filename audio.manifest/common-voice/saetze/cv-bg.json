@@ -1,0 +1,138 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — bg",
+  "lang": "bg",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-bg",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "24999479",
+      "text": "Нощта прекарахме тоя път на сухо, под стряха и при огън.",
+      "audio": "bg/unknown/bg_u_24999479.mp3",
+      "tags": {
+        "source_item_id": "24999479",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25570487",
+      "text": "Залутал се тъдява по обяд, той беше потен, запъхтян, пламнал.",
+      "audio": "bg/unknown/bg_u_25570487.mp3",
+      "tags": {
+        "source_item_id": "25570487",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37118248",
+      "text": "След три деня чичо Митуш се помина.",
+      "audio": "bg/unknown/bg_u_37118248_sofia_accent.mp3",
+      "tags": {
+        "source_item_id": "37118248",
+        "gender": "u",
+        "accent": "Sofia accent"
+      }
+    },
+    {
+      "id": "25078710",
+      "text": "Аз само се запрях, та послушах Йорга, като изреждаше картините.",
+      "audio": "bg/unknown/bg_u_25078710.mp3",
+      "tags": {
+        "source_item_id": "25078710",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37118330",
+      "text": "Кочо написа на кръглата мраморна маса една телеграма и излезе.",
+      "audio": "bg/unknown/bg_u_37118330_sofia_accent.mp3",
+      "tags": {
+        "source_item_id": "37118330",
+        "gender": "u",
+        "accent": "Sofia accent"
+      }
+    },
+    {
+      "id": "25908066",
+      "text": "Това предположение беше по-вярно психологически — любовта прави и по-големи чудеса.",
+      "audio": "bg/unknown/bg_u_25908066.mp3",
+      "tags": {
+        "source_item_id": "25908066",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24999560",
+      "text": "Той издаваше тъпоглухия си глас пак от онова същото място, отгдето го слушахме по-напред.",
+      "audio": "bg/unknown/bg_u_24999560.mp3",
+      "tags": {
+        "source_item_id": "24999560",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25313101",
+      "text": "— Подигравай се с едно бедно момиче.",
+      "audio": "bg/unknown/bg_u_25313101.mp3",
+      "tags": {
+        "source_item_id": "25313101",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25039263",
+      "text": "Булка Цанковица, права пред огнището, с ръце на хълбоци, заплесната, слушаше.",
+      "audio": "bg/unknown/bg_u_25039263.mp3",
+      "tags": {
+        "source_item_id": "25039263",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25638791",
+      "text": "Когато се поотдалечиха, Иван се обърна: селяните бяха се умирили и струпали накуп.",
+      "audio": "bg/unknown/bg_u_25638791.mp3",
+      "tags": {
+        "source_item_id": "25638791",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25597174",
+      "text": "Потъмнял, гневен, патронташът на пояса му лъщи.",
+      "audio": "bg/unknown/bg_u_25597174.mp3",
+      "tags": {
+        "source_item_id": "25597174",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37118877",
+      "text": "Ганка Попова, даскалица е в Каралии.",
+      "audio": "bg/unknown/bg_u_37118877_sofia_accent.mp3",
+      "tags": {
+        "source_item_id": "37118877",
+        "gender": "u",
+        "accent": "Sofia accent"
+      }
+    },
+    {
+      "id": "37133441",
+      "text": "Покрай Струма из маковите градини и пожънатите ниви лежат трупове на французки солдати.",
+      "audio": "bg/unknown/bg_u_37133441_sofia_accent.mp3",
+      "tags": {
+        "source_item_id": "37133441",
+        "gender": "u",
+        "accent": "Sofia accent"
+      }
+    }
+  ]
+}

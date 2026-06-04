@@ -1,0 +1,115 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — nan-tw",
+  "lang": "nan-tw",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-nan-tw",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "33799190",
+      "text": "國華路口（Kok-huâ Lōo-kháu | Kok-hôa Lō͘-kháu）",
+      "audio": "nan-tw/unknown/nan-tw_u_33799190.mp3",
+      "tags": {
+        "source_item_id": "33799190",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "32167632",
+      "text": "番薯糋（han-tsî-tsìnn | han-tsû-tsìnn | hân-tsî-tsìnn）",
+      "audio": "nan-tw/unknown/nan-tw_u_32167632.mp3",
+      "tags": {
+        "source_item_id": "32167632",
+        "gender": "u",
+        "accent": "偏漳腔,桃園"
+      }
+    },
+    {
+      "id": "32332804",
+      "text": "阮兜的代誌我家己會處理（Guán tau ê tāi-tsì guá ka-kī ē tshú-lí）",
+      "audio": "nan-tw/unknown/nan-tw_u_32332804.mp3",
+      "tags": {
+        "source_item_id": "32332804",
+        "gender": "u",
+        "accent": "漳州腔"
+      }
+    },
+    {
+      "id": "38073544",
+      "text": "漢他病毒（Hàn-thann Pēnn-to̍k | Hàn-thann Pīnn-to̍k）",
+      "audio": "nan-tw/unknown/nan-tw_u_38073544.mp3",
+      "tags": {
+        "source_item_id": "38073544",
+        "gender": "u",
+        "accent": "台北腔"
+      }
+    },
+    {
+      "id": "32136332",
+      "text": "拄才（tú-tsiah）",
+      "audio": "nan-tw/unknown/nan-tw_u_32136332.mp3",
+      "tags": {
+        "source_item_id": "32136332",
+        "gender": "u",
+        "accent": "偏漳腔,桃園"
+      }
+    },
+    {
+      "id": "32146726",
+      "text": "兩个人的感情真好（Nn̄g ê lâng ê kám-tsîng tsin hó）",
+      "audio": "nan-tw/unknown/nan-tw_u_32146726.mp3",
+      "tags": {
+        "source_item_id": "32146726",
+        "gender": "u",
+        "accent": "偏漳腔,桃園"
+      }
+    },
+    {
+      "id": "32354655",
+      "text": "北投（Pak-tâu）",
+      "audio": "nan-tw/unknown/nan-tw_u_32354655.mp3",
+      "tags": {
+        "source_item_id": "32354655",
+        "gender": "u",
+        "accent": "漳州腔"
+      }
+    },
+    {
+      "id": "32332810",
+      "text": "雄雄眼著（hiông-hiông-gán-tio̍h）",
+      "audio": "nan-tw/unknown/nan-tw_u_32332810.mp3",
+      "tags": {
+        "source_item_id": "32332810",
+        "gender": "u",
+        "accent": "漳州腔"
+      }
+    },
+    {
+      "id": "32136184",
+      "text": "要詞（iàu-sû）",
+      "audio": "nan-tw/unknown/nan-tw_u_32136184.mp3",
+      "tags": {
+        "source_item_id": "32136184",
+        "gender": "u",
+        "accent": "偏漳腔,桃園"
+      }
+    },
+    {
+      "id": "30911700",
+      "text": "做岫（tsò-siū）",
+      "audio": "nan-tw/unknown/nan-tw_u_30911700.mp3",
+      "tags": {
+        "source_item_id": "30911700",
+        "gender": "u"
+      }
+    }
+  ]
+}

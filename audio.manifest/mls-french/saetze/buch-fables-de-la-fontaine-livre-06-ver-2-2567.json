@@ -1,0 +1,158 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Fables de La Fontaine, livre 06 (ver 2)",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "2567",
+    "book_title": "Fables de La Fontaine, livre 06 (ver 2)",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2154_2567_000000",
+      "text": "la renommée enfin commença de se plaindre que l'on ne lui trouvait jamais de demeure fixe et certaine bien souvent l'on perdait à la chercher sa peine",
+      "audio": "test/audio/2154/2567/2154_2567_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 71.49,
+        "original_end_s": 83.4
+      }
+    },
+    {
+      "id": "2154_2567_000001",
+      "text": "dans le cristal d'une fontaine un cerf se mirant autrefois louait la beauté de son bois et ne pouvait qu'avec peine souffrir ses jambes de fuseaux ont il voyait l'objet se perdre dans les eaux",
+      "audio": "test/audio/2154/2567/2154_2567_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
+        "original_start_s": 14.11,
+        "original_end_s": 29.4
+      }
+    },
+    {
+      "id": "2154_2567_000002",
+      "text": "quelle proportion de mes pieds à ma tête disait-il en voyant leur ombre avec douleur des taillis les plus hauts mon front atteint le faîte mes pieds ne me font point d'honneur",
+      "audio": "test/audio/2154/2567/2154_2567_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
+        "original_start_s": 29.4,
+        "original_end_s": 44.89
+      }
+    },
+    {
+      "id": "2154_2567_000003",
+      "text": "il fallait donc qu'elle eût un séjour affecté un séjour d'où l'on pût en toutes les familles l'envoyer à jour arrêté comme il n'était alors aucun couvent de filles on y trouva difficulté",
+      "audio": "test/audio/2154/2567/2154_2567_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 83.4,
+        "original_end_s": 100.01
+      }
+    },
+    {
+      "id": "2154_2567_000004",
+      "text": "il se dédit alors et maudit les présents que le ciel lui fait tous les ans nous faisons cas du beau nous méprisons l'utile et le beau souvent nous détruit",
+      "audio": "test/audio/2154/2567/2154_2567_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
+        "original_start_s": 64.87,
+        "original_end_s": 78.88
+      }
+    },
+    {
+      "id": "2154_2567_000005",
+      "text": "la déesse discorde ayant brouillé les dieux et fait un grand procès là-haut pour une pomme on la fit déloger des cieux",
+      "audio": "test/audio/2154/2567/2154_2567_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 14.26,
+        "original_end_s": 24.44
+      }
+    },
+    {
+      "id": "2154_2567_000006",
+      "text": "pour la faire trouver aux lieux où le besoin demandait qu'elle fût présente la renommée avait le soin de l'avertir et l'autre diligente courait vite aux débats et prévenait la paix faisait d'une étincelle un feu long à s'éteindre",
+      "audio": "test/audio/2154/2567/2154_2567_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 54.01,
+        "original_end_s": 71.49
+      }
+    },
+    {
+      "id": "2154_2567_000007",
+      "text": "tout en parlant de la sorte un limier le fait partir il tâche à se garantir dans les forêts il s'emporte son bois dommageable ornement l'arrêtant à chaque moment nuit à l'office que lui rendent ses pieds de qui ses jours dépendent",
+      "audio": "test/audio/2154/2567/2154_2567_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_09_lafontaine_64kb.mp3",
+        "original_start_s": 44.89,
+        "original_end_s": 64.87
+      }
+    },
+    {
+      "id": "2154_2567_000008",
+      "text": "elle nous fit l'honneur en ce bas univers de préférer notre hémisphère à celui des mortels qui nous sont opposés gens grossiers peu civilisés et qui se mariant sans prêtre et sans notaire de la discorde n'ont que faire",
+      "audio": "test/audio/2154/2567/2154_2567_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 36.32,
+        "original_end_s": 54.01
+      }
+    },
+    {
+      "id": "2154_2567_000009",
+      "text": "l'auberge enfin de l'hyménée lui fut pour maison assignée fin de la fable vingt la discorde cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/2154/2567/2154_2567_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2154",
+        "gender": "w",
+        "book_id": "2567",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/fables_de_la_fontaine_06_0901_librivox/fables_06_20_lafontaine_64kb.mp3",
+        "original_start_s": 100.01,
+        "original_end_s": 118.36
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ur",
+  "lang": "ur",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ur",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26652058",
+      "text": "مرتبہ کرک نامہ سے غیر حاضری کچھ زیادہ ہی طویل ہوگئی ہے",
+      "audio": "ur/unknown/ur_u_26652058.mp3",
+      "tags": {
+        "source_item_id": "26652058",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26657544",
+      "text": "صورتحال کے متعلق غلط رائے قائم کرتا ہوں",
+      "audio": "ur/unknown/ur_u_26657544.mp3",
+      "tags": {
+        "source_item_id": "26657544",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26701461",
+      "text": "یہ کہہ کے ہنس پڑے۔",
+      "audio": "ur/unknown/ur_u_26701461_punjabi.mp3",
+      "tags": {
+        "source_item_id": "26701461",
+        "gender": "u",
+        "accent": "Punjabi"
+      }
+    },
+    {
+      "id": "27745883",
+      "text": "سابق لیگ اسپنر عبدالقادر کے بیٹے ٹورمیچ میں اسٹریلیا کی نمائندگی کریں گے",
+      "audio": "ur/unknown/ur_u_27745883.mp3",
+      "tags": {
+        "source_item_id": "27745883",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "29186220",
+      "text": "گاڑی کو چلنے کا حکم جاری کر دیا",
+      "audio": "ur/unknown/ur_u_29186220.mp3",
+      "tags": {
+        "source_item_id": "29186220",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "30644821",
+      "text": "ابتدائی اقدامات میں ایک متوازن یکسمتی حرکت دکھاتا ہے",
+      "audio": "ur/unknown/ur_u_30644821.mp3",
+      "tags": {
+        "source_item_id": "30644821",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31771683",
+      "text": "کبھی کبھار ہی خیالی پلاو بناتا ہوں",
+      "audio": "ur/unknown/ur_u_31771683.mp3",
+      "tags": {
+        "source_item_id": "31771683",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31772079",
+      "text": "شہر کے سارے معززین کشمیر جا چکے ہیں۔",
+      "audio": "ur/unknown/ur_u_31772079_islamabadi_karachi.mp3",
+      "tags": {
+        "source_item_id": "31772079",
+        "gender": "u",
+        "accent": "Islamabadi,Karachi"
+      }
+    },
+    {
+      "id": "31775378",
+      "text": "وہ سیاسی رومان کو مسترد کرتی ہے۔",
+      "audio": "ur/unknown/ur_u_31775378.mp3",
+      "tags": {
+        "source_item_id": "31775378",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "31780055",
+      "text": "سوشل میڈیا کی وجہ سے اس کی رسائی بہت بڑھ گئی ہے۔",
+      "audio": "ur/unknown/ur_u_31780055.mp3",
+      "tags": {
+        "source_item_id": "31780055",
+        "gender": "u"
+      }
+    }
+  ]
+}

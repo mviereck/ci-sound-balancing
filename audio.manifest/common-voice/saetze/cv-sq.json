@@ -1,0 +1,146 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — sq",
+  "lang": "sq",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-sq",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37655606",
+      "text": "Krerët turq e denoncuan sulmin.",
+      "audio": "sq/unknown/sq_u_37655606_gjakovar_kosovar.mp3",
+      "tags": {
+        "source_item_id": "37655606",
+        "gender": "u",
+        "accent": "gjakovar,kosovar"
+      }
+    },
+    {
+      "id": "37795391",
+      "text": "Gjeografikisht, liria e shtypit është veçanërisht e keqe në Turqinë juglindore.",
+      "audio": "sq/unknown/sq_u_37795391.mp3",
+      "tags": {
+        "source_item_id": "37795391",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37800718",
+      "text": "Shqipëria mbështet vetë-qeverisjen dhe institucionet administrative në provincë, shtoi ai.",
+      "audio": "sq/unknown/sq_u_37800718.mp3",
+      "tags": {
+        "source_item_id": "37800718",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39190751",
+      "text": "Një grup ekspertësh është duke punuar tani për zbatimin e projektit.",
+      "audio": "sq/unknown/sq_u_39190751.mp3",
+      "tags": {
+        "source_item_id": "39190751",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37795651",
+      "text": "Morën pjesë zyrtarë nga institucionet e Kosovës.",
+      "audio": "sq/unknown/sq_u_37795651.mp3",
+      "tags": {
+        "source_item_id": "37795651",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39206371",
+      "text": "Eksportet shqiptare mbeten të dobëta.",
+      "audio": "sq/unknown/sq_u_39206371.mp3",
+      "tags": {
+        "source_item_id": "39206371",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37800900",
+      "text": "Problemi i Kosovës është ende një çështje e hapur.",
+      "audio": "sq/unknown/sq_u_37800900.mp3",
+      "tags": {
+        "source_item_id": "37800900",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37775799",
+      "text": "Republika Demokratike Federale e Nepalit",
+      "audio": "sq/unknown/sq_u_37775799_gjakovar_kosovar.mp3",
+      "tags": {
+        "source_item_id": "37775799",
+        "gender": "u",
+        "accent": "gjakovar,kosovar"
+      }
+    },
+    {
+      "id": "37795614",
+      "text": "Frashër Krasniqin e propozojmë.",
+      "audio": "sq/unknown/sq_u_37795614.mp3",
+      "tags": {
+        "source_item_id": "37795614",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37800810",
+      "text": "Po, vllehët janë grekë.",
+      "audio": "sq/unknown/sq_u_37800810.mp3",
+      "tags": {
+        "source_item_id": "37800810",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37655600",
+      "text": "Dëshira ekziston.",
+      "audio": "sq/unknown/sq_u_37655600_gjakovar_kosovar.mp3",
+      "tags": {
+        "source_item_id": "37655600",
+        "gender": "u",
+        "accent": "gjakovar,kosovar"
+      }
+    },
+    {
+      "id": "37800782",
+      "text": "Shtetin e së drejtës.",
+      "audio": "sq/unknown/sq_u_37800782.mp3",
+      "tags": {
+        "source_item_id": "37800782",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39206427",
+      "text": "Procesi i rishikimit afatmesëm të Strategjisë.",
+      "audio": "sq/unknown/sq_u_39206427.mp3",
+      "tags": {
+        "source_item_id": "39206427",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37800741",
+      "text": "Letërsia rajonale ishte tema e një veprimtarie të fundjavës.",
+      "audio": "sq/unknown/sq_u_37800741.mp3",
+      "tags": {
+        "source_item_id": "37800741",
+        "gender": "u"
+      }
+    }
+  ]
+}

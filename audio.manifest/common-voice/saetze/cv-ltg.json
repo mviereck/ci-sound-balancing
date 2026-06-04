@@ -1,0 +1,181 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — ltg",
+  "lang": "ltg",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-ltg",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38561239",
+      "text": "Par atlaidem kai pi boda sapierkta jaunuo Anglejis dzeive.",
+      "audio": "ltg/unknown/ltg_u_38561239_vi_ni_vi_nu_pogosts_latvija_r_ga_latgal_te_latviete.mp3",
+      "tags": {
+        "source_item_id": "38561239",
+        "gender": "u",
+        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
+      }
+    },
+    {
+      "id": "38608251",
+      "text": "Staigoj, ka kuojis zemis naker.",
+      "audio": "ltg/unknown/ltg_u_38608251.mp3",
+      "tags": {
+        "source_item_id": "38608251",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38641116",
+      "text": "Voi jam vyspuor ir bejuse muote.",
+      "audio": "ltg/unknown/ltg_u_38641116.mp3",
+      "tags": {
+        "source_item_id": "38641116",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38661742",
+      "text": "Rodus cyti sauc par radni.",
+      "audio": "ltg/unknown/ltg_u_38661742.mp3",
+      "tags": {
+        "source_item_id": "38661742",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38693077",
+      "text": "Sadyuru pierstu ar eglis zorim.",
+      "audio": "ltg/unknown/ltg_u_38693077.mp3",
+      "tags": {
+        "source_item_id": "38693077",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38696755",
+      "text": "Jei gleznoj ar prasu pa korstu vosku i kruosojim kreitenim.",
+      "audio": "ltg/unknown/ltg_u_38696755.mp3",
+      "tags": {
+        "source_item_id": "38696755",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38757668",
+      "text": "Izamauc kai syla tuorps nu zuomaucis.",
+      "audio": "ltg/unknown/ltg_u_38757668.mp3",
+      "tags": {
+        "source_item_id": "38757668",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38785422",
+      "text": "Saime, lela ci moza, svareigi, ka ir.",
+      "audio": "ltg/unknown/ltg_u_38785422.mp3",
+      "tags": {
+        "source_item_id": "38785422",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39294258",
+      "text": "Atguodoju, ka vacmama nu reita attaiseja treju litru kompota burku.",
+      "audio": "ltg/unknown/ltg_u_39294258.mp3",
+      "tags": {
+        "source_item_id": "39294258",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39885261",
+      "text": "Mes laižam jam pakaļ, prīceigi, ka vacmama atpakaļ ir dabojama daudzi mudruok.",
+      "audio": "ltg/unknown/ltg_u_39885261_vi_ni_vi_nu_pogosts_latvija_r_ga_latgal_te_latviete.mp3",
+      "tags": {
+        "source_item_id": "39885261",
+        "gender": "u",
+        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
+      }
+    },
+    {
+      "id": "38759886",
+      "text": "Ar tukšu sumku iz sātu, atpakaļ ar buļbem, ūlom i kriejumu.",
+      "audio": "ltg/unknown/ltg_u_38759886.mp3",
+      "tags": {
+        "source_item_id": "38759886",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38731747",
+      "text": "Tamuos dzeda puorsokuos prīškmatu beja moz.",
+      "audio": "ltg/unknown/ltg_u_38731747.mp3",
+      "tags": {
+        "source_item_id": "38731747",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39919460",
+      "text": "Izvylka nu čardaka dzeda leluos butelis, raudzeiškys itūgod veina taiseit.",
+      "audio": "ltg/unknown/ltg_u_39919460.mp3",
+      "tags": {
+        "source_item_id": "39919460",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38640357",
+      "text": "Tū cīši labi var redzēt.",
+      "audio": "ltg/unknown/ltg_u_38640357.mp3",
+      "tags": {
+        "source_item_id": "38640357",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38662283",
+      "text": "Uzbryuk ar vuordim kai ar suņa rejom.",
+      "audio": "ltg/unknown/ltg_u_38662283.mp3",
+      "tags": {
+        "source_item_id": "38662283",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38693007",
+      "text": "Svacainis mieness.",
+      "audio": "ltg/unknown/ltg_u_38693007.mp3",
+      "tags": {
+        "source_item_id": "38693007",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39296732",
+      "text": "Puorskrīnam puors īlom i stuojamēs cylvāku ryndā.",
+      "audio": "ltg/unknown/ltg_u_39296732.mp3",
+      "tags": {
+        "source_item_id": "39296732",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39919086",
+      "text": "Škiunī ir tymss, čabynuošonuos īt tyvuok i tyvuok.",
+      "audio": "ltg/unknown/ltg_u_39919086.mp3",
+      "tags": {
+        "source_item_id": "39919086",
+        "gender": "u"
+      }
+    }
+  ]
+}

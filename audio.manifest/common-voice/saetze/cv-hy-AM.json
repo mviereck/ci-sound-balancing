@@ -1,0 +1,186 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — hy-AM",
+  "lang": "hy-AM",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-hy-AM",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26466593",
+      "text": "Որովայնի ապոնևրոզը բունոց է հանդիսանում ուղիղ մկանի համար։",
+      "audio": "hy-AM/unknown/hy-AM_u_26466593.mp3",
+      "tags": {
+        "source_item_id": "26466593",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39273478",
+      "text": "Շամքորի ճակատամարտում աչքի ընկած բազմաթիվ հայեր արժանացան կառավարական պարգևների։",
+      "audio": "hy-AM/unknown/hy-AM_u_39273478.mp3",
+      "tags": {
+        "source_item_id": "39273478",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39325546",
+      "text": "- Կարող եմ ասել, որ առանց ինձ մի օր էլ չի ապրի:",
+      "audio": "hy-AM/unknown/hy-AM_u_39325546.mp3",
+      "tags": {
+        "source_item_id": "39325546",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39420661",
+      "text": "Նա նաև հայտնի էր իր գծուծությամբ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39420661.mp3",
+      "tags": {
+        "source_item_id": "39420661",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39433852",
+      "text": "Լվացվող պաստառների ստեղծմամբ լինկրուստ կիրառությունը սահմանափակվել է։",
+      "audio": "hy-AM/unknown/hy-AM_u_39433852_eastern.mp3",
+      "tags": {
+        "source_item_id": "39433852",
+        "gender": "u",
+        "accent": "Գրական,eastern"
+      }
+    },
+    {
+      "id": "39446956",
+      "text": "Մնացած ինքնաթիռների մարտունակությունը հարցականի տակ է։",
+      "audio": "hy-AM/unknown/hy-AM_u_39446956_eastern_armenian.mp3",
+      "tags": {
+        "source_item_id": "39446956",
+        "gender": "u",
+        "accent": "Eastern Armenian"
+      }
+    },
+    {
+      "id": "39459169",
+      "text": "Բամբակենու ծայրատումը կատարվում է նախքան զանգվածային ծաղկումը։",
+      "audio": "hy-AM/unknown/hy-AM_u_39459169_female.mp3",
+      "tags": {
+        "source_item_id": "39459169",
+        "gender": "u",
+        "accent": "Female"
+      }
+    },
+    {
+      "id": "39471720",
+      "text": "Հիպերբոլական ֆունկցիաները հաճախ հանդիպում են տարբեր ինտեգրալների հաշվման ժամանակ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39471720.mp3",
+      "tags": {
+        "source_item_id": "39471720",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39498188",
+      "text": "Զբոսայգու աշխատանքային ժամերը տարբեր են՝ կախված տարվա եղանակից։",
+      "audio": "hy-AM/unknown/hy-AM_u_39498188.mp3",
+      "tags": {
+        "source_item_id": "39498188",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39464815",
+      "text": "Իսկ նա, ընդունելով հաղորդությունը, արագ դուրս եկավ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39464815.mp3",
+      "tags": {
+        "source_item_id": "39464815",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39462495",
+      "text": "Դադայի ակունքներում նախապատերազմյան ավանգարդն է։",
+      "audio": "hy-AM/unknown/hy-AM_u_39462495_female.mp3",
+      "tags": {
+        "source_item_id": "39462495",
+        "gender": "u",
+        "accent": "Female"
+      }
+    },
+    {
+      "id": "39275391",
+      "text": "Ցուցահանդեսին առաջին անգամ հանրությանը ներկայացվում է ֆոտոսրահ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39275391.mp3",
+      "tags": {
+        "source_item_id": "39275391",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26610443",
+      "text": "Երաժշտական գործիքներից են լանգշպիլը (աղեղնավոր) և ջութակը։",
+      "audio": "hy-AM/unknown/hy-AM_u_26610443.mp3",
+      "tags": {
+        "source_item_id": "26610443",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39529978",
+      "text": "Արշաւիրի ողջ ընտանիքը եղած է դաշնակցական։",
+      "audio": "hy-AM/unknown/hy-AM_u_39529978.mp3",
+      "tags": {
+        "source_item_id": "39529978",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39552558",
+      "text": "Գտնվում էր Տևի գյուղից արևելք, ձորի մեջ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39552558_eastern.mp3",
+      "tags": {
+        "source_item_id": "39552558",
+        "gender": "u",
+        "accent": "Գրական,eastern"
+      }
+    },
+    {
+      "id": "39543344",
+      "text": "ըստ երևույթին ջանք անելով հիշելու նրա անունը:",
+      "audio": "hy-AM/unknown/hy-AM_u_39543344_eastern_armenian.mp3",
+      "tags": {
+        "source_item_id": "39543344",
+        "gender": "u",
+        "accent": "Eastern Armenian"
+      }
+    },
+    {
+      "id": "39547775",
+      "text": "Պատկանում է խաղողի արևմտաեվրոպական տեսակի բնաշխարհագրական խմբին։",
+      "audio": "hy-AM/unknown/hy-AM_u_39547775.mp3",
+      "tags": {
+        "source_item_id": "39547775",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "39552495",
+      "text": "Մարտերից մեկում վիրավորվել է և ուղարկվել հոսպիտալ։",
+      "audio": "hy-AM/unknown/hy-AM_u_39552495_eastern.mp3",
+      "tags": {
+        "source_item_id": "39552495",
+        "gender": "u",
+        "accent": "Գրական,eastern"
+      }
+    }
+  ]
+}

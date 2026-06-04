@@ -1,0 +1,147 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — as",
+  "lang": "as",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-as",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "32843638",
+      "text": "কাশীনাথ গাঁওখনৰ ভিতৰতে ধনী মানুহ।",
+      "audio": "as/unknown/as_u_32843638_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32843638",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32843639",
+      "text": "জাপ মাৰি সিহঁতৰ ওপৰত পৰি প্ৰাণবধ কৰে।",
+      "audio": "as/unknown/as_u_32843639_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32843639",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32843692",
+      "text": "এই নম্বৰটো লোৱা আৰু ডাইল কৰা।",
+      "audio": "as/unknown/as_u_32843692_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32843692",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32869262",
+      "text": "এজন আঠ-ন বছৰীয়া ল'ৰা লগ পালে।",
+      "audio": "as/unknown/as_u_32869262_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32869262",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32850545",
+      "text": "তাতে দেউতাই পেছাব কৰিবৰ বাবে টইলেটত সোমাল।",
+      "audio": "as/unknown/as_u_32850545_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32850545",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32862330",
+      "text": "ধেমালি কৰি থাকোঁতে তেওঁলোকক তিনিটা সিংহই আক্ৰমণ কৰে।",
+      "audio": "as/unknown/as_u_32862330_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32862330",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32862329",
+      "text": "ৰত্নৰ বিয়া হয় তাৰ দুবছৰ পাচত।",
+      "audio": "as/unknown/as_u_32862329_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32862329",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32841095",
+      "text": "তেতিয়াৰ দিনত ডটপেন নাছিল।",
+      "audio": "as/unknown/as_u_32841095_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32841095",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32849994",
+      "text": "তাকে নকৰি সি কথাটো মোক ক'লেহেঁতেন।",
+      "audio": "as/unknown/as_u_32849994_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32849994",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32850485",
+      "text": "সকলো যা-যোগাৰ হৈ গ'ল।",
+      "audio": "as/unknown/as_u_32850485_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32850485",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32850549",
+      "text": "নিউ য়েৰত গ্ৰীটিং কাৰ্ড দিছিলে।",
+      "audio": "as/unknown/as_u_32850549_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32850549",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32852686",
+      "text": "তাইৰ মুখ এবাৰ দেখিলে কেতিয়াও পাহৰা নেযায়।",
+      "audio": "as/unknown/as_u_32852686_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32852686",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    },
+    {
+      "id": "32862202",
+      "text": "তাই শোৱা ঘৰটো বৰ পুৰণি।",
+      "audio": "as/unknown/as_u_32862202_gaonlia.mp3",
+      "tags": {
+        "source_item_id": "32862202",
+        "gender": "u",
+        "accent": "Gaonlia"
+      }
+    }
+  ]
+}

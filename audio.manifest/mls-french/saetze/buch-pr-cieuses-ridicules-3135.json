@@ -1,0 +1,116 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Précieuses ridicules",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "3135",
+    "book_title": "Précieuses ridicules",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "1770_3135_000000",
+      "text": "les autres valets jusqu'à les appeler brutaux eh bien qu'en prétendez-vous faire ce que j'en prétends faire il faut mais sortons d'ici auparavant fin de la scène première",
+      "audio": "dev/audio/1770/3135/1770_3135_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 143.59,
+        "original_end_s": 162.66
+      }
+    },
+    {
+      "id": "1770_3135_000001",
+      "text": "pas tout à fait à dire vrai pour moi je vous avoue que j'en suis tout scandalisé a-t-on jamais vu dites-moi deux pecques provinciales faire plus les renchéries que celles-là et deux hommes traités avec plus de mépris que nous",
+      "audio": "dev/audio/1770/3135/1770_3135_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 49.01,
+        "original_end_s": 63.16
+      }
+    },
+    {
+      "id": "1770_3135_000002",
+      "text": "en un mot c'est un ambigu de précieuse et de coquette que leur personne je vois ce qu'il faut être pour en être bien reçu et si vous m'en croyez nous leur jouerons tous deux une pièce qui leur fera voir leur sottise et pourra leur apprendre à connaître un peu mieux leur monde et comment encore",
+      "audio": "dev/audio/1770/3135/1770_3135_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 109.3,
+        "original_end_s": 126.3
+      }
+    },
+    {
+      "id": "1770_3135_000003",
+      "text": "ont-elles répondu que oui et non à tout ce que nous avons pu leur dire et ne m'avouerez-vous pas enfin que quand nous aurions été les dernières personnes du monde on ne pouvait nous faire pis qu'elles ont fait",
+      "audio": "dev/audio/1770/3135/1770_3135_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 76.86,
+        "original_end_s": 89.49
+      }
+    },
+    {
+      "id": "1770_3135_000004",
+      "text": "il me semble que vous prenez la chose fort à coeur sans doute je l'y prends et de telle façon que je me veux venger de cette impertinence je connais ce qui nous a fait mépriser l'air précieux n'a pas seulement infecté paris il s'est aussi répandu dans les provinces et nos donzelles ridicules en ont humé leur bonne part",
+      "audio": "dev/audio/1770/3135/1770_3135_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 89.49,
+        "original_end_s": 109.3
+      }
+    },
+    {
+      "id": "1770_3135_000005",
+      "text": "j'ai un certain valet nommé mascarille qui passe au sentiment de beaucoup de gens pour une manière de bel esprit car il n'y a rien de meilleur marché que le bel esprit maintenant c'est un extravagant qui s'est mis en tête de vouloir faire l'homme de condition il se pique ordinairement de galanterie et de vers et des",
+      "audio": "dev/audio/1770/3135/1770_3135_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 126.3,
+        "original_end_s": 143.59
+      }
+    },
+    {
+      "id": "1770_3135_000006",
+      "text": "a peine ont-elles pu se résoudre à nous faire donner des sièges je n'ai jamais vu tant parler à l'oreille qu'elles ont fait entre elles tant bailler tant se frotter les yeux et demander tant de fois quelle heure est-il",
+      "audio": "dev/audio/1770/3135/1770_3135_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-1770",
+        "gender": "m",
+        "book_id": "3135",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/precieusesridicules_1012_librivox/precieusesridicules_01_moliere_64kb.mp3",
+        "original_start_s": 63.16,
+        "original_end_s": 76.86
+      }
+    }
+  ]
+}

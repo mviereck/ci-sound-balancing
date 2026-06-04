@@ -1,0 +1,1600 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Leyendas",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "5079",
+    "book_title": "Leyendas",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "6223_5079_000000",
+      "text": "después de ocupado el suntuoso alcázar de carlos quinto echóse mano de la casa de consejos y cuando ésta no pudo contener más gente comenzaron á invadir el asilo de las comunidades religiosas acabando á la postre por trasformar en cuadras hasta las iglesias consagradas al culto",
+      "audio": "dev/audio/6223/5079/6223_5079_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 42.15,
+        "original_end_s": 61.92
+      }
+    },
+    {
+      "id": "6223_5079_000001",
+      "text": "el cielo estaba cubierto de nubes de color de plomo el aire que zumbaba encarcelado en las estrechas y retorcidas calles agitaba la moribunda luz del farolillo de los retablos o hacía girar con un chirrido apagado las veletas de hierro de las torres",
+      "audio": "dev/audio/6223/5079/6223_5079_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1130.81,
+        "original_end_s": 1147.46
+      }
+    },
+    {
+      "id": "6223_5079_000002",
+      "text": "que parece que oscila al compás de la llama y me provoca entreabriendo sus labios y ofreciéndome un tesoro de amor oh sí un beso sólo un beso tuyo podrá calmar el ardor que me consume",
+      "audio": "dev/audio/6223/5079/6223_5079_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1704.07,
+        "original_end_s": 1720.42
+      }
+    },
+    {
+      "id": "6223_5079_000003",
+      "text": "se beberá vino del país y cantaremos una canción de ronsard y hablaremos de mujeres a propósito de la dama del anfitrión con que hasta la noche hasta la noche",
+      "audio": "dev/audio/6223/5079/6223_5079_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1078.2,
+        "original_end_s": 1090.7
+      }
+    },
+    {
+      "id": "6223_5079_000004",
+      "text": "por aquí parte de una columnilla salomónica por allá la imagen de un santo abad el torso de una mujer ó la disforme cabeza de un grifo asomado entre hojarasca",
+      "audio": "dev/audio/6223/5079/6223_5079_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1228.73,
+        "original_end_s": 1240.04
+      }
+    },
+    {
+      "id": "6223_5079_000005",
+      "text": "el metálico golpe de las espuelas que resonaban sobre las anchas losas sepulcrales del pavimento el ruido de los caballos que piafaban impacientes cabeceando y haciendo sonar las cadenas con que estaban sujetos á los pilares",
+      "audio": "dev/audio/6223/5079/6223_5079_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 369.36,
+        "original_end_s": 383.4
+      }
+    },
+    {
+      "id": "6223_5079_000006",
+      "text": "que se dibujaba confusamente en la penumbra de la capilla como esas vírgenes pintadas en los vidrios de colores que habréis visto alguna vez destacarse á lo lejos blancas y luminosas sobre el oscuro fondo de las catedrales",
+      "audio": "dev/audio/6223/5079/6223_5079_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 784.93,
+        "original_end_s": 799.2
+      }
+    },
+    {
+      "id": "6223_5079_000007",
+      "text": "crees que yo le hubiera dado el vino á no saber que se tragaba al menos el que le cayese en la boca oh no yo no creo como vosotros que esas estatuas son un pedazo de mármol tan inerte hoy como el día en que lo arrancaron de la cantera",
+      "audio": "dev/audio/6223/5079/6223_5079_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1586.45,
+        "original_end_s": 1601.17
+      }
+    },
+    {
+      "id": "6223_5079_000008",
+      "text": "mientras los de más allá prorumpían en carcajadas batían las palmas en señal de aplausos o disputaban entre sí con blasfemias y juramentos el capitán bebía en silencio como un desesperado y sin apartar los ojos de la estatua de doña elvira",
+      "audio": "dev/audio/6223/5079/6223_5079_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1412.09,
+        "original_end_s": 1427.83
+      }
+    },
+    {
+      "id": "6223_5079_000009",
+      "text": "no me determiné á hablarla porque estaba seguro de que no había de contestarme ni verme ni oirme era sorda era ciega era muda exclamaron á un tiempo tres ó cuatro de los que escuchaban la relación",
+      "audio": "dev/audio/6223/5079/6223_5079_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 882.33,
+        "original_end_s": 900.02
+      }
+    },
+    {
+      "id": "6223_5079_000010",
+      "text": "la varia fortuna de la guerra y los amigotes muertos ó ausentes rodando de uno en otro asunto la conversación vino á parar en el tema obligado esto es las penalidades del servicio la falta de distracciones de la ciudad y el inconveniente de los alojamientos",
+      "audio": "dev/audio/6223/5079/6223_5079_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 609.79,
+        "original_end_s": 626.73
+      }
+    },
+    {
+      "id": "6223_5079_000011",
+      "text": "los oficiales del ejército francés que a juzgar por los actos de vandalismo con que dejaron en ella triste y perdurable memoria de su ocupación de todo tenían menos de artistas o arqueólogos no hay para qué decir que se fastidiaban soberanamente en la vetusta ciudad de los césares",
+      "audio": "dev/audio/6223/5079/6223_5079_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 470.15,
+        "original_end_s": 487.94
+      }
+    },
+    {
+      "id": "6223_5079_000012",
+      "text": "cerca de una hora hacía que la conversación giraba alrededor de este asunto y ya comenzaba a interpretarse de diversos modos la ausencia del recién venido a quien uno de los presentes antiguo compañero suyo de colegio había citado para el zocodover cuando en una de las bocacalles de la plaza apareció al fin nuestro bizarro capitán",
+      "audio": "dev/audio/6223/5079/6223_5079_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 542.72,
+        "original_end_s": 562.18
+      }
+    },
+    {
+      "id": "6223_5079_000013",
+      "text": "los oficiales que advirtieron la taciturna tristeza de su camarada le sacaron del éxtasis en que se encontraba sumergido y presentándole una copa exclamaron en coro vamos brindad vos que sois el único que no lo ha hecho en toda la noche",
+      "audio": "dev/audio/6223/5079/6223_5079_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1459.56,
+        "original_end_s": 1475.16
+      }
+    },
+    {
+      "id": "6223_5079_000014",
+      "text": "y arrebujándose como mejor pudo en su capote y echando la cabeza en el escalón a los cinco minutos roncaba con más tranquilidad que el mismo rey josé en su palacio de madrid los soldados haciéndose almohadas de las monturas imitaron su ejemplo y poco a poco fue apagándose el murmullo de sus voces",
+      "audio": "dev/audio/6223/5079/6223_5079_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 409.22,
+        "original_end_s": 427.69
+      }
+    },
+    {
+      "id": "6223_5079_000015",
+      "text": "así es que promoción al grado inmediato de nuestros camaradas la noticia del movimiento estratégico de una columna volante la salida de un correo de gabinete o la llegada de una fuerza cualquiera a la ciudad",
+      "audio": "dev/audio/6223/5079/6223_5079_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 499.57,
+        "original_end_s": 511.56
+      }
+    },
+    {
+      "id": "6223_5079_000016",
+      "text": "el asistente obedeciendo las órdenes de su capitán comenzó a descargar golpes en la sillería del coro y después que hubo reunido una gran cantidad de leña que fue apilando al pie de las gradas del presbiterio tomó la linterna y se dispuso a hacer un auto de fe con aquellos fragmentos tallados de riquísimas labores entre los que se veían",
+      "audio": "dev/audio/6223/5079/6223_5079_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1209.12,
+        "original_end_s": 1228.73
+      }
+    },
+    {
+      "id": "6223_5079_000017",
+      "text": "no se ha de decir que te he dejado morir de sed viéndonos vaciar veinte botellas toma y esto diciéndole llevóle la copa a los labios y después de humedecérselos con el licor que contenía",
+      "audio": "dev/audio/6223/5079/6223_5079_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1528.15,
+        "original_end_s": 1541.36
+      }
+    },
+    {
+      "id": "6223_5079_000018",
+      "text": "su rostro ovalado en donde se veía impreso el sello de una leve y espiritual demacración sus armoniosas facciones llenas de una suave y melancólica dulzura",
+      "audio": "dev/audio/6223/5079/6223_5079_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 799.2,
+        "original_end_s": 809.58
+      }
+    },
+    {
+      "id": "6223_5079_000019",
+      "text": "en lo alto del alcázar convertido en cuartel se oía el último toque de silencio de los clarines cuando diez ó doce oficiales que poco á poco habían ido reuniéndose en el zocodover tomaron el camino que conduce desde aquel punto al convento en que se alojaba el capitán",
+      "audio": "dev/audio/6223/5079/6223_5079_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1102.89,
+        "original_end_s": 1118.92
+      }
+    },
+    {
+      "id": "6223_5079_000020",
+      "text": "iluminada por el rojizo resplandor de la hoguera y a través del confuso velo que la embriaguez había puesto delante de su vista parecíale que la marmórea imagen se trasformaba a veces en una mujer real",
+      "audio": "dev/audio/6223/5079/6223_5079_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1427.83,
+        "original_end_s": 1440.06
+      }
+    },
+    {
+      "id": "6223_5079_000021",
+      "text": "el joven tomó la copa y poniéndose en pie y alzándola en alto dijo encarándose con la estatua del guerrero arrodillado junto a doña elvira brindo por el emperador y brindo por la fortuna de sus armas merced a las cuales hemos podido venir hasta el fondo de castilla",
+      "audio": "dev/audio/6223/5079/6223_5079_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1475.16,
+        "original_end_s": 1492.72
+      }
+    },
+    {
+      "id": "6223_5079_000022",
+      "text": "este que caminaba a pie delante de su interlocutor llevando en la mano un farolillo parecía servirle de guía por entre aquel laberinto de calles oscuras enmarañadas y revueltas",
+      "audio": "dev/audio/6223/5079/6223_5079_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 111.54,
+        "original_end_s": 123.55
+      }
+    },
+    {
+      "id": "6223_5079_000023",
+      "text": "nada nada es preciso que la veamos decían los unos sí sí es preciso saber si el objeto corresponde a tan alta pasión añadían los otros cuándo nos reuniremos para echar un trago en la iglesia en que os alojáis exclamaron los demás",
+      "audio": "dev/audio/6223/5079/6223_5079_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1036.05,
+        "original_end_s": 1050.87
+      }
+    },
+    {
+      "id": "6223_5079_000024",
+      "text": "bonito fuera que ya te tuviéramos hasta celoso celoso se apresuró á decir el capitán celoso de los hombres no mas ved sin embargo hasta dónde llega mi extravagancia junto á la imagen de esa mujer también de mármol grave y al parecer con vida como ella hay un guerrero su marido sin duda",
+      "audio": "dev/audio/6223/5079/6223_5079_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 996.67,
+        "original_end_s": 1016.56
+      }
+    },
+    {
+      "id": "6223_5079_000025",
+      "text": "interrumpida la conversación en este punto los jinetes precedidos del guía siguieron en silencio el camino adelante hasta llegar a una plazuela en cuyo fondo se destacaba la negra silueta del convento con su torre morisca su campanario de espadaña",
+      "audio": "dev/audio/6223/5079/6223_5079_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 190.29,
+        "original_end_s": 207.57
+      }
+    },
+    {
+      "id": "6223_5079_000026",
+      "text": "de los cuales estos arrojaban a los monjes de granito adosados en los pilares los cascos de las botellas vacías y aquéllos cantaban a toda voz canciones báquicas y escandalosas",
+      "audio": "dev/audio/6223/5079/6223_5079_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1401.13,
+        "original_end_s": 1412.09
+      }
+    },
+    {
+      "id": "6223_5079_000027",
+      "text": "los oficiales mudos y espantados ni se atrevían á dar un paso para prestarle socorro en el momento en que su camarada intentó acercar sus labios ardientes á los de doña elvira",
+      "audio": "dev/audio/6223/5079/6223_5079_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1755.18,
+        "original_end_s": 1767.42
+      }
+    },
+    {
+      "id": "6223_5079_000028",
+      "text": "convertíanse en tema fecundo de conversación y objeto de toda clase de comentarios hasta tanto que otro incidente venía a sustituirle sirviendo de base a nuevas quejas críticas y suposiciones",
+      "audio": "dev/audio/6223/5079/6223_5079_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 511.56,
+        "original_end_s": 523.53
+      }
+    },
+    {
+      "id": "6223_5079_000029",
+      "text": "oh no dijo entonces el capitán nada menos que eso juro á fe de quien soy que no la conocía y que nunca creí hallar tan bella patrona en tan incómodo alojamiento es todo lo que se llama una verdadera aventura",
+      "audio": "dev/audio/6223/5079/6223_5079_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 675.59,
+        "original_end_s": 689.16
+      }
+    },
+    {
+      "id": "6223_5079_000030",
+      "text": "y ensordeciendo las estrechas y solitarias calles que conducen desde la puerta del sol de zocodover con el choque de sus armas y el ruidoso golpear de los cascos de sus corceles que sacaban chispas de los pedernales entraron en la ciudad hasta unos cien dragones",
+      "audio": "dev/audio/6223/5079/6223_5079_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 75.11,
+        "original_end_s": 91.7
+      }
+    },
+    {
+      "id": "6223_5079_000031",
+      "text": "formaban un rumor extraño y temeroso que se dilataba por todo el ámbito de la iglesia y se reproducía cada vez más confuso repetido de eco en eco en sus altas bóvedas",
+      "audio": "dev/audio/6223/5079/6223_5079_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 383.4,
+        "original_end_s": 394.83
+      }
+    },
+    {
+      "id": "6223_5079_000032",
+      "text": "lo era todo a la vez exclamó al fin el capitán después de un momento de pausa porque era de mármol al oír el estupendo desenlace de tan extraña aventura cuantos había en el corro prorrumpieron en una ruidosa carcajada",
+      "audio": "dev/audio/6223/5079/6223_5079_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 900.02,
+        "original_end_s": 915.33
+      }
+    },
+    {
+      "id": "6223_5079_000033",
+      "text": "como era de esperar entre los oficiales que según tenían de costumbre acudieron al día siguiente a tomar el sol y a charlar un rato en el zocodover no se hizo platillo de otra cosa que de la llegada de los dragones cuyo jefe dejamos en el anterior capítulo durmiendo a pierna suelta y descansando de las fatigas de su viaje",
+      "audio": "dev/audio/6223/5079/6223_5079_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 523.53,
+        "original_end_s": 542.72
+      }
+    },
+    {
+      "id": "6223_5079_000034",
+      "text": "por mi fe que si la copia se parece al original debió ser la mujer más notable de su siglo después de estas breves explicaciones los convidados que no perdían de vista el principal objeto de la reunión",
+      "audio": "dev/audio/6223/5079/6223_5079_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1369.12,
+        "original_end_s": 1381.96
+      }
+    },
+    {
+      "id": "6223_5079_000035",
+      "text": "la mía es una verdadera dama castellana que por un milagro de la escultura parece que no la han enterrado en un sepulcro sino que aún permanece en cuerpo y alma de hinojos sobre la losa que la cubre inmóvil con las manos juntas en ademán suplicante sumergida en un éxtasis de místico amor",
+      "audio": "dev/audio/6223/5079/6223_5079_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 946.91,
+        "original_end_s": 966.46
+      }
+    },
+    {
+      "id": "6223_5079_000036",
+      "text": "entonces el beso de esas mujeres materiales me quemaba como un hierro candente y las apartaba de mí con disgusto con horror hasta con asco porque entonces como ahora necesitaba un soplo de brisa del mar para mi mente calurosa beber hielo y besar nieve",
+      "audio": "dev/audio/6223/5079/6223_5079_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1672.09,
+        "original_end_s": 1690.6
+      }
+    },
+    {
+      "id": "6223_5079_000037",
+      "text": "indudablemente el artista que es casi un dios da á su obra un soplo de vida que no logra hacer que ande y se mueva pero que le infunde una vida incomprensible y extraña",
+      "audio": "dev/audio/6223/5079/6223_5079_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1601.17,
+        "original_end_s": 1612.04
+      }
+    },
+    {
+      "id": "6223_5079_000038",
+      "text": "de aquellos altos arrogantes y fornidos de que todavía nos hablan con admiración nuestras abuelas mandaba la fuerza un oficial bastante joven el cual iba como a distancia de unos treinta pasos de su gente hablando á media voz con otro también militar a lo que podía colegirse por su traje",
+      "audio": "dev/audio/6223/5079/6223_5079_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 91.7,
+        "original_end_s": 111.54
+      }
+    },
+    {
+      "id": "6223_5079_000039",
+      "text": "con verdad decía el jinete á su acompañante que si el alojamiento que se nos prepara es tal y como me lo pintas casi casi sería preferible arrancharnos en el campo ó en medio de una plaza y qué queréis mi capitán contestóle el guía que efectivamente era un sargento aposentador",
+      "audio": "dev/audio/6223/5079/6223_5079_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 123.55,
+        "original_end_s": 142.38
+      }
+    },
+    {
+      "id": "6223_5079_000040",
+      "text": "y ahí a lo lejos en el fondo de las silenciosas capillas y a lo largo del crucero se destacaban confusamente entre la oscuridad semejantes a blancos e inmóviles fantasmas las estatuas de piedra que unas tendidas",
+      "audio": "dev/audio/6223/5079/6223_5079_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 324.07,
+        "original_end_s": 338.35
+      }
+    },
+    {
+      "id": "6223_5079_000041",
+      "text": "cuidado con lo que hacéis mirad que esas bromas con la gente de piedra suelen costar caras acordaos de lo que aconteció á los húsares del cinco el en el monasterio de poblet",
+      "audio": "dev/audio/6223/5079/6223_5079_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1554.89,
+        "original_end_s": 1565.53
+      }
+    },
+    {
+      "id": "6223_5079_000042",
+      "text": "al llegar a este punto uno de los de la reunión que por lo visto tenía noticia del mal talante con que el joven oficial se había resignado a acomodar su gente en la abandonada iglesia le dijo con aire de zumba",
+      "audio": "dev/audio/6223/5079/6223_5079_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 626.73,
+        "original_end_s": 638.53
+      }
+    },
+    {
+      "id": "6223_5079_000043",
+      "text": "los oficiales volvieron los ojos al punto que les señalaba su amigo y una exclamación de asombro se escapó involuntariamente de todos los labios en el fondo de un arco sepulcral revestido de mármoles negros arrodillada delante de un reclinatorio con las manos juntas y la cara vuelta hacia el altar",
+      "audio": "dev/audio/6223/5079/6223_5079_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1289.84,
+        "original_end_s": 1309.48
+      }
+    },
+    {
+      "id": "6223_5079_000044",
+      "text": "vieron en efecto la imagen de una mujer tan bella que jamás salió otra igual de manos de un escultor ni el deseo pudo pintarla en la fantasía más soberanamente hermosa",
+      "audio": "dev/audio/6223/5079/6223_5079_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1309.48,
+        "original_end_s": 1321.41
+      }
+    },
+    {
+      "id": "6223_5079_000045",
+      "text": "miradla miradla no veis esos cambiantes rojos de sus carnes mórbidas y transparentes no parece que por debajo de esa ligera epidermis azulada y suave de alabastro circula un fluido de luz color de rosa queréis más realidad",
+      "audio": "dev/audio/6223/5079/6223_5079_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1628.49,
+        "original_end_s": 1645.6
+      }
+    },
+    {
+      "id": "6223_5079_000046",
+      "text": "a la media hora sólo se oían los ahogados gemidos del aire que entraba por las rotas vidrieras de las ojivas del templo el atolondrado revolotear de las aves nocturnas que tenían sus nidos en el dosel de piedra de las esculturas de los muros",
+      "audio": "dev/audio/6223/5079/6223_5079_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 427.69,
+        "original_end_s": 444.2
+      }
+    },
+    {
+      "id": "6223_5079_000047",
+      "text": "dejando en el aire y en pos de sí la azulada estela que desde el alto ajimez bajaba verticalmente hasta el pie del opuesto muro rompiendo la oscura sombra de aquel recinto lóbrego y misterioso",
+      "audio": "dev/audio/6223/5079/6223_5079_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 853.18,
+        "original_end_s": 865.99
+      }
+    },
+    {
+      "id": "6223_5079_000048",
+      "text": "en esta conformidad se encontraban las cosas en la población donde tuvo lugar el suceso que voy á referir cuando una noche ya á hora bastante avanzada envueltos en sus oscuros capotes de guerra",
+      "audio": "dev/audio/6223/5079/6223_5079_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 61.92,
+        "original_end_s": 75.11
+      }
+    },
+    {
+      "id": "6223_5079_000049",
+      "text": "diseminados por las naves veíanse algunos retablos adosados al muro sin imágenes en las hornacinas en el coro se dibujaban con un ribete de luz los extraños perfiles de la oscura sillería de alerce",
+      "audio": "dev/audio/6223/5079/6223_5079_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 300.04,
+        "original_end_s": 313.36
+      }
+    },
+    {
+      "id": "6223_5079_000050",
+      "text": "animados más con la esperanza de apurar las comprometidas botellas que con el deseo de conocer la maravillosa escultura la noche había cerrado sombría y amenazadora",
+      "audio": "dev/audio/6223/5079/6223_5079_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1118.92,
+        "original_end_s": 1130.81
+      }
+    },
+    {
+      "id": "6223_5079_000051",
+      "text": "ó menos acostumbrado á ver estos sacrilegios como la cosa más natural del mundo hubiéranle bastado dos adarmes de imaginación para no pegar los ojos en toda la noche en aquel oscuro é imponente recinto donde las blasfemias de los soldados que se quejaban en voz alta  del improvisado cuartel",
+      "audio": "dev/audio/6223/5079/6223_5079_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 352.06,
+        "original_end_s": 369.36
+      }
+    },
+    {
+      "id": "6223_5079_000052",
+      "text": "de tal modo te explicas que acabarás por probarnos la verosimilitud de la fábula de galatea por mi parte puedo deciros que siempre la creí una locura mas desde anoche comienzo a comprender la pasión del escultor griego",
+      "audio": "dev/audio/6223/5079/6223_5079_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 966.46,
+        "original_end_s": 980.79
+      }
+    },
+    {
+      "id": "6223_5079_000053",
+      "text": "mientras uno de ellos dijo al narrador de la peregrina historia que era el único que permanecía callado y en una grave actitud acabáramos de una vez lo que es de ese género tengo yo más de un millar",
+      "audio": "dev/audio/6223/5079/6223_5079_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 915.33,
+        "original_end_s": 928.12
+      }
+    },
+    {
+      "id": "6223_5079_000054",
+      "text": "en el alcázar no cabe ya un grano de trigo cuanto más un hombre de san juan de los reyes no digamos porque hay celda de fraile en la que duermen quince húsares",
+      "audio": "dev/audio/6223/5079/6223_5079_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 142.38,
+        "original_end_s": 152.68
+      }
+    },
+    {
+      "id": "6223_5079_000055",
+      "text": "los guerreros del claustro dicen que pusieron mano una noche a sus espadas de granito y dieron que hacer a los que se entretenían en pintarles bigotes con carbón",
+      "audio": "dev/audio/6223/5079/6223_5079_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1565.53,
+        "original_end_s": 1576.36
+      }
+    },
+    {
+      "id": "6223_5079_000056",
+      "text": "y á propósito del alojamiento qué tal se ha pasado la noche en el que ocupáis ha habido de todo contestó el interpelado pues si bien es verdad que no he dormido gran cosa el origen de mi vigilia merece la pena de la velada el insomnio junto a una mujer bonita no es seguramente el peor de los males",
+      "audio": "dev/audio/6223/5079/6223_5079_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 638.53,
+        "original_end_s": 657.1
+      }
+    },
+    {
+      "id": "6223_5079_000057",
+      "text": "le arrojó el resto á la cara prorumpiendo en una carcajada estrepitosa al ver cómo caía el vino sobre la tumba goteando de las barbas de piedra del inmóvil guerrero capitán exclamó en aquel punto uno de sus camaradas en tono de zumba",
+      "audio": "dev/audio/6223/5079/6223_5079_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1541.36,
+        "original_end_s": 1554.89
+      }
+    },
+    {
+      "id": "6223_5079_000058",
+      "text": "la causa de mi susto era el primer golpe que oía de esa endiablada campana gorda especie de sochantre de bronce que los canónigos de toledo han colgado en su catedral con el laudable propósito de matar a disgustos a los necesitados de reposo",
+      "audio": "dev/audio/6223/5079/6223_5079_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 727.5,
+        "original_end_s": 742.31
+      }
+    },
+    {
+      "id": "6223_5079_000059",
+      "text": "pero nuestro héroe aunque joven estaba ya tan familiarizado con estas peripecias de la vida de campaña que apenas hubo acomodado á su gente mandó colocar un saco de forraje al pie de la grada del presbiterio",
+      "audio": "dev/audio/6223/5079/6223_5079_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 394.83,
+        "original_end_s": 409.22
+      }
+    },
+    {
+      "id": "6223_5079_000060",
+      "text": "verdadero champagne restos de un regalo hecho á nuestro general de brigada que como sabéis es algo pariente bravo bravo exclamaron los oficiales a una voz prorrumpiendo en alegres exclamaciones",
+      "audio": "dev/audio/6223/5079/6223_5079_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1065.93,
+        "original_end_s": 1078.2
+      }
+    },
+    {
+      "id": "6223_5079_000061",
+      "text": "oh sí seguramente dijo uno de los que le escuchaban quisiéramos que fuese de carne y hueso carne y hueso miseria pobredumbre exclamó el capitán",
+      "audio": "dev/audio/6223/5079/6223_5079_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1645.6,
+        "original_end_s": 1657.05
+      }
+    },
+    {
+      "id": "6223_5079_000062",
+      "text": "el joven ni oyó siquiera las palabras de sus amigos y tambaleando y como pudo llegó a la tumba y aproximose a la estatua pero al tenderle los brazos resonó un grito de horror en el templo arrojando sangre por ojos boca y nariz había caído desplomado y con la cara deshecha al pie del sepulcro",
+      "audio": "dev/audio/6223/5079/6223_5079_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1735.21,
+        "original_end_s": 1755.18
+      }
+    },
+    {
+      "id": "6223_5079_000063",
+      "text": "efectivamente dijo otro nos traes a conocer a una dama y apenas si con mucha dificultad se ven los dedos de la mano y con todo hace un frío que no parece sino que estamos en la siberia añadió un tercero arrebujándose en el capote",
+      "audio": "dev/audio/6223/5079/6223_5079_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1178.86,
+        "original_end_s": 1193.9
+      }
+    },
+    {
+      "id": "6223_5079_000064",
+      "text": "su intensa palidez las purísimas líneas de su contorno esbelto su ademán reposado y noble su traje blanco y flotante me traían a la memoria esas mujeres que yo soñaba cuando era casi un",
+      "audio": "dev/audio/6223/5079/6223_5079_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 809.58,
+        "original_end_s": 823.43
+      }
+    },
+    {
+      "id": "6223_5079_000065",
+      "text": "no creas que te tengo rencor alguno porque veo en tí un rival al contrario te admiro como un marido paciente ejemplo de longaminidad y mansedumbre y á mi vez quiero también ser generoso tú serías bebedor á fuer de soldado",
+      "audio": "dev/audio/6223/5079/6223_5079_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1511.72,
+        "original_end_s": 1528.15
+      }
+    },
+    {
+      "id": "6223_5079_000066",
+      "text": "a la luz del farolillo cuya dudosa claridad se perdía entre las espesas sombras de las naves y dibujaba con gigantescas proporciones sobre el muro la fantástica sombra del sargento aposentador que iba precediéndole",
+      "audio": "dev/audio/6223/5079/6223_5079_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 255.97,
+        "original_end_s": 269.65
+      }
+    },
+    {
+      "id": "6223_5079_000067",
+      "text": "á lo que he podido colegir pertenece á un título de castilla famoso guerrero que hizo la campaña con el gran capitán su nombre lo he olvidado mas su esposa que es la que veis se llama doña elvira de castañeda",
+      "audio": "dev/audio/6223/5079/6223_5079_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1354.65,
+        "original_end_s": 1369.12
+      }
+    },
+    {
+      "id": "6223_5079_000068",
+      "text": "ella permanecía inmóvil antojábaseme al verla tan diáfana y luminosa que no era una criatura terrenal sino un espíritu que revistiendo por un instante la forma humana había descendido en el rayo de la luna",
+      "audio": "dev/audio/6223/5079/6223_5079_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 838.72,
+        "original_end_s": 853.18
+      }
+    },
+    {
+      "id": "6223_5079_000069",
+      "text": "recorrió la iglesia de arriba abajo y escudriñó una por una todas sus desiertas capillas hasta que una vez hecho cargo del local mandó echar pie á tierra á su gente y hombres y caballos revueltos fue acomodándola como mejor pudo",
+      "audio": "dev/audio/6223/5079/6223_5079_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 269.65,
+        "original_end_s": 284.96
+      }
+    },
+    {
+      "id": "6223_5079_000070",
+      "text": "lo mismo que al presente para los que no sabían apreciar los tesoros de arte que encierran sus muros la ciudad de toledo no era más que un poblachón destartalado antiguo ruinoso é insufrible",
+      "audio": "dev/audio/6223/5079/6223_5079_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 457.77,
+        "original_end_s": 470.15
+      }
+    },
+    {
+      "id": "6223_5079_000071",
+      "text": "su cúpula ojival y sus tejados de crestas desiguales y oscuras he aquí vuestro alojamiento exclamó el aposentador al divisarle y dirigiéndose al capitán que después que hubo mandado hacer alto a la tropa echó pie a tierra tomó el farolillo de manos del guía y se dirigió hacia el punto que éste le señalaba",
+      "audio": "dev/audio/6223/5079/6223_5079_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 207.57,
+        "original_end_s": 226.99
+      }
+    },
+    {
+      "id": "6223_5079_000072",
+      "text": "renegando entre dientes de la campana y del campanero que la toca disponíame una vez apagado aquel insólito y temeroso rumor acoger nuevamente el hilo del interrumpido sueño cuando vino a herir mi imaginación y a ofrecerse ante mis ojos una cosa extraordinaria",
+      "audio": "dev/audio/6223/5079/6223_5079_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 742.31,
+        "original_end_s": 759.41
+      }
+    },
+    {
+      "id": "6223_5079_000073",
+      "text": "en el pavimento destrozado en varios puntos distinguíanse aún anchas losas sepulcrales llenas de timbres escudos y largas inscripciones góticas",
+      "audio": "dev/audio/6223/5079/6223_5079_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 313.36,
+        "original_end_s": 324.07
+      }
+    },
+    {
+      "id": "6223_5079_000074",
+      "text": "según dejamos dicho la iglesia estaba completamente desmantelada en el altar mayor pendían aún de las altas cornisas los rotos girones del velo con que le habían cubierto los religiosos al abandonar aquel recinto",
+      "audio": "dev/audio/6223/5079/6223_5079_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 284.96,
+        "original_end_s": 300.04
+      }
+    },
+    {
+      "id": "6223_5079_000075",
+      "text": "todos penetraron juntos en la iglesia en cuyo lóbrego recinto la escasa claridad de una linterna luchaba trabajosamente con las oscuras y espesísimas sombras por quien soy exclamó uno de los convidados tendiendo á su alrededor la vista que el local es de los menos á propósito del mundo para una fiesta",
+      "audio": "dev/audio/6223/5079/6223_5079_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1159.9,
+        "original_end_s": 1178.86
+      }
+    },
+    {
+      "id": "6223_5079_000076",
+      "text": "ya hacía un largo rato que los pacíficos habitantes de toledo habían cerrado con llave y cerrojo las pesadas puertas de sus antiguos caserones la campana gorda de la catedral anunciaba la hora de la queda",
+      "audio": "dev/audio/6223/5079/6223_5079_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1090.7,
+        "original_end_s": 1102.89
+      }
+    },
+    {
+      "id": "6223_5079_000077",
+      "text": "contadla contadla exclamaron en coro los oficiales que rodeaban al capitán y como éste se dispusiera a hacerlo así todos prestaron la mayor atención a sus palabras mientras él comenzó la historia en estos términos",
+      "audio": "dev/audio/6223/5079/6223_5079_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 689.16,
+        "original_end_s": 701.77
+      }
+    },
+    {
+      "id": "6223_5079_000078",
+      "text": "apenas le vio su camarada salió á su encuentro para saludarle y con él se adelantaron casi todos los que á la sazón se encontraban en el corrillo en quienes habían despertado la curiosidad y la gana de conocerle los pormenores que ya habían oído referir acerca de su carácter original y extraño",
+      "audio": "dev/audio/6223/5079/6223_5079_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 580.06,
+        "original_end_s": 598.77
+      }
+    },
+    {
+      "id": "6223_5079_000079",
+      "text": "el capitán sin atender al efecto que su narración producía continuó de este modo no podéis figuraros nada semejante á aquella nocturna y fantástica visión",
+      "audio": "dev/audio/6223/5079/6223_5079_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 773.73,
+        "original_end_s": 784.93
+      }
+    },
+    {
+      "id": "6223_5079_000080",
+      "text": "dadas las especiales condiciones de tu nueva dama creo que no tendrás inconveniente en presentarnos á ella de mí sé decir que ya no vivo hasta ver esa maravilla pero qué diantre te pasa diríase que esquivas la presentación jaja",
+      "audio": "dev/audio/6223/5079/6223_5079_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 980.79,
+        "original_end_s": 996.67
+      }
+    },
+    {
+      "id": "6223_5079_000081",
+      "text": "dormía esta noche pasada como duerme un hombre que trae en el cuerpo trece leguas de camino cuando he aquí que en lo mejor del sueño me hizo despertar sobresaltado e incorporarme sobre el codo un estruendo horrible un estruendo tal",
+      "audio": "dev/audio/6223/5079/6223_5079_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 701.77,
+        "original_end_s": 716.81
+      }
+    },
+    {
+      "id": "6223_5079_000082",
+      "text": "a cortejarle su mujer en su misma tumba a un vencedor de cerinola los militares acogieron el brindis con una salva de aplausos y el capitán balanceándose dio algunos pasos hacia el sepulcro no prosiguió dirigiéndose siempre a la estatua del guerrero y con esa sonrisa estúpida de la embriaguez",
+      "audio": "dev/audio/6223/5079/6223_5079_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1492.72,
+        "original_end_s": 1511.72
+      }
+    },
+    {
+      "id": "6223_5079_000083",
+      "text": "apenas los oficiales dieron vista á la plaza en que se hallaba situado el alojamiento de su nuevo amigo éste que les aguardaba impaciente salió á encontrarles y después de cambiar algunas palabras á media voz",
+      "audio": "dev/audio/6223/5079/6223_5079_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1147.46,
+        "original_end_s": 1159.9
+      }
+    },
+    {
+      "id": "6223_5079_000084",
+      "text": "capitán exclamaron algunos de los oficiales al verle dirigirse hacia la estatua como fuera de sí extraviada la vista y con pasos inseguros qué locura vais a hacer basta de bromas y dejad en paz a los muertos",
+      "audio": "dev/audio/6223/5079/6223_5079_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1720.42,
+        "original_end_s": 1735.21
+      }
+    },
+    {
+      "id": "6223_5079_000085",
+      "text": "yo he sentido en orgía arder mis labios y mi cabeza yo he sentido este fuego que corre por las venas hirvientes como la lava de un volcán cuyos vapores caliginosos turban y trastornan el cerebro y hacen ver visiones extrañas",
+      "audio": "dev/audio/6223/5079/6223_5079_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1657.05,
+        "original_end_s": 1672.09
+      }
+    },
+    {
+      "id": "6223_5079_000086",
+      "text": "vida que yo no me explico bien pero que la siento sobre todo cuando bebo un poco magnífico exclamaron sus camaradas bebe y prosigue el oficial bebió y fijando los ojos en la imagen de doña elvira prosiguió con la exaltación creciente",
+      "audio": "dev/audio/6223/5079/6223_5079_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1612.04,
+        "original_end_s": 1628.49
+      }
+    },
+    {
+      "id": "6223_5079_000087",
+      "text": "nieve teñida de suave luz nieve coloreada por un dorado rayo de sol una mujer blanca hermosa y fría como esa mujer de piedra que parece incitarme con su fantástica hermosura",
+      "audio": "dev/audio/6223/5079/6223_5079_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1690.6,
+        "original_end_s": 1704.07
+      }
+    },
+    {
+      "id": "6223_5079_000088",
+      "text": "después de los estrechos abrazos de costumbre y de las exclamaciones plácemes y preguntas de rigor en estas entrevistas después de hablar largo y tendido sobre las novedades que andaban por madrid",
+      "audio": "dev/audio/6223/5079/6223_5079_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 598.77,
+        "original_end_s": 609.79
+      }
+    },
+    {
+      "id": "6223_5079_000089",
+      "text": "los jóvenes acogieron con grandes carcajadas esta ocurrencia pero el capitán sin hacer caso de sus risas continuó siempre fijo en la misma idea",
+      "audio": "dev/audio/6223/5079/6223_5079_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1576.36,
+        "original_end_s": 1586.45
+      }
+    },
+    {
+      "id": "6223_5079_000090",
+      "text": "si gustáis pasaremos al buffet sus camaradas afectando la mayor gravedad respondieron á la invitación con un cómico saludo y se encaminaron á la capilla mayor precedidos del héroe de la fiesta",
+      "audio": "dev/audio/6223/5079/6223_5079_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1257.85,
+        "original_end_s": 1270.35
+      }
+    },
+    {
+      "id": "6223_5079_000091",
+      "text": "pero exclamó interrumpiéndole su camarada de colegio que comenzando por echar a broma la historia había concluido interesándose con su relato cómo estaba allí aquella mujer no le dijiste nada no te explicó su presencia en aquel sitio",
+      "audio": "dev/audio/6223/5079/6223_5079_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 865.99,
+        "original_end_s": 882.33
+      }
+    },
+    {
+      "id": "6223_5079_000092",
+      "text": "como quiera que la iglesia del convento estaba completamente desmantelada los soldados que ocupaban el resto del edificio habían creído que las puertas le eran ya poco menos que inútiles",
+      "audio": "dev/audio/6223/5079/6223_5079_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 226.99,
+        "original_end_s": 239.52
+      }
+    },
+    {
+      "id": "6223_5079_000093",
+      "text": "en esta situación de ánimo la más insignificante novedad que viniese á romper la monótona quietud de aquellos días eternos é iguales era acogida con avidez entre los ociosos",
+      "audio": "dev/audio/6223/5079/6223_5079_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 487.94,
+        "original_end_s": 499.57
+      }
+    },
+    {
+      "id": "6223_5079_000094",
+      "text": "que al llegar a la escalinata se detuvo un instante y extendiendo la mano en dirección al sitio que ocupaba la tumba les dijo con la finura más exquisita tengo el placer de presentaros a la dama de mis pensamientos creo que convinieseis conmigo en que no he exagerado su belleza",
+      "audio": "dev/audio/6223/5079/6223_5079_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1270.35,
+        "original_end_s": 1289.84
+      }
+    },
+    {
+      "id": "6223_5079_000095",
+      "text": "pues bien lo voy á decir todo aunque os moféis de mi necedad si no hubiera temido que me tratasen de loco creo que ya lo habría hecho cien veces pedazos una nueva y aún más ruidosa carcajada de los oficiales saludó esta original revelación del estrambótico enamorado de la dama de piedra",
+      "audio": "dev/audio/6223/5079/6223_5079_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1016.56,
+        "original_end_s": 1036.05
+      }
+    },
+    {
+      "id": "6223_5079_000096",
+      "text": "el convento á donde voy á conduciros no era mal local pero hará cosa de tres ó cuatro días nos cayó aquí como de las nubes una de las columnas volantes que recorren la provincia y gracias que hemos podido conseguir que se amontonen por los claustros y dejen libre la iglesia",
+      "audio": "dev/audio/6223/5079/6223_5079_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 152.68,
+        "original_end_s": 170.34
+      }
+    },
+    {
+      "id": "6223_5079_000097",
+      "text": "en verdad que es un ángel exclamó uno de ellos lástima que sea de mármol añadió otro no hay duda que aunque no sea más que la ilusión de hallarse junto á una mujer de este calibre es lo suficiente para no pegar los ojos en toda la noche",
+      "audio": "dev/audio/6223/5079/6223_5079_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1321.41,
+        "original_end_s": 1337.62
+      }
+    },
+    {
+      "id": "6223_5079_000098",
+      "text": "a los pocos minutos una gran claridad que de improviso se derramó por todo el ámbito de la iglesia anunció a los oficiales que había llegado la hora de comenzar el festín el capitán que hacía los honores de su alojamiento con la misma ceremonia que hubiera hecho los de su casa exclamó dirigiéndose a los convidados",
+      "audio": "dev/audio/6223/5079/6223_5079_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1240.04,
+        "original_end_s": 1257.85
+      }
+    },
+    {
+      "id": "6223_5079_000099",
+      "text": "otras de hinojos sobre el mármol de sus tumbas parecían ser los únicos habitantes del ruinoso edificio a cualquier otro menos molido que el oficial de dragones el cual traía una jornada de catorce leguas en el cuerpo",
+      "audio": "dev/audio/6223/5079/6223_5079_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 338.35,
+        "original_end_s": 352.06
+      }
+    },
+    {
+      "id": "6223_5079_000100",
+      "text": "y no sabéis quién es ella preguntaron algunos de los que contemplaban la estatua al capitán que sonreía satisfecho de su triunfo recordando un poco del latín que en mi niñez supe he conseguido á duras penas descifrar la inscripción de la tumba contestó el interpelado",
+      "audio": "dev/audio/6223/5079/6223_5079_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1337.62,
+        "original_end_s": 1354.65
+      }
+    },
+    {
+      "id": "6223_5079_000101",
+      "text": "que me ensordeció un instante para dejarme después los oídos zumbando cerca de un minuto como si un moscardón me cantase á la oreja como os habréis figurado",
+      "audio": "dev/audio/6223/5079/6223_5079_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 716.81,
+        "original_end_s": 727.5
+      }
+    },
+    {
+      "id": "6223_5079_000102",
+      "text": "y un tablero hoy otro mañana habían ido arrancándolas pedazo a pedazo para hacer hogueras con que calentarse por las noches nuestro joven oficial no tuvo pues que torcer llaves ni descorrer cerrojos para penetrar en el interior del templo",
+      "audio": "dev/audio/6223/5079/6223_5079_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 239.52,
+        "original_end_s": 255.97
+      }
+    },
+    {
+      "id": "6223_5079_000103",
+      "text": "una mujer repitió su interlocutor como admirándose de la buena fortuna del recién venido eso es lo que se llama llegar y besar el santo será tal vez algún antiguo amor de la corte que le sigue a toledo para hacerle más soportable el ostracismo añadió otro de los del grupo",
+      "audio": "dev/audio/6223/5079/6223_5079_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 657.1,
+        "original_end_s": 675.59
+      }
+    },
+    {
+      "id": "6223_5079_000104",
+      "text": "parecíale que entreabría los labios como murmurando una oración que se alzaba su pecho como oprimido y sollozante que cruzaba las manos con más fuerza que sus mejillas se coloreaban en fin como si se ruborizase ante aquel sacrilego y repugnante espectáculo",
+      "audio": "dev/audio/6223/5079/6223_5079_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1440.06,
+        "original_end_s": 1459.56
+      }
+    },
+    {
+      "id": "6223_5079_000105",
+      "text": "calma señores calma interrumpió el anfitrión calma que a todo se proveerá eh muchacho prosiguió dirigiéndose a uno de sus asistentes busca por ahí un poco de leña y enciéndenos una buena fogata en la capilla mayor",
+      "audio": "dev/audio/6223/5079/6223_5079_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1193.9,
+        "original_end_s": 1209.12
+      }
+    },
+    {
+      "id": "6223_5079_000106",
+      "text": "habían visto al inmóvil guerrero levantar la mano y derribarle con una espantosa bofetada de su guantelete de piedra fin de la leyenda el beso de gustavo adofo bécquer",
+      "audio": "dev/audio/6223/5079/6223_5079_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1767.42,
+        "original_end_s": 1780.41
+      }
+    },
+    {
+      "id": "6223_5079_000107",
+      "text": "en fin exclamó el oficial después de un corto silencio y como resignándose con el extraño alojamiento que la casualidad le deparaba más vale incómodo que ninguno de todas maneras si llueve que no será difícil según se agrupan las nubes estaremos a cubierto y algo es algo",
+      "audio": "dev/audio/6223/5079/6223_5079_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 170.34,
+        "original_end_s": 190.29
+      }
+    },
+    {
+      "id": "6223_5079_000108",
+      "text": "despojado de su ancho capotón de guerra luciendo un gran casco de metal con penacho de plumas blancas una casaca azul turquí con vueltas rojas y un magnífico mandoble con vaina de acero que resonaban arrastrándose al compás de sus marciales pasos y del golpe seco y agudo de sus espuelas de oro",
+      "audio": "dev/audio/6223/5079/6223_5079_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 562.18,
+        "original_end_s": 580.06
+      }
+    },
+    {
+      "id": "6223_5079_000109",
+      "text": "castañas y celestes imágenes quimérico objeto del vago amor de la adolescencia yo me creía juguete de una adulación y sin quitarle un punto los ojos ni aún osaba respirar temiendo que un soplo desvaneciese el encanto",
+      "audio": "dev/audio/6223/5079/6223_5079_000109.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 823.43,
+        "original_end_s": 838.72
+      }
+    },
+    {
+      "id": "6223_5079_000110",
+      "text": "y el alternado rumor de los pasos del vigilante que se paseaba envuelto en los anchos pliegues de su capote a lo largo del pórtico en la época  que se remonta la relación de esta historia tan verídica como extraordinaria",
+      "audio": "dev/audio/6223/5079/6223_5079_000110.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 444.2,
+        "original_end_s": 457.77
+      }
+    },
+    {
+      "id": "6223_5079_000111",
+      "text": "procedieron á destapar algunas de las botellas y sentándose alrededor de la lumbre empezó á andar el vino á la ronda a medida que las libaciones se hacían más numerosas y frecuentes y el vapor del espumoso champagne comenzaba á trastornar las cabezas crecían la animación el ruido y la algazara de los jóvenes",
+      "audio": "dev/audio/6223/5079/6223_5079_000111.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 1381.96,
+        "original_end_s": 1401.13
+      }
+    },
+    {
+      "id": "6223_5079_000112",
+      "text": "un verdadero serrallo en san juan de los reyes serrallo que desde ahora pongo á vuestra disposición ya que á lo que parece tanto os da de una mujer de carne como de piedra oh no continuó el capitán sin alterarse en lo más mínimo por las carcajadas de sus compañeros estoy seguro de que no pueden ser como la mía",
+      "audio": "dev/audio/6223/5079/6223_5079_000112.opus",
+      "tags": {
+        "speaker_id": "mls-es-6223",
+        "gender": "w",
+        "book_id": "5079",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/leyendas_becquer_1208_librivox/leyendas_03_becquer_64kb.mp3",
+        "original_start_s": 928.12,
+        "original_end_s": 946.91
+      }
+    }
+  ]
+}

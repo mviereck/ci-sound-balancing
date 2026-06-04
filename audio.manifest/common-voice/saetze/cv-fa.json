@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — fa",
+  "lang": "fa",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-fa",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "19587324",
+      "text": "ودیعه آن اجاره یک ماه است.",
+      "audio": "fa/unknown/fa_u_19587324.mp3",
+      "tags": {
+        "source_item_id": "19587324",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19652277",
+      "text": "این مبلغ را چطوری می خواهید؟",
+      "audio": "fa/unknown/fa_u_19652277.mp3",
+      "tags": {
+        "source_item_id": "19652277",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19673417",
+      "text": "مستقیم بروید. سپس به چپ بپیچید.",
+      "audio": "fa/unknown/fa_u_19673417.mp3",
+      "tags": {
+        "source_item_id": "19673417",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19693281",
+      "text": "این خیابان یک طرفه است.",
+      "audio": "fa/unknown/fa_u_19693281.mp3",
+      "tags": {
+        "source_item_id": "19693281",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19694314",
+      "text": "کارت سفر می خواهم، لطفاً.",
+      "audio": "fa/unknown/fa_u_19694314.mp3",
+      "tags": {
+        "source_item_id": "19694314",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19770146",
+      "text": "متشکرم که امروز به اینجا آمدید.",
+      "audio": "fa/unknown/fa_u_19770146.mp3",
+      "tags": {
+        "source_item_id": "19770146",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19785447",
+      "text": "جدول زمانی قطارها کجا است؟",
+      "audio": "fa/unknown/fa_u_19785447.mp3",
+      "tags": {
+        "source_item_id": "19785447",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19792830",
+      "text": "مشکلی در کامپیوترم وجود دارد.",
+      "audio": "fa/unknown/fa_u_19792830.mp3",
+      "tags": {
+        "source_item_id": "19792830",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19816442",
+      "text": "آیا شنبه ها باید کار کنم؟",
+      "audio": "fa/unknown/fa_u_19816442.mp3",
+      "tags": {
+        "source_item_id": "19816442",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "19841474",
+      "text": "بیشتر از آن بود که بتوانم بخورم.",
+      "audio": "fa/unknown/fa_u_19841474.mp3",
+      "tags": {
+        "source_item_id": "19841474",
+        "gender": "u"
+      }
+    }
+  ]
+}

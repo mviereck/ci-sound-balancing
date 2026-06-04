@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — th",
+  "lang": "th",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-th",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "26340569",
+      "text": "ขนมปัง ประกอบด้วยแป้ง น้ำ เนย และเกลือเล็กน้อย",
+      "audio": "th/unknown/th_u_26340569.mp3",
+      "tags": {
+        "source_item_id": "26340569",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26294493",
+      "text": "รัฐบาลให้ความสำคัญกับชุมชน",
+      "audio": "th/unknown/th_u_26294493.mp3",
+      "tags": {
+        "source_item_id": "26294493",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25939490",
+      "text": "ภาวนาให้เจอเขาเมื่อคุณอยู่ที่นั่น",
+      "audio": "th/unknown/th_u_25939490.mp3",
+      "tags": {
+        "source_item_id": "25939490",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25888770",
+      "text": "งั้นเอาอันนึง อัศวินพูดกับตนเองอย่างครุ่นคิด",
+      "audio": "th/unknown/th_u_25888770.mp3",
+      "tags": {
+        "source_item_id": "25888770",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26293536",
+      "text": "ในทุกมิติอย่างเป็นระบบ",
+      "audio": "th/unknown/th_u_26293536.mp3",
+      "tags": {
+        "source_item_id": "26293536",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26087382",
+      "text": "ไม่เจียมสังขาร",
+      "audio": "th/unknown/th_u_26087382.mp3",
+      "tags": {
+        "source_item_id": "26087382",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25886146",
+      "text": "ตอนนี้เค้าอยู่ที่ไหนกัน",
+      "audio": "th/unknown/th_u_25886146.mp3",
+      "tags": {
+        "source_item_id": "25886146",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26152994",
+      "text": "วันหยุด วันลาคลอด",
+      "audio": "th/unknown/th_u_26152994.mp3",
+      "tags": {
+        "source_item_id": "26152994",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25912413",
+      "text": "ซีเลีย แก้มของเธอแดง ดวงตาเปล่งประกาย",
+      "audio": "th/unknown/th_u_25912413.mp3",
+      "tags": {
+        "source_item_id": "25912413",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "25668627",
+      "text": "ตอนนี้ขอดูเธอกินพวกนี้",
+      "audio": "th/unknown/th_u_25668627.mp3",
+      "tags": {
+        "source_item_id": "25668627",
+        "gender": "u"
+      }
+    }
+  ]
+}

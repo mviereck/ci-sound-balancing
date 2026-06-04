@@ -1,0 +1,108 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — en",
+  "lang": "en",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-en",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "1026785",
+      "text": "Sunday will not work for me.",
+      "audio": "en/unknown/en_u_1026785.mp3",
+      "tags": {
+        "source_item_id": "1026785",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "103631",
+      "text": "Access my Vimeo service to play music from Bernhard Fleischmann",
+      "audio": "en/unknown/en_u_103631.mp3",
+      "tags": {
+        "source_item_id": "103631",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "104927",
+      "text": "I know everything about you.",
+      "audio": "en/unknown/en_u_104927.mp3",
+      "tags": {
+        "source_item_id": "104927",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "104986",
+      "text": "Children playing outside in a fountain.",
+      "audio": "en/unknown/en_u_104986.mp3",
+      "tags": {
+        "source_item_id": "104986",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "106341",
+      "text": "I guess I've seen everything now.",
+      "audio": "en/unknown/en_u_106341.mp3",
+      "tags": {
+        "source_item_id": "106341",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "106959",
+      "text": "I need the weather in North Dakota in three hundred fifty one days",
+      "audio": "en/unknown/en_u_106959.mp3",
+      "tags": {
+        "source_item_id": "106959",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "10998",
+      "text": "Look for the novel Behind closed doors",
+      "audio": "en/unknown/en_u_10998.mp3",
+      "tags": {
+        "source_item_id": "10998",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "110708",
+      "text": "He wasn't as good as I was expecting.",
+      "audio": "en/unknown/en_u_110708.mp3",
+      "tags": {
+        "source_item_id": "110708",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "110778",
+      "text": "Owls are always intellectual in fairy-tales.",
+      "audio": "en/unknown/en_u_110778_united_states_english.mp3",
+      "tags": {
+        "source_item_id": "110778",
+        "gender": "u",
+        "accent": "United States English"
+      }
+    },
+    {
+      "id": "1108",
+      "text": "The five French tourists stepped over the excited bulldogs.",
+      "audio": "en/unknown/en_u_1108.mp3",
+      "tags": {
+        "source_item_id": "1108",
+        "gender": "u"
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — hi",
+  "lang": "hi",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-hi",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "25998467",
+      "text": "भारत ने किया बैलिस्टिक मिसाइल का सफल परीक्षण, पाक-चीन को मिलेगा करारा जवाब",
+      "audio": "hi/unknown/hi_u_25998467.mp3",
+      "tags": {
+        "source_item_id": "25998467",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26010468",
+      "text": "साउथ दिल्ली नगर निगम सख्त, शॉपिंग मॉल के बाहर नहीं दिखेंगे होर्डिंग",
+      "audio": "hi/unknown/hi_u_26010468.mp3",
+      "tags": {
+        "source_item_id": "26010468",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27371674",
+      "text": "बनारस के मुस्लिम बहुल इलाकों में भारी मतदान",
+      "audio": "hi/unknown/hi_u_27371674.mp3",
+      "tags": {
+        "source_item_id": "27371674",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26350865",
+      "text": "चेन्नई में बदमाशों ने चलती ट्रेन में लहराए हथियार, वीडियो वायरल",
+      "audio": "hi/unknown/hi_u_26350865.mp3",
+      "tags": {
+        "source_item_id": "26350865",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27500578",
+      "text": "डेट के लिए तैयार हैं शेरॉन",
+      "audio": "hi/unknown/hi_u_27500578.mp3",
+      "tags": {
+        "source_item_id": "27500578",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26120088",
+      "text": "सुपरमॉडल इरीना शायक की 'गुड मॉर्निंग' सेल्फी",
+      "audio": "hi/unknown/hi_u_26120088.mp3",
+      "tags": {
+        "source_item_id": "26120088",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27509026",
+      "text": "केरल हाई कोर्ट में कई पदों के लिए नौकरी",
+      "audio": "hi/unknown/hi_u_27509026.mp3",
+      "tags": {
+        "source_item_id": "27509026",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26043843",
+      "text": "कैमरे के सामने मुस्कुराने से घबराते थे अनिल, ये थी वजह",
+      "audio": "hi/unknown/hi_u_26043843.mp3",
+      "tags": {
+        "source_item_id": "26043843",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26236234",
+      "text": "नक्सलवाद की जड़ों तक पहुंचना जरूरी: सोनिया",
+      "audio": "hi/unknown/hi_u_26236234.mp3",
+      "tags": {
+        "source_item_id": "26236234",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26358151",
+      "text": "प्रेमी की बेवफाई से आहत प्रेमिका ने उठाया खौफनाक कदम",
+      "audio": "hi/unknown/hi_u_26358151.mp3",
+      "tags": {
+        "source_item_id": "26358151",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26060498",
+      "text": "उसने मुझे मुँह पर मुक्का मारा।",
+      "audio": "hi/unknown/hi_u_26060498.mp3",
+      "tags": {
+        "source_item_id": "26060498",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "26033338",
+      "text": "उसने मुझपर ग़लती करने का इलज़ाम लगाया।",
+      "audio": "hi/unknown/hi_u_26033338.mp3",
+      "tags": {
+        "source_item_id": "26033338",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "27509109",
+      "text": "भारत से दोस्ताना व अच्छे रिश्ते चाहते हैं: जरदारी",
+      "audio": "hi/unknown/hi_u_27509109.mp3",
+      "tags": {
+        "source_item_id": "27509109",
+        "gender": "u"
+      }
+    }
+  ]
+}

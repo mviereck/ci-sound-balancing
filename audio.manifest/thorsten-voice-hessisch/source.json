@@ -1,0 +1,17 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "thorsten-voice-hessisch",
+  "name": "Thorsten-Voice Hessisch",
+  "url": "https://zenodo.org/records/7265581",
+  "license": "CC0-1.0",
+  "credit": "Thorsten Müller — Thorsten-Voice Hessisch (CC0, Zenodo 7265581)",
+  "base": "Thorsten-Voice-Hessisch/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": [
+      "saetze/thorsten-hessisch.json"
+    ]
+  }
+}

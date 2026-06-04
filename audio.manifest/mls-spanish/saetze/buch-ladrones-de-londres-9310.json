@@ -1,0 +1,3294 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Ladrones de Londres",
+  "lang": "es",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "9310",
+    "book_title": "Ladrones de Londres",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10667_9310_000000",
+      "text": "ea levántate no no me levantaré si no me dejas salir sikes la contempló un instante en silencio y aprovechándose de un momento en que no hacía resistencia le puso las manos detrás de la espalda y la arrastró con mucho trabajo hasta el aposento inmediato",
+      "audio": "test/audio/10667/9310/10667_9310_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 300.24,
+        "original_end_s": 318.61
+      }
+    },
+    {
+      "id": "10667_9310_000001",
+      "text": "tate no vayáis a exponerme ahora en algún peligro y enviarme a un tribunal de policía os prevengo que esto no me conviene ni me puede dar mucho gusto",
+      "audio": "test/audio/10667/9310/10667_9310_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 768.34,
+        "original_end_s": 779.46
+      }
+    },
+    {
+      "id": "10667_9310_000002",
+      "text": "sí te oigo repuso sikes volviéndose bruscamente y mirándola cara a cara aun creo que le he oido demasiado si pronuncias otra palabra te haré estrangular por mi perro lo que hecho gritarás por alguna cosa",
+      "audio": "test/audio/10667/9310/10667_9310_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 255.12,
+        "original_end_s": 270.33
+      }
+    },
+    {
+      "id": "10667_9310_000003",
+      "text": "seis noches mortales en cada una de las cuales el judío regresó mohino dando a comprender en pocas palabras que todavía no era ocasión la noche del día séptimo volvió más pronto que los días precedentes y brillaba en su rostro un rayo de satisfaccion",
+      "audio": "test/audio/10667/9310/10667_9310_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 890.03,
+        "original_end_s": 907.53
+      }
+    },
+    {
+      "id": "10667_9310_000004",
+      "text": "el judío le hizo señal de que no hiciera caso y nancy recuperó pronto la calma después de haberle dicho a sikes al oído que no habia temor por entonces de una recaída pues que lo creía todo concluido fagin tomó su sombrero dando las buenas noches a sus amigos",
+      "audio": "test/audio/10667/9310/10667_9310_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 462.9,
+        "original_end_s": 480.49
+      }
+    },
+    {
+      "id": "10667_9310_000005",
+      "text": "fagin nada respondió á ese cumplido adulador pero tirando á sikes por la manga le señaló con el dedo á nancy que habiéndose aprovechado del momento en que ellos hablaban para ponerse su sombrero se disponía a salir nancy gritó sikes",
+      "audio": "test/audio/10667/9310/10667_9310_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 126.2,
+        "original_end_s": 142.13
+      }
+    },
+    {
+      "id": "10667_9310_000006",
+      "text": "quién es esta mujer una de las nuestras ya veo de lo que se trata exclamó bolter frunciendo la nariz sospecháis de ella no es cierto ha adquirido nuevas relaciones querido y es preciso que yo las conozca",
+      "audio": "test/audio/10667/9310/10667_9310_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 830.32,
+        "original_end_s": 846.84
+      }
+    },
+    {
+      "id": "10667_9310_000007",
+      "text": "al llegar a la puerta se paró y lanzando una mirada á su alrededor preguntó si había alguno que quisiera alumbrarle para bajar alúmbrale nancy dijo sikes rellenando su pipa sería una lastima que se rompiera el bautismo privaría a los espectadores del placer de verle colgar",
+      "audio": "test/audio/10667/9310/10667_9310_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 480.49,
+        "original_end_s": 500.3
+      }
+    },
+    {
+      "id": "10667_9310_000008",
+      "text": "es verdad dijo el judio con ademan pensativo es muy chocante decidme por qué razon pensais vos puede haberse empeñado en salir esta noche vos debeis saberla mas que yo qué diablos de idea se le habrá metido en la cabeza",
+      "audio": "test/audio/10667/9310/10667_9310_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 332.98,
+        "original_end_s": 349.86
+      }
+    },
+    {
+      "id": "10667_9310_000009",
+      "text": "es esta la mujer de que se trata preguntó en voz baja el judío hizo un movimiento de cabeza afirmativo el espía cambió una mirada con fagin y partió como una flecha",
+      "audio": "test/audio/10667/9310/10667_9310_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 953.02,
+        "original_end_s": 967.01
+      }
+    },
+    {
+      "id": "10667_9310_000010",
+      "text": "aja hizo el judío alentado por esta observación estáis esta noche en vuestro centro guillermo completamente en vuestro centro no estoy en mi centro cuando ponéis vuestras garras sobre mi espalda dijo sikes rechazando la mano del judío con qué abajo las patas",
+      "audio": "test/audio/10667/9310/10667_9310_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 107.49,
+        "original_end_s": 126.2
+      }
+    },
+    {
+      "id": "10667_9310_000011",
+      "text": "ahora añadió el bandido te digo otra vez que te sientes y permanezcas tranquila estamos seguramente no sería un sombrero el que me impediría salir dijo la joven palideciendo qué significa esto guillermo sabes lo que haces",
+      "audio": "test/audio/10667/9310/10667_9310_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 205.3,
+        "original_end_s": 221.91
+      }
+    },
+    {
+      "id": "10667_9310_000012",
+      "text": "nancy tomó la vela y acompañó al viejo hasta el pié de la escalera cuando estuvieron en la entrada el judío poniendo el dedo sobre sus labios dijo muy bajo al oido de la joven qué sucede nancy",
+      "audio": "test/audio/10667/9310/10667_9310_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 500.3,
+        "original_end_s": 513.66
+      }
+    },
+    {
+      "id": "10667_9310_000013",
+      "text": "ayer trabajasteis lindamente camarada dijo el judío seis chelines nueve peniques y medio diantre querido a caza menuda hará vuestra fortuna",
+      "audio": "test/audio/10667/9310/10667_9310_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 692.06,
+        "original_end_s": 704.01
+      }
+    },
+    {
+      "id": "10667_9310_000014",
+      "text": "no olvidéis añadir tres botes de cerveza y un jarro para leche no ciertamente querido mío el escamoteo de los tres botes de estaño demuestran sin duda alguna destreza pero el del jarro para leche es toda una obra maestra",
+      "audio": "test/audio/10667/9310/10667_9310_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 704.01,
+        "original_end_s": 720.06
+      }
+    },
+    {
+      "id": "10667_9310_000015",
+      "text": "qué diablos haces dónde tienes intención de ir a esta hora no muy lejos acaso es una respuesta no muy lejos repuso sikes",
+      "audio": "test/audio/10667/9310/10667_9310_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 142.13,
+        "original_end_s": 152.5
+      }
+    },
+    {
+      "id": "10667_9310_000016",
+      "text": "creía haberla sometido pero es peor que nunca ciertamente que es peor repuso el judío con aire distraído jamás la había visto arrebatarse como hoy por nada",
+      "audio": "test/audio/10667/9310/10667_9310_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 360.11,
+        "original_end_s": 373.22
+      }
+    },
+    {
+      "id": "10667_9310_000017",
+      "text": "no corre bastante en ella necesito tomar el aire en la calle no saldrás a la calle replicó sikes dicho esto fue a cerrar la puerta metió la llave en su faltriquera y arrancando el sombrero de la cabeza de nancy lo arrojo sobre un armario viejo",
+      "audio": "test/audio/10667/9310/10667_9310_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 187.45,
+        "original_end_s": 205.3
+      }
+    },
+    {
+      "id": "10667_9310_000018",
+      "text": "sería una buena adquisicion tal monigote de nancy pensaba fagin es preciso pues asegurarse los dos cuanto antes con un poco de persuasion continuaba pensando fagin qué motivo mas poderoso podria determinar a esa joven a envenenar a sykes",
+      "audio": "test/audio/10667/9310/10667_9310_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 593.45,
+        "original_end_s": 611.11
+      }
+    },
+    {
+      "id": "10667_9310_000019",
+      "text": "y apenas la hubo despachado se cortó una segunda volter dijo fagin poniéndose de codos sobre la mesa necesito de vos para un golpe de mano que exige mucha prudencia",
+      "audio": "test/audio/10667/9310/10667_9310_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 754.86,
+        "original_end_s": 768.34
+      }
+    },
+    {
+      "id": "10667_9310_000020",
+      "text": "creo no será por no interrumpió fagin no hay mas que hacer sino decirme donde va quien ve y si es posible lo que hace recordar el nombre de la calle",
+      "audio": "test/audio/10667/9310/10667_9310_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 799.18,
+        "original_end_s": 812.43
+      }
+    },
+    {
+      "id": "10667_9310_000021",
+      "text": "no es maleja que digamos para un debutante repuso el señor bolter con tono de complacencia he descolgado los botes de una verja de hierro ante una casa acomodada y como el jarro para leche estaba en el lindar de la puerta de un figón",
+      "audio": "test/audio/10667/9310/10667_9310_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 720.06,
+        "original_end_s": 735.69
+      }
+    },
+    {
+      "id": "10667_9310_000022",
+      "text": "llega para nancy el tiempo de cumplir su promesa a rosa no la cumple fagin emplea á noé clatpole en una comisión secreta era la noche de un domingo el reloj de la iglesia vecina dio la hora fagin y sikes que estaban hablando se callaron un momento para escuchar",
+      "audio": "test/audio/10667/9310/10667_9310_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 31.82,
+        "original_end_s": 51.46
+      }
+    },
+    {
+      "id": "10667_9310_000023",
+      "text": "ya te he dicho que no me encuentro bien observó nancy necesito tomar el aire asoma la cabeza a la ventana y tómalo a discreción",
+      "audio": "test/audio/10667/9310/10667_9310_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 176.87,
+        "original_end_s": 187.45
+      }
+    },
+    {
+      "id": "10667_9310_000024",
+      "text": "cuando querrás vengarte del que te trata como un perro que digo como un perro peor que un perro porque acaricia alguna vez el suyo ven a encontrarme entiendes nancy ese no es más que un pájaro de paso",
+      "audio": "test/audio/10667/9310/10667_9310_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 547.54,
+        "original_end_s": 563.23
+      }
+    },
+    {
+      "id": "10667_9310_000025",
+      "text": "el judío hizo una expresiva señal de cabeza dando a entender que aprobaba mucho este tratamiento no me ha dejado un momento durante esa enfermedad endiablada rodaba día y noche alrededor de mi lecho mientras estuve en postura horizontal",
+      "audio": "test/audio/10667/9310/10667_9310_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 392.93,
+        "original_end_s": 410.66
+      }
+    },
+    {
+      "id": "10667_9310_000026",
+      "text": "donde habiéndola sentado a la fuerza en una silla la tuvo en respeto se ha visto jamás cosa igual dijo enjugándose su rostro cubierto de sudor es chocante esa joven con sus caprichos",
+      "audio": "test/audio/10667/9310/10667_9310_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 318.61,
+        "original_end_s": 332.98
+      }
+    },
+    {
+      "id": "10667_9310_000027",
+      "text": "eran las once y cuarto y la puerta estaba cerrada ella volvió cautelosamente sobre sus goznes a un ligero silbido que dio el judío",
+      "audio": "test/audio/10667/9310/10667_9310_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 926.21,
+        "original_end_s": 936.27
+      }
+    },
+    {
+      "id": "10667_9310_000028",
+      "text": "qué es lo que le ha dado  a ese pulpón se ha visto jamás cosa igual déjame salir dijo nancy en tono suplicante te ruego guillermo que me dejes salir añadió sentándose en el suelo cerca la puerta",
+      "audio": "test/audio/10667/9310/10667_9310_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 270.33,
+        "original_end_s": 286.27
+      }
+    },
+    {
+      "id": "10667_9310_000029",
+      "text": "no habia cuidado de que se le interrumpiera fuese por lo que fuese porque se había sentado a la mesa con la firme intención de trabajar a destajo y lo hacía en efecto de tan buen ánimo que las migas le saltaban por sobre la cabeza",
+      "audio": "test/audio/10667/9310/10667_9310_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 677.54,
+        "original_end_s": 692.06
+      }
+    },
+    {
+      "id": "10667_9310_000030",
+      "text": "ya caigo unicamente por tener el gusto de conocerlas con el fin de saber si es persona respetable eh ja ja ja soy vuestro hombre sabia que os gustaría tal comisión",
+      "audio": "test/audio/10667/9310/10667_9310_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 846.84,
+        "original_end_s": 861.0
+      }
+    },
+    {
+      "id": "10667_9310_000031",
+      "text": "en tanto que vos viejo cocodrilo me habéis dejado allí me habéis abandonado y os habéis puesto en guardia no teníamos un suelto en casa y esto es probablemente lo que la habrá atormentado puede que el haber estado tanto tiempo encerrada le haya agriado el carácter no es así",
+      "audio": "test/audio/10667/9310/10667_9310_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 410.66,
+        "original_end_s": 430.41
+      }
+    },
+    {
+      "id": "10667_9310_000032",
+      "text": "qué dijo esta viendo que fagin no concluía su frase y la miraba con suma atención  no importa volveremos a hablar de esto otra vez nancy tienes en mí un amigo un verdadero amigo poseo los medios para hacer muchas cosas",
+      "audio": "test/audio/10667/9310/10667_9310_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 529.25,
+        "original_end_s": 547.54
+      }
+    },
+    {
+      "id": "10667_9310_000033",
+      "text": "querido mío encaprichamiento de mujer sin duda alguna respondió el judío encogiéndose de hombros es muy posible gruñó saiks",
+      "audio": "test/audio/10667/9310/10667_9310_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 349.86,
+        "original_end_s": 360.11
+      }
+    },
+    {
+      "id": "10667_9310_000034",
+      "text": "levanta mucho el pico exclamó sikes volviéndose a fagin es preciso que haya perdido el juicio de lo contrario no se atrevería a hablarme así tú me obligarás a hacer una trastada murmuró nancy apretando las dos manos sobre su pecho como para retener un grito que iba a escapársele",
+      "audio": "test/audio/10667/9310/10667_9310_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 221.91,
+        "original_end_s": 241.07
+      }
+    },
+    {
+      "id": "10667_9310_000035",
+      "text": "ah contestó el judío no es una lástima guillermo que nada haya preparado para esta noche esta vez tenéis razón repuso sikes bruscamente y tanto más lástima cuando me encuentro esta noche del todo de buen humor",
+      "audio": "test/audio/10667/9310/10667_9310_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 66.54,
+        "original_end_s": 82.86
+      }
+    },
+    {
+      "id": "10667_9310_000036",
+      "text": "osando apenas cuchichear pero sustituyendo los gestos a las palabras fagin y el joven judío que les había abierto la puerta señalaron a noé el agujero con vidrio y le indicaron que subiera para ver la persona que estaba en la sala vecina",
+      "audio": "test/audio/10667/9310/10667_9310_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 936.27,
+        "original_end_s": 953.02
+      }
+    },
+    {
+      "id": "10667_9310_000037",
+      "text": "pues bien dijo sykes más por espiritu de contradiccion que porque tuviera ninguna razón para privarle la salida siéntate y estate quieta",
+      "audio": "test/audio/10667/9310/10667_9310_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 166.59,
+        "original_end_s": 176.87
+      }
+    },
+    {
+      "id": "10667_9310_000038",
+      "text": "no sabes tú lo que haces no no lo sabes solo una hora te lo suplico que los demonios me lleven si esta joven no se ha vuelto loca exclamó sikes cogiéndola por el brazo",
+      "audio": "test/audio/10667/9310/10667_9310_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 286.27,
+        "original_end_s": 300.24
+      }
+    },
+    {
+      "id": "10667_9310_000039",
+      "text": "lo he recogido temeroso de que no se enmoheciese o que no cogiese un resfriado esto es muy justo no es cierto ah ah ah el judío fingió reír a carcajadas y mister bolter haciendo lo mismo de buena gana hincó el diente en su primera rebanada de pan y de manteca",
+      "audio": "test/audio/10667/9310/10667_9310_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 735.69,
+        "original_end_s": 754.86
+      }
+    },
+    {
+      "id": "10667_9310_000040",
+      "text": "y no habéis errado dónde está en que punto y cuando deberé seguirla esto querido os lo diré os lo comunicaré cuando sea tiempo oportuno procura estar preparado lo restante me corresponde a mí",
+      "audio": "test/audio/10667/9310/10667_9310_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 861.0,
+        "original_end_s": 876.54
+      }
+    },
+    {
+      "id": "10667_9310_000041",
+      "text": "esto es lo que se llama hablar en razón dijo el judío dándole un golpecillo en el hombro me place oíros hablar así guillermo ciertamente esto me da gusto ja",
+      "audio": "test/audio/10667/9310/10667_9310_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 95.38,
+        "original_end_s": 107.49
+      }
+    },
+    {
+      "id": "10667_9310_000042",
+      "text": "pronto partamos es tiempo ya noé se levantó sin pronunciar palabra porque la alegría extrema que experimentaba el judío se había comunicado a él salieron del escondite y habiendo atravesado un laberinto de calles llegaron al fin a una taberna",
+      "audio": "test/audio/10667/9310/10667_9310_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 907.53,
+        "original_end_s": 926.21
+      }
+    },
+    {
+      "id": "10667_9310_000043",
+      "text": "otras lo han hecho antes que ella y aun peor por sus amantes a la mañana siguiente se levantó muy temprano y esperó con impaciencia la llegada de su nuevo compañero quien después de cierto lapso de tiempo se presentó al cabo y empezó por atacar furiosamente los comestibles",
+      "audio": "test/audio/10667/9310/10667_9310_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 611.11,
+        "original_end_s": 630.39
+      }
+    },
+    {
+      "id": "10667_9310_000044",
+      "text": "ni yo tampoco sospecho que ha cogido un poco de esa maldita fiebre que me ha tenido en un triz qué os parece esto no puede ser otra cosa es posible yo me encargo de sacarle un poco de sangre si ello le repite otra vez así evitaré que el médico se tome la molestia de venir",
+      "audio": "test/audio/10667/9310/10667_9310_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 373.22,
+        "original_end_s": 392.93
+      }
+    },
+    {
+      "id": "10667_9310_000045",
+      "text": "dónde está carlota ha salido la he mandado á una comision fuera de casa con la otra joven porque necesitaba estar solo con vos hubierais debido encargarla que antes me hiciera tostadas de pan con manteca y bien hablad hablad siempre no me interrumpiréis",
+      "audio": "test/audio/10667/9310/10667_9310_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 658.61,
+        "original_end_s": 677.54
+      }
+    },
+    {
+      "id": "10667_9310_000046",
+      "text": "es muy probable querido dijo el judío en voz baja silencio aquí está apenas hubo dicho estas palabras nancy volvió a aparecer en el aposento y se sentó en su sitio se conocía que había llorado porque sus ojos estaban rojos e hinchados",
+      "audio": "test/audio/10667/9310/10667_9310_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 430.41,
+        "original_end_s": 450.06
+      }
+    },
+    {
+      "id": "10667_9310_000047",
+      "text": "aquella noche la mañana siguiente y el día después el espía calzado y vestido con su traje de carretero estuvo preparado para salir a una señal de fagin seis noches pasaron de este modo",
+      "audio": "test/audio/10667/9310/10667_9310_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 876.54,
+        "original_end_s": 890.03
+      }
+    },
+    {
+      "id": "10667_9310_000048",
+      "text": "el judío exhaló un suspiro y sacudió tristemente la cabeza así pues a la primera ocasión que se presente será preciso  cogerla aunque sea al vuelo y reparar el tiempo perdido continuó saiks",
+      "audio": "test/audio/10667/9310/10667_9310_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 82.86,
+        "original_end_s": 95.38
+      }
+    },
+    {
+      "id": "10667_9310_000049",
+      "text": "querido no hay que correr el menor peligro se trata únicamente de seguir a una mujer y espiar sus acciones una vieja no una joven pues puedo hacerlo a las mil maravillas caramba en la escuela era un famoso soplón por qué es necesario que yo la siga",
+      "audio": "test/audio/10667/9310/10667_9310_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 779.46,
+        "original_end_s": 799.18
+      }
+    },
+    {
+      "id": "10667_9310_000050",
+      "text": "podéis hablar comiendo no es cierto oh sin duda nunca como mejor que cuando hablo continuó noé cortando una enorme rebanada de pan",
+      "audio": "test/audio/10667/9310/10667_9310_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 648.07,
+        "original_end_s": 658.61
+      }
+    },
+    {
+      "id": "10667_9310_000051",
+      "text": "bolter dijo el judío tomando una silla y sentándose frente a noé  aquí estoy qué me queréis contestó este no me deis nada que hacer antes que no haya concluido mi desayuno como es la mala costumbre en esta casa jamás queda en ella tiempo para comer",
+      "audio": "test/audio/10667/9310/10667_9310_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 630.39,
+        "original_end_s": 648.07
+      }
+    },
+    {
+      "id": "10667_9310_000052",
+      "text": "nancy levantó la cabeza y prestó atento oído las once dijo sikes levantándose de su silla y apartando la cortina de la ventana para mirar a la calle la noche está negra como boca de lobo famoso tiempo para los negocios",
+      "audio": "test/audio/10667/9310/10667_9310_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 51.46,
+        "original_end_s": 66.54
+      }
+    },
+    {
+      "id": "10667_9310_000053",
+      "text": "qué queréis decir contestó ésta en el mismo tono cuál es la causa de todo esto preguntó fagin si ese bruto se porta indignamente contigo añadió señalando con el dedo el piso superior por qué no",
+      "audio": "test/audio/10667/9310/10667_9310_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 513.66,
+        "original_end_s": 529.25
+      }
+    },
+    {
+      "id": "10667_9310_000054",
+      "text": "te digo que me dejes salir al momento no exclamó sikes fagin decidle que haría mejor en dejarme salir mucho mejor me oyes gritó nancy golpeando el suelo con el pie",
+      "audio": "test/audio/10667/9310/10667_9310_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 241.07,
+        "original_end_s": 255.12
+      }
+    },
+    {
+      "id": "10667_9310_000055",
+      "text": "dirigiéndose a su habitación fagin dio libre curso a los pensamientos que ocupaban su alma desde algún tiempo había concebido la idea de que nancy cansada de la brutalidad del bandido amaba a otro el objeto de este nuevo amor no era ninguno de sus imberbes pupilos",
+      "audio": "test/audio/10667/9310/10667_9310_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 576.23,
+        "original_end_s": 593.45
+      }
+    },
+    {
+      "id": "10667_9310_000056",
+      "text": "mientras que a mí nancy a mí me conoces desde largo tiempo desde muy largo tiempo os conozco bien dijo la joven sin manifestar la menor emoción buenas noches",
+      "audio": "test/audio/10667/9310/10667_9310_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 563.23,
+        "original_end_s": 576.23
+      }
+    },
+    {
+      "id": "10667_9310_000057",
+      "text": "si es una calle o bien lela casa si es una casa y comunicarme en fin todas las noticias que podáis recoger qué me daréis por ello os daré una libra esterlina cosa que no he dado nunca por servicios de este género que no me producen utilidad alguna",
+      "audio": "test/audio/10667/9310/10667_9310_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 812.43,
+        "original_end_s": 830.32
+      }
+    },
+    {
+      "id": "10667_9310_000058",
+      "text": "dónde vas te digo que no lejos otra vez quieres responder preguntó sikes que empezaba a calentarse te pregunto dónde vas no lo sé respondió la joven",
+      "audio": "test/audio/10667/9310/10667_9310_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_44_dickens_64kb.mp3",
+        "original_start_s": 152.5,
+        "original_end_s": 166.59
+      }
+    },
+    {
+      "id": "10667_9310_000059",
+      "text": "esto lo he sabido por las personas de la casa de que os he hablado prosiguió la joven porque yo no le he visto más que dos o tres veces y aun en ellas iba embozado en una gran capa creo que esto es todo lo que puedo deciros",
+      "audio": "test/audio/10667/9310/10667_9310_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 643.34,
+        "original_end_s": 658.44
+      }
+    },
+    {
+      "id": "10667_9310_000060",
+      "text": "estáis bien resuelta jamás me diréis por qué por una buena razón por una sola razón que la señorita sabe y de consiguiente estoy segura que la pondrá de mi lado",
+      "audio": "test/audio/10667/9310/10667_9310_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 438.14,
+        "original_end_s": 451.22
+      }
+    },
+    {
+      "id": "10667_9310_000061",
+      "text": "parándose cuando ella se paraba y deslizándose de nuevo al escondite á lo largo del parapeto cuando ella volvia atrás la noche era oscura",
+      "audio": "test/audio/10667/9310/10667_9310_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 57.2,
+        "original_end_s": 67.94
+      }
+    },
+    {
+      "id": "10667_9310_000062",
+      "text": "durante todo el día el cielo había estado nublado y a esta hora sobre todo en este sitio había muy poco concurso de gente una broma espesa que cubría al rio daba un tinte pálido a la luz rojiza de los faroles que ardían en las lanchas",
+      "audio": "test/audio/10667/9310/10667_9310_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 67.94,
+        "original_end_s": 85.52
+      }
+    },
+    {
+      "id": "10667_9310_000063",
+      "text": "por qué no estuvisteis aquí el domingo pasado no pude venir fui detenida a la fuerza por quién por guillermo el hombre de quien he hablado a la señorita",
+      "audio": "test/audio/10667/9310/10667_9310_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 330.82,
+        "original_end_s": 343.28
+      }
+    },
+    {
+      "id": "10667_9310_000064",
+      "text": "apenas habían dado algunos pasos nancy se estremeció y al momento fue a ellos marchaban aquellos como gentes que no esperan encontrar a la persona que buscan cuando se hallaron cara a cara con la joven",
+      "audio": "test/audio/10667/9310/10667_9310_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 102.85,
+        "original_end_s": 118.74
+      }
+    },
+    {
+      "id": "10667_9310_000065",
+      "text": "tal vez he sido seguida y espiada partid partid los primeros si creéis que os he prestado algún servicio todo lo que pido en recompensa es que me abandonéis al instante mismo y me dejéis volver sola",
+      "audio": "test/audio/10667/9310/10667_9310_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 770.6,
+        "original_end_s": 785.19
+      }
+    },
+    {
+      "id": "10667_9310_000066",
+      "text": "cuando oyó resonar un ruido de pasos sobre la piedra y luego las voces de varias personas hirieron su oído entonces se incorporó se apretó contra él",
+      "audio": "test/audio/10667/9310/10667_9310_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 205.46,
+        "original_end_s": 217.98
+      }
+    },
+    {
+      "id": "10667_9310_000067",
+      "text": "al pie de la segunda meseta el muro de la izquierda termina con una pilastra haciendo frente al támesis llegado al pie de esta segunda meseta el menestral lanzó una mirada a su alrededor",
+      "audio": "test/audio/10667/9310/10667_9310_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 162.46,
+        "original_end_s": 175.87
+      }
+    },
+    {
+      "id": "10667_9310_000068",
+      "text": "cómo acabará pues la existencia miserable de esta pobre joven exclamó rosa cómo contestó ésta mirad ante vos señorita",
+      "audio": "test/audio/10667/9310/10667_9310_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 798.56,
+        "original_end_s": 809.48
+      }
+    },
+    {
+      "id": "10667_9310_000069",
+      "text": "es inútil insistir más dijo suspirando el caballero pueda que permaneciendo aquí comprometemos su seguridad sí sí contestó la joven tenéis mucha razón",
+      "audio": "test/audio/10667/9310/10667_9310_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 785.19,
+        "original_end_s": 798.56
+      }
+    },
+    {
+      "id": "10667_9310_000070",
+      "text": "el caballero se volvió como para prepararse a  partir tomad esta bolsa exclamó rosa guardadla por amor de mi y para que tengáis algún recurso en la necesidad no no contestó la joven",
+      "audio": "test/audio/10667/9310/10667_9310_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 841.52,
+        "original_end_s": 856.94
+      }
+    },
+    {
+      "id": "10667_9310_000071",
+      "text": "os diré francamente que nos proponemos arrancar de ese monks su secreto cualquiera que sea y que para ello aprovecharemos la ventaja si es necesario de los terrores pánicos a los cuales dicen está sujeto",
+      "audio": "test/audio/10667/9310/10667_9310_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 394.09,
+        "original_end_s": 409.87
+      }
+    },
+    {
+      "id": "10667_9310_000072",
+      "text": "es alto muy récio pero no gordo al verle andar se creeria que va hacer una mala jugada porque mira constantemente á uno y otro lado tiene los ojos de tal modo hundidos en la cabeza que por esto solo podriais conocerle perfectamente",
+      "audio": "test/audio/10667/9310/10667_9310_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 591.28,
+        "original_end_s": 609.94
+      }
+    },
+    {
+      "id": "10667_9310_000073",
+      "text": "es de piel muy morena y aunque no tenga mas allá de veinte y seis o veinte y ocho años sus ojos son secos y hoscos sus labios están ordinariamente marchitos y descoloridos por las señales de sus dientes porque está sujeto a terribles convulsiones",
+      "audio": "test/audio/10667/9310/10667_9310_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 609.94,
+        "original_end_s": 627.97
+      }
+    },
+    {
+      "id": "10667_9310_000074",
+      "text": "estoy pronta a oíros esta señorita que veis me ha comunicado a mí y a algunos amigos en la discreción de los cuales se puede descansar con toda confianza lo que le dijisteis hace quince días para probaros que me fio de vos",
+      "audio": "test/audio/10667/9310/10667_9310_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 377.87,
+        "original_end_s": 394.09
+      }
+    },
+    {
+      "id": "10667_9310_000075",
+      "text": "luego repuso dirigiéndose a nancy señorita acabáis de prestarnos un gran servicio y os doy las gracias qué puedo hacer por vos nada contestó nancy no persistáis en rehusar",
+      "audio": "test/audio/10667/9310/10667_9310_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 707.49,
+        "original_end_s": 722.64
+      }
+    },
+    {
+      "id": "10667_9310_000076",
+      "text": "creo que no mi querida señorita dijo el caballero no señor continuó nancy después de un momento de reflexión estoy encadenada a mi primera existencia tengo horror a ella es verdad pero no puedo dejarla adiós",
+      "audio": "test/audio/10667/9310/10667_9310_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 752.42,
+        "original_end_s": 770.6
+      }
+    },
+    {
+      "id": "10667_9310_000077",
+      "text": "cuando hubo dicho la hora de la noche y cuáles eran los días en que monks solía frecuentar esa guarida pareció reflexionar un momento para recordar la fisonomía del hombre en cuestión y estar en mejor estado de hacer su filiación",
+      "audio": "test/audio/10667/9310/10667_9310_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 575.29,
+        "original_end_s": 591.28
+      }
+    },
+    {
+      "id": "10667_9310_000078",
+      "text": "creo no habrá tenido sospecha sobre el asunto que os conduce aquí no contestó la joven sacudiendo la cabeza me es muy difícil dejarle",
+      "audio": "test/audio/10667/9310/10667_9310_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 343.28,
+        "original_end_s": 353.84
+      }
+    },
+    {
+      "id": "10667_9310_000079",
+      "text": "y si llega a denunciar a los otros preguntó nancy os prometo que en el caso que podamos obtener de él la verdad arrancándole su secreto no se tratará de esto puede haber en la historia del niño oliverio particularidades que sería penoso someter a la vista del público",
+      "audio": "test/audio/10667/9310/10667_9310_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 470.34,
+        "original_end_s": 489.04
+      }
+    },
+    {
+      "id": "10667_9310_000080",
+      "text": "veamos reflexionad un poco continuó el caballero con acento tan dulce y bondadoso que hubiera podido conmover un corazón más duro y más insensible",
+      "audio": "test/audio/10667/9310/10667_9310_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 722.64,
+        "original_end_s": 734.06
+      }
+    },
+    {
+      "id": "10667_9310_000081",
+      "text": "apropósito esperad cuando vuelve la cabeza se descubre en su cuello un poco más arriba de su corbatín una gran cicatriz roja como una quemadura exclamó el caballero",
+      "audio": "test/audio/10667/9310/10667_9310_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 658.44,
+        "original_end_s": 671.79
+      }
+    },
+    {
+      "id": "10667_9310_000082",
+      "text": "él y rosa aparecieron luego sobre el puente y se detuvieron un momento en el último escalón de la escalera rosa maylic esperó aun pero el anciano caballero la tomó del brazo y la atrajo suavemente hacía él",
+      "audio": "test/audio/10667/9310/10667_9310_000082.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 891.12,
+        "original_end_s": 904.97
+      }
+    },
+    {
+      "id": "10667_9310_000083",
+      "text": "siempre contestó el caballero os aseguro que obraremos de modo que ni la más leve sospecha podrá entrar en su alma a pesar de que desde mi más tierna infancia he vivido entre los mentirosos y por consiguiente la mentira me sea familiar",
+      "audio": "test/audio/10667/9310/10667_9310_000083.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 521.78,
+        "original_end_s": 538.83
+      }
+    },
+    {
+      "id": "10667_9310_000084",
+      "text": "todo el día de hoy he sido atormentada por los más horribles pensamientos de muerte y de sudarios cubiertos de sangre hasta producirme fiebre y delirio por la noche he querido distraerme leyendo hasta llegar la hora y he visto las mismas cosas en el libro",
+      "audio": "test/audio/10667/9310/10667_9310_000084.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 286.02,
+        "original_end_s": 303.39
+      }
+    },
+    {
+      "id": "10667_9310_000085",
+      "text": "la primera que era una mujer se adelantaba con paso vivo y ligero mirando con avidez a su alrededor como si buscara a alguno el otro que era un hombre seguía a alguna distancia en la sombra y arreglaba su paso al de la mujer",
+      "audio": "test/audio/10667/9310/10667_9310_000085.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 41.29,
+        "original_end_s": 57.2
+      }
+    },
+    {
+      "id": "10667_9310_000086",
+      "text": "miró y respirando apenas escuchó con atención paréceme que nos alejamos demasiado dijo el caballero no puedo permitir que esta señorita baje un escalón más",
+      "audio": "test/audio/10667/9310/10667_9310_000086.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 217.98,
+        "original_end_s": 231.25
+      }
+    },
+    {
+      "id": "10667_9310_000087",
+      "text": "la escalera de que hablaba nancy estaba al extremo del puente en la ribera del condado de su rey sus escalones que forman una parle del puente consisten en tres tramos o mesetas",
+      "audio": "test/audio/10667/9310/10667_9310_000087.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 148.99,
+        "original_end_s": 162.46
+      }
+    },
+    {
+      "id": "10667_9310_000088",
+      "text": "puesto que me ha dado su palabra además por lo mismo que si su conducta es mala la mía no está exenta tampoco de reproches entonces repuso el caballero como si hubiese logrado el objeto que se proponía entregadme á monks y dejadle se arregle conmigo",
+      "audio": "test/audio/10667/9310/10667_9310_000088.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 451.22,
+        "original_end_s": 470.34
+      }
+    },
+    {
+      "id": "10667_9310_000089",
+      "text": "por dar las señas de la taberna donde había estado aquella noche por las pausas que hacía hablando se hubiera podido creer que el caballero tomaba nota de dichas señas cuando le hubo explicado las circunstancias del sitio desde donde podía mirarse excitar la atención",
+      "audio": "test/audio/10667/9310/10667_9310_000089.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 556.76,
+        "original_end_s": 575.29
+      }
+    },
+    {
+      "id": "10667_9310_000090",
+      "text": "qué significa entonces vos le conoceis dijo la joven la señorita lanzó un grito de sorpresa y los tres permanecieron por algunos momentos en silencio tan profundo que el espia hubiera podido oir su respiracion",
+      "audio": "test/audio/10667/9310/10667_9310_000090.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 671.79,
+        "original_end_s": 689.19
+      }
+    },
+    {
+      "id": "10667_9310_000091",
+      "text": "y que si no podía oír su conversacion podría al menos seguirlos de nuevo con toda seguridad se determinaba ya á salir de su escondrijo y pensaba volver á subir",
+      "audio": "test/audio/10667/9310/10667_9310_000091.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 193.26,
+        "original_end_s": 205.46
+      }
+    },
+    {
+      "id": "10667_9310_000092",
+      "text": "no nada caballero os lo aseguro replicó la joven derramando lágrimas nada podéis para cambiar mi suerte va a dejarse persuadir exclamó rosa va a rendirse estoy segura de ello titubea",
+      "audio": "test/audio/10667/9310/10667_9310_000092.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 734.06,
+        "original_end_s": 752.42
+      }
+    },
+    {
+      "id": "10667_9310_000093",
+      "text": "fagin exclamó nancy retrocediendo un paso sin duda es preciso que nos entreguéis á ese hombre no lo esperéis por horrible que haya sido su conducta para conmigo jamás haré lo que me pedís",
+      "audio": "test/audio/10667/9310/10667_9310_000093.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 422.36,
+        "original_end_s": 438.14
+      }
+    },
+    {
+      "id": "10667_9310_000094",
+      "text": "el oro no me tienta ni es el interés quien me hace obrar en esta circunstancia creedlo con lodo dadme alguna cosa algo que vos hayáis llevado quisiera tener algo vuestro no no un anillo vuestros guantes o vuestro pañuelo",
+      "audio": "test/audio/10667/9310/10667_9310_000094.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 856.94,
+        "original_end_s": 874.29
+      }
+    },
+    {
+      "id": "10667_9310_000095",
+      "text": "no sé lo que tengo pero experimento tal espanto esta noche que apenas puedo sostenerme no sé de que proviene quisiera saberlo",
+      "audio": "test/audio/10667/9310/10667_9310_000095.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 275.78,
+        "original_end_s": 286.02
+      }
+    },
+    {
+      "id": "10667_9310_000096",
+      "text": "á menos que no sepa porque cuando decidí ir a encontrar a la señorita no hubiera podido verla si para hacerle dormir no hubiese metido láudano en la poción que le di",
+      "audio": "test/audio/10667/9310/10667_9310_000096.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 353.84,
+        "original_end_s": 365.15
+      }
+    },
+    {
+      "id": "10667_9310_000097",
+      "text": "la señorita se compromete en este punto con su palabra os la doy contestó rosa podéis contar con ella monks ignorará siempre por quien habéis sabido todo lo que sabéis dijo la joven después de un momento de silencio",
+      "audio": "test/audio/10667/9310/10667_9310_000097.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 505.56,
+        "original_end_s": 521.78
+      }
+    },
+    {
+      "id": "10667_9310_000098",
+      "text": "y viendo que no había otro sitio para ocultarse y que además la marea entonces muy baja dejaba mucha plaza se echó de costado la espalda arrimada a la pilastra y esperó allí a nuestros tres amigos casi seguro de que no bajarían más",
+      "audio": "test/audio/10667/9310/10667_9310_000098.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 175.87,
+        "original_end_s": 193.26
+      }
+    },
+    {
+      "id": "10667_9310_000099",
+      "text": "al decir estas palabras el menestral volvió la cabeza y preguntando bruscamente porque ocupaban ellos solos todo la acera prosiguió su camino",
+      "audio": "test/audio/10667/9310/10667_9310_000099.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 138.22,
+        "original_end_s": 148.99
+      }
+    },
+    {
+      "id": "10667_9310_000100",
+      "text": "por qué no allá arriba donde al menos transita alguna gente mas bien que en esta horrible ladronera ya os he dicho que no me gusta hablaros allá arribacontestó la joven estremeciéndose",
+      "audio": "test/audio/10667/9310/10667_9310_000100.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 262.03,
+        "original_end_s": 275.78
+      }
+    },
+    {
+      "id": "10667_9310_000101",
+      "text": "pero si a pesar de esto no podemos apoderarnos de él o bien una vez en nuestras manos nada quiere confesar será preciso entonces consentir en entregarnos al judio",
+      "audio": "test/audio/10667/9310/10667_9310_000101.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 409.87,
+        "original_end_s": 422.36
+      }
+    },
+    {
+      "id": "10667_9310_000102",
+      "text": "esto es efecto de la imaginación dijo el caballero vuestros sacerdotes orgullosos hubieran erguido la cabeza a la vista de mis tormentos y me hubieran predicado llamas y venganza exclamó la joven oh mi buena señorita",
+      "audio": "test/audio/10667/9310/10667_9310_000102.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 303.39,
+        "original_end_s": 319.68
+      }
+    },
+    {
+      "id": "10667_9310_000103",
+      "text": "no habléis así os lo suplico dijo rosa sollozando será esta la última vez que oigáis tales palabras buena señorita no permitirá dios que tales horrores vengan jamás a mancillar vuestros castos oídos buenas noches adiós",
+      "audio": "test/audio/10667/9310/10667_9310_000103.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 822.8,
+        "original_end_s": 841.52
+      }
+    },
+    {
+      "id": "10667_9310_000104",
+      "text": "dormía aun cuando volvisteis preguntó el caballero si y ni él ni los demás han tenido la menor sospecha está bien dijo el caballero ahora escachad",
+      "audio": "test/audio/10667/9310/10667_9310_000104.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 365.15,
+        "original_end_s": 377.87
+      }
+    },
+    {
+      "id": "10667_9310_000105",
+      "text": "en el momento que desaparecieron nancy se dejó caer sobre uno de los escalones y dio libre curso a sus lágrimas llegado a lo alto de la escalera noé glaypole volvió la cabeza a derecha y a izquierda y no viendo alma viviente puso los pies en polvorosa",
+      "audio": "test/audio/10667/9310/10667_9310_000105.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 904.97,
+        "original_end_s": 922.99
+      }
+    },
+    {
+      "id": "10667_9310_000106",
+      "text": "dijo nancy después de otro momento de silencio acepto vuestra palabra y me entrego enteramente a vosotros después de obtenida la seguridad de rosa y del caballero que podia estar perfectamente tranquila empezó con voz tan baja que el espía apenas podia oírla",
+      "audio": "test/audio/10667/9310/10667_9310_000106.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 538.83,
+        "original_end_s": 556.76
+      }
+    },
+    {
+      "id": "10667_9310_000107",
+      "text": "fijad la vista sobre esa agua que ruge a vuestros pies cuántas veces no habréis oído hablar de pobres desgraciadas como yo que se han precipitado en ella fatigadas como estaban de la vida",
+      "audio": "test/audio/10667/9310/10667_9310_000107.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 809.48,
+        "original_end_s": 822.8
+      }
+    },
+    {
+      "id": "10667_9310_000108",
+      "text": "y muy amenudo se muerde las manos hasta hacerse sangre por qué os estremecéis dijo la joven parándose de golpe el caballero se apresuró a responder que no sabía si se había estremecido y la suplicó que continuára",
+      "audio": "test/audio/10667/9310/10667_9310_000108.opus",
+      "tags": {
+        "speaker_id": "mls-es-10667",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_45_dickens_64kb.mp3",
+        "original_start_s": 627.97,
+        "original_end_s": 643.34
+      }
+    },
+    {
+      "id": "11168_9310_000000",
+      "text": "qué ha dicho de más respecto a guillermo gritó el judío qué ha añadido á propósito del hombre de quien había hablado anteriormente a la señorita decidle decidle esto ha dicho que no podia salir con facilidad a menos que el no supiera donde iba y que la primera vez que fue a encontrar a aquella señorita",
+      "audio": "test/audio/11168/9310/11168_9310_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 391.3,
+        "original_end_s": 409.97
+      }
+    },
+    {
+      "id": "11168_9310_000001",
+      "text": "dejadme arrojando al viejo lejos de él se abalanzó fuera del aposento y se precipitó por la escalera como un furioso guillermo guillermo exclamó el judío corriendo tras él",
+      "audio": "test/audio/11168/9310/11168_9310_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 421.05,
+        "original_end_s": 431.34
+      }
+    },
+    {
+      "id": "11168_9310_000002",
+      "text": "lo que tengo que deciros guillermo continuó el judío acercando su silla a la del bandido os hará aun más efecto que a mí lo dudo mucho hablad pronto o nancy creerá que me he perdido perdido exclamó fagin esto no la sorprendería bastante ha trabajado para vuestra pérdida",
+      "audio": "test/audio/11168/9310/11168_9310_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 119.47,
+        "original_end_s": 136.44
+      }
+    },
+    {
+      "id": "11168_9310_000003",
+      "text": "no lo sé repuso sikes rechinando los dientes y palideciendo de cólera a la sola idea de que esto pudiera ser haría algo en la prisión que me haría meter la camisa de fuerza o si se nos juzgaban juntos diría yo solo contra vos",
+      "audio": "test/audio/11168/9310/11168_9310_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 195.1,
+        "original_end_s": 209.96
+      }
+    },
+    {
+      "id": "11168_9310_000004",
+      "text": "porque guillermo no la quiso dejar salir y la detuvo a la fuerza y como el caballero manifestó no conocer a guillermo añadió que era el hombre de quien había hablado anteriormente a la señorita",
+      "audio": "test/audio/11168/9310/11168_9310_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 381.05,
+        "original_end_s": 391.3
+      }
+    },
+    {
+      "id": "11168_9310_000005",
+      "text": "a su lado y en un colchón tendido en el suelo estaba echado noé claypole durmiendo profundamente largo tiempo había que aquel permanecía en tal actitud cuando al fin el ruido de los pasos de una persona que creyó reconocer vino a herir su oido el es no cabe duda murmuró",
+      "audio": "test/audio/11168/9310/11168_9310_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 32.64,
+        "original_end_s": 49.38
+      }
+    },
+    {
+      "id": "11168_9310_000006",
+      "text": "esta de pronto vaciló y cayó en seguida cuasi cegada por la sangre que manaba de un agujero enorme que le había hecho en la cabeza pero volviéndose á levantar sobre sus rodillas si bien con gran dificultad sacó de su seno un pañuelo blanco el de rosamaylie y elevándolo entre sus dos manos juntas tan alto como sus fuerzas le permitieron murmuró una corla plegaria",
+      "audio": "test/audio/11168/9310/11168_9310_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 703.2,
+        "original_end_s": 722.38
+      }
+    },
+    {
+      "id": "11168_9310_000007",
+      "text": "no he podido menos de reírme cuando ha dicho esto le había puesto laudano en la poción que le hizo beber antes de salir condenación gritó sikes haciendo soltar la presa al judío",
+      "audio": "test/audio/11168/9310/11168_9310_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 409.97,
+        "original_end_s": 421.05
+      }
+    },
+    {
+      "id": "11168_9310_000008",
+      "text": "dicho esto el judio dio la vuelta a la llave en el cerrojo y sikes por toda respuesta abrió la puerta de par en par y partió como un rayo sin dar tiempo a la reflexión sin volver la cabeza de ningún lado sin lanzar una mirada a la derecha o a la izquierda",
+      "audio": "test/audio/11168/9310/11168_9310_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 493.07,
+        "original_end_s": 506.92
+      }
+    },
+    {
+      "id": "11168_9310_000009",
+      "text": "tu guillermo dijo con acento de satisfacción por verle de regreso si soy yo respondió el bandido levántate había una vela que ardía esperando a sikes este la arrancó del candelero y la arrojo a la chimenea la joven viendo que clareaba ya algo el día se levantó para apartar las cortinas de la ventana",
+      "audio": "test/audio/11168/9310/11168_9310_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 542.08,
+        "original_end_s": 560.29
+      }
+    },
+    {
+      "id": "11168_9310_000010",
+      "text": "exclamó el judío cuasi loco de cólera es verdad contestó noé rascándose la cabeza precisamente es así como la cosa ha pasado qué han dicho respecto al domingo pasado preguntó el judío respecto al domingo pasado repuso noé procurando refrescar su memoria",
+      "audio": "test/audio/11168/9310/11168_9310_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 338.18,
+        "original_end_s": 352.93
+      }
+    },
+    {
+      "id": "11168_9310_000011",
+      "text": "pobre muchacho dijo el judio cargando con énfasis el epitelo está fatigado guillermo molido de haber acechado tanto tiempo á la joven qué quiére decir esto preguntó sikes",
+      "audio": "test/audio/11168/9310/11168_9310_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 253.65,
+        "original_end_s": 265.0
+      }
+    },
+    {
+      "id": "11168_9310_000012",
+      "text": "esto es guillermo dijo fagin al ver que todo fingimiento era ya inútil quería decir no seáis demasiado violento al menos por vuestra propia seguridad no vayáis a comprometeros sobre todo sed prudente",
+      "audio": "test/audio/11168/9310/11168_9310_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 479.9,
+        "original_end_s": 493.07
+      }
+    },
+    {
+      "id": "11168_9310_000013",
+      "text": "grabado por patricia silveira consecuencias fatales cerca dos horas faltaban para apuntar el día el judío velaba en su cama demostrando esperar á alguien con la más viva impaciencia",
+      "audio": "test/audio/11168/9310/11168_9310_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 18.56,
+        "original_end_s": 32.64
+      }
+    },
+    {
+      "id": "11168_9310_000014",
+      "text": "el ojo extraviado la respiración corta y las ventanas de la nariz hinchadas el bandido la contempló un momento en silencio luego agarrándola por la cabeza y por el cuello la arrastró al medio del aposento y le puso la mano sobre la boca después de haber lanzado una mirada hacia la puerta",
+      "audio": "test/audio/11168/9310/11168_9310_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 571.15,
+        "original_end_s": 585.55
+      }
+    },
+    {
+      "id": "11168_9310_000015",
+      "text": "qué os repita que preguntó claypole de mal talante lo que sabéis respecto a nancy añadió el judío teniendo a sites por el puño de miedo que no saliera antes de haberlo oído lodo",
+      "audio": "test/audio/11168/9310/11168_9310_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 278.49,
+        "original_end_s": 289.18
+      }
+    },
+    {
+      "id": "11168_9310_000016",
+      "text": "responderéis el judio levantó la mano y agitó su dedo con aire misterioso maldicion dijo sikes metiendo rápidamente su mano en el bolsillo del costado",
+      "audio": "test/audio/11168/9310/11168_9310_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 86.06,
+        "original_end_s": 96.36
+      }
+    },
+    {
+      "id": "11168_9310_000017",
+      "text": "pero con los ojos fijos ante él marchaba a grandes pasos con los dientes apretados de tal modo que su quijada inferior parecía hundirse dentro la piel lleno de pensamientos feroces y llevando un proyecto horrible en la imaginación andaba con la cabeza baja y sin haber pronunciado una sola palabra ni removido un solo músculo de su rostro se encontró frente a su casa",
+      "audio": "test/audio/11168/9310/11168_9310_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 506.92,
+        "original_end_s": 525.91
+      }
+    },
+    {
+      "id": "11168_9310_000018",
+      "text": "no es necesario dijo sikes poniendo el brazo ante ella para impedírselo veré lo bastante para lo que tengo que hacer guillermo exclamó nancy con voz ahogada por el miedo por qué me miras así",
+      "audio": "test/audio/11168/9310/11168_9310_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 560.29,
+        "original_end_s": 571.15
+      }
+    },
+    {
+      "id": "11168_9310_000019",
+      "text": "el bandido forcejo violentamente para desasirse de ella pero los brazos de la joven estaban entrelazados con los suyos de modo que no pudo lograrlo guillermo dijo nancy procurando poner su cabeza sobre el pecho del bandido",
+      "audio": "test/audio/11168/9310/11168_9310_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 640.48,
+        "original_end_s": 652.6
+      }
+    },
+    {
+      "id": "11168_9310_000020",
+      "text": "nada tengo que reprocharos ah es una gran fortuna repuso sikes mirándole de través y metiendo con ademan ostentoso su pistola en otra faltriquera mucha fortuna para uno de los dos",
+      "audio": "test/audio/11168/9310/11168_9310_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 107.17,
+        "original_end_s": 119.47
+      }
+    },
+    {
+      "id": "11168_9310_000021",
+      "text": "guillermo guillermo gritó la joven debatiéndose con una fuerza que solo puede dar el temor de la muerto no haré ruido no gritaré te lo prometo escúchame háblame dime lo que te he hecho",
+      "audio": "test/audio/11168/9310/11168_9310_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 585.55,
+        "original_end_s": 597.81
+      }
+    },
+    {
+      "id": "11168_9310_000022",
+      "text": "qué haría yo contestó sikes con un juramento horrible lo que haría si estuviera aún vivo a mi regreso le romperia el cráneo con el talón de mi bota y si fuera yo yo que tanto sé y que tantos podría llevar a la horca conmigo",
+      "audio": "test/audio/11168/9310/11168_9310_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 180.3,
+        "original_end_s": 195.1
+      }
+    },
+    {
+      "id": "11168_9310_000023",
+      "text": "lo que ha hecho que les comunicara el nombre y la dirección de la casa que frecuentamos tan a menudo y en la que nos reunimos como también el sitio desde donde se puede ver mejor",
+      "audio": "test/audio/11168/9310/11168_9310_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 308.61,
+        "original_end_s": 318.67
+      }
+    },
+    {
+      "id": "11168_9310_000024",
+      "text": "aquel anciano caballero y aquella buena señorita me han ofrecido esta noche un asilo en cualquiera país extranjero donde pudiese acabar mis días en paz déjame verlos aun otra vez les pediré de rodillas que te otorguen el mismo favor y si consienten como no lo dudo dejaremos este lugar horrible iremos cada uno por su lado a vivir en el retiro",
+      "audio": "test/audio/11168/9310/11168_9310_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 652.6,
+        "original_end_s": 672.21
+      }
+    },
+    {
+      "id": "11168_9310_000025",
+      "text": "entró sin hacer ruido subió cautelosamente la escalera abrió la puerta de su aposento con la misma precaución la cerró a doble vuelta y habiendo colocado una mesa detrás de ella se acercó á la cama y apartó la cortina nancy estaba acostada medio vestida se despertó sobresaltada",
+      "audio": "test/audio/11168/9310/11168_9310_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 525.91,
+        "original_end_s": 542.08
+      }
+    },
+    {
+      "id": "11168_9310_000026",
+      "text": "el judío no contestó palabra pero inclinándose de nuevo sobre noé le tiró por el brazo y logró que se incorporara repetidme aquello otra vez para que él lo oiga dijo el judío señalando con el dedo a sikes otra vez aun no mas que una vez hijo mío",
+      "audio": "test/audio/11168/9310/11168_9310_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 265.0,
+        "original_end_s": 278.49
+      }
+    },
+    {
+      "id": "11168_9310_000027",
+      "text": "o el camastrón o betsy o bien poco me importa quien sea repuso sikes impaciente del mismo modo le pagaría su comisión fagin fijo de nuevo su mirada en el bandido y haciéndole señal de que guardara silencio se inclinó sobre el colchón en que dormía noé y sacudió a éste para despertarlo bolter bolter",
+      "audio": "test/audio/11168/9310/11168_9310_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 234.47,
+        "original_end_s": 253.65
+      }
+    },
+    {
+      "id": "11168_9310_000028",
+      "text": "o procuraremos olvidar la vida espantosa que hemos llevado juntos sin vernos ya jamás nunca es tarde para el arrepentimiento ellos me lo han dicho y ahora comprendo que tienen razón pero es necesario el tiempo es necesario tener tiempo guillermo un poco de tiempo",
+      "audio": "test/audio/11168/9310/11168_9310_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 672.21,
+        "original_end_s": 687.08
+      }
+    },
+    {
+      "id": "11168_9310_000029",
+      "text": "sikes estupefacto procuró leer en los ojos del viejo pero no pudiendo adivinar por ellos el sentido de este enigma lo cogió por el cuello y lo sacudió con toda su fuerza os repito que habléis dijo de lo contrario será que no osáis viejo infame abrid vuestra boca y explicaos claramente lo oís",
+      "audio": "test/audio/11168/9310/11168_9310_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 136.44,
+        "original_end_s": 154.93
+      }
+    },
+    {
+      "id": "11168_9310_000030",
+      "text": "no estoy de humor para oiros dejad que salga sin dirijir la palabra será lo mejor os lo aseguro un momento un solo momento dijo el judio poniendo la mano en el cerrojo no seais demasiado demasiado qué no seais",
+      "audio": "test/audio/11168/9310/11168_9310_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 448.22,
+        "original_end_s": 461.09
+      }
+    },
+    {
+      "id": "11168_9310_000031",
+      "text": "más que todos los testigos y os haría saltar los sesos ante todo el mundo no serían la fuerza ni el valor los que me faltarían entonces mil rayos murmuró el bandido blandiendo su puño como si realmente fuera a empezar la acción",
+      "audio": "test/audio/11168/9310/11168_9310_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 209.96,
+        "original_end_s": 223.69
+      }
+    },
+    {
+      "id": "11168_9310_000032",
+      "text": "fagin tomó el paquete lo encerró en el armario con llave y miró fijamente al bandido sus labios pálidos temblaban con tal fuerza sus facciones estaban tan descompuestas por las diferentes emociones que le dominaban que sikes retrocedió involuntariamente qué demonios sucede ahora exclamó por qué miráis las gentes de tal modo eh",
+      "audio": "test/audio/11168/9310/11168_9310_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 67.06,
+        "original_end_s": 86.06
+      }
+    },
+    {
+      "id": "11168_9310_000033",
+      "text": "para implorar la piedad del señor era un espectáculo horroroso el asesino espantado retrocedió hasta la pared poniendo la mano ante sus ojos luego apoderándose de un enorme garrote descargó un golpe tremendo sobre el cráneo de la joven y la tendió muerta á sus pies",
+      "audio": "test/audio/11168/9310/11168_9310_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 722.38,
+        "original_end_s": 737.65
+      }
+    },
+    {
+      "id": "11168_9310_000034",
+      "text": "al pronunciar estas palabras sonó la campanilla bajó los escalones de cuatro en cuatro y pronto volvió acompañado de sikes que llevaba un paquete bajo su brazo tomad encerrad esto dijo este y desembarazadlo todo lo que podáis voto al infierno me ha costado mucho cojerlo hace más de dos horas que debería estar aquí",
+      "audio": "test/audio/11168/9310/11168_9310_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 49.38,
+        "original_end_s": 67.06
+      }
+    },
+    {
+      "id": "11168_9310_000035",
+      "text": "le han preguntado porque no había acudido el domingo último como lo tenia prometido y ella les ha respondido que le había sido imposible por qué por qué interrumpió el judío con aire triunfante decidle por qué razón",
+      "audio": "test/audio/11168/9310/11168_9310_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 368.49,
+        "original_end_s": 381.05
+      }
+    },
+    {
+      "id": "11168_9310_000036",
+      "text": "una palabra una sola palabra esta palabra no hubiera llegado al oido del bandido si este que no podia abrir la puerta a pesar de los horribles juramentos que profería no hubiese dado tiempo al judío para llegar sofocado abridme esta puerta dijo sikes no me tengáis aquí plantado una hora con vuestra habladuría",
+      "audio": "test/audio/11168/9310/11168_9310_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 431.34,
+        "original_end_s": 448.22
+      }
+    },
+    {
+      "id": "11168_9310_000037",
+      "text": "sikes habiendo logrado desembarazar un brazo cogió su pistola la idea de que sería descubierto y arrestado al momento si hacía estrépito se presenta como un relámpago a su alma aun en medio de su furor entonces descargó dos o tres golpes con su culata sobre la frente de la joven suplicante",
+      "audio": "test/audio/11168/9310/11168_9310_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 687.08,
+        "original_end_s": 703.2
+      }
+    },
+    {
+      "id": "11168_9310_000038",
+      "text": "sin ser notado lo que ha hecho le han preguntado el día y la hora en que ordinariamente nos dirigimos a esa casa y ella se lo ha dicho esto es todo lo que ha hecho no ha sido necesario emplear la amenaza para hacerla revelar todas estas cosas ella las ha dicho de buen grado no es cierto",
+      "audio": "test/audio/11168/9310/11168_9310_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 318.67,
+        "original_end_s": 338.18
+      }
+    },
+    {
+      "id": "11168_9310_000039",
+      "text": "se ha vuelto rabioso es preciso que me ponga en guardia no no contestó fagin recobrando el uso de la palabra no hay peligro guillermo no es a vos con quien me las he",
+      "audio": "test/audio/11168/9310/11168_9310_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 96.36,
+        "original_end_s": 107.17
+      }
+    },
+    {
+      "id": "11168_9310_000040",
+      "text": "no podrás hacer que te suelte por el amor de dios reflexiona antes de derramar mi sangre soy yo quien te lo ruego yo que tanto te amo guillermo siempre te he sido fiel tan verdad como soy una criatura indigna te he sido fiel",
+      "audio": "test/audio/11168/9310/11168_9310_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 627.3,
+        "original_end_s": 640.48
+      }
+    },
+    {
+      "id": "11168_9310_000041",
+      "text": "paréceme que ya os lo he dicho no le hace dilo otra vez continuó el judío estrechando todavía más el brazo de sikes y agitando su mano mientras la espuma salía de su boca le han preguntado dijo noé que á medida que se desvelaba parecía tener una idea de lo que era sikes",
+      "audio": "test/audio/11168/9310/11168_9310_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 352.93,
+        "original_end_s": 368.49
+      }
+    },
+    {
+      "id": "11168_9310_000042",
+      "text": "de tan buen ánimo que no veríais más que centellas de verdad de tan verdad como os lo digo ensayaos un poco y veréis si guardo pelillos y si fuera carlos",
+      "audio": "test/audio/11168/9310/11168_9310_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-11168",
+        "gender": "w",
+        "book_id": "9310",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_46_dickens_64kb.mp3",
+        "original_start_s": 223.69,
+        "original_end_s": 234.47
+      }
+    },
+    {
+      "id": "6671_9310_000000",
+      "text": "pensó que sin duda había parido juré la pérdida de ese niño si alguna vez la casualidad me hacia encontrarlo mi madre no se había engañado tuve la ocasión de verle",
+      "audio": "dev/audio/6671/9310/6671_9310_000000.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 509.27,
+        "original_end_s": 525.18
+      }
+    },
+    {
+      "id": "6671_9310_000001",
+      "text": "en mi vida no lo he visto replicó mr bumble ni le habéis vendido nunca cosa alguna no nunca respondió la señora ni habéis tenido en poder vuestro cierto medallón y cierto anillo no es así",
+      "audio": "dev/audio/6671/9310/6671_9310_000001.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 661.17,
+        "original_end_s": 680.56
+      }
+    },
+    {
+      "id": "6671_9310_000002",
+      "text": "este paquete encerral a una caria asaz insignificante para inés fleming y tambien un testamento á favor de esajoven qué conlenia esa carta preguntó",
+      "audio": "dev/audio/6671/9310/6671_9310_000002.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 239.76,
+        "original_end_s": 255.72
+      }
+    },
+    {
+      "id": "6671_9310_000003",
+      "text": "de llosa de la señora bedwin y del buen doctor en direccion á su ciudad natal dentro otra silla y un poco atrás venian mr",
+      "audio": "dev/audio/6671/9310/6671_9310_000003.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 66.47,
+        "original_end_s": 80.19
+      }
+    },
+    {
+      "id": "6671_9310_000004",
+      "text": "añadió despues de un silencio prolongado y solo desde ayer sé todo lo que os concierne sin duda no ignorais",
+      "audio": "dev/audio/6671/9310/6671_9310_000004.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1238.43,
+        "original_end_s": 1249.09
+      }
+    },
+    {
+      "id": "6671_9310_000005",
+      "text": "no podia recoger esta herencia sino con condicion de que durante su menor edad nb deshonraría",
+      "audio": "dev/audio/6671/9310/6671_9310_000005.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 371.87,
+        "original_end_s": 382.2
+      }
+    },
+    {
+      "id": "6671_9310_000006",
+      "text": "bella señorita dadme vuestra mano dijo mr brownlow volviéndose á llosa no tembleis asi nada tenéis que temer por las pocas palabras que quedan para decir si se refieren á mi",
+      "audio": "dev/audio/6671/9310/6671_9310_000006.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 910.72,
+        "original_end_s": 927.41
+      }
+    },
+    {
+      "id": "6671_9310_000007",
+      "text": "apretando fuertemente el sombrero entre sus manos la ley es una necia la ley no es mas que una vieja solterona si fuera casada pensaria de modo muy diferente",
+      "audio": "dev/audio/6671/9310/6671_9310_000007.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 878.24,
+        "original_end_s": 895.45
+      }
+    },
+    {
+      "id": "6671_9310_000008",
+      "text": "qué se ha hecho la más joven cuando murió su padre bajo nombre y supuesto sin dejar papel alguno que pudiera darla á conocer á sus amigos",
+      "audio": "dev/audio/6671/9310/6671_9310_000008.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 973.94,
+        "original_end_s": 986.64
+      }
+    },
+    {
+      "id": "6671_9310_000009",
+      "text": "tomándola por el brazo conocéis á esta señorita continuó dirigiéndose a monks si",
+      "audio": "dev/audio/6671/9310/6671_9310_000009.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 944.87,
+        "original_end_s": 955.5
+      }
+    },
+    {
+      "id": "6671_9310_000010",
+      "text": "agobiado de dolor aquel bravo militar huyó con sus hijas á una aldea retirada del pais de gales",
+      "audio": "dev/audio/6671/9310/6671_9310_000010.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 428.63,
+        "original_end_s": 438.65
+      }
+    },
+    {
+      "id": "6671_9310_000011",
+      "text": "y cambió de nombre á fin de que sus amigos no supiesen el lugar de su retiro despues de algunos meses de estancia en aquel sitio se le encontró muerto en su cama habiendo abandonado su hija el pais quince",
+      "audio": "dev/audio/6671/9310/6671_9310_000011.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 438.65,
+        "original_end_s": 458.08
+      }
+    },
+    {
+      "id": "6671_9310_000012",
+      "text": "a los ojos de la ley más culpable que vuestra esposa porque es razonable suponer que ella ha obrado segun vuestras órdenes si la ley se mete en semejantes suposiciones dijo monsieur",
+      "audio": "dev/audio/6671/9310/6671_9310_000012.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 859.32,
+        "original_end_s": 878.24
+      }
+    },
+    {
+      "id": "6671_9310_000013",
+      "text": "el resto dé sus bienes estaba dividido en dos partes iguales la una para inés fleming la otra para el ñiño que debia dar á lu en el caso que naciera y",
+      "audio": "dev/audio/6671/9310/6671_9310_000013.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 346.88,
+        "original_end_s": 360.42
+      }
+    },
+    {
+      "id": "6671_9310_000014",
+      "text": "asi debeis esperarlo os juro que yo no entro para nada en ello replicó monsieur bumb le despues de haberse asegurado de que la matrona habia salido de la sala esto no es una escusa vos sois",
+      "audio": "dev/audio/6671/9310/6671_9310_000014.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 841.09,
+        "original_end_s": 859.32
+      }
+    },
+    {
+      "id": "6671_9310_000015",
+      "text": "repuso la primeray á la mañana siguiente os espiábamos cuando fuisteis al monte pío y nosotras sabemos más que vos en este asunto",
+      "audio": "dev/audio/6671/9310/6671_9310_000015.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 744.25,
+        "original_end_s": 758.02
+      }
+    },
+    {
+      "id": "6671_9310_000016",
+      "text": "es en fin su bastardo habiendo mi padre caido enfermo de gravedad en orna donde fuera para asuntos como sabeis mi madre que desde largo tiempo estaba separada de él",
+      "audio": "dev/audio/6671/9310/6671_9310_000016.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 182.13,
+        "original_end_s": 196.87
+      }
+    },
+    {
+      "id": "6671_9310_000017",
+      "text": "porque se le dijo que era su hermano y le reconoció por el mismo sugelo que habia encontrado al salir de la",
+      "audio": "dev/audio/6671/9310/6671_9310_000017.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 126.82,
+        "original_end_s": 137.29
+      }
+    },
+    {
+      "id": "6671_9310_000018",
+      "text": "chertsey habiéndola visto casualmente tuvo compasion de ella y la adoptó es necesario que exisla un deslino contrario á nosotros porque á pesar de todos nuestros esfuerzos",
+      "audio": "dev/audio/6671/9310/6671_9310_000018.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1104.18,
+        "original_end_s": 1120.98
+      }
+    },
+    {
+      "id": "6671_9310_000019",
+      "text": "despues de haber tenido lugar los acontecimientos que hemos leido en el capitulo anterior y cerca las tres de la tarde oliverio se encontró dentro una silla de posta en compañia de la señora",
+      "audio": "dev/audio/6671/9310/6671_9310_000019.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 46.75,
+        "original_end_s": 66.47
+      }
+    },
+    {
+      "id": "6671_9310_000020",
+      "text": "aldea donde habia ido á llevar una caria de la señora maylie y que viera tambien con fagin á la ventana de su pequeño gibinete de estudio",
+      "audio": "dev/audio/6671/9310/6671_9310_000020.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 137.29,
+        "original_end_s": 152.8
+      }
+    },
+    {
+      "id": "6671_9310_000021",
+      "text": "y que residia en paris en aquella época se dirijió al momento conmigo á su lado para su interés propio el nada supo porque cuando llegamos habia perdido",
+      "audio": "dev/audio/6671/9310/6671_9310_000021.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 196.87,
+        "original_end_s": 210.52
+      }
+    },
+    {
+      "id": "6671_9310_000022",
+      "text": "monks la mas joven que no era mas que una niña fué adoptada por unos pobres aldeanos que la criaron como hija suya content from",
+      "audio": "dev/audio/6671/9310/6671_9310_000022.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 986.64,
+        "original_end_s": 999.91
+      }
+    },
+    {
+      "id": "6671_9310_000023",
+      "text": "les contó á su modo la historia de la hermana diciéndoles que si no ponian mucho cuidado la muchacha que mantenian de seguro llegaria á ser como ella porque procedia de padres sin principios",
+      "audio": "dev/audio/6671/9310/6671_9310_000023.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1067.08,
+        "original_end_s": 1084.89
+      }
+    },
+    {
+      "id": "6671_9310_000024",
+      "text": "no es menos mi querida niña no quisiera perderla ahora por todos los tesoros del mundo mi dulce compañera mi hija de adopcion",
+      "audio": "dev/audio/6671/9310/6671_9310_000024.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1147.69,
+        "original_end_s": 1160.15
+      }
+    },
+    {
+      "id": "6671_9310_000025",
+      "text": "parroquial cuándo le veo rodeado de señoras y caballeros de alto rango no puedo ser sorprendido superlativamente",
+      "audio": "dev/audio/6671/9310/6671_9310_000025.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 597.13,
+        "original_end_s": 610.14
+      }
+    },
+    {
+      "id": "6671_9310_000026",
+      "text": "esta mujer padecia una enfermedad incurable que la iba llevando lentamente hacia la tumba ella murió al cabo de algunos meses repuso monks después de haberme revelado todos sus secretos",
+      "audio": "dev/audio/6671/9310/6671_9310_000026.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 475.65,
+        "original_end_s": 494.5
+      }
+    },
+    {
+      "id": "6671_9310_000027",
+      "text": "permanecia en casa de aquella señora y fué feliz hace dos ó tres años que la habia perdido de vista y no volvía á verla hasta hace algunos meses",
+      "audio": "dev/audio/6671/9310/6671_9310_000027.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1120.98,
+        "original_end_s": 1136.9
+      }
+    },
+    {
+      "id": "6671_9310_000028",
+      "text": "y lo llevara sobre su pecho como antes en cuanto al testamento dijo mr brownlow yo me encargo de manifestaros su contenido estaba dictado por el mismó espiritu de la carta vuestro padre se lamentaba en él",
+      "audio": "dev/audio/6671/9310/6671_9310_000028.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 314.8,
+        "original_end_s": 333.38
+      }
+    },
+    {
+      "id": "6671_9310_000029",
+      "text": "jamás su nombre for cualquiera aclo de bajeza ó de felonia en caso contrario el dinero debia ser vuestro mi madre",
+      "audio": "dev/audio/6671/9310/6671_9310_000029.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 382.2,
+        "original_end_s": 395.03
+      }
+    },
+    {
+      "id": "6671_9310_000030",
+      "text": "amistad amenudo el odio triunfa mi madre acabó por descubrir la niña despues de un año de pesquisas y se apoderó de ella no es cierto no aquellos honrados labriegos eran muy pobres",
+      "audio": "dev/audio/6671/9310/6671_9310_000030.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1013.41,
+        "original_end_s": 1029.61
+      }
+    },
+    {
+      "id": "6671_9310_000031",
+      "text": "dijo una de las dos mujeres levantando su mano trémula pero no por esto nosotras hemos oido menos vuestra conversación al través de la rendija de la puerta",
+      "audio": "dev/audio/6671/9310/6671_9310_000031.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 713.34,
+        "original_end_s": 730.29
+      }
+    },
+    {
+      "id": "6671_9310_000032",
+      "text": "viendo que su estado de miseria no era motivo suficiente para indisponerles contra aquella niña",
+      "audio": "dev/audio/6671/9310/6671_9310_000032.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1057.06,
+        "original_end_s": 1067.08
+      }
+    },
+    {
+      "id": "6671_9310_000033",
+      "text": "mas caras esperanzas v vos sois la única amiga que tengo en el mundo esclamó rosa pasando sus brazos alrededor del cuello de la sonora vos fuisteis para mi",
+      "audio": "dev/audio/6671/9310/6671_9310_000033.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1160.15,
+        "original_end_s": 1174.14
+      }
+    },
+    {
+      "id": "6671_9310_000034",
+      "text": "apoyada en vuestro brazo pero por eso no es menos mi sobrina esclamó la señora maylie estrechando la joven sobre su corazon",
+      "audio": "dev/audio/6671/9310/6671_9310_000034.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1136.9,
+        "original_end_s": 1147.69
+      }
+    },
+    {
+      "id": "6671_9310_000035",
+      "text": "le decia en aquella carta lo que habia hecho para ocultar su deshonra y la suplicaba que en el caso de morir no maldijera su memoria ni creyera que su hijo ni ella debiesen ser víctimas de su falta",
+      "audio": "dev/audio/6671/9310/6671_9310_000035.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 270.4,
+        "original_end_s": 287.99
+      }
+    },
+    {
+      "id": "6671_9310_000036",
+      "text": "despues de haber pronunciado estas palabras con tono enfático hundió el sombrero en su cabeza metió las manos en las faltriqueras del redingote",
+      "audio": "dev/audio/6671/9310/6671_9310_000036.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 895.45,
+        "original_end_s": 910.72
+      }
+    },
+    {
+      "id": "6671_9310_000037",
+      "text": "y que me haréis preferir mil veces á todas las dignidades á que he renunciado tal es el rango que ocupo en el mundo y que tendré una felicidad inmensa en compartir con vos",
+      "audio": "dev/audio/6671/9310/6671_9310_000037.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1366.56,
+        "original_end_s": 1382.02
+      }
+    },
+    {
+      "id": "6671_9310_000038",
+      "text": "era hija ilegitima aquellas buenas gentes dieron crédito á lodo lo que ies dijo mi madre y la niña arrastró una existencia miserable hasta que una señora viuda que habitaba en",
+      "audio": "dev/audio/6671/9310/6671_9310_000038.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1084.89,
+        "original_end_s": 1104.18
+      }
+    },
+    {
+      "id": "6671_9310_000039",
+      "text": "donde ciertas preocupaciones hacen ruborizar á la misma inocencia qué queréis decir esclamó rosa con voz entrecortada higo",
+      "audio": "dev/audio/6671/9310/6671_9310_000039.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1318.1,
+        "original_end_s": 1331.88
+      }
+    },
+    {
+      "id": "6671_9310_000040",
+      "text": "tregua a los sentimientos voy a hacer lo posible para contenerme replicó monsieur bumble cómo va de salud caballero esta cortesía amistosa iba dirigida a mister braunlo",
+      "audio": "dev/audio/6671/9310/6671_9310_000040.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 629.24,
+        "original_end_s": 644.5
+      }
+    },
+    {
+      "id": "6671_9310_000041",
+      "text": "porque solo él era la causa de todo el mal le recordaba el dia en que le habia dado el medallon y el anillo sobre el que habia hecho grabar su nombre de pila reservándose unir",
+      "audio": "dev/audio/6671/9310/6671_9310_000041.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 287.99,
+        "original_end_s": 304.46
+      }
+    },
+    {
+      "id": "6671_9310_000042",
+      "text": "jamás os he visto antes de ahora dijo rosa con voz débil pero yo os he visto amenudo contestó monks el padre do la infortunada inés tenia dos hijas",
+      "audio": "dev/audio/6671/9310/6671_9310_000042.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 955.5,
+        "original_end_s": 973.94
+      }
+    },
+    {
+      "id": "6671_9310_000043",
+      "text": "qué he sabido dios mio que el sentimiento de su deshonra ha obrado con tal fuerza sobre mi desdichado padre que no ha podido soportar su desgracia no",
+      "audio": "dev/audio/6671/9310/6671_9310_000043.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1281.05,
+        "original_end_s": 1294.84
+      }
+    },
+    {
+      "id": "6671_9310_000044",
+      "text": "dijo el forastero volviéndose agitado este niño es vueslro hermano dijo mr brownlow atrayendo á",
+      "audio": "dev/audio/6671/9310/6671_9310_000044.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 152.8,
+        "original_end_s": 163.85
+      }
+    },
+    {
+      "id": "6671_9310_000045",
+      "text": "de los disgustos que su esposale había causado os dejabaá vos y a vuestra madre para cada uno una pension vitalicia de ochocientas libras",
+      "audio": "dev/audio/6671/9310/6671_9310_000045.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 333.38,
+        "original_end_s": 346.88
+      }
+    },
+    {
+      "id": "6671_9310_000046",
+      "text": "que he venido para recordaros vuestra promesa un momento dijo rosa lo sabéis todo ah rosa sois para mi asas cruel",
+      "audio": "dev/audio/6671/9310/6671_9310_000046.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1249.09,
+        "original_end_s": 1262.4
+      }
+    },
+    {
+      "id": "6671_9310_000047",
+      "text": "enriq ue maylie lo sé todo dijo sentándose al lado de la joven no es la casualidad la que me conduce á este sitio",
+      "audio": "dev/audio/6671/9310/6671_9310_000047.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1227.12,
+        "original_end_s": 1238.43
+      }
+    },
+    {
+      "id": "6671_9310_000048",
+      "text": "quien salió y volvió incontinenti acompañado de los esposos bumble no me engañan mis ojos exclamó mr bumble con un entusiasmo afectado sí",
+      "audio": "dev/audio/6671/9310/6671_9310_000048.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 564.57,
+        "original_end_s": 580.61
+      }
+    },
+    {
+      "id": "6671_9310_000049",
+      "text": "y su semejanza con mi padre me hizo adivinar que era él sostuve fielmente mi promesa había ya empezado con el mejor éxito",
+      "audio": "dev/audio/6671/9310/6671_9310_000049.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 525.18,
+        "original_end_s": 538.1
+      }
+    },
+    {
+      "id": "6671_9310_000050",
+      "text": "haciend señal á la señora maylie de que se acercara vos no pudisteis saber el sitio en que se habia retirado aquel hombre pero alli donde fracasa la amistad",
+      "audio": "dev/audio/6671/9310/6671_9310_000050.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 999.91,
+        "original_end_s": 1013.41
+      }
+    },
+    {
+      "id": "6671_9310_000051",
+      "text": "respondió la matrona puesto que el caballero ha sido bastante infame para confesar y vosotros habeis sabido arrancar los gusanos de la nariz de esas viejas brujas nada mas tengo que decir",
+      "audio": "dev/audio/6671/9310/6671_9310_000051.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 797.11,
+        "original_end_s": 813.34
+      }
+    },
+    {
+      "id": "6671_9310_000052",
+      "text": "habia recorrido todos los alrededores á pié andando noche y dia para buscarla algunos años despues la madre de eduardo leedfort aqui presente vino á encontrarme interrumpió",
+      "audio": "dev/audio/6671/9310/6671_9310_000052.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 458.08,
+        "original_end_s": 475.65
+      }
+    },
+    {
+      "id": "6671_9310_000053",
+      "text": "la confesion de su falta y votos de prosperidad para la joven respondió monks nada mas en aquel entonces ella se hallaba en cinta de algunos meses",
+      "audio": "dev/audio/6671/9310/6671_9310_000053.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 255.72,
+        "original_end_s": 270.4
+      }
+    },
+    {
+      "id": "6671_9310_000054",
+      "text": "en fin cuando dieron las nueve de la noche mr losberne y mr grimwig entraron seguidos de mr brownlow y de un forastero á la vista del cual oliverio lanzó una esclamacion de sorpresa",
+      "audio": "dev/audio/6671/9310/6671_9310_000054.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 108.5,
+        "original_end_s": 126.82
+      }
+    },
+    {
+      "id": "6671_9310_000055",
+      "text": "espero que esta desagradable circunstancia que nada puede ser en si misma no me privará de mi cargo",
+      "audio": "dev/audio/6671/9310/6671_9310_000055.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 825.93,
+        "original_end_s": 841.09
+      }
+    },
+    {
+      "id": "6671_9310_000056",
+      "text": "el conocimiento y permaneció en este estado hasta la mañana siguiente en que murió entre sus papeles había un paquete bajo carpeta",
+      "audio": "dev/audio/6671/9310/6671_9310_000056.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 210.52,
+        "original_end_s": 223.0
+      }
+    },
+    {
+      "id": "6671_9310_000057",
+      "text": "y de haberme legado el odio que tenía a esa inés jamás quiso creer que esa joven hubiese destruido el fruto de su vientre sino que muy al contrario",
+      "audio": "dev/audio/6671/9310/6671_9310_000057.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 494.5,
+        "original_end_s": 509.27
+      }
+    },
+    {
+      "id": "6671_9310_000058",
+      "text": "una módica suma de dinero que no debia durar mucho tiempo y prometiéndoles otra mayor que no tenia la intencion de enviarles",
+      "audio": "dev/audio/6671/9310/6671_9310_000058.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1044.4,
+        "original_end_s": 1057.06
+      }
+    },
+    {
+      "id": "6671_9310_000059",
+      "text": "replicó el joven reteniendo a rosa por el brazo cuando iba a retirarse mis deseos mi porvenir todo en fin menos mi amor a vos",
+      "audio": "dev/audio/6671/9310/6671_9310_000059.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1294.84,
+        "original_end_s": 1307.73
+      }
+    },
+    {
+      "id": "6671_9310_000060",
+      "text": "ha esperrmentado un cambio al presente no os ofrezco ya un rango distinguido en el mundo",
+      "audio": "dev/audio/6671/9310/6671_9310_000060.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1307.73,
+        "original_end_s": 1318.1
+      }
+    },
+    {
+      "id": "6671_9310_000061",
+      "text": "y tal accion de humanidad les puso aun mas sobre aviso el hombre acabó por caer enfermo lo que visto por mi madre les dejo la niña remitiéndoles",
+      "audio": "dev/audio/6671/9310/6671_9310_000061.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1029.61,
+        "original_end_s": 1044.4
+      }
+    },
+    {
+      "id": "6671_9310_000062",
+      "text": "permanecieron solos por mucho tiempo un golpe ligero en fa puerta del aposento anunció que alguien deseaba entrar oliverio corrió á abrir y apartóse al memento para dar paso",
+      "audio": "dev/audio/6671/9310/6671_9310_000062.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1208.57,
+        "original_end_s": 1227.12
+      }
+    },
+    {
+      "id": "6671_9310_000063",
+      "text": "tengo siempre tanto amor á ese niño como si fuera mi mi mi abuelo dijo mr bumble buscando en su caletre una justa comparacion pobre ovilerito ea interrumpió míster",
+      "audio": "dev/audio/6671/9310/6671_9310_000063.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 610.14,
+        "original_end_s": 629.24
+      }
+    },
+    {
+      "id": "6671_9310_000064",
+      "text": "no ciertamente mr brownlow hizo una nueva señal á mr grimwig que desapareció gallardamente y volvió á aparecer del mismo talante acompañado esta vez",
+      "audio": "dev/audio/6671/9310/6671_9310_000064.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 680.56,
+        "original_end_s": 697.07
+      }
+    },
+    {
+      "id": "6671_9310_000065",
+      "text": "y un individuo cuyo nombre ignoraban a medida que se acercaban á la ciudad le fué iniaf posible á oliverio dominar su emocion",
+      "audio": "dev/audio/6671/9310/6671_9310_000065.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 80.19,
+        "original_end_s": 93.09
+      }
+    },
+    {
+      "id": "6671_9310_000066",
+      "text": "pero quedó en manos de mi madre junto con otras pruebas para el caso en que la joven inés osara negar so deshonra el padre de esa joven supo toda la verdad por boca de mi madre",
+      "audio": "dev/audio/6671/9310/6671_9310_000066.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 412.06,
+        "original_end_s": 428.63
+      }
+    },
+    {
+      "id": "6671_9310_000067",
+      "text": "llegara i la mayor edad si era una niña debia disfrutar de su parte sin restriccion alguna pero si al contrario era uu muchacho",
+      "audio": "dev/audio/6671/9310/6671_9310_000067.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 360.42,
+        "original_end_s": 371.87
+      }
+    },
+    {
+      "id": "6671_9310_000068",
+      "text": "que acercándose a la respetable pareja preguntó señalando con el dedo a monks conocéis a ese caballero no contestó con sequedad la señora bumble con qué no le conocéis",
+      "audio": "dev/audio/6671/9310/6671_9310_000068.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 644.5,
+        "original_end_s": 661.17
+      }
+    },
+    {
+      "id": "6671_9310_000069",
+      "text": "sintiendo que no podría soportar sus infortunios se dirigía a roma cuando los primeros dolores del parto la obligaron a detenerse aquí resuelta a dejarse morir allí sobre la tumba de su amante",
+      "audio": "dev/audio/6671/9310/6671_9310_000069.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 768.19,
+        "original_end_s": 787.07
+      }
+    },
+    {
+      "id": "6671_9310_000070",
+      "text": "a pesar de que ignoro en lo que pueden concernirme dijo rosa dispensadme hoy de oirlas en este momento no tengo para ello fuerza ni valor teneis mas firmeza de la que creeis repuso",
+      "audio": "dev/audio/6671/9310/6671_9310_000070.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 927.41,
+        "original_end_s": 944.87
+      }
+    },
+    {
+      "id": "6671_9310_000071",
+      "text": "que me pertenece rosa y de la que soy el pastor cerca de esta iglesia está el presbiterio habitacion rústica que vos embelleceréis con vuestra presencia",
+      "audio": "dev/audio/6671/9310/6671_9310_000071.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1348.89,
+        "original_end_s": 1366.56
+      }
+    },
+    {
+      "id": "6671_9310_000072",
+      "text": "de dos viejas medio paralíticas que le seguían con paso vacilante tuvisteis buen cuidado de cerrar la puerta la noche en que murió la vieja slali",
+      "audio": "dev/audio/6671/9310/6671_9310_000072.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 697.07,
+        "original_end_s": 713.34
+      }
+    },
+    {
+      "id": "6671_9310_000073",
+      "text": "los compré a esas personas de que os he hablado respondió este mr brownlow hizo una señal a mr",
+      "audio": "dev/audio/6671/9310/6671_9310_000073.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 554.01,
+        "original_end_s": 564.57
+      }
+    },
+    {
+      "id": "6671_9310_000074",
+      "text": "sí es el pequeño oliverio callaos viejo loco dijo en voz baja la señora bumble no puedo dominarme señora bumble yo que lo he educado de una manera completamente",
+      "audio": "dev/audio/6671/9310/6671_9310_000074.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 580.61,
+        "original_end_s": 597.13
+      }
+    },
+    {
+      "id": "6671_9310_000075",
+      "text": "añadió la segunda porque la vieja sally nos repetía a menudo que aquella joven había dicho que",
+      "audio": "dev/audio/6671/9310/6671_9310_000075.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 758.02,
+        "original_end_s": 768.19
+      }
+    },
+    {
+      "id": "6671_9310_000076",
+      "text": "rosa amada rosa clamó oliverio fuisteis para mi una buena hermana quiero consideraros en adelante no como una tia sino como una hermana",
+      "audio": "dev/audio/6671/9310/6671_9310_000076.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1193.15,
+        "original_end_s": 1208.57
+      }
+    },
+    {
+      "id": "6671_9310_000077",
+      "text": "la mejor de las amigas la más tierna de las madres tranquilizaos ángel mío dijo la señora maylie abrazándola con la mayor ternura y acordaos que hay otros a quienes sois también querida",
+      "audio": "dev/audio/6671/9310/6671_9310_000077.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1174.14,
+        "original_end_s": 1193.15
+      }
+    },
+    {
+      "id": "6671_9310_000078",
+      "text": "enrique enrique continuó rosaprorumpienrdo en llanto quisiera hacer lo contrario y evitarme estos dolores pues bien entonces reflecsionad sobre lo que habeis sabido esta noche",
+      "audio": "dev/audio/6671/9310/6671_9310_000078.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1262.4,
+        "original_end_s": 1281.05
+      }
+    },
+    {
+      "id": "6671_9310_000079",
+      "text": "el cual estaba fechado del primer dia de su enfermedad y dirijido á vos con encargo espreso escrito de su puño al reverso de la carpeta de no remitirlo hasta despues de su muerte",
+      "audio": "dev/audio/6671/9310/6671_9310_000079.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 223.0,
+        "original_end_s": 239.76
+      }
+    },
+    {
+      "id": "6671_9310_000080",
+      "text": "es el hijo natural de mi mejor amigo ricardo leefort vuestro padre y de la joven y desdichada inés fleming si replicó monks es el fruto ilegitimo do su comercio criminal",
+      "audio": "dev/audio/6671/9310/6671_9310_000080.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 163.85,
+        "original_end_s": 182.13
+      }
+    },
+    {
+      "id": "6671_9310_000081",
+      "text": "prosiguió enrique que en una de los condados más bellos de la inglaterra en medio de risueñas colinas y verdes praderas existe una pequeña iglesia de aldea",
+      "audio": "dev/audio/6671/9310/6671_9310_000081.opus",
+      "tags": {
+        "speaker_id": "mls-es-6671",
+        "gender": "m",
+        "book_id": "9310",
+        "split": "dev",
+        "original_url": "http://www.archive.org/download/los_ladrones_de_londres_1611_librivox/ladronesdelondres_49_dickens_64kb.mp3",
+        "original_start_s": 1331.88,
+        "original_end_s": 1348.89
+      }
+    }
+  ]
+}

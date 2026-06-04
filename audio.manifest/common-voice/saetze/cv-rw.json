@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — rw",
+  "lang": "rw",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-rw",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "20331429",
+      "text": "Jenoside yambuye abanyarwanda ariko dukwiye kurwanya ibidukereza.",
+      "audio": "rw/unknown/rw_u_20331429.mp3",
+      "tags": {
+        "source_item_id": "20331429",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20996578",
+      "text": "Eugene Anangwe ni we wari umusangiza w'amagambo .",
+      "audio": "rw/unknown/rw_u_20996578.mp3",
+      "tags": {
+        "source_item_id": "20996578",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20996598",
+      "text": "Abashakana muri iki gihe ntibaha agaciro aya magambo.",
+      "audio": "rw/unknown/rw_u_20996598.mp3",
+      "tags": {
+        "source_item_id": "20996598",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "20996915",
+      "text": "Mike yahise yambara umupira wa Rayons.",
+      "audio": "rw/unknown/rw_u_20996915.mp3",
+      "tags": {
+        "source_item_id": "20996915",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "21027156",
+      "text": "Ibirere yabonaga nta kamaro byagira ni byo yihamiriza ko bimuteje imbere.",
+      "audio": "rw/unknown/rw_u_21027156.mp3",
+      "tags": {
+        "source_item_id": "21027156",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24104856",
+      "text": "ikintu cyanjye nyamukuru ni, 'ishimire ubuzima. nuhimbaze ubuzima. - luke bryan",
+      "audio": "rw/unknown/rw_u_24104856.mp3",
+      "tags": {
+        "source_item_id": "24104856",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24105537",
+      "text": "twemerewe kuvuga haba mu cyongereza cyangwa mu kiyapani",
+      "audio": "rw/unknown/rw_u_24105537.mp3",
+      "tags": {
+        "source_item_id": "24105537",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24178876",
+      "text": "hakabaho n'amazina yitirirwa ingoma agasa n'asesengura",
+      "audio": "rw/unknown/rw_u_24178876.mp3",
+      "tags": {
+        "source_item_id": "24178876",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24207708",
+      "text": "biterwa n'imisemburo y'umubyeyi idakora neza",
+      "audio": "rw/unknown/rw_u_24207708.mp3",
+      "tags": {
+        "source_item_id": "24207708",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "24207961",
+      "text": "Birashobora kandi kuvugwa ko Caldwell ahangayikishijwe no kureba kure ingaruka",
+      "audio": "rw/unknown/rw_u_24207961.mp3",
+      "tags": {
+        "source_item_id": "24207961",
+        "gender": "u"
+      }
+    }
+  ]
+}

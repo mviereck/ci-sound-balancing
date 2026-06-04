@@ -1,0 +1,137 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — he",
+  "lang": "he",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-he",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "38569741",
+      "text": "אֵלֶּה הָיוּ דְבָרָיו: ‘מַלְאַךְ אֱלֹהִים יָרַד לְחֶדְרִי וְנָטַל מִיָּדִי אֶת הַלּוּחַ.‘",
+      "audio": "he/unknown/he_u_38569741_natibe.mp3",
+      "tags": {
+        "source_item_id": "38569741",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    },
+    {
+      "id": "39753055",
+      "text": "ואפילו ייעד כבר מקום לבית-המשפט החדש בצפת",
+      "audio": "he/unknown/he_u_39753055_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "39753055",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "39609389",
+      "text": "שכבות הביניים הולכות להיפגע בעת זיקנה",
+      "audio": "he/unknown/he_u_39609389_natibe.mp3",
+      "tags": {
+        "source_item_id": "39609389",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    },
+    {
+      "id": "39753088",
+      "text": "וְהַזָּקֵן תָּקַע בְּאוֹתוֹ מָקוֹם אֶת הַסַּכִּין שֶׁבִּקְצֵה הַמָּשׁוֹט",
+      "audio": "he/unknown/he_u_39753088_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "39753088",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "39753620",
+      "text": "אני מבטיח לסיים בתוך שתי דקות",
+      "audio": "he/unknown/he_u_39753620_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "39753620",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "40001948",
+      "text": "תוך אימוץ מדיניות כלכלית-חברתית צודקת",
+      "audio": "he/unknown/he_u_40001948_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "40001948",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "39027849",
+      "text": "אתמול, בערב יום־הכיפורים, הרגשתי שאני נופלת מאוד ברוחי.",
+      "audio": "he/unknown/he_u_39027849_natibe.mp3",
+      "tags": {
+        "source_item_id": "39027849",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    },
+    {
+      "id": "39890615",
+      "text": "אנחנו מצליחים להתקיים ולשרוד רק בזכות לומדי התורה",
+      "audio": "he/unknown/he_u_39890615_natibe.mp3",
+      "tags": {
+        "source_item_id": "39890615",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    },
+    {
+      "id": "39753570",
+      "text": "היוזמה להצעה הזאת נובעת מכמה עניינים מרכזיים",
+      "audio": "he/unknown/he_u_39753570_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "39753570",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "39609254",
+      "text": "ותמורת כסף ניתן למשטרה לקבל אותו גם היום",
+      "audio": "he/unknown/he_u_39609254_natibe.mp3",
+      "tags": {
+        "source_item_id": "39609254",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    },
+    {
+      "id": "39753072",
+      "text": "כי זה לא מה שישמש תרופה",
+      "audio": "he/unknown/he_u_39753072_israeli_native_formal.mp3",
+      "tags": {
+        "source_item_id": "39753072",
+        "gender": "u",
+        "accent": "israeli,native,Formal"
+      }
+    },
+    {
+      "id": "38569715",
+      "text": "גם פה בארץ יש לי כבר מכרים.",
+      "audio": "he/unknown/he_u_38569715_natibe.mp3",
+      "tags": {
+        "source_item_id": "38569715",
+        "gender": "u",
+        "accent": "Natibe"
+      }
+    }
+  ]
+}

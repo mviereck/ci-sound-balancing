@@ -1,0 +1,15 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "key": "thorsten-voice-emotional",
+  "name": "Thorsten-Voice Emotional v0.2",
+  "url": "https://github.com/thorstenMueller/Thorsten-Voice",
+  "license": "CC0-1.0",
+  "credit": "Thorsten Müller — Thorsten-Voice Emotional v0.2 (CC0)",
+  "base": "Thorsten-Voice-Emotional/",
+  "categories": [
+    "saetze"
+  ],
+  "manifests": {
+    "saetze": []
+  }
+}

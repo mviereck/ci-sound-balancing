@@ -1,0 +1,2272 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Apologie de Socrate",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1943",
+    "book_title": "Apologie de Socrate",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2465_1943_000000",
+      "text": "moi qui laissant de côté toutes les choses où je ne pouvais être utile ni à vous ni à moi n'ai voulu d'autre occupation que celle de vous rendre à chacun en particulier le plus grand de tous les services",
+      "audio": "test/audio/2465/1943/2465_1943_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 125.15,
+        "original_end_s": 137.21
+      }
+    },
+    {
+      "id": "2465_1943_000001",
+      "text": "c'est ainsi que je me suis conduit avec vous si vous faites cela moi et mes enfans nous n'aurons qu'à nous louer de votre justice mais il est temps que nous nous quittions moi pour mourir et vous pour vivre",
+      "audio": "test/audio/2465/1943/2465_1943_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 597.95,
+        "original_end_s": 612.19
+      }
+    },
+    {
+      "id": "2465_1943_000002",
+      "text": "en cela mélitus je ne te crois point et je ne pense pas qu'il y ait un homme au monde qui puisse te croire il faut de deux choses l'une ou que je ne corrompe pas les jeunes gens",
+      "audio": "test/audio/2465/1943/2465_1943_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 419.15,
+        "original_end_s": 429.59
+      }
+    },
+    {
+      "id": "2465_1943_000003",
+      "text": "tandis que le plus agile le crime s'est attaché à mes accusateurs qui ont de la vigueur et de la légèreté je m'en vais donc subir la mort à laquelle vous m'avez condamné et eux l'iniquité et l'infamie à laquelle la vérité les condamne",
+      "audio": "test/audio/2465/1943/2465_1943_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 158.87,
+        "original_end_s": 175.42
+      }
+    },
+    {
+      "id": "2465_1943_000004",
+      "text": "c'est que ce qui m'arrive est selon toute vraisemblance un bien et nous nous trompons sans aucun doute si nous pensons que la mort soit un mal une preuve évidente pour moi c'est qu'infailliblement si j'eusse dû mal faire aujourd'hui le signe ordinaire m'en eût averti",
+      "audio": "test/audio/2465/1943/2465_1943_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 342.05,
+        "original_end_s": 361.94
+      }
+    },
+    {
+      "id": "2465_1943_000005",
+      "text": "voici encore quelques raisons d'espérer que la mort est un bien il faut qu'elle soit de deux choses l'une ou l'anéantissement absolu et la destruction de toute conscience ou comme on le dit un simple changement le passage de l'âme d'un lieu dans un autre",
+      "audio": "test/audio/2465/1943/2465_1943_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 361.94,
+        "original_end_s": 379.55
+      }
+    },
+    {
+      "id": "2465_1943_000006",
+      "text": "que d'être nourri dans le prytanée et il le mérite bien plus que celui qui aux jeux olympiques a remporté le prix de la course à cheval ou de la course des chars à deux ou à quatre chevaux car celui-ci ne vous rend heureux qu'en apparence moi je vous enseigne à l'être véritablement",
+      "audio": "test/audio/2465/1943/2465_1943_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 180.72,
+        "original_end_s": 198.64
+      }
+    },
+    {
+      "id": "2465_1943_000007",
+      "text": "il m'est arrivé aujourd'hui quelque chose d'extraordinaire cette inspiration prophétique qui n'a cessé de se faire entendre à moi dans tout le cours de ma vie qui dans les moindres occasions n'a jamais manqué de me détourner de tout ce que j'allais faire de mal aujourd'hui qu'il m'arrive ce que vous voyez",
+      "audio": "test/audio/2465/1943/2465_1943_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 291.37,
+        "original_end_s": 307.88
+      }
+    },
+    {
+      "id": "2465_1943_000008",
+      "text": "moi qui ne suis jamais entré dans aucune des conjurations et des cabales si fréquentes dans la république me trouvant réellement trop honnête homme pour ne pas me perdre en prenant part à tout cela",
+      "audio": "test/audio/2465/1943/2465_1943_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 114.05,
+        "original_end_s": 125.15
+      }
+    },
+    {
+      "id": "2465_1943_000009",
+      "text": "car à ce qu'il paraît il n'aurait fallu que trois voix de plus pour que je fusse absous je puis donc me flatter d'avoir échappé à mélitus et non seulement je lui ai échappé mais il est évident que si anytus et lycon ne se fussent élevés pour m'accuser",
+      "audio": "test/audio/2465/1943/2465_1943_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 55.76,
+        "original_end_s": 72.89
+      }
+    },
+    {
+      "id": "2465_1943_000010",
+      "text": "à quel prix ne voudrait-on pas mes juges examiner un peu celui qui mena contre troie une si nombreuse armée ou ulysse ou sisyphe et tant d'autres hommes et femmes avec lesquels ce serait une félicité inexprimable de converser et de vivre en les observant et les examinant",
+      "audio": "test/audio/2465/1943/2465_1943_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 504.53,
+        "original_end_s": 523.26
+      }
+    },
+    {
+      "id": "2465_1943_000011",
+      "text": "les lois socrate ce n'est pas là excellent mélitus ce que je te demande je te demande qui est-ce quel est l'homme il est bien sûr que la première chose qu'il faut que cet homme sache ce sont les lois",
+      "audio": "test/audio/2465/1943/2465_1943_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 138.82,
+        "original_end_s": 156.77
+      }
+    },
+    {
+      "id": "2465_1943_000012",
+      "text": "mais il vous arrivera tout le contraire je vous le prédis il va s'élever contre vous un bien plus grand nombre de censeurs que je retenais sans que vous vous en aperçussiez",
+      "audio": "test/audio/2465/1943/2465_1943_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 215.99,
+        "original_end_s": 227.42
+      }
+    },
+    {
+      "id": "2465_1943_000013",
+      "text": "et d'un autre côté si je vous dis que le plus grand bien de l'homme c'est de s'entretenir chaque jour de la vertu et des autres choses dont vous m'avez entendu discourir m'examinant moi-même et les autres car une vie sans examen n'est pas une vie si je vous dis cela vous me croirez encore moins",
+      "audio": "test/audio/2465/1943/2465_1943_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 370.37,
+        "original_end_s": 387.81
+      }
+    },
+    {
+      "id": "2465_1943_000014",
+      "text": "si la mort est la privation de tout sentiment un sommeil sans aucun songe quel merveilleux avantage n'est-ce pas que de mourir car que quelqu'un choisisse une nuit ainsi passée dans un sommeil profond",
+      "audio": "test/audio/2465/1943/2465_1943_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 379.55,
+        "original_end_s": 394.59
+      }
+    },
+    {
+      "id": "2465_1943_000015",
+      "text": "il aurait été condamné à payer mille drachmes comme n'ayant pas obtenu la cinquième partie des suffrages c'est donc la peine de mort que cet homme réclame contre moi à la bonne heure et moi de mon côté athéniens à quelle peine me condamnerai-je",
+      "audio": "test/audio/2465/1943/2465_1943_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 72.89,
+        "original_end_s": 89.18
+      }
+    },
+    {
+      "id": "2465_1943_000016",
+      "text": "athéniens telle a été ma conduite que mérite-t-elle une récompense si vous voulez être juste et même une récompense qui puisse me convenir",
+      "audio": "test/audio/2465/1943/2465_1943_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 156.4,
+        "original_end_s": 168.08
+      }
+    },
+    {
+      "id": "2465_1943_000017",
+      "text": "mélitus ceux que tu vois ici socrate les juges socrate comment dis-tu mélitus ces juges sont capables d'instruire les jeunes gens et de les rendre meilleurs",
+      "audio": "test/audio/2465/1943/2465_1943_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 156.77,
+        "original_end_s": 173.56
+      }
+    },
+    {
+      "id": "2465_1943_000018",
+      "text": "je m'entretiendrai volontiers avec vous sur ce qui vient de se passer pendant que les magistrats sont occupés et qu'on ne me mène pas encore où je dois mourir arrêtez-vous donc quelques instants et employons à converser ensemble le temps qu'on me laisse",
+      "audio": "test/audio/2465/1943/2465_1943_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 263.89,
+        "original_end_s": 278.8
+      }
+    },
+    {
+      "id": "2465_1943_000019",
+      "text": "là du moins on n'est pas condamné à mort pour cela car les habitants de cet heureux séjour entre mille avantages qui mettent leur condition bien au-dessus de la nôtre jouissent d'une vie immortelle si du moins ce qu'on en dit est véritable",
+      "audio": "test/audio/2465/1943/2465_1943_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 523.26,
+        "original_end_s": 538.36
+      }
+    },
+    {
+      "id": "2465_1943_000020",
+      "text": "que n'aurait troublé aucun songe et qu'il compare cette nuit avec toutes les nuits et avec tous les jours qui ont rempli le cours entier de sa vie qu'il réfléchisse et qu'il dise en conscience combien dans sa vie il a eu de jours et de nuits plus heureuses et plus douces que celle-là",
+      "audio": "test/audio/2465/1943/2465_1943_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 394.59,
+        "original_end_s": 411.9
+      }
+    },
+    {
+      "id": "2465_1943_000021",
+      "text": "à moins que vous ne consentiez à m'imposer seulement à ce que je suis en état de payer et je pourrais aller peut-être jusqu'à une mine d'argent c'est donc à cette somme que je me condamne",
+      "audio": "test/audio/2465/1943/2465_1943_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 410.09,
+        "original_end_s": 422.65
+      }
+    },
+    {
+      "id": "2465_1943_000022",
+      "text": "s'ils vous sont devenus tellement importuns et odieux qu'aujourd'hui vous voulez enfin vous en délivrer d'autres n'auront pas de peine à les supporter il s'en faut de beaucoup athéniens",
+      "audio": "test/audio/2465/1943/2465_1943_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 310.24,
+        "original_end_s": 321.28
+      }
+    },
+    {
+      "id": "2465_1943_000023",
+      "text": "voilà ce qu'il y a de plus difficile à faire entendre à quelques-uns d'entre vous car si je dis que ce serait désobéir au dieu et que par cette raison il m'est impossible de me tenir en repos vous ne me croirez point et prendrez cette réponse pour une plaisanterie",
+      "audio": "test/audio/2465/1943/2465_1943_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 355.53,
+        "original_end_s": 370.37
+      }
+    },
+    {
+      "id": "2465_1943_000024",
+      "text": "car il est bien sûr qu'étant instruit je cesserai de faire ce que je fais malgré moi mais tu t'en es bien gardé tu n'as pas voulu me voir et m'instruire et tu me traduis devant ce tribunal où la loi veut qu'on cite ceux qui ont mérité des punitions et non pas ceux qui n'ont besoin que de remontrances",
+      "audio": "test/audio/2465/1943/2465_1943_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 446.19,
+        "original_end_s": 463.39
+      }
+    },
+    {
+      "id": "2465_1943_000025",
+      "text": "en vous exhortant tous individuellement à ne pas songer à ce qui vous appartient accidentellement plutôt qu'à ce qui constitue votre essence et à tout ce qui peut vous rendre vertueux et sages à ne pas songer aux intérêts passagers de la patrie plutôt qu'à la patrie elle-même et ainsi de tout le reste",
+      "audio": "test/audio/2465/1943/2465_1943_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 137.21,
+        "original_end_s": 156.4
+      }
+    },
+    {
+      "id": "2465_1943_000026",
+      "text": "peut-être pensez-vous que si j'avais cru devoir tout faire et tout dire pour me sauver je n'y serais point parvenu faute de savoir trouver des pa roles capables de persuader",
+      "audio": "test/audio/2465/1943/2465_1943_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 73.29,
+        "original_end_s": 84.09
+      }
+    },
+    {
+      "id": "2465_1943_000027",
+      "text": "ayant donc la conscience que je n'ai jamais été injuste envers personne je suis bien éloigné de vouloir l'être envers moi-même d'avouer que je mérite une punition et de me condamner à quelque chose de semblable et cela dans quelle crainte quoi pour éviter la peine que réclame contre moi mélitus",
+      "audio": "test/audio/2465/1943/2465_1943_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 249.0,
+        "original_end_s": 268.02
+      }
+    },
+    {
+      "id": "2465_1943_000028",
+      "text": "mélitus ils en sont tous capables socrate ainsi selon toi tous les athéniens peuvent être utiles à la jeunesse hors moi il n'y a que moi qui la corrompe n'est-ce pas là ce que tu dis",
+      "audio": "test/audio/2465/1943/2465_1943_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 233.95,
+        "original_end_s": 252.67
+      }
+    },
+    {
+      "id": "2465_1943_000029",
+      "text": "en vérité ce serait une belle vie pour moi vieux comme je suis de quitter mon pays d'aller errant de ville en ville et de vivre comme un proscrit car je sais que partout où j'irai les jeunes gens viendront m'écouter comme ici",
+      "audio": "test/audio/2465/1943/2465_1943_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 321.28,
+        "original_end_s": 336.12
+      }
+    },
+    {
+      "id": "2465_1943_000030",
+      "text": "reprenons cette dernière accusation comme nous avons fait la première voici à peu près comme elle est conçue socrate est coupable en ce qu'il corrompt les jeunes gens ne reconnaît pas la religion de l'état et met à la place des extravagances démoniaques voilà l'accusation",
+      "audio": "test/audio/2465/1943/2465_1943_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 37.61,
+        "original_end_s": 56.42
+      }
+    },
+    {
+      "id": "2465_1943_000031",
+      "text": "cette manière de se délivrer de ses censeurs n'est ni honnête ni possible celle qui est en même temps et la plus honnête et la plus facile c'est au lieu de fermer la bouche aux autres de se rendre meilleur soi-même",
+      "audio": "test/audio/2465/1943/2465_1943_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 239.16,
+        "original_end_s": 253.03
+      }
+    },
+    {
+      "id": "2465_1943_000032",
+      "text": "examinons-en tous les chefs l'un après l'autre il dit que je suis coupable en ce que je corromps les jeunes gens et moi athéniens je dis que c'est mélitus qui est coupable en ce qu'il se fait un jeu de choses sérieuses et de gaité de cœur appelle les gens en justice",
+      "audio": "test/audio/2465/1943/2465_1943_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 56.42,
+        "original_end_s": 74.99
+      }
+    },
+    {
+      "id": "2465_1943_000033",
+      "text": "mais platon que voilà criton critobule et apollodore veulent que je me condamne à trente mines dont ils répondent en conséquence je m'y condamne et assurément je vous présente des cautions qui sont très solvables",
+      "audio": "test/audio/2465/1943/2465_1943_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 422.65,
+        "original_end_s": 436.74
+      }
+    },
+    {
+      "id": "2465_1943_000034",
+      "text": "quand je vous parle ainsi athéniens vous m'accuserez peut-être de la même arrogance qui me faisait condamner tout à l'heure les prières et les lamentations mais ce n'est nullement cela",
+      "audio": "test/audio/2465/1943/2465_1943_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 210.76,
+        "original_end_s": 221.22
+      }
+    },
+    {
+      "id": "2465_1943_000035",
+      "text": "or qu'est-ce qui peut convenir à un homme pauvre votre bienfaiteur qui a besoin de loisir pour ne s'occuper qu'à vous donner des conseils utiles il n'y a rien qui lui convienne plus athéniens",
+      "audio": "test/audio/2465/1943/2465_1943_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 168.08,
+        "original_end_s": 180.72
+      }
+    },
+    {
+      "id": "2465_1943_000036",
+      "text": "ici les juges vont aux voix pour l'application de la peine et socrate est condamné à mort il poursuit point n'avoir pas eu la patience d'attendre un peu de temps athéniens vous allez fournir un prétexte à ceux qui voudront diffamer la république",
+      "audio": "test/audio/2465/1943/2465_1943_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 27.39,
+        "original_end_s": 45.88
+      }
+    },
+    {
+      "id": "2465_1943_000037",
+      "text": "mais mon plus grand plaisir serait d'employer ma vie là comme ici à interroger et à examiner tous ces personnages pour distinguer ceux qui sont véritablement sages et ceux qui croient l'être et ne le sont point",
+      "audio": "test/audio/2465/1943/2465_1943_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 491.27,
+        "original_end_s": 504.53
+      }
+    },
+    {
+      "id": "2465_1943_000038",
+      "text": "une amende et la prison jusqu'à ce que je l'aie payée mais cela revient au même car je n'ai pas de quoi la payer me condamnerai-je à l'exil peut-être y consentiriez-vous",
+      "audio": "test/audio/2465/1943/2465_1943_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 286.4,
+        "original_end_s": 298.4
+      }
+    },
+    {
+      "id": "2465_1943_000039",
+      "text": "d'ailleurs les jeunes gens viendraient-ils chercher auprès de moi avec tant d'empressement une doctrine qu'ils pourraient aller à tout moment entendre débiter à l'orchestre pour une dragme tout au plus et qui leur donnerait une belle occasion de se moquer de socrate s'il s'attribuait ainsi des opinions qui ne sont pas à lui et qui sont si étranges et si absurdes",
+      "audio": "test/audio/2465/1943/2465_1943_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 570.29,
+        "original_end_s": 589.05
+      }
+    },
+    {
+      "id": "2465_1943_000040",
+      "text": "celui-ci a de quoi vivre et moi je n'ai rien si donc il me faut déclarer ce que je mérite en bonne justice je le déclare c'est d'être nourri au prytanée",
+      "audio": "test/audio/2465/1943/2465_1943_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 198.64,
+        "original_end_s": 210.76
+      }
+    },
+    {
+      "id": "2465_1943_000041",
+      "text": "en effet puisque tu as découvert celui qui les corrompt et que tu l'as dénoncé devant ce tribunal il faut que tu dises qui est celui qui peut les rendre meilleurs parle mélitus",
+      "audio": "test/audio/2465/1943/2465_1943_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 108.27,
+        "original_end_s": 119.95
+      }
+    },
+    {
+      "id": "2465_1943_000042",
+      "text": "censeurs d'autant plus difficiles qu'ils sont plus jeunes et vous n'en serez que plus irrités car si vous pensez qu'en tuant les gens vous empêcherez qu'on vous reproche de mal vivre vous vous trompez",
+      "audio": "test/audio/2465/1943/2465_1943_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 227.42,
+        "original_end_s": 239.16
+      }
+    },
+    {
+      "id": "2465_1943_000043",
+      "text": "d'ailleurs je t'en prie au nom de jupiter mélitus réponds à ceci lequel est le plus avantageux d'habiter avec des gens de bien ou d'habiter avec des méchants réponds-moi mon ami car je ne te demande rien de difficile",
+      "audio": "test/audio/2465/1943/2465_1943_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 315.3,
+        "original_end_s": 330.73
+      }
+    },
+    {
+      "id": "2465_1943_000044",
+      "text": "et que moi je sois assez ignorant pour ne savoir pas qu'en rendant méchant quelqu'un de ceux qui ont avec moi un commerce habituel je m'expose à en recevoir du mal et pour ne pas laisser malgré cela de m'attirer ce mal le voulant et le sachant",
+      "audio": "test/audio/2465/1943/2465_1943_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 403.17,
+        "original_end_s": 419.15
+      }
+    },
+    {
+      "id": "2465_1943_000045",
+      "text": "car ce qui m'arrive n'est point l'effet du hasard et il est clair pour moi que mourir dès à présent et être délivré des soucis de la vie était ce qui me convenais le mieux aussi la voix céleste s'est tue aujourd'hui et je n'ai aucun ressentiment contre mes accusateurs ni contre ceux qui m'ont condamné",
+      "audio": "test/audio/2465/1943/2465_1943_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 552.13,
+        "original_end_s": 569.35
+      }
+    },
+    {
+      "id": "2465_1943_000046",
+      "text": "si en arrivant aux enfers échappés à ceux qui se prétendent ici-bas des juges l'on y trouve les vrais juges ceux qui passent pour y rendre la justice minos rhadamanthe eaque triptolème et tous ces autres demi-dieux qui ont été justes pendant leur vie",
+      "audio": "test/audio/2465/1943/2465_1943_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 444.45,
+        "original_end_s": 462.82
+      }
+    },
+    {
+      "id": "2465_1943_000047",
+      "text": "ils le peuvent aussi socrate et les sénateurs mélitus les sénateurs aussi",
+      "audio": "test/audio/2465/1943/2465_1943_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 208.69,
+        "original_end_s": 220.78
+      }
+    },
+    {
+      "id": "2465_1943_000048",
+      "text": "ici les juges ayant été aux voix la majorité déclare que socrate est coupable il reprend la parole le jugement que vous venez de prononcer athéniens m'a peu ému et par bien des raisons",
+      "audio": "test/audio/2465/1943/2465_1943_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 25.98,
+        "original_end_s": 43.29
+      }
+    },
+    {
+      "id": "2465_1943_000049",
+      "text": "et dans ce cas si je crois qu'il y a des dieux je ne suis donc pas entièrement athée et ce n'est pas là en quoi je suis coupable mais des dieux qui ne sont pas ceux de l'état est-ce là de quoi tu m'accuses ou bien m'accuses tu de n'admettre aucun dieu et d'enseigner aux autres à n'en reconnaître aucun mélitus",
+      "audio": "test/audio/2465/1943/2465_1943_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 510.29,
+        "original_end_s": 530.14
+      }
+    },
+    {
+      "id": "2465_1943_000050",
+      "text": "ainsi athéniens voilà une preuve bien évidente de ce que je vous disais que mélitus ne s'est jamais mis en peine de toutes ces choses-là et qu'il n'y a jamais pensé",
+      "audio": "test/audio/2465/1943/2465_1943_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 463.39,
+        "original_end_s": 473.95
+      }
+    },
+    {
+      "id": "2465_1943_000051",
+      "text": "en vérité mélitus tu dis là des choses incroyables et auxquelles toi-même à ce qu'il me semble tu ne crois pas pour moi athéniens il me paraît que mélitus est un impertinent qui n'a intenté cette accusation que pour m'insulter et par une audace de jeune homme",
+      "audio": "test/audio/2465/1943/2465_1943_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 603.22,
+        "original_end_s": 619.99
+      }
+    },
+    {
+      "id": "2465_1943_000052",
+      "text": "tout le monde sait qu'à la guerre il serait très facile de sauver sa vie en jetant ses armes et en demandant quartier à ceux qui vous poursuivent de même dans tous les dangers on trouve mille expédiens pour éviter la mort quand on est décidé à tout dire et à tout faire",
+      "audio": "test/audio/2465/1943/2465_1943_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 127.08,
+        "original_end_s": 143.07
+      }
+    },
+    {
+      "id": "2465_1943_000053",
+      "text": "mais il faudrait que l'amour de la vie m'eût bien aveuglé athéniens pour que je pusse m'imaginer que si vous mes concitoyens vous n'avez pu supporter ma manière d'être et mes discours",
+      "audio": "test/audio/2465/1943/2465_1943_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 298.4,
+        "original_end_s": 310.24
+      }
+    },
+    {
+      "id": "2465_1943_000054",
+      "text": "le voyage serait-il donc si malheureux combien ne donnerait-on pas pour s'entretenir avec orphée musée hésiode homère quant à moi si cela est véritable je veux mourir plusieurs fois",
+      "audio": "test/audio/2465/1943/2465_1943_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 462.82,
+        "original_end_s": 477.02
+      }
+    },
+    {
+      "id": "2465_1943_000055",
+      "text": "tandis que vous auriez fini par me croire peut-être si vous aviez comme d'autres peuples une loi qui pour une condamnation à mort exigeât un procès de plusieurs jours au lieu qu'en si peu de temps il est impossible de détruire des calomnies invétérées",
+      "audio": "test/audio/2465/1943/2465_1943_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 233.83,
+        "original_end_s": 249.0
+      }
+    },
+    {
+      "id": "2465_1943_000056",
+      "text": "si je les rebute eux-mêmes me feront bannir par les hommes plus âgés et si je ne les rebute pas leurs pères et leurs parents me banniront à cause d'eux mais me dira-t-on peut-être socrate quand tu nous auras quittés ne pourras-tu pas te tenir en repos et garder le silence",
+      "audio": "test/audio/2465/1943/2465_1943_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 336.12,
+        "original_end_s": 355.53
+      }
+    },
+    {
+      "id": "2465_1943_000057",
+      "text": "y a-t-il donc quelqu'un qui aime mieux recevoir du préjudice de la part de ceux qu'il fréquente que d'en recevoir de l'utilité réponds-moi mélitus car la loi ordonne de répondre y a-t-il quelqu'un qui aime mieux recevoir du mal que du bien",
+      "audio": "test/audio/2465/1943/2465_1943_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 345.7,
+        "original_end_s": 364.03
+      }
+    },
+    {
+      "id": "2465_1943_000058",
+      "text": "quoique leur intention n'ait pas été de me faire du bien et qu'ils n'aient cherché qu'à me nuire en quoi j'aurais bien quelque raison de me plaindre d'eux je ne leur ferai qu'une seule prière",
+      "audio": "test/audio/2465/1943/2465_1943_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 569.35,
+        "original_end_s": 580.6
+      }
+    },
+    {
+      "id": "2465_1943_000059",
+      "text": "non sans doute socrate eh bien donc dis à nos juges qui est-ce qui est capable de rendre les jeunes gens meilleurs car il ne faut pas douter que tu ne le saches puisque cela t'occupe si fort",
+      "audio": "test/audio/2465/1943/2465_1943_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 91.95,
+        "original_end_s": 108.27
+      }
+    },
+    {
+      "id": "2465_1943_000060",
+      "text": "tous les hommes peuvent-ils les rendre meilleurs et n'y en a-t-il qu'un seul qui ait le secret de les gâter ou est-ce tout le contraire n'y a-t-il qu'un seul homme ou bien un petit nombre à savoir les écuyers qui soient capables de les dresser et les autres hommes s'ils veulent les monter et s'en servir ne les gâtent-ils pas",
+      "audio": "test/audio/2465/1943/2465_1943_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 267.06,
+        "original_end_s": 286.31
+      }
+    },
+    {
+      "id": "2465_1943_000061",
+      "text": "pour moi je m'en tiens à ma peine et eux à la leur en effet peut-être est-ce ainsi que les choses devaient se passer et selon moi tout est pour le mieux",
+      "audio": "test/audio/2465/1943/2465_1943_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 175.42,
+        "original_end_s": 186.89
+      }
+    },
+    {
+      "id": "2465_1943_000062",
+      "text": "je suis déjà bien avancé dans la vie et tout près de la mort je ne dis pas cela pour vous tous mais seulement pour ceux qui m'ont condamné à mort c'est à ceux-là que je veux m'adresser encore",
+      "audio": "test/audio/2465/1943/2465_1943_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 61.95,
+        "original_end_s": 73.29
+      }
+    },
+    {
+      "id": "2465_1943_000063",
+      "text": "mais le péril où j'étais ne m'a point paru une raison de rien faire qui fût indigne d'un homme libre et maintenant encore je ne me repens pas de m'être ainsi défendu j'aime beaucoup mieux mourir après m'être défendu comme je l'ai fait que de devoir la vie à une lâche apologie",
+      "audio": "test/audio/2465/1943/2465_1943_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 100.19,
+        "original_end_s": 116.68
+      }
+    },
+    {
+      "id": "2465_1943_000064",
+      "text": "mélitus c'est cela même socrate en vérité il faut que j'ai bien du malheur mais continue de me répondre te paraît-il qu'il en soit de même des chevaux",
+      "audio": "test/audio/2465/1943/2465_1943_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 252.67,
+        "original_end_s": 267.06
+      }
+    },
+    {
+      "id": "2465_1943_000065",
+      "text": "n'en est-il pas de même de tous les animaux oui sans doute soit qu'anytus et toi vous en conveniez ou que vous n'en conveniez point et en vérité ce serait un grand bonheur pour la jeunesse qu'il n'y eût qu'un seul homme qui pût la corrompre et que tous les autres pussent la rendre vertueuse",
+      "audio": "test/audio/2465/1943/2465_1943_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 286.31,
+        "original_end_s": 302.47
+      }
+    },
+    {
+      "id": "2465_1943_000066",
+      "text": "et de laquelle j'ai déjà dit que je ne sais pas si elle est un bien ou un mal j'irai choisir une peine que je sais très certainement être un mal et je m'y condamnerai moi-même choisirai-je les fers mais pourquoi me faudrait-il passer ma vie en prison esclave du pouvoir des onze qui se renouvelle toujours",
+      "audio": "test/audio/2465/1943/2465_1943_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 268.02,
+        "original_end_s": 286.4
+      }
+    },
+    {
+      "id": "2465_1943_000067",
+      "text": "mais si la mort est un passage de ce séjour dans un autre et si ce qu'on dit est véritable que là est le rendez-vous de tous ceux qui ont vécu quel plus grand bien peut-on imaginer mes juges car enfin",
+      "audio": "test/audio/2465/1943/2465_1943_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 429.92,
+        "original_end_s": 444.45
+      }
+    },
+    {
+      "id": "2465_1943_000068",
+      "text": "non ce ne sont pas les paroles qui m'ont manqué athéniens mais l'impudence je succombe pour n'avoir pas voulu vous dire les choses que vous aimez tant à entendre pour n'avoir pas voulu me lamenter pleurer et descendre à toutes les bassesses auxquelles on vous a accoutumés",
+      "audio": "test/audio/2465/1943/2465_1943_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 84.09,
+        "original_end_s": 100.19
+      }
+    },
+    {
+      "id": "2465_1943_000069",
+      "text": "mais tu as suffisamment prouvé mélitus que l'éducation de la jeunesse ne t'a jamais fort inquiété et tes discours viennent de faire paraître clairement que tu ne t'es jamais occupé de la chose même pour laquelle tu me poursuis",
+      "audio": "test/audio/2465/1943/2465_1943_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 302.47,
+        "original_end_s": 315.3
+      }
+    },
+    {
+      "id": "2465_1943_000070",
+      "text": "ou si je les corromps que ce soit malgré moi et sans le savoir et dans tous les cas tu es un imposteur si c'est malgré moi que je corromps la jeunesse la loi ne veut pas qu'on appelle en justice pour des fautes involontaires mais elle veut qu'on prenne en particulier ceux qui les commettent et qu'on les instruise",
+      "audio": "test/audio/2465/1943/2465_1943_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 429.59,
+        "original_end_s": 446.19
+      }
+    },
+    {
+      "id": "2465_1943_000071",
+      "text": "je dois choisir ce qui m'est dû et que m'est-il dû quelle peine afflictive ou quelle amende méritais-je moi qui me suis fait un principe de ne connaître aucun repos pendant toute ma vie",
+      "audio": "test/audio/2465/1943/2465_1943_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 89.18,
+        "original_end_s": 101.95
+      }
+    },
+    {
+      "id": "2465_1943_000072",
+      "text": "je t'accuse de ne reconnaître aucun dieu socrate ô merveilleux mélitus pourquoi dis-tu cela quoi je ne crois pas comme les autres hommes que le soleil et la lune sont des dieux mélitus",
+      "audio": "test/audio/2465/1943/2465_1943_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 530.14,
+        "original_end_s": 546.82
+      }
+    },
+    {
+      "id": "2465_1943_000073",
+      "text": "voilà pourtant la vérité athéniens mais il n'est pas aisé de vous en convaincre au reste je ne suis point accoutumé à me juger digne de souffrir aucun mal",
+      "audio": "test/audio/2465/1943/2465_1943_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 387.81,
+        "original_end_s": 397.84
+      }
+    },
+    {
+      "id": "2465_1943_000074",
+      "text": "négligeant ce que les autres recherchent avec tant d'empressement les richesses le soin de ses affaires domestiques les emplois militaires les fonctions d'orateur et toutes les autres dignités",
+      "audio": "test/audio/2465/1943/2465_1943_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 101.95,
+        "original_end_s": 114.05
+      }
+    },
+    {
+      "id": "2465_1943_000075",
+      "text": "ni devant les tribunaux ni dans les combats il n'est permis ni à moi ni à aucun autre d'employer toutes sortes de moyens pour éviter la mort",
+      "audio": "test/audio/2465/1943/2465_1943_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 116.68,
+        "original_end_s": 127.08
+      }
+    },
+    {
+      "id": "2465_1943_000076",
+      "text": "je veux vous raconter comme à mes amis une chose qui m'est arrivée aujourd'hui et vous apprendre ce qu'elle signifie oui juges et en vous appelant ainsi je vous donne le nom que vous méritez",
+      "audio": "test/audio/2465/1943/2465_1943_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 278.8,
+        "original_end_s": 291.37
+      }
+    },
+    {
+      "id": "2465_1943_000077",
+      "text": "je suis persuadé que non seulement un simple particulier mais que le grand roi lui-même en trouverait un bien petit nombre et qu'il serait aisé de les compter si la mort est quelque chose de semblable je dis qu'elle n'est pas un mal car la durée tout entière ne paraît plus ainsi qu'une seule nuit",
+      "audio": "test/audio/2465/1943/2465_1943_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 411.9,
+        "original_end_s": 429.92
+      }
+    },
+    {
+      "id": "2465_1943_000078",
+      "text": "ils diront que vous avez fait mourir socrate cet homme sage car pour aggraver votre honte ils m'appelleront sage quoique je ne le sois point mais si vous aviez attendu encore un peu de temps la chose serait venue d'elle-même car voyez mon âge",
+      "audio": "test/audio/2465/1943/2465_1943_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 45.88,
+        "original_end_s": 61.95
+      }
+    },
+    {
+      "id": "2465_1943_000079",
+      "text": "mon véritable motif est que j'ai la conscience de n'avoir jamais commis envers personne d'injustice volontaire mais je ne puis vous le persuader car il n'y a que quelques instants que nous nous entretenons ensemble",
+      "audio": "test/audio/2465/1943/2465_1943_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 221.22,
+        "original_end_s": 233.83
+      }
+    },
+    {
+      "id": "2465_1943_000080",
+      "text": "après cela ô vous qui m'avez condamné voici ce que j'ose vous prédire car je suis précisément dans les circonstances où les hommes lisent dans l'avenir au moment de quitter la vie",
+      "audio": "test/audio/2465/1943/2465_1943_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 186.89,
+        "original_end_s": 199.67
+      }
+    },
+    {
+      "id": "2465_1943_000081",
+      "text": "voilà contre mes premiers accusateurs une apologie suffisante venons présentement aux derniers et tâchons de répondre à mélitus cet homme de bien si attaché à sa patrie à ce qu'il assure",
+      "audio": "test/audio/2465/1943/2465_1943_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 24.94,
+        "original_end_s": 37.61
+      }
+    },
+    {
+      "id": "2465_1943_000082",
+      "text": "eh ce n'est pas là ce qui est difficile athéniens que d'éviter la mort mais il l'est beaucoup d'éviter le crime il court plus vite que la mort c'est pourquoi vieux et pesant comme je suis je me suis laissé atteindre par le plus lent des deux",
+      "audio": "test/audio/2465/1943/2465_1943_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 143.07,
+        "original_end_s": 158.87
+      }
+    },
+    {
+      "id": "2465_1943_000083",
+      "text": "si j'étais riche je me condamnerais volontiers à une amende telle que je pourrais la payer car cela ne me ferait aucun tort mais dans la circonstance présente car enfin je n'ai rien",
+      "audio": "test/audio/2465/1943/2465_1943_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 397.84,
+        "original_end_s": 410.09
+      }
+    },
+    {
+      "id": "2465_1943_000084",
+      "text": "lorsque mes enfants seront grands si vous les voyez rechercher les richesses ou toute autre chose plus que la vertu punissez-les en les tourmentant comme je vous ai tourmentés et s'ils se croient quelque chose quoiqu'ils ne soient rien faites-les rougir de leur insouciance et de leur présomption",
+      "audio": "test/audio/2465/1943/2465_1943_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 580.6,
+        "original_end_s": 597.95
+      }
+    },
+    {
+      "id": "2465_1943_000085",
+      "text": "non par jupiter athéniens il ne le croit pas car il dit que le soleil est une pierre et la lune une terre socrate",
+      "audio": "test/audio/2465/1943/2465_1943_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 546.82,
+        "original_end_s": 557.76
+      }
+    },
+    {
+      "id": "2465_1943_000086",
+      "text": "je vous dis donc que si vous me faites périr vous en serez punis aussitôt après ma mort par une peine bien plus cruelle que celle à laquelle vous me condamnez en effet vous ne me faites mourir que pour vous délivrer de l'importun fardeau de rendre compte de votre vie",
+      "audio": "test/audio/2465/1943/2465_1943_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 199.67,
+        "original_end_s": 215.99
+      }
+    },
+    {
+      "id": "2465_1943_000087",
+      "text": "voilà ce que j'avais à prédire à ceux qui m'ont condamné il ne me reste qu'à prendre congé d'eux mais pour vous qui m'avez absous par vos suffrages athéniens",
+      "audio": "test/audio/2465/1943/2465_1943_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 253.03,
+        "original_end_s": 263.89
+      }
+    },
+    {
+      "id": "2465_1943_000088",
+      "text": "d'ailleurs je m'attendais à ce qui est arrivé ce qui me surprend bien plus c'est le nombre des voix pour ou contre j'étais bien loin de m'attendre à être condamné à une si faible majorité",
+      "audio": "test/audio/2465/1943/2465_1943_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_06_platon_64kb.mp3",
+        "original_start_s": 43.29,
+        "original_end_s": 55.76
+      }
+    },
+    {
+      "id": "2465_1943_000089",
+      "text": "cependant dans beaucoup d'autres circonstances elle vint m'interrompre au milieu de mon discours mais aujourd'hui elle ne s'est opposée à aucune de mes actions à aucune de mes paroles quelle en peut être la cause je vais vous le dire",
+      "audio": "test/audio/2465/1943/2465_1943_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 325.56,
+        "original_end_s": 342.05
+      }
+    },
+    {
+      "id": "2465_1943_000090",
+      "text": "socrate mais mon cher mélitus tous ceux qui assistent aux assemblées du peuple ne pourraient-ils donc pas corrompre la jeunesse ou sont-ils aussi tous capables de la rendre vertueuse",
+      "audio": "test/audio/2465/1943/2465_1943_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 220.78,
+        "original_end_s": 233.95
+      }
+    },
+    {
+      "id": "2465_1943_000091",
+      "text": "ce qu'on pourrait prendre et ce qu'on prend en effet pour le plus grand de tous les maux cette voix divine a gardé le silence elle ne m'a arrêté ni ce matin quand je suis sorti de ma maison ni quand je suis venu devant ce tribunal ni tandis que je parlais quand j'allais dire quelque chose",
+      "audio": "test/audio/2465/1943/2465_1943_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_07_platon_64kb.mp3",
+        "original_start_s": 307.88,
+        "original_end_s": 325.56
+      }
+    },
+    {
+      "id": "2465_1943_000092",
+      "text": "ce phénomène extraordinaire s'est manifesté en moi dès mon enfance c'est une voix qui ne se fait entendre que pour me détourner de ce que j'ai résolu car jamais elle ne m'exhorte à rien entreprendre",
+      "audio": "test/audio/2465/1943/2465_1943_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 176.19,
+        "original_end_s": 187.32
+      }
+    },
+    {
+      "id": "2465_1943_000093",
+      "text": "n'ont pourtant pas eu le front de me reprocher et d'essayer de prouver par témoins que j'aie jamais exigé ni demandé le moindre salaire et je puis offrir de la vérité de ce que j'avance un assez bon témoin à ce qu'il me semble ma pauvreté",
+      "audio": "test/audio/2465/1943/2465_1943_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 132.46,
+        "original_end_s": 147.8
+      }
+    },
+    {
+      "id": "2465_1943_000094",
+      "text": "vous n'en soyez pas surpris et ne vous emportiez pas contre moi car c'est aujourd'hui la première fois de ma vie que je parais devant un tribunal à l'âge de plus de soixante-dix ans véritablement donc je suis étranger au langage qu'on parle ici",
+      "audio": "test/audio/2465/1943/2465_1943_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 126.87,
+        "original_end_s": 142.07
+      }
+    },
+    {
+      "id": "2465_1943_000095",
+      "text": "eh bien donc athéniens il faut se défendre et tâcher d'arracher de vos esprits une calomnie qui y est déjà depuis longtemps et cela en aussi peu d'instants",
+      "audio": "test/audio/2465/1943/2465_1943_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 313.91,
+        "original_end_s": 324.63
+      }
+    },
+    {
+      "id": "2465_1943_000096",
+      "text": "maintenant athéniens ne croyez pas que ce soit pour l'amour de moi que je me défends comme on pourrait le croire c'est pour l'amour de vous de peur qu'en me condamnant vous n'offensiez le dieu dans le présent qu'il vous a fait",
+      "audio": "test/audio/2465/1943/2465_1943_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 25.59,
+        "original_end_s": 39.22
+      }
+    },
+    {
+      "id": "2465_1943_000097",
+      "text": "ou à la perte de mes droits de citoyen et anytus et les autres prennent sans doute cela pour de très grands maux mais moi je ne suis pas de leur avis à mon sens le plus grand de tous les maux c'est ce qu'anytus fait aujourd'hui d'entreprendre de faire périr un innocent",
+      "audio": "test/audio/2465/1943/2465_1943_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 588.08,
+        "original_end_s": 605.25
+      }
+    },
+    {
+      "id": "2465_1943_000098",
+      "text": "d'ailleurs ces accusateurs sont en fort grand nombre et il y a déjà longtemps qu'ils travaillent à ce complot et puis ils vous ont prévenus de cette opinion dans l'âge de la crédulité",
+      "audio": "test/audio/2465/1943/2465_1943_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 238.13,
+        "original_end_s": 250.97
+      }
+    },
+    {
+      "id": "2465_1943_000099",
+      "text": "en effet ni anytus ni mélitus ne me feront aucun mal ils ne le peuvent car je ne crois pas qu'il soit au pouvoir du méchant de nuire à l'homme de bien peut-être me feront-ils condamner à la mort ou à l'exil",
+      "audio": "test/audio/2465/1943/2465_1943_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 575.24,
+        "original_end_s": 588.08
+      }
+    },
+    {
+      "id": "2465_1943_000100",
+      "text": "s'il y a ici quelqu'un qui soit dans ces sentiments ce que je ne saurais croire mais j'en fais la supposition je pourrais lui dire avec raison mon ami j'ai aussi des parents car pour me servir de l'expression d'homère je ne suis point né d'un chêne ou d'un rocher mais d'un homme",
+      "audio": "test/audio/2465/1943/2465_1943_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 663.84,
+        "original_end_s": 682.79
+      }
+    },
+    {
+      "id": "2465_1943_000101",
+      "text": "mais ce que je sais bien c'est qu'être injuste et désobéir à ce qui est meilleur que soi dieu ou homme est contraire au devoir et à l'honneur",
+      "audio": "test/audio/2465/1943/2465_1943_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 361.57,
+        "original_end_s": 371.58
+      }
+    },
+    {
+      "id": "2465_1943_000102",
+      "text": "réponds mélitus et vous juges comme je vous en ai conjurés au commencement souffrez que je parle ici à ma manière ordinaire dis mélitus y a-t-il quelqu'un dans le monde qui croie qu'il y ait des choses humaines et qui ne croie pas qu'il y ait des hommes",
+      "audio": "test/audio/2465/1943/2465_1943_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 655.83,
+        "original_end_s": 674.44
+      }
+    },
+    {
+      "id": "2465_1943_000103",
+      "text": "mais quelqu'un me dira peut-être n'as-tu pas honte socrate de t'étre attaché à une étude qui te met présentement en danger de mourir je puis répondre avec raison à qui me ferait cette objection",
+      "audio": "test/audio/2465/1943/2465_1943_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 171.45,
+        "original_end_s": 184.85
+      }
+    },
+    {
+      "id": "2465_1943_000104",
+      "text": "car je ne vous dirai rien qui vienne de moi et je ferai parler devant vous une autorité digne de votre confiance je vous donnerai de ma sagesse un témoin qui vous dira si elle est et quelle elle est et ce témoin c'est le dieu de delphes",
+      "audio": "test/audio/2465/1943/2465_1943_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 102.05,
+        "original_end_s": 121.04
+      }
+    },
+    {
+      "id": "2465_1943_000105",
+      "text": "et pour en trouver le véritable sens aller de porte en porte chez tous ceux qui avaient le plus de réputation et je vous jure athéniens car il faut vous dire la vérité que voici le résultat que me laissèrent mes recherches",
+      "audio": "test/audio/2465/1943/2465_1943_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 320.61,
+        "original_end_s": 334.95
+      }
+    },
+    {
+      "id": "2465_1943_000106",
+      "text": "cela serait aussi absurde que de croire qu'il y a des mulets nés de chevaux ou d'ânes et qu'il n'y a ni ânes ni chevaux ainsi mélitus il est impossible que tu ne m'aies intenté cette accusation pour m'éprouver ou faute de prétexte légitime",
+      "audio": "test/audio/2465/1943/2465_1943_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 101.96,
+        "original_end_s": 117.89
+      }
+    },
+    {
+      "id": "2465_1943_000107",
+      "text": "cependant qu'il arrive tout ce qu'il plaira aux dieux il faut obéir à la loi et se défendre reprenons donc dans son principe l'accusation sur laquelle s'appuient mes calomniateurs et qui a donné à mélitus la confiance de me traduire devant ce tribunal voyons que disent mes calomniateurs",
+      "audio": "test/audio/2465/1943/2465_1943_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 338.28,
+        "original_end_s": 357.88
+      }
+    },
+    {
+      "id": "2465_1943_000108",
+      "text": "un jour étant allé à delphes il eut la hardiesse de demander à l'oracle et je vous prie encore une fois de ne pas vous émouvoir de ce que je vais dire il lui demanda s'il y avait au monde un homme plus sage que moi",
+      "audio": "test/audio/2465/1943/2465_1943_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 140.44,
+        "original_end_s": 156.98
+      }
+    },
+    {
+      "id": "2465_1943_000109",
+      "text": "acéantodore frère d'apollodore que je reconnais aussi et beaucoup d'autres dont mélitus aurait bien dû faire comparaître au moins un comme témoins dans sa cause s'il n'y a pas pensé il est encore temps je lui permets de le faire qu'il dise donc s'il le peut",
+      "audio": "test/audio/2465/1943/2465_1943_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 570.73,
+        "original_end_s": 587.65
+      }
+    },
+    {
+      "id": "2465_1943_000110",
+      "text": "mieux que ceux qui les avaient faits je reconnus donc bientôt que ce n'est pas la raison qui dirige le poète mais une sorte d'inspiration naturelle un enthousiasme semblable à celui qui transporte le prophète et le devin qui disent tous de fort belles choses mais sans rien comprendre à ce qu'ils disent",
+      "audio": "test/audio/2465/1943/2465_1943_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 389.44,
+        "original_end_s": 406.76
+      }
+    },
+    {
+      "id": "2465_1943_000111",
+      "text": "ne rougis-tu pas de ne penser qu'à amasser des richesses à acquérir du crédit et des honneurs sans t'occuper de la vérité et de la sagesse de ton âme et de son perfectionnement",
+      "audio": "test/audio/2465/1943/2465_1943_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 451.9,
+        "original_end_s": 462.94
+      }
+    },
+    {
+      "id": "2465_1943_000112",
+      "text": "doit à mon avis y demeurer ferme et ne considérer ni la mort ni le péril ni rien autre chose que l'honneur ce serait donc de ma part une étrange conduite athéniens",
+      "audio": "test/audio/2465/1943/2465_1943_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 263.1,
+        "original_end_s": 275.07
+      }
+    },
+    {
+      "id": "2465_1943_000113",
+      "text": "lui méprisant le péril et la mort et craignant beaucoup plus de vivre comme un lâche sans venger ses amis que je meure à l'instant s'écrie-t-il pourvu que je punisse le meurtrier de patrocle et que je ne reste pas ici exposé au mépris assis sur mes vaisseaux fardeau inutile de la terre",
+      "audio": "test/audio/2465/1943/2465_1943_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 228.74,
+        "original_end_s": 248.6
+      }
+    },
+    {
+      "id": "2465_1943_000114",
+      "text": "pour me citer devant ce tribunal car que tu persuades jamais à quelqu'un d'un peu de sens que le même homme puisse croire qu'il y a des choses relatives aux démons et aux dieux et pourtant qu'il n'y a ni démons ni dieux ni héros c'est ce qui est entièrement impossible",
+      "audio": "test/audio/2465/1943/2465_1943_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 117.89,
+        "original_end_s": 134.41
+      }
+    },
+    {
+      "id": "2465_1943_000115",
+      "text": "je ne sais athéniens quelle impression mes accusateurs ont faite sur vous pour moi en les entendant peu s'en est fallu que je ne me méconnusse moi-même tant ils ont parlé d'une manière persuasive et cependant à parler franchement ils n'ont pas dit un mot qui soit véritable",
+      "audio": "test/audio/2465/1943/2465_1943_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 25.43,
+        "original_end_s": 44.91
+      }
+    },
+    {
+      "id": "2465_1943_000116",
+      "text": "mais athéniens la vérité est qu'apollon seul est sage et qu'il a voulu dire seulement par son oracle que toute la sagesse humaine n'est pas grand-chose ou même qu'elle n'est rien",
+      "audio": "test/audio/2465/1943/2465_1943_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 498.62,
+        "original_end_s": 509.53
+      }
+    },
+    {
+      "id": "2465_1943_000117",
+      "text": "voilà de quelle manière je parlerai à tous ceux que je rencontrerai jeunes et vieux concitoyens et étrangers mais plutôt à vous athéniens parce que vous me touchez de plus près",
+      "audio": "test/audio/2465/1943/2465_1943_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 485.61,
+        "original_end_s": 496.55
+      }
+    },
+    {
+      "id": "2465_1943_000118",
+      "text": "je ne cesse de vous dire que ce n'est pas la richesse qui fait la vertu mais au contraire que c'est la vertu qui fait la richesse et que c'est de là que naissent tous les autres biens publics et particuliers",
+      "audio": "test/audio/2465/1943/2465_1943_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 515.81,
+        "original_end_s": 526.32
+      }
+    },
+    {
+      "id": "2465_1943_000119",
+      "text": "il est vrai que théodote est mort et qu'ainsi il n'a plus besoin du secours de son frère je vois encore parale fils de demodocus et dont le frère était théagès adimante fils d'ariston avec son frère platon",
+      "audio": "test/audio/2465/1943/2465_1943_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 556.03,
+        "original_end_s": 570.73
+      }
+    },
+    {
+      "id": "2465_1943_000120",
+      "text": "j'en conviens socrate et par conséquent puisque j'admets des démons de ton propre aveu et que les démons sont des dieux",
+      "audio": "test/audio/2465/1943/2465_1943_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 65.3,
+        "original_end_s": 76.43
+      }
+    },
+    {
+      "id": "2465_1943_000121",
+      "text": "de là j'allai chez un autre qui passait encore pour plus sage que le premier et je trouvai la même chose et je me fis là de nouveaux ennemis",
+      "audio": "test/audio/2465/1943/2465_1943_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 294.08,
+        "original_end_s": 306.21
+      }
+    },
+    {
+      "id": "2465_1943_000122",
+      "text": "quelle est cette sagesse c'est peut-être une sagesse purement humaine et je cours grand risque de n'être sage que de celle-là tandis que les hommes dont je viens de vous parler sont sages d'une sagesse bien plus qu'humaine",
+      "audio": "test/audio/2465/1943/2465_1943_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 71.76,
+        "original_end_s": 86.44
+      }
+    },
+    {
+      "id": "2465_1943_000123",
+      "text": "voilà justement la preuve de ce que je disais que tu viens nous proposer des énigmes et te divertir à mes dépens en disant que je n'admets point de dieux et que pourtant j'admets des dieux puisque j'admets des démons",
+      "audio": "test/audio/2465/1943/2465_1943_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 76.43,
+        "original_end_s": 88.7
+      }
+    },
+    {
+      "id": "2465_1943_000124",
+      "text": "je souhaite y réussir s'il peut en résulter quelque bien pour vous et pour moi je souhaite que cette défense me serve mais je regarde la chose comme très difficile et je ne m'abuse point à cet égard",
+      "audio": "test/audio/2465/1943/2465_1943_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 324.63,
+        "original_end_s": 338.28
+      }
+    },
+    {
+      "id": "2465_1943_000125",
+      "text": "d'ailleurs beaucoup de jeunes gens qui ont du loisir et qui appartiennent à de riches familles s'attachent à moi et prennent un grand plaisir à voir de quelle manière j'éprouve les hommes",
+      "audio": "test/audio/2465/1943/2465_1943_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 556.82,
+        "original_end_s": 567.51
+      }
+    },
+    {
+      "id": "2465_1943_000126",
+      "text": "et quant à ce que je vous disais au commencement que j'ai contre moi de vives et nombreuses inimitiés soyez bien persuadés qu'il en est ainsi et ce qui me perdra si je succombe ce ne sera ni mélitus ni anitus",
+      "audio": "test/audio/2465/1943/2465_1943_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 146.21,
+        "original_end_s": 160.56
+      }
+    },
+    {
+      "id": "2465_1943_000127",
+      "text": "considérez bien athéniens pourquoi je vous dis toutes ces choses c'est uniquement pour vous faire voir d'où viennent les bruits qu'on a fait courir contre moi",
+      "audio": "test/audio/2465/1943/2465_1943_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 167.61,
+        "original_end_s": 177.71
+      }
+    },
+    {
+      "id": "2465_1943_000128",
+      "text": "et qu'il leur donnât toutes les perfections de leur nature et cet homme ce serait probablement un cavalier ou un laboureur mais puisque pour enfants tu as des hommes à qui as-tu résolu de les confier quel maître avons-nous en ce genre pour les vertus de l'homme et du citoyen",
+      "audio": "test/audio/2465/1943/2465_1943_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 498.87,
+        "original_end_s": 517.05
+      }
+    },
+    {
+      "id": "2465_1943_000129",
+      "text": "si vous me disiez socrate nous rejetons l'avis d'anytus et nous te renvoyons absous mais c'est à condition que tu cesseras de philosopher et de faire tes recherches accoutumées et si tu y retombes et que tu sois découvert tu mourras",
+      "audio": "test/audio/2465/1943/2465_1943_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 402.23,
+        "original_end_s": 420.26
+      }
+    },
+    {
+      "id": "2465_1943_000130",
+      "text": "ne murmurez pas athéniens et accordez-moi la grâce que je vous ai demandée de m'écouter patiemment cette patience à mon avis ne vous sera pas infructueuse",
+      "audio": "test/audio/2465/1943/2465_1943_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 549.3,
+        "original_end_s": 559.35
+      }
+    },
+    {
+      "id": "2465_1943_000131",
+      "text": "et après vous retomberez pour toujours dans un sommeil léthargique à moins que la divinité prenant pitié de vous ne vous envoie encore un homme qui me ressemble",
+      "audio": "test/audio/2465/1943/2465_1943_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 88.12,
+        "original_end_s": 98.97
+      }
+    },
+    {
+      "id": "2465_1943_000132",
+      "text": "c'est elle qui s'est toujours opposée à moi quand j'ai voulu me mêler des affaires de la république et elle s'y est opposée fort à propos car sachez bien qu'il y a longtemps que je ne serais plus en vie si je m'étais mêlé des affaires publiques et je n'aurais rien avancé ni pour vous ni pour moi",
+      "audio": "test/audio/2465/1943/2465_1943_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 187.32,
+        "original_end_s": 203.69
+      }
+    },
+    {
+      "id": "2465_1943_000133",
+      "text": "et quand je ne l'y trouve point je sers d'interprète à l'oracle en leur faisant voir qu'ils ne sont point sages cela m'occupe si fort que je n'ai pas eu le temps d'être un peu utile à la république ni à ma famille et mon dévouement au service du dieu m'a mis dans une gêne extrême",
+      "audio": "test/audio/2465/1943/2465_1943_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 539.71,
+        "original_end_s": 556.82
+      }
+    },
+    {
+      "id": "2465_1943_000134",
+      "text": "j'allai chez un de nos concitoyens qui passe pour un des plus sages de la ville et j'espérais que là mieux qu'ailleurs je pourrais confondre l'oracle et lui dire tu as déclaré que je suis le plus sage des hommes et celui-ci est plus sage que moi",
+      "audio": "test/audio/2465/1943/2465_1943_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 213.11,
+        "original_end_s": 229.35
+      }
+    },
+    {
+      "id": "2465_1943_000135",
+      "text": "convaincu de cette vérité pour m'en assurer encore davantage et pour obéir au dieu je continue ces recherches et je vais examinant tous ceux de nos concitoyens et des étrangers en qui j'espère trouver la vraie sagesse",
+      "audio": "test/audio/2465/1943/2465_1943_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 524.47,
+        "original_end_s": 539.71
+      }
+    },
+    {
+      "id": "2465_1943_000136",
+      "text": "ceux qui répandent ces bruits voilà mes vrais accusateurs car en les entendant on se persuade que les hommes livrés à de pareilles recherches ne croient pas qu'il y ait des dieux",
+      "audio": "test/audio/2465/1943/2465_1943_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 226.24,
+        "original_end_s": 238.13
+      }
+    },
+    {
+      "id": "2465_1943_000137",
+      "text": "après cette découverte je m'efforçai de lui faire voir qu'il n'était nullement ce qu'il croyait être et voilà déjà ce qui me rendit odieux à cet homme et à tous ses amis qui assistaient à notre conversation",
+      "audio": "test/audio/2465/1943/2465_1943_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 247.75,
+        "original_end_s": 261.75
+      }
+    },
+    {
+      "id": "2465_1943_000138",
+      "text": "ainsi athéniens j'ai des parents et pour des enfants j'en ai trois l'un déjà dans l'adolescence les deux autres encore en bas âge et cependant je ne les ferai pas paraître ici pour vous engager à m'absoudre",
+      "audio": "test/audio/2465/1943/2465_1943_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 682.79,
+        "original_end_s": 697.13
+      }
+    },
+    {
+      "id": "2465_1943_000139",
+      "text": "non sans doute",
+      "audio": "test/audio/2465/1943/2465_1943_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 708.99,
+        "original_end_s": 720.85
+      }
+    },
+    {
+      "id": "2465_1943_000140",
+      "text": "et si quelqu'un de vous prétend le contraire et me soutient qu'il s'en occupe je ne l'en croirai point sur sa parole je ne le quitterai point mais je l'interrogerai je l'examinerai je le confonderai",
+      "audio": "test/audio/2465/1943/2465_1943_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 462.94,
+        "original_end_s": 474.88
+      }
+    },
+    {
+      "id": "2465_1943_000141",
+      "text": "car je ne veux pas faire valoir ici le témoignage de ceux que j'ai corrompus ils pourraient avoir leur raison pour me défendre mais leurs parents que je n'ai pas séduits qui sont déjà avancés en âge quelle autre raison peuvent-ils avoir de se déclarer pour moi que mon bon droit et mon innocence",
+      "audio": "test/audio/2465/1943/2465_1943_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 598.48,
+        "original_end_s": 615.03
+      }
+    },
+    {
+      "id": "2465_1943_000142",
+      "text": "je n'ai jamais été le maître de personne mais si quelqu'un jeune ou vieux a désiré s'entretenir avec moi et voir comment je m'acquitte de ma mission je n'ai refusé à personne cette satisfaction",
+      "audio": "test/audio/2465/1943/2465_1943_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 419.91,
+        "original_end_s": 433.22
+      }
+    },
+    {
+      "id": "2465_1943_000143",
+      "text": "apologie de socrate quatrième partie socrate que tu m'obliges de répondre enfin et à grand-peine quand les juges t'y forcent ainsi tu conviens que j'admets et que j'enseigne quelque chose sur les démons",
+      "audio": "test/audio/2465/1943/2465_1943_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 19.96,
+        "original_end_s": 36.03
+      }
+    },
+    {
+      "id": "2465_1943_000144",
+      "text": "en effet il paraît entièrement se contredire dans son accusation c'est comme s'il disait socrate est coupable en ce qu'il ne reconnaît pas de dieux et en ce qu'il reconnaît des dieux vraiment c'est là se moquer suivez-moi je vous en prie athéniens et examinez avec moi en quoi je pense qu'il se contredit",
+      "audio": "test/audio/2465/1943/2465_1943_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 636.7,
+        "original_end_s": 655.83
+      }
+    },
+    {
+      "id": "2465_1943_000145",
+      "text": "tous ceux qui par envie et pour me décrier vous ont persuadé ces faussetés et ceux qui persuadés eux-mêmes ont persuadé les autres échappent à toute poursuite et je ne puis ni les appeler devant vous ni les réfuter",
+      "audio": "test/audio/2465/1943/2465_1943_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 270.9,
+        "original_end_s": 285.93
+      }
+    },
+    {
+      "id": "2465_1943_000146",
+      "text": "ceux-ci les paient bien et leur ont encore beaucoup d'obligation j'ai ouï dire aussi qu'il était arrivé ici un homme de paros qui est fort habile car m'étant trouvé l'autre jour chez un homme qui dépense plus en sophistes que tous nos autres citoyens ensemble callias fils d'hipponicus",
+      "audio": "test/audio/2465/1943/2465_1943_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 461.37,
+        "original_end_s": 480.32
+      }
+    },
+    {
+      "id": "2465_1943_000147",
+      "text": "quelques-uns de vous croiront peut-être que je ne parle pas sérieusement mais soyez bien persuadés que je ne vous dirai que la vérité en effet athéniens la réputation que j'ai acquise vient d'une certaine sagesse qui est en moi",
+      "audio": "test/audio/2465/1943/2465_1943_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 56.61,
+        "original_end_s": 71.76
+      }
+    },
+    {
+      "id": "2465_1943_000148",
+      "text": "mais peut-être que fâchés comme des gens qu'on éveille quand ils ont envie de s'endormir vous me frapperez et obéissant aux insinuations d'anytus vous me ferez mourir sans scrupule",
+      "audio": "test/audio/2465/1943/2465_1943_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 75.56,
+        "original_end_s": 88.12
+      }
+    },
+    {
+      "id": "2465_1943_000149",
+      "text": "prenant ceux de leurs ouvrages qui me paraissaient travaillés avec le plus de soin je leur demandai ce qu'ils avaient voulu dire désirant m'instruire dans leur entretien",
+      "audio": "test/audio/2465/1943/2465_1943_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 364.9,
+        "original_end_s": 376.06
+      }
+    },
+    {
+      "id": "2465_1943_000150",
+      "text": "je m'imagine qu'ayant des enfants tu as dû penser à cela as-tu quelqu'un lui dis-je sans doute me répondit-il et qui donc repris-je d'où est-il combien prend-il c'est evène socrate me répondit callias il est de paros et prend cinq mines",
+      "audio": "test/audio/2465/1943/2465_1943_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 517.05,
+        "original_end_s": 536.57
+      }
+    },
+    {
+      "id": "2465_1943_000151",
+      "text": "et je n'agis ainsi je vous le répète que pour accomplir l'ordre que le dieu m'a donné par la voix des oracles par celle des songes et par tous les moyens qu'aucune autre puissance céleste a jamais employés pour communiquer sa volonté à un mortel",
+      "audio": "test/audio/2465/1943/2465_1943_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 486.63,
+        "original_end_s": 500.63
+      }
+    },
+    {
+      "id": "2465_1943_000152",
+      "text": "je puis vous en donner des preuves incontestables et ce ne seront pas des raisonnemens mais ce qui a bien plus d'autorité auprès de vous des faits écoutez donc ce qui m'est arrivé afin que vous sachiez bien que je suis incapable de céder à qui que ce soit contre le devoir par crainte de la mort",
+      "audio": "test/audio/2465/1943/2465_1943_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 235.03,
+        "original_end_s": 253.08
+      }
+    },
+    {
+      "id": "2465_1943_000153",
+      "text": "c'est pourquoi comme je le disais au commencement je regarderais comme un miracle si en aussi peu de temps je pouvais détruire une calomnie qui a déjà de vieilles racines dans vos esprits",
+      "audio": "test/audio/2465/1943/2465_1943_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 648.21,
+        "original_end_s": 660.26
+      }
+    },
+    {
+      "id": "2465_1943_000154",
+      "text": "vous connaissez tous chérephon c'était mon ami d'enfance il l'était aussi de la plupart d'entre vous il fut exilé avec vous et revint avec vous vous savez donc quel homme c'était que chérephon et quelle ardeur il mettait dans tout ce qu'il entreprenait",
+      "audio": "test/audio/2465/1943/2465_1943_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 121.04,
+        "original_end_s": 140.44
+      }
+    },
+    {
+      "id": "2465_1943_000155",
+      "text": "il n'y a personne excellent mélitus c'est moi qui te le dis puisque tu ne veux pas répondre et qui le dis à toute l'assemblée mais réponds à ceci y a-t-il quelqu'un qui admette quelque chose relatif aux démons et qui croie pourtant qu'il n'y a point de démons mélitus",
+      "audio": "test/audio/2465/1943/2465_1943_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_03_platon_64kb.mp3",
+        "original_start_s": 690.57,
+        "original_end_s": 708.99
+      }
+    },
+    {
+      "id": "2465_1943_000156",
+      "text": "je ne cesserai de m'appliquer à la philosophie de vous donner des avertissemens et des conseils et de tenir à tous ceux que je rencontrerai mon langage ordinaire ô mon ami comment étant athénien de la plus grande ville et la plus renommée pour les lumières et la puissance",
+      "audio": "test/audio/2465/1943/2465_1943_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 435.14,
+        "original_end_s": 451.9
+      }
+    },
+    {
+      "id": "2465_1943_000157",
+      "text": "car il faut mettre leur accusation dans les formes et la lire comme si elle était écrite et le serment prêté socrate est un homme dangereux qui par une curiosité criminelle veut pénétrer ce qui se passe clans le ciel et sur la terre fait une bonne cause d'une mauvaise",
+      "audio": "test/audio/2465/1943/2465_1943_000157.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_01_platon_64kb.mp3",
+        "original_start_s": 357.88,
+        "original_end_s": 375.83
+      }
+    },
+    {
+      "id": "2465_1943_000158",
+      "text": "loin de parler quand on me paie et de me taire quand on ne me donne rien je laisse également le riche et le pauvre m'interroger ou si on l'aime mieux on répond à mes questions et l'on entend ce que j'ai à dire",
+      "audio": "test/audio/2465/1943/2465_1943_000158.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_05_platon_64kb.mp3",
+        "original_start_s": 433.22,
+        "original_end_s": 446.27
+      }
+    },
+    {
+      "id": "2465_1943_000159",
+      "text": "aujourd'hui ils me détachent mélitus anytus et lycon mélitus représente les poètes anytus les politiques et les artistes lycon les orateurs",
+      "audio": "test/audio/2465/1943/2465_1943_000159.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_02_platon_64kb.mp3",
+        "original_start_s": 635.52,
+        "original_end_s": 648.21
+      }
+    },
+    {
+      "id": "2465_1943_000160",
+      "text": "et sachez que c'est là ce que le dieu m'ordonne et je suis persuadé qu'il ne peut y avoir rien de plus avantageux à la république que mon zèle à remplir l'ordre du dieu car toute mon occupation est de vous persuader jeunes et vieux qu'avant le soin du corps et des richesses avant tout autre soin est celui de l'âme et de son perfectionnement",
+      "audio": "test/audio/2465/1943/2465_1943_000160.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2465",
+        "gender": "m",
+        "book_id": "1943",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/apologie_de_socrate_l_librivox/apologie_socrate_04_platon_64kb.mp3",
+        "original_start_s": 496.55,
+        "original_end_s": 515.81
+      }
+    }
+  ]
+}

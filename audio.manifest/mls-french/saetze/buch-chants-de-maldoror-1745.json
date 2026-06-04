@@ -1,0 +1,2202 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Chants de Maldoror",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "1745",
+    "book_title": "Chants de Maldoror",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "2216_1745_000000",
+      "text": "car elles seront rassasiées d'un bonheur complet comme les anges qui habitent dans la magnificence et la paix des agréables cieux",
+      "audio": "test/audio/2216/1745/2216_1745_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_02_lautreamont_64kb.mp3",
+        "original_start_s": 95.42,
+        "original_end_s": 107.46
+      }
+    },
+    {
+      "id": "2216_1745_000001",
+      "text": "il cacha son caractère tant qu'il put pendant un grand nombre d'années mais à la fin à cause de cette concentration qui ne lui était pas naturelle chaque jour le sang lui montait à la tête jusqu'à ce que ne pouvant plus supporter une pareille vie",
+      "audio": "test/audio/2216/1745/2216_1745_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 48.15,
+        "original_end_s": 64.99
+      }
+    },
+    {
+      "id": "2216_1745_000002",
+      "text": "il se jeta résolûment dans la carrière du mal atmosphère douce qui l'aurait dit lorsqu'il embrassait un petit enfant au visage rose il aurait voulu lui enlever ses joues avec un rasoir et il l'aurait fait très souvent",
+      "audio": "test/audio/2216/1745/2216_1745_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 64.99,
+        "original_end_s": 81.45
+      }
+    },
+    {
+      "id": "2216_1745_000003",
+      "text": "en te renversant de ventre pareil à un requin dans l'air beau et noir comme si tu comprenais l'importance de cet acte et l'importance non moindre de ton appétit légitime lentement et majestueusement les rouges émanations",
+      "audio": "test/audio/2216/1745/2216_1745_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_02_lautreamont_64kb.mp3",
+        "original_start_s": 50.76,
+        "original_end_s": 67.38
+      }
+    },
+    {
+      "id": "2216_1745_000004",
+      "text": "je t'assure elles réjouiront les deux trous informes de ton museau hideux ô monstre si toutefois tu t'appliques auparavant à respirer trois mille fois de suite la conscience maudite de l'éternel",
+      "audio": "test/audio/2216/1745/2216_1745_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_02_lautreamont_64kb.mp3",
+        "original_start_s": 67.38,
+        "original_end_s": 81.41
+      }
+    },
+    {
+      "id": "2216_1745_000005",
+      "text": "tes narines qui seront démesurément dilatées de contentement ineffable d'extase immobile ne demanderont pas quelque chose de meilleur à l'espace devenu embaumé comme de parfums et d'encens",
+      "audio": "test/audio/2216/1745/2216_1745_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_02_lautreamont_64kb.mp3",
+        "original_start_s": 81.41,
+        "original_end_s": 95.42
+      }
+    },
+    {
+      "id": "2216_1745_000006",
+      "text": "c'est ce que je disais plus haut",
+      "audio": "test/audio/2216/1745/2216_1745_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 111.81,
+        "original_end_s": 124.92
+      }
+    },
+    {
+      "id": "2216_1745_000007",
+      "text": "lecteur c'est peut-être la haine que tu veux que j'invoque dans le commencement de cet ouvrage qui te dit que tu n'en renifleras pas baigné dans d'innombrables voluptés tant que tu voudras avec tes narines orgueilleuses larges et maigres",
+      "audio": "test/audio/2216/1745/2216_1745_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_02_lautreamont_64kb.mp3",
+        "original_start_s": 32.86,
+        "original_end_s": 50.76
+      }
+    },
+    {
+      "id": "2216_1745_000008",
+      "text": "si justice avec son long cortège de châtiments ne l'en eût chaque fois empêché il n'était pas menteur il avouait la vérité et disait qu'il était cruel",
+      "audio": "test/audio/2216/1745/2216_1745_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 81.45,
+        "original_end_s": 92.53
+      }
+    },
+    {
+      "id": "2216_1745_000009",
+      "text": "humains avez-vous entendu il ose le redire avec cette plume qui tremble ainsi donc il est une puissance plus forte que la volonté malédiction la pierre voudrait se soustraire aux lois de la pesanteur impossible impossible si le mal voulait s'allier avec le bien",
+      "audio": "test/audio/2216/1745/2216_1745_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 92.53,
+        "original_end_s": 111.81
+      }
+    },
+    {
+      "id": "2216_1745_000010",
+      "text": "j'établirai dans quelques lignes comment maldoror fut bon pendant ses premières années où il vécut heureux c'est fait il s'aperçut ensuite qu'il était né méchant fatalité extraordinaire",
+      "audio": "test/audio/2216/1745/2216_1745_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2216",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_1_03_lautreamont_64kb.mp3",
+        "original_start_s": 32.73,
+        "original_end_s": 48.15
+      }
+    },
+    {
+      "id": "2223_1745_000000",
+      "text": "mais je voudrais acquérir ce que je désire par d'autres moyens alors tu n'acquerras rien du tout les moyens vertueux et bonasses ne mènent à rien",
+      "audio": "test/audio/2223/1745/2223_1745_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 299.61,
+        "original_end_s": 315.11
+      }
+    },
+    {
+      "id": "2223_1745_000001",
+      "text": "mais une masse informe le poursuit avec acharnement sur ses traces au milieu de la poussière arrêtez je vous en supplie arrêtez mes jambes sont gonflées d'avoir marché pendant la journée",
+      "audio": "test/audio/2223/1745/2223_1745_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 99.63,
+        "original_end_s": 115.46
+      }
+    },
+    {
+      "id": "2223_1745_000002",
+      "text": "il y a des moments où on serait tenté de le croire mais ils ressemblent plutôt à des cadavres l'omnibus pressé d'arriver à la dernière station dévore l'espace et fait craquer le pavé il s'enfuit",
+      "audio": "test/audio/2223/1745/2223_1745_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 83.28,
+        "original_end_s": 99.63
+      }
+    },
+    {
+      "id": "2223_1745_000003",
+      "text": "ce n'est pas moi qui te servirai de guide je pourrais soulevant ton corps vierge avec un bras de fer te saisir par les jambes te faire rouler autour de moi comme une fronde concentrer mes forces en décrivant la dernière circonférence",
+      "audio": "test/audio/2223/1745/2223_1745_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 386.36,
+        "original_end_s": 405.6
+      }
+    },
+    {
+      "id": "2223_1745_000004",
+      "text": "et je tâte le pouls les pulsations sont précipitées la fièvre a gagné ce corps délicat il craint les suites de ses paroles il s'esquive le malheureux contrarié de n'avoir pas pu entretenir cet enfant plus longtemps",
+      "audio": "test/audio/2223/1745/2223_1745_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 446.88,
+        "original_end_s": 461.38
+      }
+    },
+    {
+      "id": "2223_1745_000005",
+      "text": "et te lancer contre la muraille chaque goutte de sang rejaillira sur une poitrine humaine pour effrayer les hommes et mettre devant eux l'exemple de ma méchanceté",
+      "audio": "test/audio/2223/1745/2223_1745_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 405.6,
+        "original_end_s": 418.72
+      }
+    },
+    {
+      "id": "2223_1745_000006",
+      "text": "en effet j'arrache le masque à sa figure traîtresse et pleine de boue et je fais tomber un à un comme des boules d'ivoire sur un bassin d'argent les mensonges sublimes avec lesquels il se trompe lui-même",
+      "audio": "test/audio/2223/1745/2223_1745_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 134.45,
+        "original_end_s": 151.64
+      }
+    },
+    {
+      "id": "2223_1745_000007",
+      "text": "à quoi pensais-tu enfant je pensais au ciel il n'est pas nécessaire que tu penses au ciel c'est déjà assez de penser à la terre",
+      "audio": "test/audio/2223/1745/2223_1745_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 83.12,
+        "original_end_s": 97.71
+      }
+    },
+    {
+      "id": "2223_1745_000008",
+      "text": "l'a vu se diriger d'un pas ferme et droit vers les recoins obscurs et les fibres secrètes des consciences ce qui est du moins acquis à la science",
+      "audio": "test/audio/2223/1745/2223_1745_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 59.58,
+        "original_end_s": 71.53
+      }
+    },
+    {
+      "id": "2223_1745_000009",
+      "text": "ses yeux hardis dardent quelque objet invisible au loin dans l'espace il ne doit pas avoir plus de huit ans et cependant il ne s'amuse pas comme il serait convenable tout au moins il devrait rire et se promener avec quelque camarade au lieu de rester seul",
+      "audio": "test/audio/2223/1745/2223_1745_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 32.37,
+        "original_end_s": 52.26
+      }
+    },
+    {
+      "id": "2223_1745_000010",
+      "text": "il est difficile de supposer que touchant les ruses et la méchanceté ta redoutable résolution soit de surpasser l'enfant de mon imagination",
+      "audio": "test/audio/2223/1745/2223_1745_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 254.98,
+        "original_end_s": 266.56
+      }
+    },
+    {
+      "id": "2223_1745_000011",
+      "text": "à celui qui ne paraissait pas s'inquiéter des maux ni des biens de la vie présente et s'en allait au hasard avec une figure horriblement morte les cheveux hérissés la démarche chancelante et les bras nageant",
+      "audio": "test/audio/2223/1745/2223_1745_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 186.6,
+        "original_end_s": 199.4
+      }
+    },
+    {
+      "id": "2223_1745_000012",
+      "text": "lorsque dans l'âge mûr il est si difficile de maîtriser les passions balancé entre le bien et le mal qu'est-ce dans un esprit encore plein d'inexpérience et quelle somme d'énergie relative ne lui faut-il pas en plus l'enfant en sera quitte pour garder le lit trois jours",
+      "audio": "test/audio/2223/1745/2223_1745_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 461.38,
+        "original_end_s": 480.4
+      }
+    },
+    {
+      "id": "2223_1745_000013",
+      "text": "tout indique dans les traits des autres voyageurs les mêmes sentiments que ceux des deux premiers les cris se font encore entendre pendant deux ou trois minutes plus perçants de seconde en seconde",
+      "audio": "test/audio/2223/1745/2223_1745_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 171.68,
+        "original_end_s": 185.55
+      }
+    },
+    {
+      "id": "2223_1745_000014",
+      "text": "en effet pourquoi s'intéresser à un petit enfant laissons-le de côté cependant une larme brûlante a roulé sur la joue de cet adolescent qui vient de blasphémer",
+      "audio": "test/audio/2223/1745/2223_1745_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 265.16,
+        "original_end_s": 279.17
+      }
+    },
+    {
+      "id": "2223_1745_000015",
+      "text": "elle avait les yeux gonflés et rouges je voyais facilement qu'elle voulait me parler qu'elle ne savait pas comment s'y prendre devenue subitement pâle comme un cadavre elle me demanda auriez-vous la bonté de me dire quelle heure est-il",
+      "audio": "test/audio/2223/1745/2223_1745_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 131.1,
+        "original_end_s": 150.42
+      }
+    },
+    {
+      "id": "2223_1745_000016",
+      "text": "mais de l'endroit où il se trouve le regard perçant de chiffonnier le poursuit avec acharnement sur ses traces au milieu de la poussière",
+      "audio": "test/audio/2223/1745/2223_1745_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 398.66,
+        "original_end_s": 410.95
+      }
+    },
+    {
+      "id": "2223_1745_000017",
+      "text": "mais elles sont encore enfants elles n'ont pas plus de dix ou douze ans en réalité elles en avaient vingt oh dans cette supposition maudits soient-ils les détours de cette rue obscure horrible horrible ce qui s'y passe je crois que sa mère la frappa",
+      "audio": "test/audio/2223/1745/2223_1745_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 251.18,
+        "original_end_s": 268.75
+      }
+    },
+    {
+      "id": "2223_1745_000018",
+      "text": "que david a vaincu son adversaire et que si au contraire ils s'étaient pris à bras-le-corps le géant l'aurait écrasé comme une mouche il en est de même pour toi à guerre ouverte tu ne pourras jamais vaincre les hommes sur lesquels tu es désireux d'étendre ta volonté",
+      "audio": "test/audio/2223/1745/2223_1745_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 261.48,
+        "original_end_s": 281.3
+      }
+    },
+    {
+      "id": "2223_1745_000019",
+      "text": "prison terrible fatalité hideuse lombano je suis content de toi depuis ce jour je ne cessais pas de t'observer pendant que ma figure respirait la même indifférence que celle des autres voyageurs",
+      "audio": "test/audio/2223/1745/2223_1745_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 297.62,
+        "original_end_s": 314.82
+      }
+    },
+    {
+      "id": "2223_1745_000020",
+      "text": "moi je ne veux pas croire à cette supposition qui n'est qu'une hypothèse et je préfère aimer dans ce caractère romanesque une âme qui se dévoile trop tôt",
+      "audio": "test/audio/2223/1745/2223_1745_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 278.82,
+        "original_end_s": 289.98
+      }
+    },
+    {
+      "id": "2223_1745_000021",
+      "text": "il n'ose pas élever la voix car les autres hommes lui jettent des regards de mépris et d'autorité et il sait qu'il ne peut rien faire contre tous le coude appuyé sur ses genoux et la tête entre ses mains il se demande stupéfait si c'est là vraiment ce qu'on appelle la charité humaine",
+      "audio": "test/audio/2223/1745/2223_1745_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 234.9,
+        "original_end_s": 254.75
+      }
+    },
+    {
+      "id": "2223_1745_000022",
+      "text": "il est alors compréhensible qu'il n'ordonne pas au calme d'imposer les mains sur son visage même quand la raison disperse les ténèbres de l'orgueil",
+      "audio": "test/audio/2223/1745/2223_1745_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 151.64,
+        "original_end_s": 165.53
+      }
+    },
+    {
+      "id": "2223_1745_000023",
+      "text": "en vain je faisais l'insouciant elle ne manquait jamais de me poursuivre de sa présence inopportune lorsque j'enjambais une autre rue pour continuer mon chemin elle s'arrêtait faisant un violent effort sur elle-même au terme de cette rue étroite et immobile comme la statue du silence",
+      "audio": "test/audio/2223/1745/2223_1745_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 71.53,
+        "original_end_s": 90.4
+      }
+    },
+    {
+      "id": "2223_1745_000024",
+      "text": "je n'ai pas besoin de vous le dire car vous le reconnaîtrez à sa conversation tortueuse écoutons-les ne les dérangeons pas",
+      "audio": "test/audio/2223/1745/2223_1745_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 72.18,
+        "original_end_s": 83.12
+      }
+    },
+    {
+      "id": "2223_1745_000025",
+      "text": "les chants de maldoror chant deuxième strophe un où est-il passé ce premier chant de maldoror",
+      "audio": "test/audio/2223/1745/2223_1745_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 18.52,
+        "original_end_s": 28.7
+      }
+    },
+    {
+      "id": "2223_1745_000026",
+      "text": "mais ce n'est pas son caractère cet enfant qui est assis sur un banc du jardin des tuileries comme il est gentil un homme mû par un dessein caché vient s'asseoir à côté de lui sur le même banc avec des allures équivoques qui est-ce",
+      "audio": "test/audio/2223/1745/2223_1745_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 52.26,
+        "original_end_s": 72.18
+      }
+    },
+    {
+      "id": "2223_1745_000027",
+      "text": "je n'ai pas mangé depuis hier mes parents m'ont abandonné je ne sais plus que faire je suis résolu de retourner chez moi et j'y serais vite arrivé si vous m'accordiez une place je suis un petit enfant de huit ans et j'ai confiance en vous",
+      "audio": "test/audio/2223/1745/2223_1745_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 115.46,
+        "original_end_s": 135.1
+      }
+    },
+    {
+      "id": "2223_1745_000028",
+      "text": "et s'est fait une blessure à la tête en tombant l'omnibus a disparu à l'horizon et l'on ne voit plus que la rue silencieuse",
+      "audio": "test/audio/2223/1745/2223_1745_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 346.68,
+        "original_end_s": 357.73
+      }
+    },
+    {
+      "id": "2223_1745_000029",
+      "text": "c'est que depuis ce temps l'homme à la figure de crapaud ne se reconnaît plus lui-même et tombe souvent dans des accès de fureur qui le font ressembler à une bête des bois",
+      "audio": "test/audio/2223/1745/2223_1745_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 71.53,
+        "original_end_s": 85.5
+      }
+    },
+    {
+      "id": "2223_1745_000030",
+      "text": "il me semble que je parle d'une manière intentionnellement paternelle et que l'humanité n'a pas le droit de se plaindre fin de la strophe un",
+      "audio": "test/audio/2223/1745/2223_1745_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 346.28,
+        "original_end_s": 358.66
+      }
+    },
+    {
+      "id": "2223_1745_000031",
+      "text": "depuis que sa bouche pleine des feuilles de la belladone le laissa échapper à travers les royaumes de la colère dans un moment de réflexion où est passé ce chant",
+      "audio": "test/audio/2223/1745/2223_1745_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 28.7,
+        "original_end_s": 43.25
+      }
+    },
+    {
+      "id": "2223_1745_000032",
+      "text": "ma poésie ne consistera qu'à attaquer par tous les moyens l'homme cette bête fauve et le créateur qui n'aurait pas dû engendrer une pareille vermine",
+      "audio": "test/audio/2223/1745/2223_1745_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 424.07,
+        "original_end_s": 438.02
+      }
+    },
+    {
+      "id": "2223_1745_000033",
+      "text": "ce que tu as de mieux à faire c'est de ne pas penser à dieu et de te faire justice toi-même puisqu'on te la refuse si un de tes camarades t'offensait est-ce que tu ne serais pas heureux de le tuer",
+      "audio": "test/audio/2223/1745/2223_1745_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 137.18,
+        "original_end_s": 152.0
+      }
+    },
+    {
+      "id": "2223_1745_000034",
+      "text": "c'est la jurisprudence de l'offensé qui compte si tu détestais un de tes camarades est-ce que tu ne serais pas malheureux de songer qu'à chaque instant tu aies sa pensée devant tes yeux",
+      "audio": "test/audio/2223/1745/2223_1745_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 167.37,
+        "original_end_s": 183.12
+      }
+    },
+    {
+      "id": "2223_1745_000035",
+      "text": "hum mais c'est c'est défendu ce n'est pas si défendu que tu crois il s'agit seulement de ne pas se laisser attraper la justice qu'apportent les lois ne vaut rien",
+      "audio": "test/audio/2223/1745/2223_1745_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 152.0,
+        "original_end_s": 167.37
+      }
+    },
+    {
+      "id": "2223_1745_000036",
+      "text": "ne crois pas à l'intention qu'il fait reluire au soleil de te corriger car tu l'intéresses médiocrement pour ne pas dire moins encore n'approché-je pas de la vérité totale la bienveillante mesure de ma vérification",
+      "audio": "test/audio/2223/1745/2223_1745_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 293.26,
+        "original_end_s": 310.31
+      }
+    },
+    {
+      "id": "2223_1745_000037",
+      "text": "il s'enfuit il s'enfuit mais une masse informe le poursuit avec acharnement sur ces traces au milieu de la poussière les cris cessent subitement car l'enfant a touché du pied contre un pavé en",
+      "audio": "test/audio/2223/1745/2223_1745_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 330.74,
+        "original_end_s": 346.68
+      }
+    },
+    {
+      "id": "2223_1745_000038",
+      "text": "il faut savoir embrasser avec plus de grandeur l'horizon du temps présent n'as-tu jamais entendu parler par exemple de la gloire immense qu'apportent les victoires",
+      "audio": "test/audio/2223/1745/2223_1745_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 338.72,
+        "original_end_s": 351.78
+      }
+    },
+    {
+      "id": "2223_1745_000039",
+      "text": "oh être humain te voilà maintenant nu comme un ver en présence de mon glaive de diamant",
+      "audio": "test/audio/2223/1745/2223_1745_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 207.1,
+        "original_end_s": 219.08
+      }
+    },
+    {
+      "id": "2223_1745_000040",
+      "text": "soyez sûr qu'il le guérira et ne l'abandonnera pas comme ont fait ses parents il s'enfuit il s'enfuit",
+      "audio": "test/audio/2223/1745/2223_1745_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 387.37,
+        "original_end_s": 398.66
+      }
+    },
+    {
+      "id": "2223_1745_000041",
+      "text": "car il paraît ne ressembler à aucun autre sont assis à l'impériale des hommes qui ont l'oeil immobile comme celui d'un poisson mort",
+      "audio": "test/audio/2223/1745/2223_1745_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 44.87,
+        "original_end_s": 56.46
+      }
+    },
+    {
+      "id": "2223_1745_000042",
+      "text": "tu vois que lorsqu'on veut devenir célèbre il faut se plonger avec grâce dans des fleuves de sang alimentés par de la chair à canon le but excuse le moyen la première chose pour devenir célèbre est d'avoir de l'argent",
+      "audio": "test/audio/2223/1745/2223_1745_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 374.27,
+        "original_end_s": 390.95
+      }
+    },
+    {
+      "id": "2223_1745_000043",
+      "text": "cet enfant qui est assis sur un banc du jardin des tuileries comme il est gentil",
+      "audio": "test/audio/2223/1745/2223_1745_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 18.25,
+        "original_end_s": 32.37
+      }
+    },
+    {
+      "id": "2223_1745_000044",
+      "text": "je lui dis que je je ne portais pas de montre et je m'éloignai rapidement depuis ce jour enfant à l'imagination inquiète et précoce",
+      "audio": "test/audio/2223/1745/2223_1745_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 150.42,
+        "original_end_s": 161.63
+      }
+    },
+    {
+      "id": "2223_1745_000045",
+      "text": "l'apparition de cette comète enflammée ne reluira plus comme un triste sujet de curiosité fanatique sur la façade de ton observation déçue et tu penseras souvent trop souvent peut-être toujours",
+      "audio": "test/audio/2223/1745/2223_1745_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 172.25,
+        "original_end_s": 186.6
+      }
+    },
+    {
+      "id": "2223_1745_000046",
+      "text": "quand la destinée l'y portera le funèbre entonnoir n'aura jamais goûté de proie plus savoureuse ni lui contemplé de demeure plus convenable",
+      "audio": "test/audio/2223/1745/2223_1745_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 334.34,
+        "original_end_s": 346.28
+      }
+    },
+    {
+      "id": "2223_1745_000047",
+      "text": "faisant ma promenade quotidienne chaque jour je passais dans une rue étroite chaque jour une jeune fille svelte de dix ans me suivait à distance respectueusement le long de cette rue en me regardant avec des paupières sympathiques et curieuses",
+      "audio": "test/audio/2223/1745/2223_1745_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 21.96,
+        "original_end_s": 41.9
+      }
+    },
+    {
+      "id": "2223_1745_000048",
+      "text": "ils sont pressés les uns contre les autres et paraissent avoir perdu la vie au reste le nombre réglementaire n'est pas dépassé",
+      "audio": "test/audio/2223/1745/2223_1745_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 56.46,
+        "original_end_s": 66.83
+      }
+    },
+    {
+      "id": "2223_1745_000049",
+      "text": "moi être assez généreux pour aimer mes semblables non non je l'ai résolu depuis le jour de ma naissance ils ne m'aiment pas eux on verra les mondes se détruire et le granit glisser comme un cormoran sur la surface des flots avant que je touche la main infâme d'un être humain",
+      "audio": "test/audio/2223/1745/2223_1745_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 305.45,
+        "original_end_s": 324.96
+      }
+    },
+    {
+      "id": "2223_1745_000050",
+      "text": "les bras musculeux d'une femme du peuple la saisit par les cheveux comme le tourbillon saisit la feuille appliqua deux gifles brutales sur une joue fière et muette et ramena dans la maison cette conscience égarée",
+      "audio": "test/audio/2223/1745/2223_1745_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 57.75,
+        "original_end_s": 71.53
+      }
+    },
+    {
+      "id": "2223_1745_000051",
+      "text": "lorsque le berger david atteignait au front le géant goliath d'une pierre lancée par la fronde est-ce qu'il n'est pas admirable de remarquer que c'est seulement par la ruse",
+      "audio": "test/audio/2223/1745/2223_1745_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 249.86,
+        "original_end_s": 261.48
+      }
+    },
+    {
+      "id": "2223_1745_000052",
+      "text": "il y a quelqu'un qui observe les moindres mouvements de ta coupable vie tu es enveloppé par les réseaux subtils de sa perspicacité acharnée",
+      "audio": "test/audio/2223/1745/2223_1745_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 230.4,
+        "original_end_s": 241.49
+      }
+    },
+    {
+      "id": "2223_1745_000053",
+      "text": "et cependant les victoires ne se font pas seules il faut verser du sang beaucoup de sang pour les engendrer et les déposer aux pieds des conquérants",
+      "audio": "test/audio/2223/1745/2223_1745_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 351.78,
+        "original_end_s": 361.99
+      }
+    },
+    {
+      "id": "2223_1745_000054",
+      "text": "il faut mettre à l'oeuvre des leviers plus énergiques et des trames plus savantes avant que tu deviennes célèbre par ta vertu et que tu atteignes le but",
+      "audio": "test/audio/2223/1745/2223_1745_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 315.11,
+        "original_end_s": 326.65
+      }
+    },
+    {
+      "id": "2223_1745_000055",
+      "text": "ce n'est pas sa faute dans tous les temps il avait cru les paupières ployant sous les résédas de la modestie qu'il n'était composé que de bien et d'une quantité minime de mal",
+      "audio": "test/audio/2223/1745/2223_1745_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 85.5,
+        "original_end_s": 101.26
+      }
+    },
+    {
+      "id": "2223_1745_000056",
+      "text": "mais avec la ruse tu pourras lutter seul contre tous tu désires les richesses les beaux palais et la gloire ou m'as-tu trompé quand tu m'as affirmé ces nobles prétentions non non je je ne vous trompais pas",
+      "audio": "test/audio/2223/1745/2223_1745_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 281.3,
+        "original_end_s": 299.61
+      }
+    },
+    {
+      "id": "2223_1745_000057",
+      "text": "ils s'arracheront sans trêve des lambeaux et des lambeaux de chair mais la goutte de sang reste ineffaçable à la même place et brillera comme un diamant",
+      "audio": "test/audio/2223/1745/2223_1745_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 418.72,
+        "original_end_s": 430.88
+      }
+    },
+    {
+      "id": "2223_1745_000058",
+      "text": "ne te fie pas à lui quand il tourne les reins car il te regarde ne te fie pas à lui quand il ferme les yeux car il te regarde encore",
+      "audio": "test/audio/2223/1745/2223_1745_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 241.49,
+        "original_end_s": 254.98
+      }
+    },
+    {
+      "id": "2223_1745_000059",
+      "text": "les volumes s'entasseront sur les volumes jusqu'à la fin de ma vie et cependant l'on n'y verra que cette seule idée toujours présente à ma conscience",
+      "audio": "test/audio/2223/1745/2223_1745_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 438.02,
+        "original_end_s": 452.19
+      }
+    },
+    {
+      "id": "2223_1745_000060",
+      "text": "brusquement je lui appris en découvrant au plein jour son coeur et ses trames qu'au contraire il n'est composé que de mal et d'une quantité minime de bien que les législateurs ont de la peine à ne pas laisser évaporer",
+      "audio": "test/audio/2223/1745/2223_1745_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 101.26,
+        "original_end_s": 117.82
+      }
+    },
+    {
+      "id": "2223_1745_000061",
+      "text": "sois donc le plus fort et le plus rusé tu es encore trop jeune pour être le plus fort mais dès aujourd'hui tu peux employer la ruse le plus bel instrument des hommes de génie",
+      "audio": "test/audio/2223/1745/2223_1745_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 235.74,
+        "original_end_s": 249.86
+      }
+    },
+    {
+      "id": "2223_1745_000062",
+      "text": "puisque le ciel a été fait par dieu ainsi que la terre sois sûr que tu y rencontreras les mêmes maux qu'ici-bas après ta mort tu ne seras pas récompensé d'après tes mérites car",
+      "audio": "test/audio/2223/1745/2223_1745_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 110.72,
+        "original_end_s": 125.19
+      }
+    },
+    {
+      "id": "2223_1745_000063",
+      "text": "es-tu fatigué de vivre toi qui viens à peine de naître non mais chacun préfère le ciel à la terre eh bien pas moi car",
+      "audio": "test/audio/2223/1745/2223_1745_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 97.71,
+        "original_end_s": 110.72
+      }
+    },
+    {
+      "id": "2223_1745_000064",
+      "text": "l'amour de la gloire excuse tout et peut-être plus tard maître des semblables leur feras-tu presque autant de bien que tu leur as fait du mal au commencement",
+      "audio": "test/audio/2223/1745/2223_1745_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 420.49,
+        "original_end_s": 433.45
+      }
+    },
+    {
+      "id": "2223_1745_000065",
+      "text": "il passe péniblement la main sur son front comme pour en écarter un nuage dont l'opacité obscurcit son intelligence il se démène mais en vain dans le siècle où il a été jeté il sent qu'il n'y est pas à sa place et cependant il ne peut en sortir",
+      "audio": "test/audio/2223/1745/2223_1745_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 279.17,
+        "original_end_s": 297.62
+      }
+    },
+    {
+      "id": "2223_1745_000066",
+      "text": "voit des fenêtres s'ouvrir sur le boulevard et une figure effarée une lumière à la main après avoir jeté les yeux sur la chaussée refermer le volet avec",
+      "audio": "test/audio/2223/1745/2223_1745_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 185.55,
+        "original_end_s": 203.02
+      }
+    },
+    {
+      "id": "2223_1745_000067",
+      "text": "l'adolescent se lève dans un mouvement d'indignation et veut se retirer pour ne pas participer même involontairement à une mauvaise action je lui fais un signe et il se remet à mon côté",
+      "audio": "test/audio/2223/1745/2223_1745_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 314.82,
+        "original_end_s": 330.74
+      }
+    },
+    {
+      "id": "2223_1745_000068",
+      "text": "aveuglément dans les eaux ironiques de l'éther comme pour y chercher la proie sanglante de l'espoir ballottée continuellement à travers les immenses régions de l'espace par le chasse-neige implacable de la fatalité",
+      "audio": "test/audio/2223/1745/2223_1745_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 199.4,
+        "original_end_s": 214.43
+      }
+    },
+    {
+      "id": "2223_1745_000069",
+      "text": "il s'enfuit il s'enfuit mais une masse informe le poursuit avec acharnement sur ses traces au milieu de la poussière",
+      "audio": "test/audio/2223/1745/2223_1745_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 135.1,
+        "original_end_s": 147.1
+      }
+    },
+    {
+      "id": "2223_1745_000070",
+      "text": "tu n'as plus revu dans la rue étroite le jeune homme mystérieux qui battait péniblement de sa sandale lourde le pavé des carrefours tortueux",
+      "audio": "test/audio/2223/1745/2223_1745_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 161.63,
+        "original_end_s": 172.25
+      }
+    },
+    {
+      "id": "2223_1745_000071",
+      "text": "sans les cadavres et les membres épars que tu aperçois dans la plaine où s'est opéré sagement le carnage il n'y aurait pas de guerre et sans guerre il n'y aurait pas de victoire",
+      "audio": "test/audio/2223/1745/2223_1745_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 361.99,
+        "original_end_s": 374.27
+      }
+    },
+    {
+      "id": "2223_1745_000072",
+      "text": "et pour qu'ils grossissent plus vite je te conseille de faire de la gymnastique deux fois par jour une heure le matin une heure le soir de cette manière tu pourras essayer le crime avec un certain succès dès l'âge de quinze ans au lieu d'attendre jusqu'à vingt",
+      "audio": "test/audio/2223/1745/2223_1745_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 402.99,
+        "original_end_s": 420.49
+      }
+    },
+    {
+      "id": "2223_1745_000073",
+      "text": "plût au ciel que le contact maternel amène la paix dans cette fleur sensible fragile enveloppe d'une belle âme fin de la strophe six",
+      "audio": "test/audio/2223/1745/2223_1745_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 480.4,
+        "original_end_s": 491.74
+      }
+    },
+    {
+      "id": "2223_1745_000074",
+      "text": "tu ne me verras plus et je ne te verrai plus qui sait peut-être que cette fille n'était pas ce qu'elle se montrait sous une enveloppe naïve elle cachait peut-être une immense ruse le poids de dix-huit années et le charme du vice",
+      "audio": "test/audio/2223/1745/2223_1745_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 214.43,
+        "original_end_s": 232.58
+      }
+    },
+    {
+      "id": "2223_1745_000075",
+      "text": "c'est vrai voilà donc un de tes camarades qui te rendrait malheureux toute ta vie car voyant que ta haine n'est que passive",
+      "audio": "test/audio/2223/1745/2223_1745_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 183.12,
+        "original_end_s": 194.73
+      }
+    },
+    {
+      "id": "2223_1745_000076",
+      "text": "sans doute le corps est resté plaqué sur la muraille comme une poire mûre et n'est pas tombé à terre mais",
+      "audio": "test/audio/2223/1745/2223_1745_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 443.25,
+        "original_end_s": 453.37
+      }
+    },
+    {
+      "id": "2223_1745_000077",
+      "text": "un de ces hommes à l'oeil froid donne un coup de coude à son voisin et paraît lui exprimer son mécontentement de ces gémissements au timbre argentin qui parviennent jusqu'à son oreille",
+      "audio": "test/audio/2223/1745/2223_1745_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 147.1,
+        "original_end_s": 159.24
+      }
+    },
+    {
+      "id": "2223_1745_000078",
+      "text": "abandonne ta méthode il n'est plus temps de faire l'orgueilleux j'élance vers toi ma prière dans l'attitude de la prosternation",
+      "audio": "test/audio/2223/1745/2223_1745_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 219.08,
+        "original_end_s": 230.4
+      }
+    },
+    {
+      "id": "2223_1745_000079",
+      "text": "par conséquent remets sans peur entre ses mains le soin de ton existence il la conduira d'une manière qu'il connaît",
+      "audio": "test/audio/2223/1745/2223_1745_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 282.22,
+        "original_end_s": 293.26
+      }
+    },
+    {
+      "id": "2223_1745_000080",
+      "text": "on a vu des vendeuses d'amour s'expatrier avec gaîté des îles britanniques et franchir le détroit elles rayonnaient leurs ailes en tournoyant en essaims dorés devant la lumière parisienne et quand vous les aperceviez vous disiez",
+      "audio": "test/audio/2223/1745/2223_1745_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 232.58,
+        "original_end_s": 251.18
+      }
+    },
+    {
+      "id": "2223_1745_000081",
+      "text": "elle était grande pour son âge et avait la taille élancée d'abondants cheveux noirs séparés en deux sur la tête tombaient en tresses indépendantes sur des épaules marmoréennes un jour elle me suivait comme de coutume",
+      "audio": "test/audio/2223/1745/2223_1745_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 41.9,
+        "original_end_s": 57.75
+      }
+    },
+    {
+      "id": "2223_1745_000082",
+      "text": "ah vois-tu jeune fille je t'engage à ne plus reparaître devant mes yeux si jamais je repasse dans la rue étroite il pourrait t'en coûter cher déjà le sang et la haine me montent vers la tête à flots bouillants",
+      "audio": "test/audio/2223/1745/2223_1745_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 289.98,
+        "original_end_s": 305.45
+      }
+    },
+    {
+      "id": "2223_1745_000083",
+      "text": "je pourrais cousant tes paupières avec une aiguille te priver du spectacle de l'univers et te mettre dans l'impossibilité de trouver ton chemin",
+      "audio": "test/audio/2223/1745/2223_1745_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 374.29,
+        "original_end_s": 386.36
+      }
+    },
+    {
+      "id": "2223_1745_000084",
+      "text": "l'autre baisse la tête d'une manière imperceptible en forme d'acquiescement et se replonge ensuite dans l'immobilité de son égoïsme comme une tortue dans sa carapace",
+      "audio": "test/audio/2223/1745/2223_1745_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 159.24,
+        "original_end_s": 171.68
+      }
+    },
+    {
+      "id": "2223_1745_000085",
+      "text": "sur ces traces au milieu de la poussière voyez ce chiffonnier qui passe courbé sur sa lanterne pâlotte il y a en lui plus de coeur que dans tous ses pareils de l'omnibus il vient de ramasser l'enfant",
+      "audio": "test/audio/2223/1745/2223_1745_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 368.27,
+        "original_end_s": 387.37
+      }
+    },
+    {
+      "id": "2223_1745_000086",
+      "text": "voilà où je voulais en venir pour te faire comprendre sur quelles bases est fondée la société actuelle chacun doit se faire justice lui-même sinon il n'est qu'un imbécile",
+      "audio": "test/audio/2223/1745/2223_1745_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 207.64,
+        "original_end_s": 221.32
+      }
+    },
+    {
+      "id": "2223_1745_000087",
+      "text": "au milieu de ces personnages de pierre paraît ressentir de la pitié pour le malheur en faveur de l'enfant qui croit pouvoir l'atteindre avec ses petites jambes endolories",
+      "audio": "test/audio/2223/1745/2223_1745_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 221.76,
+        "original_end_s": 234.9
+      }
+    },
+    {
+      "id": "2223_1745_000088",
+      "text": "et ne cessait de regarder devant elle jusqu'à ce que je disparusse une fois cette jeune fille me précéda dans la rue et emboîta le pas devant moi",
+      "audio": "test/audio/2223/1745/2223_1745_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 90.4,
+        "original_end_s": 101.23
+      }
+    },
+    {
+      "id": "2223_1745_000089",
+      "text": "je pourrais en prenant ta tête entre mes mains d'un air caressant et doux enfoncer mes doigts avides dans les lobes de ton cerveau innocent pour en extraire le sourire aux lèvres une graisse efficace qui lave mes yeux endoloris par l'insomnie éternelle de la vie",
+      "audio": "test/audio/2223/1745/2223_1745_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 354.59,
+        "original_end_s": 374.29
+      }
+    },
+    {
+      "id": "2223_1745_000090",
+      "text": "arrivée au terme de la rue elle se retourna lentement de manière à me barrer le passage je n'eus pas le temps de m'esquiver et je me trouvai devant sa figure",
+      "audio": "test/audio/2223/1745/2223_1745_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 119.2,
+        "original_end_s": 131.1
+      }
+    },
+    {
+      "id": "2223_1745_000091",
+      "text": "pour ne plus reparaître il s'enfuit il s'enfuit mais une masse informe le poursuit avec acharnement sur ses traces au milieu de la poussière seul un jeune homme plongé dans la",
+      "audio": "test/audio/2223/1745/2223_1745_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 203.02,
+        "original_end_s": 221.76
+      }
+    },
+    {
+      "id": "2223_1745_000092",
+      "text": "lorsque le cocher donne un coup de fouet à ses chevaux on dirait que c'est le fouet qui a fait remuer son bras et non son bras le fouet que doit être cet assemblage d'êtres bizarres et muets sont-ce des habitants de la lune",
+      "audio": "test/audio/2223/1745/2223_1745_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 66.83,
+        "original_end_s": 83.28
+      }
+    },
+    {
+      "id": "2223_1745_000093",
+      "text": "mais c'est qu'il aime à te faire du mal dans la légitime persuasion que tu deviennes aussi méchant que lui et que tu l'accompagnes dans le gouffre béant de l'enfer quand son heure sonnera",
+      "audio": "test/audio/2223/1745/2223_1745_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 310.31,
+        "original_end_s": 324.17
+      }
+    },
+    {
+      "id": "2223_1745_000094",
+      "text": "race stupide et idiote tu te repentiras de te conduire ainsi c'est moi qui te le dis tu t'en repentiras va tu t'en repentiras",
+      "audio": "test/audio/2223/1745/2223_1745_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 410.95,
+        "original_end_s": 424.07
+      }
+    },
+    {
+      "id": "2223_1745_000095",
+      "text": "maldoror s'aperçoit que le sang bouillonne dans la tête de son jeune interlocuteur ses narines sont gonflées et ses lèvres rejettent une légère écume blanche",
+      "audio": "test/audio/2223/1745/2223_1745_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 433.45,
+        "original_end_s": 446.88
+      }
+    },
+    {
+      "id": "2223_1745_000096",
+      "text": "il ne continuera pas moins de se narguer de toi et de te causer du mal impunément il n'y a donc qu'un moyen de faire cesser la situation c'est de se débarrasser de son ennemi",
+      "audio": "test/audio/2223/1745/2223_1745_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 194.73,
+        "original_end_s": 207.64
+      }
+    },
+    {
+      "id": "2223_1745_000097",
+      "text": "parce qu'elle ne faisait pas son métier avec assez d'adresse il est possible que ce ne fût qu'un enfant et alors la mère est plus coupable encore",
+      "audio": "test/audio/2223/1745/2223_1745_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 268.75,
+        "original_end_s": 278.82
+      }
+    },
+    {
+      "id": "2223_1745_000098",
+      "text": "celui qui remporte la victoire sur ses semblables celui-là est le plus rusé et le plus fort est-ce que tu ne voudrais pas un jour dominer tes semblables oui oui",
+      "audio": "test/audio/2223/1745/2223_1745_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 221.32,
+        "original_end_s": 235.74
+      }
+    },
+    {
+      "id": "2223_1745_000099",
+      "text": "c'est pourquoi le héros que je mets en scène s'est attiré une haine irréconciliable en attaquant l'humanité qui se croyait invulnérable par la brèche d'absurdes tirades philanthropiques",
+      "audio": "test/audio/2223/1745/2223_1745_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 165.53,
+        "original_end_s": 181.18
+      }
+    },
+    {
+      "id": "2223_1745_000100",
+      "text": "si j'allais vite pour la dépasser elle courait presque pour maintenir la distance égale mais si je ralentissais le pas pour qu'il y eût un intervalle de chemin assez grand entre elle et moi alors elle le ralentissait aussi et y mettait la grâce de l'enfance",
+      "audio": "test/audio/2223/1745/2223_1745_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 101.23,
+        "original_end_s": 119.2
+      }
+    },
+    {
+      "id": "2223_1745_000101",
+      "text": "sois tranquille je donnerai à une demi-douzaine de domestiques l'ordre de garder les restes vénérés de ton corps et de les préserver de la faim des chiens voraces",
+      "audio": "test/audio/2223/1745/2223_1745_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 430.88,
+        "original_end_s": 443.25
+      }
+    },
+    {
+      "id": "2223_1745_000102",
+      "text": "or comme tu n'en as pas il faudra assassiner pour en acquérir mais comme tu n'es pas assez fort pour manier le poignard fais-toi voleur en attendant que tes membres aient grossi",
+      "audio": "test/audio/2223/1745/2223_1745_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 390.95,
+        "original_end_s": 402.99
+      }
+    },
+    {
+      "id": "2223_1745_000103",
+      "text": "arrière arrière cette main jeune fille tu n'es pas un ange et tu deviendras en somme comme les autres femmes non non je t'en supplie ne reparais plus devant mes sourcils froncés et louches",
+      "audio": "test/audio/2223/1745/2223_1745_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 324.96,
+        "original_end_s": 339.38
+      }
+    },
+    {
+      "id": "2223_1745_000104",
+      "text": "ses moindres coups portent avec des précautions il est possible d'apprendre à celui qui croit l'ignorer que les loups et les brigands ne se dévorent pas entre eux ce n'est peut-être pas leur coutume",
+      "audio": "test/audio/2223/1745/2223_1745_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 266.56,
+        "original_end_s": 282.22
+      }
+    },
+    {
+      "id": "2223_1745_000105",
+      "text": "dans un moment d'égarement je pourrais te prendre les bras les tordre comme un linge lavé dont on exprime l'eau ou les casser avec fracas comme deux branches sèches et te les faire ensuite manger en employant la force",
+      "audio": "test/audio/2223/1745/2223_1745_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_05_lautreamont_64kb.mp3",
+        "original_start_s": 339.38,
+        "original_end_s": 354.59
+      }
+    },
+    {
+      "id": "2223_1745_000106",
+      "text": "si l'on te commet des injustices sur cette terre comme tu l'éprouveras par expérience plus tard il n'y a pas de raison pour que dans l'autre vie on ne t'en commette non plus",
+      "audio": "test/audio/2223/1745/2223_1745_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_06_lautreamont_64kb.mp3",
+        "original_start_s": 125.19,
+        "original_end_s": 137.18
+      }
+    },
+    {
+      "id": "2223_1745_000107",
+      "text": "sa place est depuis longtemps marquée à l'endroit où l'on remarque une potence en fer à laquelle sont suspendus des chaînes et des carcans",
+      "audio": "test/audio/2223/1745/2223_1745_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 324.17,
+        "original_end_s": 334.34
+      }
+    },
+    {
+      "id": "2223_1745_000108",
+      "text": "il est minuit on ne voit pas un seul omnibus de la bastille à la madeleine je me trompe en voilà un qui apparaît subitement comme s'il sortait de dessous terre les quelques passants attardés le regardent attentivement",
+      "audio": "test/audio/2223/1745/2223_1745_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 26.22,
+        "original_end_s": 44.87
+      }
+    },
+    {
+      "id": "2223_1745_000109",
+      "text": "elles sont entassées comme des grains de sable dans ses livres dont je suis quelquefois sur le point quand la raison m'abandonne d'estimer le comique si cocasse mais ennuyant",
+      "audio": "test/audio/2223/1745/2223_1745_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 181.18,
+        "original_end_s": 195.52
+      }
+    },
+    {
+      "id": "2223_1745_000110",
+      "text": "il l'avait prévu il ne suffit pas de sculpter la statue de la bonté sur le fronton des parchemins que contiennent les bibliothèques",
+      "audio": "test/audio/2223/1745/2223_1745_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 195.52,
+        "original_end_s": 207.1
+      }
+    },
+    {
+      "id": "2223_1745_000111",
+      "text": "je voudrais qu'il ne ressente pas moi qui ne lui apprends rien de nouveau une honte éternelle pour mes amères vérités mais la réalisation de ce souhait ne serait pas conforme aux lois de la nature",
+      "audio": "test/audio/2223/1745/2223_1745_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 117.82,
+        "original_end_s": 134.45
+      }
+    },
+    {
+      "id": "2223_1745_000112",
+      "text": "il reconnaît alors que ce n'est qu'un vain mot qu'on ne trouve plus même dans le dictionnaire de la poésie et avoue avec franchise son erreur il se dit",
+      "audio": "test/audio/2223/1745/2223_1745_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_04_lautreamont_64kb.mp3",
+        "original_start_s": 254.75,
+        "original_end_s": 265.16
+      }
+    },
+    {
+      "id": "2223_1745_000113",
+      "text": "on ne le sait pas au juste ce ne sont pas les arbres ni les vents qui l'ont gardé et la morale qui passait en cet endroit ne présageant pas qu'elle avait dans ces pages incandescentes un défenseur énergique",
+      "audio": "test/audio/2223/1745/2223_1745_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_01_lautreamont_64kb.mp3",
+        "original_start_s": 43.25,
+        "original_end_s": 59.58
+      }
+    },
+    {
+      "id": "2223_1745_000114",
+      "text": "est-ce un avertissement d'en haut pour m'empêcher d'écrire et de mieux considérer ce à quoi je m'expose en distillant la bave de ma bouche carrée",
+      "audio": "test/audio/2223/1745/2223_1745_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 118.69,
+        "original_end_s": 131.85
+      }
+    },
+    {
+      "id": "2223_1745_000115",
+      "text": "car tu ne penseras pas à la faim pendant trois jours immenses grâce aux globules que tu as descendues dans ton gosier avec une satisfaction solennellement visible",
+      "audio": "test/audio/2223/1745/2223_1745_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 311.28,
+        "original_end_s": 323.24
+      }
+    },
+    {
+      "id": "2223_1745_000116",
+      "text": "oh qu'on me laisse fuir à jamais loin de cette supposition l'éternel a créé le monde tel qu'il est il montrerait beaucoup de sagesse si",
+      "audio": "test/audio/2223/1745/2223_1745_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 40.55,
+        "original_end_s": 51.4
+      }
+    },
+    {
+      "id": "2223_1745_000117",
+      "text": "oh que je suis faible n'importe j'aurai cependant la force de soulever le porte-plume et le courage de creuser ma pensée qu'a-t-il rapporté au créateur de me tracasser comme si j'étais un enfant par un orage qui porte la foudre",
+      "audio": "test/audio/2223/1745/2223_1745_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 384.95,
+        "original_end_s": 402.18
+      }
+    },
+    {
+      "id": "2223_1745_000118",
+      "text": "il a manifesté l'incapacité d'arrêter la circulation de mon sang qui le nargue cependant j'ai des preuves qu'il n'hésite pas d'éteindre à la fleur de l'âge le souffle d'autres humains quand ils ont à peine goûté les jouissances de la vie c'est simplement atroce",
+      "audio": "test/audio/2223/1745/2223_1745_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 189.49,
+        "original_end_s": 209.34
+      }
+    },
+    {
+      "id": "2223_1745_000119",
+      "text": "est-ce que tu ne te doutes pas enfin que tu montres dans ta persécution odieuse un empressement naïf dont aucun de tes séraphins n'oserait faire ressortir le complet ridicule quelle colère te prend",
+      "audio": "test/audio/2223/1745/2223_1745_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 220.59,
+        "original_end_s": 237.73
+      }
+    },
+    {
+      "id": "2223_1745_000120",
+      "text": "qu'un autre le félicite mais les orages attaquent quelqu'un de plus fort qu'eux ainsi donc horrible éternel à la figure de vipère il a fallu que",
+      "audio": "test/audio/2223/1745/2223_1745_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 164.92,
+        "original_end_s": 178.6
+      }
+    },
+    {
+      "id": "2223_1745_000121",
+      "text": "je frapperai ta carcasse creuse mais si fort que je me charge d'en faire sortir les parcelles restantes d'intelligence que tu n'as pas voulu donner à l'homme parce que tu aurais été jaloux de le faire égal à toi et que tu avais effrontément cachées dans tes boyaux rusé bandit",
+      "audio": "test/audio/2223/1745/2223_1745_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 137.99,
+        "original_end_s": 155.07
+      }
+    },
+    {
+      "id": "2223_1745_000122",
+      "text": "il ne se doute pas que sa vie a été en péril pendant un quart d'heure tout était prêt et le couteau avait été acheté ce stylet était mignon car j'aime la grâce et l'élégance jusque dans les appareils de la mort mais il était long et pointu",
+      "audio": "test/audio/2223/1745/2223_1745_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 267.36,
+        "original_end_s": 284.07
+      }
+    },
+    {
+      "id": "2223_1745_000123",
+      "text": "je ne te ferai jamais le moindre reproche je suis à toi je t'appartiens je ne vis plus pour moi",
+      "audio": "test/audio/2223/1745/2223_1745_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 310.8,
+        "original_end_s": 320.92
+      }
+    },
+    {
+      "id": "2223_1745_000124",
+      "text": "tu me feras plaisir ô créateur de me laisser épancher mes sentiments maniant les ironies terribles d'une main ferme et froide je t'avertis que mon coeur en contiendra suffisamment pour m'attaquer à toi jusqu'à la fin de mon existence",
+      "audio": "test/audio/2223/1745/2223_1745_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 120.49,
+        "original_end_s": 137.99
+      }
+    },
+    {
+      "id": "2223_1745_000125",
+      "text": "tu iras chercher à la fontaine deux seaux d'eau une fois le parquet lavé tu mettras ces linges dans la chambre voisine si la blanchisseuse revient ce soir comme elle doit le faire",
+      "audio": "test/audio/2223/1745/2223_1745_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 353.05,
+        "original_end_s": 366.17
+      }
+    },
+    {
+      "id": "2223_1745_000126",
+      "text": "lohengrin et moi nous passerons dans la rue l'un à côté de l'autre sans nous regarder en nous frôlant le coude comme deux passants pressés",
+      "audio": "test/audio/2223/1745/2223_1745_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 29.32,
+        "original_end_s": 40.55
+      }
+    },
+    {
+      "id": "2223_1745_000127",
+      "text": "remets tes pleurs dans leur fourreau sinon je croirai que tu n'as pas le courage de contempler avec sang-froid la grande balafre occasionnée par un supplice déjà perdu pour moi dans la nuit des temps passés",
+      "audio": "test/audio/2223/1745/2223_1745_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 335.77,
+        "original_end_s": 353.05
+      }
+    },
+    {
+      "id": "2223_1745_000128",
+      "text": "ne tarira point ma verve épouvantable elle se nourrit des cauchemars insensés qui tourmentent mes insomnies c'est à cause de lohengrin que ce qui précède a été écrit revenons donc à lui",
+      "audio": "test/audio/2223/1745/2223_1745_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 236.57,
+        "original_end_s": 250.83
+      }
+    },
+    {
+      "id": "2223_1745_000129",
+      "text": "tu les lui remettras mais comme il a plu beaucoup depuis une heure et qu'il continue de pleuvoir je ne crois pas qu'elle sorte de chez elle alors elle viendra demain matin si elle te demande d'où vient tout ce sang tu n'es pas obligé de lui répondre",
+      "audio": "test/audio/2223/1745/2223_1745_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 366.17,
+        "original_end_s": 384.95
+      }
+    },
+    {
+      "id": "2223_1745_000130",
+      "text": "je n'en persiste pas moins dans ma résolution d'écrire ces bandelettes m'embêtent et l'atmosphère de ma chambre respire le sang",
+      "audio": "test/audio/2223/1745/2223_1745_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 402.18,
+        "original_end_s": 413.4
+      }
+    },
+    {
+      "id": "2223_1745_000131",
+      "text": "mais seulement d'après la faiblesse de mon opinion j'ai vu le créateur aiguillonnant sa cruauté inutile embraser des incendies où périssaient les vieillards et les enfants",
+      "audio": "test/audio/2223/1745/2223_1745_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 209.34,
+        "original_end_s": 222.9
+      }
+    },
+    {
+      "id": "2223_1745_000132",
+      "text": "toi léman prends un balai je voudrais aussi en prendre un mais je n'en ai pas la force tu comprends n'est-ce pas que je n'en ai pas la force",
+      "audio": "test/audio/2223/1745/2223_1745_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 323.24,
+        "original_end_s": 335.77
+      }
+    },
+    {
+      "id": "2223_1745_000133",
+      "text": "ce n'est pas assez que l'armée des douleurs physiques et morales qui nous entoure ait été enfantée le secret de notre destinée en haillons ne nous est pas divulgué je le connais le tout-puissant et lui aussi doit me connaître",
+      "audio": "test/audio/2223/1745/2223_1745_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 88.93,
+        "original_end_s": 104.79
+      }
+    },
+    {
+      "id": "2223_1745_000134",
+      "text": "mais enfin qui te dit quelque chose tu sais que je ne t'aime pas et qu'au contraire je te hais",
+      "audio": "test/audio/2223/1745/2223_1745_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 197.23,
+        "original_end_s": 207.44
+      }
+    },
+    {
+      "id": "2223_1745_000135",
+      "text": "une seule blessure au cou en perçant avec soin une des artères carotides et je crois que ç'aurait suffi je suis content de ma conduite je me serais repenti plus tard donc",
+      "audio": "test/audio/2223/1745/2223_1745_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 284.07,
+        "original_end_s": 298.1
+      }
+    },
+    {
+      "id": "2223_1745_000136",
+      "text": "fais ce que tu voudras agis comme il te plaira enferme-moi toute la vie dans une prison obscure avec des scorpions pour compagnons de ma captivité ou arrache-moi un œil jusqu'à ce qu'il tombe à terre",
+      "audio": "test/audio/2223/1745/2223_1745_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 298.1,
+        "original_end_s": 310.8
+      }
+    },
+    {
+      "id": "2223_1745_000137",
+      "text": "c'est impossible eh bien je répète que j'ai besoin d'écrire ma pensée j'ai le droit comme un autre de me soumettre à cette loi naturelle mais non mais non la plume reste inerte",
+      "audio": "test/audio/2223/1745/2223_1745_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 49.47,
+        "original_end_s": 67.5
+      }
+    },
+    {
+      "id": "2223_1745_000138",
+      "text": "pendant le temps strictement nécessaire pour briser d'un coup de marteau la tête d'une femme il oubliait sa majesté sidérale afin de nous révéler les mystères au milieu desquels notre existence étouffe comme un poisson au fond d'une barque",
+      "audio": "test/audio/2223/1745/2223_1745_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 51.4,
+        "original_end_s": 69.91
+      }
+    },
+    {
+      "id": "2223_1745_000139",
+      "text": "mais cet orage ne m'a pas causé la crainte que m'importerait une légion d'orages ces agents de la police céleste accomplissent avec zèle leur pénible devoir si j'en juge sommairement par mon front blessé",
+      "audio": "test/audio/2223/1745/2223_1745_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 131.85,
+        "original_end_s": 149.86
+      }
+    },
+    {
+      "id": "2223_1745_000140",
+      "text": "mais il est grand et noble il l'emporte sur nous par la puissance de ses conceptions s'il parlementait avec les hommes toutes les hontes rejailliraient jusqu'à son visage mais misérable que tu es pourquoi ne rougis tu pas",
+      "audio": "test/audio/2223/1745/2223_1745_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 69.91,
+        "original_end_s": 88.93
+      }
+    },
+    {
+      "id": "2223_1745_000141",
+      "text": "comme si tu ne savais pas qu'un jour ou l'autre je les aurais découvertes de mon oeil toujours ouvert les aurais enlevées et les aurais partagées avec mes semblables j'ai fait ainsi que je parle et maintenant ils ne te craignent plus ils traitent de puissance à puissance avec toi",
+      "audio": "test/audio/2223/1745/2223_1745_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_03_lautreamont_64kb.mp3",
+        "original_start_s": 155.07,
+        "original_end_s": 172.26
+      }
+    },
+    {
+      "id": "2223_1745_000142",
+      "text": "je n'ai pas à remercier le tout-puissant de son adresse remarquable il a envoyé la foudre de manière à couper précisément mon visage en deux à partir du front endroit où la blessure a été la plus dangereuse",
+      "audio": "test/audio/2223/1745/2223_1745_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 149.86,
+        "original_end_s": 164.92
+      }
+    },
+    {
+      "id": "2223_1745_000143",
+      "text": "sache que si tu me laissais vivre à l'abri de tes poursuites ma reconnaissance t'appartiendrait allons sultan avec ta langue débarrasse-moi de ce sang qui salit le parquet",
+      "audio": "test/audio/2223/1745/2223_1745_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 237.73,
+        "original_end_s": 252.4
+      }
+    },
+    {
+      "id": "2223_1745_000144",
+      "text": "on ne croirait pas au premier abord que maldoror contînt tant de sang dans ses artères car sur sa figure ne brillent que les reflets du cadavre mais enfin c'est comme ça",
+      "audio": "test/audio/2223/1745/2223_1745_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-2223",
+        "gender": "m",
+        "book_id": "1745",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/chantsmaldoror_1110_librivox/chantsmaldoror_2_02_lautreamont_64kb.mp3",
+        "original_start_s": 268.21,
+        "original_end_s": 283.18
+      }
+    }
+  ]
+}

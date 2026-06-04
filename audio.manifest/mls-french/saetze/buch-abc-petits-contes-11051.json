@@ -1,0 +1,2216 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "ABC: Petits Contes",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "11051",
+    "book_title": "ABC: Petits Contes",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "10179_11051_000000",
+      "text": "c'est bien ennuyeux fin du chapitre vingt quatre enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_24_lemaitre_64kb.mp3",
+        "original_start_s": 62.71,
+        "original_end_s": 78.4
+      }
+    },
+    {
+      "id": "10179_11051_000001",
+      "text": "et le pauvre sapin se sentit si heureux qu'il s'endormit en se figurant qu'on l'avait ramené dans sa forêt fin du chapitre vingt enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 84.22,
+        "original_end_s": 104.03
+      }
+    },
+    {
+      "id": "10179_11051_000002",
+      "text": "il n'y avait plus dans le vestiaire que les oreilles de l'âne dont il dut se contenter et voilà pourquoi le chameau qui est une bête de grande taille a des oreilles si courtes tandis que l'âne qui est beaucoup plus petit en a de si longues",
+      "audio": "test/audio/10179/11051/10179_11051_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 121.77,
+        "original_end_s": 137.89
+      }
+    },
+    {
+      "id": "10179_11051_000003",
+      "text": "chapitre dix de a b c petits contes de jules lemaître enregistré pour librivox point org ibis dans la basse-cour d'un château se trouva parmi toutes sortes de volailles un ibis rose",
+      "audio": "test/audio/10179/11051/10179_11051_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 15.22
+      }
+    },
+    {
+      "id": "10179_11051_000004",
+      "text": "ce sera encore plus commode se dit la mère rat et sans prendre la précaution de flairer elle plongea sa queue au fond du tonneau mais quand elle voulut la retirer elle poussa un cri de douleur sa queue ne venait pas sa queue était collée",
+      "audio": "test/audio/10179/11051/10179_11051_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 94.15,
+        "original_end_s": 110.84
+      }
+    },
+    {
+      "id": "10179_11051_000005",
+      "text": "dit-elle rentrez sous votre feuille et pour vous punir de votre vanité je vous enlève votre parfum violette fut désolée elle pleura tant qu'une jeune fée qui venait en promenade de ce côté eut pitié d'elle",
+      "audio": "test/audio/10179/11051/10179_11051_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 89.86,
+        "original_end_s": 105.18
+      }
+    },
+    {
+      "id": "10179_11051_000006",
+      "text": "les rats s'y trouvaient fort bien car il y avait beaucoup de choses bonnes à manger surtout du savon et de la chandelle il y avait aussi des tonneaux et des barils",
+      "audio": "test/audio/10179/11051/10179_11051_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 12.76,
+        "original_end_s": 22.94
+      }
+    },
+    {
+      "id": "10179_11051_000007",
+      "text": "sa queue s'était enfoncée dans un tonneau de glu",
+      "audio": "test/audio/10179/11051/10179_11051_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 110.84,
+        "original_end_s": 127.07
+      }
+    },
+    {
+      "id": "10179_11051_000008",
+      "text": "chapitre vingt de a b c petits contes de jules lemaître enregistré pour librivox point org sapin il y avait un petit sapin qui rêvait d'être mât de navire afin de voyager et de voir le monde",
+      "audio": "test/audio/10179/11051/10179_11051_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 15.56
+      }
+    },
+    {
+      "id": "10179_11051_000009",
+      "text": "le peuple des fourmis dit mme escargot est un peuple actif qui va et vient sans cesse sur les routes de france et qui doit connaître beaucoup de gens et être au courant de beaucoup de choses nous allons demander aux fourmis si elles ne connaîtraient pas une jeune fille digne d'épouser notre escargoton",
+      "audio": "test/audio/10179/11051/10179_11051_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 10.95,
+        "original_end_s": 30.21
+      }
+    },
+    {
+      "id": "10179_11051_000010",
+      "text": "ah disait-il comme il faisait bon dans ma forêt natale j'avais de la mousse à mes pieds et quelquefois des nids dans mes branches et les petits enfants ramassaient mes aiguilles et souvent ils dansaient des rondes en chantant autour de mon tronc",
+      "audio": "test/audio/10179/11051/10179_11051_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 28.86,
+        "original_end_s": 43.7
+      }
+    },
+    {
+      "id": "10179_11051_000011",
+      "text": "chapitre dix huit de a b c petits contes de jules lemaître enregistré pour librivox point org queue une famille de rats habitait dans une cave remplie de marchandises",
+      "audio": "test/audio/10179/11051/10179_11051_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 12.76
+      }
+    },
+    {
+      "id": "10179_11051_000012",
+      "text": "elle eut mal aux bras et aux jambes et on dut l'emporter dans son lit médor et minouche se lamentèrent d'abord puis ils se consolèrent en mangeant sous la table la crème et les gâteaux",
+      "audio": "test/audio/10179/11051/10179_11051_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 82.96,
+        "original_end_s": 95.51
+      }
+    },
+    {
+      "id": "10179_11051_000013",
+      "text": "se dit-il ma patte ressemblera à un gros épi de millet et les oiseaux s'y laisseront prendre à cloche-pied il gagne le champ de millet s'y couche sur le dos et lève la patte en l'air",
+      "audio": "test/audio/10179/11051/10179_11051_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 43.58,
+        "original_end_s": 57.36
+      }
+    },
+    {
+      "id": "10179_11051_000014",
+      "text": "zéro dans la vie quand on n'est bon à rien les autres vous appellent un zéro",
+      "audio": "test/audio/10179/11051/10179_11051_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_26_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 15.04
+      }
+    },
+    {
+      "id": "10179_11051_000015",
+      "text": "chapitre quatre de a b c petits contes de jules lemaître enregistré pour librivox point org canard une cane couvait une douzaine d'oeufs qu'on avait mis sous elle",
+      "audio": "test/audio/10179/11051/10179_11051_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.86
+      }
+    },
+    {
+      "id": "10179_11051_000016",
+      "text": "il avait été rapporté d'égypte par le fils de la maison qui était grand voyageur au commencement on eut beaucoup d'égards pour ce noble et étranger aussitôt que l'ibis déployait ses ailes les pigeons roucoulaient oh que c'est beau",
+      "audio": "test/audio/10179/11051/10179_11051_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 15.22,
+        "original_end_s": 32.29
+      }
+    },
+    {
+      "id": "10179_11051_000017",
+      "text": "chaque enfant alla donc chercher sa tortue puis ils choisirent trois beaux escargots qui seraient les jockeys jean apporta sa boîte à couleurs et il peignit à chaque escargot une casaque différente une jaune une rouge une verte",
+      "audio": "test/audio/10179/11051/10179_11051_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 35.37,
+        "original_end_s": 50.13
+      }
+    },
+    {
+      "id": "10179_11051_000018",
+      "text": "le mât entendit même leurs petits coeurs battre et leurs plumes qui le frôlaient faisaient comme un bruissement de feuilles il écoutait ce qu'elles disaient entre elles elles parlaient justement de son pays d'où elles venaient",
+      "audio": "test/audio/10179/11051/10179_11051_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 71.54,
+        "original_end_s": 84.22
+      }
+    },
+    {
+      "id": "10179_11051_000019",
+      "text": "chapitre vingt cinq de a b c petits contes de jules lemaître enregistré pour librivox point org yvonne yvonne était une petite fille qui ne pouvait pas se tenir tranquille à table",
+      "audio": "test/audio/10179/11051/10179_11051_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 14.01
+      }
+    },
+    {
+      "id": "10179_11051_000020",
+      "text": "et qu'elle se mit en marche en bavant de joie tout le long du chemin mais elle n'avançait pas vite alors les fourmis fabriquèrent avec des brins d'herbe une chaise à porteur qu'elles chargèrent sur leurs épaules",
+      "audio": "test/audio/10179/11051/10179_11051_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 83.86,
+        "original_end_s": 97.71
+      }
+    },
+    {
+      "id": "10179_11051_000021",
+      "text": "quel dommage que ce ne soit pas du sucre soupira séphora en passant sa langue sur la vitre fin du chapitre quinze enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_15_lemaitre_64kb.mp3",
+        "original_start_s": 79.04,
+        "original_end_s": 98.52
+      }
+    },
+    {
+      "id": "10179_11051_000022",
+      "text": "bulbul venait manger dans sa main et la nuit quand l'empereur ne pouvait pas dormir bulbul chantait si bien que l'empereur oubliait tous les soucis de son métier mais un jour son ministre lui dit je connais un rossignol qui chante aussi le jour et qui a un bien beau plumage",
+      "audio": "test/audio/10179/11051/10179_11051_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 16.22,
+        "original_end_s": 34.36
+      }
+    },
+    {
+      "id": "10179_11051_000023",
+      "text": "puis ils alignèrent leurs trois tortues montées par les trois escargots et jean donna le signal du départ mais hélas aucune des trois tortues ne bougea",
+      "audio": "test/audio/10179/11051/10179_11051_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 66.34,
+        "original_end_s": 77.22
+      }
+    },
+    {
+      "id": "10179_11051_000024",
+      "text": "de florian et même comme pour le bélier du chanoine schmid la guerre suspendit la publication de l'alphabet aujourd'hui seulement la maison mame offre aux enfants illustré par job ce dernier livre de leur grand ami qui a su conserver jusqu'à la fin son âme tendre et puérile",
+      "audio": "test/audio/10179/11051/10179_11051_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 162.04,
+        "original_end_s": 181.64
+      }
+    },
+    {
+      "id": "10179_11051_000025",
+      "text": "vingt fois cent fois la mère rat alla de la bonde au bord du tonneau en quelques jours il fut à moitié vide et la queue de la mère rat n'était plus assez longue pour tremper dans ce qui restait de sirop mais un peu plus loin il y avait un autre baril qui était à moitié défoncé",
+      "audio": "test/audio/10179/11051/10179_11051_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 76.49,
+        "original_end_s": 94.15
+      }
+    },
+    {
+      "id": "10179_11051_000026",
+      "text": "et tous comme noé l'avait commandé ôtèrent leurs oreilles et tous reçurent en échange un numéro de vestiaire attaché à un cordon qu'ils passèrent autour de leur cou grâce à ces précautions la paix régna dans l'arche pendant les quarante jours que dura le déluge",
+      "audio": "test/audio/10179/11051/10179_11051_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 45.31,
+        "original_end_s": 61.8
+      }
+    },
+    {
+      "id": "10179_11051_000027",
+      "text": "chapitre dix neuf de a b c petit conte de jules lemaître enregistré pour librivox point org rossignol l'empereur de chine avait dans son jardin un rossignol qui s'appelait bulbul et qui était son ami",
+      "audio": "test/audio/10179/11051/10179_11051_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 16.22
+      }
+    },
+    {
+      "id": "10179_11051_000028",
+      "text": "pas du tout déclara myriam ce ne sont pas des plumes mais des petits bouts de papier et ce sont les anges qui vident les corbeilles où le petit jésus a jeté les lettres que les enfants lui écrivent à noël oui oui j'en suis sûre je reconnais mon papier",
+      "audio": "test/audio/10179/11051/10179_11051_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_15_lemaitre_64kb.mp3",
+        "original_start_s": 32.19,
+        "original_end_s": 49.27
+      }
+    },
+    {
+      "id": "10179_11051_000029",
+      "text": "comme il ne trouva personne en bas il monta par l'escalier au premier étage où il y avait la belle chambre des parents de berthe avec une armoire à glace",
+      "audio": "test/audio/10179/11051/10179_11051_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 44.8,
+        "original_end_s": 55.1
+      }
+    },
+    {
+      "id": "10179_11051_000030",
+      "text": "quelques jours plus tard la guerre survint et jules lemaître eut une crise cardiaque qui devait l'emporter cependant il songea à me recommander la correction des épreuves et par un scrupule excessif me chargea d'indiquer que tous les contes n'étaient pas entièrement de son imagination mais qu'il s'était inspiré parfois",
+      "audio": "test/audio/10179/11051/10179_11051_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 142.07,
+        "original_end_s": 162.04
+      }
+    },
+    {
+      "id": "10179_11051_000031",
+      "text": "alors la chèvre et ses sept petits dansèrent autour du puits une ronde joyeuse fin du chapitre treize enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 143.47,
+        "original_end_s": 162.48
+      }
+    },
+    {
+      "id": "10179_11051_000032",
+      "text": "berthe était une petite fille très étourdie qui laissait toujours les portes ouvertes sa mère qui était une fermière la grondait souvent car pendant l'absence de berthe les chiens les poules et même les petits cochons salissaient tout mais berthe ne se corrigeait pas de son étourderie",
+      "audio": "test/audio/10179/11051/10179_11051_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 10.17,
+        "original_end_s": 30.02
+      }
+    },
+    {
+      "id": "10179_11051_000033",
+      "text": "et de se savoir ainsi chantée par un poète cela lui fit oublier toute modestie elle allongea son cou derrière ses feuilles tourna vaniteusement sa tête à gauche et à droite et se mira avec complaisance dans une grosse goutte de rosée qui était restée pendue à un brin d'herbe",
+      "audio": "test/audio/10179/11051/10179_11051_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 44.64,
+        "original_end_s": 62.63
+      }
+    },
+    {
+      "id": "10179_11051_000034",
+      "text": "quand le bélier vit son image dans cette glace il crut que c'était un autre bélier et il le menaça de ses cornes mais l'autre fit le même mouvement",
+      "audio": "test/audio/10179/11051/10179_11051_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 55.1,
+        "original_end_s": 65.26
+      }
+    },
+    {
+      "id": "10179_11051_000035",
+      "text": "mais à ce moment un vol d'hirondelles passa au-dessus de la mer elles venaient des pays du nord et s'en allaient en égypte elles descendirent sur le navire et se posèrent sur le mât qu'elles couvrirent presque entièrement de leurs ailes",
+      "audio": "test/audio/10179/11051/10179_11051_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 56.81,
+        "original_end_s": 71.54
+      }
+    },
+    {
+      "id": "10179_11051_000036",
+      "text": "des ailes aussi délicates que la mousseline de vos robes et parce qu'elle se pose souvent au bord de sa feuille pour se regarder dans l'eau comme les vraies demoiselles se regardent dans leur miroir",
+      "audio": "test/audio/10179/11051/10179_11051_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_05_lemaitre_64kb.mp3",
+        "original_start_s": 26.26,
+        "original_end_s": 38.33
+      }
+    },
+    {
+      "id": "10179_11051_000037",
+      "text": "le premier fut le chameau puis vint le cheval puis la vache puis le chien le mouton le cochon le chat l'éléphant le lapin et enfin l'âne",
+      "audio": "test/audio/10179/11051/10179_11051_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 33.71,
+        "original_end_s": 45.31
+      }
+    },
+    {
+      "id": "10179_11051_000038",
+      "text": "elle courut au bord du tonneau et se retournant elle la laissa pendre les ratons en se haussant sur les pattes de derrière purent l'atteindre et chacun à son tour lécha le bout de la queue comme si c'était un sucre d'orge",
+      "audio": "test/audio/10179/11051/10179_11051_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 61.87,
+        "original_end_s": 76.49
+      }
+    },
+    {
+      "id": "10179_11051_000039",
+      "text": "de mon balcon vert dit mme escargot je vois le peuple des fourmis fin du chapitre six enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_06_lemaitre_64kb.mp3",
+        "original_start_s": 75.56,
+        "original_end_s": 95.06
+      }
+    },
+    {
+      "id": "10179_11051_000040",
+      "text": "oui il n'y a aucun doute là-dessus tu n'es pas du tout un petit canard tu es bien un cygne c'est la fermière qui a dû glisser un de nos oeufs parmi les oeufs de cane",
+      "audio": "test/audio/10179/11051/10179_11051_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 168.7,
+        "original_end_s": 181.24
+      }
+    },
+    {
+      "id": "10179_11051_000041",
+      "text": "appliquez-vous donc à bien apprendre votre alphabet et à lire ces contes et je vous jure qu'on ne dira jamais de vous la petite marie le petit jean oh c'est un zéro",
+      "audio": "test/audio/10179/11051/10179_11051_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_26_lemaitre_64kb.mp3",
+        "original_start_s": 15.04,
+        "original_end_s": 28.69
+      }
+    },
+    {
+      "id": "10179_11051_000042",
+      "text": "elle avait presque l'air d'une mendiante mais quand le roi lui demanda qui elle était elle répondit qu'elle était une princesse le roi la fit entrer au château",
+      "audio": "test/audio/10179/11051/10179_11051_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 33.46,
+        "original_end_s": 43.66
+      }
+    },
+    {
+      "id": "10179_11051_000043",
+      "text": "un jour que sa mère était au marché berthe alla jouer dans le jardin en oubliant selon son habitude de fermer la porte le bélier de la ferme s'échappa de la bergerie et entra tranquillement dans la maison",
+      "audio": "test/audio/10179/11051/10179_11051_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 30.02,
+        "original_end_s": 44.8
+      }
+    },
+    {
+      "id": "10179_11051_000044",
+      "text": "hep mon enfant d'où viens-tu et comment t'appelles-tu je viens de la basse-cour madame et je m'appelle canard je suis parti parce que mes camarades me trouvent trop laid et ne veulent pas jouer avec moi",
+      "audio": "test/audio/10179/11051/10179_11051_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 138.98,
+        "original_end_s": 153.4
+      }
+    },
+    {
+      "id": "10179_11051_000045",
+      "text": "chapitre douze de a b c petits contes de jules lemaître enregistré pour librivox point org kangourou du temps où les kangourous vivaient dans le paradis terrestre leurs pattes de devant étaient aussi longues que celles de derrière",
+      "audio": "test/audio/10179/11051/10179_11051_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_12_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 17.48
+      }
+    },
+    {
+      "id": "10179_11051_000046",
+      "text": "elle l'aimait beaucoup car il était intelligent et bon et il paraissait content de porter sur son dos les légumes du jardin au marché de la ville mais de méchants garçons se moquaient de la vieille femme et de son petit âne quand ils la rencontraient un jour ils crièrent à la vieille femme",
+      "audio": "test/audio/10179/11051/10179_11051_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_02_lemaitre_64kb.mp3",
+        "original_start_s": 16.51,
+        "original_end_s": 34.67
+      }
+    },
+    {
+      "id": "10179_11051_000047",
+      "text": "la chèvre et les biquets rirent et pleurèrent ensemble un instant puis la mère dit ce n'est pas tout allez vite me chercher six grosses pierres je vais les mettre à votre place dans le ventre du loup et je lui recoudrai la peau comme cela il ne s'apercevra de rien à son réveil",
+      "audio": "test/audio/10179/11051/10179_11051_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 77.91,
+        "original_end_s": 96.5
+      }
+    },
+    {
+      "id": "10179_11051_000048",
+      "text": "à paris dans son grand atelier de la rue d'artois tapissé de l'or pâli des précieuses reliures jules lemaître se plaisait à recevoir des enfants les comblait de gâteaux et de sucreries et ouvrait pour eux",
+      "audio": "test/audio/10179/11051/10179_11051_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 53.03,
+        "original_end_s": 65.81
+      }
+    },
+    {
+      "id": "10179_11051_000049",
+      "text": "pauvre petite dit-elle je ne peux plus te rendre ton parfum mais puisque tu as tant de chagrin je fais de tes larmes des pétales plus clairs des pétales mauves et du moins si tu n'es pas odorante tu seras plus jolie",
+      "audio": "test/audio/10179/11051/10179_11051_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 105.18,
+        "original_end_s": 120.42
+      }
+    },
+    {
+      "id": "10179_11051_000050",
+      "text": "pauvre petit dit la mère-grand le fait est que tu n'es pas bien joli mais cela vient de ce que tu es fatigué et triste attends un peu que je t'examine tu me rappelles un petit-fils que j'ai perdu",
+      "audio": "test/audio/10179/11051/10179_11051_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 153.4,
+        "original_end_s": 168.7
+      }
+    },
+    {
+      "id": "10179_11051_000051",
+      "text": "les onze frères et soeurs se moquaient de lui et la mère elle-même quand elle conduisait ses enfants à la mare avait honte de lui parce que tout le monde disait sur son passage oh voyez donc ce vilain petit canard",
+      "audio": "test/audio/10179/11051/10179_11051_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 77.83,
+        "original_end_s": 92.45
+      }
+    },
+    {
+      "id": "10179_11051_000052",
+      "text": "le quarante et unième jour noé dit aux animaux voilà le beau temps revenu je vais vous rendre vos oreilles et vous pourrez retourner chez vous alors l'une après l'autre toutes les bêtes passèrent au vestiaire et elles reçurent leurs oreilles en échange du numéro",
+      "audio": "test/audio/10179/11051/10179_11051_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 61.8,
+        "original_end_s": 78.33
+      }
+    },
+    {
+      "id": "10179_11051_000053",
+      "text": "rentrés à la maison jean dit à ses frères si nous faisions courir nous aussi mais nous n'avons pas de chevaux répondit pierre qu'est-ce que cela fait nous avons chacun une tortue et des tortues peuvent tout aussi bien courir que des chevaux plus lentement voilà tout",
+      "audio": "test/audio/10179/11051/10179_11051_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 17.08,
+        "original_end_s": 35.37
+      }
+    },
+    {
+      "id": "10179_11051_000054",
+      "text": "et l'empereur reconnaissant commanda pour bulbul une cage d'or et une petite couronne de diamants fin du chapitre dix neuf enregistré par sonia cet enregistrement fait partie du domaine public",
+      "audio": "test/audio/10179/11051/10179_11051_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 94.62,
+        "original_end_s": 112.29
+      }
+    },
+    {
+      "id": "10179_11051_000055",
+      "text": "à qui ses parents ne donnaient pas de jouets mais qui fabriquait lui-même des sifflets des canons ou des pompes avec du sureau des noyaux d'abricots et des pailles oh que c'est joli et amusant dit robert apprends-moi comment tu fais",
+      "audio": "test/audio/10179/11051/10179_11051_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_11_lemaitre_64kb.mp3",
+        "original_start_s": 24.37,
+        "original_end_s": 40.3
+      }
+    },
+    {
+      "id": "10179_11051_000056",
+      "text": "il y avait une fois un monsieur et une madame escargot qui vivaient sur un chou ils étaient gros gras et luisants et ils auraient pu être heureux mais ils n'avaient pas d'enfant et cela leur manquait beaucoup",
+      "audio": "test/audio/10179/11051/10179_11051_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_06_lemaitre_64kb.mp3",
+        "original_start_s": 10.81,
+        "original_end_s": 24.72
+      }
+    },
+    {
+      "id": "10179_11051_000057",
+      "text": "justement nous avons ce qu'il vous faut à quelques mètres d'ici dans le trou d'un vieux mur vit une demoiselle escargot de la plus jolie coquille dont on a dernièrement fait cuire les parents la pauvrette est toute seule au monde",
+      "audio": "test/audio/10179/11051/10179_11051_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 40.88,
+        "original_end_s": 56.8
+      }
+    },
+    {
+      "id": "10179_11051_000058",
+      "text": "personne ne voulait jouer avec lui et le pauvre petit fut bien malheureux il tendait son cou trop long vers le ciel comme pour dire ah pourquoi suis-je né",
+      "audio": "test/audio/10179/11051/10179_11051_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 92.45,
+        "original_end_s": 103.93
+      }
+    },
+    {
+      "id": "10179_11051_000059",
+      "text": "et bien que cela inquiétât un peu la mère elle se disait l'enfant n'en sera que plus beau et patiemment elle se remit à couver mais quand enfin l'oeuf éclata la pauvre mère fut épouvantée",
+      "audio": "test/audio/10179/11051/10179_11051_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 50.71,
+        "original_end_s": 65.27
+      }
+    },
+    {
+      "id": "10179_11051_000060",
+      "text": "or un jour d'orage on sonna à la grille du château le roi alla ouvrir lui-même et il trouva devant la grille une jeune fille dont les vêtements étaient trempés les cheveux défaits et les souliers couverts de boue",
+      "audio": "test/audio/10179/11051/10179_11051_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 19.26,
+        "original_end_s": 33.46
+      }
+    },
+    {
+      "id": "10179_11051_000061",
+      "text": "alors pierre courut chercher son tambour et paul chatouilla la queue des tortues avec des brindilles les tortues se décidèrent enfin à partir mais au lieu d'aller droit devant elles elles allaient à droite ou à gauche et la tortue de paul revint même en arrière alors jean eut une idée",
+      "audio": "test/audio/10179/11051/10179_11051_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 77.22,
+        "original_end_s": 95.6
+      }
+    },
+    {
+      "id": "10179_11051_000062",
+      "text": "il voulut aussi leur fabriquer des casquettes mais les escargots dirent non merci et rentrèrent leurs cornes les trois enfants préparèrent une piste dans le jardin avec des poteaux au bout et une tribune avec des roses et des oeillets qui figuraient les dames élégantes",
+      "audio": "test/audio/10179/11051/10179_11051_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 50.13,
+        "original_end_s": 66.34
+      }
+    },
+    {
+      "id": "10179_11051_000063",
+      "text": "alors le pauvre ibis rose se retira dans un coin et il se tenait tout raide sur une patte rêvant de son pays du nil des pyramides et des minarets",
+      "audio": "test/audio/10179/11051/10179_11051_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 80.65,
+        "original_end_s": 93.03
+      }
+    },
+    {
+      "id": "10179_11051_000064",
+      "text": "un jour vint à passer près de leur chou un pauvre petit escargot maigre qui leur demanda l'aumône ils le questionnèrent et ils apprirent qu'il était orphelin aussitôt madame escargot tout attendrie dit à son mari si nous l'adoptions",
+      "audio": "test/audio/10179/11051/10179_11051_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_06_lemaitre_64kb.mp3",
+        "original_start_s": 24.72,
+        "original_end_s": 43.02
+      }
+    },
+    {
+      "id": "10179_11051_000065",
+      "text": "mais sa mère qui regardait jouer les trois enfants dit à xavier je crois bien que tu voudrais être à la fois le cocher le cheval et le chien oh oui dit xavier mais on ne peut pas être tout il faut choisir",
+      "audio": "test/audio/10179/11051/10179_11051_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_24_lemaitre_64kb.mp3",
+        "original_start_s": 45.86,
+        "original_end_s": 62.71
+      }
+    },
+    {
+      "id": "10179_11051_000066",
+      "text": "onze de ces oeufs ressemblaient à tous les oeufs de cane mais le douzième était plus gros et d'une espèce différente la canne était très fière de cet oeuf elle le montrait à toutes les voisines qui venaient la voir et elle disait voyez comme il est gros je suis sûre qu'il en sortira un superbe caneton",
+      "audio": "test/audio/10179/11051/10179_11051_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 13.86,
+        "original_end_s": 33.27
+      }
+    },
+    {
+      "id": "10179_11051_000067",
+      "text": "elle resta tristement au bord du toit d'où elle vit s'éloigner sa famille et elle serait certainement morte de faim de froid et de chagrin si les enfants de la maison ne l'avaient recueillie",
+      "audio": "test/audio/10179/11051/10179_11051_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_09_lemaitre_64kb.mp3",
+        "original_start_s": 29.9,
+        "original_end_s": 42.16
+      }
+    },
+    {
+      "id": "10179_11051_000068",
+      "text": "chapitre huit de a b c petits contes de jules lemaître enregistré pour librivox point org gateau on avait donné à deux enfants un gros gâteau et un petit en leur disant partagez",
+      "audio": "test/audio/10179/11051/10179_11051_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_08_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 16.28
+      }
+    },
+    {
+      "id": "10179_11051_000069",
+      "text": "on ne savait pas ce qu'ils contenaient mais un jour la mère rat découvrit un tonneau dont la bonde était partie elle flaira puis elle plongea sa queue dans le trou et la retira pour goûter",
+      "audio": "test/audio/10179/11051/10179_11051_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 22.94,
+        "original_end_s": 36.01
+      }
+    },
+    {
+      "id": "10179_11051_000070",
+      "text": "moi dit séphora la gourmande je crois que c'est du sucre si seulement on pouvait goûter mais daniel leur grand frère qui avait tout entendu se mit à rire",
+      "audio": "test/audio/10179/11051/10179_11051_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_15_lemaitre_64kb.mp3",
+        "original_start_s": 49.27,
+        "original_end_s": 62.33
+      }
+    },
+    {
+      "id": "10179_11051_000071",
+      "text": "mais cela peut signifier aussi l'endroit où l'on vit où l'on a ses habitudes et où l'on est heureux ainsi la salle à manger est l'univers de la mouche l'étang est l'univers du poisson la prairie est l'univers de la vache la forêt est l'univers du lapin",
+      "audio": "test/audio/10179/11051/10179_11051_000071.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_22_lemaitre_64kb.mp3",
+        "original_start_s": 16.03,
+        "original_end_s": 34.66
+      }
+    },
+    {
+      "id": "10179_11051_000072",
+      "text": "ou bien le rabattant tristement le long de son corps il restait à rêver dans un coin un jour que les autres l'avaient houspillé plus que de coutume il prit le parti de quitter sa famille il marcha longtemps devant lui et arriva près d'un lac où nageaient des cygnes ah",
+      "audio": "test/audio/10179/11051/10179_11051_000072.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 103.93,
+        "original_end_s": 123.18
+      }
+    },
+    {
+      "id": "10179_11051_000073",
+      "text": "chapitre cinq de a b c petits contes de jules lemaître enregistré pour librivox point org demoiselle savez-vous ce que c'est qu'une demoiselle",
+      "audio": "test/audio/10179/11051/10179_11051_000073.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_05_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.03
+      }
+    },
+    {
+      "id": "10179_11051_000074",
+      "text": "le soir berthe fut sévèrement punie par sa mère et je vous jure qu'elle ne laisse plus les portes ouvertes fin du chapitre trois enregistré par sonia",
+      "audio": "test/audio/10179/11051/10179_11051_000074.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 84.82,
+        "original_end_s": 97.41
+      }
+    },
+    {
+      "id": "10179_11051_000075",
+      "text": "au bout de quelque temps la mère cane entendit dans l'intérieur des onze oeufs ordinaires de petits coups de bec puis des pépiements puis elle vit sortir des coquilles onze petits canards charmants habillés de duvet jaune mais le douzième oeuf tardait à éclore",
+      "audio": "test/audio/10179/11051/10179_11051_000075.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 33.27,
+        "original_end_s": 50.71
+      }
+    },
+    {
+      "id": "10179_11051_000076",
+      "text": "elle gigotait elle se penchait à droite à gauche en avant en arrière elle descendait de sa chaise pour jouer avec le chien médor ou elle prenait la chatte minouche sur ses genoux sa mère la grondait son père la punissait mais yvonne ne se corrigeait pas",
+      "audio": "test/audio/10179/11051/10179_11051_000076.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 14.01,
+        "original_end_s": 31.31
+      }
+    },
+    {
+      "id": "10179_11051_000077",
+      "text": "et noé donna les superbes oreilles du chameau à l'âne qui s'enfuit en pétaradant de joie quand le chameau ouvrit enfin ses babines pour réclamer son dû",
+      "audio": "test/audio/10179/11051/10179_11051_000077.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 111.37,
+        "original_end_s": 121.77
+      }
+    },
+    {
+      "id": "10179_11051_000078",
+      "text": "chapitre vingt trois de a b c petits contes de jules lemaître enregistré pour librivox point org violettes vous savez mes enfants que les violettes sont l'emblème de la modestie",
+      "audio": "test/audio/10179/11051/10179_11051_000078.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.25
+      }
+    },
+    {
+      "id": "10179_11051_000079",
+      "text": "j'allais te le proposer répondit monsieur escargot et il sortit presque entièrement de sa maison pour embrasser son nouveau fils en peu de temps le petit escargot devint gros gras et luisant",
+      "audio": "test/audio/10179/11051/10179_11051_000079.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_06_lemaitre_64kb.mp3",
+        "original_start_s": 43.02,
+        "original_end_s": 57.05
+      }
+    },
+    {
+      "id": "10179_11051_000080",
+      "text": "ah mes enfants mes chers enfants chevrotait la chèvre en essuyant ses yeux avec un coin de son tablier mais retrouvant son courage elle prit son dernier-né par la main et se mit à la recherche du loup",
+      "audio": "test/audio/10179/11051/10179_11051_000080.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 31.91,
+        "original_end_s": 46.95
+      }
+    },
+    {
+      "id": "10179_11051_000081",
+      "text": "pour faire ce long voyage les mères hirondelles rassemblent leurs petits autour d'elles mais une pauvre petite hirondelle qui était tombée du nid un jour de grand vent boitait encore un peu et ne put pas s'envoler avec ses frères et soeurs",
+      "audio": "test/audio/10179/11051/10179_11051_000081.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_09_lemaitre_64kb.mp3",
+        "original_start_s": 15.53,
+        "original_end_s": 29.9
+      }
+    },
+    {
+      "id": "10179_11051_000082",
+      "text": "une de ses dernières joies en mai mille neuf cent quatorze alors que le médecin lui avait défendu tout travail inventif fut de recopier lui-même d'une écriture de plus en plus menue et immatérielle les contes enfantins",
+      "audio": "test/audio/10179/11051/10179_11051_000082.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 114.02,
+        "original_end_s": 127.67
+      }
+    },
+    {
+      "id": "10179_11051_000083",
+      "text": "chapitre vingt-quatre de a b c petits contes de jules lemaître enregistré pour librivox point org xavier le petit xavier dit à ses petits camarades maurice et jean",
+      "audio": "test/audio/10179/11051/10179_11051_000083.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_24_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.28
+      }
+    },
+    {
+      "id": "10179_11051_000084",
+      "text": "très mal répondit-elle il y avait je ne sais quoi de dur et de rond dans mon lit j'en ai des bleus sur tout le corps quel bonheur pensa le prince qui avait écouté derrière la porte pour avoir la peau si fine il faut bien que ce soit une véritable princesse",
+      "audio": "test/audio/10179/11051/10179_11051_000084.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 61.63,
+        "original_end_s": 79.72
+      }
+    },
+    {
+      "id": "10179_11051_000085",
+      "text": "avait des jouets à mécanique très chers qu'il fallait toujours remonter qui se cassaient très souvent et qui ne l'amusaient pas du tout un jour il rencontra un petit garçon de la campagne mathieu",
+      "audio": "test/audio/10179/11051/10179_11051_000085.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_11_lemaitre_64kb.mp3",
+        "original_start_s": 11.7,
+        "original_end_s": 24.37
+      }
+    },
+    {
+      "id": "10179_11051_000086",
+      "text": "si nous mettions des salades au lieu de poteaux et vite au bout de la piste les enfants plantèrent trois belles salades quand les tortues virent cette appétissante verdure elles se mirent en marche toutes seules et celle de jean avança si rapidement que son jockey je veux dire son escargot roula à terre",
+      "audio": "test/audio/10179/11051/10179_11051_000086.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 95.6,
+        "original_end_s": 115.53
+      }
+    },
+    {
+      "id": "10179_11051_000087",
+      "text": "elle ne restera pas seule longtemps s'écrièrent ensemble m et mme escargot allez je vous prie la demander en mariage pour monsieur notre fils",
+      "audio": "test/audio/10179/11051/10179_11051_000087.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 56.8,
+        "original_end_s": 67.32
+      }
+    },
+    {
+      "id": "10179_11051_000088",
+      "text": "chapitre vingt et un de a b c petits contes de jules lemaître enregistré pour librivox point org tortue jean pierre et paul étaient allés aux courses avec leurs parents ils avaient vu courir des chevaux et cela les avait beaucoup amusés",
+      "audio": "test/audio/10179/11051/10179_11051_000088.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 17.08
+      }
+    },
+    {
+      "id": "10179_11051_000089",
+      "text": "flatté l'ibis marchait de long en large il leur parlait de sa patrie l'égypte du nil des autruches des pyramides et des minarets du caire",
+      "audio": "test/audio/10179/11051/10179_11051_000089.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 47.01,
+        "original_end_s": 57.6
+      }
+    },
+    {
+      "id": "10179_11051_000090",
+      "text": "je ne sais vraiment pas ce qui cogne comme cela dans mon ventre dit le loup et il se pencha pour boire mais ce mouvement précipita les pierres l'une sur l'autre dans l'estomac du loup leur poids l'entraîna en avant et le vieux brigand tomba la tête en bas dans le fond du puits",
+      "audio": "test/audio/10179/11051/10179_11051_000090.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 125.06,
+        "original_end_s": 143.47
+      }
+    },
+    {
+      "id": "10179_11051_000091",
+      "text": "car elles poussent dans les bois obscurs à l'ombre d'autres plantes et même elles cachent leur visage délicat derrière leurs grandes feuilles vertes comme font les jeunes filles timides derrière leur éventail or un jour un poète se promena dans une forêt où il y avait beaucoup de violettes qui embaumaient l'air délicieusement",
+      "audio": "test/audio/10179/11051/10179_11051_000091.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 13.25,
+        "original_end_s": 32.55
+      }
+    },
+    {
+      "id": "10179_11051_000092",
+      "text": "mathieu le lui apprit robert vendit à une vieille marchande de bric-à-brac ses jouets mécaniques devenus inutiles et avec les sous qu'il en retira il acheta des gâteaux que les deux enfants mangèrent de grand appétit",
+      "audio": "test/audio/10179/11051/10179_11051_000092.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_11_lemaitre_64kb.mp3",
+        "original_start_s": 40.3,
+        "original_end_s": 54.93
+      }
+    },
+    {
+      "id": "10179_11051_000093",
+      "text": "elle ne fut pas longtemps à le trouver qui dormait sur ses deux oreilles derrière le puits et qui ronflait de toutes ses forces attends brigand dit la mère chèvre tu vas voir",
+      "audio": "test/audio/10179/11051/10179_11051_000093.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 46.95,
+        "original_end_s": 59.81
+      }
+    },
+    {
+      "id": "10179_11051_000094",
+      "text": "c'est ironique et trop bref comme les peuples primitifs les enfants détestent l'esprit et adorent les détails amplifions avec simplicité et le lendemain il recommençait son conte",
+      "audio": "test/audio/10179/11051/10179_11051_000094.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 101.64,
+        "original_end_s": 114.02
+      }
+    },
+    {
+      "id": "10179_11051_000095",
+      "text": "quand tout fut terminé la mère et les enfants allèrent se cacher pour voir ce que ferait le loup au bout d'un moment il se réveilla se frotta les paupières puis se tâta le ventre",
+      "audio": "test/audio/10179/11051/10179_11051_000095.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 96.5,
+        "original_end_s": 108.19
+      }
+    },
+    {
+      "id": "10179_11051_000096",
+      "text": "depuis ce temps-là les kangourous ont ces moignons que vous voyez sur l'image et la poche de leur ventre ne leur sert plus que pour y cacher leurs petits",
+      "audio": "test/audio/10179/11051/10179_11051_000096.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_12_lemaitre_64kb.mp3",
+        "original_start_s": 50.4,
+        "original_end_s": 61.07
+      }
+    },
+    {
+      "id": "10179_11051_000097",
+      "text": "elle arriva la première au but et pour sa récompense on lui donna à manger les poteaux je veux dire les salades et même les roses et les oeillets de la tribune qui figuraient les dames élégantes",
+      "audio": "test/audio/10179/11051/10179_11051_000097.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_21_lemaitre_64kb.mp3",
+        "original_start_s": 115.53,
+        "original_end_s": 128.48
+      }
+    },
+    {
+      "id": "10179_11051_000098",
+      "text": "chapitre dix sept de a b c petits contes de jules lemaître enregistré pour librivox point org pois il y avait une fois un prince qui voulait se marier il voulait épouser une princesse mais aucune de celles qu'on lui présenta ne lui parut assez princesse",
+      "audio": "test/audio/10179/11051/10179_11051_000098.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 19.26
+      }
+    },
+    {
+      "id": "10179_11051_000099",
+      "text": "monsieur noé monsieur noé donnez-moi mes oreilles c'est cette grande paire-là je suis très pressé le père noé était si fatigué qu'il ne fit pas attention au faux numéro que lui remit l'âne sournois tu me casses la tête tiens voilà ton bien décampe",
+      "audio": "test/audio/10179/11051/10179_11051_000099.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 93.73,
+        "original_end_s": 111.37
+      }
+    },
+    {
+      "id": "10179_11051_000100",
+      "text": "les deux enfants étaient une petite fille de six ans et un petit garçon de quatre ans tiens dit la petite fille prends ce joli petit gâteau moi je mangerai ce vilain gros j'aime mieux le vilain gros dit le petit garçon mais puisqu'il est vilain",
+      "audio": "test/audio/10179/11051/10179_11051_000100.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_08_lemaitre_64kb.mp3",
+        "original_start_s": 16.28,
+        "original_end_s": 35.95
+      }
+    },
+    {
+      "id": "10179_11051_000101",
+      "text": "préface jules lemaître a beaucoup aimé les enfants il eut lui-même lorsqu'il fut professeur à grenoble une petite fille madeleine qui mourut au bout d'un mois et dont il ne se consola jamais plus tard il devint un parrain multiple et délicieux",
+      "audio": "test/audio/10179/11051/10179_11051_000101.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 19.0,
+        "original_end_s": 36.59
+      }
+    },
+    {
+      "id": "10179_11051_000102",
+      "text": "mais à cause de cette longueur de leurs pattes les kangourous étaient devenus extrêmement voleurs ils n'avaient qu'à étendre le bras pour attraper les branches et cueillir les plus beaux fruits qu'ils enfouissaient ensuite dans la grande poche qu'ils portent sur le ventre",
+      "audio": "test/audio/10179/11051/10179_11051_000102.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_12_lemaitre_64kb.mp3",
+        "original_start_s": 17.48,
+        "original_end_s": 33.61
+      }
+    },
+    {
+      "id": "10179_11051_000103",
+      "text": "et celle que tu as prise pour ta mère n'était que ta couveuse pauvre petit orphelin viens sur mon coeur puis la grand-mère appela tous les autres cygnes et elle leur raconta l'histoire du vilain petit canard",
+      "audio": "test/audio/10179/11051/10179_11051_000103.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 181.24,
+        "original_end_s": 195.92
+      }
+    },
+    {
+      "id": "10179_11051_000104",
+      "text": "et il apporta à l'empereur un oiseau peint de brillantes couleurs et que l'on remontait avec une clef pour le faire chanter et l'empereur trouva le nouveau rossignol si joli et il écoutait si souvent sa chanson qu'il oublia son bulbul",
+      "audio": "test/audio/10179/11051/10179_11051_000104.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 34.36,
+        "original_end_s": 49.68
+      }
+    },
+    {
+      "id": "10179_11051_000105",
+      "text": "il n'est pas si vilain que ça dirent les cygnes et un monsieur cygne avec un magnifique plastron blanc et de beaux pieds vernis déclara qu'il reste parmi nous et dans trois mois je lui donne ma fille en mariage",
+      "audio": "test/audio/10179/11051/10179_11051_000105.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 195.92,
+        "original_end_s": 212.48
+      }
+    },
+    {
+      "id": "10179_11051_000106",
+      "text": "personne ne put le raccommoder et l'empereur devint si triste qu'il tomba gravement malade mais une nuit qu'il était près de mourir il entendit soudain à côté de son lit une voix si mélodieuse qu'il se sentit revenir à la vie",
+      "audio": "test/audio/10179/11051/10179_11051_000106.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 61.46,
+        "original_end_s": 77.48
+      }
+    },
+    {
+      "id": "10179_11051_000107",
+      "text": "ce n'était pas du tout un superbe caneton mais un vilain petit animal avec un cou trop long un corps trop gros et qui marchait les pattes en dedans sans aucune élégance",
+      "audio": "test/audio/10179/11051/10179_11051_000107.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 65.27,
+        "original_end_s": 77.83
+      }
+    },
+    {
+      "id": "10179_11051_000108",
+      "text": "le chat du meunier les guettait depuis longtemps sans réussir à les attraper car aussitôt qu'il s'approchait les oiseaux s'envolaient je vous prendrai quand même petits nigauds dit le chat en méditant une ruse",
+      "audio": "test/audio/10179/11051/10179_11051_000108.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 13.44,
+        "original_end_s": 29.57
+      }
+    },
+    {
+      "id": "10179_11051_000109",
+      "text": "toutes ces bêtes vont sûrement se disputer et se mordre les oreilles il serait donc prudent de leur enlever les oreilles avant leur entrée dans l'arche on les leur rendra à la sortie il fit installer un vestiaire et donna l'ordre à ses fils d'y ranger les oreilles à mesure que les bêtes se présenteraient",
+      "audio": "test/audio/10179/11051/10179_11051_000109.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 14.26,
+        "original_end_s": 33.71
+      }
+    },
+    {
+      "id": "10179_11051_000110",
+      "text": "j'allais te le proposer dit le père escargot et il descendit de son balcon avec sa femme pour interroger les fourmis les fourmis répondirent",
+      "audio": "test/audio/10179/11051/10179_11051_000110.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 30.21,
+        "original_end_s": 40.88
+      }
+    },
+    {
+      "id": "10179_11051_000111",
+      "text": "mais à ce moment passa la vieille fée des bois qui est la surveillante des fleurs avec sa baguette elle donna une tape sur la joue de la violette petite impudente",
+      "audio": "test/audio/10179/11051/10179_11051_000111.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 79.26,
+        "original_end_s": 89.86
+      }
+    },
+    {
+      "id": "10179_11051_000112",
+      "text": "mais l'un d'eux qui avait failli être mangé en garda une telle frayeur qu'il prit désormais chaque épi pour une patte de chat et jura de ne plus manger que des fruits pendus aux branches des arbres",
+      "audio": "test/audio/10179/11051/10179_11051_000112.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 70.07,
+        "original_end_s": 82.89
+      }
+    },
+    {
+      "id": "10179_11051_000113",
+      "text": "il avait oublié de manger le septième petit biquet qui s'était caché sous le lit aussi quand la mère chèvre revint du marché avec un panier au bras ce fut ce petit biquet qui lui apprit que le loup avait mangé ses six petits frères",
+      "audio": "test/audio/10179/11051/10179_11051_000113.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 16.95,
+        "original_end_s": 31.91
+      }
+    },
+    {
+      "id": "10179_11051_000114",
+      "text": "jouons je serai le cocher maurice sera le cheval et jean sera le chien qui aboie après la voiture maurice fit très bien le cheval il hennissait levait les pieds très haut et paraissait s'amuser beaucoup",
+      "audio": "test/audio/10179/11051/10179_11051_000114.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_24_lemaitre_64kb.mp3",
+        "original_start_s": 13.28,
+        "original_end_s": 28.06
+      }
+    },
+    {
+      "id": "10179_11051_000115",
+      "text": "et bulbul serait mort de faim si la petite fille de la cuisinière ne l'avait adopté mais à force de remonter le rossignol mécanique la clef cassa et l'oiseau cessa de chanter",
+      "audio": "test/audio/10179/11051/10179_11051_000115.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_19_lemaitre_64kb.mp3",
+        "original_start_s": 49.68,
+        "original_end_s": 61.46
+      }
+    },
+    {
+      "id": "10179_11051_000116",
+      "text": "il alla tremper une de ses pattes de devant dans le ruisseau puis il courut au moulin la plonger dans un tas de millet en grain de façon que les grains restèrent collés autour de sa patte mouillée ainsi",
+      "audio": "test/audio/10179/11051/10179_11051_000116.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 29.57,
+        "original_end_s": 43.58
+      }
+    },
+    {
+      "id": "10179_11051_000117",
+      "text": "oreille quand noé eut rassemblé les animaux devant l'arche il se dit",
+      "audio": "test/audio/10179/11051/10179_11051_000117.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 14.26
+      }
+    },
+    {
+      "id": "10179_11051_000118",
+      "text": "chapitre treize de a b c petits contes de jules lemaître enregistré pour librivox point org loup quand le loup eut mangé les six petits biquets il se sentit le ventre si lourd qu'il alla faire un somme derrière le puits",
+      "audio": "test/audio/10179/11051/10179_11051_000118.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 16.95
+      }
+    },
+    {
+      "id": "10179_11051_000119",
+      "text": "un bahut mystérieux de sa bibliothèque qui répandait alors sur le tapis les jouets les plus inattendus collectionnés avec presque autant d'amour que les livres c'est ainsi qu'il fut amené à écrire un alphabet il le commença l'été de mille neuf cent treize à royan où il fit un assez long séjour",
+      "audio": "test/audio/10179/11051/10179_11051_000119.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 65.81,
+        "original_end_s": 84.82
+      }
+    },
+    {
+      "id": "10179_11051_000120",
+      "text": "quelle chance s'écria-t-elle c'est du sirop de groseille vite mes petits venez vous régaler mais les ratons glissaient sur le ventre du tonneau et ne pouvaient arriver au sommet",
+      "audio": "test/audio/10179/11051/10179_11051_000120.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_18_lemaitre_64kb.mp3",
+        "original_start_s": 36.01,
+        "original_end_s": 48.82
+      }
+    },
+    {
+      "id": "10179_11051_000121",
+      "text": "et ayant dit la fée changea la violette des bois en une violette de parme et voilà pourquoi les violettes de parme n'ont pas de parfum",
+      "audio": "test/audio/10179/11051/10179_11051_000121.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 120.42,
+        "original_end_s": 130.48
+      }
+    },
+    {
+      "id": "10179_11051_000122",
+      "text": "alors xavier dit je voudrais être le cheval comme tu voudras dit le petit maurice le petit jean qui faisait toujours le chien aboyait de toutes ses forces courait à droite et à gauche et semblait très content alors xavier dit je voudrais être le chien",
+      "audio": "test/audio/10179/11051/10179_11051_000122.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_24_lemaitre_64kb.mp3",
+        "original_start_s": 28.06,
+        "original_end_s": 45.86
+      }
+    },
+    {
+      "id": "10179_11051_000123",
+      "text": "et en effet tout à coup elle perdit l'équilibre elle voulut se retenir à la table elle se cramponna à la nappe et patatras tout se renversa sur elle et sur sa chaise tout les plats les bouteilles les verres les fourchettes et la crème",
+      "audio": "test/audio/10179/11051/10179_11051_000123.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 65.37,
+        "original_end_s": 82.96
+      }
+    },
+    {
+      "id": "10179_11051_000124",
+      "text": "il en chercha les sujets en se promenant à petits pas il était déjà très essoufflé entre les pins et la mer et le soir il racontait ses contes pour les essayer à mes neveux africains riant avec eux ou disant déçu quand ils restaient indifférents",
+      "audio": "test/audio/10179/11051/10179_11051_000124.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 84.82,
+        "original_end_s": 101.64
+      }
+    },
+    {
+      "id": "10179_11051_000125",
+      "text": "nous allons bien voir si c'est une princesse pensa la reine elle ordonna aux servantes de préparer un lit pour la jeune fille mais de mettre un pois sous les vingt matelas qui composaient ce lit le lendemain la reine demanda à la jeune fille comment elle avait dormi",
+      "audio": "test/audio/10179/11051/10179_11051_000125.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 43.66,
+        "original_end_s": 61.63
+      }
+    },
+    {
+      "id": "10179_11051_000126",
+      "text": "chapitre quinze de a b c petits contes jules lemaître enregistré pour librivox point org neige quatre petites filles regardaient par la fenêtre la neige tomber elles étaient nées en orient où il ne fait jamais très froid et c'était la première fois qu'elles voyaient de la neige",
+      "audio": "test/audio/10179/11051/10179_11051_000126.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_15_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 19.99
+      }
+    },
+    {
+      "id": "10179_11051_000127",
+      "text": "et c'est ainsi que la pauvre orpheline arriva après plusieurs jours au chou de ses beaux-parents et dans les bras de son fiancé fin du chapitre sept enregistré par sonia",
+      "audio": "test/audio/10179/11051/10179_11051_000127.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 97.71,
+        "original_end_s": 110.97
+      }
+    },
+    {
+      "id": "10179_11051_000128",
+      "text": "quand il fut grand on l'abattit on le dépouilla de son écorce et il devint selon son voeu grand mât sur une frégate mais il s'ennuyait à cause de la longueur et de la monotonie des traversées",
+      "audio": "test/audio/10179/11051/10179_11051_000128.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 15.56,
+        "original_end_s": 28.86
+      }
+    },
+    {
+      "id": "10179_11051_000129",
+      "text": "le village ou la ville est votre univers à vous mes enfants et quand vous serez grands ce sera la france entière avec ses mers ses îles ses colonies et tout ce que vous saurez voir et tout ce que vous saurez comprendre",
+      "audio": "test/audio/10179/11051/10179_11051_000129.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_22_lemaitre_64kb.mp3",
+        "original_start_s": 34.66,
+        "original_end_s": 50.27
+      }
+    },
+    {
+      "id": "10179_11051_000130",
+      "text": "oh comme il est dur grogna-t-il sans doute je n'ai pas bien digéré ah je sais j'ai oublié de boire et se levant il alla vers le puits dans son ventre les six pierres faisaient un bruit étrange",
+      "audio": "test/audio/10179/11051/10179_11051_000130.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 108.19,
+        "original_end_s": 125.06
+      }
+    },
+    {
+      "id": "10179_11051_000131",
+      "text": "dit le vilain petit canard que ces oiseaux sont beaux pour sûr ils me chasseront car je suis trop laid et il se disposait à se retirer lorsqu'une grand'mère cygne qui se reposait sur la rive l'interpella",
+      "audio": "test/audio/10179/11051/10179_11051_000131.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_04_lemaitre_64kb.mp3",
+        "original_start_s": 123.18,
+        "original_end_s": 138.98
+      }
+    },
+    {
+      "id": "10179_11051_000132",
+      "text": "moineau dans un champ de millet les moineaux venaient picorer les épis",
+      "audio": "test/audio/10179/11051/10179_11051_000132.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 13.44
+      }
+    },
+    {
+      "id": "10179_11051_000133",
+      "text": "bonjour la mère âne bonjour mes fils leur répondit-elle l'âne eut l'air de se moquer d'eux à son tour en remuant ses oreilles et les méchants garçons ne trouvèrent plus rien à dire",
+      "audio": "test/audio/10179/11051/10179_11051_000133.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_02_lemaitre_64kb.mp3",
+        "original_start_s": 34.67,
+        "original_end_s": 50.0
+      }
+    },
+    {
+      "id": "10179_11051_000134",
+      "text": "furieux il se dressa sur ses pattes mais l'autre se dressa aussi alors le bélier se jeta de toutes ses forces contre la glace et il la brisa en mille morceaux puis il descendit l'escalier et quitta la maison très fier d'avoir mis l'autre bélier en fuite",
+      "audio": "test/audio/10179/11051/10179_11051_000134.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_03_lemaitre_64kb.mp3",
+        "original_start_s": 65.26,
+        "original_end_s": 84.82
+      }
+    },
+    {
+      "id": "10179_11051_000135",
+      "text": "chapitre deux de a b c petits conte de jules lemaître enregistré pour librivox point org âne il y avait dans un village une pauvre vieille femme qui n'avait pour toute compagnie qu'un petit âne",
+      "audio": "test/audio/10179/11051/10179_11051_000135.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_02_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 16.51
+      }
+    },
+    {
+      "id": "10179_11051_000136",
+      "text": "une demoiselle est une longue et jolie mouche qui habite près des ruisseaux et des étangs sur une feuille de nénuphar on l'appelle demoiselle parce qu'elle a la taille fine un corselet de satin vert",
+      "audio": "test/audio/10179/11051/10179_11051_000136.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_05_lemaitre_64kb.mp3",
+        "original_start_s": 13.03,
+        "original_end_s": 26.26
+      }
+    },
+    {
+      "id": "10179_11051_000137",
+      "text": "et tirant de son panier un couteau de cuisine d'un seul coup elle fend le ventre du loup dans toute sa longueur et les six petits biquets sautent au cou de leur mère car le loup les avait avalés si goulûment qu'il n'avait pas pris le temps de les mâcher et qu'ils étaient encore en vie",
+      "audio": "test/audio/10179/11051/10179_11051_000137.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_13_lemaitre_64kb.mp3",
+        "original_start_s": 59.81,
+        "original_end_s": 77.91
+      }
+    },
+    {
+      "id": "10179_11051_000138",
+      "text": "ils la mirent dans une cage à côté du poêle ils la nourrirent de mouches et de vers si bien que l'hirondelle était en très bonne santé et ne boitait plus du tout au retour du printemps",
+      "audio": "test/audio/10179/11051/10179_11051_000138.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_09_lemaitre_64kb.mp3",
+        "original_start_s": 42.16,
+        "original_end_s": 53.98
+      }
+    },
+    {
+      "id": "10179_11051_000139",
+      "text": "ni sucre ni lettres déchirées ni plumes c'est de la neige de la neige comme il y en a tous les ans en europe de la neige avec laquelle on fait des boules de neige et un bonhomme de neige nous en ferons un demain si vous êtes sages",
+      "audio": "test/audio/10179/11051/10179_11051_000139.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_15_lemaitre_64kb.mp3",
+        "original_start_s": 62.33,
+        "original_end_s": 79.04
+      }
+    },
+    {
+      "id": "10179_11051_000140",
+      "text": "un jour c'était un dimanche il y avait un très bon déjeuner une crème au chocolat et beaucoup de gâteaux yvonne avait promis d'être sage parce qu'elle ne voulait pas être privée de dessert au commencement tout alla bien",
+      "audio": "test/audio/10179/11051/10179_11051_000140.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 31.31,
+        "original_end_s": 46.38
+      }
+    },
+    {
+      "id": "10179_11051_000141",
+      "text": "et maintenant je suis tout sec tout nu et tout seul ah si j'avais su si seulement j'avais pu être mât de cocagne et il soupira si fort que tous les cordages en craquèrent",
+      "audio": "test/audio/10179/11051/10179_11051_000141.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_20_lemaitre_64kb.mp3",
+        "original_start_s": 43.7,
+        "original_end_s": 56.81
+      }
+    },
+    {
+      "id": "10179_11051_000142",
+      "text": "les oiseaux la prirent pour un épi et se mirent à en picorer les grains alors vite avec l'autre patte le chat les attrapa bientôt les moineaux s'aperçurent du piège et ils cherchèrent un autre champ",
+      "audio": "test/audio/10179/11051/10179_11051_000142.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_14_lemaitre_64kb.mp3",
+        "original_start_s": 57.36,
+        "original_end_s": 70.07
+      }
+    },
+    {
+      "id": "10179_11051_000143",
+      "text": "les fourmis se mirent en route et arrivèrent près du vieux mur où l'orpheline pleurait ses parents qu'on avait fait cuire elle fut si heureuse de la proposition qu'elle accorda tout de suite sa main même sans le connaître au fils adoptif des vieux",
+      "audio": "test/audio/10179/11051/10179_11051_000143.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_07_lemaitre_64kb.mp3",
+        "original_start_s": 67.32,
+        "original_end_s": 83.86
+      }
+    },
+    {
+      "id": "10179_11051_000144",
+      "text": "ah disait-elle que je suis jolie et que je sens bon je dois être plus jolie que les autres fleurs et mon parfum doit être plus agréable que tous les autres parfums de la forêt puisque c'est sur moi seule que le poète a fait des vers",
+      "audio": "test/audio/10179/11051/10179_11051_000144.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 62.63,
+        "original_end_s": 79.26
+      }
+    },
+    {
+      "id": "10179_11051_000145",
+      "text": "grisé par ce parfum il fit des vers en l'honneur de l'humble fleur des bois et il les récita tout haut à ses pieds une violette l'entendit elle crut qu'il ne parlait que pour elle",
+      "audio": "test/audio/10179/11051/10179_11051_000145.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_23_lemaitre_64kb.mp3",
+        "original_start_s": 32.55,
+        "original_end_s": 44.64
+      }
+    },
+    {
+      "id": "10179_11051_000146",
+      "text": "on dirait des pêchers en fleur les poules admiraient la courbe élégante de son bec les canards qui sont si bas sur pattes regardaient avec envie les longues jambes de l'ibis qui semblaient peintes au ripolin rose",
+      "audio": "test/audio/10179/11051/10179_11051_000146.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 32.29,
+        "original_end_s": 47.01
+      }
+    },
+    {
+      "id": "10179_11051_000147",
+      "text": "et quand les parents de l'hirondelle revinrent des pays chauds les enfants ouvrirent la cage la petite hirondelle reconnut sa mère et avec des cris de joie elle se jeta dans ses ailes",
+      "audio": "test/audio/10179/11051/10179_11051_000147.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_09_lemaitre_64kb.mp3",
+        "original_start_s": 53.98,
+        "original_end_s": 66.32
+      }
+    },
+    {
+      "id": "10179_11051_000148",
+      "text": "alors la mère escargot dit au père escargot mon ami il faut marier notre fils il faut lui chercher une jolie fille de notre monde afin que nous ayons de beaux petits-enfants j'allais te le proposer répondit le mari mais à qui nous adresser pour cela",
+      "audio": "test/audio/10179/11051/10179_11051_000148.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_06_lemaitre_64kb.mp3",
+        "original_start_s": 57.05,
+        "original_end_s": 75.56
+      }
+    },
+    {
+      "id": "10179_11051_000149",
+      "text": "tout le monde connaît les contes charmants écrits pour ses filleules et ses filleuls comme les idées de liette les amoureux de la princesse lilli boum cette étrange petite fille de bagdad et celui en marge des contes de perrault le lapin blanc et les trèfles à quatre feuilles",
+      "audio": "test/audio/10179/11051/10179_11051_000149.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 36.59,
+        "original_end_s": 53.03
+      }
+    },
+    {
+      "id": "10179_11051_000150",
+      "text": "le chameau arriva l'avant-dernier il ne restait plus que deux paires d'oreilles les siennes très grandes et celles de l'âne toutes petites mais avant que le bon chameau pût montrer son numéro l'âne lui passa entre les jambes et se mit à brailler",
+      "audio": "test/audio/10179/11051/10179_11051_000150.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_16_lemaitre_64kb.mp3",
+        "original_start_s": 78.33,
+        "original_end_s": 93.73
+      }
+    },
+    {
+      "id": "10179_11051_000151",
+      "text": "chapitre vingt deux de a b c petits contes de jules lemaître enregistré pour librivox point org univers c'est un bien grand mot et une bien grande chose aussi car cela veut dire le monde entier",
+      "audio": "test/audio/10179/11051/10179_11051_000151.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_22_lemaitre_64kb.mp3",
+        "original_start_s": 0.0,
+        "original_end_s": 16.03
+      }
+    },
+    {
+      "id": "10179_11051_000152",
+      "text": "la pintade se moquait de son nez d'ivrogne et un caneton poussa l'impertinence jusqu'à lui demander combien les baguettes qui lui servaient de jambes lui avaient coûté le centimètre",
+      "audio": "test/audio/10179/11051/10179_11051_000152.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_10_lemaitre_64kb.mp3",
+        "original_start_s": 69.08,
+        "original_end_s": 80.65
+      }
+    },
+    {
+      "id": "10179_11051_000153",
+      "text": "et tout de suite il lui demanda sa main",
+      "audio": "test/audio/10179/11051/10179_11051_000153.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_17_lemaitre_64kb.mp3",
+        "original_start_s": 79.72,
+        "original_end_s": 96.03
+      }
+    },
+    {
+      "id": "10179_11051_000154",
+      "text": "ainsi ils dépouillaient les arbres du paradis les autres bêtes qui ne pouvaient pas en faire autant se plaignirent au bon dieu le bon dieu fit venir devant lui les kangourous et pour qu'il leur fût plus difficile de voler les fruits il leur raccourcit les pattes de devant",
+      "audio": "test/audio/10179/11051/10179_11051_000154.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_12_lemaitre_64kb.mp3",
+        "original_start_s": 33.61,
+        "original_end_s": 50.4
+      }
+    },
+    {
+      "id": "10179_11051_000155",
+      "text": "il en reçut les épreuves à tavers fin juillet déjà la cécité verbale l'avait accablé il regarda mélancolique les images puis dit avec un navrant sourire je vais réapprendre à lire dans mon propre alphabet",
+      "audio": "test/audio/10179/11051/10179_11051_000155.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_01_lemaitre_64kb.mp3",
+        "original_start_s": 127.67,
+        "original_end_s": 142.07
+      }
+    },
+    {
+      "id": "10179_11051_000156",
+      "text": "mais peu à peu la petite fille fut reprise par sa mauvaise habitude elle se balança sur sa chaise en avant et en arrière tandis que le chien médor et la chatte minouche la regardaient avec un air de dire prends garde prends garde nous connaissons quelqu'un qui va tomber",
+      "audio": "test/audio/10179/11051/10179_11051_000156.opus",
+      "tags": {
+        "speaker_id": "mls-fr-10179",
+        "gender": "w",
+        "book_id": "11051",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/abcpetitscontes_1609_librivox/abcpetitscontes_25_lemaitre_64kb.mp3",
+        "original_start_s": 46.38,
+        "original_end_s": 65.37
+      }
+    }
+  ]
+}

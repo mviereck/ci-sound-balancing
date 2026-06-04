@@ -1,0 +1,114 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — te",
+  "lang": "te",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-te",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "39104660",
+      "text": "వాగులో చిక్కుకున్న వారిని గజ ఈతగాళ్లు ఒడ్డుకు చేర్చారు",
+      "audio": "te/unknown/te_u_39104660.mp3",
+      "tags": {
+        "source_item_id": "39104660",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "38821775",
+      "text": "పరీక్షకు నిమిషం ఆలస్యమైనా అనుమతించేది లేదన్నారు",
+      "audio": "te/unknown/te_u_38821775_guntur_krishna_delta_region.mp3",
+      "tags": {
+        "source_item_id": "38821775",
+        "gender": "u",
+        "accent": "guntur krishna delta region"
+      }
+    },
+    {
+      "id": "39171902",
+      "text": "కలిమి గలుగ నేస్తకాండ్రు వేలకు వేలు",
+      "audio": "te/unknown/te_u_39171902.mp3",
+      "tags": {
+        "source_item_id": "39171902",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "40127056",
+      "text": "చాలా చల్లగా ఉన్న శీతల పానీయాలను తాగకూడదు.",
+      "audio": "te/unknown/te_u_40127056_telangana_andhra.mp3",
+      "tags": {
+        "source_item_id": "40127056",
+        "gender": "u",
+        "accent": "Telangana,Andhra"
+      }
+    },
+    {
+      "id": "38821716",
+      "text": "గురువారం నాకు ఏ పని లేదు",
+      "audio": "te/unknown/te_u_38821716_guntur_krishna_delta_region.mp3",
+      "tags": {
+        "source_item_id": "38821716",
+        "gender": "u",
+        "accent": "guntur krishna delta region"
+      }
+    },
+    {
+      "id": "38821735",
+      "text": "గుండ్లకమ్మ వాగులో ట్రాక్టర్ కొట్టుకుపోయింది",
+      "audio": "te/unknown/te_u_38821735_guntur_krishna_delta_region.mp3",
+      "tags": {
+        "source_item_id": "38821735",
+        "gender": "u",
+        "accent": "guntur krishna delta region"
+      }
+    },
+    {
+      "id": "38821855",
+      "text": "తెలుగుబాల! శతకం",
+      "audio": "te/unknown/te_u_38821855_guntur_krishna_delta_region.mp3",
+      "tags": {
+        "source_item_id": "38821855",
+        "gender": "u",
+        "accent": "guntur krishna delta region"
+      }
+    },
+    {
+      "id": "38821734",
+      "text": "ప్రవాహ వేగం స్వల్పంగా తగ్గింది",
+      "audio": "te/unknown/te_u_38821734_guntur_krishna_delta_region.mp3",
+      "tags": {
+        "source_item_id": "38821734",
+        "gender": "u",
+        "accent": "guntur krishna delta region"
+      }
+    },
+    {
+      "id": "40116810",
+      "text": "ఆ మందహాసమని భావము",
+      "audio": "te/unknown/te_u_40116810_telangana_andhra.mp3",
+      "tags": {
+        "source_item_id": "40116810",
+        "gender": "u",
+        "accent": "Telangana,Andhra"
+      }
+    },
+    {
+      "id": "39104658",
+      "text": "బడికి నడువలేడు",
+      "audio": "te/unknown/te_u_39104658.mp3",
+      "tags": {
+        "source_item_id": "39104658",
+        "gender": "u"
+      }
+    }
+  ]
+}

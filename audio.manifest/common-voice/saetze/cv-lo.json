@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — lo",
+  "lang": "lo",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-lo",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "37783253",
+      "text": "ທະນາຄານພັດທະນາອາຊີ ແລະ ທະນາຄານໂລກ ມອບປື້ມບົດລາຍງານຄວາມສະເຫມີພາບ ຍິງຊາຍໃນລາວ",
+      "audio": "lo/unknown/lo_u_37783253.mp3",
+      "tags": {
+        "source_item_id": "37783253",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37767055",
+      "text": "ວາງສີລາລຶກ ໂຄງການກໍ່ສ້າງສູນຊັບພະສິນຄ້າຄົບວົງຈອນ",
+      "audio": "lo/unknown/lo_u_37767055.mp3",
+      "tags": {
+        "source_item_id": "37767055",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37783202",
+      "text": "ລັດຖະມົນຕີກະຊວງສຶກສາ ຕ້ອນຮັບຄະນະຜູ້ແທນສະມາຄົມ ມິດຕະພາບໄຊຕະມະລາວ",
+      "audio": "lo/unknown/lo_u_37783202.mp3",
+      "tags": {
+        "source_item_id": "37783202",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37783126",
+      "text": "ນາຍົກລັດຖະມົນຕີ ລາວຍີ່ປຸ່ນ ສົນທະນາກັນຜ່ານທາງໂທລະສັບທາງໄກ",
+      "audio": "lo/unknown/lo_u_37783126.mp3",
+      "tags": {
+        "source_item_id": "37783126",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37767060",
+      "text": "ໝາກນາວມີສັບພະຄຸນຫຼາຍຢ່າງ ທີ່ທ່ານອາດຍັງບໍ່ຮູ້",
+      "audio": "lo/unknown/lo_u_37767060.mp3",
+      "tags": {
+        "source_item_id": "37767060",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37766964",
+      "text": "ເລັ່ງສ້ອມແປງ! ຂົວນໍ້າພະນາຍ ເມືອງທຸລະຄົມ ແຂວງວຽງຈັນ",
+      "audio": "lo/unknown/lo_u_37766964.mp3",
+      "tags": {
+        "source_item_id": "37766964",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37783198",
+      "text": "ນັກກິລາແລ່ນ ທີ່ພິການທາງສາຍຕາ ຖືກແຟນໜຸ່ມຂໍແຕ່ງງານກາງສະໜາມ ຫຼັງຈາກແຂ່ງຂັນແລ້ວ",
+      "audio": "lo/unknown/lo_u_37783198.mp3",
+      "tags": {
+        "source_item_id": "37783198",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37766962",
+      "text": "ລັດຍັງບໍ່ສາມາດໄກ່ເກ່ຍດິນທີ່ຖືກໂຄງການພັດທະນາບາງຂົງເຂດ",
+      "audio": "lo/unknown/lo_u_37766962.mp3",
+      "tags": {
+        "source_item_id": "37766962",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37767054",
+      "text": "ມາດຕະຖານການເກັບຄ່າຜ່ານທາງດ່ວນວຽງຈັນວັງວຽງ",
+      "audio": "lo/unknown/lo_u_37767054.mp3",
+      "tags": {
+        "source_item_id": "37767054",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "37783200",
+      "text": "ນາຍົກ ໂອ້ລົມກັບບັນດາທູດລາວ ປະຈຳຕ່າງປະເທດ",
+      "audio": "lo/unknown/lo_u_37783200.mp3",
+      "tags": {
+        "source_item_id": "37783200",
+        "gender": "u"
+      }
+    }
+  ]
+}

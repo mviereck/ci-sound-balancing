@@ -1,0 +1,107 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Common Voice — it",
+  "lang": "it",
+  "license": "CC0-1.0",
+  "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
+  "url": "https://commonvoice.mozilla.org",
+  "tags": {
+    "speaker_id": "cv-it",
+    "style": "crowdsourced",
+    "split_used": "train"
+  },
+  "items": [
+    {
+      "id": "17415790",
+      "text": "Giocare come il gatto col topo.",
+      "audio": "it/unknown/it_u_17415790.mp3",
+      "tags": {
+        "source_item_id": "17415790",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17416180",
+      "text": "Le ragazze non hanno opportunità, qui.",
+      "audio": "it/unknown/it_u_17416180.mp3",
+      "tags": {
+        "source_item_id": "17416180",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17416234",
+      "text": "entrò, chiuse la porta a chiave a la appoggiò su un tavolo, lontano dal divano.",
+      "audio": "it/unknown/it_u_17416234.mp3",
+      "tags": {
+        "source_item_id": "17416234",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17421356",
+      "text": "A Marco piaceva giocare a biliardo, ma non a biliardino.",
+      "audio": "it/unknown/it_u_17421356.mp3",
+      "tags": {
+        "source_item_id": "17421356",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17435145",
+      "text": "Davvero interessante, anche se di solito questi argomenti mi annoiano.",
+      "audio": "it/unknown/it_u_17435145.mp3",
+      "tags": {
+        "source_item_id": "17435145",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17437849",
+      "text": "Era raro, se non unico, che fosse così attivo già prima che la luna fosse sorta.",
+      "audio": "it/unknown/it_u_17437849.mp3",
+      "tags": {
+        "source_item_id": "17437849",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17441617",
+      "text": "I giudici di nuoto indossano obbligatoriamente una maglia bianca, un pantalone bianco e delle scarpe bianche.",
+      "audio": "it/unknown/it_u_17441617.mp3",
+      "tags": {
+        "source_item_id": "17441617",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17443194",
+      "text": "È vero che Paolo aveva altre chiavi;",
+      "audio": "it/unknown/it_u_17443194.mp3",
+      "tags": {
+        "source_item_id": "17443194",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17452095",
+      "text": "A bocce ferme si saprà chi ha vinto.",
+      "audio": "it/unknown/it_u_17452095.mp3",
+      "tags": {
+        "source_item_id": "17452095",
+        "gender": "u"
+      }
+    },
+    {
+      "id": "17452574",
+      "text": "Anche se con qualche difetto, perché siamo stati capaci di creare queste cose da soli.",
+      "audio": "it/unknown/it_u_17452574.mp3",
+      "tags": {
+        "source_item_id": "17452574",
+        "gender": "u"
+      }
+    }
+  ]
+}

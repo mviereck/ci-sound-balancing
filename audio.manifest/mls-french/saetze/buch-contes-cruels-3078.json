@@ -1,0 +1,1012 @@
+{
+  "schema": "ci-sb-corpus/2",
+  "kind": "collection",
+  "category": "saetze",
+  "title": "Contes cruels",
+  "lang": "fr",
+  "license": "CC-BY-4.0",
+  "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
+  "url": "https://www.openslr.org/94/",
+  "tags": {
+    "style": "test",
+    "book_id": "3078",
+    "book_title": "Contes cruels",
+    "origin": "librivox-via-mls"
+  },
+  "items": [
+    {
+      "id": "5207_3078_000000",
+      "text": "songez quelle distance nous sépare de ces âges primitifs du sentiment depuis si longtemps perdus au fond de notre esprit l'atonie du son de la voix l'anomalie du geste la recherche de nos paroles tout est en contradiction avec les sincérités ayant cours et avec les banalités de langage",
+      "audio": "test/audio/5207/3078/5207_3078_000000.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 537.91,
+        "original_end_s": 555.17
+      }
+    },
+    {
+      "id": "5207_3078_000001",
+      "text": "contes cruels par auguste de villiers de lisle-adam sentimentalisme à monsieur jean marras je m'estime peu quand je m'examine beaucoup quand je me compare monsieur tout le monde",
+      "audio": "test/audio/5207/3078/5207_3078_000001.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 16.09,
+        "original_end_s": 33.22
+      }
+    },
+    {
+      "id": "5207_3078_000002",
+      "text": "ah dit-il d'une voix égale et harmonieuse un jeune homme des plus accomplis et qui mérite votre attachement recevez donc mes adieux chère lucienne",
+      "audio": "test/audio/5207/3078/5207_3078_000002.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 430.44,
+        "original_end_s": 441.74
+      }
+    },
+    {
+      "id": "5207_3078_000003",
+      "text": "ils regardaient passer les voitures lumineuses maximilien fit signe à l'une d'elles qui s'approcha lorsque lucienne s'y fut assise le jeune homme s'inclina silencieusement au revoir cria lucienne en lui envoyant un baiser",
+      "audio": "test/audio/5207/3078/5207_3078_000003.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1008.88,
+        "original_end_s": 1027.02
+      }
+    },
+    {
+      "id": "5207_3078_000004",
+      "text": "proportionnées à la manière de ressentir de la majorité nous sonnons faux on nous trouve de glace les femmes en nous observant alors n'en reviennent pas elles s'imaginaient volontiers que nous aussi nous allions nous démener au moins quelque peu partir enfin pour ces mêmes nuages",
+      "audio": "test/audio/5207/3078/5207_3078_000004.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 555.17,
+        "original_end_s": 573.72
+      }
+    },
+    {
+      "id": "5207_3078_000005",
+      "text": "suffit à pénétrer bien des mesures d'eau claire je vous assure lucienne et celles-ci à leur tour suffisent à embaumer bien des demeures bien des tombeaux durant de longues années",
+      "audio": "test/audio/5207/3078/5207_3078_000005.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 676.2,
+        "original_end_s": 689.19
+      }
+    },
+    {
+      "id": "5207_3078_000006",
+      "text": "oui jusqu'à je ne sais quels ravissements dont j'emporte à jamais l'étrange et troublant souvenir mais que voulez-vous vous m'échappez",
+      "audio": "test/audio/5207/3078/5207_3078_000006.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 816.17,
+        "original_end_s": 826.5
+      }
+    },
+    {
+      "id": "5207_3078_000007",
+      "text": "il a trop d'intelligence pour avoir du cœur il est d'abord fort probable que le quidam se fâcherait tout rouge si on lui répondait qu'il a lui trop de cœur pour avoir de l'intelligence ce qui prouve qu'au fond nous n'avons pas choisi la plus mauvaise part de l'aveu même de celui qui nous le reproche",
+      "audio": "test/audio/5207/3078/5207_3078_000007.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 928.0,
+        "original_end_s": 947.42
+      }
+    },
+    {
+      "id": "5207_3078_000008",
+      "text": "puis il écrivit quelques vers sur une vallée écossaise dont le souvenir lui revint assez étrangement parmi les hasards de l'esprit puis il coupa quelques feuillets d'un livre nouveau les parcourut et jeta le volume",
+      "audio": "test/audio/5207/3078/5207_3078_000008.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1050.83,
+        "original_end_s": 1066.16
+      }
+    },
+    {
+      "id": "5207_3078_000009",
+      "text": "bref lorsqu'un grand bonheur ou un grand malheur vous arrivent ce qui s'éveille en vous tout d'abord avant même que votre esprit s'en soit bien rendu compte c'est l'obscur désir d'aller trouver quelque comédien hors ligne pour lui demander quels sont les gestes convenables où vous devez vous laisser emporter par la circonstance",
+      "audio": "test/audio/5207/3078/5207_3078_000009.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 152.21,
+        "original_end_s": 171.81
+      }
+    },
+    {
+      "id": "5207_3078_000010",
+      "text": "nous nous efforcerions en vain de rendosser toute cette défroque humaine oubliée dans notre antichambre depuis un temps immémorial nous nous sommes identifiés avec l'essence même de la joie avec l'idée vive de la douleur",
+      "audio": "test/audio/5207/3078/5207_3078_000010.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 605.19,
+        "original_end_s": 619.98
+      }
+    },
+    {
+      "id": "5207_3078_000011",
+      "text": "tout comme les autres mais c'est seulement tout d'abord que nous le ressentons de cette manière humaine c'est la presque impossibilité d'exprimer ses prolongements immédiats en nous qui nous fait paraître comme paralysés presque toujours en bien des circonstances",
+      "audio": "test/audio/5207/3078/5207_3078_000011.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 489.21,
+        "original_end_s": 504.59
+      }
+    },
+    {
+      "id": "5207_3078_000012",
+      "text": "tout au moins traduisez-vous avec une gêne qui vous ferait passer pour insensibles les sentiments personnels que la vie vous met en demeure d'éprouver",
+      "audio": "test/audio/5207/3078/5207_3078_000012.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 102.56,
+        "original_end_s": 112.83
+      }
+    },
+    {
+      "id": "5207_3078_000013",
+      "text": "nous ressentons en un mot les sensations ordinaires reprit maximilien avec autant d'intensité que quiconque oui le fait naturel instinctif d'une sensation nous l'éprouvons physiquement",
+      "audio": "test/audio/5207/3078/5207_3078_000013.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 474.98,
+        "original_end_s": 489.21
+      }
+    },
+    {
+      "id": "5207_3078_000014",
+      "text": "ayant conquis une pureté de sensations inaccessible aux profanes nous deviendrions menteurs à nos propres yeux si nous empruntions les pantomimes reçues et les expressions consacrées dont le vulgaire se contente nous nous hâterions en conscience de le dissuader",
+      "audio": "test/audio/5207/3078/5207_3078_000014.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 704.58,
+        "original_end_s": 724.18
+      }
+    },
+    {
+      "id": "5207_3078_000015",
+      "text": "ajouta-t-elle après un bref silence continuez mon ami je vous prie je voudrais apprendre avant de nous quitter ce qui donne le droit aux grands artistes de tant dédaigner les façons des autres hommes un instant se passa terrible muet entre les deux amants",
+      "audio": "test/audio/5207/3078/5207_3078_000015.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 457.56,
+        "original_end_s": 474.98
+      }
+    },
+    {
+      "id": "5207_3078_000016",
+      "text": "l'art conduirait il à l'endurcissement cela m'inquiète lucienne répondit le comte j'ai connu certain chanteur qui auprès du lit de mort de sa fiancée",
+      "audio": "test/audio/5207/3078/5207_3078_000016.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 171.81,
+        "original_end_s": 184.73
+      }
+    },
+    {
+      "id": "5207_3078_000017",
+      "text": "mais vraiment mon cher maximilien s'écria-t-elle vous en viendrez à ne plus oser dire bonjour ou bonsoir de peur de paraître",
+      "audio": "test/audio/5207/3078/5207_3078_000017.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 788.3,
+        "original_end_s": 799.19
+      }
+    },
+    {
+      "id": "5207_3078_000018",
+      "text": "pourquoi cette inquiétude rare à propos d'une heure qui passe parce que c'est la dernière de notre amour mon ami répondit lucienne j'ai accepté de monsieur de rostanges un rendez-vous pour onze heures et demie ce soir j'ai différé de vous l'apprendre jusqu'au dernier moment m'en voulez-vous pardonnez-moi",
+      "audio": "test/audio/5207/3078/5207_3078_000018.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 398.16,
+        "original_end_s": 417.79
+      }
+    },
+    {
+      "id": "5207_3078_000019",
+      "text": "ou se justifier d'avance de l'inertie où ils sentent bien qu'ils vont rentrer ces natures sans échos sont ce que le monde appelle des gens à caractère des êtres des cœurs violents et nuls cessons d'être dupes de la matité de leurs cris étaler sa faiblesse dans le secret espoir d'en communiquer",
+      "audio": "test/audio/5207/3078/5207_3078_000019.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 303.44,
+        "original_end_s": 322.31
+      }
+    },
+    {
+      "id": "5207_3078_000020",
+      "text": "vous ne sauriez vous défaire de cette arrière-pensée elle paralyse chez vous les meilleurs élans et tempère toute expansion naturelle on dirait que princes d'un autre univers une foule invisible ne cesse de vous environner prête à la critique ou à l'ovation",
+      "audio": "test/audio/5207/3078/5207_3078_000020.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 136.76,
+        "original_end_s": 152.21
+      }
+    },
+    {
+      "id": "5207_3078_000021",
+      "text": "quand il fut seul dans sa chambre il s'assit devant sa table de travail prit dans un nécessaire une petite lime et parut absorbé dans le soin de se polir l'extrémité des ongles",
+      "audio": "test/audio/5207/3078/5207_3078_000021.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1039.51,
+        "original_end_s": 1050.83
+      }
+    },
+    {
+      "id": "5207_3078_000022",
+      "text": "il semblerait alors à voir la froide mesure de vos mouvements que vous ne palpitez que par courtoisie l'art sans doute vous poursuit d'une préoccupation constante jusque dans l'amour et dans la douleur",
+      "audio": "test/audio/5207/3078/5207_3078_000022.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 112.83,
+        "original_end_s": 125.63
+      }
+    },
+    {
+      "id": "5207_3078_000023",
+      "text": "le rayon qui frappe un diamant entouré de gangue y est-il mieux reflété qu'en un diamant bien taillé où pénètre l'essence même du feu en vérité ceux-là celles-là",
+      "audio": "test/audio/5207/3078/5207_3078_000023.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 353.2,
+        "original_end_s": 365.47
+      }
+    },
+    {
+      "id": "5207_3078_000024",
+      "text": "retentit un peu de fumée partit bleuâtre de la poitrine du jeune homme qui tomba sur les coussins depuis ce temps lorsqu'on demande à lucienne le motif de ses toilettes sombres elle répond à ses amoureux d'un ton enjoué",
+      "audio": "test/audio/5207/3078/5207_3078_000024.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1099.39,
+        "original_end_s": 1116.16
+      }
+    },
+    {
+      "id": "5207_3078_000025",
+      "text": "mais les termes techniques sont déplaisants et je crains laissez donc j'ai mon bouquet de violettes de parme vous avez votre cigare je vous écoute eh bien soit j'obéis",
+      "audio": "test/audio/5207/3078/5207_3078_000025.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 228.26,
+        "original_end_s": 242.69
+      }
+    },
+    {
+      "id": "5207_3078_000026",
+      "text": "j'espère qu'il y aura bientôt quatre ou cinq cents théâtres par capitale où les événements usuels de la vie étant joués sensiblement mieux que dans la réalité personne ne se donnera plus beaucoup la peine de vivre soi-même lorsqu'on voudra se passionner ou s'émouvoir on prendra une stalle ce sera plus simple",
+      "audio": "test/audio/5207/3078/5207_3078_000026.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 860.25,
+        "original_end_s": 880.05
+      }
+    },
+    {
+      "id": "5207_3078_000027",
+      "text": "ensuite remarquez-vous ce que devient cette phrase sous une analyse attentive c'est comme si l'on disait cette personne est trop bien élevée pour se donner la peine d'avoir de bonnes manières en quoi consistent les bonnes manières",
+      "audio": "test/audio/5207/3078/5207_3078_000027.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 947.42,
+        "original_end_s": 961.74
+      }
+    },
+    {
+      "id": "5207_3078_000028",
+      "text": "si le comte à ces paroles devint un peu plus pâle l'obscurité protectrice voila cette marque d'émotion nul frémissement ne décela ce que dut subir son être en cet instant",
+      "audio": "test/audio/5207/3078/5207_3078_000028.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 417.79,
+        "original_end_s": 430.44
+      }
+    },
+    {
+      "id": "5207_3078_000029",
+      "text": "la voiture s'éloigna le comte la suivit des yeux quelque temps comme de raison puis remontant l'avenue à pied le cigare aux lèvres il rentra chez lui au rond-point",
+      "audio": "test/audio/5207/3078/5207_3078_000029.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1027.02,
+        "original_end_s": 1039.51
+      }
+    },
+    {
+      "id": "5207_3078_000030",
+      "text": "et si nous tenions à la vengeance celle-là nous serait amusante non lucienne il ne nous agrée pas de nous mal traduire en ces manifestations mensongères où les gens se produisent",
+      "audio": "test/audio/5207/3078/5207_3078_000030.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 591.83,
+        "original_end_s": 605.19
+      }
+    },
+    {
+      "id": "5207_3078_000031",
+      "text": "que dans les grandes occasions un bon acteur vînt se placer derrière nous passât ses bras sous les nôtres puis parlât et gesticulât pour notre compte nous serions sûrs alors de toucher la foule par les seuls côtés qui lui sont accessibles madame emery considérait très pensive le comte de w",
+      "audio": "test/audio/5207/3078/5207_3078_000031.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 768.32,
+        "original_end_s": 788.3
+      }
+    },
+    {
+      "id": "5207_3078_000032",
+      "text": "je vous affirme moi que la tranquillité de leurs organismes encore un peu obscurcis par l'instinct les porte à nous donner pour de suprêmes expressions de sentiments de simples débordements d'animalité je maintiens que leurs cœurs et leurs cerveaux sont desservis par des centres nerveux qui",
+      "audio": "test/audio/5207/3078/5207_3078_000032.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 270.07,
+        "original_end_s": 288.51
+      }
+    },
+    {
+      "id": "5207_3078_000033",
+      "text": "au nom de quels droits réels prétendraient ils décréter que toutes ces agitations de plus que douteux aloi sont de rigueur dans l'expression des souffrances ou des ivresses de la vie et taxer d'insensibilité ceux dont la pudeur s'en abstient",
+      "audio": "test/audio/5207/3078/5207_3078_000033.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 337.16,
+        "original_end_s": 353.2
+      }
+    },
+    {
+      "id": "5207_3078_000034",
+      "text": "s'il ajoutait foi ne fût-ce qu'un instant au premier cri que parfois nous arrache une incidence heureuse ou fatale c'est à la juste notion de la sincérité que nous devons d'être sobres dans les gestes",
+      "audio": "test/audio/5207/3078/5207_3078_000034.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 724.18,
+        "original_end_s": 739.08
+      }
+    },
+    {
+      "id": "5207_3078_000035",
+      "text": "bah que voulez-vous le noir me va si bien mais son éventail de deuil palpite alors sur son sein comme l'aile d'un phalène sur une pierre tombale fin de sentimentalisme",
+      "audio": "test/audio/5207/3078/5207_3078_000035.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1116.16,
+        "original_end_s": 1135.87
+      }
+    },
+    {
+      "id": "5207_3078_000036",
+      "text": "j'écoute votre analyse un peu subtile avec une admiration sincère mais seriez-vous assez aimable pour me dire quelle est cette heure qui sonne dix heures lucienne répondit le jeune homme en regardant sa montre à la lueur de son cigare ah bien continuez",
+      "audio": "test/audio/5207/3078/5207_3078_000036.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 379.71,
+        "original_end_s": 398.16
+      }
+    },
+    {
+      "id": "5207_3078_000037",
+      "text": "prit dans un tiroir un petit pistolet coup de poing s'approcha d'un sofa mit l'arme dans sa poitrine sourit et haussa les épaules en fermant les yeux un coup sourd étouffé par les draperies",
+      "audio": "test/audio/5207/3078/5207_3078_000037.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1083.37,
+        "original_end_s": 1099.39
+      }
+    },
+    {
+      "id": "5207_3078_000038",
+      "text": "madame émery regarda maximilien à vous entendre dit-elle il serait difficile de préciser en quoi consiste la sensibilité véritable et à quels signes on peut la reconnaître je veux bien dissiper vos doutes à ce sujet répondit en souriant monsieur de w",
+      "audio": "test/audio/5207/3078/5207_3078_000038.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 211.44,
+        "original_end_s": 228.26
+      }
+    },
+    {
+      "id": "5207_3078_000039",
+      "text": "hélas nous sommes pareils à ces cristaux puissants où dort en orient le pur esprit des roses mortes et qui sont hermétiquement voilés d'une triple enveloppe de cire d'or et de parchemin",
+      "audio": "test/audio/5207/3078/5207_3078_000039.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 648.05,
+        "original_end_s": 660.55
+      }
+    },
+    {
+      "id": "5207_3078_000040",
+      "text": "par un soir de printemps deux jeunes gens bien élevés lucienne émery et le comte maximilien de w étaient assis sous les grands arbres d'une avenue des champs-élysées",
+      "audio": "test/audio/5207/3078/5207_3078_000040.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 33.22,
+        "original_end_s": 45.02
+      }
+    },
+    {
+      "id": "5207_3078_000041",
+      "text": "ses yeux reflétaient la lumière intellectuelle charmants mais comme des pierreries un peu froids leur intimité datait de six mois à peine ce soir-là donc ils regardaient en silence les vagues silhouettes",
+      "audio": "test/audio/5207/3078/5207_3078_000041.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 64.15,
+        "original_end_s": 77.69
+      }
+    },
+    {
+      "id": "5207_3078_000042",
+      "text": "ce qui nous sépare en effet ce n'est pas une différence c'est un infini lucienne se leva et prit le bras de m de w je remporte de notre entretien cet axiome",
+      "audio": "test/audio/5207/3078/5207_3078_000042.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 979.43,
+        "original_end_s": 991.41
+      }
+    },
+    {
+      "id": "5207_3078_000043",
+      "text": "emprunté au commun des mortels vous avez des instants exquis et inoubliables je l'avoue et suis fière de vous les avoir inspirés parfois vous m'avez éblouie des profondeurs de votre cœur et des douces expansions de votre tendresse",
+      "audio": "test/audio/5207/3078/5207_3078_000043.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 799.19,
+        "original_end_s": 816.17
+      }
+    },
+    {
+      "id": "5207_3078_000044",
+      "text": "et entendant la sœur de celle-ci se répandre en sanglots convulsifs ne pouvait s'empêcher de remarquer malgré son affliction les défauts d'émission vocale qu'il y avait lieu de signaler dans ces sanglots et songeait vaguement aux exercices propres à leur donner plus de corps",
+      "audio": "test/audio/5207/3078/5207_3078_000044.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 184.73,
+        "original_end_s": 201.34
+      }
+    },
+    {
+      "id": "5207_3078_000045",
+      "text": "ces discordances apparentes entre les pensées et les attitudes lorsque l'un d'entre nous par exemple essaye de traduire à la manière de tout le monde ce qu'il éprouve",
+      "audio": "test/audio/5207/3078/5207_3078_000045.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 527.36,
+        "original_end_s": 537.91
+      }
+    },
+    {
+      "id": "5207_3078_000046",
+      "text": "en vérité chère lucienne si nous tenions ce qu'à dieu ne plaise à cesser d'être incompris de la plupart des individus à revendiquer de leurs entendements un autre hommage que l'indifférence il serait à désirer en effet comme vous le disiez tout à l'heure",
+      "audio": "test/audio/5207/3078/5207_3078_000046.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 752.08,
+        "original_end_s": 768.32
+      }
+    },
+    {
+      "id": "5207_3078_000047",
+      "text": "moi je ne les crois que sublimées au contraire ces mystérieuses fibres les autres hommes semblent gratifiés de propriétés de tendresse mieux conditionnées de passions plus franches plus sérieuses enfin",
+      "audio": "test/audio/5207/3078/5207_3078_000047.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 257.33,
+        "original_end_s": 270.07
+      }
+    },
+    {
+      "id": "5207_3078_000048",
+      "text": "à force d'analyser les complexités de ces mêmes sentiments vous craignez trop de ne pas être parfaits dans vos manifestations n'est-ce pas de manquer d'exactitude dans l'exposé de votre trouble",
+      "audio": "test/audio/5207/3078/5207_3078_000048.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 125.63,
+        "original_end_s": 136.76
+      }
+    },
+    {
+      "id": "5207_3078_000049",
+      "text": "la contagion afin de bénéficier au moins fictivement à ses propres yeux de l'émotion réelle que l'on parvient ainsi à susciter chez quelques autres grâce à cette obscure feintise cela ne convient qu'aux êtres inachevés",
+      "audio": "test/audio/5207/3078/5207_3078_000049.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 322.31,
+        "original_end_s": 337.16
+      }
+    },
+    {
+      "id": "5207_3078_000050",
+      "text": "ce sont les perceptions de ces prolongements occultes de ces infinies et merveilleuses vibrations qui seules déterminent la supériorité de notre race de là",
+      "audio": "test/audio/5207/3078/5207_3078_000050.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 516.74,
+        "original_end_s": 527.36
+      }
+    },
+    {
+      "id": "5207_3078_000051",
+      "text": "où il est entendu que se réfugient les poètes d'après un dicton répandu à dessein par la bourgeoisie quel étonnement en voyant arriver précisément le contraire la méprisante horreur qu'elles éprouvent à cette découverte pour ceux qui les avaient dupées sur notre compte passe toutes bornes",
+      "audio": "test/audio/5207/3078/5207_3078_000051.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 573.72,
+        "original_end_s": 591.83
+      }
+    },
+    {
+      "id": "5207_3078_000052",
+      "text": "deux heures de la nuit sonnèrent il s'étira ce battement de cœur est vraiment insupportable murmura-t-il il se leva fit retomber les rideaux massifs et les tentures alla vers un secrétaire l'ouvrit",
+      "audio": "test/audio/5207/3078/5207_3078_000052.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 1066.16,
+        "original_end_s": 1083.37
+      }
+    },
+    {
+      "id": "5207_3078_000053",
+      "text": "dit-elle que si contradictoires que semblent vos paroles ou vos manières d'être quelquefois dans les circonstances terribles ou joyeuses de votre existence elles ne peuvent en rien que vous soyez de bois acheva le comte avec un sourire",
+      "audio": "test/audio/5207/3078/5207_3078_000053.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 991.41,
+        "original_end_s": 1008.88
+      }
+    },
+    {
+      "id": "5207_3078_000054",
+      "text": "au moment où les autres hommes sont déjà parvenus à l'oubli faute de vitalité suffisante elles grandissent en notre être tenez comme les rumeurs de la houle lorsqu'on approche de la mer",
+      "audio": "test/audio/5207/3078/5207_3078_000054.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 504.59,
+        "original_end_s": 516.74
+      }
+    },
+    {
+      "id": "5207_3078_000055",
+      "text": "que voulez-vous c'est ainsi seuls entre les hommes nous sommes parvenus à la possession d'une aptitude presque divine celle de transfigurer à notre simple contact les félicités de l'amour par exemple ou ses tortures sous un caractère immédiat d'éternité",
+      "audio": "test/audio/5207/3078/5207_3078_000055.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 619.98,
+        "original_end_s": 635.46
+      }
+    },
+    {
+      "id": "5207_3078_000056",
+      "text": "c'est là notre indicible secret instinctivement nous nous refusons à le laisser transparaître pour épargner autant que possible à notre prochain la honte de nous trouver incompréhensibles",
+      "audio": "test/audio/5207/3078/5207_3078_000056.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 635.46,
+        "original_end_s": 648.05
+      }
+    },
+    {
+      "id": "5207_3078_000057",
+      "text": "voici dix heures et demie et je serais indiscret de ne point vous le rappeler après votre confidence de tout à l'heure murmura maximilien en souriant et en se levant votre conclusion dit-elle j'arriverai à temps",
+      "audio": "test/audio/5207/3078/5207_3078_000057.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 898.47,
+        "original_end_s": 913.81
+      }
+    },
+    {
+      "id": "5207_3078_000058",
+      "text": "ensevelis dans une torpeur habituelle résonnent en vibrations infiniment moins nombreuses et plus sourdes que les nôtres on dirait qu'ils ne se hâtent d'évaporer en clameurs leurs impressions que pour se donner une illusion d'eux-mêmes",
+      "audio": "test/audio/5207/3078/5207_3078_000058.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 288.51,
+        "original_end_s": 303.44
+      }
+    },
+    {
+      "id": "5207_3078_000059",
+      "text": "qui se laissent émouvoir par la crudité des expansions sont de nature à préférer les bruits confus aux profondes mélodies voilà tout pardon maximilien interrompit mme émery",
+      "audio": "test/audio/5207/3078/5207_3078_000059.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 365.47,
+        "original_end_s": 379.71
+      }
+    },
+    {
+      "id": "5207_3078_000060",
+      "text": "répliqua maximilien les fibres cérébrales affectées par les sensations de joie ou de peine paraissent dites-vous comme détenues chez l'artiste par ces excès d'émotions intellectuelles que nécessite chaque jour le culte de l'art",
+      "audio": "test/audio/5207/3078/5207_3078_000060.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 242.69,
+        "original_end_s": 257.33
+      }
+    },
+    {
+      "id": "5207_3078_000061",
+      "text": "une seule larme de leur essence de cette essence conservée ainsi dans la grande amorphe précieuse fortune de toute une race et que l'on se transmet par héritage comme un trésor sacré tout béni par les aïeux",
+      "audio": "test/audio/5207/3078/5207_3078_000061.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 660.55,
+        "original_end_s": 676.2
+      }
+    },
+    {
+      "id": "5207_3078_000062",
+      "text": "que sans cesse agités d'impressions artificielles et pour ainsi dire abstraites les grands artistes comme vous finissent par émousser en eux la faculté de subir réellement les tourments ou les voluptés qui leur sont dévolus par le sort",
+      "audio": "test/audio/5207/3078/5207_3078_000062.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 88.28,
+        "original_end_s": 102.56
+      }
+    },
+    {
+      "id": "5207_3078_000063",
+      "text": "ceci vous semble mal cependant notre chanteur mourut de cette séparation et la survivante quitta le deuil juste au jour prescrit par l'usage",
+      "audio": "test/audio/5207/3078/5207_3078_000063.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 201.34,
+        "original_end_s": 211.44
+      }
+    },
+    {
+      "id": "5207_3078_000064",
+      "text": "je me résigne donc à ne pas être ordinaire dussé-je encourir le dédain des braves gens qui peut-être avec raison se jugent mieux organisés que moi répondit le comte tout le monde d'ailleurs me paraît aujourd'hui plus ou moins revenu d'éprouver quoi que ce soit",
+      "audio": "test/audio/5207/3078/5207_3078_000064.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 843.11,
+        "original_end_s": 860.25
+      }
+    },
+    {
+      "id": "5207_3078_000065",
+      "text": "ajouta-t-il il prit la main de sa maîtresse et la baisa qui sait ce que nous réserve l'avenir lui répondit lucienne souriante bien qu'un peu interdite rostanges n'est qu'un caprice irrésistible et maintenant",
+      "audio": "test/audio/5207/3078/5207_3078_000065.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 441.74,
+        "original_end_s": 457.56
+      }
+    },
+    {
+      "id": "5207_3078_000066",
+      "text": "ce que le vulgaire non plus que l'homme vraiment bien élevé ne sauront jamais malgré tous les codes de civilité puérile et honnête de telle sorte que cette phrase n'exprime naïvement que la jalousie instinctive et pour ainsi dire mélancolique de certaines natures en présence de la nôtre",
+      "audio": "test/audio/5207/3078/5207_3078_000066.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 961.74,
+        "original_end_s": 979.43
+      }
+    },
+    {
+      "id": "5207_3078_000067",
+      "text": "d'un regard où je ne puis vous suivre et je ne serai jamais bien persuadée que vous éprouvez vous-même d'une manière autre qu'imaginaire ce que vous faites ressentir c'est à cause de ceci max que je ne puis que me séparer de vous",
+      "audio": "test/audio/5207/3078/5207_3078_000067.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 826.5,
+        "original_end_s": 843.11
+      }
+    },
+    {
+      "id": "5207_3078_000068",
+      "text": "mais nous ne sommes point pareils et c'est là notre crime à ces flacons remplis de banals parfums tristes et stériles fioles qu'on dédaigne le plus souvent de refermer et dont la vertu s'aigrit et s'évente à tous les souffles qui passent",
+      "audio": "test/audio/5207/3078/5207_3078_000068.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 689.19,
+        "original_end_s": 704.58
+      }
+    },
+    {
+      "id": "5207_3078_000069",
+      "text": "je conclus répondit maximilien que lorsqu'un quidam s'écrie à propos de l'un d'entre nous en se frappant les parois antérieures de la poitrine comme pour s'étourdir sur le vide qu'il sent en lui-même",
+      "audio": "test/audio/5207/3078/5207_3078_000069.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 913.81,
+        "original_end_s": 928.0
+      }
+    },
+    {
+      "id": "5207_3078_000070",
+      "text": "des voitures des ombres et des promeneurs tout à coup madame émery prit doucement la main de son amant ne vous semble-t-il pas mon ami lui dit-elle",
+      "audio": "test/audio/5207/3078/5207_3078_000070.opus",
+      "tags": {
+        "speaker_id": "mls-fr-5207",
+        "gender": "w",
+        "book_id": "3078",
+        "split": "test",
+        "original_url": "http://www.archive.org/download/contescruels_1012_librivox/contescruels_15_villiersdelisleadam_64kb.mp3",
+        "original_start_s": 77.69,
+        "original_end_s": 88.28
+      }
+    }
+  ]
+}
