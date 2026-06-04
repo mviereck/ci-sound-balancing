@@ -113,7 +113,7 @@ Object.assign(L.es, {
     lblRun: "Procedimiento de prueba:",
     optFull: "Round Robin (todos los pares)",
     optCF: "Convergencia",
-    optMan: "Manual",
+    optMan: "Especial: Manual",
     lblRef: "Electrodo de referencia:",
     lblVol2: "Volumen:",
     lblDur2: "Duración del tono:",

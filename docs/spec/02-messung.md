@@ -88,7 +88,7 @@ Slider-Wert wird invertiert.
   ein Alert-Hinweis und der Test startet nicht.
 - **Modi**: balance (Slider) und judgment (3-Knopf-Urteil)
 - **Testverfahren**: Round Robin (alle Paare) / Konvergenz /
-  manuell
+  Spezial: Round Robin mit Vorauswahl / Spezial: Manuell
 - A/B-Zuordnung und Paarreihenfolge immer randomisiert
 - Referenzelektroden-Auswahl erfolgt im Ergebnis-Reiter
   (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
@@ -117,6 +117,16 @@ Slider-Wert wird invertiert.
 - Wenn Modus „Round Robin" angefangen aber nicht abgeschlossen wurde,
   zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und
   bestätigten Paaren des aktuellen Sweeps.
+- **Spezial: Round Robin mit Vorauswahl** (`'selective'`, BA 204):
+  Round-Robin-Lauf, gefiltert auf eine vom Nutzer per Popup gewählte
+  Untermenge aktiver Elektroden. Es werden alle Paare gespielt, in
+  denen mindestens eine gewählte Elektrode vorkommt; alle anderen
+  Paare bleiben außen vor. Kein Resume — jeder Start beginnt frisch.
+  Die Auswahl (`selectiveElectrodes`) bleibt session-weit erhalten und
+  kann über „Auswahl ändern…" jederzeit überarbeitet werden. Bei
+  Elektroden-Ausschluß während des Laufs wird die Auswahl entsprechend
+  reduziert; bleibt kein passendes Paar mehr, endet der Test mit
+  Hinweis.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 

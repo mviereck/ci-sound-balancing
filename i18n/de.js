@@ -113,7 +113,9 @@ Object.assign(L.de, {
     lblRun: "Testverfahren:",
     optFull: "Round Robin (alle Paare)",
     optCF: "Konvergenz",
-    optMan: "Manuell",
+    optMan: "Spezial: Manuell",
+    optSel: "Spezial: Round Robin mit Vorauswahl",
+    runExplSel: "Round Robin nur über die ausgewählten Elektroden. Es werden alle Paare gespielt, in denen mindestens eine der gewählten Elektroden vorkommt; alle anderen Paare bleiben außen vor. Nützlich zum gezielten Nachmessen einzelner Elektroden. Kein Fortsetzen über Stop hinaus.",
     lblRef: "Referenzelektrode:",
     lblVol2: "Lautstärke:",
     lblDur2: "Tondauer:",
@@ -1011,4 +1013,15 @@ Object.assign(L.de, {
     updateBannerMsg: "Neue Version verfuegbar",
     updateBannerBtn: "Jetzt aktualisieren",
     updateBannerClose: "Banner schliessen",
+
+    // BA 204: Spezial-Round-Robin Popup
+    selDlgTitle: "Elektroden für Round Robin auswählen",
+    selDlgHint: "Wählen Sie die Elektroden aus, die Sie gezielt prüfen wollen.",
+    selDlgEmpty: "Bitte mindestens eine Elektrode auswählen.",
+    selDlgConfirm: "Bestätigen",
+    selDlgCancel: "Abbrechen",
+    selSummaryEmpty: "Keine Auswahl getroffen.",
+    selSummaryPrefix: "Auswahl:",
+    selChange: "Auswahl ändern…",
+    selectiveEnd: "Spezial-Round-Robin beendet: keine Paare mit den gewählten Elektroden mehr verfügbar.",
 });

@@ -698,6 +698,114 @@ function _testCheckExtend(sv) {
   const canExtend = testSlRangeIdx < TEST_SLIDER_RANGES.length - 1;
   testEls.extendBtn.hidden = !(atLimit && canExtend && !slExt);
 }
+// ============================================================
+// SELEKTIVES ROUND ROBIN — Elektroden-Vorauswahl
+// (BA 204) — Session-only, kein Resume, kein Persistieren.
+// ============================================================
+let selectiveElectrodes = [];
+
+function _selectivePairsFromRR(roundPairs) {
+  if (!selectiveElectrodes.length) return [];
+  const sel = new Set(selectiveElectrodes);
+  const actSet = new Set(actEl());
+  return roundPairs.filter(([a, b]) =>
+    actSet.has(a) && actSet.has(b) && (sel.has(a) || sel.has(b))
+  );
+}
+
+function _selectiveUpdateSummary() {
+  if (!testEls || !testEls.selSummary) return;
+  if (!selectiveElectrodes.length) {
+    testEls.selSummary.textContent = t('selSummaryEmpty');
+  } else {
+    const list = selectiveElectrodes
+      .slice()
+      .sort((x, y) => x - y)
+      .map(i => dEN(i))
+      .join(', ');
+    testEls.selSummary.textContent = t('selSummaryPrefix') + ' ' + list;
+  }
+}
+
+function _selectiveOpenDialog() {
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.style.cssText =
+    'position:fixed;inset:0;background:rgba(0,0,0,.45);' +
+    'display:flex;align-items:center;justify-content:center;z-index:9999;';
+
+  const dlg = document.createElement('div');
+  dlg.className = 'modal-dlg';
+  dlg.style.cssText =
+    'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
+    'border-radius:8px;min-width:280px;max-width:90vw;max-height:85vh;overflow:auto;' +
+    'box-shadow:0 10px 30px rgba(0,0,0,.3);';
+
+  const title = document.createElement('h3');
+  title.textContent = t('selDlgTitle');
+  title.style.cssText = 'margin:0 0 10px 0;font-size:1.05em;';
+  dlg.appendChild(title);
+
+  const hint = document.createElement('p');
+  hint.textContent = t('selDlgHint');
+  hint.style.cssText = 'margin:0 0 12px 0;font-size:.92em;';
+  dlg.appendChild(hint);
+
+  const errBox = document.createElement('div');
+  errBox.style.cssText = 'color:#c00;font-size:.88em;min-height:1.2em;margin-bottom:6px;';
+  dlg.appendChild(errBox);
+
+  const list = document.createElement('div');
+  list.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;margin-bottom:14px;';
+  const actNow = new Set(actEl());
+  const preSelected = new Set(selectiveElectrodes);
+  const cbRefs = [];
+  for (let i = 0; i < nEl; i++) {
+    if (!actNow.has(i)) continue;
+    const lbl = document.createElement('label');
+    lbl.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.92em;';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = String(i);
+    cb.checked = preSelected.has(i);
+    cbRefs.push(cb);
+    const sp = document.createElement('span');
+    sp.textContent = dENPrefix() + dEN(i);
+    lbl.append(cb, sp);
+    list.appendChild(lbl);
+  }
+  dlg.appendChild(list);
+
+  const btnRow = document.createElement('div');
+  btnRow.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;';
+  const cancelBtn = document.createElement('button');
+  cancelBtn.className = 'btn';
+  cancelBtn.textContent = t('selDlgCancel');
+  const confirmBtn = document.createElement('button');
+  confirmBtn.className = 'btn btn-primary';
+  confirmBtn.textContent = t('selDlgConfirm');
+  btnRow.append(cancelBtn, confirmBtn);
+  dlg.appendChild(btnRow);
+
+  overlay.appendChild(dlg);
+  document.body.appendChild(overlay);
+
+  function close() {
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  }
+  cancelBtn.addEventListener('click', close);
+  confirmBtn.addEventListener('click', function () {
+    const chosen = cbRefs.filter(c => c.checked).map(c => parseInt(c.value, 10));
+    if (!chosen.length) {
+      errBox.textContent = t('selDlgEmpty');
+      return;
+    }
+    selectiveElectrodes = chosen;
+    _selectiveUpdateSummary();
+    close();
+  });
+}
+
 function _testUpdCumulative(sv) {
   if (!testEls || !testEls.cumulativeDisplay) return;
   if (curBase !== 0) {
@@ -793,6 +901,56 @@ function startTest() {
   const pt = testEls.runSelect ? testEls.runSelect.value : "full";
   testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
   if (pt === "manual") return;
+  // BA 204: Spezial-Round-Robin mit Vorauswahl
+  if (pt === "selective") {
+    if (!selectiveElectrodes.length) {
+      alert(t('selDlgEmpty'));
+      _selectiveOpenDialog();
+      return;
+    }
+    const actSet0 = new Set(actEl());
+    selectiveElectrodes = selectiveElectrodes.filter(i => actSet0.has(i));
+    _selectiveUpdateSummary();
+    if (!selectiveElectrodes.length) {
+      alert(t('selDlgEmpty'));
+      _selectiveOpenDialog();
+      return;
+    }
+    const rrTable = ROUND_ROBIN[nEl];
+    let pairs;
+    if (!rrTable) {
+      const sel = new Set(selectiveElectrodes);
+      pairs = allPairs().filter(([a, b]) => sel.has(a) || sel.has(b));
+    } else {
+      pairs = [];
+      for (let r = 0; r < rrTable.length; r++) {
+        const filtered = _selectivePairsFromRR(rrTable[r]);
+        for (const p of filtered) pairs.push(p);
+      }
+    }
+    if (!pairs.length) {
+      alert(t('selectiveEnd'));
+      return;
+    }
+    testPairs = randAB(shuffle(pairs));
+    testIdx = 0;
+    undoSt = [];
+    testAct = true;
+    curPlayed = false;
+    compCnt = 0;
+    convRnd = 0;
+    tStart = Date.now();
+    testEls.startBtn.disabled = true;
+    testEls.stopBtn.disabled = false;
+    testEls.testBox.hidden = false;
+    if (testEls.subTitle) testEls.subTitle.textContent = t("testRunningTitle") || "";
+    if (testEls.progressText) testEls.progressText.textContent = "";
+    lockTestTabs(true, 'test');
+    startTmr();
+    showMode();
+    showCurPair();
+    return;
+  }
   let p;
   if (pt === "full") {
     // Round-Robin: persistentes Fortsetzen
@@ -1093,6 +1251,22 @@ function doExcl(i) {
   buildFreqTable();
   if (testEls && testEls.progressText)
     testEls.progressText.textContent = `${dENPrefix()}${dEN(i)} ${t("exclDuring")}. ${testPairs.length - testIdx} ${t("pairsRem")}.`;
+  // BA 204: Im selektiven Modus auch auf selectiveElectrodes filtern
+  const ptNow = testEls && testEls.runSelect ? testEls.runSelect.value : '';
+  if (ptNow === 'selective') {
+    const sel = new Set(selectiveElectrodes);
+    const newPairs = testPairs
+      .slice(testIdx)
+      .filter(([a, b]) => sel.has(a) || sel.has(b));
+    if (!newPairs.length) {
+      alert(t('selectiveEnd'));
+      endTest();
+      renderResults();
+      return;
+    }
+    testPairs = newPairs;
+    testIdx = 0;
+  }
   if (testIdx >= testPairs.length) {
     endTest();
     renderResults();
@@ -1169,6 +1343,7 @@ function updateRunExplain() {
   const explain = {
     full: t("runExplFull"),
     conv_fast: t("runExplCF"),
+    selective: t("runExplSel"),
     manual: t("runExplMan"),
   };
   box.textContent = explain[pt] || "";
@@ -1198,7 +1373,7 @@ document.addEventListener("DOMContentLoaded", function() {
         modeKey: 'lblMode',
         modeOptions: [['balance','optBal'],['judgment','optJdg']],
         runKey: 'lblRun',
-        runOptions: [['full','optFull'],['conv_fast','optCF'],['manual','optMan']]
+        runOptions: [['full','optFull'],['conv_fast','optCF'],['selective','optSel'],['manual','optMan']]
       },
       rowFine: {
         show: true,
@@ -1235,6 +1410,33 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   testEls = buildTestPanel(parentEl, testCfg);
+
+  // Auswahl-Anzeige für Spezial-Round-Robin (BA 204)
+  (function _selectiveInjectSummaryRow() {
+    if (!testEls || !testEls.runSelect) return;
+    const summaryRow = document.createElement('div');
+    summaryRow.id = 'selSummaryRow';
+    summaryRow.className = 'selective-summary-row';
+    summaryRow.style.cssText =
+      'margin-top:6px;display:none;align-items:center;gap:10px;font-size:.92em;';
+    const summary = document.createElement('span');
+    summary.id = 'selSummary';
+    const changeBtn = document.createElement('button');
+    changeBtn.type = 'button';
+    changeBtn.className = 'btn btn-small';
+    changeBtn.dataset.t = 'selChange';
+    changeBtn.textContent = t('selChange');
+    changeBtn.addEventListener('click', _selectiveOpenDialog);
+    summaryRow.append(summary, changeBtn);
+    const insertAfter = testEls.runSelect.closest('.controls-row') || testEls.runSelect.parentNode;
+    if (insertAfter && insertAfter.parentNode) {
+      insertAfter.parentNode.insertBefore(summaryRow, insertAfter.nextSibling);
+    }
+    testEls.selSummaryRow = summaryRow;
+    testEls.selSummary = summary;
+    testEls.selChangeBtn = changeBtn;
+    _selectiveUpdateSummary();
+  })();
 
   // manA/manB befüllen
   function _fillManSels() {
@@ -1276,6 +1478,13 @@ document.addEventListener("DOMContentLoaded", function() {
     testEls.runSelect.addEventListener('change', function() {
       if (testEls.manualSel)
         testEls.manualSel.classList.toggle('hidden', this.value !== 'manual');
+      // BA 204: Auswahl-Zeile sichtbar, wenn Spezial-Round-Robin
+      if (testEls.selSummaryRow) {
+        const sel = this.value === 'selective';
+        testEls.selSummaryRow.style.display = sel ? 'flex' : 'none';
+        // beim ersten Anwählen ohne bestehende Auswahl direkt Popup öffnen
+        if (sel && !selectiveElectrodes.length) _selectiveOpenDialog();
+      }
       updateRunExplain();
     });
   }
