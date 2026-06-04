@@ -15,26 +15,37 @@
      ausklappbare Einstellungsbox (`plWarpSettingsBox`); (7) Normalhörenden-
      Simulation; NH-Hinweisbox (`plNHInfo`).
   4. **Wiedergabe** (`plPlayTitle`) — vereinheitlichte Card mit
-     Top-Toggle Quelle (Musik / Sätze / Geräusche / Hörbücher; Geräusche
-     und Hörbücher ausgegraut bis spätere BA), quellenspezifischem
+     Top-Toggle Quelle (Musik / Sätze / Geräusche / Hörbücher; nur
+     Hörbücher ausgegraut bis spätere BA), quellenspezifischem
      Sub-Block, gemeinsamer Transport-Leiste (Prev, Play/Pause, Stop,
-     Next, Endlos-Toggle 🔁, Slider, Lautstärke), eigener Zeile für
-     Auto-Advance-Toggle ↪ + Pause-Buttons, und Anzeige-Block
-     (Titel, Sprecher, Quelle, Lizenz, optional Satz-Text).
+     Next, Endlos-Toggle 🔁, Slider, Lautstärke + Schnellbuttons 25/50/75/100),
+     eigener Zeile für Auto-Advance-Toggle ↪ + Pause-Buttons, und
+     Anzeige-Block (Titel, Art, Spektrum, Quelle, Lizenz, optional
+     Satz-Text).
      - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
      - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (Random-Satz
-       bei Sätzen; bei Musik in BA 192 ohne Folge-Track, da keine
-       Playlist). Stoppt nach 30 Minuten ohne UI-Interaktion.
-     - **Pause-Buttons**: 500 / 750 / 1000 / 2000 / 4000 / 8000 ms,
-       wirken nur bei aktivem Auto-Advance oder Loop; sonst ausgegraut.
-       Default 2000 ms.
+       bei Sätzen; bei Geräuschen nächstes in Sortier-Reihenfolge; bei
+       Musik ohne Folge-Track, da keine Playlist). Stoppt nach 30 Minuten
+       ohne UI-Interaktion.
+     - **Pause-Buttons**: 0 / 500 / 750 / 1000 / 2000 / 4000 / 8000 ms,
+       **immer aktiv** (wirken zwischen Loop-Wiederholungen und bei
+       Auto-Advance). Default 2000 ms.
      - Loop hat Vorrang vor Auto-Advance.
      - Transport-Leiste immer sichtbar (auch ohne geladene Datei);
-       Prev/Next ausgegraut im Musik-Modus (keine Playlist).
+       Prev/Next ausgegraut im Musik- und Geräusche-Modus (keine Playlist).
+     - **Geräusche:** Vier-Quellen-Aktiv. Sub-Block mit zwei Dropdowns —
+       Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
+       „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte
+       Standardrauscher (Weiß, Rosa, Braun) per WebAudio im Browser;
+       Sample-Geräusche folgen über das Embed-Modul (`assets/audio-embed/
+       noises.js`) und später über Webspace-Manifest.
+       Anzeige unter Transport: Titel · `kind` · `spectrum` · Lizenz · Quelle.
+       Loop und Auto-Advance wirken wie bei den anderen Quellen.
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
-       `plPauseMs`, `plSentShowText` werden in JSON-Save und localStorage
-       gespeichert und beim Restore wiederhergestellt.
-       `noise`/`audiobook` fallen beim Restore auf `music` zurück.
+       `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`, `plNoiseSortAxis`
+       werden in JSON-Save und localStorage gespeichert und beim Restore
+       wiederhergestellt. Nur `audiobook` fällt beim Restore auf `music`
+       zurück.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**

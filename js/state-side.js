@@ -702,6 +702,9 @@ let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus
 let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen), Default aus
 let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
 let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
+let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start
+let plNoiseSortAxis   = "kind";       // Default-Sortierachse
+let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
 
 let lvTabShowMeas = false;
 let lvTabShowCurves = false;

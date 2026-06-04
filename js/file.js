@@ -144,6 +144,9 @@ function resetAll() {
   if (typeof plLoop         !== "undefined") plLoop         = false;
   if (typeof plPauseMs      !== "undefined") plPauseMs      = 2000;
   if (typeof plSentShowText !== "undefined") plSentShowText = false;
+  // --- BA193: Geraeusche-State ---
+  if (typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = "gen:pink";
+  if (typeof plNoiseSortAxis   !== "undefined") plNoiseSortAxis   = "kind";
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
@@ -281,6 +284,8 @@ async function saveJson() {
     plLoop:         (typeof plLoop         !== "undefined") ? plLoop         : false,
     plPauseMs:      (typeof plPauseMs      !== "undefined") ? plPauseMs      : 2000,
     plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
+    plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
+    plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
     localCollections: (typeof sLocalCollections !== "undefined")
       ? Array.from(sLocalCollections.values()).map((c) => ({
           id: c.id,
@@ -689,13 +694,15 @@ function applyLoadedData(d) {
     plActiveSource = (d && typeof d.plActiveSource === "string"
                       && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
       ? d.plActiveSource : "music";
-    // BA192: noise und audiobook noch nicht verfuegbar -> auf music zurueckfallen
-    if (plActiveSource === "noise" || plActiveSource === "audiobook") plActiveSource = "music";
+    // audiobook noch nicht verfuegbar -> auf music zurueckfallen
+    if (plActiveSource === "audiobook") plActiveSource = "music";
   }
   if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
   if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
   if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
   if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
+  if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
+  if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();

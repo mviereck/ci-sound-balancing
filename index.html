@@ -137,7 +137,7 @@
         'js/mobile.js', 'js/touch-ctrl.js', 'js/i18n.js',
         'i18n/de.js', 'i18n/en.js', 'i18n/fr.js', 'i18n/es.js',
         'js/dependency-lock.js',
-        'js/core.js', 'js/state-side.js', 'js/audio.js',
+        'js/core.js', 'js/state-side.js', 'js/audio-source.js', 'assets/audio-embed/noises.js', 'js/audio.js',
         'js/ui-implant.js', 'js/freq-table.js', 'js/data/cochlear-fats.js', 'js/implant-validate.js', 'js/test-ui.js', 'js/test.js', 'js/freqmatch-staircase.js', 'js/freqmatch.js', 'js/freqmatch-adaptive.js', 'js/freqmatch-slider.js',
         'js/results.js', 'js/chart.js', 'js/file.js', 'js/print.js', 'js/print-md.js', 'js/tab-print.js', 'js/tabs-eq.js', 'js/levels.js',
         'vendors/rubberband-wasm/dist/index.umd.min.js',
@@ -1436,9 +1436,8 @@
               <button id="plSrcSentencesBtn" class="btn btn-sm"
                       style="font-weight: 600; min-width: 140px; border-radius: 6px"
                       data-t="plSrcSentences"></button>
-              <button id="plSrcNoiseBtn" class="btn btn-sm" disabled
-                      title="noch nicht verfuegbar (kommt in spaeterer Bauanleitung)"
-                      style="font-weight: 600; min-width: 140px; border-radius: 6px; opacity: 0.5; cursor: not-allowed"
+              <button id="plSrcNoiseBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
                       data-t="plSrcNoise"></button>
               <button id="plSrcAudiobookBtn" class="btn btn-sm" disabled
                       title="noch nicht verfuegbar (kommt in spaeterer Bauanleitung)"
@@ -1490,10 +1489,27 @@
             </div>
           </div>
 
-          <!-- Sub-Block: Geraeusche (Platzhalter, kommt in spaeterer BA) -->
-          <div id="plSubNoise" class="pl-subblock"
-               style="margin-bottom: 12px; display: none; color: var(--text-muted); font-size: 0.9em"
-               data-t="plNoiseComingSoon"></div>
+          <!-- Sub-Block: Geraeusche -->
+          <div id="plSubNoise" class="pl-subblock" style="margin-bottom: 12px; display: none">
+            <div class="controls-row" style="gap:8px; flex-wrap:wrap; margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plNoiseSortLabel" style="margin-right:6px"></label>
+                <select id="plNoiseSortSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                  <!-- Optionen werden zur Laufzeit aus AM_SORT_AXES.geraeusche befuellt -->
+                </select>
+              </div>
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plNoiseItemLabel" style="margin-right:6px"></label>
+                <select id="plNoiseItemSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:200px">
+                  <!-- Optionen werden zur Laufzeit aus amCollectItems("geraeusche") befuellt -->
+                </select>
+              </div>
+            </div>
+            <div id="plNoiseEmpty" class="explain" style="display:none;font-size:0.85em;color:var(--text-muted)"
+                 data-t="plNoiseEmpty"></div>
+          </div>
 
           <!-- Sub-Block: Hoerbuecher (Platzhalter, kommt in spaeterer BA) -->
           <div id="plSubAudiobook" class="pl-subblock"
@@ -1544,10 +1560,16 @@
               </div>
             </div>
 
-            <div class="control-group">
+            <div class="control-group" style="flex-wrap:wrap; gap:4px">
               <label data-t="lblVol"></label>
               <input type="number" id="plVol" value="80" min="0" max="100" step="1"
                      style="width:55px; padding:3px 5px; border:1px solid var(--border); border-radius:4px; text-align:center; font-family:var(--mono); font-size:0.88em" />%
+              <div id="plVolBtns" style="display:flex; gap:3px; flex-wrap:wrap; margin-left:6px">
+                <button class="btn pl-vol-btn" type="button" data-v="25">25</button>
+                <button class="btn pl-vol-btn" type="button" data-v="50">50</button>
+                <button class="btn pl-vol-btn" type="button" data-v="75">75</button>
+                <button class="btn pl-vol-btn" type="button" data-v="100">100</button>
+              </div>
             </div>
             <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted); background:var(--bg); padding:2px 6px; border-radius:4px">Mono</span>
           </div>
@@ -1563,6 +1585,7 @@
             <div class="control-group" style="flex-wrap:wrap; gap:4px">
               <label data-t="plPauseLabel" style="margin-right:4px"></label>
               <div id="plPauseBtns" style="display:flex; gap:3px; flex-wrap:wrap">
+                <button class="btn pl-pause-btn" type="button" data-ms="0">0</button>
                 <button class="btn pl-pause-btn" type="button" data-ms="500">500</button>
                 <button class="btn pl-pause-btn" type="button" data-ms="750">750</button>
                 <button class="btn pl-pause-btn" type="button" data-ms="1000">1000</button>

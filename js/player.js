@@ -139,12 +139,14 @@ function _buildWarpedPlaybackBuffer(mode) {
 }
 
 function pSetPlaybackMode(mode) {
-  if (mode !== "file" && mode !== "sentence") return;
+  if (mode !== "file" && mode !== "sentence" && mode !== "noise") return;
   pPlaybackMode = mode;
   if (mode === "file") {
     pSourceBuf = pFileBuf;
-  } else {
+  } else if (mode === "sentence") {
     pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
+  } else { // noise
+    pSourceBuf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
   }
   pMonoBuf = null;
   pLeftOnlyBuf = null;
@@ -523,6 +525,9 @@ async function pPlay() {
   // Nur ein Pfad: BufferSource auf pBuf (original oder Rubberband-Vorberechnung).
   pSrc = c.createBufferSource();
   pSrc.buffer = pBuf;
+  if (typeof plLoop !== "undefined" && plLoop) {
+    pSrc.loop = true;
+  }
   pSrc.connect(firstNode);
   pSrc.start(0, pOff);
   leadSrc = pSrc;
@@ -537,6 +542,24 @@ async function pPlay() {
         if (typeof sActive !== "undefined" && sActive
             && typeof sOnEnded === "function") {
           sOnEnded();
+        }
+        // BA193: Auto-Advance bei Geraeuschen
+        if (plActiveSource === "noise" && plAutoAdvance && !plLoop) {
+          const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+          setTimeout(function () {
+            const all = amCollectItems("geraeusche");
+            const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
+            if (sorted.length === 0) return;
+            const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+            const next = sorted[(idx + 1) % sorted.length];
+            if (!next) return;
+            plNoiseSelectedId = next.id;
+            const sel = document.getElementById("plNoiseItemSel");
+            if (sel) sel.value = next.id;
+            plNoiseLoadSelected().then(function () {
+              if (typeof pPlay === "function") pPlay();
+            });
+          }, ms);
         }
       }
     };
@@ -970,6 +993,16 @@ function plPlayPauseToggle() {
     if (typeof sPlay === "function") sPlay();
     return;
   }
+  if (plActiveSource === "noise") {
+    if (!pNoiseBuf || !pBuf) {
+      plNoiseLoadSelected().then(function () {
+        if (typeof pToggle === "function") pToggle();
+      });
+      return;
+    }
+    if (typeof pToggle === "function") pToggle();
+    return;
+  }
   if (typeof pToggle === "function") pToggle();
 }
 
@@ -1015,12 +1048,17 @@ function plSetPause(ms) {
 
 function plSetSource(src) {
   if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
-  if (src === "noise" || src === "audiobook") return;
+  if (src === "audiobook") return; // weiterhin nicht verfuegbar
   if (src === plActiveSource) return;
   plStopAll();
   plActiveSource = src;
   plUpdSourceUI();
   plUpdTransportUI();
+  // Bei Wechsel auf Geraeusche: aktuelles Item laden, damit Play sofort wirkt
+  if (src === "noise") {
+    plNoiseRefreshUI();
+    plNoiseLoadSelected();
+  }
   plUpdDisplay();
 }
 
@@ -1041,7 +1079,7 @@ function plUpdSourceUI() {
   }
   setActive(btnM, plActiveSource === "music");
   setActive(btnS, plActiveSource === "sentences");
-  setActive(btnN, false);
+  setActive(btnN, plActiveSource === "noise");
   setActive(btnA, false);
   if (subM) subM.style.display = (plActiveSource === "music")     ? "" : "none";
   if (subS) subS.style.display = (plActiveSource === "sentences") ? "" : "none";
@@ -1068,10 +1106,9 @@ function plUpdTransportUI() {
     b.classList.toggle("active", active);
     b.style.background = active ? "var(--accent, #6aa84f)" : "";
     b.style.color      = active ? "#fff" : "";
-    const pauseActive = plAutoAdvance || plLoop;
-    b.disabled = !pauseActive;
-    b.style.opacity = pauseActive ? "1" : "0.5";
-    b.style.cursor  = pauseActive ? "pointer" : "not-allowed";
+    b.disabled = false;
+    b.style.opacity = "1";
+    b.style.cursor  = "pointer";
   });
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
@@ -1110,6 +1147,19 @@ function plUpdDisplay() {
     const fi = document.getElementById("plAudio");
     const fname = (fi && fi.files && fi.files[0]) ? fi.files[0].name : "";
     titleText = fname || ((typeof t === "function") ? t("plDispEmpty") : "Nichts geladen");
+  } else if (plActiveSource === "noise") {
+    const it = (typeof plNoiseCurrentItem === "function") ? plNoiseCurrentItem() : null;
+    if (it) {
+      titleText = it.title || it.id;
+      const parts = [];
+      if (it.tags && it.tags.kind)     parts.push(it.tags.kind);
+      if (it.tags && it.tags.spectrum) parts.push(it.tags.spectrum);
+      if (it.license)     parts.push(it.license);
+      if (it.sourceTitle) parts.push(it.sourceTitle);
+      metaParts = parts;
+    } else {
+      titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+    }
   } else {
     titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
   }
@@ -1168,6 +1218,8 @@ document.getElementById("plSrcMusicBtn").addEventListener("click",
   function () { plSetSource("music"); });
 document.getElementById("plSrcSentencesBtn").addEventListener("click",
   function () { plSetSource("sentences"); });
+document.getElementById("plSrcNoiseBtn").addEventListener("click",
+  function () { plSetSource("noise"); });
 
 // BA192: Transport-Knoepfe
 document.getElementById("plPrev").addEventListener("click", plPrev);
@@ -1190,8 +1242,161 @@ if (_plSentTxtCb) {
   });
 }
 
+// ============================================================
+// BA193: Lautstärke-Schnellbuttons
+// ============================================================
+
+function plUpdVolBtns() {
+  const cur = parseInt(document.getElementById("plVol").value, 10);
+  document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
+    const v = parseInt(b.dataset.v, 10);
+    const active = (v === cur);
+    b.classList.toggle("active", active);
+    b.style.background = active ? "var(--accent, #6aa84f)" : "";
+    b.style.color      = active ? "#fff" : "";
+  });
+}
+
+document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
+  b.addEventListener("click", function () {
+    const v = parseInt(b.dataset.v, 10);
+    if (!Number.isFinite(v)) return;
+    const el = document.getElementById("plVol");
+    el.value = v;
+    el.dispatchEvent(new Event("change", { bubbles: true }));
+    plUpdVolBtns();
+  });
+});
+
+// ============================================================
+// BA193: Geraeusche-Quelle
+// ============================================================
+
+let _plNoiseDecodedCache = Object.create(null); // id -> AudioBuffer
+
+function plNoiseRefreshUI() {
+  const sortSel = document.getElementById("plNoiseSortSel");
+  const itemSel = document.getElementById("plNoiseItemSel");
+  const empty   = document.getElementById("plNoiseEmpty");
+  if (!sortSel || !itemSel) return;
+
+  // Sortier-Achsen-Dropdown
+  const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("geraeusche") : [];
+  if (sortSel.options.length === 0) {
+    for (const a of axes) {
+      const opt = document.createElement("option");
+      opt.value = a.key;
+      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+      sortSel.appendChild(opt);
+    }
+    if (typeof plNoiseSortAxis !== "undefined" && plNoiseSortAxis) {
+      sortSel.value = plNoiseSortAxis;
+    }
+  } else {
+    // Labels ggf. nach Sprachwechsel neu setzen
+    for (let i = 0; i < sortSel.options.length; i++) {
+      const opt = sortSel.options[i];
+      const a = axes.find(function (x) { return x.key === opt.value; });
+      if (a) opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+    }
+  }
+
+  // Items sammeln, sortieren, einsetzen
+  const all = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
+  const sorted = (typeof amSortItems === "function")
+    ? amSortItems(all, "geraeusche", sortSel.value)
+    : all;
+
+  const prev = itemSel.value;
+  while (itemSel.firstChild) itemSel.removeChild(itemSel.firstChild);
+  for (const it of sorted) {
+    const opt = document.createElement("option");
+    opt.value = it.id;
+    opt.textContent = it.title || it.id;
+    itemSel.appendChild(opt);
+  }
+  // vorherige Auswahl wiederherstellen, sonst gespeicherte oder erste
+  if (sorted.find(function (it) { return it.id === prev; })) {
+    itemSel.value = prev;
+  } else if (typeof plNoiseSelectedId !== "undefined" && plNoiseSelectedId
+             && sorted.find(function (it) { return it.id === plNoiseSelectedId; })) {
+    itemSel.value = plNoiseSelectedId;
+  } else if (sorted.length > 0) {
+    itemSel.value = sorted[0].id;
+  }
+  if (empty) empty.style.display = (sorted.length === 0) ? "" : "none";
+
+  // gemerkten State updaten
+  if (typeof plNoiseSelectedId !== "undefined" && itemSel.value) {
+    plNoiseSelectedId = itemSel.value;
+  }
+}
+
+function plNoiseCurrentItem() {
+  const all = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
+  return all.find(function (it) { return it.id === plNoiseSelectedId; }) || null;
+}
+
+async function plNoiseLoadSelected() {
+  const it = plNoiseCurrentItem();
+  if (!it) return;
+  const ctx = gPC();
+
+  let abuf = _plNoiseDecodedCache[it.id] || null;
+  if (!abuf) {
+    if (it.id && it.id.indexOf("gen:") === 0) {
+      abuf = amGenerateNoiseBuffer(ctx, it.id);
+    } else if (it.audio) {
+      const r = await fetch(it.audio);
+      const ab = await r.arrayBuffer();
+      abuf = await ctx.decodeAudioData(ab);
+    }
+    if (abuf) _plNoiseDecodedCache[it.id] = abuf;
+  }
+  if (!abuf) return;
+
+  pNoiseBuf = abuf;
+  pSetPlaybackMode("noise");
+  document.getElementById("plTot").textContent = pFmt(pBuf ? pBuf.duration : 0);
+  document.getElementById("plCur").textContent = "0:00";
+  document.getElementById("plTL").value = 0;
+  if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+  pBuildEQ();
+  pDrawEQ();
+  pBuildTbl();
+  document.getElementById("plEqViz").style.display = "";
+  if (typeof pWarpOn !== "undefined" && pWarpOn) {
+    if (typeof pWarpTrigger === "function") pWarpTrigger();
+  }
+}
+
+const _plNSortEl = document.getElementById("plNoiseSortSel");
+const _plNItemEl = document.getElementById("plNoiseItemSel");
+if (_plNSortEl) {
+  _plNSortEl.addEventListener("change", function () {
+    plNoiseSortAxis = _plNSortEl.value;
+    plNoiseRefreshUI();
+  });
+}
+if (_plNItemEl) {
+  _plNItemEl.addEventListener("change", function () {
+    plNoiseSelectedId = _plNItemEl.value;
+    // Wenn Player gerade Geraeusche aktiv hat: sofort umladen
+    if (plActiveSource === "noise") {
+      const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
+      if (wasPlaying) { if (typeof pPause === "function") pPause(); }
+      plNoiseLoadSelected().then(function () {
+        if (wasPlaying && typeof pPlay === "function") pPlay();
+      });
+    }
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
+  });
+}
+
 // Erstaufbau
 plUpdSourceUI();
 plUpdTransportUI();
 plUpdDisplay();
 plRefreshTooltips();
+plUpdVolBtns();

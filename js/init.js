@@ -513,6 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const v = Math.max(0, Math.min(100, parseInt(this.value) || 0));
     this.value = v;
     if (pGain) pGain.gain.value = v / 100;
+    if (typeof plUpdVolBtns === "function") plUpdVolBtns();
   });
   // Schieber-Tab keyboard nav — wirkt nur, wenn das Canvas selbst
   // den Fokus hat. Im Absolutmodus überspringen ←/→ Elektroden ohne MCL.
@@ -636,12 +637,14 @@ document.addEventListener("DOMContentLoaded", () => {
         plActiveSource = (d && typeof d.plActiveSource === "string"
                           && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
           ? d.plActiveSource : "music";
-        if (plActiveSource === "noise" || plActiveSource === "audiobook") plActiveSource = "music";
+        if (plActiveSource === "audiobook") plActiveSource = "music";
       }
       if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
       if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
       if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
       if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
+      if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
+      if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
       // BA 161: Warp-Zustand wiederherstellen — neue Schlüsselnamen,
       // Fallback auf alte (pWarpOn etc.) für bestehende localStorage-Stände
       if (typeof pWarpOn !== "undefined") {
@@ -729,12 +732,14 @@ document.addEventListener("DOMContentLoaded", () => {
         plActiveSource = (d && typeof d.plActiveSource === "string"
                           && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
           ? d.plActiveSource : "music";
-        if (plActiveSource === "noise" || plActiveSource === "audiobook") plActiveSource = "music";
+        if (plActiveSource === "audiobook") plActiveSource = "music";
       }
       if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
       if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
       if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
       if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
+      if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
+      if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
       if (typeof latApplyToPlayer === "function") latApplyToPlayer();
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
@@ -784,6 +789,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
       if (typeof plUpdSourceUI    === "function") plUpdSourceUI();
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+      if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
       if (typeof plUpdDisplay     === "function") plUpdDisplay();
       if (typeof plRefreshTooltips === "function") plRefreshTooltips();
     }
@@ -908,6 +914,8 @@ document.addEventListener("DOMContentLoaded", () => {
           plLoop:         (typeof plLoop         !== "undefined") ? plLoop         : false,
           plPauseMs:      (typeof plPauseMs      !== "undefined") ? plPauseMs      : 2000,
           plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
+          plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
+          plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
 
