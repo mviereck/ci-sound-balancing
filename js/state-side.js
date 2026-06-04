@@ -708,6 +708,11 @@ let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Tog
 let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
 let plSentBgSnrDb   = 0;             // BA194: SNR in dB
 let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
+let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
+let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
+let plBookSortAxis   = "author";      // Sortierachse
+let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } }
+let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
 
 let lvTabShowMeas = false;
 let lvTabShowCurves = false;

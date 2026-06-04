@@ -33,7 +33,7 @@
      - Loop hat Vorrang vor Auto-Advance.
      - Transport-Leiste immer sichtbar (auch ohne geladene Datei);
        Prev/Next ausgegraut im Musik- und Geräusche-Modus (keine Playlist).
-     - **Geräusche:** Vier-Quellen-Aktiv. Sub-Block mit zwei Dropdowns —
+     - **Geräusche:** Sub-Block mit zwei Dropdowns —
        Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
        „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte
        Standardrauscher (Weiß, Rosa, Braun) per WebAudio im Browser;
@@ -41,11 +41,24 @@
        noises.js`) und später über Webspace-Manifest.
        Anzeige unter Transport: Titel · `kind` · `spectrum` · Lizenz · Quelle.
        Loop und Auto-Advance wirken wie bei den anderen Quellen.
+     - **Hörbücher:** Sub-Block mit Upload-Button (Ordner mit nummerierten
+       Audio-Dateien), drei Dropdowns (Sortierung, Hörbuch, Kapitel) und
+       Entfernen-Button (×). Auto-Advance spielt Kapitel-für-Kapitel durch;
+       stoppt still am Buch-Ende. Loop wirkt auf Kapitel-Ebene. Positions-
+       Persistenz pro Buch-ID in `plBookPositions`: zuletzt aktives Kapitel
+       und Wiedergabe-Sekunde werden beim Buch-Wechsel, Quellen-Wechsel und
+       Stop gespeichert und beim Wieder-Auswählen wiederhergestellt. Lokale
+       User-Uploads sind ein Provider unter `audio-source.js` (Blob-URLs
+       überleben Reload nicht; Positions-Marker schon).
+       Anzeige unter Transport: Kapitel-Titel — Buch-Titel · Autor · Sprecher
+       · Sprache · Lizenz.
+       Bekannte Einschränkung: m4b-Chapter-Tags werden nicht ausgewertet;
+       Webspace-Hörbücher folgen mit BA 196.
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
-       `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`, `plNoiseSortAxis`
-       werden in JSON-Save und localStorage gespeichert und beim Restore
-       wiederhergestellt. Nur `audiobook` fällt beim Restore auf `music`
-       zurück.
+       `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`, `plNoiseSortAxis`,
+       `plBookSelectedId`, `plBookChapterIdx`, `plBookSortAxis`,
+       `plBookPositions` werden in JSON-Save und localStorage gespeichert
+       und beim Restore wiederhergestellt.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**

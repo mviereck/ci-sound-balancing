@@ -139,14 +139,16 @@ function _buildWarpedPlaybackBuffer(mode) {
 }
 
 function pSetPlaybackMode(mode) {
-  if (mode !== "file" && mode !== "sentence" && mode !== "noise") return;
+  if (!["file", "sentence", "noise", "book"].includes(mode)) return;
   pPlaybackMode = mode;
   if (mode === "file") {
     pSourceBuf = pFileBuf;
   } else if (mode === "sentence") {
     pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
-  } else { // noise
+  } else if (mode === "noise") {
     pSourceBuf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
+  } else { // book
+    pSourceBuf = (typeof pBookBuf !== "undefined") ? pBookBuf : null;
   }
   pMonoBuf = null;
   pLeftOnlyBuf = null;
@@ -560,6 +562,29 @@ async function pPlay() {
               if (typeof pPlay === "function") pPlay();
             });
           }, ms);
+        }
+        // BA195: Auto-Advance bei Hoerbuechern (Kapitel-fuer-Kapitel)
+        if (plActiveSource === "audiobook" && plAutoAdvance && !plLoop) {
+          const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+          if (col && Array.isArray(col.items)) {
+            const next = plBookChapterIdx + 1;
+            if (next < col.items.length) {
+              const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+              setTimeout(function () {
+                if (typeof plBookSavePosition === "function") plBookSavePosition();
+                plBookChapterIdx = next;
+                const sel = document.getElementById("plBookChSel");
+                if (sel) sel.value = String(next);
+                if (plBookPositions[plBookSelectedId]) {
+                  plBookPositions[plBookSelectedId].chapterIdx = next;
+                  plBookPositions[plBookSelectedId].posSeconds = 0;
+                }
+                plBookLoadSelected().then(function () {
+                  if (typeof pPlay === "function") pPlay();
+                });
+              }, ms);
+            }
+          }
         }
       }
     };
@@ -1003,10 +1028,23 @@ function plPlayPauseToggle() {
     if (typeof pToggle === "function") pToggle();
     return;
   }
+  if (plActiveSource === "audiobook") {
+    if (!pBookBuf || !pBuf) {
+      if (typeof plBookLoadSelected === "function") {
+        plBookLoadSelected().then(function () {
+          if (typeof pToggle === "function") pToggle();
+        });
+      }
+      return;
+    }
+    if (typeof pToggle === "function") pToggle();
+    return;
+  }
   if (typeof pToggle === "function") pToggle();
 }
 
 function plStopAll() {
+  if (plActiveSource === "audiobook" && typeof plBookSavePosition === "function") plBookSavePosition();
   if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") sStop();
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
@@ -1015,6 +1053,16 @@ function plStopAll() {
 function plPrev() {
   if (plActiveSource === "sentences" && typeof sNext === "function") {
     sNext();
+    return;
+  }
+  if (plActiveSource === "audiobook") {
+    const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+    if (!col || !col.items) return;
+    if (typeof plBookSavePosition === "function") plBookSavePosition();
+    plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
+    const sel = document.getElementById("plBookChSel");
+    if (sel) sel.value = String(plBookChapterIdx);
+    if (typeof plBookLoadSelected === "function") plBookLoadSelected();
     return;
   }
   if (typeof pStopReset === "function") {
@@ -1026,6 +1074,16 @@ function plPrev() {
 function plNext() {
   if (plActiveSource === "sentences" && typeof sNext === "function") {
     sNext();
+    return;
+  }
+  if (plActiveSource === "audiobook") {
+    const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+    if (!col || !col.items) return;
+    if (typeof plBookSavePosition === "function") plBookSavePosition();
+    plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
+    const sel = document.getElementById("plBookChSel");
+    if (sel) sel.value = String(plBookChapterIdx);
+    if (typeof plBookLoadSelected === "function") plBookLoadSelected();
     return;
   }
 }
@@ -1048,16 +1106,18 @@ function plSetPause(ms) {
 
 function plSetSource(src) {
   if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
-  if (src === "audiobook") return; // weiterhin nicht verfuegbar
   if (src === plActiveSource) return;
+  if (plActiveSource === "audiobook" && typeof plBookSavePosition === "function") plBookSavePosition();
   plStopAll();
   plActiveSource = src;
   plUpdSourceUI();
   plUpdTransportUI();
-  // Bei Wechsel auf Geraeusche: aktuelles Item laden, damit Play sofort wirkt
   if (src === "noise") {
     plNoiseRefreshUI();
     plNoiseLoadSelected();
+  } else if (src === "audiobook") {
+    if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+    if (plBookSelectedId && typeof plBookLoadSelected === "function") plBookLoadSelected();
   }
   plUpdDisplay();
 }
@@ -1080,7 +1140,7 @@ function plUpdSourceUI() {
   setActive(btnM, plActiveSource === "music");
   setActive(btnS, plActiveSource === "sentences");
   setActive(btnN, plActiveSource === "noise");
-  setActive(btnA, false);
+  setActive(btnA, plActiveSource === "audiobook");
   if (subM) subM.style.display = (plActiveSource === "music")     ? "" : "none";
   if (subS) subS.style.display = (plActiveSource === "sentences") ? "" : "none";
   if (subN) subN.style.display = (plActiveSource === "noise")     ? "" : "none";
@@ -1112,7 +1172,7 @@ function plUpdTransportUI() {
   });
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
-  const hasNext = (plActiveSource === "sentences");
+  const hasNext = (plActiveSource === "sentences" || plActiveSource === "audiobook");
   [prevBtn, nextBtn].forEach(function (b) {
     if (!b) return;
     b.disabled = !hasNext;
@@ -1156,6 +1216,20 @@ function plUpdDisplay() {
       if (it.tags && it.tags.spectrum) parts.push(it.tags.spectrum);
       if (it.license)     parts.push(it.license);
       if (it.sourceTitle) parts.push(it.sourceTitle);
+      metaParts = parts;
+    } else {
+      titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+    }
+  } else if (plActiveSource === "audiobook") {
+    const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+    const ch  = (typeof plBookCurrentChapter    === "function") ? plBookCurrentChapter()    : null;
+    if (col && ch) {
+      titleText = (ch.title || "Kapitel") + " — " + (col.title || "");
+      const parts = [];
+      if (col.tags && col.tags.work_author) parts.push(col.tags.work_author);
+      if (col.tags && col.tags.reader)      parts.push("Sprecher: " + col.tags.reader);
+      if (col.lang)                          parts.push(col.lang);
+      if (col.license)                       parts.push(col.license);
       metaParts = parts;
     } else {
       titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
@@ -1220,6 +1294,8 @@ document.getElementById("plSrcSentencesBtn").addEventListener("click",
   function () { plSetSource("sentences"); });
 document.getElementById("plSrcNoiseBtn").addEventListener("click",
   function () { plSetSource("noise"); });
+document.getElementById("plSrcAudiobookBtn").addEventListener("click",
+  function () { plSetSource("audiobook"); });
 
 // BA192: Transport-Knoepfe
 document.getElementById("plPrev").addEventListener("click", plPrev);
@@ -1470,3 +1546,239 @@ document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
     plSentBgSetSnr(b.dataset.snr);
   });
 });
+
+// ============================================================
+// BA195: Hoerbuch-Quelle (lokal)
+// ============================================================
+
+const AM_AUDIO_EXT = /\.(mp3|wav|flac|ogg|opus|m4a|m4b|mp4)$/i;
+
+async function plBookHandleUpload(fileList) {
+  const files = Array.from(fileList || []).filter(function (f) {
+    return AM_AUDIO_EXT.test(f.name);
+  });
+  if (files.length === 0) {
+    alert(t("plBookUploadNoAudio") || "Keine Audiodateien gefunden.");
+    return;
+  }
+  files.sort(function (a, b) {
+    const na = a.webkitRelativePath || a.name;
+    const nb = b.webkitRelativePath || b.name;
+    return na < nb ? -1 : (na > nb ? 1 : 0);
+  });
+
+  const firstPath = files[0].webkitRelativePath || files[0].name;
+  const folderName = (firstPath.indexOf("/") >= 0)
+    ? firstPath.split("/")[0]
+    : "Hoerbuch";
+
+  const bookId = "local-book:" + folderName + ":" + files.length;
+  if (typeof amRemoveLocalBookCollection === "function") {
+    amRemoveLocalBookCollection(bookId);
+  }
+
+  const items = files.map(function (f, i) {
+    return {
+      id: bookId + "#ch" + String(i + 1).padStart(3, "0"),
+      title: f.name.replace(/\.[^.]+$/, ""),
+      audio: URL.createObjectURL(f),
+      duration: null,
+      tags: { chapter_no: i + 1 }
+    };
+  });
+
+  const collection = {
+    schema: "ci-sb-corpus/2",
+    kind: "collection",
+    category: "hoerbuecher",
+    id: bookId,
+    title: folderName,
+    lang: null,
+    tags: { reader: null, work_author: null, genres: [] },
+    items: items,
+    _isLocal: true
+  };
+
+  amAddLocalBookCollection(collection);
+  plBookSelectedId = bookId;
+  plBookChapterIdx = 0;
+  plBookRefreshUI();
+}
+
+function plBookCurrentCollection() {
+  const all = (typeof amCollectCollections === "function")
+    ? amCollectCollections("hoerbuecher") : [];
+  return all.find(function (c) { return c.id === plBookSelectedId; }) || null;
+}
+
+function plBookCurrentChapter() {
+  const col = plBookCurrentCollection();
+  if (!col || !col.items || col.items.length === 0) return null;
+  const idx = Math.max(0, Math.min(plBookChapterIdx, col.items.length - 1));
+  return col.items[idx];
+}
+
+function plBookRefreshUI() {
+  const sortSel = document.getElementById("plBookSortSel");
+  const bookSel = document.getElementById("plBookSel");
+  const chSel   = document.getElementById("plBookChSel");
+  const empty   = document.getElementById("plBookEmpty");
+  if (!sortSel || !bookSel || !chSel) return;
+
+  const axes = (typeof amCollectionSortAxesFor === "function")
+    ? amCollectionSortAxesFor("hoerbuecher") : [];
+  if (sortSel.options.length === 0) {
+    for (const a of axes) {
+      const opt = document.createElement("option");
+      opt.value = a.key;
+      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+      sortSel.appendChild(opt);
+    }
+  }
+  sortSel.value = plBookSortAxis;
+
+  const all = (typeof amCollectCollections === "function")
+    ? amCollectCollections("hoerbuecher") : [];
+  const sorted = (typeof amSortCollections === "function")
+    ? amSortCollections(all, "hoerbuecher", plBookSortAxis)
+    : all;
+
+  while (bookSel.firstChild) bookSel.removeChild(bookSel.firstChild);
+  for (const c of sorted) {
+    const opt = document.createElement("option");
+    opt.value = c.id;
+    opt.textContent = c.title || c.id;
+    bookSel.appendChild(opt);
+  }
+  if (sorted.find(function (c) { return c.id === plBookSelectedId; })) {
+    bookSel.value = plBookSelectedId;
+  } else if (sorted.length > 0) {
+    plBookSelectedId = sorted[0].id;
+    bookSel.value = plBookSelectedId;
+  } else {
+    plBookSelectedId = null;
+  }
+
+  while (chSel.firstChild) chSel.removeChild(chSel.firstChild);
+  const col = plBookCurrentCollection();
+  if (col && Array.isArray(col.items)) {
+    for (let i = 0; i < col.items.length; i++) {
+      const opt = document.createElement("option");
+      opt.value = String(i);
+      opt.textContent = (i + 1) + ". " + (col.items[i].title || ("Kapitel " + (i + 1)));
+      chSel.appendChild(opt);
+    }
+    if (plBookChapterIdx >= col.items.length) plBookChapterIdx = 0;
+    chSel.value = String(plBookChapterIdx);
+  }
+
+  if (empty) empty.style.display = sorted.length === 0 ? "" : "none";
+
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+}
+
+async function plBookLoadSelected() {
+  const ch = plBookCurrentChapter();
+  if (!ch) return;
+  const ctx = gPC();
+  let abuf = null;
+  try {
+    const r = await fetch(ch.audio);
+    const ab = await r.arrayBuffer();
+    abuf = await ctx.decodeAudioData(ab);
+  } catch (e) {
+    console.error("[book] Kapitel-Lade-Fehler:", e);
+    alert("Kapitel konnte nicht geladen werden: " + e.message);
+    return;
+  }
+  if (!abuf) return;
+
+  pBookBuf = abuf;
+  pSetPlaybackMode("book");
+  document.getElementById("plTot").textContent = pFmt(pBuf ? pBuf.duration : 0);
+
+  const pos = (plBookPositions && plBookPositions[plBookSelectedId]) || null;
+  if (pos && typeof pos.chapterIdx === "number" && pos.chapterIdx === plBookChapterIdx
+      && typeof pos.posSeconds === "number" && pos.posSeconds > 0
+      && pos.posSeconds < abuf.duration - 5) {
+    pOff = pos.posSeconds;
+    document.getElementById("plCur").textContent = pFmt(pOff);
+    document.getElementById("plTL").value = (pOff / abuf.duration) * 1000;
+  } else {
+    pOff = 0;
+    document.getElementById("plCur").textContent = "0:00";
+    document.getElementById("plTL").value = 0;
+  }
+
+  if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+  pBuildEQ();
+  pDrawEQ();
+  pBuildTbl();
+  document.getElementById("plEqViz").style.display = "";
+  if (typeof pWarpOn !== "undefined" && pWarpOn) {
+    if (typeof pWarpTrigger === "function") pWarpTrigger();
+  }
+}
+
+function plBookSavePosition() {
+  if (!plBookSelectedId || !plBookCurrentChapter()) return;
+  const cur = (typeof pCtx !== "undefined" && pCtx && pPlaying)
+    ? (pCtx.currentTime - pT0)
+    : pOff;
+  plBookPositions[plBookSelectedId] = {
+    chapterIdx: plBookChapterIdx,
+    posSeconds: Math.max(0, cur)
+  };
+}
+
+const _plBookUpBtn = document.getElementById("plBookUploadBtn");
+const _plBookUpInp = document.getElementById("plBookUploadInput");
+const _plBookSortS = document.getElementById("plBookSortSel");
+const _plBookSelS  = document.getElementById("plBookSel");
+const _plBookChS   = document.getElementById("plBookChSel");
+const _plBookRmBtn = document.getElementById("plBookRemoveBtn");
+
+if (_plBookUpBtn && _plBookUpInp) {
+  _plBookUpBtn.addEventListener("click", function () { _plBookUpInp.click(); });
+  _plBookUpInp.addEventListener("change", function (e) {
+    plBookHandleUpload(e.target.files);
+    e.target.value = "";
+  });
+}
+if (_plBookSortS) {
+  _plBookSortS.addEventListener("change", function () {
+    plBookSortAxis = _plBookSortS.value;
+    plBookRefreshUI();
+  });
+}
+if (_plBookSelS) {
+  _plBookSelS.addEventListener("change", function () {
+    plBookSavePosition();
+    plBookSelectedId = _plBookSelS.value;
+    const pos = plBookPositions && plBookPositions[plBookSelectedId];
+    plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
+    plBookRefreshUI();
+    if (plActiveSource === "audiobook") plBookLoadSelected();
+  });
+}
+if (_plBookChS) {
+  _plBookChS.addEventListener("change", function () {
+    plBookSavePosition();
+    plBookChapterIdx = parseInt(_plBookChS.value, 10) || 0;
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
+    if (plActiveSource === "audiobook") plBookLoadSelected();
+  });
+}
+if (_plBookRmBtn) {
+  _plBookRmBtn.addEventListener("click", function () {
+    if (!plBookSelectedId) return;
+    if (!confirm(t("plBookRemoveConfirm") || "Diese Hoerbuch-Auswahl entfernen?")) return;
+    const id = plBookSelectedId;
+    delete plBookPositions[id];
+    if (typeof amRemoveLocalBookCollection === "function") amRemoveLocalBookCollection(id);
+    plBookSelectedId = null;
+    plBookChapterIdx = 0;
+    plBookRefreshUI();
+  });
+}

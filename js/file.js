@@ -150,6 +150,10 @@ function resetAll() {
   if (typeof plSentBgEnabled   !== "undefined") plSentBgEnabled   = false;
   if (typeof plSentBgItemId    !== "undefined") plSentBgItemId    = "gen:pink";
   if (typeof plSentBgSnrDb     !== "undefined") plSentBgSnrDb     = 0;
+  if (typeof plBookSelectedId  !== "undefined") plBookSelectedId  = null;
+  if (typeof plBookChapterIdx  !== "undefined") plBookChapterIdx  = 0;
+  if (typeof plBookSortAxis    !== "undefined") plBookSortAxis    = "author";
+  if (typeof plBookPositions   !== "undefined") plBookPositions   = {};
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
@@ -292,6 +296,10 @@ async function saveJson() {
     plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
     plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
     plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
+    plBookSelectedId: (typeof plBookSelectedId !== "undefined") ? plBookSelectedId : null,
+    plBookChapterIdx: (typeof plBookChapterIdx !== "undefined") ? plBookChapterIdx : 0,
+    plBookSortAxis:   (typeof plBookSortAxis   !== "undefined") ? plBookSortAxis   : "author",
+    plBookPositions:  (typeof plBookPositions  !== "undefined") ? Object.assign({}, plBookPositions) : {},
     localCollections: (typeof sLocalCollections !== "undefined")
       ? Array.from(sLocalCollections.values()).map((c) => ({
           id: c.id,
@@ -700,9 +708,7 @@ function applyLoadedData(d) {
     plActiveSource = (d && typeof d.plActiveSource === "string"
                       && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
       ? d.plActiveSource : "music";
-    // audiobook noch nicht verfuegbar -> auf music zurueckfallen
-    if (plActiveSource === "audiobook") plActiveSource = "music";
-  }
+    }
   if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
   if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
   if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
@@ -712,6 +718,12 @@ function applyLoadedData(d) {
   if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
   if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
   if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
+  if (typeof d.plBookSelectedId === "string") plBookSelectedId = d.plBookSelectedId;
+  if (typeof d.plBookChapterIdx === "number") plBookChapterIdx = d.plBookChapterIdx;
+  if (typeof d.plBookSortAxis   === "string") plBookSortAxis   = d.plBookSortAxis;
+  if (d.plBookPositions && typeof d.plBookPositions === "object") {
+    plBookPositions = Object.assign({}, d.plBookPositions);
+  }
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();

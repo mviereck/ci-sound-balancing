@@ -341,3 +341,128 @@ function amMixForeground(ctx, fgKey, fgBuf, bgItem, bgBuf, snrDb) {
 function amMixCacheClear() {
   _amMixCache.clear();
 }
+
+// ============================================================
+// Collection-Ebene (BA195)
+// ============================================================
+
+const AM_COLLECTION_SORT_AXES = {
+  hoerbuecher: [
+    {
+      key: "author",
+      labelKey: "amBookSortAuthor",
+      labelDefault: "nach Autor",
+      getter: function (c) {
+        return (c.tags && c.tags.work_author) || "zzz-unbekannt";
+      }
+    },
+    {
+      key: "genre",
+      labelKey: "amBookSortGenre",
+      labelDefault: "nach Genre",
+      getter: function (c) {
+        const g = c.tags && c.tags.genres;
+        return Array.isArray(g) && g.length > 0 ? g[0] : "zzz-unbekannt";
+      }
+    },
+    {
+      key: "lang",
+      labelKey: "amBookSortLang",
+      labelDefault: "nach Sprache",
+      getter: function (c) {
+        return c.lang || "zzz-unbekannt";
+      }
+    },
+    {
+      key: "reader",
+      labelKey: "amBookSortReader",
+      labelDefault: "nach Sprecher",
+      getter: function (c) {
+        return (c.tags && c.tags.reader) || "zzz-unbekannt";
+      }
+    },
+    {
+      key: "title",
+      labelKey: "amBookSortTitle",
+      labelDefault: "nach Titel",
+      getter: function (c) {
+        return (c.title || "zzz-unbekannt").toLowerCase();
+      }
+    }
+  ]
+};
+
+function amCollectionSortAxesFor(category) {
+  return AM_COLLECTION_SORT_AXES[category] || [];
+}
+
+function amCollectCollections(category) {
+  const out = [];
+  for (const p of AM_PROVIDERS) {
+    if (typeof p.listCollections !== "function") continue;
+    try {
+      const cols = p.listCollections(category);
+      if (Array.isArray(cols)) {
+        for (const c of cols) {
+          if (!c) continue;
+          c._providerId = p.id;
+          out.push(c);
+        }
+      }
+    } catch (e) {
+      console.warn("[audio-source] provider " + p.id + " listCollections warf:", e);
+    }
+  }
+  return out;
+}
+
+function amSortCollections(collections, category, axisKey) {
+  const axes = amCollectionSortAxesFor(category);
+  const axis = axes.find(function (a) { return a.key === axisKey; }) || axes[0];
+  if (!axis) return collections.slice();
+  const arr = collections.slice();
+  arr.sort(function (a, b) {
+    const va = axis.getter(a), vb = axis.getter(b);
+    if (va < vb) return -1;
+    if (va > vb) return 1;
+    const ta = (a.title || "").toLowerCase();
+    const tb = (b.title || "").toLowerCase();
+    return ta < tb ? -1 : (ta > tb ? 1 : 0);
+  });
+  return arr;
+}
+
+// ============================================================
+// Provider: lokale Hoerbuch-Uploads (BA195)
+// ============================================================
+
+const _amLocalBookCollections = [];
+
+function amAddLocalBookCollection(col) {
+  if (!col || col.category !== "hoerbuecher") return;
+  _amLocalBookCollections.push(col);
+}
+
+function amRemoveLocalBookCollection(id) {
+  const idx = _amLocalBookCollections.findIndex(function (c) { return c.id === id; });
+  if (idx >= 0) {
+    const removed = _amLocalBookCollections[idx];
+    for (const it of (removed.items || [])) {
+      if (it.audio && it.audio.indexOf("blob:") === 0) {
+        try { URL.revokeObjectURL(it.audio); } catch (e) {}
+      }
+    }
+    _amLocalBookCollections.splice(idx, 1);
+  }
+}
+
+amRegisterProvider({
+  id: "local-books",
+  listItems: function (category) {
+    return [];
+  },
+  listCollections: function (category) {
+    if (category !== "hoerbuecher") return [];
+    return _amLocalBookCollections.slice();
+  }
+});

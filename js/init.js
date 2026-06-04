@@ -797,6 +797,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
       if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+      if (typeof plBookRefreshUI   === "function") plBookRefreshUI();
       if (typeof plUpdDisplay      === "function") plUpdDisplay();
       if (typeof plRefreshTooltips === "function") plRefreshTooltips();
     }

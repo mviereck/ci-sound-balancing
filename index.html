@@ -1439,9 +1439,8 @@
               <button id="plSrcNoiseBtn" class="btn btn-sm"
                       style="font-weight: 600; min-width: 140px; border-radius: 6px"
                       data-t="plSrcNoise"></button>
-              <button id="plSrcAudiobookBtn" class="btn btn-sm" disabled
-                      title="noch nicht verfuegbar (kommt in spaeterer Bauanleitung)"
-                      style="font-weight: 600; min-width: 140px; border-radius: 6px; opacity: 0.5; cursor: not-allowed"
+              <button id="plSrcAudiobookBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
                       data-t="plSrcAudiobook"></button>
             </div>
           </div>
@@ -1542,10 +1541,49 @@
                  data-t="plNoiseEmpty"></div>
           </div>
 
-          <!-- Sub-Block: Hoerbuecher (Platzhalter, kommt in spaeterer BA) -->
-          <div id="plSubAudiobook" class="pl-subblock"
-               style="margin-bottom: 12px; display: none; color: var(--text-muted); font-size: 0.9em"
-               data-t="plAudiobookComingSoon"></div>
+          <!-- Sub-Block: Hoerbuecher (BA195) -->
+          <div id="plSubAudiobook" class="pl-subblock" style="margin-bottom:12px; display:none">
+            <div class="controls-row" style="gap:8px; flex-wrap:wrap; margin-bottom:6px">
+              <button class="btn btn-sm" id="plBookUploadBtn" type="button" style="font-size:0.85em">
+                <span data-t="plBookUpload"></span>
+              </button>
+              <input type="file" id="plBookUploadInput" webkitdirectory multiple style="display:none" />
+              <span id="plBookUploadHint" style="font-size:0.78em;color:var(--text-muted)" data-t="plBookUploadHint"></span>
+            </div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group">
+                <label data-t="plBookSortLabel" style="margin-right:6px"></label>
+                <select id="plBookSortSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                </select>
+              </div>
+            </div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plBookSelLabel" style="margin-right:6px"></label>
+                <select id="plBookSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:240px">
+                </select>
+                <button class="btn btn-sm" id="plBookRemoveBtn" type="button"
+                        style="margin-left:6px; font-size:0.82em" data-t="plBookRemove"></button>
+              </div>
+            </div>
+
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
+              <div class="control-group" style="flex:1; min-width:240px">
+                <label data-t="plBookChapterLabel" style="margin-right:6px"></label>
+                <select id="plBookChSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:240px">
+                </select>
+              </div>
+            </div>
+
+            <div id="plBookEmpty" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)"
+                 data-t="plBookEmpty"></div>
+          </div>
 
           <!-- Transport-Leiste -->
           <div id="plTransport" class="controls-row"
