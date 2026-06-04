@@ -249,7 +249,8 @@ document
       document.getElementById("plTot").textContent = pFmt(pBuf.duration);
       document.getElementById("plCur").textContent = "0:00";
       document.getElementById("plTL").value = 0;
-      document.getElementById("plCtrl").style.display = "";
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
+      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       pBuildEQ();
       pDrawEQ();
       pBuildTbl();
@@ -461,6 +462,7 @@ async function pPlay() {
   const gen = ++pPlayGen;
 
   if (pSrc) {
+    pSrc.onended = null;
     try { pSrc.stop(); } catch (e) {}
     pSrc = null;
   }
@@ -663,8 +665,12 @@ function plCheck() {
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
 }
 
-document.getElementById("plPlay").addEventListener("click", pToggle);
-document.getElementById("plStop").addEventListener("click", pStopReset);
+document.getElementById("plPlay").addEventListener("click", function () {
+  if (typeof plPlayPauseToggle === "function") plPlayPauseToggle(); else pToggle();
+});
+document.getElementById("plStop").addEventListener("click", function () {
+  if (typeof plStopAll === "function") plStopAll(); else pStopReset();
+});
 document.getElementById("plTL").addEventListener("pointerdown", () => { pSeeking = true; });
 document.getElementById("plTL").addEventListener("pointerup",   () => { pSeeking = false; });
 document.getElementById("plTL").addEventListener("pointercancel", () => { pSeeking = false; });
@@ -948,3 +954,244 @@ function playerLockApply() {
     }
   });
 }
+
+// ===== BA192: zentrale Wiedergabe-Steuerung =====
+
+function plPlayPauseToggle() {
+  if (plActiveSource === "sentences") {
+    if (typeof sActive !== "undefined" && sActive && typeof pPlaying !== "undefined" && pPlaying) {
+      if (typeof pPause === "function") pPause();
+      return;
+    }
+    if (typeof sActive !== "undefined" && sActive && typeof pPlaying !== "undefined" && !pPlaying && pBuf) {
+      if (typeof pPlay === "function") pPlay();
+      return;
+    }
+    if (typeof sPlay === "function") sPlay();
+    return;
+  }
+  if (typeof pToggle === "function") pToggle();
+}
+
+function plStopAll() {
+  if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") sStop();
+  if (typeof pStopReset === "function") pStopReset();
+  _plAutoAdvCancel();
+}
+
+function plPrev() {
+  if (plActiveSource === "sentences" && typeof sNext === "function") {
+    sNext();
+    return;
+  }
+  if (typeof pStopReset === "function") {
+    pStopReset();
+    if (typeof pToggle === "function") pToggle();
+  }
+}
+
+function plNext() {
+  if (plActiveSource === "sentences" && typeof sNext === "function") {
+    sNext();
+    return;
+  }
+}
+
+function plToggleLoop() {
+  plLoop = !plLoop;
+  plUpdTransportUI();
+}
+
+function plToggleAutoAdvance() {
+  plAutoAdvance = !plAutoAdvance;
+  plUpdTransportUI();
+  if (!plAutoAdvance) _plAutoAdvCancel();
+}
+
+function plSetPause(ms) {
+  plPauseMs = ms;
+  plUpdTransportUI();
+}
+
+function plSetSource(src) {
+  if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
+  if (src === "noise" || src === "audiobook") return;
+  if (src === plActiveSource) return;
+  plStopAll();
+  plActiveSource = src;
+  plUpdSourceUI();
+  plUpdTransportUI();
+  plUpdDisplay();
+}
+
+function plUpdSourceUI() {
+  const btnM = document.getElementById("plSrcMusicBtn");
+  const btnS = document.getElementById("plSrcSentencesBtn");
+  const btnN = document.getElementById("plSrcNoiseBtn");
+  const btnA = document.getElementById("plSrcAudiobookBtn");
+  const subM = document.getElementById("plSubMusic");
+  const subS = document.getElementById("plSubSentences");
+  const subN = document.getElementById("plSubNoise");
+  const subA = document.getElementById("plSubAudiobook");
+  function setActive(btn, on) {
+    if (!btn) return;
+    btn.classList.toggle("active", on);
+    btn.style.background = on ? "var(--accent, #6aa84f)" : "";
+    btn.style.color      = on ? "#fff" : "";
+  }
+  setActive(btnM, plActiveSource === "music");
+  setActive(btnS, plActiveSource === "sentences");
+  setActive(btnN, false);
+  setActive(btnA, false);
+  if (subM) subM.style.display = (plActiveSource === "music")     ? "" : "none";
+  if (subS) subS.style.display = (plActiveSource === "sentences") ? "" : "none";
+  if (subN) subN.style.display = (plActiveSource === "noise")     ? "" : "none";
+  if (subA) subA.style.display = (plActiveSource === "audiobook") ? "" : "none";
+}
+
+function plUpdTransportUI() {
+  const loopBtn = document.getElementById("plLoopBtn");
+  if (loopBtn) {
+    loopBtn.classList.toggle("active", plLoop);
+    loopBtn.style.background = plLoop ? "var(--accent, #6aa84f)" : "";
+    loopBtn.style.color      = plLoop ? "#fff" : "";
+  }
+  const aaBtn = document.getElementById("plAutoAdvBtn");
+  if (aaBtn) {
+    aaBtn.classList.toggle("active", plAutoAdvance);
+    aaBtn.style.background = plAutoAdvance ? "var(--accent, #6aa84f)" : "";
+    aaBtn.style.color      = plAutoAdvance ? "#fff" : "";
+  }
+  document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
+    const v = parseInt(b.dataset.ms, 10);
+    const active = (v === plPauseMs);
+    b.classList.toggle("active", active);
+    b.style.background = active ? "var(--accent, #6aa84f)" : "";
+    b.style.color      = active ? "#fff" : "";
+    const pauseActive = plAutoAdvance || plLoop;
+    b.disabled = !pauseActive;
+    b.style.opacity = pauseActive ? "1" : "0.5";
+    b.style.cursor  = pauseActive ? "pointer" : "not-allowed";
+  });
+  const prevBtn = document.getElementById("plPrev");
+  const nextBtn = document.getElementById("plNext");
+  const hasNext = (plActiveSource === "sentences");
+  [prevBtn, nextBtn].forEach(function (b) {
+    if (!b) return;
+    b.disabled = !hasNext;
+    b.style.opacity = hasNext ? "1" : "0.5";
+    b.style.cursor  = hasNext ? "pointer" : "not-allowed";
+  });
+}
+
+function plUpdDisplay() {
+  const title = document.getElementById("plDispTitle");
+  const meta  = document.getElementById("plDispMeta");
+  const textToggleWrap = document.getElementById("plSentTextToggleWrap");
+  if (!title || !meta) return;
+
+  let titleText = "";
+  let metaParts = [];
+  let showTextToggle = false;
+
+  if (plActiveSource === "sentences") {
+    showTextToggle = true;
+    if (typeof sCurRec !== "undefined" && sCurRec) {
+      const spkKey = sCurRec.speakerKey || "";
+      const spk = (typeof sCorpus !== "undefined" && sCorpus && sCorpus.speakers && sCorpus.speakers[spkKey]) || null;
+      titleText = sCurRec.rec.text || (typeof t === "function" ? t("plDispEmpty") : "—");
+      if (spk && spk.label) metaParts.push(((typeof t === "function") ? t("sentSpeaker") : "Sprecher:") + " " + spk.label);
+      if (spk && spk.source)  metaParts.push(spk.source);
+      if (spk && spk.license) metaParts.push(spk.license);
+    } else {
+      titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+    }
+  } else if (plActiveSource === "music") {
+    const fi = document.getElementById("plAudio");
+    const fname = (fi && fi.files && fi.files[0]) ? fi.files[0].name : "";
+    titleText = fname || ((typeof t === "function") ? t("plDispEmpty") : "Nichts geladen");
+  } else {
+    titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+  }
+
+  title.textContent = titleText;
+  meta.textContent  = metaParts.length ? metaParts.join(" · ") : "";
+  if (textToggleWrap) textToggleWrap.style.display = showTextToggle ? "inline-flex" : "none";
+
+  const tb = document.getElementById("plSentTextBox");
+  const tx = document.getElementById("plSentText");
+  const cb = document.getElementById("plSentShowText");
+  if (cb) cb.checked = !!plSentShowText;
+  if (tb) tb.style.display = (plActiveSource === "sentences" && plSentShowText) ? "" : "none";
+  if (tx && plActiveSource === "sentences") {
+    tx.textContent = (typeof sCurRec !== "undefined" && sCurRec && sCurRec.rec && sCurRec.rec.text) ? sCurRec.rec.text : "";
+  }
+}
+
+function plRefreshTooltips() {
+  document.querySelectorAll("[data-tip]").forEach(function (el) {
+    const k = el.getAttribute("data-tip");
+    if (k && typeof t === "function") el.title = t(k);
+  });
+}
+
+let _plIdleTimer = null;
+const _PL_IDLE_MS = 30 * 60 * 1000;
+
+function _plArmIdleTimer() {
+  _plClearIdleTimer();
+  _plIdleTimer = setTimeout(function () {
+    if (plAutoAdvance) {
+      console.log("[player] Auto-Advance gestoppt: 30 min ohne Bedienung");
+      plStopAll();
+    }
+  }, _PL_IDLE_MS);
+}
+function _plClearIdleTimer() {
+  if (_plIdleTimer) { clearTimeout(_plIdleTimer); _plIdleTimer = null; }
+}
+function _plNoteInteraction() {
+  if (plAutoAdvance && (pPlaying || (typeof sActive !== "undefined" && sActive))) {
+    _plArmIdleTimer();
+  }
+}
+function _plAutoAdvCancel() {
+  _plClearIdleTimer();
+}
+
+document.addEventListener("click",      _plNoteInteraction, true);
+document.addEventListener("keydown",    _plNoteInteraction, true);
+document.addEventListener("touchstart", _plNoteInteraction, true);
+
+// BA192: Quellen-Top-Toggle
+document.getElementById("plSrcMusicBtn").addEventListener("click",
+  function () { plSetSource("music"); });
+document.getElementById("plSrcSentencesBtn").addEventListener("click",
+  function () { plSetSource("sentences"); });
+
+// BA192: Transport-Knoepfe
+document.getElementById("plPrev").addEventListener("click", plPrev);
+document.getElementById("plNext").addEventListener("click", plNext);
+document.getElementById("plLoopBtn").addEventListener("click", plToggleLoop);
+document.getElementById("plAutoAdvBtn").addEventListener("click", plToggleAutoAdvance);
+
+document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
+  b.addEventListener("click", function () {
+    const v = parseInt(b.dataset.ms, 10);
+    if (Number.isFinite(v)) plSetPause(v);
+  });
+});
+
+const _plSentTxtCb = document.getElementById("plSentShowText");
+if (_plSentTxtCb) {
+  _plSentTxtCb.addEventListener("change", function () {
+    plSentShowText = !!_plSentTxtCb.checked;
+    plUpdDisplay();
+  });
+}
+
+// Erstaufbau
+plUpdSourceUI();
+plUpdTransportUI();
+plUpdDisplay();
+plRefreshTooltips();

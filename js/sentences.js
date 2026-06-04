@@ -13,8 +13,6 @@ let sCorpus = null;
 let sLoaded = false;
 let sLoading = false;
 let sActive = false;
-let sEndless = false;
-let sEndlessCount = 0;
 let sCurRec = null;     // aktuell laufende Recording {speakerKey, idx}
 let sShownText = "";
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
@@ -195,6 +193,7 @@ async function sPlayCurrent() {
     document.getElementById("plEqViz").style.display = "";
     sShownText = sCurRec.rec.text || "";
     sUpdateTextBox();
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
     await pPlay();
   } catch (err) {
     console.error("[sentences] Wiedergabe-Fehler:", err);
@@ -204,6 +203,7 @@ async function sPlayCurrent() {
 
 function sPlay() {
   if (!sLoaded) return;
+  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   const spkSel = document.getElementById("plSentSpeaker").value;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
@@ -212,79 +212,77 @@ function sPlay() {
     sCurRec = sPickRandom(pool, null);
   }
   sActive = true;
-  sEndless = false;
-  sUpdateButtons();
   sPlayCurrent();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
 function sNext() {
   if (!sLoaded) return;
+  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   const spkSel = document.getElementById("plSentSpeaker").value;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
   sCurRec = sPickRandom(pool, sCurRec);
   sActive = true;
-  sEndless = false;
-  sUpdateButtons();
   sPlayCurrent();
-}
-
-function sEndlessStart() {
-  if (!sLoaded) return;
-  const spkSel = document.getElementById("plSentSpeaker").value;
-  const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) { sUpdateUI(); return; }
-  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
-  sCurRec = sPickRandom(pool, sCurRec);
-  sActive = true;
-  sEndless = true;
-  sEndlessCount = 0;
-  sUpdateButtons();
-  sPlayCurrent();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
 function sStop() {
   sActive = false;
-  sEndless = false;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
   }
   pOff = 0;
-  // Zurück in Datei-Modus, damit ein nachfolgender Klick auf den Audio-
-  // Play-Button die Datei spielt, nicht den letzten Satz.
   if (typeof pSetPlaybackMode === "function") {
     pSetPlaybackMode("file");
   }
   if (typeof pUpdTL === "function") pUpdTL();
   sShownText = "";
   sUpdateTextBox();
-  sUpdateButtons();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
 // Wird von player.js nach onended aufgerufen, falls sActive=true.
 function sOnEnded() {
   if (!sActive) return;
-  if (!sEndless) {
-    sStop();
+
+  // Loop hat Vorrang: gleichen Satz nochmal
+  if (typeof plLoop !== "undefined" && plLoop) {
+    const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+    if (ms > 0) {
+      sPauseTimer = setTimeout(function () {
+        sPauseTimer = null;
+        if (sActive) sPlayCurrent();
+      }, ms);
+    } else {
+      sPlayCurrent();
+    }
     return;
   }
-  sEndlessCount++;
-  if (sEndlessCount >= 100) { sStop(); return; }
-  const spkSel = document.getElementById("plSentSpeaker").value;
-  const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) { sStop(); return; }
-  sCurRec = sPickRandom(pool, sCurRec);
-  const ms = sPauseMs();
-  if (ms > 0) {
-    sPauseTimer = setTimeout(function () {
-      sPauseTimer = null;
-      if (sActive) sPlayCurrent();
-    }, ms);
-  } else {
-    sPlayCurrent();
+
+  // Auto-Advance: anderen zufaelligen Satz waehlen
+  if (typeof plAutoAdvance !== "undefined" && plAutoAdvance) {
+    const spkSel = document.getElementById("plSentSpeaker").value;
+    const pool = sBuildRecordingPool(spkSel);
+    if (pool.length === 0) { sStop(); return; }
+    sCurRec = sPickRandom(pool, sCurRec);
+    const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+    if (ms > 0) {
+      sPauseTimer = setTimeout(function () {
+        sPauseTimer = null;
+        if (sActive) sPlayCurrent();
+      }, ms);
+    } else {
+      sPlayCurrent();
+    }
+    return;
   }
+
+  // Weder Loop noch Auto-Advance: still anhalten
+  sStop();
 }
 
 // Befüllt das Sprecher-Dropdown dynamisch je nach aktueller Tool-Sprache.
@@ -324,7 +322,7 @@ function sRefreshSpeakerDropdown() {
 
 function sUpdateUI() {
   if (typeof lang === "undefined") return;
-  const card = document.getElementById("plSentencesCard");
+  const card = document.getElementById("plSubSentences");
   if (!card) return;
 
   // Im Offline-Mode bei Sprachwechsel ggf. Embed nachladen.
@@ -363,15 +361,7 @@ function sUpdateUI() {
 }
 
 function sUpdateButtons() {
-  const play    = document.getElementById("plSentPlay");
-  const next    = document.getElementById("plSentNext");
-  const endless = document.getElementById("plSentEndless");
-  const stop    = document.getElementById("plSentStop");
-  const busy    = sActive;
-  if (play)    play.disabled    = busy;
-  if (next)    next.disabled    = busy;
-  if (endless) endless.disabled = busy;
-  if (stop)    stop.disabled    = !busy;
+  // BA192: Sätze-spezifische Knöpfe entfernt; Steuerung über zentrale Transport-Leiste
 }
 
 function sUpdateTextBox() {
@@ -903,27 +893,8 @@ async function sReloadStubCollection(cid) {
 // Verdrahtung
 // ============================================================
 document.addEventListener("DOMContentLoaded", function () {
-  const play    = document.getElementById("plSentPlay");
-  const next    = document.getElementById("plSentNext");
-  const endless = document.getElementById("plSentEndless");
-  const stop    = document.getElementById("plSentStop");
-  const show    = document.getElementById("plSentShowText");
-  if (play)    play.addEventListener("click",    sPlay);
-  if (next)    next.addEventListener("click",    sNext);
-  if (endless) endless.addEventListener("click", sEndlessStart);
-  if (stop)    stop.addEventListener("click",    sStop);
-  if (show)  show.addEventListener("change", sUpdateTextBox);
-
-  // Pausen-Buttons (falls von Etappe 1 vorhanden) — Logik unverändert.
-  const pauseBtns = document.getElementById("plSentPauseBtns");
-  if (pauseBtns) {
-    for (const btn of pauseBtns.querySelectorAll("button")) {
-      btn.addEventListener("click", function () {
-        sPauseSetActive(parseInt(this.dataset.ms, 10));
-      });
-    }
-    sPauseSetActive(sPauseMsVal);
-  }
+  // BA192: alte Sätze-spezifische Knöpfe entfernt; Steuerung über zentrale
+  // Transport-Leiste in player.js. Nur noch lokale Sammlungen verdrahten.
 
   const localAdd = document.getElementById("plSentLocalAddBtn");
   const localInput = document.getElementById("plSentLocalInput");

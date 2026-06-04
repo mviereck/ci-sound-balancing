@@ -697,6 +697,12 @@ let plSrcMeas = true,
   plSrcCurves = true; // EQ source toggles
 let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
 
+let plActiveSource = "music";   // "music" | "sentences" | "noise" | "audiobook"
+let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus
+let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen), Default aus
+let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
+let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
+
 let lvTabShowMeas = false;
 let lvTabShowCurves = false;
 let lvTabMode = "rel";    // "rel" = relativ (±dB), "abs" = absolut (qu/CL/CU)

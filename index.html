@@ -1422,234 +1422,176 @@
           ></div>
         </div>
 
-        <!-- 4. Audiodatei -->
-        <div class="card">
-          <h3 data-t="plFileTitle" style="margin-bottom: 8px"></h3>
-          <div id="plNoD" class="hidden warning-bar" data-t="plNoData"></div>
-          <div
-            id="plDeafHintEl"
-            class="explain explain-warn"
-            style="display:none;margin-bottom:8px"
-          ></div>
-          <div style="margin-bottom: 14px">
-            <label
-              style="
-                font-size: 0.84em;
-                color: var(--text-muted);
-                display: block;
-                margin-bottom: 4px;
-              "
-              data-t="plFile"
-            ></label>
-            <input
-              type="file"
-              id="plAudio"
-              accept=".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*"
-              style="font-size: 0.88em"
-            />
+        <!-- 4. Wiedergabe (vereinheitlicht: Musik / Sätze / Hörbücher) -->
+        <div class="card" id="plPlayCard">
+          <h3 data-t="plPlayTitle" style="margin-bottom: 8px"></h3>
+
+          <!-- Top-Toggle: Quelle -->
+          <div class="controls-row" style="margin-bottom: 10px">
+            <div class="control-group" style="flex-wrap: wrap; gap: 6px">
+              <label data-t="plSourceLabel" style="align-self: center"></label>
+              <button id="plSrcMusicBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcMusic"></button>
+              <button id="plSrcSentencesBtn" class="btn btn-sm"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px"
+                      data-t="plSrcSentences"></button>
+              <button id="plSrcNoiseBtn" class="btn btn-sm" disabled
+                      title="noch nicht verfuegbar (kommt in spaeterer Bauanleitung)"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px; opacity: 0.5; cursor: not-allowed"
+                      data-t="plSrcNoise"></button>
+              <button id="plSrcAudiobookBtn" class="btn btn-sm" disabled
+                      title="noch nicht verfuegbar (kommt in spaeterer Bauanleitung)"
+                      style="font-weight: 600; min-width: 140px; border-radius: 6px; opacity: 0.5; cursor: not-allowed"
+                      data-t="plSrcAudiobook"></button>
+            </div>
           </div>
-          <div id="plCtrl" style="display: none">
-            <div
-              style="
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                margin-bottom: 12px;
-              "
-            >
-              <span
-                id="plPlayWrap"
-                style="position:relative;display:inline-flex;align-items:center;gap:8px"
-              >
-                <button
-                  class="btn"
-                  id="plPlay"
-                  style="
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    font-size: 1.1em;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0;
-                  "
-                >
-                  &#9654;
-                </button>
-                <span
-                  id="plPlayBusyIcon"
-                  style="display:none;font-size:1.4em;line-height:1"
-                  aria-hidden="true"
-                >&#9203;</span>
-                <div
-                  id="plPlayBusyTip"
-                  style="
-                    display:none;
-                    position:absolute;
-                    bottom:100%;
-                    left:0;
-                    margin-bottom:8px;
-                    padding:6px 10px;
-                    background:#333;
-                    color:#fff;
-                    border-radius:4px;
-                    font-size:0.82em;
-                    white-space:nowrap;
-                    z-index:1000;
-                    pointer-events:none;
-                  "
-                ></div>
-              </span>
-              <button
-                class="btn"
-                id="plStop"
-                style="
-                  width: 44px;
-                  height: 44px;
-                  border-radius: 50%;
-                  font-size: 1.1em;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  padding: 0;
-                "
-              >
-                &#9632;
-              </button>
-              <div
-                style="flex: 1; display: flex; flex-direction: column; gap: 3px"
-              >
-                <input
-                  type="range"
-                  id="plTL"
-                  min="0"
-                  max="1000"
-                  value="0"
-                  step="1"
-                  style="width: 100%"
-                />
-                <div
-                  style="
-                    display: flex;
-                    justify-content: space-between;
-                    font-family: var(--mono);
-                    font-size: 0.78em;
-                    color: var(--text-muted);
-                  "
-                >
-                  <span id="plCur">0:00</span><span id="plTot">0:00</span>
+
+          <!-- Sub-Block: Musik -->
+          <div id="plSubMusic" class="pl-subblock" style="margin-bottom: 12px">
+            <div id="plDeafHintEl" class="explain explain-warn"
+                 style="display:none;margin-bottom:8px"></div>
+            <div id="plNoD" class="hidden warning-bar" data-t="plNoData"></div>
+            <label style="font-size: 0.84em; color: var(--text-muted); display: block; margin-bottom: 4px"
+                   data-t="plFile"></label>
+            <input type="file" id="plAudio"
+                   accept=".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*"
+                   style="font-size: 0.88em" />
+          </div>
+
+          <!-- Sub-Block: Saetze -->
+          <div id="plSubSentences" class="pl-subblock" style="margin-bottom: 12px; display: none">
+            <div id="plSentNoMaterial" class="explain explain-warn"
+                 style="display:none;font-size:0.85em" data-t="sentNoMaterial"></div>
+            <div id="plSentNotReady" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)" data-t="sentNotReady"></div>
+
+            <div id="plSentControls" style="display:none">
+              <div id="plSentLocalBlock"
+                   style="margin-bottom:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+                  <button class="btn" id="plSentLocalAddBtn" type="button" style="font-size:0.85em">
+                    <span data-t="sentLocalAdd"></span>
+                  </button>
+                  <span id="plSentLocalHint" style="font-size:0.78em;color:var(--text-muted)" data-t="sentLocalHint"></span>
+                </div>
+                <div id="plSentLocalList" style="display:none;font-size:0.85em"></div>
+                <input type="file" id="plSentLocalInput" webkitdirectory multiple style="display:none" />
+              </div>
+
+              <div class="controls-row">
+                <div class="control-group">
+                  <label data-t="sentSpeaker" style="margin-right:6px"></label>
+                  <select id="plSentSpeaker"
+                          style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                  </select>
                 </div>
               </div>
             </div>
-            <div class="controls-row">
-              <div class="control-group">
-                <label data-t="lblVol"></label
-                ><input
-                  type="number"
-                  id="plVol"
-                  value="80"
-                  min="0"
-                  max="100"
-                  step="1"
-                  style="
-                    width: 55px;
-                    padding: 3px 5px;
-                    border: 1px solid var(--border);
-                    border-radius: 4px;
-                    text-align: center;
-                    font-family: var(--mono);
-                    font-size: 0.88em;
-                  "
-                />%
+          </div>
+
+          <!-- Sub-Block: Geraeusche (Platzhalter, kommt in spaeterer BA) -->
+          <div id="plSubNoise" class="pl-subblock"
+               style="margin-bottom: 12px; display: none; color: var(--text-muted); font-size: 0.9em"
+               data-t="plNoiseComingSoon"></div>
+
+          <!-- Sub-Block: Hoerbuecher (Platzhalter, kommt in spaeterer BA) -->
+          <div id="plSubAudiobook" class="pl-subblock"
+               style="margin-bottom: 12px; display: none; color: var(--text-muted); font-size: 0.9em"
+               data-t="plAudiobookComingSoon"></div>
+
+          <!-- Transport-Leiste -->
+          <div id="plTransport" class="controls-row"
+               style="align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap">
+            <button class="btn pl-trans-btn" id="plPrev" type="button"
+                    title="" data-tip="plTipPrev"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9198;
+            </button>
+            <span id="plPlayWrap"
+                  style="position:relative;display:inline-flex;align-items:center;gap:8px">
+              <button class="btn pl-trans-btn" id="plPlay" type="button"
+                      title="" data-tip="plTipPlay"
+                      style="width:44px;height:44px;border-radius:50%;font-size:1.1em;display:flex;align-items:center;justify-content:center;padding:0">
+                &#9654;
+              </button>
+              <span id="plPlayBusyIcon"
+                    style="display:none;font-size:1.4em;line-height:1"
+                    aria-hidden="true">&#9203;</span>
+              <div id="plPlayBusyTip"
+                   style="display:none;position:absolute;bottom:100%;left:0;margin-bottom:8px;padding:6px 10px;background:#333;color:#fff;border-radius:4px;font-size:0.82em;white-space:nowrap;z-index:1000;pointer-events:none;"></div>
+            </span>
+            <button class="btn pl-trans-btn" id="plStop" type="button"
+                    title="" data-tip="plTipStop"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9632;
+            </button>
+            <button class="btn pl-trans-btn" id="plNext" type="button"
+                    title="" data-tip="plTipNext"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#9197;
+            </button>
+            <button class="btn pl-trans-btn" id="plLoopBtn" type="button"
+                    title="" data-tip="plTipLoop"
+                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
+              &#128257;
+            </button>
+
+            <div style="flex:1; display:flex; flex-direction:column; gap:3px; min-width:160px">
+              <input type="range" id="plTL" min="0" max="1000" value="0" step="1" style="width:100%" />
+              <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:0.78em; color:var(--text-muted)">
+                <span id="plCur">0:00</span><span id="plTot">0:00</span>
               </div>
-              <span
-                style="
-                  font-family: var(--mono);
-                  font-size: 0.72em;
-                  color: var(--text-muted);
-                  background: var(--bg);
-                  padding: 2px 6px;
-                  border-radius: 4px;
-                "
-                >Mono</span
-              >
+            </div>
+
+            <div class="control-group">
+              <label data-t="lblVol"></label>
+              <input type="number" id="plVol" value="80" min="0" max="100" step="1"
+                     style="width:55px; padding:3px 5px; border:1px solid var(--border); border-radius:4px; text-align:center; font-family:var(--mono); font-size:0.88em" />%
+            </div>
+            <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted); background:var(--bg); padding:2px 6px; border-radius:4px">Mono</span>
+          </div>
+
+          <!-- Eigene Zeile: Auto-Advance + Pause-Buttons -->
+          <div id="plAutoAdvanceRow" class="controls-row"
+               style="align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap">
+            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
+                    title="" data-tip="plTipAutoAdv"
+                    style="min-width:140px; font-weight:600; border-radius:6px">
+              <span data-t="plAutoAdvLabel"></span>
+            </button>
+            <div class="control-group" style="flex-wrap:wrap; gap:4px">
+              <label data-t="plPauseLabel" style="margin-right:4px"></label>
+              <div id="plPauseBtns" style="display:flex; gap:3px; flex-wrap:wrap">
+                <button class="btn pl-pause-btn" type="button" data-ms="500">500</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="750">750</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="1000">1000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="2000">2000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="4000">4000</button>
+                <button class="btn pl-pause-btn" type="button" data-ms="8000">8000</button>
+              </div>
+              <span style="font-size:0.85em; color:var(--text-muted)">ms</span>
             </div>
           </div>
-        </div>
 
-        <!-- 4b. Sätze abspielen -->
-        <div class="card" id="plSentencesCard">
-          <h3 data-t="sentTitle" style="margin-bottom: 8px"></h3>
-
-          <div id="plSentNoMaterial" class="explain explain-warn" style="display:none;font-size:0.85em" data-t="sentNoMaterial"></div>
-          <div id="plSentNotReady" class="explain" style="display:none;font-size:0.85em;color:var(--text-muted)" data-t="sentNotReady"></div>
-
-          <div id="plSentControls" style="display:none">
-            <!-- Lokale Audio-Sammlungen -->
-<div id="plSentLocalBlock" style="margin-bottom:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
-  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">
-    <button class="btn" id="plSentLocalAddBtn" type="button" style="font-size:0.85em">
-      <span data-t="sentLocalAdd"></span>
-    </button>
-    <span id="plSentLocalHint" style="font-size:0.78em;color:var(--text-muted)" data-t="sentLocalHint"></span>
-  </div>
-  <div id="plSentLocalList" style="display:none;font-size:0.85em">
-    <!-- Liste wird dynamisch von sentences.js befüllt -->
-  </div>
-  <input
-    type="file"
-    id="plSentLocalInput"
-    webkitdirectory
-    multiple
-    style="display:none"
-  />
-</div>
-            <div class="controls-row" style="margin-bottom:8px">
-              <div class="control-group">
-                <label data-t="sentSpeaker" style="margin-right:6px"></label>
-                <select id="plSentSpeaker" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                  <!-- Optionen werden zur Laufzeit von sentences.js befüllt -->
-                </select>
-              </div>
-              <div class="control-group" style="flex-wrap:wrap;gap:4px">
-                <label data-t="sentPauseLabel" style="margin-right:4px"></label>
-                <div id="plSentPauseBtns" style="display:flex;gap:3px;flex-wrap:wrap">
-                  <button class="btn" type="button" data-ms="500">500</button>
-                  <button class="btn" type="button" data-ms="750">750</button>
-                  <button class="btn" type="button" data-ms="1000">1000</button>
-                  <button class="btn" type="button" data-ms="2000">2000</button>
-                  <button class="btn" type="button" data-ms="4000">4000</button>
-                  <button class="btn" type="button" data-ms="8000">8000</button>
-                </div>
-                <span style="font-size:0.85em;color:var(--text-muted)">ms</span>
-              </div>
+          <!-- Anzeige-Block -->
+          <div id="plDisplayBox"
+               style="padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:4px; font-size:0.9em; line-height:1.45">
+            <div id="plDispTitle" style="font-weight:600; margin-bottom:4px">
+              <span data-t="plDispEmpty"></span>
             </div>
-
-            <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap">
-              <button class="btn" id="plSentPlay" type="button">
-                <span data-t="sentBtnPlay"></span>
-              </button>
-              <button class="btn" id="plSentNext" type="button">
-                <span data-t="sentBtnNext"></span>
-              </button>
-              <button class="btn" id="plSentEndless" type="button">
-                <span data-t="sentBtnEndless"></span>
-              </button>
-              <button class="btn" id="plSentStop" type="button" disabled>
-                <span data-t="sentStop"></span>
-              </button>
-              <label style="display:flex;align-items:center;gap:6px;cursor:pointer;margin-left:auto">
-                <input type="checkbox" id="plSentShowText" />
-                <span data-t="sentShowText"></span>
-              </label>
-            </div>
-
-            <div id="plSentTextBox" style="display:none;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:4px;font-size:0.95em;line-height:1.4;min-height:2.4em">
+            <label id="plSentTextToggleWrap"
+                   style="display:none; align-items:center; gap:6px; cursor:pointer; margin:4px 0">
+              <input type="checkbox" id="plSentShowText" />
+              <span data-t="sentShowText"></span>
+            </label>
+            <div id="plSentTextBox"
+                 style="display:none; padding:6px 8px; background:var(--card-bg, #fff); border:1px solid var(--border); border-radius:4px; font-size:0.95em; line-height:1.4; min-height:2.4em; margin:4px 0">
               <span id="plSentText"></span>
             </div>
+            <div id="plDispMeta"
+                 style="font-size:0.82em; color:var(--text-muted); margin-top:4px"></div>
           </div>
-
         </div>
 
         <!-- experimentelle Optionen (ausgeblendet, wird vielleicht später genutzt) -->

@@ -1,6 +1,6 @@
 ## Player
 
-- Aufbau des Tabs in fünf Karten, in dieser Reihenfolge:
+- Aufbau des Tabs in vier Karten, in dieser Reihenfolge:
   1. **Einleitung** — reine Textbox mit Titel „Audioplayer mit Korrektur-
      Equalizer" und Beschreibung (`plTitle`, `plDesc`). Kein blauer
      Hinweis-Strich, nur normaler Absatz.
@@ -14,8 +14,27 @@
      Dropdown; (5) Latenzausgleich; (6) Frequenz-Warping-Button +
      ausklappbare Einstellungsbox (`plWarpSettingsBox`); (7) Normalhörenden-
      Simulation; NH-Hinweisbox (`plNHInfo`).
-  4. **Audiodatei** (`plFileTitle`) — Datei-Picker, Transport-Controls
-     (Play/Stop, Zeitleiste, Lautstärke).
+  4. **Wiedergabe** (`plPlayTitle`) — vereinheitlichte Card mit
+     Top-Toggle Quelle (Musik / Sätze / Geräusche / Hörbücher; Geräusche
+     und Hörbücher ausgegraut bis spätere BA), quellenspezifischem
+     Sub-Block, gemeinsamer Transport-Leiste (Prev, Play/Pause, Stop,
+     Next, Endlos-Toggle 🔁, Slider, Lautstärke), eigener Zeile für
+     Auto-Advance-Toggle ↪ + Pause-Buttons, und Anzeige-Block
+     (Titel, Sprecher, Quelle, Lizenz, optional Satz-Text).
+     - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
+     - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (Random-Satz
+       bei Sätzen; bei Musik in BA 192 ohne Folge-Track, da keine
+       Playlist). Stoppt nach 30 Minuten ohne UI-Interaktion.
+     - **Pause-Buttons**: 500 / 750 / 1000 / 2000 / 4000 / 8000 ms,
+       wirken nur bei aktivem Auto-Advance oder Loop; sonst ausgegraut.
+       Default 2000 ms.
+     - Loop hat Vorrang vor Auto-Advance.
+     - Transport-Leiste immer sichtbar (auch ohne geladene Datei);
+       Prev/Next ausgegraut im Musik-Modus (keine Playlist).
+     - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
+       `plPauseMs`, `plSentShowText` werden in JSON-Save und localStorage
+       gespeichert und beim Restore wiederhergestellt.
+       `noise`/`audiobook` fallen beim Restore auf `music` zurück.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**
@@ -177,8 +196,8 @@
   - Stop-Button (`#plWarpStopBtn`) bricht laufende Rubberband-Vorberechnung
     ab; Warp-Toggle schaltet dabei aus.
 
-- Sätze-Wiedergabe im Player: Card „Sätze abspielen" unterhalb der
-  Audiodatei-Card. Wiedergabe vorgesprochener Sätze durch denselben
+- Sätze-Wiedergabe im Player: Sub-Block der vereinheitlichten Wiedergabe-Card
+  (Quelle „💬 Sätze"), Wiedergabe vorgesprochener Sätze durch denselben
   Audiograph wie Musikdateien (EQ, MAPLAW, Korrektur, Lautstärke wirken).
   Sprecher-Auswahl folgt der globalen Tool-Sprache und bietet immer
   Option „Alle (zufällig)" plus einzelne Sprecher der jeweiligen Sprache:
@@ -186,24 +205,18 @@
     Quelle: Thorsten-Voice, CC0)
   - **Common Voice** (Pool aus 100 verschiedenen Sprechern pro
     Sprache; Quelle: Mozilla Common Voice 17.0, CC0)
-  Bedienung über drei Buttons: **Spielen** (aktueller Satz einmal,
-  beim ersten Klick zufällig gewählt) — **Nächster Satz** (anderer
-  zufälliger Satz, einmal) — **Endlosfolge** (zufällige Folge,
-  maximal 100 Sätze; danach automatischer Stop, Button-Klick startet
-  neue 100er-Folge). Stop hält alles an. Sprecher-Auswahl folgt globaler
-  Tool-Sprache. Optionaler Text-Einblender. Pause-Buttons
-  (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 ms —
-  Wartezeit zwischen Sätzen bei Endlosfolge).
-  Sätze und Audiodatei haben getrennte Buffer und sind unabhängig
-  voneinander steuerbar. Sätze-Start pausiert eine laufende
-  Datei-Wiedergabe; Klick auf den Datei-Play-Button während laufender
-  Sätze stoppt diese und startet die Datei (ein Klick, vorher zwei).
-  Sätze-Stop und Sätze-Ende setzen den Player zurück in den Datei-
-  Modus, ohne die Datei-Auswahl zu verlieren. Datei-Upload und
-  Seite-Wechsel stoppen Sätze ebenfalls. Sprachwechsel aktualisiert
-  Sprecher-Dropdown sofort. Schema: `assets/sentences/sentences.json`
-  ist sprecher-zentriert, `speakers.<key>.recordings[]` mit Text +
-  Audio-Pfad. Siehe README.
+  Bedienung über die zentrale Transport-Leiste: **Play** startet
+  zufälligen Satz; **Prev/Next** wählen anderen zufälligen Satz;
+  **Stop** hält an; **🔁 Loop** wiederholt denselben Satz; **↪ Auto-Weiter**
+  spielt nach jedem Satz automatisch einen anderen zufälligen Satz.
+  Stop hält alles an. Sprecher-Auswahl folgt globaler Tool-Sprache.
+  Optionaler Text-Einblender (`plSentShowText`). Pause-Buttons
+  (500 / 750 / 1000 / 2000 / 4000 / 8000 ms, Default 2000 ms — wirken
+  bei Loop und Auto-Advance). Loop hat Vorrang vor Auto-Advance.
+  Sätze und Audiodatei haben getrennte Buffer; Quelle-Toggle stoppt
+  laufende Wiedergabe. Sprachwechsel aktualisiert Sprecher-Dropdown sofort.
+  Schema: `assets/sentences/sentences.json` ist sprecher-zentriert,
+  `speakers.<key>.recordings[]` mit Text + Audio-Pfad. Siehe README.
 
   **Offline-Modus**: Wenn `fetch("assets/sentences/sentences.json")`
   fehlschlägt (z.B. weil das Tool als `file://` aus einem ZIP geöffnet

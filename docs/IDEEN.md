@@ -589,3 +589,40 @@ console.log(JSON.stringify(
 
 (Seite `right` annehmen, weil CI rechts ist und damit `varSide`;
 ggf. anpassen.)
+
+## Player — dynamisch erzeugter Hintergrundlärm zu Sätzen
+
+Für das Test-Szenario „Sätze im Hintergrund-Geräusch" (siehe geplante
+BA 194) ist als Einstieg vorgesehen, dass ein einzelnes Geräusch aus
+dem Katalog hinter den Satz gemischt wird. Längerfristig denkbar ist
+ein dynamischer Cocktail-Generator, der den Hintergrund pro Sitzung
+nicht aus einer einzelnen Loop, sondern aus mehreren parallelen
+Quellen frisch zusammensetzt:
+
+- Mehrere Satz-Audios aus dem Common-Voice-Pool (oder anderen
+  Sprecher-Quellen) gleichzeitig leise abspielen, auf unterschiedlichen
+  Stereo-Positionen und mit leicht versetzten Startpunkten →
+  realistischer Sprach-Hintergrund, der nie identisch wiederkehrt.
+- Dazu 1–2 Alltagsgeräusche aus der Geräusch-Bibliothek (Regen,
+  Maschinenlärm, Café), per User-Auswahl oder Zufall.
+- Mix-Verhältnisse separat steuerbar (Sprach-Hintergrund-Anteil vs.
+  Alltagsgeräusch-Anteil vs. SNR zum Vordergrund-Satz).
+
+Audiologisch interessant, weil typische Hörtests den Hintergrund
+oft als eintönige Loop liefern und der CI-Träger sich daran
+gewöhnt — ein dynamisch wechselnder Hintergrund wäre näher an der
+Real-Welt-Café-Situation.
+
+Implementierungs-Skizze: pro Satz wird im Offline-AudioContext ein
+neuer Hintergrund-Buffer aus mehreren parallelen Sources gerendert
+(billig — wenige hundert Millisekunden CPU), dann mit dem Vordergrund-
+Satz pre-gemischt und durch die Player-Pipeline geschoben. Reuse-Logik
+für gleiche Sitzungs-Parameter optional.
+
+**Offene Fragen:**
+- Wieviele parallele Sprach-Sources sind realistisch hörbar — drei,
+  fünf, zehn?
+- Pegel-Balance: alle parallelen Sources gleich laut oder mit
+  zufälligem Volumen-Jitter?
+- Speicher-Footprint: pro Sitzung mehrere Vorlauf-Buffer im RAM
+  halten oder bei Bedarf neu rendern?
