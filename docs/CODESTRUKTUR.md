@@ -642,6 +642,26 @@ MP3s pro Sprache eine kleine Lazy-Load-Datei
 (5 Recordings pro Sprache, Audio als data:-URL). Lokal aufrufen nach
 Korpus-Aktualisierung: `python3 scripts/build_embed.py`.
 
+### scripts/build_manifests.py
+
+Erzeugt die Manifest-Dateien unter `audio.manifest/` aus lokalen
+Voice-Mirror-Verzeichnissen. Unterstützt Subkommandos `--only <corpus>`
+für gezielte Teilbuilds. Erstellt nach einem vollständigen Lauf einen
+Differenzen-Report `audio.manifest/_diff_report.md`, der fehlende
+Audiodateien pro Corpus auflistet. Hauptkategorien: ARU Speech Corpus,
+Common Voice, MUSAN, Librivox u. a.
+
+### scripts/aru_ascii_rename.py
+
+Benennt die Dateien im ARU-Mirror
+(`voice/opus/ARU_Speech_Corpus_v1_0/`) von Leerzeichen- und
+`=`-haltigen Originalnamen (`ID01_ARU_Fs=65536Hz_Standard speech - List 1 - Sentence 1 - Version 1_0.opus`)
+auf ASCII-sichere URLs um (`id01-L01-S01-v1.opus`). Aktualisiert
+anschließend die Sidecar-Datei `sentences_ARU.txt`, damit
+`build_manifests.py` beim nächsten Lauf die neuen Namen findet.
+Idempotent. Aufruf: `python3 scripts/aru_ascii_rename.py [--dry-run]
+[--mirror <pfad>]`.
+
 ### Sprachdatensätze/ARU_Speech_Corpus_v1_0/sentences_ARU.txt
 
 Manifest-Datei für den ARU Speech Corpus (12 Sprecher ID01–ID12,

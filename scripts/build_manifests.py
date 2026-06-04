@@ -627,27 +627,36 @@ def build_aru(metadata_root: Path, out: Path, dry_run: bool) -> str | None:
             if fname and text:
                 text_by_file[fname] = text
 
-    # Sprecher aus Dateinamen-Pattern: ID01_... ID02_... etc.
-    pattern = re.compile(r"^(ID\d+|IEEE|sentences)_ARU_")
+    # Sprecher aus Dateinamen-Pattern: neue ASCII-Form id01-L01-S01-v1.opus
+    # oder alte Form ID01_ARU_Fs=65536Hz_Standard speech - List 1 - ...
+    pattern_new = re.compile(r"^(id\d+|ieee|sentences)-L(\d+)-S(\d+)-v\d+\.")
+    pattern_old = re.compile(r"^(ID\d+|IEEE|sentences)_ARU_")
     by_speaker: dict[str, list[dict]] = defaultdict(list)
     n = 0
     for fname, text in text_by_file.items():
-        m = pattern.match(fname)
-        if not m:
+        m_new = pattern_new.match(fname)
+        m_old = pattern_old.match(fname)
+        if m_new:
+            speaker_slug = m_new.group(1).lower()
+            list_no = int(m_new.group(2))
+            sent_no = int(m_new.group(3))
+            out_name = fname
+        elif m_old:
+            speaker_slug = m_old.group(1).lower()
+            m2 = re.search(r"List (\d+) - Sentence (\d+)", fname)
+            if not m2:
+                continue
+            list_no = int(m2.group(1))
+            sent_no = int(m2.group(2))
+            out_name = (fname[:-4] + ".opus"
+                        if fname.lower().endswith(".wav") else fname)
+        else:
             continue
-        speaker = m.group(1)
-        # WAV bleibt WAV bei Mirror — ARU wird konvertiert, daher .opus
-        opus_name = fname[:-4] + ".opus" if fname.lower().endswith(".wav") else fname
-        # List/Sentence aus Dateinamen
-        list_no = sent_no = None
-        m2 = re.search(r"List (\d+) - Sentence (\d+)", fname)
-        if m2:
-            list_no, sent_no = int(m2.group(1)), int(m2.group(2))
-        by_speaker[speaker].append({
-            "id": f"L{list_no:02d}-S{sent_no:02d}" if list_no else fname[:20],
+        by_speaker[speaker_slug].append({
+            "id": f"L{list_no:02d}-S{sent_no:02d}",
             "text": text,
-            "audio": opus_name,
-            "tags": {"list_no": list_no, "sentence_no": sent_no} if list_no else {},
+            "audio": out_name,
+            "tags": {"list_no": list_no, "sentence_no": sent_no},
         })
         n += 1
     log.info("aru: %d Sätze, %d Sprecher", n, len(by_speaker))
