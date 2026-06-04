@@ -1350,6 +1350,40 @@ select:disabled {
   white-space: nowrap;
 }
 
+/* BA 206: Slider Round — Bereich (Min..Max) + Median-Dreieck unter dem Slider. */
+.fm-range-hint {
+  position: relative;
+  height: 18px;
+  margin-top: 2px;
+}
+.fm-range-hint-band {
+  position: absolute;
+  top: 6px;
+  height: 6px;
+  background: rgba(60, 130, 220, 0.25);
+  border-radius: 3px;
+  pointer-events: none;
+}
+.fm-range-hint-mark {
+  position: absolute;
+  top: 2px;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid rgba(60, 130, 220, 0.9);
+  transform: translateX(-6px);
+  pointer-events: none;
+}
+.fm-range-hint-label {
+  position: absolute;
+  top: 12px;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(60, 130, 220, 0.95);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* ===========================================================
  * Debug-Panel (Bauanleitung 80)
  * Wenn body keine .dbg-active-Klasse trägt: nichts sichtbar.

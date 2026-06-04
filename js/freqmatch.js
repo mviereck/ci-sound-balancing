@@ -96,6 +96,46 @@ function _fmEnsureSliderStore(side) {
   return sd.freqmatchAdaptive.sliderEstimates;
 }
 
+// BA 206: Aggregat-Wert aus rounds[]-Historie berechnen.
+// Regel: ≥3 Werte → Median, =2 → Mittelwert, =1 → der Wert selbst, 0 → null.
+function _fmAggregateCent(rounds) {
+  if (!Array.isArray(rounds) || rounds.length === 0) return null;
+  const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
+                     .filter(function(v) { return v != null && isFinite(v); });
+  if (vals.length === 0) return null;
+  if (vals.length === 1) return vals[0];
+  if (vals.length === 2) return (vals[0] + vals[1]) / 2;
+  const sorted = vals.slice().sort(function(a, b) { return a - b; });
+  const mid = Math.floor(sorted.length / 2);
+  if (sorted.length % 2 === 1) return sorted[mid];
+  return (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+// BA 206: Min/Max aus rounds[]-Historie. Rückgabe {min, max} oder null.
+function _fmRangeCent(rounds) {
+  if (!Array.isArray(rounds) || rounds.length === 0) return null;
+  const vals = rounds.map(function(r) { return r && typeof r.cent === 'number' ? r.cent : null; })
+                     .filter(function(v) { return v != null && isFinite(v); });
+  if (vals.length === 0) return null;
+  let mn = vals[0], mx = vals[0];
+  for (let i = 1; i < vals.length; i++) {
+    if (vals[i] < mn) mn = vals[i];
+    if (vals[i] > mx) mx = vals[i];
+  }
+  return { min: mn, max: mx };
+}
+
+// BA 206: Letzter Messwert dieser Elektrode (= Startwert für nächste Runde).
+function _fmLastRoundCent(elIdx) {
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  if (!store) return null;
+  const e = store[String(elIdx)];
+  if (!e || !Array.isArray(e.rounds) || e.rounds.length === 0) return null;
+  const last = e.rounds[e.rounds.length - 1];
+  return (last && typeof last.cent === 'number') ? last.cent : null;
+}
+
 // --- Hilfsfunktionen ---
 function fmCents(refHz, hz) {
   return 1200 * Math.log2(hz / refHz);
@@ -283,27 +323,16 @@ function fmBuildSeqSymmetric() {
   return seq.map(function(x) { return x.idx; });
 }
 
-// Vorherige Messung für diese Elektrode (in Cent), falls vorhanden
+// BA 206: Startwert für eine Elektrode = letzter Wert aus rounds[].
 function fmPrevCent(elIdx) {
-  // 1) Vorhandene Slider-Vor-Schätzung hat höchste Priorität.
-  //    sliderEstimates wird im symmetric-Modus in sideData.left.* abgelegt
-  //    (BA 147 Konvention fmVarSide='left'); kein zusätzlicher refSide-Filter
-  //    nötig, weil Modus-Wechsel die Daten ohnehin löscht.
-  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
-    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
-  if (store && store[String(elIdx)] != null) {
-    const c = store[String(elIdx)].cent;
-    if (typeof c === 'number' && isFinite(c)) return Math.round(c);
-  }
-  // 2) Sonst fRes-Eintrag.
+  const last = _fmLastRoundCent(elIdx);
+  if (last != null) return Math.round(last);
+
   const existing = fRes.find((r) => fmSymmetric
     ? (r.refSide === 'symmetric' && r.elIdx === elIdx)
     : (r.varSide === fmVarSide && r.refSide === fmRefSide && r.elIdx === elIdx)
   );
   if (!existing) return 0;
-  // Im symmetric ist entry.cent der gespeicherte Match-Offset (positiv = rechts höher).
-  // varFreq/refFreq sind dort die rohen Mittenfrequenzen — fmCents(varFreq, refFreq)
-  // würde die Hz-Differenz der Mittenfrequenzen liefern, nicht den Match-Offset.
   if (fmSymmetric && typeof existing.cent === 'number' && isFinite(existing.cent)) {
     return Math.round(existing.cent);
   }
@@ -902,11 +931,8 @@ function fmUpdateSliderModeAvail() {
       return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
     });
   }));
-  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasAnswers,
-                          { reason: 'fmAdaptiveExists' });
-  if (hasAnswers && fmVerfahren === 'slider' && !fmRunning) {
-    fmSetVerfahren('adaptive', { force: true });
-  }
+  // BA 206: Slider Round kann parallel zu adaptiven Daten weiterlaufen
+  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', true, {});
 }
 
 let _fmDurStash_slider  = 400;
@@ -1010,10 +1036,10 @@ document.addEventListener("DOMContentLoaded", () => {
           progress:      { format: 'simple' },
           instruction:   { key: 'fmSliderInstruction' },
           keyHint:       { unitKey: 'sliderHintCent' },
-          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1 },
+          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1, rangeHint: true },
           sliderValue:   { show: true },
           confirmButton: { key: 'btnConfirmOffset' },
-          actions:       ['undo', 'replay', 'simul'],
+          actions:       ['undo', 'replay', 'simul', 'pause'],
           statusGrid:    { show: true },
           background: {
             bodyKey:    'fmExplainSliderScience',
@@ -1024,6 +1050,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hooks: {
           onStart:    fmStartSlider,
           onStop:     fmAbort,
+          onPause:    fmPauseSlider,
           onSlide:    fmHandleSlider,
           onConfirm:  fmConfirm,
           onReplay:   fmPlayCurrent,

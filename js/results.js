@@ -805,7 +805,9 @@ document.addEventListener("DOMContentLoaded", function() {
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
           const fa = sideData[side] && sideData[side].freqmatchAdaptive;
-          if (fa && fa.sliderEstimates) fa.sliderEstimates = {};
+          if (!fa) return;
+          if (fa.sliderEstimates) fa.sliderEstimates = {};
+          fa.sliderRoundRun = null;
         });
       }
       _fmrRefreshAfterClear();

@@ -1157,6 +1157,18 @@ function _buildTestPanelNew(parentEl, cfg) {
         slWrap.appendChild(lsHint);
       }
 
+      // BA 206: Slider Round — Min/Max-Bereich + Median-Dreieck (eigene Klassen).
+      var rangeHint = null, rangeHintBand = null, rangeHintMark = null, rangeHintLabel = null;
+      if (vCfg.body.slider && vCfg.body.slider.rangeHint) {
+        rangeHint = _mkEl('div', 'fm-range-hint');
+        rangeHint.style.display = 'none';
+        rangeHintBand  = _mkEl('div', 'fm-range-hint-band');
+        rangeHintMark  = _mkEl('div', 'fm-range-hint-mark');
+        rangeHintLabel = _mkEl('div', 'fm-range-hint-label');
+        rangeHint.append(rangeHintBand, rangeHintMark, rangeHintLabel);
+        slWrap.appendChild(rangeHint);
+      }
+
       // Touch-Buttons (− / Fein / +) automatisch einhängen
       var _tStep     = slCfg.touchStep     != null ? slCfg.touchStep     : 5;
       var _tFineStep = slCfg.touchFineStep != null ? slCfg.touchFineStep : 1;
@@ -1167,6 +1179,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       refs.slider = {
         input: slInput,
         lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel2,
+        rangeHint: rangeHint, rangeHintBand: rangeHintBand,
+        rangeHintMark: rangeHintMark, rangeHintLabel: rangeHintLabel,
         unit: slUnit,
         initialRange: slInitialRange,
         maxRange: slMaxRange,
@@ -1285,6 +1299,12 @@ function _buildTestPanelNew(parentEl, cfg) {
           actRefs.simul = btn;
           if (vCfg.hooks && vCfg.hooks.onSimul) {
             btn.addEventListener('click', function() { vCfg.hooks.onSimul(); });
+          }
+        } else if (act === 'pause') {
+          _tEl(btn, 'btnPauseTest');
+          actRefs.pause = btn;
+          if (vCfg.hooks && vCfg.hooks.onPause) {
+            btn.addEventListener('click', function() { vCfg.hooks.onPause(); });
           }
         }
         actRow.appendChild(btn);

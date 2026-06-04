@@ -241,13 +241,27 @@ Slider-Wert wird invertiert.
   wie bei CI-Seiten, weil die Messung dort Pseudo-Elektroden
   verwendet.
 
-- **Modus-Schalter** (Bauanleitung 02b/2): Ein zweiter Mess-Modus
-  (adaptiv, 2I-2AFC) ist in `docs/spec/02b-freqmatch-adaptiv.md`
-  beschrieben und wird über den Modus-Schalter im Sub-Tab gewählt.
-  Default ist der adaptive Modus. Im adaptiven Modus werden Slider,
-  Übernehmen-Button, Confidence-Radios und Tonfolge-Dropdown
-  ausgeblendet; stattdessen erscheinen Höher/Tiefer-Buttons und das
-  Status-Grid. Im Slider-Modus bleibt das bisherige Verhalten erhalten.
+- **Modus-Schalter** (Bauanleitung 02b/2): Zwei Mess-Modi stehen zur Wahl.
+
+  - **Slider Round** (BA 206, `freqmatch-slider.js`): Mehrfach-Runden-
+    Verfahren. Pro Runde wird jede aktive (und nicht ausgeschlossene)
+    Elektrode genau einmal in zufälliger Reihenfolge abgefragt. Der Test
+    endet nicht von alleine — der Nutzer pausiert manuell per Pause-Knopf
+    und kann jederzeit nahtlos weitermachen (Pause/Resume). Pro Elektrode
+    sammelt sich eine Messwert-Historie (`rounds[]`) über alle Runden;
+    das Aggregat daraus (Median bei ≥ 3 Werten, Mittelwert bei 2, Einzelwert
+    bei 1) wird als `.cent`-Wert gespeichert und im Ergebnis-Diagramm
+    angezeigt. Unter dem Slider erscheint ab dem ersten gespeicherten Wert
+    ein farbiges Dreieck (Aggregat/Median) sowie ab zwei Werten ein blauer
+    Balken (Min..Max-Bereich aller Runden). Fortschrittsanzeige:
+    „Runde R · Elektrode C von T". Zustand läuft parallel zu adaptiven
+    Daten — das Slider-Round-Verfahren ist im Dropdown nie gesperrt.
+    Lösch-Button (`fmrClearSliderBtn`) löscht `sliderEstimates` und
+    `sliderRoundRun` beider Seiten.
+
+  - **Adaptiv** (2I-2AFC, `freqmatch-adaptive.js`): Beschrieben in
+    `docs/spec/02b-freqmatch-adaptiv.md`. Default ist das adaptive
+    Verfahren, sofern bereits adaptive Läufe vorliegen.
 
 - **Seitenhörtest vor Test-Start** (BA 116/117): Bei jedem Klick auf
   Starten erscheint das Seitenhörtest-Modal (`testUI.sideCheck.run`,

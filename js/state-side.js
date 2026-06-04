@@ -232,6 +232,14 @@ function _fmMigrateAdaptive(fa) {
     }
   }
   fa.sliderEstimates = savedEstimates;
+  // BA 206: Alte sliderEstimates (ohne rounds[]-Feld) auf R1-Historie heben.
+  Object.keys(fa.sliderEstimates).forEach(function(k) {
+    const e = fa.sliderEstimates[k];
+    if (!e || typeof e !== 'object') return;
+    if (Array.isArray(e.rounds)) return;
+    if (typeof e.cent !== 'number') return;
+    e.rounds = [{ cent: e.cent, ts: e.timestamp || Date.now(), round: 1 }];
+  });
   return fa;
 }
 
@@ -298,12 +306,15 @@ function _fmMigrateAltSliderFRes() {
     }
 
     const cent = Math.round(1200 * Math.log2(r.refFreq / r.varFreq));
+    const _ts206 = (typeof r.timestamp === 'number') ? r.timestamp : Date.now();
     store[String(elIdx)] = {
       cent:      cent,
       varSide:   r.varSide,
       refSide:   r.refSide || (side === 'left' ? 'right' : 'left'),
       varFreq:   r.varFreq,
-      timestamp: (typeof r.timestamp === 'number') ? r.timestamp : Date.now()
+      timestamp: _ts206,
+      // BA 206: Alt-Slider-fRes-Eintrag wird als R1-Wert übernommen.
+      rounds:    [{ cent: cent, ts: _ts206, round: 1 }]
     };
     fRes.splice(i, 1);
   }
