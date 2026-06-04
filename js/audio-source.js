@@ -588,6 +588,29 @@ function _amResolveAudioUrl(rawAudio, sourceBase) {
   return root + base + rawAudio;
 }
 
+// Collection-Top-Level-Felder, die als Tag-Defaults auf jedes Item
+// vererbt werden. Aufloesungs-Reihenfolge: it.tags > col.tags >
+// col-Top-Level > source-Top-Level.
+const _AM_COLLECTION_TAG_DEFAULTS = ["lang", "license", "credit", "url"];
+const _AM_SOURCE_TAG_DEFAULTS     = ["license", "credit"];
+
+function _amBuildItemTags(item, col, source) {
+  const tags = {};
+  if (source) {
+    for (const k of _AM_SOURCE_TAG_DEFAULTS) {
+      if (source[k] != null) tags[k] = source[k];
+    }
+  }
+  if (col) {
+    for (const k of _AM_COLLECTION_TAG_DEFAULTS) {
+      if (col[k] != null) tags[k] = col[k];
+    }
+  }
+  if (col && col.tags) Object.assign(tags, col.tags);
+  if (item && item.tags) Object.assign(tags, item.tags);
+  return tags;
+}
+
 // --- Provider-Eintrag fuer Webspace ---
 
 amRegisterProvider({
@@ -600,7 +623,6 @@ amRegisterProvider({
       for (const col of cols) {
         // Hoerbuecher gehen ueber listCollections, nicht ueber Items
         if (category === "hoerbuecher") continue;
-        const colTags = col.tags || {};
         for (const it of (col.items || [])) {
           out.push({
             id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
@@ -610,7 +632,7 @@ amRegisterProvider({
             sourceTitle: entry.meta.name || entry.source.name || srcKey,
             license: it.license || entry.source.license || entry.meta.license,
             credit:  it.credit  || entry.source.credit,
-            tags: Object.assign({}, colTags, it.tags || {})
+            tags: _amBuildItemTags(it, col, entry.source)
           });
         }
       }
@@ -641,7 +663,7 @@ amRegisterProvider({
               title: it.title || ("Kapitel " + (i+1)),
               audio: _amResolveAudioUrl(it.audio, entry.source.base),
               duration: it.duration,
-              tags: it.tags || {}
+              tags: _amBuildItemTags(it, col, entry.source)
             };
           })
         });

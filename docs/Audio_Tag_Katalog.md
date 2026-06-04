@@ -23,6 +23,12 @@ den Collection-Default).
 
 ## Tags für alle Kategorien
 
+> Hinweis: `lang` wird als Top-Level-Feld der Collection geführt,
+> nicht innerhalb des `tags`-Objekts. Der Loader vererbt es trotzdem
+> auf jedes Item als Tag-Default (siehe Vererbungs-Reihenfolge in
+> `docs/Konzept_Audio_Manifest.md`). Dasselbe gilt für `license`,
+> `credit` und `url`.
+
 | Tag | Typ | Erläuterung |
 |---|---|---|
 | `lang` | BCP 47 / `null` | Sprache des Inhalts. `null` für sprachlose Geräusche und Instrumentalmusik. |

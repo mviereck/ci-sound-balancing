@@ -104,6 +104,21 @@ Zusätzlich trägt **jedes Item einen Tag-Beutel**, der mehrachsige
 Filterung ohne Datenumzug erlaubt. Eine neue UI-Achse wird durch
 einen neuen Tag eingeführt, ohne Manifeste neu zu schneiden.
 
+**Vererbung**: Der Loader stellt jedem Item ein zusammengefügtes
+`tags`-Objekt zur Verfügung. Reihenfolge der Auflösung (von unten
+nach oben, oben gewinnt):
+
+1. Source-Top-Level (`license`, `credit`).
+2. Collection-Top-Level (`lang`, `license`, `credit`, `url`).
+3. Collection-`tags` (z.B. `speaker_id`, `gender`).
+4. Item-`tags` (überschreibt alles, falls gesetzt).
+
+`lang`, `license`, `credit`, `url` werden also explizit als
+Top-Level-Felder der Collection geschrieben — sie tauchen nicht
+in `tags`. Der Loader vererbt sie automatisch als Tag-Defaults
+auf jedes Item. Andere Tags (`speaker_id`, `genres`, `kind`, …)
+stehen in `tags` auf Collection- oder Item-Ebene.
+
 Beispiel-Item:
 
 ```json
