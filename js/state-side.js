@@ -681,7 +681,7 @@ let curA = -1,
   convRnd = 0;
 
 let globalToneType = "complex"; // "sine" | "complex" | "pulsedComplex" | "noise" | ...
-let globalSequence = "aba";       // "aba" | "ab"
+let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"
 

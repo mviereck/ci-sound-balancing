@@ -20,7 +20,7 @@ In `state-side.js` und persistiert in JSON und localStorage:
   einer neuen Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz,
   aktuelle Messlautstärke) abgespielt.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
-  `'aba'`. Vor dem Test wählbar, während des Tests fest.
+  `'ab'`. Vor dem Test wählbar, während des Tests fest.
 
 ### Slider-Wirkung (pro Test eigener Wert)
 
@@ -87,7 +87,7 @@ Slider-Wert wird invertiert.
   für die aktive Seite gesetzt sind. Fehlt eine Angabe, erscheint
   ein Alert-Hinweis und der Test startet nicht.
 - **Modi**: balance (Slider) und judgment (3-Knopf-Urteil)
-- **Testverfahren**: vollständig (alle Paare) / Konvergenz schnell /
+- **Testverfahren**: Round Robin (alle Paare) / Konvergenz /
   manuell
 - A/B-Zuordnung und Paarreihenfolge immer randomisiert
 - Referenzelektroden-Auswahl erfolgt im Ergebnis-Reiter
@@ -114,7 +114,7 @@ Slider-Wert wird invertiert.
   gemessenem Paar startet der Slider auf der LS-Schätzung
   (`curBase = Schätzung`, `slider = 0`). Bei leerem Datensatz
   `curBase = 0`.
-- Wenn Modus „Vollständig" angefangen aber nicht abgeschlossen wurde,
+- Wenn Modus „Round Robin" angefangen aber nicht abgeschlossen wurde,
   zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und
   bestätigten Paaren des aktuellen Sweeps.
 

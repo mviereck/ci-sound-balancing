@@ -205,11 +205,11 @@ function _buildTestPanelOld(parentEl, cfg) {
     cgVol.append(lblVol, volInput, document.createTextNode('%'));
     var cgDur = _mkEl('div', 'control-group');
     var lblDur = _mkEl('label'); lblDur.dataset.t = 'lblDur';
-    durInput = makeNumInput('dur', 1000, 100, 3000, 50, 65);
+    durInput = makeNumInput('dur', 400, 100, 3000, 50, 65);
     cgDur.append(lblDur, durInput, document.createTextNode(' ms'));
     var cgPau = _mkEl('div', 'control-group');
     var lblPau = _mkEl('label'); lblPau.dataset.t = 'lblPau';
-    pauseInput = makeNumInput('pau', 500, 50, 2000, 50, 65);
+    pauseInput = makeNumInput('pau', 300, 50, 2000, 50, 65);
     cgPau.append(lblPau, pauseInput, document.createTextNode(' ms'));
     rowVolume.append(cgVol, cgDur, cgPau);
     presetsBox.appendChild(rowVolume);
@@ -845,7 +845,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       var cgDur = _mkEl('div', 'control-group');
       var lblDur = _mkEl('label'); _tEl(lblDur, 'lblDur');
       durInput = makeNumInput2('dur',
-        dOpts.default || 1000, dOpts.min || 100, dOpts.max || 3000, dOpts.step || 50, 65);
+        dOpts.default || 400, dOpts.min || 100, dOpts.max || 3000, dOpts.step || 50, 65);
       cgDur.append(lblDur, durInput, document.createTextNode(' ms'));
       rowVolume.appendChild(cgDur);
     }
@@ -854,7 +854,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       var cgPau = _mkEl('div', 'control-group');
       var lblPau = _mkEl('label'); _tEl(lblPau, 'lblPau');
       pauseInput = makeNumInput2('pau',
-        pOpts.default || 500, pOpts.min || 50, pOpts.max || 2000, pOpts.step || 50, 65);
+        pOpts.default || 300, pOpts.min || 50, pOpts.max || 2000, pOpts.step || 50, 65);
       cgPau.append(lblPau, pauseInput, document.createTextNode(' ms'));
       rowVolume.appendChild(cgPau);
     }
