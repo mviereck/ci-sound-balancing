@@ -266,6 +266,18 @@
   (kein Phase-Counter über Sätze). Mix-Cache (max 8 Einträge, LRU) hält
   Pre-Mix-Buffer pro (Satz-Audio-Ref, Geräusch-Id, SNR-Wert) vor.
   Toggle-, Dropdown- und SNR-Änderungen leeren den Mix-Cache.
+  **Quellen-Aggregation (BA 197):** Sätze werden über das amProvider-System
+  eingesammelt — `sentences-legacy` (heutige sCorpus-Quelle aus
+  `assets/sentences/sentences.json` bzw. Embed), `sentences-local`
+  (User-Uploads), `embed`, `webspace`. Das Sprecher-Dropdown und der
+  Wiedergabe-Pfad arbeiten ausschließlich mit Items aus
+  `amCollectItems("saetze")`. Webspace-Sprecher erscheinen damit
+  automatisch im Dropdown.
+
+  **Titel-Anzeige (BA 197):** Im Anzeige-Block steht „Sammlung — Sprecher"
+  als Titel (z. B. „Thorsten-Voice — Thorsten"). Der Satz-Text bleibt
+  nur in der „Text anzeigen"-Box.
+
   Schema: `assets/sentences/sentences.json` ist sprecher-zentriert,
   `speakers.<key>.recordings[]` mit Text + Audio-Pfad. Siehe README.
 

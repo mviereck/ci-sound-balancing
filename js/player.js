@@ -1194,12 +1194,20 @@ function plUpdDisplay() {
   if (plActiveSource === "sentences") {
     showTextToggle = true;
     if (typeof sCurRec !== "undefined" && sCurRec) {
-      const spkKey = sCurRec.speakerKey || "";
-      const spk = (typeof sCorpus !== "undefined" && sCorpus && sCorpus.speakers && sCorpus.speakers[spkKey]) || null;
-      titleText = sCurRec.rec.text || (typeof t === "function" ? t("plDispEmpty") : "—");
-      if (spk && spk.label) metaParts.push(((typeof t === "function") ? t("sentSpeaker") : "Sprecher:") + " " + spk.label);
-      if (spk && spk.source)  metaParts.push(spk.source);
-      if (spk && spk.license) metaParts.push(spk.license);
+      const speakerLabel = sCurRec.title || (sCurRec.tags && sCurRec.tags.speaker_id) || "";
+      const sourceLabel  = sCurRec.sourceTitle || "";
+      if (sourceLabel && speakerLabel && sourceLabel !== speakerLabel) {
+        titleText = sourceLabel + " — " + speakerLabel;
+      } else if (speakerLabel) {
+        titleText = speakerLabel;
+      } else if (sourceLabel) {
+        titleText = sourceLabel;
+      } else {
+        titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
+      }
+      if (sCurRec.tags && sCurRec.tags.lang)   metaParts.push(sCurRec.tags.lang);
+      if (sCurRec.license)                      metaParts.push(sCurRec.license);
+      if (sCurRec.credit)                       metaParts.push(sCurRec.credit);
     } else {
       titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
     }
@@ -1248,7 +1256,7 @@ function plUpdDisplay() {
   if (cb) cb.checked = !!plSentShowText;
   if (tb) tb.style.display = (plActiveSource === "sentences" && plSentShowText) ? "" : "none";
   if (tx && plActiveSource === "sentences") {
-    tx.textContent = (typeof sCurRec !== "undefined" && sCurRec && sCurRec.rec && sCurRec.rec.text) ? sCurRec.rec.text : "";
+    tx.textContent = (typeof sCurRec !== "undefined" && sCurRec && sCurRec.text) ? sCurRec.text : "";
   }
 }
 

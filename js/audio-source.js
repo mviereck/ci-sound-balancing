@@ -64,8 +64,35 @@ const AM_SORT_AXES = {
       labelDefault: "nach Quelle",
       getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
     }
+  ],
+  // BA197: Sätze-Sortier-Achsen
+  saetze: [
+    {
+      key: "lang",
+      labelKey: "amSortLang",
+      labelDefault: "nach Sprache",
+      getter: function (it) { return (it.tags && it.tags.lang) || "zzz-unbekannt"; }
+    },
+    {
+      key: "speaker",
+      labelKey: "amSortSpeaker",
+      labelDefault: "nach Sprecher",
+      getter: function (it) { return (it.tags && it.tags.speaker_id) || "zzz-unbekannt"; }
+    },
+    {
+      key: "source",
+      labelKey: "amSortSource",
+      labelDefault: "nach Quelle",
+      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
+    },
+    {
+      key: "style",
+      labelKey: "amSortStyle",
+      labelDefault: "nach Stil",
+      getter: function (it) { return (it.tags && it.tags.style) || "zzz-unbekannt"; }
+    }
   ]
-  // weitere Kategorien (saetze, musik, hoerbuecher) folgen in spaeteren BAs.
+  // weitere Kategorien (musik, hoerbuecher) folgen in spaeteren BAs.
 };
 
 function amSortAxesFor(category) {

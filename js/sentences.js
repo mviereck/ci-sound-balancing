@@ -13,7 +13,7 @@ let sCorpus = null;
 let sLoaded = false;
 let sLoading = false;
 let sActive = false;
-let sCurRec = null;     // aktuell laufende Recording {speakerKey, idx}
+let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
 let sPauseTimer = null;
@@ -115,37 +115,23 @@ function sSpeakersForLang(langCode) {
     .filter((k) => sCorpus.speakers[k].lang === langCode);
 }
 
-// Liefert ein Array von {speakerKey, recIdx, rec}-Einträgen,
-// das die Auswahl-Vorgabe widerspiegelt.
-//   spkSel === "any"  -> alle Sprecher der Sprache, flach
-//   spkSel === "<key>" -> nur dieser Sprecher
 function sBuildRecordingPool(spkSel) {
-  if (typeof lang === "undefined") return [];
-  const speakers = sSpeakersForLang(lang);
-  const keys = spkSel === "any"
-    ? speakers
-    : speakers.includes(spkSel) ? [spkSel] : [];
-  const out = [];
-  for (const k of keys) {
-    const recs = sCorpus.speakers[k].recordings || [];
-    for (let i = 0; i < recs.length; i++) {
-      out.push({ speakerKey: k, recIdx: i, rec: recs[i] });
-    }
-  }
-  return out;
+  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+  const curLang = (typeof lang !== "undefined") ? lang : "de";
+  return all.filter(function (it) {
+    if (!it.tags || it.tags.lang !== curLang) return false;
+    if (spkSel === "any") return true;
+    return it.tags.speaker_id === spkSel;
+  });
 }
 
 function sPickRandom(pool, exclude) {
-  if (pool.length === 0) return null;
+  if (!pool || pool.length === 0) return null;
   if (pool.length === 1) return pool[0];
   let pick;
   do {
     pick = pool[Math.floor(Math.random() * pool.length)];
-  } while (
-    exclude
-    && pick.speakerKey === exclude.speakerKey
-    && pick.recIdx === exclude.recIdx
-  );
+  } while (exclude && pick.id === exclude.id && pool.length > 1);
   return pick;
 }
 
@@ -162,13 +148,14 @@ function sDataUrlToArrayBuffer(url) {
 
 async function sPlayCurrent() {
   if (!sActive || !sCurRec) return;
-  const audioRef = sCurRec.rec.audio;
+  const audioRef = sCurRec.audio;
+  if (!audioRef) { sStop(); return; }
   try {
     let arrayBuf;
-    if (audioRef.startsWith("data:")) {
+    if (audioRef.indexOf("data:") === 0) {
       arrayBuf = sDataUrlToArrayBuffer(audioRef);
-    } else if (audioRef.startsWith("local:")) {
-      // Form: "local:<collectionId>:<relPath>"
+    } else if (audioRef.indexOf("local:") === 0) {
+      // Form: "local:<cid>:<relPath>"
       const second = audioRef.indexOf(":", 6);
       const cid = audioRef.substring(6, second);
       const rel = audioRef.substring(second + 1);
@@ -177,7 +164,12 @@ async function sPlayCurrent() {
       const file = coll.files.get(rel);
       if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
       arrayBuf = await file.arrayBuffer();
+    } else if (/^(https?:|blob:)/i.test(audioRef)) {
+      const res = await fetch(audioRef, { mode: "cors" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      arrayBuf = await res.arrayBuffer();
     } else {
+      // Relativ — Alt-Verhalten: unter assets/sentences/ suchen.
       const res = await fetch("assets/sentences/" + audioRef);
       if (!res.ok) throw new Error("HTTP " + res.status);
       arrayBuf = await res.arrayBuffer();
@@ -197,8 +189,7 @@ async function sPlayCurrent() {
         if (bgItem) {
           const bgBuf = await amGetNormalizedNoiseBuffer(c, bgItem);
           if (bgBuf) {
-            const fgKey = audioRef;
-            finalBuf = amMixForeground(c, fgKey, decoded, bgItem, bgBuf, plSentBgSnrDb);
+            finalBuf = amMixForeground(c, audioRef, decoded, bgItem, bgBuf, plSentBgSnrDb);
           }
         }
       } catch (mixErr) {
@@ -214,7 +205,7 @@ async function sPlayCurrent() {
     pDrawEQ();
     pBuildTbl();
     document.getElementById("plEqViz").style.display = "";
-    sShownText = sCurRec.rec.text || "";
+    sShownText = sCurRec.text || "";
     sUpdateTextBox();
     if (typeof plUpdDisplay === "function") plUpdDisplay();
     await pPlay();
@@ -313,27 +304,47 @@ function sRefreshSpeakerDropdown() {
   const sel = document.getElementById("plSentSpeaker");
   if (!sel) return;
   const prev = sel.value;
-  const speakers = (typeof lang !== "undefined") ? sSpeakersForLang(lang) : [];
-  // Leeren
+
+  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+  const curLang = (typeof lang !== "undefined") ? lang : "de";
+  const itemsInLang = all.filter(function (it) {
+    return it.tags && it.tags.lang === curLang;
+  });
+
+  // Sprecher-Map aufbauen (Reihenfolge stabil: nach erstem Auftreten)
+  const speakerMap = new Map(); // speaker_id -> { label, sourceTitle }
+  for (const it of itemsInLang) {
+    const sid = it.tags.speaker_id || "unbekannt";
+    if (!speakerMap.has(sid)) {
+      speakerMap.set(sid, {
+        label: it.title || sid,
+        sourceTitle: it.sourceTitle || ""
+      });
+    }
+  }
+
   while (sel.firstChild) sel.removeChild(sel.firstChild);
-  // "Alle" als Default-Option
+
   const optAll = document.createElement("option");
   optAll.value = "any";
   optAll.textContent = (typeof t === "function") ? t("sentSpkAll") : "Alle";
   sel.appendChild(optAll);
-  // pro Sprecher eine Option mit dem speakers.<key>.label
-  for (const k of speakers) {
+
+  for (const [sid, meta] of speakerMap) {
     const opt = document.createElement("option");
-    opt.value = k;
-    opt.textContent = sCorpus.speakers[k].label || k;
+    opt.value = sid;
+    opt.textContent = meta.sourceTitle && meta.sourceTitle !== meta.label
+      ? (meta.label + " — " + meta.sourceTitle)
+      : meta.label;
     sel.appendChild(opt);
   }
-  // Auswahl wiederherstellen, falls noch verfügbar
-  if (speakers.includes(prev) || prev === "any") {
+
+  if (Array.from(speakerMap.keys()).includes(prev) || prev === "any") {
     sel.value = prev;
   } else {
     sel.value = "any";
   }
+
   sel.onchange = function () {
     const v = sel.value;
     const coll = sLocalCollections.get(v);
@@ -377,7 +388,11 @@ function sUpdateUI() {
   // Falls Sätze laufen und der gewählte Sprecher in dieser Sprache nicht
   // existiert: stoppen (Dropdown ist eh schon umgesprungen auf "any").
   if (sActive && sCurRec) {
-    if (!speakers.includes(sCurRec.speakerKey)) sStop();
+    const curSpk = sCurRec.tags && sCurRec.tags.speaker_id;
+    if (curSpk) {
+      const pool = sBuildRecordingPool(curSpk);
+      if (pool.length === 0) sStop();
+    }
   }
   sUpdateButtons();
   sUpdateTextBox();
@@ -807,7 +822,7 @@ function sRefreshLocalList() {
 async function sRemoveLocalCollection(cid) {
   const coll = sLocalCollections.get(cid);
   if (!coll) return;
-  if (sActive && sCurRec && sCurRec.speakerKey === cid) {
+  if (sActive && sCurRec && sCurRec.tags && sCurRec.tags.speaker_id === cid) {
     sStop();
   }
   sLocalCollections.delete(cid);
@@ -956,3 +971,86 @@ document.addEventListener("DOMContentLoaded", function () {
 
   sLoadIfNeeded();
 });
+
+// ============================================================
+// BA197: amProvider — sCorpus als Sätze-Quelle exponieren
+// ============================================================
+
+if (typeof amRegisterProvider === "function") {
+  amRegisterProvider({
+    id: "sentences-legacy",
+    listItems: function (category) {
+      if (category !== "saetze") return [];
+      if (!sLoaded || !sCorpus || !sCorpus.speakers) return [];
+      const out = [];
+      const speakers = sCorpus.speakers;
+      for (const spkKey in speakers) {
+        const spk = speakers[spkKey];
+        if (!spk || !Array.isArray(spk.recordings)) continue;
+        const speakerLabel = spk.label || spkKey;
+        const lang_       = spk.lang  || null;
+        const sourceTitle = spk.source || spk.label || "Eingebaut";
+        const license     = spk.license || null;
+        const credit      = spk.credit  || null;
+        for (let i = 0; i < spk.recordings.length; i++) {
+          const r = spk.recordings[i];
+          if (!r || !r.audio) continue;
+          out.push({
+            id: "sentences-legacy:" + spkKey + ":" + (r.id || String(i)),
+            title: speakerLabel,
+            text: r.text || "",
+            audio: r.audio,
+            duration: r.duration,
+            sourceTitle: sourceTitle,
+            license: license,
+            credit:  credit,
+            tags: {
+              lang: lang_,
+              speaker_id: spkKey,
+              gender: spk.gender || "u",
+              style: spk.style || null
+            }
+          });
+        }
+      }
+      return out;
+    }
+  });
+}
+
+// ============================================================
+// BA197: amProvider — lokale User-Sammlungen als Sätze-Quelle
+// ============================================================
+
+if (typeof amRegisterProvider === "function") {
+  amRegisterProvider({
+    id: "sentences-local",
+    listItems: function (category) {
+      if (category !== "saetze") return [];
+      if (!sLocalCollections || sLocalCollections.size === 0) return [];
+      const out = [];
+      for (const [cid, coll] of sLocalCollections) {
+        const recs = Array.isArray(coll.recordings) ? coll.recordings : [];
+        for (const r of recs) {
+          if (!r || !r.audio) continue;
+          out.push({
+            id: "sentences-local:" + cid + ":" + (r.id || ""),
+            title: coll.label || cid,
+            text: r.text || "",
+            audio: r.audio,
+            sourceTitle: coll.label || cid,
+            license: coll.license || null,
+            credit:  coll.credit  || null,
+            tags: {
+              lang: coll.lang || null,
+              speaker_id: cid,
+              gender: r.gender || coll.gender || "u",
+              style: coll.style || null
+            }
+          });
+        }
+      }
+      return out;
+    }
+  });
+}
