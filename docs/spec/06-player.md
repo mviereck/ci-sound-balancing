@@ -226,6 +226,18 @@
   bei Loop und Auto-Advance). Loop hat Vorrang vor Auto-Advance.
   Sätze und Audiodatei haben getrennte Buffer; Quelle-Toggle stoppt
   laufende Wiedergabe. Sprachwechsel aktualisiert Sprecher-Dropdown sofort.
+
+  **Hintergrund-Geräusch (BA 194):** Master-Toggle + Dropdown (Auswahl aus
+  allen verfügbaren Geräuschen via `amCollectItems`) + SNR-Quick-Buttons
+  (-10 / -5 / 0 / +5 / +10 dB). Bei aktivem Hintergrund wird vor jedem
+  Satz ein Pre-Mix berechnet (Hintergrund auf Satzlänge geloopt,
+  RMS-normalisiert auf Referenz-Pegel, mit `10^(-SNR/20)` skaliert und
+  sample-weise zum Satz addiert). Der gemischte Buffer durchläuft
+  EQ/Warp/MAPLAW wie ein Satz ohne Hintergrund — Sprache und Geräusch
+  werden gemeinsam korrigiert. Hintergrund startet pro Satz bei 0
+  (kein Phase-Counter über Sätze). Mix-Cache (max 8 Einträge, LRU) hält
+  Pre-Mix-Buffer pro (Satz-Audio-Ref, Geräusch-Id, SNR-Wert) vor.
+  Toggle-, Dropdown- und SNR-Änderungen leeren den Mix-Cache.
   Schema: `assets/sentences/sentences.json` ist sprecher-zentriert,
   `speakers.<key>.recordings[]` mit Text + Audio-Pfad. Siehe README.
 
