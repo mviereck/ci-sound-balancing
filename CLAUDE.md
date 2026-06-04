@@ -47,6 +47,20 @@ REFERENZDATEIEN
   und Vereinfachungen gegenüber dem echten CI. Vor jeder Arbeit an
   der Wirkungsrichtung des Warps, an der EQ-Filter-Position oder
   an der Pipeline-Reihenfolge im Player lesen.
+- **docs/Konzept_Audio_Manifest.md** — Manifest-Format und
+  Webspace-Struktur der Audio-Bibliotheken (Musik, Sätze,
+  Hörbücher, Geräusche). Verzeichnis-Layout `audio.manifest/`,
+  Pfad-Auflösung über `base`, Vorsortierung + Tags, Pointer-
+  Indizes für thematische Sortierung, Embed-Format, Lade-
+  Strategie und Build-Pipeline. Vor jeder Arbeit an Audio-
+  Bibliotheken, Player-Quellen-Toggle, Sätze-/Musik-/Hörbuch-/
+  Geräusche-Auswahl, Embed-Neugenerierung oder Manifest-
+  Erzeugung lesen.
+- **docs/Audio_Tag_Katalog.md** — Zulässige Tag-Felder und ihr
+  kontrolliertes Vokabular pro Kategorie (Genres, Sprecher-
+  Kennungen, Geräuscharten etc.). Beim Anlegen neuer Manifeste
+  oder Einführen neuer Tag-Werte hier ergänzen, damit Filter-
+  Synonyme vermieden werden.
 - **docs/BAUANLEITUNGEN_LEITLINIEN.md** — Format-Vorgaben für
   Sonnet-Bauanleitungen (Snippets, Skeleton, Akzeptanztest,
   Selbstprüfung, Aufteilung in kleine Dateien). Nur lesen,

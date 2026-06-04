@@ -13,3 +13,12 @@ archive/debug-tests/
 *~
 .DS_Store
 Thumbs.db
+
+# API-Tokens fuer Online-Adapter (Freesound etc.) — NIE committen
+.env
+.env.local
+secrets/
+
+# Python
+__pycache__/
+*.pyc
