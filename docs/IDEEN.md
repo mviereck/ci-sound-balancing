@@ -626,3 +626,59 @@ für gleiche Sitzungs-Parameter optional.
   zufälligem Volumen-Jitter?
 - Speicher-Footprint: pro Sitzung mehrere Vorlauf-Buffer im RAM
   halten oder bei Bedarf neu rendern?
+
+## Frequenzabgleich-Adaptiv — Resume-Pfad bei veränderter Elektroden-Konfiguration
+
+**Aufgenommen am**: 2026-06-04
+**Status**: bekannte strukturelle Schwäche; durch BA 205 nicht
+mehr über die UI erreichbar, aber im Code weiterhin vorhanden.
+
+**Hintergrund:** Wird ein adaptiver Lauf per Stop pausiert, ruft
+`fmAbort` (`js/freqmatch.js`) zwar `_fmPersist()`, aber **nicht**
+`_fmMarkCompleted()`. Der Lauf-Eintrag bleibt mit `completedAt = null`
+und `currentRunIdx` zeigt weiter auf ihn. Beim nächsten Klick auf
+„Test fortsetzen" prüft `_fmTryRestore` u. a., ob die gespeicherte
+`electrodeIdxList` mit der jetzt aufgebauten übereinstimmt. Tut
+sie das nicht (Elektroden-Konfiguration zwischendurch verändert),
+schlägt Restore fehl. Im Folge-`_fmPersist` greift der Else-Zweig
+(`run.tracks = fmTracks; run.roundQueue = …`) und **überschreibt**
+die `tracks` des alten Lauf-Eintrags mit den frischen, leeren
+Tracks der neuen Konfiguration. Die ursprünglichen Trial-Daten
+gehen verloren; `run.electrodeIdxList` bleibt aber die alte —
+der Lauf-Eintrag ist in sich inkonsistent und jeder weitere
+Resume-Versuch resettet ihn erneut.
+
+**Wirkung in der UI:** vor BA 205 konnte ein Implantat-Edit
+(Ausschluß, Deaktivieren, Mute) den Pfad triggern. Nach BA 205
+sind diese drei Bedienungen gesperrt, solange adaptive Trials
+vorliegen — der Pfad ist über reguläre Bedienung nicht mehr
+erreichbar.
+
+**Restrisiken:**
+- Andere Pfade, die `elActive` oder `elExDur` ändern, ohne dep-lock
+  zu konsultieren: roter Ausschluß-Knopf **während laufendem
+  Adaptiv-Test** (`_fmRequestExcl` in `js/freqmatch.js`) setzt
+  `elExDur` direkt; ob die laufende Staircase damit konsistent
+  weiterläuft, ist nicht geklärt.
+- JSON-Load mit alter Elektroden-Konfiguration ggü. heutiger
+  Hersteller-/Konfig-Einstellung (selten, aber möglich).
+- Manuelle State-Manipulation über DevTools.
+
+**Lösungsrichtung (Skizze, nicht abgesegnet):**
+1. `fmAbort` markiert den Lauf bei echtem User-Abbruch mit
+   `completedAt = Date.now()` und `abortReason = 'userStop'`,
+   so daß `_fmPersist` zwingend einen neuen Lauf anlegt. „Test
+   fortsetzen" entfällt damit oder müßte explizit als „neuen Lauf
+   starten" relabelt werden.
+2. Alternative: `_fmTryRestore`-Fehlschlag wegen
+   Elektroden-Diff sauber erkennen → alten Lauf als
+   `abortReason = 'configChanged'` schließen, neuen Lauf
+   anlegen. Erfordert, daß `_fmPersist` einen zusätzlichen
+   Pfad für „neuer Lauf, obwohl currentRunIdx auf inkonsistenten
+   Run zeigt" bekommt.
+3. Variante 1 wahrscheinlich einfacher; Variante 2 bewahrt den
+   Resume-UX, ist aber mehr Code.
+
+**Vor Umsetzung:** Pause/Resume-Semantik im Adaptiv-Modus
+explizit besprechen. Aktuell ist „Stop" semantisch zwischen
+„Pause" und „Abbruch" undefiniert.

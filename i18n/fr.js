@@ -670,6 +670,8 @@ Object.assign(L.fr, {
     depFieldHzEigen: "Hz-propre",
     depFieldRefSide: "Côté de référence",
     depFieldActive:   "Coche d'activité d'une électrode",
+    depFieldExclude:  "Exclusion d'une électrode",
+    depFieldMute:     "Mise en sourdine d'une électrode",
     // Akustische Status-Labels (BA 153)
     acStOk: "ok",
     acStMildImpaired: "légèrement altéré",

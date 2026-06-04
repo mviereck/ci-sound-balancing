@@ -669,6 +669,8 @@ Object.assign(L.en, {
     depFieldHzEigen: "Hz custom",
     depFieldRefSide: "Reference side",
     depFieldActive:   "Activity checkmark of an electrode",
+    depFieldExclude:  "Electrode exclusion",
+    depFieldMute:     "Electrode mute",
     // Acoustic status labels (BA 153)
     acStOk: "ok",
     acStMildImpaired: "mildly impaired",

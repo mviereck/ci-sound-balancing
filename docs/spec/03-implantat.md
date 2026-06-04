@@ -103,8 +103,18 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
     zwischen den beiden Konzepten.
   - Status-Dropdown: ok, leicht/mittel/stark verrauscht, fast stumm,
     stumm (6 Optionen — **kein „im CI deaktiviert"** mehr seit BA 164).
+    **Mute-Sperre (BA 205):** Wechsel auf „stumm" ist gesperrt, wenn
+    adaptive FreqMatch-Trials vorliegen (`_fmHasAdaptiveData() === true`,
+    Feldname `depFieldMute`); andere Werte bleiben wählbar. Dropdown-Wert
+    springt zurück, Transient-Popup mit Begründung
+    `depReasonFreqMatchAdaptive`.
   - Ausschluss-Checkbox: „stumm" → automatisch gesetzt (BA 153), manuell
     wieder abhakbar. Andere Status: frei bedienbar.
+    **Sperre (BA 205):** Bei adaptiven FreqMatch-Trials per
+    `dependency-lock.js` gesperrt (`.ec`-Klasse, Feldname `depFieldExclude`,
+    Sperrgrund `depReasonFreqMatchAdaptive`). Eng nur auf adaptive Daten —
+    Loudness- und Slider-Daten lösen die Sperre **nicht** aus (bewußte
+    Asymmetrie zur Aktiv-Checkbox-Regel).
   - Notiz-Feld
 - **Beide Seiten akustisch (BA 155, Text BA 165):** Sind beide Seiten auf
   hg/normal/shoh eingestellt, wird die Frequenztabelle vollständig geleert

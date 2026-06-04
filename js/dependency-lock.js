@@ -197,6 +197,21 @@ const DEP_LOCK_RULES = [
       return reasons;
     }
   }
+  ,
+  // BA 205: Ausschluss-Checkbox — gesperrt, wenn adaptive FreqMatch-Trials vorliegen.
+  // Bewußt eng nur auf _fmHasAdaptiveData(); Loudness- und Slider-Bezug bleibt außen vor.
+  {
+    selectorAll: '.ec',
+    fieldLabelKey: 'depFieldExclude',
+    getReasonKeys: function() {
+      var reasons = [];
+      try {
+        if (typeof _fmHasAdaptiveData === 'function' && _fmHasAdaptiveData())
+          reasons.push('depReasonFreqMatchAdaptive');
+      } catch(ex) { /* freqmatch noch nicht initialisiert */ }
+      return reasons;
+    }
+  }
 ];
 
 // ---- Anwenden ----
@@ -273,6 +288,23 @@ function depLockShowPopup(el) {
 function depLockHidePopup() {
   var popup = document.getElementById('depLockPopup');
   if (popup) popup.hidden = true;
+}
+
+// BA 205: Transient-Popup für selektive Sperren (z.B. einzelner Dropdown-Wert),
+// bei denen das Element selbst NICHT dauerhaft .dep-locked tragen soll.
+// Setzt dataset-Attribute kurzzeitig, ruft depLockShowPopup, räumt auf.
+function depLockShowTransientPopup(el, fieldLabelKey, reasonKeys) {
+  if (!el) return;
+  var prevField   = el.dataset.depFieldLabel;
+  var prevReasons = el.dataset.depReasons;
+  var prevSimple  = el.dataset.depSimple;
+  el.dataset.depFieldLabel = fieldLabelKey;
+  el.dataset.depReasons    = (reasonKeys || []).join(',');
+  el.dataset.depSimple     = '1';   // kompakte Popup-Variante ohne Boilerplate
+  depLockShowPopup(el);
+  if (prevField   === undefined) delete el.dataset.depFieldLabel; else el.dataset.depFieldLabel = prevField;
+  if (prevReasons === undefined) delete el.dataset.depReasons;    else el.dataset.depReasons    = prevReasons;
+  if (prevSimple  === undefined) delete el.dataset.depSimple;     else el.dataset.depSimple     = prevSimple;
 }
 
 // ---- Globale Event-Handler ----

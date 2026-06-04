@@ -718,6 +718,8 @@ Object.assign(L.de, {
     depFieldHzEigen: "Hz-eigen",
     depFieldRefSide: "Referenzseite",
     depFieldActive:   "Aktivitäts-Häkchen einer Elektrode",
+    depFieldExclude:  "Ausschluß einer Elektrode",
+    depFieldMute:     "Stummschaltung einer Elektrode",
     // Akustische Status-Labels (BA 153)
     acStOk: "ok",
     acStMildImpaired: "leicht beeinträchtigt",

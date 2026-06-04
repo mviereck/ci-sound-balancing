@@ -670,6 +670,8 @@ Object.assign(L.es, {
     depFieldHzEigen: "Hz propio",
     depFieldRefSide: "Lado de referencia",
     depFieldActive:   "Marca de actividad de un electrodo",
+    depFieldExclude:  "Exclusión de un electrodo",
+    depFieldMute:     "Silenciar un electrodo",
     // Akustische Status-Labels (BA 153)
     acStOk: "ok",
     acStMildImpaired: "ligeramente afectado",
