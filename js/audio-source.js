@@ -466,3 +466,186 @@ amRegisterProvider({
     return _amLocalBookCollections.slice();
   }
 });
+
+// ============================================================
+// Webspace-Manifest-Loader (BA196)
+// ============================================================
+
+// Manifeste leben im Repo (relativ zum Tool-HTML), nicht im Webspace.
+// Audio-URLs werden weiterhin ueber amWebspaceRoot() aufgeloest.
+function amManifestRoot() {
+  return "audio.manifest/";
+}
+
+// Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
+const AM_WEBSPACE_ROOT_DEFAULT = "http://ci-sound-balancing.honigburg.de/opus/";
+
+function amWebspaceRoot() {
+  const r = (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT)
+    ? window.CI_SB_WEBSPACE_ROOT
+    : AM_WEBSPACE_ROOT_DEFAULT;
+  return r.endsWith("/") ? r : (r + "/");
+}
+
+const _amWebspace = {
+  indexLoaded: false,
+  failed: false,
+  sources: [],                 // aus index.json
+  loaded: new Map(),           // sourceKey -> { source, manifests: {cat: [collection,...]} }
+  pendingRefresh: new Set()    // Kategorien, deren UI nach erfolgreichem Laden refreshet werden soll
+};
+
+async function amWebspaceLoadIndex() {
+  if (_amWebspace.indexLoaded || _amWebspace.failed) return;
+  const url = amManifestRoot() + "index.json";
+  try {
+    const r = await fetch(url, { mode: "cors" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    _amWebspace.sources = Array.isArray(data.sources) ? data.sources : [];
+    _amWebspace.indexLoaded = true;
+    console.log("[audio-source/webspace] Index geladen: " + _amWebspace.sources.length + " Quellen.");
+  } catch (e) {
+    console.warn("[audio-source/webspace] Index nicht erreichbar (" + url + "):", e.message);
+    _amWebspace.failed = true;
+  }
+}
+
+async function amWebspaceLoadSource(srcKey) {
+  if (_amWebspace.failed) return null;
+  if (_amWebspace.loaded.has(srcKey)) return _amWebspace.loaded.get(srcKey);
+  const meta = _amWebspace.sources.find(function (s) { return s.key === srcKey; });
+  if (!meta) return null;
+
+  const root = amWebspaceRoot();
+  let source = null;
+  try {
+    const srcUrl = amManifestRoot() + meta.source;
+    const r = await fetch(srcUrl, { mode: "cors" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    source = await r.json();
+  } catch (e) {
+    console.warn("[audio-source/webspace] source.json " + srcKey + " fehlgeschlagen:", e.message);
+    return null;
+  }
+
+  const manifests = {};
+  const cats = (source.manifests && typeof source.manifests === "object") ? source.manifests : {};
+  for (const cat of Object.keys(cats)) {
+    manifests[cat] = [];
+    const list = Array.isArray(cats[cat]) ? cats[cat] : [];
+    for (const mfPath of list) {
+      const mfUrl = amManifestRoot() + srcKey + "/" + mfPath;
+      try {
+        const mr = await fetch(mfUrl, { mode: "cors" });
+        if (!mr.ok) throw new Error("HTTP " + mr.status);
+        const mf = await mr.json();
+        // Indizes (Pointer) hier ignorieren — BA196 unterstuetzt nur collections direkt.
+        if (mf.kind === "collection") manifests[cat].push(mf);
+      } catch (e) {
+        console.warn("[audio-source/webspace] Manifest " + mfPath + " fehlgeschlagen:", e.message);
+      }
+    }
+  }
+
+  const entry = { meta: meta, source: source, manifests: manifests };
+  _amWebspace.loaded.set(srcKey, entry);
+  return entry;
+}
+
+function _amResolveAudioUrl(rawAudio, sourceBase) {
+  if (!rawAudio) return null;
+  if (/^(data:|https?:|blob:)/i.test(rawAudio)) return rawAudio;
+  const root = amWebspaceRoot();
+  const base = sourceBase || "";
+  return root + base + rawAudio;
+}
+
+// --- Provider-Eintrag fuer Webspace ---
+
+amRegisterProvider({
+  id: "webspace",
+  listItems: function (category) {
+    const out = [];
+    if (!_amWebspace.indexLoaded) return out;
+    for (const [srcKey, entry] of _amWebspace.loaded) {
+      const cols = entry.manifests[category] || [];
+      for (const col of cols) {
+        // Hoerbuecher gehen ueber listCollections, nicht ueber Items
+        if (category === "hoerbuecher") continue;
+        const colTags = col.tags || {};
+        for (const it of (col.items || [])) {
+          out.push({
+            id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
+            title: it.title || it.id || "(unbenannt)",
+            audio: _amResolveAudioUrl(it.audio, entry.source.base),
+            duration: it.duration,
+            sourceTitle: entry.meta.name || entry.source.name || srcKey,
+            license: it.license || entry.source.license || entry.meta.license,
+            credit:  it.credit  || entry.source.credit,
+            tags: Object.assign({}, colTags, it.tags || {})
+          });
+        }
+      }
+    }
+    return out;
+  },
+  listCollections: function (category) {
+    if (category !== "hoerbuecher") return [];
+    const out = [];
+    if (!_amWebspace.indexLoaded) return out;
+    for (const [srcKey, entry] of _amWebspace.loaded) {
+      const cols = entry.manifests["hoerbuecher"] || [];
+      for (const col of cols) {
+        const id = "webspace-book:" + srcKey + ":" + (col.title || "");
+        out.push({
+          schema: col.schema,
+          kind: "collection",
+          category: "hoerbuecher",
+          id: id,
+          title: col.title || srcKey,
+          lang: col.lang || null,
+          tags: col.tags || {},
+          license: entry.source.license || entry.meta.license,
+          credit:  entry.source.credit,
+          items: (col.items || []).map(function (it, i) {
+            return {
+              id: id + "#" + (it.id || ("ch" + (i+1))),
+              title: it.title || ("Kapitel " + (i+1)),
+              audio: _amResolveAudioUrl(it.audio, entry.source.base),
+              duration: it.duration,
+              tags: it.tags || {}
+            };
+          })
+        });
+      }
+    }
+    return out;
+  }
+});
+
+function amWebspaceBootstrap() {
+  amWebspaceLoadIndex().then(function () {
+    if (_amWebspace.failed) return;
+    // Pro Source nachladen — parallel, aber pro Erfolg ein UI-Refresh.
+    for (const meta of _amWebspace.sources) {
+      amWebspaceLoadSource(meta.key).then(function (entry) {
+        if (!entry) return;
+        const cats = Array.isArray(meta.categories) ? meta.categories : [];
+        for (const cat of cats) {
+          if (cat === "geraeusche") {
+            if (typeof plNoiseRefreshUI    === "function") plNoiseRefreshUI();
+            if (typeof plSentBgRefreshUI   === "function") plSentBgRefreshUI();
+          } else if (cat === "hoerbuecher") {
+            if (typeof plBookRefreshUI     === "function") plBookRefreshUI();
+          } else if (cat === "saetze") {
+            // Wird in BA 197 relevant, sobald Saetze ueber amCollectItems gehen.
+            if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
+          } else if (cat === "musik") {
+            // Keine UI-Sub-Block-Liste fuer Musik in dieser BA — kommt spaeter.
+          }
+        }
+      });
+    }
+  });
+}

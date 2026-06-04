@@ -1005,4 +1005,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof depLockApply === 'function') depLockApply();
   // BA 172: Initialer Sperr-Stand
   if (typeof tabLockApply === 'function') tabLockApply();
+  // BA 196: Webspace-Manifest-Loader
+  if (typeof amWebspaceBootstrap === "function") {
+    amWebspaceBootstrap();
+  }
 });

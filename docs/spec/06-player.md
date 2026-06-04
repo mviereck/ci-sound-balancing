@@ -52,8 +52,23 @@
        überleben Reload nicht; Positions-Marker schon).
        Anzeige unter Transport: Kapitel-Titel — Buch-Titel · Autor · Sprecher
        · Sprache · Lizenz.
-       Bekannte Einschränkung: m4b-Chapter-Tags werden nicht ausgewertet;
-       Webspace-Hörbücher folgen mit BA 196.
+       Bekannte Einschränkung: m4b-Chapter-Tags werden nicht ausgewertet.
+       Webspace-Hörbücher werden über den Webspace-Manifest-Loader (s.u.)
+       geliefert.
+     - **Webspace-Manifest-Loader (BA 196):** Beim Tool-Start lädt
+       `js/audio-source.js` im Hintergrund `audio.manifest/index.json`
+       same-origin aus dem Repo (kein CORS erforderlich für Manifeste).
+       Pro Quelle werden `source.json` und Kategorie-Manifeste lazy
+       nachgeladen; bei jedem erfolgreichen Source-Lade-Vorgang werden die
+       betroffenen Sub-Block-UIs neu gerendert. Audio-Pfad-Auflösung:
+       `<webspace-root> + source.base + item.audio` — CORS am Webspace
+       nur für die Audio-Dateien selbst nötig. Webspace-Root konfigurierbar
+       via `window.CI_SB_WEBSPACE_ROOT` (Default
+       `http://ci-sound-balancing.honigburg.de/opus/`).
+       Offline-Fallback: bei Netzwerk-/CORS-Fehlern bleibt der Player
+       ohne Webspace-Inhalte funktional (generiert + embed + lokale
+       Uploads). Pointer-Manifeste (`kind: "index"`) werden in BA 196
+       ignoriert; nur direkte Collection-Manifeste fließen in die UI.
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
        `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`, `plNoiseSortAxis`,
        `plBookSelectedId`, `plBookChapterIdx`, `plBookSortAxis`,
