@@ -31,7 +31,7 @@ REFERENZDATEIEN
   werden, dort einen Eintrag anlegen. Beim Übergang in die
   Umsetzung: Eintrag aus docs/IDEEN.md entfernen und in docs/SPEC.md
   übernehmen.
-- **Berechnungsgrundlagen dB zu CI.md** — Mathematische Grundlagen
+- **docs/Berechnungsgrundlagen dB zu CI.md** — Mathematische Grundlagen
   und Formeln für die Umrechnung von dB-Korrekturen in
   herstellerspezifische Einheiten (MED-EL qu, Cochlear CL,
   Advanced Bionics CU). Quellen, Vorbehalte und Hersteller-
