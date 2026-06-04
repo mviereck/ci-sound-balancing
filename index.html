@@ -1487,6 +1487,37 @@
                 </div>
               </div>
             </div>
+
+            <!-- BA194: Hintergrund-Geraeusch fuer Saetze -->
+            <div id="plSentBgBlock"
+                 style="margin-top:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
+              <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+                <strong style="font-size:0.92em" data-t="plSentBgTitle"></strong>
+                <button id="plSentBgToggleBtn" class="btn btn-sm" type="button"
+                        style="min-width:90px; border-radius:6px; font-weight:600">
+                  <span data-t="plSentBgOff"></span>
+                </button>
+              </div>
+              <div id="plSentBgControls" style="display:flex;flex-direction:column;gap:6px;opacity:0.5">
+                <div class="control-group" style="flex-wrap:wrap;gap:6px">
+                  <label data-t="plSentBgSelLabel" style="margin-right:6px"></label>
+                  <select id="plSentBgSel"
+                          style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:200px">
+                  </select>
+                </div>
+                <div class="control-group" style="flex-wrap:wrap;gap:4px">
+                  <label data-t="plSentBgSnrLabel" style="margin-right:6px"></label>
+                  <div id="plSentBgSnrBtns" style="display:flex;gap:3px;flex-wrap:wrap">
+                    <button class="btn pl-snr-btn" type="button" data-snr="-10">-10</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="-5">-5</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="0">0</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="5">+5</button>
+                    <button class="btn pl-snr-btn" type="button" data-snr="10">+10</button>
+                  </div>
+                  <span style="font-size:0.85em;color:var(--text-muted)">dB</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Sub-Block: Geraeusche -->

@@ -645,6 +645,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
       if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
       if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
+      if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
+      if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
+      if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
       // BA 161: Warp-Zustand wiederherstellen — neue Schlüsselnamen,
       // Fallback auf alte (pWarpOn etc.) für bestehende localStorage-Stände
       if (typeof pWarpOn !== "undefined") {
@@ -740,6 +743,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
       if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
       if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
+      if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
+      if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
+      if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
       if (typeof latApplyToPlayer === "function") latApplyToPlayer();
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
@@ -789,8 +795,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
       if (typeof plUpdSourceUI    === "function") plUpdSourceUI();
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-      if (typeof plUpdDisplay     === "function") plUpdDisplay();
+      if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
+      if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+      if (typeof plUpdDisplay      === "function") plUpdDisplay();
       if (typeof plRefreshTooltips === "function") plRefreshTooltips();
     }
   } catch (e) {}
@@ -916,6 +923,9 @@ document.addEventListener("DOMContentLoaded", () => {
           plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
           plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
           plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
+          plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
+          plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
+          plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
 

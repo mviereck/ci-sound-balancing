@@ -147,6 +147,9 @@ function resetAll() {
   // --- BA193: Geraeusche-State ---
   if (typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = "gen:pink";
   if (typeof plNoiseSortAxis   !== "undefined") plNoiseSortAxis   = "kind";
+  if (typeof plSentBgEnabled   !== "undefined") plSentBgEnabled   = false;
+  if (typeof plSentBgItemId    !== "undefined") plSentBgItemId    = "gen:pink";
+  if (typeof plSentBgSnrDb     !== "undefined") plSentBgSnrDb     = 0;
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
@@ -286,6 +289,9 @@ async function saveJson() {
     plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
     plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
     plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
+    plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
+    plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
+    plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
     localCollections: (typeof sLocalCollections !== "undefined")
       ? Array.from(sLocalCollections.values()).map((c) => ({
           id: c.id,
@@ -703,6 +709,9 @@ function applyLoadedData(d) {
   if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
   if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
   if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
+  if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
+  if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
+  if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();

@@ -704,6 +704,9 @@ let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
 let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
 let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start
 let plNoiseSortAxis   = "kind";       // Default-Sortierachse
+let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Toggle
+let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
+let plSentBgSnrDb   = 0;             // BA194: SNR in dB
 let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
 
 let lvTabShowMeas = false;

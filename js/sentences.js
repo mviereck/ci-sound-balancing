@@ -185,7 +185,30 @@ async function sPlayCurrent() {
     const c = gPC();
     const decoded = await c.decodeAudioData(arrayBuf);
     if (!sActive) return;
-    sSentenceBuf = decoded;
+
+    // BA194: Hintergrund-Geraeusch ggf. einmischen.
+    let finalBuf = decoded;
+    if (typeof plSentBgEnabled !== "undefined" && plSentBgEnabled
+        && typeof plSentBgItemId !== "undefined" && plSentBgItemId
+        && typeof amCollectItems === "function") {
+      try {
+        const allBg = amCollectItems("geraeusche");
+        const bgItem = allBg.find(function (it) { return it.id === plSentBgItemId; });
+        if (bgItem) {
+          const bgBuf = await amGetNormalizedNoiseBuffer(c, bgItem);
+          if (bgBuf) {
+            const fgKey = audioRef;
+            finalBuf = amMixForeground(c, fgKey, decoded, bgItem, bgBuf, plSentBgSnrDb);
+          }
+        }
+      } catch (mixErr) {
+        console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
+        finalBuf = decoded;
+      }
+      if (!sActive) return;
+    }
+
+    sSentenceBuf = finalBuf;
     pSetPlaybackMode("sentence");
     pOff = 0;
     pDrawEQ();

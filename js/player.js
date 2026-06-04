@@ -1272,8 +1272,6 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 // BA193: Geraeusche-Quelle
 // ============================================================
 
-let _plNoiseDecodedCache = Object.create(null); // id -> AudioBuffer
-
 function plNoiseRefreshUI() {
   const sortSel = document.getElementById("plNoiseSortSel");
   const itemSel = document.getElementById("plNoiseItemSel");
@@ -1330,6 +1328,7 @@ function plNoiseRefreshUI() {
   if (typeof plNoiseSelectedId !== "undefined" && itemSel.value) {
     plNoiseSelectedId = itemSel.value;
   }
+  if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
 }
 
 function plNoiseCurrentItem() {
@@ -1341,18 +1340,7 @@ async function plNoiseLoadSelected() {
   const it = plNoiseCurrentItem();
   if (!it) return;
   const ctx = gPC();
-
-  let abuf = _plNoiseDecodedCache[it.id] || null;
-  if (!abuf) {
-    if (it.id && it.id.indexOf("gen:") === 0) {
-      abuf = amGenerateNoiseBuffer(ctx, it.id);
-    } else if (it.audio) {
-      const r = await fetch(it.audio);
-      const ab = await r.arrayBuffer();
-      abuf = await ctx.decodeAudioData(ab);
-    }
-    if (abuf) _plNoiseDecodedCache[it.id] = abuf;
-  }
+  const abuf = await amGetItemBuffer(ctx, it);
   if (!abuf) return;
 
   pNoiseBuf = abuf;
@@ -1400,3 +1388,85 @@ plUpdTransportUI();
 plUpdDisplay();
 plRefreshTooltips();
 plUpdVolBtns();
+
+// ============================================================
+// BA194: Hintergrund-Geraeusch fuer Saetze
+// ============================================================
+
+function plSentBgRefreshUI() {
+  const block  = document.getElementById("plSentBgBlock");
+  const toggle = document.getElementById("plSentBgToggleBtn");
+  const ctrls  = document.getElementById("plSentBgControls");
+  const sel    = document.getElementById("plSentBgSel");
+  if (!block || !toggle || !ctrls || !sel) return;
+
+  const onLabel  = (typeof t === "function") ? t("plSentBgOn")  : "An";
+  const offLabel = (typeof t === "function") ? t("plSentBgOff") : "Aus";
+  const span = toggle.querySelector("[data-t]");
+  if (span) span.textContent = plSentBgEnabled ? onLabel : offLabel;
+  toggle.classList.toggle("active", !!plSentBgEnabled);
+  toggle.style.background = plSentBgEnabled ? "var(--accent, #6aa84f)" : "";
+  toggle.style.color      = plSentBgEnabled ? "#fff" : "";
+
+  ctrls.style.opacity      = plSentBgEnabled ? "1" : "0.5";
+  ctrls.style.pointerEvents = plSentBgEnabled ? "" : "none";
+
+  const all  = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
+  const prev = sel.value || plSentBgItemId;
+  while (sel.firstChild) sel.removeChild(sel.firstChild);
+  for (const it of all) {
+    const opt = document.createElement("option");
+    opt.value = it.id;
+    opt.textContent = it.title || it.id;
+    sel.appendChild(opt);
+  }
+  if (all.find(function (it) { return it.id === prev; })) {
+    sel.value = prev;
+  } else if (all.length > 0) {
+    sel.value = all[0].id;
+    plSentBgItemId = all[0].id;
+  }
+
+  document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
+    const v = parseInt(b.dataset.snr, 10);
+    const active = (v === plSentBgSnrDb);
+    b.classList.toggle("active", active);
+    b.style.background = active ? "var(--accent, #6aa84f)" : "";
+    b.style.color      = active ? "#fff" : "";
+  });
+}
+
+function plSentBgToggle() {
+  plSentBgEnabled = !plSentBgEnabled;
+  if (typeof amMixCacheClear === "function") amMixCacheClear();
+  plSentBgRefreshUI();
+}
+
+function plSentBgSetItem(id) {
+  if (!id) return;
+  plSentBgItemId = id;
+  if (typeof amMixCacheClear === "function") amMixCacheClear();
+  plSentBgRefreshUI();
+}
+
+function plSentBgSetSnr(db) {
+  const v = parseInt(db, 10);
+  if (!Number.isFinite(v)) return;
+  plSentBgSnrDb = v;
+  if (typeof amMixCacheClear === "function") amMixCacheClear();
+  plSentBgRefreshUI();
+}
+
+const _plSBgToggle = document.getElementById("plSentBgToggleBtn");
+if (_plSBgToggle) _plSBgToggle.addEventListener("click", plSentBgToggle);
+
+const _plSBgSel = document.getElementById("plSentBgSel");
+if (_plSBgSel) _plSBgSel.addEventListener("change", function () {
+  plSentBgSetItem(_plSBgSel.value);
+});
+
+document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
+  b.addEventListener("click", function () {
+    plSentBgSetSnr(b.dataset.snr);
+  });
+});

@@ -208,3 +208,136 @@ amRegisterProvider({
     return out;
   }
 });
+
+// ============================================================
+// Item-Buffer-Cache + RMS-Normalisierung (BA194)
+// ============================================================
+
+const _amItemBufCache = new Map(); // itemId -> AudioBuffer
+
+const AM_REF_RMS = 0.1;
+
+function _amRms(buf) {
+  let sumSq = 0;
+  let nSamples = 0;
+  const nCh = buf.numberOfChannels;
+  for (let ch = 0; ch < nCh; ch++) {
+    const d = buf.getChannelData(ch);
+    for (let i = 0; i < d.length; i++) sumSq += d[i] * d[i];
+    nSamples += d.length;
+  }
+  if (nSamples === 0) return 0;
+  return Math.sqrt(sumSq / nSamples);
+}
+
+function _amNormalizeBufferRms(buf, refRms) {
+  const rms = _amRms(buf);
+  if (rms <= 1e-9) return buf;
+  const factor = refRms / rms;
+  for (let ch = 0; ch < buf.numberOfChannels; ch++) {
+    const d = buf.getChannelData(ch);
+    for (let i = 0; i < d.length; i++) d[i] *= factor;
+  }
+  return buf;
+}
+
+async function amGetItemBuffer(ctx, item) {
+  if (!item || !item.id) return null;
+  const cached = _amItemBufCache.get(item.id);
+  if (cached) return cached;
+
+  let abuf = null;
+  if (item.id.indexOf("gen:") === 0) {
+    abuf = amGenerateNoiseBuffer(ctx, item.id);
+  } else if (item.audio) {
+    const r = await fetch(item.audio);
+    const ab = await r.arrayBuffer();
+    abuf = await ctx.decodeAudioData(ab);
+  }
+  if (!abuf) return null;
+
+  _amItemBufCache.set(item.id, abuf);
+  return abuf;
+}
+
+async function amGetNormalizedNoiseBuffer(ctx, item) {
+  if (!item || !item.id) return null;
+  const normKey = "norm:" + item.id;
+  const cached = _amItemBufCache.get(normKey);
+  if (cached) return cached;
+
+  const orig = await amGetItemBuffer(ctx, item);
+  if (!orig) return null;
+
+  const copy = ctx.createBuffer(orig.numberOfChannels, orig.length, orig.sampleRate);
+  for (let ch = 0; ch < orig.numberOfChannels; ch++) {
+    copy.copyToChannel(orig.getChannelData(ch), ch);
+  }
+  _amNormalizeBufferRms(copy, AM_REF_RMS);
+  _amItemBufCache.set(normKey, copy);
+  return copy;
+}
+
+// ============================================================
+// Pre-Mix mit Hintergrund-Geraeusch (BA194)
+// ============================================================
+
+const _amMixCache = new Map(); // key -> { buffer, lastUsed }
+const AM_MIX_CACHE_MAX = 8;
+
+function _amMixCacheKey(fgKey, bgId, snrDb) {
+  return fgKey + "|" + bgId + "|" + snrDb;
+}
+
+function _amMixCacheTouch(key) {
+  const hit = _amMixCache.get(key);
+  if (hit) hit.lastUsed = Date.now();
+  return hit ? hit.buffer : null;
+}
+
+function _amMixCachePut(key, buffer) {
+  _amMixCache.set(key, { buffer: buffer, lastUsed: Date.now() });
+  while (_amMixCache.size > AM_MIX_CACHE_MAX) {
+    let oldestKey = null, oldestTime = Infinity;
+    for (const [k, v] of _amMixCache) {
+      if (v.lastUsed < oldestTime) { oldestTime = v.lastUsed; oldestKey = k; }
+    }
+    if (oldestKey) _amMixCache.delete(oldestKey);
+    else break;
+  }
+}
+
+function amMixForeground(ctx, fgKey, fgBuf, bgItem, bgBuf, snrDb) {
+  if (!fgBuf) return null;
+  if (!bgBuf || !bgItem) return fgBuf;
+  const key = _amMixCacheKey(fgKey, bgItem.id, snrDb);
+  const cached = _amMixCacheTouch(key);
+  if (cached) return cached;
+
+  const sr = fgBuf.sampleRate;
+  const len = fgBuf.length;
+  const nCh = Math.max(1, fgBuf.numberOfChannels);
+  const out = ctx.createBuffer(nCh, len, sr);
+
+  const bgFactor = Math.pow(10, -snrDb / 20);
+  const bgLen = bgBuf.length;
+  const bgNCh = bgBuf.numberOfChannels;
+
+  for (let ch = 0; ch < nCh; ch++) {
+    const fgD = fgBuf.getChannelData(ch);
+    const bgD = bgBuf.getChannelData(ch < bgNCh ? ch : 0);
+    const outD = out.getChannelData(ch);
+    for (let i = 0; i < len; i++) {
+      let s = fgD[i] + bgD[i % bgLen] * bgFactor;
+      if (s >  1.0) s =  1.0;
+      else if (s < -1.0) s = -1.0;
+      outD[i] = s;
+    }
+  }
+  _amMixCachePut(key, out);
+  return out;
+}
+
+function amMixCacheClear() {
+  _amMixCache.clear();
+}
