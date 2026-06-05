@@ -22,3 +22,6 @@ secrets/
 # Python
 __pycache__/
 *.pyc
+
+# Audit-WAVs (lokales Probehör-Material, TinySOL-Abgeleitet)
+/audit/
