@@ -665,8 +665,12 @@ function pWarpUpdUI() {
       statusText = t("pwStatusBusyProgress").replace("{pct}", pct);
     } else if (typeof rubberbandLastError !== "undefined" && rubberbandLastError) {
       statusText = t("pwStatusRubberbandError").replace("{msg}", rubberbandLastError);
-    } else {
+    } else if (typeof rubberbandIsLoaded === "function" && !rubberbandIsLoaded()) {
+      // WASM noch nicht geladen — der eigentliche „wird geladen"-Fall.
       statusText = t("pwStatusRubberbandLoading");
+    } else {
+      // Bereits geladen, Berechnung läuft, aber noch kein Band fertig.
+      statusText = t("pwStatusBusy");
     }
   } else if (noData) {
     statusText = t("pwStatusReady");
