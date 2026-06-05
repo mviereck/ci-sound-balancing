@@ -12,6 +12,7 @@
 
 let pWarpedBuf = null;
 let pWarpOn = false;
+let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
 let pWarpBusy = false;
@@ -650,7 +651,9 @@ function pWarpUpdUI() {
     cbEl.style.borderColor = "var(--border)";
   }
   const settingsBox = document.getElementById("plWarpSettingsBox");
-  if (settingsBox) settingsBox.style.display = pWarpOn ? "" : "none";
+  if (settingsBox) settingsBox.style.display = pWarpSettingsOpen ? "" : "none";
+  const warpChevron = document.getElementById("plWarpSettingsToggle");
+  if (warpChevron) warpChevron.textContent = pWarpSettingsOpen ? "▼" : "▶";
 
   const stats = _warpFResStats();
   const noData = stats.total === 0;

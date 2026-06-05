@@ -407,6 +407,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
+  // Dreieck-Button: Warp-Einstellungen auf-/zuklappen
+  document.getElementById("plWarpSettingsToggle").addEventListener("click", function () {
+    pWarpSettingsOpen = !pWarpSettingsOpen;
+    pWarpUpdUI();
+  });
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet

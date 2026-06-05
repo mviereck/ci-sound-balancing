@@ -227,8 +227,11 @@
     Neuberechnung via `pWarpTrigger` aus (kurze Pause; beim ersten Lauf
     zusätzlich WASM-Lade-Zeit).
   - Aktivierung über Toggle-Button im Einstellungs-Block, grün wenn aktiv.
-    Bei Aktivierung klappt die Einstellungsbox (`plWarpSettingsBox`) auf;
-    beim Deaktivieren wird sie ausgeblendet.
+    Die Einstellungsbox (`plWarpSettingsBox`) wird unabhängig vom Toggle-
+    Zustand über ein Dreieck-Symbol (`plWarpSettingsToggle`, ▶/▼) rechts
+    neben dem Toggle auf- und zugeklappt. Beim Seitenstart ist die Box
+    zugeklappt (▶). Die Einstellungen darin bleiben auch bei deaktiviertem
+    Warping bedienbar.
   - EQ-Toggle wirkt als Master-Bypass auch für das Frequenz-Warping: wenn
     EQ aus, sind sowohl Filter als auch Warp deaktiviert. Der Warp-Toggle-
     Zustand bleibt als „Memory" erhalten und greift wieder, sobald EQ
