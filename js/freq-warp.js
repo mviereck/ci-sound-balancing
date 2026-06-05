@@ -411,8 +411,12 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
     const tmp = new Float32Array(CHUNK);
 
     // 1) Study-Phase: Eingabe einmal komplett scannen.
+    // Alle ~16 Chunks an den Event-Loop yielden + pWarpCancel prüfen, damit
+    // der Stop-Button anklickbar bleibt und der Abbruch zeitnah wirkt
+    // (sonst blockiert die WASM-Schleife den Main-Thread bei großen Buffern).
     {
       let pos = -startPad;
+      let yieldCounter = 0;
       while (pos < signal.length) {
         const want = Math.min(CHUNK, signal.length - Math.max(pos, 0));
         if (want <= 0) break;
@@ -425,6 +429,10 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
         const isFinal = (pos + want) >= signal.length ? 1 : 0;
         rb.rubberband_study(state, inPtrPtr, want, isFinal);
         pos += want;
+        if ((++yieldCounter & 15) === 0) {
+          if (pWarpCancel) throw new Error("__warp_cancelled__");
+          await new Promise(function (r) { setTimeout(r, 0); });
+        }
       }
     }
 
@@ -433,6 +441,7 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
     let outTotal = 0;
     {
       let pos = -startPad;
+      let yieldCounter = 0;
       while (pos < signal.length) {
         const want = Math.min(CHUNK, signal.length - Math.max(pos, 0));
         if (want <= 0) break;
@@ -457,6 +466,10 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
           avail = rb.rubberband_available(state);
         }
         pos += want;
+        if ((++yieldCounter & 15) === 0) {
+          if (pWarpCancel) throw new Error("__warp_cancelled__");
+          await new Promise(function (r) { setTimeout(r, 0); });
+        }
       }
     }
 
@@ -512,7 +525,9 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBa
     const highN = Math.min(high / nyquist, 1 - 1e-6);
     const fir = _rbDesignBandpassFIR(lowN, highN, _RB_FIR_ORDER);
     const filtered = await _rbConvolveViaWebAudio(srcMono, fir, sampleRate);
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
     const shifted  = await _rbPitchShift(rb, filtered, sampleRate, csValues[i], optionBits);
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
     for (let n = 0; n < out.length; n++) out[n] += shifted[n];
     if (typeof onBandDone === "function") onBandDone();
   }
@@ -717,12 +732,28 @@ function pWarpUpdUI() {
   }
 }
 
+let pWarpGen = 0;  // Generation-Zähler — neuer Aufruf überholt ältere Runs.
+
 async function pWarpTrigger() {
+  const myGen = ++pWarpGen;
   pWarpedBuf = null;
 
   if (!pWarpOn) { pWarpUpdUI(); return; }
   if (_warpFResSource().length === 0) { pWarpUpdUI(); return; }
   if (!pSourceBuf) { pWarpUpdUI(); return; }
+
+  // Falls eine vorherige Berechnung noch läuft (anderer Buffer): abbrechen
+  // und auf deren Beendigung warten. Damit laufen zwei
+  // pComputeRubberbandWarpedBuffer-Aufrufe nicht parallel, und der
+  // überholte Run räumt sich selbst still auf (siehe myGen-Check unten —
+  // kein UI-Toggle, pWarpOn bleibt unverändert, da es kein User-Cancel war).
+  if (pWarpBusy) {
+    pWarpCancel = true;
+    while (pWarpBusy) {
+      await new Promise(function (r) { setTimeout(r, 20); });
+      if (myGen !== pWarpGen) return;
+    }
+  }
 
   const wasPlaying = pPlaying;
   if (wasPlaying) pPause();
@@ -750,9 +781,15 @@ async function pWarpTrigger() {
     }
   }
 
+  // pWarpBusy zurücksetzen, damit ein wartender Trigger weiterlaufen kann.
   pWarpBusy = false;
-  pWarpCancel = false;
   pWarpProgress = 0;
+
+  // Überholt von neuerem Trigger: still aufräumen, kein UI-Toggle, kein pPlay,
+  // pWarpOn bleibt unverändert (Cancel war kein User-Wille).
+  if (myGen !== pWarpGen) return;
+
+  pWarpCancel = false;
 
   if (cancelled) {
     pWarpOn = false;

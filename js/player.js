@@ -486,10 +486,13 @@ async function pPlay() {
     pCurrentPlayback = null;
   }
 
-  // Wenn Warp aktiv ist und gerade berechnet wird: auf das Ergebnis warten,
-  // sonst startet die Wiedergabe (z.B. via Auto-Advance) ungewarpt.
+  // Wenn Warp aktiv ist und ein Compute läuft (oder wartet): auf das
+  // Ergebnis warten, sonst startet die Wiedergabe (z.B. via Auto-Advance
+  // oder Buffer-Wechsel) ungewarpt. Bedingung über pWarpComputingPromise
+  // statt pWarpBusy — deckt auch die Übergangsphase zwischen abgebrochenem
+  // und neu gestartetem Trigger ab.
   if (typeof pWarpOn !== "undefined" && pWarpOn && plEqOn
-      && pWarpBusy && pWarpComputingPromise) {
+      && pWarpComputingPromise) {
     try { await pWarpComputingPromise; } catch (e) {}
     if (gen !== pPlayGen) return;
   }

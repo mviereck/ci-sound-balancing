@@ -233,7 +233,15 @@
     wieder eingeschaltet wird. Bei Toggle während Wiedergabe erfolgt der
     nötige Pfadwechsel an aktueller Position.
   - Stop-Button (`#plWarpStopBtn`) bricht laufende Rubberband-Vorberechnung
-    ab; Warp-Toggle schaltet dabei aus.
+    ab; Warp-Toggle schaltet dabei aus. Der Abbruch wirkt zeitnah, auch
+    bei großen Buffern — `_rbPitchShift` gibt regelmäßig an den Event-Loop
+    zurück, sodass der Klick verarbeitet und `pWarpCancel` zwischen
+    WASM-Chunks geprüft wird.
+  - Wechselt während laufender Warp-Berechnung der Quell-Buffer (z.B. Nutzer
+    klickt „nächstes Audio" oder Auto-Advance schaltet weiter), wird der
+    laufende Compute automatisch abgebrochen und die Berechnung mit dem
+    neuen Buffer gestartet — der Warp-Toggle bleibt dabei aktiv (kein
+    User-Cancel).
   - `pPlay` wartet vor dem eigentlichen Start auf eine laufende Warp-Berechnung
     (`pWarpComputingPromise`). Damit startet auch automatisch ausgelöste
     Wiedergabe (Loop-Restart, Auto-Advance, Sätze-Folge-Satz) erst, sobald
