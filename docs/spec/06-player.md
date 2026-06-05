@@ -18,8 +18,9 @@
      Top-Toggle Quelle (Musik / Sätze / Geräusche / Hörbücher; nur
      Hörbücher ausgegraut bis spätere BA), quellenspezifischem
      Sub-Block, gemeinsamer Transport-Leiste (Prev, Play/Pause, Stop,
-     Next, Endlos-Toggle 🔁, Slider, Lautstärke + Schnellbuttons 25/50/75/100),
-     eigener Zeile für Auto-Advance-Toggle ↪ + Pause-Buttons, und
+     Next, Endlos-Toggle 🔁, Slider + Zeitanzeige, Mono-Badge),
+     eigener Zeile für Auto-Advance-Toggle ↪ + Pause-Buttons,
+     eigener Zeile für Lautstärke + Schnellbuttons 25/50/75/100, und
      Anzeige-Block (Titel, Art, Spektrum, Quelle, Lizenz, optional
      Satz-Text).
      - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
