@@ -160,6 +160,7 @@ function pSetPlaybackMode(mode) {
   if (pSourceBuf) {
     pBuf = getPlaybackBuffer();
     pBuildEQ();
+    if (typeof pWarpTrigger === "function") pWarpTrigger();
   } else {
     pBuf = null;
   }
@@ -259,10 +260,6 @@ document
       pDrawEQ();
       pBuildTbl();
       document.getElementById("plEqViz").style.display = "";
-      // Warp neu berechnen wenn aktiv
-      if (typeof pWarpOn !== "undefined" && pWarpOn) {
-        pWarpTrigger();
-      }
     } catch (err) {
       alert("Error: " + err.message);
     }
@@ -1438,9 +1435,6 @@ async function plNoiseLoadSelected() {
   pDrawEQ();
   pBuildTbl();
   document.getElementById("plEqViz").style.display = "";
-  if (typeof pWarpOn !== "undefined" && pWarpOn) {
-    if (typeof pWarpTrigger === "function") pWarpTrigger();
-  }
 }
 
 const _plNSortEl = document.getElementById("plNoiseSortSel");
@@ -1724,9 +1718,6 @@ async function plBookLoadSelected() {
   pDrawEQ();
   pBuildTbl();
   document.getElementById("plEqViz").style.display = "";
-  if (typeof pWarpOn !== "undefined" && pWarpOn) {
-    if (typeof pWarpTrigger === "function") pWarpTrigger();
-  }
 }
 
 function plBookSavePosition() {
