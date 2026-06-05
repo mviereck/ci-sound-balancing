@@ -589,8 +589,12 @@ function applyLoadedData(d) {
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
-  const VALID_TONE_TYPES = ["sine", "complex", "pulsedComplex", "noise",
-    "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
+  const VALID_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
+    "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
+    "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
+    "richVc", "richHn",
+    "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
+    "wobbleSweep"];
   globalToneType = VALID_TONE_TYPES.includes(d.globalToneType)
     ? d.globalToneType : "complex";
   // BA 209: Per-Test-Tonart Frequenzabgleich.

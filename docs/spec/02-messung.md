@@ -13,9 +13,15 @@ Builder `buildTestPanel` aus test-ui.js. Drei Blöcke pro Test:
 In `state-side.js` und persistiert in JSON und localStorage:
 
 - **Tonart** (`globalToneType`) — Sinus / Komplexton / Komplexton gepulst
-  (100 Hz AM) / Rauschen / Schmalbandrauschen adaptiv / AM-Sinus /
-  Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default `'complex'`
-  (Komplexton). Dropdown im Voreinstellungs-Block von Test 1
+  (100 Hz AM) / Reicher Komplexton (BA 213.4, 8 Harmonische + Vibrato
+  5 Hz + Atem-AM 3 Hz) / Rauschen / Schmalbandrauschen adaptiv /
+  Iterated Rippled Noise (BA 213.4, 16 Iterationen Add-and-Delay) /
+  **Reicher Komplexton: Akkordeon / Altsaxophon / Basstuba / Bratsche /
+  Fagott / Klarinette in B / Kontrabass / Oboe / Posaune / Querflöte /
+  Trompete in C / Violine / Violoncello / Waldhorn** (BA 215, Profile
+  aus TinySOL/IRCAM analysiert in BA 214) /
+  AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default
+  `'complex'` (Komplexton). Dropdown im Voreinstellungs-Block von Test 1
   (Elektrodenlautstärke) und Test 2 (Stereo-Balance) sichtbar; beide
   Instanzen an dieselbe Variable gebunden. Bei Auswahl einer neuen
   Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz, aktuelle
@@ -28,6 +34,14 @@ In `state-side.js` und persistiert in JSON und localStorage:
   übernimmt das Popup-Probehören diese Funktion.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
+- **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten
+  verwenden eine cos²-Rampe (sin² beim Anstieg, cos² beim Abfall,
+  via `setValueCurveAtTime` mit 64-Punkt-Stützstellen) mit
+  Default 50 ms. Reduziert breitbandige Onset-Klicks, die beim
+  CI besonders störend wirken (BA 213.3). Bei sehr kurzen Tönen
+  wird die effektive Rampe auf `Tondauer/2` begrenzt. Burst-Sinus
+  hat zusätzlich eine eigene 10 ms-Burst-interne Rampe, die
+  unabhängig bleibt.
 
 ### Slider-Wirkung (pro Test eigener Wert)
 

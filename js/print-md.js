@@ -462,8 +462,17 @@ function _archivMdImplantTables(data) {
 
 function _archivMdGlobalTest(data) {
   const TONE_LABEL_KEY = {
-    sine: "toneSine", complex: "toneComplex", noise: "toneNoise",
-    noiseAdaptive: "toneNoiseAdaptive", amSine: "toneAmSine",
+    sine: "toneSine", complex: "toneComplex",
+    pulsedComplex: "tonePulsedComplex", richTone: "toneRichTone",
+    richAcc: "toneRichAcc", richASax: "toneRichASax",
+    richBTb: "toneRichBTb", richVa: "toneRichVa",
+    richBn: "toneRichBn", richClBb: "toneRichClBb",
+    richCb: "toneRichCb", richOb: "toneRichOb",
+    richTbn: "toneRichTbn", richFl: "toneRichFl",
+    richTpC: "toneRichTpC", richVn: "toneRichVn",
+    richVc: "toneRichVc", richHn: "toneRichHn",
+    noise: "toneNoise", noiseAdaptive: "toneNoiseAdaptive",
+    irn: "toneIRN", amSine: "toneAmSine",
     warbleSine: "toneWarbleSine", burstSine: "toneBurstSine",
     wobbleSweep: "toneWobbleSweep",
   };

@@ -242,8 +242,16 @@ function _buildTestPanelOld(parentEl, cfg) {
       toneSelect.dataset.global = 'toneType';
       [
         ['sine','toneSine'],['complex','toneComplex'],
-        ['pulsedComplex','tonePulsedComplex'],['noise','toneNoise'],
-        ['noiseAdaptive','toneNoiseAdaptive'],['amSine','toneAmSine'],
+        ['pulsedComplex','tonePulsedComplex'],['richTone','toneRichTone'],
+        ['richAcc','toneRichAcc'],['richASax','toneRichASax'],
+        ['richBTb','toneRichBTb'],['richVa','toneRichVa'],
+        ['richBn','toneRichBn'],['richClBb','toneRichClBb'],
+        ['richCb','toneRichCb'],['richOb','toneRichOb'],
+        ['richTbn','toneRichTbn'],['richFl','toneRichFl'],
+        ['richTpC','toneRichTpC'],['richVn','toneRichVn'],
+        ['richVc','toneRichVc'],['richHn','toneRichHn'],
+        ['noise','toneNoise'],['noiseAdaptive','toneNoiseAdaptive'],
+        ['irn','toneIRN'],['amSine','toneAmSine'],
         ['warbleSine','toneWarbleSine'],['burstSine','toneBurstSine'],
         ['wobbleSweep','toneWobbleSweep']
       ].forEach(function(pair) {
@@ -685,8 +693,16 @@ function _applyLangSubtree(root) {
 function _toneTypeKey(tt) {
   var map = {
     sine: 'toneSine', complex: 'toneComplex',
-    pulsedComplex: 'tonePulsedComplex', noise: 'toneNoise',
-    noiseAdaptive: 'toneNoiseAdaptive', amSine: 'toneAmSine',
+    pulsedComplex: 'tonePulsedComplex', richTone: 'toneRichTone',
+    richAcc: 'toneRichAcc', richASax: 'toneRichASax',
+    richBTb: 'toneRichBTb', richVa: 'toneRichVa',
+    richBn: 'toneRichBn', richClBb: 'toneRichClBb',
+    richCb: 'toneRichCb', richOb: 'toneRichOb',
+    richTbn: 'toneRichTbn', richFl: 'toneRichFl',
+    richTpC: 'toneRichTpC', richVn: 'toneRichVn',
+    richVc: 'toneRichVc', richHn: 'toneRichHn',
+    noise: 'toneNoise', noiseAdaptive: 'toneNoiseAdaptive',
+    irn: 'toneIRN', amSine: 'toneAmSine',
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
     wobbleSweep: 'toneWobbleSweep'
   };
@@ -905,8 +921,16 @@ function _buildTestPanelNew(parentEl, cfg) {
       toneSelect.dataset.global = 'toneType';
       [
         ['sine','toneSine'],['complex','toneComplex'],
-        ['pulsedComplex','tonePulsedComplex'],['noise','toneNoise'],
-        ['noiseAdaptive','toneNoiseAdaptive'],['amSine','toneAmSine'],
+        ['pulsedComplex','tonePulsedComplex'],['richTone','toneRichTone'],
+        ['richAcc','toneRichAcc'],['richASax','toneRichASax'],
+        ['richBTb','toneRichBTb'],['richVa','toneRichVa'],
+        ['richBn','toneRichBn'],['richClBb','toneRichClBb'],
+        ['richCb','toneRichCb'],['richOb','toneRichOb'],
+        ['richTbn','toneRichTbn'],['richFl','toneRichFl'],
+        ['richTpC','toneRichTpC'],['richVn','toneRichVn'],
+        ['richVc','toneRichVc'],['richHn','toneRichHn'],
+        ['noise','toneNoise'],['noiseAdaptive','toneNoiseAdaptive'],
+        ['irn','toneIRN'],['amSine','toneAmSine'],
         ['warbleSine','toneWarbleSine'],['burstSine','toneBurstSine'],
         ['wobbleSweep','toneWobbleSweep']
       ].forEach(function(pair) {
@@ -2091,8 +2115,24 @@ function _openToneTypeDialog(cfg, onChange) {
     ['sine',          'toneSine'],
     ['complex',       'toneComplex'],
     ['pulsedComplex', 'tonePulsedComplex'],
+    ['richTone',      'toneRichTone'],
+    ['richAcc',       'toneRichAcc'],
+    ['richASax',      'toneRichASax'],
+    ['richBTb',       'toneRichBTb'],
+    ['richVa',        'toneRichVa'],
+    ['richBn',        'toneRichBn'],
+    ['richClBb',      'toneRichClBb'],
+    ['richCb',        'toneRichCb'],
+    ['richOb',        'toneRichOb'],
+    ['richTbn',       'toneRichTbn'],
+    ['richFl',        'toneRichFl'],
+    ['richTpC',       'toneRichTpC'],
+    ['richVn',        'toneRichVn'],
+    ['richVc',        'toneRichVc'],
+    ['richHn',        'toneRichHn'],
     ['noise',         'toneNoise'],
     ['noiseAdaptive', 'toneNoiseAdaptive'],
+    ['irn',           'toneIRN'],
     ['amSine',        'toneAmSine'],
     ['warbleSine',    'toneWarbleSine'],
     ['burstSine',     'toneBurstSine'],

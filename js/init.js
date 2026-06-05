@@ -770,8 +770,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
       // BA 209: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
-      const _VALID_TT = ["sine", "complex", "pulsedComplex", "noise",
-        "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
+      const _VALID_TT = ["sine", "complex", "pulsedComplex", "richTone",
+        "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
+        "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
+        "richVc", "richHn",
+        "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
+        "wobbleSweep"];
       if (typeof toneType_freqmatch !== "undefined") {
         if (_VALID_TT.includes(d.toneType_freqmatch)) {
           toneType_freqmatch = d.toneType_freqmatch;

@@ -85,17 +85,29 @@ function getElectrodeBandwidth(hz) {
   return bwLow + bwHigh;
 }
 
+// Cosinus-Quadrat-Hüllkurve (Hann-Form: sin² beim Anstieg, cos² beim Abfall).
+// Reduziert spektrale Onset-Energie gegenüber linearer Rampe; bei CI weniger
+// breitbandiger "Klick" beim Tonanfang, sauberer Pitch-Eindruck.
 function applyCosRamp(gainNode, vol, c, ms, ramp) {
-  gainNode.gain.setValueAtTime(0, c.currentTime);
-  gainNode.gain.linearRampToValueAtTime(
-    Math.max(0, vol), c.currentTime + ramp / 1000);
-  gainNode.gain.setValueAtTime(
-    Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
-  gainNode.gain.linearRampToValueAtTime(
-    0, c.currentTime + ms / 1000);
+  const v       = Math.max(0, vol);
+  const t0      = c.currentTime;
+  const effRamp = Math.min(ramp, Math.max(1, ms / 2));
+  const rampSec = effRamp / 1000;
+  const N       = 64;
+  const up      = new Float32Array(N);
+  const dn      = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    const x = i / (N - 1);                       // 0..1
+    const w = 0.5 - 0.5 * Math.cos(Math.PI * x); // sin²(πx/2), 0..1
+    up[i] = v * w;
+    dn[i] = v * (1 - w);
+  }
+  gainNode.gain.setValueAtTime(0, t0);
+  gainNode.gain.setValueCurveAtTime(up, t0, rampSec);
+  gainNode.gain.setValueCurveAtTime(dn, t0 + (ms - effRamp) / 1000, rampSec);
 }
 
-function playSineTone(c, hz, vol, ms, pan, ramp = 20) {
+function playSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const o = c.createOscillator(),
       g = c.createGain(),
@@ -103,10 +115,7 @@ function playSineTone(c, hz, vol, ms, pan, ramp = 20) {
     o.type = "sine";
     o.frequency.value = hz;
     p.pan.value = pan;
-    g.gain.setValueAtTime(0, c.currentTime);
-    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + ramp / 1000);
-    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
-    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
+    applyCosRamp(g, vol, c, ms, ramp);
     o.connect(g);
     g.connect(p);
     p.connect(c.destination);
@@ -117,7 +126,7 @@ function playSineTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playComplexTone(c, hz, vol, ms, pan, ramp = 20) {
+function playComplexTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const oscs = [],
       g = c.createGain(),
@@ -147,10 +156,7 @@ function playComplexTone(c, hz, vol, ms, pan, ramp = 20) {
       }
     }
     p.pan.value = pan;
-    g.gain.setValueAtTime(0, c.currentTime);
-    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + ramp / 1000);
-    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
-    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
+    applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
     curOsc = oscs[0] || null;
@@ -162,7 +168,7 @@ function playComplexTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 20) {
+function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 50) {
   // Harmonischer Komplexton (wie playComplexTone) zusätzlich AM-moduliert
   // mit 100 Hz. Simuliert die Pulsraten-Hüllkurve aller CI-Strategien,
   // ohne die Pitch-Wahrnehmung zu zerstören.
@@ -214,10 +220,7 @@ function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 20) {
     carrierMix.connect(g);
 
     p.pan.value = pan;
-    g.gain.setValueAtTime(0, c.currentTime);
-    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + ramp / 1000);
-    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
-    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
+    applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
     curOsc = oscs[0] || null;
@@ -229,7 +232,177 @@ function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playNoiseTone(c, hz, vol, ms, pan, ramp = 20) {
+function playRichTone(c, hz, vol, ms, pan, ramp = 50) {
+  // Harmonischer Komplexton mit 8 Harmonischen, leichtem Vibrato
+  // (5 Hz, ±10 cent, gleichmäßig über alle Harmonischen) und schwacher
+  // Atem-AM (3 Hz, 20%). Soll robustere Pitch-Wahrnehmung über das CI
+  // ermöglichen durch zeitliche Modulation und spektrale Reichhaltigkeit,
+  // analog zu Pitch-Cues in Sprache und Musik.
+  return new Promise((r) => {
+    const VIB_HZ      = 5;
+    const VIB_CENTS   = 10;
+    const AM_HZ       = 3;
+    const AM_DEPTH    = 0.2;
+    const oscs        = [];
+    const g           = c.createGain();
+    const p           = c.createStereoPanner();
+    const carrierMix  = c.createGain();
+    carrierMix.gain.value = 1 - AM_DEPTH / 2;
+
+    const partials = [
+      { mult: 1, amp: 1.00 },
+      { mult: 2, amp: 0.60 },
+      { mult: 3, amp: 0.40 },
+      { mult: 4, amp: 0.30 },
+      { mult: 5, amp: 0.22 },
+      { mult: 6, amp: 0.16 },
+      { mult: 7, amp: 0.12 },
+      { mult: 8, amp: 0.09 },
+    ];
+    const total   = partials.reduce((s, x) => s + x.amp, 0);
+    const nyquist = c.sampleRate / 2 - 100;
+    const vibFactor = Math.pow(2, VIB_CENTS / 1200) - 1;
+
+    const vibLfo = c.createOscillator();
+    vibLfo.type = "sine";
+    vibLfo.frequency.value = VIB_HZ;
+
+    for (const part of partials) {
+      const freq = hz * part.mult;
+      if (freq < nyquist) {
+        const o  = c.createOscillator();
+        const og = c.createGain();
+        o.type = "sine";
+        o.frequency.value = freq;
+        og.gain.value = part.amp / total;
+        const vibGain = c.createGain();
+        vibGain.gain.value = freq * vibFactor;
+        vibLfo.connect(vibGain);
+        vibGain.connect(o.frequency);
+        o.connect(og);
+        og.connect(carrierMix);
+        o.start();
+        o.stop(c.currentTime + ms / 1000 + 0.01);
+        oscs.push(o);
+      }
+    }
+
+    const amLfo     = c.createOscillator();
+    const amLfoGain = c.createGain();
+    amLfo.type = "sine";
+    amLfo.frequency.value = AM_HZ;
+    amLfoGain.gain.value  = AM_DEPTH / 2;
+    amLfo.connect(amLfoGain);
+    amLfoGain.connect(carrierMix.gain);
+    amLfo.start();
+    amLfo.stop(c.currentTime + ms / 1000 + 0.01);
+
+    vibLfo.start();
+    vibLfo.stop(c.currentTime + ms / 1000 + 0.01);
+
+    carrierMix.connect(g);
+    p.pan.value = pan;
+    applyCosRamp(g, vol, c, ms, ramp);
+    g.connect(p);
+    p.connect(c.destination);
+    curOsc = oscs[0] || null;
+    if (oscs.length > 0) {
+      oscs[0].onended = () => { curOsc = null; r(); };
+    } else {
+      r();
+    }
+  });
+}
+
+function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
+  // Generische richTone-Synthese aus einem Profil-Objekt
+  // (siehe js/richtone-profiles.js -> RICHTONE_PROFILES.<abbr>).
+  // Felder: partials, vibratoHz, vibratoCents, amHz, amDepth, attackMs.
+  // Profil-Attack erweitert die Cos2-Rampe ueber den Default hinaus
+  // (begrenzt durch applyCosRamp auf max ms/2).
+  return new Promise((r) => {
+    const VIB_HZ      = profile.vibratoHz    || 0;
+    const VIB_CENTS   = profile.vibratoCents || 0;
+    const AM_HZ       = profile.amHz         || 0;
+    const AM_DEPTH    = profile.amDepth      || 0;
+    const partials    = (profile.partials && profile.partials.length)
+                          ? profile.partials
+                          : [{ mult: 1, amp: 1.0 }];
+    const effRamp     = Math.max(ramp, profile.attackMs || ramp);
+
+    const oscs        = [];
+    const g           = c.createGain();
+    const p           = c.createStereoPanner();
+    const carrierMix  = c.createGain();
+    carrierMix.gain.value = 1 - AM_DEPTH / 2;
+
+    const total       = partials.reduce((s, x) => s + x.amp, 0) || 1;
+    const nyquist     = c.sampleRate / 2 - 100;
+    const vibFactor   = (VIB_HZ > 0 && VIB_CENTS > 0)
+                          ? Math.pow(2, VIB_CENTS / 1200) - 1
+                          : 0;
+
+    let vibLfo = null;
+    if (vibFactor > 0) {
+      vibLfo = c.createOscillator();
+      vibLfo.type = "sine";
+      vibLfo.frequency.value = VIB_HZ;
+    }
+
+    for (const part of partials) {
+      const freq = hz * part.mult;
+      if (freq < nyquist) {
+        const o  = c.createOscillator();
+        const og = c.createGain();
+        o.type = "sine";
+        o.frequency.value = freq;
+        og.gain.value = part.amp / total;
+        if (vibLfo) {
+          const vibGain = c.createGain();
+          vibGain.gain.value = freq * vibFactor;
+          vibLfo.connect(vibGain);
+          vibGain.connect(o.frequency);
+        }
+        o.connect(og);
+        og.connect(carrierMix);
+        o.start();
+        o.stop(c.currentTime + ms / 1000 + 0.01);
+        oscs.push(o);
+      }
+    }
+
+    if (AM_HZ > 0 && AM_DEPTH > 0) {
+      const amLfo     = c.createOscillator();
+      const amLfoGain = c.createGain();
+      amLfo.type = "sine";
+      amLfo.frequency.value = AM_HZ;
+      amLfoGain.gain.value  = AM_DEPTH / 2;
+      amLfo.connect(amLfoGain);
+      amLfoGain.connect(carrierMix.gain);
+      amLfo.start();
+      amLfo.stop(c.currentTime + ms / 1000 + 0.01);
+    }
+
+    if (vibLfo) {
+      vibLfo.start();
+      vibLfo.stop(c.currentTime + ms / 1000 + 0.01);
+    }
+
+    carrierMix.connect(g);
+    p.pan.value = pan;
+    applyCosRamp(g, vol, c, ms, effRamp);
+    g.connect(p);
+    p.connect(c.destination);
+    curOsc = oscs[0] || null;
+    if (oscs.length > 0) {
+      oscs[0].onended = () => { curOsc = null; r(); };
+    } else {
+      r();
+    }
+  });
+}
+
+function playNoiseTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const bufLen = Math.ceil(c.sampleRate * (ms / 1000 + 0.05));
     const buf = c.createBuffer(1, bufLen, c.sampleRate);
@@ -244,10 +417,7 @@ function playNoiseTone(c, hz, vol, ms, pan, ramp = 20) {
     const g = c.createGain();
     const p = c.createStereoPanner();
     p.pan.value = pan;
-    g.gain.setValueAtTime(0, c.currentTime);
-    g.gain.linearRampToValueAtTime(Math.max(0, vol), c.currentTime + ramp / 1000);
-    g.gain.setValueAtTime(Math.max(0, vol), c.currentTime + (ms - ramp) / 1000);
-    g.gain.linearRampToValueAtTime(0, c.currentTime + ms / 1000);
+    applyCosRamp(g, vol, c, ms, ramp);
     src.connect(bp);
     bp.connect(g);
     g.connect(p);
@@ -259,7 +429,7 @@ function playNoiseTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp = 20) {
+function playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const bufLen = Math.ceil(c.sampleRate * (ms / 1000 + 0.05));
     const buf = c.createBuffer(1, bufLen, c.sampleRate);
@@ -287,7 +457,58 @@ function playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playAmSineTone(c, hz, vol, ms, pan, ramp = 20) {
+function playIRNTone(c, hz, vol, ms, pan, ramp = 50) {
+  // Iterated Rippled Noise (Yost 1996, "Add-and-delay"-Cascade): weißes
+  // Rauschen wird 16-mal mit sich selbst um 1/hz verzögert summiert, mit
+  // Normalisierung pro Iteration. Erzeugt klare Pitch-Wahrnehmung bei f0
+  // ohne harmonisches Linienspektrum; soll Pitch über das CI vermitteln,
+  // ohne einzelne Elektroden dominant zu treffen.
+  return new Promise((r) => {
+    const ITERATIONS = 16;
+    const FB_GAIN    = 1.0;
+    const sampleRate = c.sampleRate;
+    const delaySamp  = Math.max(1, Math.round(sampleRate / hz));
+    const bufLen     = Math.ceil(sampleRate * (ms / 1000 + 0.05));
+
+    let signal = new Float32Array(bufLen);
+    for (let i = 0; i < bufLen; i++) signal[i] = Math.random() * 2 - 1;
+
+    for (let it = 0; it < ITERATIONS; it++) {
+      const next = new Float32Array(bufLen);
+      let max = 0;
+      for (let i = 0; i < bufLen; i++) {
+        const d = (i >= delaySamp) ? signal[i - delaySamp] * FB_GAIN : 0;
+        const v = signal[i] + d;
+        next[i] = v;
+        const a = v < 0 ? -v : v;
+        if (a > max) max = a;
+      }
+      if (max > 1e-9) {
+        for (let i = 0; i < bufLen; i++) next[i] /= max;
+      }
+      signal = next;
+    }
+
+    const buf = c.createBuffer(1, bufLen, sampleRate);
+    buf.getChannelData(0).set(signal);
+
+    const src = c.createBufferSource();
+    src.buffer = buf;
+    const g = c.createGain();
+    const p = c.createStereoPanner();
+    p.pan.value = pan;
+    applyCosRamp(g, vol, c, ms, ramp);
+    src.connect(g);
+    g.connect(p);
+    p.connect(c.destination);
+    curOsc = src;
+    src.start();
+    src.stop(c.currentTime + ms / 1000 + 0.01);
+    src.onended = () => { curOsc = null; r(); };
+  });
+}
+
+function playAmSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const o = c.createOscillator();
     const lfo = c.createOscillator();
@@ -318,7 +539,7 @@ function playAmSineTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playWarbleSineTone(c, hz, vol, ms, pan, ramp = 20) {
+function playWarbleSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const o = c.createOscillator();
     const lfo = c.createOscillator();
@@ -346,7 +567,7 @@ function playWarbleSineTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playBurstSineTone(c, hz, vol, ms, pan, ramp = 20) {
+function playBurstSineTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const burstMs = 200;
     const pauseMs = 50;
@@ -378,7 +599,7 @@ function playBurstSineTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 20) {
+function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
   return new Promise((r) => {
     const o = c.createOscillator();
     const g = c.createGain();
@@ -402,11 +623,20 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 20) {
   });
 }
 
-function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 20) {
+function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   if (toneType === "complex")        return playComplexTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "pulsedComplex")  return playPulsedComplexTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "richTone")       return playRichTone(c, hz, vol, ms, pan, ramp);
+  // 14 Instrumenten-Profile aus js/richtone-profiles.js
+  if (toneType.length > 4 && toneType.startsWith("rich")) {
+    const abbr = toneType.substring(4);
+    if (typeof RICHTONE_PROFILES !== "undefined" && RICHTONE_PROFILES[abbr]) {
+      return playRichToneProfile(c, hz, vol, ms, pan, RICHTONE_PROFILES[abbr], ramp);
+    }
+  }
   if (toneType === "noise")          return playNoiseTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "noiseAdaptive")  return playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "irn")            return playIRNTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "amSine")         return playAmSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "warbleSine")     return playWarbleSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "burstSine")      return playBurstSineTone(c, hz, vol, ms, pan, ramp);
@@ -414,7 +644,7 @@ function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 20) {
   return playSineTone(c, hz, vol, ms, pan, ramp);
 }
 
-function playTone(hz, vol, ms, ramp = 20) {
+function playTone(hz, vol, ms, ramp = 50) {
   const c = gAC();
   const pan = activeSide === "left" ? -1 : 1;
   const effectiveVol = isDeaf(activeSide) ? 0 : vol;
