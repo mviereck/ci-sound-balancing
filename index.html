@@ -1623,8 +1623,18 @@
             </button>
             <button class="btn pl-trans-btn" id="plLoopBtn" type="button"
                     title="" data-tip="plTipLoop"
-                    style="width:40px;height:40px;border-radius:50%;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0">
-              &#128257;
+                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
+              &#128257; Loop
+            </button>
+            <button class="btn pl-trans-btn" id="plShuffleBtn" type="button"
+                    title="" data-tip="plTipShuffle"
+                    style="height:40px;border-radius:6px;font-size:1.0em;display:flex;align-items:center;justify-content:center;padding:0 10px;gap:5px">
+              &#127922; Zufall
+            </button>
+            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
+                    title="" data-tip="plTipAutoAdv"
+                    style="height:40px;min-width:140px;font-weight:600;border-radius:6px">
+              <span data-t="plAutoAdvLabel"></span>
             </button>
 
             <div style="flex:1; display:flex; flex-direction:column; gap:3px; min-width:160px">
@@ -1649,14 +1659,28 @@
                   style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
           </div>
 
-          <!-- Eigene Zeile: Auto-Advance + Pause-Buttons -->
+          <!-- Anzeige-Block -->
+          <div id="plDisplayBox"
+               style="padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:4px; font-size:0.9em; line-height:1.45; margin-bottom:10px">
+            <div id="plDispTitle" style="font-weight:600; margin-bottom:4px">
+              <span data-t="plDispEmpty"></span>
+            </div>
+            <label id="plSentTextToggleWrap"
+                   style="display:none; align-items:center; gap:6px; cursor:pointer; margin:4px 0">
+              <input type="checkbox" id="plSentShowText" />
+              <span data-t="sentShowText"></span>
+            </label>
+            <div id="plSentTextBox"
+                 style="display:none; padding:6px 8px; background:var(--card-bg, #fff); border:1px solid var(--border); border-radius:4px; font-size:0.95em; line-height:1.4; min-height:2.4em; margin:4px 0">
+              <span id="plSentText"></span>
+            </div>
+            <div id="plDispMeta"
+                 style="font-size:0.82em; color:var(--text-muted); margin-top:4px"></div>
+          </div>
+
+          <!-- Eigene Zeile: Pause-Buttons -->
           <div id="plAutoAdvanceRow" class="controls-row"
                style="align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap">
-            <button class="btn pl-trans-btn" id="plAutoAdvBtn" type="button"
-                    title="" data-tip="plTipAutoAdv"
-                    style="min-width:140px; font-weight:600; border-radius:6px">
-              <span data-t="plAutoAdvLabel"></span>
-            </button>
             <div class="control-group" style="flex-wrap:wrap; gap:4px">
               <label data-t="plPauseLabel" style="margin-right:4px"></label>
               <div id="plPauseBtns" style="display:flex; gap:3px; flex-wrap:wrap">
@@ -1686,25 +1710,6 @@
                 <button class="btn pl-vol-btn" type="button" data-v="100">100</button>
               </div>
             </div>
-          </div>
-
-          <!-- Anzeige-Block -->
-          <div id="plDisplayBox"
-               style="padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:4px; font-size:0.9em; line-height:1.45">
-            <div id="plDispTitle" style="font-weight:600; margin-bottom:4px">
-              <span data-t="plDispEmpty"></span>
-            </div>
-            <label id="plSentTextToggleWrap"
-                   style="display:none; align-items:center; gap:6px; cursor:pointer; margin:4px 0">
-              <input type="checkbox" id="plSentShowText" />
-              <span data-t="sentShowText"></span>
-            </label>
-            <div id="plSentTextBox"
-                 style="display:none; padding:6px 8px; background:var(--card-bg, #fff); border:1px solid var(--border); border-radius:4px; font-size:0.95em; line-height:1.4; min-height:2.4em; margin:4px 0">
-              <span id="plSentText"></span>
-            </div>
-            <div id="plDispMeta"
-                 style="font-size:0.82em; color:var(--text-muted); margin-top:4px"></div>
           </div>
         </div>
 

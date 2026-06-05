@@ -26,10 +26,11 @@
 
 ## Tab-Sperre L1 — Voraussetzungs-Sperre (BA 172)
 
-Solange die Implantat-Angaben unzureichend sind, sind fünf Hauptreiter
-gesperrt: **Messungen**, **Meßergebnisse**, **Kurven**, **Schieber**,
-**Player**. Frei zugänglich bleiben Einführung, Implantat, Laden/Speichern,
-Unterstützung, Links.
+Solange die Implantat-Angaben unzureichend sind, sind vier Hauptreiter
+gesperrt: **Messungen**, **Meßergebnisse**, **Kurven**, **Schieber**.
+Frei zugänglich bleiben Einführung, Implantat, Player, Laden/Speichern,
+Unterstützung, Links. (Player war bis BA 212 ebenfalls gesperrt; ab BA 213
+ist er immer zugänglich.)
 
 **Frei-Schwelle:** Beide Seiten haben eine konkrete Hörsituation
 (`config ≠ "unknown"`) **und** mindestens eine Seite ist CI mit

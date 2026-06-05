@@ -816,9 +816,16 @@ async function pWarpTrigger() {
   pWarpCancel = false;
 
   if (cancelled) {
-    pWarpOn = false;
+    // Interner Cancel (neuer Trigger) wird nie hierher kommen —
+    // myGen !== pWarpGen hat schon returniert.
+    // Hier ist es also immer ein User-Cancel: pWarpOn ist bereits false
+    // (vom Click-Handler gesetzt). Nur DOM-Sync noetig.
     const cb = document.getElementById("plWarpOn");
     if (cb && typeof cb.checked === "boolean") cb.checked = false;
+    pBuf = getPlaybackBuffer();
+    pWarpUpdUI();
+    if (wasPlaying) pPlay();  // ungewarpt weiterspielen
+    return;
   }
 
   pBuf = getPlaybackBuffer();

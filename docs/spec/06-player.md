@@ -18,11 +18,15 @@
      Top-Toggle Quelle (Musik / Sätze / Geräusche / Hörbücher; nur
      Hörbücher ausgegraut bis spätere BA), quellenspezifischem
      Sub-Block, gemeinsamer Transport-Leiste (Prev, Play/Pause, Stop,
-     Next, Endlos-Toggle 🔁, Slider + Zeitanzeige, Mono-Badge),
-     eigener Zeile für Auto-Advance-Toggle ↪ + Pause-Buttons,
-     eigener Zeile für Lautstärke + Schnellbuttons 25/50/75/100, und
+     Next, Endlos-Toggle 🔁 Loop, Shuffle-Button 🎲, Auto-Advance-Toggle ↪,
+     Slider + Zeitanzeige, Mono-Badge),
      Anzeige-Block (Titel, Art, Spektrum, Quelle, Lizenz, optional
-     Satz-Text).
+     Satz-Text), eigener Zeile für Pause-Buttons,
+     eigener Zeile für Lautstärke + Schnellbuttons 25/50/75/100.
+     (Reihenfolge seit BA 213: Transport → Warp-Fortschrittsbalken →
+     Anzeige-Block → Pause-Zeile → Lautstärke-Zeile.
+     Shuffle-Button ist ab BA 213 sichtbar, aber noch nicht funktional —
+     Click-Handler und i18n folgen in BA 214.)
      - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
      - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (Random-Satz
        bei Sätzen; bei Geräuschen nächstes in Sortier-Reihenfolge; bei
@@ -249,6 +253,11 @@
     bei großen Buffern — `_rbPitchShift` gibt regelmäßig an den Event-Loop
     zurück, sodass der Klick verarbeitet und `pWarpCancel` zwischen
     WASM-Chunks geprüft wird.
+  - **Warp-Toggle-Cancel (BA 213):** Wird der Warp-Toggle während laufender
+    Berechnung deaktiviert, ruft der Click-Handler `pWarpCancelCompute()`
+    auf und kehrt sofort zurück. `pWarpTrigger` erkennt den User-Cancel
+    (`cancelled === true`) und spielt danach **ungewarpt** weiter
+    (kein `pWarpOn`-Guard bei `pPlay()`). Der Warp-Toggle bleibt aus.
   - Wechselt während laufender Warp-Berechnung der Quell-Buffer (z.B. Nutzer
     klickt „nächstes Audio" oder Auto-Advance schaltet weiter), wird der
     laufende Compute automatisch abgebrochen und die Berechnung mit dem

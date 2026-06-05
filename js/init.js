@@ -389,6 +389,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Warp-Checkbox
   document.getElementById("plWarpOn").addEventListener("click", function () {
     pWarpOn = !pWarpOn;
+    // Wenn Warp deaktiviert wird waehrend Berechnung laeuft: abbrechen.
+    // pWarpTrigger() uebernimmt danach (pBuf, pPlay, UI-Update).
+    if (!pWarpOn && typeof pWarpBusy !== "undefined" && pWarpBusy) {
+      if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
+      if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof pDrawEQ === "function") pDrawEQ();
+      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+      return;
+    }
     pWarpUpdUI();
     if (pWarpOn && !pWarpedBuf) {
       pWarpTrigger();
