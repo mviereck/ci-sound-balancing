@@ -737,6 +737,23 @@ function pWarpUpdUI() {
   if (stopBtn) {
     stopBtn.style.display = pWarpBusy ? "" : "none";
   }
+
+  // Fortschrittsbalken im Transport-Bereich
+  const progressRow = document.getElementById("plWarpProgressRow");
+  const progressBar = document.getElementById("plWarpProgressBar");
+  const progressPct = document.getElementById("plWarpProgressPct");
+  if (progressRow) {
+    if (pWarpBusy && pWarpProgress > 0) {
+      progressRow.style.display = "flex";
+      const pct = Math.round(pWarpProgress * 100);
+      if (progressBar) progressBar.style.width = pct + "%";
+      if (progressPct) progressPct.textContent = pct + " %";
+    } else {
+      progressRow.style.display = "none";
+      if (progressBar) progressBar.style.width = "0%";
+      if (progressPct) progressPct.textContent = "";
+    }
+  }
 }
 
 let pWarpGen = 0;  // Generation-Zähler — neuer Aufruf überholt ältere Runs.

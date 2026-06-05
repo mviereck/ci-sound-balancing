@@ -771,6 +771,7 @@ Object.assign(L.de, {
     pwStatusBusyProgress: "Berechne… {pct} %",
     plWarpStopBtn: "Berechnung stoppen",
     plWarpBusyTooltip: "Frequenz-Warping wird noch berechnet. Bitte warten.",
+    pwProgressLabel: "Warp:",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Elektrodenlautstärke ausgleichen",
     testIntro: "Dieser Test vergleicht die Lautstärke der Elektroden miteinander. Finales Ziel ist es, eine ausgeglichene Lautstärke für alle Elektroden zu finden.<br> - Dies ist die wichtige Basis für alle weiteren Optimierungen, sei es Musikhören oder Sprachverständlichkeit.",

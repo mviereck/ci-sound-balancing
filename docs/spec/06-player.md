@@ -209,6 +209,12 @@
     geladen (Optionen behalten ihren letzten Wert). Ältere Saves mit
     `warpMethod`-Feld werden ohne Fehler geladen (Feld wird ignoriert).
     UI-Sync über `pWarpUpdUI()`.
+  - **Fortschrittsbalken im Transport-Bereich** (`#plWarpProgressRow`):
+    Während der Rubberband-Vorberechnung erscheint unterhalb der Transport-
+    Buttons eine schmale Zeile mit Label „Warp:", einem wachsenden Balken
+    und einer Prozentangabe (`#plWarpProgressBar`, `#plWarpProgressPct`).
+    Zeile ist `display:none` wenn keine Berechnung läuft oder `pWarpProgress`
+    noch 0 ist; gesteuert von `pWarpUpdUI()` (i18n-Key `pwProgressLabel`).
   - Bei aktivem Frequenz-Warping folgen die Säulen-Positionen des
     EQ-Graphen den gewarpten Wahrnehmungs-Frequenzen der Elektroden.
     Die im Audio-Pfad eingehängten Biquad-Filter sitzen **modus-abhängig**:

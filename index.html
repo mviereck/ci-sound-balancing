@@ -1648,6 +1648,18 @@
             <span style="font-family:var(--mono); font-size:0.72em; color:var(--text-muted); background:var(--bg); padding:2px 6px; border-radius:4px">Mono</span>
           </div>
 
+          <!-- Warp-Fortschrittsbalken (nur während Berechnung sichtbar) -->
+          <div id="plWarpProgressRow"
+               style="display:none; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap">
+            <span style="font-size:0.82em; color:var(--text-muted)" data-t="pwProgressLabel"></span>
+            <div style="flex:1; min-width:80px; height:6px; background:var(--border); border-radius:3px; overflow:hidden">
+              <div id="plWarpProgressBar"
+                   style="height:100%; width:0%; background:var(--success); transition:width 0.25s ease"></div>
+            </div>
+            <span id="plWarpProgressPct"
+                  style="font-family:var(--mono); font-size:0.82em; color:var(--text-muted); min-width:36px; text-align:right"></span>
+          </div>
+
           <!-- Eigene Zeile: Auto-Advance + Pause-Buttons -->
           <div id="plAutoAdvanceRow" class="controls-row"
                style="align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap">
