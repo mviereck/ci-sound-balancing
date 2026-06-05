@@ -1035,4 +1035,18 @@ Object.assign(L.de, {
     selSummaryPrefix: "Auswahl:",
     selChange: "Auswahl ändern…",
     selectiveEnd: "Spezial-Round-Robin beendet: keine Paare mit den gewählten Elektroden mehr verfügbar.",
+
+    // BA 207: Auswahl Testelektroden
+    electrodeSelectionTitle: "Testelektroden auswählen",
+    electrodeSelectionHint: "Nur ausgewählte Elektroden nehmen am Testverfahren teil.",
+    electrodeSelectionSelectAll: "Alle auswählen",
+    electrodeSelectionDeselectAll: "Alle abwählen",
+    electrodeSelectionCancel: "Abbrechen",
+    electrodeSelectionConfirm: "Übernehmen",
+    electrodeSelectionMinError: "Mindestens {n} Elektrode(n) auswählen.",
+    electrodeSelectionMutedSuffix: "stumm",
+    electrodeSelectionExcludedSuffix: "ausgeschlossen",
+    electrodeSelectionHeaderBtn: "Testelektroden auswählen",
+    electrodeSelectionHeaderSummary: "{m} von {n} Elektroden gewählt",
+    electrodeSelectionEmptyEnd: "Test beendet: Keine ausgewählte Elektrode mehr verfügbar.",
 });

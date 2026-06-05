@@ -81,6 +81,7 @@ function resetAll() {
   if (typeof updBalApplyBtn === "function") updBalApplyBtn();
   // --- Frequenzabgleich-Ergebnisse ---
   if (typeof fRes !== "undefined") fRes.splice(0, fRes.length);
+  if (typeof freqmatchTestSelection !== "undefined") freqmatchTestSelection = null;
   if (typeof renderFreqMatchResults === "function") renderFreqMatchResults();
   // BA 161: FreqMatch-Tab-UI nach Reset auffrischen
   if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
@@ -258,6 +259,8 @@ async function saveJson() {
     plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
     plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",
     fRes: (typeof fRes !== "undefined") ? fRes : [],
+    freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
+      ? freqmatchTestSelection : null,
     paradigm: globalSequence,
     toneDuration: parseInt(document.getElementById("dur1").value),
     pauseDuration: parseInt(document.getElementById("pau1").value),
@@ -645,6 +648,13 @@ function applyLoadedData(d) {
     }
     if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
     if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
+  }
+  // BA 207: Auswahl der Testelektroden für FreqMatch.
+  // Alte Dateien ohne dieses Feld → null (= alle aktiven testen).
+  if (typeof freqmatchTestSelection !== "undefined") {
+    freqmatchTestSelection = Array.isArray(d.freqmatchTestSelection)
+      ? d.freqmatchTestSelection.slice()
+      : null;
   }
   // Warp-Einstellungen laden (Buffer wird nicht gespeichert – neu berechnen bei Bedarf)
   if (typeof pWarpOn !== "undefined") {

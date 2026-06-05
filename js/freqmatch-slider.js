@@ -114,6 +114,38 @@ function _fmUpdateSliderRangeMarker() {
 
 // --- Testablauf ---
 
+// BA 207: Synchronisiert sliderRoundRun mit der User-Auswahl.
+// Wird nach Auswahl-Änderung aufgerufen, wenn der Slider-Modus aktiv ist.
+// Wirkung:
+//   - run.electrodeIdxList auf gefilterte Sequenz setzen
+//   - remainingInRound auf Schnittmenge filtern
+//   - totalInRound aktualisieren
+//   - fmSeq spiegeln und fmSeqIdx auf passenden Index nachjustieren
+function _fmApplySelectionToSliderRun() {
+  if (!sideData[fmVarSide]) return;
+  var fa = sideData[fmVarSide].freqmatchAdaptive;
+  if (!fa || !fa.sliderRoundRun) return;
+  var run = fa.sliderRoundRun;
+  var freshSeq = fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
+  if (!Array.isArray(freshSeq)) freshSeq = [];
+  run.electrodeIdxList = freshSeq.slice();
+  var freshSet = new Set(freshSeq);
+  run.remainingInRound = (run.remainingInRound || []).filter(function(i) { return freshSet.has(i); });
+  run.totalInRound = run.electrodeIdxList.length;
+  run.completedInRound = run.totalInRound - run.remainingInRound.length;
+
+  // Aktive fmSeq-Sicht in Übereinstimmung mit verbliebenen Elektroden.
+  fmSeq = run.remainingInRound.slice();
+  // fmSeqIdx so setzen, daß fmCurrentEl (falls noch gültig) auf [0] sitzt;
+  // sonst beginnt der Lauf bei [0] mit der nächsten verbliebenen.
+  if (fmCurrentEl != null && freshSet.has(fmCurrentEl)) {
+    var pos = fmSeq.indexOf(fmCurrentEl);
+    fmSeqIdx = pos >= 0 ? pos : 0;
+  } else {
+    fmSeqIdx = 0;
+  }
+}
+
 function fmStartSlider() {
   if (!fmEls) return;
   _fmInitSides();
@@ -160,9 +192,7 @@ function _fmDoStartSlider() {
   fmRunning = true;
   fmLoadElectrode();
   _fmStartTimer();
-  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
-    if (fmEls) fmEls._stopTest();
-  });
+  _fmStartIdleSideCheck();
 }
 
 // BA 206: stellt sicher, dass sliderRoundRun für die aktuelle Kombination existiert.

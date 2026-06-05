@@ -49,6 +49,14 @@ let _fmSimActive  = false;
 let _fmSimOffsets = {};   // electrodeIdx → simulierter Wahrnehmungs-Offset (Cent, pos oder neg)
 let _fmParentEl = null;   // gesetzt im DOMContentLoaded
 
+// BA 207: Selektion der zu testenden Elektroden.
+// null  = Default (= alle aktiven Elektroden testen).
+// []    = Nutzer hat explizit nichts ausgewählt (Test startet nicht).
+// [...] = explizite Auswahl. Filter greift in fmBuildSeq / fmBuildSeqSymmetric.
+// Die Auswahl gilt für beide Seiten gleichzeitig, weil FreqMatch
+// links↔rechts vergleicht.
+let freqmatchTestSelection = null;
+
 // Live-Log-Brücke ins Debug-Panel — schreibt nur wenn dbg.flag('adaptiv.live') true ist.
 function _fmDbg(msg) {
   if (typeof dbg !== 'undefined' && dbg.flag && dbg.flag('adaptiv.live')) {
@@ -277,6 +285,15 @@ function fmDEN(elIdx) {
   return withSide(fmVarSide, () => dEN(elIdx));
 }
 // Alle aktiven Elektroden der variablen Seite (aufsteigend nach Frequenz)
+// BA 207: Schneidet eine Elektroden-Sequenz auf die User-Auswahl.
+// freqmatchTestSelection === null → keine Einschränkung (alle aktiven).
+// freqmatchTestSelection !== null → Schnittmenge mit gewählten.
+function _fmFilterSeqBySelection(seq) {
+  if (freqmatchTestSelection == null) return seq;
+  var selSet = new Set(freqmatchTestSelection);
+  return seq.filter(function(i) { return selSet.has(i); });
+}
+
 function fmBuildSeq() {
   const elList = withSide(fmVarSide, () => {
     const result = [];
@@ -289,7 +306,7 @@ function fmBuildSeq() {
     return result;
   });
   elList.sort((a, b) => a.hz - b.hz);
-  return elList.map((x) => x.idx);
+  return _fmFilterSeqBySelection(elList.map((x) => x.idx));
 }
 
 // Symmetrische Sequenz: nur wenn beide Seiten dieselbe Menge aktiver
@@ -320,7 +337,43 @@ function fmBuildSeqSymmetric() {
     return { idx: idx, hz: (fl + fr) / 2 };
   });
   seq.sort(function(a, b) { return a.hz - b.hz; });
-  return seq.map(function(x) { return x.idx; });
+  return _fmFilterSeqBySelection(seq.map(function(x) { return x.idx; }));
+}
+
+// BA 207: Wird vom Auswahl-Dialog nach Confirm aufgerufen.
+// Aufgaben:
+//   - Adaptive: laufende Tracks mit neuer Auswahl synchronisieren
+//   - Slider: laufenden Slider-Round-State synchronisieren
+//   - Header-Zusammenfassung neu rendern
+//   - Wenn nach Filter keine Elektrode mehr übrig: laufenden Test sauber beenden
+function _fmOnSelectionChanged() {
+  if (fmAdaptiveActive && typeof _fmApplySelectionToTracks === 'function') {
+    _fmApplySelectionToTracks();
+    // Statusgrid neu zeichnen, falls existiert.
+    if (typeof fmRenderStatusGrid === 'function') fmRenderStatusGrid();
+  }
+  if (fmRunning && !fmAdaptiveActive && typeof _fmApplySelectionToSliderRun === 'function') {
+    _fmApplySelectionToSliderRun();
+    if (typeof fmRenderSliderStatusGrid === 'function') fmRenderSliderStatusGrid();
+    if (typeof fmUpdateSliderProgress === 'function') fmUpdateSliderProgress();
+  }
+
+  // Header-Summary nach-rendern
+  if (fmEls && fmEls.header && typeof fmEls.header.electrodeSelectionUpdate === 'function') {
+    fmEls.header.electrodeSelectionUpdate();
+  }
+
+  // Wenn nach Filter keine testbare Elektrode mehr in der Auswahl ist
+  // UND ein Test läuft: sauber beenden.
+  if (fmRunning) {
+    var freshSeq = fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
+    if (!Array.isArray(freshSeq) || freshSeq.length === 0) {
+      var msg = (typeof t === 'function' && t('electrodeSelectionEmptyEnd'))
+        || 'Test beendet: Keine ausgewählte Elektrode mehr verfügbar.';
+      alert(msg);
+      if (fmEls && fmEls._stopTest) fmEls._stopTest();
+    }
+  }
 }
 
 // BA 206: Startwert für eine Elektrode = letzter Wert aus rounds[].
@@ -366,8 +419,8 @@ async function fmPlayCurrent() {
 
   // --- Slider-Modus: unverändertes Altverhalten ---
   if (fmCurrentEl === null) return;
-  if (fmIsPlay) {
-    fmIsPlay = false;
+  if (isPlay) {
+    isPlay = false;
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise((r) => setTimeout(r, 60));
   }
@@ -452,8 +505,8 @@ async function fmPlaySimultaneous() {
   // --- Adaptive-Modus: Ref- und Var-Ton gleichzeitig mit aktuellem Track-Offset ---
   if (fmAdaptiveActive) {
     if (fmCurTrackId === null || !fmTracks || !fmTracks[fmCurTrackId]) return;
-    if (fmIsPlay) {
-      fmIsPlay = false;
+    if (isPlay) {
+      isPlay = false;
       if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
       await new Promise((r) => setTimeout(r, 60));
     }
@@ -506,8 +559,8 @@ async function fmPlaySimultaneous() {
 
   // --- Slider-Modus: unverändertes Altverhalten ---
   if (fmCurrentEl === null) return;
-  if (fmIsPlay) {
-    fmIsPlay = false;
+  if (isPlay) {
+    isPlay = false;
     if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise((r) => setTimeout(r, 60));
   }
@@ -715,6 +768,21 @@ function fmUndo() {
   if (typeof renderFreqMatchResults === 'function') {
     try { renderFreqMatchResults(); } catch (e) {}
   }
+}
+
+// Nach 5 Min Inaktivität die Seitenabfrage erneut auslösen (statt den Test
+// kommentarlos zu stoppen). Bei Erfolg wird der Idle-Watch neu gestartet,
+// damit der Mechanismus nach jeder Bestätigung wieder aktiv ist; bei Abbruch
+// durch den Nutzer wird der Test gestoppt.
+function _fmStartIdleSideCheck() {
+  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
+    if (!fmRunning) return;
+    testUI.sideCheck.run(
+      { sides: 'both' },
+      function() { _fmStartIdleSideCheck(); },
+      function() { if (fmEls) fmEls._stopTest(); }
+    );
+  });
 }
 
 function fmAbort() {
@@ -1022,6 +1090,27 @@ document.addEventListener("DOMContentLoaded", () => {
           default:  'ref',
           disabled: true,
           hintKey:  'fmSliderTargetDisabledHint'
+        },
+        // BA 207: Auswahl-Komponente. FreqMatch braucht >= 1 Elektrode.
+        electrodeSelection: {
+          minSelected: 1,
+          getSelection: function() { return freqmatchTestSelection; },
+          setSelection: function(sel) {
+            freqmatchTestSelection = sel.slice();
+            _fmOnSelectionChanged();
+          },
+          getElectrodeStatus: function() {
+            var testable = [], muted = [], excluded = [];
+            for (var i = 0; i < nEl; i++) {
+              if (elExDur[i] != null)         excluded.push(i);
+              else if (elActive[i] === false) muted.push(i);
+              else                            testable.push(i);
+            }
+            return { testable: testable, muted: muted, excluded: excluded };
+          },
+          electrodeLabel: function(i) {
+            return dENPrefix() + dEN(i) + ' (' + Math.round(effFreq(i)) + ' Hz)';
+          }
         }
       },
       startStop: { startKey: 'fmLblStart', resumable: true }

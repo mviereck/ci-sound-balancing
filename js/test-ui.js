@@ -948,6 +948,42 @@ function _buildTestPanelNew(parentEl, cfg) {
     headerRefs.targetSelect = targetSelect;
   }
 
+  // BA 207: Auswahl Testelektroden (generisch, optional pro Verfahren).
+  if (hc.electrodeSelection) {
+    var esCfg = hc.electrodeSelection;
+    var rowES = _mkEl('div', 'controls-row');
+    rowES.dataset.row = 'electrode-selection';
+    var esSummary = _mkEl('span', 'electrode-selection-summary');
+    esSummary.dataset.t = '';  // wird in _esUpdateSummary aktiv gesetzt
+    var esBtn = _mkEl('button', 'btn btn-small');
+    esBtn.type = 'button';
+    esBtn.dataset.t = 'electrodeSelectionHeaderBtn';
+    rowES.append(esSummary, esBtn);
+    headerBox.appendChild(rowES);
+    headerRefs.electrodeSelectionSummary = esSummary;
+    headerRefs.electrodeSelectionBtn = esBtn;
+    headerRefs.electrodeSelectionCfg = esCfg;
+
+    function _esUpdateSummary() {
+      var sel = esCfg.getSelection();
+      var stat = esCfg.getElectrodeStatus();
+      var testable = stat.testable.length;
+      var selected;
+      if (sel == null) selected = testable;
+      else selected = sel.filter(function(i) { return stat.testable.indexOf(i) >= 0; }).length;
+      var tpl = (typeof t === 'function' && t('electrodeSelectionHeaderSummary'))
+        || '{m} von {n} Elektroden gewählt';
+      esSummary.textContent = tpl.replace('{m}', selected).replace('{n}', testable);
+    }
+    headerRefs.electrodeSelectionUpdate = _esUpdateSummary;
+
+    esBtn.addEventListener('click', function() {
+      _openElectrodeSelectionDialog(esCfg, _esUpdateSummary);
+    });
+
+    _esUpdateSummary();
+  }
+
   // --- extra.fragment ---
   if (cfg.header.extra && cfg.header.extra.fragment) {
     headerBox.appendChild(cfg.header.extra.fragment);
@@ -1861,6 +1897,149 @@ var testUI = {
 
 };
 
+// BA 207: Modal-Dialog „Testelektroden auswählen".
+// cfg: {
+//   minSelected:        number   - Mindestanzahl gewählter Elektroden (>=1)
+//   getSelection:       () => number[] | null   - aktuelle Auswahl
+//   setSelection:       (sel: number[]) => void - Auswahl setzen, Sync-Callbacks intern
+//   getElectrodeStatus: () => { testable: number[], muted: number[], excluded: number[] }
+//   electrodeLabel:     (i) => string  - Anzeigename z.B. "E3 (590 Hz)"
+// }
+function _openElectrodeSelectionDialog(cfg, onChange) {
+  var overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.style.cssText =
+    'position:fixed;inset:0;background:rgba(0,0,0,.45);' +
+    'display:flex;align-items:center;justify-content:center;z-index:9999;';
+
+  var dlg = document.createElement('div');
+  dlg.className = 'modal-dlg';
+  dlg.style.cssText =
+    'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
+    'border-radius:8px;min-width:320px;max-width:90vw;max-height:85vh;overflow:auto;' +
+    'box-shadow:0 10px 30px rgba(0,0,0,.3);';
+
+  var title = document.createElement('h3');
+  title.dataset.t = 'electrodeSelectionTitle';
+  title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
+  dlg.appendChild(title);
+
+  var hint = document.createElement('p');
+  hint.dataset.t = 'electrodeSelectionHint';
+  hint.style.cssText = 'margin:0 0 12px 0;font-size:.92em;';
+  dlg.appendChild(hint);
+
+  var errBox = document.createElement('div');
+  errBox.style.cssText = 'color:#c00;font-size:.88em;min-height:1.2em;margin-bottom:6px;';
+  dlg.appendChild(errBox);
+
+  var allRow = document.createElement('div');
+  allRow.style.cssText = 'display:flex;gap:8px;margin-bottom:10px;';
+  var allOnBtn = document.createElement('button');
+  allOnBtn.type = 'button';
+  allOnBtn.className = 'btn btn-small';
+  allOnBtn.dataset.t = 'electrodeSelectionSelectAll';
+  var allOffBtn = document.createElement('button');
+  allOffBtn.type = 'button';
+  allOffBtn.className = 'btn btn-small';
+  allOffBtn.dataset.t = 'electrodeSelectionDeselectAll';
+  allRow.append(allOnBtn, allOffBtn);
+  dlg.appendChild(allRow);
+
+  var stat = cfg.getElectrodeStatus();
+  var allIndices = [].concat(stat.testable, stat.muted, stat.excluded)
+    .sort(function(a, b) { return a - b; });
+  var cur = cfg.getSelection();
+  var selSet;
+  if (cur == null) selSet = new Set(stat.testable);
+  else selSet = new Set(cur.filter(function(i) { return stat.testable.indexOf(i) >= 0; }));
+
+  var nTotal = allIndices.length;
+  var perCol = Math.ceil(nTotal / 2);
+  var list = document.createElement('div');
+  list.style.cssText =
+    'display:grid;' +
+    'grid-template-columns:1fr 1fr;' +
+    'grid-template-rows:repeat(' + perCol + ', auto);' +
+    'grid-auto-flow:column;' +
+    'gap:4px 18px;' +
+    'margin-bottom:14px;';
+  var cbRefs = {};
+  var mutedSuf  = (typeof t === 'function' && t('electrodeSelectionMutedSuffix'))      || 'stumm';
+  var exclSuf   = (typeof t === 'function' && t('electrodeSelectionExcludedSuffix'))   || 'ausgeschlossen';
+  var mutedSet = new Set(stat.muted);
+  var exclSet  = new Set(stat.excluded);
+
+  allIndices.forEach(function(i) {
+    var lbl = document.createElement('label');
+    var disabled = mutedSet.has(i) || exclSet.has(i);
+    lbl.style.cssText =
+      'display:flex;align-items:center;gap:6px;font-size:.92em;' +
+      (disabled ? 'opacity:.45;cursor:not-allowed;' : 'cursor:pointer;');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = String(i);
+    cb.checked = !disabled && selSet.has(i);
+    cb.disabled = disabled;
+    cbRefs[i] = cb;
+    var sp = document.createElement('span');
+    var baseTxt = cfg.electrodeLabel(i);
+    if (mutedSet.has(i))     baseTxt += ' (' + mutedSuf + ')';
+    else if (exclSet.has(i)) baseTxt += ' (' + exclSuf + ')';
+    sp.textContent = baseTxt;
+    lbl.append(cb, sp);
+    list.appendChild(lbl);
+  });
+  dlg.appendChild(list);
+
+  var btnRow = document.createElement('div');
+  btnRow.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;';
+  var cancelBtn = document.createElement('button');
+  cancelBtn.type = 'button';
+  cancelBtn.className = 'btn';
+  cancelBtn.dataset.t = 'electrodeSelectionCancel';
+  var confirmBtn = document.createElement('button');
+  confirmBtn.type = 'button';
+  confirmBtn.className = 'btn btn-primary';
+  confirmBtn.dataset.t = 'electrodeSelectionConfirm';
+  btnRow.append(cancelBtn, confirmBtn);
+  dlg.appendChild(btnRow);
+
+  overlay.appendChild(dlg);
+  document.body.appendChild(overlay);
+  if (typeof applyLang === 'function') applyLang();
+
+  function close() {
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  }
+  cancelBtn.addEventListener('click', close);
+
+  allOnBtn.addEventListener('click', function() {
+    stat.testable.forEach(function(i) { if (cbRefs[i]) cbRefs[i].checked = true; });
+    errBox.textContent = '';
+  });
+  allOffBtn.addEventListener('click', function() {
+    stat.testable.forEach(function(i) { if (cbRefs[i]) cbRefs[i].checked = false; });
+  });
+
+  confirmBtn.addEventListener('click', function() {
+    var chosen = [];
+    stat.testable.forEach(function(i) {
+      if (cbRefs[i] && cbRefs[i].checked) chosen.push(i);
+    });
+    var minN = cfg.minSelected || 1;
+    if (chosen.length < minN) {
+      var tpl = (typeof t === 'function' && t('electrodeSelectionMinError'))
+        || 'Mindestens {n} Elektrode(n) auswählen';
+      errBox.textContent = tpl.replace('{n}', minN);
+      return;
+    }
+    cfg.setSelection(chosen);
+    if (typeof onChange === 'function') onChange();
+    close();
+  });
+}
+
 // ===== testUI.sideCheck — Seitenhörtest =====
 (function() {
   var _shtEls     = null;
@@ -2042,22 +2221,25 @@ var testUI = {
 
   function _shtStartIdleWatch(el, ms, onIdle) {
     _shtStopIdleWatch();
+    // el wird nicht mehr für Event-Registrierung benutzt: keydown auf body
+    // (Replay per Leertaste ohne Fokus im Panel) erreicht ein Capture-Listener
+    // auf einem Sub-Element nicht. Reset-Handler hängen daher auf document.
     _shtIdleEl      = el;
     _shtIdleMs      = ms;
     _shtIdleCb      = onIdle;
     _shtIdleHandler = function() { _shtResetTimer(); };
-    el.addEventListener('pointerdown', _shtIdleHandler, true);
-    el.addEventListener('keydown',     _shtIdleHandler, true);
-    el.addEventListener('click',       _shtIdleHandler, true);
+    document.addEventListener('pointerdown', _shtIdleHandler, true);
+    document.addEventListener('keydown',     _shtIdleHandler, true);
+    document.addEventListener('click',       _shtIdleHandler, true);
     _shtResetTimer();
   }
 
   function _shtStopIdleWatch() {
     if (_shtIdleTimer) { clearTimeout(_shtIdleTimer); _shtIdleTimer = null; }
-    if (_shtIdleEl && _shtIdleHandler) {
-      _shtIdleEl.removeEventListener('pointerdown', _shtIdleHandler, true);
-      _shtIdleEl.removeEventListener('keydown',     _shtIdleHandler, true);
-      _shtIdleEl.removeEventListener('click',       _shtIdleHandler, true);
+    if (_shtIdleHandler) {
+      document.removeEventListener('pointerdown', _shtIdleHandler, true);
+      document.removeEventListener('keydown',     _shtIdleHandler, true);
+      document.removeEventListener('click',       _shtIdleHandler, true);
     }
     _shtIdleEl = null; _shtIdleHandler = null; _shtIdleCb = null;
   }

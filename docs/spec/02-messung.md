@@ -263,6 +263,36 @@ Slider-Wert wird invertiert.
     `docs/spec/02b-freqmatch-adaptiv.md`. Default ist das adaptive
     Verfahren, sofern bereits adaptive Läufe vorliegen.
 
+- **Auswahl Testelektroden** (BA 207): Header-Button „Testelektroden
+  auswählen" mit nebenstehender Zusammenfassung („m von n Elektroden
+  gewählt"; n zählt nur testbare = nicht stummgeschaltete und nicht
+  ausgeschlossene Elektroden). Der Button öffnet einen Popup-Dialog
+  mit Checkbox-Liste aller Elektroden in zwei Spalten (E1..E6 links,
+  E7..E12 rechts bei 12 Kanälen). Stumm geschaltete Elektroden tragen
+  das Suffix „(stumm)", ausgeschlossene das Suffix „(ausgeschlossen)";
+  beide sind ausgegraut und nicht anklickbar. Buttons „Alle auswählen"
+  / „Alle abwählen" wirken nur auf testbare Elektroden. Mindestauswahl:
+  1 Elektrode. Die Auswahl gilt seitenübergreifend, weil
+  Frequenzabgleich links↔rechts vergleicht. State-Variable:
+  `freqmatchTestSelection: number[] | null` (`null` = Default „alle
+  testbaren"). Persistiert in Save/Load als Top-Level-Feld.
+
+  Auswahl-Änderungen während Pause oder laufendem Test:
+  - Slider Round — `sliderRoundRun.remainingInRound` wird gefiltert,
+    `fmSeq`/`fmSeqIdx` neu justiert; wenn die aktuelle Elektrode noch
+    gewählt ist, bleibt sie aktuell, sonst springt der Test zur nächsten.
+  - Adaptiv — Tracks bekommen Pseudo-Status `'deselected'` für abgewählte
+    bzw. `'active'` für wieder ausgewählte (Status-Wechsel nur für aktive
+    Tracks; konvergierte und nicht-wahrnehmbare bleiben unangetastet).
+    `fmRoundQueue` wird geleert, damit `fmPickNextTrack` neu auswählt.
+  - Wenn nach Filter keine testbare Elektrode mehr in der Auswahl ist,
+    endet der laufende Test mit Hinweis „Test beendet: Keine ausgewählte
+    Elektrode mehr verfügbar.".
+
+  Bestehende Ergebnisse (`rounds[]`, `tracks[*]` mit Status
+  `'converged*'`/`'not-perceivable'`/`'aborted'`) bleiben bei
+  Selection-Änderungen unangetastet.
+
 - **Seitenhörtest vor Test-Start** (BA 116/117): Bei jedem Klick auf
   Starten erscheint das Seitenhörtest-Modal (`testUI.sideCheck.run`,
   `cfg = {sides:'both'}`). Beide Seiten werden nacheinander geprüft
@@ -276,10 +306,21 @@ Slider-Wert wird invertiert.
   „Direkt adaptiv"-Button im Slider-Schätzungs-Dialog
   (`fmSEBtnSkip`) durchläuft denselben Seitenhörtest.
 
-- **Idle-Watch** (BA 117): Nach Test-Start läuft ein 5-Minuten-
-  Timer (`testUI.sideCheck.startIdleWatch`). Ohne Interaktion in
-  dieser Zeit bricht der Test automatisch ab (`fmEls._stopTest()`).
+- **Idle-Watch** (BA 117, geändert 3.2.206.1): Nach Test-Start
+  läuft ein 5-Minuten-Timer (`testUI.sideCheck.startIdleWatch`).
+  Ohne Interaktion in dieser Zeit wird **die Seitenabfrage erneut
+  ausgelöst** (`testUI.sideCheck.run({sides:'both'})`) — Sinn ist,
+  während eines länger laufenden Tests zwischendurch zu prüfen,
+  daß der Nutzer die Seiten weiterhin korrekt wahrnimmt (z. B.
+  Bluetooth-Vertauschung, Implantat-Verrutschen). Bestätigt der
+  Nutzer korrekt, läuft der Test weiter und der Idle-Watch startet
+  erneut; bricht der Nutzer ab, wird der Test gestoppt
+  (`fmEls._stopTest()`). Reset-Handler des Idle-Watch hängen auf
+  `document` (statt am Panel-Element), damit auch Replays per
+  Leertaste mit Fokus außerhalb des Panels den Timer zurücksetzen.
   `fmAbort` stoppt den Idle-Watch (`testUI.sideCheck.stopIdleWatch`).
+  Gemeinsame Implementierung in `freqmatch.js:_fmStartIdleSideCheck`,
+  aufgerufen aus `_fmDoStartSlider` und `_fmDoStartAdaptive`.
 
 ### Sub-Tab 4 — Latenz (latency.js)
 

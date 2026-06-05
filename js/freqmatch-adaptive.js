@@ -24,6 +24,34 @@ function fmDisableHeightButtons() {
 
 // --- Testablauf ---
 
+// BA 207: Synchronisiert Track-Status mit der aktuellen
+// freqmatchTestSelection. Wird nach Auswahl-Änderungen aufgerufen.
+// Regeln:
+//   - status 'active'      + Elektrode abgewählt → 'deselected'
+//   - status 'deselected'  + Elektrode wieder gewählt → 'active'
+//   - alle anderen Status (converged*, unstable, not-perceivable, aborted)
+//     bleiben unverändert. Konvergierte Ergebnisse gehen NICHT verloren.
+function _fmApplySelectionToTracks() {
+  if (!fmTracks) return;
+  var sel = freqmatchTestSelection;
+  var hasSel = (sel != null);
+  var selSet = hasSel ? new Set(sel) : null;
+  Object.keys(fmTracks).forEach(function(k) {
+    var tr = fmTracks[k];
+    if (!tr) return;
+    var idx = fmParseTrackKey(k).electrodeIdx;
+    var wanted = !hasSel || selSet.has(idx);
+    if (wanted && tr.status === 'deselected') tr.status = 'active';
+    else if (!wanted && tr.status === 'active') tr.status = 'deselected';
+  });
+  // Wenn der aktuell vorgemerkte Track jetzt 'deselected' ist:
+  // RoundQueue stumpf leeren, beim nächsten fmPickNextTrack wird neu gepickt.
+  if (fmCurTrackId != null && fmTracks[fmCurTrackId]
+      && fmTracks[fmCurTrackId].status === 'deselected') {
+    fmRoundQueue = [];
+  }
+}
+
 function fmStartAdaptive() {
   if (!fmEls) return;
   _fmInitSides();
@@ -200,9 +228,7 @@ function _fmDoStartAdaptive() {
   _fmDbg('start: ref=' + fmRefSide + ' var=' + fmVarSide
        + ', tracks=' + Object.keys(fmTracks).length);
   fmNextAdaptiveTrial();
-  testUI.sideCheck.startIdleWatch(_fmParentEl, 5 * 60 * 1000, function() {
-    if (fmEls) fmEls._stopTest();
-  });
+  _fmStartIdleSideCheck();
 }
 
 function fmNextAdaptiveTrial() {
