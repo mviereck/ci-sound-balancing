@@ -263,16 +263,19 @@ function sStop() {
 function sOnEnded() {
   if (!sActive) return;
 
-  // Loop hat Vorrang: gleichen Satz nochmal
+  // Loop hat Vorrang: gleichen Satz nochmal — den bereits dekodierten
+  // sSentenceBuf wiederverwenden (kein Re-Decode, keine Warp-Neuberechnung).
   if (typeof plLoop !== "undefined" && plLoop) {
     const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+    const restart = function () {
+      sPauseTimer = null;
+      if (!sActive || !plLoop) return;
+      if (typeof pPlay === "function") pPlay();
+    };
     if (ms > 0) {
-      sPauseTimer = setTimeout(function () {
-        sPauseTimer = null;
-        if (sActive && plLoop) sPlayCurrent();
-      }, ms);
+      sPauseTimer = setTimeout(restart, ms);
     } else {
-      sPlayCurrent();
+      restart();
     }
     return;
   }

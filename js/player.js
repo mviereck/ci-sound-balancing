@@ -173,6 +173,14 @@ function pSetPlaybackMode(mode) {
   } else {
     pBuf = null;
   }
+  // Zentrale Anzeige-Aktualisierung: Gesamtzeit + Slider-Reset.
+  // Aufrufer dürfen Position danach überschreiben (z.B. Hörbuch-Position).
+  const _totEl = document.getElementById("plTot");
+  const _curEl = document.getElementById("plCur");
+  const _tlEl  = document.getElementById("plTL");
+  if (_totEl) _totEl.textContent = (pBuf && typeof pFmt === "function") ? pFmt(pBuf.duration) : "0:00";
+  if (_curEl) _curEl.textContent = "0:00";
+  if (_tlEl)  _tlEl.value = 0;
 }
 
 function getPlaybackBuffer() {
@@ -260,9 +268,6 @@ document
       const buf = await f.arrayBuffer();
       pFileBuf = await c.decodeAudioData(buf);
       pSetPlaybackMode("file");
-      document.getElementById("plTot").textContent = pFmt(pBuf.duration);
-      document.getElementById("plCur").textContent = "0:00";
-      document.getElementById("plTL").value = 0;
       if (typeof plUpdDisplay === "function") plUpdDisplay();
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       pBuildEQ();
@@ -1460,9 +1465,6 @@ async function plNoiseLoadSelected() {
 
   pNoiseBuf = abuf;
   pSetPlaybackMode("noise");
-  document.getElementById("plTot").textContent = pFmt(pBuf ? pBuf.duration : 0);
-  document.getElementById("plCur").textContent = "0:00";
-  document.getElementById("plTL").value = 0;
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   pBuildEQ();
@@ -1731,8 +1733,9 @@ async function plBookLoadSelected() {
 
   pBookBuf = abuf;
   pSetPlaybackMode("book");
-  document.getElementById("plTot").textContent = pFmt(pBuf ? pBuf.duration : 0);
 
+  // Gespeicherte Position ggf. wiederherstellen (überschreibt den
+  // 0-Reset aus pSetPlaybackMode).
   const pos = (plBookPositions && plBookPositions[plBookSelectedId]) || null;
   if (pos && typeof pos.chapterIdx === "number" && pos.chapterIdx === plBookChapterIdx
       && typeof pos.posSeconds === "number" && pos.posSeconds > 0
@@ -1742,8 +1745,6 @@ async function plBookLoadSelected() {
     document.getElementById("plTL").value = (pOff / abuf.duration) * 1000;
   } else {
     pOff = 0;
-    document.getElementById("plCur").textContent = "0:00";
-    document.getElementById("plTL").value = 0;
   }
 
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
