@@ -1089,6 +1089,25 @@ function plStopAll() {
   _plAutoAdvCancel();
 }
 
+function _plNoiseStep(delta) {
+  const all = amCollectItems("geraeusche");
+  const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
+  if (sorted.length === 0) return;
+  const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+  const base = (idx < 0) ? 0 : idx;
+  const n = sorted.length;
+  const nextItem = sorted[((base + delta) % n + n) % n];
+  if (!nextItem) return;
+  plNoiseSelectedId = nextItem.id;
+  const sel = document.getElementById("plNoiseItemSel");
+  if (sel) sel.value = nextItem.id;
+  const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
+  if (wasPlaying && typeof pPause === "function") pPause();
+  plNoiseLoadSelected().then(function () {
+    if (wasPlaying && typeof pPlay === "function") pPlay();
+  });
+}
+
 function plPrev() {
   if (plActiveSource === "sentences" && typeof sNext === "function") {
     sNext();
@@ -1102,6 +1121,10 @@ function plPrev() {
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
     if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    return;
+  }
+  if (plActiveSource === "noise") {
+    _plNoiseStep(-1);
     return;
   }
   if (typeof pStopReset === "function") {
@@ -1123,6 +1146,10 @@ function plNext() {
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
     if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    return;
+  }
+  if (plActiveSource === "noise") {
+    _plNoiseStep(1);
     return;
   }
 }
@@ -1157,6 +1184,14 @@ function plSetSource(src) {
   } else if (src === "audiobook") {
     if (typeof plBookRefreshUI === "function") plBookRefreshUI();
     if (plBookSelectedId && typeof plBookLoadSelected === "function") plBookLoadSelected();
+  } else if (src === "music") {
+    // Buffer auf die Musikdatei zurücksetzen, damit nach Noise/Audiobook
+    // beim Play wieder die Datei läuft, nicht das vorherige Geräusch.
+    pSetPlaybackMode("file");
+  } else if (src === "sentences") {
+    // Falls noch ein Satz-Buffer geladen ist, ihn aktiv schalten; sonst leert
+    // pSetPlaybackMode pBuf und sPlay/sPlayCurrent lädt beim Play neu nach.
+    pSetPlaybackMode("sentence");
   }
   plUpdDisplay();
 }
@@ -1211,7 +1246,9 @@ function plUpdTransportUI() {
   });
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
-  const hasNext = (plActiveSource === "sentences" || plActiveSource === "audiobook");
+  const hasNext = (plActiveSource === "sentences"
+                || plActiveSource === "audiobook"
+                || plActiveSource === "noise");
   [prevBtn, nextBtn].forEach(function (b) {
     if (!b) return;
     b.disabled = !hasNext;

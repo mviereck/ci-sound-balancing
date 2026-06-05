@@ -32,7 +32,9 @@
        Auto-Advance). Default 2000 ms.
      - Loop hat Vorrang vor Auto-Advance.
      - Transport-Leiste immer sichtbar (auch ohne geladene Datei);
-       Prev/Next ausgegraut im Musik- und Geräusche-Modus (keine Playlist).
+       Prev/Next ausgegraut im Musik-Modus (keine Playlist). Bei
+       Geräuschen aktiv und springen ±1 in der aktuellen Sortier-
+       Reihenfolge (mit Wrap-Around), analog zu Auto-Advance.
      - **Geräusche:** Sub-Block mit zwei Dropdowns —
        Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
        „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte
