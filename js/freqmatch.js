@@ -1109,7 +1109,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return { testable: testable, muted: muted, excluded: excluded };
           },
           electrodeLabel: function(i) {
-            return dENPrefix() + dEN(i) + ' (' + Math.round(effFreq(i)) + ' Hz)';
+            return dENPrefix() + dEN(i);
           }
         }
       },

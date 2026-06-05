@@ -976,4 +976,18 @@ Object.assign(L.es, {
     updateBannerMsg: "Nueva versión disponible",
     updateBannerBtn: "Actualizar ahora",
     updateBannerClose: "Cerrar banner",
+
+    // BA 208: Selección de electrodos de prueba
+    electrodeSelectionTitle: "Seleccionar electrodos de prueba",
+    electrodeSelectionHint: "Solo los electrodos seleccionados participan en el procedimiento de prueba.",
+    electrodeSelectionSelectAll: "Seleccionar todos",
+    electrodeSelectionDeselectAll: "Deseleccionar todos",
+    electrodeSelectionCancel: "Cancelar",
+    electrodeSelectionConfirm: "Aplicar",
+    electrodeSelectionMinError: "Seleccione al menos {n} electrodo(s).",
+    electrodeSelectionMutedSuffix: "silenciado",
+    electrodeSelectionExcludedSuffix: "excluido",
+    electrodeSelectionHeaderBtn: "Seleccionar electrodos de prueba",
+    electrodeSelectionHeaderSummary: "{m} de {n} electrodos seleccionados",
+    electrodeSelectionEmptyEnd: "Prueba finalizada: no quedan electrodos seleccionados.",
 });

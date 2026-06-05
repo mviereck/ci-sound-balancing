@@ -975,4 +975,18 @@ Object.assign(L.en, {
     updateBannerMsg: "New version available",
     updateBannerBtn: "Update now",
     updateBannerClose: "Close banner",
+
+    // BA 208: Testelektroden-Auswahl
+    electrodeSelectionTitle: "Select test electrodes",
+    electrodeSelectionHint: "Only selected electrodes take part in the test procedure.",
+    electrodeSelectionSelectAll: "Select all",
+    electrodeSelectionDeselectAll: "Deselect all",
+    electrodeSelectionCancel: "Cancel",
+    electrodeSelectionConfirm: "Apply",
+    electrodeSelectionMinError: "Select at least {n} electrode(s).",
+    electrodeSelectionMutedSuffix: "muted",
+    electrodeSelectionExcludedSuffix: "excluded",
+    electrodeSelectionHeaderBtn: "Select test electrodes",
+    electrodeSelectionHeaderSummary: "{m} of {n} electrodes selected",
+    electrodeSelectionEmptyEnd: "Test ended: no selected electrode remaining.",
 });

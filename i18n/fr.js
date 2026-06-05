@@ -976,4 +976,18 @@ Object.assign(L.fr, {
     updateBannerMsg: "Nouvelle version disponible",
     updateBannerBtn: "Mettre à jour maintenant",
     updateBannerClose: "Fermer la bannière",
+
+    // BA 208: Sélection des électrodes de test
+    electrodeSelectionTitle: "Sélection des électrodes de test",
+    electrodeSelectionHint: "Seules les électrodes sélectionnées participent à la procédure de test.",
+    electrodeSelectionSelectAll: "Tout sélectionner",
+    electrodeSelectionDeselectAll: "Tout désélectionner",
+    electrodeSelectionCancel: "Annuler",
+    electrodeSelectionConfirm: "Appliquer",
+    electrodeSelectionMinError: "Sélectionnez au moins {n} électrode(s).",
+    electrodeSelectionMutedSuffix: "muette",
+    electrodeSelectionExcludedSuffix: "exclue",
+    electrodeSelectionHeaderBtn: "Sélection des électrodes de test",
+    electrodeSelectionHeaderSummary: "{m} électrodes sélectionnées sur {n}",
+    electrodeSelectionEmptyEnd: "Test terminé : plus aucune électrode sélectionnée disponible.",
 });
