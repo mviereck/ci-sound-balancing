@@ -1,0 +1,834 @@
+{
+  "_version": 1,
+  "_source": "TinySOL (IRCAM, CC-BY-4.0)",
+  "_generatedAt": "2026-06-05T19:31:08.652580+00:00",
+  "_notes": "Pro Instrument 3 Samples Dynamik mf Technik ord. Median ueber Samples; partials Mittel.",
+  "profiles": {
+    "Acc": {
+      "label": "Akkordeon",
+      "abbr": "Acc",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.804
+        },
+        {
+          "mult": 3,
+          "amp": 1.917
+        },
+        {
+          "mult": 4,
+          "amp": 0.233
+        },
+        {
+          "mult": 5,
+          "amp": 0.387
+        },
+        {
+          "mult": 6,
+          "amp": 0.386
+        },
+        {
+          "mult": 7,
+          "amp": 0.449
+        },
+        {
+          "mult": 8,
+          "amp": 0.337
+        },
+        {
+          "mult": 9,
+          "amp": 0.246
+        },
+        {
+          "mult": 10,
+          "amp": 0.106
+        },
+        {
+          "mult": 11,
+          "amp": 0.051
+        },
+        {
+          "mult": 12,
+          "amp": 0.082
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.12,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 127.7,
+      "samples": [
+        "Keyboards/Accordion/ordinario/Acc-ord-E4-mf-N-N.wav",
+        "Keyboards/Accordion/ordinario/Acc-ord-A4-mf-N-N.wav",
+        "Keyboards/Accordion/ordinario/Acc-ord-D5-mf-N-N.wav"
+      ]
+    },
+    "ASax": {
+      "label": "Altsaxophon",
+      "abbr": "ASax",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.675
+        },
+        {
+          "mult": 3,
+          "amp": 0.971
+        },
+        {
+          "mult": 4,
+          "amp": 0.242
+        },
+        {
+          "mult": 5,
+          "amp": 0.299
+        },
+        {
+          "mult": 6,
+          "amp": 0.298
+        },
+        {
+          "mult": 7,
+          "amp": 0.254
+        },
+        {
+          "mult": 8,
+          "amp": 0.178
+        },
+        {
+          "mult": 9,
+          "amp": 0.264
+        },
+        {
+          "mult": 10,
+          "amp": 0.162
+        },
+        {
+          "mult": 11,
+          "amp": 0.091
+        },
+        {
+          "mult": 12,
+          "amp": 0.034
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.92,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 325.1,
+      "samples": [
+        "Winds/Sax_Alto/ordinario/ASax-ord-C#4-mf-N-N.wav",
+        "Winds/Sax_Alto/ordinario/ASax-ord-F#4-mf-N-N.wav",
+        "Winds/Sax_Alto/ordinario/ASax-ord-B4-mf-N-N.wav"
+      ]
+    },
+    "Bn": {
+      "label": "Fagott",
+      "abbr": "Bn",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 6.023
+        },
+        {
+          "mult": 3,
+          "amp": 4.748
+        },
+        {
+          "mult": 4,
+          "amp": 2.424
+        },
+        {
+          "mult": 5,
+          "amp": 0.722
+        },
+        {
+          "mult": 6,
+          "amp": 0.766
+        },
+        {
+          "mult": 7,
+          "amp": 0.216
+        },
+        {
+          "mult": 8,
+          "amp": 0.39
+        },
+        {
+          "mult": 9,
+          "amp": 0.052
+        },
+        {
+          "mult": 10,
+          "amp": 0.169
+        },
+        {
+          "mult": 11,
+          "amp": 0.163
+        },
+        {
+          "mult": 12,
+          "amp": 0.104
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.5,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 46.4,
+      "samples": [
+        "Winds/Bassoon/ordinario/Bn-ord-D#3-mf-N-N.wav",
+        "Winds/Bassoon/ordinario/Bn-ord-A3-mf-N-N.wav",
+        "Winds/Bassoon/ordinario/Bn-ord-D4-mf-N-N.wav"
+      ]
+    },
+    "BTb": {
+      "label": "Basstuba",
+      "abbr": "BTb",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.423
+        },
+        {
+          "mult": 3,
+          "amp": 0.16
+        },
+        {
+          "mult": 4,
+          "amp": 0.027
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.79,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 116.1,
+      "samples": [
+        "Brass/Bass_Tuba/ordinario/BTb-ord-F#3-mf-N-N.wav",
+        "Brass/Bass_Tuba/ordinario/BTb-ord-B3-mf-N-N.wav",
+        "Brass/Bass_Tuba/ordinario/BTb-ord-D#4-mf-N-N.wav"
+      ]
+    },
+    "Cb": {
+      "label": "Kontrabass",
+      "abbr": "Cb",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.841
+        },
+        {
+          "mult": 3,
+          "amp": 0.688
+        },
+        {
+          "mult": 4,
+          "amp": 0.267
+        },
+        {
+          "mult": 5,
+          "amp": 0.099
+        },
+        {
+          "mult": 6,
+          "amp": 0.197
+        },
+        {
+          "mult": 7,
+          "amp": 0.241
+        },
+        {
+          "mult": 8,
+          "amp": 0.178
+        },
+        {
+          "mult": 9,
+          "amp": 0.15
+        },
+        {
+          "mult": 10,
+          "amp": 0.09
+        },
+        {
+          "mult": 11,
+          "amp": 0.067
+        },
+        {
+          "mult": 12,
+          "amp": 0.042
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.43,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 116.1,
+      "samples": [
+        "Strings/Contrabass/ordinario/Cb-ord-G2-mf-1c-N.wav",
+        "Strings/Contrabass/ordinario/Cb-ord-C3-mf-1c-N.wav",
+        "Strings/Contrabass/ordinario/Cb-ord-F3-mf-1c-N.wav"
+      ]
+    },
+    "ClBb": {
+      "label": "Klarinette in B",
+      "abbr": "ClBb",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.489
+        },
+        {
+          "mult": 3,
+          "amp": 0.819
+        },
+        {
+          "mult": 4,
+          "amp": 0.038
+        },
+        {
+          "mult": 5,
+          "amp": 0.114
+        },
+        {
+          "mult": 6,
+          "amp": 0.074
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.22,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 371.5,
+      "samples": [
+        "Winds/Clarinet_Bb/ordinario/ClBb-ord-F4-mf-N-N.wav",
+        "Winds/Clarinet_Bb/ordinario/ClBb-ord-A#4-mf-N-N.wav",
+        "Winds/Clarinet_Bb/ordinario/ClBb-ord-D#5-mf-N-N.wav"
+      ]
+    },
+    "Fl": {
+      "label": "Querfloete",
+      "abbr": "Fl",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.532
+        },
+        {
+          "mult": 3,
+          "amp": 0.327
+        },
+        {
+          "mult": 4,
+          "amp": 0.498
+        },
+        {
+          "mult": 5,
+          "amp": 0.18
+        },
+        {
+          "mult": 6,
+          "amp": 0.087
+        },
+        {
+          "mult": 7,
+          "amp": 0.095
+        },
+        {
+          "mult": 9,
+          "amp": 0.023
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.34,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 81.3,
+      "samples": [
+        "Winds/Flute/ordinario/Fl-ord-F#4-mf-N-N.wav",
+        "Winds/Flute/ordinario/Fl-ord-B4-mf-N-N.wav",
+        "Winds/Flute/ordinario/Fl-ord-E5-mf-N-N.wav"
+      ]
+    },
+    "Hn": {
+      "label": "Waldhorn",
+      "abbr": "Hn",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 1.869
+        },
+        {
+          "mult": 3,
+          "amp": 1.822
+        },
+        {
+          "mult": 4,
+          "amp": 0.821
+        },
+        {
+          "mult": 5,
+          "amp": 0.699
+        },
+        {
+          "mult": 6,
+          "amp": 0.286
+        },
+        {
+          "mult": 7,
+          "amp": 0.187
+        },
+        {
+          "mult": 8,
+          "amp": 0.105
+        },
+        {
+          "mult": 9,
+          "amp": 0.087
+        },
+        {
+          "mult": 10,
+          "amp": 0.074
+        },
+        {
+          "mult": 11,
+          "amp": 0.043
+        },
+        {
+          "mult": 12,
+          "amp": 0.051
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.36,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 499.2,
+      "samples": [
+        "Brass/Horn/ordinario/Hn-ord-C#3-mf-N-N.wav",
+        "Brass/Horn/ordinario/Hn-ord-F#3-mf-N-N.wav",
+        "Brass/Horn/ordinario/Hn-ord-B3-mf-N-N.wav"
+      ]
+    },
+    "Ob": {
+      "label": "Oboe",
+      "abbr": "Ob",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 1.428
+        },
+        {
+          "mult": 3,
+          "amp": 1.338
+        },
+        {
+          "mult": 4,
+          "amp": 1.366
+        },
+        {
+          "mult": 5,
+          "amp": 0.502
+        },
+        {
+          "mult": 6,
+          "amp": 0.317
+        },
+        {
+          "mult": 7,
+          "amp": 0.064
+        },
+        {
+          "mult": 8,
+          "amp": 0.066
+        },
+        {
+          "mult": 9,
+          "amp": 0.212
+        },
+        {
+          "mult": 10,
+          "amp": 0.402
+        },
+        {
+          "mult": 11,
+          "amp": 0.107
+        },
+        {
+          "mult": 12,
+          "amp": 0.067
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.61,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 348.3,
+      "samples": [
+        "Winds/Oboe/ordinario/Ob-ord-G#4-mf-N-N.wav",
+        "Winds/Oboe/ordinario/Ob-ord-C#5-mf-N-N.wav",
+        "Winds/Oboe/ordinario/Ob-ord-F#5-mf-N-N.wav"
+      ]
+    },
+    "Tbn": {
+      "label": "Posaune",
+      "abbr": "Tbn",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 1.194
+        },
+        {
+          "mult": 3,
+          "amp": 1.569
+        },
+        {
+          "mult": 4,
+          "amp": 1.198
+        },
+        {
+          "mult": 5,
+          "amp": 1.065
+        },
+        {
+          "mult": 6,
+          "amp": 0.675
+        },
+        {
+          "mult": 7,
+          "amp": 0.418
+        },
+        {
+          "mult": 8,
+          "amp": 0.36
+        },
+        {
+          "mult": 9,
+          "amp": 0.356
+        },
+        {
+          "mult": 10,
+          "amp": 0.657
+        },
+        {
+          "mult": 11,
+          "amp": 0.395
+        },
+        {
+          "mult": 12,
+          "amp": 0.297
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.36,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 185.8,
+      "samples": [
+        "Brass/Trombone/ordinario/Tbn-ord-C#3-mf-N-N.wav",
+        "Brass/Trombone/ordinario/Tbn-ord-F#3-mf-N-N.wav",
+        "Brass/Trombone/ordinario/Tbn-ord-B3-mf-N-N.wav"
+      ]
+    },
+    "TpC": {
+      "label": "Trompete in C",
+      "abbr": "TpC",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.909
+        },
+        {
+          "mult": 3,
+          "amp": 0.631
+        },
+        {
+          "mult": 4,
+          "amp": 0.336
+        },
+        {
+          "mult": 5,
+          "amp": 0.194
+        },
+        {
+          "mult": 6,
+          "amp": 0.111
+        },
+        {
+          "mult": 7,
+          "amp": 0.067
+        },
+        {
+          "mult": 8,
+          "amp": 0.043
+        },
+        {
+          "mult": 9,
+          "amp": 0.031
+        },
+        {
+          "mult": 10,
+          "amp": 0.025
+        },
+        {
+          "mult": 11,
+          "amp": 0.025
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 1.7,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 429.6,
+      "samples": [
+        "Brass/Trumpet_C/ordinario/TpC-ord-G#4-mf-N-N.wav",
+        "Brass/Trumpet_C/ordinario/TpC-ord-B4-mf-N-N.wav",
+        "Brass/Trumpet_C/ordinario/TpC-ord-D#5-mf-N-N.wav"
+      ]
+    },
+    "Va": {
+      "label": "Bratsche",
+      "abbr": "Va",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.093
+        },
+        {
+          "mult": 3,
+          "amp": 0.112
+        },
+        {
+          "mult": 4,
+          "amp": 0.102
+        },
+        {
+          "mult": 5,
+          "amp": 0.164
+        },
+        {
+          "mult": 6,
+          "amp": 0.088
+        },
+        {
+          "mult": 7,
+          "amp": 0.092
+        },
+        {
+          "mult": 8,
+          "amp": 0.056
+        },
+        {
+          "mult": 9,
+          "amp": 0.024
+        },
+        {
+          "mult": 10,
+          "amp": 0.03
+        }
+      ],
+      "vibratoHz": 5.39,
+      "vibratoCents": 10.76,
+      "vibratoProm": 15.04,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 685.0,
+      "samples": [
+        "Strings/Viola/ordinario/Va-ord-G#4-mf-3c-N.wav",
+        "Strings/Viola/ordinario/Va-ord-C#5-mf-1c-N.wav",
+        "Strings/Viola/ordinario/Va-ord-F#5-mf-1c-N.wav"
+      ]
+    },
+    "Vc": {
+      "label": "Violoncello",
+      "abbr": "Vc",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.744
+        },
+        {
+          "mult": 3,
+          "amp": 0.293
+        },
+        {
+          "mult": 4,
+          "amp": 0.411
+        },
+        {
+          "mult": 5,
+          "amp": 0.123
+        },
+        {
+          "mult": 6,
+          "amp": 0.163
+        },
+        {
+          "mult": 7,
+          "amp": 0.568
+        },
+        {
+          "mult": 8,
+          "amp": 0.464
+        },
+        {
+          "mult": 9,
+          "amp": 0.259
+        },
+        {
+          "mult": 10,
+          "amp": 0.138
+        },
+        {
+          "mult": 11,
+          "amp": 0.096
+        },
+        {
+          "mult": 12,
+          "amp": 0.08
+        }
+      ],
+      "vibratoHz": 5.04,
+      "vibratoCents": 14.47,
+      "vibratoProm": 11.06,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 603.7,
+      "samples": [
+        "Strings/Violoncello/ordinario/Vc-ord-G3-mf-2c-N.wav",
+        "Strings/Violoncello/ordinario/Vc-ord-C4-mf-1c-N.wav",
+        "Strings/Violoncello/ordinario/Vc-ord-F4-mf-1c-N.wav"
+      ]
+    },
+    "Vn": {
+      "label": "Violine",
+      "abbr": "Vn",
+      "partials": [
+        {
+          "mult": 1,
+          "amp": 1.0
+        },
+        {
+          "mult": 2,
+          "amp": 0.507
+        },
+        {
+          "mult": 3,
+          "amp": 0.456
+        },
+        {
+          "mult": 4,
+          "amp": 0.569
+        },
+        {
+          "mult": 5,
+          "amp": 0.46
+        },
+        {
+          "mult": 6,
+          "amp": 0.412
+        },
+        {
+          "mult": 7,
+          "amp": 0.449
+        },
+        {
+          "mult": 8,
+          "amp": 0.248
+        },
+        {
+          "mult": 9,
+          "amp": 0.14
+        },
+        {
+          "mult": 10,
+          "amp": 0.116
+        },
+        {
+          "mult": 11,
+          "amp": 0.058
+        },
+        {
+          "mult": 12,
+          "amp": 0.071
+        }
+      ],
+      "vibratoHz": 0.0,
+      "vibratoCents": 0.0,
+      "vibratoProm": 2.86,
+      "amHz": 0.0,
+      "amDepth": 0.0,
+      "attackMs": 870.7,
+      "samples": [
+        "Strings/Violin/ordinario/Vn-ord-A4-mf-2c-N.wav",
+        "Strings/Violin/ordinario/Vn-ord-D5-mf-2c-N.wav",
+        "Strings/Violin/ordinario/Vn-ord-G5-mf-1c-N.wav"
+      ]
+    }
+  }
+}
