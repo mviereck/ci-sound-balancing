@@ -26,7 +26,8 @@ let pCtx = null,
   pPlaying = false,
   pSeeking = false,
   pOff = 0,
-  pT0 = 0;
+  pT0 = 0,
+  pWarpComputingPromise = null;  // Handle auf laufende Warp-Berechnung (für pPlay-Warten)
 
 function gPC() {
   if (!pCtx) pCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -160,7 +161,15 @@ function pSetPlaybackMode(mode) {
   if (pSourceBuf) {
     pBuf = getPlaybackBuffer();
     pBuildEQ();
-    if (typeof pWarpTrigger === "function") pWarpTrigger();
+    if (typeof pWarpTrigger === "function") {
+      const p = pWarpTrigger();
+      pWarpComputingPromise = p;
+      if (p && typeof p.finally === "function") {
+        p.finally(function () {
+          if (pWarpComputingPromise === p) pWarpComputingPromise = null;
+        });
+      }
+    }
   } else {
     pBuf = null;
   }
@@ -472,6 +481,14 @@ async function pPlay() {
     pCurrentPlayback = null;
   }
 
+  // Wenn Warp aktiv ist und gerade berechnet wird: auf das Ergebnis warten,
+  // sonst startet die Wiedergabe (z.B. via Auto-Advance) ungewarpt.
+  if (typeof pWarpOn !== "undefined" && pWarpOn && plEqOn
+      && pWarpBusy && pWarpComputingPromise) {
+    try { await pWarpComputingPromise; } catch (e) {}
+    if (gen !== pPlayGen) return;
+  }
+
   const c = gPC();
   pBuf = getPlaybackBuffer();
 
@@ -522,65 +539,82 @@ async function pPlay() {
   let leadSrc = null;
 
   // Nur ein Pfad: BufferSource auf pBuf (original oder Rubberband-Vorberechnung).
+  // Loop wird NICHT via pSrc.loop realisiert, sondern via onended-Restart mit
+  // plPauseMs-Pause — sonst wird die eingestellte Pause ignoriert und ein
+  // Loop-Abschalten würde erst nach dem aktuellen Source-Ende greifen.
   pSrc = c.createBufferSource();
   pSrc.buffer = pBuf;
-  if (typeof plLoop !== "undefined" && plLoop) {
-    pSrc.loop = true;
-  }
   pSrc.connect(firstNode);
   pSrc.start(0, pOff);
   leadSrc = pSrc;
 
   if (leadSrc) {
     leadSrc.onended = function () {
-      if (pPlaying) {
-        pPlaying = false;
-        pOff = 0;
-        pUpdBtn();
-        pUpdTL();
-        if (typeof sActive !== "undefined" && sActive
-            && typeof sOnEnded === "function") {
-          sOnEnded();
-        }
-        // BA193: Auto-Advance bei Geraeuschen
-        if (plActiveSource === "noise" && plAutoAdvance && !plLoop) {
-          const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-          setTimeout(function () {
-            const all = amCollectItems("geraeusche");
-            const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
-            if (sorted.length === 0) return;
-            const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-            const next = sorted[(idx + 1) % sorted.length];
-            if (!next) return;
-            plNoiseSelectedId = next.id;
-            const sel = document.getElementById("plNoiseItemSel");
-            if (sel) sel.value = next.id;
-            plNoiseLoadSelected().then(function () {
-              if (typeof pPlay === "function") pPlay();
-            });
-          }, ms);
-        }
-        // BA195: Auto-Advance bei Hoerbuechern (Kapitel-fuer-Kapitel)
-        if (plActiveSource === "audiobook" && plAutoAdvance && !plLoop) {
-          const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-          if (col && Array.isArray(col.items)) {
-            const next = plBookChapterIdx + 1;
-            if (next < col.items.length) {
-              const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-              setTimeout(function () {
-                if (typeof plBookSavePosition === "function") plBookSavePosition();
-                plBookChapterIdx = next;
-                const sel = document.getElementById("plBookChSel");
-                if (sel) sel.value = String(next);
-                if (plBookPositions[plBookSelectedId]) {
-                  plBookPositions[plBookSelectedId].chapterIdx = next;
-                  plBookPositions[plBookSelectedId].posSeconds = 0;
-                }
-                plBookLoadSelected().then(function () {
-                  if (typeof pPlay === "function") pPlay();
-                });
-              }, ms);
-            }
+      if (!pPlaying) return;
+      pPlaying = false;
+      pOff = 0;
+      pUpdBtn();
+      pUpdTL();
+
+      // Sätze haben einen eigenen Handler (sentences.js) mit eigener
+      // Loop-/Auto-Advance-/Stop-Logik.
+      if (typeof sActive !== "undefined" && sActive
+          && typeof sOnEnded === "function") {
+        sOnEnded();
+        return;
+      }
+
+      const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+
+      // Loop hat Vorrang vor Auto-Advance: gleiches Stück nach Pause nochmal.
+      if (typeof plLoop !== "undefined" && plLoop) {
+        setTimeout(function () {
+          if (!plLoop) return;  // wurde während der Pause ausgeschaltet
+          if (typeof pPlay === "function") pPlay();
+        }, ms);
+        return;
+      }
+
+      // BA193: Auto-Advance bei Geräuschen — nächstes in Sortierung.
+      if (plActiveSource === "noise" && plAutoAdvance) {
+        setTimeout(function () {
+          if (!plAutoAdvance || plLoop) return;
+          const all = amCollectItems("geraeusche");
+          const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
+          if (sorted.length === 0) return;
+          const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+          const next = sorted[(idx + 1) % sorted.length];
+          if (!next) return;
+          plNoiseSelectedId = next.id;
+          const sel = document.getElementById("plNoiseItemSel");
+          if (sel) sel.value = next.id;
+          plNoiseLoadSelected().then(function () {
+            if (typeof pPlay === "function") pPlay();
+          });
+        }, ms);
+        return;
+      }
+
+      // BA195: Auto-Advance bei Hörbüchern — nächstes Kapitel.
+      if (plActiveSource === "audiobook" && plAutoAdvance) {
+        const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+        if (col && Array.isArray(col.items)) {
+          const next = plBookChapterIdx + 1;
+          if (next < col.items.length) {
+            setTimeout(function () {
+              if (!plAutoAdvance || plLoop) return;
+              if (typeof plBookSavePosition === "function") plBookSavePosition();
+              plBookChapterIdx = next;
+              const sel = document.getElementById("plBookChSel");
+              if (sel) sel.value = String(next);
+              if (plBookPositions[plBookSelectedId]) {
+                plBookPositions[plBookSelectedId].chapterIdx = next;
+                plBookPositions[plBookSelectedId].posSeconds = 0;
+              }
+              plBookLoadSelected().then(function () {
+                if (typeof pPlay === "function") pPlay();
+              });
+            }, ms);
           }
         }
       }

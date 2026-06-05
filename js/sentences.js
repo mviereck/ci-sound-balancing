@@ -269,7 +269,7 @@ function sOnEnded() {
     if (ms > 0) {
       sPauseTimer = setTimeout(function () {
         sPauseTimer = null;
-        if (sActive) sPlayCurrent();
+        if (sActive && plLoop) sPlayCurrent();
       }, ms);
     } else {
       sPlayCurrent();
@@ -287,7 +287,7 @@ function sOnEnded() {
     if (ms > 0) {
       sPauseTimer = setTimeout(function () {
         sPauseTimer = null;
-        if (sActive) sPlayCurrent();
+        if (sActive && plAutoAdvance && !plLoop) sPlayCurrent();
       }, ms);
     } else {
       sPlayCurrent();

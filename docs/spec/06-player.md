@@ -234,6 +234,11 @@
     nötige Pfadwechsel an aktueller Position.
   - Stop-Button (`#plWarpStopBtn`) bricht laufende Rubberband-Vorberechnung
     ab; Warp-Toggle schaltet dabei aus.
+  - `pPlay` wartet vor dem eigentlichen Start auf eine laufende Warp-Berechnung
+    (`pWarpComputingPromise`). Damit startet auch automatisch ausgelöste
+    Wiedergabe (Loop-Restart, Auto-Advance, Sätze-Folge-Satz) erst, sobald
+    der gewarpte Buffer bereit ist — sonst würde der nächste Inhalt ohne
+    Warp losspielen.
 
 - Sätze-Wiedergabe im Player: Sub-Block der vereinheitlichten Wiedergabe-Card
   (Quelle „💬 Sätze"), Wiedergabe vorgesprochener Sätze durch denselben
