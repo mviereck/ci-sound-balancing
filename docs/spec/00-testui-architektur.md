@@ -236,6 +236,7 @@ Callbacks über `hooks` und nutzt Helfer wie
 | `extraFragment` | Custom-DOM-Slot für seltene Sub-Reiter-spezifische Elemente | `fragment`: HTMLElement | — |
 | `background` | Ausklappbares Erklär-Akkordeon in eigener Card (`<details>/<summary>`), außerhalb der testBox — sichtbar immer wenn das Verfahren aktiv ist, unabhängig vom Test-Laufzustand; Summary-Titel: „[titleKey] – [vCfg.labelKey]", außer `noLabel: true` (dann nur titleKey) | `titleKey`: i18n; `bodyKey`: i18n; `bodyAsHtml`: bool (Default false); `noLabel`: bool (Default false) | — |
 | `debugRun` | Debug-Testlauf-Button am Ende des Verfahren-Bodies, sichtbar nur bei aktivem Debug-Panel | `key`: i18n (Beschriftung); `cssClass`: optional, Default `'dbg-only'` | `onDebugRun()` |
+| `tonePopupButton` | Button + Modal-Dialog für Tonart-Auswahl mit Probehör-Spalte | `getToneType`, `setToneType`, `getVolume`, `getPreviewSequence` (Callbacks) | — |
 
 `pairIndicator.variant` definiert Label-Format und Aufleucht-Logik:
 - `'electrode'`: Labels „A E1" / „B E2" plus Hz-Zeile; `setPlaying('left'|'right'|'both'|null)`
@@ -252,8 +253,10 @@ Callbacks über `hooks` und nutzt Helfer wie
 Test sinnvoll sind: Verfahren-Dropdown (automatisch, wenn
 `verfahren.length > 1`), refSelect, volume, duration, pause,
 toneType, sequence, sliderTarget. Jedes Feld kann mit `show: false`
-oder weglassen unterdrückt werden. Reihenfolge im DOM ist fix; cfg
-ändert nur Sichtbarkeit und Optionen.
+oder `false` unterdrückt werden. Reihenfolge im DOM ist fix; cfg
+ändert nur Sichtbarkeit und Optionen. `tonePopupButton` (BA 209) ist
+optional und ersetzt den Dropdown `toneType` (`toneType: false`), wenn
+pro Test eigene Tonart-Persistenz gewünscht ist.
 
 **`header.extra`** ist ein optionaler Slot für
 Sub-Reiter-spezifische Voreinstellungen, die nicht in das

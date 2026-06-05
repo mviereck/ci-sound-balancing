@@ -448,7 +448,7 @@ async function fmPlayCurrent() {
     const corr = fmCorrGain(side, hz);
     const balDb = side === "left" ? balG.left : balG.right;
     const effectiveVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
-    return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType);
+    return playToneTyped(c, hz, effectiveVol, ms, pan, toneType_freqmatch);
   }
   const _spi = _fmSliderPI();
   function indRef() {
@@ -549,8 +549,8 @@ async function fmPlaySimultaneous() {
     isPlay = true;
     testUI.pairIndicator.setPlaying(_fmAdaptPI(), 'both');
     await Promise.all([
-      playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
-      playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
+      playToneTyped(c, refHz, refVol, ms, refPan, toneType_freqmatch),
+      playToneTyped(c, varHz, varVol, ms, varPan, toneType_freqmatch)
     ]);
     testUI.pairIndicator.setPlaying(_fmAdaptPI(), null);
     isPlay = false;
@@ -592,8 +592,8 @@ async function fmPlaySimultaneous() {
   isPlay = true;
   testUI.pairIndicator.setPlaying(_fmSliderPI(), 'both');
   await Promise.all([
-    playToneTyped(c, refHz, refVol, ms, refPan, globalToneType),
-    playToneTyped(c, varHz, varVol, ms, varPan, globalToneType)
+    playToneTyped(c, refHz, refVol, ms, refPan, toneType_freqmatch),
+    playToneTyped(c, varHz, varVol, ms, varPan, toneType_freqmatch)
   ]);
   testUI.pairIndicator.setPlaying(_fmSliderPI(), null);
   isPlay = false;
@@ -1083,14 +1083,51 @@ document.addEventListener("DOMContentLoaded", () => {
         volume:       { show: true },
         duration:     { show: true, default: 400, min: 100, max: 3000, step: 50 },
         pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },
-        toneType:     { show: true, source: 'global' },
-        sequence:     { show: true, source: 'global' },
-        sliderTarget: {
-          options:  ['ref','var','balance'],
-          default:  'ref',
-          disabled: true,
-          hintKey:  'fmSliderTargetDisabledHint'
+        // BA 209: Tonart-Dropdown durch tonePopupButton ersetzt.
+        toneType:     false,
+        tonePopupButton: {
+          getToneType: function() { return toneType_freqmatch; },
+          setToneType: function(tt) { toneType_freqmatch = tt; },
+          getVolume:   function() { return fmGVol(); },
+          getPreviewSequence: function() {
+            var hzLeft = 1000, hzRight = 1000;
+            if (fmRunning && fmCurrentEl != null) {
+              if (fmSymmetric) {
+                var baseL = withSide('left',  function() { return effFreq(fmCurrentEl); });
+                var baseR = withSide('right', function() { return effFreq(fmCurrentEl); });
+                hzLeft  = baseL * Math.pow(2, -fmCentOffset / 2 / 1200);
+                hzRight = baseR * Math.pow(2, +fmCentOffset / 2 / 1200);
+              } else {
+                var varHz = fmVarHz(fmCurrentEl);
+                var refHz = fmFreqFromCents(varHz, fmCentOffset);
+                if (fmVarSide === 'left') { hzLeft = varHz; hzRight = refHz; }
+                else                       { hzLeft = refHz; hzRight = varHz; }
+              }
+            } else if (fmAdaptiveActive && fmCurTrackId != null
+                       && fmTracks && fmTracks[fmCurTrackId]) {
+              var tr = fmTracks[fmCurTrackId];
+              if (fmSymmetric) {
+                var bL = withSide('left',  function() { return effFreq(tr.electrodeIdx); });
+                var bR = withSide('right', function() { return effFreq(tr.electrodeIdx); });
+                var half = tr.currentOffset / 2;
+                hzLeft  = bL * Math.pow(2, -half / 1200);
+                hzRight = bR * Math.pow(2, +half / 1200);
+              } else {
+                var elHz = withSide(fmVarSide, function() { return effFreq(tr.electrodeIdx); });
+                var refHz2 = elHz * Math.pow(2, tr.currentOffset / 1200);
+                if (fmVarSide === 'left') { hzLeft = elHz;   hzRight = refHz2; }
+                else                       { hzLeft = refHz2; hzRight = elHz;   }
+              }
+            }
+            return [
+              { hz: hzLeft,  pan: -1, durationMs: 500 },
+              { pauseMs: 300 },
+              { hz: hzRight, pan:  1, durationMs: 500 }
+            ];
+          }
         },
+        sequence:     { show: true, source: 'global' },
+        sliderTarget: false,
         // BA 207: Auswahl-Komponente. FreqMatch braucht >= 1 Elektrode.
         electrodeSelection: {
           minSelected: 1,

@@ -342,7 +342,7 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
     const corr   = fmCorrGain(side, hz);
     const balDb  = (side === 'left') ? balG.left : balG.right;
     const effVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
-    return playToneTyped(c, hz, effVol, ms, pan, globalToneType);
+    return playToneTyped(c, hz, effVol, ms, pan, toneType_freqmatch);
   }
 
   const _adaptPI = _fmAdaptPI();

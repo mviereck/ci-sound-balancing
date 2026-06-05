@@ -990,4 +990,9 @@ Object.assign(L.fr, {
     electrodeSelectionHeaderBtn: "Sélection des électrodes de test",
     electrodeSelectionHeaderSummary: "{m} électrodes sélectionnées sur {n}",
     electrodeSelectionEmptyEnd: "Test terminé : plus aucune électrode sélectionnée disponible.",
+    tonePopupTitle:  "Choisir le type de son",
+    tonePopupHint:   "Choisissez le son pour la procédure de test. IMPORTANT : le son choisi peut influencer fortement le résultat de la mesure. Une fois votre choix fait, conservez le même son pendant tout le test.",
+    tonePopupPlay:   "Écouter",
+    tonePopupOk:     "OK",
+    tonePopupCancel: "Annuler",
 });

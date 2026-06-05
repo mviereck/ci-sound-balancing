@@ -1049,4 +1049,9 @@ Object.assign(L.de, {
     electrodeSelectionHeaderBtn: "Testelektroden auswählen",
     electrodeSelectionHeaderSummary: "{m} von {n} Elektroden gewählt",
     electrodeSelectionEmptyEnd: "Test beendet: Keine ausgewählte Elektrode mehr verfügbar.",
+    tonePopupTitle:  "Tonart wählen",
+    tonePopupHint:   "Wählen Sie den Ton für das Testverfahren aus. WICHTIG: Der gewählte Ton kann das Ergebnis des Meßverfahrens stark beeinflussen. Wenn Sie sich für einen Ton entschieden haben, bleiben Sie im Test konsequent dabei.",
+    tonePopupPlay:   "Vorspielen",
+    tonePopupOk:     "OK",
+    tonePopupCancel: "Abbrechen",
 });

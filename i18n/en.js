@@ -989,4 +989,9 @@ Object.assign(L.en, {
     electrodeSelectionHeaderBtn: "Select test electrodes",
     electrodeSelectionHeaderSummary: "{m} of {n} electrodes selected",
     electrodeSelectionEmptyEnd: "Test ended: no selected electrode remaining.",
+    tonePopupTitle:  "Select tone type",
+    tonePopupHint:   "Select the tone for the test procedure. IMPORTANT: The chosen tone can strongly influence the result of the measurement. Once you have decided on a tone, stay with it consistently throughout the test.",
+    tonePopupPlay:   "Play",
+    tonePopupOk:     "OK",
+    tonePopupCancel: "Cancel",
 });

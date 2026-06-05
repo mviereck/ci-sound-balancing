@@ -61,6 +61,7 @@ function resetAll() {
   slTarget_test = "balance";
   slTarget_balance = "both";
   if (typeof globalToneType !== "undefined") globalToneType = "complex";
+  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "pulsedComplex";
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
@@ -280,6 +281,8 @@ async function saveJson() {
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
     globalToneType: globalToneType,
+    toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
+      ? toneType_freqmatch : "pulsedComplex",
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -590,6 +593,19 @@ function applyLoadedData(d) {
     "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
   globalToneType = VALID_TONE_TYPES.includes(d.globalToneType)
     ? d.globalToneType : "complex";
+  // BA 209: Per-Test-Tonart Frequenzabgleich.
+  // Migration: Bei alter Datei ohne dieses Feld den vorhandenen
+  // globalToneType-Wert übernehmen (User hatte ihn bewußt gewählt);
+  // nur bei völlig fehlendem Wert auf Default 'pulsedComplex' fallen.
+  if (typeof toneType_freqmatch !== "undefined") {
+    if (VALID_TONE_TYPES.includes(d.toneType_freqmatch)) {
+      toneType_freqmatch = d.toneType_freqmatch;
+    } else if (VALID_TONE_TYPES.includes(d.globalToneType)) {
+      toneType_freqmatch = d.globalToneType;
+    } else {
+      toneType_freqmatch = "pulsedComplex";
+    }
+  }
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   if (typeof d.playerSourceMeas === "boolean") {

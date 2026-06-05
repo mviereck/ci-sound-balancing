@@ -15,10 +15,17 @@ In `state-side.js` und persistiert in JSON und localStorage:
 - **Tonart** (`globalToneType`) — Sinus / Komplexton / Komplexton gepulst
   (100 Hz AM) / Rauschen / Schmalbandrauschen adaptiv / AM-Sinus /
   Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default `'complex'`
-  (Komplexton). Dropdown im Voreinstellungs-Block aller drei Tests
-  sichtbar; alle Instanzen an dieselbe Variable gebunden. Bei Auswahl
-  einer neuen Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz,
-  aktuelle Messlautstärke) abgespielt.
+  (Komplexton). Dropdown im Voreinstellungs-Block von Test 1
+  (Elektrodenlautstärke) und Test 2 (Stereo-Balance) sichtbar; beide
+  Instanzen an dieselbe Variable gebunden. Bei Auswahl einer neuen
+  Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz, aktuelle
+  Messlautstärke) abgespielt.
+- **Tonart Frequenzabgleich** (`toneType_freqmatch`, BA 209) — eigene
+  Tonart für Sub-Tab 3, unabhängig von `globalToneType`. Default
+  `'pulsedComplex'`. Wird über Button + Popup-Dialog gewählt (kein
+  Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
+  (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
+  übernimmt das Popup-Probehören diese Funktion.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
 
@@ -153,6 +160,15 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 
+- **Tonart-Auswahl (BA 209):** Button im Header „Tonart: *Aktualwert*"
+  öffnet ein Popup mit Radio-Liste aller 9 Tonarten und einer
+  Play-Spalte. Probehör-Sequenz: 500 ms Pan −1 → 300 ms Pause →
+  500 ms Pan +1; Frequenzen je nach Test-Status: vor Test 1 kHz
+  beidseitig, während Slider-Round / Adaptiv die aktuellen
+  Trial-Frequenzen (links/rechts). OK übernimmt, Abbruch verwirft.
+  Auswahl persistiert in `toneType_freqmatch` (Default `pulsedComplex`).
+  Das Dropdown `sliderTarget` („Slider-Wirkung") wurde ersatzlos
+  entfernt (BA 209).
 - **Dynamischer Intro-Text (BA 160):** `fmHintMethod` (`#fmHintMethodPara`)
   zeigt je nach Hörtechnik-Kombination:
   - CI + Naturgehör (normal/shoh/hg): Ziel = tatsächlich stimulierte

@@ -990,4 +990,9 @@ Object.assign(L.es, {
     electrodeSelectionHeaderBtn: "Seleccionar electrodos de prueba",
     electrodeSelectionHeaderSummary: "{m} de {n} electrodos seleccionados",
     electrodeSelectionEmptyEnd: "Prueba finalizada: no quedan electrodos seleccionados.",
+    tonePopupTitle:  "Elegir tipo de tono",
+    tonePopupHint:   "Elija el tono para el procedimiento de prueba. IMPORTANTE: el tono elegido puede influir notablemente en el resultado de la medición. Una vez que se haya decidido por un tono, manténgalo de forma constante durante toda la prueba.",
+    tonePopupPlay:   "Reproducir",
+    tonePopupOk:     "Aceptar",
+    tonePopupCancel: "Cancelar",
 });

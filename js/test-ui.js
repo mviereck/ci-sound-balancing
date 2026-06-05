@@ -681,6 +681,18 @@ function _applyLangSubtree(root) {
 }
 
 // ---- Neue Implementation ----
+// BA 209: Mapping Tonart -> i18n-Schlüssel.
+function _toneTypeKey(tt) {
+  var map = {
+    sine: 'toneSine', complex: 'toneComplex',
+    pulsedComplex: 'tonePulsedComplex', noise: 'toneNoise',
+    noiseAdaptive: 'toneNoiseAdaptive', amSine: 'toneAmSine',
+    warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
+    wobbleSweep: 'toneWobbleSweep'
+  };
+  return map[tt] || 'toneComplex';
+}
+
 function _maybeExtendSlider(slRef) {
   if (!slRef || !slRef.initialRange) return;
   var val = parseFloat(slRef.input.value) || 0;
@@ -869,7 +881,7 @@ function _buildTestPanelNew(parentEl, cfg) {
   var showSeq = hc.sequence && (hc.sequence === true || hc.sequence.show !== false);
   var showTone = hc.toneType && (hc.toneType === true || hc.toneType.show !== false);
   var showTarget = hc.sliderTarget && (hc.sliderTarget !== false);
-  if (showSeq || showTone || showTarget) {
+  if (showSeq || showTone || showTarget || hc.tonePopupButton) {
     var rowSequence = _mkEl('div', 'controls-row');
     rowSequence.dataset.row = 'sequence';
 
@@ -940,6 +952,32 @@ function _buildTestPanelNew(parentEl, cfg) {
         cg3.appendChild(hintSpan);
       }
       rowSequence.appendChild(cg3);
+    }
+
+    // BA 209: Tonart-Popup-Button (generisch, optional pro Verfahren).
+    var tonePopupBtn = null;
+    if (hc.tonePopupButton) {
+      var tpCfg = hc.tonePopupButton;
+      var cgTP = _mkEl('div', 'control-group');
+      var lblTP = _mkEl('label'); _tEl(lblTP, 'toneTypeLbl');
+      tonePopupBtn = _mkEl('button', 'btn btn-small');
+      tonePopupBtn.type = 'button';
+
+      function _tpUpdateLabel() {
+        var key = _toneTypeKey(tpCfg.getToneType());
+        tonePopupBtn.dataset.t = key;
+        if (typeof t === 'function') tonePopupBtn.textContent = t(key);
+      }
+      cgTP.append(lblTP, tonePopupBtn);
+      rowSequence.appendChild(cgTP);
+
+      tonePopupBtn.addEventListener('click', function() {
+        _openToneTypeDialog(tpCfg, _tpUpdateLabel);
+      });
+
+      _tpUpdateLabel();
+      headerRefs.tonePopupBtn = tonePopupBtn;
+      headerRefs.tonePopupUpdate = _tpUpdateLabel;
     }
 
     if (rowSequence.children.length) headerBox.appendChild(rowSequence);
@@ -2036,6 +2074,162 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     }
     cfg.setSelection(chosen);
     if (typeof onChange === 'function') onChange();
+    close();
+  });
+}
+
+// BA 209: Modal-Dialog 'Tonart wählen'.
+// cfg: {
+//   getToneType:        () => string             - aktuelle Tonart
+//   setToneType:        (tt: string) => void     - bei OK gespeicherte Tonart setzen
+//   getVolume:          () => number             - Lautstärke (linear, 0..1) für Vorschau
+//   getPreviewSequence: () => Array<Step>        - Probehör-Sequenz, siehe unten
+// }
+// Step: { hz: number, pan: number, durationMs: number } | { pauseMs: number }
+function _openToneTypeDialog(cfg, onChange) {
+  var TONE_TYPES = [
+    ['sine',          'toneSine'],
+    ['complex',       'toneComplex'],
+    ['pulsedComplex', 'tonePulsedComplex'],
+    ['noise',         'toneNoise'],
+    ['noiseAdaptive', 'toneNoiseAdaptive'],
+    ['amSine',        'toneAmSine'],
+    ['warbleSine',    'toneWarbleSine'],
+    ['burstSine',     'toneBurstSine'],
+    ['wobbleSweep',   'toneWobbleSweep']
+  ];
+  var initial = cfg.getToneType();
+  var selected = initial;
+  var playing = false;
+
+  var overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.style.cssText =
+    'position:fixed;inset:0;background:rgba(0,0,0,.45);' +
+    'display:flex;align-items:center;justify-content:center;z-index:9999;';
+
+  var dlg = document.createElement('div');
+  dlg.className = 'modal-dlg';
+  dlg.style.cssText =
+    'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
+    'border-radius:8px;min-width:360px;max-width:90vw;max-height:85vh;' +
+    'overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.3);';
+
+  var title = document.createElement('h3');
+  title.dataset.t = 'tonePopupTitle';
+  title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
+  dlg.appendChild(title);
+
+  var hint = document.createElement('p');
+  hint.dataset.t = 'tonePopupHint';
+  hint.style.cssText =
+    'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
+    'background:#fff4d6;border-left:3px solid #d8a200;' +
+    'padding:8px 10px;border-radius:4px;';
+  dlg.appendChild(hint);
+
+  var list = document.createElement('div');
+  list.style.cssText = 'display:grid;grid-template-columns:auto 1fr auto;' +
+                      'gap:4px 10px;align-items:center;margin-bottom:14px;';
+  TONE_TYPES.forEach(function(pair) {
+    var key = pair[0], i18nKey = pair[1];
+    var rb = document.createElement('input');
+    rb.type = 'radio';
+    rb.name = 'tonePopupChoice';
+    rb.value = key;
+    rb.checked = (key === initial);
+    rb.id = 'tonePopupRb_' + key;
+
+    var lbl = document.createElement('label');
+    lbl.htmlFor = rb.id;
+    lbl.dataset.t = i18nKey;
+    lbl.style.cssText = 'cursor:pointer;font-size:.94em;';
+
+    var play = document.createElement('button');
+    play.type = 'button';
+    play.className = 'btn btn-small';
+    play.dataset.t = 'tonePopupPlay';
+    play.dataset.toneKey = key;
+    play.style.cssText = 'min-width:90px;';
+
+    rb.addEventListener('change', function() {
+      if (rb.checked) selected = key;
+    });
+    play.addEventListener('click', function() {
+      if (playing) return;
+      rb.checked = true;
+      selected = key;
+      _playPreview(key);
+    });
+
+    list.append(rb, lbl, play);
+  });
+  dlg.appendChild(list);
+
+  function _playPreview(toneType) {
+    var seq = cfg.getPreviewSequence();
+    if (!Array.isArray(seq) || seq.length === 0) return;
+    var c = (typeof gAC === 'function') ? gAC() : null;
+    if (!c) return;
+    var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
+    playing = true;
+    _setPlayButtonsDisabled(true);
+
+    var idx = 0;
+    function nextStep() {
+      if (idx >= seq.length) {
+        playing = false;
+        _setPlayButtonsDisabled(false);
+        return;
+      }
+      var step = seq[idx++];
+      if (step && typeof step.pauseMs === 'number') {
+        setTimeout(nextStep, step.pauseMs);
+        return;
+      }
+      if (!step || typeof step.hz !== 'number' || typeof step.durationMs !== 'number') {
+        nextStep();
+        return;
+      }
+      var pan = (typeof step.pan === 'number') ? step.pan : 0;
+      try {
+        playToneTyped(c, step.hz, vol, step.durationMs, pan, toneType);
+      } catch (e) { /* swallow */ }
+      setTimeout(nextStep, step.durationMs);
+    }
+    nextStep();
+  }
+  function _setPlayButtonsDisabled(flag) {
+    var btns = list.querySelectorAll('button[data-tone-key]');
+    btns.forEach(function(b) { b.disabled = flag; });
+  }
+
+  var btnRow = document.createElement('div');
+  btnRow.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;';
+  var cancelBtn = document.createElement('button');
+  cancelBtn.type = 'button';
+  cancelBtn.className = 'btn';
+  cancelBtn.dataset.t = 'tonePopupCancel';
+  var okBtn = document.createElement('button');
+  okBtn.type = 'button';
+  okBtn.className = 'btn btn-primary';
+  okBtn.dataset.t = 'tonePopupOk';
+  btnRow.append(cancelBtn, okBtn);
+  dlg.appendChild(btnRow);
+
+  overlay.appendChild(dlg);
+  document.body.appendChild(overlay);
+  if (typeof applyLang === 'function') applyLang();
+
+  function close() {
+    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+  }
+  cancelBtn.addEventListener('click', close);
+  okBtn.addEventListener('click', function() {
+    if (selected !== initial) {
+      cfg.setToneType(selected);
+      if (typeof onChange === 'function') onChange();
+    }
     close();
   });
 }

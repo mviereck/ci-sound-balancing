@@ -755,6 +755,16 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
+      // BA 209: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
+      const _VALID_TT = ["sine", "complex", "pulsedComplex", "noise",
+        "noiseAdaptive", "amSine", "warbleSine", "burstSine", "wobbleSweep"];
+      if (typeof toneType_freqmatch !== "undefined") {
+        if (_VALID_TT.includes(d.toneType_freqmatch)) {
+          toneType_freqmatch = d.toneType_freqmatch;
+        } else if (_VALID_TT.includes(d.globalToneType)) {
+          toneType_freqmatch = d.globalToneType;
+        }
+      }
       if (typeof d.userFileSuffix === "string") {
         userFileSuffix = d.userFileSuffix;
         const _el = document.getElementById("userFileSuffix");
@@ -938,6 +948,8 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 161: bisher nur in Datei-Save
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
           globalToneType: globalToneType,
+          toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
+            ? toneType_freqmatch : "pulsedComplex",
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,
