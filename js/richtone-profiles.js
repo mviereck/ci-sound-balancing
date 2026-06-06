@@ -1,5 +1,5 @@
 // Auto-generiert von tools/profiles_to_js.py
-// Quelle: docs/richtone_profiles.json (Lauf 2026-06-05T21:30:37.264473+00:00)
+// Quelle: docs/richtone_profiles.json (Lauf 2026-06-06T19:10:00.190432+00:00)
 // Nicht von Hand editieren - bei Aenderungen am JSON Skript erneut laufen lassen.
 //
 // Wird in index.html vor js/audio.js geladen; globale Konstante
@@ -15,54 +15,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.804
+        "amp": 0.736
       },
       {
         "mult": 3,
-        "amp": 1.917
+        "amp": 1.248
       },
       {
         "mult": 4,
-        "amp": 0.233
+        "amp": 0.338
       },
       {
         "mult": 5,
-        "amp": 0.387
+        "amp": 1.232
       },
       {
         "mult": 6,
-        "amp": 0.386
+        "amp": 1.331
       },
       {
         "mult": 7,
-        "amp": 0.449
+        "amp": 1.611
       },
       {
         "mult": 8,
-        "amp": 0.337
+        "amp": 1.972
       },
       {
         "mult": 9,
-        "amp": 0.246
+        "amp": 2.499
       },
       {
         "mult": 10,
-        "amp": 0.106
+        "amp": 0.721
       },
       {
         "mult": 11,
-        "amp": 0.051
+        "amp": 0.957
       },
       {
         "mult": 12,
-        "amp": 0.082
+        "amp": 0.942
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 127.7
+    "attackMs": 179.9
   },
   "ASax": {
     "abbr": "ASax",
@@ -74,54 +74,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.675
+        "amp": 0.666
       },
       {
         "mult": 3,
-        "amp": 0.971
+        "amp": 0.642
       },
       {
         "mult": 4,
-        "amp": 0.242
+        "amp": 0.29
       },
       {
         "mult": 5,
-        "amp": 0.299
+        "amp": 0.403
       },
       {
         "mult": 6,
-        "amp": 0.298
+        "amp": 0.236
       },
       {
         "mult": 7,
-        "amp": 0.254
+        "amp": 0.3
       },
       {
         "mult": 8,
-        "amp": 0.178
+        "amp": 0.15
       },
       {
         "mult": 9,
-        "amp": 0.264
+        "amp": 0.116
       },
       {
         "mult": 10,
-        "amp": 0.162
+        "amp": 0.078
       },
       {
         "mult": 11,
-        "amp": 0.091
+        "amp": 0.16
       },
       {
         "mult": 12,
-        "amp": 0.034
+        "amp": 0.065
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 325.1
+    "attackMs": 214.8
   },
   "Bn": {
     "abbr": "Bn",
@@ -133,47 +133,47 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 6.023
+        "amp": 1.581
       },
       {
         "mult": 3,
-        "amp": 4.748
+        "amp": 1.161
       },
       {
         "mult": 4,
-        "amp": 2.424
+        "amp": 1.105
       },
       {
         "mult": 5,
-        "amp": 0.722
+        "amp": 0.723
       },
       {
         "mult": 6,
-        "amp": 0.766
+        "amp": 0.698
       },
       {
         "mult": 7,
-        "amp": 0.216
+        "amp": 1.14
       },
       {
         "mult": 8,
-        "amp": 0.39
+        "amp": 0.464
       },
       {
         "mult": 9,
-        "amp": 0.052
+        "amp": 0.856
       },
       {
         "mult": 10,
-        "amp": 0.169
+        "amp": 0.587
       },
       {
         "mult": 11,
-        "amp": 0.163
+        "amp": 0.55
       },
       {
         "mult": 12,
-        "amp": 0.104
+        "amp": 0.379
       }
     ],
     "vibratoHz": 0.0,
@@ -192,22 +192,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.423
+        "amp": 2.639
       },
       {
         "mult": 3,
-        "amp": 0.16
+        "amp": 4.071
       },
       {
         "mult": 4,
-        "amp": 0.027
+        "amp": 2.497
+      },
+      {
+        "mult": 5,
+        "amp": 3.817
+      },
+      {
+        "mult": 6,
+        "amp": 4.425
+      },
+      {
+        "mult": 7,
+        "amp": 3.102
+      },
+      {
+        "mult": 8,
+        "amp": 2.297
+      },
+      {
+        "mult": 9,
+        "amp": 1.551
+      },
+      {
+        "mult": 10,
+        "amp": 0.803
+      },
+      {
+        "mult": 11,
+        "amp": 0.548
+      },
+      {
+        "mult": 12,
+        "amp": 0.264
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 116.1
+    "attackMs": 92.9
   },
   "Cb": {
     "abbr": "Cb",
@@ -219,54 +251,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.841
+        "amp": 2.815
       },
       {
         "mult": 3,
-        "amp": 0.688
+        "amp": 1.714
       },
       {
         "mult": 4,
-        "amp": 0.267
+        "amp": 0.71
       },
       {
         "mult": 5,
-        "amp": 0.099
+        "amp": 1.699
       },
       {
         "mult": 6,
-        "amp": 0.197
+        "amp": 0.952
       },
       {
         "mult": 7,
-        "amp": 0.241
+        "amp": 0.377
       },
       {
         "mult": 8,
-        "amp": 0.178
+        "amp": 0.347
       },
       {
         "mult": 9,
-        "amp": 0.15
+        "amp": 0.285
       },
       {
         "mult": 10,
-        "amp": 0.09
+        "amp": 1.558
       },
       {
         "mult": 11,
-        "amp": 0.067
+        "amp": 1.567
       },
       {
         "mult": 12,
-        "amp": 0.042
+        "amp": 0.684
       }
     ],
-    "vibratoHz": 0.0,
-    "vibratoCents": 0.0,
+    "vibratoHz": 4.75,
+    "vibratoCents": 10.31,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 116.1
+    "attackMs": 545.7
   },
   "ClBb": {
     "abbr": "ClBb",
@@ -278,30 +310,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.489
+        "amp": 0.786
       },
       {
         "mult": 3,
-        "amp": 0.819
+        "amp": 1.022
       },
       {
         "mult": 4,
-        "amp": 0.038
+        "amp": 0.133
       },
       {
         "mult": 5,
-        "amp": 0.114
+        "amp": 0.468
       },
       {
         "mult": 6,
-        "amp": 0.074
+        "amp": 0.341
+      },
+      {
+        "mult": 7,
+        "amp": 0.095
+      },
+      {
+        "mult": 8,
+        "amp": 0.077
+      },
+      {
+        "mult": 9,
+        "amp": 0.05
+      },
+      {
+        "mult": 10,
+        "amp": 0.046
+      },
+      {
+        "mult": 11,
+        "amp": 0.059
+      },
+      {
+        "mult": 12,
+        "amp": 0.038
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 371.5
+    "attackMs": 481.8
   },
   "Fl": {
     "abbr": "Fl",
@@ -313,38 +369,42 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.532
+        "amp": 0.56
       },
       {
         "mult": 3,
-        "amp": 0.327
+        "amp": 0.159
       },
       {
         "mult": 4,
-        "amp": 0.498
+        "amp": 0.223
       },
       {
         "mult": 5,
-        "amp": 0.18
+        "amp": 0.243
       },
       {
         "mult": 6,
-        "amp": 0.087
+        "amp": 0.088
       },
       {
         "mult": 7,
-        "amp": 0.095
+        "amp": 0.041
+      },
+      {
+        "mult": 8,
+        "amp": 0.032
       },
       {
         "mult": 9,
-        "amp": 0.023
+        "amp": 0.033
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 81.3
+    "attackMs": 336.7
   },
   "Hn": {
     "abbr": "Hn",
@@ -356,54 +416,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 1.869
+        "amp": 1.045
       },
       {
         "mult": 3,
-        "amp": 1.822
+        "amp": 1.038
       },
       {
         "mult": 4,
-        "amp": 0.821
+        "amp": 1.342
       },
       {
         "mult": 5,
-        "amp": 0.699
+        "amp": 1.041
       },
       {
         "mult": 6,
-        "amp": 0.286
+        "amp": 0.861
       },
       {
         "mult": 7,
-        "amp": 0.187
+        "amp": 0.555
       },
       {
         "mult": 8,
-        "amp": 0.105
+        "amp": 0.594
       },
       {
         "mult": 9,
-        "amp": 0.087
+        "amp": 0.475
       },
       {
         "mult": 10,
-        "amp": 0.074
+        "amp": 0.353
       },
       {
         "mult": 11,
-        "amp": 0.043
+        "amp": 0.248
       },
       {
         "mult": 12,
-        "amp": 0.051
+        "amp": 0.17
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 499.2
+    "attackMs": 267.1
   },
   "Ob": {
     "abbr": "Ob",
@@ -415,54 +475,50 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 1.428
+        "amp": 1.024
       },
       {
         "mult": 3,
-        "amp": 1.338
+        "amp": 0.854
       },
       {
         "mult": 4,
-        "amp": 1.366
+        "amp": 0.898
       },
       {
         "mult": 5,
-        "amp": 0.502
+        "amp": 0.576
       },
       {
         "mult": 6,
-        "amp": 0.317
+        "amp": 0.623
       },
       {
         "mult": 7,
-        "amp": 0.064
+        "amp": 0.907
       },
       {
         "mult": 8,
-        "amp": 0.066
+        "amp": 0.14
       },
       {
         "mult": 9,
-        "amp": 0.212
+        "amp": 0.102
       },
       {
         "mult": 10,
-        "amp": 0.402
+        "amp": 0.112
       },
       {
         "mult": 11,
-        "amp": 0.107
-      },
-      {
-        "mult": 12,
-        "amp": 0.067
+        "amp": 0.051
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 348.3
+    "attackMs": 104.5
   },
   "Tbn": {
     "abbr": "Tbn",
@@ -474,54 +530,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 1.194
+        "amp": 1.378
       },
       {
         "mult": 3,
-        "amp": 1.569
+        "amp": 1.218
       },
       {
         "mult": 4,
-        "amp": 1.198
+        "amp": 1.56
       },
       {
         "mult": 5,
-        "amp": 1.065
+        "amp": 1.116
       },
       {
         "mult": 6,
-        "amp": 0.675
+        "amp": 1.086
       },
       {
         "mult": 7,
-        "amp": 0.418
+        "amp": 1.585
       },
       {
         "mult": 8,
-        "amp": 0.36
+        "amp": 1.778
       },
       {
         "mult": 9,
-        "amp": 0.356
+        "amp": 1.213
       },
       {
         "mult": 10,
-        "amp": 0.657
+        "amp": 1.538
       },
       {
         "mult": 11,
-        "amp": 0.395
+        "amp": 2.768
       },
       {
         "mult": 12,
-        "amp": 0.297
+        "amp": 2.266
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 185.8
+    "attackMs": 145.2
   },
   "TpC": {
     "abbr": "TpC",
@@ -533,50 +589,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.909
+        "amp": 0.905
       },
       {
         "mult": 3,
-        "amp": 0.631
+        "amp": 0.912
       },
       {
         "mult": 4,
-        "amp": 0.336
+        "amp": 0.586
       },
       {
         "mult": 5,
-        "amp": 0.194
+        "amp": 0.532
       },
       {
         "mult": 6,
-        "amp": 0.111
+        "amp": 0.42
       },
       {
         "mult": 7,
-        "amp": 0.067
+        "amp": 0.361
       },
       {
         "mult": 8,
-        "amp": 0.043
+        "amp": 0.435
       },
       {
         "mult": 9,
-        "amp": 0.031
+        "amp": 0.286
       },
       {
         "mult": 10,
-        "amp": 0.025
+        "amp": 0.258
       },
       {
         "mult": 11,
-        "amp": 0.025
+        "amp": 0.24
+      },
+      {
+        "mult": 12,
+        "amp": 0.284
       }
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 429.6
+    "attackMs": 418.0
   },
   "Va": {
     "abbr": "Va",
@@ -588,46 +648,54 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.093
+        "amp": 2.791
       },
       {
         "mult": 3,
-        "amp": 0.112
+        "amp": 1.728
       },
       {
         "mult": 4,
-        "amp": 0.102
+        "amp": 0.698
       },
       {
         "mult": 5,
-        "amp": 0.164
+        "amp": 1.546
       },
       {
         "mult": 6,
-        "amp": 0.088
+        "amp": 0.626
       },
       {
         "mult": 7,
-        "amp": 0.092
+        "amp": 0.781
       },
       {
         "mult": 8,
-        "amp": 0.056
+        "amp": 0.876
       },
       {
         "mult": 9,
-        "amp": 0.024
+        "amp": 0.736
       },
       {
         "mult": 10,
-        "amp": 0.03
+        "amp": 1.073
+      },
+      {
+        "mult": 11,
+        "amp": 0.685
+      },
+      {
+        "mult": 12,
+        "amp": 0.456
       }
     ],
-    "vibratoHz": 5.39,
-    "vibratoCents": 10.76,
+    "vibratoHz": 5.41,
+    "vibratoCents": 12.25,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 685.0
+    "attackMs": 911.3
   },
   "Vc": {
     "abbr": "Vc",
@@ -639,11 +707,11 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.744
+        "amp": 0.81
       },
       {
         "mult": 3,
-        "amp": 0.293
+        "amp": 1.56
       },
       {
         "mult": 4,
@@ -651,42 +719,42 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 5,
-        "amp": 0.123
+        "amp": 0.543
       },
       {
         "mult": 6,
-        "amp": 0.163
+        "amp": 0.229
       },
       {
         "mult": 7,
-        "amp": 0.568
+        "amp": 0.235
       },
       {
         "mult": 8,
-        "amp": 0.464
+        "amp": 0.381
       },
       {
         "mult": 9,
-        "amp": 0.259
+        "amp": 0.319
       },
       {
         "mult": 10,
-        "amp": 0.138
+        "amp": 0.143
       },
       {
         "mult": 11,
-        "amp": 0.096
+        "amp": 0.042
       },
       {
         "mult": 12,
-        "amp": 0.08
+        "amp": 0.067
       }
     ],
-    "vibratoHz": 5.04,
-    "vibratoCents": 14.47,
+    "vibratoHz": 5.14,
+    "vibratoCents": 15.72,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 603.7
+    "attackMs": 458.6
   },
   "Vn": {
     "abbr": "Vn",
@@ -698,53 +766,53 @@ const RICHTONE_PROFILES = {
       },
       {
         "mult": 2,
-        "amp": 0.507
+        "amp": 1.335
       },
       {
         "mult": 3,
-        "amp": 0.456
+        "amp": 0.831
       },
       {
         "mult": 4,
-        "amp": 0.569
+        "amp": 0.474
       },
       {
         "mult": 5,
-        "amp": 0.46
+        "amp": 0.93
       },
       {
         "mult": 6,
-        "amp": 0.412
+        "amp": 0.244
       },
       {
         "mult": 7,
-        "amp": 0.449
+        "amp": 0.238
       },
       {
         "mult": 8,
-        "amp": 0.248
+        "amp": 0.149
       },
       {
         "mult": 9,
-        "amp": 0.14
+        "amp": 0.139
       },
       {
         "mult": 10,
-        "amp": 0.116
+        "amp": 0.508
       },
       {
         "mult": 11,
-        "amp": 0.058
+        "amp": 0.499
       },
       {
         "mult": 12,
-        "amp": 0.071
+        "amp": 0.363
       }
     ],
-    "vibratoHz": 0.0,
-    "vibratoCents": 0.0,
+    "vibratoHz": 5.14,
+    "vibratoCents": 7.69,
     "amHz": 0.0,
     "amDepth": 0.0,
-    "attackMs": 870.7
+    "attackMs": 923.0
   }
 };

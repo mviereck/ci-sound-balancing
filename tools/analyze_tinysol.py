@@ -48,8 +48,15 @@ VIB_MIN_HZ = 3.0  # physiologische Untergrenze fuer Vibrato. Diskriminierung Vib
 VIB_MAX_HZ = 8.0
 AM_MIN_HZ  = 2.0
 AM_MAX_HZ  = 10.0
-VIB_CENTS_THRESHOLD = 3.0  # unterhalb: Vibrato als nicht vorhanden werten
-AM_DEPTH_THRESHOLD  = 0.05 # unterhalb: AM als nicht vorhanden werten
+VIB_CENTS_THRESHOLD     = 3.0   # unterhalb: Vibrato als nicht vorhanden werten
+VIB_SPAN_MIN_CENT       = 1.0   # Samples mit F0-Cent-Spannweite < 1 (z.B. elektronisch nachgestimmte
+                                # Kammerton-Aufnahmen wie Va-A4=440Hz) werden bei der Vibrato-
+                                # Aggregation ausgeschlossen, weil ihre F0-Kurve kein natuerliches
+                                # Verhalten zeigt.
+VIB_DETECTION_MIN_RATIO = 0.5   # Anteil der Samples, die Vibrato zeigen muessen, damit das
+                                # Profil ueberhaupt vibratoHz/vibratoCents bekommt; sonst 0.
+N_SAMPLES_PER_INSTR     = 6     # Vorher 3 (zu eng am Mittelpunkt). 6 verteilt sich besser.
+AM_DEPTH_THRESHOLD      = 0.05  # unterhalb: AM als nicht vorhanden werten
 
 
 def load_meta():
@@ -60,8 +67,12 @@ def load_meta():
         return list(csv.DictReader(f))
 
 
-def pick_samples(meta, instr, n=3):
-    """Drei Samples pro Instrument: Mitte des Pitch-Range plus +/- ~Quart."""
+def pick_samples(meta, instr, n=N_SAMPLES_PER_INSTR):
+    """Samples gleichmaessig ueber den verfuegbaren Pitch-Range des
+    Instruments verteilen. Vorher nur 3 Samples mid +/- 5 PIDs (also
+    +/- Quart) -- zu eng am Mittelpunkt; ein einzelnes schwaches
+    Sample konnte die Aggregation ueber den Median auf 0 ziehen.
+    """
     pool = [
         r for r in meta
         if r["Instrument (abbr.)"] == instr
@@ -72,23 +83,18 @@ def pick_samples(meta, instr, n=3):
         return []
     no_retune = [r for r in pool if r.get("Needed digital retuning", "FALSE") == "FALSE"]
     cands = no_retune if no_retune else pool
-    pids = sorted({int(r["Pitch ID"]) for r in cands})
+    by_pid = {}
+    for r in cands:
+        by_pid.setdefault(int(r["Pitch ID"]), []).append(r)
+    pids = sorted(by_pid.keys())
     if not pids:
         return []
-    mid = pids[len(pids) // 2]
-    targets = [mid - 5, mid, mid + 5]
-    seen = set()
-    chosen = []
-    for t in targets:
-        best = min(cands, key=lambda r: abs(int(r["Pitch ID"]) - t))
-        key = best["Path"]
-        if key in seen:
-            continue
-        seen.add(key)
-        chosen.append(best)
-        if len(chosen) >= n:
-            break
-    return chosen
+    if len(pids) <= n:
+        chosen_pids = pids
+    else:
+        step = (len(pids) - 1) / (n - 1)
+        chosen_pids = [pids[round(i * step)] for i in range(n)]
+    return [by_pid[pid][0] for pid in chosen_pids]
 
 
 def analyze_sample(wav_path):
@@ -141,9 +147,20 @@ def analyze_sample(wav_path):
             if rel >= HARM_MIN:
                 partials.append({"mult": h, "amp": round(rel, 3)})
 
-    # Vibrato: FFT der F0-Kurve in Cent
-    f0_cents = 1200 * np.log2(f0_v / f0_med)
+    # Vibrato: FFT der F0-Kurve in Cent.
+    # WICHTIG: gleicher Mittelteil wie fuer Harmonische (i_start..i_end).
+    # Bisher wurde f0_v = f0[~np.isnan(f0)] genommen (ALLE voiced Frames inkl.
+    # Attack-Phase), was die Vibrato-FFT durch Attack-Drift verwaesserte.
+    f0_mid = f0[i_start:i_end].copy()
+    nan_mask = np.isnan(f0_mid)
+    if nan_mask.any():
+        f0_mid[nan_mask] = f0_med
+    f0_cents  = 1200 * np.log2(f0_mid / f0_med)
     f0_cents -= np.mean(f0_cents)
+    spanCents = float(f0_cents.max() - f0_cents.min())
+
+    vibratoHz, vibratoCents, vibratoProm = 0.0, 0.0, 0.0
+    vibratoDetected = False
     if len(f0_cents) >= 16:
         vib_spec  = np.abs(np.fft.rfft(f0_cents))
         vib_freqs = np.fft.rfftfreq(len(f0_cents), HOP / sr)
@@ -152,24 +169,22 @@ def analyze_sample(wav_path):
             vib_in_mask = vib_spec[vib_mask]
             peak_amp = float(vib_in_mask.max())
             med_amp  = float(np.median(vib_in_mask))
-            prom = peak_amp / max(med_amp, 1e-9)
-            # Echtes Vibrato hat einen scharfen Peak; Akkordeon-Tremulant
-            # und Schwebungen zeigen sich als breitbandiges Rauschen ohne
-            # ausgeprägten Peak. Schwelle: Peak >= 3x Median im Suchfenster.
-            prominent = prom >= 3.0
-            if prominent and peak_amp > 0.5:
-                vib_idx      = int(np.argmax(np.where(vib_mask, vib_spec, 0)))
-                vibratoHz    = float(vib_freqs[vib_idx])
-                vibratoCents = float(np.std(f0_cents) * np.sqrt(2))
-            else:
-                vibratoHz, vibratoCents = 0.0, 0.0
+            prom     = peak_amp / max(med_amp, 1e-9)
             vibratoProm = round(prom, 2)
-        else:
-            vibratoHz, vibratoCents, vibratoProm = 0.0, 0.0, 0.0
-    else:
-        vibratoHz, vibratoCents, vibratoProm = 0.0, 0.0, 0.0
-    if vibratoCents < VIB_CENTS_THRESHOLD:
-        vibratoHz, vibratoCents = 0.0, 0.0
+            cand_idx   = int(np.argmax(np.where(vib_mask, vib_spec, 0)))
+            cand_hz    = float(vib_freqs[cand_idx])
+            cand_cents = float(np.std(f0_cents) * np.sqrt(2))
+            # Drei kombinierte Kriterien: spektrale Prominenz, Mindest-
+            # Auslenkung, ueberhaupt natuerliche F0-Variation im Sample.
+            vibratoDetected = (
+                prom       >= 3.0
+                and peak_amp > 0.5
+                and cand_cents >= VIB_CENTS_THRESHOLD
+                and spanCents  >= VIB_SPAN_MIN_CENT
+            )
+            if vibratoDetected:
+                vibratoHz    = cand_hz
+                vibratoCents = cand_cents
 
     # Atem-AM: FFT der RMS-Huellkurve in stationaerer Phase
     rms = librosa.feature.rms(y=y, frame_length=2048, hop_length=HOP)[0]
@@ -201,14 +216,16 @@ def analyze_sample(wav_path):
         attackMs = 0.0
 
     return {
-        "f0":           round(f0_med, 2),
-        "partials":     partials,
-        "vibratoHz":    round(vibratoHz, 2),
-        "vibratoCents": round(vibratoCents, 2),
-        "vibratoProm":  vibratoProm,
-        "amHz":         round(amHz, 2),
-        "amDepth":      round(amDepth, 3),
-        "attackMs":     round(attackMs, 1),
+        "f0":               round(f0_med, 2),
+        "partials":         partials,
+        "vibratoHz":        round(vibratoHz, 2),
+        "vibratoCents":     round(vibratoCents, 2),
+        "vibratoProm":      vibratoProm,
+        "vibratoSpanCents": round(spanCents, 1),
+        "vibratoDetected":  bool(vibratoDetected),
+        "amHz":             round(amHz, 2),
+        "amDepth":          round(amDepth, 3),
+        "attackMs":         round(attackMs, 1),
     }
 
 
@@ -229,16 +246,35 @@ def aggregate_profile(samples, instr):
         ],
         key=lambda x: x["mult"],
     )
+
+    # Vibrato-Aggregation: pro-Sample-Klassifikation, anteilsbasiert.
+    # Samples mit elektronisch konstanter F0 (vibratoSpanCents < VIB_SPAN_MIN_CENT)
+    # nehmen wir aus der Anteilsbildung heraus, weil sie keine natuerliche
+    # F0-Variation enthalten und das Gesamtbild verzerren wuerden.
+    vib_eligible = [s for s in valid if s.get("vibratoSpanCents", 0) >= VIB_SPAN_MIN_CENT]
+    vib_positive = [s for s in vib_eligible if s.get("vibratoDetected", False)]
+    n_eligible   = len(vib_eligible)
+    n_positive   = len(vib_positive)
+    n_total      = len(valid)
+    ratio        = (n_positive / n_eligible) if n_eligible > 0 else 0.0
+    if ratio >= VIB_DETECTION_MIN_RATIO and vib_positive:
+        vibratoHz    = float(np.mean([s["vibratoHz"]    for s in vib_positive]))
+        vibratoCents = float(np.mean([s["vibratoCents"] for s in vib_positive]))
+    else:
+        vibratoHz, vibratoCents = 0.0, 0.0
+
     return {
-        "label":        INSTRUMENT_LABELS_DE[instr],
-        "abbr":         instr,
-        "partials":     partials,
-        "vibratoHz":    round(float(np.median([s["vibratoHz"]    for s in valid])), 2),
-        "vibratoCents": round(float(np.median([s["vibratoCents"] for s in valid])), 2),
-        "vibratoProm":  round(float(np.median([s["vibratoProm"]  for s in valid])), 2),
-        "amHz":         round(float(np.median([s["amHz"]         for s in valid])), 2),
-        "amDepth":      round(float(np.median([s["amDepth"]      for s in valid])), 3),
-        "attackMs":     round(float(np.median([s["attackMs"]     for s in valid])), 1),
+        "label":             INSTRUMENT_LABELS_DE[instr],
+        "abbr":              instr,
+        "partials":          partials,
+        "vibratoHz":         round(vibratoHz, 2),
+        "vibratoCents":      round(vibratoCents, 2),
+        "vibratoProm":       round(float(np.median([s["vibratoProm"] for s in valid])), 2),
+        "vibratoDetectionRate": f"{n_positive}/{n_eligible} (von {n_total} insgesamt)",
+        "vibratoSpansCents": [round(float(s.get("vibratoSpanCents", 0)), 1) for s in valid],
+        "amHz":              round(float(np.median([s["amHz"]      for s in valid])), 2),
+        "amDepth":           round(float(np.median([s["amDepth"]   for s in valid])), 3),
+        "attackMs":          round(float(np.median([s["attackMs"]  for s in valid])), 1),
     }
 
 
@@ -275,7 +311,7 @@ def main():
                 "_version":     1,
                 "_source":      "TinySOL (IRCAM, CC-BY-4.0)",
                 "_generatedAt": datetime.now(timezone.utc).isoformat(),
-                "_notes":       "Pro Instrument 3 Samples Dynamik mf Technik ord. Median ueber Samples; partials Mittel.",
+                "_notes":       "Pro Instrument 6 Samples Dynamik mf Technik ord, gleichmaessig ueber Pitch-Range. Vibrato: anteilsbasierte Aggregation; partials Mittel.",
                 "profiles":     profiles,
             },
             f,
