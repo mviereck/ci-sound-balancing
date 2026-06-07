@@ -318,9 +318,9 @@ Slider-Wert wird invertiert.
     sammelt sich eine Messwert-Historie (`rounds[]`) über alle Runden;
     das Aggregat daraus (Median bei ≥ 3 Werten, Mittelwert bei 2, Einzelwert
     bei 1) wird als `.cent`-Wert gespeichert und im Ergebnis-Diagramm
-    angezeigt. Unter dem Slider erscheint ab dem ersten gespeicherten Wert
-    ein farbiges Dreieck (Aggregat/Median) sowie ab zwei Werten ein blauer
-    Balken (Min..Max-Bereich aller Runden). Fortschrittsanzeige:
+    angezeigt. Über dem Slider erscheint ab dem ersten gespeicherten Wert
+    ein farbiges Dreieck (Aggregat/Median) mit Cent-Label darüber sowie ab
+    zwei Werten ein blauer Balken (Min..Max-Bereich aller Runden). Fortschrittsanzeige:
     „Runde R · Elektrode C von T". Zustand läuft parallel zu adaptiven
     Daten — das Slider-Round-Verfahren ist im Dropdown nie gesperrt.
     Lösch-Button (`fmrClearSliderBtn`) löscht `sliderEstimates` und

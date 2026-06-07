@@ -16,24 +16,33 @@ function fmUpdateSliderDisplay() {
     const rightBase = withSide('right', function() { return effFreq(fmCurrentEl); });
     const playL = leftBase  * Math.pow(2, -fmCentOffset / 2 / 1200);
     const playR = rightBase * Math.pow(2, +fmCentOffset / 2 / 1200);
-    if (slRefs && slRefs.sliderValue) {
-      slRefs.sliderValue.textContent = centStr + " " + centUnit
-        + " (L: " + playL.toFixed(0) + " Hz / R: " + playR.toFixed(0) + " Hz)";
+    if (slRefs && slRefs.slider) {
+      testUI.slider.setValueDisplay(
+        slRefs.slider,
+        centStr + " " + centUnit
+          + " (L: " + playL.toFixed(0) + " Hz / R: " + playR.toFixed(0) + " Hz)"
+      );
     }
     return;
   }
   const varHz = fmVarHz(fmCurrentEl);
   const refHz = fmFreqFromCents(varHz, fmCentOffset);
   const hzStr = refHz.toFixed(2);
-  if (slRefs && slRefs.sliderValue) {
-    slRefs.sliderValue.textContent = centStr + " " + centUnit + " (" + hzStr + " Hz)";
+  if (slRefs && slRefs.slider) {
+    testUI.slider.setValueDisplay(
+      slRefs.slider,
+      centStr + " " + centUnit + " (" + hzStr + " Hz)"
+    );
   }
   const refSideLabel = fmRefSide === "left" ? t("sideLeft") : t("sideRight");
   const refText = refSideLabel + ": " + hzStr + " Hz, " + centStr + " " + centUnit;
   const pi = _fmSliderPI();
   if (pi) {
-    if (fmRefSide === "left") pi.left.textContent = refText;
-    else                      pi.right.textContent = refText;
+    if (fmRefSide === "left") {
+      testUI.pairIndicator.setLabels(pi, { leftText: refText });
+    } else {
+      testUI.pairIndicator.setLabels(pi, { rightText: refText });
+    }
   }
 }
 
@@ -47,8 +56,10 @@ function fmShowElectrode() {
     if (pi) {
       const leftLabel  = withSide('left',  function() { return dENPrefix() + dEN(fmCurrentEl); });
       const rightLabel = withSide('right', function() { return dENPrefix() + dEN(fmCurrentEl); });
-      pi.left.textContent  = leftLabel  + ", " + leftHz.toFixed(2)  + " Hz (" + t("sideLeft")  + ")";
-      pi.right.textContent = rightLabel + ", " + rightHz.toFixed(2) + " Hz (" + t("sideRight") + ")";
+      testUI.pairIndicator.setLabels(pi, {
+        leftText:  leftLabel  + ", " + leftHz.toFixed(2)  + " Hz (" + t("sideLeft")  + ")",
+        rightText: rightLabel + ", " + rightHz.toFixed(2) + " Hz (" + t("sideRight") + ")"
+      });
     }
   } else {
     const varHz = fmVarHz(fmCurrentEl);
@@ -56,12 +67,18 @@ function fmShowElectrode() {
     const varText = withSide(fmVarSide, () => dENPrefix()) + fmDEN(fmCurrentEl) + ", " +
       varHz.toFixed(2) + " Hz (" + varSideLabel + ")";
     if (pi) {
-      if (fmVarSide === "left") pi.left.textContent = varText;
-      else                      pi.right.textContent = varText;
+      if (fmVarSide === "left") {
+        testUI.pairIndicator.setLabels(pi, { leftText: varText });
+      } else {
+        testUI.pairIndicator.setLabels(pi, { rightText: varText });
+      }
     }
   }
   if (slRefs && slRefs.slider) {
-    testUI.slider.setValue(slRefs.slider, fmCentOffset);
+    // BA 221: Slider-Range so erweitern, dass Marker und Min/Max des
+    // Range-Hints reinpassen. Sonst blendet setRangeHint sie aus.
+    var _markerAbs = _fmSliderMarkerMaxAbs(fmCurrentEl);
+    testUI.slider.setValue(slRefs.slider, fmCentOffset, { minAbs: _markerAbs });
   }
   fmUpdateSliderDisplay();
   _fmUpdateSliderRangeMarker();
@@ -70,46 +87,52 @@ function fmShowElectrode() {
   if (undoBtn) undoBtn.disabled = fmSeqIdx === 0;
 }
 
-// BA 206: Balken (Min..Max der bisherigen Werte) + Dreieck (Median/Mean/Single)
-// unter dem Slider. Sichtbar ab dem ersten gespeicherten Wert; Balken erst ab 2.
+// BA 221: Maximaler Absolutbetrag aus bisherigen Slider-Runden fuer
+// diese Elektrode — fuer minAbs in testUI.slider.setValue.
+// Liefert 0, wenn keine Daten oder keine endlichen Werte vorliegen.
+function _fmSliderMarkerMaxAbs(elIdx) {
+  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
+    ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
+  if (!store) return 0;
+  const e = store[String(elIdx)];
+  const rounds = (e && Array.isArray(e.rounds)) ? e.rounds : null;
+  if (!rounds || rounds.length === 0) return 0;
+  const agg = _fmAggregateCent(rounds);
+  const range = _fmRangeCent(rounds);
+  let m = 0;
+  if (agg != null && isFinite(agg)) m = Math.max(m, Math.abs(agg));
+  if (range) {
+    if (isFinite(range.min)) m = Math.max(m, Math.abs(range.min));
+    if (isFinite(range.max)) m = Math.max(m, Math.abs(range.max));
+  }
+  return m;
+}
+
+// BA 206/221: Min/Max-Band + Median-Dreieck unter dem Slider.
+// Sichtbar ab dem ersten gespeicherten Wert; Band erst ab 2 unterschiedlichen Werten.
+// Daten werden an testUI.slider.setRangeHint uebergeben — dort steckt die DOM-Logik.
 function _fmUpdateSliderRangeMarker() {
   if (!fmEls || fmCurrentEl === null) return;
   const slRefs = fmEls.verfahren && fmEls.verfahren.slider;
-  if (!slRefs) return;
-  const hint = slRefs.rangeHint, band = slRefs.rangeHintBand,
-        mark = slRefs.rangeHintMark, label = slRefs.rangeHintLabel;
-  if (!hint || !band || !mark || !label) return;
+  if (!slRefs || !slRefs.slider) return;
 
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   const e = store ? store[String(fmCurrentEl)] : null;
   const rounds = (e && Array.isArray(e.rounds)) ? e.rounds : null;
   const agg = _fmAggregateCent(rounds);
-  if (agg == null) { hint.style.display = "none"; return; }
-
-  const slider = slRefs.slider;
-  if (!slider) { hint.style.display = "none"; return; }
-  const minV = parseFloat(slider.min), maxV = parseFloat(slider.max);
-  if (!isFinite(minV) || !isFinite(maxV) || maxV <= minV) { hint.style.display = "none"; return; }
-  const span = maxV - minV;
-
-  if (agg < minV || agg > maxV) { hint.style.display = "none"; return; }
-  hint.style.display = "";
-  const markPct = ((agg - minV) / span) * 100;
-  mark.style.left  = markPct + "%";
-  label.style.left = markPct + "%";
-  label.textContent = (agg >= 0 ? "+" : "") + (Math.round(agg * 10) / 10) + " ct";
-
-  const range = _fmRangeCent(rounds);
-  if (!range || range.min === range.max) {
-    band.style.display = "none";
+  if (agg == null) {
+    testUI.slider.setRangeHint(slRefs.slider, null);
     return;
   }
-  band.style.display = "";
-  const bandLeft  = Math.max(minV, range.min);
-  const bandRight = Math.min(maxV, range.max);
-  band.style.left  = (((bandLeft  - minV) / span) * 100) + "%";
-  band.style.width = (((bandRight - bandLeft) / span) * 100) + "%";
+  const range = _fmRangeCent(rounds);
+  const labelText = (agg >= 0 ? "+" : "") + (Math.round(agg * 10) / 10) + " ct";
+  testUI.slider.setRangeHint(slRefs.slider, {
+    marker: agg,
+    label:  labelText,
+    min:    (range && range.min !== range.max) ? range.min : null,
+    max:    (range && range.min !== range.max) ? range.max : null
+  });
 }
 
 // --- Testablauf ---

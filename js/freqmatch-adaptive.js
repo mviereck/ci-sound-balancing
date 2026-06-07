@@ -272,8 +272,10 @@ function fmNextAdaptiveTrial() {
 
   const _api = _fmAdaptPI();
   if (_api) {
-    _api.left.textContent  = (typeof t === 'function' && t('fmTone1')) || 'Ton 1';
-    _api.right.textContent = (typeof t === 'function' && t('fmTone2')) || 'Ton 2';
+    testUI.pairIndicator.setLabels(_api, {
+      leftText:  (typeof t === 'function' && t('fmTone1')) || 'Ton 1',
+      rightText: (typeof t === 'function' && t('fmTone2')) || 'Ton 2'
+    });
   }
 
   fmUpdateAdaptiveProgress();

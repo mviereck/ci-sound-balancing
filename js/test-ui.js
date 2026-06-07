@@ -2011,9 +2011,20 @@ var testUI = {
      * slRef: refs.slider aus _buildTestPanelNew
      * value: neuer numerischer Wert
      */
-    setValue: function(slRef, value) {
+    /**
+     * Slider-Wert setzen und Range auf das fuer Wert und ggf. opts.minAbs
+     * noetige Minimum kalibrieren. Expandiert den Bereich, bis
+     * max(|value|, opts.minAbs|0) hineinpasst, hoechstens bis maxRange.
+     *
+     * slRef: refs.slider aus _buildTestPanelNew
+     * value: neuer numerischer Wert
+     * opts:  optional { minAbs: number } — Mindest-Absolutbereich
+     *        (z.B. Marker-Position aus setRangeHint).
+     */
+    setValue: function(slRef, value, opts) {
       if (!slRef || !slRef.input || !slRef.initialRange) return;
-      var absVal = Math.abs(value);
+      var minAbs = (opts && isFinite(opts.minAbs)) ? Math.abs(opts.minAbs) : 0;
+      var absVal = Math.max(Math.abs(value), minAbs);
       var needed = slRef.initialRange;
       var stepIdx = 0;
       while (absVal > needed && needed < slRef.maxRange) {

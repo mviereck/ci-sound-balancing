@@ -1386,7 +1386,7 @@ select:disabled {
 }
 .fm-range-hint-label {
   position: absolute;
-  top: 12px;
+  top: -14px;
   transform: translateX(-50%);
   font-size: 11px;
   color: rgba(60, 130, 220, 0.95);
