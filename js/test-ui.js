@@ -1303,6 +1303,9 @@ function _buildTestPanelNew(parentEl, cfg) {
       svEl.textContent = (svUnit === 'cent') ? '0 Cent' : (svUnit === 'ms') ? '0 ms' : '0.0 dB';
       vWrap.appendChild(svEl);
       refs.sliderValue = svEl;
+      // BA 219: Verlinkung in refs.slider, damit testUI.slider.setValueDisplay(slRef, ...)
+      // ueber die Slider-Refs greifen kann.
+      if (refs.slider) refs.slider.valueDisplay = svEl;
       // Auto-Update nur wenn kein onSlide-Hook vorhanden (der Hook setzt detailliertere Anzeige)
       if (refs.slider && !(vCfg.hooks && vCfg.hooks.onSlide)) {
         refs.slider.input.addEventListener('input', function() {
@@ -1484,6 +1487,50 @@ function _buildTestPanelNew(parentEl, cfg) {
   exclCard.append(exclTitle2, exclBody2, exclNote2, exclBtnGroup2);
   exclOverlay.appendChild(exclCard);
 
+  // ===== Prerequisites-Modal (BA 219) =====
+  var prereqOverlay = _mkEl('div', 'modal-overlay prereq-overlay');
+  prereqOverlay.hidden = true;
+  var prereqCard = _mkEl('div', 'card');
+  var prereqTitle = _mkEl('h3');
+  var prereqBody  = _mkEl('p');
+  prereqBody.style.whiteSpace = 'pre-line';
+  var prereqBtnGroup = _mkEl('div', 'btn-group');
+  prereqCard.append(prereqTitle, prereqBody, prereqBtnGroup);
+  prereqOverlay.appendChild(prereqCard);
+
+  // Hilfsfunktion: Dialog mit gegebenem prereq-Eintrag oeffnen.
+  // onContinue() wird aufgerufen, wenn der User 'continue' waehlt.
+  function _openPrereqDialog(prereq, onContinue) {
+    prereqTitle.textContent = '';
+    if (prereq.titleKey) {
+      _tEl(prereqTitle, prereq.titleKey);
+    }
+    prereqBody.textContent = '';
+    if (prereq.messageKey) {
+      _tEl(prereqBody, prereq.messageKey);
+    }
+    prereqBtnGroup.innerHTML = '';
+    (prereq.actions || []).forEach(function(act) {
+      var btn = _mkEl('button', 'btn');
+      if (act.kind === 'abort')    btn.classList.add('btn-secondary');
+      if (act.kind === 'continue') btn.classList.add('btn-primary');
+      if (act.kind === 'custom')   btn.classList.add('btn-primary');
+      if (act.labelKey) _tEl(btn, act.labelKey);
+      btn.addEventListener('click', function() {
+        prereqOverlay.hidden = true;
+        if (act.kind === 'custom' && typeof act.run === 'function') {
+          act.run();
+        } else if (act.kind === 'continue') {
+          onContinue();
+        }
+        // abort: nichts.
+      });
+      prereqBtnGroup.appendChild(btn);
+    });
+    _applyLangSubtree(prereqOverlay);
+    prereqOverlay.hidden = false;
+  }
+
   // ===== Alles zusammenbauen =====
   parentEl.append(explainBox, headerBox, testBox);
   cfg.verfahren.forEach(function(v) {
@@ -1491,6 +1538,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (vr && vr.background && vr.background.box) parentEl.appendChild(vr.background.box);
   });
   parentEl.appendChild(exclOverlay);
+  parentEl.appendChild(prereqOverlay); // BA 219
 
   // i18n auf alle neuen Elemente anwenden
   _applyLangSubtree(parentEl);
@@ -1551,12 +1599,9 @@ function _buildTestPanelNew(parentEl, cfg) {
     });
   }
 
-  // Start-Button
-  startBtn.addEventListener('click', function() {
-    if (_testRunning) return;
-    var vCfg2 = _getActiveVerfahrenCfg();
-    if (!vCfg2) return;
-
+  // BA 219: Eigentliche Start-Sequenz aus dem Handler herausgezogen,
+  // damit prerequisites davorgeschaltet werden koennen.
+  function _doStartAfterPrereqs(vCfg2) {
     _testRunning = true;
     document.body.classList.add('test-running'); // BA 183
     // Tab-Sperre
@@ -1580,6 +1625,32 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (vCfg2.hooks && vCfg2.hooks.onStart) {
       vCfg2.hooks.onStart();
     }
+  }
+
+  // Start-Button
+  startBtn.addEventListener('click', function() {
+    if (_testRunning) return;
+    var vCfg2 = _getActiveVerfahrenCfg();
+    if (!vCfg2) return;
+
+    // BA 219: prerequisites vor onStart durchlaufen.
+    // Erste verletzte Voraussetzung oeffnet den Dialog; alle weiteren
+    // in dieser Runde werden ignoriert. Bei 'continue' laeuft die
+    // Start-Sequenz; bei 'abort' oder 'custom' bleibt _testRunning false.
+    var prereqs = vCfg2.prerequisites || [];
+    for (var pi = 0; pi < prereqs.length; pi++) {
+      var pr = prereqs[pi];
+      var ok = true;
+      try { ok = pr.checkFn ? !!pr.checkFn() : true; }
+      catch (e) { ok = true; }
+      if (!ok) {
+        _openPrereqDialog(pr, function() {
+          _doStartAfterPrereqs(vCfg2);
+        });
+        return;
+      }
+    }
+    _doStartAfterPrereqs(vCfg2);
   });
 
   // Stop-Button
@@ -1935,6 +2006,79 @@ var testUI = {
       slRef.input.max = String(needed);
       slRef.input.value = String(Math.max(-needed, Math.min(needed, value)));
       slRef.input.style.setProperty('--sl-range-step', stepIdx);
+    },
+
+    /**
+     * BA 219: Anzeigetext fuer den Slider-Wert setzen.
+     * Inhalt wird vom Verfahren bestimmt (z.B. "+50 Cent (1234.56 Hz)",
+     * "-3.2 dB", "200 ms"). No-op wenn sliderValue nicht im Body konfiguriert.
+     *
+     * slRef: refs.slider
+     * text:  beliebiger String
+     */
+    setValueDisplay: function(slRef, text) {
+      if (!slRef || !slRef.valueDisplay) return;
+      slRef.valueDisplay.textContent = text;
+    },
+
+    /**
+     * BA 219: Range-Hint unter dem Slider (Min/Max-Band + Marker-Dreieck).
+     * Generischer Ersatz fuer die alte _fmUpdateSliderRangeMarker-Logik
+     * (freqmatch) und perspektivisch fuer ls-hint (lr-balance, alte API).
+     * No-op wenn rangeHint nicht konfiguriert.
+     *
+     * slRef: refs.slider
+     * opts:  null oder {} blendet aus.
+     *        Sonst:
+     *          marker: Zahl im Slider-Bereich (Position des Dreiecks). Pflicht.
+     *          label:  String fuer das Dreieck-Label. Optional, default leer.
+     *          min:    Zahl, Untergrenze des Bandes. Optional.
+     *          max:    Zahl, Obergrenze des Bandes. Optional.
+     *                  Band wird nur gezeigt, wenn min und max gesetzt und min < max.
+     */
+    setRangeHint: function(slRef, opts) {
+      if (!slRef || !slRef.rangeHint) return;
+      var hint = slRef.rangeHint;
+      var band = slRef.rangeHintBand;
+      var mark = slRef.rangeHintMark;
+      var label = slRef.rangeHintLabel;
+      // Aus / leer => verstecken.
+      if (!opts || opts.marker == null || !isFinite(opts.marker)) {
+        hint.style.display = 'none';
+        return;
+      }
+      var input = slRef.input;
+      if (!input) { hint.style.display = 'none'; return; }
+      var minV = parseFloat(input.min), maxV = parseFloat(input.max);
+      if (!isFinite(minV) || !isFinite(maxV) || maxV <= minV) {
+        hint.style.display = 'none'; return;
+      }
+      var marker = opts.marker;
+      if (marker < minV || marker > maxV) {
+        hint.style.display = 'none'; return;
+      }
+      hint.style.display = '';
+      var span = maxV - minV;
+      var markPct = ((marker - minV) / span) * 100;
+      if (mark)  mark.style.left  = markPct + '%';
+      if (label) {
+        label.style.left = markPct + '%';
+        label.textContent = opts.label || '';
+      }
+      // Band nur wenn min/max sinnvoll.
+      if (band) {
+        if (opts.min == null || opts.max == null
+            || !isFinite(opts.min) || !isFinite(opts.max)
+            || opts.min === opts.max) {
+          band.style.display = 'none';
+        } else {
+          band.style.display = '';
+          var bandLeft  = Math.max(minV, Math.min(opts.min, opts.max));
+          var bandRight = Math.min(maxV, Math.max(opts.min, opts.max));
+          band.style.left  = (((bandLeft  - minV) / span) * 100) + '%';
+          band.style.width = (((bandRight - bandLeft) / span) * 100) + '%';
+        }
+      }
     }
   },
 
@@ -1954,6 +2098,28 @@ var testUI = {
       if (sel.value === vId) return;
       sel.value = vId;
       sel.dispatchEvent(new Event('change'));
+    }
+  },
+
+  // ---- explain (BA 219) ----
+  explain: {
+    /**
+     * Sichtbarkeit eines Erklaer-Absatzes umschalten.
+     * Sucht den Absatz mit der gegebenen id im Erklaerblock und setzt
+     * sein hidden-Attribut.
+     *
+     * panelEls: Rueckgabewert von buildTestPanel (panelEls.explainBox).
+     * id:       String, entspricht der id, die in
+     *           cfg.explain.paragraphs[].id vergeben wurde.
+     * visible:  bool. true => sichtbar, false => versteckt.
+     *
+     * No-op, wenn der Absatz nicht existiert.
+     */
+    setVisible: function(panelEls, id, visible) {
+      if (!panelEls || !panelEls.explainBox || !id) return;
+      var el = panelEls.explainBox.querySelector('#' + CSS.escape(id));
+      if (!el) return;
+      el.hidden = !visible;
     }
   }
 
