@@ -712,3 +712,194 @@ Stimulus-Problem gesucht (siehe CI-Vocoder-Idee, reichere Pitch-
 Stimuli aus Sprache/Musik). Wenn am Ende klar ist, welche
 Stimulus-Familie verwendet werden soll, ist der Stempel sinnvoll,
 solange noch parallel mehrere Familien getestet werden.
+
+
+## Frequenzabgleich — Keyboard-Verfahren als dritter Mess-Modus (smplr)
+
+**Aufgenommen am**: 2026-06-07
+**Status**: Konzept besprochen, nicht gebaut. Drittes Mess-Verfahren
+im Sub-Tab Frequenzabgleich, parallel zu Slider Round (`freqmatch-
+slider.js`) und Adaptiv 2I-2AFC (`freqmatch-staircase.js`). Offene
+Detail-Punkte siehe unten.
+
+### Motivation
+
+Bekannter Zielkonflikt im Frequenzabgleich: reine Sinustöne sind
+methodisch sauber, werden aber vom CI mit starken Artefakten verzerrt.
+Musikalisch reiche Töne (Komplextöne, Instrumenten-Profile) klingen
+am CI klarer, aktivieren aber durch Obertöne benachbarte Elektroden
+mit (Spillover). Der aktuelle Default `pulsedComplex` ist ein
+Kompromiß. Idee dieses Verfahrens: dem User über ein vertrautes
+Klavier-Interface eine intuitive Methode geben, sich an die
+Match-Frequenz heranzutasten, und dabei direkt ein **Konfidenz-
+intervall** (Unter- und Obergrenze) statt nur eines Punktschätzers
+zu liefern.
+
+### Verfahrensablauf pro Elektrode
+
+1. Tastatur im Klavier-Look (abstrakt umdefiniert, gleichmäßige
+   schwarze Tasten überall — auch zwischen B/C und E/F; keine
+   musikalische Notenzuordnung). Drei Marken zugleich auf den Tasten
+   sichtbar: **Referenzton** (= Soll-Frequenz der Elektrode),
+   **Untergrenze** (sobald gesetzt), **Obergrenze** (sobald gesetzt).
+2. Drei Buttons im Test-Block:
+   - **„Spielen"** (Tastenkürzel `Space`): spielt den festen
+     Referenzton auf der CI-Seite.
+   - **„Untergrenze hier"** (Tastenkürzel `U`): setzt die aktuell
+     fokussierte Taste als Untergrenze.
+   - **„Obergrenze hier"** (Tastenkürzel `O`): setzt die aktuell
+     fokussierte Taste als Obergrenze.
+3. Tastatur-Bedienung: Mausklick spielt die getroffene Taste als
+   festen Burst (~500 ms) auf der **Referenzseite** und setzt den
+   Fokus dorthin. Pfeiltasten `←`/`→` verschieben den Fokus eine
+   Taste weiter und spielen sie ebenfalls als Burst. Fokus wird visuell
+   hervorgehoben.
+4. Drei Auflösungsstufen, per Buttons **„Feiner" / „Gröber"** pro
+   Elektrode neu setzbar. Gesetzte Grenzen bleiben über
+   Stufenwechsel hinweg erhalten (jede gröbere Position ist auch in
+   der feineren Stufe darstellbar):
+   - Stufe 1: weiße Tasten = Ganztöne (200 ct), schwarze = Halbtöne (100 ct)
+   - Stufe 2: weiße = Halbtöne (100 ct), schwarze = Vierteltöne (50 ct)
+   - Stufe 3: weiße = Vierteltöne (50 ct), schwarze = Achteltöne (25 ct)
+5. Beendigung pro Elektrode entweder über **„Bestätigen"** (nur
+   aktiv, wenn beide Grenzen gesetzt) oder **„Elektrode nicht
+   hörbar"** → Status `not-perceivable`.
+6. Elektroden-Reihenfolge: zufällig (wie Slider Round).
+7. Pause/Resume: wie bei den anderen Verfahren, bisher gesetzte
+   Grenzen persistieren.
+
+### Tastatur-Spanne
+
+Kompakt-Layout, etwa 2 Oktaven sichtbar, per Pfeil-Buttons oder
+Drag horizontal verschiebbar. Referenzton-Taste beim Öffnen einer
+neuen Elektrode in der Mitte zentriert.
+
+### Stimulus und smplr-Integration
+
+[smplr](https://github.com/danigb/smplr) wird als WebAudio-Sample-
+Player integriert (analog `rubberband-loader.js` über `vendors/` und
+einen eigenen Loader). Sample-Banken liegen auf dem Projekt-eigenen
+Webspace (nicht GitHub Pages des smplr-Autors).
+
+Die existierende Tonart-Auswahl `toneType_freqmatch` wird um
+smplr-Instrumente erweitert (Mellotron, SplendidGrandPiano,
+Soundfont-GM oder andere). Damit sind smplr-Klänge auch für Slider/
+Adaptiv verfügbar. Im Keyboard-Verfahren spielen Referenzton (CI-
+Seite) und Tastenton (Referenzseite) denselben Klang — Timbre-
+Gleichheit zwischen beiden Ohren.
+
+**Velocity** einmalig im Voreinstellungs-Block gewählt, während
+der Messung fest (analog Verfahren-Einstellungen Tondauer/Pause).
+**Detune** nicht angeboten — die Tasten sind die Quanten.
+
+### Ergebnis-Speicherung
+
+Pro Elektrode in `fRes[i]` ein neuer Eintrag-Typ:
+
+```
+{
+  method: 'keyboard',
+  centLower:  centOffset,   // Untergrenze relativ zu varFreq
+  centUpper:  centOffset,   // Obergrenze
+  cent:       (centLower + centUpper) / 2,   // Mittelwert für Korrekturkurve
+  resolution: 1 | 2 | 3,                      // verwendete Endstufe
+  status:     'keyboard-match' | 'not-perceivable' | 'aborted',
+  varSide, refSide, varFreq, refFreq, timestamp,
+  // Übergangsfeld für Chart-Aufrufer:
+  fmResiduum: (centUpper - centLower) / 2     // halbe Spanne als Residuum
+}
+```
+
+Im Frequenzabgleich-Diagramm: Soll-Punkt im Mittelwert, das Intervall
+`[centLower, centUpper]` als gestrichelter Balken (optisch konsistent
+mit dem Adaptiv-Residuum-Band). In der Ergebnis-Tabelle eigene
+Badge-Variante (z. B. „🎹 Keyboard-Match").
+
+### Verhältnis zu Slider Round und Adaptiv
+
+Methodisch sortiert: Keyboard ist eine Variante von Method of
+Adjustment, methodisch zwischen Slider Round (kontinuierlicher
+Cent-Slider) und Adaptiv (2I-2AFC) einzuordnen. Vorteil gegenüber
+Slider Round: direkt gemessenes Konfidenzintervall ohne mehrere
+Läufe. Nachteil: Auflösung selbst in feinster Stufe (25 ct) gröber
+als Slider (~5 ct) und Adaptiv (3 ct).
+
+Pro Elektrode gilt: nur ein Verfahren liefert den `fRes`-Eintrag.
+Die drei Verfahren sind über den Verfahren-Dropdown austauschbar;
+beim Wechsel werden bestehende Ergebnisse pro Elektrode nicht
+automatisch verworfen, aber der neue Verfahren-Eintrag überschreibt
+den alten beim Bestätigen.
+
+### Offene Punkte
+
+- **Symmetrik-Modus (beidseitig CI)**: ungeklärt. Grundidee des
+  symmetrischen Modus generell ist es, die Streuung auf Nachbar-
+  elektroden zu halbieren, indem der Cent-Offset paarweise zur Hälfte
+  auf jede Seite verteilt wird. Im Adaptiv geschieht das implizit pro
+  Trial. Im Keyboard kollidiert das mit der Bedien-Logik „Ton spielt
+  nur bei Anschlag" — eine automatische gegenläufige Bewegung beider
+  Seiten ist nur sinnvoll, wenn pro Anschlag beide Seiten zugleich
+  klingen, das aber widerspricht der Tasten-pro-Seite-Idee. Idee mit
+  Pfeiltasten-Steuerung „Tasten aufeinander zubewegen" wirft das
+  gleiche Problem auf.
+  **Vorläufige Lösung für den ersten Wurf**: im 2-CI-Fall fester Wert
+  für eine Seite (Referenz wie im var/ref-Schema, keine echte
+  Symmetrik). Damit ist das Verfahren bedienbar; die Streuungs-
+  Halbierung des Symmetrik-Modus entfällt im Keyboard. Echte
+  Symmetrik-Variante bleibt offene Frage für spätere Iteration.
+- **Sample-Loading-Strategie**: Bundle-Größe der smplr-Sample-Banken
+  pro Instrument ist nicht trivial (vermutlich mehrere MB je
+  Instrument). On-demand-Loading verzögert den ersten Tasten-
+  Anschlag. Vor-Caching beim Tab-Öffnen oder beim Verfahren-Wechsel
+  klären. Server-Speicher-Bedarf abschätzen.
+- **Stimulus-Range**: Mellotron M400 deckt nur C2–F5 (~65–700 Hz)
+  ab, MED-EL-Elektroden reichen bis ~8500 Hz. Smplr transponiert per
+  Pitch-Shift, aber bei großen Verschiebungen wird der Klang
+  artefaktreich. Für höhere Elektroden ggf. SplendidGrandPiano
+  (bis 4 kHz) oder Soundfont-GM bevorzugen. Klärung: pro Elektrode
+  automatisch das passende Instrument wählen, oder User entscheidet?
+- **Initial-Fokus**: Beim Öffnen einer Elektrode steht der Fokus
+  vermutlich auf der Referenzton-Taste — klären.
+- **Tasten-Markierungen-Farben**: Referenzton, Untergrenze, Obergrenze
+  brauchen jeweils eindeutige Farben (z. B. blau, hellrot, hellblau).
+  Konkrete Wahl folgt in der BA.
+- **Sitzungsdauer**: 12 Elektroden × 2 Annäherungen × ggf. 3 Stufen
+  → realistisch 10–20 min pro Seite. UX-Tests klären, ob das
+  praktikabel ist.
+
+### Risiken und Trade-offs
+
+- **Methodisch**: Method of Adjustment hat bekannte Bias-Quellen
+  (Range/Startpunkt). Doppel-Annäherung von unten und oben ist
+  klassischer Anti-Bias-Schritt, ersetzt aber kein randomisiertes
+  2I-2AFC. Pieper et al. 2022 würde das Verfahren als gleichwertig
+  zu Slider Round, klar schwächer als Adaptiv einstufen. Es ist also
+  **methodisch keine Verbesserung gegenüber Adaptiv**, sondern eine
+  intuitivere Alternative für User, denen das adaptive
+  höher/tiefer-Schema nicht liegt.
+- **Auflösung**: Feinste Stufe 25 ct ist für sehr genaue Hörer (z. B.
+  Martin: 50 % < 1 dB beim Lautstärketest, vermutlich vergleichbar
+  bei Pitch) gerade an der Wahrnehmungsgrenze. Für Anfänger sehr
+  brauchbar.
+- **smplr-Bundle**: externe Abhängigkeit, eigene Build- und Lade-
+  Logik nötig.
+
+### Vorgehen zur Umsetzung
+
+In mehreren kleinen Bauanleitungen (Reihenfolge offen, Beispielzug):
+
+1. smplr-Loader und Webspace-Sample-Bezug (analog rubberband-loader).
+2. Tonart-Erweiterung: Mellotron/SplendidGrandPiano in
+   `toneType_freqmatch` integrieren (auch für Slider/Adaptiv
+   verfügbar).
+3. Keyboard-Verfahren minimal: Tastatur-Komponente,
+   Spiel-/Grenz-Buttons, Tastenkürzel, eine Auflösungsstufe.
+4. Auflösungsstufen 2 und 3.
+5. Ergebnis-Speicherung in `fRes` (`method: 'keyboard'`), Chart-
+   Darstellung mit Intervall-Balken.
+6. Spätere BA: Symmetrik-Modus für beidseitig CI, sofern sich das
+   Verfahren bewährt.
+
+Vor BA-Start: dieser Eintrag aus IDEEN.md in `docs/spec/02-messung.md`
+(Abschnitt Sub-Tab 3) und ein neues Kapitel `docs/spec/02c-freqmatch-
+keyboard.md` übernehmen.

@@ -1,0 +1,80 @@
+{
+  "name": "soundfont2",
+  "version": "0.5.0",
+  "description": "A SoundFont2 parser for Node.js and web browsers",
+  "main": "lib/SoundFont2.node.js",
+  "module": "lib/SoundFont2.js",
+  "typings": "typings/index.d.ts",
+  "keywords": [
+    "soundfont2",
+    "soundfont",
+    "sf2",
+    "midi",
+    "synthesizer"
+  ],
+  "author": "Maarten Zuidhoorn <maarten@zuidhoorn.com>",
+  "repository": "https://github.com/Mrtenz/soundfont2.git",
+  "license": "MIT",
+  "scripts": {
+    "tslint": "tslint --project .",
+    "test": "jest",
+    "prettier:diff": "prettier --write --config ./.prettierrc --list-different 'src/**/*.ts'",
+    "clean": "rimraf ./lib ./typings",
+    "build": "yarn run build:declarations && webpack",
+    "build:declarations": "tsc --project tsconfig.json --declaration --declarationDir typings --emitDeclarationOnly",
+    "prepublishOnly": "yarn run clean && cross-env NODE_ENV=development yarn run build",
+    "docs:serve": "gitbook serve",
+    "docs:build": "gitbook build",
+    "docs:deploy": "yarn run docs:build && gh-pages -d _book"
+  },
+  "files": [
+    "lib",
+    "src",
+    "typings"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.18",
+    "@types/webpack": "^4.4.22",
+    "@types/webpack-merge": "^4.1.3",
+    "@types/webpack-node-externals": "^1.6.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.4.1",
+    "cross-env": "^5.2.0",
+    "gh-pages": "^2.0.1",
+    "gitbook-cli": "^2.3.2",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-microsoft-contrib": "^6.0.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.47.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write --config ./.prettierrc --config-precedence file-override",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "yarn run tslint && yarn run test && lint-staged"
+    }
+  },
+  "packageManager": "yarn@1.22.22"
+}

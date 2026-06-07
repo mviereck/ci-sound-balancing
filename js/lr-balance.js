@@ -735,6 +735,7 @@ document.addEventListener("DOMContentLoaded", function() {
     explain: {
       titleKey: 'lrTitle',
       paragraphs: [
+        { key: 'lrMaturityHint', kind: 'info' },
         { key: 'lrDesc', kind: 'plain' },
         { key: 'lrPrereqHint', kind: 'plain' }
       ]

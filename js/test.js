@@ -1361,6 +1361,7 @@ document.addEventListener("DOMContentLoaded", function() {
     explain: {
       titleKey: 'testExplainTitle',
       paragraphs: [
+        { key: 'testMaturityHint', kind: 'ok' },
         { key: 'testIntro', kind: 'plain' },
         { key: 'testExplainRecommend' },
         { key: 'testExplainVarious', kind: 'plain' }
