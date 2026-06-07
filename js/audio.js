@@ -633,22 +633,16 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
   "wobbleSweep"];
 
-const _SMPLR_SF2_VALID_KEYS = ["galaxy", "gigaMidi", "supersaw"];
-
 function isValidToneType(tt) {
   if (typeof tt !== "string" || tt.length === 0) return false;
   if (_BASE_TONE_TYPES.includes(tt)) return true;
   if (tt.startsWith("smplr:mellotron:")) {
     return tt.length > "smplr:mellotron:".length;
   }
-  if (tt.startsWith("smplr:sf2:")) {
-    const key = tt.substring("smplr:sf2:".length);
-    return _SMPLR_SF2_VALID_KEYS.includes(key);
-  }
   return false;
 }
 
-// BA 225: Sampler-Wiedergabe via smplr (Mellotron, Soundfont2).
+// BA 225: Sampler-Wiedergabe via smplr (Mellotron).
 // hz -> naechste MIDI-Note + Cent-Detune
 // vol (0..1) -> instance.output.volume (0..127)
 // pan (-1..+1) -> instance.output.pan vor jedem start()

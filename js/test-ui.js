@@ -2359,15 +2359,6 @@ function _openToneTypeDialog(cfg, onChange) {
       ]
     },
     {
-      headKey: 'toneGroupSf2',
-      hintKey: 'toneGroupSf2Hint',
-      items: [
-        ['smplr:sf2:galaxy',   'toneSmplrGalaxy',   'toneSmplrGalaxyDesc'],
-        ['smplr:sf2:gigaMidi', 'toneSmplrGigaMidi', 'toneSmplrGigaMidiDesc'],
-        ['smplr:sf2:supersaw', 'toneSmplrSupersaw', 'toneSmplrSupersawDesc']
-      ]
-    },
-    {
       headKey: 'toneGroupMellotron',
       hintKey: 'toneGroupMellotronHint',
       items: [
@@ -2458,7 +2449,7 @@ function _openToneTypeDialog(cfg, onChange) {
 
     var list = document.createElement('div');
     list.style.cssText =
-      'display:grid;grid-template-columns:auto 1fr auto;' +
+      'display:grid;grid-template-columns:auto 1fr auto auto;' +
       'gap:4px 10px;align-items:center;';
 
     grp.items.forEach(function(triple) {
@@ -2505,27 +2496,99 @@ function _openToneTypeDialog(cfg, onChange) {
       play.dataset.t = 'tonePopupPlay';
       play.dataset.toneKey = key;
       play.style.cssText = 'min-width:90px;';
+      // BA 226 Fix .3: Sanduhr ist eigenstaendiger Span vor dem Button
+      // (4. Grid-Spalte). visibility:hidden statt display:none, damit der
+      // Grid-Track immer reservierte Breite hat und das Layout sich beim
+      // Ein-/Ausblenden nicht verschiebt (Layout-Chaos in Fix .2).
+      var hgSpan = document.createElement('span');
+      hgSpan.className = 'btn-hourglass';
+      hgSpan.dataset.toneKey = key;
+      hgSpan.style.cssText = 'visibility:hidden;font-size:1.6em;line-height:1;'
+        + 'color:#d8a200;text-align:center;width:1.2em;display:inline-block;';
+      hgSpan.textContent = '⧖';
 
       rb.addEventListener('change', function() {
-        if (rb.checked) selected = key;
+        if (!rb.checked) return;
+        selected = key;
+        // BA 226: Bei smplr-Tonart Lade-Trigger im Hintergrund anstossen,
+        // damit ein spaeterer Vorspiel-Klick weniger oder kein Warten erzeugt.
+        // Vorspiel-Button bleibt klickbar (kein _setPlayButtonsDisabled),
+        // aber die Sanduhr zeigt den Lade-Vorgang an.
+        if (typeof key !== 'string' || key.indexOf('smplr:') !== 0) return;
+        if (typeof window.smplrSamplerIsReady !== 'function' || window.smplrSamplerIsReady(key)) return;
+        if (typeof window.loadSamplerByToken !== 'function') return;
+        var c = (typeof gAC === 'function') ? gAC() : null;
+        if (!c) return;
+        _setHourglassFor(key, true);
+        window.loadSamplerByToken(c, key).then(function () {
+          _setHourglassFor(key, false);
+        }).catch(function () {
+          _setHourglassFor(key, false);
+        });
       });
       play.addEventListener('click', function() {
         if (playing) return;
         _playPreview(key);
       });
 
-      list.append(rb, lblBlock, play);
+      list.append(rb, lblBlock, hgSpan, play);
     });
 
     section.appendChild(list);
     dlg.appendChild(section);
   });
 
+  // BA 226: Sanduhr ein-/ausblenden fuer den Button eines konkreten
+  // toneType (Strings koennen Doppelpunkte und Leerzeichen enthalten,
+  // deshalb ueber alle Buttons iterieren statt CSS-Selector).
+  function _setHourglassFor(toneType, show) {
+    // BA 226 Fix .4: visibility statt display, damit der Grid-Track
+    // konstante Breite behaelt (display:none entfernt das Element
+    // komplett aus dem Layout -> Track-Sizing rechnet neu -> Chaos).
+    var spans = dlg.querySelectorAll('span.btn-hourglass[data-tone-key]');
+    spans.forEach(function (s) {
+      if (s.dataset.toneKey !== toneType) return;
+      s.style.visibility = show ? 'visible' : 'hidden';
+    });
+  }
+
   function _playPreview(toneType) {
     var seq = cfg.getPreviewSequence();
     if (!Array.isArray(seq) || seq.length === 0) return;
     var c = (typeof gAC === 'function') ? gAC() : null;
     if (!c) return;
+
+    // BA 226: Bei smplr-Tonart, die noch nicht geladen ist, erst Sampler
+    // laden (mit Sanduhr-Visualisierung), dann _playPreview rekursiv
+    // erneut aufrufen. Buttons bleiben waehrend des Ladens disabled,
+    // playing-Flag bleibt true, damit kein paralleler Klick durchkommt.
+    if (typeof toneType === 'string'
+        && toneType.indexOf('smplr:') === 0
+        && typeof window.smplrSamplerIsReady === 'function'
+        && !window.smplrSamplerIsReady(toneType)) {
+      if (typeof window.loadSamplerByToken !== 'function') return;
+      playing = true;
+      _setPlayButtonsDisabled(true);
+      _setHourglassFor(toneType, true);
+      window.loadSamplerByToken(c, toneType).then(function () {
+        _setHourglassFor(toneType, false);
+        playing = false;
+        _setPlayButtonsDisabled(false);
+        // Sampler geladen -> Vorspielen jetzt regulaer.
+        // Nur wenn der Sampler nach dem Load tatsaechlich ready ist
+        // (sonst war es ein stiller Lade-Fehler -> keine Endlos-Schleife).
+        if (window.smplrSamplerIsReady(toneType)) {
+          _playPreview(toneType);
+        }
+      }).catch(function () {
+        _setHourglassFor(toneType, false);
+        playing = false;
+        _setPlayButtonsDisabled(false);
+        // Lade-Fehler: keine Wiederholung, keine Tonwiedergabe.
+      });
+      return;
+    }
+
     var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
     playing = true;
     _setPlayButtonsDisabled(true);
