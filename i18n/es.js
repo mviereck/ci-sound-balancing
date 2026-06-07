@@ -1031,6 +1031,4 @@ Object.assign(L.es, {
     toneNoiseDesc:           "Ruido de banda estrecha con ancho fijo.",
     toneNoiseAdaptiveDesc:   "Ruido de banda estrecha con ancho dependiente de la frecuencia.",
     toneIRNDesc:             "Ruido con altura tonal residual audible.",
-    toneVibratoLabel:        "Intensidad del vibrato:",
-    toneVibratoMarker:       "(vibrato)",
 });

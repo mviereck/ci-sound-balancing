@@ -1030,6 +1030,4 @@ Object.assign(L.en, {
     toneNoiseDesc:           "Narrowband noise with fixed bandwidth.",
     toneNoiseAdaptiveDesc:   "Narrowband noise with frequency-dependent bandwidth.",
     toneIRNDesc:             "Noise with audible residual pitch.",
-    toneVibratoLabel:        "Vibrato strength:",
-    toneVibratoMarker:       "(vibrato)",
 });

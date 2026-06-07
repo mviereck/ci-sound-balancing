@@ -1031,6 +1031,4 @@ Object.assign(L.fr, {
     toneNoiseDesc:           "Bruit à bande étroite, largeur fixe.",
     toneNoiseAdaptiveDesc:   "Bruit à bande étroite, largeur dépendante de la fréquence.",
     toneIRNDesc:             "Bruit avec hauteur résiduelle audible.",
-    toneVibratoLabel:        "Force du vibrato :",
-    toneVibratoMarker:       "(vibrato)",
 });

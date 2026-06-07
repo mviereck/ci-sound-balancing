@@ -1091,6 +1091,4 @@ Object.assign(L.de, {
     toneNoiseDesc:           "Schmalbandiges Rauschen mit fester Bandbreite.",
     toneNoiseAdaptiveDesc:   "Schmalbandiges Rauschen mit frequenzabhängiger Bandbreite.",
     toneIRNDesc:             "Rauschen mit hörbarer Resttonhöhe.",
-    toneVibratoLabel:        "Vibrato-Stärke:",
-    toneVibratoMarker:       "(Vibrato)",
 });

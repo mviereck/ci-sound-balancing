@@ -35,17 +35,9 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Dialog (BA 217): Tonarten in vier Gruppen (Sinustöne, Komplextöne,
   Instrumenten-Klänge, Rauschsignale) mit Kurzbeschreibung pro Tonart.
   Jede Gruppe hat eine Überschrift und einen Unter-Hinweis (i18n).
-  Über der Instrumenten-Gruppe: Vibrato-Stärke-Buttons (0 / 25 / 50 /
-  75 / 100 %) — steuern `globalInstrumentVibrato` (Default 100),
-  wirken auf alle richXX-Profile via `_vibScale` in `audio.js`.
-  Instrumente mit Profil-Vibrato (`vibratoCents > 0`) erhalten den
-  Marker „(Vibrato)" kursiv hinter dem Namen. Cancel stellt
-  `globalInstrumentVibrato` auf den Ausgangswert zurück.
-- **Vibrato-Stärke** (`globalInstrumentVibrato`, BA 217) — globale
-  Skalierung des Profil-Vibratos für alle richXX-Tonarten (0 = kein
-  Vibrato, 100 = volles Profil-Vibrato). Default `100`. Persistiert
-  in JSON und localStorage. Kein Einfluss auf `richTone`-Basis oder
-  andere Tonarten.
+  Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
+  TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu
+  100 % auf die Synthese durchgreift; eine UI-Skalierung gibt es nicht.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
 - **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten

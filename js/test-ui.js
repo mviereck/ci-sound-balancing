@@ -2133,7 +2133,6 @@ function _openToneTypeDialog(cfg, onChange) {
     {
       headKey: 'toneGroupRich',
       hintKey: 'toneGroupRichHint',
-      vibratoBlock: true,
       items: [
         ['richAcc',   'toneRichAcc',   null],
         ['richASax',  'toneRichASax',  null],
@@ -2162,21 +2161,9 @@ function _openToneTypeDialog(cfg, onChange) {
     }
   ];
 
-  function _hasProfileVibrato(key) {
-    if (typeof RICHTONE_PROFILES === "undefined") return false;
-    if (!key || key.length <= 4 || !key.startsWith("rich")) return false;
-    var abbr = key.substring(4);
-    var p = RICHTONE_PROFILES[abbr];
-    return !!(p && typeof p.vibratoCents === "number" && p.vibratoCents > 0);
-  }
-
   var initial = cfg.getToneType();
   var selected = initial;
   var playing = false;
-
-  var initialVibrato = (typeof globalInstrumentVibrato === "number")
-    ? globalInstrumentVibrato : 100;
-  var vibratoButtons = [];
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -2221,33 +2208,6 @@ function _openToneTypeDialog(cfg, onChange) {
       'margin:0 0 8px 0;font-size:.85em;color:#666;font-style:italic;';
     section.appendChild(subhint);
 
-    if (grp.vibratoBlock) {
-      var vibRow = document.createElement('div');
-      vibRow.style.cssText =
-        'display:flex;align-items:center;gap:8px;margin:0 0 10px 0;' +
-        'padding:6px 0;';
-      var vibLbl = document.createElement('span');
-      vibLbl.dataset.t = 'toneVibratoLabel';
-      vibLbl.style.cssText = 'font-size:.9em;';
-      vibRow.appendChild(vibLbl);
-
-      [0, 25, 50, 75, 100].forEach(function(val) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'btn btn-small';
-        b.textContent = val + ' %';
-        b.dataset.vibVal = String(val);
-        b.style.cssText = 'min-width:54px;';
-        b.addEventListener('click', function() {
-          globalInstrumentVibrato = val;
-          _refreshVibratoButtons();
-        });
-        vibratoButtons.push(b);
-        vibRow.appendChild(b);
-      });
-      section.appendChild(vibRow);
-    }
-
     var list = document.createElement('div');
     list.style.cssText =
       'display:grid;grid-template-columns:auto 1fr auto;' +
@@ -2274,13 +2234,6 @@ function _openToneTypeDialog(cfg, onChange) {
       nameSpan.style.cssText = 'font-size:.94em;';
       nameLine.appendChild(nameSpan);
 
-      if (_hasProfileVibrato(key)) {
-        var vibMark = document.createElement('span');
-        vibMark.dataset.t = 'toneVibratoMarker';
-        vibMark.style.cssText =
-          'font-style:italic;font-size:.85em;color:#666;margin-left:6px;';
-        nameLine.appendChild(vibMark);
-      }
       lblBlock.appendChild(nameLine);
 
       if (descKey) {
@@ -2312,23 +2265,6 @@ function _openToneTypeDialog(cfg, onChange) {
     section.appendChild(list);
     dlg.appendChild(section);
   });
-
-  function _refreshVibratoButtons() {
-    var cur = (typeof globalInstrumentVibrato === "number")
-      ? globalInstrumentVibrato : 100;
-    vibratoButtons.forEach(function(b) {
-      var v = Number(b.dataset.vibVal);
-      if (v === cur) {
-        b.style.background = '#1976d2';
-        b.style.color = '#fff';
-        b.style.borderColor = '#1976d2';
-      } else {
-        b.style.background = '';
-        b.style.color = '';
-        b.style.borderColor = '';
-      }
-    });
-  }
 
   function _playPreview(toneType) {
     var seq = cfg.getPreviewSequence();
@@ -2384,20 +2320,16 @@ function _openToneTypeDialog(cfg, onChange) {
   overlay.appendChild(dlg);
   document.body.appendChild(overlay);
   if (typeof applyLang === 'function') applyLang();
-  _refreshVibratoButtons();
 
   function close() {
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
   }
   cancelBtn.addEventListener('click', function() {
-    globalInstrumentVibrato = initialVibrato;
     close();
   });
   okBtn.addEventListener('click', function() {
     if (selected !== initial) {
       cfg.setToneType(selected);
-    }
-    if (selected !== initial || globalInstrumentVibrato !== initialVibrato) {
       if (typeof onChange === 'function') onChange();
     }
     close();
