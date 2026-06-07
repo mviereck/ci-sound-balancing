@@ -783,6 +783,12 @@ document.addEventListener("DOMContentLoaded", () => {
           toneType_freqmatch = d.globalToneType;
         }
       }
+      // BA 217: Globaler Instrumenten-Vibrato (0..100 %).
+      if (typeof globalInstrumentVibrato !== "undefined") {
+        const _v = Number(d.globalInstrumentVibrato);
+        globalInstrumentVibrato = (Number.isFinite(_v) && _v >= 0 && _v <= 100)
+          ? _v : 100;
+      }
       if (typeof d.userFileSuffix === "string") {
         userFileSuffix = d.userFileSuffix;
         const _el = document.getElementById("userFileSuffix");
@@ -968,6 +974,8 @@ document.addEventListener("DOMContentLoaded", () => {
           globalToneType: globalToneType,
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
             ? toneType_freqmatch : "pulsedComplex",
+          globalInstrumentVibrato: (typeof globalInstrumentVibrato !== "undefined")
+            ? globalInstrumentVibrato : 100,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,

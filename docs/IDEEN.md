@@ -682,3 +682,33 @@ erreichbar.
 **Vor Umsetzung:** Pause/Resume-Semantik im Adaptiv-Modus
 explizit besprechen. Aktuell ist „Stop" semantisch zwischen
 „Pause" und „Abbruch" undefiniert.
+
+
+## Frequenzabgleich — Stempel der Stimulus-Parameter pro Datenpunkt
+
+Pieper (et al. 2022, S. 10) und die zitierten Quellen (Adel
+et al. 2019; Lazard et al. 2012) machen klar: jeder Pitch-Match
+ist stimulus-spezifisch. Zwei Datenpunkte derselben Elektrode,
+gemessen mit verschiedenen Tonarten oder Tondauern, sind nicht
+direkt vergleichbar.
+
+Im Tool wird aktuell **nicht** gespeichert, mit welchen Stimulus-
+Parametern ein Datenpunkt gemessen wurde. Der Druck zeigt den
+*aktuellen* globalen `toneType_freqmatch`, nicht den zum
+Meßzeitpunkt verwendeten.
+
+**Idee**: pro Datenpunkt (Adaptiv-Track-Eintrag, Slider-Estimate)
+einen Stempel mit `toneType`, `Tondauer`, `Pegel`, `Pause`
+festhalten. Bei jedem Update auf den aktuellen Wert gesetzt;
+keine Einfrierung pro Run, weil der Nutzer mitten in der Test-
+Phase verschiedene Tonarten ausprobieren möchte.
+
+**Druck-Auswirkung**: pro Datenpunkt Stempel zeigen, oder kompakt
+nur dann hervorheben, wenn ein Datensatz **gemischte** Stempel
+hat. Letzteres visuell ruhiger.
+
+**Zurückgestellt**: zuerst werden grundsätzlichere Lösungen am
+Stimulus-Problem gesucht (siehe CI-Vocoder-Idee, reichere Pitch-
+Stimuli aus Sprache/Musik). Wenn am Ende klar ist, welche
+Stimulus-Familie verwendet werden soll, ist der Stempel sinnvoll,
+solange noch parallel mehrere Familien getestet werden.

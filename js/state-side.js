@@ -696,6 +696,11 @@ let globalToneType = "complex"; // "sine" | "complex" | "pulsedComplex" | "noise
 // das weiterhin für Elektrodenlautstärke und Stereo-Balance gilt.
 // Default 'pulsedComplex' (Komplexton gepulst).
 let toneType_freqmatch = "pulsedComplex";
+// BA 217: Globaler Skalierungsfaktor (0..100 %) für das Profil-Vibrato
+// der Instrumenten-richTones. Wirkt in playRichToneProfile als
+// Multiplikator auf vibratoCents. richTone-Basis (playRichTone) bleibt
+// unverändert (fest 10 Cent).
+let globalInstrumentVibrato = 100;
 let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

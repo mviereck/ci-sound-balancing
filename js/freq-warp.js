@@ -11,6 +11,7 @@
 //   pWarpUpdUI()     – Status-Anzeige aktualisieren
 
 let pWarpedBuf = null;
+let pWarpedBufNHSim = null;
 let pWarpOn = false;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML

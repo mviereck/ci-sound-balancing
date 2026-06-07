@@ -34,26 +34,32 @@ Volumen sparen, Sorgfalt erhöhen durch Aufteilung:
 - Vor dem Schreiben überlegen, ob die Anleitung tatsächlich klein
   genug ist — wenn nicht, von vornherein aufteilen.
 
-i18n / Übersetzungen — nur Deutsch in Bauanleitungen:
-- Bauanleitungen, die UI-Texte einführen oder ändern, legen **nur
-  die deutschen Strings** in `i18n/de.js` an. Englisch, Französisch
-  und Spanisch werden **nicht** in derselben Anleitung ergänzt.
-- Grund: GUI-Texte werden während der Iteration mehrfach umformuliert,
-  bis die deutsche Vorlage steht. Jede Iteration, bei der die anderen
-  drei Sprachen mitgeführt werden, kostet Volumen für Bauen und
-  Nachpflegen, ohne daß der Nutzer den Mehrwert sieht. Die anderen
-  Sprachen werden in einer eigenen kleinen Anleitung nachgezogen,
-  wenn die deutsche GUI-Vorlage durch ist.
-- **Was trotzdem in der Bauanleitung gemacht wird:** Der Code muß
+i18n / Übersetzungen — pro Bauanleitung klären:
+- Vor jeder Bauanleitung mit UI-Texten klärt Opus mit dem Nutzer, ob
+  die Übersetzungen (en/fr/es) in derselben Anleitung mitlaufen oder
+  als kleine Folge-Anleitung nachgezogen werden. Der Nutzer kann das
+  auch von sich aus festlegen, ohne daß Opus gefragt hat.
+- **Default-Empfehlung: nur Deutsch in der Anleitung**, Übersetzungen
+  als Folge-Anleitung. Grund: GUI-Texte werden während der Iteration
+  mehrfach umformuliert, bis die deutsche Vorlage steht. Jede
+  Iteration, bei der die anderen drei Sprachen mitgeführt werden,
+  kostet Volumen für Bauen und Nachpflegen, ohne daß der Nutzer
+  den Mehrwert sieht.
+- **Ausnahme „alle Sprachen mitnehmen"** ist sinnvoll, wenn der Block
+  an neuen Texten ungewöhnlich umfangreich ist (z.B. 20+ Strings) und
+  die deutsche Formulierung schon stabil wirkt — dann sparen Sonnet
+  und Nutzer sich das Hin und Her zwischen zwei BAs. Diese Variante
+  wird **nur** gewählt, wenn der Nutzer sie ausdrücklich anordnet.
+- **Was unabhängig vom Sprachumfang gemacht wird:** Der Code muß
   von Anfang an i18n-fähig sein. Heißt: `data-t="someKey"` im HTML,
   `t("someKey")` im JS, `applyLang()`-Aufruf nach dynamischen Renders.
-  Die anderen Sprachdateien (`en.js`, `fr.js`, `es.js`) bleiben
-  unverändert — fehlende Keys fallen dann auf die deutschen
-  Defaults zurück (Verhalten in `js/i18n.js` prüfen, falls
+  Bei „nur Deutsch" bleiben die anderen Sprachdateien (`en.js`,
+  `fr.js`, `es.js`) unverändert — fehlende Keys fallen dann auf die
+  deutschen Defaults zurück (Verhalten in `js/i18n.js` prüfen, falls
   unklar).
-- **Hinweis am Ende der Bauanleitung** auf eine künftige Mini-
-  Anleitung „Übersetzungen für XYZ" — nicht als Pflicht-Folge, der
-  Nutzer entscheidet wann.
+- **Bei „nur Deutsch": Hinweis am Ende der Bauanleitung** auf eine
+  künftige Mini-Anleitung „Übersetzungen für XYZ" — nicht als
+  Pflicht-Folge, der Nutzer entscheidet wann.
 
 Pflichtbestandteile jeder Bauanleitung:
 - **Akzeptanztest-Checkliste am Ende**: Klick-für-Klick-Schritte, die

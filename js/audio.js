@@ -322,7 +322,11 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
   // (begrenzt durch applyCosRamp auf max ms/2).
   return new Promise((r) => {
     const VIB_HZ      = profile.vibratoHz    || 0;
-    const VIB_CENTS   = profile.vibratoCents || 0;
+    // BA 217: Profil-Vibrato wird global skaliert (0..100 %).
+    const _vibScale   = (typeof globalInstrumentVibrato === "number")
+                          ? Math.max(0, Math.min(100, globalInstrumentVibrato)) / 100
+                          : 1;
+    const VIB_CENTS   = (profile.vibratoCents || 0) * _vibScale;
     const AM_HZ       = profile.amHz         || 0;
     const AM_DEPTH    = profile.amDepth      || 0;
     const partials    = (profile.partials && profile.partials.length)

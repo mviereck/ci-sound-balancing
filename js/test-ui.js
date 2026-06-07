@@ -2102,45 +2102,81 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   });
 }
 
-// BA 209: Modal-Dialog 'Tonart wählen'.
-// cfg: {
-//   getToneType:        () => string             - aktuelle Tonart
-//   setToneType:        (tt: string) => void     - bei OK gespeicherte Tonart setzen
-//   getVolume:          () => number             - Lautstärke (linear, 0..1) für Vorschau
-//   getPreviewSequence: () => Array<Step>        - Probehör-Sequenz, siehe unten
-// }
-// Step: { hz: number, pan: number, durationMs: number } | { pauseMs: number }
+// BA 209 + 217: Modal-Dialog 'Tonart waehlen'.
+// BA 217: Gruppen-Struktur mit kurzen Beschreibungen pro Tonart.
+//         Eigene Vibrato-Staerke-Reihe (0/25/50/75/100 %) ueber der
+//         Instrumenten-Gruppe; wirkt auf alle richXX-Profile, nicht
+//         auf richTone-Basis. Instrumente mit Profil-Vibrato bekommen
+//         hinter dem Namen kursiv "(Vibrato)".
 function _openToneTypeDialog(cfg, onChange) {
-  var TONE_TYPES = [
-    ['sine',          'toneSine'],
-    ['complex',       'toneComplex'],
-    ['pulsedComplex', 'tonePulsedComplex'],
-    ['richTone',      'toneRichTone'],
-    ['richAcc',       'toneRichAcc'],
-    ['richASax',      'toneRichASax'],
-    ['richBTb',       'toneRichBTb'],
-    ['richVa',        'toneRichVa'],
-    ['richBn',        'toneRichBn'],
-    ['richClBb',      'toneRichClBb'],
-    ['richCb',        'toneRichCb'],
-    ['richOb',        'toneRichOb'],
-    ['richTbn',       'toneRichTbn'],
-    ['richFl',        'toneRichFl'],
-    ['richTpC',       'toneRichTpC'],
-    ['richVn',        'toneRichVn'],
-    ['richVc',        'toneRichVc'],
-    ['richHn',        'toneRichHn'],
-    ['noise',         'toneNoise'],
-    ['noiseAdaptive', 'toneNoiseAdaptive'],
-    ['irn',           'toneIRN'],
-    ['amSine',        'toneAmSine'],
-    ['warbleSine',    'toneWarbleSine'],
-    ['burstSine',     'toneBurstSine'],
-    ['wobbleSweep',   'toneWobbleSweep']
+  var GROUPS = [
+    {
+      headKey: 'toneGroupSine',
+      hintKey: 'toneGroupSineHint',
+      items: [
+        ['sine',          'toneSine',          'toneSineDesc'],
+        ['amSine',        'toneAmSine',        'toneAmSineDesc'],
+        ['burstSine',     'toneBurstSine',     'toneBurstSineDesc'],
+        ['warbleSine',    'toneWarbleSine',    'toneWarbleSineDesc'],
+        ['wobbleSweep',   'toneWobbleSweep',   'toneWobbleSweepDesc']
+      ]
+    },
+    {
+      headKey: 'toneGroupComplex',
+      hintKey: 'toneGroupComplexHint',
+      items: [
+        ['complex',       'toneComplex',       'toneComplexDesc'],
+        ['pulsedComplex', 'tonePulsedComplex', 'tonePulsedComplexDesc'],
+        ['richTone',      'toneRichTone',      'toneRichToneDesc']
+      ]
+    },
+    {
+      headKey: 'toneGroupRich',
+      hintKey: 'toneGroupRichHint',
+      vibratoBlock: true,
+      items: [
+        ['richAcc',   'toneRichAcc',   null],
+        ['richASax',  'toneRichASax',  null],
+        ['richBTb',   'toneRichBTb',   null],
+        ['richVa',    'toneRichVa',    null],
+        ['richBn',    'toneRichBn',    null],
+        ['richClBb',  'toneRichClBb',  null],
+        ['richCb',    'toneRichCb',    null],
+        ['richOb',    'toneRichOb',    null],
+        ['richTbn',   'toneRichTbn',   null],
+        ['richFl',    'toneRichFl',    null],
+        ['richTpC',   'toneRichTpC',   null],
+        ['richVn',    'toneRichVn',    null],
+        ['richVc',    'toneRichVc',    null],
+        ['richHn',    'toneRichHn',    null]
+      ]
+    },
+    {
+      headKey: 'toneGroupNoise',
+      hintKey: 'toneGroupNoiseHint',
+      items: [
+        ['noise',         'toneNoise',         'toneNoiseDesc'],
+        ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
+        ['irn',           'toneIRN',           'toneIRNDesc']
+      ]
+    }
   ];
+
+  function _hasProfileVibrato(key) {
+    if (typeof RICHTONE_PROFILES === "undefined") return false;
+    if (!key || key.length <= 4 || !key.startsWith("rich")) return false;
+    var abbr = key.substring(4);
+    var p = RICHTONE_PROFILES[abbr];
+    return !!(p && typeof p.vibratoCents === "number" && p.vibratoCents > 0);
+  }
+
   var initial = cfg.getToneType();
   var selected = initial;
   var playing = false;
+
+  var initialVibrato = (typeof globalInstrumentVibrato === "number")
+    ? globalInstrumentVibrato : 100;
+  var vibratoButtons = [];
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -2152,7 +2188,7 @@ function _openToneTypeDialog(cfg, onChange) {
   dlg.className = 'modal-dlg';
   dlg.style.cssText =
     'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
-    'border-radius:8px;min-width:360px;max-width:90vw;max-height:85vh;' +
+    'border-radius:8px;min-width:420px;max-width:90vw;max-height:85vh;' +
     'overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.3);';
 
   var title = document.createElement('h3');
@@ -2168,43 +2204,133 @@ function _openToneTypeDialog(cfg, onChange) {
     'padding:8px 10px;border-radius:4px;';
   dlg.appendChild(hint);
 
-  var list = document.createElement('div');
-  list.style.cssText = 'display:grid;grid-template-columns:auto 1fr auto;' +
-                      'gap:4px 10px;align-items:center;margin-bottom:14px;';
-  TONE_TYPES.forEach(function(pair) {
-    var key = pair[0], i18nKey = pair[1];
-    var rb = document.createElement('input');
-    rb.type = 'radio';
-    rb.name = 'tonePopupChoice';
-    rb.value = key;
-    rb.checked = (key === initial);
-    rb.id = 'tonePopupRb_' + key;
+  GROUPS.forEach(function(grp) {
+    var section = document.createElement('section');
+    section.style.cssText = 'margin-bottom:14px;';
 
-    var lbl = document.createElement('label');
-    lbl.htmlFor = rb.id;
-    lbl.dataset.t = i18nKey;
-    lbl.style.cssText = 'cursor:pointer;font-size:.94em;';
+    var h4 = document.createElement('h4');
+    h4.dataset.t = grp.headKey;
+    h4.style.cssText =
+      'margin:0 0 2px 0;font-size:.98em;font-weight:600;' +
+      'color:var(--fg,#000);';
+    section.appendChild(h4);
 
-    var play = document.createElement('button');
-    play.type = 'button';
-    play.className = 'btn btn-small';
-    play.dataset.t = 'tonePopupPlay';
-    play.dataset.toneKey = key;
-    play.style.cssText = 'min-width:90px;';
+    var subhint = document.createElement('div');
+    subhint.dataset.t = grp.hintKey;
+    subhint.style.cssText =
+      'margin:0 0 8px 0;font-size:.85em;color:#666;font-style:italic;';
+    section.appendChild(subhint);
 
-    rb.addEventListener('change', function() {
-      if (rb.checked) selected = key;
+    if (grp.vibratoBlock) {
+      var vibRow = document.createElement('div');
+      vibRow.style.cssText =
+        'display:flex;align-items:center;gap:8px;margin:0 0 10px 0;' +
+        'padding:6px 0;';
+      var vibLbl = document.createElement('span');
+      vibLbl.dataset.t = 'toneVibratoLabel';
+      vibLbl.style.cssText = 'font-size:.9em;';
+      vibRow.appendChild(vibLbl);
+
+      [0, 25, 50, 75, 100].forEach(function(val) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn btn-small';
+        b.textContent = val + ' %';
+        b.dataset.vibVal = String(val);
+        b.style.cssText = 'min-width:54px;';
+        b.addEventListener('click', function() {
+          globalInstrumentVibrato = val;
+          _refreshVibratoButtons();
+        });
+        vibratoButtons.push(b);
+        vibRow.appendChild(b);
+      });
+      section.appendChild(vibRow);
+    }
+
+    var list = document.createElement('div');
+    list.style.cssText =
+      'display:grid;grid-template-columns:auto 1fr auto;' +
+      'gap:4px 10px;align-items:center;';
+
+    grp.items.forEach(function(triple) {
+      var key = triple[0], i18nKey = triple[1], descKey = triple[2];
+
+      var rb = document.createElement('input');
+      rb.type = 'radio';
+      rb.name = 'tonePopupChoice';
+      rb.value = key;
+      rb.checked = (key === initial);
+      rb.id = 'tonePopupRb_' + key;
+
+      var lblBlock = document.createElement('label');
+      lblBlock.htmlFor = rb.id;
+      lblBlock.style.cssText =
+        'cursor:pointer;display:flex;flex-direction:column;gap:1px;';
+
+      var nameLine = document.createElement('span');
+      var nameSpan = document.createElement('span');
+      nameSpan.dataset.t = i18nKey;
+      nameSpan.style.cssText = 'font-size:.94em;';
+      nameLine.appendChild(nameSpan);
+
+      if (_hasProfileVibrato(key)) {
+        var vibMark = document.createElement('span');
+        vibMark.dataset.t = 'toneVibratoMarker';
+        vibMark.style.cssText =
+          'font-style:italic;font-size:.85em;color:#666;margin-left:6px;';
+        nameLine.appendChild(vibMark);
+      }
+      lblBlock.appendChild(nameLine);
+
+      if (descKey) {
+        var descSpan = document.createElement('span');
+        descSpan.dataset.t = descKey;
+        descSpan.style.cssText =
+          'font-size:.82em;color:#666;line-height:1.3;';
+        lblBlock.appendChild(descSpan);
+      }
+
+      var play = document.createElement('button');
+      play.type = 'button';
+      play.className = 'btn btn-small';
+      play.dataset.t = 'tonePopupPlay';
+      play.dataset.toneKey = key;
+      play.style.cssText = 'min-width:90px;';
+
+      rb.addEventListener('change', function() {
+        if (rb.checked) selected = key;
+      });
+      play.addEventListener('click', function() {
+        if (playing) return;
+        rb.checked = true;
+        selected = key;
+        _playPreview(key);
+      });
+
+      list.append(rb, lblBlock, play);
     });
-    play.addEventListener('click', function() {
-      if (playing) return;
-      rb.checked = true;
-      selected = key;
-      _playPreview(key);
-    });
 
-    list.append(rb, lbl, play);
+    section.appendChild(list);
+    dlg.appendChild(section);
   });
-  dlg.appendChild(list);
+
+  function _refreshVibratoButtons() {
+    var cur = (typeof globalInstrumentVibrato === "number")
+      ? globalInstrumentVibrato : 100;
+    vibratoButtons.forEach(function(b) {
+      var v = Number(b.dataset.vibVal);
+      if (v === cur) {
+        b.style.background = '#1976d2';
+        b.style.color = '#fff';
+        b.style.borderColor = '#1976d2';
+      } else {
+        b.style.background = '';
+        b.style.color = '';
+        b.style.borderColor = '';
+      }
+    });
+  }
 
   function _playPreview(toneType) {
     var seq = cfg.getPreviewSequence();
@@ -2240,7 +2366,7 @@ function _openToneTypeDialog(cfg, onChange) {
     nextStep();
   }
   function _setPlayButtonsDisabled(flag) {
-    var btns = list.querySelectorAll('button[data-tone-key]');
+    var btns = dlg.querySelectorAll('button[data-tone-key]');
     btns.forEach(function(b) { b.disabled = flag; });
   }
 
@@ -2260,14 +2386,20 @@ function _openToneTypeDialog(cfg, onChange) {
   overlay.appendChild(dlg);
   document.body.appendChild(overlay);
   if (typeof applyLang === 'function') applyLang();
+  _refreshVibratoButtons();
 
   function close() {
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
   }
-  cancelBtn.addEventListener('click', close);
+  cancelBtn.addEventListener('click', function() {
+    globalInstrumentVibrato = initialVibrato;
+    close();
+  });
   okBtn.addEventListener('click', function() {
     if (selected !== initial) {
       cfg.setToneType(selected);
+    }
+    if (selected !== initial || globalInstrumentVibrato !== initialVibrato) {
       if (typeof onChange === 'function') onChange();
     }
     close();

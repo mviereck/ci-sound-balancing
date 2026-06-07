@@ -62,6 +62,7 @@ function resetAll() {
   slTarget_balance = "both";
   if (typeof globalToneType !== "undefined") globalToneType = "complex";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "pulsedComplex";
+  if (typeof globalInstrumentVibrato !== "undefined") globalInstrumentVibrato = 100;
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
@@ -283,6 +284,8 @@ async function saveJson() {
     globalToneType: globalToneType,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : "pulsedComplex",
+    globalInstrumentVibrato: (typeof globalInstrumentVibrato !== "undefined")
+      ? globalInstrumentVibrato : 100,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -609,6 +612,12 @@ function applyLoadedData(d) {
     } else {
       toneType_freqmatch = "pulsedComplex";
     }
+  }
+  // BA 217: Globaler Instrumenten-Vibrato (0..100 %).
+  if (typeof globalInstrumentVibrato !== "undefined") {
+    const _v = Number(d.globalInstrumentVibrato);
+    globalInstrumentVibrato = (Number.isFinite(_v) && _v >= 0 && _v <= 100)
+      ? _v : 100;
   }
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
