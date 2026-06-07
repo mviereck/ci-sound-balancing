@@ -589,22 +589,17 @@ function applyLoadedData(d) {
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
-  const VALID_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
-    "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
-    "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
-    "richVc", "richHn",
-    "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
-    "wobbleSweep"];
-  globalToneType = VALID_TONE_TYPES.includes(d.globalToneType)
+  // BA 225: Whitelist-Check ausgelagert nach audio.js (isValidToneType).
+  globalToneType = isValidToneType(d.globalToneType)
     ? d.globalToneType : "complex";
   // BA 209: Per-Test-Tonart Frequenzabgleich.
   // Migration: Bei alter Datei ohne dieses Feld den vorhandenen
   // globalToneType-Wert übernehmen (User hatte ihn bewußt gewählt);
   // nur bei völlig fehlendem Wert auf Default 'pulsedComplex' fallen.
   if (typeof toneType_freqmatch !== "undefined") {
-    if (VALID_TONE_TYPES.includes(d.toneType_freqmatch)) {
+    if (isValidToneType(d.toneType_freqmatch)) {
       toneType_freqmatch = d.toneType_freqmatch;
-    } else if (VALID_TONE_TYPES.includes(d.globalToneType)) {
+    } else if (isValidToneType(d.globalToneType)) {
       toneType_freqmatch = d.globalToneType;
     } else {
       toneType_freqmatch = "pulsedComplex";

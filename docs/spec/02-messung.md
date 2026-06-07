@@ -66,6 +66,14 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
   TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu
   100 % auf die Synthese durchgreift; eine UI-Skalierung gibt es nicht.
+  Seit Version 3.2.225 zwei zusätzliche Gruppen am Ende des Dialogs:
+  - **Soundfont-Sampler**: 3 SF2-Pakete (Galaxy E-Pianos, Giga HQ FM GM,
+    Supersaw Collection); Lazy-Load von externer URL beim ersten Anschlag.
+  - **Mellotron-Sampler**: 34 Original-Mellotron-Varianten; ebenfalls
+    Lazy-Load. Keine i18n-Keys — Variantenname direkt aus Token-Suffix.
+  Token-Schema: `smplr:sf2:<key>` bzw. `smplr:mellotron:<variantName>`.
+  Erste Wiedergabe bleibt stumm (Sampler lädt im Hintergrund);
+  zweite Wiedergabe klingt nach erfolgreichem Load.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
 - **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten

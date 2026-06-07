@@ -623,6 +623,68 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
   });
 }
 
+// BA 225: zentrale Whitelist-Pruefung fuer toneType-Strings.
+// Wird von file.js und init.js statt der lokalen VALID_TONE_TYPES-Arrays
+// verwendet.
+const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
+  "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
+  "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
+  "richVc", "richHn",
+  "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
+  "wobbleSweep"];
+
+const _SMPLR_SF2_VALID_KEYS = ["galaxy", "gigaMidi", "supersaw"];
+
+function isValidToneType(tt) {
+  if (typeof tt !== "string" || tt.length === 0) return false;
+  if (_BASE_TONE_TYPES.includes(tt)) return true;
+  if (tt.startsWith("smplr:mellotron:")) {
+    return tt.length > "smplr:mellotron:".length;
+  }
+  if (tt.startsWith("smplr:sf2:")) {
+    const key = tt.substring("smplr:sf2:".length);
+    return _SMPLR_SF2_VALID_KEYS.includes(key);
+  }
+  return false;
+}
+
+// BA 225: Sampler-Wiedergabe via smplr (Mellotron, Soundfont2).
+// hz -> naechste MIDI-Note + Cent-Detune
+// vol (0..1) -> instance.output.volume (0..127)
+// pan (-1..+1) -> instance.output.pan vor jedem start()
+// ms -> duration (Sekunden)
+// Wenn der Sampler noch nicht geladen ist: Lade-Trigger anstossen,
+// Promise.resolve() ohne Tonwiedergabe zurueckgeben.
+function _playSmplrTone(c, hz, vol, ms, pan, token) {
+  if (typeof loadSamplerByToken !== "function" || typeof smplrSamplerIsReady !== "function") {
+    return Promise.resolve();
+  }
+  if (!smplrSamplerIsReady(token)) {
+    loadSamplerByToken(c, token).catch(function () { /* swallow */ });
+    return Promise.resolve();
+  }
+  return loadSamplerByToken(c, token).then(function (inst) {
+    if (!inst || typeof inst.start !== "function") return;
+    try {
+      if (inst.output) {
+        inst.output.pan = Math.max(-1, Math.min(1, pan || 0));
+        inst.output.volume = Math.max(0, Math.min(127, Math.round((vol || 0) * 127)));
+      }
+    } catch (e) { /* swallow */ }
+    const midiFloat = 69 + 12 * Math.log2(Math.max(1, hz) / 440);
+    const midiNote = Math.round(midiFloat);
+    const detuneCents = Math.round((midiFloat - midiNote) * 100);
+    try {
+      inst.start({
+        note: midiNote,
+        velocity: 100,
+        detune: detuneCents,
+        duration: Math.max(0.05, (ms || 500) / 1000)
+      });
+    } catch (e) { /* swallow */ }
+  });
+}
+
 function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   if (toneType === "complex")        return playComplexTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "pulsedComplex")  return playPulsedComplexTone(c, hz, vol, ms, pan, ramp);
@@ -641,6 +703,8 @@ function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   if (toneType === "warbleSine")     return playWarbleSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "burstSine")      return playBurstSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "wobbleSweep")    return playWobbleSweepTone(c, hz, vol, ms, pan, ramp);
+  if (typeof toneType === "string" && toneType.startsWith("smplr:"))
+    return _playSmplrTone(c, hz, vol, ms, pan, toneType);
   return playSineTone(c, hz, vol, ms, pan, ramp);
 }
 

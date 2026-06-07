@@ -47,7 +47,7 @@ function smplrLoad() {
 
   _smplrLoadPromise = (async () => {
     try {
-      const mod = await import("./vendors/smplr/dist/smplr.esm.js");
+      const mod = await import("../vendors/smplr/dist/smplr.esm.js");
       _smplrModule = mod;
       smplrLastError = null;
       return mod;

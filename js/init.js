@@ -769,17 +769,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
       }
       if (d.globalToneType) globalToneType = d.globalToneType;
-      // BA 209: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
-      const _VALID_TT = ["sine", "complex", "pulsedComplex", "richTone",
-        "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
-        "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
-        "richVc", "richHn",
-        "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
-        "wobbleSweep"];
+      // BA 209 + BA 225: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
+      // Whitelist-Check via isValidToneType in audio.js.
       if (typeof toneType_freqmatch !== "undefined") {
-        if (_VALID_TT.includes(d.toneType_freqmatch)) {
+        if (isValidToneType(d.toneType_freqmatch)) {
           toneType_freqmatch = d.toneType_freqmatch;
-        } else if (_VALID_TT.includes(d.globalToneType)) {
+        } else if (isValidToneType(d.globalToneType)) {
           toneType_freqmatch = d.globalToneType;
         }
       }

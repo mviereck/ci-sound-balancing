@@ -2357,6 +2357,55 @@ function _openToneTypeDialog(cfg, onChange) {
         ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
         ['irn',           'toneIRN',           'toneIRNDesc']
       ]
+    },
+    {
+      headKey: 'toneGroupSf2',
+      hintKey: 'toneGroupSf2Hint',
+      items: [
+        ['smplr:sf2:galaxy',   'toneSmplrGalaxy',   'toneSmplrGalaxyDesc'],
+        ['smplr:sf2:gigaMidi', 'toneSmplrGigaMidi', 'toneSmplrGigaMidiDesc'],
+        ['smplr:sf2:supersaw', 'toneSmplrSupersaw', 'toneSmplrSupersawDesc']
+      ]
+    },
+    {
+      headKey: 'toneGroupMellotron',
+      hintKey: 'toneGroupMellotronHint',
+      items: [
+        ['smplr:mellotron:300 STRINGS CELLO', null, null],
+        ['smplr:mellotron:300 STRINGS VIOLA', null, null],
+        ['smplr:mellotron:8VOICE CHOIR',      null, null],
+        ['smplr:mellotron:BASSA+STRNGS',      null, null],
+        ['smplr:mellotron:BOYS CHOIR',        null, null],
+        ['smplr:mellotron:CHA CHA FLT',       null, null],
+        ['smplr:mellotron:CHM CLARINET',      null, null],
+        ['smplr:mellotron:CHMB 3 VLNS',       null, null],
+        ['smplr:mellotron:CHMB ALTOSAX',      null, null],
+        ['smplr:mellotron:CHMB FEMALE',       null, null],
+        ['smplr:mellotron:CHMB MALE VC',      null, null],
+        ['smplr:mellotron:CHMB TNR SAX',      null, null],
+        ['smplr:mellotron:CHMB TRMBONE',      null, null],
+        ['smplr:mellotron:CHMB TRUMPET',      null, null],
+        ['smplr:mellotron:CHMBLN CELLO',      null, null],
+        ['smplr:mellotron:CHMBLN FLUTE',      null, null],
+        ['smplr:mellotron:CHMBLN OBOE',       null, null],
+        ['smplr:mellotron:DIXIE+TRMBN',       null, null],
+        ['smplr:mellotron:FOXTROT+SAX',       null, null],
+        ['smplr:mellotron:HALFSP.BRASS',      null, null],
+        ['smplr:mellotron:MIXED STRGS',       null, null],
+        ['smplr:mellotron:MKII BRASS',        null, null],
+        ['smplr:mellotron:MKII GUITAR',       null, null],
+        ['smplr:mellotron:MKII ORGAN',        null, null],
+        ['smplr:mellotron:MKII SAX',          null, null],
+        ['smplr:mellotron:MKII VIBES',        null, null],
+        ['smplr:mellotron:MKII VIOLINS',      null, null],
+        ['smplr:mellotron:MOVE BS+STGS',      null, null],
+        ['smplr:mellotron:STRGS+BRASS',       null, null],
+        ['smplr:mellotron:TROMB+TRMPT',       null, null],
+        ['smplr:mellotron:TRON 16VLNS',       null, null],
+        ['smplr:mellotron:TRON CELLO',        null, null],
+        ['smplr:mellotron:TRON FLUTE',        null, null],
+        ['smplr:mellotron:TRON VIOLA',        null, null]
+      ]
     }
   ];
 
@@ -2429,8 +2478,15 @@ function _openToneTypeDialog(cfg, onChange) {
 
       var nameLine = document.createElement('span');
       var nameSpan = document.createElement('span');
-      nameSpan.dataset.t = i18nKey;
       nameSpan.style.cssText = 'font-size:.94em;';
+      if (i18nKey) {
+        nameSpan.dataset.t = i18nKey;
+      } else {
+        // BA 225: Fallback fuer Eintraege ohne i18n-Key (z. B. Mellotron-Varianten):
+        // letzten Token-Teil als Label anzeigen.
+        var lastColon = key.lastIndexOf(':');
+        nameSpan.textContent = lastColon >= 0 ? key.substring(lastColon + 1) : key;
+      }
       nameLine.appendChild(nameSpan);
 
       lblBlock.appendChild(nameLine);
