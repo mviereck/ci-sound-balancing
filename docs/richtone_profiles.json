@@ -1,8 +1,8 @@
 {
   "_version": 1,
   "_source": "TinySOL (IRCAM, CC-BY-4.0)",
-  "_generatedAt": "2026-06-06T19:09:48.657515+00:00",
-  "_notes": "Pro Instrument 6 Samples Dynamik mf Technik ord, gleichmaessig ueber Pitch-Range. Vibrato: anteilsbasierte Aggregation; partials Mittel.",
+  "_generatedAt": "2026-06-06T21:14:42.950586+00:00",
+  "_notes": "Pro Instrument 6 Samples Dynamik mf Technik ord, gleichmaessig ueber Pitch-Range. Vibrato und AM: anteilsbasierte Aggregation mit spektraler Prominenz (BA 217, BA 218); partials Mittel.",
   "profiles": {
     "Acc": {
       "label": "Akkordeon",
@@ -69,8 +69,18 @@
         0.0,
         0.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 3.57,
+      "amDepth": 0.123,
+      "amProm": 3.23,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.076,
+        0.0,
+        0.05,
+        0.0,
+        0.242,
+        0.0
+      ],
       "attackMs": 179.9,
       "samples": [
         "Keyboards/Accordion/ordinario/Acc-ord-F#1-mf-N-N.wav",
@@ -146,8 +156,18 @@
         0.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.58,
+      "amDepth": 0.087,
+      "amProm": 3.4,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.0,
+        0.0,
+        0.082,
+        0.0,
+        0.067,
+        0.111
+      ],
       "attackMs": 214.8,
       "samples": [
         "Winds/Sax_Alto/ordinario/ASax-ord-C#3-mf-N-N.wav",
@@ -223,8 +243,18 @@
         10.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.72,
+      "amDepth": 0.121,
+      "amProm": 3.77,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.1,
+        0.0,
+        0.074,
+        0.0,
+        0.188,
+        0.0
+      ],
       "attackMs": 46.4,
       "samples": [
         "Winds/Bassoon/ordinario/Bn-ord-A#1-mf-N-N.wav",
@@ -300,8 +330,18 @@
         10.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.08,
+      "amDepth": 0.09,
+      "amProm": 3.37,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.0,
+        0.0,
+        0.056,
+        0.106,
+        0.0,
+        0.108
+      ],
       "attackMs": 92.9,
       "samples": [
         "Brass/Bass_Tuba/ordinario/BTb-ord-G1-mf-N-N.wav",
@@ -377,8 +417,18 @@
         20.0,
         40.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 3.1,
+      "amDepth": 0.461,
+      "amProm": 4.23,
+      "amDetectionRate": "4/6",
+      "amDepths": [
+        0.0,
+        0.549,
+        0.0,
+        0.751,
+        0.365,
+        0.178
+      ],
       "attackMs": 545.7,
       "samples": [
         "Strings/Contrabass/ordinario/Cb-ord-E1-mf-4c-N.wav",
@@ -454,8 +504,18 @@
         10.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.61,
+      "amDepth": 0.185,
+      "amProm": 3.89,
+      "amDetectionRate": "4/6",
+      "amDepths": [
+        0.186,
+        0.0,
+        0.052,
+        0.0,
+        0.313,
+        0.191
+      ],
       "attackMs": 481.8,
       "samples": [
         "Winds/Clarinet_Bb/ordinario/ClBb-ord-D3-mf-N-N.wav",
@@ -519,8 +579,18 @@
         0.0,
         20.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.7,
+      "amDepth": 0.167,
+      "amProm": 4.3,
+      "amDetectionRate": "5/6",
+      "amDepths": [
+        0.072,
+        0.128,
+        0.135,
+        0.061,
+        0.0,
+        0.437
+      ],
       "attackMs": 336.7,
       "samples": [
         "Winds/Flute/ordinario/Fl-ord-B3-mf-N-N.wav",
@@ -596,8 +666,18 @@
         20.0,
         20.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 4.7,
+      "amDepth": 0.146,
+      "amProm": 3.38,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.311,
+        0.0,
+        0.0,
+        0.078,
+        0.05,
+        0.0
+      ],
       "attackMs": 267.1,
       "samples": [
         "Brass/Horn/ordinario/Hn-ord-G#1-mf-N-N.wav",
@@ -669,8 +749,18 @@
         20.0,
         0.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.98,
+      "amDepth": 0.128,
+      "amProm": 3.29,
+      "amDetectionRate": "4/6",
+      "amDepths": [
+        0.079,
+        0.0,
+        0.0,
+        0.149,
+        0.136,
+        0.146
+      ],
       "attackMs": 104.5,
       "samples": [
         "Winds/Oboe/ordinario/Ob-ord-A#3-mf-N-N.wav",
@@ -746,8 +836,18 @@
         0.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.58,
+      "amDepth": 0.095,
+      "amProm": 4.15,
+      "amDetectionRate": "5/6",
+      "amDepths": [
+        0.118,
+        0.121,
+        0.091,
+        0.065,
+        0.0,
+        0.078
+      ],
       "attackMs": 145.2,
       "samples": [
         "Brass/Trombone/ordinario/Tbn-ord-A#1-mf-N-N.wav",
@@ -823,8 +923,18 @@
         10.0,
         10.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 2.27,
+      "amDepth": 0.087,
+      "amProm": 4.25,
+      "amDetectionRate": "3/6",
+      "amDepths": [
+        0.06,
+        0.0,
+        0.0,
+        0.0,
+        0.11,
+        0.092
+      ],
       "attackMs": 418.0,
       "samples": [
         "Brass/Trumpet_C/ordinario/TpC-ord-G#3-mf-N-N.wav",
@@ -900,8 +1010,18 @@
         50.0,
         30.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 4.42,
+      "amDepth": 0.284,
+      "amProm": 10.06,
+      "amDetectionRate": "6/6",
+      "amDepths": [
+        0.155,
+        0.257,
+        0.195,
+        0.207,
+        0.466,
+        0.423
+      ],
       "attackMs": 911.3,
       "samples": [
         "Strings/Viola/ordinario/Va-ord-C3-mf-4c-N.wav",
@@ -977,8 +1097,18 @@
         40.0,
         70.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 4.68,
+      "amDepth": 0.254,
+      "amProm": 5.91,
+      "amDetectionRate": "6/6",
+      "amDepths": [
+        0.325,
+        0.243,
+        0.266,
+        0.218,
+        0.201,
+        0.272
+      ],
       "attackMs": 458.6,
       "samples": [
         "Strings/Violoncello/ordinario/Vc-ord-C2-mf-4c-N.wav",
@@ -1054,8 +1184,18 @@
         20.0,
         30.0
       ],
-      "amHz": 0.0,
-      "amDepth": 0.0,
+      "amHz": 4.66,
+      "amDepth": 0.222,
+      "amProm": 5.25,
+      "amDetectionRate": "6/6",
+      "amDepths": [
+        0.161,
+        0.277,
+        0.341,
+        0.159,
+        0.187,
+        0.206
+      ],
       "attackMs": 923.0,
       "samples": [
         "Strings/Violin/ordinario/Vn-ord-G3-mf-4c-N.wav",

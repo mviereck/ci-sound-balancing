@@ -57,6 +57,8 @@ VIB_DETECTION_MIN_RATIO = 0.5   # Anteil der Samples, die Vibrato zeigen muessen
                                 # Profil ueberhaupt vibratoHz/vibratoCents bekommt; sonst 0.
 N_SAMPLES_PER_INSTR     = 6     # Vorher 3 (zu eng am Mittelpunkt). 6 verteilt sich besser.
 AM_DEPTH_THRESHOLD      = 0.05  # unterhalb: AM als nicht vorhanden werten
+AM_DETECTION_MIN_RATIO  = 0.5   # analog VIB_DETECTION_MIN_RATIO fuer Atem-AM
+AM_PROM_THRESHOLD       = 3.0   # spektrale Prominenz (peak/median im AM-Band)
 
 
 def load_meta():
@@ -186,25 +188,43 @@ def analyze_sample(wav_path):
                 vibratoHz    = cand_hz
                 vibratoCents = cand_cents
 
-    # Atem-AM: FFT der RMS-Huellkurve in stationaerer Phase
+    # Atem-AM: FFT der relativen RMS-Modulation im stationaeren Mittelteil.
+    # Bisher: absoluter Schwellwert "am_spec.max() > 0.5" auf nicht-normalisierter
+    # FFT-Amplitude -- skalenabhaengig, hat fuer ALLE 14 Profile 0 geliefert,
+    # selbst beim Akkordeon-Tremulant. Jetzt analog zur Vibrato-Logik
+    # (BA 217): spektrale Prominenz (peak/median) als skalenunabhaengiges
+    # Kriterium, Modulationstiefe als std(rms_rel)*sqrt(2) (entspricht der
+    # Sinus-Amplitude bei stationaerer Sinus-AM).
     rms = librosa.feature.rms(y=y, frame_length=2048, hop_length=HOP)[0]
     rms_v = rms[i_start:i_end]
+    amHz, amDepth, amProm = 0.0, 0.0, 0.0
+    amDetected = False
     if len(rms_v) >= 16:
-        rms_norm = rms_v - np.mean(rms_v)
-        am_spec  = np.abs(np.fft.rfft(rms_norm))
-        am_freqs = np.fft.rfftfreq(len(rms_v), HOP / sr)
-        am_mask  = (am_freqs > AM_MIN_HZ) & (am_freqs < AM_MAX_HZ)
-        if am_mask.any() and am_spec[am_mask].max() > 0.5:
-            am_idx  = np.argmax(np.where(am_mask, am_spec, 0))
-            amHz    = float(am_freqs[am_idx])
-            mx      = float(rms_v.max())
-            amDepth = float((mx - float(rms_v.min())) / mx) if mx > 0 else 0.0
-        else:
-            amHz, amDepth = 0.0, 0.0
-    else:
-        amHz, amDepth = 0.0, 0.0
-    if amDepth < AM_DEPTH_THRESHOLD:
-        amHz, amDepth = 0.0, 0.0
+        rms_mean_v = float(np.mean(rms_v))
+        if rms_mean_v > 0:
+            rms_rel  = (rms_v - rms_mean_v) / rms_mean_v
+            am_spec  = np.abs(np.fft.rfft(rms_rel))
+            am_freqs = np.fft.rfftfreq(len(rms_rel), HOP / sr)
+            am_mask  = (am_freqs > AM_MIN_HZ) & (am_freqs < AM_MAX_HZ)
+            if am_mask.any():
+                am_in_mask = am_spec[am_mask]
+                peak_amp   = float(am_in_mask.max())
+                med_amp    = float(np.median(am_in_mask))
+                prom       = peak_amp / max(med_amp, 1e-9)
+                amProm     = round(prom, 2)
+                cand_idx   = int(np.argmax(np.where(am_mask, am_spec, 0)))
+                cand_hz    = float(am_freqs[cand_idx])
+                cand_depth = float(np.std(rms_rel) * np.sqrt(2))
+                # cand_depth > 1.0 ist physikalisch unmoeglich (RMS waere negativ);
+                # tritt bei Burst-Signalen wie Bogenwechseln auf -- als Artefakt verwerfen.
+                amDetected = (
+                    prom       >= AM_PROM_THRESHOLD
+                    and cand_depth >= AM_DEPTH_THRESHOLD
+                    and cand_depth <= 1.0
+                )
+                if amDetected:
+                    amHz    = cand_hz
+                    amDepth = cand_depth
 
     # Attack-Time: vom Sample-Start bis 80 Prozent des RMS-Peaks
     peak = float(rms.max())
@@ -225,6 +245,8 @@ def analyze_sample(wav_path):
         "vibratoDetected":  bool(vibratoDetected),
         "amHz":             round(amHz, 2),
         "amDepth":          round(amDepth, 3),
+        "amProm":           amProm,
+        "amDetected":       bool(amDetected),
         "attackMs":         round(attackMs, 1),
     }
 
@@ -263,6 +285,17 @@ def aggregate_profile(samples, instr):
     else:
         vibratoHz, vibratoCents = 0.0, 0.0
 
+    # AM-Aggregation analog zur Vibrato-Aggregation: pro-Sample binaere
+    # Klassifikation, Anteils-Schwelle, Mittelwert ueber positive Samples.
+    am_positive = [s for s in valid if s.get("amDetected", False)]
+    n_am_pos    = len(am_positive)
+    ratio_am    = (n_am_pos / n_total) if n_total > 0 else 0.0
+    if ratio_am >= AM_DETECTION_MIN_RATIO and am_positive:
+        amHz_agg    = float(np.mean([s["amHz"]    for s in am_positive]))
+        amDepth_agg = float(np.mean([s["amDepth"] for s in am_positive]))
+    else:
+        amHz_agg, amDepth_agg = 0.0, 0.0
+
     return {
         "label":             INSTRUMENT_LABELS_DE[instr],
         "abbr":              instr,
@@ -272,8 +305,11 @@ def aggregate_profile(samples, instr):
         "vibratoProm":       round(float(np.median([s["vibratoProm"] for s in valid])), 2),
         "vibratoDetectionRate": f"{n_positive}/{n_eligible} (von {n_total} insgesamt)",
         "vibratoSpansCents": [round(float(s.get("vibratoSpanCents", 0)), 1) for s in valid],
-        "amHz":              round(float(np.median([s["amHz"]      for s in valid])), 2),
-        "amDepth":           round(float(np.median([s["amDepth"]   for s in valid])), 3),
+        "amHz":              round(amHz_agg, 2),
+        "amDepth":           round(amDepth_agg, 3),
+        "amProm":            round(float(np.median([s.get("amProm", 0) for s in valid])), 2),
+        "amDetectionRate":   f"{n_am_pos}/{n_total}",
+        "amDepths":          [round(float(s.get("amDepth", 0)), 3) for s in valid],
         "attackMs":          round(float(np.median([s["attackMs"]  for s in valid])), 1),
     }
 
@@ -311,7 +347,7 @@ def main():
                 "_version":     1,
                 "_source":      "TinySOL (IRCAM, CC-BY-4.0)",
                 "_generatedAt": datetime.now(timezone.utc).isoformat(),
-                "_notes":       "Pro Instrument 6 Samples Dynamik mf Technik ord, gleichmaessig ueber Pitch-Range. Vibrato: anteilsbasierte Aggregation; partials Mittel.",
+                "_notes":       "Pro Instrument 6 Samples Dynamik mf Technik ord, gleichmaessig ueber Pitch-Range. Vibrato und AM: anteilsbasierte Aggregation mit spektraler Prominenz (BA 217, BA 218); partials Mittel.",
                 "profiles":     profiles,
             },
             f,

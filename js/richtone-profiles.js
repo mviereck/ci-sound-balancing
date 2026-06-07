@@ -1,5 +1,5 @@
 // Auto-generiert von tools/profiles_to_js.py
-// Quelle: docs/richtone_profiles.json (Lauf 2026-06-06T19:10:00.190432+00:00)
+// Quelle: docs/richtone_profiles.json (Lauf 2026-06-06T21:18:05.518785+00:00)
 // Nicht von Hand editieren - bei Aenderungen am JSON Skript erneut laufen lassen.
 //
 // Wird in index.html vor js/audio.js geladen; globale Konstante
@@ -60,8 +60,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 3.57,
+    "amDepth": 0.123,
     "attackMs": 179.9
   },
   "ASax": {
@@ -119,8 +119,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.58,
+    "amDepth": 0.087,
     "attackMs": 214.8
   },
   "Bn": {
@@ -178,8 +178,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.72,
+    "amDepth": 0.121,
     "attackMs": 46.4
   },
   "BTb": {
@@ -237,8 +237,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.08,
+    "amDepth": 0.09,
     "attackMs": 92.9
   },
   "Cb": {
@@ -296,8 +296,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 4.75,
     "vibratoCents": 10.31,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 3.1,
+    "amDepth": 0.461,
     "attackMs": 545.7
   },
   "ClBb": {
@@ -355,8 +355,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.61,
+    "amDepth": 0.185,
     "attackMs": 481.8
   },
   "Fl": {
@@ -402,8 +402,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.7,
+    "amDepth": 0.167,
     "attackMs": 336.7
   },
   "Hn": {
@@ -461,8 +461,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 4.7,
+    "amDepth": 0.146,
     "attackMs": 267.1
   },
   "Ob": {
@@ -516,8 +516,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.98,
+    "amDepth": 0.128,
     "attackMs": 104.5
   },
   "Tbn": {
@@ -575,8 +575,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.58,
+    "amDepth": 0.095,
     "attackMs": 145.2
   },
   "TpC": {
@@ -634,8 +634,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 0.0,
     "vibratoCents": 0.0,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 2.27,
+    "amDepth": 0.087,
     "attackMs": 418.0
   },
   "Va": {
@@ -693,8 +693,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 5.41,
     "vibratoCents": 12.25,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 4.42,
+    "amDepth": 0.284,
     "attackMs": 911.3
   },
   "Vc": {
@@ -752,8 +752,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 5.14,
     "vibratoCents": 15.72,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 4.68,
+    "amDepth": 0.254,
     "attackMs": 458.6
   },
   "Vn": {
@@ -811,8 +811,8 @@ const RICHTONE_PROFILES = {
     ],
     "vibratoHz": 5.14,
     "vibratoCents": 7.69,
-    "amHz": 0.0,
-    "amDepth": 0.0,
+    "amHz": 4.66,
+    "amDepth": 0.222,
     "attackMs": 923.0
   }
 };
