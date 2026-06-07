@@ -269,8 +269,10 @@ wenn ein Sonderfeld in mehreren Sub-Reitern auftaucht, gehört es als
 Baustein in `common`.
 
 **`header.startStop`** ist immer vorhanden. Der Start-Button-Text
-ist konfigurierbar (`startKey`); der Stop-Button-Text und das
-Lock-Hint-Verhalten richten sich nach `resumable`.
+ist über `startKey` konfigurierbar; der Stop-Button-Text über
+`stopKey` (Default `btnStopTest`, sinnvolle Alternativen
+`btnEndTest`, `btnPauseTest`, `btnCancelTest`). Das Lock-Hint-Verhalten
+richtet sich nach `resumable`.
 
 ## Verhaltens-Automatik (Lifecycle)
 
@@ -374,7 +376,7 @@ verbindlicher Bestandteil jeder Bauanleitung, die testUI berührt.
 | Leertaste | Replay aktueller Trial | `actions` enthält `'replay'` |
 | Backspace (⌫) | Undo letzte Antwort | `actions` enthält `'undo'` |
 | B | Beide Töne gleichzeitig abspielen (simul) | `actions` enthält `'simul'` |
-| Enter | „Offset bestätigen" / `onConfirm` auslösen | `confirmButton`-Baustein deklariert |
+| Enter | `onConfirm` (falls `confirmButton` deklariert) oder `onApply` (falls `applyButton` deklariert) | `confirmButton` **oder** `applyButton`-Baustein deklariert |
 | 1 / 2 / 3 | (entfällt — `judgment`-Verfahren wird gestrichen) | — |
 
 ## Migrationsplan
@@ -444,18 +446,24 @@ neuer Sonnet-Chat)*
 - Akzeptanztest: Sequenzen werden korrekt abgespielt, Swap funktioniert,
   Konfidenz wird gespeichert
 
-**Schritt 5 — Latenz unter das Schema bringen** *(Bauanleitung)*
+**Schritt 5 — Latenz unter das Schema bringen** *(Bauanleitung)* ✅ gebaut (BA 223)
 
-- `latency.js` und `subpanel-messungen-latenz` umbauen; statisches
-  HTML in `index.html` entfernen
-- `latKeyHandler` entfällt (Pfeiltasten kommen über testUI)
-- `latStartTest`/`latStopTest` als Hooks
-- Klicktyp und Intervall in `header.extra`
-- Bluetooth-Warnung in `explain.paragraphs` mit `kind: 'warn'`
-- `sliderTarget: false` (Wahl ergibt keinen Sinn)
-- Apply-Button als Baustein `applyButton`
-- Akzeptanztest: Test startet/stoppt, Slider verändert Delay, Apply
-  speichert Wert, Bluetooth-Warnung sichtbar
+- `latency.js` auf testUI-API umgestellt; `subpanel-messungen-latenz`
+  in `index.html` auf leeren Container reduziert (nur `snapHint_lat`
+  bleibt). DelayNode-Puffer von 0,25 s auf 2,0 s vergrößert.
+- Klicktyp und Intervall in `header.extra.fragment` (Button-Reihen).
+- Bluetooth-Warnung als `kind: 'caution'`, Vortest-Empfehlungen als
+  `kind: 'warn'` (Sichtbarkeit per `testUI.explain.setVisible`).
+- `sliderTarget: false`, `refSelect: false`, `toneType: false`,
+  `sequence: false`. Eigener `volume`-Common.
+- Slider: `unit: 'ms', initialRange: 50, maxRange: 2000`.
+- Apply als eigener `applyButton`; speichert Wert und beendet Test.
+  Stop (`stopKey: 'btnCancelTest'`) = abbrechen ohne Speichern
+  (Verhaltensänderung gegenüber Alt-Code).
+- Seitenhörtest vor Start (`testUI.sideCheck.run({sides:'both'})`).
+- testUI-API-Erweiterung: `header.startStop.stopKey`. Enter-Routing
+  feuert nun auch `onApply`, falls kein `confirmButton` vorhanden ist.
+- freqmatch (slider und adaptive) verwenden `stopKey: 'btnPauseTest'`.
 
 **Schritt 6 — Aufräumen** *(Bauanleitung)*
 

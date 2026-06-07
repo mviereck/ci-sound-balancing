@@ -1,7 +1,7 @@
 ## Messungen — drei Sub-Tabs
 
-Alle drei Tests teilen sich denselben Aufbau, erzeugt durch den
-Builder `buildTestPanel` aus test-ui.js. Drei Blöcke pro Test:
+Alle vier Tests teilen sich denselben Aufbau, erzeugt durch den
+Builder `buildTestPanel` aus test-ui.js (Latenz seit BA 223). Drei Blöcke pro Test:
 
 1. **Erklärungen** (reiner Text)
 2. **Voreinstellungen** (Bedienelemente vor dem Test, Start/Stop)
@@ -20,9 +20,6 @@ Eintrag in `explain.paragraphs` mit `kind`-Farbe nach Reife:
   „funktioniert grundsätzlich, wird aber sicher noch überarbeitet"
 - **Latenz** (`latMaturityHint`, `kind: 'info'`, blau): „bereits
   brauchbar und funktioniert; Verbesserungen werden noch kommen".
-  Sonderfall — Latenz nutzt statisches HTML statt `buildTestPanel`,
-  daher als `<p class="explain explain-info">` direkt unter dem H2
-  eingebaut.
 - **Frequenzabgleich** (`fmMaturityHint`, `kind: 'caution'`, orange):
   „funktioniert technisch, hat aber Schwächen und wird aktiv
   weiterentwickelt"; mit Bullet-Punkten zu 2-CI vs. 1-CI-Trägern
@@ -397,33 +394,35 @@ Slider-Wert wird invertiert.
   Öffnen des Latenz-Reiters mit dem aktuellen Stand und zeigt denselben
   Hinweis-Banner wie bei Stereo-Balance. Alter Datensatz ohne Snapshot
   → kein Hinweis.
-- Schieber ±200 ms, Auflösung 1 ms / 0,1 ms (Fein-Toggle per Touch-Bedienleiste). Auf Desktop zusätzlich Ctrl+Pfeil = 10 ms wie bisher.
-- Schieber ist **nur während laufendem Test** bedienbar (sonst disabled)
-- Klick-Intervall manuell wählbar: 100 / 200 / 500 / 1000 / 2000 ms
+- Panel wird von `buildTestPanel` erzeugt (BA 223); kein statisches HTML mehr.
+- Schieber ±50 ms initial, Auto-Extend bis ±2000 ms, Auflösung 1 ms / 0,1 ms
+  (Touch-Bedienleiste und Pfeiltasten via testUI).
+- Schieber ist **nur während laufendem Test** sichtbar (testBox auto-ein/ausgeblendet).
+- Klick-Intervall manuell wählbar: 100 / 200 / 500 / 1000 / 2000 ms (Button-Reihe
+  in `header.extra.fragment`).
 - 4 Klangvarianten: Klick (breitband), 500 Hz, 1500 Hz, 4 kHz Tone-Bursts
+  (Button-Reihe in `header.extra.fragment`).
+- Eigener Lautstärke-Regler im Header (`header.common.volume`, Default 50 %);
+  multipliziert die Balance-Gains im Audio-Pfad.
 - **Nur mit Kabel-Kopfhörer durchführen** — Bluetooth verfälscht die Messung
-  (Hinweis-Box im Messpanel, nach der Überschrift)
-- Vorbedingungs-Hinweis (`latPrereqHint`): „Führen Sie zuerst die
-  Messungen Elektrodenlautstärke und Stereo-Balance für beide Seiten
-  aus." — erscheint nach der BT-Warnbox, vor der Schieber-Anleitung
-- Mess-Panel: Überschrift → kurze Beschreibung → Wichtig-Hinweis (BT) →
-  Vorbedingungs-Hinweis → Schieber-Anleitung → Hinweis auf Ortungswahrnehmung als Anhaltspunkt
-- **Audio-Pfad:** Klick-Buffer → ChannelSplitter → L/R-Gain (aus
-  `getRawBalanceGains`, ignoriert `plApplyBalance`) → ChannelMerger → `pGain` →
-  `pLatSplitter` → `pLatDelayL`/`pLatDelayR` → `pLatMerger` →
-  `destination`. Die Stereo-Balance-Gains werden beim Test-Start
-  aus dem aktuellen Stand übernommen und beim Test-Ende wieder
-  verworfen. Elektrodenlautstärke wird nicht angewendet, weil die
-  Klicks breitband sind und keiner Elektrode zugeordnet werden.
-- Beim **Stop** wird der aktuelle Schieberwert automatisch als `latencyResult`
-  übernommen (kein separater „Übernehmen"-Button)
-- **ENTER beendet den laufenden Test** — äquivalent zum Klick auf den
-  Stop-Button. Die Bindung läuft global auf `document`, greift aber nur,
-  wenn `latActive === true`. Inputs/Textareas/Selects werden ausgespart;
-  der Latenz-Slider selbst ist als bewußte Ausnahme eingeschlossen, weil
-  er die häufigste Fokus-Position während des Tests ist.
-- Während des Tests: alle anderen Tabs und Sub-Tabs gesperrt (wie bei allen
-  anderen Tests — via `lockTestTabs` / `updateTabLockState`)
+  (`latBTWarning`, `kind: 'caution'`).
+- Vorbedingungs-Hinweis (`latPrereqHint`, `kind: 'warn'`): immer sichtbar.
+- Vortest-Empfehlungen (je `kind: 'warn'`, anfangs hidden):
+  - `latVortestBalanceMissing`: eingeblendet wenn noch keine Balance-Werte gemessen.
+  - `latVortestLoudnessMissing`: eingeblendet wenn noch keine Lautstärke-Werte gemessen.
+  - Sichtbarkeit wird bei jedem Öffnen des Sub-Tabs via `testUI.explain.setVisible`
+    aktualisiert — kein Showstopper, der Test läuft auch ohne.
+- **Audio-Pfad:** Klick-Buffer → ChannelSplitter → L/R-Gain (Balance aus
+  `getRawBalanceGains` × Volume-Faktor) → ChannelMerger → `pGain` →
+  `pLatSplitter` → `pLatDelayL`/`pLatDelayR` (2,0 s Puffer) → `pLatMerger` →
+  `destination`. Elektrodenlautstärke wird nicht angewendet.
+- **Seitenhörtest** vor Start: `testUI.sideCheck.run({sides:'both'})`.
+- **„Offset bestätigen"** (`applyButton`): speichert aktuellen Schieberwert als
+  `latencyResult` und beendet den Test. ENTER löst dieselbe Aktion aus
+  (testUI-Enter-Routing für `applyButton`).
+- **„Test abbrechen"** (Stop-Button, `stopKey: 'btnCancelTest'`): beendet den
+  Test **ohne** den Wert zu speichern. Pfeiltasten kommen aus testUI.
+- Während des Tests: alle anderen Tabs und Sub-Tabs gesperrt (testUI-Lifecycle).
 - Wirkung live im Player (`latApplyToPlayer`), sofern `plApplyLatency` aktiv
 - Persistenz: `latencyResult` und `plApplyLatency` werden gespeichert/geladen
   (beide Pfade: file.js-Download/Upload und localStorage-Auto-Restore in init.js)

@@ -852,7 +852,7 @@ Object.assign(L.de, {
     fmSliderRoundColAgg:     "Aktuelle Schätzung",
     fmSliderRoundColAggHz:   "Schätzung (Hz)",
     fmSliderRoundColStatus:  "Status",
-    btnPauseTest:            "Test pausieren",
+    btnPauseTest:            "■ Test pausieren",
     cumulativeDb: "Gesamt",
     testTabLockedHint: "Während eines laufenden Tests kann dieser Tab nicht verlassen werden. Sie können den Test jederzeit unterbrechen und später weitermachen.",
     testTabLockedHintNoResume: "Während eines laufenden Tests kann dieser Tab nicht verlassen werden. Beim Unterbrechen wird der Lauf verworfen.",
@@ -1102,4 +1102,13 @@ Object.assign(L.de, {
     toneNoiseDesc:           "Schmalbandiges Rauschen mit fester Bandbreite.",
     toneNoiseAdaptiveDesc:   "Schmalbandiges Rauschen mit frequenzabhängiger Bandbreite.",
     toneIRNDesc:             "Rauschen mit hörbarer Resttonhöhe.",
+
+    // BA 223 — Latenz-Migration auf testUI-API
+    btnEndTest:    "■ Test beenden",
+    btnCancelTest: "■ Test abbrechen",
+    latInstruction: "Schiebe den Schieber, bis die Klicks links und rechts gleichzeitig erscheinen.",
+    sliderHintMs:   "1 ms",
+    latVerfahrenLabel: "Latenz",
+    latVortestBalanceMissing:  "Hinweis: Vortest „Stereo-Balance“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Balance vorab gleichgezogen ist.",
+    latVortestLoudnessMissing: "Hinweis: Vortest „Elektrodenlautstärke“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Lautstärke vorab eingestellt ist.",
 });

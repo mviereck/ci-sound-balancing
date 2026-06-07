@@ -1079,7 +1079,7 @@ function _buildTestPanelNew(parentEl, cfg) {
   _tEl(startBtn, cfg.header.startStop.startKey || 'btnStartTest');
   var stopBtn = _mkEl('button', 'btn btn-large');
   stopBtn.dataset.action = 'stop';
-  _tEl(stopBtn, 'btnStopTest');
+  _tEl(stopBtn, cfg.header.startStop.stopKey || 'btnStopTest');
   stopBtn.disabled = true;
   startStopRow.append(startBtn, stopBtn);
 
@@ -1810,11 +1810,14 @@ function _buildTestPanelNew(parentEl, cfg) {
         }
       }
 
-      // Enter : confirmButton / onConfirm
+      // Enter : confirmButton.onConfirm ODER applyButton.onApply
       if (e.key === 'Enter') {
         if (body.confirmButton && vCfg2.hooks && vCfg2.hooks.onConfirm) {
           e.preventDefault();
           vCfg2.hooks.onConfirm();
+        } else if (body.applyButton && vCfg2.hooks && vCfg2.hooks.onApply) {
+          e.preventDefault();
+          vCfg2.hooks.onApply();
         }
         return;
       }

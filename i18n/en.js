@@ -802,7 +802,7 @@ Object.assign(L.en, {
     fmSliderRoundColAgg:     "Current estimate",
     fmSliderRoundColAggHz:   "Estimate (Hz)",
     fmSliderRoundColStatus:  "Status",
-    btnPauseTest:            "Pause test",
+    btnPauseTest:            "■ Pause test",
     cumulativeDb: "Total",
     testTabLockedHint: "During a running test, this tab cannot be left. You can interrupt the test at any time and continue later.",
     testTabLockedHintNoResume: "During a running test, this tab cannot be left. If interrupted, the run will be discarded.",
@@ -1041,4 +1041,13 @@ Object.assign(L.en, {
     toneNoiseDesc:           "Narrowband noise with fixed bandwidth.",
     toneNoiseAdaptiveDesc:   "Narrowband noise with frequency-dependent bandwidth.",
     toneIRNDesc:             "Noise with audible residual pitch.",
+
+    // BA 223 — Latency test migration
+    btnEndTest:    "■ End test",
+    btnCancelTest: "■ Cancel test",
+    latInstruction: "Move the slider until the clicks on the left and right appear at the same time.",
+    sliderHintMs:   "1 ms",
+    latVerfahrenLabel: "Latency",
+    latVortestBalanceMissing:  "Note: pre-test \"Stereo balance\" has not been carried out yet. The measurement still works, but is more accurate if the balance has been levelled beforehand.",
+    latVortestLoudnessMissing: "Note: pre-test \"Electrode loudness\" has not been carried out yet. The measurement still works, but is more accurate if loudness has been set beforehand.",
 });

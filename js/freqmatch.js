@@ -1134,7 +1134,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       },
-      startStop: { startKey: 'fmLblStart', resumable: true }
+      startStop: { startKey: 'fmLblStart', stopKey: 'btnPauseTest', resumable: true }
     },
     verfahren: [
       {

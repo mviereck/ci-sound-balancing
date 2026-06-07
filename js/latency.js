@@ -117,8 +117,8 @@ function latInitGraph(ctx) {
 
   pLatSplitter = ctx.createChannelSplitter(2);
   pLatMerger   = ctx.createChannelMerger(2);
-  pLatDelayL   = ctx.createDelay(0.25); // 250 ms Puffer für ±200 ms Schieberbereich
-  pLatDelayR   = ctx.createDelay(0.25);
+  pLatDelayL   = ctx.createDelay(2.0); // 2 s Puffer für Schieberbereich bis ±2000 ms
+  pLatDelayR   = ctx.createDelay(2.0);
   pLatDelayL.delayTime.value = 0;
   pLatDelayR.delayTime.value = 0;
 
@@ -155,12 +155,13 @@ function latStartTest() {
   // entstehen pro Test und werden beim Stop wieder verworfen.
   const balG = (typeof getRawBalanceGains === "function")
     ? getRawBalanceGains() : { left: 0, right: 0 };
+  const volFactor = _latGetVolumeFactor();   // 0..1, Default 0.5 (=50%)
   latBalSplitter = ctx.createChannelSplitter(2);
   latBalMerger   = ctx.createChannelMerger(2);
   latBalGainL    = ctx.createGain();
   latBalGainR    = ctx.createGain();
-  latBalGainL.gain.value = dB2G(balG.left);
-  latBalGainR.gain.value = dB2G(balG.right);
+  latBalGainL.gain.value = dB2G(balG.left)  * volFactor;
+  latBalGainR.gain.value = dB2G(balG.right) * volFactor;
   latTestSource.connect(latBalSplitter);
   latBalSplitter.connect(latBalGainL, 0);
   latBalSplitter.connect(latBalGainR, 1);
@@ -235,185 +236,281 @@ function latApplyToPlayer() {
 }
 
 // =====================================================================
-// UI-Bindings (Bauanleitung 26)
+// =====================================================================
+// Test-UI Migration (BA 223)
 // =====================================================================
 
-let latEls = null;  // wird in DOMContentLoaded befüllt
+let latEls = null;          // panel-refs aus buildTestPanel
+let latVolume = 50;         // 0..100, eigener Lautstärkewert (Test-lokal)
 
-function latUpdateValueText() {
-  if (!latEls || !latEls.valueText) return;
-  const v = latSliderMs;
-  const a = Math.abs(v).toFixed(1).replace(".", ",");
-  let txt;
-  if (Math.abs(v) < 0.05) {
-    txt = `0,0 ms — ${t("latResNoOffset").replace(".", "")}`;
-  } else if (v > 0) {
-    txt = `+${a} ms — ${t("latResLeftFaster").replace("{ms}", a)}`;
-  } else {
-    txt = `−${a} ms — ${t("latResRightFaster").replace("{ms}", a)}`;
-  }
-  latEls.valueText.textContent = txt;
+function _latGetVolumeFactor() {
+  // 0..1, fallback 0.5
+  const v = (latEls && latEls.header && latEls.header.volInput)
+    ? parseFloat(latEls.header.volInput.value) : latVolume;
+  if (!isFinite(v)) return 0.5;
+  return Math.max(0, Math.min(100, v)) / 100;
 }
 
-function latUpdateIntervalHint() {
-  if (!latEls || !latEls.intervalHint) return;
+function _latBuildExtraFragment() {
+  // Zwei Button-Reihen: Klick-Intervall und Klangtyp.
+  const frag = document.createElement('div');
+  frag.className = 'lat-extra';
+
+  // Klick-Intervall
+  const intvWrap = document.createElement('div');
+  intvWrap.style.margin = '12px 0';
+  const intvLbl = document.createElement('div');
+  intvLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
+  intvLbl.dataset.t = 'latIntervalLabel';
+  const intvRow = document.createElement('div');
+  intvRow.className = 'btn-row';
+  intvRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
+  [100, 200, 500, 1000, 2000].forEach(function(ms) {
+    const b = document.createElement('button');
+    b.className = 'btn lat-interval-btn' + (ms === latIntervalMs ? ' active' : '');
+    b.dataset.ms = String(ms);
+    b.textContent = ms + ' ms';
+    b.addEventListener('click', function() {
+      latIntervalMs = ms;
+      _latRefreshExtraActives();
+      _latUpdateIntervalHint();
+      latRestartIfActive();
+    });
+    intvRow.appendChild(b);
+  });
+  const intvHint = document.createElement('div');
+  intvHint.id = 'latIntervalHint';
+  intvHint.style.cssText = 'font-size:0.85em;color:var(--text-muted);margin-top:4px;';
+  intvWrap.append(intvLbl, intvRow, intvHint);
+
+  // Klangtyp
+  const typeWrap = document.createElement('div');
+  typeWrap.style.margin = '12px 0';
+  const typeLbl = document.createElement('div');
+  typeLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
+  typeLbl.dataset.t = 'latTypeLabel';
+  const typeRow = document.createElement('div');
+  typeRow.className = 'btn-row';
+  typeRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
+  [
+    ['click',     'latTypeClick'],
+    ['burst500',  'latTypeBurst500'],
+    ['burst1500', 'latTypeBurst1500'],
+    ['burst4000', 'latTypeBurst4000']
+  ].forEach(function(pair) {
+    const b = document.createElement('button');
+    b.className = 'btn lat-click-btn' + (pair[0] === latClickType ? ' active' : '');
+    b.dataset.type = pair[0];
+    b.dataset.t = pair[1];
+    b.addEventListener('click', function() {
+      latClickType = pair[0];
+      _latRefreshExtraActives();
+      latRestartIfActive();
+    });
+    typeRow.appendChild(b);
+  });
+  typeWrap.append(typeLbl, typeRow);
+
+  frag.append(intvWrap, typeWrap);
+  return frag;
+}
+
+function _latRefreshExtraActives() {
+  if (!latEls || !latEls.header || !latEls.header.extraFragment) return;
+  const frag = latEls.header.extraFragment;
+  frag.querySelectorAll('.lat-interval-btn').forEach(function(b) {
+    b.classList.toggle('active', parseInt(b.dataset.ms, 10) === latIntervalMs);
+  });
+  frag.querySelectorAll('.lat-click-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.type === latClickType);
+  });
+}
+
+function _latUpdateIntervalHint() {
+  if (!latEls || !latEls.header || !latEls.header.extraFragment) return;
+  const hint = latEls.header.extraFragment.querySelector('#latIntervalHint');
+  if (!hint) return;
   const unique = latIntervalMs / 2;
-  let s = `${t("latUniqueRange")} ±${unique} ms`;
-  if (unique < 200) s += ` ${t("latUniqueRangeAmbig")}`;
-  latEls.intervalHint.textContent = s;
+  let s = (t("latUniqueRange") || "Eindeutiger Bereich:") + " ±" + unique + " ms";
+  if (unique < 200) s += " " + (t("latUniqueRangeAmbig") || "");
+  hint.textContent = s;
 }
 
-function latUpdateButtonStates() {
-  if (!latEls) return;
-  for (const b of latEls.intervalBtns) {
-    b.classList.toggle("active", parseInt(b.dataset.ms, 10) === latIntervalMs);
+function _latHasBalance() {
+  // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
+  // existiert in lrResults ODER in sideData[*].bRes.
+  if (typeof lrResults === 'object' && lrResults
+      && Object.values(lrResults).some(function(v) { return isFinite(v); })) return true;
+  if (typeof sideData === 'object' && sideData) {
+    for (const side of ['left', 'right']) {
+      const sd = sideData[side];
+      if (sd && Array.isArray(sd.bRes) && sd.bRes.length > 0) return true;
+    }
   }
-  for (const b of latEls.clickBtns) {
-    b.classList.toggle("active", b.dataset.type === latClickType);
+  return false;
+}
+
+function _latHasLoudness() {
+  // Pragmatische Detektion: mindestens eine Seite hat von Default
+  // abweichende manualLevels ODER nicht-leere jRes.
+  if (typeof sideData !== 'object' || !sideData) return false;
+  for (const side of ['left', 'right']) {
+    const sd = sideData[side];
+    if (!sd) continue;
+    if (Array.isArray(sd.manualLevels) && sd.manualLevels.some(function(v) { return isFinite(v) && v !== 0; })) return true;
+    if (Array.isArray(sd.jRes) && sd.jRes.length > 0) return true;
   }
-  if (latEls.startBtn) latEls.startBtn.disabled = latActive;
-  if (latEls.stopBtn)  latEls.stopBtn.disabled  = !latActive;
-  if (latEls.slider)   latEls.slider.disabled   = !latActive;
-  if (latEls.testBox)  latEls.testBox.hidden     = !latActive;
-  if (latEls.lockedHint) latEls.lockedHint.hidden = !latActive;
+  return false;
 }
 
-function latSliderInput(newMs) {
-  // Wert auf step-Genauigkeit clampen
-  let v = parseFloat(newMs);
-  if (!isFinite(v)) v = 0;
-  if (v < -200) v = -200;
-  if (v >  200) v =  200;
-  // auf 0.1 runden
-  v = Math.round(v * 10) / 10;
-  if (latEls && latEls.slider) latEls.slider.value = String(v);
-  latSetSliderMs(v);
-  latUpdateValueText();
-}
-
-function latKeyHandler(ev) {
+function _latRefreshPrereqHints() {
   if (!latEls) return;
-  let step = 1;
-  if (ev.shiftKey) step = 0.1;
-  if (ev.ctrlKey || ev.metaKey) step = 10;
-  let delta = 0;
-  if (ev.key === "ArrowLeft"  || ev.key === "ArrowDown") delta = -step;
-  if (ev.key === "ArrowRight" || ev.key === "ArrowUp")   delta =  step;
-  if (delta === 0) return;
-  ev.preventDefault();
-  latSliderInput(latSliderMs + delta);
+  testUI.explain.setVisible(latEls, 'latVortestBalanceMissing',  !_latHasBalance());
+  testUI.explain.setVisible(latEls, 'latVortestLoudnessMissing', !_latHasLoudness());
 }
 
-function latStartTestUI() {
-  const startMs = (latencyResult && isFinite(latencyResult.valueMs))
-    ? latencyResult.valueMs : 0;
-  latSliderInput(startMs);
-  latStartTest();
-  latUpdateButtonStates();
-  if (typeof updateTabLockState === "function") updateTabLockState();
-  if (latEls && latEls.slider) safeFocus(latEls.slider);
+// --- Hook-Implementierungen ---
+
+function latHookOnStart() {
+  // Seitenhörtest vor Start (analog freqmatch slider).
+  testUI.sideCheck.run(
+    { sides: 'both' },
+    function() {
+      // Startwert: vorhandenes Ergebnis oder 0
+      const startMs = (latencyResult && isFinite(latencyResult.valueMs))
+        ? latencyResult.valueMs : 0;
+      const slRef = latEls.verfahren.lat.slider;
+      if (slRef) testUI.slider.setValue(slRef, startMs);
+      latSetSliderMs(startMs);
+      _latUpdateIntervalHint();
+      latStartTest();
+    },
+    function() {
+      // Abbruch im sideCheck -> testUI stoppt; wir raeumen nur unsere Resourcen.
+      if (latEls && latEls._stopTest) latEls._stopTest();
+    }
+  );
 }
 
-function latStopTestUI() {
+function latHookOnStop() {
+  // = "Test abbrechen": Audio-Loop stoppen, KEIN Speichern.
   latStopTest();
-  latApplyAsResult();
-  latUpdateButtonStates();
-  if (typeof updateTabLockState === "function") updateTabLockState();
+  latApplyToPlayer();   // setzt Delays auf gespeicherten Wert (falls vorhanden)
 }
 
-function latApplyAsResult() {
+function latHookOnSlide(ms) {
+  latSetSliderMs(ms);
+}
+
+function latHookOnApply() {
+  // = "Offset bestaetigen": aktuellen Schieberwert speichern + Test beenden.
   latencyResult = {
-    valueMs: latSliderMs,
-    clickType: latClickType,
+    valueMs:    latSliderMs,
+    clickType:  latClickType,
     intervalMs: latIntervalMs,
-    timestamp: Date.now(),
-    implantSnapshot: (typeof implantSnapshot === 'function') ? implantSnapshot() : null, // BA 156
+    timestamp:  Date.now(),
+    implantSnapshot: (typeof implantSnapshot === 'function') ? implantSnapshot() : null
   };
   latApplyToPlayer();
-  if (typeof latRenderResults === "function") latRenderResults();
+  if (typeof latRenderResults === 'function') latRenderResults();
+  if (typeof depLockApply === 'function') depLockApply();
+  // Test sauber beenden
+  if (latEls && latEls._stopTest) latEls._stopTest();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  latEls = {
-    slider:        document.getElementById("latSlider"),
-    valueText:     document.getElementById("latValueText"),
-    intervalHint:  document.getElementById("latIntervalHint"),
-    intervalBtns:  Array.from(document.querySelectorAll(".lat-interval-btn")),
-    clickBtns:     Array.from(document.querySelectorAll(".lat-click-btn")),
-    startBtn:      document.getElementById("latStartBtn"),
-    stopBtn:       document.getElementById("latStopBtn"),
-    testBox:       document.getElementById("latTestBox"),
-    lockedHint:    document.getElementById("latLockedHint"),
-    snapHintBox:   document.getElementById("snapHint_lat"), // BA 156
+// --- DOMContentLoaded: testUI-Panel bauen ---
+
+document.addEventListener("DOMContentLoaded", function() {
+  const parentEl = document.getElementById("subpanel-messungen-latenz");
+  if (!parentEl) return;
+
+  const cfg = {
+    id: 'latenz',
+    explain: {
+      titleKey: 'latMeasTitle',
+      preserveOrder: false,
+      paragraphs: [
+        { key: 'latMaturityHint',           kind: 'info'    },
+        { key: 'latBTWarning',              kind: 'caution' },
+        { key: 'latVortestBalanceMissing',  kind: 'warn',  id: 'latVortestBalanceMissing',  hidden: true },
+        { key: 'latVortestLoudnessMissing', kind: 'warn',  id: 'latVortestLoudnessMissing', hidden: true },
+        { key: 'latPrereqHint',             kind: 'warn'    },
+        { key: 'latMeasIntro2',             kind: 'plain'   },
+        { key: 'latMeasIntro',              kind: 'plain'   },
+        { key: 'latLocHint',                kind: 'plain'   }
+      ]
+    },
+    header: {
+      common: {
+        refSelect:    false,
+        volume:       { show: true },
+        duration:     false,
+        pause:        false,
+        toneType:     false,
+        sequence:     false,
+        sliderTarget: false
+      },
+      extra:    { fragment: _latBuildExtraFragment() },
+      startStop:{ startKey: 'latStartBtn', stopKey: 'btnCancelTest', resumable: false }
+    },
+    verfahren: [{
+      id: 'lat',
+      labelKey:   'latVerfahrenLabel',
+      explainKey: null,
+      body: {
+        instruction:  { key: 'latInstruction' },
+        keyHint:      { unitKey: 'sliderHintMs' },
+        slider:       { unit: 'ms', initialRange: 50, maxRange: 2000, touchStep: 5, touchFineStep: 1 },
+        sliderValue:  { show: true },
+        applyButton:  { key: 'btnConfirmOffset' }
+      },
+      hooks: {
+        onStart:  latHookOnStart,
+        onStop:   latHookOnStop,
+        onSlide:  latHookOnSlide,
+        onApply:  latHookOnApply
+      }
+    }]
   };
-  if (!latEls.slider) return; // HTML noch nicht da
 
-  latEls.slider.addEventListener("input", function (e) {
-    latSliderInput(e.target.value);
-  });
-  buildSliderTouchCtrl(latEls.slider, {
-    step: 1,
-    fineStep: 0.1
-  });
-  // Tastatur (Pfeile mit Modifiern). Wir überschreiben das Default-
-  // Verhalten von <input type=range>, damit Schrittgrößen exakt
-  // 1 / 0,1 / 10 ms sind.
-  latEls.slider.addEventListener("keydown", latKeyHandler);
+  latEls = buildTestPanel(parentEl, cfg);
 
-  for (const b of latEls.intervalBtns) {
-    b.addEventListener("click", function () {
-      latIntervalMs = parseInt(b.dataset.ms, 10);
-      latUpdateButtonStates();
-      latUpdateIntervalHint();
-      latRestartIfActive();
-      safeFocus(latEls.slider);
+  // Volume-Default setzen
+  if (latEls.header && latEls.header.volInput) {
+    latEls.header.volInput.value = String(latVolume);
+    latEls.header.volInput.addEventListener('change', function() {
+      latVolume = parseFloat(latEls.header.volInput.value) || 50;
+      // Wenn der Test läuft: Gains live nachziehen
+      if (latActive && latBalGainL && latBalGainR) {
+        const balG = (typeof getRawBalanceGains === "function")
+          ? getRawBalanceGains() : { left: 0, right: 0 };
+        const f = _latGetVolumeFactor();
+        latBalGainL.gain.value = dB2G(balG.left)  * f;
+        latBalGainR.gain.value = dB2G(balG.right) * f;
+      }
     });
   }
-  for (const b of latEls.clickBtns) {
-    b.addEventListener("click", function () {
-      latClickType = b.dataset.type;
-      latUpdateButtonStates();
-      latRestartIfActive();
-      safeFocus(latEls.slider);
-    });
-  }
-  if (latEls.startBtn) latEls.startBtn.addEventListener("click", latStartTestUI);
-  if (latEls.stopBtn)  latEls.stopBtn.addEventListener("click",  latStopTestUI);
 
-  // ENTER beendet den laufenden Latenztest (Äquivalent zum Stop-Button).
-  // Nur greifen, wenn der Test wirklich aktiv ist und der Fokus nicht
-  // in einem Eingabe-Element liegt (sonst würde ENTER in normalen
-  // Formularen abgefangen).
-  document.addEventListener("keydown", function (ev) {
-    if (!latActive) return;
-    if (ev.key !== "Enter") return;
-    const tgt = ev.target;
-    if (tgt && (tgt.tagName === "INPUT" || tgt.tagName === "TEXTAREA" || tgt.tagName === "SELECT")) {
-      // Ausnahme: der Latenz-Slider ist zwar ein input[type=range], aber
-      // ENTER soll dort dennoch stoppen — Range-Inputs erzeugen mit ENTER
-      // ohnehin keine sinnvolle Default-Aktion.
-      const isLatSlider = (latEls && latEls.slider && tgt === latEls.slider);
-      if (!isLatSlider) return;
+  // Initial-Setup
+  _latUpdateIntervalHint();
+  _latRefreshPrereqHints();
+
+  // Vortest-Hinweise jedes Mal beim Öffnen des Sub-Tabs aktualisieren
+  document.addEventListener('subtab-shown', function(e) {
+    if (e && e.detail && e.detail.subtab === 'latenz'
+        && e.detail.parent === 'messungen') {
+      _latRefreshPrereqHints();
     }
-    ev.preventDefault();
-    latStopTestUI();
   });
 
-  // Initial-Update
-  latSliderInput(0);
-  latUpdateButtonStates();
-  latUpdateIntervalHint();
-
-  const latClearBtn = document.getElementById("latClearBtn");
-  if (latClearBtn) {
-    latClearBtn.addEventListener("click", function() {
-      if (!confirm(t("latClearConfirm") || "Latenz-Meßergebnis löschen?")) return;
-      latencyResult = null;
-      // BA 151
-      if (typeof depLockApply === 'function') depLockApply();
-      latRenderResults();
-    });
+  // Falls kein subtab-shown-Event existiert: Tab-Button-Klick als Fallback
+  const tabBtn = document.getElementById('latSubtabBtn');
+  if (tabBtn) {
+    tabBtn.addEventListener('click', function() { setTimeout(_latRefreshPrereqHints, 0); });
   }
+
+  // Sprachwechsel: Intervall-Hint neu rendern
+  document.addEventListener('lang-changed', _latUpdateIntervalHint);
 });
 
 // =====================================================================

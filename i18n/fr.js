@@ -803,7 +803,7 @@ Object.assign(L.fr, {
     fmSliderRoundColAgg:     "Estimation actuelle",
     fmSliderRoundColAggHz:   "Estimation (Hz)",
     fmSliderRoundColStatus:  "Statut",
-    btnPauseTest:            "Mettre en pause",
+    btnPauseTest:            "■ Mettre en pause",
     cumulativeDb: "Total",
     testTabLockedHint: "Pendant un test en cours, cet onglet ne peut pas être quitté. Vous pouvez interrompre le test à tout moment et le poursuivre plus tard.",
     testTabLockedHintNoResume: "Pendant un test en cours, cet onglet ne peut pas être quitté. En cas d'interruption, le parcours est abandonné.",
@@ -1042,4 +1042,13 @@ Object.assign(L.fr, {
     toneNoiseDesc:           "Bruit à bande étroite, largeur fixe.",
     toneNoiseAdaptiveDesc:   "Bruit à bande étroite, largeur dépendante de la fréquence.",
     toneIRNDesc:             "Bruit avec hauteur résiduelle audible.",
+
+    // BA 223 — Migration test de latence
+    btnEndTest:    "■ Terminer le test",
+    btnCancelTest: "■ Annuler le test",
+    latInstruction: "Déplacez le curseur jusqu'à ce que les clics à gauche et à droite apparaissent en même temps.",
+    sliderHintMs:   "1 ms",
+    latVerfahrenLabel: "Latence",
+    latVortestBalanceMissing:  "Remarque : le pré-test « Balance stéréo » n'a pas encore été effectué. La mesure fonctionne quand même, mais elle est plus précise si la balance a été ajustée auparavant.",
+    latVortestLoudnessMissing: "Remarque : le pré-test « Volume des électrodes » n'a pas encore été effectué. La mesure fonctionne quand même, mais elle est plus précise si le volume a été réglé auparavant.",
 });

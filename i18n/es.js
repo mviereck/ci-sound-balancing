@@ -803,7 +803,7 @@ Object.assign(L.es, {
     fmSliderRoundColAgg:     "Estimación actual",
     fmSliderRoundColAggHz:   "Estimación (Hz)",
     fmSliderRoundColStatus:  "Estado",
-    btnPauseTest:            "Pausar prueba",
+    btnPauseTest:            "■ Pausar prueba",
     cumulativeDb: "Total",
     testTabLockedHint: "Durante una prueba en curso no se puede salir de esta pestaña. Puede interrumpir la prueba en cualquier momento y continuar más tarde.",
     testTabLockedHintNoResume: "Durante una prueba en curso no se puede salir de esta pestaña. Al interrumpir, se descarta la pasada.",
@@ -1042,4 +1042,13 @@ Object.assign(L.es, {
     toneNoiseDesc:           "Ruido de banda estrecha con ancho fijo.",
     toneNoiseAdaptiveDesc:   "Ruido de banda estrecha con ancho dependiente de la frecuencia.",
     toneIRNDesc:             "Ruido con altura tonal residual audible.",
+
+    // BA 223 — Migración del test de latencia
+    btnEndTest:    "■ Finalizar prueba",
+    btnCancelTest: "■ Cancelar prueba",
+    latInstruction: "Mueve el deslizador hasta que los clics de la izquierda y la derecha aparezcan al mismo tiempo.",
+    sliderHintMs:   "1 ms",
+    latVerfahrenLabel: "Latencia",
+    latVortestBalanceMissing:  "Aviso: la prueba previa «Balance estéreo» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el balance se ha igualado antes.",
+    latVortestLoudnessMissing: "Aviso: la prueba previa «Volumen de electrodos» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el volumen se ha ajustado antes.",
 });
