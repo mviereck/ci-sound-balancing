@@ -1119,10 +1119,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 else                       { hzLeft = refHz2; hzRight = elHz;   }
               }
             }
+            var dur = fmGDur();
+            var pau = fmGPau();
             return [
-              { hz: hzLeft,  pan: -1, durationMs: 500 },
-              { pauseMs: 300 },
-              { hz: hzRight, pan:  1, durationMs: 500 }
+              { hz: hzLeft,  pan: -1, durationMs: dur },
+              { pauseMs: pau },
+              { hz: hzRight, pan:  1, durationMs: dur }
             ];
           }
         },

@@ -2303,8 +2303,6 @@ function _openToneTypeDialog(cfg, onChange) {
       });
       play.addEventListener('click', function() {
         if (playing) return;
-        rb.checked = true;
-        selected = key;
         _playPreview(key);
       });
 

@@ -190,13 +190,16 @@ Slider-Wert wird invertiert.
 
 - **Tonart-Auswahl (BA 209):** Button im Header „Tonart: *Aktualwert*"
   öffnet ein Popup mit Radio-Liste aller 9 Tonarten und einer
-  Play-Spalte. Probehör-Sequenz: 500 ms Pan −1 → 300 ms Pause →
-  500 ms Pan +1; Frequenzen je nach Test-Status: vor Test 1 kHz
-  beidseitig, während Slider-Round / Adaptiv die aktuellen
-  Trial-Frequenzen (links/rechts). OK übernimmt, Abbruch verwirft.
-  Auswahl persistiert in `toneType_freqmatch` (Default `pulsedComplex`).
-  Das Dropdown `sliderTarget` („Slider-Wirkung") wurde ersatzlos
-  entfernt (BA 209).
+  Play-Spalte. Probehör-Sequenz: Tondauer Pan −1 → Pause →
+  Tondauer Pan +1, Werte aus den Verfahren-Einstellungen
+  (`fmGDur()`/`fmGPau()`). Frequenzen je nach Test-Status: vor Test
+  1 kHz beidseitig, während Slider-Round / Adaptiv die aktuellen
+  Trial-Frequenzen (links/rechts). Der Play-Button spielt
+  ausschließlich ab; die Tonart-Auswahl erfolgt über den
+  Radio-Button (und wird mit OK übernommen). OK übernimmt,
+  Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`
+  (Default `pulsedComplex`). Das Dropdown `sliderTarget`
+  („Slider-Wirkung") wurde ersatzlos entfernt (BA 209).
 - **Dynamischer Intro-Text (BA 160):** `fmHintMethod` (`#fmHintMethodPara`)
   zeigt je nach Hörtechnik-Kombination:
   - CI + Naturgehör (normal/shoh/hg): Ziel = tatsächlich stimulierte
