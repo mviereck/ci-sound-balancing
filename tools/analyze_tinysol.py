@@ -61,6 +61,29 @@ AM_DETECTION_MIN_RATIO  = 0.5   # analog VIB_DETECTION_MIN_RATIO fuer Atem-AM
 AM_PROM_THRESHOLD       = 3.0   # spektrale Prominenz (peak/median im AM-Band)
 
 
+# Manuelle Vibrato-Overrides aus klassischer Spielpraxis.
+# TinySOL "ord-mf"-Aufnahmen sind reine Stimmproben ohne Vibrato (Bibliotheks-Realitaet),
+# weshalb der Detektor bei Blaesern/Akkordeon nichts findet. Damit die Vibrato-Staerke-
+# Buttons in der Tonauswahl-Modalbox auch bei diesen Tontypen hoerbar wirken, hinterlegen
+# wir hier typische Werte aus der Spielpraxis.
+# "Stark" = klassisch mit Vibrato gespielt; "Dezent" = klassisch ohne Vibrato, aber etwas
+# Wackeln, damit der Ton nicht steril wirkt und der Staerke-Slider sich auswirkt.
+MANUAL_VIBRATO_OVERRIDE = {
+    # Stark (klassisch mit Vibrato)
+    "Fl":   {"vibratoHz": 5.5, "vibratoCents": 25.0},  # Querfloete
+    "Ob":   {"vibratoHz": 5.5, "vibratoCents": 20.0},  # Oboe
+    "Bn":   {"vibratoHz": 4.5, "vibratoCents": 20.0},  # Fagott
+    "ASax": {"vibratoHz": 6.0, "vibratoCents": 35.0},  # Altsaxophon
+    "TpC":  {"vibratoHz": 5.5, "vibratoCents": 25.0},  # Trompete in C
+    # Dezent (klassisch ohne Vibrato, nur Wuerze)
+    "ClBb": {"vibratoHz": 4.0, "vibratoCents":  8.0},  # Klarinette in B
+    "Hn":   {"vibratoHz": 4.5, "vibratoCents": 10.0},  # Waldhorn
+    "Tbn":  {"vibratoHz": 4.0, "vibratoCents":  8.0},  # Posaune
+    "BTb":  {"vibratoHz": 3.5, "vibratoCents":  6.0},  # Basstuba
+    "Acc":  {"vibratoHz": 4.0, "vibratoCents":  8.0},  # Akkordeon (Tremulant ist AM)
+}
+
+
 def load_meta():
     if not META_CSV.exists():
         print(f"FEHLER: {META_CSV} nicht gefunden", file=sys.stderr)
@@ -282,8 +305,18 @@ def aggregate_profile(samples, instr):
     if ratio >= VIB_DETECTION_MIN_RATIO and vib_positive:
         vibratoHz    = float(np.mean([s["vibratoHz"]    for s in vib_positive]))
         vibratoCents = float(np.mean([s["vibratoCents"] for s in vib_positive]))
+        vibratoSource = "data"
     else:
         vibratoHz, vibratoCents = 0.0, 0.0
+        vibratoSource = "none"
+
+    # Manuelle Vibrato-Werte aus Spielpraxis fuer Tontypen, bei denen TinySOL
+    # nichts liefert (Blaeser/Akkordeon spielen in ord-mf-Aufnahmen ohne Vibrato).
+    if instr in MANUAL_VIBRATO_OVERRIDE:
+        ov = MANUAL_VIBRATO_OVERRIDE[instr]
+        vibratoHz    = ov["vibratoHz"]
+        vibratoCents = ov["vibratoCents"]
+        vibratoSource = "manual"
 
     # AM-Aggregation analog zur Vibrato-Aggregation: pro-Sample binaere
     # Klassifikation, Anteils-Schwelle, Mittelwert ueber positive Samples.
@@ -302,6 +335,7 @@ def aggregate_profile(samples, instr):
         "partials":          partials,
         "vibratoHz":         round(vibratoHz, 2),
         "vibratoCents":      round(vibratoCents, 2),
+        "vibratoSource":     vibratoSource,
         "vibratoProm":       round(float(np.median([s["vibratoProm"] for s in valid])), 2),
         "vibratoDetectionRate": f"{n_positive}/{n_eligible} (von {n_total} insgesamt)",
         "vibratoSpansCents": [round(float(s.get("vibratoSpanCents", 0)), 1) for s in valid],
