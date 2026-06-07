@@ -1093,6 +1093,7 @@ Object.assign(L.de, {
     toneGroupNoiseHint:      "Schmalbandig um die Nominalfrequenz.",
     toneGroupMellotron: "Mellotron-Sampler",
     toneGroupMellotronHint: "Klangbibliothek aus dem Original-Mellotron (laden beim ersten Anschlag).",
+    samplerKeyboardLoading: "Lädt ...",
     toneSineDesc:            "Reine, einzelne Frequenz.",
     toneAmSineDesc:          "Sinus mit langsamem Tremolo (Lautstärke schwankt).",
     toneBurstSineDesc:       "Vier kurze Sinus-Pulse mit Pausen.",

@@ -1108,6 +1108,57 @@ document.addEventListener("DOMContentLoaded", () => {
               { pauseMs: pau },
               { hz: hzRight, pan:  1, durationMs: dur }
             ];
+          },
+          // BA 228: Klavier-Widget in der Modalbox aktivieren.
+          keyboardMode: true,
+          getElectrodeFreqs: function() {
+            // Aktive Elektroden der var-Seite (CI-Seite im Freqmatch-Kontext).
+            // Wenn fmVarSide nicht gesetzt ist (vor erstem Test), Fallback
+            // auf activeSide.
+            var side = (typeof fmVarSide === 'string' && fmVarSide)
+              ? fmVarSide : activeSide;
+            var freqs = [];
+            withSide(side, function() {
+              for (var i = 0; i < elActive.length; i++) {
+                if (elActive[i] === false) continue;
+                freqs.push(effFreq(i));
+              }
+            });
+            return freqs;
+          },
+          getElectrodeLabels: function() {
+            var side = (typeof fmVarSide === 'string' && fmVarSide)
+              ? fmVarSide : activeSide;
+            var labels = [];
+            withSide(side, function() {
+              for (var i = 0; i < elActive.length; i++) {
+                if (elActive[i] === false) continue;
+                labels.push(String(i + 1));
+              }
+            });
+            return labels;
+          },
+          getDuration: function() { return fmGDur(); },
+          onKeyPress: function(electrodeIdx, hz, durMs) {
+            // Frequenzabgleich-Burst-Sequenz: Var-Seite-Burst,
+            // kurze Pause, dann Ref-Seite-Burst (gleiche Frequenz).
+            // Schwarze Zier-Tasten (electrodeIdx === -1) spielen
+            // ihre Mittelfrequenz auch nach diesem Schema.
+            var c = (typeof gAC === 'function') ? gAC() : null;
+            if (!c) return;
+            var vol = fmGVol();
+            var pauMs = fmGPau();
+            var varSide = (typeof fmVarSide === 'string' && fmVarSide)
+              ? fmVarSide : activeSide;
+            var varPan = (varSide === 'left') ? -1 : 1;
+            var refPan = -varPan;
+            var tt = toneType_freqmatch;
+            try {
+              playToneTyped(c, hz, vol, durMs, varPan, tt);
+              setTimeout(function() {
+                playToneTyped(c, hz, vol, durMs, refPan, tt);
+              }, durMs + pauMs);
+            } catch (e) { /* swallow */ }
           }
         },
         sequence:     { show: true, source: 'global' },

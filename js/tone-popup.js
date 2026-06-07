@@ -163,6 +163,26 @@ function openToneSelectionDialog(cfg, onChange) {
     'padding:8px 10px;border-radius:4px;';
   dlg.appendChild(hint);
 
+  // BA 228: Optionales Klavier-Widget oberhalb der Tonart-Liste.
+  // Wird nur gerendert, wenn cfg.keyboardMode aktiv und alle
+  // benoetigten Helfer existieren. Aufrufer (z. B. freqmatch.js) liefert
+  // Elektroden-Frequenzen, -Labels und Anschlag-Logik selbst.
+  if (cfg.keyboardMode
+      && typeof renderSamplerKeyboard === 'function'
+      && typeof cfg.getElectrodeFreqs === 'function') {
+    var kbWrap = document.createElement('div');
+    dlg.appendChild(kbWrap);
+    try {
+      renderSamplerKeyboard(kbWrap, {
+        getElectrodeFreqs:   cfg.getElectrodeFreqs,
+        getElectrodeLabels:  cfg.getElectrodeLabels,
+        getCurrentToneType:  cfg.getToneType,
+        onKeyPress:          cfg.onKeyPress,
+        getDuration:         cfg.getDuration
+      });
+    } catch (e) { /* swallow — Klavier-Render-Fehler darf das Modal nicht killen */ }
+  }
+
   GROUPS.forEach(function(grp) {
     var section = document.createElement('section');
     section.style.cssText = 'margin-bottom:14px;';

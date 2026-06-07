@@ -1032,6 +1032,7 @@ Object.assign(L.en, {
     toneGroupNoiseHint:      "Narrowband around the nominal frequency.",
     toneGroupMellotron: "Mellotron samplers",
     toneGroupMellotronHint: "Sample library from the original Mellotron (loads on first key press).",
+    samplerKeyboardLoading: "Loading ...",
     toneSineDesc:            "Pure single frequency.",
     toneAmSineDesc:          "Sine with slow tremolo (loudness fluctuates).",
     toneBurstSineDesc:       "Four short sine pulses with pauses.",

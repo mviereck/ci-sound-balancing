@@ -1033,6 +1033,7 @@ Object.assign(L.es, {
     toneGroupNoiseHint:      "Banda estrecha alrededor de la frecuencia nominal.",
     toneGroupMellotron: "Samplers Mellotron",
     toneGroupMellotronHint: "Biblioteca de sonidos del Mellotron original (se carga al primer pulsado).",
+    samplerKeyboardLoading: "Cargando ...",
     toneSineDesc:            "Frecuencia pura única.",
     toneAmSineDesc:          "Sinusoide con trémolo lento (el volumen fluctúa).",
     toneBurstSineDesc:       "Cuatro impulsos sinusoidales cortos con pausas.",

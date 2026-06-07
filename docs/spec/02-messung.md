@@ -81,6 +81,18 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Laden aus (Sanduhr sichtbar, Buttons bleiben klickbar); ein direkt
   folgender Vorspiel-Klick während des Ladens greift nahtlos in denselben
   Promise und startet nach Fertigstellung automatisch.
+  Klavier-Widget (seit BA 228): Oberhalb der Tonart-Liste erscheint im
+  Frequenzabgleich-Kontext ein Klavier. Tastenzahl = aktive Elektroden
+  der var-Seite, beschriftet mit Elektrodennummer; zwischen je zwei
+  weißen Tasten eine schwarze Zier-Taste auf dem geometrischen Mittel
+  der Nachbarfrequenzen. Anschlag (mousedown/touchstart) spielt Burst
+  auf var-Seite, kurze Pause, Burst auf ref-Seite — beide mit aktueller
+  Tondauer und Pause aus dem Test-Header (`fmGDur`, `fmGPau`). Bei
+  smplr-Tonart die noch nicht geladen ist: Lade-Hinweis „Lädt ..."
+  (gold-gelb, i18n `samplerKeyboardLoading`) über dem Klavier, Anschlag
+  stumm bis Sampler ready. Das Klavier ist abstrakt in `sampler-keyboard.js`
+  implementiert (cfg.keyboardMode = true aktiviert es im Frequenzabgleich)
+  und für künftige Aufrufer (Implantat-Tab, BA 230) wiederverwendbar.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
 - **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten
