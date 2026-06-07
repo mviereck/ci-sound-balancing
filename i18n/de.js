@@ -45,6 +45,7 @@ Object.assign(L.de, {
     latTypeBurst4000: "Hochton 4 kHz",
     latBTWarning: "<strong>⚠️ Wichtig: Diesen Test nur mit Kabel-Kopfhörern durchführen.</strong><br>Bluetooth fügt eigene, unterschiedliche Latenzen pro Ohr hinzu und verfälscht die Messung. Andere Tests funktionieren mit Bluetooth — dieser hier <em>nicht</em>.",
     latMeasTitle: "Latenz-Messung",
+    latMaturityHint: "Dieser Test ist bereits brauchbar und funktioniert. Verbesserungen wird es vermutlich noch geben.",
     latMeasIntro2: "Messung des Zeitversatzes von links und rechts, wann Töne ankommen.",
     latLocHint: "Wenn die Lautstärke links und rechts sehr gut ausgeglichen ist, können Sie als Anhaltspunkt auch darauf achten, ‚wo‘ Sie den Ton hören. Eher links, rechts, oder mittig im Kopf.",
     latMeasIntro: "Stelle mit dem Schieber den Versatz ein, bei dem die Klicks gleichzeitig wahrgenommen werden. Pfeiltasten: 1 ms — Shift+Pfeil: 0,1 ms — Strg+Pfeil: 10 ms.",
@@ -594,10 +595,18 @@ Object.assign(L.de, {
       "<b>Tool nicht für rein akustische Versorgung vorgesehen.</b> Dieses Sound Balancing Tool richtet sich an Cochlea-Implantat-Träger und benötigt mindestens eine CI-Seite. Wenn Sie beide Seiten akustisch versorgt haben, sind Messung, Schieber und Player hier nicht anwendbar. (Eine spätere Programmversion könnte Messungen für beidseitig akustische Versorgung unterstützen.)",
     fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
+    fmMaturityHint:
+      "Dieser Test funktioniert zwar, rein technisch gesehen, hat aber noch Schwächen und wird derzeit aktiv weiterentwickelt." +
+      "<ul>" +
+      "<li>Für Träger von 2 CI sollte er bereits gut funktionieren.</li>" +
+      "<li>Für Träger mit nur 1 CI ist insbesondere die sehr unterschiedliche Wahrnehmung von Tönen problematisch, die Vergleichbarkeit schwierig macht und die Meßergebnisse verfälschen kann.</li>" +
+      "</ul>",
     fmHintWarn:
       "Achten Sie darauf, die richtige Referenzseite auszuwählen: die mit natürlichem Gehör.",
     fmHintWarnBothCI:
       "Achten Sie darauf, als Referenzseite 'symmetrisch' auszuwählen. Dabei werden die Frequenzen in beiden CI beim Test gleichermaßen verändert, um das ungewollte Ansprechen von Nachbarelektroden zu minimieren.",
+    fmGroupBothCi:     "Bei beidseitigem CI",
+    fmGroupCiAcoustic: "Bei CI mit akustisch hörender Gegenseite",
     fmHintMethod:
       "Dieser Test vergleicht die Tonhöhen links und rechts.<br>" +
       "• Wenn Sie ein Ohr mit natürlichem Hören haben, ob normal- oder schwerhörig, stellen Sie es als Referenzohr ein.<br>" +
@@ -895,9 +904,11 @@ Object.assign(L.de, {
     optLR: "L → R",
     optRL: "R → L",
     lrTitle: "Lautstärkenvergleich Links/Rechts",
+    lrMaturityHint: "Dieser Test funktioniert grundsätzlich, wird aber sicher noch überarbeitet werden.",
     lrDesc: "Dieser Test vergleicht die wahrgenommene Lautstärke links und rechts für jedes Elektrodenpaar. Damit soll erreicht werden, daß Sie links und rechts gleich laut hören.",
     lrOrderLbl: "Reihenfolge:",
     lrSideLbl: "Seitenfolge:",
+    testMaturityHint: "Dieser Test ist bereits gut ausgereift und kann zuverlässige Ergebnisse bringen.",
     testExplainRecommend: "Empfehlungen:\n1. Stellen Sie die Lautstärke so ein, daß es etwa 3/4 laut ist. Also mehr als nur mittel, aber noch nicht unangenehm laut.\n2. Nutzen Sie möglichst Bluetooth zum Streamen.\n3. Machen Sie erst einen Test 'Round Robin', dann einmal oder mehrfach den Test 'Konvergenz'.\n4. Eine Marke unter dem Slider zeigt den aus allen bisherigen Messungen errechneten Wert; der farbige Bereich zeigt die Unsicherheit dieser Schätzung.",
     testExplainVarious: " - Sie können die Tests jederzeit unterbrechen und später an gleicher Stelle weiterführen.\n - Der Test 'Round Robin' läuft über einige Runden. Nach etwa 3 bis 4 Runden können Sie im Reiter 'Meßergebnisse' schon grob einschätzen, wohin Ihre Messung führt.\n - Wenn eine Elektrode sich im Laufe des Tests als unmeßbar erweist (zu leise, inaktiv), markieren Sie sie entsprechend im Reiter 'Implantat'. Sie wird dann vom Test ausgeschlossen.",
     testInRound: "Test in dieser Runde:",

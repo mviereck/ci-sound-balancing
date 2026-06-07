@@ -606,6 +606,16 @@ select:disabled {
   margin-top: 8px;
   white-space: pre-wrap;
 }
+/* BA 220: Gruppen-Heading innerhalb des Erklaerblocks. */
+.explain-heading {
+  margin: 14px 0 4px 0;
+  font-size: 1.0em;
+  font-weight: 600;
+  color: var(--text);
+}
+.explain-heading:first-of-type {
+  margin-top: 6px;
+}
 .lv-grid {
   display: grid;
   grid-template-columns: auto 1fr auto auto;

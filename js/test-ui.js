@@ -740,39 +740,58 @@ function _buildTestPanelNew(parentEl, cfg) {
   var h2 = _mkEl('h2');
   _tEl(h2, cfg.explain.titleKey);
   explainBox.appendChild(h2);
-  // BA 178: Sortierung — oben Stufen-Block (error->caution->warn->info->ok),
+
+  // BA 178: Default-Sortierung — oben Stufen-Block (error->caution->warn->info->ok),
   // unten Plain-Texte in Config-Reihenfolge.
+  // BA 220: cfg.explain.preserveOrder = true => keine Sortierung, alles in
+  // Config-Reihenfolge. Notwendig, wenn Gruppen-Headings und Warn-Texte
+  // zusammengehoeren sollen.
+  // BA 220: Neuer kind 'heading' => <h4 class="explain-heading">.
+  var _preserveOrder = !!(cfg.explain && cfg.explain.preserveOrder);
   var _kindOrder = { error: 0, caution: 1, warn: 2, info: 3, ok: 4 };
   var _stagedHints = [];
   var _stagedPlain = [];
+  var _stagedAll   = [];
   (cfg.explain.paragraphs || []).forEach(function(p, configIdx) {
     var kind = p.kind || 'plain';
-    var cls;
-    if (kind === 'plain') {
-      cls = 'explain-plain';
-    } else if (kind === 'warn' || kind === 'caution' || kind === 'error'
-               || kind === 'info' || kind === 'ok') {
-      cls = 'explain explain-' + kind;
+    var el;
+    if (kind === 'heading') {
+      el = _mkEl('h4', 'explain-heading');
     } else {
-      cls = 'explain-plain';
-      kind = 'plain';
+      var cls;
+      if (kind === 'plain') {
+        cls = 'explain-plain';
+      } else if (kind === 'warn' || kind === 'caution' || kind === 'error'
+                 || kind === 'info' || kind === 'ok') {
+        cls = 'explain explain-' + kind;
+      } else {
+        cls = 'explain-plain';
+        kind = 'plain';
+      }
+      el = _mkEl('p', cls);
     }
-    var el = _mkEl('p', cls);
     if (p.key) _tEl(el, p.key);
     if (p.id)  el.id = p.id;
-    if (kind === 'plain') {
+    if (p.hidden) el.hidden = true; // BA 220
+    if (_preserveOrder) {
+      _stagedAll.push(el);
+    } else if (kind === 'plain' || kind === 'heading') {
       _stagedPlain.push({ el: el, configIdx: configIdx });
     } else {
       _stagedHints.push({ el: el, kind: kind, configIdx: configIdx });
     }
   });
-  _stagedHints.sort(function(a, b) {
-    var ka = _kindOrder[a.kind], kb = _kindOrder[b.kind];
-    if (ka !== kb) return ka - kb;
-    return a.configIdx - b.configIdx;
-  });
-  _stagedHints.forEach(function(h) { explainBox.appendChild(h.el); });
-  _stagedPlain.forEach(function(p) { explainBox.appendChild(p.el); });
+  if (_preserveOrder) {
+    _stagedAll.forEach(function(el) { explainBox.appendChild(el); });
+  } else {
+    _stagedHints.sort(function(a, b) {
+      var ka = _kindOrder[a.kind], kb = _kindOrder[b.kind];
+      if (ka !== kb) return ka - kb;
+      return a.configIdx - b.configIdx;
+    });
+    _stagedHints.forEach(function(h) { explainBox.appendChild(h.el); });
+    _stagedPlain.forEach(function(p) { explainBox.appendChild(p.el); });
+  }
 
   // ===== BLOCK 2: Header (Voreinstellungen) =====
   var headerBox = _mkEl('div', 'card presets-box');

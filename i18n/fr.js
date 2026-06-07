@@ -45,6 +45,7 @@ Object.assign(L.fr, {
     latTypeBurst4000: "Aigu 4 kHz",
     latBTWarning: "<strong>⚠️ Important : effectuer ce test uniquement avec des écouteurs filaires.</strong><br>Le Bluetooth ajoute ses propres latences, différentes pour chaque oreille, et fausse la mesure. Les autres tests fonctionnent avec le Bluetooth — celui-ci <em>non</em>.",
     latMeasTitle: "Mesure de latence",
+    latMaturityHint: "Ce test est déjà utilisable et fonctionne. Des améliorations sont vraisemblablement encore à venir.",
     latMeasIntro2: "Mesure du décalage temporel entre la gauche et la droite, à quel moment les sons arrivent.",
     latLocHint: "Si l'intensité gauche et droite est très bien équilibrée, vous pouvez aussi, comme point de repère, faire attention à « où » vous entendez le son. Plutôt à gauche, à droite, ou au milieu de la tête.",
     latMeasIntro: "Réglez avec le curseur le décalage pour lequel les clics sont perçus simultanément. Touches fléchées : 1 ms — Maj+Flèche : 0,1 ms — Ctrl+Flèche : 10 ms.",
@@ -546,10 +547,18 @@ Object.assign(L.fr, {
       "<b>Outil non prévu pour un appareillage purement acoustique.</b> Ce Sound Balancing Tool s'adresse aux porteurs d'implant cochléaire et nécessite au moins un côté IC. Si vous êtes appareillé acoustiquement des deux côtés, la mesure, les curseurs et le Player ne sont pas applicables ici. (Une future version du programme pourrait prendre en charge des mesures pour un appareillage acoustique bilatéral.)",
     fmCochlearFatCorrectionInfo: "La FAT par défaut Cochlear a été corrigée le {date} aux valeurs officielles (CI Select / Custom Sound Pro Standard, HFE 7938 Hz). Les tests de fréquence Cochlear antérieurs à cette date se réfèrent à une hypothèse par défaut différente — pour une courbe de correction actuelle, veuillez refaire le test.",
     fmTitle: "Appariement fréquentiel Gauche/Droite",
+    fmMaturityHint:
+      "Sur le plan technique, ce test fonctionne, mais il présente encore des faiblesses et est actuellement en cours de développement actif." +
+      "<ul>" +
+      "<li>Pour les porteurs de deux IC, il devrait déjà bien fonctionner.</li>" +
+      "<li>Pour les porteurs d'un seul IC, la perception très différente des sons est particulièrement problématique : elle rend la comparabilité difficile et peut fausser les résultats de mesure.</li>" +
+      "</ul>",
     fmHintWarn:
       "Veillez à choisir le bon côté de référence : celui avec une audition naturelle.",
     fmHintWarnBothCI:
       "Veillez à choisir « symétrique » comme côté de référence. Les fréquences dans les deux IC sont alors modifiées de la même manière pendant le test, afin de minimiser la stimulation involontaire des électrodes voisines.",
+    fmGroupBothCi:     "IC bilatéral",
+    fmGroupCiAcoustic: "IC avec audition acoustique controlatérale",
     fmHintMethod:
       "Ce test compare les hauteurs tonales gauche et droite.<br>" +
       "• Si vous avez une oreille avec audition naturelle, normo-entendante ou malentendante, réglez-la comme oreille de référence.<br>" +
@@ -846,9 +855,11 @@ Object.assign(L.fr, {
     optLR: "G → D",
     optRL: "D → G",
     lrTitle: "Comparaison d'intensité Gauche/Droite",
+    lrMaturityHint: "Ce test fonctionne en principe, mais sera certainement encore retravaillé.",
     lrDesc: "Ce test compare l'intensité perçue gauche et droite pour chaque paire d'électrodes. Le but est que vous entendiez aussi fort à gauche et à droite.",
     lrOrderLbl: "Ordre :",
     lrSideLbl: "Ordre des côtés :",
+    testMaturityHint: "Ce test est déjà bien abouti et peut fournir des résultats fiables.",
     testExplainRecommend: "Recommandations :\n1. Réglez le volume à environ 3/4. Donc plus que moyen, mais pas encore désagréablement fort.\n2. Utilisez si possible le Bluetooth pour le streaming.\n3. Faites d'abord un test « Round Robin », puis une ou plusieurs fois le test « Convergence ».\n4. Une marque sous le curseur indique la valeur calculée à partir de toutes les mesures précédentes ; la zone colorée montre l'incertitude de cette estimation.",
     testExplainVarious: " - Vous pouvez interrompre les tests à tout moment et les poursuivre au même endroit plus tard.\n - Le test « Round Robin » se déroule sur quelques tours. Après environ 3 à 4 tours, vous pouvez déjà estimer grossièrement dans l'onglet « Résultats de mesure » où mène votre mesure.\n - Si une électrode s'avère non mesurable au cours du test (trop faible, inactive), marquez-la en conséquence dans l'onglet « Implant ». Elle sera alors exclue du test.",
     testInRound: "Test dans ce tour :",

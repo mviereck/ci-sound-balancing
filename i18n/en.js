@@ -45,6 +45,7 @@ Object.assign(L.en, {
     latTypeBurst4000: "High tone 4 kHz",
     latBTWarning: "<strong>⚠️ Important: Only perform this test with wired headphones.</strong><br>Bluetooth adds its own, different latencies per ear and distorts the measurement. Other tests work with Bluetooth — this one does <em>not</em>.",
     latMeasTitle: "Latency measurement",
+    latMaturityHint: "This test is already usable and works. Further improvements are likely to come.",
     latMeasIntro2: "Measurement of the time offset between left and right when tones arrive.",
     latLocHint: "If the loudness of left and right is very well balanced, you can also pay attention to ‘where’ you hear the sound as a guide. More to the left, right, or centered in your head.",
     latMeasIntro: "Use the slider to set the offset at which the clicks are perceived simultaneously. Arrow keys: 1 ms — Shift+Arrow: 0.1 ms — Ctrl+Arrow: 10 ms.",
@@ -545,10 +546,18 @@ Object.assign(L.en, {
       "<b>Tool not intended for purely acoustic provision.</b> This Sound Balancing Tool is aimed at cochlear implant users and requires at least one CI side. If both sides are acoustically supplied, the measurement, sliders and player are not applicable here. (A future program version could support measurements for bilaterally acoustic provision.)",
     fmCochlearFatCorrectionInfo: "The Cochlear default FAT was corrected on {date} to the official values (CI Select / Custom Sound Pro standard, HFE 7938 Hz). Cochlear frequency tests from before this date refer to a different default assumption — for an up-to-date correction curve, please repeat the test.",
     fmTitle: "Frequency matching left/right",
+    fmMaturityHint:
+      "Technically speaking, this test does work, but it still has weaknesses and is currently being actively developed." +
+      "<ul>" +
+      "<li>For bilateral CI users (two CIs), it should already work well.</li>" +
+      "<li>For users with only one CI, the very different perception of tones is particularly problematic, making comparability difficult and potentially distorting the measurement results.</li>" +
+      "</ul>",
     fmHintWarn:
       "Make sure to select the correct reference side: the one with natural hearing.",
     fmHintWarnBothCI:
       "Make sure to select ‘symmetrical’ as the reference side. The frequencies in both CIs are then changed equally during the test to minimize the unwanted response of neighboring electrodes.",
+    fmGroupBothCi:     "Bilateral CI",
+    fmGroupCiAcoustic: "CI paired with acoustic hearing",
     fmHintMethod:
       "This test compares the pitches on the left and right.<br>" +
       "• If you have one ear with natural hearing, whether normal or hard of hearing, set it as the reference ear.<br>" +
@@ -845,9 +854,11 @@ Object.assign(L.en, {
     optLR: "L → R",
     optRL: "R → L",
     lrTitle: "Loudness comparison left/right",
+    lrMaturityHint: "This test works in principle, but will certainly still be reworked.",
     lrDesc: "This test compares the perceived loudness on the left and right for each electrode pair. The goal is for you to hear equally loud on the left and right.",
     lrOrderLbl: "Order:",
     lrSideLbl: "Side order:",
+    testMaturityHint: "This test is already well developed and can deliver reliable results.",
     testExplainRecommend: "Recommendations:\n1. Set the volume so that it is about 3/4 loud. So more than just medium, but not yet uncomfortably loud.\n2. If possible, use Bluetooth for streaming.\n3. First run a ‘Round Robin’ test, then once or several times the ‘Convergence’ test.\n4. A marker below the slider shows the value calculated from all measurements so far; the colored area shows the uncertainty of this estimate.",
     testExplainVarious: " - You can pause the tests at any time and continue later at the same point.\n - The ‘Round Robin’ test runs over several rounds. After about 3 to 4 rounds, you can already roughly estimate in the ‘Measurement results’ tab where your measurement is heading.\n - If an electrode turns out to be unmeasurable during the test (too quiet, inactive), mark it accordingly in the ‘Implant’ tab. It will then be excluded from the test.",
     testInRound: "Test in this round:",

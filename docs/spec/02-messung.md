@@ -8,6 +8,37 @@ Builder `buildTestPanel` aus test-ui.js. Drei Blöcke pro Test:
 3. **Test** (während der Messung; sperrt alle anderen Tabs und
    Sub-Tabs)
 
+### Reifegrad-Hinweis pro Test
+
+Jedes Testverfahren zeigt am Seitenanfang dauerhaft eine kurze
+Selbsteinschätzung seines Entwicklungsstands. Konvention: erster
+Eintrag in `explain.paragraphs` mit `kind`-Farbe nach Reife:
+
+- **Elektrodenlautstärke** (`testMaturityHint`, `kind: 'ok'`, grün):
+  „bereits gut ausgereift, kann zuverlässige Ergebnisse bringen"
+- **Stereo-Balance** (`lrMaturityHint`, `kind: 'info'`, blau):
+  „funktioniert grundsätzlich, wird aber sicher noch überarbeitet"
+- **Latenz** (`latMaturityHint`, `kind: 'info'`, blau): „bereits
+  brauchbar und funktioniert; Verbesserungen werden noch kommen".
+  Sonderfall — Latenz nutzt statisches HTML statt `buildTestPanel`,
+  daher als `<p class="explain explain-info">` direkt unter dem H2
+  eingebaut.
+- **Frequenzabgleich** (`fmMaturityHint`, `kind: 'caution'`, orange):
+  „funktioniert technisch, hat aber Schwächen und wird aktiv
+  weiterentwickelt"; mit Bullet-Punkten zu 2-CI vs. 1-CI-Trägern
+  (HTML im i18n-String via automatischem `innerHTML`-Pfad in
+  `i18n.js`).
+
+Frequenzabgleich-Erklärblock (BA 220): Der Erklärblock verwendet
+`preserveOrder: true`; alle Absätze erscheinen in Config-Reihenfolge
+ohne Schwere-Sortierung. HG-Warnung (`#fmHGWarnPara`) und
+Cochlear-FAT-Hinweis (`#fmCochlearFatHintPara`) sind reguläre
+`kind:'warn'`-Paragraphen mit `hidden: true`; Sichtbarkeit wird per
+`testUI.explain.setVisible` von `_fmRefreshHGWarningVisibility` /
+`_fmRefreshCochlearFatHintVisibility` umgeschaltet. Beide
+Methoden-Gruppen (beidseitiges CI und CI+akustisch) sind immer
+sichtbar, je unter eigenem `kind:'heading'`-Absatz.
+
 ### Globale Test-Einstellungen
 
 In `state-side.js` und persistiert in JSON und localStorage:
@@ -192,15 +223,15 @@ Slider-Wert wird invertiert.
   Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`
   (Default `pulsedComplex`). Das Dropdown `sliderTarget`
   („Slider-Wirkung") wurde ersatzlos entfernt (BA 209).
-- **Dynamischer Intro-Text (BA 160):** `fmHintMethod` (`#fmHintMethodPara`)
-  zeigt je nach Hörtechnik-Kombination:
-  - CI + Naturgehör (normal/shoh/hg): Ziel = tatsächlich stimulierte
-    Frequenz feststellen; Referenzohr = natürlich hörendes Ohr.
-  - Beide CI: Ziel = Tonhöhen beider CI angleichen; Einschränkungs-
-    Hinweis auf Nachbarelektroden-Effekt bei großen Abweichungen.
-  Text wird durch `_fmRenderIntroText()` gesetzt; `data-t` wird
-  dynamisch auf `fmHintMethodCiNatural` oder `fmHintMethodBothCI`
-  umgestellt.
+- **Statische Methoden-Gruppen (BA 220, vorher: Dynamischer Intro-Text
+  BA 160):** Beide Erklär-Gruppen werden immer angezeigt, je unter
+  einer `kind:'heading'`-Überschrift:
+  - „Bei beidseitigem CI" (`fmGroupBothCi`): `fmHintMethodBothCI`
+    (plain) + `fmHintWarnBothCI` (caution).
+  - „Bei CI mit akustisch hörender Gegenseite" (`fmGroupCiAcoustic`):
+    `fmHintMethodCiNatural` (plain) + `fmHintWarn` (caution).
+  `_fmRenderIntroText` und der veraltete Key `fmHintMethod`
+  (`#fmHintMethodPara`) sind entfernt.
 - **Vorbedingungs-Hinweise (BA 160, Split seit 3.1.181):**
   - `#fmPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes` und
     `sideData.left.jRes` leer sind. Text: `fmPrereqLvLeft`.
@@ -215,13 +246,10 @@ Slider-Wert wird invertiert.
   `fmApplyLang` und `_fmRefreshTabState`. Texte stehen statisch
   in `data-t` der Config (kein dynamisches Umschalten mehr).
   Helfer `_fmHasLvData(side)` prüft `bRes`/`jRes`-Befüllung.
-- **Dynamischer Referenzseiten-Hinweis (BA 160, Stufe seit BA 178):**
-  `fmHintWarn` (`#fmHintWarnPara`) zeigt je nach Kombination:
-  - CI + Naturgehör: „...Referenzseite ... die mit natürlichem Gehör."
-  - Beide CI: „...Referenzseite 'symmetrisch' auszuwählen."
-  Ebenfalls durch `_fmRenderIntroText()` gesteuert. Render-Stufe
-  `caution` (orange) — landet durch die testUI-Sortierung oberhalb
-  der gelben Vorbedingungs-Hinweise (`warn`).
+- **Referenzseiten-Hinweise (BA 220):** `fmHintWarnBothCI` und
+  `fmHintWarn` sind jetzt feste Bestandteile der jeweiligen Gruppe
+  (s. o.) und immer sichtbar; kein dynamisches Umschalten mehr.
+  Render-Stufe `caution` (orange).
 - Cent-Slider (statt dB)
 - Vergleicht CI-Elektroden-Ton vs. variabler Sinus auf der
   Restgehör-Seite

@@ -45,6 +45,7 @@ Object.assign(L.es, {
     latTypeBurst4000: "Agudo 4 kHz",
     latBTWarning: "<strong>⚠️ Importante: realice esta prueba únicamente con auriculares por cable.</strong><br>El Bluetooth añade latencias propias y distintas en cada oído y falsea la medición. Otras pruebas funcionan con Bluetooth — esta <em>no</em>.",
     latMeasTitle: "Medición de latencia",
+    latMaturityHint: "Esta prueba ya es utilizable y funciona. Probablemente todavía haya mejoras.",
     latMeasIntro2: "Medición del desfase temporal entre la llegada del tono al lado izquierdo y al derecho.",
     latLocHint: "Si la sonoridad izquierda y derecha está muy bien equilibrada, también puede orientarse por «dónde» escucha el tono: más a la izquierda, a la derecha o centrado en la cabeza.",
     latMeasIntro: "Ajuste con el deslizador el desfase con el que los clics se perciben simultáneos. Flechas: 1 ms — Shift+flecha: 0,1 ms — Ctrl+flecha: 10 ms.",
@@ -546,10 +547,18 @@ Object.assign(L.es, {
       "<b>Herramienta no prevista para provisión puramente acústica.</b> Este Sound Balancing Tool está dirigido a portadores de implante coclear y necesita al menos un lado con IC. Si tiene ambos lados con provisión acústica, las funciones de medición, deslizadores y reproductor no son aplicables aquí. (Una versión futura del programa podría admitir mediciones para provisión acústica bilateral.)",
     fmCochlearFatCorrectionInfo: "La FAT por defecto de Cochlear se corrigió el {date} a los valores oficiales (CI Select / Custom Sound Pro estándar, HFE 7938 Hz). Las pruebas de frecuencia de Cochlear anteriores a esa fecha se refieren a una suposición por defecto distinta — para una curva de corrección actualizada, repita la prueba.",
     fmTitle: "Ajuste de frecuencia Izquierda/Derecha",
+    fmMaturityHint:
+      "Técnicamente esta prueba funciona, pero todavía presenta deficiencias y se está desarrollando activamente." +
+      "<ul>" +
+      "<li>Para portadores de dos IC ya debería funcionar bien.</li>" +
+      "<li>Para portadores de un solo IC resulta especialmente problemática la percepción muy distinta de los tonos, lo que dificulta la comparabilidad y puede falsear los resultados de medición.</li>" +
+      "</ul>",
     fmHintWarn:
       "Asegúrese de elegir el lado de referencia correcto: el de audición natural.",
     fmHintWarnBothCI:
       "Asegúrese de seleccionar como lado de referencia «simétrico». Así las frecuencias se modifican por igual en ambos IC durante la prueba, para minimizar la activación no deseada de electrodos vecinos.",
+    fmGroupBothCi:     "IC bilateral",
+    fmGroupCiAcoustic: "IC con audición acústica contralateral",
     fmHintMethod:
       "Esta prueba compara las alturas tonales de izquierda y derecha.<br>" +
       "• Si tiene un oído con audición natural, sea normal o hipoacúsica, establézcalo como oído de referencia.<br>" +
@@ -846,9 +855,11 @@ Object.assign(L.es, {
     optLR: "L → R",
     optRL: "R → L",
     lrTitle: "Comparación de volumen Izquierda/Derecha",
+    lrMaturityHint: "Esta prueba funciona en principio, pero con seguridad aún será reelaborada.",
     lrDesc: "Esta prueba compara la sonoridad percibida izquierda y derecha para cada par de electrodos. Con ella se pretende lograr que oiga igual de fuerte por izquierda y derecha.",
     lrOrderLbl: "Orden:",
     lrSideLbl: "Orden de lados:",
+    testMaturityHint: "Esta prueba ya está bien desarrollada y puede ofrecer resultados fiables.",
     testExplainRecommend: "Recomendaciones:\n1. Ajuste el volumen aproximadamente a 3/4. Es decir, más que medio pero todavía no incómodamente alto.\n2. En lo posible, utilice Bluetooth para el streaming.\n3. Primero realice una prueba «Round Robin» y después una o varias veces la prueba «Convergencia».\n4. Una marca bajo el deslizador muestra el valor calculado a partir de todas las mediciones realizadas hasta ahora; la zona coloreada indica la incertidumbre de esa estimación.",
     testExplainVarious: " - Puede interrumpir las pruebas en cualquier momento y continuarlas más tarde en el mismo punto.\n - La prueba «Round Robin» se desarrolla en varias rondas. Tras unas 3 o 4 rondas ya puede hacerse una idea aproximada en la pestaña «Resultados de medición» de hacia dónde apunta su medición.\n - Si un electrodo resulta no medible en el transcurso de la prueba (demasiado débil, inactivo), márquelo en consecuencia en la pestaña «Implante». Quedará entonces excluido de la prueba.",
     testInRound: "Prueba en esta ronda:",

@@ -166,31 +166,23 @@ function _fmShouldShowCochlearFatHint() {
   return false;
 }
 
-function _fmRenderCochlearFatHint() {
-  if (!_fmParentEl) return;
-  const show = _fmShouldShowCochlearFatHint();
-  let hint = document.getElementById('fmCochlearFatHint');
-
-  if (!show) {
-    if (hint) hint.remove();
-    return;
+function _fmRefreshCochlearFatHintVisibility() {
+  if (!fmEls) return;
+  const visible = _fmShouldShowCochlearFatHint();
+  testUI.explain.setVisible(fmEls, 'fmCochlearFatHintPara', visible);
+  // Datum in den Text einsetzen (jedes Mal frisch, falls Sprache wechselt).
+  if (visible) {
+    const el = fmEls.explainBox && fmEls.explainBox.querySelector('#fmCochlearFatHintPara');
+    if (el) {
+      const d = new Date(COCHLEAR_FAT_CORRECTION_DATE);
+      const dateStr = d.getUTCFullYear() + '-'
+        + String(d.getUTCMonth() + 1).padStart(2, '0') + '-'
+        + String(d.getUTCDate()).padStart(2, '0');
+      const txt = (typeof t === 'function') ? t('fmCochlearFatCorrectionInfo')
+        : 'Cochlear-FAT wurde korrigiert.';
+      el.textContent = txt.replace('{date}', dateStr);
+    }
   }
-
-  if (!hint) {
-    hint = document.createElement('div');
-    hint.id = 'fmCochlearFatHint';
-    hint.className = 'info-box info-box-warn';
-    hint.style.marginBottom = '14px';
-    _fmParentEl.insertBefore(hint, _fmParentEl.firstChild);
-  }
-  const d = new Date(COCHLEAR_FAT_CORRECTION_DATE);
-  // YYYY-MM-DD, UTC.
-  const dateStr = d.getUTCFullYear() + '-'
-    + String(d.getUTCMonth() + 1).padStart(2, '0') + '-'
-    + String(d.getUTCDate()).padStart(2, '0');
-  const txt = (typeof t === 'function') ? t('fmCochlearFatCorrectionInfo')
-    : 'Cochlear-FAT wurde korrigiert.';
-  hint.textContent = txt.replace('{date}', dateStr);
 }
 
 function fmGVol() {
@@ -840,9 +832,8 @@ function fmApplyLang() {
   if (fmEls.header && fmEls.header.startBtn) {
     fmRefreshResumeHint();
   }
-  _fmRenderHGWarning();
-  _fmRenderCochlearFatHint();
-  _fmRenderIntroText();
+  _fmRefreshHGWarningVisibility();
+  _fmRefreshCochlearFatHintVisibility();
   _fmRenderPrereqHints();
 }
 
@@ -890,48 +881,17 @@ function _fmAutoSetRefMode() {
   // beide akustisch: kein Override (Sperre wird durch L1-Tab-Sperre BA 172 behandelt).
 }
 
-function _fmRenderHGWarning() {
-  if (!_fmParentEl) return;
+function _fmRefreshHGWarningVisibility() {
+  if (!fmEls) return;
   const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
   const rightCfg = (sideData.right && sideData.right.config) || 'ci';
   const hasHG = (leftCfg === 'hg') || (rightCfg === 'hg');
-  // HG-Warnung nur zeigen wenn Test nicht ohnehin geblockt ist
+  // HG-Warnung nur zeigen, wenn Test nicht ohnehin geblockt ist.
   const blocked = _fmEvalTestEligibility().blocked;
-  let warn = document.getElementById('fmHGWarning');
-  if (!hasHG || blocked) {
-    if (warn) warn.remove();
-    return;
-  }
-  if (!warn) {
-    warn = document.createElement('div');
-    warn.id = 'fmHGWarning';
-    warn.className = 'info-box info-box-warn';
-    warn.style.marginBottom = '14px';
-    _fmParentEl.insertBefore(warn, _fmParentEl.firstChild);
-  }
-  warn.textContent = (typeof t === 'function') ? t('fmHGWarn') : 'Hörgerät konfiguriert.';
+  const visible = hasHG && !blocked;
+  testUI.explain.setVisible(fmEls, 'fmHGWarnPara', visible);
 }
 
-function _fmRenderIntroText() {
-  const methodEl = document.getElementById('fmHintMethodPara');
-  const warnEl   = document.getElementById('fmHintWarnPara');
-  if (!methodEl && !warnEl) return;
-  const leftCfg  = (sideData.left  && sideData.left.config)  || 'ci';
-  const rightCfg = (sideData.right && sideData.right.config) || 'ci';
-  const bothCI = (leftCfg === 'ci') && (rightCfg === 'ci');
-  if (methodEl) {
-    const key = bothCI ? 'fmHintMethodBothCI' : 'fmHintMethodCiNatural';
-    methodEl.dataset.t = key;
-    const v = (typeof t === 'function') ? t(key) : '';
-    if (v.includes('<')) methodEl.innerHTML = v; else methodEl.textContent = v;
-  }
-  if (warnEl) {
-    const key = bothCI ? 'fmHintWarnBothCI' : 'fmHintWarn';
-    warnEl.dataset.t = key;
-    const v = (typeof t === 'function') ? t(key) : '';
-    if (v.includes('<')) warnEl.innerHTML = v; else warnEl.textContent = v;
-  }
-}
 
 function _fmHasLvData(side) {
   const s = sideData[side];
@@ -960,9 +920,8 @@ function _fmRefreshTabState() {
     fmLoadVerfahrenFromSide();
   }
   if (typeof fmRefreshResumeHint === 'function') fmRefreshResumeHint();
-  _fmRenderHGWarning();
-  if (typeof _fmRenderCochlearFatHint === 'function') _fmRenderCochlearFatHint();
-  _fmRenderIntroText();
+  _fmRefreshHGWarningVisibility();
+  _fmRefreshCochlearFatHintVisibility();
   _fmRenderPrereqHints();
 }
 
@@ -1068,13 +1027,36 @@ document.addEventListener("DOMContentLoaded", () => {
     id: 'freqmatch',
     explain: {
       titleKey: 'fmTitle',
+      // BA 220: preserveOrder, damit Gruppen-Headings, Methodentext und
+      // zugehoerige Warnung visuell zusammenstehen statt durch die
+      // Schwere-Sortierung gemischt zu werden.
+      preserveOrder: true,
       paragraphs: [
-        { key: 'fmHintMethod',    kind: 'plain',   id: 'fmHintMethodPara'      },
-        { key: 'fmPrereqLvLeft',  kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
-        { key: 'fmPrereqLvRight', kind: 'warn',    id: 'fmPrereqLvRightPara'   },
-        { key: 'fmPrereqSb',      kind: 'warn',    id: 'fmPrereqSbHintPara'    },
-        { key: 'fmHintWarn',      kind: 'caution', id: 'fmHintWarnPara'        },
-        { key: 'fmHintWorkflow',  kind: 'plain' }
+        { key: 'fmMaturityHint',         kind: 'caution' },
+
+        // Warn-Absaetze, deren Sichtbarkeit dynamisch umgeschaltet wird
+        // (Initial hidden=true; testUI.explain.setVisible blendet bei Bedarf ein).
+        { key: 'fmHGWarn',               kind: 'warn',    id: 'fmHGWarnPara',
+                                         hidden: true },
+        { key: 'fmCochlearFatCorrectionInfo', kind: 'warn', id: 'fmCochlearFatHintPara',
+                                         hidden: true },
+
+        // Voraussetzungen — bleiben bedingt sichtbar (durch _fmRenderPrereqHints).
+        { key: 'fmPrereqLvLeft',         kind: 'warn',    id: 'fmPrereqLvLeftPara'    },
+        { key: 'fmPrereqLvRight',        kind: 'warn',    id: 'fmPrereqLvRightPara'   },
+        { key: 'fmPrereqSb',             kind: 'warn',    id: 'fmPrereqSbHintPara'    },
+
+        // Gruppe 1: beidseitiges CI.
+        { key: 'fmGroupBothCi',          kind: 'heading' },
+        { key: 'fmHintMethodBothCI',     kind: 'plain' },
+        { key: 'fmHintWarnBothCI',       kind: 'caution' },
+
+        // Gruppe 2: CI + akustische Gegenseite.
+        { key: 'fmGroupCiAcoustic',      kind: 'heading' },
+        { key: 'fmHintMethodCiNatural',  kind: 'plain' },
+        { key: 'fmHintWarn',             kind: 'caution' },
+
+        { key: 'fmHintWorkflow',         kind: 'plain' }
       ]
     },
     header: {
@@ -1270,6 +1252,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!fmRunning) _fmAutoSetRefMode();
   fmLoadVerfahrenFromSide();
   fmRefreshResumeHint();
-  _fmRenderHGWarning();
-  _fmRenderCochlearFatHint();
+  _fmRefreshHGWarningVisibility();
+  _fmRefreshCochlearFatHintVisibility();
 });
