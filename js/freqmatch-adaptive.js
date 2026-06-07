@@ -95,12 +95,6 @@ function fmStartAdaptive() {
     }
   }
 
-  if (_fmShouldOfferSliderEstimate()) {
-    if (fmEls.sliderEstimateDlg) {
-      fmEls.sliderEstimateDlg.classList.add('active');
-      return; // testUI bleibt in "running" — Cancel/Slider-Buttons rufen _stopTest()
-    }
-  }
   testUI.sideCheck.run(
     { sides: 'both' },
     _fmDoStartAdaptive,

@@ -1186,6 +1186,31 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           debugRun: { key: 'btnDebugRun' }
         },
+        // BA 222: Vortest-Empfehlung. Verletzt, wenn fuer keine einzige
+        // testbare Elektrode eine Slider-Schaetzung vorliegt. TestUI
+        // oeffnet vor onStart ein Modal mit drei Optionen.
+        prerequisites: [
+          {
+            checkFn:    function() { return !_fmShouldOfferSliderEstimate(); },
+            titleKey:   'fmSliderEstimateTitle',
+            messageKey: 'fmSliderEstimateMsg',
+            actions: [
+              {
+                labelKey: 'fmSliderEstimateBtnSlider',
+                kind:     'custom',
+                run:      function() { fmSetVerfahren('slider'); }
+              },
+              {
+                labelKey: 'fmSliderEstimateBtnSkip',
+                kind:     'continue'
+              },
+              {
+                labelKey: 'fmSliderEstimateBtnCancel',
+                kind:     'abort'
+              }
+            ]
+          }
+        ],
         hooks: {
           onStart:    fmStartAdaptive,
           onStop:     fmAbort,
@@ -1200,46 +1225,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   fmEls = buildTestPanel(parentEl, fmCfg);
-
-  // --- Slider-Empfehlungs-Dialog (BA 102) ---
-  const fmSEDlg = _mkEl('div', 'modal-overlay');
-  fmSEDlg.hidden = true;
-  const fmSECard = _mkEl('div', 'card');
-  const fmSETitle = _mkEl('h3');
-  fmSETitle.dataset.t = 'fmSliderEstimateTitle';
-  const fmSEMsg = _mkEl('p');
-  fmSEMsg.dataset.t = 'fmSliderEstimateMsg';
-  const fmSEBtnRow = _mkEl('div', 'controls-row');
-  const fmSEBtnSlider = _mkEl('button', 'btn btn-primary');
-  fmSEBtnSlider.dataset.t = 'fmSliderEstimateBtnSlider';
-  const fmSEBtnSkip = _mkEl('button', 'btn');
-  fmSEBtnSkip.dataset.t = 'fmSliderEstimateBtnSkip';
-  const fmSEBtnCancel = _mkEl('button', 'btn');
-  fmSEBtnCancel.dataset.t = 'fmSliderEstimateBtnCancel';
-  fmSEBtnRow.append(fmSEBtnSlider, fmSEBtnSkip, fmSEBtnCancel);
-  fmSECard.append(fmSETitle, fmSEMsg, fmSEBtnRow);
-  fmSEDlg.appendChild(fmSECard);
-  document.body.appendChild(fmSEDlg);
-
-  fmSEBtnSlider.addEventListener('click', function() {
-    fmSEDlg.classList.remove('active');
-    if (fmEls && fmEls._stopTest) fmEls._stopTest();
-    fmSetVerfahren('slider');
-  });
-  fmSEBtnSkip.addEventListener('click', function() {
-    fmSEDlg.classList.remove('active');
-    testUI.sideCheck.run(
-      { sides: 'both' },
-      _fmDoStartAdaptive,
-      function() { if (fmEls) fmEls._stopTest(); }
-    );
-  });
-  fmSEBtnCancel.addEventListener('click', function() {
-    fmSEDlg.classList.remove('active');
-    if (fmEls && fmEls._stopTest) fmEls._stopTest();
-  });
-
-  fmEls.sliderEstimateDlg = fmSEDlg;
 
   // Events: Referenzseiten-Wechsel (BA 151: Sperre statt Custom-Dialog)
   fmEls.header.refSelect.addEventListener('change', function() {

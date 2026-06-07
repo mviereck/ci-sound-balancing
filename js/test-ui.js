@@ -1536,7 +1536,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       if (act.kind === 'custom')   btn.classList.add('btn-primary');
       if (act.labelKey) _tEl(btn, act.labelKey);
       btn.addEventListener('click', function() {
-        prereqOverlay.hidden = true;
+        prereqOverlay.classList.remove('active');
         if (act.kind === 'custom' && typeof act.run === 'function') {
           act.run();
         } else if (act.kind === 'continue') {
@@ -1547,7 +1547,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       prereqBtnGroup.appendChild(btn);
     });
     _applyLangSubtree(prereqOverlay);
-    prereqOverlay.hidden = false;
+    prereqOverlay.classList.add('active');
   }
 
   // ===== Alles zusammenbauen =====
