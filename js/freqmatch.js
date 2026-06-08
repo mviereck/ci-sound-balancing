@@ -1109,7 +1109,7 @@ document.addEventListener("DOMContentLoaded", () => {
               { hz: hzRight, pan:  1, durationMs: dur }
             ];
           },
-          // BA 228: Klavier-Widget in der Modalbox aktivieren.
+          // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
           keyboardMode: true,
           getElectrodeFreqs: function() {
             // Aktive Elektroden der var-Seite (CI-Seite im Freqmatch-Kontext).
@@ -1127,26 +1127,32 @@ document.addEventListener("DOMContentLoaded", () => {
             return freqs;
           },
           getElectrodeLabels: function() {
+            // BA 229: "E1, E2, ..." statt nackter Zahlen — Praefix und
+            // Reihenfolge folgen der CI-Konvention der var-Seite.
             var side = (typeof fmVarSide === 'string' && fmVarSide)
               ? fmVarSide : activeSide;
             var labels = [];
             withSide(side, function() {
+              var prefix = dENPrefix();
               for (var i = 0; i < elActive.length; i++) {
                 if (elActive[i] === false) continue;
-                labels.push(String(i + 1));
+                labels.push(prefix + dEN(i));
               }
             });
             return labels;
           },
-          getDuration: function() { return fmGDur(); },
-          onKeyPress: function(electrodeIdx, hz, durMs) {
+          // BA 229: Aufleucht-Dauer = volle Sequenz (Var-Burst + Pause +
+          // Ref-Burst), passt zur Anschlag-Logik in onPress.
+          getHighlightMs: function() { return fmGDur() * 2 + fmGPau(); },
+          onPress: function(electrodeIdx, hz) {
             // Frequenzabgleich-Burst-Sequenz: Var-Seite-Burst,
             // kurze Pause, dann Ref-Seite-Burst (gleiche Frequenz).
             // Schwarze Zier-Tasten (electrodeIdx === -1) spielen
             // ihre Mittelfrequenz auch nach diesem Schema.
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
-            var vol = fmGVol();
+            var vol   = fmGVol();
+            var durMs = fmGDur();
             var pauMs = fmGPau();
             var varSide = (typeof fmVarSide === 'string' && fmVarSide)
               ? fmVarSide : activeSide;

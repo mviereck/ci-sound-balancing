@@ -177,8 +177,9 @@ function openToneSelectionDialog(cfg, onChange) {
         getElectrodeFreqs:   cfg.getElectrodeFreqs,
         getElectrodeLabels:  cfg.getElectrodeLabels,
         getCurrentToneType:  cfg.getToneType,
-        onKeyPress:          cfg.onKeyPress,
-        getDuration:         cfg.getDuration
+        onPress:             cfg.onPress,
+        onRelease:           cfg.onRelease,
+        getHighlightMs:      cfg.getHighlightMs
       });
     } catch (e) { /* swallow — Klavier-Render-Fehler darf das Modal nicht killen */ }
   }
