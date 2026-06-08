@@ -23,7 +23,6 @@
 //
 // Interne Helfer (vor `openToneSelectionDialog` definiert,
 // als function declarations damit sie ueberall im Modul greifen):
-//   _setHourglassFor(toneType, show)   — Sanduhr ein/aus pro Token
 //   _playPreview(toneType)             — Vorspiel-Sequenz starten
 //   _setToneButtonsDisabled(flag)      — alle Vorspiel-Knoepfe sperren
 //
@@ -228,13 +227,17 @@ function openToneSelectionDialog(cfg, onChange) {
   title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
   dlg.appendChild(title);
 
-  var hint = document.createElement('p');
-  hint.dataset.t = 'tonePopupHint';
-  hint.style.cssText =
-    'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
-    'background:#fff4d6;border-left:3px solid #d8a200;' +
-    'padding:8px 10px;border-radius:4px;';
-  dlg.appendChild(hint);
+  // BA 240: Hint-Box optional und reiterspezifisch.
+  // cfg.hintKey = i18n-Key fuer den Text. Ohne Key keine Box.
+  if (cfg.hintKey) {
+    var hint = document.createElement('p');
+    hint.dataset.t = cfg.hintKey;
+    hint.style.cssText =
+      'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
+      'background:#fff4d6;border-left:3px solid #d8a200;' +
+      'padding:8px 10px;border-radius:4px;';
+    dlg.appendChild(hint);
+  }
 
   // BA 239: Korrektur-Toggles. Stil analog Player-Toggles
   // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):
@@ -279,6 +282,68 @@ function openToneSelectionDialog(cfg, onChange) {
 
   togRow.append(togMeas, togBal);
   dlg.appendChild(togRow);
+
+  // BA 240: Vol/Dur/Pau-Eingabefelder. Pro Feld via cfg.showXxx aktivierbar.
+  // Werte werden live ueber cfg-Setter zurueckgeschrieben (kein OK-Bestaetigen).
+  var anyVdpField = cfg.showVolume || cfg.showDuration || cfg.showPause;
+  if (anyVdpField) {
+    var vdpRow = document.createElement('div');
+    vdpRow.style.cssText =
+      'display:flex;gap:14px;margin:0 0 14px 0;flex-wrap:wrap;align-items:center;';
+
+    function _mkVdpField(labelKey, getter, setter, min, max, step, suffix) {
+      var wrap = document.createElement('label');
+      wrap.style.cssText = 'display:flex;align-items:center;gap:6px;font-size:.92em;';
+      var lbl = document.createElement('span');
+      lbl.dataset.t = labelKey;
+      var inp = document.createElement('input');
+      inp.type = 'number';
+      inp.min  = String(min);
+      inp.max  = String(max);
+      inp.step = String(step);
+      inp.value = String(getter());
+      inp.style.cssText =
+        'width:64px;padding:3px 5px;border:1px solid var(--border);'
+        + 'border-radius:4px;text-align:center;font-family:var(--mono);font-size:.9em;';
+      inp.addEventListener('change', function() {
+        var v = parseInt(inp.value, 10);
+        if (!isFinite(v)) v = getter();
+        if (v < min) v = min;
+        if (v > max) v = max;
+        inp.value = String(v);
+        setter(v);
+      });
+      var unit = document.createElement('span');
+      unit.textContent = suffix;
+      unit.style.color = 'var(--text-muted)';
+      wrap.append(lbl, inp, unit);
+      return wrap;
+    }
+
+    if (cfg.showVolume && typeof cfg.getVolumePercent === 'function'
+        && typeof cfg.setVolumePercent === 'function') {
+      vdpRow.appendChild(_mkVdpField(
+        'tonePopupVolume', cfg.getVolumePercent, cfg.setVolumePercent,
+        0, 100, 1, '%'
+      ));
+    }
+    if (cfg.showDuration && typeof cfg.getDurationMs === 'function'
+        && typeof cfg.setDurationMs === 'function') {
+      vdpRow.appendChild(_mkVdpField(
+        'tonePopupDuration', cfg.getDurationMs, cfg.setDurationMs,
+        100, 3000, 50, 'ms'
+      ));
+    }
+    if (cfg.showPause && typeof cfg.getPauseMs === 'function'
+        && typeof cfg.setPauseMs === 'function') {
+      vdpRow.appendChild(_mkVdpField(
+        'tonePopupPause', cfg.getPauseMs, cfg.setPauseMs,
+        50, 2000, 50, 'ms'
+      ));
+    }
+
+    if (vdpRow.children.length) dlg.appendChild(vdpRow);
+  }
 
   // BA 239: Korrektorfunktion für Klavier-onPress bereitstellen.
   if (typeof cfg.onTogglesReady === 'function') {
@@ -365,16 +430,6 @@ function openToneSelectionDialog(cfg, onChange) {
         btn.dataset.tTitle = descKey;
       }
 
-      // Sanduhr-Span: per data-tone-key adressierbar (_setHourglassFor).
-      var hgSpan = document.createElement('span');
-      hgSpan.className = 'btn-hourglass';
-      hgSpan.dataset.toneKey = key;
-      hgSpan.style.cssText =
-        'visibility:hidden;font-size:1.4em;line-height:1;'
-        + 'color:#d8a200;margin-left:2px;display:inline-block;'
-        + 'width:1.1em;text-align:center;vertical-align:middle;';
-      hgSpan.textContent = '⧖';
-
       btn.addEventListener('click', function() {
         if (playing) return;
         var prev = dlg.querySelectorAll('.tone-btn--active');
@@ -385,7 +440,7 @@ function openToneSelectionDialog(cfg, onChange) {
         _playPreview(key);
       });
 
-      itemWrap.append(btn, hgSpan);
+      itemWrap.append(btn);
       list.appendChild(itemWrap);
     });
 
@@ -461,53 +516,11 @@ function openToneSelectionDialog(cfg, onChange) {
     return { left: b, right: -b };
   }
 
-  function _setHourglassFor(toneType, show) {
-    // BA 226 Fix .4: visibility statt display, damit der Grid-Track
-    // konstante Breite behaelt (display:none entfernt das Element
-    // komplett aus dem Layout -> Track-Sizing rechnet neu -> Chaos).
-    var spans = dlg.querySelectorAll('span.btn-hourglass[data-tone-key]');
-    spans.forEach(function (s) {
-      if (s.dataset.toneKey !== toneType) return;
-      s.style.visibility = show ? 'visible' : 'hidden';
-    });
-  }
-
   function _playPreview(toneType) {
     var seq = cfg.getPreviewSequence();
     if (!Array.isArray(seq) || seq.length === 0) return;
     var c = (typeof gAC === 'function') ? gAC() : null;
     if (!c) return;
-
-    // BA 226: Bei smplr-Tonart, die noch nicht geladen ist, erst Sampler
-    // laden (mit Sanduhr-Visualisierung), dann _playPreview rekursiv
-    // erneut aufrufen. Buttons bleiben waehrend des Ladens disabled,
-    // playing-Flag bleibt true, damit kein paralleler Klick durchkommt.
-    if (typeof toneType === 'string'
-        && toneType.indexOf('smplr:') === 0
-        && typeof window.smplrSamplerIsReady === 'function'
-        && !window.smplrSamplerIsReady(toneType)) {
-      if (typeof window.loadSamplerByToken !== 'function') return;
-      playing = true;
-      _setToneButtonsDisabled(true);
-      _setHourglassFor(toneType, true);
-      window.loadSamplerByToken(c, toneType).then(function () {
-        _setHourglassFor(toneType, false);
-        playing = false;
-        _setToneButtonsDisabled(false);
-        // Sampler geladen -> Vorspielen jetzt regulaer.
-        // Nur wenn der Sampler nach dem Load tatsaechlich ready ist
-        // (sonst war es ein stiller Lade-Fehler -> keine Endlos-Schleife).
-        if (window.smplrSamplerIsReady(toneType)) {
-          _playPreview(toneType);
-        }
-      }).catch(function () {
-        _setHourglassFor(toneType, false);
-        playing = false;
-        _setToneButtonsDisabled(false);
-        // Lade-Fehler: keine Wiederholung, keine Tonwiedergabe.
-      });
-      return;
-    }
 
     var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
     playing = true;

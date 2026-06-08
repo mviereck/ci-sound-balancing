@@ -188,13 +188,13 @@ function _fmRefreshCochlearFatHintVisibility() {
 }
 
 function fmGVol() {
-  return (fmEls && fmEls.header) ? Math.pow(parseInt(fmEls.header.volInput.value) / 100, 2) : 0.25;
+  return Math.pow(volume_freqmatch / 100, 2);
 }
 function fmGDur() {
-  return (fmEls && fmEls.header) ? (parseInt(fmEls.header.durInput.value) || 1000) : 1000;
+  return duration_freqmatch || 750;
 }
 function fmGPau() {
-  return (fmEls && fmEls.header) ? (parseInt(fmEls.header.pauseInput.value) || 400) : 400;
+  return pause_freqmatch || 400;
 }
 
 // Helfer: Verfahren-Refs
@@ -977,15 +977,15 @@ function fmSetVerfahren(newVerfahren, opts) {
 
   if (!fmEls || !fmEls.header) return;
 
-  // Dur/Pau stashen und wiederherstellen je nach Wechsel
-  const durInp = fmEls.header.durInput;
-  const pauInp = fmEls.header.pauseInput;
-
-  if (oldVerfahren === 'slider' && durInp) _fmDurStash_slider = parseInt(durInp.value) || 400;
-  if (oldVerfahren === 'slider' && pauInp) _fmPauStash_slider = parseInt(pauInp.value) || 400;
-
-  if (newVerfahren === 'slider' && durInp) durInp.value = _fmDurStash_slider;
-  if (newVerfahren === 'slider' && pauInp) pauInp.value = _fmPauStash_slider;
+  // BA 240: Dur/Pau-Stash arbeitet jetzt auf State-Variablen statt DOM-Inputs.
+  if (oldVerfahren === 'slider') {
+    _fmDurStash_slider = duration_freqmatch || 400;
+    _fmPauStash_slider = pause_freqmatch    || 400;
+  }
+  if (newVerfahren === 'slider') {
+    duration_freqmatch = _fmDurStash_slider;
+    pause_freqmatch    = _fmPauStash_slider;
+  }
 
   testUI.verfahren.select(fmEls, newVerfahren);
   fmRefreshResumeHint();
@@ -1064,9 +1064,10 @@ document.addEventListener("DOMContentLoaded", () => {
     header: {
       common: {
         refSelect:    { type: 'side', key: 'fmLblRef', includeSymmetric: true },
-        volume:       { show: true },
-        duration:     { show: true, default: 750, min: 100, max: 3000, step: 50 },
-        pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },
+        // BA 240: Vol/Dur/Pau leben jetzt im Tonauswahl-Modal, nicht mehr im Header.
+        volume:       false,
+        duration:     false,
+        pause:        false,
         // BA 209: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:     false,
         tonePopupButton: {
@@ -1077,6 +1078,18 @@ document.addEventListener("DOMContentLoaded", () => {
           onToneSelected:  function(tt) { fmModalTone = tt; },
           onModalClose:    function()   { fmModalTone = null; fmKbdCorrectVol = null; },
           onTogglesReady:  function(fn) { fmKbdCorrectVol = fn; },
+          // BA 240: Vol/Dur/Pau-Felder in der Modal aktivieren.
+          showVolume:   true,
+          showDuration: true,
+          showPause:    true,
+          getVolumePercent: function() { return volume_freqmatch; },
+          setVolumePercent: function(v) { volume_freqmatch = v; },
+          getDurationMs:    function() { return duration_freqmatch; },
+          setDurationMs:    function(v) { duration_freqmatch = v; },
+          getPauseMs:       function() { return pause_freqmatch; },
+          setPauseMs:       function(v) { pause_freqmatch = v; },
+          // BA 240: Hint-Text fuer Test-Verfahren.
+          hintKey: 'tonePopupHint',
           getVolume:   function() { return fmGVol(); },
           getPreviewSequence: function() {
             var hzLeft = 1000, hzRight = 1000;

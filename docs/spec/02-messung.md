@@ -98,25 +98,30 @@ In `state-side.js` und persistiert in JSON und localStorage:
   schnelle Wiederverwendung. Soundfont2 war bis 3.2.226.4 ebenfalls
   als zusätzliche Gruppe vorhanden, ab 3.2.226.5 entfernt — Klang
   stumm wegen race condition.)
-  Lade-Visualisierung (seit BA 226): Klick auf Vorspiel bei noch nicht
-  geladenem Sampler zeigt Sanduhr ⧖ vor dem Button-Text und sperrt
-  alle Vorspiel-Buttons; nach erfolgreichem Load startet die Sequenz
-  automatisch. Radio-Auswahl einer smplr-Tonart löst bereits Hintergrund-
-  Laden aus (Sanduhr sichtbar, Buttons bleiben klickbar); ein direkt
-  folgender Vorspiel-Klick während des Ladens greift nahtlos in denselben
-  Promise und startet nach Fertigstellung automatisch.
+  Lade-Visualisierung (BA 226, **entfernt in BA 240**): Sanduhr-Konzept
+  (`_setHourglassFor`, `btn-hourglass`-Spans, smplr-Lade-Branch in
+  `_playPreview`) vollständig entfernt. Vorspiel-Klick auf eine smplr-
+  Tonart startet die Sequenz direkt (Sampler muss vorab geladen sein,
+  sonst bleibt der Burst stumm — kein separater Lade-Pfad mehr).
   Klavier-Widget (seit BA 228): Oberhalb der Tonart-Liste erscheint im
   Frequenzabgleich-Kontext ein Klavier. Tastenzahl = aktive Elektroden
   der var-Seite, beschriftet mit Elektrodennummer; zwischen je zwei
   weißen Tasten eine schwarze Zier-Taste auf dem geometrischen Mittel
   der Nachbarfrequenzen. Anschlag (mousedown/touchstart) spielt Burst
   auf var-Seite, kurze Pause, Burst auf ref-Seite — beide mit aktueller
-  Tondauer und Pause aus dem Test-Header (`fmGDur`, `fmGPau`). Bei
-  smplr-Tonart die noch nicht geladen ist: Lade-Hinweis „Lädt ..."
-  (gold-gelb, i18n `samplerKeyboardLoading`) über dem Klavier, Anschlag
-  stumm bis Sampler ready. Das Klavier ist abstrakt in `sampler-keyboard.js`
-  implementiert (cfg.keyboardMode = true aktiviert es im Frequenzabgleich)
-  und für künftige Aufrufer (Implantat-Tab, BA 230) wiederverwendbar.
+  Tondauer und Pause aus den State-Variablen (`fmGDur`, `fmGPau`; lesen
+  seit BA 240 aus `duration_freqmatch`/`pause_freqmatch`). Das Klavier
+  ist abstrakt in `sampler-keyboard.js` implementiert (cfg.keyboardMode
+  = true aktiviert es im Frequenzabgleich) und für künftige Aufrufer
+  wiederverwendbar.
+  **Vol/Dur/Pau-Felder im Modal (seit BA 240)**: Direkt unter den
+  Korrektur-Toggles erscheinen bis zu drei Eingabefelder (je nach
+  Aufrufer via `cfg.showVolume/showDuration/showPause` aktivierbar):
+  Lautstärke (0–100 %, Default 75), Tondauer (100–3000 ms, Default 750),
+  Tonpause (50–2000 ms, Default 400). Werte werden live über
+  `cfg.setVolumePercent/setDurationMs/setPauseMs` an State-Variablen
+  zurückgeschrieben (kein OK-Bestätigen nötig). Hint-Box konfigurierbar
+  via `cfg.hintKey` (i18n-Key; ohne Key keine Box).
   Korrektur-Toggles im Modal (seit BA 239): Oberhalb der Tonart-
   Gruppen (und ggf. oberhalb des Klavier-Widgets) zwei Toggle-
   Buttons (grün/grau analog Player). Default beide an, lokal in
@@ -478,7 +483,7 @@ Slider-Wert wird invertiert.
   in `header.extra.fragment`).
 - 4 Klangvarianten: Klick (breitband), 500 Hz, 1500 Hz, 4 kHz Tone-Bursts
   (Button-Reihe in `header.extra.fragment`).
-- Eigener Lautstärke-Regler im Header (`header.common.volume`, Default 50 %);
+- Eigener Lautstärke-Regler im Header (`header.common.volume`, Default 75 %);
   multipliziert die Balance-Gains im Audio-Pfad.
 - **Nur mit Kabel-Kopfhörer durchführen** — Bluetooth verfälscht die Messung
   (`latBTWarning`, `kind: 'caution'`).

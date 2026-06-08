@@ -241,7 +241,7 @@ function latApplyToPlayer() {
 // =====================================================================
 
 let latEls = null;          // panel-refs aus buildTestPanel
-let latVolume = 50;         // 0..100, eigener Lautstärkewert (Test-lokal)
+let latVolume = 75;         // 0..100, eigener Lautstärkewert (Test-lokal)
 
 function _latGetVolumeFactor() {
   // 0..1, fallback 0.5

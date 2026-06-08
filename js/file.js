@@ -54,7 +54,7 @@ function resetAll() {
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
-  document.getElementById("vol1").value = "50";
+  document.getElementById("vol1").value = "75";
   document.getElementById("dur1").value = "1000";
   document.getElementById("pau1").value = "500";
   globalSequence = "aba";
@@ -62,6 +62,9 @@ function resetAll() {
   slTarget_balance = "both";
   if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
+  if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
+  if (typeof duration_freqmatch !== "undefined") duration_freqmatch = 750;
+  if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = 400;
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
@@ -283,6 +286,10 @@ async function saveJson() {
     globalToneType: globalToneType,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : "richCiHF",
+    // BA 240: Vol/Dur/Pau-State des Frequenzabgleichs persistieren.
+    volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
+    duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
+    pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : 400,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -604,6 +611,19 @@ function applyLoadedData(d) {
     } else {
       toneType_freqmatch = "richCiHF";
     }
+  }
+  // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.
+  if (typeof volume_freqmatch !== "undefined") {
+    var sv = parseInt(d.volume_freqmatch, 10);
+    volume_freqmatch = (isFinite(sv) && sv >= 0 && sv <= 100) ? sv : 75;
+  }
+  if (typeof duration_freqmatch !== "undefined") {
+    var sd = parseInt(d.duration_freqmatch, 10);
+    duration_freqmatch = (isFinite(sd) && sd >= 100 && sd <= 3000) ? sd : 750;
+  }
+  if (typeof pause_freqmatch !== "undefined") {
+    var sp = parseInt(d.pause_freqmatch, 10);
+    pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : 400;
   }
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();

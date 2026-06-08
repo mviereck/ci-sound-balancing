@@ -696,6 +696,11 @@ let globalToneType = "richCiHF"; // "sine" | "complex" | "pulsedComplex" | "nois
 // das weiterhin für Elektrodenlautstärke und Stereo-Balance gilt.
 // Default 'richCiHF' (CI-Test flach).
 let toneType_freqmatch = "richCiHF";
+// BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
+// Vol als int 0..100 (UI-Wert); fmGVol macht die quadratische Audio-Konversion.
+let volume_freqmatch   = 75;
+let duration_freqmatch = 750;
+let pause_freqmatch    = 400;
 let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

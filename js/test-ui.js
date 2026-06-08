@@ -201,7 +201,7 @@ function _buildTestPanelOld(parentEl, cfg) {
     };
     var cgVol = _mkEl('div', 'control-group');
     var lblVol = _mkEl('label'); lblVol.dataset.t = 'lblVol';
-    volInput = makeNumInput('vol', 50, 0, 100, 1, 55);
+    volInput = makeNumInput('vol', 75, 0, 100, 1, 55);
     cgVol.append(lblVol, volInput, document.createTextNode('%'));
     var cgDur = _mkEl('div', 'control-group');
     var lblDur = _mkEl('label'); lblDur.dataset.t = 'lblDur';
@@ -899,7 +899,7 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (showVol) {
       var cgVol = _mkEl('div', 'control-group');
       var lblVol = _mkEl('label'); _tEl(lblVol, 'lblVol');
-      volInput = makeNumInput2('vol', 50, 0, 100, 1, 55);
+      volInput = makeNumInput2('vol', 75, 0, 100, 1, 55);
       cgVol.append(lblVol, volInput, document.createTextNode('%'));
       rowVolume.appendChild(cgVol);
     }
