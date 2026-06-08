@@ -917,7 +917,7 @@ Object.assign(L.fr, {
     supportPosten_hosting: "Pack d'hébergement",
     supportSumLabel: "Besoin mensuel total",
     supportDonationsLabel: "Couvert mensuellement par des dons",
-    supportSelfLabel: "De sa propre poche",
+    supportSelfLabel: "Non couvert par les dons récurrents :",
     supportGapCurrent: "Différence état → déploiement complet :",
     supportGapToFull: "Dons mensuels supplémentaires nécessaires pour le déploiement complet :",
     supportOneTimePrefix: "Reçu en plus :",
@@ -938,6 +938,15 @@ Object.assign(L.fr, {
     supportFutureConsider2: "Analyse d'acouphènes avec sons de masquage et de notch",
 
     supportGithubHint: "Qui veut en savoir plus sur l'état ou proposer des fonctionnalités est le bienvenu sur <a href=\"https://github.com/mviereck/ci-sound-balancing/issues\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub Issues</a>.",
+
+    supportGraphTitle: "Évolution des dons",
+    supportGraphLegendDauer: "Dons récurrents",
+    supportGraphLegendPuffer: "couvert par dons ponctuels",
+    supportGraphLegendLuecke: "Manque",
+    supportGraphCostCurrent: "coûts actuels",
+    supportGraphCostFull: "déploiement complet",
+    supportGraphHinweis: "Le calcul suppose des coûts inchangés et des dons récurrents constants à l'avenir.",
+    supportGraphToday: "aujourd'hui",
 
     supportSlogan: "Veuillez utiliser cet outil pour rendre le monde meilleur pour toutes les personnes.",
 

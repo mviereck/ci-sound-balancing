@@ -917,7 +917,7 @@ Object.assign(L.es, {
     supportPosten_hosting: "Paquete de hosting",
     supportSumLabel: "Necesidad mensual total",
     supportDonationsLabel: "Cubierto mensualmente por donaciones",
-    supportSelfLabel: "De bolsillo propio",
+    supportSelfLabel: "No cubierto por donaciones recurrentes:",
     supportGapCurrent: "Diferencia estado → versión completa:",
     supportGapToFull: "Donaciones mensuales adicionales necesarias para la versión completa:",
     supportOneTimePrefix: "Adicionalmente recibido:",
@@ -938,6 +938,15 @@ Object.assign(L.es, {
     supportFutureConsider2: "Análisis de tinnitus con tonos de enmascaramiento y notch",
 
     supportGithubHint: "Quien quiera saber más sobre el estado o proponer funciones es bienvenido en <a href=\"https://github.com/mviereck/ci-sound-balancing/issues\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub Issues</a>.",
+
+    supportGraphTitle: "Evolución de las donaciones",
+    supportGraphLegendDauer: "Donaciones recurrentes",
+    supportGraphLegendPuffer: "cubierto por donaciones puntuales",
+    supportGraphLegendLuecke: "Déficit",
+    supportGraphCostCurrent: "costes actuales",
+    supportGraphCostFull: "versión completa",
+    supportGraphHinweis: "El cálculo asume costes invariables y donaciones recurrentes constantes en el futuro.",
+    supportGraphToday: "hoy",
 
     supportSlogan: "Por favor, use esta herramienta para hacer del mundo un lugar mejor para todas las personas.",
 
