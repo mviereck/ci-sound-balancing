@@ -707,9 +707,13 @@ function _toneTypeKey(tt) {
     wobbleSweep: 'toneWobbleSweep'
   };
   if (map[tt]) return map[tt];
-  // BA 228 Fix .1: smplr-Token (Mellotron) haben keinen i18n-Key.
-  // null signalisiert dem Aufrufer (_tpUpdateLabel), den Variant-Namen
-  // direkt anzuzeigen statt eine i18n-Lookup zu machen.
+  // BA 231: smplr-Tonarten ueber die GROUPS-Tabelle in tone-popup.js aufloesen.
+  if (typeof tt === 'string'
+      && tt.indexOf('smplr:') === 0
+      && typeof window.toneTypeI18nKey === 'function') {
+    var k = window.toneTypeI18nKey(tt);
+    if (k) return k;
+  }
   if (typeof tt === 'string' && tt.indexOf('smplr:') === 0) return null;
   return 'toneComplex';
 }

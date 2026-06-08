@@ -40,99 +40,138 @@
 //         Instrumenten-Gruppe; wirkt auf alle richXX-Profile, nicht
 //         auf richTone-Basis. Instrumente mit Profil-Vibrato bekommen
 //         hinter dem Namen kursiv "(Vibrato)".
-function openToneSelectionDialog(cfg, onChange) {
-  var GROUPS = [
-    {
-      headKey: 'toneGroupSine',
-      hintKey: 'toneGroupSineHint',
-      items: [
-        ['sine',          'toneSine',          'toneSineDesc'],
-        ['amSine',        'toneAmSine',        'toneAmSineDesc'],
-        ['burstSine',     'toneBurstSine',     'toneBurstSineDesc'],
-        ['warbleSine',    'toneWarbleSine',    'toneWarbleSineDesc'],
-        ['wobbleSweep',   'toneWobbleSweep',   'toneWobbleSweepDesc']
-      ]
-    },
-    {
-      headKey: 'toneGroupComplex',
-      hintKey: 'toneGroupComplexHint',
-      items: [
-        ['complex',       'toneComplex',       'toneComplexDesc'],
-        ['pulsedComplex', 'tonePulsedComplex', 'tonePulsedComplexDesc'],
-        ['richTone',      'toneRichTone',      'toneRichToneDesc']
-      ]
-    },
-    {
-      headKey: 'toneGroupRich',
-      hintKey: 'toneGroupRichHint',
-      items: [
-        ['richAcc',   'toneRichAcc',   null],
-        ['richASax',  'toneRichASax',  null],
-        ['richBTb',   'toneRichBTb',   null],
-        ['richVa',    'toneRichVa',    null],
-        ['richBn',    'toneRichBn',    null],
-        ['richClBb',  'toneRichClBb',  null],
-        ['richCb',    'toneRichCb',    null],
-        ['richOb',    'toneRichOb',    null],
-        ['richTbn',   'toneRichTbn',   null],
-        ['richFl',    'toneRichFl',    null],
-        ['richTpC',   'toneRichTpC',   null],
-        ['richVn',    'toneRichVn',    null],
-        ['richVc',    'toneRichVc',    null],
-        ['richHn',    'toneRichHn',    null]
-      ]
-    },
-    {
-      headKey: 'toneGroupNoise',
-      hintKey: 'toneGroupNoiseHint',
-      items: [
-        ['noise',         'toneNoise',         'toneNoiseDesc'],
-        ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
-        ['irn',           'toneIRN',           'toneIRNDesc']
-      ]
-    },
-    {
-      headKey: 'toneGroupMellotron',
-      hintKey: 'toneGroupMellotronHint',
-      items: [
-        ['smplr:mellotron:300 STRINGS CELLO', null, null],
-        ['smplr:mellotron:300 STRINGS VIOLA', null, null],
-        ['smplr:mellotron:8VOICE CHOIR',      null, null],
-        ['smplr:mellotron:BASSA+STRNGS',      null, null],
-        ['smplr:mellotron:BOYS CHOIR',        null, null],
-        ['smplr:mellotron:CHA CHA FLT',       null, null],
-        ['smplr:mellotron:CHM CLARINET',      null, null],
-        ['smplr:mellotron:CHMB 3 VLNS',       null, null],
-        ['smplr:mellotron:CHMB ALTOSAX',      null, null],
-        ['smplr:mellotron:CHMB FEMALE',       null, null],
-        ['smplr:mellotron:CHMB MALE VC',      null, null],
-        ['smplr:mellotron:CHMB TNR SAX',      null, null],
-        ['smplr:mellotron:CHMB TRMBONE',      null, null],
-        ['smplr:mellotron:CHMB TRUMPET',      null, null],
-        ['smplr:mellotron:CHMBLN CELLO',      null, null],
-        ['smplr:mellotron:CHMBLN FLUTE',      null, null],
-        ['smplr:mellotron:CHMBLN OBOE',       null, null],
-        ['smplr:mellotron:DIXIE+TRMBN',       null, null],
-        ['smplr:mellotron:FOXTROT+SAX',       null, null],
-        ['smplr:mellotron:HALFSP.BRASS',      null, null],
-        ['smplr:mellotron:MIXED STRGS',       null, null],
-        ['smplr:mellotron:MKII BRASS',        null, null],
-        ['smplr:mellotron:MKII GUITAR',       null, null],
-        ['smplr:mellotron:MKII ORGAN',        null, null],
-        ['smplr:mellotron:MKII SAX',          null, null],
-        ['smplr:mellotron:MKII VIBES',        null, null],
-        ['smplr:mellotron:MKII VIOLINS',      null, null],
-        ['smplr:mellotron:MOVE BS+STGS',      null, null],
-        ['smplr:mellotron:STRGS+BRASS',       null, null],
-        ['smplr:mellotron:TROMB+TRMPT',       null, null],
-        ['smplr:mellotron:TRON 16VLNS',       null, null],
-        ['smplr:mellotron:TRON CELLO',        null, null],
-        ['smplr:mellotron:TRON FLUTE',        null, null],
-        ['smplr:mellotron:TRON VIOLA',        null, null]
-      ]
-    }
-  ];
+// BA 231: GROUPS in Datei-Scope gezogen, damit window.toneTypeI18nKey
+// darauf zugreifen kann.
+var GROUPS = [
+  {
+    headKey: 'toneGroupSine',
+    hintKey: 'toneGroupSineHint',
+    items: [
+      ['sine',          'toneSine',          'toneSineDesc'],
+      ['amSine',        'toneAmSine',        'toneAmSineDesc'],
+      ['burstSine',     'toneBurstSine',     'toneBurstSineDesc'],
+      ['warbleSine',    'toneWarbleSine',    'toneWarbleSineDesc'],
+      ['wobbleSweep',   'toneWobbleSweep',   'toneWobbleSweepDesc']
+    ]
+  },
+  {
+    headKey: 'toneGroupComplex',
+    hintKey: 'toneGroupComplexHint',
+    items: [
+      ['complex',       'toneComplex',       'toneComplexDesc'],
+      ['pulsedComplex', 'tonePulsedComplex', 'tonePulsedComplexDesc'],
+      ['richTone',      'toneRichTone',      'toneRichToneDesc']
+    ]
+  },
+  {
+    headKey: 'toneGroupRich',
+    hintKey: 'toneGroupRichHint',
+    items: [
+      ['richAcc',   'toneRichAcc',   null],
+      ['richASax',  'toneRichASax',  null],
+      ['richBTb',   'toneRichBTb',   null],
+      ['richVa',    'toneRichVa',    null],
+      ['richBn',    'toneRichBn',    null],
+      ['richClBb',  'toneRichClBb',  null],
+      ['richCb',    'toneRichCb',    null],
+      ['richOb',    'toneRichOb',    null],
+      ['richTbn',   'toneRichTbn',   null],
+      ['richFl',    'toneRichFl',    null],
+      ['richTpC',   'toneRichTpC',   null],
+      ['richVn',    'toneRichVn',    null],
+      ['richVc',    'toneRichVc',    null],
+      ['richHn',    'toneRichHn',    null]
+    ]
+  },
+  {
+    headKey: 'toneGroupNoise',
+    hintKey: 'toneGroupNoiseHint',
+    items: [
+      ['noise',         'toneNoise',         'toneNoiseDesc'],
+      ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
+      ['irn',           'toneIRN',           'toneIRNDesc']
+    ]
+  },
+  {
+    headKey: 'toneGroupSmplrM300',
+    hintKey: 'toneGroupSmplrM300Hint',
+    items: [
+      ['smplr:mellotron:300 STRINGS VIOLA', 'toneSmplrM300Viola', null],
+      ['smplr:mellotron:300 STRINGS CELLO', 'toneSmplrM300Cello', null]
+    ]
+  },
+  {
+    headKey: 'toneGroupSmplrMk2',
+    hintKey: 'toneGroupSmplrMk2Hint',
+    items: [
+      ['smplr:mellotron:MKII BRASS',   'toneSmplrMk2Brass',   null],
+      ['smplr:mellotron:MKII GUITAR',  'toneSmplrMk2Guitar',  null],
+      ['smplr:mellotron:MKII ORGAN',   'toneSmplrMk2Organ',   null],
+      ['smplr:mellotron:MKII SAX',     'toneSmplrMk2Sax',     null],
+      ['smplr:mellotron:MKII VIBES',   'toneSmplrMk2Vibes',   null],
+      ['smplr:mellotron:MKII VIOLINS', 'toneSmplrMk2Violins', null]
+    ]
+  },
+  {
+    headKey: 'toneGroupSmplrTron',
+    hintKey: 'toneGroupSmplrTronHint',
+    items: [
+      ['smplr:mellotron:TRON 16VLNS', 'toneSmplrTron16Violins', null],
+      ['smplr:mellotron:TRON VIOLA',  'toneSmplrTronViola',     null],
+      ['smplr:mellotron:TRON CELLO',  'toneSmplrTronCello',     null],
+      ['smplr:mellotron:TRON FLUTE',  'toneSmplrTronFlute',     null]
+    ]
+  },
+  {
+    headKey: 'toneGroupSmplrChamberlin',
+    hintKey: 'toneGroupSmplrChamberlinHint',
+    items: [
+      ['smplr:mellotron:CHMB 3 VLNS',   'toneSmplrChmb3Violins',  null],
+      ['smplr:mellotron:CHMB ALTOSAX',  'toneSmplrChmbAltoSax',   null],
+      ['smplr:mellotron:CHMBLN CELLO',  'toneSmplrChmbCello',     null],
+      ['smplr:mellotron:CHMBLN FLUTE',  'toneSmplrChmbFlute',     null],
+      ['smplr:mellotron:CHMB FEMALE',   'toneSmplrChmbFemale',    null],
+      ['smplr:mellotron:CHM CLARINET',  'toneSmplrChmbClarinet',  null],
+      ['smplr:mellotron:CHMB MALE VC',  'toneSmplrChmbMale',      null],
+      ['smplr:mellotron:CHMBLN OBOE',   'toneSmplrChmbOboe',      null],
+      ['smplr:mellotron:CHMB TRMBONE',  'toneSmplrChmbTrombone',  null],
+      ['smplr:mellotron:CHMB TNR SAX',  'toneSmplrChmbTenorSax',  null],
+      ['smplr:mellotron:CHMB TRUMPET',  'toneSmplrChmbTrumpet',   null]
+    ]
+  },
+  {
+    headKey: 'toneGroupSmplrMixed',
+    hintKey: 'toneGroupSmplrMixedHint',
+    items: [
+      ['smplr:mellotron:BASSA+STRNGS',  'toneSmplrMixBassStrings',     null],
+      ['smplr:mellotron:MOVE BS+STGS',  'toneSmplrMixMoveBassStrings', null],
+      ['smplr:mellotron:HALFSP.BRASS',  'toneSmplrMixHalfSpeedBrass',  null],
+      ['smplr:mellotron:CHA CHA FLT',   'toneSmplrMixChaChaFlute',     null],
+      ['smplr:mellotron:8VOICE CHOIR',  'toneSmplrMix8VoiceChoir',     null],
+      ['smplr:mellotron:DIXIE+TRMBN',   'toneSmplrMixDixieTrombone',   null],
+      ['smplr:mellotron:FOXTROT+SAX',   'toneSmplrMixFoxtrotSax',      null],
+      ['smplr:mellotron:BOYS CHOIR',    'toneSmplrMixBoysChoir',       null],
+      ['smplr:mellotron:TROMB+TRMPT',   'toneSmplrMixTromboneTrumpet', null],
+      ['smplr:mellotron:STRGS+BRASS',   'toneSmplrMixStringsBrass',    null],
+      ['smplr:mellotron:MIXED STRGS',   'toneSmplrMixMixedStrings',    null]
+    ]
+  }
+];
 
+// BA 231: i18n-Key fuer einen toneType-String aus den GROUPS holen.
+// Wird von test-ui.js (_toneTypeKey) genutzt, um auch Mellotron-Tonarten
+// im Header-Button korrekt zu uebersetzen.
+window.toneTypeI18nKey = function(tt) {
+  for (var g = 0; g < GROUPS.length; g++) {
+    var items = GROUPS[g].items;
+    for (var i = 0; i < items.length; i++) {
+      if (items[i][0] === tt) return items[i][1] || null;
+    }
+  }
+  return null;
+};
+
+function openToneSelectionDialog(cfg, onChange) {
   var initial = cfg.getToneType();
   var selected = initial;
   var playing = false;
