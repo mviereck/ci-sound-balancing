@@ -12,6 +12,7 @@
 
 // --- State ---
 let fmModalTone = null;   // BA 230: live-Tonart waehrend des Tonauswahl-Modals; null = kein Modal offen
+let fmKbdCorrectVol = null; // BA 239: Korrektorfunktion(vol,hz,pan) aus Modal-Toggles; null = kein Modal offen
 let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
@@ -1073,8 +1074,9 @@ document.addEventListener("DOMContentLoaded", () => {
           setToneType: function(tt) { toneType_freqmatch = tt; },
           // BA 230: Klavier-Bug-Fix — Modal teilt die aktuell angeklickte
           // Tonart mit; onPress liest fmModalTone mit Fallback auf toneType_freqmatch.
-          onToneSelected: function(tt) { fmModalTone = tt; },
-          onModalClose:   function()   { fmModalTone = null; },
+          onToneSelected:  function(tt) { fmModalTone = tt; },
+          onModalClose:    function()   { fmModalTone = null; fmKbdCorrectVol = null; },
+          onTogglesReady:  function(fn) { fmKbdCorrectVol = fn; },
           getVolume:   function() { return fmGVol(); },
           getPreviewSequence: function() {
             var hzLeft = 1000, hzRight = 1000;
@@ -1164,10 +1166,13 @@ document.addEventListener("DOMContentLoaded", () => {
             var varPan = (varSide === 'left') ? -1 : 1;
             var refPan = -varPan;
             var tt = (fmModalTone !== null) ? fmModalTone : toneType_freqmatch;
+            var cv = fmKbdCorrectVol;
+            var varVol = (typeof cv === 'function') ? cv(vol, hz, varPan) : vol;
+            var refVol = (typeof cv === 'function') ? cv(vol, hz, refPan) : vol;
             try {
-              playToneTyped(c, hz, vol, durMs, varPan, tt);
+              playToneTyped(c, hz, varVol, durMs, varPan, tt);
               setTimeout(function() {
-                playToneTyped(c, hz, vol, durMs, refPan, tt);
+                playToneTyped(c, hz, refVol, durMs, refPan, tt);
               }, durMs + pauMs);
             } catch (e) { /* swallow */ }
           }

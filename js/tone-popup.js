@@ -44,6 +44,17 @@
 // darauf zugreifen kann.
 var GROUPS = [
   {
+    headKey: 'toneGroupCiTest',
+    hintKey: 'toneGroupCiTestHint',
+    items: [
+      ['richCiH',  'toneRichCiH',  'toneRichCiHDesc'],
+      ['richCiB',  'toneRichCiB',  'toneRichCiBDesc'],
+      ['richCiHA', 'toneRichCiHA', 'toneRichCiHADesc'],
+      ['richCiHS', 'toneRichCiHS', 'toneRichCiHSDesc'],
+      ['richCiHF', 'toneRichCiHF', 'toneRichCiHFDesc']
+    ]
+  },
+  {
     headKey: 'toneGroupSine',
     hintKey: 'toneGroupSineHint',
     items: [
@@ -175,6 +186,9 @@ function openToneSelectionDialog(cfg, onChange) {
   var initial = cfg.getToneType();
   var selected = initial;
   var playing = false;
+  // BA 239: Korrektur-Toggles, Default an, lokal in der Modal-Instanz.
+  var applyMeasLevels = true;
+  var applyBalance    = true;
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -201,6 +215,67 @@ function openToneSelectionDialog(cfg, onChange) {
     'background:#fff4d6;border-left:3px solid #d8a200;' +
     'padding:8px 10px;border-radius:4px;';
   dlg.appendChild(hint);
+
+  // BA 239: Korrektur-Toggles. Stil analog Player-Toggles
+  // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):
+  // grün = aktiv, grau = inaktiv. Beide Default an, lokal.
+  var togRow = document.createElement('div');
+  togRow.style.cssText =
+    'display:flex;gap:8px;margin:0 0 14px 0;flex-wrap:wrap;';
+
+  function _tpUpdToggleStyle(btn, active) {
+    if (active) {
+      btn.style.background  = 'var(--success)';
+      btn.style.color       = '#fff';
+      btn.style.borderColor = 'var(--success)';
+    } else {
+      btn.style.background  = '#e5e7eb';
+      btn.style.color       = 'var(--text)';
+      btn.style.borderColor = 'var(--border)';
+    }
+  }
+
+  var togMeas = document.createElement('button');
+  togMeas.type = 'button';
+  togMeas.className = 'btn btn-sm';
+  togMeas.dataset.t = 'tonePopupApplyMeas';
+  togMeas.style.cssText = 'font-weight:600;border-radius:6px;';
+  togMeas.addEventListener('click', function() {
+    applyMeasLevels = !applyMeasLevels;
+    _tpUpdToggleStyle(togMeas, applyMeasLevels);
+  });
+  _tpUpdToggleStyle(togMeas, applyMeasLevels);
+
+  var togBal = document.createElement('button');
+  togBal.type = 'button';
+  togBal.className = 'btn btn-sm';
+  togBal.dataset.t = 'tonePopupApplyBalance';
+  togBal.style.cssText = 'font-weight:600;border-radius:6px;';
+  togBal.addEventListener('click', function() {
+    applyBalance = !applyBalance;
+    _tpUpdToggleStyle(togBal, applyBalance);
+  });
+  _tpUpdToggleStyle(togBal, applyBalance);
+
+  togRow.append(togMeas, togBal);
+  dlg.appendChild(togRow);
+
+  // BA 239: Korrektorfunktion für Klavier-onPress bereitstellen.
+  if (typeof cfg.onTogglesReady === 'function') {
+    cfg.onTogglesReady(function(vol, hz, pan) {
+      var ev = vol;
+      if (applyMeasLevels) {
+        var md = _tpMeasDbForStep(hz, pan);
+        if (md !== 0) ev *= Math.pow(10, md / 20);
+      }
+      if (applyBalance) {
+        var bl = _tpBalanceDbSym();
+        var bd = (pan < -0.01) ? bl.left : (pan > 0.01) ? bl.right : 0;
+        if (bd !== 0) ev *= Math.pow(10, bd / 20);
+      }
+      return ev;
+    });
+  }
 
   // BA 228: Optionales Klavier-Widget oberhalb der Tonart-Liste.
   // Wird nur gerendert, wenn cfg.keyboardMode aktiv und alle
@@ -301,6 +376,71 @@ function openToneSelectionDialog(cfg, onChange) {
   // BA 226: Sanduhr ein-/ausblenden fuer den Button eines konkreten
   // toneType (Strings koennen Doppelpunkte und Leerzeichen enthalten,
   // deshalb ueber alle Buttons iterieren statt CSS-Selector).
+  // BA 239: Korrektur-Helfer für die Modal-Toggles.
+
+  // Mess-Lautstärke-Korrektur pro Step.
+  // hz -> nächste aktive Elektrode der step-Seite -> levels[i].
+  // Bedingung wie player.js:221-228 (hd-Check über bRes).
+  // Liefert dB-Offset (0 wenn keine Voraussetzung erfüllt).
+  function _tpMeasDbForStep(stepHz, stepPan) {
+    if (typeof withSide !== 'function'
+        || typeof compWLS !== 'function'
+        || typeof effFreq !== 'function') return 0;
+    var side = (stepPan < -0.01) ? 'left'
+             : (stepPan >  0.01) ? 'right'
+             : (typeof activeSide === 'string' ? activeSide : 'left');
+    var dB = 0;
+    try {
+      dB = withSide(side, function() {
+        if (typeof elActive === 'undefined'
+            || !Array.isArray(elActive)
+            || elActive.length === 0) return 0;
+        // Nächste aktive, nicht-stumme Elektrode finden.
+        var best = -1, bestDist = Infinity;
+        for (var i = 0; i < elActive.length; i++) {
+          if (elActive[i] === false) continue;
+          if (typeof elSt !== 'undefined' && elSt[i] === 'mute') continue;
+          var d = Math.abs(effFreq(i) - stepHz);
+          if (d < bestDist) { bestDist = d; best = i; }
+        }
+        if (best < 0) return 0;
+        // hd-Check analog player.js:221-228.
+        if (typeof bRes === 'undefined'
+            || !Array.isArray(bRes)
+            || !bRes.some(function(r) {
+              return (r.a === best || r.b === best)
+                  && elExDur[r.a] === null && elSt[r.a] !== 'mute'
+                  && elExDur[r.b] === null && elSt[r.b] !== 'mute';
+            })) return 0;
+        var lv = compWLS().levels;
+        var v = lv[best];
+        return (typeof v === 'number' && isFinite(v)) ? v : 0;
+      });
+    } catch (e) { /* swallow */ }
+    return (typeof dB === 'number' && isFinite(dB)) ? dB : 0;
+  }
+
+  // Stereo-Balance fest symmetrisch.
+  // Liefert {left, right} dB aus dem Mittelwert von lrResults.
+  // (lrResults ist global, nicht side-bound — siehe lr-balance.js:6.)
+  function _tpBalanceDbSym() {
+    if (typeof lrResults === 'undefined' || !lrResults) {
+      return { left: 0, right: 0 };
+    }
+    var vals = Object.values(lrResults).filter(function(v) {
+      return typeof v === 'number' && isFinite(v);
+    });
+    if (!vals.length) return { left: 0, right: 0 };
+    var mean = vals.reduce(function(a, b) { return a + b; }, 0) / vals.length;
+    // Player-Konvention: positive mean = rechts lauter -> -mean
+    // als symmetrischer Versatz: left=+b, right=-b
+    // (siehe state-side.js:425-430 getPlayerBalance + Z. 448).
+    var b = -mean;
+    if (!isFinite(b)) return { left: 0, right: 0 };
+    b = Math.max(-60, Math.min(60, b));
+    return { left: b, right: -b };
+  }
+
   function _setHourglassFor(toneType, show) {
     // BA 226 Fix .4: visibility statt display, damit der Grid-Track
     // konstante Breite behaelt (display:none entfernt das Element
@@ -370,8 +510,21 @@ function openToneSelectionDialog(cfg, onChange) {
         return;
       }
       var pan = (typeof step.pan === 'number') ? step.pan : 0;
+      // BA 239: Korrektur-Toggles wirken auf vol pro Step.
+      var effVol = vol;
+      if (applyMeasLevels) {
+        var measDb = _tpMeasDbForStep(step.hz, pan);
+        if (measDb !== 0) effVol *= Math.pow(10, measDb / 20);
+      }
+      if (applyBalance) {
+        var bal = _tpBalanceDbSym();
+        var bDb = (pan < -0.01) ? bal.left
+                : (pan >  0.01) ? bal.right
+                : 0;
+        if (bDb !== 0) effVol *= Math.pow(10, bDb / 20);
+      }
       try {
-        playToneTyped(c, step.hz, vol, step.durationMs, pan, toneType);
+        playToneTyped(c, step.hz, effVol, step.durationMs, pan, toneType);
       } catch (e) { /* swallow */ }
       setTimeout(nextStep, step.durationMs);
     }

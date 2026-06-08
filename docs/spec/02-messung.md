@@ -40,7 +40,19 @@ sichtbar, je unter eigenem `kind:'heading'`-Absatz.
 
 In `state-side.js` und persistiert in JSON und localStorage:
 
-- **Tonart** (`globalToneType`) — Sinus / Komplexton / Komplexton gepulst
+- **Tonart** (`globalToneType`) — **CI-Testton harmonisch / CI-Testton
+  inharmonisch** (3.2.238.1, citest-profiles.js — für CI-Messungen
+  designte Stimuli mit konstanter Klangfarbe über den ganzen
+  Frequenzbereich, sanftem Anschwingen 250 ms gegen AGC-Trommelschlag,
+  Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen Stationaritätsartefakte;
+  inharmonisch mit Partial-Verstimmung ≈ Glocken-Anmutung) /
+  **CI-Test Attack-stark / AM-langsam / flach (Diagnose)** (3.2.238.2,
+  Diagnose-Varianten zum harmonischen CI-Test gegen die vom Nutzer
+  beobachtete periodische ~2,7-Hz-Welle: Attack-stark hat 600 ms
+  Anschwingen und 18 % AM-Tiefe, AM-langsam moduliert mit 2,7 Hz / 25 %
+  in der Wellen-Frequenz, flach hat keine AM zur Diagnose, ob die
+  Welle AGC-eigenresonant ist) /
+  Sinus / Komplexton / Komplexton gepulst
   (100 Hz AM) / Reicher Komplexton (BA 213.4, 8 Harmonische + Vibrato
   5 Hz + Atem-AM 3 Hz) / Rauschen / Schmalbandrauschen adaptiv /
   Iterated Rippled Noise (BA 213.4, 16 Iterationen Add-and-Delay) /
@@ -60,8 +72,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
   (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
   übernimmt das Popup-Probehören diese Funktion.
-  Dialog (BA 217): Tonarten in vier Gruppen (Sinustöne, Komplextöne,
-  Instrumenten-Klänge, Rauschsignale) mit Kurzbeschreibung pro Tonart.
+  Dialog (BA 217): Tonarten in fünf Gruppen (CI-Testtöne (3.2.238.1),
+  Sinustöne, Komplextöne, Instrumenten-Klänge, Rauschsignale) mit
+  Kurzbeschreibung pro Tonart. Die CI-Testtöne-Gruppe steht oben, weil
+  sie für Mess-Aufgaben empfohlen ist.
   Jede Gruppe hat eine Überschrift und einen Unter-Hinweis (i18n).
   Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
   TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu
@@ -93,6 +107,30 @@ In `state-side.js` und persistiert in JSON und localStorage:
   stumm bis Sampler ready. Das Klavier ist abstrakt in `sampler-keyboard.js`
   implementiert (cfg.keyboardMode = true aktiviert es im Frequenzabgleich)
   und für künftige Aufrufer (Implantat-Tab, BA 230) wiederverwendbar.
+  Korrektur-Toggles im Modal (seit BA 239): Oberhalb der Tonart-
+  Gruppen (und ggf. oberhalb des Klavier-Widgets) zwei Toggle-
+  Buttons (grün/grau analog Player). Default beide an, lokal in
+  der Modal-Instanz (keine Kopplung an Player-Variablen):
+  - **Elektrodenlautstärke anwenden** — pro Vorspiel-Step wird
+    aus `step.hz` die nächste aktive Elektrode der Step-Seite
+    (Pan→`withSide`) bestimmt und der dB-Wert aus `levels[]`
+    (`compWLS()`, Ergebnis der Messung Elektrodenlautstärke-
+    Balance) als vol-Faktor angewandt. Wirksamkeitsbedingung
+    wie im Player: nur dort, wo `bRes` für die Elektrode einen
+    Eintrag mit gültigen Endpunkten hat (sonst 0 dB).
+  - **Stereo-Balance anwenden** — pro Step bekommt das vol je
+    nach `step.pan` einen dB-Versatz aus dem Mittelwert von
+    `lrResults`. Fest symmetrisch (`left = +b, right = -b` mit
+    `b = -mean`), unabhängig vom Player-eigenen `plBalanceMode`.
+    Immer aktivierbar (kein Ausgrauen bei einseitiger Sequenz —
+    die Wirkung bleibt halt einseitig).
+  Latenz-Anwendung im Modal entfällt: die Vorspielsequenzen sind
+  heute sequentiell (siehe `freqmatch.js`), Inter-Ohr-Latenz
+  hätte keine hörbare Wirkung.
+  Die Toggles wirken auch auf das Klavier-Widget im Modal: über
+  `cfg.onTogglesReady(corrector)` erhält `freqmatch.js` eine
+  Korrektorfunktion (`fmKbdCorrectVol`), die `onPress` pro
+  Klavier-Anschlag auf Var- und Ref-Burst anwendet.
 - **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
   `'ab'`. Vor dem Test wählbar, während des Tests fest.
 - **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten
