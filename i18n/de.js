@@ -969,6 +969,9 @@ Object.assign(L.de, {
     supportSelfLabel: "Aus eigener Tasche",
     supportGapCurrent: "Differenz Stand → Vollausbau:",
     supportGapToFull: "Zusätzlich nötige monatliche Spenden für Vollausbau:",
+    supportOneTimePrefix: "Zusätzlich eingegangen:",
+    supportOneTimeSuffix: "als Einmalspenden.",
+    supportOneTimeHint: "Fließt in den Puffer für Monate, in denen die monatlichen Spenden nicht reichen.",
 
     supportFinanceGoal: "Um das Tool vollwertig weiterentwickeln und alle angestrebten Features anbieten zu können, ist der Vollausbau nötig.",
     supportExplainKi: "<b>Warum die KI-Position so hoch ist:</b> Die Entwicklung läuft im Wechselspiel mit einem KI-Assistenten (Claude). Ohne diesen Workflow wäre das jetzige Tempo nicht haltbar; die Vielseitigkeit wäre in vertretbarer Zeit so nicht entstanden. Das größere Abo ermöglicht es mir, arbeitsintensive Features schneller zu entwickeln und nicht durch wöchentliche Nutzungslimits mitten in der Arbeit gestoppt zu werden.",

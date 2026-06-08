@@ -919,6 +919,9 @@ Object.assign(L.en, {
     supportSelfLabel: "Out of pocket",
     supportGapCurrent: "Difference current → full build:",
     supportGapToFull: "Additional monthly donations required for full build:",
+    supportOneTimePrefix: "Additionally received:",
+    supportOneTimeSuffix: "as one-time donations.",
+    supportOneTimeHint: "Goes into the buffer for months when the monthly donations are not enough.",
 
     supportFinanceGoal: "To be able to develop the tool fully and offer all the planned features, the full build is necessary.",
     supportExplainKi: "<b>Why the AI item is so high:</b> Development runs in interplay with an AI assistant (Claude). Without this workflow, the current pace would not be sustainable; the versatility could not have arisen in reasonable time. The larger subscription allows me to develop work-intensive features faster and not be stopped by weekly usage limits in the middle of work.",

@@ -61,6 +61,28 @@ function _untRenderFinanzTable() {
       '</div>';
     if (typeof applyLang === "function") applyLang();
   }
+  _untRenderEinmalBlock();
+}
+
+function _untRenderEinmalBlock() {
+  var box = document.getElementById("untEinmalBlock");
+  if (!box) return;
+  if (typeof finEinmalSummeBis !== "function") return;
+  var summe = finEinmalSummeBis(finMonatHeute());
+  if (summe <= 0) {
+    box.innerHTML = "";
+    box.style.display = "none";
+    return;
+  }
+  box.style.display = "";
+  box.innerHTML =
+    '<div class="support-onetime-row">' +
+      '<span data-t="supportOneTimePrefix"></span> ' +
+      '<strong>' + finFmtEuro(summe) + '</strong> ' +
+      '<span data-t="supportOneTimeSuffix"></span>' +
+    '</div>' +
+    '<div class="support-onetime-hint" data-t="supportOneTimeHint"></div>';
+  if (typeof applyLang === "function") applyLang();
 }
 
 function _untBuildIban() {

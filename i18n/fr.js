@@ -920,6 +920,9 @@ Object.assign(L.fr, {
     supportSelfLabel: "De sa propre poche",
     supportGapCurrent: "Différence état → déploiement complet :",
     supportGapToFull: "Dons mensuels supplémentaires nécessaires pour le déploiement complet :",
+    supportOneTimePrefix: "Reçu en plus :",
+    supportOneTimeSuffix: "en dons ponctuels.",
+    supportOneTimeHint: "Alimente la réserve pour les mois où les dons mensuels ne suffisent pas.",
 
     supportFinanceGoal: "Pour pouvoir continuer à développer l'outil pleinement et proposer toutes les fonctionnalités visées, le déploiement complet est nécessaire.",
     supportExplainKi: "<b>Pourquoi le poste IA est si élevé :</b> le développement se déroule en interaction avec un assistant IA (Claude). Sans ce workflow, le rythme actuel ne serait pas tenable ; la polyvalence n'aurait pas pu naître dans un temps raisonnable. L'abonnement plus important me permet de développer plus rapidement des fonctionnalités exigeantes en travail et de ne pas être stoppé en plein travail par les limites d'utilisation hebdomadaires.",

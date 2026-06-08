@@ -920,6 +920,9 @@ Object.assign(L.es, {
     supportSelfLabel: "De bolsillo propio",
     supportGapCurrent: "Diferencia estado → versión completa:",
     supportGapToFull: "Donaciones mensuales adicionales necesarias para la versión completa:",
+    supportOneTimePrefix: "Adicionalmente recibido:",
+    supportOneTimeSuffix: "en donaciones puntuales.",
+    supportOneTimeHint: "Alimenta la reserva para los meses en los que las donaciones mensuales no son suficientes.",
 
     supportFinanceGoal: "Para poder seguir desarrollando la herramienta de forma completa y ofrecer todas las funciones previstas, se necesita la versión completa.",
     supportExplainKi: "<b>Por qué la partida de IA es tan alta:</b> el desarrollo se realiza en interacción con un asistente de IA (Claude). Sin este flujo de trabajo no podría mantenerse el ritmo actual; la versatilidad no habría surgido en un tiempo razonable. La suscripción mayor me permite desarrollar más rápido funciones intensivas en trabajo y no quedar bloqueado en mitad del trabajo por límites de uso semanales.",
