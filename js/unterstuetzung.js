@@ -41,7 +41,7 @@ function _untRenderFinanzTable() {
     '<tr>' +
       '<td data-t="supportSelfLabel"></td>' +
       '<td class="num">–</td>' +
-      '<td class="num">' + finFmtEuro(r.selfShare) + '</td>' +
+      '<td class="num support-self-amount">' + finFmtEuro(r.selfShare) + '</td>' +
     '</tr>';
 
   // i18n nachziehen, damit die data-t-Labels gefüllt werden.

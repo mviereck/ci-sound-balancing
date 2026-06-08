@@ -994,8 +994,9 @@ Object.assign(L.de, {
     supportGraphLegendDauer: "Dauerspenden",
     supportGraphLegendPuffer: "aus Einmalspenden gedeckt",
     supportGraphLegendLuecke: "Lücke",
+    supportGraphLegendErweiterung: "Differenz zur Erweiterung",
     supportGraphCostCurrent: "aktuelle Kosten",
-    supportGraphCostFull: "Vollausbau",
+    supportGraphCostFull: "Erweiterung",
     supportGraphHinweis: "Berechnung unterstellt unveränderte Kosten und gleichbleibende Dauerspenden in der Zukunft.",
     supportGraphToday: "heute",
 

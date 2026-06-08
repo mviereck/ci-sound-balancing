@@ -43,7 +43,7 @@ function _ugRenderGraph() {
   if (!reihe.length) return;
 
   // Layout
-  var padL = 50, padR = 18, padT = 16, padB = 38;
+  var padL = 110, padR = 18, padT = 16, padB = 38;
   var plotW = cssW - padL - padR;
   var plotH = cssH - padT - padB;
 
@@ -101,7 +101,16 @@ function _ugRenderGraph() {
     }
   }
 
-  // Linie "aktuelle Kosten"
+  // Differenz-Fläche zwischen aktuellen Kosten und Erweiterung
+  if (kostenFull > kostenCurrent) {
+    ctx.fillStyle = "rgba(217, 74, 74, 0.18)";
+    ctx.fillRect(padL,
+                 yEuro(kostenFull),
+                 plotW,
+                 yEuro(kostenCurrent) - yEuro(kostenFull));
+  }
+
+  // Linie "aktuelle Kosten" — horizontale Bezugslinie, gestrichelt
   ctx.strokeStyle = "#777";
   ctx.lineWidth   = 1.2;
   ctx.setLineDash([5, 4]);
@@ -109,22 +118,35 @@ function _ugRenderGraph() {
   ctx.moveTo(padL,         yEuro(kostenCurrent));
   ctx.lineTo(padL + plotW, yEuro(kostenCurrent));
   ctx.stroke();
-  ctx.fillStyle = "#555";
-  ctx.font = "10.5px Segoe UI, sans-serif";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "bottom";
+  ctx.setLineDash([]);
+  // Markierungsstrich + Label links außerhalb des Plots
+  ctx.beginPath();
+  ctx.moveTo(padL - 28, yEuro(kostenCurrent));
+  ctx.lineTo(padL,      yEuro(kostenCurrent));
+  ctx.stroke();
+  ctx.fillStyle    = "#555";
+  ctx.font         = "10.5px Segoe UI, sans-serif";
+  ctx.textAlign    = "right";
+  ctx.textBaseline = "middle";
   ctx.fillText(_ugT("supportGraphCostCurrent", "aktuelle Kosten"),
-               padL + 4, yEuro(kostenCurrent) - 2);
+               padL - 32, yEuro(kostenCurrent));
 
-  // Linie "Vollausbau"
+  // Linie "Erweiterung" — horizontale Bezugslinie, gepunktet
+  ctx.strokeStyle = "#777";
+  ctx.lineWidth   = 1.2;
   ctx.setLineDash([1.5, 3]);
   ctx.beginPath();
   ctx.moveTo(padL,         yEuro(kostenFull));
   ctx.lineTo(padL + plotW, yEuro(kostenFull));
   ctx.stroke();
-  ctx.fillText(_ugT("supportGraphCostFull", "Vollausbau"),
-               padL + 4, yEuro(kostenFull) - 2);
   ctx.setLineDash([]);
+  // Markierungsstrich + Label links außerhalb des Plots
+  ctx.beginPath();
+  ctx.moveTo(padL - 28, yEuro(kostenFull));
+  ctx.lineTo(padL,      yEuro(kostenFull));
+  ctx.stroke();
+  ctx.fillText(_ugT("supportGraphCostFull", "Erweiterung"),
+               padL - 32, yEuro(kostenFull));
 
   // "Heute"-Marker
   var heuteIdx = -1;
