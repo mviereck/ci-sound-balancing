@@ -12,8 +12,8 @@ function _untRenderFinanzTable() {
 
   // Zeilen für die vier Einzelposten.
   var html = "";
-  for (var i = 0; i < FINANZEN.posten.length; i++) {
-    var p = FINANZEN.posten[i];
+  for (var i = 0; i < FINANZEN_POSTEN.length; i++) {
+    var p = FINANZEN_POSTEN[i];
     var labelKey = "supportPosten_" + p.key;
     var fullCell    = p.full    > 0 ? finFmtEuro(p.full)    : "–";
     var currentCell = p.current > 0 ? finFmtEuro(p.current) : "–";
