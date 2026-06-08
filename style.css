@@ -1864,3 +1864,41 @@ input.ec-active.dep-locked {
 .tab.tab-locked:hover {
   opacity: 0.4;
 }
+
+/* BA 230: Tonauswahl-Modal — Button-Variante statt Radiobuttons */
+.tone-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  align-items: center;
+}
+.tone-item {
+  display: inline-flex;
+  align-items: center;
+}
+.tone-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 0.9em;
+  line-height: 1.25;
+  min-height: 30px;
+  transition: all 0.15s;
+}
+.tone-btn:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+.tone-btn--active {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+.tone-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

@@ -11,6 +11,7 @@
 // Basis-Datei des jeweiligen Sub-Tabs.
 
 // --- State ---
+let fmModalTone = null;   // BA 230: live-Tonart waehrend des Tonauswahl-Modals; null = kein Modal offen
 let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
@@ -1070,6 +1071,10 @@ document.addEventListener("DOMContentLoaded", () => {
         tonePopupButton: {
           getToneType: function() { return toneType_freqmatch; },
           setToneType: function(tt) { toneType_freqmatch = tt; },
+          // BA 230: Klavier-Bug-Fix — Modal teilt die aktuell angeklickte
+          // Tonart mit; onPress liest fmModalTone mit Fallback auf toneType_freqmatch.
+          onToneSelected: function(tt) { fmModalTone = tt; },
+          onModalClose:   function()   { fmModalTone = null; },
           getVolume:   function() { return fmGVol(); },
           getPreviewSequence: function() {
             var hzLeft = 1000, hzRight = 1000;
@@ -1158,7 +1163,7 @@ document.addEventListener("DOMContentLoaded", () => {
               ? fmVarSide : activeSide;
             var varPan = (varSide === 'left') ? -1 : 1;
             var refPan = -varPan;
-            var tt = toneType_freqmatch;
+            var tt = (fmModalTone !== null) ? fmModalTone : toneType_freqmatch;
             try {
               playToneTyped(c, hz, vol, durMs, varPan, tt);
               setTimeout(function() {

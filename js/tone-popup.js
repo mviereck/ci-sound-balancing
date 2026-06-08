@@ -25,7 +25,7 @@
 // als function declarations damit sie ueberall im Modul greifen):
 //   _setHourglassFor(toneType, show)   — Sanduhr ein/aus pro Token
 //   _playPreview(toneType)             — Vorspiel-Sequenz starten
-//   _setPlayButtonsDisabled(flag)      — alle Vorspiel-Knoepfe sperren
+//   _setToneButtonsDisabled(flag)      — alle Vorspiel-Knoepfe sperren
 //
 // Die Helfer haengen aktuell als innere Funktionen in
 // _openToneTypeDialog (Closure ueber `dlg`, `playing`, `cfg`).
@@ -176,7 +176,9 @@ function openToneSelectionDialog(cfg, onChange) {
       renderSamplerKeyboard(kbWrap, {
         getElectrodeFreqs:   cfg.getElectrodeFreqs,
         getElectrodeLabels:  cfg.getElectrodeLabels,
-        getCurrentToneType:  cfg.getToneType,
+        // BA 230: Klavier liest 'selected' (im Modal angeklickt),
+        // nicht cfg.getToneType (erst nach OK aktualisiert).
+        getCurrentToneType:  function() { return selected; },
         onPress:             cfg.onPress,
         onRelease:           cfg.onRelease,
         getHighlightMs:      cfg.getHighlightMs
@@ -184,6 +186,7 @@ function openToneSelectionDialog(cfg, onChange) {
     } catch (e) { /* swallow — Klavier-Render-Fehler darf das Modal nicht killen */ }
   }
 
+  // BA 230: Buttons-Reihe statt Radio-Grid.
   GROUPS.forEach(function(grp) {
     var section = document.createElement('section');
     section.style.cssText = 'margin-bottom:14px;';
@@ -202,90 +205,54 @@ function openToneSelectionDialog(cfg, onChange) {
     section.appendChild(subhint);
 
     var list = document.createElement('div');
-    list.style.cssText =
-      'display:grid;grid-template-columns:auto 1fr auto auto;' +
-      'gap:4px 10px;align-items:center;';
+    list.className = 'tone-btn-row';
 
     grp.items.forEach(function(triple) {
       var key = triple[0], i18nKey = triple[1], descKey = triple[2];
 
-      var rb = document.createElement('input');
-      rb.type = 'radio';
-      rb.name = 'tonePopupChoice';
-      rb.value = key;
-      rb.checked = (key === initial);
-      rb.id = 'tonePopupRb_' + key;
+      // Wrapper, damit Sanduhr direkt neben dem Button steht und mitwandert.
+      var itemWrap = document.createElement('span');
+      itemWrap.className = 'tone-item';
 
-      var lblBlock = document.createElement('label');
-      lblBlock.htmlFor = rb.id;
-      lblBlock.style.cssText =
-        'cursor:pointer;display:flex;flex-direction:column;gap:1px;';
-
-      var nameLine = document.createElement('span');
-      var nameSpan = document.createElement('span');
-      nameSpan.style.cssText = 'font-size:.94em;';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'tone-btn' + (key === initial ? ' tone-btn--active' : '');
+      btn.dataset.toneKey = key;
       if (i18nKey) {
-        nameSpan.dataset.t = i18nKey;
+        btn.dataset.t = i18nKey;
       } else {
-        // BA 225: Fallback fuer Eintraege ohne i18n-Key (z. B. Mellotron-Varianten):
+        // Fallback fuer Eintraege ohne i18n-Key (z. B. Mellotron-Varianten):
         // letzten Token-Teil als Label anzeigen.
         var lastColon = key.lastIndexOf(':');
-        nameSpan.textContent = lastColon >= 0 ? key.substring(lastColon + 1) : key;
+        btn.textContent = lastColon >= 0 ? key.substring(lastColon + 1) : key;
       }
-      nameLine.appendChild(nameSpan);
-
-      lblBlock.appendChild(nameLine);
-
       if (descKey) {
-        var descSpan = document.createElement('span');
-        descSpan.dataset.t = descKey;
-        descSpan.style.cssText =
-          'font-size:.82em;color:#666;line-height:1.3;';
-        lblBlock.appendChild(descSpan);
+        // Beschreibung als Tooltip; data-t-title wird von applyLang gesetzt.
+        btn.dataset.tTitle = descKey;
       }
 
-      var play = document.createElement('button');
-      play.type = 'button';
-      play.className = 'btn btn-small';
-      play.dataset.t = 'tonePopupPlay';
-      play.dataset.toneKey = key;
-      play.style.cssText = 'min-width:90px;';
-      // BA 226 Fix .3: Sanduhr ist eigenstaendiger Span vor dem Button
-      // (4. Grid-Spalte). visibility:hidden statt display:none, damit der
-      // Grid-Track immer reservierte Breite hat und das Layout sich beim
-      // Ein-/Ausblenden nicht verschiebt (Layout-Chaos in Fix .2).
+      // Sanduhr-Span: per data-tone-key adressierbar (_setHourglassFor).
       var hgSpan = document.createElement('span');
       hgSpan.className = 'btn-hourglass';
       hgSpan.dataset.toneKey = key;
-      hgSpan.style.cssText = 'visibility:hidden;font-size:1.6em;line-height:1;'
-        + 'color:#d8a200;text-align:center;width:1.2em;display:inline-block;';
+      hgSpan.style.cssText =
+        'visibility:hidden;font-size:1.4em;line-height:1;'
+        + 'color:#d8a200;margin-left:2px;display:inline-block;'
+        + 'width:1.1em;text-align:center;vertical-align:middle;';
       hgSpan.textContent = '⧖';
 
-      rb.addEventListener('change', function() {
-        if (!rb.checked) return;
-        selected = key;
-        // BA 226: Bei smplr-Tonart Lade-Trigger im Hintergrund anstossen,
-        // damit ein spaeterer Vorspiel-Klick weniger oder kein Warten erzeugt.
-        // Vorspiel-Button bleibt klickbar (kein _setPlayButtonsDisabled),
-        // aber die Sanduhr zeigt den Lade-Vorgang an.
-        if (typeof key !== 'string' || key.indexOf('smplr:') !== 0) return;
-        if (typeof window.smplrSamplerIsReady !== 'function' || window.smplrSamplerIsReady(key)) return;
-        if (typeof window.loadSamplerByToken !== 'function') return;
-        var c = (typeof gAC === 'function') ? gAC() : null;
-        if (!c) return;
-        _setHourglassFor(key, true);
-        window.loadSamplerByToken(c, key).then(function () {
-          _setHourglassFor(key, false);
-        }).catch(function () {
-          _setHourglassFor(key, false);
-        });
-      });
-      play.addEventListener('click', function() {
+      btn.addEventListener('click', function() {
         if (playing) return;
+        var prev = dlg.querySelectorAll('.tone-btn--active');
+        prev.forEach(function(b) { b.classList.remove('tone-btn--active'); });
+        btn.classList.add('tone-btn--active');
+        selected = key;
+        if (typeof cfg.onToneSelected === 'function') cfg.onToneSelected(key);
         _playPreview(key);
       });
 
-      list.append(rb, lblBlock, hgSpan, play);
+      itemWrap.append(btn, hgSpan);
+      list.appendChild(itemWrap);
     });
 
     section.appendChild(list);
@@ -322,12 +289,12 @@ function openToneSelectionDialog(cfg, onChange) {
         && !window.smplrSamplerIsReady(toneType)) {
       if (typeof window.loadSamplerByToken !== 'function') return;
       playing = true;
-      _setPlayButtonsDisabled(true);
+      _setToneButtonsDisabled(true);
       _setHourglassFor(toneType, true);
       window.loadSamplerByToken(c, toneType).then(function () {
         _setHourglassFor(toneType, false);
         playing = false;
-        _setPlayButtonsDisabled(false);
+        _setToneButtonsDisabled(false);
         // Sampler geladen -> Vorspielen jetzt regulaer.
         // Nur wenn der Sampler nach dem Load tatsaechlich ready ist
         // (sonst war es ein stiller Lade-Fehler -> keine Endlos-Schleife).
@@ -337,7 +304,7 @@ function openToneSelectionDialog(cfg, onChange) {
       }).catch(function () {
         _setHourglassFor(toneType, false);
         playing = false;
-        _setPlayButtonsDisabled(false);
+        _setToneButtonsDisabled(false);
         // Lade-Fehler: keine Wiederholung, keine Tonwiedergabe.
       });
       return;
@@ -345,13 +312,13 @@ function openToneSelectionDialog(cfg, onChange) {
 
     var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
     playing = true;
-    _setPlayButtonsDisabled(true);
+    _setToneButtonsDisabled(true);
 
     var idx = 0;
     function nextStep() {
       if (idx >= seq.length) {
         playing = false;
-        _setPlayButtonsDisabled(false);
+        _setToneButtonsDisabled(false);
         return;
       }
       var step = seq[idx++];
@@ -371,8 +338,8 @@ function openToneSelectionDialog(cfg, onChange) {
     }
     nextStep();
   }
-  function _setPlayButtonsDisabled(flag) {
-    var btns = dlg.querySelectorAll('button[data-tone-key]');
+  function _setToneButtonsDisabled(flag) {
+    var btns = dlg.querySelectorAll('button.tone-btn');
     btns.forEach(function(b) { b.disabled = flag; });
   }
 
@@ -395,6 +362,7 @@ function openToneSelectionDialog(cfg, onChange) {
 
   function close() {
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    if (typeof cfg.onModalClose === 'function') cfg.onModalClose();
   }
   cancelBtn.addEventListener('click', function() {
     close();

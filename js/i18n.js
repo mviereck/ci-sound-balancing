@@ -44,6 +44,10 @@ function applyLang() {
     const k = el.getAttribute('data-t-placeholder');
     if (k && t(k)) el.setAttribute('placeholder', t(k));
   });
+  document.querySelectorAll('[data-t-title]').forEach((el) => {
+    const k = el.getAttribute('data-t-title');
+    if (k && t(k)) el.setAttribute('title', t(k));
+  });
   const manualLink = document.getElementById("introManualLink");
   if (manualLink) {
     manualLink.textContent = t("introManualLink");
