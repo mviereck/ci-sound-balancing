@@ -1102,6 +1102,7 @@ Object.assign(L.de, {
     tonePopupVolume:   "Lautstärke",
     tonePopupDuration: "Tondauer",
     tonePopupPause:    "Tonpause",
+    tonePopupSweepStart: "Sweep starten",
     // BA 217: Tonauswahl-Dialog mit Gruppen und Beschreibungen.
     toneGroupCiTest:         "CI-Testtöne",
     toneGroupCiTestHint:     "Speziell für CI-Messungen designt: konstante Klangfarbe über den ganzen Frequenzbereich, sanftes Anschwingen gegen den AGC-Trommelschlag, subtile Modulation gegen Stationaritätsartefakte.",

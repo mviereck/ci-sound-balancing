@@ -35,6 +35,11 @@ function renderSamplerKeyboard(container, opts) {
   var labels = (typeof opts.getElectrodeLabels === 'function') ? opts.getElectrodeLabels() : [];
   if (!Array.isArray(freqs) || freqs.length === 0) return;
 
+  // BA 241: Indizes der deaktivierten / ausgeschlossenen weissen Tasten.
+  var disabledRaw = (typeof opts.getDisabledElectrodes === 'function')
+    ? opts.getDisabledElectrodes() : [];
+  var disabledSet = new Set(Array.isArray(disabledRaw) ? disabledRaw : []);
+
   var isHold = (typeof opts.onRelease === 'function');
 
   // Aussen-Wrap
@@ -72,18 +77,39 @@ function renderSamplerKeyboard(container, opts) {
     key.textContent = labels[i] != null ? String(labels[i]) : String(i + 1);
     key.dataset.electrodeIdx = String(i);
     key.dataset.hz = String(hz);
+    if (disabledSet.has(i)) {
+      key.classList.add('kb-key--disabled');
+      key.style.background = '#d1d5db';
+      key.style.color      = '#6b7280';
+      key.style.cursor     = 'not-allowed';
+      var xOv = document.createElement('span');
+      xOv.style.cssText = 'position:absolute;inset:0;pointer-events:none;'
+        + 'background-image:linear-gradient(to top right, transparent calc(50% - 1px), '
+        + '#4b5563 calc(50% - 1px), #4b5563 calc(50% + 1px), transparent calc(50% + 1px)),'
+        + 'linear-gradient(to top left, transparent calc(50% - 1px), '
+        + '#4b5563 calc(50% - 1px), #4b5563 calc(50% + 1px), transparent calc(50% + 1px));';
+      key.appendChild(xOv);
+    }
     whiteKeys[i] = key;
-    _bindKey(key, i, hz);
+    if (!disabledSet.has(i)) {
+      _bindKey(key, i, hz);
+    }
     row.appendChild(key);
   });
 
-  // Schwarze Zier-Tasten (n-1 Stueck, eine zwischen jedem weissen Paar)
+  // BA 241: Schwarze Tasten mit Gruppen-Logik.
   var whiteWidthPct = 100 / freqs.length;
-  for (var i = 0; i < freqs.length - 1; i++) {
-    var hzBlack = Math.sqrt(freqs[i] * freqs[i + 1]);
-    var leftPct = (i + 1) * whiteWidthPct - whiteWidthPct / 4;
+  var blackGroups = {};  // key "left:right" -> { blackEls: [], leftAnchor, rightAnchor }
+
+  for (var bi = 0; bi < freqs.length - 1; bi++) {
+    var leftAnchor  = bi;
+    while (leftAnchor >= 0 && disabledSet.has(leftAnchor))   leftAnchor--;
+    var rightAnchor = bi + 1;
+    while (rightAnchor < freqs.length && disabledSet.has(rightAnchor)) rightAnchor++;
+
+    var leftPct  = (bi + 1) * whiteWidthPct - whiteWidthPct / 4;
     var widthPct = whiteWidthPct / 2;
-    var black = document.createElement('div');
+    var black    = document.createElement('div');
     black.className = 'kb-key kb-black';
     black.style.cssText = 'position:absolute;top:0;'
       + 'left:' + leftPct.toFixed(3) + '%;'
@@ -91,28 +117,97 @@ function renderSamplerKeyboard(container, opts) {
       + 'height:60%;background:#222;border:1px solid #000;'
       + 'border-radius:0 0 3px 3px;cursor:pointer;';
     black.dataset.electrodeIdx = '-1';
-    black.dataset.blackIdx     = String(i);
-    black.dataset.hz           = String(hzBlack);
-    blackKeys[i] = black;
+    black.dataset.blackIdx     = String(bi);
+    blackKeys[bi] = black;
+
+    var noAnchor = (leftAnchor < 0) || (rightAnchor >= freqs.length);
+    if (noAnchor) {
+      black.classList.add('kb-key--disabled');
+      black.style.background = '#9ca3af';
+      black.style.cursor     = 'not-allowed';
+      var xOvB = document.createElement('span');
+      xOvB.style.cssText = 'position:absolute;inset:0;pointer-events:none;'
+        + 'background-image:linear-gradient(to top right, transparent calc(50% - 1px), '
+        + '#1f2937 calc(50% - 1px), #1f2937 calc(50% + 1px), transparent calc(50% + 1px)),'
+        + 'linear-gradient(to top left, transparent calc(50% - 1px), '
+        + '#1f2937 calc(50% - 1px), #1f2937 calc(50% + 1px), transparent calc(50% + 1px));';
+      black.appendChild(xOvB);
+      black.dataset.hz = '0';
+      row.appendChild(black);
+      continue;
+    }
+
+    var hzBlack = Math.sqrt(freqs[leftAnchor] * freqs[rightAnchor]);
+    black.dataset.hz = String(hzBlack);
+
+    var grpKey = leftAnchor + ':' + rightAnchor;
+    if (!blackGroups[grpKey]) {
+      blackGroups[grpKey] = { blackEls: [], leftAnchor: leftAnchor, rightAnchor: rightAnchor };
+    }
+    blackGroups[grpKey].blackEls.push(black);
+    black.dataset.grpKey = grpKey;
+
     _bindKey(black, -1, hzBlack);
     row.appendChild(black);
   }
 
+  // BA 241: Verbindungs-Balken fuer Gruppen mit >= 2 schwarzen Tasten.
+  Object.keys(blackGroups).forEach(function(grpKey) {
+    var grp = blackGroups[grpKey];
+    if (grp.blackEls.length < 2) return;
+    var firstStyle = grp.blackEls[0].style;
+    var lastStyle  = grp.blackEls[grp.blackEls.length - 1].style;
+    var firstLeft  = parseFloat(firstStyle.left);
+    var firstWidth = parseFloat(firstStyle.width);
+    var lastLeft   = parseFloat(lastStyle.left);
+    var lastWidth  = parseFloat(lastStyle.width);
+    var barLeftPct  = firstLeft + firstWidth / 2;
+    var barRightPct = lastLeft  + lastWidth  / 2;
+    var bar = document.createElement('div');
+    bar.className = 'kb-bar';
+    bar.dataset.grpKey = grpKey;
+    bar.style.cssText = 'position:absolute;top:25%;height:15px;'
+      + 'left:'  + barLeftPct.toFixed(3) + '%;'
+      + 'width:' + (barRightPct - barLeftPct).toFixed(3) + '%;'
+      + 'background:#222;border-top:1px solid #000;border-bottom:1px solid #000;'
+      + 'pointer-events:none;';
+    grp.barEl = bar;
+    row.appendChild(bar);
+  });
+
   wrap.appendChild(row);
   container.appendChild(wrap);
 
+  // BA 241: Externes Highlight-Handle fuer Sweep.
+  return {
+    highlightElectrode: function(idx, on) {
+      var k = whiteKeys[idx];
+      if (!k) return;
+      if (on) _highlightOn([k]);
+      else    _highlightOff([k]);
+    }
+  };
+
   // ---- Hilfsfunktionen ------------------------------------------------
 
-  // Liefert das Tasten-Bundle, das beim Anschlag aufleuchten soll.
-  // Schwarze Taste: sich selbst + beide weisse Nachbarn (sofern vorhanden).
-  // Weisse Taste: nur sich selbst.
+  // BA 241: Tasten-Bundle fuer Highlight.
   function _keysToHighlight(el) {
     if (el.classList.contains('kb-white')) return [el];
+    var grpKey = el.dataset.grpKey;
+    if (grpKey && blackGroups[grpKey]) {
+      var grp = blackGroups[grpKey];
+      var arr = grp.blackEls.slice();
+      if (grp.barEl) arr.push(grp.barEl);
+      if (whiteKeys[grp.leftAnchor]  != null) arr.push(whiteKeys[grp.leftAnchor]);
+      if (whiteKeys[grp.rightAnchor] != null) arr.push(whiteKeys[grp.rightAnchor]);
+      return arr;
+    }
+    // Fallback fuer schwarze Tasten ohne Gruppen-Daten.
     var bIdx = parseInt(el.dataset.blackIdx, 10);
-    var arr = [el];
-    if (whiteKeys[bIdx]     != null) arr.push(whiteKeys[bIdx]);
-    if (whiteKeys[bIdx + 1] != null) arr.push(whiteKeys[bIdx + 1]);
-    return arr;
+    var arr2 = [el];
+    if (whiteKeys[bIdx]     != null) arr2.push(whiteKeys[bIdx]);
+    if (whiteKeys[bIdx + 1] != null) arr2.push(whiteKeys[bIdx + 1]);
+    return arr2;
   }
 
   function _highlightOn(els) {

@@ -208,6 +208,10 @@ function openToneSelectionDialog(cfg, onChange) {
   // BA 239: Korrektur-Toggles, Default an, lokal in der Modal-Instanz.
   var applyMeasLevels = true;
   var applyBalance    = true;
+  // BA 241: Sweep-State, nur aktiv wenn cfg.sweepMode === true.
+  var sweepRunning = false;
+  var sweepAbort   = false;
+  var sweepKbHandle = null;
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -372,7 +376,7 @@ function openToneSelectionDialog(cfg, onChange) {
     var kbWrap = document.createElement('div');
     dlg.appendChild(kbWrap);
     try {
-      renderSamplerKeyboard(kbWrap, {
+      sweepKbHandle = renderSamplerKeyboard(kbWrap, {
         getElectrodeFreqs:   cfg.getElectrodeFreqs,
         getElectrodeLabels:  cfg.getElectrodeLabels,
         // BA 230: Klavier liest 'selected' (im Modal angeklickt),
@@ -380,9 +384,123 @@ function openToneSelectionDialog(cfg, onChange) {
         getCurrentToneType:  function() { return selected; },
         onPress:             cfg.onPress,
         onRelease:           cfg.onRelease,
-        getHighlightMs:      cfg.getHighlightMs
+        getHighlightMs:      cfg.getHighlightMs,
+        // BA 241: Disabled-Anzeige
+        getDisabledElectrodes: cfg.getDisabledElectrodes
       });
     } catch (e) { /* swallow — Klavier-Render-Fehler darf das Modal nicht killen */ }
+  }
+
+  // BA 241: Optionaler Sweep-Knopf. Aktiv nur wenn cfg.sweepMode === true.
+  var sweepBtn = null;
+  if (cfg.sweepMode === true) {
+    var sweepRow = document.createElement('div');
+    sweepRow.style.cssText = 'margin:0 0 14px 0;display:flex;justify-content:flex-start;';
+    sweepBtn = document.createElement('button');
+    sweepBtn.type = 'button';
+    sweepBtn.className = 'btn';
+    sweepBtn.dataset.t = 'tonePopupSweepStart';
+    sweepBtn.style.cssText = 'padding:6px 14px;font-weight:600;border-radius:6px;';
+
+    function _swpUpdStyle(active) {
+      if (active) {
+        sweepBtn.style.background  = '#2563eb';
+        sweepBtn.style.color       = '#fff';
+        sweepBtn.style.borderColor = '#2563eb';
+      } else {
+        sweepBtn.style.background  = '';
+        sweepBtn.style.color       = '';
+        sweepBtn.style.borderColor = '';
+      }
+    }
+    _swpUpdStyle(false);
+
+    sweepBtn.addEventListener('click', function() {
+      if (sweepRunning) {
+        sweepAbort = true;
+        return;
+      }
+      _runSweep();
+    });
+
+    sweepRow.appendChild(sweepBtn);
+    dlg.appendChild(sweepRow);
+  }
+
+  // BA 241: Sweep-Schleife.
+  function _runSweep() {
+    if (typeof cfg.getElectrodeFreqs !== 'function') return;
+    var freqs = cfg.getElectrodeFreqs() || [];
+    if (!freqs.length) return;
+    var disabled = (typeof cfg.getDisabledElectrodes === 'function')
+      ? new Set(cfg.getDisabledElectrodes() || [])
+      : new Set();
+    var c = (typeof gAC === 'function') ? gAC() : null;
+    if (!c) return;
+
+    var pan = (typeof cfg.getSweepPan === 'function') ? cfg.getSweepPan() : 0;
+    var pauMs = (typeof cfg.getPauseMs    === 'function') ? cfg.getPauseMs()    : 300;
+    var dur   = (typeof cfg.getDurationMs === 'function') ? cfg.getDurationMs() : 750;
+
+    sweepRunning = true;
+    sweepAbort   = false;
+    if (sweepBtn) _swpUpdStyle(true);
+
+    var idx = 0;
+    function step() {
+      if (sweepAbort || idx >= freqs.length) {
+        sweepRunning = false;
+        sweepAbort   = false;
+        if (sweepBtn) _swpUpdStyle(false);
+        return;
+      }
+      if (disabled.has(idx)) { idx++; step(); return; }
+
+      var hz   = freqs[idx];
+      var tone = selected;
+      var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
+      if (applyMeasLevels) {
+        var md = _tpMeasDbForStep(hz, pan);
+        if (md !== 0) vol *= Math.pow(10, md / 20);
+      }
+      if (applyBalance) {
+        var bl = _tpBalanceDbSym();
+        var bd = (pan < -0.01) ? bl.left : (pan > 0.01) ? bl.right : 0;
+        if (bd !== 0) vol *= Math.pow(10, bd / 20);
+      }
+
+      if (sweepKbHandle && typeof sweepKbHandle.highlightElectrode === 'function') {
+        sweepKbHandle.highlightElectrode(idx, true);
+      }
+      try {
+        playToneTyped(c, hz, vol, dur, pan, tone);
+      } catch (e) { /* swallow */ }
+
+      var curIdx = idx;
+      idx++;
+      setTimeout(function() {
+        if (sweepKbHandle && typeof sweepKbHandle.highlightElectrode === 'function') {
+          sweepKbHandle.highlightElectrode(curIdx, false);
+        }
+        if (sweepAbort) {
+          sweepRunning = false;
+          sweepAbort   = false;
+          if (sweepBtn) _swpUpdStyle(false);
+          return;
+        }
+        if (idx >= freqs.length) {
+          step();
+        } else {
+          setTimeout(step, pauMs);
+        }
+      }, dur);
+    }
+    step();
+  }
+
+  // BA 241: Tonart-Wechsel stoppt laufenden Sweep.
+  function _abortSweepOnToneChange() {
+    if (sweepRunning) sweepAbort = true;
   }
 
   // BA 230: Buttons-Reihe statt Radio-Grid.
@@ -432,6 +550,7 @@ function openToneSelectionDialog(cfg, onChange) {
 
       btn.addEventListener('click', function() {
         if (playing) return;
+        _abortSweepOnToneChange();
         var prev = dlg.querySelectorAll('.tone-btn--active');
         prev.forEach(function(b) { b.classList.remove('tone-btn--active'); });
         btn.classList.add('tone-btn--active');
@@ -586,6 +705,8 @@ function openToneSelectionDialog(cfg, onChange) {
   if (typeof applyLang === 'function') applyLang();
 
   function close() {
+    // BA 241: Laufenden Sweep abbrechen.
+    if (sweepRunning) sweepAbort = true;
     if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
     if (typeof cfg.onModalClose === 'function') cfg.onModalClose();
   }
@@ -593,6 +714,7 @@ function openToneSelectionDialog(cfg, onChange) {
     close();
   });
   okBtn.addEventListener('click', function() {
+    if (sweepRunning) sweepAbort = true;
     if (selected !== initial) {
       cfg.setToneType(selected);
       if (typeof onChange === 'function') onChange();
