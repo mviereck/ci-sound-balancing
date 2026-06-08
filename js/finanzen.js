@@ -12,7 +12,7 @@ var FINANZEN_BEGIN = "2026-05";
 // Monatliche Posten. full = Vollausbau-Bedarf, current = aktueller
 // Stand. Wert 0 bei current heißt „derzeit nicht im Setup enthalten".
 var FINANZEN_POSTEN = [
-  { key: "kiPro",   full: 107.20, current: 44.00 },
+  { key: "kiPro",   full:  44.00, current: 44.00 },
   { key: "hosting", full:   0,    current:  5.00 },
   { key: "vps",     full:   5.34, current:  0    },
   { key: "space",   full:   3.81, current:  0    },

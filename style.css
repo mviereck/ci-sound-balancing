@@ -1296,6 +1296,15 @@ select:disabled {
   font-style: italic;
   margin: 4px 0 0;
 }
+.support-card-graph {
+  margin-bottom: 24px;
+}
+.support-ki-history {
+  font-style: italic;
+  color: #777;
+  font-size: 0.9em;
+  margin-top: -4px;
+}
 
 .support-card-slogan {
   text-align: center;
