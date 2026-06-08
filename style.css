@@ -1210,8 +1210,10 @@ select:disabled {
 .support-finance-table tfoot td {
   background: var(--surface-alt, rgba(0,0,0,0.03));
 }
-.support-finance-table .support-self-amount {
+.support-self-amount {
   color: #d94a4a;
+}
+.support-finance-table .support-self-amount {
   font-weight: 600;
 }
 

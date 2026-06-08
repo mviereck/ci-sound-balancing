@@ -57,7 +57,7 @@ function _untRenderFinanzTable() {
       '</div>' +
       '<div class="support-gap-row support-gap-emph">' +
         '<span data-t="supportGapToFull"></span> ' +
-        '<strong>' + finFmtEuro(r.gapToFull) + '</strong>' +
+        '<strong class="support-self-amount">' + finFmtEuro(r.gapToFull) + '</strong>' +
       '</div>';
     if (typeof applyLang === "function") applyLang();
   }

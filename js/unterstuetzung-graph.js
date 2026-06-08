@@ -101,12 +101,16 @@ function _ugRenderGraph() {
     }
   }
 
-  // Differenz-Fläche zwischen aktuellen Kosten und Erweiterung
+  // Differenz-Fläche zwischen aktuellen Kosten und Erweiterung —
+  // bündig mit dem Bar-Bereich (linke Kante des ersten Bars bis
+  // rechte Kante des letzten Bars), nicht über den ganzen Plot.
   if (kostenFull > kostenCurrent) {
+    var flaecheLinks  = xMonat(0);
+    var flaecheRechts = xMonat(n - 1) + barW;
     ctx.fillStyle = "rgba(217, 74, 74, 0.18)";
-    ctx.fillRect(padL,
+    ctx.fillRect(flaecheLinks,
                  yEuro(kostenFull),
-                 plotW,
+                 flaecheRechts - flaecheLinks,
                  yEuro(kostenCurrent) - yEuro(kostenFull));
   }
 
