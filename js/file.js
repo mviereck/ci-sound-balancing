@@ -54,9 +54,6 @@ function resetAll() {
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
-  document.getElementById("vol1").value = "75";
-  document.getElementById("dur1").value = "1000";
-  document.getElementById("pau1").value = "500";
   globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
@@ -65,6 +62,10 @@ function resetAll() {
   if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
   if (typeof duration_freqmatch !== "undefined") duration_freqmatch = 750;
   if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = 400;
+  if (typeof toneType_implant !== "undefined") toneType_implant = "sine";
+  if (typeof volume_implant   !== "undefined") volume_implant   = 75;
+  if (typeof duration_implant !== "undefined") duration_implant = 1000;
+  if (typeof pause_implant    !== "undefined") pause_implant    = 500;
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
@@ -266,9 +267,6 @@ async function saveJson() {
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
     paradigm: globalSequence,
-    toneDuration: parseInt(document.getElementById("dur1").value),
-    pauseDuration: parseInt(document.getElementById("pau1").value),
-    volume: document.getElementById("vol1").value,
     globalSequence: globalSequence,
     slTarget_test: slTarget_test,
     slTarget_balance: slTarget_balance,
@@ -290,6 +288,10 @@ async function saveJson() {
     volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
     pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : 400,
+    toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : "sine",
+    volume_implant:     (typeof volume_implant   !== "undefined") ? volume_implant   : 75,
+    duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : 1000,
+    pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : 500,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -584,9 +586,6 @@ function applyLoadedData(d) {
   else if (d.paradigm) globalSequence = (d.paradigm === "aba" || d.paradigm === "ab") ? d.paradigm : "aba";
   if (d.slTarget_test) slTarget_test = d.slTarget_test;
   if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
-  if (d.toneDuration) setVal("dur1", d.toneDuration);
-  if (d.pauseDuration) setVal("pau1", d.pauseDuration);
-  if (d.volume) setVal("vol1", d.volume);
   if (typeof d.plBothSides === "boolean") {
     const bsEl = document.getElementById("plBothSides");
     if (bsEl) bsEl.checked = d.plBothSides;
@@ -624,6 +623,22 @@ function applyLoadedData(d) {
   if (typeof pause_freqmatch !== "undefined") {
     var sp = parseInt(d.pause_freqmatch, 10);
     pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : 400;
+  }
+  // BA 242: Implantat-State aus JSON zuruecklesen.
+  if (typeof toneType_implant !== "undefined") {
+    toneType_implant = isValidToneType(d.toneType_implant) ? d.toneType_implant : "sine";
+  }
+  if (typeof volume_implant !== "undefined") {
+    var svi = parseInt(d.volume_implant, 10);
+    volume_implant = (isFinite(svi) && svi >= 0 && svi <= 100) ? svi : 75;
+  }
+  if (typeof duration_implant !== "undefined") {
+    var sdi = parseInt(d.duration_implant, 10);
+    duration_implant = (isFinite(sdi) && sdi >= 100 && sdi <= 3000) ? sdi : 1000;
+  }
+  if (typeof pause_implant !== "undefined") {
+    var spi = parseInt(d.pause_implant, 10);
+    pause_implant = (isFinite(spi) && spi >= 50 && spi <= 2000) ? spi : 500;
   }
   // Sync global dropdowns (alle drei Test-Instanzen)
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();

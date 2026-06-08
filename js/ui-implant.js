@@ -271,3 +271,100 @@ function updCochlearGen() {
   else disp.textContent = t("implGenUnknown");
 }
 
+// ============================================================
+// BA 242: Implantat-Tab Tonauswahl-Modal
+// ============================================================
+
+function _implTonePopupUpdLabel() {
+  var btn = document.getElementById("implTonePopupBtn");
+  if (!btn) return;
+  var prefix = (typeof t === "function") ? t("implTonePopupBtn") : "Elektroden über Töne anspielen";
+  var ttKey  = (typeof window.toneTypeI18nKey === "function")
+    ? window.toneTypeI18nKey(toneType_implant) : null;
+  var ttLbl  = (ttKey && typeof t === "function") ? t(ttKey) : toneType_implant;
+  btn.textContent = prefix + " — " + ttLbl;
+}
+
+function _implTpElectrodeFreqs() {
+  var arr = [];
+  for (var i = 0; i < nEl; i++) arr.push(effFreq(i));
+  return arr;
+}
+
+function _implTpElectrodeLabels() {
+  var prefix = (typeof dENPrefix === "function") ? dENPrefix() : "E";
+  var arr = [];
+  for (var i = 0; i < nEl; i++) arr.push(prefix + ((typeof dEN === "function") ? dEN(i) : (i + 1)));
+  return arr;
+}
+
+function _implTpDisabledElectrodes() {
+  var arr = [];
+  for (var i = 0; i < nEl; i++) {
+    if (elActive[i] === false) { arr.push(i); continue; }
+    if (typeof elExDur !== "undefined" && elExDur[i] != null) { arr.push(i); continue; }
+  }
+  return arr;
+}
+
+var _implTpCorrectVol = null;
+var _implTpModalTone  = null;
+
+function openImplantTonePopup() {
+  if (typeof openToneSelectionDialog !== "function") return;
+  var activePan = (activeSide === "left") ? -1 : 1;
+
+  openToneSelectionDialog({
+    getToneType:    function ()   { return toneType_implant; },
+    setToneType:    function (tt) { toneType_implant = tt; _implTonePopupUpdLabel(); },
+    onToneSelected: function (tt) { _implTpModalTone = tt; },
+    onModalClose:   function ()   { _implTpModalTone = null; _implTpCorrectVol = null; },
+
+    hintKey: "tonePopupHintImplant",
+
+    showVolume:       true,
+    showDuration:     true,
+    showPause:        true,
+    getVolumePercent: function ()  { return volume_implant; },
+    setVolumePercent: function (v) { volume_implant = v; },
+    getDurationMs:    function ()  { return duration_implant; },
+    setDurationMs:    function (v) { duration_implant = v; },
+    getPauseMs:       function ()  { return pause_implant; },
+    setPauseMs:       function (v) { pause_implant = v; },
+
+    getVolume: function () {
+      return Math.pow(volume_implant / 100, 2);
+    },
+
+    getPreviewSequence: function () {
+      var midIdx = Math.floor(nEl / 2);
+      var hz = effFreq(midIdx);
+      return [{ hz: hz, pan: activePan, durationMs: duration_implant }];
+    },
+
+    onTogglesReady: function (fn) { _implTpCorrectVol = fn; },
+
+    keyboardMode:          true,
+    getElectrodeFreqs:     _implTpElectrodeFreqs,
+    getElectrodeLabels:    _implTpElectrodeLabels,
+    getDisabledElectrodes: _implTpDisabledElectrodes,
+    onPress: function (electrodeIdx, hz) {
+      var c = (typeof gAC === "function") ? gAC() : null;
+      if (!c) return;
+      var tt  = (_implTpModalTone !== null) ? _implTpModalTone : toneType_implant;
+      var vol = Math.pow(volume_implant / 100, 2);
+      if (typeof _implTpCorrectVol === "function") vol = _implTpCorrectVol(vol, hz, activePan);
+      try {
+        playToneTyped(c, hz, vol, 5000, activePan, tt);
+      } catch (e) { /* swallow */ }
+    },
+    onRelease: function () {
+      if (typeof stopAll === "function") stopAll();
+    },
+
+    sweepMode: true,
+    getSweepPan: function () { return activePan; },
+
+  }, _implTonePopupUpdLabel);
+}
+

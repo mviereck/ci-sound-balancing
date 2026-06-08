@@ -449,98 +449,10 @@
             </table>
           </div>
           <div
-            id="sweepRow"
-            style="
-              margin-top: 12px;
-              display: none;
-              gap: 8px;
-              align-items: center;
-              flex-wrap: wrap;
-            "
+            id="implTonePopupRow"
+            style="margin-top: 12px; display: none;"
           >
-            <button class="btn" id="sweepBtn"></button>
-            <button class="btn" id="stopBtn"></button>
-            <label
-              id="lblVol"
-              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
-            ></label>
-            <input
-              type="number"
-              class="vol-num"
-              id="vol1"
-              value="75"
-              min="0"
-              max="100"
-              step="1"
-              style="
-                width: 55px;
-                padding: 3px 5px;
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                text-align: center;
-                font-family: var(--mono);
-                font-size: 0.88em;
-              "
-            />
-            <span style="font-size: 0.85em; color: var(--text-muted);">%</span>
-            <label
-              id="lblDur"
-              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
-            ></label>
-            <input
-              type="number"
-              id="dur1"
-              value="1000"
-              min="100"
-              max="3000"
-              step="50"
-              style="
-                width: 65px;
-                padding: 3px 5px;
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                text-align: center;
-                font-family: var(--mono);
-                font-size: 0.88em;
-              "
-            />
-            <span style="font-size: 0.85em; color: var(--text-muted);">ms</span>
-            <label
-              id="lblPau"
-              style="margin-left: 12px; font-size: 0.85em; color: var(--text-muted);"
-            ></label>
-            <input
-              type="number"
-              id="pau1"
-              value="500"
-              min="100"
-              max="1000"
-              step="50"
-              style="
-                width: 65px;
-                padding: 3px 5px;
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                text-align: center;
-                font-family: var(--mono);
-                font-size: 0.88em;
-              "
-            />
-            <span style="font-size: 0.85em; color: var(--text-muted);">ms</span>
-            <label
-              style="
-                margin-left: 12px;
-                font-size: 0.85em;
-                color: var(--text-muted);
-                display: flex;
-                align-items: center;
-                gap: 6px;
-                cursor: pointer;
-              "
-            >
-              <input type="checkbox" id="corrToggle" checked />
-              <span id="lblCorr"></span>
-            </label>
+            <button class="btn" id="implTonePopupBtn"></button>
           </div>
           <details id="implValidateBox" open>
             <summary id="implValidateTitle"></summary>

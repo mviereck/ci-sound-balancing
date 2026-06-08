@@ -14,7 +14,7 @@ function buildFreqTable() {
   const _hideTableArea = () => {
     document.getElementById("freqTH").innerHTML = "";
     document.getElementById("freqTB").innerHTML = "";
-    const ids = ["freqDeactHintEl","freqAbfHintEl","freqExclHintEl","sweepRow"];
+    const ids = ["freqDeactHintEl","freqAbfHintEl","freqExclHintEl","implTonePopupRow"];
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = "none"; });
   };
   if (isUnknownCfg || isUnknownMfr) { _hideTableArea(); return; }
@@ -320,8 +320,9 @@ function buildFreqTable() {
     exclHintEl.innerHTML = t("freqExclHint");
     exclHintEl.style.display = isAcoustic ? "none" : "";
   }
-  const sweepRowEl = document.getElementById("sweepRow");
-  if (sweepRowEl) sweepRowEl.style.display = "flex";
+  if (typeof _implTonePopupUpdLabel === "function") _implTonePopupUpdLabel();
+  const implTpRow = document.getElementById("implTonePopupRow");
+  if (implTpRow) implTpRow.style.display = "";
   // Warnbalken: nur wenn deaktivierte Elektroden noch Standard-Frequenzen haben
   let wb = document.getElementById("deactWarnBar");
   const activeHasDefault = [...Array(nEl).keys()]

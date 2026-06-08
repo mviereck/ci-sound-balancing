@@ -84,7 +84,6 @@ function applyLang() {
   if (exclEl) exclEl.innerHTML = t("freqExclHint");
   s("sweepBtn", "sweep");
   s("stopBtn", "stop");
-  s("lblCorr", "lblCorr");
   s("lblVol", "lblVol");
   s("lblDur", "lblDur");
   s("lblPau", "lblPau");

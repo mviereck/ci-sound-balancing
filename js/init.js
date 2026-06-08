@@ -82,8 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
       t.addEventListener("click", () => switchSubtab(t.dataset.parent, t.dataset.subtab)),
     );
 
-  document.getElementById("sweepBtn").addEventListener("click", playSweep);
-  document.getElementById("stopBtn").addEventListener("click", stopAll);
+  // BA 242: Tonauswahl-Modal im Implantat-Tab.
+  var implTpBtn = document.getElementById("implTonePopupBtn");
+  if (implTpBtn) {
+    implTpBtn.addEventListener("click", function () {
+      if (typeof openImplantTonePopup === "function") openImplantTonePopup();
+    });
+  }
   document
     .getElementById("mfrSelect")
     .addEventListener("change", (e) => switchMfr(e.target.value));
@@ -118,12 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } catch (_e) {}
     });
-  // Volume sync between setup and test (textboxes)
-  // vol1/dur1/pau1: Setup-Tab Inputs
-  document.getElementById("vol1").addEventListener("change", (e) => {
-    const v = Math.max(0, Math.min(100, parseInt(e.target.value) || 0));
-    e.target.value = v;
-  });
   // Test-Tab Event-Listener werden jetzt in test.js DOMContentLoaded verdrahtet
   // File
   document

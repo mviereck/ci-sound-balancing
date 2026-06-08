@@ -673,7 +673,6 @@ updateMfrSelectLabels();
 let audioCtx = null,
   curOsc = null,
   playTO = null,
-  sweepAct = false,
   isPlay = false,
   holdIdx = -1;
 let testAct = false,
@@ -701,6 +700,13 @@ let toneType_freqmatch = "richCiHF";
 let volume_freqmatch   = 75;
 let duration_freqmatch = 750;
 let pause_freqmatch    = 400;
+// BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
+// Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
+// per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).
+let toneType_implant = "sine";
+let volume_implant   = 75;
+let duration_implant = 1000;
+let pause_implant    = 500;
 let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

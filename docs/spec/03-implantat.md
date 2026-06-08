@@ -20,11 +20,16 @@ ausgeblendet, sobald jede aktive Elektrode (`elActive[i] !== false`) einen
 `elFreqOwn[i]`-Wert hat; kehren zurück, wenn ein Wert gelöscht wird (BA 165).
 Für akustische Branch und bei Early-Return immer ausgeblendet.
 
-**Sweep/Stop-Zeile** (`sweepRow`): Der Flex-Container mit Sweep-Button,
-Stop-Button, Lautstärke, Dauer und Pause ist ausgeblendet (`display:none`),
-solange keine Tabelle gerendert wird (Early-Return-Bedingungen: unbekannte
-Hörsituation/Hersteller, beide Seiten akustisch). Wird eingeblendet
-(`display:flex`) sobald die Tabelle erscheint (v3.1.168-beta).
+**Tonauswahl-Knopf** (`implTonePopupRow`): Container mit einem Button
+„Elektroden über Töne anspielen — ‹Tonart›" direkt unter der Tabelle.
+Ausgeblendet (`display:none`) solange keine Tabelle gerendert wird
+(Early-Return-Bedingungen: unbekannte Hörsituation/Hersteller, beide Seiten
+akustisch). Wird eingeblendet sobald die Tabelle erscheint (BA 242, ersetzt
+die frühere Sweep/Stop-Zeile). Klick öffnet die Tonauswahl-Modal
+(`openImplantTonePopup` in `ui-implant.js`) mit Klavier-Widget, Sweep,
+Korrektur-Toggles und Vol/Dur/Pau-Feldern. State: `toneType_implant` (Default
+`"sine"`), `volume_implant` (75), `duration_implant` (1000 ms),
+`pause_implant` (500 ms) in `state-side.js`, persistiert in `file.js`.
 
 **Ausschließen-Hinweis** (`freqExclHintEl`): Dritter Hinweis-Kasten direkt
 vor der Tabelle. Sichtbar sobald CI-Tabelle gerendert wird (CI + Hersteller

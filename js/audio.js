@@ -56,7 +56,6 @@ function stopAll() {
     clearTimeout(playTO);
     playTO = null;
   }
-  sweepAct = false;
   isPlay = false;
   holdIdx = -1;
   updInd(-1);
@@ -897,21 +896,6 @@ function toggleHold(i) {
   holdIdx = i;
   updInd(i);
   playHold(effFreq(i), gVol() * corrG(i));
-}
-async function playSweep() {
-  stopAll();
-  sweepAct = true;
-  isPlay = true;
-  for (let i = 0; i < nEl; i++) {
-    if (!sweepAct) break;
-    updInd(i);
-    await playTone(effFreq(i), gVol() * corrG(i), gDur());
-    if (!sweepAct) break;
-    await new Promise((r) => (playTO = setTimeout(r, 50 + gPau())));
-  }
-  isPlay = false;
-  sweepAct = false;
-  updInd(-1);
 }
 async function playSeq(eA, eB, off) {
   const v = gVol(),
