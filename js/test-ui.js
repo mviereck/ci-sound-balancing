@@ -706,7 +706,12 @@ function _toneTypeKey(tt) {
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
     wobbleSweep: 'toneWobbleSweep'
   };
-  return map[tt] || 'toneComplex';
+  if (map[tt]) return map[tt];
+  // BA 228 Fix .1: smplr-Token (Mellotron) haben keinen i18n-Key.
+  // null signalisiert dem Aufrufer (_tpUpdateLabel), den Variant-Namen
+  // direkt anzuzeigen statt eine i18n-Lookup zu machen.
+  if (typeof tt === 'string' && tt.indexOf('smplr:') === 0) return null;
+  return 'toneComplex';
 }
 
 function _maybeExtendSlider(slRef) {
@@ -1007,9 +1012,22 @@ function _buildTestPanelNew(parentEl, cfg) {
       tonePopupBtn.type = 'button';
 
       function _tpUpdateLabel() {
-        var key = _toneTypeKey(tpCfg.getToneType());
-        tonePopupBtn.dataset.t = key;
-        if (typeof t === 'function') tonePopupBtn.textContent = t(key);
+        var tt = tpCfg.getToneType();
+        var key = _toneTypeKey(tt);
+        if (key) {
+          tonePopupBtn.dataset.t = key;
+          if (typeof t === 'function') tonePopupBtn.textContent = t(key);
+        } else {
+          // BA 228 Fix .1: smplr-Token (Mellotron) haben keinen i18n-
+          // Key. Den Variant-Namen direkt nach dem letzten ':' als
+          // Label zeigen, data-t entfernen damit applyLang nicht
+          // überschreibt.
+          delete tonePopupBtn.dataset.t;
+          var lastColon = (typeof tt === 'string') ? tt.lastIndexOf(':') : -1;
+          tonePopupBtn.textContent = (lastColon >= 0)
+            ? tt.substring(lastColon + 1)
+            : (tt || '');
+        }
       }
       cgTP.append(lblTP, tonePopupBtn);
       rowSequence.appendChild(cgTP);
