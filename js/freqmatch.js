@@ -1065,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
       common: {
         refSelect:    { type: 'side', key: 'fmLblRef', includeSymmetric: true },
         volume:       { show: true },
-        duration:     { show: true, default: 400, min: 100, max: 3000, step: 50 },
+        duration:     { show: true, default: 750, min: 100, max: 3000, step: 50 },
         pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },
         // BA 209: Tonart-Dropdown durch tonePopupButton ersetzt.
         toneType:     false,

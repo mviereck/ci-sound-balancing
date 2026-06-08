@@ -205,7 +205,7 @@ function _buildTestPanelOld(parentEl, cfg) {
     cgVol.append(lblVol, volInput, document.createTextNode('%'));
     var cgDur = _mkEl('div', 'control-group');
     var lblDur = _mkEl('label'); lblDur.dataset.t = 'lblDur';
-    durInput = makeNumInput('dur', 400, 100, 3000, 50, 65);
+    durInput = makeNumInput('dur', 750, 100, 3000, 50, 65);
     cgDur.append(lblDur, durInput, document.createTextNode(' ms'));
     var cgPau = _mkEl('div', 'control-group');
     var lblPau = _mkEl('label'); lblPau.dataset.t = 'lblPau';
@@ -241,6 +241,10 @@ function _buildTestPanelOld(parentEl, cfg) {
       toneSelect = _mkEl('select');
       toneSelect.dataset.global = 'toneType';
       [
+        ['richCiHF','toneRichCiHF'],['richCiH','toneRichCiH'],
+        ['richCiP','toneRichCiP'],
+        ['richCiB','toneRichCiB'],['richCiBF','toneRichCiBF'],
+        ['richCiHA','toneRichCiHA'],['richCiHS','toneRichCiHS'],
         ['sine','toneSine'],['complex','toneComplex'],
         ['pulsedComplex','tonePulsedComplex'],['richTone','toneRichTone'],
         ['richAcc','toneRichAcc'],['richASax','toneRichASax'],
@@ -701,6 +705,9 @@ function _toneTypeKey(tt) {
     richTbn: 'toneRichTbn', richFl: 'toneRichFl',
     richTpC: 'toneRichTpC', richVn: 'toneRichVn',
     richVc: 'toneRichVc', richHn: 'toneRichHn',
+    richCiH: 'toneRichCiH', richCiB: 'toneRichCiB',
+    richCiHA: 'toneRichCiHA', richCiHS: 'toneRichCiHS', richCiHF: 'toneRichCiHF',
+    richCiP: 'toneRichCiP', richCiBF: 'toneRichCiBF',
     noise: 'toneNoise', noiseAdaptive: 'toneNoiseAdaptive',
     irn: 'toneIRN', amSine: 'toneAmSine',
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
@@ -901,7 +908,7 @@ function _buildTestPanelNew(parentEl, cfg) {
       var cgDur = _mkEl('div', 'control-group');
       var lblDur = _mkEl('label'); _tEl(lblDur, 'lblDur');
       durInput = makeNumInput2('dur',
-        dOpts.default || 400, dOpts.min || 100, dOpts.max || 3000, dOpts.step || 50, 65);
+        dOpts.default || 750, dOpts.min || 100, dOpts.max || 3000, dOpts.step || 50, 65);
       cgDur.append(lblDur, durInput, document.createTextNode(' ms'));
       rowVolume.appendChild(cgDur);
     }
@@ -948,6 +955,10 @@ function _buildTestPanelNew(parentEl, cfg) {
       toneSelect = _mkEl('select');
       toneSelect.dataset.global = 'toneType';
       [
+        ['richCiHF','toneRichCiHF'],['richCiH','toneRichCiH'],
+        ['richCiP','toneRichCiP'],
+        ['richCiB','toneRichCiB'],['richCiBF','toneRichCiBF'],
+        ['richCiHA','toneRichCiHA'],['richCiHS','toneRichCiHS'],
         ['sine','toneSine'],['complex','toneComplex'],
         ['pulsedComplex','tonePulsedComplex'],['richTone','toneRichTone'],
         ['richAcc','toneRichAcc'],['richASax','toneRichASax'],

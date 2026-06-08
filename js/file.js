@@ -60,8 +60,8 @@ function resetAll() {
   globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
-  if (typeof globalToneType !== "undefined") globalToneType = "complex";
-  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "pulsedComplex";
+  if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
+  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
   if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
@@ -282,7 +282,7 @@ async function saveJson() {
     eqStrength: parseInt(document.getElementById("plStr").value),
     globalToneType: globalToneType,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
-      ? toneType_freqmatch : "pulsedComplex",
+      ? toneType_freqmatch : "richCiHF",
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -591,18 +591,18 @@ function applyLoadedData(d) {
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
   // BA 225: Whitelist-Check ausgelagert nach audio.js (isValidToneType).
   globalToneType = isValidToneType(d.globalToneType)
-    ? d.globalToneType : "complex";
+    ? d.globalToneType : "richCiHF";
   // BA 209: Per-Test-Tonart Frequenzabgleich.
   // Migration: Bei alter Datei ohne dieses Feld den vorhandenen
   // globalToneType-Wert übernehmen (User hatte ihn bewußt gewählt);
-  // nur bei völlig fehlendem Wert auf Default 'pulsedComplex' fallen.
+  // nur bei völlig fehlendem Wert auf Default 'richCiHF' fallen.
   if (typeof toneType_freqmatch !== "undefined") {
     if (isValidToneType(d.toneType_freqmatch)) {
       toneType_freqmatch = d.toneType_freqmatch;
     } else if (isValidToneType(d.globalToneType)) {
       toneType_freqmatch = d.globalToneType;
     } else {
-      toneType_freqmatch = "pulsedComplex";
+      toneType_freqmatch = "richCiHF";
     }
   }
   // Sync global dropdowns (alle drei Test-Instanzen)

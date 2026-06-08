@@ -962,7 +962,7 @@ document.addEventListener("DOMContentLoaded", () => {
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
           globalToneType: globalToneType,
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
-            ? toneType_freqmatch : "pulsedComplex",
+            ? toneType_freqmatch : "richCiHF",
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,

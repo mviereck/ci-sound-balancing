@@ -47,11 +47,13 @@ var GROUPS = [
     headKey: 'toneGroupCiTest',
     hintKey: 'toneGroupCiTestHint',
     items: [
+      ['richCiHF', 'toneRichCiHF', 'toneRichCiHFDesc'],
       ['richCiH',  'toneRichCiH',  'toneRichCiHDesc'],
+      ['richCiP',  'toneRichCiP',  'toneRichCiPDesc'],
       ['richCiB',  'toneRichCiB',  'toneRichCiBDesc'],
+      ['richCiBF', 'toneRichCiBF', 'toneRichCiBFDesc'],
       ['richCiHA', 'toneRichCiHA', 'toneRichCiHADesc'],
-      ['richCiHS', 'toneRichCiHS', 'toneRichCiHSDesc'],
-      ['richCiHF', 'toneRichCiHF', 'toneRichCiHFDesc']
+      ['richCiHS', 'toneRichCiHS', 'toneRichCiHSDesc']
     ]
   },
   {
@@ -102,7 +104,16 @@ var GROUPS = [
       ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
       ['irn',           'toneIRN',           'toneIRNDesc']
     ]
-  },
+  }
+];
+
+// 3.2.239.2: smplr-Tonarten aus der Tonart-Auswahl entfernt — Mellotron
+// soll laut Nutzer-Wunsch spaeter im Player-Tab erscheinen, nicht in der
+// Mess-Tonartwahl. Code (smplr-loader.js, _playSmplrTone in audio.js)
+// bleibt vollstaendig erhalten; nur die UI-Auswahl ist deaktiviert.
+// Gruppendefinitionen hier geparkt, damit sie fuer den Player-Einsatz
+// schnell wieder eingehaengt werden koennen.
+var _SMPLR_GROUPS_PARKED = [
   {
     headKey: 'toneGroupSmplrM300',
     hintKey: 'toneGroupSmplrM300Hint',
@@ -177,6 +188,15 @@ window.toneTypeI18nKey = function(tt) {
     var items = GROUPS[g].items;
     for (var i = 0; i < items.length; i++) {
       if (items[i][0] === tt) return items[i][1] || null;
+    }
+  }
+  // 3.2.239.2: smplr-Tonarten sind aus der UI raus, koennten aber noch
+  // in gespeicherten States stehen oder durch andere Module gespielt
+  // werden. i18n-Lookup auch in den geparkten Gruppen versuchen.
+  for (var gg = 0; gg < _SMPLR_GROUPS_PARKED.length; gg++) {
+    var sItems = _SMPLR_GROUPS_PARKED[gg].items;
+    for (var j = 0; j < sItems.length; j++) {
+      if (sItems[j][0] === tt) return sItems[j][1] || null;
     }
   }
   return null;

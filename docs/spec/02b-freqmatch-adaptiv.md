@@ -524,16 +524,15 @@ verwendet:
   und die aktiven Elektroden-Indices nicht übereinstimmen, wird der Test
   ebenfalls blockiert (Alert `fmElMismatch`, gilt für Slider und Adaptiv).
   Wiederverwendet `fmBuildSeqSymmetric() === null` als Prüfbedingung.
-- `rowVolume`: Default Burst-Dauer **200 ms**, Pause **200 ms** (gilt für
-  Slider- und adaptiven Modus). Kürzere Töne erzwingen Bauch-Antworten
-  und mindern Timbre-Analyse — wichtig, weil CI-Stimulation und akustischer
-  Vergleichston nie klanglich identisch sind.
-- `rowSequence.toneType`: global. Default-Stimulus ist **`complex`**
-  (harmonischer Komplexton, Grundton + 4 Harmonische). Begründung: starke
-  Pitch-Wahrnehmung durch residue pitch + reichhaltigeres Timbre als
-  reiner Sinus, näher am CI-Klang. Alternativ verfügbar: `pulsedComplex`
-  — wie `complex`, aber mit zusätzlicher 100 Hz AM-Hüllkurve, die die
-  Pulsraten-Hüllkurve aller CI-Strategien grob simuliert.
+- `rowVolume`: Default Burst-Dauer **750 ms** (seit 3.2.239.4 — zuvor
+  ursprüngliche Konzept-Empfehlung 200 ms, im Code lange 400 ms),
+  Pause **400 ms**. Gilt für Slider- und adaptiven Modus.
+- `rowSequence.toneType`: global. Default-Stimulus seit 3.2.239.4 ist
+  **`richCiHF`** (CI-Test flach: harmonischer Komplexton mit Vibrato
+  und ohne AM, ruhigster Klang gegen die bei Martin beobachtete
+  ~2,7 Hz-Welle). Zuvor war der Default `complex` (residue pitch),
+  alternativ `pulsedComplex` (100 Hz AM-Hüllkurve, simuliert CI-
+  Pulsraten-Hüllkurve grob).
 - `rowSequence.sequence`: im adaptiven Modus ausgeblendet (AB fest).
 - `progressBar`: Befüllung „Trial N / X von Y Elektroden abgeschlossen /
   Catch Z %".

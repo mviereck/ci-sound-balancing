@@ -691,11 +691,11 @@ let curA = -1,
   compCnt = 0,
   convRnd = 0;
 
-let globalToneType = "complex"; // "sine" | "complex" | "pulsedComplex" | "noise" | ...
+let globalToneType = "richCiHF"; // "sine" | "complex" | "pulsedComplex" | "noise" | "richCiHF" | ...
 // BA 209: Tonart speziell für Frequenzabgleich. Separat von globalToneType,
 // das weiterhin für Elektrodenlautstärke und Stereo-Balance gilt.
-// Default 'pulsedComplex' (Komplexton gepulst).
-let toneType_freqmatch = "pulsedComplex";
+// Default 'richCiHF' (CI-Test flach).
+let toneType_freqmatch = "richCiHF";
 let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"

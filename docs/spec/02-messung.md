@@ -46,12 +46,16 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Frequenzbereich, sanftem Anschwingen 250 ms gegen AGC-Trommelschlag,
   Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen Stationaritätsartefakte;
   inharmonisch mit Partial-Verstimmung ≈ Glocken-Anmutung) /
-  **CI-Test Attack-stark / AM-langsam / flach (Diagnose)** (3.2.238.2,
-  Diagnose-Varianten zum harmonischen CI-Test gegen die vom Nutzer
+  **CI-Test Attack-stark / AM-langsam / flach** (3.2.238.2,
+  Diagnose-Varianten zum harmonischen CI-Test gegen die bei Martin
   beobachtete periodische ~2,7-Hz-Welle: Attack-stark hat 600 ms
   Anschwingen und 18 % AM-Tiefe, AM-langsam moduliert mit 2,7 Hz / 25 %
-  in der Wellen-Frequenz, flach hat keine AM zur Diagnose, ob die
-  Welle AGC-eigenresonant ist) /
+  in der Wellen-Frequenz, flach hat keine AM — bei Martin der ruhigste
+  Klang, AGC bekommt keine Modulation zum Hinterherregeln) /
+  **CI-Test pur / inharmonisch flach** (3.2.239.2, weitere Diagnose-
+  Töne nach Nutzer-Test mit CiHF: pur lässt zusätzlich Vibrato weg —
+  prüft, ob bei manchen CIs Frequenzmodulation auch Welle erzeugt;
+  inharmonisch flach isoliert die Inharmonik gegen die AM-Wirkung) /
   Sinus / Komplexton / Komplexton gepulst
   (100 Hz AM) / Reicher Komplexton (BA 213.4, 8 Harmonische + Vibrato
   5 Hz + Atem-AM 3 Hz) / Rauschen / Schmalbandrauschen adaptiv /
@@ -61,33 +65,39 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Trompete in C / Violine / Violoncello / Waldhorn** (BA 215, Profile
   aus TinySOL/IRCAM analysiert in BA 214) /
   AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default
-  `'complex'` (Komplexton). Dropdown im Voreinstellungs-Block von Test 1
+  `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'complex'`).
+  Dropdown im Voreinstellungs-Block von Test 1
   (Elektrodenlautstärke) und Test 2 (Stereo-Balance) sichtbar; beide
   Instanzen an dieselbe Variable gebunden. Bei Auswahl einer neuen
   Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz, aktuelle
   Messlautstärke) abgespielt.
 - **Tonart Frequenzabgleich** (`toneType_freqmatch`, BA 209) — eigene
   Tonart für Sub-Tab 3, unabhängig von `globalToneType`. Default
-  `'pulsedComplex'`. Wird über Button + Popup-Dialog gewählt (kein
+  `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'pulsedComplex'`).
+  Wird über Button + Popup-Dialog gewählt (kein
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
   (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
   übernimmt das Popup-Probehören diese Funktion.
   Dialog (BA 217): Tonarten in fünf Gruppen (CI-Testtöne (3.2.238.1),
   Sinustöne, Komplextöne, Instrumenten-Klänge, Rauschsignale) mit
   Kurzbeschreibung pro Tonart. Die CI-Testtöne-Gruppe steht oben, weil
-  sie für Mess-Aufgaben empfohlen ist.
+  sie für Mess-Aufgaben empfohlen ist. Reihenfolge in der CI-Test-
+  Gruppe (3.2.239.2): CiHF (flach), CiH, CiP, CiB, CiBF, CiHA, CiHS —
+  CiHF zuerst, weil bei Martin die ruhigste Variante.
   Jede Gruppe hat eine Überschrift und einen Unter-Hinweis (i18n).
   Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
   TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu
   100 % auf die Synthese durchgreift; eine UI-Skalierung gibt es nicht.
-  Seit Version 3.2.225 eine zusätzliche Gruppe am Ende des Dialogs:
-  - **Mellotron-Sampler**: 34 Original-Mellotron-Varianten; Lazy-Load
-    von externer URL beim ersten Anschlag. Keine i18n-Keys —
-    Variantenname direkt aus Token-Suffix.
-  Token-Schema: `smplr:mellotron:<variantName>`.
-  (Soundfont2 war bis 3.2.226.4 mit drei SF2-Paketen als zusätzliche
-  Gruppe vorhanden, ab 3.2.226.5 entfernt — Klang stumm wegen race
-  condition; Mellotron deckt die Klangpalette ausreichend ab.)
+  (Mellotron-Sampler war von Version 3.2.225 bis 3.2.239.1 als sechste
+  Gruppe mit 34 Original-Mellotron-Varianten enthalten. Seit 3.2.239.2
+  aus der Tonart-Auswahl entfernt — soll laut Nutzer-Wunsch später im
+  Player-Tab erscheinen, nicht in der Mess-Tonartwahl. Token-Schema
+  `smplr:mellotron:<variantName>`, Code-Pfad in `smplr-loader.js` und
+  `_playSmplrTone` in `audio.js` bleibt erhalten; Gruppen-Definitionen
+  in `tone-popup.js` als `_SMPLR_GROUPS_PARKED` aufgehoben für
+  schnelle Wiederverwendung. Soundfont2 war bis 3.2.226.4 ebenfalls
+  als zusätzliche Gruppe vorhanden, ab 3.2.226.5 entfernt — Klang
+  stumm wegen race condition.)
   Lade-Visualisierung (seit BA 226): Klick auf Vorspiel bei noch nicht
   geladenem Sampler zeigt Sanduhr ⧖ vor dem Button-Text und sperrt
   alle Vorspiel-Buttons; nach erfolgreichem Load startet die Sequenz
@@ -283,7 +293,8 @@ Slider-Wert wird invertiert.
   ausschließlich ab; die Tonart-Auswahl erfolgt über den
   Radio-Button (und wird mit OK übernommen). OK übernimmt,
   Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`
-  (Default `pulsedComplex`). Das Dropdown `sliderTarget`
+  (Default `richCiHF` — CI-Test flach, seit 3.2.239.4; zuvor
+  `pulsedComplex`). Das Dropdown `sliderTarget`
   („Slider-Wirkung") wurde ersatzlos entfernt (BA 209).
 - **Statische Methoden-Gruppen (BA 220, vorher: Dynamischer Intro-Text
   BA 160):** Beide Erklär-Gruppen werden immer angezeigt, je unter

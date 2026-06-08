@@ -630,6 +630,8 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "richAcc", "richASax", "richBTb", "richVa", "richBn", "richClBb",
   "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
   "richVc", "richHn",
+  "richCiH", "richCiHA", "richCiHS", "richCiHF",
+  "richCiB", "richCiP", "richCiBF",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
   "wobbleSweep"];
 
