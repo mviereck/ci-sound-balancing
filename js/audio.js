@@ -782,9 +782,21 @@ function updInd(i, w) {
     .forEach((b, j) => {
       b.style.background = j === i ? "var(--accent-light)" : "";
     });
-  // Pair-Anzeige über testEls (falls verfügbar)
-  const pL = (typeof testEls !== 'undefined' && testEls) ? testEls.pairLeft : document.getElementById("tAL");
-  const pR = (typeof testEls !== 'undefined' && testEls) ? testEls.pairRight : document.getElementById("tBL");
+  // Pair-Anzeige: erst neue testUI-API (testEls.verfahren[...].pairIndicator),
+  // dann alte API (testEls.pairLeft/pairRight), zuletzt DOM-Fallback.
+  let pL = null, pR = null;
+  if (typeof testEls !== 'undefined' && testEls) {
+    if (testEls.verfahren && typeof _testActiveVerfahren !== 'undefined'
+        && testEls.verfahren[_testActiveVerfahren]
+        && testEls.verfahren[_testActiveVerfahren].pairIndicator) {
+      pL = testEls.verfahren[_testActiveVerfahren].pairIndicator.left;
+      pR = testEls.verfahren[_testActiveVerfahren].pairIndicator.right;
+    }
+    if (!pL && testEls.pairLeft)  pL = testEls.pairLeft;
+    if (!pR && testEls.pairRight) pR = testEls.pairRight;
+  }
+  if (!pL) pL = document.getElementById("tAL");
+  if (!pR) pR = document.getElementById("tBL");
   if (pL) pL.classList.toggle("playing", w === "a");
   if (pR) pR.classList.toggle("playing", w === "b");
 }

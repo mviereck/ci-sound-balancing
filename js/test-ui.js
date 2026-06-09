@@ -1196,11 +1196,9 @@ function _buildTestPanelNew(parentEl, cfg) {
       var pbFill = _mkEl('div', 'progress-fill');
       pbWrap.appendChild(pbFill);
       var pbText = _mkEl('div', 'progress-text');
-      var pbTimer = _mkEl('span', 'timer-display');
-      pbTimer.textContent = '0:00';
-      pbText.appendChild(pbTimer);
       vWrap.append(pbWrap, pbText);
-      refs.progress = { fill: pbFill, text: pbText, timer: pbTimer };
+      // BA 247fix2: timer-Span entfaellt (niemand pflegt ihn aktiv).
+      refs.progress = { fill: pbFill, text: pbText };
     }
 
     // --- pairIndicator ---
@@ -1389,6 +1387,9 @@ function _buildTestPanelNew(parentEl, cfg) {
       _tEl(confirmButton, body.confirmButton.key || 'btnConfirmOffset');
       vWrap.appendChild(confirmButton);
       refs.confirmButton = confirmButton;
+      // BA 247fix2: Fokus nach Klick entfernen, sonst loest Enter den Button
+      // doppelt aus (Browser-Click + testUI-Keyboard).
+      confirmButton.addEventListener('mouseup', function() { confirmButton.blur(); });
       if (vCfg.hooks && vCfg.hooks.onConfirm) {
         confirmButton.addEventListener('click', function() { vCfg.hooks.onConfirm(); });
       }
@@ -1441,6 +1442,9 @@ function _buildTestPanelNew(parentEl, cfg) {
         var labelKey = (typeof actSpec === 'string') ? null    : actSpec.labelKey;
         var btn = _mkEl('button', 'btn btn-large');
         btn.dataset.action = act;
+        // BA 247fix2: Fokus nach Klick entfernen, sonst loest die Leertaste
+        // doppelt aus (Browser-Click auf focussierten Button + testUI-Keyboard).
+        btn.addEventListener('mouseup', function() { btn.blur(); });
         if (act === 'undo') {
           btn.disabled = true;
           btn.innerHTML = '&#9664; <span data-t="bBack"></span> <span class="kbd">&#x232B;</span>';
@@ -1981,17 +1985,8 @@ var testUI = {
         els.fill.style.width = Math.max(0, Math.min(1, opts.fraction)) * 100 + '%';
       }
       if (opts.text !== undefined && els.text) {
-        // text ersetzt den Inhalt (Timer bleibt als separates Element)
-        // Nur Textknoten aktualisieren, timer-Span bleibt
-        var tn = els.text.firstChild;
-        if (tn && tn.nodeType === 3) {
-          tn.textContent = opts.text + ' ';
-        } else {
-          els.text.insertBefore(document.createTextNode(opts.text + ' '), els.text.firstChild);
-        }
-      }
-      if (opts.timer !== undefined && els.timer) {
-        els.timer.textContent = opts.timer;
+        // BA 247fix2: Timer-Span entfaellt; Text darf den ganzen Inhalt setzen.
+        els.text.textContent = opts.text;
       }
     }
   },

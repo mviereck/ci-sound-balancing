@@ -699,10 +699,12 @@ function _testSwap() {
     testUI.slider.setValueDisplay(vref.slider, newVal.toFixed(1) + " dB");
   }
   if (vref && vref.pairIndicator) {
+    // BA 247fix2: korrekte Property-Namen der testUI-setLabels-API.
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
-      leftLabel:  dENPrefix() + dEN(curA),
-      rightLabel: dENPrefix() + dEN(curB),
-      hzText:     Math.round(effFreq(curA)) + " Hz vs. " + Math.round(effFreq(curB)) + " Hz"
+      leftText:  dENPrefix() + dEN(curA),
+      rightText: dENPrefix() + dEN(curB),
+      leftHz:    Math.round(effFreq(curA)),
+      rightHz:   Math.round(effFreq(curB))
     });
   }
   _testUpdateRangeHint();
@@ -809,10 +811,12 @@ function showCurPair() {
 
   var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
   if (vref && vref.pairIndicator) {
+    // BA 247fix2: korrekte Property-Namen der testUI-setLabels-API.
     testUI.pairIndicator.setLabels(vref.pairIndicator, {
-      leftLabel:  dENPrefix() + dEN(curA),
-      rightLabel: dENPrefix() + dEN(curB),
-      hzText:     Math.round(effFreq(curA)) + " Hz vs. " + Math.round(effFreq(curB)) + " Hz"
+      leftText:  dENPrefix() + dEN(curA),
+      rightText: dENPrefix() + dEN(curB),
+      leftHz:    Math.round(effFreq(curA)),
+      rightHz:   Math.round(effFreq(curB))
     });
   }
 
@@ -851,14 +855,19 @@ function _testUpdateProgress() {
       var completedRounds = (s.fullSweepRound || 1) - 1;
       var totalPairs = maxRounds * pairsPerRound;
       var n = completedRounds * pairsPerRound + testIdx + 1;
-      testUI.progress.set(vref.progress,
-        t("comp") + " " + n + " " + t("of") + " " + totalPairs +
-        ". " + t("round") + " " + (s.fullSweepRound || 1) + " " + t("of") + " " + maxRounds);
+      // BA 247fix2: progress.set erwartet ein opts-Objekt, kein String.
+      testUI.progress.set(vref.progress, {
+        text: t("comp") + " " + n + " " + t("of") + " " + totalPairs +
+              ". " + t("round") + " " + (s.fullSweepRound || 1) + " " + t("of") + " " + maxRounds,
+        fraction: n / totalPairs
+      });
     }
   } else {
-    testUI.progress.set(vref.progress,
-      t("comp") + " " + (testIdx + 1) + " " + t("of") + " " + testPairs.length +
-      (convRnd > 0 ? " (" + t("round") + " " + convRnd + ")" : ""));
+    testUI.progress.set(vref.progress, {
+      text: t("comp") + " " + (testIdx + 1) + " " + t("of") + " " + testPairs.length +
+            (convRnd > 0 ? " (" + t("round") + " " + convRnd + ")" : ""),
+      fraction: (testIdx + 1) / Math.max(1, testPairs.length)
+    });
   }
 }
 
@@ -886,12 +895,19 @@ function playCur() {
   stopAll();
   isPlay = true;
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
-  // BA 247: Slider-Wert ist direkt die absolute Korrektur (curBase = 0).
-  playSeq(curA, curB, _testSliderVal());
-  curPlayed = true;
+  // BA 247fix2: setPlaying('both') setzt die Replay-Sperre (lock_targets:
+  // confirm, swap). Das Aufleuchten der einzelnen Box (left|right) macht
+  // updInd in playSeq weiter. Am Ende der Sequenz wird die Sperre via
+  // setPlaying(null) wieder aufgehoben.
   if (vref && vref.pairIndicator) {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
+  curPlayed = true;
+  playSeq(curA, curB, _testSliderVal()).then(function() {
+    if (vref && vref.pairIndicator) {
+      testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
+    }
+  });
 }
 function recBal() {
   if (!testAct || testIdx >= testPairs.length) return;
@@ -947,8 +963,12 @@ function undoL() {
   showCurPair();
 }
 function updUndo() {
-  if (testEls && testEls.undoBtn)
-    testEls.undoBtn.disabled = testIdx <= 0 || !undoSt.length;
+  // BA 247fix2: Undo-Button liegt in der neuen API unter
+  // testEls.verfahren[<id>].actions.undo, nicht direkt auf testEls.
+  if (!testEls || !testEls.verfahren) return;
+  var vref = testEls.verfahren[_testActiveVerfahren];
+  var btn = vref && vref.actions && vref.actions.undo;
+  if (btn) btn.disabled = testIdx <= 0 || !undoSt.length;
 }
 function updFullSweepInfo() {}
 function nextFullRound() {
@@ -1006,11 +1026,13 @@ function nextConvRnd() {
   testPairs = randAB(shuffle(mg));
   testIdx = 0;
   undoSt = [];
-  // BA 247: Progress laeuft ueber testUI.progress.set
+  // BA 247fix2: progress.set erwartet ein opts-Objekt.
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
   if (vref && vref.progress) {
-    testUI.progress.set(vref.progress,
-      t("round") + " " + convRnd + " – " + mg.length + " (max res: " + mx.toFixed(1) + " dB)");
+    testUI.progress.set(vref.progress, {
+      text: t("round") + " " + convRnd + " – " + mg.length + " (max res: " + mx.toFixed(1) + " dB)",
+      fraction: 0
+    });
   }
   showCurPair();
 }
@@ -1019,12 +1041,13 @@ function doExcl(i) {
   const rem = testPairs.slice(testIdx).filter(function(p) { return p[0] !== i && p[1] !== i; });
   testPairs = [].concat(testPairs.slice(0, testIdx), rem);
   buildFreqTable();
-  // BA 247: Progress laeuft jetzt ueber den testUI-Progress-Baustein.
+  // BA 247fix2: progress.set erwartet ein opts-Objekt.
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
   if (vref && vref.progress) {
-    testUI.progress.set(vref.progress,
-      dENPrefix() + dEN(i) + " " + t("exclDuring") + ". " +
-      (testPairs.length - testIdx) + " " + t("pairsRem") + ".");
+    testUI.progress.set(vref.progress, {
+      text: dENPrefix() + dEN(i) + " " + t("exclDuring") + ". " +
+            (testPairs.length - testIdx) + " " + t("pairsRem") + "."
+    });
   }
   if (testIdx >= testPairs.length) {
     endTest();
