@@ -217,14 +217,14 @@ Slider-Wert wird invertiert.
 
 ### Sub-Tab 1 — Elektrodenlautstärke ausgleichen (test.js)
 
-- **Voraussetzungs-Sperre (BA 155):** `startTest()` prüft per
-  `isSideUsable(activeSide)`, ob Hörtechnik und (bei CI) Hersteller
-  für die aktive Seite gesetzt sind. Fehlt eine Angabe, erscheint
-  ein Alert-Hinweis und der Test startet nicht.
-- **Modi**: balance (Slider) und judgment (3-Knopf-Urteil)
-- **Testverfahren**: Round Robin (alle Paare) / Konvergenz /
-  Spezial: Round Robin mit Vorauswahl / Spezial: Manuell
-- A/B-Zuordnung und Paarreihenfolge immer randomisiert
+- **Testverfahren** (BA 247): Zwei Verfahren im Verfahren-Dropdown:
+  „Round Robin (Vollständig)" (`full`) und „Konvergenz" (`conv`).
+  Frühere Verfahren `selective`, `manual` und Modus `judgment` entfallen.
+- **Elektroden-Auswahl** (BA 247): Über den `electrodeSelection`-Header-
+  Baustein kann der Nutzer die Sequenz auf bestimmte Elektroden filtern;
+  nur Paare, in denen mindestens eine gewählte Elektrode vorkommt,
+  werden gespielt. Mindestauswahl 1. State `_testSelectedEls` in test.js.
+- A/B-Zuordnung und Paarreihenfolge immer randomisiert.
 - Referenzelektroden-Auswahl erfolgt im Ergebnis-Reiter
   (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
   wirkt nur auf die Anzeige und Anwendung der Ergebnisse, nicht auf
@@ -234,34 +234,21 @@ Slider-Wert wird invertiert.
   zur bisherigen Hervorhebung als fettes blaues Achsen-Label. In
   der Loudness-Tabelle gibt es eine neue Spalte „Ref.El." am Ende;
   die Zeile der Referenzelektrode trägt ein großes `X`.
-- **LS-Hint-Anzeige**: Unter dem Slider erscheint ein Dreieck mit
-  dB-Wert an der Position der LS-Schätzung des aktuellen Paares,
-  umgeben von einem semitransparenten Farbbereich, dessen halbe Breite
-  sich aus dem mittleren Residuum (`elRes` aus `compWLS`) und einem
-  Stichproben-Aufschlag (`basis · k/(k+N)`, basis = 2.5 dB, k = 3,
-  N = min. Mess-Anzahl der beiden Elektroden) als
-  `√(elRes² + prior²)` ergibt. Sichtbar nur, wenn beide Elektroden in
-  mindestens einer Messung vorkommen und die Marke innerhalb des
-  aktuellen Slider-Bereichs liegt.
-- **Slider-Startwert**: Bei bereits gemessenem Paar startet der
-  Slider so, daß der gespeicherte Wert exakt mittig sitzt
-  (`curBase = gespeicherter Offset`, `slider = 0`). Bei noch nicht
-  gemessenem Paar startet der Slider auf der LS-Schätzung
-  (`curBase = Schätzung`, `slider = 0`). Bei leerem Datensatz
-  `curBase = 0`.
-- Wenn Modus „Round Robin" angefangen aber nicht abgeschlossen wurde,
-  zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X von Y und
-  bestätigten Paaren des aktuellen Sweeps.
-- **Spezial: Round Robin mit Vorauswahl** (`'selective'`, BA 204):
-  Round-Robin-Lauf, gefiltert auf eine vom Nutzer per Popup gewählte
-  Untermenge aktiver Elektroden. Es werden alle Paare gespielt, in
-  denen mindestens eine gewählte Elektrode vorkommt; alle anderen
-  Paare bleiben außen vor. Kein Resume — jeder Start beginnt frisch.
-  Die Auswahl (`selectiveElectrodes`) bleibt session-weit erhalten und
-  kann über „Auswahl ändern…" jederzeit überarbeitet werden. Bei
-  Elektroden-Ausschluß während des Laufs wird die Auswahl entsprechend
-  reduziert; bleibt kein passendes Paar mehr, endet der Test mit
-  Hinweis.
+- **LS-Hint-Anzeige** (rangeHint, BA 247): Über dem Slider erscheint
+  ein blauer Balken mit dB-Wert an der Position der LS-Schätzung
+  des aktuellen Paares (`testUI.slider.setRangeHint`). Die halbe
+  Bandbreite ergibt sich aus Residuum und Stichproben-Aufschlag
+  (`basis·k/(k+N)`, basis = 2.5 dB, k = 3). Sichtbar nur, wenn
+  beide Elektroden in mindestens einer Messung vorkommen.
+- **Slider-Startwert** (BA 247): Bei bereits gemessenem Paar startet
+  der Slider auf dem gespeicherten Offset. Bei ungemessenem Paar
+  startet er auf 0. `curBase` ist immer 0 (kein Sockel mehr).
+- Keine Kumulations-Anzeige, keine Konfidenz-Eingabe (BA 247).
+- **Tonart** (BA 247): Eigener Popup-Dialog (state `toneType_test`,
+  analog Freqmatch), nicht mehr das globale Dropdown.
+- Wenn „Round Robin (Vollständig)" angefangen aber nicht abgeschlossen
+  wurde, zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X
+  von Y und bestätigten Paaren des aktuellen Sweeps.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 

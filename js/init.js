@@ -572,29 +572,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (e.key === "b" || e.key === "B") {
       e.preventDefault();
-      if (testEls.simulBtn) testEls.simulBtn.click();
+      if (typeof _testPlaySimul === 'function') _testPlaySimul();
     }
     // X-Shortcut für Ausschluss entfällt (§6.6)
-    if (testMode === "judgment") {
-      if (e.key === "1") { e.preventDefault(); if (testEls.jdgA) testEls.jdgA.click(); }
-      if (e.key === "2") { e.preventDefault(); if (testEls.jdgEq) testEls.jdgEq.click(); }
-      if (e.key === "3") { e.preventDefault(); if (testEls.jdgB) testEls.jdgB.click(); }
+    // BA 247: judgment-Modus entfaellt; Shortcuts 1/2/3 entfallen damit.
+    if (e.key === "s" || e.key === "S") {
+      e.preventDefault();
+      if (typeof _testSwap === 'function') _testSwap();
     }
     if (testMode === "balance" && e.key === "Enter") {
       e.preventDefault();
-      if (testEls.confirmBtn) testEls.confirmBtn.click();
+      if (typeof recBal === 'function') recBal();
     }
     if (testMode === "balance" && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
       e.preventDefault();
-      const s = testEls.slider;
-      if (!s) return;
-      const st = e.shiftKey ? 0.1 : 0.5;
-      let v = parseFloat(s.value);
-      if (e.key === "ArrowLeft") v = Math.max(parseFloat(s.min), +(v - st).toFixed(1));
-      if (e.key === "ArrowRight") v = Math.min(parseFloat(s.max), +(v + st).toFixed(1));
-      s.value = v;
-      if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
-      _testUpdCumulative(v);
+      // BA 247: Slider sitzt jetzt in testEls.verfahren[id].slider.input
+      var _vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+      var _s = _vref && _vref.slider && _vref.slider.input;
+      if (!_s) return;
+      var _st = e.shiftKey ? 0.1 : 0.5;
+      var _v = parseFloat(_s.value);
+      if (e.key === "ArrowLeft") _v = Math.max(parseFloat(_s.min), +(_v - _st).toFixed(1));
+      if (e.key === "ArrowRight") _v = Math.min(parseFloat(_s.max), +(_v + _st).toFixed(1));
+      testUI.slider.setValue(_vref.slider, _v);
+      testUI.slider.setValueDisplay(_vref.slider, _v.toFixed(1) + " dB");
     }
   });
   // BA 163: Load from sessionStorage (pro Browser-Tab)

@@ -798,7 +798,34 @@ Object.assign(L.de, {
     pwProgressLabel: "Warp:",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Elektrodenlautstärke ausgleichen",
-    testIntro: "Dieser Test vergleicht die Lautstärke der Elektroden miteinander. Finales Ziel ist es, eine ausgeglichene Lautstärke für alle Elektroden zu finden.<br> - Dies ist die wichtige Basis für alle weiteren Optimierungen, sei es Musikhören oder Sprachverständlichkeit.",
+    testIntro:
+      "Dieser Test vergleicht die Lautstärke der Elektroden miteinander. " +
+      "Ziel ist es, eine ausgeglichene Lautstärke für alle Elektroden zu finden." +
+      "<br> - Dies ist bereits eine gute Einstellung für Naturgeräusche und Musik." +
+      "<br> - Die korrigierte Lautstärke über alle Elektroden hinweg ist die saubere Basis " +
+      "für alle weiteren Anpassungen, insbesondere für Sprachverständlichkeit, die später " +
+      "im Reiter \"Kurven\" eingestellt werden kann." +
+      "<br><br>Empfehlungen:" +
+      "<br> 1. Stellen Sie die Lautstärke so ein, daß es etwa 3/4 laut ist. " +
+      "Also mehr als nur mittel, aber noch nicht unangenehm laut." +
+      "<br> 2. Nutzen Sie möglichst Bluetooth zum Streamen." +
+      "<br> 3. Machen Sie erst einen Test \"Round Robin (Vollständig)\", dann einmal " +
+      "oder mehrfach den Test \"Konvergenz\". (Der Konvergenztest überprüft noch einmal " +
+      "die Elektrodenpaare mit der größten Meßunsicherheit.)" +
+      "<br> 4. Ein blauer Balken über dem Slider zeigt an, in welchem Bereich der Test " +
+      "den nächsten korrekten Wert vermutet. Dies können Sie als Anhaltspunkt nehmen. " +
+      "Verlassen Sie sich nicht zu sehr darauf." +
+      "<br><br>Weitere Hinweise:" +
+      "<br> - Sie können die Tests jederzeit unterbrechen und später an gleicher Stelle weiterführen." +
+      "<br> - Der Test \"Round Robin\" läuft über einige Runden. Nach etwa 3 bis 4 Runden " +
+      "können Sie im Reiter \"Meßergebnisse\" schon in etwa sehen, wohin Ihre Messung führt." +
+      "<br> - Wenn eine Elektrode sich im Laufe des Tests als unmeßbar erweist (zu leise, " +
+      "inaktiv), markieren Sie sie entsprechend im Reiter \"Implantat\". Sie wird dann vom " +
+      "Test ausgeschlossen." +
+      "<br><br>Passen Sie die Lautstärke der beiden Töne an, bis sie sich gleich laut anhören.",
+    // BA 247: Verfahren-Labels fuer Elektrodenlautstaerke (zwei Verfahren).
+    testVerfahrenFull: "Round Robin (Vollständig)",
+    testVerfahrenConv: "Konvergenz",
     testRunningTitle: "Elektrodenlautstärke-Balance-Test läuft",
     testRunningHint: "Passen Sie die Lautstärke der beiden Töne an, bis sie sich gleich laut anhören.",
     lrRunningTitle: "Stereo-Balance-Test läuft",

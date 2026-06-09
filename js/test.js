@@ -662,467 +662,239 @@ function getLsEstimate(a, b) {
 // TEST — Element-Lookup via testEls (gebaut von buildTestPanel)
 // ============================================================
 let testEls = null;
-// Slider-Extend-Stufen: [20,40,60] dB
-const TEST_SLIDER_RANGES = [20, 40, 60];
-let testSlRangeIdx = 0; // aktueller Stufen-Index
 // LS-Hint Parameter (Bauanleitung 61)
 const LS_HINT_BASIS_DB = 2.5;
 const LS_HINT_K = 3;
 
-// ---- Slider-Helfer ----
-function _testRstSlR() {
-  if (!testEls) return;
-  slExt = false;
-  testSlRangeIdx = 0;
-  const s = testEls.slider;
-  const r = TEST_SLIDER_RANGES[0];
-  s.min = String(-r); s.max = String(r); s.step = "0.1";
-  if (testEls.extendBtn) testEls.extendBtn.hidden = true;
-}
-function _testExtSlider() {
-  if (!testEls) return;
-  testSlRangeIdx = Math.min(testSlRangeIdx + 1, TEST_SLIDER_RANGES.length - 1);
-  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
-  testEls.slider.min = String(-r);
-  testEls.slider.max = String(r);
-  slExt = true;
-  if (testEls.extendBtn) {
-    testEls.extendBtn.hidden = (testSlRangeIdx >= TEST_SLIDER_RANGES.length - 1);
-  }
-  _testUpdLsHint();
-}
-function _testCheckExtend(sv) {
-  if (!testEls || !testEls.extendBtn) return;
-  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
-  const atLimit = Math.abs(sv) >= r - 0.5;
-  const canExtend = testSlRangeIdx < TEST_SLIDER_RANGES.length - 1;
-  testEls.extendBtn.hidden = !(atLimit && canExtend && !slExt);
-}
-// ============================================================
-// SELEKTIVES ROUND ROBIN — Elektroden-Vorauswahl
-// (BA 204) — Session-only, kein Resume, kein Persistieren.
-// ============================================================
-let selectiveElectrodes = [];
-
-function _selectivePairsFromRR(roundPairs) {
-  if (!selectiveElectrodes.length) return [];
-  const sel = new Set(selectiveElectrodes);
-  const actSet = new Set(actEl());
-  return roundPairs.filter(([a, b]) =>
-    actSet.has(a) && actSet.has(b) && (sel.has(a) || sel.has(b))
-  );
-}
-
-function _selectiveUpdateSummary() {
-  if (!testEls || !testEls.selSummary) return;
-  if (!selectiveElectrodes.length) {
-    testEls.selSummary.textContent = t('selSummaryEmpty');
-  } else {
-    const list = selectiveElectrodes
-      .slice()
-      .sort((x, y) => x - y)
-      .map(i => dEN(i))
-      .join(', ');
-    testEls.selSummary.textContent = t('selSummaryPrefix') + ' ' + list;
-  }
-}
-
-function _selectiveOpenDialog() {
-  const overlay = document.createElement('div');
-  overlay.className = 'modal-overlay';
-  overlay.style.cssText =
-    'position:fixed;inset:0;background:rgba(0,0,0,.45);' +
-    'display:flex;align-items:center;justify-content:center;z-index:9999;';
-
-  const dlg = document.createElement('div');
-  dlg.className = 'modal-dlg';
-  dlg.style.cssText =
-    'background:var(--bg,#fff);color:var(--fg,#000);padding:18px 22px;' +
-    'border-radius:8px;min-width:280px;max-width:90vw;max-height:85vh;overflow:auto;' +
-    'box-shadow:0 10px 30px rgba(0,0,0,.3);';
-
-  const title = document.createElement('h3');
-  title.textContent = t('selDlgTitle');
-  title.style.cssText = 'margin:0 0 10px 0;font-size:1.05em;';
-  dlg.appendChild(title);
-
-  const hint = document.createElement('p');
-  hint.textContent = t('selDlgHint');
-  hint.style.cssText = 'margin:0 0 12px 0;font-size:.92em;';
-  dlg.appendChild(hint);
-
-  const errBox = document.createElement('div');
-  errBox.style.cssText = 'color:#c00;font-size:.88em;min-height:1.2em;margin-bottom:6px;';
-  dlg.appendChild(errBox);
-
-  const list = document.createElement('div');
-  list.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;margin-bottom:14px;';
-  const actNow = new Set(actEl());
-  const preSelected = new Set(selectiveElectrodes);
-  const cbRefs = [];
-  for (let i = 0; i < nEl; i++) {
-    if (!actNow.has(i)) continue;
-    const lbl = document.createElement('label');
-    lbl.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.92em;';
-    const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.value = String(i);
-    cb.checked = preSelected.has(i);
-    cbRefs.push(cb);
-    const sp = document.createElement('span');
-    sp.textContent = dENPrefix() + dEN(i);
-    lbl.append(cb, sp);
-    list.appendChild(lbl);
-  }
-  dlg.appendChild(list);
-
-  const btnRow = document.createElement('div');
-  btnRow.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;';
-  const cancelBtn = document.createElement('button');
-  cancelBtn.className = 'btn';
-  cancelBtn.textContent = t('selDlgCancel');
-  const confirmBtn = document.createElement('button');
-  confirmBtn.className = 'btn btn-primary';
-  confirmBtn.textContent = t('selDlgConfirm');
-  btnRow.append(cancelBtn, confirmBtn);
-  dlg.appendChild(btnRow);
-
-  overlay.appendChild(dlg);
-  document.body.appendChild(overlay);
-
-  function close() {
-    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-  }
-  cancelBtn.addEventListener('click', close);
-  confirmBtn.addEventListener('click', function () {
-    const chosen = cbRefs.filter(c => c.checked).map(c => parseInt(c.value, 10));
-    if (!chosen.length) {
-      errBox.textContent = t('selDlgEmpty');
-      return;
-    }
-    selectiveElectrodes = chosen;
-    _selectiveUpdateSummary();
-    close();
-  });
-}
-
-function _testUpdCumulative(sv) {
-  if (!testEls || !testEls.cumulativeDisplay) return;
-  if (curBase !== 0) {
-    const tot = curBase + sv;
-    testEls.cumulativeDisplay.textContent =
-      `${t("total")}: ${tot >= 0 ? "+" : ""}${tot.toFixed(1)} dB (${t("prev")}: ${curBase >= 0 ? "+" : ""}${curBase.toFixed(1)} dB)`;
-    testEls.cumulativeDisplay.style.display = "";
-  } else {
-    testEls.cumulativeDisplay.style.display = "none";
-  }
-  _testCheckExtend(sv);
-}
-function _testUpdLsHint() {
-  if (!testEls || !testEls.lsHint) return;
-  if (testMode !== "balance" || !testAct || testIdx >= testPairs.length) {
-    testEls.lsHint.style.display = "none";
-    return;
-  }
-  const lsEst = getLsEstimate(curA, curB);
-  if (!lsEst.hasData) {
-    testEls.lsHint.style.display = "none";
-    return;
-  }
-  const xLs = lsEst.estimate - curBase;
-  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
-  const markPct = ((xLs + r) / (2 * r)) * 100;
-  if (markPct < 0 || markPct > 100) {
-    testEls.lsHint.style.display = "none";
-    return;
-  }
-  testEls.lsHint.style.display = "";
-  testEls.lsHintMark.style.left = markPct + "%";
-  testEls.lsHintLabel.style.left = markPct + "%";
-  testEls.lsHintLabel.textContent =
-    (xLs >= 0 ? "+" : "") + xLs.toFixed(1) + " dB";
-  const hw = lsEst.halfWidth;
-  const bandLeft = Math.max(-r, xLs - hw);
-  const bandRight = Math.min(r, xLs + hw);
-  const bandLeftPct = ((bandLeft + r) / (2 * r)) * 100;
-  const bandWidthPct = ((bandRight - bandLeft) / (2 * r)) * 100;
-  testEls.lsHintBand.style.left = bandLeftPct + "%";
-  testEls.lsHintBand.style.width = bandWidthPct + "%";
-}
 function _testSliderVal() {
-  return testEls ? parseFloat(testEls.slider.value) : 0;
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  return (vref && vref.slider && vref.slider.input)
+    ? parseFloat(vref.slider.input.value) : 0;
 }
 
 // ---- Ausschluss-Helfer ----
+// BA 247: Exclude-Modal entfaellt; Bestaetigung erfolgt im
+// Implantat-Reiter. Aktuell wird `_testRequestExcl` nach BA 247 nicht
+// mehr aufgerufen — die alten Listener excludeLeftBtn/excludeRightBtn
+// sind im neuen DOMContentLoaded weg. Funktion bleibt vorerst als
+// Stub, weil sie in BA 248 mit dem Aufraeumen entfernt wird.
 function _testRequestExcl(elIdx) {
   if (!testEls) return;
   stopAll();
-  const label = `${dENPrefix()}${dEN(elIdx)} (${Math.round(effFreq(elIdx))} Hz)`;
-  setTestExclConfirm(testEls.exclOverlay, label, function() {
-    doExcl(elIdx);
-  });
+  doExcl(elIdx);
 }
 
 // ---- Swap-Helfer ----
 function _testSwap() {
   if (!testAct || testIdx >= testPairs.length || !testEls) return;
   stopAll();
-  const slVal = _testSliderVal();
-  const totOff = curBase + slVal;
-  [curA, curB] = [curB, curA];
+  var oldVal = _testSliderVal();
+  var swapped = [curB, curA];
+  curA = swapped[0]; curB = swapped[1];
   testPairs[testIdx] = [curA, curB];
-  curBase = 0;
-  _testRstSlR();
-  const newSlVal = -totOff;
-  const s = testEls.slider;
-  const absV = Math.abs(newSlVal);
-  // Expand range if needed
-  while (absV > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
-    testSlRangeIdx++;
+  var newVal = -oldVal;
+  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.slider) {
+    testUI.slider.setValue(vref.slider, newVal);
+    testUI.slider.setValueDisplay(vref.slider, newVal.toFixed(1) + " dB");
   }
-  const r = TEST_SLIDER_RANGES[testSlRangeIdx];
-  s.min = String(-r); s.max = String(r);
-  s.value = String(newSlVal);
-  if (testEls.sliderValue) testEls.sliderValue.textContent = newSlVal.toFixed(1) + " dB";
-  _testUpdCumulative(newSlVal);
-  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(curA)}`;
-  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(curB)}`;
-  testEls.pairFreq.textContent = `${Math.round(effFreq(curA))} Hz vs. ${Math.round(effFreq(curB))} Hz`;
-  playCur();
+  if (vref && vref.pairIndicator) {
+    testUI.pairIndicator.setLabels(vref.pairIndicator, {
+      leftLabel:  dENPrefix() + dEN(curA),
+      rightLabel: dENPrefix() + dEN(curB),
+      hzText:     Math.round(effFreq(curA)) + " Hz vs. " + Math.round(effFreq(curB)) + " Hz"
+    });
+  }
+  _testUpdateRangeHint();
 }
 
-function startTest() {
-  // BA 155
-  if (typeof isSideUsable === 'function' && !isSideUsable(activeSide)) {
-    alert(t('testBlockedSideUnknown'));
-    return;
-  }
+// BA 247: Round-Robin-Start (frueher 'full' in startTest)
+function startTestFull() {
   if (!testEls) return;
-  const pt = testEls.runSelect ? testEls.runSelect.value : "full";
-  testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
-  if (pt === "manual") return;
-  // BA 204: Spezial-Round-Robin mit Vorauswahl
-  if (pt === "selective") {
-    if (!selectiveElectrodes.length) {
-      alert(t('selDlgEmpty'));
-      _selectiveOpenDialog();
-      return;
+  testMode = "balance";
+  var s = sideData[activeSide];
+  var rrTable = ROUND_ROBIN[nEl];
+  var p;
+  if (!rrTable) {
+    p = allPairs();
+  } else {
+    if (s.fullSweepRound === null) {
+      s.fullSweepRound = 1;
+      s.fullSweepDonePairs = [];
     }
-    const actSet0 = new Set(actEl());
-    selectiveElectrodes = selectiveElectrodes.filter(i => actSet0.has(i));
-    _selectiveUpdateSummary();
-    if (!selectiveElectrodes.length) {
-      alert(t('selDlgEmpty'));
-      _selectiveOpenDialog();
-      return;
-    }
-    const rrTable = ROUND_ROBIN[nEl];
-    let pairs;
-    if (!rrTable) {
-      const sel = new Set(selectiveElectrodes);
-      pairs = allPairs().filter(([a, b]) => sel.has(a) || sel.has(b));
-    } else {
-      pairs = [];
-      for (let r = 0; r < rrTable.length; r++) {
-        const filtered = _selectivePairsFromRR(rrTable[r]);
-        for (const p of filtered) pairs.push(p);
-      }
-    }
-    if (!pairs.length) {
-      alert(t('selectiveEnd'));
-      return;
-    }
-    testPairs = randAB(shuffle(pairs));
-    testIdx = 0;
-    undoSt = [];
-    testAct = true;
-    curPlayed = false;
-    compCnt = 0;
-    convRnd = 0;
-    tStart = Date.now();
-    testEls.startBtn.disabled = true;
-    testEls.stopBtn.disabled = false;
-    testEls.testBox.hidden = false;
-    if (testEls.subTitle) testEls.subTitle.textContent = t("testRunningTitle") || "";
-    if (testEls.progressText) testEls.progressText.textContent = "";
-    lockTestTabs(true, 'test');
-    startTmr();
-    showMode();
-    showCurPair();
-    return;
+    fullSweepRound = s.fullSweepRound;
+    fullSweepDonePairs = s.fullSweepDonePairs;
+    var roundPairs = rrTable[fullSweepRound - 1];
+    var actSet = new Set(actEl());
+    var available = roundPairs.filter(function(p) {
+      return actSet.has(p[0]) && actSet.has(p[1]);
+    });
+    var doneSet = new Set(fullSweepDonePairs.map(function(p) {
+      return p[0] + "-" + p[1];
+    }));
+    p = available.filter(function(p) {
+      return !doneSet.has(p[0] + "-" + p[1]);
+    });
   }
-  let p;
-  if (pt === "full") {
-    // Round-Robin: persistentes Fortsetzen
-    const s = sideData[activeSide];
-    const rrTable = ROUND_ROBIN[nEl];
-    if (!rrTable) {
-      p = allPairs();
-    } else {
-      if (s.fullSweepRound === null) {
-        s.fullSweepRound = 1;
-        s.fullSweepDonePairs = [];
-      }
-      fullSweepRound = s.fullSweepRound;
-      fullSweepDonePairs = s.fullSweepDonePairs;
-      const roundPairs = rrTable[fullSweepRound - 1];
-      const actSet = new Set(actEl());
-      const available = roundPairs.filter(([a, b]) => actSet.has(a) && actSet.has(b));
-      const doneSet = new Set(fullSweepDonePairs.map(([a, b]) => a + "-" + b));
-      const open = available.filter(([a, b]) => !doneSet.has(a + "-" + b));
-      p = open;
-    }
-    testPairs = randAB(shuffle(p));
-    testIdx = 0;
-    undoSt = [];
-    testAct = true;
-    curPlayed = false;
-    compCnt = 0;
-    convRnd = 0;
-    tStart = Date.now();
-    testEls.startBtn.disabled = true;
-    testEls.stopBtn.disabled = false;
-    testEls.testBox.hidden = false;
-    if (testEls.subTitle) testEls.subTitle.textContent = t("testRunningTitle") || "";
-    updFullSweepInfo();
-    lockTestTabs(true, 'test');
-    startTmr();
-    showMode();
-    showCurPair();
-    return;
-  }
-  if (pt === "conv_fast") p = getConvPairs(true);
-  else p = allPairs();
+  // BA 247: Elektroden-Auswahl im Header filtert die Sequenz.
+  p = _testFilterByElectrodeSelection(p);
   testPairs = randAB(shuffle(p));
   testIdx = 0;
   undoSt = [];
   testAct = true;
   curPlayed = false;
   compCnt = 0;
-  convRnd = pt === "conv_fast" ? 1 : 0;
+  convRnd = 0;
   tStart = Date.now();
-  testEls.startBtn.disabled = true;
-  testEls.stopBtn.disabled = false;
-  testEls.testBox.hidden = false;
-  if (convRnd > 0) {
-    if (testEls.progressText)
-      testEls.progressText.textContent = `${t("round")} ${convRnd} – ${testPairs.length} ${t("comp")}`;
-  } else {
-    if (testEls.progressText) testEls.progressText.textContent = "";
-  }
   lockTestTabs(true, 'test');
   startTmr();
-  showMode();
   showCurPair();
+}
+
+// BA 247: Konvergenz-Start (frueher 'conv_fast' in startTest)
+function startTestConv() {
+  if (!testEls) return;
+  testMode = "balance";
+  var p = getConvPairs(true);
+  p = _testFilterByElectrodeSelection(p);
+  testPairs = randAB(shuffle(p));
+  testIdx = 0;
+  undoSt = [];
+  testAct = true;
+  curPlayed = false;
+  compCnt = 0;
+  convRnd = 1;
+  tStart = Date.now();
+  lockTestTabs(true, 'test');
+  startTmr();
+  showCurPair();
+}
+
+// BA 247: Sequenz auf die im Header gewaehlten Elektroden filtern.
+// Liefert nur Paare, bei denen mindestens eine Elektrode gewaehlt ist
+// (oder unveraendert, wenn keine Auswahl getroffen wurde = alle).
+function _testFilterByElectrodeSelection(pairs) {
+  var sel = _testSelectedEls;
+  if (!sel || !sel.length) return pairs;
+  var s = new Set(sel);
+  return pairs.filter(function(p) {
+    return s.has(p[0]) || s.has(p[1]);
+  });
 }
 function endTest() {
   stopAll();
   testAct = false;
   curPlayed = false;
-  if (testEls) {
-    testEls.startBtn.disabled = false;
-    testEls.stopBtn.disabled = true;
-    testEls.testBox.hidden = true;
-  }
   lockTestTabs(false, null);
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   stopTmr();
 }
-function showMode() {
-  if (!testEls) return;
-  const j = testMode === "judgment";
-  if (testEls.jdgContainer) testEls.jdgContainer.style.display = j ? "" : "none";
-  if (testEls.confirmBtn) testEls.confirmBtn.style.display = j ? "none" : "";
-  if (testEls.swapBtn) testEls.swapBtn.style.display = j ? "none" : "";
-}
 function showCurPair() {
   if (!testEls) return;
-  const pt = testEls.runSelect ? testEls.runSelect.value : "full";
   if (testIdx >= testPairs.length) {
-    if (pt === "full") return nextFullRound();
-    if (convRnd > 0) return nextConvRnd();
+    if (convRnd === 0) return nextFullRound();
+    if (convRnd > 0)  return nextConvRnd();
     endTest();
     renderResults();
     return;
   }
-  const [a, b] = testPairs[testIdx];
-  curA = a;
-  curB = b;
-  if (testEls.progressText) {
-    if (pt === "full") {
-      const s = sideData[activeSide];
-      const rrTable = ROUND_ROBIN[nEl];
-      if (rrTable) {
-        const maxRounds = rrTable.length;
-        const pairsPerRound = rrTable[0].length;
-        const completedRounds = s.fullSweepRound - 1;
-        const totalPairs = maxRounds * pairsPerRound;
-        const n = completedRounds * pairsPerRound + testIdx + 1;
-        testEls.progressText.textContent =
-          `${t("comp")} ${n} ${t("of")} ${totalPairs}. ${t("round")} ${s.fullSweepRound} ${t("of")} ${maxRounds}. ${t("testInRound")} ${testIdx + 1} ${t("of")} ${testPairs.length}`;
-      }
-    } else {
-      testEls.progressText.textContent = `${t("comp")} ${testIdx + 1} ${t("of")} ${testPairs.length}${convRnd > 0 ? ` (${t("round")} ${convRnd})` : ""}`;
-    }
+  var pair = testPairs[testIdx];
+  curA = pair[0];
+  curB = pair[1];
+
+  _testUpdateProgress();
+
+  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.pairIndicator) {
+    testUI.pairIndicator.setLabels(vref.pairIndicator, {
+      leftLabel:  dENPrefix() + dEN(curA),
+      rightLabel: dENPrefix() + dEN(curB),
+      hzText:     Math.round(effFreq(curA)) + " Hz vs. " + Math.round(effFreq(curB)) + " Hz"
+    });
   }
-  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(a)}`;
-  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(b)}`;
-  testEls.pairFreq.textContent = `${Math.round(effFreq(a))} Hz vs. ${Math.round(effFreq(b))} Hz`;
-  if (testMode === "balance") {
-    const ex = bRes.find((r) => (r.a === a && r.b === b) || (r.a === b && r.b === a));
-    const lsEst = getLsEstimate(a, b);
-    if (ex) {
-      curBase = ex.a === a ? ex.offset : -ex.offset;
-    } else if (lsEst.hasData) {
-      curBase = lsEst.estimate;
-    } else {
-      curBase = 0;
-    }
-    _testRstSlR();
-    const absBase = Math.abs(curBase);
-    while (absBase > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
-      testSlRangeIdx++;
-    }
-    testEls.slider.value = "0";
-    if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
-    _testUpdCumulative(0);
-    _testUpdLsHint();
+
+  // BA 247: curBase ist immer 0. Slider sitzt auf dem gespeicherten
+  // Wert (falls vorhanden), sonst 0 dB.
+  curBase = 0;
+  var ex = bRes.find(function(r) {
+    return (r.a === curA && r.b === curB) || (r.a === curB && r.b === curA);
+  });
+  var startVal = 0;
+  if (ex) startVal = (ex.a === curA) ? ex.offset : -ex.offset;
+  if (vref && vref.slider) {
+    testUI.slider.setValue(vref.slider, startVal);
+    testUI.slider.setValueDisplay(vref.slider, startVal.toFixed(1) + " dB");
   }
-  // Reset confidence
-  if (testEls.confRadios && testEls.confRadios['none']) testEls.confRadios['none'].checked = true;
+
+  _testUpdateRangeHint();
+
   curPlayed = false;
   updUndo();
   playCur();
+}
+
+// BA 247: Helfer fuer showCurPair, ehemals inline.
+let _testActiveVerfahren = "full";
+
+function _testUpdateProgress() {
+  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (!vref || !vref.progress) return;
+  if (_testActiveVerfahren === "full") {
+    var s = sideData[activeSide];
+    var rrTable = ROUND_ROBIN[nEl];
+    if (rrTable) {
+      var maxRounds = rrTable.length;
+      var pairsPerRound = rrTable[0].length;
+      var completedRounds = (s.fullSweepRound || 1) - 1;
+      var totalPairs = maxRounds * pairsPerRound;
+      var n = completedRounds * pairsPerRound + testIdx + 1;
+      testUI.progress.set(vref.progress,
+        t("comp") + " " + n + " " + t("of") + " " + totalPairs +
+        ". " + t("round") + " " + (s.fullSweepRound || 1) + " " + t("of") + " " + maxRounds);
+    }
+  } else {
+    testUI.progress.set(vref.progress,
+      t("comp") + " " + (testIdx + 1) + " " + t("of") + " " + testPairs.length +
+      (convRnd > 0 ? " (" + t("round") + " " + convRnd + ")" : ""));
+  }
+}
+
+function _testUpdateRangeHint() {
+  var vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (!vref || !vref.slider) return;
+  if (!testAct || testIdx >= testPairs.length) {
+    testUI.slider.setRangeHint(vref.slider, null);
+    return;
+  }
+  var est = getLsEstimate(curA, curB);
+  if (!est.hasData) {
+    testUI.slider.setRangeHint(vref.slider, null);
+    return;
+  }
+  testUI.slider.setRangeHint(vref.slider, {
+    marker: est.estimate,
+    label:  (est.estimate >= 0 ? "+" : "") + est.estimate.toFixed(1) + " dB",
+    min:    est.estimate - est.halfWidth,
+    max:    est.estimate + est.halfWidth
+  });
 }
 function playCur() {
   if (testIdx >= testPairs.length) return;
   stopAll();
   isPlay = true;
-  if (testMode === "balance")
-    playSeq(curA, curB, curBase + _testSliderVal());
-  else playSeq(curA, curB, 0);
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  // BA 247: Slider-Wert ist direkt die absolute Korrektur (curBase = 0).
+  playSeq(curA, curB, _testSliderVal());
   curPlayed = true;
-}
-function recJdg(r) {
-  if (!testAct || testIdx >= testPairs.length || !curPlayed) return;
-  const a = curA, b = curB, ne = { a, b, result: r, timestamp: Date.now() };
-  const ei = jRes.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
-  if (ei >= 0) {
-    undoSt.push({ t: "j", a: "r", e: ne, p: { ...jRes[ei] } });
-    jRes[ei] = ne;
-  } else {
-    undoSt.push({ t: "j", a: "a", e: ne });
-    jRes.push(ne);
+  if (vref && vref.pairIndicator) {
+    testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
-  testIdx++;
-  compCnt++;
-  updUndo();
-  showCurPair();
 }
 function recBal() {
   if (!testAct || testIdx >= testPairs.length) return;
-  const a = curA, b = curB, tot = curBase + _testSliderVal();
+  // BA 247: curBase ist immer 0.
+  const a = curA, b = curB, tot = _testSliderVal();
   const ne = { a, b, offset: tot, timestamp: Date.now() };
   const ei = bRes.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
@@ -1132,9 +904,8 @@ function recBal() {
     undoSt.push({ t: "b", a: "a", e: ne });
     bRes.push(ne);
   }
-  // Vollständig: gemessenes Paar als erledigt markieren
-  const pt = testEls ? testEls.runSelect.value : "";
-  if (pt === "full") {
+  // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
+  if (_testActiveVerfahren === "full") {
     const ka = Math.min(a, b), kb = Math.max(a, b);
     const s = sideData[activeSide];
     if (!s.fullSweepDonePairs.some(([x, y]) => x === ka && y === kb)) {
@@ -1153,32 +924,22 @@ function undoL() {
   testIdx--;
   compCnt = Math.max(0, compCnt - 1);
   const u = undoSt.pop();
-  if (u.t === "j") {
-    if (u.a === "a") {
-      const i = jRes.findIndex((x) => x.timestamp === u.e.timestamp);
-      if (i >= 0) jRes.splice(i, 1);
-    } else {
-      const i = jRes.findIndex((x) => x.a === u.e.a && x.b === u.e.b);
-      if (i >= 0) jRes[i] = u.p;
-    }
+  // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
+  if (u.a === "a") {
+    const i = bRes.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
+    if (i >= 0) bRes.splice(i, 1);
   } else {
-    if (u.a === "a") {
-      const i = bRes.findIndex((x) => x.timestamp === u.e.timestamp);
-      if (i >= 0) bRes.splice(i, 1);
-    } else {
-      const i = bRes.findIndex((x) => x.a === u.e.a && x.b === u.e.b);
-      if (i >= 0) bRes[i] = u.p;
-    }
-    // Bug-Fix §6.9: Bei full-Modus auch aus fullSweepDonePairs entfernen
-    const pt = testEls ? testEls.runSelect.value : "";
-    if (pt === "full") {
-      const ka = Math.min(u.e.a, u.e.b);
-      const kb = Math.max(u.e.a, u.e.b);
-      const s = sideData[activeSide];
-      const idx = s.fullSweepDonePairs.findIndex(([x, y]) => x === ka && y === kb);
-      if (idx >= 0) s.fullSweepDonePairs.splice(idx, 1);
-      fullSweepDonePairs = s.fullSweepDonePairs;
-    }
+    const i = bRes.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
+    if (i >= 0) bRes[i] = u.p;
+  }
+  // Bug-Fix §6.9: Bei full-Verfahren auch aus fullSweepDonePairs entfernen.
+  if (_testActiveVerfahren === "full") {
+    const ka = Math.min(u.e.a, u.e.b);
+    const kb = Math.max(u.e.a, u.e.b);
+    const s = sideData[activeSide];
+    const idx = s.fullSweepDonePairs.findIndex(function(p) { return p[0] === ka && p[1] === kb; });
+    if (idx >= 0) s.fullSweepDonePairs.splice(idx, 1);
+    fullSweepDonePairs = s.fullSweepDonePairs;
   }
   updUndo();
   showCurPair();
@@ -1240,32 +1001,25 @@ function nextConvRnd() {
   testPairs = randAB(shuffle(mg));
   testIdx = 0;
   undoSt = [];
-  if (testEls && testEls.progressText)
-    testEls.progressText.textContent = `${t("round")} ${convRnd} – ${mg.length} (max res: ${mx.toFixed(1)} dB)`;
+  // BA 247: Progress laeuft ueber testUI.progress.set
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.progress) {
+    testUI.progress.set(vref.progress,
+      t("round") + " " + convRnd + " – " + mg.length + " (max res: " + mx.toFixed(1) + " dB)");
+  }
   showCurPair();
 }
 function doExcl(i) {
   elExDur[i] = Date.now();
-  const rem = testPairs.slice(testIdx).filter(([a, b]) => a !== i && b !== i);
-  testPairs = [...testPairs.slice(0, testIdx), ...rem];
+  const rem = testPairs.slice(testIdx).filter(function(p) { return p[0] !== i && p[1] !== i; });
+  testPairs = [].concat(testPairs.slice(0, testIdx), rem);
   buildFreqTable();
-  if (testEls && testEls.progressText)
-    testEls.progressText.textContent = `${dENPrefix()}${dEN(i)} ${t("exclDuring")}. ${testPairs.length - testIdx} ${t("pairsRem")}.`;
-  // BA 204: Im selektiven Modus auch auf selectiveElectrodes filtern
-  const ptNow = testEls && testEls.runSelect ? testEls.runSelect.value : '';
-  if (ptNow === 'selective') {
-    const sel = new Set(selectiveElectrodes);
-    const newPairs = testPairs
-      .slice(testIdx)
-      .filter(([a, b]) => sel.has(a) || sel.has(b));
-    if (!newPairs.length) {
-      alert(t('selectiveEnd'));
-      endTest();
-      renderResults();
-      return;
-    }
-    testPairs = newPairs;
-    testIdx = 0;
+  // BA 247: Progress laeuft jetzt ueber den testUI-Progress-Baustein.
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.progress) {
+    testUI.progress.set(vref.progress,
+      dENPrefix() + dEN(i) + " " + t("exclDuring") + ". " +
+      (testPairs.length - testIdx) + " " + t("pairsRem") + ".");
   }
   if (testIdx >= testPairs.length) {
     endTest();
@@ -1281,308 +1035,165 @@ function stopTmr() {
   if (tInt) { clearInterval(tInt); tInt = null; }
 }
 function updTmr() {
-  const e = Math.floor((Date.now() - tStart) / 1000);
-  if (testEls && testEls.timerDisplay)
-    testEls.timerDisplay.textContent = `${Math.floor(e / 60)}:${String(e % 60).padStart(2, "0")}`;
-}
-function playManPair() {
-  if (!testEls) return;
-  const a = parseInt(testEls.manA.value), b = parseInt(testEls.manB.value);
-  if (a === b) return;
-  const [pa, pb] = Math.random() < 0.5 ? [a, b] : [b, a];
-  testAct = true;
-  testPairs = [[pa, pb]];
-  testIdx = 0;
-  undoSt = [];
-  testMode = testEls.modeSelect ? testEls.modeSelect.value : "balance";
-  convRnd = 0;
-  testEls.testBox.hidden = false;
-  testEls.stopBtn.disabled = false;
-  if (testEls.progressText) testEls.progressText.textContent = "";
-  showMode();
-  if (testEls.progressText) testEls.progressText.textContent = t("manComp");
-  curA = pa;
-  curB = pb;
-  testEls.pairLeft.innerHTML = `<span class="aba-label">A</span>${dENPrefix()}${dEN(pa)}`;
-  testEls.pairRight.innerHTML = `<span class="aba-label">B</span>${dENPrefix()}${dEN(pb)}`;
-  testEls.pairFreq.textContent = `${Math.round(effFreq(pa))} Hz vs. ${Math.round(effFreq(pb))} Hz`;
-  if (testMode === "balance") {
-    const ex = bRes.find((r) => (r.a === pa && r.b === pb) || (r.a === pb && r.b === pa));
-    curBase = ex ? (ex.a === pa ? ex.offset : -ex.offset) : 0;
-    _testRstSlR();
-    const absBaseM = Math.abs(curBase);
-    while (absBaseM > TEST_SLIDER_RANGES[testSlRangeIdx] && testSlRangeIdx < TEST_SLIDER_RANGES.length - 1) {
-      testSlRangeIdx++;
-    }
-    testEls.slider.value = "0";
-    if (testEls.sliderValue) testEls.sliderValue.textContent = "0.0 dB";
-    _testUpdCumulative(0);
-  }
-  curPlayed = false;
-  startTmr();
-  playCur();
-}
-function afterManRes() {
-  stopTmr();
-  if (testEls) testEls.testBox.hidden = true;
-  testAct = false;
-  curPlayed = false;
-  lockTestTabs(false, null);
-  // BA 149
-  if (typeof depLockApply === 'function') depLockApply();
-  renderResults();
+  // BA 247: testUI bietet keinen separaten timerDisplay; reiner Timer-Tick
+  // wird nicht mehr gerendert. Hauptprogress kommt aus _testUpdateProgress
+  // nach Trial-Aktionen.
 }
 
 // ============================================================
-// updateRunExplain — Erklärungstext für den Run-Modus
+// BA 247: DOMContentLoaded — buildTestPanel (neue testUI-API)
 // ============================================================
-function updateRunExplain() {
-  const box = testEls ? testEls.runExplainBox : document.getElementById("runExplain");
-  if (!box) return;
-  const pt = testEls ? (testEls.runSelect ? testEls.runSelect.value : "full") : "full";
-  const explain = {
-    full: t("runExplFull"),
-    conv_fast: t("runExplCF"),
-    selective: t("runExplSel"),
-    manual: t("runExplMan"),
-  };
-  box.textContent = explain[pt] || "";
-}
+let _testSelectedEls = [];  // BA 247: Elektroden-Auswahl im Header
 
-// ============================================================
-// DOMContentLoaded — buildTestPanel + Event-Wiring
-// ============================================================
 document.addEventListener("DOMContentLoaded", function() {
   var parentEl = document.getElementById("subpanel-messungen-test");
   if (!parentEl) return;
 
-  var testCfg = {
+  // Gemeinsamer Body fuer beide Verfahren (Round Robin und Konvergenz
+  // unterscheiden sich nur im Start-/Sequenz-Aufbau, nicht in der UI).
+  function _testBody() {
+    return {
+      pairIndicator:  { variant: 'electrode' },
+      progress:       { format: 'rounds' },
+      keyHint:        { unitKey: 'sliderHintDb' },
+      slider:         {
+        unit: 'dB',
+        initialRange: 20,
+        maxRange: 60,
+        rangeHint: true,
+        touchStep: 0.5,
+        touchFineStep: 0.1
+      },
+      sliderValue:    { show: true },
+      confirmButton:  { key: 'btnConfirmOffset' },
+      actions:        [
+        'undo',
+        'replay',
+        'simul',
+        { kind: 'swap', labelKey: 'btnSwapAB' }
+      ],
+      statusGrid:     { show: true }
+    };
+  }
+
+  function _testHooksCommon() {
+    return {
+      onStop:    function() { endTest(); renderResults(); },
+      onConfirm: function() { recBal(); },
+      onReplay:  function() { playCur(); },
+      onUndo:    function() { undoL(); },
+      onSimul:   function() { _testPlaySimul(); },
+      onSwap:    function() { _testSwap(); }
+    };
+  }
+
+  var cfg = {
     id: 'test',
     explain: {
       titleKey: 'testExplainTitle',
       paragraphs: [
-        { key: 'testMaturityHint', kind: 'ok' },
-        { key: 'testIntro', kind: 'plain' },
-        { key: 'testExplainRecommend' },
-        { key: 'testExplainVarious', kind: 'plain' }
+        { key: 'testMaturityHint', kind: 'ok'    },
+        { key: 'testIntro',        kind: 'plain' }
       ]
     },
-    presets: {
-      rowMode: {
-        show: true,
-        hideModeControl: true,
-        modeKey: 'lblMode',
-        modeOptions: [['balance','optBal'],['judgment','optJdg']],
-        runKey: 'lblRun',
-        runOptions: [['full','optFull'],['conv_fast','optCF'],['selective','optSel'],['manual','optMan']]
-      },
-      rowFine: {
-        show: true,
-      },
-      rowVolume: { show: true },
-      rowSequence: {
-        sequence: { show: true, source: 'global' },
-        toneType: { show: true, source: 'global' },
-        target: {
-          show: true,
-          options: ['a','b','balance'],
+    header: {
+      common: {
+        refSelect: false,
+        volume:    { show: true },
+        duration:  { show: true },
+        pause:     { show: true },
+        toneType:  false,
+        tonePopupButton: {
+          getToneType: function()   { return toneType_test; },
+          setToneType: function(tt) { toneType_test = tt; },
+          getVolume:   function()   { return gVol(); },
+          getPreviewSequence: function() {
+            var hz = 1000;
+            var dur = gDur();
+            var pau = gPau();
+            return [
+              { hz: hz, durationMs: dur },
+              { pauseMs: pau },
+              { hz: hz, durationMs: dur }
+            ];
+          }
+        },
+        sequence:     { show: true, source: 'global' },
+        sliderTarget: {
+          options:  ['a','b','balance'],
           stateKey: 'slTarget_test',
-          default: 'balance'
+          default:  'balance'
+        },
+        electrodeSelection: {
+          minSelected: 1,
+          getSelection:    function()    { return _testSelectedEls.slice(); },
+          setSelection:    function(sel) { _testSelectedEls = sel.slice(); },
+          getElectrodeStatus: function() {
+            // BA 247: Filter NUR auf aktive Seite.
+            var testable = [], muted = [], excluded = [];
+            for (var i = 0; i < nEl; i++) {
+              if (elExDur[i] !== null)  excluded.push(i);
+              else if (elSt[i] === 'mute') muted.push(i);
+              else                          testable.push(i);
+            }
+            return { testable: testable, muted: muted, excluded: excluded };
+          },
+          electrodeLabel: function(i) {
+            return dENPrefix() + dEN(i) + " (" + Math.round(effFreq(i)) + " Hz)";
+          }
         }
       },
-      startStop: { show: true, startKey: 'btnStartTest', resumable: true }
+      startStop: { startKey: 'btnStartTest', stopKey: 'btnPauseTest', resumable: true }
     },
-    test: {
-      subTitleKey: 'testRunningTitle',
-      subHintKey: 'testRunningHint',
-      progressBar: true,
-      progressFormat: 'rounds',
-      swapButton: { show: true, labelKey: 'btnSwapAB' },
-      pairDisplay: { mode: 'electrode-vs-electrode', labelLeft: 'A', labelRight: 'B' },
-      excludeButtons: { show: false, target: 'electrodes' },
-      actions: ['undo','replay','simul'],
-      keyHintBox: { show: true, unitKey: 'sliderHintDb' },
-      slider: { unit: 'dB', ranges: [20, 40, 60] },
-      sliderValue: true,
-      cumulativeDisplay: { show: true, key: 'cumulativeDb' },
-      confirmButton: { show: true, key: 'btnConfirmOffset' },
-      confidence: { show: true }
-    }
+    verfahren: [
+      {
+        id: 'full',
+        labelKey:   'testVerfahrenFull',
+        explainKey: null,
+        body: _testBody(),
+        hooks: Object.assign({
+          onStart: function() {
+            _testActiveVerfahren = 'full';
+            startTestFull();
+          }
+        }, _testHooksCommon())
+      },
+      {
+        id: 'conv',
+        labelKey:   'testVerfahrenConv',
+        explainKey: null,
+        body: _testBody(),
+        hooks: Object.assign({
+          onStart: function() {
+            _testActiveVerfahren = 'conv';
+            startTestConv();
+          }
+        }, _testHooksCommon())
+      }
+    ]
   };
 
-  testEls = buildTestPanel(parentEl, testCfg);
-
-  // Auswahl-Anzeige für Spezial-Round-Robin (BA 204)
-  (function _selectiveInjectSummaryRow() {
-    if (!testEls || !testEls.runSelect) return;
-    const summaryRow = document.createElement('div');
-    summaryRow.id = 'selSummaryRow';
-    summaryRow.className = 'selective-summary-row';
-    summaryRow.style.cssText =
-      'margin-top:6px;display:none;align-items:center;gap:10px;font-size:.92em;';
-    const summary = document.createElement('span');
-    summary.id = 'selSummary';
-    const changeBtn = document.createElement('button');
-    changeBtn.type = 'button';
-    changeBtn.className = 'btn btn-small';
-    changeBtn.dataset.t = 'selChange';
-    changeBtn.textContent = t('selChange');
-    changeBtn.addEventListener('click', _selectiveOpenDialog);
-    summaryRow.append(summary, changeBtn);
-    const insertAfter = testEls.runSelect.closest('.controls-row') || testEls.runSelect.parentNode;
-    if (insertAfter && insertAfter.parentNode) {
-      insertAfter.parentNode.insertBefore(summaryRow, insertAfter.nextSibling);
-    }
-    testEls.selSummaryRow = summaryRow;
-    testEls.selSummary = summary;
-    testEls.selChangeBtn = changeBtn;
-    _selectiveUpdateSummary();
-  })();
-
-  // manA/manB befüllen
-  function _fillManSels() {
-    if (!testEls.manA || !testEls.manB) return;
-    [testEls.manA, testEls.manB].forEach(function(sel, idx) {
-      var prev = sel.value;
-      sel.innerHTML = '';
-      for (var i = 0; i < nEl; i++) {
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = dENPrefix() + dEN(i);
-        sel.appendChild(opt);
-      }
-      if (prev && sel.querySelector('option[value="' + prev + '"]')) sel.value = prev;
-      else sel.value = idx === 0 ? '0' : String(Math.min(1, nEl - 1));
-    });
-  }
-  _fillManSels();
-  window._testFillManSels = _fillManSels;
-
-  // runExplain initial
-  updateRunExplain();
-
-  // ---- Event-Listener ----
-  testEls.startBtn.addEventListener('click', function() {
-    var pt = testEls.runSelect ? testEls.runSelect.value : 'full';
-    if (pt === 'manual') {
-      playManPair();
-    } else {
-      startTest();
-    }
-  });
-  testEls.stopBtn.addEventListener('click', function() {
-    endTest();
-    renderResults();
-  });
-
-  if (testEls.runSelect) {
-    testEls.runSelect.addEventListener('change', function() {
-      if (testEls.manualSel)
-        testEls.manualSel.classList.toggle('hidden', this.value !== 'manual');
-      // BA 204: Auswahl-Zeile sichtbar, wenn Spezial-Round-Robin
-      if (testEls.selSummaryRow) {
-        const sel = this.value === 'selective';
-        testEls.selSummaryRow.style.display = sel ? 'flex' : 'none';
-        // beim ersten Anwählen ohne bestehende Auswahl direkt Popup öffnen
-        if (sel && !selectiveElectrodes.length) _selectiveOpenDialog();
-      }
-      updateRunExplain();
-    });
-  }
-  if (testEls.swapBtn) testEls.swapBtn.addEventListener('click', _testSwap);
-  if (testEls.replayBtn) testEls.replayBtn.addEventListener('click', playCur);
-  if (testEls.undoBtn) testEls.undoBtn.addEventListener('click', undoL);
-  if (testEls.manPlayBtn) testEls.manPlayBtn.addEventListener('click', playManPair);
-
-  // Exclude buttons
-  if (testEls.excludeLeftBtn) {
-    testEls.excludeLeftBtn.addEventListener('click', function() {
-      if (!testAct) return;
-      _testRequestExcl(curA);
-    });
-  }
-  if (testEls.excludeRightBtn) {
-    testEls.excludeRightBtn.addEventListener('click', function() {
-      if (!testAct) return;
-      _testRequestExcl(curB);
-    });
-  }
-
-  // Confirm button
-  if (testEls.confirmBtn) {
-    testEls.confirmBtn.addEventListener('click', function() {
-      var pt = testEls.runSelect ? testEls.runSelect.value : '';
-      if (pt === 'manual') { recBal(); afterManRes(); } else recBal();
-    });
-  }
-
-  // Judgment buttons
-  var jH = function(r) {
-    return function() {
-      var pt = testEls.runSelect ? testEls.runSelect.value : '';
-      if (pt === 'manual') { recJdg(r); afterManRes(); } else recJdg(r);
-    };
-  };
-  if (testEls.jdgA) testEls.jdgA.addEventListener('click', jH('a'));
-  if (testEls.jdgEq) testEls.jdgEq.addEventListener('click', jH('equal'));
-  if (testEls.jdgB) testEls.jdgB.addEventListener('click', jH('b'));
-
-  // Extend button
-  if (testEls.extendBtn) {
-    testEls.extendBtn.addEventListener('click', function() {
-      _testExtSlider();
-      _testUpdCumulative(_testSliderVal());
-    });
-  }
-
-  // Slider input
-  if (testEls.slider) {
-    testEls.slider.addEventListener('input', function() {
-      var v = parseFloat(this.value);
-      if (testEls.sliderValue) testEls.sliderValue.textContent = v.toFixed(1) + " dB";
-      _testUpdCumulative(v);
-    });
-    testEls.slider.addEventListener('change', function() { this.blur(); });
-    testEls.slider.addEventListener('mouseup', function() { this.blur(); });
-    testEls.slider.addEventListener('touchend', function() { this.blur(); });
-    buildSliderTouchCtrl(testEls.slider, {
-      step: 0.5,
-      fineStep: 0.1,
-      replay: function () { if (typeof playCur === 'function') playCur(); },
-      labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
-    });
-  }
-
-  // Simul button
-  if (testEls.simulBtn) {
-    testEls.simulBtn.addEventListener('click', function() {
-      if (!testAct || testIdx >= testPairs.length) return;
-      stopAll();
-      isPlay = true;
-      var tot = curBase + _testSliderVal();
-      var vol = gVol();
-      var dur = gDur();
-      var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot) : 1), 1), 0);
-      var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
-      var p1 = playTone(effFreq(curA), vA, dur);
-      var p2 = playTone(effFreq(curB), vB, dur);
-      if (testEls.pairLeft) testEls.pairLeft.classList.add('playing');
-      if (testEls.pairRight) testEls.pairRight.classList.add('playing');
-      Promise.all([p1, p2]).then(function() {
-        if (testEls.pairLeft) testEls.pairLeft.classList.remove('playing');
-        if (testEls.pairRight) testEls.pairRight.classList.remove('playing');
-        isPlay = false;
-      });
-      curPlayed = true;
-    });
-  }
-
-  // modeSelect → showMode
-  if (testEls.modeSelect) {
-    testEls.modeSelect.addEventListener('change', function() {
-      testMode = this.value;
-      showMode();
-    });
-  }
+  testEls = buildTestPanel(parentEl, cfg);
 });
+
+// BA 247: "beide Toene gleichzeitig" (frueher inline am Simul-Button).
+function _testPlaySimul() {
+  if (!testAct || testIdx >= testPairs.length) return;
+  stopAll();
+  isPlay = true;
+  var tot = _testSliderVal();
+  var vol = gVol();
+  var dur = gDur();
+  var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot)  : 1), 1), 0);
+  var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
+  var p1 = playTone(effFreq(curA), vA, dur);
+  var p2 = playTone(effFreq(curB), vB, dur);
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.pairIndicator) testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
+  Promise.all([p1, p2]).then(function() {
+    if (vref && vref.pairIndicator) testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
+    isPlay = false;
+  });
+  curPlayed = true;
+}
 

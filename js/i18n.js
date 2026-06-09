@@ -130,7 +130,9 @@ function applyLang() {
   } catch (e) {}
 }
 function updateRunExplain() {
-  document.getElementById("runExplain").innerHTML = t("recommend")
+  var el = document.getElementById("runExplain");
+  if (!el) return;
+  el.innerHTML = t("recommend")
     .split("\n")
     .map((l) => (l.startsWith("*") ? "<li>" + l.slice(1).trim() + "</li>" : l))
     .join("<br>");
