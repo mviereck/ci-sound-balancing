@@ -558,46 +558,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  // Test keyboard — über testEls
-  document.addEventListener("keydown", (e) => {
-    if (!testAct || !testEls) return;
-    if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT") return;
-    if (e.code === "Space") {
-      e.preventDefault();
-      playCur();
-    }
-    if (e.key === "z" || e.key === "Z") {
-      e.preventDefault();
-      undoL();
-    }
-    if (e.key === "b" || e.key === "B") {
-      e.preventDefault();
-      if (typeof _testPlaySimul === 'function') _testPlaySimul();
-    }
-    // X-Shortcut für Ausschluss entfällt (§6.6)
-    // BA 247: judgment-Modus entfaellt; Shortcuts 1/2/3 entfallen damit.
-    if (e.key === "s" || e.key === "S") {
-      e.preventDefault();
-      if (typeof _testSwap === 'function') _testSwap();
-    }
-    if (testMode === "balance" && e.key === "Enter") {
-      e.preventDefault();
-      if (typeof recBal === 'function') recBal();
-    }
-    if (testMode === "balance" && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
-      e.preventDefault();
-      // BA 247: Slider sitzt jetzt in testEls.verfahren[id].slider.input
-      var _vref = testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
-      var _s = _vref && _vref.slider && _vref.slider.input;
-      if (!_s) return;
-      var _st = e.shiftKey ? 0.1 : 0.5;
-      var _v = parseFloat(_s.value);
-      if (e.key === "ArrowLeft") _v = Math.max(parseFloat(_s.min), +(_v - _st).toFixed(1));
-      if (e.key === "ArrowRight") _v = Math.min(parseFloat(_s.max), +(_v + _st).toFixed(1));
-      testUI.slider.setValue(_vref.slider, _v);
-      testUI.slider.setValueDisplay(_vref.slider, _v.toFixed(1) + " dB");
-    }
-  });
+
   // BA 163: Load from sessionStorage (pro Browser-Tab)
   try {
     // BA 163: Pro-Tab-Isolation — Lesen aus sessionStorage
