@@ -355,7 +355,7 @@ function openImplantTonePopup() {
       var vol = Math.pow(volume_implant / 100, 2);
       if (typeof _implTpCorrectVol === "function") vol = _implTpCorrectVol(vol, hz, activePan);
       try {
-        playToneTyped(c, hz, vol, 5000, activePan, tt);
+        playToneTyped(c, hz, vol, 60000, activePan, tt);
       } catch (e) { /* swallow */ }
     },
     onRelease: function () {

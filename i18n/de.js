@@ -68,8 +68,7 @@ Object.assign(L.de, {
     thEl: "El.",
     thHzStd: "Hz Standard",
     thHzOwn: "Hz eigene",
-    thPlay: "▶",
-    thHold: "◼",
+
     thActive:         "Aktiv",
     thSt: "Status",
     thNote: "Notiz",

@@ -36,15 +36,13 @@ function buildFreqTable() {
     document.getElementById("freqTH").innerHTML =
       `<th>${elLbl}</th>` +
       `<th>${t("thHzCi")}</th>` +
-      `<th>${t("thPlay")}</th>` +
-      `<th>${t("thHold")}</th>` +
       `<th>${t("thSt")}</th>` +
       `<th style="white-space:nowrap">${t("thExclCb")}</th>` +
       `<th>${t("thNote")}</th>`;
   } else {
     // BA 164: neue Spalte „Aktiv" vor Status
     document.getElementById("freqTH").innerHTML =
-      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th>${t("thPlay")}</th><th>${t("thHold")}</th><th style="white-space:nowrap">${t("thActive")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
+      `<th>${elLbl}</th><th>${t("thHzStd")}</th><th>${t("thHzOwn")}</th><th>${t("implThHdr")}</th><th>${upperHdr}</th><th style="white-space:nowrap">${t("thActive")}</th><th>${t("thSt")}</th><th style="white-space:nowrap">${t("thExclCb")}</th><th>${t("thNote")}</th>`;
   }
   const tb = document.getElementById("freqTB");
   tb.innerHTML = "";
@@ -87,8 +85,6 @@ function buildFreqTable() {
       tr.innerHTML =
         `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
         `<td style="color:#999;font-family:var(--mono);font-size:.86em;padding:4px 6px">${ciEffHz}</td>` +
-        `<td><button class="pbtn" data-a="play" data-i="${i}">&#9654;</button></td>` +
-        `<td><button class="pbtn" data-a="hold" data-i="${i}">&#9724;</button></td>` +
         `<td><select class="ss" data-i="${i}">${so_ac}</select></td>` +
         `<td style="text-align:center"${ecTdAttrs}><input type="checkbox" class="ec" data-i="${i}"${effExcl ? " checked" : ""}${cbAttrs}></td>` +
         `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
@@ -137,8 +133,6 @@ function buildFreqTable() {
       `<td><input type="number" class="fo" data-i="${i}" value="${ownVal}" min="20" max="20000" style="width:70px;padding:2px 4px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:.88em"></td>` +
       `<td><input type="number" class="it" data-i="${i}" value="${thrVal}" min="0" max="500" step="1" style="${inpStyle}" placeholder="—"></td>` +
       `<td><input type="number" class="iu" data-i="${i}" value="${upperVal}" min="0" max="1000" step="1" style="${inpStyle}" placeholder="—"></td>` +
-      `<td><button class="pbtn" data-a="play" data-i="${i}">&#9654;</button></td>` +
-      `<td><button class="pbtn" data-a="hold" data-i="${i}">&#9724;</button></td>` +
       `<td style="text-align:center">${_activeCbHtml}</td>` +
       `<td><select class="ss" data-i="${i}">${so_i}</select></td>` +
       `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${isExcl ? " checked" : ""}></td>` +
@@ -219,12 +213,6 @@ function buildFreqTable() {
       else im2.upperLevel[idx] = v;
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     }),
-  );
-  tb.querySelectorAll('.pbtn[data-a="play"]').forEach((b) =>
-    b.addEventListener("click", () => playSingle(+b.dataset.i)),
-  );
-  tb.querySelectorAll('.pbtn[data-a="hold"]').forEach((b) =>
-    b.addEventListener("click", () => toggleHold(+b.dataset.i)),
   );
   tb.querySelectorAll(".ss").forEach((s) =>
     s.addEventListener("change", (e) => {

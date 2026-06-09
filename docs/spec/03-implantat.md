@@ -97,7 +97,6 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   - **THR** (Hörschwelle) in Hersteller-Einheit (qu/CL/CU)
   - **Upper Level**: MCL bei MED-EL (qu), C-Level bei Cochlear (CL),
     M-Level bei AB (CU)
-  - Play- und Hold-Buttons (Einzelton anhören)
   - **Aktiv-Checkbox (BA 164):** neue Spalte vor Status. Gehakt = Elektrode
     aktiv im CI. Abgehakt = inaktiv (Zeile halbtransparent). Quelle:
     `elActive[i]` (`sideData[side].elActive[]`, Bool-Array, Default `true`).
@@ -130,8 +129,8 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   Das Default-Frequenzraster-Dropdown (`defaultMfrGroup`) wurde in BA 165
   vollständig entfernt.
 - **Akustische Tabellen-Variante (BA 153):** Bei Hörtechnik hg/normal/shoh
-  werden nur **8 Spalten** gezeigt: Position, Hz (CI), Cent, Play, Hold,
-  Status, Ausschluß, Notiz. Spalten Hz-eigen, THR, Upper Level entfallen.
+  werden nur **6 Spalten** gezeigt: Position, Hz (CI), Status, Ausschluß,
+  Notiz. Spalten Hz-eigen, THR, Upper Level, Play, Hold entfallen (BA 243).
   Status-Dropdown zeigt akustische Wortwahl (ok / leicht beeinträchtigt /
   mittel beeinträchtigt / stark beeinträchtigt / fast stumm / stumm),
   kein „im CI deaktiviert". Hz-Werte sind read-only und zeigen die
