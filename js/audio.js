@@ -46,11 +46,11 @@ function isDeaf(side) {
   return (sideData[s] && (sideData[s].config || "ci") === "deaf");
 }
 function stopAll() {
-  if (curOsc) {
-    try {
-      curOsc.stop();
-    } catch (e) {}
-    curOsc = null;
+  if (runningSources && runningSources.length) {
+    for (let k = 0; k < runningSources.length; k++) {
+      try { runningSources[k].stop(); } catch (e) {}
+    }
+    runningSources = [];
   }
   if (playTO) {
     clearTimeout(playTO);
@@ -118,10 +118,10 @@ function playSineTone(c, hz, vol, ms, pan, ramp = 50) {
     o.connect(g);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = o;
+    runningSources.push(o);
     o.start();
     o.stop(c.currentTime + ms / 1000 + 0.01);
-    o.onended = () => { curOsc = null; r(); };
+    o.onended = () => { r(); };
   });
 }
 
@@ -158,9 +158,9 @@ function playComplexTone(c, hz, vol, ms, pan, ramp = 50) {
     applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = oscs[0] || null;
+    for (let k = 0; k < oscs.length; k++) runningSources.push(oscs[k]);
     if (oscs.length > 0) {
-      oscs[0].onended = () => { curOsc = null; r(); };
+      oscs[0].onended = () => { r(); };
     } else {
       r();
     }
@@ -215,6 +215,7 @@ function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 50) {
     lfoGain.connect(carrierMix.gain);
     lfo.start();
     lfo.stop(c.currentTime + ms / 1000 + 0.01);
+    runningSources.push(lfo);
 
     carrierMix.connect(g);
 
@@ -222,9 +223,9 @@ function playPulsedComplexTone(c, hz, vol, ms, pan, ramp = 50) {
     applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = oscs[0] || null;
+    for (let k = 0; k < oscs.length; k++) runningSources.push(oscs[k]);
     if (oscs.length > 0) {
-      oscs[0].onended = () => { curOsc = null; r(); };
+      oscs[0].onended = () => { r(); };
     } else {
       r();
     }
@@ -304,9 +305,11 @@ function playRichTone(c, hz, vol, ms, pan, ramp = 50) {
     applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = oscs[0] || null;
+    runningSources.push(vibLfo);
+    for (let k = 0; k < oscs.length; k++) runningSources.push(oscs[k]);
+    runningSources.push(amLfo);
     if (oscs.length > 0) {
-      oscs[0].onended = () => { curOsc = null; r(); };
+      oscs[0].onended = () => { r(); };
     } else {
       r();
     }
@@ -380,11 +383,13 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
       amLfoGain.connect(carrierMix.gain);
       amLfo.start();
       amLfo.stop(c.currentTime + ms / 1000 + 0.01);
+      runningSources.push(amLfo);
     }
 
     if (vibLfo) {
       vibLfo.start();
       vibLfo.stop(c.currentTime + ms / 1000 + 0.01);
+      runningSources.push(vibLfo);
     }
 
     carrierMix.connect(g);
@@ -392,9 +397,9 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
     applyCosRamp(g, vol, c, ms, effRamp);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = oscs[0] || null;
+    for (let k = 0; k < oscs.length; k++) runningSources.push(oscs[k]);
     if (oscs.length > 0) {
-      oscs[0].onended = () => { curOsc = null; r(); };
+      oscs[0].onended = () => { r(); };
     } else {
       r();
     }
@@ -421,10 +426,10 @@ function playNoiseTone(c, hz, vol, ms, pan, ramp = 50) {
     bp.connect(g);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = src;
+    runningSources.push(src);
     src.start();
     src.stop(c.currentTime + ms / 1000 + 0.01);
-    src.onended = () => { curOsc = null; r(); };
+    src.onended = () => { r(); };
   });
 }
 
@@ -449,10 +454,10 @@ function playNoiseAdaptiveTone(c, hz, vol, ms, pan, ramp = 50) {
     bp.connect(g);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = src;
+    runningSources.push(src);
     src.start();
     src.stop(c.currentTime + ms / 1000 + 0.01);
-    src.onended = () => { curOsc = null; r(); };
+    src.onended = () => { r(); };
   });
 }
 
@@ -500,10 +505,10 @@ function playIRNTone(c, hz, vol, ms, pan, ramp = 50) {
     src.connect(g);
     g.connect(p);
     p.connect(c.destination);
-    curOsc = src;
+    runningSources.push(src);
     src.start();
     src.stop(c.currentTime + ms / 1000 + 0.01);
-    src.onended = () => { curOsc = null; r(); };
+    src.onended = () => { r(); };
   });
 }
 
@@ -529,12 +534,13 @@ function playAmSineTone(c, hz, vol, ms, pan, ramp = 50) {
     p.pan.value = pan;
     p.connect(c.destination);
     applyCosRamp(envGain, vol, c, ms, ramp);
-    curOsc = o;
+    runningSources.push(o);
+    runningSources.push(lfo);
     o.start();
     lfo.start();
     o.stop(c.currentTime + ms / 1000 + 0.01);
     lfo.stop(c.currentTime + ms / 1000 + 0.01);
-    o.onended = () => { curOsc = null; r(); };
+    o.onended = () => { r(); };
   });
 }
 
@@ -557,12 +563,13 @@ function playWarbleSineTone(c, hz, vol, ms, pan, ramp = 50) {
     p.pan.value = pan;
     p.connect(c.destination);
     applyCosRamp(g, vol, c, ms, ramp);
-    curOsc = o;
+    runningSources.push(o);
+    runningSources.push(lfo);
     o.start();
     lfo.start();
     o.stop(c.currentTime + ms / 1000 + 0.01);
     lfo.stop(c.currentTime + ms / 1000 + 0.01);
-    o.onended = () => { curOsc = null; r(); };
+    o.onended = () => { r(); };
   });
 }
 
@@ -591,10 +598,10 @@ function playBurstSineTone(c, hz, vol, ms, pan, ramp = 50) {
       g.gain.linearRampToValueAtTime(0, tStart + burstMs / 1000);
     }
     const total = nBursts * burstMs + (nBursts - 1) * pauseMs;
-    curOsc = o;
+    runningSources.push(o);
     o.start();
     o.stop(c.currentTime + (total + 50) / 1000);
-    o.onended = () => { curOsc = null; r(); };
+    o.onended = () => { r(); };
   });
 }
 
@@ -615,10 +622,10 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
     g.connect(p);
     p.connect(c.destination);
     applyCosRamp(g, vol, c, ms, ramp);
-    curOsc = o;
+    runningSources.push(o);
     o.start();
     o.stop(c.currentTime + ms / 1000 + 0.01);
-    o.onended = () => { curOsc = null; r(); };
+    o.onended = () => { r(); };
   });
 }
 

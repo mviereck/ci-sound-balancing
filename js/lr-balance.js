@@ -215,9 +215,11 @@ function lrPlaySimul() {
 }
 
 function lrStopPlay() {
-  if (curOsc) {
-    try { curOsc.stop(); } catch (e) {}
-    curOsc = null;
+  if (runningSources && runningSources.length) {
+    for (let k = 0; k < runningSources.length; k++) {
+      try { runningSources[k].stop(); } catch (e) {}
+    }
+    runningSources = [];
   }
   if (lrPlayTO) {
     clearTimeout(lrPlayTO);

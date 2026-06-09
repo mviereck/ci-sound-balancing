@@ -671,7 +671,7 @@ bindActiveSide();
 updateMfrSelectLabels();
 
 let audioCtx = null,
-  curOsc = null,
+  runningSources = [],
   playTO = null,
   isPlay = false,
   holdIdx = -1;
