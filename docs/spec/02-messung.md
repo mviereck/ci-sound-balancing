@@ -279,12 +279,29 @@ Slider-Wert wird invertiert.
   Messung ist möglicherweise sinnvoll." Bei alter Datei ohne Snapshot
   erscheint kein Hinweis. Der Snapshot wird mit der Datei gespeichert
   und geladen; beim Löschen der Ergebnisse wird er genullt.
-- Reihenfolge der Elektroden: zufällig / apikal→basal / basal→apikal
-- Seitenfolge: zufällig / L→R / R→L
+- Reihenfolge der Elektroden und Seitenfolge wandern in
+  `header.extra.fragment` als balance-spezifische Voreinstellungen.
+- Elektroden-Auswahl (`header.common.electrodeSelection`, BA 207):
+  Eine Elektrode ist nur testbar, wenn sie auf beiden Seiten weder
+  ausgeschlossen noch stumm ist. Mindestens eine Elektrode muss
+  gewählt sein.
+- Pause/Resume (BA 245): Der Stop-Knopf heißt „Test pausieren".
+  Beim erneuten Start setzt der Test die Sequenz an der gleichen
+  Stelle fort. Erst wenn alle Elektroden bestätigt wurden (oder die
+  Sequenz komplett abgelaufen ist), startet er bei Position 0.
 - Vergleicht gleiche Frequenz auf beiden Ohren
-- Vorbedingungs-Hinweis (`lrPrereqHint`): „Führen Sie zuerst die
-  Messung Elektrodenlautstärke für beide Seiten aus." — reiner Hinweis,
-  nicht zwingend
+- **Vorbedingungs-Hinweise (BA 245.3, dynamisch je Seite):**
+  - `#lrPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes` und
+    `sideData.left.jRes` leer sind. Text: `fmPrereqLvLeft`
+    (i18n-Key mit freqmatch geteilt).
+  - `#lrPrereqLvRightPara`: erscheint wenn `sideData.right.bRes` und
+    `sideData.right.jRes` leer sind. Text: `fmPrereqLvRight`.
+  Beide Hinweise als `kind: 'warn'` (gelb) oben im Erklär-Block,
+  Sichtbarkeit per `display`-Toggle in `_lrRenderPrereqHints()`,
+  aufgerufen aus `lrCheckData()`. Helfer `_lrHasLvData(side)` prüft
+  `bRes`/`jRes`-Befüllung analog `_fmHasLvData`. Der frühere statische
+  Hinweis `lrPrereqHint` ist entfernt (i18n-Key bleibt vorerst
+  stehen — Cleanup mit Migrationsplan-Schritt 6).
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 

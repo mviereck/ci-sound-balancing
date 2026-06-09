@@ -1099,9 +1099,20 @@ function _buildTestPanelNew(parentEl, cfg) {
   }
 
   // --- extra.fragment ---
+  // inline: true haengt die Children des Fragments einzeln in die
+  // rowSequence (toneType/sequence/sliderTarget), statt eine eigene
+  // Zeile zu erzeugen. Voraussetzung: rowSequence existiert und ist
+  // im DOM. Sonst Fallback auf eigene Zeile.
   if (cfg.header.extra && cfg.header.extra.fragment) {
-    headerBox.appendChild(cfg.header.extra.fragment);
-    headerRefs.extraFragment = cfg.header.extra.fragment;
+    var ef = cfg.header.extra.fragment;
+    if (cfg.header.extra.inline
+        && typeof rowSequence !== 'undefined'
+        && rowSequence && rowSequence.parentNode) {
+      while (ef.firstChild) rowSequence.appendChild(ef.firstChild);
+    } else {
+      headerBox.appendChild(ef);
+    }
+    headerRefs.extraFragment = ef;
   }
 
   // --- startStop ---
@@ -1459,6 +1470,12 @@ function _buildTestPanelNew(parentEl, cfg) {
           if (vCfg.hooks && vCfg.hooks.onPause) {
             btn.addEventListener('click', function() { vCfg.hooks.onPause(); });
           }
+        } else if (act === 'swap') {
+          btn.innerHTML = '&#x21C4; <span data-t="btnSwapLR"></span> <span class="kbd">S</span>';
+          actRefs.swap = btn;
+          if (vCfg.hooks && vCfg.hooks.onSwap) {
+            btn.addEventListener('click', function() { vCfg.hooks.onSwap(); });
+          }
         }
         actRow.appendChild(btn);
       });
@@ -1514,6 +1531,9 @@ function _buildTestPanelNew(parentEl, cfg) {
       }
       if (refs.confirmButton) {
         lockTargets.push(refs.confirmButton);
+      }
+      if (refs.actions && refs.actions.swap) {
+        lockTargets.push(refs.actions.swap);
       }
     }
 
@@ -1839,6 +1859,15 @@ function _buildTestPanelNew(parentEl, cfg) {
         if (e.key === 'b' || e.key === 'B') {
           e.preventDefault();
           if (vCfg2.hooks && vCfg2.hooks.onSimul) vCfg2.hooks.onSimul();
+          return;
+        }
+      }
+
+      // S : swap (L↔R tauschen, Stereo-Balance)
+      if (body.actions && body.actions.indexOf('swap') >= 0) {
+        if (e.key === 's' || e.key === 'S') {
+          e.preventDefault();
+          if (vCfg2.hooks && vCfg2.hooks.onSwap) vCfg2.hooks.onSwap();
           return;
         }
       }

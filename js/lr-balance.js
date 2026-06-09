@@ -18,59 +18,28 @@ let lrIsPlay = false;
 // Element-Lookup (gebaut von buildTestPanel)
 let lrEls = null;
 
-// Slider-Extend-Stufen: [20, 40, 60] dB
-const LR_SLIDER_RANGES = [20, 40, 60];
-let lrSlRangeIdx = 0;
-
-// ---- Slider-Helfer ----
-function _lrRstSlR() {
-  if (!lrEls) return;
-  lrSlRangeIdx = 0;
-  const s = lrEls.slider;
-  const r = LR_SLIDER_RANGES[0];
-  s.min = String(-r); s.max = String(r); s.step = "0.1";
-  if (lrEls.extendBtn) lrEls.extendBtn.hidden = true;
-}
-
-function _lrExtSlider() {
-  if (!lrEls) return;
-  lrSlRangeIdx = Math.min(lrSlRangeIdx + 1, LR_SLIDER_RANGES.length - 1);
-  const r = LR_SLIDER_RANGES[lrSlRangeIdx];
-  lrEls.slider.min = String(-r);
-  lrEls.slider.max = String(r);
-  if (lrEls.extendBtn) {
-    lrEls.extendBtn.hidden = (lrSlRangeIdx >= LR_SLIDER_RANGES.length - 1);
-  }
-}
-
-function _lrCheckExtend(sv) {
-  if (!lrEls || !lrEls.extendBtn) return;
-  const r = LR_SLIDER_RANGES[lrSlRangeIdx];
-  const atLimit = Math.abs(sv) >= r - 0.5;
-  const canExtend = lrSlRangeIdx < LR_SLIDER_RANGES.length - 1;
-  lrEls.extendBtn.hidden = !(atLimit && canExtend);
-}
+// BA 245: Elektroden-Auswahl für den Test (null = alle testbaren).
+let lrSelectedEls = null;
 
 function _lrSliderVal() {
-  return lrEls ? parseFloat(lrEls.slider.value) : 0;
-}
-
-function _lrUpdSliderDisplay(v) {
-  if (!lrEls) return;
-  if (lrEls.sliderValue)
-    lrEls.sliderValue.textContent = (v >= 0 ? "+" : "") + v.toFixed(1) + " dB";
-  _lrCheckExtend(v);
+  if (!lrEls) return 0;
+  var sl = lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.slider && lrEls.verfahren.balance.slider.input;
+  return sl ? parseFloat(sl.value) : 0;
 }
 
 function _lrUpdCumulative(v) {
-  if (!lrEls || !lrEls.cumulativeDisplay) return;
+  if (!lrEls) return;
+  var cd = lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.cumulativeDisplay;
+  if (!cd) return;
   const existing = lrCurrentEl !== null ? lrResults[lrCurrentEl] : undefined;
   if (existing !== undefined) {
-    lrEls.cumulativeDisplay.textContent =
+    cd.textContent =
       t("cumulativeDb") + ": " + (existing >= 0 ? "+" : "") + existing.toFixed(1) + " dB";
-    lrEls.cumulativeDisplay.style.display = "";
+    cd.style.display = "";
   } else {
-    lrEls.cumulativeDisplay.style.display = "none";
+    cd.style.display = "none";
   }
 }
 
@@ -85,15 +54,18 @@ function lrPlayTone(hz, vol, ms, pan) {
 }
 
 function lrGVol() {
-  if (lrEls && lrEls.volInput) return Math.pow(parseInt(lrEls.volInput.value) / 100, 2);
+  if (lrEls && lrEls.header && lrEls.header.volInput)
+    return Math.pow(parseInt(lrEls.header.volInput.value) / 100, 2);
   return Math.pow(50 / 100, 2);
 }
 function lrGDur() {
-  if (lrEls && lrEls.durInput) return parseInt(lrEls.durInput.value) || 1000;
+  if (lrEls && lrEls.header && lrEls.header.durInput)
+    return parseInt(lrEls.header.durInput.value) || 1000;
   return 1000;
 }
 function lrGPau() {
-  if (lrEls && lrEls.pauseInput) return parseInt(lrEls.pauseInput.value) || 400;
+  if (lrEls && lrEls.header && lrEls.header.pauseInput)
+    return parseInt(lrEls.header.pauseInput.value) || 400;
   return 400;
 }
 
@@ -161,23 +133,25 @@ async function lrPlayCurrent() {
   const firstPan = lrFlipped ? 1 : -1;
   const secondPan = lrFlipped ? -1 : 1;
 
-  lrSetSideActive(firstSide);
+  var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.pairIndicator;
+  testUI.pairIndicator.setPlaying(_lrPI, firstSide);
   lrIsPlay = true;
 
   await lrPlayTone(firstHz, firstVol, dur, firstPan);
   if (!lrIsPlay) return;
-  lrSetSideActive(null);
+  testUI.pairIndicator.setPlaying(_lrPI, null);
   await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
   if (!lrIsPlay) return;
-  lrSetSideActive(secondSide);
+  testUI.pairIndicator.setPlaying(_lrPI, secondSide);
   await lrPlayTone(secondHz, secondVol, dur, secondPan);
-  lrSetSideActive(null);
+  testUI.pairIndicator.setPlaying(_lrPI, null);
   if (globalSequence === "aba" && lrIsPlay) {
     await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
     if (!lrIsPlay) return;
-    lrSetSideActive(firstSide);
+    testUI.pairIndicator.setPlaying(_lrPI, firstSide);
     await lrPlayTone(firstHz, firstVol, dur, firstPan);
-    lrSetSideActive(null);
+    testUI.pairIndicator.setPlaying(_lrPI, null);
   }
   lrIsPlay = false;
 }
@@ -208,10 +182,12 @@ function lrPlaySimul() {
     volR = vol * corrR * dB2G(slOff / 2);
   }
   const ac = gAC();
-  lrSetSideActive("both");
+  var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.pairIndicator;
+  testUI.pairIndicator.setPlaying(_lrPI, "both");
   var p1 = playToneTyped(ac, hzL, volL, dur, -1, globalToneType);
   var p2 = playToneTyped(ac, hzR, volR, dur, 1, globalToneType);
-  Promise.all([p1, p2]).then(function() { lrSetSideActive(null); });
+  Promise.all([p1, p2]).then(function() { testUI.pairIndicator.setPlaying(_lrPI, null); });
 }
 
 function lrStopPlay() {
@@ -226,42 +202,9 @@ function lrStopPlay() {
     lrPlayTO = null;
   }
   lrIsPlay = false;
-  lrSetSideActive(null);
-}
-
-function lrSetSideActive(side) {
-  if (!lrEls) return;
-  const l = lrEls.pairLeft;
-  const r = lrEls.pairRight;
-  if (!l || !r) return;
-  if (side === "left") {
-    l.style.background = "var(--accent-light)";
-    l.style.borderColor = "var(--accent)";
-    l.style.color = "var(--accent)";
-    r.style.background = "";
-    r.style.borderColor = "";
-    r.style.color = "";
-  } else if (side === "right") {
-    r.style.background = "var(--accent-light)";
-    r.style.borderColor = "var(--accent)";
-    r.style.color = "var(--accent)";
-    l.style.background = "";
-    l.style.borderColor = "";
-    l.style.color = "";
-  } else if (side === "both") {
-    l.style.background = "var(--accent-light)";
-    l.style.borderColor = "var(--accent)";
-    l.style.color = "var(--accent)";
-    r.style.background = "var(--accent-light)";
-    r.style.borderColor = "var(--accent)";
-    r.style.color = "var(--accent)";
-  } else {
-    l.style.background = "";
-    l.style.borderColor = "";
-    l.style.color = "";
-    r.style.background = "";
-    r.style.borderColor = "";
-    r.style.color = "";
+  if (lrEls && lrEls.verfahren && lrEls.verfahren.balance
+      && lrEls.verfahren.balance.pairIndicator) {
+    testUI.pairIndicator.setPlaying(lrEls.verfahren.balance.pairIndicator, null);
   }
 }
 
@@ -281,14 +224,22 @@ function lrBuildSequence() {
       sideData["right"].elSt[i] !== "mute";
     if (leftOk && rightOk) available.push(i);
   }
-  const mode = lrEls && lrEls.modeSelect ? lrEls.modeSelect.value : "random";
-  if (mode === "ascending") {
-    lrSeq = [...available];
-  } else if (mode === "descending") {
-    lrSeq = [...available].reverse();
+  // BA 245: Filter gegen Nutzer-Auswahl
+  var filtered;
+  if (lrSelectedEls === null) {
+    filtered = available;
   } else {
-    // shuffle
-    const arr = [...available];
+    var selSet = new Set(lrSelectedEls);
+    filtered = available.filter(function(i) { return selSet.has(i); });
+  }
+  const mode = (lrEls && lrEls.header && lrEls.header.modeSelect)
+    ? lrEls.header.modeSelect.value : "random";
+  if (mode === "ascending") {
+    lrSeq = filtered.slice();
+  } else if (mode === "descending") {
+    lrSeq = filtered.slice().reverse();
+  } else {
+    const arr = filtered.slice();
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -299,7 +250,8 @@ function lrBuildSequence() {
 }
 
 function lrDetermineFlip() {
-  const mode = lrEls && lrEls.runSelect ? lrEls.runSelect.value : "random";
+  const mode = (lrEls && lrEls.header && lrEls.header.runSelect)
+    ? lrEls.header.runSelect.value : "random";
   if (mode === "lr") return false;
   if (mode === "rl") return true;
   return Math.random() < 0.5;
@@ -313,60 +265,50 @@ function lrShowPair() {
   const el = lrSeq[lrSeqIdx];
   lrCurrentEl = el;
   lrFlipped = lrDetermineFlip();
-  lrSlRangeIdx = 0;
 
-  // Slider: load existing result if any, otherwise reset to 0
+  // Slider: existing-Wert oder 0 setzen; Range wird über setValue automatisch erweitert
+  var slRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.slider;
   const existing = lrResults[el];
-  if (lrEls && lrEls.slider) {
-    _lrRstSlR();
-    if (existing !== undefined && isFinite(existing)) {
-      // Extend range if existing value exceeds default range
-      const absEx = Math.abs(existing);
-      while (absEx > LR_SLIDER_RANGES[lrSlRangeIdx] - 0.5 &&
-             lrSlRangeIdx < LR_SLIDER_RANGES.length - 1) {
-        _lrExtSlider();
-      }
-      lrEls.slider.value = String(existing);
-      _lrUpdSliderDisplay(existing);
-    } else {
-      lrEls.slider.value = "0";
-      _lrUpdSliderDisplay(0);
-    }
+  if (slRef) {
+    var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
+    testUI.slider.setValue(slRef, startVal);
   }
 
   // Update cumulative display (previous value)
   _lrUpdCumulative(0);
 
-  // Update progress
-  if (lrEls && lrEls.progressText) {
-    lrEls.progressText.textContent =
-      t("comp") + " " + (lrSeqIdx + 1) + " " + t("of") + " " + lrSeq.length;
+  // Progress über testUI-Helfer
+  var prRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.progress;
+  if (prRef) {
+    testUI.progress.set(prRef, {
+      fraction: (lrSeqIdx + 1) / lrSeq.length,
+      text: t("comp") + " " + (lrSeqIdx + 1) + " " + t("of") + " " + lrSeq.length
+    });
   }
 
-  // Electrode labels — show both sides
+  // pairIndicator: Labels und Hz-Zeile setzen
   const leftLabel = withSide("left", () => dENPrefix("left") + dEN(el));
   const rightEl = el < sideData["right"].nEl ? el : sideData["right"].nEl - 1;
   const rightLabel = withSide("right", () => dENPrefix("right") + dEN(rightEl));
-  if (lrEls && lrEls.pairLeft) {
-    lrEls.pairLeft.textContent = "L: " + leftLabel;
-  }
-  if (lrEls && lrEls.pairRight) {
-    lrEls.pairRight.textContent = "R: " + rightLabel;
-  }
-
   const hzL = lrEffFreq("left", el);
   const hzR = lrEffFreq("right", rightEl);
-  if (lrEls && lrEls.pairFreq) {
-    lrEls.pairFreq.textContent =
-      Math.round(hzL) + " Hz  ·  " + Math.round(hzR) + " Hz";
+  var piRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.pairIndicator;
+  if (piRef) {
+    testUI.pairIndicator.setLabels(piRef, {
+      leftText:  "L: " + leftLabel,
+      rightText: "R: " + rightLabel,
+      leftHz:    Math.round(hzL),
+      rightHz:   Math.round(hzR)
+    });
   }
 
-  // Undo button state
-  if (lrEls && lrEls.undoBtn) lrEls.undoBtn.disabled = lrUndoStack.length === 0;
-
-  // Reset confidence
-  if (lrEls && lrEls.confRadios && lrEls.confRadios['none'])
-    lrEls.confRadios['none'].checked = true;
+  // Undo-Button-Zustand
+  var undoBtn = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.actions && lrEls.verfahren.balance.actions.undo;
+  if (undoBtn) undoBtn.disabled = lrUndoStack.length === 0;
 
   lrPlayCurrent();
 }
@@ -400,52 +342,24 @@ function lrUndo() {
   lrShowPair();
 }
 
-function _lrRequestExcl(elIdx) {
-  if (!lrEls) return;
-  lrStopPlay();
-  const leftLabel = withSide("left", () => dENPrefix("left") + dEN(elIdx) + " (" + Math.round(lrEffFreq("left", elIdx)) + " Hz)");
-  setTestExclConfirm(lrEls.exclOverlay, leftLabel, function() {
-    // Exclude electrode on both sides
-    const now = Date.now();
-    if (sideData["left"].elExDur[elIdx] === null)
-      sideData["left"].elExDur[elIdx] = now;
-    if (sideData["right"].elExDur[elIdx] === null)
-      sideData["right"].elExDur[elIdx] = now;
-    // Remove remaining pairs with this electrode from sequence
-    lrSeq = lrSeq.filter(function(i) { return i !== elIdx; });
-    if (lrSeqIdx >= lrSeq.length) {
-      lrFinish();
-    } else {
-      lrShowPair();
-    }
-  });
-}
-
 function lrFinish() {
   lrStopPlay();
   lrRunning = false;
-  if (lrEls) {
-    lrEls.testBox.hidden = true;
-    lrEls.startBtn.disabled = false;
-    lrEls.stopBtn.disabled = true;
-  }
+  lrSeq = [];
+  lrSeqIdx = 0;
+  if (lrEls && lrEls._stopTest) lrEls._stopTest();
   lockTestTabs(false, null);
-  // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   lrRenderResults();
   lrApplyMeanToBalance();
 }
 
-function lrStop() {
+// BA 245: "Stop" ist semantisch Pause — lrSeq und lrSeqIdx bleiben erhalten.
+function lrPause() {
   lrStopPlay();
   lrRunning = false;
-  if (lrEls) {
-    lrEls.testBox.hidden = true;
-    lrEls.startBtn.disabled = false;
-    lrEls.stopBtn.disabled = true;
-  }
+  if (lrEls && lrEls._stopTest) lrEls._stopTest();
   lockTestTabs(false, null);
-  // BA 149
   if (typeof depLockApply === 'function') depLockApply();
   lrRenderResults();
 }
@@ -708,6 +622,21 @@ function lrDrawChart() {
   ctx.restore();
 }
 
+// Lautstaerke-Mess-Daten vorhanden? (Slider-Verfahren bRes oder Judgment-Verfahren jRes)
+function _lrHasLvData(side) {
+  const s = sideData[side];
+  if (!s) return false;
+  return (s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0);
+}
+
+// Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
+function _lrRenderPrereqHints() {
+  const lvLeftEl  = document.getElementById('lrPrereqLvLeftPara');
+  const lvRightEl = document.getElementById('lrPrereqLvRightPara');
+  if (lvLeftEl)  lvLeftEl.style.display  = _lrHasLvData('left')  ? 'none' : '';
+  if (lvRightEl) lvRightEl.style.display = _lrHasLvData('right') ? 'none' : '';
+}
+
 function lrCheckData() {
   const hasLeft = sideData["left"].bRes.length > 0;
   const hasRight = sideData["right"].bRes.length > 0;
@@ -725,207 +654,204 @@ function lrCheckData() {
   if (typeof renderSnapshotHint === 'function' && lrEls && lrEls.snapHintBox) {
     renderSnapshotHint('lr', lrEls.snapHintBox);
   }
+  _lrRenderPrereqHints();
+}
+
+// ---- BA 245: testUI-Hooks ----
+
+function lrHookOnStart() {
+  if (typeof isSideUsable === 'function'
+      && (!isSideUsable('left') || !isSideUsable('right'))) {
+    alert(t('lrBlockedSideUnknown'));
+    if (lrEls && lrEls._stopTest) lrEls._stopTest();
+    return;
+  }
+  // Resume: Sequenz und Position erhalten, nur Zustand wieder hochfahren
+  if (!lrSeq || !lrSeq.length || lrSeqIdx >= lrSeq.length) {
+    lrBuildSequence();
+  }
+  if (!lrSeq.length) {
+    alert(t("lrNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
+    if (lrEls && lrEls._stopTest) lrEls._stopTest();
+    return;
+  }
+  lrRunning = true;
+  lrUndoStack = [];
+  lockTestTabs(true, 'balance');
+  lrShowPair();
+}
+
+function lrHookOnStop() {
+  lrPause();
+}
+
+function lrHookOnSlide(v) {
+  _lrUpdCumulative(v);
+}
+
+function lrHookOnSwap() {
+  lrFlipped = !lrFlipped;
+  lrPlayCurrent();
 }
 
 // ---- DOMContentLoaded — buildTestPanel + Event-Wiring ----
+
+function _lrBuildExtraFragment() {
+  // Wird mit extra.inline:true in rowSequence reingehaengt, daher nur
+  // ein toter Container - die Children (control-groups) wandern um.
+  var frag = document.createElement('div');
+  frag.dataset.row = 'lr-extra';
+
+  // Label und Select muessen Geschwister sein, sonst loescht applyLang
+  // den Select beim Setzen von textContent des Labels.
+  var cgMode = document.createElement('div');
+  cgMode.className = 'control-group';
+  var lblMode = document.createElement('label');
+  lblMode.dataset.t = 'lrOrderLbl';
+  var modeSelect = document.createElement('select');
+  modeSelect.id = 'lrOrderSelect';
+  [['random','optRandom'],['ascending','optAsc'],['descending','optDesc']]
+    .forEach(function(opt) {
+      var o = document.createElement('option');
+      o.value = opt[0]; o.dataset.t = opt[1];
+      modeSelect.appendChild(o);
+    });
+  cgMode.append(lblMode, modeSelect);
+
+  var cgSide = document.createElement('div');
+  cgSide.className = 'control-group';
+  var lblSide = document.createElement('label');
+  lblSide.dataset.t = 'lrSideLbl';
+  var runSelect = document.createElement('select');
+  runSelect.id = 'lrSideSelect';
+  [['random','optRandom'],['lr','optLR'],['rl','optRL']]
+    .forEach(function(opt) {
+      var o = document.createElement('option');
+      o.value = opt[0]; o.dataset.t = opt[1];
+      runSelect.appendChild(o);
+    });
+  cgSide.append(lblSide, runSelect);
+
+  frag.append(cgMode, cgSide);
+  frag._lrModeSelect = modeSelect;
+  frag._lrRunSelect  = runSelect;
+  return frag;
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   var parentEl = document.getElementById("subpanel-messungen-balance");
   if (!parentEl) return;
 
-  var balanceCfg = {
+  var extraFrag = _lrBuildExtraFragment();
+
+  var cfg = {
     id: 'balance',
     explain: {
       titleKey: 'lrTitle',
       paragraphs: [
-        { key: 'lrMaturityHint', kind: 'info' },
-        { key: 'lrDesc', kind: 'plain' },
-        { key: 'lrPrereqHint', kind: 'plain' }
+        { key: 'lrMaturityHint', kind: 'info'  },
+        { key: 'lrDesc',         kind: 'plain' },
+        // Dynamische Vortest-Hinweise (Sichtbarkeit via _lrRenderPrereqHints)
+        { key: 'fmPrereqLvLeft',  kind: 'warn', id: 'lrPrereqLvLeftPara'  },
+        { key: 'fmPrereqLvRight', kind: 'warn', id: 'lrPrereqLvRightPara' }
       ]
     },
-    presets: {
-      rowMode: {
-        show: true,
-        modeKey: 'lrOrderLbl',
-        modeOptions: [['random','optRandom'],['ascending','optAsc'],['descending','optDesc']],
-        runKey: 'lrSideLbl',
-        runOptions: [['random','optRandom'],['lr','optLR'],['rl','optRL']]
-      },
-      rowFine: { show: false },
-      rowVolume: { show: true },
-      rowSequence: {
-        sequence: { show: true, source: 'global' },
-        toneType: { show: true, source: 'global' },
-        target: {
-          show: true,
-          options: ['left','right','both'],
+    header: {
+      common: {
+        refSelect: false,
+        volume:    { show: true },
+        duration:  { show: true, default: 1000, min: 100, max: 3000, step: 50 },
+        pause:     { show: true, default: 400,  min: 50,  max: 2000, step: 50 },
+        toneType:  { show: true, source: 'global' },
+        sequence:  { show: true, source: 'global' },
+        sliderTarget: {
+          options:  ['left','right','both'],
           stateKey: 'slTarget_balance',
-          default: 'both'
+          default:  'both'
+        },
+        electrodeSelection: {
+          minSelected: 1,
+          getSelection: function() { return lrSelectedEls; },
+          setSelection: function(sel) { lrSelectedEls = sel.slice(); },
+          getElectrodeStatus: function() {
+            var leftN  = sideData.left.nEl;
+            var rightN = sideData.right.nEl;
+            var count  = Math.min(leftN, rightN);
+            var testable = [], muted = [], excluded = [];
+            for (var i = 0; i < count; i++) {
+              var rightI = i < rightN ? i : rightN - 1;
+              var exL = sideData.left.elExDur[i]       !== null;
+              var exR = sideData.right.elExDur[rightI] !== null;
+              var muL = sideData.left.elSt[i]          === 'mute';
+              var muR = sideData.right.elSt[rightI]    === 'mute';
+              if (exL || exR)      excluded.push(i);
+              else if (muL || muR) muted.push(i);
+              else                 testable.push(i);
+            }
+            return { testable: testable, muted: muted, excluded: excluded };
+          },
+          electrodeLabel: function(i) {
+            var leftLabel = withSide("left", function() { return dENPrefix("left") + dEN(i); });
+            var hzL = lrEffFreq("left", i);
+            return leftLabel + " (" + Math.round(hzL) + " Hz)";
+          }
         }
       },
-      startStop: { show: true, startKey: 'btnStartTest', resumable: false }
+      extra: { fragment: extraFrag, inline: true },
+      startStop: { startKey: 'btnStartTest', stopKey: 'btnPauseTest', resumable: true }
     },
-    test: {
-      subTitleKey: 'lrRunningTitle',
-      subHintKey: 'lrRunningHint',
-      progressBar: true,
-      progressFormat: 'simple',
-      swapButton: { show: true, labelKey: 'btnSwapLR' },
-      pairDisplay: { mode: 'side-vs-side', labelLeft: 'L', labelRight: 'R' },
-      excludeButtons: { show: false, target: 'electrodes' },
-      actions: ['undo','replay','simul'],
-      keyHintBox: { show: true, unitKey: 'sliderHintDb' },
-      slider: { unit: 'dB', ranges: [20, 40, 60] },
-      sliderValue: true,
-      cumulativeDisplay: { show: true, key: 'cumulativeDb' },
-      confirmButton: { show: true, key: 'btnConfirmOffset' },
-      confidence: { show: true }
-    }
+    verfahren: [{
+      id: 'balance',
+      labelKey:   'lrTitle',
+      explainKey: null,
+      body: {
+        pairIndicator:     { variant: 'side' },
+        progress:          { format: 'simple' },
+        instruction:       { key: 'lrRunningHint' },
+        keyHint:           { unitKey: 'sliderHintDb' },
+        slider:            { unit: 'dB', initialRange: 20, maxRange: 60, touchStep: 0.5, touchFineStep: 0.1 },
+        sliderValue:       { show: true },
+        cumulativeDisplay: { key: 'cumulativeDb' },
+        confirmButton:     { key: 'btnConfirmOffset' },
+        actions:           ['undo','replay','simul','swap']
+      },
+      hooks: {
+        onStart:   lrHookOnStart,
+        onStop:    lrHookOnStop,
+        onSlide:   lrHookOnSlide,
+        onConfirm: lrConfirm,
+        onReplay:  lrPlayCurrent,
+        onUndo:    lrUndo,
+        onSimul:   lrPlaySimul,
+        onSwap:    lrHookOnSwap
+      }
+    }]
   };
 
-  lrEls = buildTestPanel(parentEl, balanceCfg);
+  lrEls = buildTestPanel(parentEl, cfg);
 
-  // ---- Event-Listener ----
+  // Refs aus dem extra-Fragment in lrEls.header aufnehmen
+  if (lrEls && lrEls.header) {
+    lrEls.header.modeSelect = extraFrag._lrModeSelect;
+    lrEls.header.runSelect  = extraFrag._lrRunSelect;
+  }
 
-  // Start
-  lrEls.startBtn.addEventListener('click', function() {
-    // BA 155: Voraussetzungs-Sperre
-    if (typeof isSideUsable === 'function'
-        && (!isSideUsable('left') || !isSideUsable('right'))) {
-      alert(t('lrBlockedSideUnknown'));
-      return;
-    }
-    lrBuildSequence();
-    if (!lrSeq.length) {
-      alert(t("lrNoElMsg") || "Keine gemeinsamen aktiven Elektroden gefunden.");
-      return;
-    }
-    lrRunning = true;
-    lrUndoStack = [];
-    lrSlRangeIdx = 0;
-    lrEls.startBtn.disabled = true;
-    lrEls.stopBtn.disabled = false;
-    lrEls.testBox.hidden = false;
-    lockTestTabs(true, 'balance');
-    lrShowPair();
-  });
-
-  // Stop
-  lrEls.stopBtn.addEventListener('click', lrStop);
-
-  // Swap L↔R
-  if (lrEls.swapBtn) {
-    lrEls.swapBtn.addEventListener('click', function() {
-      lrFlipped = !lrFlipped;
-      lrPlayCurrent();
+  // Slider-Live-Anzeige aktualisiert auch das cumulativeDisplay
+  var slInput = lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.slider && lrEls.verfahren.balance.slider.input;
+  if (slInput) {
+    slInput.addEventListener('input', function() {
+      _lrUpdCumulative(parseFloat(this.value));
     });
   }
 
-  // Replay
-  if (lrEls.replayBtn) lrEls.replayBtn.addEventListener('click', lrPlayCurrent);
-
-  // Simul
-  if (lrEls.simulBtn) lrEls.simulBtn.addEventListener('click', lrPlaySimul);
-
-  // Confirm
-  if (lrEls.confirmBtn) lrEls.confirmBtn.addEventListener('click', lrConfirm);
-
-  // Undo
-  if (lrEls.undoBtn) lrEls.undoBtn.addEventListener('click', lrUndo);
-
-  // Exclude buttons
-  if (lrEls.excludeLeftBtn) {
-    lrEls.excludeLeftBtn.addEventListener('click', function() {
-      if (!lrRunning || lrCurrentEl === null) return;
-      _lrRequestExcl(lrCurrentEl);
-    });
-  }
-  if (lrEls.excludeRightBtn) {
-    lrEls.excludeRightBtn.addEventListener('click', function() {
-      if (!lrRunning || lrCurrentEl === null) return;
-      _lrRequestExcl(lrCurrentEl);
-    });
-  }
-
-  // Extend button
-  if (lrEls.extendBtn) {
-    lrEls.extendBtn.addEventListener('click', function() {
-      _lrExtSlider();
-      _lrUpdSliderDisplay(_lrSliderVal());
-    });
-  }
-
-  // Slider input
-  if (lrEls.slider) {
-    lrEls.slider.addEventListener('input', function() {
-      var v = parseFloat(this.value);
-      _lrUpdSliderDisplay(v);
-      _lrUpdCumulative(v);
-    });
-    lrEls.slider.addEventListener('change', function() { this.blur(); });
-    lrEls.slider.addEventListener('mouseup', function() { this.blur(); });
-    lrEls.slider.addEventListener('touchend', function() { this.blur(); });
-    buildSliderTouchCtrl(lrEls.slider, {
-      step: 0.5,
-      fineStep: 0.1,
-      replay: function () { if (typeof lrPlayCurrent === 'function') lrPlayCurrent(); },
-      labelReplay: '▶ ' + (t('bReplay') || 'Wiederholen')
-    });
-  }
-
-  // Keyboard in balance subtab
-  document.addEventListener('keydown', function(e) {
-    var balSubpanel = document.getElementById('subpanel-messungen-balance');
-    if (!balSubpanel || !balSubpanel.classList.contains('active')) return;
-    var messPanel = document.getElementById('panel-messungen');
-    if (!messPanel || !messPanel.classList.contains('active')) return;
-    if (!lrRunning) return;
-    const activeEl = document.activeElement;
-    const isSlider = lrEls && lrEls.slider && activeEl === lrEls.slider;
-    if (!isSlider && activeEl &&
-        (activeEl.tagName === 'INPUT' || activeEl.tagName === 'SELECT' || activeEl.tagName === 'TEXTAREA')) return;
-
-    const step = e.shiftKey ? 0.1 : 0.5;
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      var sl = lrEls ? lrEls.slider : null;
-      if (!sl) return;
-      var r = LR_SLIDER_RANGES[lrSlRangeIdx];
-      var nv = Math.max(-r, parseFloat(sl.value) - step);
-      sl.value = nv.toFixed(1);
-      _lrUpdSliderDisplay(nv);
-      _lrUpdCumulative(nv);
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      var sl = lrEls ? lrEls.slider : null;
-      if (!sl) return;
-      var r = LR_SLIDER_RANGES[lrSlRangeIdx];
-      var nv = Math.min(r, parseFloat(sl.value) + step);
-      sl.value = nv.toFixed(1);
-      _lrUpdSliderDisplay(nv);
-      _lrUpdCumulative(nv);
-    } else if (e.key === ' ') {
-      e.preventDefault();
-      lrPlayCurrent();
-    } else if (e.key === 'Enter') {
-      e.preventDefault();
-      lrConfirm();
-    } else if (e.key === 'z' || e.key === 'Z') {
-      e.preventDefault();
-      lrUndo();
-    } else if (e.key === 'b' || e.key === 'B') {
-      e.preventDefault();
-      if (lrEls && lrEls.simulBtn) lrEls.simulBtn.click();
-    }
-  });
-
-  // Clear results button (in results tab, static HTML)
+  // Clear-Button im Ergebnis-Sub-Tab
   var lrClearBtn = document.getElementById('lrClearBtn');
   if (lrClearBtn) {
     lrClearBtn.addEventListener('click', function() {
       if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       lrResults = {};
-      lrSnapshot = null; // BA 156
-      // BA 151
+      lrSnapshot = null;
       if (typeof depLockApply === 'function') depLockApply();
       var lrRC = document.getElementById("lrResultsCard");
       if (lrRC) lrRC.style.display = "none";
@@ -939,17 +865,12 @@ document.addEventListener("DOMContentLoaded", function() {
 document
   .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() {
-      lrCheckData();
-    }, 0);
+    setTimeout(function() { lrCheckData(); }, 0);
   });
 
 // Hook into lrresults subtab activation
 document
   .querySelector('.subtab[data-subtab="lrresults"][data-parent="ergebnisse"]')
   ?.addEventListener('click', function() {
-    setTimeout(function() {
-      lrCheckData();
-      lrDrawChart();
-    }, 0);
+    setTimeout(function() { lrCheckData(); lrDrawChart(); }, 0);
   });

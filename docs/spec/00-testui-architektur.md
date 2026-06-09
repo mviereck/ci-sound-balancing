@@ -225,7 +225,7 @@ Callbacks über `hooks` und nutzt Helfer wie
 | `sliderValue` | Werte-Anzeige unter dem Slider | `show`, `formatter`: optional | — |
 | `decisionButtons` | Antwort-Buttons | `variant`: `'updown'` (↑/↓) | `onDecision(choice)` mit `choice`: `'up'` \| `'down'` |
 | `confirmButton` | Bestätigen-Button | `key`: i18n | `onConfirm()` |
-| `actions` | Aktionsleiste: Undo/Replay/Simul | Array von `'undo'`/`'replay'`/`'simul'` | `onUndo()`, `onReplay()`, `onSimul()` (Nutzer-Funktion „beide Töne gleichzeitig", nicht Debug) |
+| `actions` | Aktionsleiste: Undo/Replay/Simul/Swap | Array von `'undo'`/`'replay'`/`'simul'`/`'swap'` | `onUndo()`, `onReplay()`, `onSimul()` (Nutzer-Funktion „beide Töne gleichzeitig"), `onSwap()` (lr-balance: L↔R-Tauschen während Trial) |
 | `statusGrid` | Per-Elektroden-Statusanzeige | `show` | — (Helfer: `setEntries`) |
 | `progress` | Fortschrittsbalken mit Timer | `format`: `'simple'` \| `'rounds'` | — (Helfer: `set`) |
 | `cumulativeDisplay` | Kumulativer Offset | `key`: i18n | — (Helfer: `set`) |
@@ -267,6 +267,19 @@ Wahl, die test-Laufart oder die balance-Reihenfolge ohne Erweiterung
 der zentralen API abbilden. Voraussetzung: solche Fälle sind selten;
 wenn ein Sonderfeld in mehreren Sub-Reitern auftaucht, gehört es als
 Baustein in `common`.
+
+Optional: `header.extra.inline: true` hängt die direkten Kinder des
+Fragments einzeln an die `rowSequence` (Zeile mit
+toneType/sequence/sliderTarget) an, statt eine eigene Zeile zu
+erzeugen. Voraussetzung ist, daß die `rowSequence` tatsächlich
+existiert (mindestens einer von `sequence`/`toneType`/`sliderTarget`/
+`tonePopupButton` aktiv); sonst fällt testUI auf das eigene-Zeile-
+Verhalten zurück. Anwendung: Stereo-Balance, wo Reihenfolge und
+Seitenfolge platzsparend rechts neben `sliderTarget` stehen sollen.
+Refs am Fragment-Element (`frag.foo = …`) bleiben über
+`headerRefs.extraFragment` erreichbar, auch wenn die Kinder verschoben
+wurden. Latenz nutzt das Flag nicht und bleibt unverändert (eigene
+Zeile), weil dort `rowSequence` ohnehin nicht existiert.
 
 **`header.startStop`** ist immer vorhanden. Der Start-Button-Text
 ist über `startKey` konfigurierbar; der Stop-Button-Text über
@@ -376,6 +389,7 @@ verbindlicher Bestandteil jeder Bauanleitung, die testUI berührt.
 | Leertaste | Replay aktueller Trial | `actions` enthält `'replay'` |
 | Backspace (⌫) | Undo letzte Antwort | `actions` enthält `'undo'` |
 | B | Beide Töne gleichzeitig abspielen (simul) | `actions` enthält `'simul'` |
+| S | L↔R-Tauschen (Stereo-Balance) | `actions` enthält `'swap'` |
 | Enter | `onConfirm` (falls `confirmButton` deklariert) oder `onApply` (falls `applyButton` deklariert) | `confirmButton` **oder** `applyButton`-Baustein deklariert |
 | 1 / 2 / 3 | (entfällt — `judgment`-Verfahren wird gestrichen) | — |
 
@@ -437,14 +451,30 @@ neuer Sonnet-Chat)*
 - Akzeptanztest: full und conv_fast laufen unverändert; manual-Pfad
   funktioniert; Konfidenz wird gespeichert
 
-**Schritt 4 — Stereo-Balance migrieren** *(Bauanleitung)*
+**Schritt 4 — Stereo-Balance migrieren** *(Bauanleitung)* ✅ gebaut (BA 245)
 
-- `lr-balance.js` auf neue API umstellen
-- Reihenfolge- und Seiten-Auswahl wandern in `header.extra`
-- Aufleuchten der pairLeft/pairRight beim Tonabspielen (heute
-  nicht implementiert, kommt mit testUI-Helfer automatisch)
+- `lr-balance.js` auf testUI-API umgestellt
+- Reihenfolge- (random/ascending/descending) und Seitenfolge-Auswahl
+  (random/lr/rl) wandern in `header.extra.fragment`
+- `pairIndicator { variant: 'side' }` ersetzt die eigene
+  `lrSetSideActive`-CSS-Manipulation; Aufleuchten der L/R-Box
+  beim Tonabspielen läuft jetzt über den testUI-Helfer
+- Slider mit Auto-Extend (`initialRange: 20, maxRange: 60`); alte
+  3-Stufen-Logik (`LR_SLIDER_RANGES`, `_lrRstSlR`, `_lrExtSlider`)
+  entfernt
+- Pause/Resume: `stopKey: 'btnPauseTest'`, `resumable: true`. `lrSeq`
+  und `lrSeqIdx` bleiben beim Pausieren erhalten; beim erneuten
+  Start wird die Sequenz an der gleichen Stelle fortgesetzt
+- Konfidenz-Baustein entfällt (war nie ausgewertet)
+- Exclude-Buttons während des Trials entfallen (waren `show: false`);
+  stattdessen `header.common.electrodeSelection` mit beidseitiger
+  Status-Logik (testbar = beide Seiten weder excluded noch mute)
+- Neuer testUI-Aktionswert `'swap'` mit Hook `onSwap` und Shortcut `S`;
+  i18n-Key `btnSwapLR` bereits vorhanden
+- Eigenes Keyboard-Listener und Z-Undo entfernt; testUI-Pfeiltasten-
+  Routing und Backspace-Undo greifen
 - Akzeptanztest: Sequenzen werden korrekt abgespielt, Swap funktioniert,
-  Konfidenz wird gespeichert
+  Pause/Resume funktioniert, Elektroden-Auswahl filtert die Sequenz
 
 **Schritt 5 — Latenz unter das Schema bringen** *(Bauanleitung)* ✅ gebaut (BA 223)
 
