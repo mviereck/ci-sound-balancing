@@ -1306,17 +1306,6 @@ function _buildTestPanelNew(parentEl, cfg) {
       slWrap.append(slInput);
       vWrap.appendChild(slWrap);
 
-      // LS-Hint nur bei dB-Slider (cent-Slider braucht ihn nicht)
-      var lsHint = null, lsHintBand = null, lsHintMark = null, lsHintLabel2 = null;
-      if (slUnit === 'dB') {
-        lsHint = _mkEl('div', 'ls-hint');
-        lsHint.style.display = 'none';
-        lsHintBand = _mkEl('div', 'ls-hint-band');
-        lsHintMark = _mkEl('div', 'ls-hint-mark');
-        lsHintLabel2 = _mkEl('div', 'ls-hint-label');
-        lsHint.append(lsHintBand, lsHintMark, lsHintLabel2);
-        slWrap.appendChild(lsHint);
-      }
 
       // BA 206: Slider Round — Min/Max-Bereich + Median-Dreieck (eigene Klassen).
       var rangeHint = null, rangeHintBand = null, rangeHintMark = null, rangeHintLabel = null;
@@ -1339,7 +1328,6 @@ function _buildTestPanelNew(parentEl, cfg) {
 
       refs.slider = {
         input: slInput,
-        lsHint: lsHint, lsHintBand: lsHintBand, lsHintMark: lsHintMark, lsHintLabel: lsHintLabel2,
         rangeHint: rangeHint, rangeHintBand: rangeHintBand,
         rangeHintMark: rangeHintMark, rangeHintLabel: rangeHintLabel,
         unit: slUnit,
@@ -1442,7 +1430,10 @@ function _buildTestPanelNew(parentEl, cfg) {
     if (body.actions && body.actions.length) {
       var actRow = _mkEl('div', 'action-row');
       var actRefs = {};
-      body.actions.forEach(function(act) {
+      body.actions.forEach(function(actSpec) {
+        // BA 246: Eintrag darf String oder { kind, labelKey } sein.
+        var act      = (typeof actSpec === 'string') ? actSpec : actSpec.kind;
+        var labelKey = (typeof actSpec === 'string') ? null    : actSpec.labelKey;
         var btn = _mkEl('button', 'btn btn-large');
         btn.dataset.action = act;
         if (act === 'undo') {
@@ -1471,7 +1462,9 @@ function _buildTestPanelNew(parentEl, cfg) {
             btn.addEventListener('click', function() { vCfg.hooks.onPause(); });
           }
         } else if (act === 'swap') {
-          btn.innerHTML = '&#x21C4; <span data-t="btnSwapLR"></span> <span class="kbd">S</span>';
+          // BA 246: labelKey ueberschreibt Default btnSwapLR.
+          var swapKey = labelKey || 'btnSwapLR';
+          btn.innerHTML = '&#x21C4; <span data-t="' + swapKey + '"></span> <span class="kbd">S</span>';
           actRefs.swap = btn;
           if (vCfg.hooks && vCfg.hooks.onSwap) {
             btn.addEventListener('click', function() { vCfg.hooks.onSwap(); });

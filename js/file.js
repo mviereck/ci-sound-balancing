@@ -57,6 +57,8 @@ function resetAll() {
   globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
+  // BA 246
+  if (typeof toneType_test !== "undefined") toneType_test = "richCiHF";
   if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
   if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
@@ -284,6 +286,9 @@ async function saveJson() {
     globalToneType: globalToneType,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : "richCiHF",
+    // BA 246
+    toneType_test: (typeof toneType_test !== "undefined")
+      ? toneType_test : "richCiHF",
     // BA 240: Vol/Dur/Pau-State des Frequenzabgleichs persistieren.
     volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
@@ -609,6 +614,16 @@ function applyLoadedData(d) {
       toneType_freqmatch = d.globalToneType;
     } else {
       toneType_freqmatch = "richCiHF";
+    }
+  }
+  // BA 246
+  if (typeof toneType_test !== "undefined") {
+    if (isValidToneType(d.toneType_test)) {
+      toneType_test = d.toneType_test;
+    } else if (isValidToneType(d.globalToneType)) {
+      toneType_test = d.globalToneType;
+    } else {
+      toneType_test = "richCiHF";
     }
   }
   // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.

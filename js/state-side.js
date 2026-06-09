@@ -695,6 +695,11 @@ let globalToneType = "richCiHF"; // "sine" | "complex" | "pulsedComplex" | "nois
 // das weiterhin für Elektrodenlautstärke und Stereo-Balance gilt.
 // Default 'richCiHF' (CI-Test flach).
 let toneType_freqmatch = "richCiHF";
+// BA 246: Tonart speziell fuer Elektrodenlautstaerke. Eigene Persistenz
+// statt globalToneType, damit Tonart-Popup-Dialog (analog freqmatch)
+// pro Test funktioniert. Wird in BA 247 erstmals aus dem testUI-Header
+// gelesen/geschrieben.
+let toneType_test = "richCiHF";
 // BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
 // Vol als int 0..100 (UI-Wert); fmGVol macht die quadratische Audio-Konversion.
 let volume_freqmatch   = 75;
