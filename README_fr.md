@@ -1,6 +1,6 @@
-# CI Sound Balancing Tool
+# CImbel - CI Sound Balancing Tool
 
-![](favicon.png)
+<img src="assets/images/CImbel_logo.png" alt="CImbel — CI sound balancing" width="200">
 
 Cet outil sert aux porteurs d'implants cochléaires pour mesurer leurs intensités sonores et hauteurs tonales perçues.
 - Sur la base des résultats de mesure, des fichiers audio peuvent être lus avec un ajustement simulé.

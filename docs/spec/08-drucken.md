@@ -16,7 +16,7 @@
   aktive Seite druckt. Jeder Einzeldruck trägt einen Mini-Kopf
   mit App-Name, Tab-Titel, Datum, Seite und Implantat-
   Identifikation; darunter eine kursive Tool-Versions-Zeile
-  („Meßwerte ermittelt mit CI Sound Balancing Tool vX.Y.Z-beta
+  („Meßwerte ermittelt mit CImbel — CI sound balancing vX.Y.Z-beta
   (www.ci-sound-balancing.org)", i18n-Key `printHeaderToolVersion`)
   — gilt seit BA 176 für alle Tab-Drucke und den Audiologen-Druck
   einheitlich über `buildPrintHeader`. Der bestehende „Alles
@@ -110,7 +110,7 @@ Aktionen: Drucken (mit Grafik), Markdown-Export.
 Der Korrektur-Bericht ist gegliedert in:
 
 1. Kopf wird vollständig vom gemeinsamen `buildPrintHeader` (`print.js`)
-   gestellt: H1 „CI Sound Balancing — Einstellungswünsche an den
+   gestellt: H1 „CImbel — CI sound balancing — Einstellungswünsche an den
    Audiologen", Datum / Seite / Implantat, Tool-Versions-Zeile mit
    Domain. Der Audiologen-Markdown-Body enthält seit BA 176 keinen
    eigenen H1/Datum/Versions-Block mehr.

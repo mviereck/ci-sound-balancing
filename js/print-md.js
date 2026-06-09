@@ -405,7 +405,7 @@ function renderArchivMarkdown(data) {
 }
 
 function _archivMdHeader(data) {
-  return `# CI Sound Balancing — ${t("archivTitle")}\n\n`
+  return `# CImbel — CI sound balancing — ${t("archivTitle")}\n\n`
        + `**${t("archivHeaderDate")}**: ${data.meta.dateStr}\n`
        + `**${t("archivHeaderVersion")}**: v${data.meta.version}\n`
        + `**${t("archivHeaderLang")}**: ${data.meta.lang.toUpperCase()}\n`
@@ -1927,8 +1927,8 @@ function renderArchivPrintHtml(data) {
     img.archiv-logo { float: right; height: 150px; width: auto; margin: 0 0 8px 12px; }
     @media print { body { margin: 0; padding: 0; } img.archiv-logo { height: 150px; } }
   `;
-  const logoUrl = new URL("assets/images/logo_briefkopf6.png", window.location.href).href;
-  const logoHtml = `<img src="${logoUrl}" alt="CI Sound Balancing" class="archiv-logo" />`;
+  const logoUrl = new URL("assets/images/CImbel_logo.png", window.location.href).href;
+  const logoHtml = `<img src="${logoUrl}" alt="CImbel — CI sound balancing" class="archiv-logo" />`;
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${t("archivTitle")}</title><style>${styles}</style></head><body>${logoHtml}${enrichedHtml}</body></html>`;
 }
 

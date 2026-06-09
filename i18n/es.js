@@ -422,7 +422,7 @@ Object.assign(L.es, {
     printHeaderDate: "Fecha",
     printHeaderSide: "Lado",
     printHeaderImpl: "Implante",
-    printHeaderToolVersion: "Valores obtenidos con CI Sound Balancing Tool {VERSION} (www.ci-sound-balancing.org)",
+    printHeaderToolVersion: "Valores obtenidos con CImbel — CI sound balancing {VERSION} (www.ci-sound-balancing.org)",
     fResetAll: "Reiniciar todo",
     cardResetTitle: "Borrar datos",
     eeDesc:

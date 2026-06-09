@@ -1,6 +1,6 @@
-# CI Sound Balancing Tool
+# CImbel - CI Sound Balancing Tool
 
-![](favicon.png)
+<img src="assets/images/CImbel_logo.png" alt="CImbel — CI sound balancing" width="200">
 
 This tool is designed for cochlear implant users to measure their perceived loudness and pitches.
 - Based on the measurement results, audio files can be played back with a simulated adjustment.

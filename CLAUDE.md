@@ -1,12 +1,19 @@
-# Projektbeschreibung für Sound Balancing Tool Entwicklung
+# Projektbeschreibung für CImbel-Entwicklung
 
-Diese Beschreibung gilt für Chats, in denen das Sound Balancing Tool
-entwickelt wird.
+Diese Beschreibung gilt für Chats, in denen CImbel
+(früher: „CI Sound Balancing Tool") entwickelt wird.
 
-Dieses Projekt ist ein CI Sound Balancing Tool, das im Browser läuft.
-Es dient Cochlea-Implantat-Trägern dazu, die wahrgenommene Lautstärke
-verschiedener Elektrodenfrequenzen systematisch zu vergleichen und
-eine Korrekturkurve zu erstellen.
+Dieses Projekt ist CImbel („CI Multi-Band Equal Loudness"), ein
+CI-Sound-Balancing-Tool, das im Browser läuft. UI-Titel: „CImbel —
+CI sound balancing" (mit Geviertstrich). Es dient Cochlea-Implantat-
+Trägern dazu, die wahrgenommene Lautstärke verschiedener Elektroden-
+frequenzen systematisch zu vergleichen und eine Korrekturkurve zu
+erstellen.
+
+Der frühere Name „CI Sound Balancing Tool" steht noch in einigen
+Doku-Dateien (`docs/SPEC.md`, `docs/CODESTRUKTUR.md`,
+`docs/Konzept_Audio_Manifest.md`, `docs/Berechnungsgrundlagen dB
+zu CI.md`) — gemeint ist überall CImbel.
 
 REFERENZDATEIEN
 ---------------

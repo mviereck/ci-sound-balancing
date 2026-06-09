@@ -17,7 +17,7 @@ function _printEscHtml(s) {
 }
 
 // Liefert HTML-String mit zweizeiligem Mini-Kopf:
-//   Zeile 1 groß:  "CI Sound Balancing — <tabTitle>"
+//   Zeile 1 groß:  "CImbel — CI sound balancing — <tabTitle>"
 //   Zeile 2 klein: Datum · Seite · Implantat
 function buildPrintHeader(tabTitle) {
   const dateStr = new Date().toISOString().slice(0, 10);
@@ -35,7 +35,7 @@ function buildPrintHeader(tabTitle) {
   if (procName) implParts.push(procName);
   if (modelName) implParts.push(modelName);
   const implStr = implParts.length ? implParts.join(", ") : "—";
-  const logoUrl = new URL("assets/images/logo_briefkopf6.png", window.location.href).href;
+  const logoUrl = new URL("assets/images/CImbel_logo.png", window.location.href).href;
   const versionStr = (typeof APP_VERSION !== "undefined") ? APP_VERSION : "";
   const versionLine = versionStr
     ? _printEscHtml(t("printHeaderToolVersion").replace("{VERSION}", versionStr))
@@ -43,7 +43,7 @@ function buildPrintHeader(tabTitle) {
   return `
     <div style="margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px; font-family: sans-serif; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
       <div style="flex: 1; min-width: 0;">
-        <h1 style="font-size: 1.5em; margin: 0 0 4px 0;">CI Sound Balancing — ${_printEscHtml(tabTitle)}</h1>
+        <h1 style="font-size: 1.5em; margin: 0 0 4px 0;">CImbel — CI sound balancing — ${_printEscHtml(tabTitle)}</h1>
         <p style="font-size: 0.85em; color: #666; margin: 0;">
           ${_printEscHtml(t("printHeaderDate"))}: ${dateStr}
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderSide"))}: ${_printEscHtml(sideStr)}${_printEscHtml(cfgSuffix)}
@@ -51,7 +51,7 @@ function buildPrintHeader(tabTitle) {
         </p>
         ${versionLine ? `<p style="font-size: 0.78em; color: #888; margin: 4px 0 0 0; font-style: italic;">${versionLine}</p>` : ""}
       </div>
-      <img src="${logoUrl}" alt="CI Sound Balancing" style="height:150px;width:auto;flex-shrink:0;" />
+      <img src="${logoUrl}" alt="CImbel — CI sound balancing" style="height:150px;width:auto;flex-shrink:0;" />
     </div>
   `;
 }
@@ -83,7 +83,7 @@ function openPrintWindow(tabTitle, bodyHtml) {
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CI Sound Balancing — ${_printEscHtml(tabTitle)}</title>
+  <title>CImbel — CI sound balancing — ${_printEscHtml(tabTitle)}</title>
   <style>
     body { margin: 0; padding: 20px; font-family: sans-serif; color: #000; }
     h1, h2, h3 { color: #000; }

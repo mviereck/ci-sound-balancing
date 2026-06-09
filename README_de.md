@@ -1,6 +1,6 @@
-# CI Sound Balancing Tool
+# CImbel - CI Sound Balancing Tool
 
-![](favicon.png)
+<img src="assets/images/CImbel_logo.png" alt="CImbel — CI sound balancing" width="200">
 
 Dieses Tool dient Trägern von Cochlea Implantaten zur Messung ihrer wahrgenommenen Lautstärken und Tonhöhen. 
 - Auf Basis der Meßergebnisse können Audiodateien mit simulierter Anpassung abgespielt werden. 

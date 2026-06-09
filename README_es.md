@@ -1,6 +1,6 @@
-# CI Sound Balancing Tool
+# CImbel - CI Sound Balancing Tool
 
-![](favicon.png)
+<img src="assets/images/CImbel_logo.png" alt="CImbel — CI sound balancing" width="200">
 
 Esta herramienta está pensada para portadores de implante coclear para medir las intensidades sonoras y las alturas tonales que perciben.
 - Sobre la base de los resultados de medición se pueden reproducir archivos de audio con una adaptación simulada.
