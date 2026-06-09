@@ -771,14 +771,16 @@ function startTestConv() {
 }
 
 // BA 247: Sequenz auf die im Header gewaehlten Elektroden filtern.
-// Liefert nur Paare, bei denen mindestens eine Elektrode gewaehlt ist
-// (oder unveraendert, wenn keine Auswahl getroffen wurde = alle).
+// BA 247fix: UND-Logik statt ODER. Es werden nur Paare gespielt,
+// in denen BEIDE Elektroden in der Auswahl stehen. Konsequenz: ein
+// Paarvergleich braucht mindestens zwei ausgewaehlte Elektroden
+// (vgl. minSelected: 2 im electrodeSelection-Block).
 function _testFilterByElectrodeSelection(pairs) {
   var sel = _testSelectedEls;
   if (!sel || !sel.length) return pairs;
   var s = new Set(sel);
   return pairs.filter(function(p) {
-    return s.has(p[0]) || s.has(p[1]);
+    return s.has(p[0]) && s.has(p[1]);
   });
 }
 function endTest() {
@@ -970,7 +972,10 @@ function nextFullRound() {
   const roundPairs = rrTable[s.fullSweepRound - 1].filter(
     ([a, b]) => actSet.has(a) && actSet.has(b),
   );
-  testPairs = randAB(shuffle(roundPairs));
+  // BA 247fix: Elektroden-Auswahl im Header gilt auch ab der zweiten
+  // Runde, nicht nur beim Start (startTestFull).
+  const filtered = _testFilterByElectrodeSelection(roundPairs);
+  testPairs = randAB(shuffle(filtered));
   testIdx = 0;
   undoSt = [];
   updFullSweepInfo();
@@ -1043,7 +1048,10 @@ function updTmr() {
 // ============================================================
 // BA 247: DOMContentLoaded — buildTestPanel (neue testUI-API)
 // ============================================================
-let _testSelectedEls = [];  // BA 247: Elektroden-Auswahl im Header
+// BA 247fix: null = "alle testable ausgewaehlt" (Konvention aus
+// test-ui.js Z. 2270 und aus lr-balance). Leeres Array waere im
+// Modal als "keine ausgewaehlt" interpretiert.
+let _testSelectedEls = null;
 
 document.addEventListener("DOMContentLoaded", function() {
   var parentEl = document.getElementById("subpanel-messungen-test");
@@ -1125,8 +1133,9 @@ document.addEventListener("DOMContentLoaded", function() {
           default:  'balance'
         },
         electrodeSelection: {
-          minSelected: 1,
-          getSelection:    function()    { return _testSelectedEls.slice(); },
+          // BA 247fix: zwei Elektroden noetig, sonst kein Paar.
+          minSelected: 2,
+          getSelection:    function()    { return _testSelectedEls ? _testSelectedEls.slice() : null; },
           setSelection:    function(sel) { _testSelectedEls = sel.slice(); },
           getElectrodeStatus: function() {
             // BA 247: Filter NUR auf aktive Seite.

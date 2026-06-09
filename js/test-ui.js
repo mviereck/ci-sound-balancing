@@ -842,7 +842,12 @@ function _buildTestPanelNew(parentEl, cfg) {
     headerRefs.verfahrenExplainBox = verfahrenExplainBox;
     headerRefs.verfahrenExplainSpan = verfahrenExplainSpan;
     var _firstExplainKey = cfg.verfahren[0] && cfg.verfahren[0].explainKey;
-    if (_firstExplainKey) _tEl(verfahrenExplainSpan, _firstExplainKey);
+    if (_firstExplainKey) {
+      _tEl(verfahrenExplainSpan, _firstExplainKey);
+    } else {
+      // BA 247fix: keine leere Box anzeigen, wenn das Verfahren keinen explainKey hat.
+      verfahrenExplainBox.style.display = 'none';
+    }
   }
 
   // --- common: refSelect ---
@@ -1629,7 +1634,13 @@ function _buildTestPanelNew(parentEl, cfg) {
       }
       if (headerRefs.verfahrenExplainSpan && newVCfg && newVCfg.explainKey) {
         _tEl(headerRefs.verfahrenExplainSpan, newVCfg.explainKey);
+        if (headerRefs.verfahrenExplainBox) {
+          headerRefs.verfahrenExplainBox.style.display = '';
+        }
         _applyLangSubtree(headerRefs.verfahrenExplainBox);
+      } else if (headerRefs.verfahrenExplainBox) {
+        // BA 247fix: Box ausblenden, wenn das neue Verfahren keinen explainKey hat.
+        headerRefs.verfahrenExplainBox.style.display = 'none';
       }
       // runningTitle-Label im neuen Verfahren-Body aktualisieren
       var newVRefs = _verfahrenRefs[newId];
