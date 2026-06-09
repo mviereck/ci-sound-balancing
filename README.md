@@ -2,7 +2,7 @@
 
 <img src="assets/images/CImbel_logo.png" alt="CImbel — CI sound balancing" width="200">
 
-A browser-based tool that helps users of cochlear implants measure their perceived loudness and pitch, simulate fittings before going to the audiologist, and print out the requested changes for an appointment.
+CImbel is a browser-based tool that helps users of cochlear implants measure their perceived loudness and pitch, simulate fittings before going to the audiologist, and print out the requested changes for an appointment.
 
 The tool runs online in your browser: **[CI Sound Balancing Tool](https://www.ci-sound-balancing.org/)**
 
@@ -15,26 +15,10 @@ Supported manufacturers: MED-EL, Cochlear, Advanced Bionics.
 - 🇫🇷 [Manuel en français](README_fr.md)
 - 🇪🇸 [Manual en español](README_es.md)
 
-## Related links
+## CImbel - the name
+"CImbel" sounds similar to [cymbal])(https://en.wikipedia.org/wiki/Cymbal) or  [Zimbel](https://de.wikipedia.org/wiki/Zimbel), a musical instrument. The spelling incorporates the abbreviation "CI" for cochlear implants, as well as the suffix "-bel," as found in "decibel". 
 
-- Tinnitus toolbox: <https://hearwell.life/>
-- Binaural CI alignment: <https://cito.github.io/bicial/>
-- Pico ASHA Project: <https://shermp.github.io/Pico-ASHA/>
-- ASHA pipewire sink: <https://github.com/thewierdnut/asha_pipewire_sink>
-
-## Speech material and sources
-
-The "Play sentences" feature in the Player tab uses voice recordings
-from the following open sources:
-
-- **Thorsten-Voice** — German studio voice by Thorsten Müller,
-  training data CC0. <https://www.thorsten-voice.de>
-- **Mozilla Common Voice 17.0** — multilingual crowd-sourced speech
-  datasets (CC0-1.0). Retrieved through the unofficial Hugging Face
-  mirror `fsicoli/common_voice_17_0`.
-  <https://commonvoice.mozilla.org>
-
-Selected audio snippets are included in this repository.
+If one wishes to interpret the name as an acronym, "CI Multi-Band Equal Loudness" would be a fitting choice. This name was selected to provide a term that is both conceptually relevant and easy to use in conversation.
 
 ## Contact
 
