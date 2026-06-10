@@ -1144,6 +1144,8 @@ document.addEventListener("DOMContentLoaded", function() {
           onToneSelected: function(tt) { _testTpModalTone = tt; },
           onModalClose:   function()   { _testTpModalTone = null; _testTpCorrectVol = null; },
           onTogglesReady: function(fn) { _testTpCorrectVol = fn; },
+          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
+          showToggles:  false,
           // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
           showVolume:   true,
           showDuration: true,

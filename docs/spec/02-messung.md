@@ -142,6 +142,13 @@ In `state-side.js` und persistiert in JSON und localStorage:
     `b = -mean`), unabhängig vom Player-eigenen `plBalanceMode`.
     Immer aktivierbar (kein Ausgrauen bei einseitiger Sequenz —
     die Wirkung bleibt halt einseitig).
+  Sichtbarkeit (seit BA 256): in den vier Test-Modalen
+  (Elektrodenlautstärke, Stereo-Balance, Latenz, Frequenzabgleich) wird
+  die Toggle-Reihe nicht mehr gerendert (`showToggles: false` im jeweiligen
+  `tonePopupButton`-cfg). Die Korrekturen wirken trotzdem — die internen
+  Variablen `applyMeasLevels` / `applyBalance` stehen weiterhin auf `true`.
+  Im Reiter Implantat bleibt die Reihe sichtbar (`ui-implant.js` setzt
+  das Flag nicht).
   Latenz-Anwendung im Modal entfällt: die Vorspielsequenzen sind
   heute sequentiell (siehe `freqmatch.js`), Inter-Ohr-Latenz
   hätte keine hörbare Wirkung.
@@ -534,11 +541,13 @@ Slider-Wert wird invertiert.
 - **Nur mit Kabel-Kopfhörer durchführen** — Bluetooth verfälscht die Messung
   (`latBTWarning`, `kind: 'caution'`).
 - Vorbedingungs-Hinweis (`latPrereqHint`, `kind: 'warn'`): immer sichtbar.
-- Vortest-Empfehlungen (je `kind: 'warn'`, anfangs hidden):
+- Vortest-Empfehlung (`kind: 'warn'`, anfangs hidden):
   - `latVortestBalanceMissing`: eingeblendet wenn noch keine Balance-Werte gemessen.
-  - `latVortestLoudnessMissing`: eingeblendet wenn noch keine Lautstärke-Werte gemessen.
   - Sichtbarkeit wird bei jedem Öffnen des Sub-Tabs via `testUI.explain.setVisible`
     aktualisiert — kein Showstopper, der Test läuft auch ohne.
+  - Seit `3.2.255.3-beta`: kein Loudness-Vortest-Hinweis mehr (`latVortestLoudnessMissing`
+    entfernt). Begründung: die Elektrodenlautstärke wird im Latenz-Test-Audio-Pfad
+    nicht angewandt (siehe nächster Punkt), ein Vortest-Hinweis wäre damit irreführend.
 - **Audio-Pfad:** Klick-Buffer → ChannelSplitter → L/R-Gain (Balance aus
   `getRawBalanceGains` × Volume-Faktor) → ChannelMerger → `pGain` →
   `pLatSplitter` → `pLatDelayL`/`pLatDelayR` (2,0 s Puffer) → `pLatMerger` →

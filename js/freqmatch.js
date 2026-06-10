@@ -1079,6 +1079,8 @@ document.addEventListener("DOMContentLoaded", () => {
           onToneSelected:  function(tt) { fmModalTone = tt; },
           onModalClose:    function()   { fmModalTone = null; fmKbdCorrectVol = null; },
           onTogglesReady:  function(fn) { fmKbdCorrectVol = fn; },
+          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
+          showToggles:  false,
           // BA 240: Vol/Dur/Pau-Felder in der Modal aktivieren.
           showVolume:   true,
           showDuration: true,

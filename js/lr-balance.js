@@ -821,6 +821,8 @@ document.addEventListener("DOMContentLoaded", function() {
           onToneSelected: function(tt) { _lrTpModalTone = tt; },
           onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
           onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
+          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
+          showToggles:  false,
           hintKey: 'tonePopupHint',
           showVolume:   true,
           showDuration: true,

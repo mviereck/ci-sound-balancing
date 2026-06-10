@@ -246,46 +246,56 @@ function openToneSelectionDialog(cfg, onChange) {
   // BA 239: Korrektur-Toggles. Stil analog Player-Toggles
   // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):
   // grün = aktiv, grau = inaktiv. Beide Default an, lokal.
-  var togRow = document.createElement('div');
-  togRow.style.cssText =
-    'display:flex;gap:8px;margin:0 0 14px 0;flex-wrap:wrap;';
+  //
+  // BA 256: In den Test-Aufrufern (Elektrodenlautstärke, Stereo-Balance,
+  // Latenz, Frequenzabgleich) wird showToggles: false gesetzt — die
+  // Knopfreihe entfällt dann komplett. Die Variablen applyMeasLevels /
+  // applyBalance bleiben oben auf true; die Korrekturen wirken weiterhin
+  // auf Vorhör-Step, Klavier-Anschlag und Sweep. Im Reiter Implantat
+  // (ui-implant.js) bleiben die Knöpfe sichtbar (kein showToggles-Flag
+  // gesetzt -> Default true).
+  if (cfg.showToggles !== false) {
+    var togRow = document.createElement('div');
+    togRow.style.cssText =
+      'display:flex;gap:8px;margin:0 0 14px 0;flex-wrap:wrap;';
 
-  function _tpUpdToggleStyle(btn, active) {
-    if (active) {
-      btn.style.background  = 'var(--success)';
-      btn.style.color       = '#fff';
-      btn.style.borderColor = 'var(--success)';
-    } else {
-      btn.style.background  = '#e5e7eb';
-      btn.style.color       = 'var(--text)';
-      btn.style.borderColor = 'var(--border)';
-    }
-  }
+    var _tpUpdToggleStyle = function(btn, active) {
+      if (active) {
+        btn.style.background  = 'var(--success)';
+        btn.style.color       = '#fff';
+        btn.style.borderColor = 'var(--success)';
+      } else {
+        btn.style.background  = '#e5e7eb';
+        btn.style.color       = 'var(--text)';
+        btn.style.borderColor = 'var(--border)';
+      }
+    };
 
-  var togMeas = document.createElement('button');
-  togMeas.type = 'button';
-  togMeas.className = 'btn btn-sm';
-  togMeas.dataset.t = 'tonePopupApplyMeas';
-  togMeas.style.cssText = 'font-weight:600;border-radius:6px;';
-  togMeas.addEventListener('click', function() {
-    applyMeasLevels = !applyMeasLevels;
+    var togMeas = document.createElement('button');
+    togMeas.type = 'button';
+    togMeas.className = 'btn btn-sm';
+    togMeas.dataset.t = 'tonePopupApplyMeas';
+    togMeas.style.cssText = 'font-weight:600;border-radius:6px;';
+    togMeas.addEventListener('click', function() {
+      applyMeasLevels = !applyMeasLevels;
+      _tpUpdToggleStyle(togMeas, applyMeasLevels);
+    });
     _tpUpdToggleStyle(togMeas, applyMeasLevels);
-  });
-  _tpUpdToggleStyle(togMeas, applyMeasLevels);
 
-  var togBal = document.createElement('button');
-  togBal.type = 'button';
-  togBal.className = 'btn btn-sm';
-  togBal.dataset.t = 'tonePopupApplyBalance';
-  togBal.style.cssText = 'font-weight:600;border-radius:6px;';
-  togBal.addEventListener('click', function() {
-    applyBalance = !applyBalance;
+    var togBal = document.createElement('button');
+    togBal.type = 'button';
+    togBal.className = 'btn btn-sm';
+    togBal.dataset.t = 'tonePopupApplyBalance';
+    togBal.style.cssText = 'font-weight:600;border-radius:6px;';
+    togBal.addEventListener('click', function() {
+      applyBalance = !applyBalance;
+      _tpUpdToggleStyle(togBal, applyBalance);
+    });
     _tpUpdToggleStyle(togBal, applyBalance);
-  });
-  _tpUpdToggleStyle(togBal, applyBalance);
 
-  togRow.append(togMeas, togBal);
-  dlg.appendChild(togRow);
+    togRow.append(togMeas, togBal);
+    dlg.appendChild(togRow);
+  }
 
   // BA 240: Vol/Dur/Pau-Eingabefelder. Pro Feld via cfg.showXxx aktivierbar.
   // Werte werden live ueber cfg-Setter zurueckgeschrieben (kein OK-Bestaetigen).
