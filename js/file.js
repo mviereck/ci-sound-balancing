@@ -62,6 +62,10 @@ function resetAll() {
   if (typeof volume_test   !== "undefined") volume_test   = 75;
   if (typeof duration_test !== "undefined") duration_test = 750;
   if (typeof pause_test    !== "undefined") pause_test    = 300;
+  if (typeof toneType_balance !== "undefined") toneType_balance = "richCiHF";
+  if (typeof volume_balance   !== "undefined") volume_balance   = 75;
+  if (typeof duration_balance !== "undefined") duration_balance = 1000;
+  if (typeof pause_balance    !== "undefined") pause_balance    = 400;
   if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
   if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
@@ -298,6 +302,12 @@ async function saveJson() {
     volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
     pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : 400,
+    // BA 253: Vol/Dur/Pau/ToneType fuer Stereo-Balance persistieren.
+    toneType_balance: (typeof toneType_balance !== "undefined")
+      ? toneType_balance : "richCiHF",
+    volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : 75,
+    duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : 1000,
+    pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : 400,
     toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : "sine",
     volume_implant:     (typeof volume_implant   !== "undefined") ? volume_implant   : 75,
     duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : 1000,
@@ -657,6 +667,28 @@ function applyLoadedData(d) {
   if (typeof pause_freqmatch !== "undefined") {
     var sp = parseInt(d.pause_freqmatch, 10);
     pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : 400;
+  }
+  // BA 253: ToneType/Vol/Dur/Pau fuer Stereo-Balance aus JSON zuruecklesen.
+  if (typeof toneType_balance !== "undefined") {
+    if (isValidToneType(d.toneType_balance)) {
+      toneType_balance = d.toneType_balance;
+    } else if (isValidToneType(d.globalToneType)) {
+      toneType_balance = d.globalToneType;
+    } else {
+      toneType_balance = "richCiHF";
+    }
+  }
+  if (typeof volume_balance !== "undefined") {
+    var _vB = parseInt(d.volume_balance, 10);
+    volume_balance = (isFinite(_vB) && _vB >= 0 && _vB <= 100) ? _vB : 75;
+  }
+  if (typeof duration_balance !== "undefined") {
+    var _dB = parseInt(d.duration_balance, 10);
+    duration_balance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : 1000;
+  }
+  if (typeof pause_balance !== "undefined") {
+    var _pB = parseInt(d.pause_balance, 10);
+    pause_balance = (isFinite(_pB) && _pB >= 50 && _pB <= 2000) ? _pB : 400;
   }
   // BA 242: Implantat-State aus JSON zuruecklesen.
   if (typeof toneType_implant !== "undefined") {

@@ -703,6 +703,13 @@ let pause_freqmatch    = 400;
 let volume_test   = 75;
 let duration_test = 750;
 let pause_test    = 300;
+// BA 253: Tonart, Lautstaerke, Tondauer, Tonpause speziell fuer
+// Stereo-Balance. Ueber die Tonauswahl-Modalbox eingestellt; getrennt
+// vom Frequenzabgleich- und Elektrodenlautstaerke-Test.
+let toneType_balance = "richCiHF";
+let volume_balance   = 75;
+let duration_balance = 1000;
+let pause_balance    = 400;
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).

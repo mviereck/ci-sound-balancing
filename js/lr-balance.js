@@ -50,24 +50,60 @@ function _lrGetMode() {
 
 function lrPlayTone(hz, vol, ms, pan) {
   const c = gAC();
-  return playToneTyped(c, hz, vol, ms, pan, globalToneType);
+  return playToneTyped(c, hz, vol, ms, pan, toneType_balance);
 }
 
-function lrGVol() {
-  if (lrEls && lrEls.header && lrEls.header.volInput)
-    return Math.pow(parseInt(lrEls.header.volInput.value) / 100, 2);
-  return Math.pow(50 / 100, 2);
+function lrGVol() { return Math.pow((volume_balance || 0) / 100, 2); }
+function lrGDur() { return duration_balance || 1000; }
+function lrGPau() { return pause_balance    || 400;  }
+
+// BA 253: Klavier-Helfer fuer die Tonauswahl-Modalbox des
+// Stereo-Balance-Tests. Tasten bis Min(leftN, rightN); disabled
+// sobald auf einer der beiden Seiten abgewaehlt (elActive===false)
+// oder ausgeschlossen (elExDur!=null). 'mute' zaehlt nicht als
+// disabled. Frequenzen und Labels werden von der aktiven Seite
+// genommen (Anzeige-Konvention).
+function _lrTpKbdN() {
+  var lN = (sideData.left  && sideData.left.nEl)  || 0;
+  var rN = (sideData.right && sideData.right.nEl) || 0;
+  return Math.min(lN, rN);
 }
-function lrGDur() {
-  if (lrEls && lrEls.header && lrEls.header.durInput)
-    return parseInt(lrEls.header.durInput.value) || 1000;
-  return 1000;
+function _lrTpElectrodeFreqs() {
+  var n = _lrTpKbdN();
+  if (n <= 0) return [];
+  var arr = [];
+  for (var i = 0; i < n; i++) arr.push(lrEffFreq(activeSide, i));
+  return arr;
 }
-function lrGPau() {
-  if (lrEls && lrEls.header && lrEls.header.pauseInput)
-    return parseInt(lrEls.header.pauseInput.value) || 400;
-  return 400;
+function _lrTpElectrodeLabels() {
+  var n = _lrTpKbdN();
+  if (n <= 0) return [];
+  var arr = [];
+  var prefix = withSide(activeSide, function() { return dENPrefix(); });
+  for (var i = 0; i < n; i++) {
+    arr.push(prefix + withSide(activeSide, function() { return dEN(i); }));
+  }
+  return arr;
 }
+function _lrTpDisabledElectrodes() {
+  var n = _lrTpKbdN();
+  if (n <= 0) return [];
+  var sdL = sideData.left, sdR = sideData.right;
+  var dis = [];
+  for (var i = 0; i < n; i++) {
+    var off = (sdL.elActive && sdL.elActive[i] === false)
+           || (sdL.elExDur  && sdL.elExDur[i]  != null)
+           || (sdR.elActive && sdR.elActive[i] === false)
+           || (sdR.elExDur  && sdR.elExDur[i]  != null);
+    if (off) dis.push(i);
+  }
+  return dis;
+}
+
+// BA 253: State fuer den Modal-Korrektur-Toggle und die aktuell
+// im Modal angeklickte Tonart (analog freqmatch/test).
+var _lrTpCorrectVol = null;
+var _lrTpModalTone  = null;
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
 function lrCorrGain(side, elIdx) {
@@ -185,8 +221,8 @@ function lrPlaySimul() {
   var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
     && lrEls.verfahren.balance.pairIndicator;
   testUI.pairIndicator.setPlaying(_lrPI, "both");
-  var p1 = playToneTyped(ac, hzL, volL, dur, -1, globalToneType);
-  var p2 = playToneTyped(ac, hzR, volR, dur, 1, globalToneType);
+  var p1 = playToneTyped(ac, hzL, volL, dur, -1, toneType_balance);
+  var p2 = playToneTyped(ac, hzR, volR, dur, 1, toneType_balance);
   Promise.all([p1, p2]).then(function() { testUI.pairIndicator.setPlaying(_lrPI, null); });
 }
 
@@ -759,10 +795,77 @@ document.addEventListener("DOMContentLoaded", function() {
     header: {
       common: {
         refSelect: false,
-        volume:    { show: true },
-        duration:  { show: true, default: 1000, min: 100, max: 3000, step: 50 },
-        pause:     { show: true, default: 400,  min: 50,  max: 2000, step: 50 },
-        toneType:  { show: true, source: 'global' },
+        // BA 253: Lautstaerke/Tondauer/Tonpause leben jetzt im
+        // Tonauswahl-Modal, nicht mehr im Header.
+        volume:    false,
+        duration:  false,
+        pause:     false,
+        // BA 253: Tonart-Dropdown durch tonePopupButton ersetzt.
+        toneType:  false,
+        tonePopupButton: {
+          getToneType: function()   { return toneType_balance; },
+          setToneType: function(tt) { toneType_balance = tt; },
+          onToneSelected: function(tt) { _lrTpModalTone = tt; },
+          onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
+          onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
+          hintKey: 'tonePopupHint',
+          showVolume:   true,
+          showDuration: true,
+          showPause:    true,
+          getVolumePercent: function()  { return volume_balance; },
+          setVolumePercent: function(v) { volume_balance = v; },
+          getDurationMs:    function()  { return duration_balance; },
+          setDurationMs:    function(v) { duration_balance = v; },
+          getPauseMs:       function()  { return pause_balance; },
+          setPauseMs:       function(v) { pause_balance = v; },
+          getVolume:   function() { return lrGVol(); },
+          getPreviewSequence: function() {
+            var dur  = lrGDur();
+            var pau  = lrGPau();
+            var panA = (activeSide === 'left') ? -1 : 1;
+            var panB = -panA;
+            return [
+              { hz: 1000, pan: panA, durationMs: dur },
+              { pauseMs: pau },
+              { hz: 1000, pan: panB, durationMs: dur }
+            ];
+          },
+          // BA 253: Klavier mit beidseitiger Disabled-Logik.
+          keyboardMode:          true,
+          getElectrodeFreqs:     _lrTpElectrodeFreqs,
+          getElectrodeLabels:    _lrTpElectrodeLabels,
+          getDisabledElectrodes: _lrTpDisabledElectrodes,
+          getHighlightMs: function() { return lrGDur() * 2 + lrGPau(); },
+          onPress: function(electrodeIdx, hz) {
+            var c = (typeof gAC === 'function') ? gAC() : null;
+            if (!c) return;
+            var dur  = lrGDur();
+            var pau  = lrGPau();
+            var vol  = lrGVol();
+            var panA = (activeSide === 'left') ? -1 : 1;
+            var panB = -panA;
+            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
+            var hzA, hzB;
+            if (electrodeIdx >= 0) {
+              hzA = lrEffFreq(activeSide, electrodeIdx);
+              var otherSide = (activeSide === 'left') ? 'right' : 'left';
+              var rN = sideData[otherSide] ? sideData[otherSide].nEl : 0;
+              var otherIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
+              hzB = lrEffFreq(otherSide, otherIdx);
+            } else {
+              hzA = hz;
+              hzB = hz;
+            }
+            var volA = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hzA, panA) : vol;
+            var volB = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hzB, panB) : vol;
+            try {
+              playToneTyped(c, hzA, volA, dur, panA, tt);
+              setTimeout(function() {
+                playToneTyped(c, hzB, volB, dur, panB, tt);
+              }, dur + pau);
+            } catch (e) { /* swallow */ }
+          }
+        },
         sequence:  { show: true, source: 'global' },
         sliderTarget: {
           options:  ['left','right','both'],

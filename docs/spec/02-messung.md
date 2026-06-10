@@ -284,6 +284,26 @@ Slider-Wert wird invertiert.
   Messung ist möglicherweise sinnvoll." Bei alter Datei ohne Snapshot
   erscheint kein Hinweis. Der Snapshot wird mit der Datei gespeichert
   und geladen; beim Löschen der Ergebnisse wird er genullt.
+- **Tonart-Auswahl (BA 253):** Button im Header „Tonart: *Aktualwert*"
+  öffnet die Tonauswahl-Modalbox (analog Frequenzabgleich BA 209 und
+  Elektrodenlautstärke BA 250). Auswahl persistiert in
+  `toneType_balance` (Default `richCiHF`). Der frühere Tonart-Dropdown
+  im Header ist entfernt.
+- **Vol/Dur/Pau-Felder im Modal (BA 253):** Lautstärke, Tondauer,
+  Tonpause sind jetzt im Tonauswahl-Modal (State: `volume_balance`,
+  `duration_balance`, `pause_balance`; Defaults 75 / 1000 / 400). Im
+  Header sind diese Felder nicht mehr sichtbar.
+- **Klavier-Widget im Modal (BA 253):** Tastenzahl = min(leftN, rightN).
+  Taste ist disabled (durchgekreuzt, ausgegraut), sobald die Elektrode
+  auf **einer der beiden Seiten** abgewählt (`elActive===false`) oder
+  ausgeschlossen (`elExDur!=null`) ist — Stumm-Schaltung gilt nicht als
+  disabled. Klavier-Anschlag: Burst aktive Seite, Pause (`pause_balance`),
+  Burst andere Seite (`duration_balance`, `volume_balance`). Frequenzen
+  pro Seite werden getrennt abgerufen (`lrEffFreq`). Hilfsfunktionen:
+  `_lrTpKbdN`, `_lrTpElectrodeFreqs`, `_lrTpElectrodeLabels`,
+  `_lrTpDisabledElectrodes`. Modul-State: `_lrTpCorrectVol` (Korrektur-
+  Toggle-Callback aus `onTogglesReady`), `_lrTpModalTone` (aktuell
+  gewählte Tonart im offenen Modal).
 - Reihenfolge der Elektroden und Seitenfolge wandern in
   `header.extra.fragment` als balance-spezifische Voreinstellungen.
 - Elektroden-Auswahl (`header.common.electrodeSelection`, BA 207):

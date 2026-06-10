@@ -739,6 +739,16 @@ document.addEventListener("DOMContentLoaded", () => {
           toneType_freqmatch = d.globalToneType;
         }
       }
+      if (typeof toneType_balance !== "undefined") {
+        if (isValidToneType(d.toneType_balance)) {
+          toneType_balance = d.toneType_balance;
+        } else if (isValidToneType(d.globalToneType)) {
+          toneType_balance = d.globalToneType;
+        }
+      }
+      if (typeof volume_balance   !== "undefined" && isFinite(parseInt(d.volume_balance,   10))) volume_balance   = parseInt(d.volume_balance,   10);
+      if (typeof duration_balance !== "undefined" && isFinite(parseInt(d.duration_balance, 10))) duration_balance = parseInt(d.duration_balance, 10);
+      if (typeof pause_balance    !== "undefined" && isFinite(parseInt(d.pause_balance,    10))) pause_balance    = parseInt(d.pause_balance,    10);
       if (typeof d.userFileSuffix === "string") {
         userFileSuffix = d.userFileSuffix;
         const _el = document.getElementById("userFileSuffix");
@@ -922,6 +932,11 @@ document.addEventListener("DOMContentLoaded", () => {
           globalToneType: globalToneType,
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
             ? toneType_freqmatch : "richCiHF",
+          toneType_balance: (typeof toneType_balance !== "undefined")
+            ? toneType_balance : "richCiHF",
+          volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : 75,
+          duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : 1000,
+          pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : 400,
           globalSequence: globalSequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,
