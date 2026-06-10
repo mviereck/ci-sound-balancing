@@ -1116,5 +1116,4 @@ Object.assign(L.fr, {
     sliderHintMs:   "1 ms",
     latVerfahrenLabel: "Latence",
     latVortestBalanceMissing:  "Remarque : le pré-test « Balance stéréo » n'a pas encore été effectué. La mesure fonctionne quand même, mais elle est plus précise si la balance a été ajustée auparavant.",
-    latVortestLoudnessMissing: "Remarque : le pré-test « Volume des électrodes » n'a pas encore été effectué. La mesure fonctionne quand même, mais elle est plus précise si le volume a été réglé auparavant.",
 });

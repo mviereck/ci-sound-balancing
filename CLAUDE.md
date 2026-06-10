@@ -397,6 +397,13 @@ REFERENZDATEIEN
   Webspace-Struktur der Audio-Bibliotheken (Musik, Sätze, Hörbücher,
   Geräusche). Vor jeder Arbeit an Audio-Bibliotheken, Player-Quellen-
   Toggle, Embed-Neugenerierung oder Manifest-Erzeugung lesen.
+- **docs/Konzept_CI_Testtoene.md** — Designentscheidungen und
+  Erkenntnisse zu den CI-Test-Profilen in `js/citest-profiles.js`
+  (CiHF, CiH, CiP, CiB, CiBF, CiHA, CiHS). Warum synthetisch statt
+  Mellotron-Samples, warum AM-Tiefe Welle-Treiber ist, warum CiHF
+  Default ist, warum die Diagnose-Varianten trotzdem erhalten
+  bleiben. Vor jeder Änderung an den Profilen oder bei Anfragen
+  zu Mess-Stimuli lesen.
 - **docs/Audio_Tag_Katalog.md** — Zulässige Tag-Felder und kontrolliertes
   Vokabular pro Kategorie. Beim Anlegen neuer Manifeste oder neuer
   Tag-Werte hier ergänzen, damit Filter-Synonyme vermieden werden.

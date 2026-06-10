@@ -43,6 +43,9 @@
        Prev/Next ausgegraut im Musik-Modus (keine Playlist). Bei
        Geräuschen aktiv und springen ±1 in der aktuellen Sortier-
        Reihenfolge (mit Wrap-Around), analog zu Auto-Advance.
+     - **Weiter/Zurück lösen immer die Wiedergabe aus** — auch wenn
+       der Player gerade gestoppt ist (gilt für Sätze, Geräusche,
+       Hörbücher; BA 259).
      - **Geräusche:** Sub-Block mit zwei Dropdowns —
        Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
        „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte

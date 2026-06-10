@@ -1115,5 +1115,4 @@ Object.assign(L.en, {
     sliderHintMs:   "1 ms",
     latVerfahrenLabel: "Latency",
     latVortestBalanceMissing:  "Note: pre-test \"Stereo balance\" has not been carried out yet. The measurement still works, but is more accurate if the balance has been levelled beforehand.",
-    latVortestLoudnessMissing: "Note: pre-test \"Electrode loudness\" has not been carried out yet. The measurement still works, but is more accurate if loudness has been set beforehand.",
 });

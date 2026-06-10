@@ -1092,6 +1092,9 @@ function _buildTestPanelNew(parentEl, cfg) {
   });
 
   function _stopTest() {
+    // Re-Entry-Schutz: onStop-Hooks dürfen _stopTest erneut aufrufen,
+    // ohne dass die Routine inkl. Hook nochmal durchläuft (Rekursion).
+    if (!_testRunning) return;
     var vCfg2 = _getActiveVerfahrenCfg();
     _testRunning = false;
     document.body.classList.remove('test-running'); // BA 183

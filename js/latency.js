@@ -350,23 +350,9 @@ function _latHasBalance() {
   return false;
 }
 
-function _latHasLoudness() {
-  // BA 251: jRes entfaellt. Detektion ueber manualLevels (von Default
-  // abweichend) oder nicht-leere bRes.
-  if (typeof sideData !== 'object' || !sideData) return false;
-  for (const side of ['left', 'right']) {
-    const sd = sideData[side];
-    if (!sd) continue;
-    if (Array.isArray(sd.manualLevels) && sd.manualLevels.some(function(v) { return isFinite(v) && v !== 0; })) return true;
-    if (Array.isArray(sd.bRes) && sd.bRes.length > 0) return true;
-  }
-  return false;
-}
-
 function _latRefreshPrereqHints() {
   if (!latEls) return;
-  testUI.explain.setVisible(latEls, 'latVortestBalanceMissing',  !_latHasBalance());
-  testUI.explain.setVisible(latEls, 'latVortestLoudnessMissing', !_latHasLoudness());
+  testUI.explain.setVisible(latEls, 'latVortestBalanceMissing', !_latHasBalance());
 }
 
 // --- Hook-Implementierungen ---
@@ -433,7 +419,6 @@ document.addEventListener("DOMContentLoaded", function() {
         { key: 'latMaturityHint',           kind: 'info'    },
         { key: 'latBTWarning',              kind: 'caution' },
         { key: 'latVortestBalanceMissing',  kind: 'warn',  id: 'latVortestBalanceMissing',  hidden: true },
-        { key: 'latVortestLoudnessMissing', kind: 'warn',  id: 'latVortestLoudnessMissing', hidden: true },
         { key: 'latPrereqHint',             kind: 'warn'    },
         { key: 'latMeasIntro2',             kind: 'plain'   },
         { key: 'latMeasIntro',              kind: 'plain'   },

@@ -1116,5 +1116,4 @@ Object.assign(L.es, {
     sliderHintMs:   "1 ms",
     latVerfahrenLabel: "Latencia",
     latVortestBalanceMissing:  "Aviso: la prueba previa «Balance estéreo» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el balance se ha igualado antes.",
-    latVortestLoudnessMissing: "Aviso: la prueba previa «Volumen de electrodos» aún no se ha realizado. La medición funciona igualmente, pero es más precisa si el volumen se ha ajustado antes.",
 });

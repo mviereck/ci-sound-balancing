@@ -1170,10 +1170,11 @@ function _plNoiseStep(delta) {
   plNoiseSelectedId = nextItem.id;
   const sel = document.getElementById("plNoiseItemSel");
   if (sel) sel.value = nextItem.id;
-  const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
-  if (wasPlaying && typeof pPause === "function") pPause();
+  if (typeof pPause === "function" && pPlaying) pPause();
   plNoiseLoadSelected().then(function () {
-    if (wasPlaying && typeof pPlay === "function") pPlay();
+    // BA259: Prev/Next loesen immer Play aus; pOff=0 damit neues Stueck von vorn startet.
+    pOff = 0;
+    if (typeof pPlay === "function") pPlay();
   });
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
@@ -1198,7 +1199,14 @@ function plPrev() {
     }
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
-    if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    if (typeof pPause === "function" && pPlaying) pPause();
+    if (typeof plBookLoadSelected === "function") {
+      plBookLoadSelected().then(function () {
+        // BA259: Prev loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
+        pOff = 0;
+        if (typeof pPlay === "function") pPlay();
+      });
+    }
     if (typeof plUpdTransportUI === "function") plUpdTransportUI();
     return;
   }
@@ -1237,7 +1245,14 @@ function plNext() {
     }
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
-    if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    if (typeof pPause === "function" && pPlaying) pPause();
+    if (typeof plBookLoadSelected === "function") {
+      plBookLoadSelected().then(function () {
+        // BA259: Next loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
+        pOff = 0;
+        if (typeof pPlay === "function") pPlay();
+      });
+    }
     if (typeof plUpdTransportUI === "function") plUpdTransportUI();
     return;
   }
