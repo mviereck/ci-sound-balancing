@@ -115,8 +115,8 @@ buildTestPanel(parentEl, {
       volume:       { show: true },
       duration:     { show: true, default: 400, min: 100, max: 3000, step: 50 },
       pause:        { show: true, default: 400, min: 50,  max: 2000, step: 50 },
-      toneType:     { show: true, source: 'global' },
-      sequence:     { show: true, source: 'global' },
+      toneType:     { show: false },                 // seit BA 254: nur noch tonePopupButton
+      sequence:     { show: true, source: 'per-test' }, // seit BA 254: sequence_freqmatch
       sliderTarget: {
         options: ['ref','var','balance'],
         default: 'ref',
@@ -248,11 +248,12 @@ Callbacks über `hooks` und nutzt Helfer wie
 **`header.common`** enthält die Voreinstellungen, die in fast jedem
 Test sinnvoll sind: Verfahren-Dropdown (automatisch, wenn
 `verfahren.length > 1`), refSelect, volume, duration, pause,
-toneType, sequence, sliderTarget. Jedes Feld kann mit `show: false`
+sequence, sliderTarget. Jedes Feld kann mit `show: false`
 oder `false` unterdrückt werden. Reihenfolge im DOM ist fix; cfg
 ändert nur Sichtbarkeit und Optionen. `tonePopupButton` (BA 209) ist
-optional und ersetzt den Dropdown `toneType` (`toneType: false`), wenn
-pro Test eigene Tonart-Persistenz gewünscht ist.
+der einzige Tonart-Mechanismus; der `toneType`-Dropdown ist seit BA 254
+entfernt. `sequence` liest/schreibt seit BA 254 die per-Test-Variable
+(`sequence_test`/`sequence_balance`/`sequence_freqmatch`).
 
 **`header.extra`** ist ein optionaler Slot für
 Sub-Reiter-spezifische Voreinstellungen, die nicht in das

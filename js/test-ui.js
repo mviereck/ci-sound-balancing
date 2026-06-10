@@ -13,19 +13,6 @@ function _mkEl(tag, cls) {
   return el;
 }
 
-// ---- Globale Dropdowns synchronisieren ----
-function _syncGlobalDropdowns(type, val) {
-  document.querySelectorAll('[data-global="' + type + '"]').forEach(function(sel) {
-    if (sel.value !== val) sel.value = val;
-  });
-}
-
-// Nach loadJson: alle globalen Dropdowns auf aktuellen State setzen
-function syncAllGlobalDropdowns() {
-  _syncGlobalDropdowns('sequence', globalSequence);
-  _syncGlobalDropdowns('toneType', globalToneType);
-}
-
 // ---- Tab-Sperre ----
 function lockTestTabs(active, activeTestId) {
   if (active) _activeTestId = activeTestId;
@@ -335,12 +322,11 @@ function _buildTestPanelNew(parentEl, cfg) {
     headerRefs.pauseInput = pauseInput;
   }
 
-  // --- common: toneType / sequence / sliderTarget ---
-  var seqSelect = null, toneSelect = null, targetSelect = null;
+  // --- common: sequence / sliderTarget ---
+  var seqSelect = null, targetSelect = null;
   var showSeq = hc.sequence && (hc.sequence === true || hc.sequence.show !== false);
-  var showTone = hc.toneType && (hc.toneType === true || hc.toneType.show !== false);
   var showTarget = hc.sliderTarget && (hc.sliderTarget !== false);
-  if (showSeq || showTone || showTarget || hc.tonePopupButton) {
+  if (showSeq || showTarget || hc.tonePopupButton) {
     var rowSequence = _mkEl('div', 'controls-row');
     rowSequence.dataset.row = 'sequence';
 
@@ -348,46 +334,16 @@ function _buildTestPanelNew(parentEl, cfg) {
       var cg = _mkEl('div', 'control-group');
       var lbl2 = _mkEl('label'); _tEl(lbl2, 'sequenceLbl');
       seqSelect = _mkEl('select');
-      seqSelect.dataset.global = 'sequence';
       [['aba','ABA'],['ab','AB']].forEach(function(pair) {
         seqSelect.appendChild(new Option(pair[1], pair[0]));
       });
-      seqSelect.value = globalSequence;
+      var seqVal = (id === 'test')      ? sequence_test
+                 : (id === 'balance')   ? sequence_balance
+                 : (id === 'freqmatch') ? sequence_freqmatch
+                 : 'ab';
+      seqSelect.value = seqVal;
       cg.append(lbl2, seqSelect);
       rowSequence.appendChild(cg);
-    }
-
-    if (showTone) {
-      var cg2 = _mkEl('div', 'control-group');
-      var lbl3 = _mkEl('label'); _tEl(lbl3, 'toneTypeLbl');
-      toneSelect = _mkEl('select');
-      toneSelect.dataset.global = 'toneType';
-      [
-        ['richCiHF','toneRichCiHF'],['richCiH','toneRichCiH'],
-        ['richCiP','toneRichCiP'],
-        ['richCiB','toneRichCiB'],['richCiBF','toneRichCiBF'],
-        ['richCiHA','toneRichCiHA'],['richCiHS','toneRichCiHS'],
-        ['sine','toneSine'],['complex','toneComplex'],
-        ['pulsedComplex','tonePulsedComplex'],['richTone','toneRichTone'],
-        ['richAcc','toneRichAcc'],['richASax','toneRichASax'],
-        ['richBTb','toneRichBTb'],['richVa','toneRichVa'],
-        ['richBn','toneRichBn'],['richClBb','toneRichClBb'],
-        ['richCb','toneRichCb'],['richOb','toneRichOb'],
-        ['richTbn','toneRichTbn'],['richFl','toneRichFl'],
-        ['richTpC','toneRichTpC'],['richVn','toneRichVn'],
-        ['richVc','toneRichVc'],['richHn','toneRichHn'],
-        ['noise','toneNoise'],['noiseAdaptive','toneNoiseAdaptive'],
-        ['irn','toneIRN'],['amSine','toneAmSine'],
-        ['warbleSine','toneWarbleSine'],['burstSine','toneBurstSine'],
-        ['wobbleSweep','toneWobbleSweep']
-      ].forEach(function(pair) {
-        var opt = new Option('', pair[0]);
-        _tEl(opt, pair[1]);
-        toneSelect.appendChild(opt);
-      });
-      toneSelect.value = globalToneType;
-      cg2.append(lbl3, toneSelect);
-      rowSequence.appendChild(cg2);
     }
 
     if (showTarget) {
@@ -466,7 +422,6 @@ function _buildTestPanelNew(parentEl, cfg) {
 
     if (rowSequence.children.length) headerBox.appendChild(rowSequence);
     headerRefs.seqSelect = seqSelect;
-    headerRefs.toneSelect = toneSelect;
     headerRefs.targetSelect = targetSelect;
   }
 
@@ -1061,18 +1016,12 @@ function _buildTestPanelNew(parentEl, cfg) {
     });
   }
 
-  // Globale Dropdowns Event-Listener
+  // Sequence-Dropdown Event-Listener (pro Test)
   if (seqSelect) {
     seqSelect.addEventListener('change', function() {
-      globalSequence = seqSelect.value;
-      _syncGlobalDropdowns('sequence', seqSelect.value);
-    });
-  }
-  if (toneSelect) {
-    toneSelect.addEventListener('change', function() {
-      globalToneType = toneSelect.value;
-      _syncGlobalDropdowns('toneType', toneSelect.value);
-      playTone(1000, gVol(), 750);
+      if (id === 'test')      sequence_test      = seqSelect.value;
+      if (id === 'balance')   sequence_balance   = seqSelect.value;
+      if (id === 'freqmatch') sequence_freqmatch = seqSelect.value;
     });
   }
   if (targetSelect) {

@@ -53,9 +53,12 @@ function resetAll() {
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
-  globalSequence = "aba";
   slTarget_test = "balance";
   slTarget_balance = "both";
+  // BA 254: Tonfolge pro Test
+  if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = "ab";
+  if (typeof sequence_test      !== "undefined") sequence_test      = "ab";
+  if (typeof sequence_balance   !== "undefined") sequence_balance   = "ab";
   // BA 246
   if (typeof toneType_test !== "undefined") toneType_test = "richCiHF";
   // BA 250
@@ -66,7 +69,6 @@ function resetAll() {
   if (typeof volume_balance   !== "undefined") volume_balance   = 75;
   if (typeof duration_balance !== "undefined") duration_balance = 1000;
   if (typeof pause_balance    !== "undefined") pause_balance    = 400;
-  if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
   if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
   if (typeof duration_freqmatch !== "undefined") duration_freqmatch = 750;
@@ -75,7 +77,6 @@ function resetAll() {
   if (typeof volume_implant   !== "undefined") volume_implant   = 75;
   if (typeof duration_implant !== "undefined") duration_implant = 1000;
   if (typeof pause_implant    !== "undefined") pause_implant    = 500;
-  if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
@@ -273,8 +274,9 @@ async function saveJson() {
     fRes: (typeof fRes !== "undefined") ? fRes : [],
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
-    paradigm: globalSequence,
-    globalSequence: globalSequence,
+    sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
+    sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : "ab",
+    sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : "ab",
     slTarget_test: slTarget_test,
     slTarget_balance: slTarget_balance,
     playerSourceMeas: plSrcMeas,
@@ -288,7 +290,6 @@ async function saveJson() {
     plBothSides: document.getElementById("plBothSides").checked,
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
-    globalToneType: globalToneType,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : "richCiHF",
     // BA 246
@@ -602,9 +603,20 @@ function applyLoadedData(d) {
   // defaultMfrSelect setzen
   const dfSel = gEl("defaultMfrSelect");
   if (dfSel) dfSel.value = defaultMfr;
-  // paradigm/sequence
-  if (d.globalSequence) globalSequence = d.globalSequence;
-  else if (d.paradigm) globalSequence = (d.paradigm === "aba" || d.paradigm === "ab") ? d.paradigm : "aba";
+  // BA 254: Tonfolge pro Test — Migration aus altem globalSequence-Feld.
+  function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
+  var _legacySeq = _validSeq(d.globalSequence)
+                || _validSeq(d.paradigm)
+                || "ab";
+  if (typeof sequence_freqmatch !== "undefined") {
+    sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
+  }
+  if (typeof sequence_test !== "undefined") {
+    sequence_test = _validSeq(d.sequence_test) || _legacySeq;
+  }
+  if (typeof sequence_balance !== "undefined") {
+    sequence_balance = _validSeq(d.sequence_balance) || _legacySeq;
+  }
   if (d.slTarget_test) slTarget_test = d.slTarget_test;
   if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
   if (typeof d.plBothSides === "boolean") {
@@ -616,13 +628,8 @@ function applyLoadedData(d) {
     updEqToggleBtn();
   }
   if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
-  // BA 225: Whitelist-Check ausgelagert nach audio.js (isValidToneType).
-  globalToneType = isValidToneType(d.globalToneType)
-    ? d.globalToneType : "richCiHF";
   // BA 209: Per-Test-Tonart Frequenzabgleich.
-  // Migration: Bei alter Datei ohne dieses Feld den vorhandenen
-  // globalToneType-Wert übernehmen (User hatte ihn bewußt gewählt);
-  // nur bei völlig fehlendem Wert auf Default 'richCiHF' fallen.
+  // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).
   if (typeof toneType_freqmatch !== "undefined") {
     if (isValidToneType(d.toneType_freqmatch)) {
       toneType_freqmatch = d.toneType_freqmatch;
@@ -706,8 +713,6 @@ function applyLoadedData(d) {
     var spi = parseInt(d.pause_implant, 10);
     pause_implant = (isFinite(spi) && spi >= 50 && spi <= 2000) ? spi : 500;
   }
-  // Sync global dropdowns (alle drei Test-Instanzen)
-  if (typeof syncAllGlobalDropdowns === "function") syncAllGlobalDropdowns();
   if (typeof d.playerSourceMeas === "boolean") {
     plSrcMeas = d.playerSourceMeas;
     plSrcLevels = !!d.playerSourceLevels;

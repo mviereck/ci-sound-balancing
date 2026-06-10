@@ -182,7 +182,7 @@ async function lrPlayCurrent() {
   testUI.pairIndicator.setPlaying(_lrPI, secondSide);
   await lrPlayTone(secondHz, secondVol, dur, secondPan);
   testUI.pairIndicator.setPlaying(_lrPI, null);
-  if (globalSequence === "aba" && lrIsPlay) {
+  if (sequence_balance === "aba" && lrIsPlay) {
     await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
     if (!lrIsPlay) return;
     testUI.pairIndicator.setPlaying(_lrPI, firstSide);

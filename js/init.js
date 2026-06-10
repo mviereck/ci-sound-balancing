@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const _nd = document.getElementById("fmrNoDataText");
   if (_nd) _nd.textContent = t("fmrNoData");
   document.getElementById("langSelect").addEventListener("change", () => window.applyLang());
-  // Tonart-Dropdown: global, keine feste DOM-ID mehr — syncAllGlobalDropdowns() übernimmt
   // toneHint-Texte: keine separaten Boxen mehr — in buildTestPanel-Erklärungsblock
   function updToneHint() {
     // Platzhalter — keine eigenständigen toneHintBoxen mehr
@@ -729,9 +728,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
         if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
       }
-      if (d.globalToneType) globalToneType = d.globalToneType;
       // BA 209 + BA 225: Per-Test-Tonart Frequenzabgleich (Auto-Restore).
-      // Whitelist-Check via isValidToneType in audio.js.
+      // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).
       if (typeof toneType_freqmatch !== "undefined") {
         if (isValidToneType(d.toneType_freqmatch)) {
           toneType_freqmatch = d.toneType_freqmatch;
@@ -754,7 +752,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const _el = document.getElementById("userFileSuffix");
         if (_el) _el.value = userFileSuffix;
       }
-      if (d.globalSequence) globalSequence = d.globalSequence;
+      // BA 254: Tonfolge pro Test — Migration aus altem globalSequence-Feld.
+      function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
+      var _legacySeq = _validSeq(d.globalSequence) || "ab";
+      if (typeof sequence_freqmatch !== "undefined") {
+        sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
+      }
+      if (typeof sequence_test !== "undefined") {
+        sequence_test = _validSeq(d.sequence_test) || _legacySeq;
+      }
+      if (typeof sequence_balance !== "undefined") {
+        sequence_balance = _validSeq(d.sequence_balance) || _legacySeq;
+      }
       if (d.slTarget_test) slTarget_test = d.slTarget_test;
       if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
       if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
@@ -929,7 +938,6 @@ document.addEventListener("DOMContentLoaded", () => {
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           // BA 161: bisher nur in Datei-Save
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
-          globalToneType: globalToneType,
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
             ? toneType_freqmatch : "richCiHF",
           toneType_balance: (typeof toneType_balance !== "undefined")
@@ -937,7 +945,9 @@ document.addEventListener("DOMContentLoaded", () => {
           volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : 75,
           duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : 1000,
           pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : 400,
-          globalSequence: globalSequence,
+          sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
+          sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : "ab",
+          sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : "ab",
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,
           levelsTabMode: lvTabMode,

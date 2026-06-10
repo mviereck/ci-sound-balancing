@@ -211,7 +211,7 @@ function _fmSliderUndo() {
   return fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.actions && fmEls.verfahren.slider.actions.undo;
 }
 function fmGAba() {
-  return (typeof globalSequence !== 'undefined') ? globalSequence === "aba" : true;
+  return sequence_freqmatch === "aba";
 }
 
 function fmCorrGain(side, hz) {

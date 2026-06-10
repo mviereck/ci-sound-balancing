@@ -40,7 +40,7 @@ sichtbar, je unter eigenem `kind:'heading'`-Absatz.
 
 In `state-side.js` und persistiert in JSON und localStorage:
 
-- **Tonart** (`globalToneType`) — **CI-Testton harmonisch / CI-Testton
+- **Tonart** (`toneType_test` / `toneType_balance`, seit BA 254 vollständig per Test; kein `globalToneType` mehr) — **CI-Testton harmonisch / CI-Testton
   inharmonisch** (3.2.238.1, citest-profiles.js — für CI-Messungen
   designte Stimuli mit konstanter Klangfarbe über den ganzen
   Frequenzbereich, sanftem Anschwingen 250 ms gegen AGC-Trommelschlag,
@@ -66,13 +66,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
   aus TinySOL/IRCAM analysiert in BA 214) /
   AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default
   `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'complex'`).
-  Dropdown im Voreinstellungs-Block von Test 1
-  (Elektrodenlautstärke) und Test 2 (Stereo-Balance) sichtbar; beide
-  Instanzen an dieselbe Variable gebunden. Bei Auswahl einer neuen
-  Tonart wird sofort ein 750 ms Vorschau-Ton (1000 Hz, aktuelle
-  Messlautstärke) abgespielt.
+  Seit BA 254: kein gemeinsamer Dropdown mehr; jeder Test wählt seine Tonart
+  über den Tonart-Popup-Button im eigenen Header.
 - **Tonart Frequenzabgleich** (`toneType_freqmatch`, BA 209) — eigene
-  Tonart für Sub-Tab 3, unabhängig von `globalToneType`. Default
+  Tonart für Sub-Tab 3. Default
   `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'pulsedComplex'`).
   Wird über Button + Popup-Dialog gewählt (kein
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
@@ -152,8 +149,7 @@ In `state-side.js` und persistiert in JSON und localStorage:
   `cfg.onTogglesReady(corrector)` erhält `freqmatch.js` eine
   Korrektorfunktion (`fmKbdCorrectVol`), die `onPress` pro
   Klavier-Anschlag auf Var- und Ref-Burst anwendet.
-- **Tonfolge** (`globalSequence`) — `'aba'` oder `'ab'`. Default
-  `'ab'`. Vor dem Test wählbar, während des Tests fest.
+- **Tonfolge** (`sequence_test` / `sequence_balance` / `sequence_freqmatch`, seit BA 254 je pro Test) — `'aba'` oder `'ab'`. Default je `'ab'`. Vor dem Test wählbar, während des Tests fest. Jeder Sub-Tab hat einen eigenen Dropdown; eine Änderung in einem Test beeinflusst die anderen nicht.
 - **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten
   verwenden eine cos²-Rampe (sin² beim Anstieg, cos² beim Abfall,
   via `setValueCurveAtTime` mit 64-Punkt-Stützstellen) mit

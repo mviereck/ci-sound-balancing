@@ -103,7 +103,7 @@ function collectArchivData() {
       lang: lang,
       activeSide: activeSide,
     },
-    globalTest: _collectGlobalTest(),
+    testSettings: _collectTestSettings(),
     defaultMfr: defaultMfr,
     lvTab: {
       mode: lvTabMode,
@@ -122,19 +122,35 @@ function collectArchivData() {
   return data;
 }
 
-function _collectGlobalTest() {
-  // BA 250: Vol/Dur/Pau fuer den Elektrodenlautstaerke-Test leben jetzt
-  // als State-Variablen (volume_test/duration_test/pause_test). Die
-  // alten DOM-IDs vol1/dur1/pau1 existieren seit der testUI-Migration
-  // nicht mehr.
+function _collectTestSettings() {
+  function _row(toneType, sequence, duration, pause, volume) {
+    return { toneType: toneType, sequence: sequence,
+             duration: duration, pause: pause, volume: volume };
+  }
   return {
-    toneType: globalToneType,
-    sequence: globalSequence,
-    duration: (typeof duration_test !== "undefined") ? duration_test : null,
-    pause:    (typeof pause_test    !== "undefined") ? pause_test    : null,
-    volume:   (typeof volume_test   !== "undefined") ? volume_test   : null,
+    test: _row(
+      (typeof toneType_test !== "undefined") ? toneType_test : "richCiHF",
+      (typeof sequence_test !== "undefined") ? sequence_test : "ab",
+      (typeof duration_test !== "undefined") ? duration_test : null,
+      (typeof pause_test    !== "undefined") ? pause_test    : null,
+      (typeof volume_test   !== "undefined") ? volume_test   : null
+    ),
+    balance: _row(
+      (typeof toneType_balance !== "undefined") ? toneType_balance : "richCiHF",
+      (typeof sequence_balance !== "undefined") ? sequence_balance : "ab",
+      (typeof duration_balance !== "undefined") ? duration_balance : null,
+      (typeof pause_balance    !== "undefined") ? pause_balance    : null,
+      (typeof volume_balance   !== "undefined") ? volume_balance   : null
+    ),
+    freqmatch: _row(
+      (typeof toneType_freqmatch !== "undefined") ? toneType_freqmatch : "richCiHF",
+      (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
+      (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : null,
+      (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : null,
+      (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : null
+    ),
     slTargetTest:    (typeof slTarget_test    !== "undefined") ? slTarget_test    : null,
-    slTargetBalance: (typeof slTarget_balance !== "undefined") ? slTarget_balance : null,
+    slTargetBalance: (typeof slTarget_balance !== "undefined") ? slTarget_balance : null
   };
 }
 
@@ -396,7 +412,7 @@ function renderArchivMarkdown(data) {
     _audiologUserNoteBlock(),
     _archivMdConfig(data),
     _archivMdImplantTables(data),
-    _archivMdGlobalTest(data),
+    _archivMdTestSettings(data),
     _archivMdSidesContent(data),
     _archivMdBilateral(data),
     _archivMdPlayer(data),
@@ -461,32 +477,44 @@ function _archivMdImplantTables(data) {
   return out.join("\n");
 }
 
-function _archivMdGlobalTest(data) {
-  const TONE_LABEL_KEY = {
+function _archivMdTestSettings(data) {
+  var TONE_LABEL_KEY = {
+    richCiHF: "toneRichCiHF", richCiH: "toneRichCiH",
+    richCiP:  "toneRichCiP",
+    richCiB:  "toneRichCiB",  richCiBF: "toneRichCiBF",
+    richCiHA: "toneRichCiHA", richCiHS: "toneRichCiHS",
     sine: "toneSine", complex: "toneComplex",
     pulsedComplex: "tonePulsedComplex", richTone: "toneRichTone",
     richAcc: "toneRichAcc", richASax: "toneRichASax",
-    richBTb: "toneRichBTb", richVa: "toneRichVa",
-    richBn: "toneRichBn", richClBb: "toneRichClBb",
-    richCb: "toneRichCb", richOb: "toneRichOb",
-    richTbn: "toneRichTbn", richFl: "toneRichFl",
-    richTpC: "toneRichTpC", richVn: "toneRichVn",
-    richVc: "toneRichVc", richHn: "toneRichHn",
-    richCiH: "toneRichCiH", richCiB: "toneRichCiB",
-    richCiHA: "toneRichCiHA", richCiHS: "toneRichCiHS", richCiHF: "toneRichCiHF",
-    richCiP: "toneRichCiP", richCiBF: "toneRichCiBF",
+    richBTb: "toneRichBTb", richVa:  "toneRichVa",
+    richBn:  "toneRichBn",  richClBb: "toneRichClBb",
+    richCb:  "toneRichCb",  richOb:   "toneRichOb",
+    richTbn: "toneRichTbn", richFl:   "toneRichFl",
+    richTpC: "toneRichTpC", richVn:   "toneRichVn",
+    richVc:  "toneRichVc",  richHn:   "toneRichHn",
     noise: "toneNoise", noiseAdaptive: "toneNoiseAdaptive",
     irn: "toneIRN", amSine: "toneAmSine",
     warbleSine: "toneWarbleSine", burstSine: "toneBurstSine",
-    wobbleSweep: "toneWobbleSweep",
+    wobbleSweep: "toneWobbleSweep"
   };
-  const g = data.globalTest;
-  const lines = [`\n## ${t("archivSecTest")}\n`];
-  lines.push(`- ${t("toneTypeLabel")}: ${t(TONE_LABEL_KEY[g.toneType] || "toneSine")}`);
-  lines.push(`- ${t("archivTestSeq")}: ${g.sequence.toUpperCase()}`);
-  if (g.duration != null) lines.push(`- ${t("lblDur")}: ${g.duration} ms`);
-  if (g.pause    != null) lines.push(`- ${t("lblPau")}: ${g.pause} ms`);
-  if (g.volume   != null) lines.push(`- ${t("lblVol")}: ${g.volume} %`);
+  var ts = data.testSettings;
+  var lines = ["\n## " + t("archivSecTest") + "\n"];
+
+  function _renderRow(headerKey, row) {
+    lines.push("\n### " + t(headerKey) + "\n");
+    lines.push("- " + t("toneTypeLabel") + ": "
+      + t(TONE_LABEL_KEY[row.toneType] || "toneSine"));
+    lines.push("- " + t("archivTestSeq") + ": "
+      + String(row.sequence || "ab").toUpperCase());
+    if (row.duration != null) lines.push("- " + t("lblDur") + ": " + row.duration + " ms");
+    if (row.pause    != null) lines.push("- " + t("lblPau") + ": " + row.pause    + " ms");
+    if (row.volume   != null) lines.push("- " + t("lblVol") + ": " + row.volume   + " %");
+  }
+
+  _renderRow("testVerfahrenFull",  ts.test);
+  _renderRow("lrTitle",            ts.balance);
+  _renderRow("fmTitle",            ts.freqmatch);
+
   return lines.join("\n") + "\n";
 }
 

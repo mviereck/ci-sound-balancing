@@ -918,7 +918,10 @@ function playCur() {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
   curPlayed = true;
-  playSeq(curA, curB, _testSliderVal()).then(function() {
+  playSeq(curA, curB, _testSliderVal(), {
+    toneType: toneType_test,
+    aba: (sequence_test === 'aba')
+  }).then(function() {
     if (vref && vref.pairIndicator) {
       testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
     }
@@ -1255,8 +1258,8 @@ function _testPlaySimul() {
   var dur = tGDur();
   var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot)  : 1), 1), 0);
   var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
-  var p1 = playTone(effFreq(curA), vA, dur);
-  var p2 = playTone(effFreq(curB), vB, dur);
+  var p1 = playTone(effFreq(curA), vA, dur, 50, toneType_test);
+  var p2 = playTone(effFreq(curB), vB, dur, 50, toneType_test);
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
   if (vref && vref.pairIndicator) testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   Promise.all([p1, p2]).then(function() {

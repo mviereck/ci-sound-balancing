@@ -725,71 +725,39 @@ function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   return playSineTone(c, hz, vol, ms, pan, ramp);
 }
 
-function playTone(hz, vol, ms, ramp = 50) {
+function playTone(hz, vol, ms, ramp = 50, toneType = "sine") {
   const c = gAC();
   const pan = activeSide === "left" ? -1 : 1;
   const effectiveVol = isDeaf(activeSide) ? 0 : vol;
-  return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType, ramp);
+  return playToneTyped(c, hz, effectiveVol, ms, pan, toneType, ramp);
 }
-async function playSeq(eA, eB, off) {
-  const v = gVol(),
-    d = gDur(),
-    p = gPau();
+async function playSeq(eA, eB, off, opts) {
+  const o = opts || {};
+  const tt  = o.toneType || "sine";
+  const aba = !!o.aba;
+  const v = gVol(), d = gDur(), p = gPau();
   // Symmetrische Verschiebung: off/2 zu B, -off/2 zu A
   const halfOff = off / 2;
   const vA = Math.max(Math.min(v * dB2G(-halfOff), 1), 0);
   const vB = Math.max(Math.min(v * dB2G(halfOff), 1), 0);
   updInd(eA, "a");
-  await playTone(effFreq(eA), vA, d);
+  await playTone(effFreq(eA), vA, d, 50, tt);
   if (!isPlay) return;
   updInd(-1);
   await new Promise((r) => (playTO = setTimeout(r, 50 + p)));
   if (!isPlay) return;
   updInd(eB, "b");
-  await playTone(effFreq(eB), vB, d);
+  await playTone(effFreq(eB), vB, d, 50, tt);
   if (!isPlay) return;
-  if (globalSequence === "aba") {
+  if (aba) {
     updInd(-1);
     await new Promise((r) => (playTO = setTimeout(r, 50 + p)));
     if (!isPlay) return;
     updInd(eA, "a");
-    await playTone(effFreq(eA), vA, d);
+    await playTone(effFreq(eA), vA, d, 50, tt);
   }
   isPlay = false;
   updInd(-1);
-}
-async function playFreqPair(refSide, refHz, varSide, varHz, vol, ms, pau, aba, firstSide) {
-  const c = gAC();
-  async function playOne(side, hz) {
-    const pan = side === "left" ? -1 : 1;
-    const effectiveVol = isDeaf(side) ? 0 : vol;
-    return playToneTyped(c, hz, effectiveVol, ms, pan, globalToneType);
-  }
-  isPlay = true;
-  if (firstSide === "ref") {
-    await playOne(refSide, refHz);
-    if (!isPlay) return;
-    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-    if (!isPlay) return;
-    await playOne(varSide, varHz);
-    if (aba && isPlay) {
-      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-      if (!isPlay) return;
-      await playOne(refSide, refHz);
-    }
-  } else {
-    await playOne(varSide, varHz);
-    if (!isPlay) return;
-    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-    if (!isPlay) return;
-    await playOne(refSide, refHz);
-    if (aba && isPlay) {
-      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-      if (!isPlay) return;
-      await playOne(varSide, varHz);
-    }
-  }
-  isPlay = false;
 }
 function updInd(i, w) {
   document

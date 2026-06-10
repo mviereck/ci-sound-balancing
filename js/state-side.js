@@ -682,9 +682,7 @@ let curA = -1,
   undoSt = [],
   convRnd = 0;
 
-let globalToneType = "richCiHF"; // "sine" | "complex" | "pulsedComplex" | "noise" | "richCiHF" | ...
-// BA 209: Tonart speziell für Frequenzabgleich. Separat von globalToneType,
-// das weiterhin für Elektrodenlautstärke und Stereo-Balance gilt.
+// BA 209: Tonart speziell für Frequenzabgleich.
 // Default 'richCiHF' (CI-Test flach).
 let toneType_freqmatch = "richCiHF";
 // BA 246: Tonart speziell fuer Elektrodenlautstaerke. Eigene Persistenz
@@ -710,6 +708,10 @@ let toneType_balance = "richCiHF";
 let volume_balance   = 75;
 let duration_balance = 1000;
 let pause_balance    = 400;
+// BA 254: Tonfolge (AB/ABA) speziell pro Test. Ersetzt globalSequence.
+let sequence_freqmatch = "ab";
+let sequence_test      = "ab";
+let sequence_balance   = "ab";
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).
@@ -717,7 +719,6 @@ let toneType_implant = "sine";
 let volume_implant   = 75;
 let duration_implant = 1000;
 let pause_implant    = 500;
-let globalSequence = "ab";        // "aba" | "ab"
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"
 
