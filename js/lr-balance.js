@@ -622,11 +622,11 @@ function lrDrawChart() {
   ctx.restore();
 }
 
-// Lautstaerke-Mess-Daten vorhanden? (Slider-Verfahren bRes oder Judgment-Verfahren jRes)
+// BA 251: jRes entfaellt; Lautstaerke-Daten = bRes.
 function _lrHasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0);
+  return (s.bRes && s.bRes.length > 0);
 }
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.

@@ -2,9 +2,9 @@
 // RESULTS
 // ============================================================
 function renderResults() {
-  const hJ = jRes.length > 0,
-    hB = bRes.length > 0;
-  if (!hJ && !hB) {
+  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch bRes.
+  const hB = bRes.length > 0;
+  if (!hB) {
     const nr = document.getElementById("noRes");
     const rc = document.getElementById("resC");
     if (nr) nr.style.display = "";
@@ -46,7 +46,6 @@ function renderResults() {
   const vol = (typeof volume_test !== 'undefined') ? volume_test : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
-  if (hJ) meta += ` · ${jRes.length} jdg.`;
   meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
   const rMeta = document.getElementById("resMeta");
   if (rMeta) rMeta.innerHTML = meta;
@@ -192,30 +191,6 @@ function renderResults() {
     );
     const chE = document.getElementById("chartExpl");
     if (chE) chE.textContent = t("chartExplB");
-  } else if (hJ) {
-    const sc = new Array(nEl).fill(0),
-      cc = new Array(nEl).fill(0);
-    for (const r of jRes) {
-      cc[r.a]++;
-      cc[r.b]++;
-      if (r.result === "a") {
-        sc[r.a]++;
-        sc[r.b]--;
-      } else if (r.result === "b") {
-        sc[r.b]++;
-        sc[r.a]--;
-      }
-    }
-    th.innerHTML = `<th>${t("thEl")}</th><th>${t("thHzStd")}</th><th>${t("thSc")}</th><th>${t("thComp")}</th>`;
-    for (let i = 0; i < nEl; i++) {
-      const tr = document.createElement("tr"),
-        s = sc[i];
-      tr.innerHTML = `<td style="font-weight:600">${dEN(i)}</td><td>${Math.round(effFreq(i))}</td><td style="color:${s > 0 ? "#2563eb" : s < 0 ? "#dc2626" : "#666"}">${s > 0 ? "+" : ""}${s}</td><td>${cc[i] || "—"}</td>`;
-      tb.appendChild(tr);
-    }
-    drawChart(document.getElementById("resChart"), sc, null, false);
-    const chEj = document.getElementById("chartExpl");
-    if (chEj) chEj.textContent = t("chartExplJ");
   }
   const reExp = document.getElementById("resExplain");
   if (reExp) reExp.textContent = t("resExplain");

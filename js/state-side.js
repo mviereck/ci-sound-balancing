@@ -14,7 +14,6 @@ let mfr,
   elExDur,
   manualLevels,
   refEl,
-  jRes,
   bRes,
   config;
 // effFreq[i] = elFreqOwn[i] ?? freqs[i] (MFR default)
@@ -82,7 +81,6 @@ function bindActiveSide() {
   manualLevels = s.manualLevels;
   presets = s.presets;
   refEl = s.refEl;
-  jRes = s.jRes;
   bRes = s.bRes;
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
@@ -104,7 +102,6 @@ function initSideData(side, m) {
   s.elFreqOwn = new Array(s.nEl).fill(null);
   s.manualLevels = new Array(s.nEl).fill(0);
   s.refEl = Math.floor(s.nEl / 2);
-  s.jRes = [];
   s.bRes = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
@@ -362,7 +359,7 @@ function loadSideData(side, d) {
     d.referenceElectrode !== undefined
       ? d.referenceElectrode
       : Math.floor(s.nEl / 2);
-  s.jRes = d.judgmentResults || [];
+  // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
   s.bRes = d.balanceResults || [];
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
@@ -477,7 +474,6 @@ function withSide(side, fn) {
     manualLevels,
     presets,
     refEl,
-    jRes,
     bRes,
   };
   activeSide = side;

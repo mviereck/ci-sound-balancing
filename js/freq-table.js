@@ -454,7 +454,6 @@ function switchMfr(m) {
   s.elExDur = new Array(s.nEl).fill(null);
   s.manualLevels = new Array(s.nEl).fill(0);
   s.refEl = Math.floor(s.nEl / 2);
-  s.jRes = [];
   s.bRes = [];
   // Reset implant arrays to new electrode count, preserve global params
   if (!s.implant)
@@ -478,7 +477,6 @@ function switchMfr(m) {
   bindActiveSide();
   initPresets();
   s.presets = presets;
-  jRes.splice(0, jRes.length);
   bRes.splice(0, bRes.length);
   refEl = Math.floor(nEl / 2);
   // Sync akustische Seite wenn nötig

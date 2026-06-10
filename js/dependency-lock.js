@@ -26,17 +26,15 @@ const DEP_LOCK_RULES = [
       const reasons = [];
       const s = sideData[activeSide];
       // Eigene Lautstärke-Daten der aktiven Seite
-      const ownHasLoud =
-        (s.bRes && s.bRes.length > 0) ||
-        (s.jRes && s.jRes.length > 0);
+      // BA 251: jRes entfaellt; nur noch bRes.
+      const ownHasLoud = (s.bRes && s.bRes.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       // Andere Seite akustisch → Hersteller-Wechsel zieht Frequenzraster mit
       const other = activeSide === 'left' ? 'right' : 'left';
       const otherSync = (sideData[other].config || 'ci') !== 'ci';
-      const otherHasLoud = otherSync && (
-        (sideData[other].bRes && sideData[other].bRes.length > 0) ||
-        (sideData[other].jRes && sideData[other].jRes.length > 0)
-      );
+      // BA 251: jRes entfaellt; nur noch bRes.
+      const otherHasLoud = otherSync
+        && (sideData[other].bRes && sideData[other].bRes.length > 0);
       if (otherHasLoud) reasons.push('depReasonLoudnessOtherSide');
       // Frequenzabgleich adaptiv: konvergierte Ergebnisse in fRes
       // oder Laufdaten in runs[] (auch ohne konvergierten Match).
@@ -73,9 +71,8 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       const s = sideData[activeSide];
-      const ownHasLoud =
-        (s.bRes && s.bRes.length > 0) ||
-        (s.jRes && s.jRes.length > 0);
+      // BA 251: jRes entfaellt; nur noch bRes.
+      const ownHasLoud = (s.bRes && s.bRes.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       // Adaptiv: fRes (konvergierte Ergebnisse) oder Laufdaten in runs[]
       try {
@@ -108,9 +105,8 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function(el) {
       const reasons = [];
       const s = sideData[activeSide];
-      const ownHasLoud =
-        (s.bRes && s.bRes.length > 0) ||
-        (s.jRes && s.jRes.length > 0);
+      // BA 251: jRes entfaellt; nur noch bRes.
+      const ownHasLoud = (s.bRes && s.bRes.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)
@@ -172,9 +168,8 @@ const DEP_LOCK_RULES = [
     getReasonKeys: function() {
       const reasons = [];
       const s = sideData[activeSide];
-      const ownHasLoud =
-        (s.bRes && s.bRes.length > 0) ||
-        (s.jRes && s.jRes.length > 0);
+      // BA 251: jRes entfaellt; nur noch bRes.
+      const ownHasLoud = (s.bRes && s.bRes.length > 0);
       if (ownHasLoud) reasons.push('depReasonLoudness');
       try {
         if (typeof fRes !== 'undefined' && Array.isArray(fRes) && fRes.length > 0)

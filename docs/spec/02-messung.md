@@ -283,15 +283,15 @@ Slider-Wert wird invertiert.
   Sequenz komplett abgelaufen ist), startet er bei Position 0.
 - Vergleicht gleiche Frequenz auf beiden Ohren
 - **Vorbedingungs-Hinweise (BA 245.3, dynamisch je Seite):**
-  - `#lrPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes` und
-    `sideData.left.jRes` leer sind. Text: `fmPrereqLvLeft`
+  - `#lrPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes`
+    leer ist. Text: `fmPrereqLvLeft`
     (i18n-Key mit freqmatch geteilt).
-  - `#lrPrereqLvRightPara`: erscheint wenn `sideData.right.bRes` und
-    `sideData.right.jRes` leer sind. Text: `fmPrereqLvRight`.
+  - `#lrPrereqLvRightPara`: erscheint wenn `sideData.right.bRes`
+    leer ist. Text: `fmPrereqLvRight`.
   Beide Hinweise als `kind: 'warn'` (gelb) oben im Erklär-Block,
   Sichtbarkeit per `display`-Toggle in `_lrRenderPrereqHints()`,
   aufgerufen aus `lrCheckData()`. Helfer `_lrHasLvData(side)` prüft
-  `bRes`/`jRes`-Befüllung analog `_fmHasLvData`. Der frühere statische
+  `bRes`-Befüllung analog `_fmHasLvData`. Der frühere statische
   Hinweis `lrPrereqHint` ist entfernt (i18n-Key bleibt vorerst
   stehen — Cleanup mit Migrationsplan-Schritt 6).
 
@@ -320,10 +320,10 @@ Slider-Wert wird invertiert.
   `_fmRenderIntroText` und der veraltete Key `fmHintMethod`
   (`#fmHintMethodPara`) sind entfernt.
 - **Vorbedingungs-Hinweise (BA 160, Split seit 3.1.181):**
-  - `#fmPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes` und
-    `sideData.left.jRes` leer sind. Text: `fmPrereqLvLeft`.
-  - `#fmPrereqLvRightPara`: erscheint wenn `sideData.right.bRes` und
-    `sideData.right.jRes` leer sind. Text: `fmPrereqLvRight`.
+  - `#fmPrereqLvLeftPara`: erscheint wenn `sideData.left.bRes`
+    leer ist. Text: `fmPrereqLvLeft`.
+  - `#fmPrereqLvRightPara`: erscheint wenn `sideData.right.bRes`
+    leer ist. Text: `fmPrereqLvRight`.
   - `#fmPrereqSbHintPara`: erscheint wenn `lrResults` leer (keine
     Stereo-Balance-Messung vorhanden). Text: `fmPrereqSb`.
   Die linke/rechte LV-Prüfung läuft seitenunabhängig vom
@@ -332,7 +332,7 @@ Slider-Wert wird invertiert.
   `display`-Toggle in `_fmRenderPrereqHints()`, aufgerufen aus
   `fmApplyLang` und `_fmRefreshTabState`. Texte stehen statisch
   in `data-t` der Config (kein dynamisches Umschalten mehr).
-  Helfer `_fmHasLvData(side)` prüft `bRes`/`jRes`-Befüllung.
+  Helfer `_fmHasLvData(side)` prüft `bRes`-Befüllung.
 - **Referenzseiten-Hinweise (BA 220):** `fmHintWarnBothCI` und
   `fmHintWarn` sind jetzt feste Bestandteile der jeweiligen Gruppe
   (s. o.) und immer sichtbar; kein dynamisches Umschalten mehr.

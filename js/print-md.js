@@ -1073,7 +1073,7 @@ function _audiologAdvice() {
   return lines.join("\n");
 }
 
-// ---------- Letzte Messung pro Seite (max-Timestamp von jRes+bRes) ----------
+// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus bRes.
 
 function _audiologLastMeas(side) {
   const sd = sideData[side];
@@ -1083,7 +1083,7 @@ function _audiologLastMeas(side) {
     if (!Array.isArray(arr)) return;
     for (const e of arr) if (e && e.timestamp && e.timestamp > max) max = e.timestamp;
   };
-  collect(sd.jRes); collect(sd.bRes);
+  collect(sd.bRes);
   return max > 0 ? new Date(max) : null;
 }
 

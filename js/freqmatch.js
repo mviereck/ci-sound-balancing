@@ -895,10 +895,11 @@ function _fmRefreshHGWarningVisibility() {
 }
 
 
+// BA 251: jRes entfaellt; Lautstaerke-Daten = bRes.
 function _fmHasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.bRes && s.bRes.length > 0) || (s.jRes && s.jRes.length > 0);
+  return (s.bRes && s.bRes.length > 0);
 }
 
 function _fmRenderPrereqHints() {

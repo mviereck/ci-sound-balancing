@@ -47,7 +47,7 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   und Parameter ausgeblendet; Hinweistext „Bitte Hersteller wählen,
   damit Frequenzraster und Pro-Elektroden-Felder erscheinen." (BA 165).
   **Sperre (BA 151):** Das Dropdown wird per `dependency-lock.js`
-  gesperrt, sobald Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der
+  gesperrt, sobald Lautstärke-Test-Ergebnisse (`bRes`) der
   aktiven Seite oder FreqMatch-Daten vorliegen (`fRes` nicht leer,
   `_fmHasAdaptiveData()` — also auch Laufdaten ohne konvergierten
   Match — oder `sliderEstimates` nicht leer). Klick öffnet Popup
@@ -59,7 +59,7 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   **Sperre (BA 149):** Das Dropdown wird per `dependency-lock.js`
   gesperrt (`.dep-locked`, grauer Hintergrund, „not-allowed"-Cursor),
   sobald Meßergebnisse vorliegen, die durch einen Hersteller-Wechsel
-  ungültig würden: Lautstärke-Test-Ergebnisse (`bRes`/`jRes`) der aktiven
+  ungültig würden: Lautstärke-Test-Ergebnisse (`bRes`) der aktiven
   Seite, Lautstärke-Test-Ergebnisse der anderen Seite (wenn akustisch),
   Frequenzabgleich-Daten (`fRes` nicht leer, `_fmHasAdaptiveData()` —
   also auch Laufdaten ohne konvergierten Match — oder `sliderEstimates`

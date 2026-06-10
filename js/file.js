@@ -32,7 +32,6 @@ function resetAll() {
     sideData[s].elFreqOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].manualLevels = new Array(sideData[s].nEl).fill(0);
     sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
-    sideData[s].jRes = [];
     sideData[s].bRes = [];
     sideData[s].presets = [];
     initSideData(s, "unknown");
@@ -227,7 +226,6 @@ async function saveJson() {
         electrodeNotes: sideData.left.elNt,
         electrodeExcludedDuring: sideData.left.elExDur,
         referenceElectrode: sideData.left.refEl,
-        judgmentResults: sideData.left.jRes,
         balanceResults: sideData.left.bRes,
         fmMode: sideData.left.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
@@ -249,7 +247,6 @@ async function saveJson() {
         electrodeNotes: sideData.right.elNt,
         electrodeExcludedDuring: sideData.right.elExDur,
         referenceElectrode: sideData.right.refEl,
-        judgmentResults: sideData.right.jRes,
         balanceResults: sideData.right.bRes,
         fmMode: sideData.right.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
@@ -442,7 +439,8 @@ function loadOldFormat(d, targetSide) {
       : Math.floor(s.nEl / 2);
 
   // Messergebnisse
-  s.jRes = d.judgmentResults ? [...d.judgmentResults] : [];
+  // BA 251: judgmentResults aus alten Dateien werden stillschweigend
+  // ignoriert (das Judgment-Verfahren wurde mit BA 247 entfernt).
   s.bRes = d.balanceResults ? [...d.balanceResults] : [];
   s.manualLevels = d.manualLevels
     ? [...d.manualLevels]
@@ -877,11 +875,9 @@ function applyLoadedData(d) {
 function clearRes() {
   const ch = confirm(t("delConfirmMeas"));
   if (!ch) return;
-  sideData[activeSide].jRes.splice(0, sideData[activeSide].jRes.length);
   sideData[activeSide].bRes.splice(0, sideData[activeSide].bRes.length);
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
-  jRes = sideData[activeSide].jRes;
   bRes = sideData[activeSide].bRes;
   fullSweepRound = null;
   fullSweepDonePairs = [];

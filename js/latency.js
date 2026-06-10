@@ -351,14 +351,14 @@ function _latHasBalance() {
 }
 
 function _latHasLoudness() {
-  // Pragmatische Detektion: mindestens eine Seite hat von Default
-  // abweichende manualLevels ODER nicht-leere jRes.
+  // BA 251: jRes entfaellt. Detektion ueber manualLevels (von Default
+  // abweichend) oder nicht-leere bRes.
   if (typeof sideData !== 'object' || !sideData) return false;
   for (const side of ['left', 'right']) {
     const sd = sideData[side];
     if (!sd) continue;
     if (Array.isArray(sd.manualLevels) && sd.manualLevels.some(function(v) { return isFinite(v) && v !== 0; })) return true;
-    if (Array.isArray(sd.jRes) && sd.jRes.length > 0) return true;
+    if (Array.isArray(sd.bRes) && sd.bRes.length > 0) return true;
   }
   return false;
 }

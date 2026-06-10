@@ -229,12 +229,12 @@ function _switchTabInternal(n) {
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
     const hasBal = typeof bRes !== "undefined" && bRes.length > 0;
-    const hasJdg = typeof jRes !== "undefined" && jRes.length > 0;
     const hasFR = typeof fRes !== "undefined" && fRes.length > 0;
     const hasLR = typeof lrResults !== "undefined" && Object.keys(lrResults).length > 0;
     if (!currentName || currentName === "results") {
       // Default-Auswahl: Tab mit Daten bevorzugen
-      if (!hasBal && !hasJdg && hasFR) {
+      // BA 251: hasJdg entfaellt; reine Bal/FR-Logik bleibt.
+      if (!hasBal && hasFR) {
         switchSubtab("ergebnisse", "freqmatch");
         return;
       }
