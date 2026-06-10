@@ -91,8 +91,53 @@ const AM_SORT_AXES = {
       labelDefault: "nach Stil",
       getter: function (it) { return (it.tags && it.tags.style) || "zzz-unbekannt"; }
     }
+  ],
+  // BA260: Musik-Sortier-Achsen
+  musik: [
+    {
+      key: "title",
+      labelKey: "amSortTitle",
+      labelDefault: "nach Titel",
+      getter: function (it) { return (it.title || "").toLowerCase(); }
+    },
+    {
+      key: "artist",
+      labelKey: "amSortArtist",
+      labelDefault: "nach Artist",
+      getter: function (it) { return ((it.tags && it.tags.artist) || "zzz-unbekannt").toLowerCase(); }
+    },
+    {
+      key: "album",
+      labelKey: "amSortAlbum",
+      labelDefault: "nach Album",
+      getter: function (it) { return ((it.tags && it.tags.album) || "zzz-unbekannt").toLowerCase(); }
+    },
+    {
+      key: "genre",
+      labelKey: "amSortGenre",
+      labelDefault: "nach Genre",
+      getter: function (it) {
+        const g = it.tags && it.tags.genres;
+        if (Array.isArray(g) && g.length) return g[0];
+        return "zzz-unbekannt";
+      }
+    },
+    {
+      key: "year",
+      labelKey: "amSortYear",
+      labelDefault: "nach Jahr",
+      getter: function (it) {
+        const y = it.tags && it.tags.year;
+        return (typeof y === "number") ? String(y) : "zzzz";
+      }
+    },
+    {
+      key: "source",
+      labelKey: "amSortSource",
+      labelDefault: "nach Quelle",
+      getter: function (it) { return it.sourceTitle || it._providerId || "zzz-unbekannt"; }
+    }
   ]
-  // weitere Kategorien (musik, hoerbuecher) folgen in spaeteren BAs.
 };
 
 function amSortAxesFor(category) {
@@ -114,6 +159,44 @@ function amSortItems(items, category, axisKey) {
     return ta < tb ? -1 : (ta > tb ? 1 : 0);
   });
   return arr;
+}
+
+// BA260: Eindeutige Kategorien fuer eine Sortier-Achse.
+// Beruecksichtigt Multi-Value-Tags (z.B. genres: ["pop","rock"] -> beide).
+// Liefert sortierte Liste; "(alle)" wird nicht enthalten (UI fuegt es selbst hinzu).
+function amBucketsForAxis(category, axisKey, items) {
+  const axes = amSortAxesFor(category);
+  const axis = axes.find(function (a) { return a.key === axisKey; });
+  if (!axis) return [];
+  const set = new Set();
+  // Spezialfall: Achsen, deren zugrundeliegendes Tag selbst ein Array
+  // ist (heute genres). Hier explizit alle Array-Werte aufnehmen.
+  const arrayTags = { genre: function (it) { return (it.tags && it.tags.genres) || []; } };
+  for (const it of items) {
+    const arr = arrayTags[axisKey] ? arrayTags[axisKey](it) : null;
+    if (Array.isArray(arr) && arr.length) {
+      for (const v of arr) set.add(String(v));
+    } else {
+      const v = axis.getter(it);
+      if (v && v !== "zzz-unbekannt" && v !== "zzzz") set.add(String(v));
+    }
+  }
+  return Array.from(set).sort(function (a, b) {
+    return a.localeCompare(b);
+  });
+}
+
+// BA260: Pruefen, ob ein Item zu einer Kategorie passt (Multi-Value-faehig).
+function amItemMatchesCategory(category, axisKey, cat, item) {
+  if (!cat || cat === "_all") return true;
+  if (axisKey === "genre") {
+    const g = (item.tags && item.tags.genres) || [];
+    return Array.isArray(g) && g.indexOf(cat) >= 0;
+  }
+  const axes = amSortAxesFor(category);
+  const axis = axes.find(function (a) { return a.key === axisKey; });
+  if (!axis) return true;
+  return String(axis.getter(item)) === String(cat);
 }
 
 // --- Provider 1: generierte Standardrauscher ---
@@ -670,6 +753,50 @@ amRegisterProvider({
       }
     }
     return out;
+  }
+});
+
+// ============================================================
+// BA260: lokaler Musik-File-Provider
+// ============================================================
+// Eine einzige hochgeladene Datei wird als Musik-Item gefuehrt.
+// Beim naechsten Upload wird der Eintrag ersetzt. Audio-Dekodierung
+// passiert weiterhin im plAudio-change-Handler des Players;
+// dieser Provider liefert nur das Metadaten-Item.
+
+let _amMusicLocalFile = null;     // { name, audio: "local-music-file:<name>" } | null
+
+function amMusicLocalSetFile(file) {
+  if (!file) { _amMusicLocalFile = null; return null; }
+  const id = "local-music-file:" + file.name;
+  _amMusicLocalFile = {
+    id: id,
+    title: file.name.replace(/\.[^.]+$/, ""),
+    audio: id,           // markiert, dass der Player den File-Buffer direkt verwendet
+    sourceTitle: "Eigener Upload",
+    license: null,
+    credit: null,
+    tags: {
+      artist: "",
+      album: "",
+      genres: [],
+      year: null,
+      source_local: "y"
+    },
+    _file: file          // privat: das File-Objekt zur Wiedergabe
+  };
+  return _amMusicLocalFile;
+}
+
+function amMusicLocalCurrent() {
+  return _amMusicLocalFile;
+}
+
+amRegisterProvider({
+  id: "music-local-file",
+  listItems: function (category) {
+    if (category !== "musik") return [];
+    return _amMusicLocalFile ? [_amMusicLocalFile] : [];
   }
 });
 

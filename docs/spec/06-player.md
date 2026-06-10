@@ -33,19 +33,28 @@
        Modus: echter Schritt zurück.
      - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
      - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (je nach
-       Zufall-Toggle zufällig oder sequentiell; bei Musik ohne Folge-Track,
-       da keine Playlist). Stoppt nach 30 Minuten ohne UI-Interaktion.
+       Zufall-Toggle zufällig oder sequentiell; bei Musik: hält am Ende
+       der gefilterten Sicht an). Stoppt nach 30 Minuten ohne UI-Interaktion.
      - **Pause-Buttons**: 0 / 500 / 750 / 1000 / 2000 / 4000 / 8000 ms,
        **immer aktiv** (wirken zwischen Loop-Wiederholungen und bei
        Auto-Advance). Default 2000 ms.
      - Loop hat Vorrang vor Auto-Advance.
      - Transport-Leiste immer sichtbar (auch ohne geladene Datei);
-       Prev/Next ausgegraut im Musik-Modus (keine Playlist). Bei
-       Geräuschen aktiv und springen ±1 in der aktuellen Sortier-
-       Reihenfolge (mit Wrap-Around), analog zu Auto-Advance.
+       Prev/Next aktiv für Musik, Geräusche und Hörbücher — springen
+       ±1 in der gefilterten/sortierten Reihenfolge (Musik: gefilterte
+       Sicht; Geräusche: Sortierreihenfolge mit Wrap-Around).
      - **Weiter/Zurück lösen immer die Wiedergabe aus** — auch wenn
        der Player gerade gestoppt ist (gilt für Sätze, Geräusche,
-       Hörbücher; BA 259).
+       Hörbücher, Musik; BA 259).
+     - **Musik (BA 260):** Sub-Block mit Datei-Upload (oben), Suchfeld,
+       Sortier-Achse (Titel/Artist/Album/Genre/Jahr/Quelle), Kategorie-
+       Dropdown („(alle)" + Achs-spezifische Werte) und Stück-Dropdown
+       („Artist — Titel"). Ein Track erscheint in jedem Kategorie-Bucket,
+       dessen Wert das Tag enthält (Multi-Genre: ein Track in mehreren
+       Genres taucht in mehreren Buckets auf). Prev/Next analog Geräuschen
+       (Shuffle/Memory aus BA 258, immer-Play aus BA 259). Auto-Advance
+       hält am Ende der gefilterten Sicht an (kein Wrap-Around).
+       Webspace-Bibliothek und Ordner-Upload folgen in BA 261.
      - **Geräusche:** Sub-Block mit zwei Dropdowns —
        Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
        „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte
@@ -85,8 +94,10 @@
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
        `plShuffle`, `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`,
        `plNoiseSortAxis`, `plBookSelectedId`, `plBookChapterIdx`,
-       `plBookSortAxis`, `plBookPositions` werden in JSON-Save und
-       localStorage gespeichert und beim Restore wiederhergestellt.
+       `plBookSortAxis`, `plBookPositions`, `plMusicSelectedId`,
+       `plMusicSortAxis`, `plMusicCategory`, `plMusicSearchQuery`
+       werden in JSON-Save und localStorage gespeichert und beim
+       Restore wiederhergestellt.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**

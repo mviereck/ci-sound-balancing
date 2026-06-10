@@ -268,6 +268,14 @@ document
       const buf = await f.arrayBuffer();
       pFileBuf = await c.decodeAudioData(buf);
       pSetPlaybackMode("file");
+      // BA260: hochgeladene Datei als Musik-Provider-Item registrieren,
+      // damit sie in der Bibliotheks-Liste erscheint und vom Filtering
+      // erfasst wird.
+      if (typeof amMusicLocalSetFile === "function") {
+        const it = amMusicLocalSetFile(f);
+        if (it && typeof plMusicSelectedId !== "undefined") plMusicSelectedId = it.id;
+        if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+      }
       if (typeof plUpdDisplay === "function") plUpdDisplay();
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       pBuildEQ();
@@ -648,6 +656,43 @@ async function pPlay() {
                 plBookPositions[plBookSelectedId].posSeconds = 0;
               }
               plBookLoadSelected().then(function () {
+                if (typeof pPlay === "function") pPlay();
+              });
+            }, ms);
+          }
+        }
+      }
+
+      // BA260: Auto-Advance bei Musik — naechstes Stueck in gefilterter Sicht.
+      if (plActiveSource === "music" && plAutoAdvance) {
+        const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
+        if (visible.length > 0) {
+          const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+          let nextItem = null;
+          if (useRandom) {
+            if (visible.length === 1) { nextItem = visible[0]; }
+            else {
+              let pick;
+              do {
+                pick = visible[Math.floor(Math.random() * visible.length)];
+              } while (pick.id === plMusicSelectedId);
+              nextItem = pick;
+            }
+            _plMusicPrevId = plMusicSelectedId;
+          } else {
+            const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
+            if (idx >= 0 && idx < visible.length - 1) {
+              nextItem = visible[idx + 1];
+            }
+            // Sequenzende: kein Wrap, still anhalten (Konzept-Entscheidung Auto-Advance-Ende = Stop).
+          }
+          if (nextItem) {
+            setTimeout(function () {
+              if (!plAutoAdvance || plLoop) return;
+              plMusicSelectedId = nextItem.id;
+              const sel = document.getElementById("plMusicItemSel");
+              if (sel) sel.value = nextItem.id;
+              plMusicLoadSelected().then(function () {
                 if (typeof pPlay === "function") pPlay();
               });
             }, ms);
@@ -1214,6 +1259,10 @@ function plPrev() {
     _plNoiseStep(-1);
     return;
   }
+  if (plActiveSource === "music") {
+    _plMusicStep(-1);
+    return;
+  }
   if (typeof pStopReset === "function") {
     pStopReset();
     if (typeof pToggle === "function") pToggle();
@@ -1260,6 +1309,10 @@ function plNext() {
     _plNoiseStep(1);
     return;
   }
+  if (plActiveSource === "music") {
+    _plMusicStep(+1);
+    return;
+  }
 }
 
 function plToggleLoop() {
@@ -1301,6 +1354,11 @@ function plSetSource(src) {
     // Buffer auf die Musikdatei zurücksetzen, damit nach Noise/Audiobook
     // beim Play wieder die Datei läuft, nicht das vorherige Geräusch.
     pSetPlaybackMode("file");
+    // BA260: UI refreshen und ggf. ausgewaehltes Item laden.
+    if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+    if (plMusicSelectedId && typeof plMusicLoadSelected === "function") {
+      plMusicLoadSelected();
+    }
   } else if (src === "sentences") {
     // Falls noch ein Satz-Buffer geladen ist, ihn aktiv schalten; sonst leert
     // pSetPlaybackMode pBuf und sPlay/sPlayCurrent lädt beim Play neu nach.
@@ -1371,7 +1429,13 @@ function plUpdTransportUI() {
   // hart, das ist OK.)
   const hasNext = (plActiveSource === "sentences"
                 || plActiveSource === "audiobook"
-                || plActiveSource === "noise");
+                || plActiveSource === "noise"
+                || (plActiveSource === "music" && (
+                    (typeof plMusicVisibleItems === "function")
+                      ? plMusicVisibleItems().length > 0
+                      : false
+                  ))
+               );
 
   // Prev: bei Zufall = Memory; bei sequentiell = vorheriges Item.
   // Wir berechnen pro Quelle das Boolesche "kann zurueck".
@@ -1384,6 +1448,8 @@ function plUpdTransportUI() {
       hasPrev = plNoiseHasPrevMemory();
     } else if (plActiveSource === "audiobook" && typeof plBookHasPrevMemory === "function") {
       hasPrev = plBookHasPrevMemory();
+    } else if (plActiveSource === "music" && typeof plMusicHasPrevMemory === "function") {
+      hasPrev = plMusicHasPrevMemory();
     }
   }
 
@@ -1430,9 +1496,28 @@ function plUpdDisplay() {
       titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
     }
   } else if (plActiveSource === "music") {
-    const fi = document.getElementById("plAudio");
-    const fname = (fi && fi.files && fi.files[0]) ? fi.files[0].name : "";
-    titleText = fname || ((typeof t === "function") ? t("plDispEmpty") : "Nichts geladen");
+    const it = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
+    if (it) {
+      const artist = (it.tags && it.tags.artist) || "";
+      titleText = artist
+        ? (artist + " — " + (it.title || it.id))
+        : (it.title || it.id);
+      const parts = [];
+      if (it.tags && it.tags.album)  parts.push(it.tags.album);
+      if (it.tags && Array.isArray(it.tags.genres) && it.tags.genres.length)
+        parts.push(it.tags.genres.join(", "));
+      if (it.tags && it.tags.year)   parts.push(String(it.tags.year));
+      if (it.license)     parts.push(it.license);
+      if (it.sourceTitle) parts.push(it.sourceTitle);
+      metaParts = parts;
+    } else {
+      // Fallback: noch kein Provider-Item — vielleicht direkt File-Upload
+      // ohne Provider-Registrierung (sollte mit BA260 nicht mehr vorkommen,
+      // aber als Safety-Net behalten).
+      const fi = document.getElementById("plAudio");
+      const fname = (fi && fi.files && fi.files[0]) ? fi.files[0].name : "";
+      titleText = fname || ((typeof t === "function") ? t("plDispEmpty") : "Nichts geladen");
+    }
   } else if (plActiveSource === "noise") {
     const it = (typeof plNoiseCurrentItem === "function") ? plNoiseCurrentItem() : null;
     if (it) {
@@ -1678,6 +1763,250 @@ if (_plNItemEl) {
     if (typeof plUpdDisplay === "function") plUpdDisplay();
   });
 }
+
+// ============================================================
+// BA260: Musik-Bibliothek (UI + Wiedergabe-Anbindung)
+// ============================================================
+
+let _plMusicPrevId = null;          // BA258-Memory-Helfer
+
+function plMusicHasPrevMemory() {
+  return !!_plMusicPrevId;
+}
+
+function plMusicAllItems() {
+  return (typeof amCollectItems === "function") ? amCollectItems("musik") : [];
+}
+
+function _plMusicSearchMatch(it, q) {
+  if (!q) return true;
+  const s = q.toLowerCase();
+  const fields = [
+    it.title || "",
+    (it.tags && it.tags.artist) || "",
+    (it.tags && it.tags.album)  || "",
+    it.sourceTitle || ""
+  ];
+  for (const f of fields) {
+    if (f && f.toLowerCase().indexOf(s) >= 0) return true;
+  }
+  return false;
+}
+
+// Liefert die gefilterte und sortierte Track-Liste fuer die aktuelle UI-Sicht.
+function plMusicVisibleItems() {
+  const all = plMusicAllItems();
+  const filtered = all.filter(function (it) {
+    if (!amItemMatchesCategory("musik", plMusicSortAxis, plMusicCategory, it)) return false;
+    return _plMusicSearchMatch(it, plMusicSearchQuery);
+  });
+  return amSortItems(filtered, "musik", plMusicSortAxis);
+}
+
+function plMusicCurrentItem() {
+  if (!plMusicSelectedId) return null;
+  return plMusicAllItems().find(function (it) { return it.id === plMusicSelectedId; }) || null;
+}
+
+function _plMusicTrackLabel(it) {
+  const artist = (it.tags && it.tags.artist) || "";
+  if (artist) return artist + " — " + (it.title || it.id);
+  return it.title || it.id;
+}
+
+function plMusicRefreshUI() {
+  const sortSel = document.getElementById("plMusicSortSel");
+  const catSel  = document.getElementById("plMusicCatSel");
+  const itemSel = document.getElementById("plMusicItemSel");
+  const search  = document.getElementById("plMusicSearchInput");
+  const empty   = document.getElementById("plMusicEmpty");
+  if (!sortSel || !catSel || !itemSel) return;
+
+  // Sortier-Achsen-Dropdown
+  const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("musik") : [];
+  if (sortSel.options.length === 0) {
+    for (const a of axes) {
+      const opt = document.createElement("option");
+      opt.value = a.key;
+      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+      sortSel.appendChild(opt);
+    }
+    sortSel.value = plMusicSortAxis;
+  } else {
+    for (let i = 0; i < sortSel.options.length; i++) {
+      const opt = sortSel.options[i];
+      const a = axes.find(function (x) { return x.key === opt.value; });
+      if (a) opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+    }
+  }
+
+  // Kategorien-Dropdown (abhaengig von Achse)
+  const all = plMusicAllItems();
+  const buckets = amBucketsForAxis("musik", plMusicSortAxis, all);
+  const prevCat = plMusicCategory;
+  while (catSel.firstChild) catSel.removeChild(catSel.firstChild);
+  const optAll = document.createElement("option");
+  optAll.value = "_all";
+  optAll.textContent = (typeof t === "function") ? t("plMusicCatAll") : "(alle)";
+  catSel.appendChild(optAll);
+  for (const b of buckets) {
+    const opt = document.createElement("option");
+    opt.value = b;
+    opt.textContent = b;
+    catSel.appendChild(opt);
+  }
+  if (buckets.indexOf(prevCat) >= 0 || prevCat === "_all") {
+    catSel.value = prevCat;
+  } else {
+    catSel.value = "_all";
+    plMusicCategory = "_all";
+  }
+  // Achsen ohne sinnvolle Buckets: Kategorie ausgrauen.
+  catSel.disabled = (buckets.length === 0);
+  catSel.style.opacity = catSel.disabled ? "0.5" : "1";
+
+  // Suchfeld
+  if (search && document.activeElement !== search) search.value = plMusicSearchQuery || "";
+
+  // Track-Dropdown
+  const visible = plMusicVisibleItems();
+  while (itemSel.firstChild) itemSel.removeChild(itemSel.firstChild);
+  for (const it of visible) {
+    const opt = document.createElement("option");
+    opt.value = it.id;
+    opt.textContent = _plMusicTrackLabel(it);
+    itemSel.appendChild(opt);
+  }
+  if (visible.length === 0) {
+    if (empty) empty.style.display = "";
+    itemSel.disabled = true;
+    plMusicSelectedId = null;
+  } else {
+    if (empty) empty.style.display = "none";
+    itemSel.disabled = false;
+    // bisherige Auswahl behalten, wenn moeglich
+    const has = visible.some(function (x) { return x.id === plMusicSelectedId; });
+    if (!has) {
+      plMusicSelectedId = visible[0].id;
+    }
+    itemSel.value = plMusicSelectedId;
+  }
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+}
+
+// Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf und ruft pBuildEQ.
+// Lokaler Upload (audio === "local-music-file:...") nutzt das vorhandene
+// File-Objekt; sonstige Items (Webspace, spaeter Ordner) per fetch.
+async function plMusicLoadSelected() {
+  const it = plMusicCurrentItem();
+  if (!it) return;
+  const c = gPC();
+  try {
+    let arrayBuf;
+    if (typeof it.audio === "string" && it.audio.indexOf("local-music-file:") === 0) {
+      const localItem = (typeof amMusicLocalCurrent === "function") ? amMusicLocalCurrent() : null;
+      if (!localItem || !localItem._file) {
+        console.warn("[player/musik] lokales File nicht mehr verfuegbar:", it.id);
+        return;
+      }
+      arrayBuf = await localItem._file.arrayBuffer();
+    } else if (/^(data:|https?:|blob:)/i.test(it.audio)) {
+      const r = await fetch(it.audio, { mode: "cors" });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      arrayBuf = await r.arrayBuffer();
+    } else {
+      throw new Error("Unbekanntes Audio-Format fuer Musik-Item: " + it.audio);
+    }
+    pFileBuf = await c.decodeAudioData(arrayBuf);
+    pSetPlaybackMode("file");
+    pOff = 0;
+    pBuildEQ();
+    pDrawEQ();
+    pBuildTbl();
+    document.getElementById("plEqViz").style.display = "";
+    if (typeof plUpdDisplay     === "function") plUpdDisplay();
+    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+  } catch (err) {
+    console.error("[player/musik] Laden fehlgeschlagen:", err);
+  }
+}
+
+// Wahl im Item-Dropdown wechseln + ggf. abspielen
+function plMusicSetSelected(id) {
+  if (!id) return;
+  plMusicSelectedId = id;
+  plMusicLoadSelected();
+}
+
+function _plMusicStep(delta) {
+  const visible = plMusicVisibleItems();
+  if (visible.length === 0) return;
+  const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
+
+  let nextItem = null;
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+
+  if (useRandom) {
+    if (delta < 0) {
+      if (_plMusicPrevId) {
+        nextItem = visible.find(function (x) { return x.id === _plMusicPrevId; });
+        _plMusicPrevId = null;
+      }
+      if (!nextItem) return;
+    } else {
+      if (visible.length === 1) { nextItem = visible[0]; }
+      else {
+        let pick;
+        do {
+          pick = visible[Math.floor(Math.random() * visible.length)];
+        } while (pick.id === plMusicSelectedId);
+        nextItem = pick;
+      }
+      _plMusicPrevId = plMusicSelectedId;
+    }
+  } else {
+    const nextIdx = (idx + delta + visible.length) % visible.length;
+    nextItem = visible[nextIdx];
+  }
+  if (!nextItem) return;
+  plMusicSelectedId = nextItem.id;
+  const sel = document.getElementById("plMusicItemSel");
+  if (sel) sel.value = nextItem.id;
+  if (typeof pPause === "function" && pPlaying) pPause();
+  plMusicLoadSelected().then(function () {
+    // BA259: Prev/Next loesen immer Play aus.
+    if (typeof pPlay === "function") pPlay();
+  });
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+}
+
+// Event-Wiring (sobald DOM da ist; player.js laeuft eh nach DOMContentLoaded)
+(function _plMusicWire() {
+  const sortSel = document.getElementById("plMusicSortSel");
+  const catSel  = document.getElementById("plMusicCatSel");
+  const itemSel = document.getElementById("plMusicItemSel");
+  const search  = document.getElementById("plMusicSearchInput");
+  if (!sortSel || !catSel || !itemSel || !search) return;
+
+  sortSel.addEventListener("change", function () {
+    plMusicSortAxis = sortSel.value;
+    plMusicCategory = "_all";  // Achswechsel resettet Kategorie
+    plMusicRefreshUI();
+  });
+  catSel.addEventListener("change", function () {
+    plMusicCategory = catSel.value;
+    plMusicRefreshUI();
+  });
+  itemSel.addEventListener("change", function () {
+    plMusicSetSelected(itemSel.value);
+  });
+  search.addEventListener("input", function () {
+    plMusicSearchQuery = search.value || "";
+    plMusicRefreshUI();
+  });
+  plMusicRefreshUI();
+})();
 
 // Erstaufbau
 plUpdSourceUI();

@@ -750,6 +750,12 @@ let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
 let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
 let plBookSortAxis   = "author";      // Sortierachse
 let plBookPositions  = {};            // { <bookId>: { chapterIdx, posSeconds } }
+
+// BA260: Musik-Bibliothek
+let plMusicSelectedId   = null;     // welches Stueck aktiv ist
+let plMusicSortAxis     = "title";  // Default-Sortier-Achse
+let plMusicCategory     = "_all";   // "(alle)" als Default
+let plMusicSearchQuery  = "";       // Such-String (persistiert)
 let pBookBuf         = null;          // dekodierter Kapitel-Buffer (Laufzeit, nicht persistiert)
 
 let lvTabShowMeas = false;

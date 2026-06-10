@@ -171,6 +171,10 @@ function resetAll() {
   if (typeof plBookChapterIdx  !== "undefined") plBookChapterIdx  = 0;
   if (typeof plBookSortAxis    !== "undefined") plBookSortAxis    = "author";
   if (typeof plBookPositions   !== "undefined") plBookPositions   = {};
+  if (typeof plMusicSelectedId   !== "undefined") plMusicSelectedId   = null;
+  if (typeof plMusicSortAxis     !== "undefined") plMusicSortAxis     = "title";
+  if (typeof plMusicCategory     !== "undefined") plMusicCategory     = "_all";
+  if (typeof plMusicSearchQuery  !== "undefined") plMusicSearchQuery  = "";
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
@@ -338,6 +342,10 @@ async function saveJson() {
     plBookChapterIdx: (typeof plBookChapterIdx !== "undefined") ? plBookChapterIdx : 0,
     plBookSortAxis:   (typeof plBookSortAxis   !== "undefined") ? plBookSortAxis   : "author",
     plBookPositions:  (typeof plBookPositions  !== "undefined") ? Object.assign({}, plBookPositions) : {},
+    plMusicSelectedId:  (typeof plMusicSelectedId  !== "undefined") ? plMusicSelectedId  : null,
+    plMusicSortAxis:    (typeof plMusicSortAxis    !== "undefined") ? plMusicSortAxis    : "title",
+    plMusicCategory:    (typeof plMusicCategory    !== "undefined") ? plMusicCategory    : "_all",
+    plMusicSearchQuery: (typeof plMusicSearchQuery !== "undefined") ? plMusicSearchQuery : "",
     localCollections: (typeof sLocalCollections !== "undefined")
       ? Array.from(sLocalCollections.values()).map((c) => ({
           id: c.id,
@@ -858,6 +866,10 @@ function applyLoadedData(d) {
   if (d.plBookPositions && typeof d.plBookPositions === "object") {
     plBookPositions = Object.assign({}, d.plBookPositions);
   }
+  if (typeof d.plMusicSelectedId  === "string") plMusicSelectedId  = d.plMusicSelectedId;
+  if (typeof d.plMusicSortAxis    === "string") plMusicSortAxis    = d.plMusicSortAxis;
+  if (typeof d.plMusicCategory    === "string") plMusicCategory    = d.plMusicCategory;
+  if (typeof d.plMusicSearchQuery === "string") plMusicSearchQuery = d.plMusicSearchQuery;
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
