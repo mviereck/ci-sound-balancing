@@ -1422,23 +1422,42 @@
 
           <!-- Sub-Block: Geraeusche -->
           <div id="plSubNoise" class="pl-subblock" style="margin-bottom: 12px; display: none">
+            <!-- BA262: Suchfeld -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center">
+              <label data-t="plNoiseSearchLabel" style="font-size:0.88em;margin-right:6px"></label>
+              <input type="search" id="plNoiseSearchInput" placeholder=""
+                     data-t-placeholder="plNoiseSearchPlaceholder"
+                     style="flex:1;min-width:160px;padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em" />
+            </div>
+
+            <!-- Sortier-Achse + Kategorie -->
             <div class="controls-row" style="gap:8px; flex-wrap:wrap; margin-bottom:6px">
               <div class="control-group">
                 <label data-t="plNoiseSortLabel" style="margin-right:6px"></label>
                 <select id="plNoiseSortSel"
                         style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                  <!-- Optionen werden zur Laufzeit aus AM_SORT_AXES.geraeusche befuellt -->
                 </select>
               </div>
+              <div class="control-group" style="flex:1; min-width:180px">
+                <label data-t="plNoiseCatLabel" style="margin-right:6px"></label>
+                <select id="plNoiseCatSel"
+                        style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:160px">
+                </select>
+              </div>
+            </div>
+
+            <!-- Stück-Dropdown -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px">
               <div class="control-group" style="flex:1; min-width:240px">
                 <label data-t="plNoiseItemLabel" style="margin-right:6px"></label>
                 <select id="plNoiseItemSel"
                         style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em; min-width:200px">
-                  <!-- Optionen werden zur Laufzeit aus amCollectItems("geraeusche") befuellt -->
                 </select>
               </div>
             </div>
-            <div id="plNoiseEmpty" class="explain" style="display:none;font-size:0.85em;color:var(--text-muted)"
+
+            <div id="plNoiseEmpty" class="explain"
+                 style="display:none;font-size:0.85em;color:var(--text-muted)"
                  data-t="plNoiseEmpty"></div>
           </div>
 

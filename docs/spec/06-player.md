@@ -64,14 +64,13 @@
        (`audio.manifest/<src>/musik/*.json`) erscheinen automatisch,
        sobald der Webspace-Bootstrap eine Source mit Kategorie
        `"musik"` geladen hat.
-     - **Geräusche:** Sub-Block mit zwei Dropdowns —
-       Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
-       „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte
-       Standardrauscher (Weiß, Rosa, Braun) per WebAudio im Browser;
-       Sample-Geräusche folgen über das Embed-Modul (`assets/audio-embed/
-       noises.js`) und später über Webspace-Manifest.
-       Anzeige unter Transport: Titel · `kind` · `spectrum` · Lizenz · Quelle.
-       Loop und Auto-Advance wirken wie bei den anderen Quellen.
+     - **Geräusche:** Sub-Block mit Suchfeld, Sortier-Achse (Default „nach Art";
+       weitere: „nach Spektrum", „nach Quelle"), Kategorie-Dropdown („(alle)" +
+       achs-spezifische Werte) und Geräusch-Auswahl. Drei generierte
+       Standardrauscher (Weiß, Rosa, Braun) plus Sample-Geräusche aus
+       Embed/Webspace. Anzeige unter Transport: Titel · `kind` · `spectrum` ·
+       Lizenz · Quelle. Loop, Auto-Advance, Zufall, Prev-Memory wirken wie
+       bei den anderen Quellen — auf der gefilterten Sicht.
      - **Hörbücher:** Sub-Block mit Upload-Button (Ordner mit nummerierten
        Audio-Dateien), drei Dropdowns (Sortierung, Hörbuch, Kapitel) und
        Entfernen-Button (×). Auto-Advance spielt Kapitel-für-Kapitel durch;
@@ -102,7 +101,8 @@
        ignoriert; nur direkte Collection-Manifeste fließen in die UI.
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
        `plShuffle`, `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`,
-       `plNoiseSortAxis`, `plBookSelectedId`, `plBookChapterIdx`,
+       `plNoiseSortAxis`, `plNoiseCategory`, `plNoiseSearchQuery`,
+       `plBookSelectedId`, `plBookChapterIdx`,
        `plBookSortAxis`, `plBookPositions`, `plMusicSelectedId`,
        `plMusicSortAxis`, `plMusicCategory`, `plMusicSearchQuery`
        werden in JSON-Save und localStorage gespeichert und beim

@@ -117,7 +117,8 @@ function applyLang() {
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plRefreshTooltips === "function") plRefreshTooltips();
-  if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+  if (typeof plMusicRefreshUI  === "function") plMusicRefreshUI();
+  if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}

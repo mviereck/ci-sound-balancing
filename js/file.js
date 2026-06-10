@@ -164,6 +164,8 @@ function resetAll() {
   // --- BA193: Geraeusche-State ---
   if (typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = "gen:pink";
   if (typeof plNoiseSortAxis   !== "undefined") plNoiseSortAxis   = "kind";
+  if (typeof plNoiseCategory   !== "undefined") plNoiseCategory   = "_all";
+  if (typeof plNoiseSearchQuery !== "undefined") plNoiseSearchQuery = "";
   if (typeof plSentBgEnabled   !== "undefined") plSentBgEnabled   = false;
   if (typeof plSentBgItemId    !== "undefined") plSentBgItemId    = "gen:pink";
   if (typeof plSentBgSnrDb     !== "undefined") plSentBgSnrDb     = 0;
@@ -335,6 +337,8 @@ async function saveJson() {
     plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
     plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
     plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
+    plNoiseCategory:   (typeof plNoiseCategory   !== "undefined") ? plNoiseCategory   : "_all",
+    plNoiseSearchQuery: (typeof plNoiseSearchQuery !== "undefined") ? plNoiseSearchQuery : "",
     plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
     plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
     plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
@@ -857,6 +861,8 @@ function applyLoadedData(d) {
   if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
   if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
   if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
+  if (typeof d.plNoiseCategory   === "string") plNoiseCategory   = d.plNoiseCategory;
+  if (typeof d.plNoiseSearchQuery === "string") plNoiseSearchQuery = d.plNoiseSearchQuery;
   if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
   if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
   if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;

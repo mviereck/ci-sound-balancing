@@ -595,8 +595,7 @@ async function pPlay() {
       if (plActiveSource === "noise" && plAutoAdvance) {
         setTimeout(function () {
           if (!plAutoAdvance || plLoop) return;
-          const all = amCollectItems("geraeusche");
-          const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
+          const sorted = plNoiseVisibleItems();
           if (sorted.length === 0) return;
           const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
           let next;
@@ -1175,8 +1174,7 @@ function plBookHasPrevMemory() {
 }
 
 function _plNoiseStep(delta) {
-  const all = amCollectItems("geraeusche");
-  const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
+  const sorted = plNoiseVisibleItems();
   if (sorted.length === 0) return;
   const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
 
@@ -1660,11 +1658,42 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 // BA193: Geraeusche-Quelle
 // ============================================================
 
+// BA262: Filter-Helfer fuer Geraeusche
+function _plNoiseSearchMatch(it, q) {
+  if (!q) return true;
+  const s = q.toLowerCase();
+  const fields = [
+    it.title || "",
+    (it.tags && it.tags.kind) || "",
+    (it.tags && it.tags.spectrum) || "",
+    it.sourceTitle || ""
+  ];
+  for (const f of fields) {
+    if (f && f.toLowerCase().indexOf(s) >= 0) return true;
+  }
+  return false;
+}
+
+function plNoiseAllItems() {
+  return (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
+}
+
+function plNoiseVisibleItems() {
+  const all = plNoiseAllItems();
+  const filtered = all.filter(function (it) {
+    if (!amItemMatchesCategory("geraeusche", plNoiseSortAxis, plNoiseCategory, it)) return false;
+    return _plNoiseSearchMatch(it, plNoiseSearchQuery);
+  });
+  return amSortItems(filtered, "geraeusche", plNoiseSortAxis);
+}
+
 function plNoiseRefreshUI() {
   const sortSel = document.getElementById("plNoiseSortSel");
+  const catSel  = document.getElementById("plNoiseCatSel");
   const itemSel = document.getElementById("plNoiseItemSel");
+  const search  = document.getElementById("plNoiseSearchInput");
   const empty   = document.getElementById("plNoiseEmpty");
-  if (!sortSel || !itemSel) return;
+  if (!sortSel || !catSel || !itemSel) return;
 
   // Sortier-Achsen-Dropdown
   const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("geraeusche") : [];
@@ -1675,11 +1704,8 @@ function plNoiseRefreshUI() {
       opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
       sortSel.appendChild(opt);
     }
-    if (typeof plNoiseSortAxis !== "undefined" && plNoiseSortAxis) {
-      sortSel.value = plNoiseSortAxis;
-    }
+    sortSel.value = plNoiseSortAxis;
   } else {
-    // Labels ggf. nach Sprachwechsel neu setzen
     for (let i = 0; i < sortSel.options.length; i++) {
       const opt = sortSel.options[i];
       const a = axes.find(function (x) { return x.key === opt.value; });
@@ -1687,34 +1713,52 @@ function plNoiseRefreshUI() {
     }
   }
 
-  // Items sammeln, sortieren, einsetzen
-  const all = (typeof amCollectItems === "function") ? amCollectItems("geraeusche") : [];
-  const sorted = (typeof amSortItems === "function")
-    ? amSortItems(all, "geraeusche", sortSel.value)
-    : all;
+  // Kategorie-Dropdown (abhaengig von Achse)
+  const all = plNoiseAllItems();
+  const buckets = amBucketsForAxis("geraeusche", plNoiseSortAxis, all);
+  while (catSel.firstChild) catSel.removeChild(catSel.firstChild);
+  const optAll = document.createElement("option");
+  optAll.value = "_all";
+  optAll.textContent = (typeof t === "function") ? t("plNoiseCatAll") : "(alle)";
+  catSel.appendChild(optAll);
+  for (const b of buckets) {
+    const opt = document.createElement("option");
+    opt.value = b;
+    opt.textContent = b;
+    catSel.appendChild(opt);
+  }
+  if (buckets.indexOf(plNoiseCategory) >= 0 || plNoiseCategory === "_all") {
+    catSel.value = plNoiseCategory;
+  } else {
+    catSel.value = "_all";
+    plNoiseCategory = "_all";
+  }
+  catSel.disabled = (buckets.length === 0);
+  catSel.style.opacity = catSel.disabled ? "0.5" : "1";
 
-  const prev = itemSel.value;
+  // Suchfeld
+  if (search && document.activeElement !== search) search.value = plNoiseSearchQuery || "";
+
+  // Item-Dropdown aus gefilterter Sicht
+  const visible = plNoiseVisibleItems();
   while (itemSel.firstChild) itemSel.removeChild(itemSel.firstChild);
-  for (const it of sorted) {
+  for (const it of visible) {
     const opt = document.createElement("option");
     opt.value = it.id;
     opt.textContent = it.title || it.id;
     itemSel.appendChild(opt);
   }
-  // vorherige Auswahl wiederherstellen, sonst gespeicherte oder erste
-  if (sorted.find(function (it) { return it.id === prev; })) {
-    itemSel.value = prev;
-  } else if (typeof plNoiseSelectedId !== "undefined" && plNoiseSelectedId
-             && sorted.find(function (it) { return it.id === plNoiseSelectedId; })) {
+  if (visible.length === 0) {
+    if (empty) empty.style.display = "";
+    itemSel.disabled = true;
+  } else {
+    if (empty) empty.style.display = "none";
+    itemSel.disabled = false;
+    const has = visible.some(function (x) { return x.id === plNoiseSelectedId; });
+    if (!has) {
+      plNoiseSelectedId = visible[0].id;
+    }
     itemSel.value = plNoiseSelectedId;
-  } else if (sorted.length > 0) {
-    itemSel.value = sorted[0].id;
-  }
-  if (empty) empty.style.display = (sorted.length === 0) ? "" : "none";
-
-  // gemerkten State updaten
-  if (typeof plNoiseSelectedId !== "undefined" && itemSel.value) {
-    plNoiseSelectedId = itemSel.value;
   }
   if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
 }
@@ -1742,17 +1786,31 @@ async function plNoiseLoadSelected() {
 }
 
 const _plNSortEl = document.getElementById("plNoiseSortSel");
+const _plNCatEl  = document.getElementById("plNoiseCatSel");
 const _plNItemEl = document.getElementById("plNoiseItemSel");
+const _plNSearchEl = document.getElementById("plNoiseSearchInput");
 if (_plNSortEl) {
   _plNSortEl.addEventListener("change", function () {
     plNoiseSortAxis = _plNSortEl.value;
+    plNoiseCategory = "_all";  // Achswechsel resettet Kategorie
+    plNoiseRefreshUI();
+  });
+}
+if (_plNCatEl) {
+  _plNCatEl.addEventListener("change", function () {
+    plNoiseCategory = _plNCatEl.value;
+    plNoiseRefreshUI();
+  });
+}
+if (_plNSearchEl) {
+  _plNSearchEl.addEventListener("input", function () {
+    plNoiseSearchQuery = _plNSearchEl.value || "";
     plNoiseRefreshUI();
   });
 }
 if (_plNItemEl) {
   _plNItemEl.addEventListener("change", function () {
     plNoiseSelectedId = _plNItemEl.value;
-    // Wenn Player gerade Geraeusche aktiv hat: sofort umladen
     if (plActiveSource === "noise") {
       const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying) { if (typeof pPause === "function") pPause(); }
