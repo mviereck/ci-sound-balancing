@@ -159,6 +159,62 @@ Reaktivierung: Inhalt in `js/debug-tests-current.js`
 zurückkopieren, neu laden, fertig. Die Archiv-Datei bleibt
 unverändert liegen.
 
+API-Property-Namen verifizieren (ab BA 247)
+-------------------------------------------
+
+Vor jeder testUI-API-Nutzung in einer Bauanleitung die tatsächlichen
+Property-Namen per `grep` in `js/test-ui.js` verifizieren. Konkret:
+`setLabels`-opts, `setPlaying`-Argumente, `progress.set`-opts,
+`setRangeHint`-opts, `refs.slider`-Felder, `refs.pairIndicator`-Felder,
+`refs.actions.*`. Auch: testUI baut viele Buttons mit `disabled = true`
+initial, der Aufrufer muß sie aktivieren — vor BA prüfen, ob das
+Test-Modul die richtigen Refs anspricht (neue API liegt unter
+`testEls.verfahren[<id>].actions.<name>`, NICHT direkt auf `testEls`).
+
+Hintergrund: BA 247 hatte sieben Code-Fixes für zehn Bugs in einer
+einzigen Migration. Sechs davon waren reine Schludrigkeit beim
+API-Aufruf: `leftLabel`/`rightLabel` statt `leftText`/`rightText`,
+`progress.set` mit String statt Objekt, `testEls.undoBtn` statt
+`testEls.verfahren['full'].actions.undo`, kein `setPlaying(null)` nach
+Sequenz-Ende, `updInd` zielt auf alte API. Alle wären mit 30 Sekunden
+grep verhindert worden — drei aufeinanderfolgende Fix-BAs (247.1,
+247.2, 247.3) statt einer sauberen Migration.
+
+Vor `testUI.X.Y(refs, {...})` einmal
+`grep -n "Y:\|function Y\|Y = function" js/test-ui.js` ablaufen lassen
+und die exakten Property-Namen ablesen. Bei Lifecycle-Bausteinen
+(`setPlaying`, Replay-Sperre, button-disabled-Defaults) zusätzlich
+prüfen, ob es einen passenden „cleanup"-Aufruf gibt. Bei zwei
+API-Refs-Quellen (alte vs. neue testUI-API) explizit benennen, welche
+genutzt wird, und im Snippet die volle Ref-Kette angeben
+(`testEls.verfahren[id].X.Y`, nicht `testEls.Y`).
+
+
+ASCII-Quotes in Code-Snippets
+-----------------------------
+
+In Code-Snippets von Bauanleitungen (`.js`, `.html`, `.css`) dürfen
+String-Begrenzer **ausschließlich ASCII-Zeichen** sein: `"` (U+0022),
+`'` (U+0027), `` ` `` (U+0060). Typografische Anführungszeichen wie
+`„` (U+201E), `"` (U+201C), `"` (U+201D), `'` (U+2018), `'` (U+2019)
+sind als Quote-Begrenzer **verboten**.
+
+Innerhalb von String-Werten (deutsche UI-Texte) sind typografische
+Zeichen erlaubt und oft gewünscht — z.B. `"Sie sind „aktiv"."` mit
+ASCII-Doppelquotes außen und typografischen Quotes innen.
+
+Hintergrund: Wiederkehrender Fehler. Beim Schreiben von Anleitungen in
+Markdown wandelt der Editor (oder das Modell selbst) ASCII-Quotes
+automatisch in typografische um. Beim Übertragen in `.js`-Dateien landen
+die typografischen Quotes im Code, der Browser bricht beim Parsen ab:
+`Uncaught SyntaxError: illegal character U+201C de.js:70:7`. Besonders
+häufig bei i18n-Strings in `de.js`/`en.js`/`fr.js`/`es.js`.
+
+Vor Freigabe der Anleitung im fertigen Text nach U+201C/U+201D/U+2018/
+U+2019 als Begrenzer scannen. Sonnet im Briefing daran erinnern:
+„Im Code ausschließlich ASCII-Anführungszeichen `"` und `'`."
+
+
 Häufige Fallen in Anleitungs-Snippets (Lessons learned ab BA 84)
 -----------------------------------------------------------------
 
