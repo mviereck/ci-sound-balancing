@@ -672,17 +672,6 @@ function _testSliderVal() {
     ? parseFloat(vref.slider.input.value) : 0;
 }
 
-// ---- Ausschluss-Helfer ----
-// BA 247: Exclude-Modal entfaellt; Bestaetigung erfolgt im
-// Implantat-Reiter. Aktuell wird `_testRequestExcl` nach BA 247 nicht
-// mehr aufgerufen — die alten Listener excludeLeftBtn/excludeRightBtn
-// sind im neuen DOMContentLoaded weg. Funktion bleibt vorerst als
-// Stub, weil sie in BA 248 mit dem Aufraeumen entfernt wird.
-function _testRequestExcl(elIdx) {
-  if (!testEls) return;
-  stopAll();
-  doExcl(elIdx);
-}
 
 // ---- Swap-Helfer ----
 function _testSwap() {
@@ -713,7 +702,6 @@ function _testSwap() {
 // BA 247: Round-Robin-Start (frueher 'full' in startTest)
 function startTestFull() {
   if (!testEls) return;
-  testMode = "balance";
   var s = sideData[activeSide];
   var rrTable = ROUND_ROBIN[nEl];
   var p;
@@ -745,18 +733,14 @@ function startTestFull() {
   undoSt = [];
   testAct = true;
   curPlayed = false;
-  compCnt = 0;
   convRnd = 0;
-  tStart = Date.now();
   lockTestTabs(true, 'test');
-  startTmr();
   showCurPair();
 }
 
 // BA 247: Konvergenz-Start (frueher 'conv_fast' in startTest)
 function startTestConv() {
   if (!testEls) return;
-  testMode = "balance";
   var p = getConvPairs(true);
   p = _testFilterByElectrodeSelection(p);
   testPairs = randAB(shuffle(p));
@@ -764,11 +748,8 @@ function startTestConv() {
   undoSt = [];
   testAct = true;
   curPlayed = false;
-  compCnt = 0;
   convRnd = 1;
-  tStart = Date.now();
   lockTestTabs(true, 'test');
-  startTmr();
   showCurPair();
 }
 
@@ -792,7 +773,6 @@ function endTest() {
   lockTestTabs(false, null);
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
-  stopTmr();
 }
 function showCurPair() {
   if (!testEls) return;
@@ -932,7 +912,6 @@ function recBal() {
     fullSweepDonePairs = s.fullSweepDonePairs;
   }
   testIdx++;
-  compCnt++;
   updUndo();
   showCurPair();
 }
@@ -940,7 +919,6 @@ function undoL() {
   if (!testAct || !undoSt.length || testIdx <= 0) return;
   stopAll();
   testIdx--;
-  compCnt = Math.max(0, compCnt - 1);
   const u = undoSt.pop();
   // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
   if (u.a === "a") {
@@ -970,7 +948,6 @@ function updUndo() {
   var btn = vref && vref.actions && vref.actions.undo;
   if (btn) btn.disabled = testIdx <= 0 || !undoSt.length;
 }
-function updFullSweepInfo() {}
 function nextFullRound() {
   const s = sideData[activeSide];
   const rrTable = ROUND_ROBIN[nEl];
@@ -998,7 +975,6 @@ function nextFullRound() {
   testPairs = randAB(shuffle(filtered));
   testIdx = 0;
   undoSt = [];
-  updFullSweepInfo();
   showCurPair();
 }
 function nextConvRnd() {
@@ -1053,19 +1029,6 @@ function doExcl(i) {
     endTest();
     renderResults();
   } else showCurPair();
-}
-function startTmr() {
-  tStart = Date.now();
-  tInt = setInterval(updTmr, 1000);
-  updTmr();
-}
-function stopTmr() {
-  if (tInt) { clearInterval(tInt); tInt = null; }
-}
-function updTmr() {
-  // BA 247: testUI bietet keinen separaten timerDisplay; reiner Timer-Tick
-  // wird nicht mehr gerendert. Hauptprogress kommt aus _testUpdateProgress
-  // nach Trial-Aktionen.
 }
 
 // ============================================================

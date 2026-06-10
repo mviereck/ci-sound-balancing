@@ -678,16 +678,12 @@ let audioCtx = null,
 let testAct = false,
   testPairs = [],
   testIdx = 0,
-  testMode = "balance",
   curPlayed = false,
   curBase = 0,
   slExt = false;
 let curA = -1,
   curB = -1,
   undoSt = [],
-  tStart = 0,
-  tInt = null,
-  compCnt = 0,
   convRnd = 0;
 
 let globalToneType = "richCiHF"; // "sine" | "complex" | "pulsedComplex" | "noise" | "richCiHF" | ...

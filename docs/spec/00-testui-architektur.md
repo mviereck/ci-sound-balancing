@@ -1,10 +1,9 @@
 # Test-UI — Architektur
 
-**Status**: Schrittweise eingeführt. **Schritt 1 und 2 sind gebaut** (BA 107/108,
-`js/test-ui.js`, `js/freqmatch.js`). Die neue API `buildTestPanel(parentEl, {header, verfahren})`
-und alle Bausteine sind implementiert; freqmatch.js ist vollständig migriert.
-Die anderen Sub-Reiter laufen noch auf der alten API parallel. Ab hier beschreibt
-dieses Dokument den **aktuellen Code-Stand**.
+**Status**: Migration abgeschlossen (BA 107–248). Alle vier Sub-Reiter laufen
+auf der neuen API `buildTestPanel(parentEl, {header, verfahren})`. Die alte API
+(`_buildTestPanelOld`, `cfg.presets`/`cfg.test`) ist mit BA 248 entfernt.
+Dieses Dokument beschreibt den **aktuellen Code-Stand**.
 
 Dieses Kapitel ist horizontal — es beschreibt nicht die Funktion
 eines Tests, sondern die gemeinsame **Bau-API** für alle Tests
@@ -184,16 +183,13 @@ buildTestPanel(parentEl, {
 })
 ```
 
-## Skizzen für die übrigen Sub-Reiter
+## Sub-Reiter-Übersicht
 
-**Elektrodenlautstärke** (`test`): Header analog (Lautstärke, Dauer,
-Pause, Tonart, Tonfolge, refSelect-Elektrode, `sliderTarget` mit
-Optionen `a`/`b`/`balance` und Default `balance`). Genau ein
-Verfahren (Slider-basiert mit `pairIndicator.variant = 'electrode'`,
-ABA-Sequenz, Konfidenz, Cumulative-Display, Confirm-Button).
-Verfahren `judgment` entfällt. Zusatz-Auswahl Laufart
-(full/conv_fast/manual) bleibt — wandert in `header.extra` als
-test-spezifische Voreinstellung mit eigenem Fragment.
+**Elektrodenlautstärke** (`test`): ✅ gebaut (BA 247). Zwei Verfahren:
+`full` (Round Robin) und `conv` (Konvergenz). `pairIndicator.variant = 'electrode'`,
+Slider, Cumulative-Display, Confirm-Button. Verfahren `judgment`,
+`selective`, `manual` sind entfernt. Elektroden-Auswahl über
+`header.common.electrodeSelection` (`minSelected: 2`).
 
 **Stereo-Balance** (`balance`): Header analog (Lautstärke, Dauer,
 Pause, Tonart, Tonfolge, `sliderTarget` mit Optionen `left`/`right`/
@@ -396,8 +392,7 @@ verbindlicher Bestandteil jeder Bauanleitung, die testUI berührt.
 ## Migrationsplan
 
 Schrittweise Einführung, jeder Schritt als eigene Bauanleitung mit
-Akzeptanztest. Bis Schritt 6 leben alte und neue API parallel; alte
-Aufrufer bleiben funktionsfähig.
+Akzeptanztest. Mit BA 248 (Schritt 6) ist die Migration abgeschlossen.
 
 Die Schritte 1 und 2 werden vom Opus-Hauptchat per Sonnet-Agent
 gebaut (Opus behält die Übersicht über die API-Konsistenz, siehe
@@ -438,18 +433,13 @@ werden per Bauanleitung in eigene Sonnet-Chats ausgelagert.
 - Akzeptanztest: adaptive und slider laufen unverändert; Pause/Resume
   funktioniert; statusGrid wird korrekt aktualisiert
 
-**Schritt 3 — Elektrodenlautstärke migrieren** *(Bauanleitung,
-neuer Sonnet-Chat)*
+**Schritt 3 — Elektrodenlautstärke migrieren** *(Bauanleitung)* ✅ gebaut (BA 247)
 
-- `test.js` auf neue API umstellen
-- `judgment`-Verfahren wird komplett entfernt (modeOptions, jdgContainer,
-  jdg-Buttons, i18n-Keys `optJdg`, `bLoud`, `bEqual`, `bLoud2`)
-- Laufart-Auswahl (full/conv_fast/manual) wandert in `header.extra`
-  als test-spezifisches Fragment
-- `manualSel` wird vom Test-Modul selbst gebaut und ins Fragment gehängt
-- `pairLeft.classList.add('playing')` → Helfer
-- Akzeptanztest: full und conv_fast laufen unverändert; manual-Pfad
-  funktioniert; Konfidenz wird gespeichert
+- `test.js` auf neue API umgestellt
+- `judgment`-, `selective`-, `manual`-Verfahren entfernt
+- Zwei Verfahren: `startTestFull` (Round Robin) und `startTestConv` (Konvergenz)
+- `header.common.electrodeSelection` (`minSelected: 2`) für Elektroden-Filterung
+- Akzeptanztest: full und conv laufen mit Pair-Indicator, Progress, Slider
 
 **Schritt 4 — Stereo-Balance migrieren** *(Bauanleitung)* ✅ gebaut (BA 245)
 
@@ -495,15 +485,13 @@ neuer Sonnet-Chat)*
   feuert nun auch `onApply`, falls kein `confirmButton` vorhanden ist.
 - freqmatch (slider und adaptive) verwenden `stopKey: 'btnPauseTest'`.
 
-**Schritt 6 — Aufräumen** *(Bauanleitung)*
+**Schritt 6 — Aufräumen** *(Bauanleitung)* ✅ gebaut (BA 248)
 
-- Alte API in `buildTestPanel` entfernen (alte cfg-Schlüssel
-  `presets`/`test`, `modeOptions`, etc.)
-- Tote i18n-Keys ausräumen
-- CODESTRUKTUR.md aktualisieren (test-ui.js-Beschreibung, Sub-Tab-
-  Tabelle Bemerkung „nutzt buildTestPanel" gilt nun auch für latenz)
-- Akzeptanztest: alle vier Sub-Reiter funktionieren mit neuer API
-  allein; keine Aufrufer alter API mehr
+- Alte API entfernt: `_buildTestPanelOld`, cfg-Schlüssel `presets`/`test`
+- Tote i18n-Keys aus `de.js` ausgeräumt
+- Tote Funktionen/Variablen aus `test.js` und `state-side.js` entfernt
+- `updateRunExplain` aus `i18n.js` entfernt
+- CODESTRUKTUR.md und Spec-Kapitel aktualisiert
 
 **BA 109 — UI-Layout-Korrektur und Bug-Fixes**
 
@@ -519,7 +507,7 @@ Body-Reihenfolge angepasst: `actions` (Zurück/Nochmal/Gleichzeitig) von Positio
 
 **BA 113 — Slider Auto-Extend**
 
-`slider`-Baustein erweitert seinen Bereich automatisch beim Loslassen (Maus/Touch) oder wenn ein Pfeiltasten-Schritt das Limit trifft. Neuer cfg-Vertrag `slider: { initialRange, maxRange, … }` ersetzt das alte `ranges: [...]`/`defaultRange`. `initialRange` ist Startbereich und Schrittweite jeder Erweiterung; `maxRange` ist absolute Obergrenze. Rückwärts-Kompat: altes `ranges` wird gelesen als `initialRange = ranges[0]`/`maxRange = ranges[-1]`, aber ohne Auto-Extend (kein Absturz). Extend-Button (`btn.extend-btn`, i18n `bExtend`) und `refs.slider.extendBtn` ersatzlos entfernt. `refs.slider` enthält jetzt `{input, lsHint, lsHintBand, lsHintMark, lsHintLabel, unit, initialRange, maxRange, rangeIdx}`. Neue Helfer-API `testUI.slider.setValue(slRef, value)`: setzt einen Wert und resettet den Bereich auf das nötige Minimum (`initialRange`-Vielfache) — wird z. B. beim Elektroden-Wechsel im Slider-Verfahren genutzt. Track-Höhe variiert via CSS-Custom-Property `--sl-range-step` (10 px Start, −0,8 px je Erweiterung, min. 4 px) — `style.css` setzt `::-webkit-slider-runnable-track` und `::-moz-range-track` entsprechend. Migration in `freqmatch.js`: Modul-Konstanten `FM_SLIDER_RANGES`/`fmSlRangeIdx` entfernt; Funktionen `_fmCheckExtend`/`_fmExtendRange` entfernt; `fmShowElectrode` nutzt `testUI.slider.setValue` statt manueller min/max-Manipulation; externer Extend-Button-Listener im DOMContentLoaded entfernt. `_buildTestPanelOld` und alte Test-Module (`test.js`, `lr-balance.js`, `latency.js`) unangetastet — deren 3-Stufen-Extend mit Button bleibt aktiv bis zu deren Migration.
+`slider`-Baustein erweitert seinen Bereich automatisch beim Loslassen (Maus/Touch) oder wenn ein Pfeiltasten-Schritt das Limit trifft. Neuer cfg-Vertrag `slider: { initialRange, maxRange, … }` ersetzt das alte `ranges: [...]`/`defaultRange`. `initialRange` ist Startbereich und Schrittweite jeder Erweiterung; `maxRange` ist absolute Obergrenze. Rückwärts-Kompat: altes `ranges` wird gelesen als `initialRange = ranges[0]`/`maxRange = ranges[-1]`, aber ohne Auto-Extend (kein Absturz). Extend-Button (`btn.extend-btn`, i18n `bExtend`) und `refs.slider.extendBtn` ersatzlos entfernt. `refs.slider` enthält jetzt `{input, lsHint, lsHintBand, lsHintMark, lsHintLabel, unit, initialRange, maxRange, rangeIdx}`. Neue Helfer-API `testUI.slider.setValue(slRef, value)`: setzt einen Wert und resettet den Bereich auf das nötige Minimum (`initialRange`-Vielfache) — wird z. B. beim Elektroden-Wechsel im Slider-Verfahren genutzt. Track-Höhe variiert via CSS-Custom-Property `--sl-range-step` (10 px Start, −0,8 px je Erweiterung, min. 4 px) — `style.css` setzt `::-webkit-slider-runnable-track` und `::-moz-range-track` entsprechend. Migration in `freqmatch.js`: Modul-Konstanten `FM_SLIDER_RANGES`/`fmSlRangeIdx` entfernt; Funktionen `_fmCheckExtend`/`_fmExtendRange` entfernt; `fmShowElectrode` nutzt `testUI.slider.setValue` statt manueller min/max-Manipulation; externer Extend-Button-Listener im DOMContentLoaded entfernt. Migration der übrigen Test-Module in den Folge-BAs.
 
 ## Verwandte Dokumente
 

@@ -88,13 +88,6 @@ function applyLang() {
   s("lblDur", "lblDur");
   s("lblPau", "lblPau");
   s("testTitle", "testTitle");
-  s("lblMode", "lblMode");
-  s("optBal", "optBal");
-  s("optJdg", "optJdg");
-  s("lblRun", "lblRun");
-  s("optFull", "optFull");
-  s("optCF", "optCF");
-  s("optMan", "optMan");
   s("lblRef", "lblRef");
   s("lblVol2", "lblVol2");
   s("lblDur2", "lblDur2");
@@ -108,7 +101,6 @@ function applyLang() {
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   updSideButtons();
-  updateRunExplain();
   buildFreqTable();
   if (typeof buildImplantCard === "function") buildImplantCard();
   const _pib = document.getElementById("printImplantBtn");
@@ -128,12 +120,4 @@ function applyLang() {
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}
-}
-function updateRunExplain() {
-  var el = document.getElementById("runExplain");
-  if (!el) return;
-  el.innerHTML = t("recommend")
-    .split("\n")
-    .map((l) => (l.startsWith("*") ? "<li>" + l.slice(1).trim() + "</li>" : l))
-    .join("<br>");
 }

@@ -211,7 +211,7 @@ Slider-Wert wird invertiert.
   bleiben über Stop/Browser-Neustart hinweg gespeichert
   (`fullSweepRound`, `fullSweepDonePairs` in `sideData[side]`). Undo
   entfernt das Paar wieder aus der Done-Liste.
-- **Test 1 conv_fast und manual**: kein Resume.
+- **Test 1 Konvergenz** (`conv`): kein Resume.
 - **Test 2 und Test 3**: kein Resume.
 - UI-Texte suggerieren Resume nur dort, wo es tatsächlich greift.
 
