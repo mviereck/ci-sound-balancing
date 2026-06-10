@@ -1911,6 +1911,15 @@ async function plMusicLoadSelected() {
         return;
       }
       arrayBuf = await localItem._file.arrayBuffer();
+    } else if (typeof it.audio === "string" && it.audio.indexOf("local-music-folder:") === 0) {
+      // BA261: Folder-Ref
+      const f = (typeof amMusicResolveLocalFile === "function")
+        ? amMusicResolveLocalFile(it.audio) : null;
+      if (!f) {
+        console.warn("[player/musik] Ordner-Datei nicht mehr verfuegbar:", it.audio);
+        return;
+      }
+      arrayBuf = await f.arrayBuffer();
     } else if (/^(data:|https?:|blob:)/i.test(it.audio)) {
       const r = await fetch(it.audio, { mode: "cors" });
       if (!r.ok) throw new Error("HTTP " + r.status);
@@ -1981,6 +1990,48 @@ function _plMusicStep(delta) {
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
+function plMusicRefreshLocalList() {
+  const list = document.getElementById("plMusicLocalList");
+  if (!list) return;
+  list.innerHTML = "";
+  const folders = (typeof amMusicListLocalFolders === "function")
+    ? amMusicListLocalFolders() : [];
+  if (folders.length === 0) {
+    list.style.display = "";
+    const span = document.createElement("span");
+    span.style.color = "var(--text-muted)";
+    span.textContent = (typeof t === "function") ? t("plMusicLocalNone") : "Keine lokalen Ordner geladen.";
+    list.appendChild(span);
+    return;
+  }
+  list.style.display = "";
+  for (const coll of folders) {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
+    const lbl = document.createElement("span");
+    lbl.textContent = coll.label + "  (" + coll.items.length + ")";
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.type = "button";
+    btn.style.cssText = "padding:1px 8px;font-size:0.85em";
+    btn.title = (typeof t === "function") ? t("plMusicLocalRemove") : "Entfernen";
+    btn.textContent = "x";
+    btn.addEventListener("click", function () {
+      const cur = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
+      if (cur && typeof cur.audio === "string"
+          && cur.audio.indexOf("local-music-folder:" + coll.id + ":") === 0) {
+        plMusicSelectedId = null;
+      }
+      amMusicRemoveLocalFolder(coll.id);
+      plMusicRefreshLocalList();
+      plMusicRefreshUI();
+    });
+    row.appendChild(lbl);
+    row.appendChild(btn);
+    list.appendChild(row);
+  }
+}
+
 // Event-Wiring (sobald DOM da ist; player.js laeuft eh nach DOMContentLoaded)
 (function _plMusicWire() {
   const sortSel = document.getElementById("plMusicSortSel");
@@ -2005,6 +2056,34 @@ function _plMusicStep(delta) {
     plMusicSearchQuery = search.value || "";
     plMusicRefreshUI();
   });
+
+  // BA261: Ordner-Upload
+  const localAdd   = document.getElementById("plMusicLocalAddBtn");
+  const localInput = document.getElementById("plMusicLocalInput");
+  if (localAdd && localInput) {
+    localAdd.addEventListener("click", function () {
+      localInput.value = "";
+      localInput.click();
+    });
+    localInput.addEventListener("change", async function (e) {
+      try {
+        const res = await amMusicIngestLocalFolder(e.target.files);
+        if (res && res.cid) {
+          const visible = plMusicVisibleItems();
+          const firstOfFolder = visible.find(function (x) {
+            return typeof x.audio === "string"
+              && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
+          });
+          if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
+        }
+        plMusicRefreshLocalList();
+        plMusicRefreshUI();
+      } catch (err) {
+        console.error("[player/musik] ingest folder failed:", err);
+      }
+    });
+  }
+  plMusicRefreshLocalList();
   plMusicRefreshUI();
 })();
 

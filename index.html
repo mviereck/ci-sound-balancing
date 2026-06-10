@@ -1296,13 +1296,27 @@
                  style="display:none;margin-bottom:8px"></div>
             <div id="plNoD" class="hidden warning-bar" data-t="plNoData"></div>
 
-            <!-- Upload: bleibt als Provider-Quelle erhalten -->
+            <!-- Upload: einzelne Datei + Ordner -->
             <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:8px;align-items:center">
               <label style="font-size: 0.84em; color: var(--text-muted)"
                      data-t="plFile"></label>
               <input type="file" id="plAudio"
                      accept=".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*"
                      style="font-size: 0.88em" />
+            </div>
+
+            <!-- BA261: Ordner-Upload -->
+            <div id="plMusicLocalBlock"
+                 style="margin-bottom:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+                <button class="btn" id="plMusicLocalAddBtn" type="button" style="font-size:0.85em">
+                  <span data-t="plMusicLocalAdd"></span>
+                </button>
+                <span id="plMusicLocalHint" style="font-size:0.78em;color:var(--text-muted)"
+                      data-t="plMusicLocalHint"></span>
+              </div>
+              <div id="plMusicLocalList" style="display:none;font-size:0.85em"></div>
+              <input type="file" id="plMusicLocalInput" webkitdirectory multiple style="display:none" />
             </div>
 
             <!-- Suchfeld -->

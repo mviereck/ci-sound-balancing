@@ -54,7 +54,16 @@
        Genres taucht in mehreren Buckets auf). Prev/Next analog Geräuschen
        (Shuffle/Memory aus BA 258, immer-Play aus BA 259). Auto-Advance
        hält am Ende der gefilterten Sicht an (kein Wrap-Around).
-       Webspace-Bibliothek und Ordner-Upload folgen in BA 261.
+       Zusätzlich kann der Nutzer **lokale Ordner** mit Audio-Dateien
+       einbinden (Button „+ Lokalen Ordner laden"; mehrere Ordner
+       gleichzeitig möglich; jede Sammlung erscheint mit Anzahl in
+       Klammern und kann über „×" wieder entfernt werden). Pro
+       Audiodatei ein Track; `tags.album` = Ordnername, damit die
+       Sortier-Achse „nach Album" die Sammlung sauber gruppiert.
+       Webspace-Musik-Sammlungen aus dem Manifest
+       (`audio.manifest/<src>/musik/*.json`) erscheinen automatisch,
+       sobald der Webspace-Bootstrap eine Source mit Kategorie
+       `"musik"` geladen hat.
      - **Geräusche:** Sub-Block mit zwei Dropdowns —
        Sortier-Achse (Default „nach Art", weitere: „nach Spektrum",
        „nach Quelle") und Geräusch-Auswahl. Inhalte: drei generierte

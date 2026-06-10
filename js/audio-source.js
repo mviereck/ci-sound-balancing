@@ -800,6 +800,105 @@ amRegisterProvider({
   }
 });
 
+// ============================================================
+// BA261: lokaler Musik-Ordner-Provider
+// ============================================================
+// Mehrere Ordner gleichzeitig moeglich, jeder erscheint als eigene
+// Sammlung. Audio wird lazy via File-Objekt geladen (Items tragen
+// einen "local-music-folder:<cid>:<relPath>"-Audio-Ref, den der
+// Player als Schluessel in die files-Map nutzt).
+
+let _amMusicLocalFolders = new Map(); // cid -> { id, label, files: Map<relPath,File>, items: [...] }
+let _amMusicLocalNextId = 1;
+
+function _amMusicNewCid() {
+  return "music-folder-" + (_amMusicLocalNextId++);
+}
+
+function _amMusicBuildFolderItems(files, cid, folderName) {
+  const out = [];
+  let n = 0;
+  for (const f of files) {
+    const baseName = f.name.replace(/\.[^.]+$/, "");
+    out.push({
+      id: "music-folder:" + cid + ":" + (++n),
+      title: baseName,
+      audio: "local-music-folder:" + cid + ":" + f.webkitRelativePath,
+      sourceTitle: folderName,
+      license: null,
+      credit: null,
+      tags: {
+        artist: "",
+        album: folderName,
+        genres: [],
+        year: null,
+        source_local: "y"
+      }
+    });
+  }
+  return out;
+}
+
+async function amMusicIngestLocalFolder(fileList) {
+  const all = Array.from(fileList || []);
+  if (all.length === 0) return null;
+  const firstRel = all[0].webkitRelativePath || all[0].name;
+  const folderName = firstRel.split("/")[0] || "Ordner";
+  const audioFiles = all.filter(function (f) {
+    return /\.(wav|mp3|ogg|flac|m4a|mp4)$/i.test(f.name);
+  });
+  if (audioFiles.length === 0) {
+    if (typeof alert === "function") {
+      alert((typeof t === "function") ? t("plMusicLocalNoAudio") : "Keine Audiodateien.");
+    }
+    return null;
+  }
+  const cid = _amMusicNewCid();
+  const filesMap = new Map();
+  for (const f of audioFiles) filesMap.set(f.webkitRelativePath, f);
+  const items = _amMusicBuildFolderItems(audioFiles, cid, folderName);
+  _amMusicLocalFolders.set(cid, {
+    id: cid,
+    label: folderName,
+    files: filesMap,
+    items: items
+  });
+  return { cid: cid, count: audioFiles.length };
+}
+
+function amMusicListLocalFolders() {
+  return Array.from(_amMusicLocalFolders.values());
+}
+
+function amMusicRemoveLocalFolder(cid) {
+  _amMusicLocalFolders.delete(cid);
+}
+
+// Liefert das File-Objekt zu einem Audio-Ref der Form
+// "local-music-folder:<cid>:<relPath>" — null wenn nicht gefunden.
+function amMusicResolveLocalFile(audioRef) {
+  if (!audioRef || audioRef.indexOf("local-music-folder:") !== 0) return null;
+  const second = audioRef.indexOf(":", 19);
+  if (second < 0) return null;
+  const cid = audioRef.substring(19, second);
+  const rel = audioRef.substring(second + 1);
+  const coll = _amMusicLocalFolders.get(cid);
+  if (!coll) return null;
+  return coll.files.get(rel) || null;
+}
+
+amRegisterProvider({
+  id: "music-local-folder",
+  listItems: function (category) {
+    if (category !== "musik") return [];
+    const out = [];
+    for (const coll of _amMusicLocalFolders.values()) {
+      for (const it of coll.items) out.push(it);
+    }
+    return out;
+  }
+});
+
 function amWebspaceBootstrap() {
   amWebspaceLoadIndex().then(function () {
     if (_amWebspace.failed) return;
@@ -818,7 +917,8 @@ function amWebspaceBootstrap() {
             // Wird in BA 197 relevant, sobald Saetze ueber amCollectItems gehen.
             if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
           } else if (cat === "musik") {
-            // Keine UI-Sub-Block-Liste fuer Musik in dieser BA — kommt spaeter.
+            // BA261: Webspace-Musik-Sammlungen erscheinen jetzt im Musik-UI.
+            if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
           }
         }
       });
