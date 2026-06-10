@@ -672,6 +672,35 @@ function tGVol() { return Math.pow((volume_test || 0) / 100, 2); }
 function tGDur() { return duration_test || 750; }
 function tGPau() { return pause_test    || 300; }
 
+// BA 252: Klavier-Helfer fuer die Tonauswahl-Modalbox des
+// Elektrodenlautstaerke-Tests. Eine Seite (aktive Seite), alle
+// Elektroden anzeigen, abgewaehlte/ausgeschlossene als disabled.
+function _testTpElectrodeFreqs() {
+  var arr = [];
+  for (var i = 0; i < nEl; i++) arr.push(effFreq(i));
+  return arr;
+}
+function _testTpElectrodeLabels() {
+  var prefix = (typeof dENPrefix === 'function') ? dENPrefix() : 'E';
+  var arr = [];
+  for (var i = 0; i < nEl; i++) {
+    arr.push(prefix + ((typeof dEN === 'function') ? dEN(i) : (i + 1)));
+  }
+  return arr;
+}
+function _testTpDisabledElectrodes() {
+  var arr = [];
+  for (var i = 0; i < nEl; i++) {
+    if (elActive[i] === false) { arr.push(i); continue; }
+    if (typeof elExDur !== 'undefined' && elExDur[i] != null) { arr.push(i); continue; }
+  }
+  return arr;
+}
+
+// BA 252: Korrektur-Toggle-Callback und Modal-Ton-Zwischenspeicher.
+var _testTpCorrectVol = null;
+var _testTpModalTone  = null;
+
 function _testSliderVal() {
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
   return (vref && vref.slider && vref.slider.input)
@@ -1108,9 +1137,11 @@ document.addEventListener("DOMContentLoaded", function() {
         tonePopupButton: {
           getToneType: function()   { return toneType_test; },
           setToneType: function(tt) { toneType_test = tt; },
+          // BA 252: Tonart-Merker fuer Klavier-Anschlag im Modal.
+          onToneSelected: function(tt) { _testTpModalTone = tt; },
+          onModalClose:   function()   { _testTpModalTone = null; _testTpCorrectVol = null; },
+          onTogglesReady: function(fn) { _testTpCorrectVol = fn; },
           // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
-          // tone-popup.js Z. 327-347 rendert sie, wenn showVolume/Duration/Pause
-          // gesetzt sind und die get/set-Hooks existieren.
           showVolume:   true,
           showDuration: true,
           showPause:    true,
@@ -1131,6 +1162,26 @@ document.addEventListener("DOMContentLoaded", function() {
               { pauseMs: pau },
               { hz: hz, durationMs: dur }
             ];
+          },
+          // BA 252: Klavier-Widget in der Modalbox -- aktive Seite,
+          // Implantat-Logik (abgewaehlt/ausgeschlossen = X-Overlay).
+          keyboardMode:          true,
+          getElectrodeFreqs:     _testTpElectrodeFreqs,
+          getElectrodeLabels:    _testTpElectrodeLabels,
+          getDisabledElectrodes: _testTpDisabledElectrodes,
+          getHighlightMs: function() { return tGDur(); },
+          onPress: function(electrodeIdx, hz) {
+            var c = (typeof gAC === 'function') ? gAC() : null;
+            if (!c) return;
+            var pan = (activeSide === 'left') ? -1 : 1;
+            var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_test;
+            var vol = tGVol();
+            if (typeof _testTpCorrectVol === 'function') {
+              vol = _testTpCorrectVol(vol, hz, pan);
+            }
+            try {
+              playToneTyped(c, hz, vol, tGDur(), pan, tt);
+            } catch (e) { /* swallow */ }
           }
         },
         sequence:     { show: true, source: 'global' },

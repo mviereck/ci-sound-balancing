@@ -1131,36 +1131,62 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
+          // BA 252: beidseitige Disabled-Logik, kein elActive-Filter hier.
           keyboardMode: true,
           getElectrodeFreqs: function() {
-            // Aktive Elektroden der var-Seite (CI-Seite im Freqmatch-Kontext).
-            // Wenn fmVarSide nicht gesetzt ist (vor erstem Test), Fallback
-            // auf activeSide.
-            var side = (typeof fmVarSide === 'string' && fmVarSide)
+            // Anzahl Tasten = Minimum aus var- und ref-Seite.
+            // Frequenzen kommen von der var-Seite (CI-Seite im
+            // Frequenzabgleich-Kontext). Kein Filter auf
+            // elActive/elExDur -- das macht getDisabledElectrodes.
+            var vSide = (typeof fmVarSide === 'string' && fmVarSide)
               ? fmVarSide : activeSide;
+            var rSide = (typeof fmRefSide === 'string' && fmRefSide)
+              ? fmRefSide : (vSide === 'left' ? 'right' : 'left');
+            var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
+            var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
+            var n  = Math.min(vN, rN);
+            if (n <= 0) return [];
             var freqs = [];
-            withSide(side, function() {
-              for (var i = 0; i < elActive.length; i++) {
-                if (elActive[i] === false) continue;
-                freqs.push(effFreq(i));
-              }
+            withSide(vSide, function() {
+              for (var i = 0; i < n; i++) freqs.push(effFreq(i));
             });
             return freqs;
           },
           getElectrodeLabels: function() {
-            // BA 229: "E1, E2, ..." statt nackter Zahlen — Praefix und
-            // Reihenfolge folgen der CI-Konvention der var-Seite.
-            var side = (typeof fmVarSide === 'string' && fmVarSide)
+            var vSide = (typeof fmVarSide === 'string' && fmVarSide)
               ? fmVarSide : activeSide;
+            var rSide = (typeof fmRefSide === 'string' && fmRefSide)
+              ? fmRefSide : (vSide === 'left' ? 'right' : 'left');
+            var vN = sideData[vSide] ? sideData[vSide].nEl : 0;
+            var rN = sideData[rSide] ? sideData[rSide].nEl : 0;
+            var n  = Math.min(vN, rN);
+            if (n <= 0) return [];
             var labels = [];
-            withSide(side, function() {
+            withSide(vSide, function() {
               var prefix = dENPrefix();
-              for (var i = 0; i < elActive.length; i++) {
-                if (elActive[i] === false) continue;
-                labels.push(prefix + dEN(i));
-              }
+              for (var i = 0; i < n; i++) labels.push(prefix + dEN(i));
             });
             return labels;
+          },
+          getDisabledElectrodes: function() {
+            // Disabled = auf var- ODER ref-Seite abgewaehlt
+            // (elActive === false) oder ausgeschlossen (elExDur !== null).
+            var vSide = (typeof fmVarSide === 'string' && fmVarSide)
+              ? fmVarSide : activeSide;
+            var rSide = (typeof fmRefSide === 'string' && fmRefSide)
+              ? fmRefSide : (vSide === 'left' ? 'right' : 'left');
+            var sdV = sideData[vSide], sdR = sideData[rSide];
+            if (!sdV || !sdR) return [];
+            var n = Math.min(sdV.nEl || 0, sdR.nEl || 0);
+            var dis = [];
+            for (var i = 0; i < n; i++) {
+              var off = (sdV.elActive && sdV.elActive[i] === false)
+                     || (sdV.elExDur  && sdV.elExDur[i]  != null)
+                     || (sdR.elActive && sdR.elActive[i] === false)
+                     || (sdR.elExDur  && sdR.elExDur[i]  != null);
+              if (off) dis.push(i);
+            }
+            return dis;
           },
           // BA 229: Aufleucht-Dauer = volle Sequenz (Var-Burst + Pause +
           // Ref-Burst), passt zur Anschlag-Logik in onPress.

@@ -103,17 +103,23 @@ In `state-side.js` und persistiert in JSON und localStorage:
   `_playPreview`) vollständig entfernt. Vorspiel-Klick auf eine smplr-
   Tonart startet die Sequenz direkt (Sampler muss vorab geladen sein,
   sonst bleibt der Burst stumm — kein separater Lade-Pfad mehr).
-  Klavier-Widget (seit BA 228): Oberhalb der Tonart-Liste erscheint im
-  Frequenzabgleich-Kontext ein Klavier. Tastenzahl = aktive Elektroden
-  der var-Seite, beschriftet mit Elektrodennummer; zwischen je zwei
-  weißen Tasten eine schwarze Zier-Taste auf dem geometrischen Mittel
-  der Nachbarfrequenzen. Anschlag (mousedown/touchstart) spielt Burst
-  auf var-Seite, kurze Pause, Burst auf ref-Seite — beide mit aktueller
-  Tondauer und Pause aus den State-Variablen (`fmGDur`, `fmGPau`; lesen
-  seit BA 240 aus `duration_freqmatch`/`pause_freqmatch`). Das Klavier
-  ist abstrakt in `sampler-keyboard.js` implementiert (cfg.keyboardMode
-  = true aktiviert es im Frequenzabgleich) und für künftige Aufrufer
-  wiederverwendbar.
+  Klavier-Widget (seit BA 228, BA 252): Oberhalb der Tonart-Liste
+  erscheint im Frequenzabgleich-Kontext ein Klavier. Tastenzahl =
+  Minimum aus Elektrodenzahl var-Seite und ref-Seite; beschriftet
+  mit Elektrodennummer der var-Seite. Zwischen je zwei weißen Tasten
+  eine schwarze Zier-Taste auf dem geometrischen Mittel der
+  Nachbarfrequenzen. Abgewählte (`elActive === false`) oder
+  ausgeschlossene (`elExDur != null`) Elektroden werden angezeigt,
+  aber per X-Overlay durchgekreuzt und ausgegraut (früher: gefiltert).
+  Disabled-Logik gilt beidseitig: eine Taste ist disabled, sobald die
+  Elektrode auf var- ODER ref-Seite abgewählt/ausgeschlossen ist
+  (`getDisabledElectrodes`-Callback). Anschlag auf aktive Taste spielt
+  Burst auf var-Seite, kurze Pause, Burst auf ref-Seite — beide mit
+  aktueller Tondauer und Pause (`fmGDur`, `fmGPau`; seit BA 240 aus
+  `duration_freqmatch`/`pause_freqmatch`). Anschlag auf disabled Taste
+  löst keine Wiedergabe aus (Cursor „nicht erlaubt"). Das Klavier ist
+  abstrakt in `sampler-keyboard.js` implementiert (cfg.keyboardMode =
+  true) und für künftige Aufrufer wiederverwendbar.
   **Vol/Dur/Pau-Felder im Modal (seit BA 240)**: Direkt unter den
   Korrektur-Toggles erscheinen bis zu drei Eingabefelder (je nach
   Aufrufer via `cfg.showVolume/showDuration/showPause` aktivierbar):
@@ -251,6 +257,13 @@ Slider-Wert wird invertiert.
   `volume_test` int 0–100, Default 75; `duration_test` ms, Default 750;
   `pause_test` ms, Default 300). Im Header-Bereich erscheinen sie
   nicht mehr. Analog Freqmatch seit BA 240. Persistiert in JSON.
+- **Klavier-Widget im Tonart-Popup (BA 252)**: Analog Frequenzabgleich
+  erscheint oberhalb der Tonart-Liste ein Klavier. Tastenzahl =
+  Elektroden der aktiven Seite (eine Seite, da Elektrodenlautstärke
+  einseitig). Abgewählte/ausgeschlossene Elektroden per X-Overlay
+  durchgekreuzt. Anschlag spielt einen Vorhör-Burst auf der aktiven
+  Seite (Pan ±1 gemäß aktive-Seite-Schalter) mit der gewählten Tondauer
+  und Lautstärke; Korrektur-Toggles wirken via `_testTpCorrectVol`.
 - Wenn „Round Robin (Vollständig)" angefangen aber nicht abgeschlossen
   wurde, zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X
   von Y und bestätigten Paaren des aktuellen Sweeps.
