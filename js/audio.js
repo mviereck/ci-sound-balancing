@@ -8,15 +8,11 @@ function gAC() {
   return audioCtx;
 }
 function _activeTestInput(type) {
-  // BA 249: nach der testUI-Migration liegen volInput/durInput/pauseInput
-  // unter els.header.*, nicht direkt auf els. Den alten Pfad gibt es nicht
-  // mehr; die DOM-Fallback-IDs 'vol1'/'dur1'/'pau1' wurden mit der alten
-  // API entfernt und existieren nicht mehr.
-  if (testAct && typeof testEls !== 'undefined' && testEls && testEls.header) {
-    if (type === 'vol') return testEls.header.volInput;
-    if (type === 'dur') return testEls.header.durInput;
-    if (type === 'pau') return testEls.header.pauseInput;
-  }
+  // BA 250: Elektrodenlautstaerke-Test hat keine Header-Felder mehr —
+  // Vol/Dur/Pau leben dort als State-Variablen (volume_test/duration_test/
+  // pause_test). gVol/gDur/gPau lesen das direkt; _activeTestInput
+  // braucht nur noch lr-balance und freqmatch (rein vorgehalten — beide
+  // haben eigene Helfer).
   if (typeof lrRunning !== 'undefined' && lrRunning
       && typeof lrEls !== 'undefined' && lrEls && lrEls.header) {
     if (type === 'vol') return lrEls.header.volInput;
@@ -32,14 +28,27 @@ function _activeTestInput(type) {
   return null;
 }
 function gVol() {
+  // BA 250: Elektrodenlautstaerke-Test liest aus dem State-Slot
+  // volume_test (in Tonart-Modalbox eingestellt).
+  if (testAct && typeof volume_test !== 'undefined') {
+    return Math.pow((volume_test || 0) / 100, 2);
+  }
   const el = _activeTestInput('vol');
   return el ? Math.pow(parseInt(el.value) / 100, 2) : 0.25;
 }
 function gDur() {
+  // BA 250
+  if (testAct && typeof duration_test !== 'undefined') {
+    return duration_test || 750;
+  }
   const el = _activeTestInput('dur');
   return parseInt(el && el.value) || 1000;
 }
 function gPau() {
+  // BA 250
+  if (testAct && typeof pause_test !== 'undefined') {
+    return pause_test || 300;
+  }
   const el = _activeTestInput('pau');
   return parseInt(el && el.value) || 500;
 }

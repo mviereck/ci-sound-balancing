@@ -40,13 +40,10 @@ function renderResults() {
     }
   }
 
-  // BA 249: testEls.volInput existiert in der neuen API nicht mehr;
-  // der Wert sitzt unter testEls.header.volInput. Fallback auf
-  // numerische Voreinstellung 75 (analog Default in der testUI).
-  const vol = (typeof testEls !== 'undefined' && testEls
-               && testEls.header && testEls.header.volInput)
-    ? testEls.header.volInput.value
-    : 75;
+  // BA 250: Elektrodenlautstaerke-Test hat kein Header-Volume-Feld
+  // mehr — der Wert sitzt im State volume_test (in der Tonart-Modalbox
+  // eingestellt). Fallback 75 wie bisher.
+  const vol = (typeof volume_test !== 'undefined') ? volume_test : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
   if (hJ) meta += ` · ${jRes.length} jdg.`;

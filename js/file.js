@@ -59,6 +59,10 @@ function resetAll() {
   slTarget_balance = "both";
   // BA 246
   if (typeof toneType_test !== "undefined") toneType_test = "richCiHF";
+  // BA 250
+  if (typeof volume_test   !== "undefined") volume_test   = 75;
+  if (typeof duration_test !== "undefined") duration_test = 750;
+  if (typeof pause_test    !== "undefined") pause_test    = 300;
   if (typeof globalToneType !== "undefined") globalToneType = "richCiHF";
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
   if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
@@ -289,6 +293,10 @@ async function saveJson() {
     // BA 246
     toneType_test: (typeof toneType_test !== "undefined")
       ? toneType_test : "richCiHF",
+    // BA 250
+    volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : 75,
+    duration_test: (typeof duration_test !== "undefined") ? duration_test : 750,
+    pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : 300,
     // BA 240: Vol/Dur/Pau-State des Frequenzabgleichs persistieren.
     volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
@@ -625,6 +633,19 @@ function applyLoadedData(d) {
     } else {
       toneType_test = "richCiHF";
     }
+  }
+  // BA 250
+  if (typeof volume_test !== "undefined") {
+    var _v = parseInt(d.volume_test, 10);
+    volume_test = (isFinite(_v) && _v >= 0 && _v <= 100) ? _v : 75;
+  }
+  if (typeof duration_test !== "undefined") {
+    var _du = parseInt(d.duration_test, 10);
+    duration_test = (isFinite(_du) && _du >= 100 && _du <= 3000) ? _du : 750;
+  }
+  if (typeof pause_test !== "undefined") {
+    var _pa = parseInt(d.pause_test, 10);
+    pause_test = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : 300;
   }
   // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.
   if (typeof volume_freqmatch !== "undefined") {

@@ -701,6 +701,12 @@ let toneType_test = "richCiHF";
 let volume_freqmatch   = 75;
 let duration_freqmatch = 750;
 let pause_freqmatch    = 400;
+// BA 250: Vol/Dur/Pau fuer Elektrodenlautstaerke. Analog zu freqmatch
+// als State-Variablen statt im testUI-Header. Vol als int 0..100;
+// tGVol macht die quadratische Audio-Konversion.
+let volume_test   = 75;
+let duration_test = 750;
+let pause_test    = 300;
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).

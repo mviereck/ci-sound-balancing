@@ -123,15 +123,16 @@ function collectArchivData() {
 }
 
 function _collectGlobalTest() {
-  const dur = document.getElementById("dur1");
-  const pau = document.getElementById("pau1");
-  const vol = document.getElementById("vol1");
+  // BA 250: Vol/Dur/Pau fuer den Elektrodenlautstaerke-Test leben jetzt
+  // als State-Variablen (volume_test/duration_test/pause_test). Die
+  // alten DOM-IDs vol1/dur1/pau1 existieren seit der testUI-Migration
+  // nicht mehr.
   return {
     toneType: globalToneType,
     sequence: globalSequence,
-    duration: dur ? parseInt(dur.value) : null,
-    pause:    pau ? parseInt(pau.value) : null,
-    volume:   vol ? vol.value : null,
+    duration: (typeof duration_test !== "undefined") ? duration_test : null,
+    pause:    (typeof pause_test    !== "undefined") ? pause_test    : null,
+    volume:   (typeof volume_test   !== "undefined") ? volume_test   : null,
     slTargetTest:    (typeof slTarget_test    !== "undefined") ? slTarget_test    : null,
     slTargetBalance: (typeof slTarget_balance !== "undefined") ? slTarget_balance : null,
   };

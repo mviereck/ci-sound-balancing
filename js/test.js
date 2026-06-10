@@ -665,6 +665,12 @@ let testEls = null;
 // LS-Hint Parameter (Bauanleitung 61)
 const LS_HINT_BASIS_DB = 2.5;
 const LS_HINT_K = 3;
+// BA 250: Helfer analog fmGVol/fmGDur/fmGPau in freqmatch.js.
+// Lesen direkt aus den State-Variablen; macht die quadratische
+// Audio-Konversion fuer die Lautstaerke.
+function tGVol() { return Math.pow((volume_test || 0) / 100, 2); }
+function tGDur() { return duration_test || 750; }
+function tGPau() { return pause_test    || 300; }
 
 function _testSliderVal() {
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
@@ -1093,18 +1099,33 @@ document.addEventListener("DOMContentLoaded", function() {
     header: {
       common: {
         refSelect: false,
-        volume:    { show: true },
-        duration:  { show: true },
-        pause:     { show: true },
+        // BA 250: Lautstaerke/Tondauer/Tonpause sitzen in der Tonart-Modalbox,
+        // nicht mehr im Header (analog freqmatch nach BA 240).
+        volume:    false,
+        duration:  false,
+        pause:     false,
         toneType:  false,
         tonePopupButton: {
           getToneType: function()   { return toneType_test; },
           setToneType: function(tt) { toneType_test = tt; },
-          getVolume:   function()   { return gVol(); },
+          // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
+          // tone-popup.js Z. 327-347 rendert sie, wenn showVolume/Duration/Pause
+          // gesetzt sind und die get/set-Hooks existieren.
+          showVolume:   true,
+          showDuration: true,
+          showPause:    true,
+          getVolumePercent: function()  { return volume_test; },
+          setVolumePercent: function(v) { volume_test = v; },
+          getDurationMs:    function()  { return duration_test; },
+          setDurationMs:    function(v) { duration_test = v; },
+          getPauseMs:       function()  { return pause_test; },
+          setPauseMs:       function(v) { pause_test = v; },
+          // Probehoeren und Sequenz aus den neuen State-Werten.
+          getVolume:   function() { return tGVol(); },
           getPreviewSequence: function() {
             var hz = 1000;
-            var dur = gDur();
-            var pau = gPau();
+            var dur = tGDur();
+            var pau = tGPau();
             return [
               { hz: hz, durationMs: dur },
               { pauseMs: pau },
@@ -1177,8 +1198,10 @@ function _testPlaySimul() {
   stopAll();
   isPlay = true;
   var tot = _testSliderVal();
-  var vol = gVol();
-  var dur = gDur();
+  // BA 250: Vol/Dur aus dem Test-State, nicht aus dem (entfallenen)
+  // Header-Feld.
+  var vol = tGVol();
+  var dur = tGDur();
   var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot)  : 1), 1), 0);
   var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
   var p1 = playTone(effFreq(curA), vA, dur);

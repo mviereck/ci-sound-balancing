@@ -246,6 +246,11 @@ Slider-Wert wird invertiert.
 - Keine Kumulations-Anzeige, keine Konfidenz-Eingabe (BA 247).
 - **Tonart** (BA 247): Eigener Popup-Dialog (state `toneType_test`,
   analog Freqmatch), nicht mehr das globale Dropdown.
+- **Lautstärke / Tondauer / Tonpause im Tonart-Popup (BA 250)**:
+  Die drei Felder sind in den Tonart-Popup-Dialog gewandert (states
+  `volume_test` int 0–100, Default 75; `duration_test` ms, Default 750;
+  `pause_test` ms, Default 300). Im Header-Bereich erscheinen sie
+  nicht mehr. Analog Freqmatch seit BA 240. Persistiert in JSON.
 - Wenn „Round Robin (Vollständig)" angefangen aber nicht abgeschlossen
   wurde, zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X
   von Y und bestätigten Paaren des aktuellen Sweeps.
