@@ -696,6 +696,19 @@ function lrCheckData() {
 // ---- BA 245: testUI-Hooks ----
 
 function lrHookOnStart() {
+  // BA 255: Seitenabfrage vor eigentlichem Start.
+  testUI.sideCheck.run(
+    { sides: 'both' },
+    function() {
+      _lrDoStart();
+    },
+    function() {
+      if (lrEls && lrEls._stopTest) lrEls._stopTest();
+    }
+  );
+}
+
+function _lrDoStart() {
   if (typeof isSideUsable === 'function'
       && (!isSideUsable('left') || !isSideUsable('right'))) {
     alert(t('lrBlockedSideUnknown'));

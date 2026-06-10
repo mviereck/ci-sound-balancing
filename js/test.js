@@ -1223,8 +1223,18 @@ document.addEventListener("DOMContentLoaded", function() {
         body: _testBody(),
         hooks: Object.assign({
           onStart: function() {
-            _testActiveVerfahren = 'full';
-            startTestFull();
+            // BA 255: Seitenabfrage vor eigentlichem Start.
+            testUI.sideCheck.run(
+              { sides: 'one', side: activeSide },
+              function() {
+                _testActiveVerfahren = 'full';
+                startTestFull();
+              },
+              function() {
+                // Abbruch: testUI stoppt sich selbst, hier nichts weiter zu tun.
+                if (testEls && testEls._stopTest) testEls._stopTest();
+              }
+            );
           }
         }, _testHooksCommon())
       },
@@ -1235,8 +1245,17 @@ document.addEventListener("DOMContentLoaded", function() {
         body: _testBody(),
         hooks: Object.assign({
           onStart: function() {
-            _testActiveVerfahren = 'conv';
-            startTestConv();
+            // BA 255: Seitenabfrage vor eigentlichem Start.
+            testUI.sideCheck.run(
+              { sides: 'one', side: activeSide },
+              function() {
+                _testActiveVerfahren = 'conv';
+                startTestConv();
+              },
+              function() {
+                if (testEls && testEls._stopTest) testEls._stopTest();
+              }
+            );
           }
         }, _testHooksCommon())
       }

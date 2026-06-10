@@ -263,6 +263,10 @@ Slider-Wert wird invertiert.
 - Wenn „Round Robin (Vollständig)" angefangen aber nicht abgeschlossen
   wurde, zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X
   von Y und bestätigten Paaren des aktuellen Sweeps.
+- **Seitenabfrage vor Test-Start (BA 255):** Beim Klick auf „Test starten"
+  erscheint das Seitenabfrage-Modal (`testUI.sideCheck.run({sides:'one', side: activeSide})`).
+  Nur die aktuell eingestellte Seite wird abgefragt. Erst nach Bestätigung
+  startet der eigentliche Test.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 
@@ -306,6 +310,10 @@ Slider-Wert wird invertiert.
   Eine Elektrode ist nur testbar, wenn sie auf beiden Seiten weder
   ausgeschlossen noch stumm ist. Mindestens eine Elektrode muss
   gewählt sein.
+- **Seitenabfrage vor Test-Start (BA 255):** Beim Klick auf „Test starten"
+  erscheint das Seitenabfrage-Modal (`testUI.sideCheck.run({sides:'both'})`).
+  Erst nach Bestätigung beider Seiten wird `_lrDoStart` aufgerufen, das die
+  Voraussetzungs-Prüfung und den eigentlichen Sequenzaufbau enthält.
 - Pause/Resume (BA 245): Der Stop-Knopf heißt „Test pausieren".
   Beim erneuten Start setzt der Test die Sequenz an der gleichen
   Stelle fort. Erst wenn alle Elektroden bestätigt wurden (oder die
