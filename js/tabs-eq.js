@@ -267,18 +267,25 @@ function updateTabLockState() {
   else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
   else if (typeof latActive !== "undefined" && latActive) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
-  // lockedHint im jeweiligen testEls-Objekt ein-/ausblenden
-  if (typeof testEls !== "undefined" && testEls && testEls.lockedHint) {
-    testEls.lockedHint.hidden = !testAct;
+  // BA 249: lockedHint liegt in der neuen API unter els.header.lockedHint,
+  // nicht direkt auf els. _buildTestPanelNew setzt das DOM-Flag beim
+  // Start/Stop selbst (test-ui.js: Start = hidden=false, Stop = hidden=true);
+  // diese Schleife synchronisiert nur den Querzustand (z.B. nach Tab-Wechsel).
+  if (typeof testEls !== "undefined" && testEls
+      && testEls.header && testEls.header.lockedHint) {
+    testEls.header.lockedHint.hidden = !testAct;
   }
-  if (typeof lrEls !== "undefined" && lrEls && lrEls.lockedHint) {
-    lrEls.lockedHint.hidden = !(typeof lrRunning !== "undefined" && lrRunning);
+  if (typeof lrEls !== "undefined" && lrEls
+      && lrEls.header && lrEls.header.lockedHint) {
+    lrEls.header.lockedHint.hidden = !(typeof lrRunning !== "undefined" && lrRunning);
   }
-  if (typeof fmEls !== "undefined" && fmEls && fmEls.lockedHint) {
-    fmEls.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
+  if (typeof fmEls !== "undefined" && fmEls
+      && fmEls.header && fmEls.header.lockedHint) {
+    fmEls.header.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
   }
-  if (typeof latEls !== "undefined" && latEls && latEls.lockedHint) {
-    latEls.lockedHint.hidden = !(typeof latActive !== "undefined" && latActive);
+  if (typeof latEls !== "undefined" && latEls
+      && latEls.header && latEls.header.lockedHint) {
+    latEls.header.lockedHint.hidden = !(typeof latActive !== "undefined" && latActive);
   }
   // ciSideSelect auch sperren
   const sideSelect = document.getElementById("ciSideSelect");

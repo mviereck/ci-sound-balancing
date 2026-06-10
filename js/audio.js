@@ -8,22 +8,28 @@ function gAC() {
   return audioCtx;
 }
 function _activeTestInput(type) {
-  if (testAct && typeof testEls !== 'undefined' && testEls) {
-    if (type === 'vol') return testEls.volInput;
-    if (type === 'dur') return testEls.durInput;
-    if (type === 'pau') return testEls.pauseInput;
+  // BA 249: nach der testUI-Migration liegen volInput/durInput/pauseInput
+  // unter els.header.*, nicht direkt auf els. Den alten Pfad gibt es nicht
+  // mehr; die DOM-Fallback-IDs 'vol1'/'dur1'/'pau1' wurden mit der alten
+  // API entfernt und existieren nicht mehr.
+  if (testAct && typeof testEls !== 'undefined' && testEls && testEls.header) {
+    if (type === 'vol') return testEls.header.volInput;
+    if (type === 'dur') return testEls.header.durInput;
+    if (type === 'pau') return testEls.header.pauseInput;
   }
-  if (typeof lrRunning !== 'undefined' && lrRunning && typeof lrEls !== 'undefined' && lrEls) {
-    if (type === 'vol') return lrEls.volInput;
-    if (type === 'dur') return lrEls.durInput;
-    if (type === 'pau') return lrEls.pauseInput;
+  if (typeof lrRunning !== 'undefined' && lrRunning
+      && typeof lrEls !== 'undefined' && lrEls && lrEls.header) {
+    if (type === 'vol') return lrEls.header.volInput;
+    if (type === 'dur') return lrEls.header.durInput;
+    if (type === 'pau') return lrEls.header.pauseInput;
   }
-  if (typeof fmRunning !== 'undefined' && fmRunning && typeof fmEls !== 'undefined' && fmEls) {
-    if (type === 'vol') return fmEls.volInput;
-    if (type === 'dur') return fmEls.durInput;
-    if (type === 'pau') return fmEls.pauseInput;
+  if (typeof fmRunning !== 'undefined' && fmRunning
+      && typeof fmEls !== 'undefined' && fmEls && fmEls.header) {
+    if (type === 'vol') return fmEls.header.volInput;
+    if (type === 'dur') return fmEls.header.durInput;
+    if (type === 'pau') return fmEls.header.pauseInput;
   }
-  return document.getElementById(type === 'vol' ? 'vol1' : type === 'dur' ? 'dur1' : 'pau1');
+  return null;
 }
 function gVol() {
   const el = _activeTestInput('vol');

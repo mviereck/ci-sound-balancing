@@ -40,9 +40,13 @@ function renderResults() {
     }
   }
 
-  const vol = (typeof testEls !== 'undefined' && testEls && testEls.volInput)
-    ? testEls.volInput.value
-    : (document.getElementById("vol1") ? document.getElementById("vol1").value : 50);
+  // BA 249: testEls.volInput existiert in der neuen API nicht mehr;
+  // der Wert sitzt unter testEls.header.volInput. Fallback auf
+  // numerische Voreinstellung 75 (analog Default in der testUI).
+  const vol = (typeof testEls !== 'undefined' && testEls
+               && testEls.header && testEls.header.volInput)
+    ? testEls.header.volInput.value
+    : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
   if (hJ) meta += ` · ${jRes.length} jdg.`;
