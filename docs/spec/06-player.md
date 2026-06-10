@@ -95,6 +95,13 @@
        nur für die Audio-Dateien selbst nötig. Webspace-Root konfigurierbar
        via `window.CI_SB_WEBSPACE_ROOT` (Default
        `http://ci-sound-balancing.honigburg.de/opus/`).
+       Audio-URLs werden in `_amResolveAudioUrl` per `encodeURI`
+       URL-sicher zusammengebaut. Pfade mit Leerzeichen oder Sonderzeichen
+       funktionieren damit zuverlässig, auch wenn das Manifest sie nicht
+       selbst encoded (BA 263).
+       Webspace-Items reichen die `text`-Property aus dem Manifest direkt
+       an den Player durch — sichtbar in der Sätze-„Text anzeigen"-Box
+       (BA 263).
        Offline-Fallback: bei Netzwerk-/CORS-Fehlern bleibt der Player
        ohne Webspace-Inhalte funktional (generiert + embed + lokale
        Uploads). Pointer-Manifeste (`kind: "index"`) werden in BA 196

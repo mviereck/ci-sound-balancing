@@ -668,7 +668,11 @@ function _amResolveAudioUrl(rawAudio, sourceBase) {
   if (/^(data:|https?:|blob:)/i.test(rawAudio)) return rawAudio;
   const root = amWebspaceRoot();
   const base = sourceBase || "";
-  return root + base + rawAudio;
+  // BA263: URL-Komponenten encoden, damit Pfade mit Leerzeichen
+  // ("Thorsten Voice/wavs/...") und sonstigen Sonderzeichen vom Browser
+  // sicher angesprochen werden. encodeURI bewahrt Strukturzeichen
+  // (`:`, `/`, `?`, `#`) und encodet nur unsichere Zeichen wie ` `.
+  return encodeURI(root + base + rawAudio);
 }
 
 // Collection-Top-Level-Felder, die als Tag-Defaults auf jedes Item
@@ -710,6 +714,7 @@ amRegisterProvider({
           out.push({
             id: srcKey + ":" + (col.title || "") + "/" + (it.id || ""),
             title: it.title || it.id || "(unbenannt)",
+            text: it.text || "",       // BA263: Saetze-Text durchreichen
             audio: _amResolveAudioUrl(it.audio, entry.source.base),
             duration: it.duration,
             sourceTitle: entry.meta.name || entry.source.name || srcKey,
