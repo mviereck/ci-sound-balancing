@@ -583,7 +583,7 @@ async function pPlay() {
         return;
       }
 
-      // BA193: Auto-Advance bei Geräuschen — nächstes in Sortierung.
+      // BA193/258: Auto-Advance bei Geräuschen — Zufall oder Sortierung.
       if (plActiveSource === "noise" && plAutoAdvance) {
         setTimeout(function () {
           if (!plAutoAdvance || plLoop) return;
@@ -591,7 +591,20 @@ async function pPlay() {
           const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
           if (sorted.length === 0) return;
           const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-          const next = sorted[(idx + 1) % sorted.length];
+          let next;
+          if (typeof plShuffle !== "undefined" && plShuffle) {
+            if (sorted.length === 1) { next = sorted[0]; }
+            else {
+              let pick;
+              do {
+                pick = sorted[Math.floor(Math.random() * sorted.length)];
+              } while (pick.id === plNoiseSelectedId);
+              next = pick;
+            }
+            _plNoisePrevId = plNoiseSelectedId;
+          } else {
+            next = sorted[(idx + 1) % sorted.length];
+          }
           if (!next) return;
           plNoiseSelectedId = next.id;
           const sel = document.getElementById("plNoiseItemSel");
@@ -603,15 +616,30 @@ async function pPlay() {
         return;
       }
 
-      // BA195: Auto-Advance bei Hörbüchern — nächstes Kapitel.
+      // BA195/258: Auto-Advance bei Hörbüchern — Zufall oder nächstes Kapitel.
       if (plActiveSource === "audiobook" && plAutoAdvance) {
         const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-        if (col && Array.isArray(col.items)) {
-          const next = plBookChapterIdx + 1;
-          if (next < col.items.length) {
+        if (col && Array.isArray(col.items) && col.items.length > 0) {
+          const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+          let next;
+          if (useRandom) {
+            if (col.items.length === 1) { next = 0; }
+            else {
+              let pick;
+              do {
+                pick = Math.floor(Math.random() * col.items.length);
+              } while (pick === plBookChapterIdx);
+              next = pick;
+            }
+          } else {
+            next = plBookChapterIdx + 1;
+            if (next >= col.items.length) next = -1;  // -1 = Buchende, still anhalten
+          }
+          if (next >= 0) {
             setTimeout(function () {
               if (!plAutoAdvance || plLoop) return;
               if (typeof plBookSavePosition === "function") plBookSavePosition();
+              if (useRandom) _plBookPrevChIdx = plBookChapterIdx;
               plBookChapterIdx = next;
               const sel = document.getElementById("plBookChSel");
               if (sel) sel.value = String(next);
@@ -1089,15 +1117,56 @@ function plStopAll() {
   _plAutoAdvCancel();
 }
 
+let _plNoisePrevId = null;     // BA258: 1x-Memory fuer Zufall-Zurueck
+
+function plNoiseHasPrevMemory() {
+  return !!_plNoisePrevId;
+}
+
+let _plBookPrevChIdx = null;   // BA258: 1x-Memory fuer Zufall-Zurueck bei Hoerbuechern
+
+function plBookHasPrevMemory() {
+  return _plBookPrevChIdx != null;
+}
+
 function _plNoiseStep(delta) {
   const all = amCollectItems("geraeusche");
   const sorted = amSortItems(all, "geraeusche", plNoiseSortAxis);
   if (sorted.length === 0) return;
   const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-  const base = (idx < 0) ? 0 : idx;
-  const n = sorted.length;
-  const nextItem = sorted[((base + delta) % n + n) % n];
+
+  let nextItem = null;
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+
+  if (useRandom) {
+    if (delta < 0) {
+      // Zurueck: Memory verbrauchen, falls vorhanden.
+      if (_plNoisePrevId) {
+        nextItem = sorted.find(function (x) { return x.id === _plNoisePrevId; });
+        _plNoisePrevId = null;
+      }
+      if (!nextItem) return;
+    } else {
+      // Vorwaerts: zufaelliges anderes Item.
+      if (sorted.length === 1) { nextItem = sorted[0]; }
+      else {
+        let pick;
+        do {
+          pick = sorted[Math.floor(Math.random() * sorted.length)];
+        } while (pick.id === plNoiseSelectedId);
+        nextItem = pick;
+      }
+      _plNoisePrevId = plNoiseSelectedId;
+    }
+  } else {
+    // Sequenz mit Wrap-around.
+    const base = (idx < 0) ? 0 : idx;
+    const n = sorted.length;
+    const nextIdx = ((base + delta) % n + n) % n;
+    nextItem = sorted[nextIdx];
+  }
   if (!nextItem) return;
+
   plNoiseSelectedId = nextItem.id;
   const sel = document.getElementById("plNoiseItemSel");
   if (sel) sel.value = nextItem.id;
@@ -1106,21 +1175,31 @@ function _plNoiseStep(delta) {
   plNoiseLoadSelected().then(function () {
     if (wasPlaying && typeof pPlay === "function") pPlay();
   });
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
 function plPrev() {
-  if (plActiveSource === "sentences" && typeof sNext === "function") {
-    sNext();
+  if (plActiveSource === "sentences" && typeof sPrev === "function") {
+    sPrev();
     return;
   }
   if (plActiveSource === "audiobook") {
     const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
     if (!col || !col.items) return;
     if (typeof plBookSavePosition === "function") plBookSavePosition();
-    plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
+
+    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+    if (useRandom) {
+      if (_plBookPrevChIdx == null) return;
+      plBookChapterIdx = _plBookPrevChIdx;
+      _plBookPrevChIdx = null;
+    } else {
+      plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
+    }
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
     if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
     return;
   }
   if (plActiveSource === "noise") {
@@ -1142,10 +1221,24 @@ function plNext() {
     const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
     if (!col || !col.items) return;
     if (typeof plBookSavePosition === "function") plBookSavePosition();
-    plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
+
+    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+    if (useRandom) {
+      if (col.items.length > 1) {
+        _plBookPrevChIdx = plBookChapterIdx;
+        let pick;
+        do {
+          pick = Math.floor(Math.random() * col.items.length);
+        } while (pick === plBookChapterIdx);
+        plBookChapterIdx = pick;
+      }
+    } else {
+      plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
+    }
     const sel = document.getElementById("plBookChSel");
     if (sel) sel.value = String(plBookChapterIdx);
     if (typeof plBookLoadSelected === "function") plBookLoadSelected();
+    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
     return;
   }
   if (plActiveSource === "noise") {
@@ -1156,6 +1249,11 @@ function plNext() {
 
 function plToggleLoop() {
   plLoop = !plLoop;
+  plUpdTransportUI();
+}
+
+function plToggleShuffle() {
+  plShuffle = !plShuffle;
   plUpdTransportUI();
 }
 
@@ -1234,6 +1332,12 @@ function plUpdTransportUI() {
     aaBtn.style.background = plAutoAdvance ? "var(--accent, #6aa84f)" : "";
     aaBtn.style.color      = plAutoAdvance ? "#fff" : "";
   }
+  const shBtn = document.getElementById("plShuffleBtn");
+  if (shBtn) {
+    shBtn.classList.toggle("active", plShuffle);
+    shBtn.style.background = plShuffle ? "var(--accent, #6aa84f)" : "";
+    shBtn.style.color      = plShuffle ? "#fff" : "";
+  }
   document.querySelectorAll(".pl-pause-btn").forEach(function (b) {
     const v = parseInt(b.dataset.ms, 10);
     const active = (v === plPauseMs);
@@ -1246,15 +1350,38 @@ function plUpdTransportUI() {
   });
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
+
+  // Next ist in S/N/AB grundsaetzlich verfuegbar; bei Musik kommt es
+  // mit BA 261. (Bei H/B sequentiell am Buchende stoppt der Klick
+  // hart, das ist OK.)
   const hasNext = (plActiveSource === "sentences"
                 || plActiveSource === "audiobook"
                 || plActiveSource === "noise");
-  [prevBtn, nextBtn].forEach(function (b) {
-    if (!b) return;
-    b.disabled = !hasNext;
-    b.style.opacity = hasNext ? "1" : "0.5";
-    b.style.cursor  = hasNext ? "pointer" : "not-allowed";
-  });
+
+  // Prev: bei Zufall = Memory; bei sequentiell = vorheriges Item.
+  // Wir berechnen pro Quelle das Boolesche "kann zurueck".
+  let hasPrev = hasNext;
+  if (hasNext && plShuffle) {
+    hasPrev = false;
+    if (plActiveSource === "sentences" && typeof sHasPrevMemory === "function") {
+      hasPrev = sHasPrevMemory();
+    } else if (plActiveSource === "noise" && typeof plNoiseHasPrevMemory === "function") {
+      hasPrev = plNoiseHasPrevMemory();
+    } else if (plActiveSource === "audiobook" && typeof plBookHasPrevMemory === "function") {
+      hasPrev = plBookHasPrevMemory();
+    }
+  }
+
+  if (nextBtn) {
+    nextBtn.disabled = !hasNext;
+    nextBtn.style.opacity = hasNext ? "1" : "0.5";
+    nextBtn.style.cursor  = hasNext ? "pointer" : "not-allowed";
+  }
+  if (prevBtn) {
+    prevBtn.disabled = !hasPrev;
+    prevBtn.style.opacity = hasPrev ? "1" : "0.5";
+    prevBtn.style.cursor  = hasPrev ? "pointer" : "not-allowed";
+  }
 }
 
 function plUpdDisplay() {
@@ -1385,6 +1512,7 @@ document.getElementById("plSrcAudiobookBtn").addEventListener("click",
 document.getElementById("plPrev").addEventListener("click", plPrev);
 document.getElementById("plNext").addEventListener("click", plNext);
 document.getElementById("plLoopBtn").addEventListener("click", plToggleLoop);
+document.getElementById("plShuffleBtn").addEventListener("click", plToggleShuffle);
 document.getElementById("plAutoAdvBtn").addEventListener("click", plToggleAutoAdvance);
 
 document.querySelectorAll(".pl-pause-btn").forEach(function (b) {

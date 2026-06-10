@@ -25,13 +25,16 @@
      eigener Zeile für Lautstärke + Schnellbuttons 25/50/75/100.
      (Reihenfolge seit BA 213: Transport → Warp-Fortschrittsbalken →
      Anzeige-Block → Pause-Zeile → Lautstärke-Zeile.
-     Shuffle-Button ist ab BA 213 sichtbar, aber noch nicht funktional —
-     Click-Handler und i18n folgen in BA 214.)
+     - **Zufall-Toggle (🎲, BA 258)**: wirkt in allen Quellen. Zufall aus =
+       sequentieller Modus. Sätze: pro Sprecher blockweise (DE zuerst,
+       sonst alphabetisch); Geräusche/Hörbücher: zufälliges Element.
+       Zurück (⏮) im Zufall-Modus: 1×-Memory zum zuletzt gespielten Stück
+       (Knopf danach ausgegraut bis nächstes Item lief); im sequentiellen
+       Modus: echter Schritt zurück.
      - **Endlos (🔁)** = aktuelles Stück wiederholen (Loop).
-     - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (Random-Satz
-       bei Sätzen; bei Geräuschen nächstes in Sortier-Reihenfolge; bei
-       Musik ohne Folge-Track, da keine Playlist). Stoppt nach 30 Minuten
-       ohne UI-Interaktion.
+     - **Auto-Advance (↪)** = nach Stück-Ende nächstes Stück (je nach
+       Zufall-Toggle zufällig oder sequentiell; bei Musik ohne Folge-Track,
+       da keine Playlist). Stoppt nach 30 Minuten ohne UI-Interaktion.
      - **Pause-Buttons**: 0 / 500 / 750 / 1000 / 2000 / 4000 / 8000 ms,
        **immer aktiv** (wirken zwischen Loop-Wiederholungen und bei
        Auto-Advance). Default 2000 ms.
@@ -77,10 +80,10 @@
        Uploads). Pointer-Manifeste (`kind: "index"`) werden in BA 196
        ignoriert; nur direkte Collection-Manifeste fließen in die UI.
      - **Persistenz**: `plActiveSource`, `plAutoAdvance`, `plLoop`,
-       `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`, `plNoiseSortAxis`,
-       `plBookSelectedId`, `plBookChapterIdx`, `plBookSortAxis`,
-       `plBookPositions` werden in JSON-Save und localStorage gespeichert
-       und beim Restore wiederhergestellt.
+       `plShuffle`, `plPauseMs`, `plSentShowText`, `plNoiseSelectedId`,
+       `plNoiseSortAxis`, `plBookSelectedId`, `plBookChapterIdx`,
+       `plBookSortAxis`, `plBookPositions` werden in JSON-Save und
+       localStorage gespeichert und beim Restore wiederhergestellt.
 - Audiodatei laden, Mono-Downmix, parametrischer 12/16/22-Band-
   Equalizer
 - Drei unabhängige Quellen-Toggles: **Elektrodenlautstärke · Kurven · Schieber**

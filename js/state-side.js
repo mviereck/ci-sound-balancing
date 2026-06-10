@@ -737,6 +737,7 @@ let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW +
 let plActiveSource = "music";   // "music" | "sentences" | "noise" | "audiobook"
 let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus
 let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen), Default aus
+let plShuffle      = false;     // BA258: Zufall-Modus global, Default aus
 let plPauseMs      = 2000;      // Pause zwischen Stuecken (ms), Default 2000
 let plSentShowText = false;     // Satz-Text einblenden (Persistenz neu)
 let plNoiseSelectedId = "gen:pink";   // Default-Geraeusch beim ersten Start

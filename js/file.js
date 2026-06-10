@@ -158,6 +158,7 @@ function resetAll() {
   if (typeof plActiveSource !== "undefined") plActiveSource = "music";
   if (typeof plAutoAdvance  !== "undefined") plAutoAdvance  = false;
   if (typeof plLoop         !== "undefined") plLoop         = false;
+  if (typeof plShuffle      !== "undefined") plShuffle      = false;
   if (typeof plPauseMs      !== "undefined") plPauseMs      = 2000;
   if (typeof plSentShowText !== "undefined") plSentShowText = false;
   // --- BA193: Geraeusche-State ---
@@ -325,6 +326,7 @@ async function saveJson() {
     plActiveSource: (typeof plActiveSource !== "undefined") ? plActiveSource : "music",
     plAutoAdvance:  (typeof plAutoAdvance  !== "undefined") ? plAutoAdvance  : false,
     plLoop:         (typeof plLoop         !== "undefined") ? plLoop         : false,
+    plShuffle:      (typeof plShuffle      !== "undefined") ? plShuffle      : false,
     plPauseMs:      (typeof plPauseMs      !== "undefined") ? plPauseMs      : 2000,
     plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
     plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
@@ -842,6 +844,7 @@ function applyLoadedData(d) {
     }
   if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
   if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
+  if (typeof d.plShuffle     === "boolean")  plShuffle     = d.plShuffle;
   if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
   if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
   if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;

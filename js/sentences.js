@@ -15,6 +15,7 @@ let sLoading = false;
 let sActive = false;
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
+let sPrevRec = null;            // BA258: 1x-Memory fuer Zufall-Zurueck
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
 let sPauseTimer = null;
 let sPauseMsVal = 2000;
@@ -125,6 +126,68 @@ function sBuildRecordingPool(spkSel) {
   });
 }
 
+// BA258: Sequenzpool aller aktuell verfuegbaren Aufnahmen, sortiert
+// pro Sprecher blockweise (DE zuerst, sonst alphabetisch nach
+// speaker_id), innerhalb eines Sprechers nach recording.id.
+function sBuildSequencePool() {
+  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+  const curLang = (typeof plSentLang === "string" && plSentLang)
+    ? plSentLang
+    : (typeof lang !== "undefined" ? lang : "de");
+  const filtered = all.filter(function (it) {
+    return it && it.tags && it.tags.lang === curLang;
+  });
+
+  // Sprecher-Reihenfolge gem. sRefreshSpeakerDropdown-Logik:
+  // erste Beobachtungsreihenfolge im Pool, "any" gibt's hier nicht.
+  const spkOrder = [];
+  const seen = new Set();
+  for (const it of filtered) {
+    const sid = it.tags.speaker_id || "unbekannt";
+    if (!seen.has(sid)) { seen.add(sid); spkOrder.push(sid); }
+  }
+
+  // Gruppieren und pro Sprecher nach recording.id sortieren.
+  const byId = function (it) {
+    const i = (it.id || "").lastIndexOf(":");
+    return i >= 0 ? it.id.substring(i + 1) : (it.id || "");
+  };
+  const groups = new Map();
+  for (const sid of spkOrder) groups.set(sid, []);
+  for (const it of filtered) groups.get(it.tags.speaker_id || "unbekannt").push(it);
+  for (const sid of spkOrder) {
+    groups.get(sid).sort(function (a, b) {
+      return byId(a).localeCompare(byId(b));
+    });
+  }
+
+  const out = [];
+  for (const sid of spkOrder) for (const it of groups.get(sid)) out.push(it);
+  return out;
+}
+
+// Liefert das nachfolgende Item in der Sequenz; bei Sprecher-Filter
+// ungleich "any" wird der Sprecher beruecksichtigt.
+function sSeqStep(delta) {
+  const spkSel = document.getElementById("plSentSpeaker").value;
+  let pool;
+  if (spkSel && spkSel !== "any") {
+    pool = sBuildRecordingPool(spkSel);
+  } else {
+    pool = sBuildSequencePool();
+  }
+  if (pool.length === 0) return null;
+  let idx = -1;
+  if (sCurRec) idx = pool.findIndex(function (x) { return x.id === sCurRec.id; });
+  if (idx < 0) return pool[0];
+  const next = (idx + delta + pool.length) % pool.length;
+  return pool[next];
+}
+
+function sHasPrevMemory() {
+  return !!sPrevRec;
+}
+
 function sPickRandom(pool, exclude) {
   if (!pool || pool.length === 0) return null;
   if (pool.length === 1) return pool[0];
@@ -223,7 +286,15 @@ function sPlay() {
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
   if (!sCurRec) {
-    sCurRec = sPickRandom(pool, null);
+    if (typeof plShuffle !== "undefined" && plShuffle) {
+      sCurRec = sPickRandom(pool, null);
+    } else {
+      // sequentiell: erstes Item der Sequenz nach aktueller Auswahl.
+      const seq = (spkSel && spkSel !== "any")
+        ? sBuildRecordingPool(spkSel)
+        : sBuildSequencePool();
+      sCurRec = seq.length ? seq[0] : sPickRandom(pool, null);
+    }
   }
   sActive = true;
   sPlayCurrent();
@@ -237,10 +308,44 @@ function sNext() {
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
-  sCurRec = sPickRandom(pool, sCurRec);
+
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+  const newRec = useRandom ? sPickRandom(pool, sCurRec) : sSeqStep(+1);
+  if (newRec) {
+    if (sCurRec) sPrevRec = sCurRec;  // Memory pflegen
+    sCurRec = newRec;
+  }
   sActive = true;
   sPlayCurrent();
   if (typeof plUpdDisplay === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+}
+
+function sPrev() {
+  if (!sLoaded) return;
+  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
+  const spkSel = document.getElementById("plSentSpeaker").value;
+  const pool = sBuildRecordingPool(spkSel);
+  if (pool.length === 0) { sUpdateUI(); return; }
+  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
+
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+  let target = null;
+  if (useRandom) {
+    if (sPrevRec) {
+      target = sPrevRec;
+      sPrevRec = null;       // 1x-Memory verbraucht
+    }
+  } else {
+    target = sSeqStep(-1);
+  }
+  if (target) {
+    sCurRec = target;
+    sActive = true;
+    sPlayCurrent();
+  }
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
 function sStop() {
@@ -280,12 +385,17 @@ function sOnEnded() {
     return;
   }
 
-  // Auto-Advance: anderen zufaelligen Satz waehlen
+  // Auto-Advance: naechster Satz gemaess Zufall/Sequenz
   if (typeof plAutoAdvance !== "undefined" && plAutoAdvance) {
     const spkSel = document.getElementById("plSentSpeaker").value;
     const pool = sBuildRecordingPool(spkSel);
     if (pool.length === 0) { sStop(); return; }
-    sCurRec = sPickRandom(pool, sCurRec);
+    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+    const newRec = useRandom ? sPickRandom(pool, sCurRec) : sSeqStep(+1);
+    if (newRec) {
+      if (sCurRec) sPrevRec = sCurRec;
+      sCurRec = newRec;
+    }
     const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
     if (ms > 0) {
       sPauseTimer = setTimeout(function () {

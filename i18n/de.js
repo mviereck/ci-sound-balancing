@@ -277,6 +277,7 @@ Object.assign(L.de, {
     plTipStop: "Stoppen",
     plTipNext: "Nächstes Stück",
     plTipLoop: "Aktuelles Stück endlos wiederholen",
+    plTipShuffle: "Zufall: Stücke in zufälliger Reihenfolge wählen",
     plTipAutoAdv: "Nach Ende automatisch das nächste Stück abspielen (stoppt nach 30 min ohne Bedienung)",
     plAutoAdvLabel: "↪ Auto-Weiter",
     plPauseLabel: "Pause zwischen Stücken:",
@@ -1185,5 +1186,4 @@ Object.assign(L.de, {
     sliderHintMs:   "1 ms",
     latVerfahrenLabel: "Latenz",
     latVortestBalanceMissing:  "Hinweis: Vortest „Stereo-Balance“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Balance vorab gleichgezogen ist.",
-    latVortestLoudnessMissing: "Hinweis: Vortest „Elektrodenlautstärke“ wurde noch nicht durchgeführt. Die Messung läuft trotzdem, ist aber genauer, wenn die Lautstärke vorab eingestellt ist.",
 });
