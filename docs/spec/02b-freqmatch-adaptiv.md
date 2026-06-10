@@ -484,14 +484,21 @@ verwendet:
 - `rowMode.modeSelect`: zwei Optionen `slider` / `adaptive`. Default
   `adaptive`. Option `slider` ist verfügbar, solange kein adaptiver Lauf
   mit mindestens einer beantworteten Frage (`trialCount > 0`) für die
-  aktuelle Seite existiert; danach wird sie durch `fmUpdateSliderModeAvail`
-  deaktiviert. Ein gestarteter und sofort abgebrochener Lauf (0 beantwortete
-  Trials) sperrt den Slider **nicht**. Bei Wechsel wird der Test-Block-Inhalt
-  umgeschaltet (Slider ausblenden / heightJudgment einblenden, etc.).
-  Wenn der adaptive Test gestartet wird und Slider-Schätzungen nur für
-  einen Teil der Elektroden vorliegen, erscheint eine Bestätigungsfrage
-  („Der Slider-Test wurde nur teilweise abgeschlossen — trotzdem adaptiv
-  starten?").
+  aktuelle Variabel-Seite existiert; danach wird sie durch
+  `fmUpdateSliderModeAvail` deaktiviert. Ein gestarteter und sofort
+  abgebrochener Lauf (0 beantwortete Trials) sperrt den Slider **nicht**.
+  Die Sperre wird automatisch wieder gelöst, sobald die adaptiven Antworten
+  über „Adaptiv-Ergebnisse löschen" oder „Alle löschen" entfernt werden
+  (`fmUpdateSliderModeAvail` wird nach jedem Lösch-Klick neu ausgewertet).
+  Bei Wechsel wird der Test-Block-Inhalt umgeschaltet (Slider ausblenden /
+  heightJudgment einblenden, etc.). Wenn der adaptive Test gestartet wird
+  und Slider-Schätzungen nur für einen Teil der Elektroden vorliegen,
+  erscheint eine Bestätigungsfrage („Der Slider-Test wurde nur teilweise
+  abgeschlossen — trotzdem adaptiv starten?").
+  (Historischer Hinweis: BA 206 hatte den Slider-Modus zwischenzeitlich
+  dauerhaft freigegeben, damit der Slider-Round-Mechanismus parallel zu
+  adaptiven Daten weiterlaufen kann; mit 3.2.256.1-beta wurde die Sperre
+  zurückgeholt — Slider und Adaptiv schließen sich pro Seite wieder aus.)
 - `rowFine.refSelect`: Referenzseite LINKS/RECHTS wie heute.
   **Auto-Default (BA 146)**: Beim Öffnen des Tabs wird `refSelect`
   automatisch auf die akustische Seite gesetzt, wenn genau eine Seite
@@ -731,8 +738,11 @@ werden separat von `fRes` in
 und dienen dem adaptiven Track als Startwert (siehe BA 104). Anzeige
 und Nutzung in Messtabelle, Player und Druck: BA 103.
 
-- Sobald `runs.length >= 1` für die Seite ist der Slider-Modus gesperrt;
-  bestehende Schätzungen bleiben gespeichert.
+- Sobald für die Variabel-Seite mindestens eine adaptive Antwort
+  (`trialCount > 0` in einem Run) vorliegt, ist der Slider-Modus
+  gesperrt; bestehende Schätzungen bleiben sichtbar und in den
+  Audio-Pfad eingebunden. Die Sperre fällt weg, sobald die adaptiven
+  Antworten gelöscht werden.
 - `fmConfirm` schreibt ins `sliderEstimates`-Objekt, nicht in `fRes`.
 - `fmUndo` löscht den letzten Eintrag aus `sliderEstimates`.
 - Vor dem ersten adaptiven Start (wenn noch keine Schätzungen vorliegen)

@@ -961,8 +961,7 @@ function fmUpdateSliderModeAvail() {
       return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
     });
   }));
-  // BA 206: Slider Round kann parallel zu adaptiven Daten weiterlaufen
-  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', true, {});
+  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasAnswers, {});
 }
 
 let _fmDurStash_slider  = 400;
