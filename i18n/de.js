@@ -339,8 +339,11 @@ Object.assign(L.de, {
 
     balTitle: "Stereo-Balance",
     balLabel: "Balance:",
+    userLastNameLabel:  "Nachname:",
+    userFirstNameLabel: "Vorname:",
     userFileSuffixLabel: "Dateinamen ergänzen um eigenes Wort:",
     archivTitle: "Archiv — Datensicherung des Tools",
+    archivTitleShort: "Archiv",
     archivDesc: "Speichert oder lädt den vollständigen Tool-Zustand.",
     archivPrint: "Bericht drucken",
     archivDownloadMd: "Markdown Text exportieren",
@@ -410,6 +413,7 @@ Object.assign(L.de, {
     archivMiscSaetzeFiles: "Dateien",
     archivMiscSaetzeStub: "nicht geladen",
     audiologTitle: "Einstellungswünsche an den Audiologen",
+    audiologTitleShort: "Einstellungswünsche",
     audiologDesc: "Wiedergabe der Einstellungen gemäß dem Player: Die Einstellungen sollen bewirken, daß Sie genau so hören, wie wenn Sie etwas im Player abspielen.",
     audiologNoteLabel: "Persönliche Notiz an den Audiologen (optional)",
     audiologSecNote: "Notiz",
@@ -489,7 +493,7 @@ Object.assign(L.de, {
     eeHowTo:
       "Anleitung: 1) EasyEffects installieren. 2) Exportierte Datei nach ~/.config/easyeffects/output/ kopieren. 3) In EasyEffects das Preset laden und aktivieren.",
     eePlayerHint:
-      "Die Einstellungen im Player werden berücksichtigt. Achten Sie auf die Einstellungen zu Links/Rechts/Beide Seiten. WICHTIG: EasyEffects muß deaktiviert sein, wenn Sie dieses Tool zum Messen oder Hören verwenden!",
+      "Die Einstellungen im Player werden berücksichtigt. Achten Sie auf die Einstellungen zu Links/Rechts/Beide Seiten. Hinweis: Das Frequenz-Warping aus dem Player wird im Export nicht abgebildet — EasyEffects bietet keinen frequenzabhängigen Pitch-Shifter. WICHTIG: EasyEffects muß deaktiviert sein, wenn Sie dieses Tool zum Messen oder Hören verwenden!",
     tabLevels: "Schieber",
     tabCurves: "Kurven",
     lvTabTitle: "Schieber: Manuelle Einzeljustierung von Elektroden",

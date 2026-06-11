@@ -2,6 +2,37 @@
 // FILE OPERATIONS
 // ============================================================
 
+// ---------- BA 268: zentrale Dateiname-Helfer ----------
+//
+// Schema:
+//   CImbel_<Nachname-Vorname>_<Zusatz>_<Typ?>_<Extra?>_<JJ-MM-TT_HH-MM>.<ext>
+//
+// Leere Blöcke werden komplett weggelassen (keine doppelten Unterstriche).
+// Umlaute werden im Dateinamen transliteriert (ä->ae usw.); übrig
+// bleibende Akzente per Unicode-Zerlegung entfernt.
+
+function _fnTransliterate(s) {
+  const map = {
+    "ä": "ae", "ö": "oe", "ü": "ue",
+    "Ä": "Ae", "Ö": "Oe", "Ü": "Ue",
+    "ß": "ss"
+  };
+  let out = String(s || "").replace(/[äöüÄÖÜß]/g,
+                                    function (ch) { return map[ch]; });
+  // NFKD-Zerlegung: Akzente trennen, dann Combining-Marks entfernen.
+  out = out.normalize("NFKD").replace(/[̀-ͯ]/g, "");
+  return out;
+}
+
+function _fnSafeFileChars(s) {
+  // Pfad-/Wildcard-/Steuerzeichen durch "_".
+  return String(s || "").replace(/[\s\/\\:*?"<>|\x00-\x1F]/g, "_");
+}
+
+function _fnSafeNamePart(s) {
+  return _fnSafeFileChars(_fnTransliterate(String(s || "").trim()));
+}
+
 function _safeUserFileSuffix() {
   if (typeof userFileSuffix !== "string") return "";
   const s = userFileSuffix.trim();
@@ -9,12 +40,66 @@ function _safeUserFileSuffix() {
   return s.replace(/[\s\/\\:*?"<>|\x00-\x1F]/g, "_");
 }
 
-function _applyUserFileSuffix(name) {
+function _fnBuildNameBlock() {
+  const ln = _fnSafeNamePart(typeof userLastName  === "string" ? userLastName  : "");
+  const fn = _fnSafeNamePart(typeof userFirstName === "string" ? userFirstName : "");
+  if (ln && fn) return ln + "-" + fn;
+  if (ln) return ln;
+  if (fn) return fn;
+  return "";
+}
+
+function _fnDateStampShort() {
+  const now = new Date();
+  const yy = String(now.getFullYear() % 100).padStart(2, "0");
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  return yy + "-" + mm + "-" + dd + "_" + hh + "-" + mi;
+}
+
+// typeTag, extraTag: jeweils optional (null/"" = weglassen).
+// ext: ".json" oder ".md" inkl. Punkt.
+function buildCImbelFilename(typeTag, extraTag, ext) {
+  const parts = ["CImbel"];
+  const nameBlock = _fnBuildNameBlock();
+  if (nameBlock) parts.push(nameBlock);
   const suf = _safeUserFileSuffix();
-  if (!suf) return name;
-  const dot = name.lastIndexOf(".");
-  if (dot < 0) return name + "_" + suf;
-  return name.slice(0, dot) + "_" + suf + name.slice(dot);
+  if (suf) parts.push(suf);
+  if (typeTag)  parts.push(typeTag);
+  if (extraTag) parts.push(extraTag);
+  parts.push(_fnDateStampShort());
+  return parts.join("_") + ext;
+}
+
+// ---------- BA 268.1: Druck-Seitentitel (kompakt für PDF-Dateinamen) ----------
+//
+// Format: "<Basis> Nachname Vorname Zusatz JJ-MM-TT HH-MM"
+// Trenner: einfaches Leerzeichen, damit das vom Browser als PDF-Dateiname
+// vorgeschlagene Ergebnis kurz und ohne Sonderzeichen bleibt. Doppelpunkt
+// wird durch Bindestrich ersetzt (sonst macht der Browser daraus "_").
+// Leere Blöcke fallen weg. Original-Schreibweise (Umlaute) bleibt erhalten.
+
+function buildCImbelPrintTitle(baseTitle) {
+  const parts = [String(baseTitle || "")];
+  const ln = (typeof userLastName  === "string" ? userLastName  : "").trim();
+  const fn = (typeof userFirstName === "string" ? userFirstName : "").trim();
+  let nameBlock = "";
+  if (ln && fn) nameBlock = ln + " " + fn;
+  else if (ln) nameBlock = ln;
+  else if (fn) nameBlock = fn;
+  if (nameBlock) parts.push(nameBlock);
+  const suf = (typeof userFileSuffix === "string" ? userFileSuffix : "").trim();
+  if (suf) parts.push(suf);
+  const now = new Date();
+  const yy = String(now.getFullYear() % 100).padStart(2, "0");
+  const mm = String(now.getMonth() + 1).padStart(2, "0");
+  const dd = String(now.getDate()).padStart(2, "0");
+  const hh = String(now.getHours()).padStart(2, "0");
+  const mi = String(now.getMinutes()).padStart(2, "0");
+  parts.push(yy + "-" + mm + "-" + dd + " " + hh + "-" + mi);
+  return parts.join(" ");
 }
 
 function resetAll() {
@@ -362,21 +447,14 @@ async function saveJson() {
         }))
       : [],
     userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
+    userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
+    userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",
     audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
   };
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
   });
-  const now = new Date(),
-    ds = now.toISOString().slice(0, 10),
-    ts = now
-      .toLocaleTimeString(lang === "de" ? "de-DE" : "en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      })
-      .replace(":", "");
-  const fn = _applyUserFileSuffix(`ci-sound-balancing-${ds}-${ts}.json`);
+  const fn = buildCImbelFilename(null, null, ".json");
   if (window.showSaveFilePicker) {
     try {
       const h = await window.showSaveFilePicker({
@@ -884,6 +962,18 @@ function applyLoadedData(d) {
     const _el = document.getElementById("userFileSuffix");
     if (_el) _el.value = userFileSuffix;
   }
+  if (typeof d.userLastName === "string") {
+    userLastName = d.userLastName;
+    const _ln = document.getElementById("userLastName");
+    if (_ln) _ln.value = userLastName;
+    try { sessionStorage.setItem("ci-lb-userLastName", userLastName); } catch (e) {}
+  }
+  if (typeof d.userFirstName === "string") {
+    userFirstName = d.userFirstName;
+    const _fn = document.getElementById("userFirstName");
+    if (_fn) _fn.value = userFirstName;
+    try { sessionStorage.setItem("ci-lb-userFirstName", userFirstName); } catch (e) {}
+  }
   if (typeof audiologUserNote !== "undefined") {
     audiologUserNote = (typeof d.audiologUserNote === "string") ? d.audiologUserNote : "";
     const aNoteEl = document.getElementById("audiologNoteInput");
@@ -1018,7 +1108,7 @@ function exportEasyEffects() {
     }),
     a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = _applyUserFileSuffix("ci-sound-balancing-easyeffects.json");
+  a.download = buildCImbelFilename("easyeffects", null, ".json");
   a.click();
 }
 

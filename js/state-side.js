@@ -53,6 +53,8 @@ let lvFocus = 0;
 let defaultMfr = "unknown"; // BA 154: Erststart-Default
 let audiologUserNote = ""; // Patient-Notiz für Audiologen-Bericht (top-level, beide Seiten)
 let userFileSuffix = ""; // globaler Dateinamen-Suffix für alle Exporte
+let userLastName  = ""; // Nachname für Dateinamen und Druck-Seitentitel (BA 268)
+let userFirstName = ""; // Vorname für Dateinamen und Druck-Seitentitel (BA 268)
 
 let presets = [];
 let elActive = [];  // BA 164: Aktivitäts-Flag pro Elektrode der aktiven Seite

@@ -336,6 +336,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   } catch (e) {}
 
+  // ========== BA 268: Nachname / Vorname ==========
+  const userLastNameEl  = document.getElementById("userLastName");
+  const userFirstNameEl = document.getElementById("userFirstName");
+
+  if (userLastNameEl) {
+    userLastNameEl.addEventListener("input", function () {
+      userLastName = String(this.value || "");
+      try { sessionStorage.setItem("ci-lb-userLastName", userLastName); } catch (e) {}
+    });
+  }
+  if (userFirstNameEl) {
+    userFirstNameEl.addEventListener("input", function () {
+      userFirstName = String(this.value || "");
+      try { sessionStorage.setItem("ci-lb-userFirstName", userFirstName); } catch (e) {}
+    });
+  }
+  try {
+    const _lnSaved = sessionStorage.getItem("ci-lb-userLastName");
+    if (_lnSaved !== null) {
+      userLastName = String(_lnSaved);
+      if (userLastNameEl) userLastNameEl.value = userLastName;
+    }
+    const _fnSaved = sessionStorage.getItem("ci-lb-userFirstName");
+    if (_fnSaved !== null) {
+      userFirstName = String(_fnSaved);
+      if (userFirstNameEl) userFirstNameEl.value = userFirstName;
+    }
+  } catch (e) {}
+
   // ========== MAPLAW-UI ==========
   const plMaplawOnEl   = document.getElementById("plMaplawOn");
   const plMaplawSollEl = document.getElementById("plMaplawSollInput");
@@ -752,6 +781,18 @@ document.addEventListener("DOMContentLoaded", () => {
         const _el = document.getElementById("userFileSuffix");
         if (_el) _el.value = userFileSuffix;
       }
+      if (typeof d.userLastName === "string") {
+        userLastName = d.userLastName;
+        const _ln = document.getElementById("userLastName");
+        if (_ln) _ln.value = userLastName;
+        try { sessionStorage.setItem("ci-lb-userLastName", userLastName); } catch (e) {}
+      }
+      if (typeof d.userFirstName === "string") {
+        userFirstName = d.userFirstName;
+        const _fn = document.getElementById("userFirstName");
+        if (_fn) _fn.value = userFirstName;
+        try { sessionStorage.setItem("ci-lb-userFirstName", userFirstName); } catch (e) {}
+      }
       // BA 254: Tonfolge pro Test — Migration aus altem globalSequence-Feld.
       function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
       var _legacySeq = _validSeq(d.globalSequence) || "ab";
@@ -939,6 +980,8 @@ document.addEventListener("DOMContentLoaded", () => {
           warpRbOptions: (typeof pRubberbandOptions !== "undefined")
             ? { ...pRubberbandOptions } : null,
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
+          userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
+          userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",
           // BA 161: bisher nur in Datei-Save
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")

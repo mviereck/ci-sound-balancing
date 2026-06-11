@@ -9,8 +9,7 @@
 //
 // Funktionen:
 //   buildArchivMarkdown()       — vollständiger Modus-A-Bericht
-//   mdDateStampFile()           — "2026-05-19-1830" für Dateinamen
-//   mdArchivFilename()          — "ci-sound-balancing-archiv-…md"
+//   mdArchivFilename()          — "CImbel_…_archiv_….md"
 //   mdCopyToClipboard(text)     — Wrapper für navigator.clipboard
 //   mdDownload(text, filename)  — File-Download via Blob
 
@@ -45,17 +44,8 @@ function _mdBilateralLabel() {
   return "";
 }
 
-function mdDateStampFile() {
-  const now = new Date();
-  const ds = now.toISOString().slice(0, 10); // 2026-05-19
-  const ts = now.toLocaleTimeString("en-US", {
-    hour: "2-digit", minute: "2-digit", hour12: false,
-  }).replace(":", "");
-  return `${ds}-${ts}`;
-}
-
 function mdArchivFilename() {
-  return _applyUserFileSuffix(`ci-sound-balancing-archiv-${mdDateStampFile()}.md`);
+  return buildCImbelFilename("archiv", null, ".md");
 }
 
 function mdCopyToClipboard(text) {
@@ -716,10 +706,10 @@ function _archivMdMisc(data) {
 
 function mdAudiologFilename() {
   const side = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const sideTag = (side === "left")  ? "links"
-                : (side === "right") ? "rechts"
-                : "beide";
-  return _applyUserFileSuffix(`ci-sound-balancing-audiologe-${mdDateStampFile()}-${sideTag}.md`);
+  const sideTag = (side === "left")  ? "L"
+                : (side === "right") ? "R"
+                : "LR";
+  return buildCImbelFilename("audiologe", sideTag, ".md");
 }
 
 function _audiologMainSides() {
@@ -1549,7 +1539,7 @@ function audiologPrint() {
     alert("openPrintWindow not available — print.js missing?");
     return;
   }
-  openPrintWindow(t("audiologTitle"), body);
+  openPrintWindow(t("audiologTitle"), body, t("audiologTitleShort"));
 }
 
 // ----------------------------------------------------------------
@@ -1958,7 +1948,10 @@ function renderArchivPrintHtml(data) {
   `;
   const logoUrl = new URL("assets/images/CImbel_logo.png", window.location.href).href;
   const logoHtml = `<img src="${logoUrl}" alt="CImbel — CI sound balancing" class="archiv-logo" />`;
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${t("archivTitle")}</title><style>${styles}</style></head><body>${logoHtml}${enrichedHtml}</body></html>`;
+  const _titleStr = (typeof buildCImbelPrintTitle === "function")
+    ? buildCImbelPrintTitle("CImbel " + t("archivTitleShort"))
+    : t("archivTitle");
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${_titleStr}</title><style>${styles}</style></head><body>${logoHtml}${enrichedHtml}</body></html>`;
 }
 
 function _archivInjectInserts(html, inserts) {

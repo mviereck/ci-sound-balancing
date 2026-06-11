@@ -75,15 +75,20 @@ function canvasToImg(canvas, maxWidth) {
 
 // Öffnet ein neues Browserfenster, schreibt komplettes HTML hinein
 // (mit Mini-Kopf + bodyHtml) und ruft window.print() auf.
-// tabTitle: bereits lokalisierter Titelstring (z.B. t("tabFreq"))
+// tabTitle: bereits lokalisierter Titelstring (z.B. t("tabFreq")) — geht in
+//   den sichtbaren <h1>-Druck-Header
 // bodyHtml: das eigentliche Tab-Inhalt-HTML als String
-function openPrintWindow(tabTitle, bodyHtml) {
+// shortTitle (optional, BA 268.1): kompakter Stamm für <title> / PDF-Dateinamen,
+//   falls die Tab-Bezeichnung dafür zu lang wäre (z.B. Audiologen-Druck).
+//   Default: tabTitle.
+function openPrintWindow(tabTitle, bodyHtml, shortTitle) {
   const header = buildPrintHeader(tabTitle);
+  const _titleStem = "CImbel " + String(shortTitle || tabTitle || "");
   const html = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CImbel — CI sound balancing — ${_printEscHtml(tabTitle)}</title>
+  <title>${_printEscHtml((typeof buildCImbelPrintTitle === "function") ? buildCImbelPrintTitle(_titleStem) : _titleStem)}</title>
   <style>
     body { margin: 0; padding: 20px; font-family: sans-serif; color: #000; }
     h1, h2, h3 { color: #000; }

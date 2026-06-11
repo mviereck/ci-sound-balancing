@@ -1643,6 +1643,23 @@
       <div id="panel-file" class="panel">
         <!-- Globale Dateinamen-Ergänzung -->
         <div class="card" id="cardFileSuffix">
+          <!-- BA 268: Patientenname (Nachname, Vorname) für Dateinamen und Druck-Seitentitel -->
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px">
+            <label for="userLastName"
+                   style="font-weight:600"
+                   data-t="userLastNameLabel">Nachname:</label>
+            <input type="text"
+                   id="userLastName"
+                   maxlength="64"
+                   style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;min-width:140px;font-family:var(--mono)" />
+            <label for="userFirstName"
+                   style="font-weight:600"
+                   data-t="userFirstNameLabel">Vorname:</label>
+            <input type="text"
+                   id="userFirstName"
+                   maxlength="64"
+                   style="padding:6px 8px;border:1px solid var(--border);border-radius:4px;min-width:140px;font-family:var(--mono)" />
+          </div>
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
             <label for="userFileSuffix"
                    style="font-weight:600"
