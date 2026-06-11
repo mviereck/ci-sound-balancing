@@ -63,6 +63,8 @@ var GROUPS = [
     hintKey: 'toneGroupCiTestHint',
     items: [
       ['richCiHF', 'toneRichCiHF', 'toneRichCiHFDesc'],
+      ['richCiG',  'toneRichCiG',  'toneRichCiGDesc'],
+      ['richCiS',  'toneRichCiS',  'toneRichCiSDesc'],
       ['richCiH',  'toneRichCiH',  'toneRichCiHDesc'],
       ['richCiP',  'toneRichCiP',  'toneRichCiPDesc'],
       ['richCiB',  'toneRichCiB',  'toneRichCiBDesc'],
@@ -261,6 +263,187 @@ function openToneSelectionDialog(cfg, onChange) {
       'padding:8px 10px;border-radius:4px;';
     dlg.appendChild(extraHint);
   }
+
+  // BA 271: Globale Anstiegs-/Ausklang-Einstellung. Steht immer sichtbar
+  // (unabhaengig von showToggles), weil sie toolweit fuer ALLE Toene gilt.
+  // Liest die globalen gToneEnv*-Variablen (BA 270) und schreibt via
+  // setToneEnvelope (sofort persistent + sofort wirksam).
+  (function buildToneEnvSection() {
+    var sec = document.createElement("div");
+    sec.style.cssText =
+      "margin:0 0 14px 0;padding:8px 10px;border:1px solid var(--border);" +
+      "border-radius:6px;";
+
+    var head = document.createElement("div");
+    head.dataset.t = "toneEnvSection";
+    head.style.cssText = "font-weight:600;font-size:.95em;margin-bottom:6px;";
+    sec.appendChild(head);
+
+    // Gemeinsamer Aktiv/Inaktiv-Stil fuer die Auswahl-Buttons.
+    function _envBtnStyle(btn, active) {
+      if (active) {
+        btn.style.background  = "var(--success)";
+        btn.style.color       = "#fff";
+        btn.style.borderColor = "var(--success)";
+      } else {
+        btn.style.background  = "#e5e7eb";
+        btn.style.color       = "var(--text)";
+        btn.style.borderColor = "var(--border)";
+      }
+    }
+
+    // --- Anstiegsform ---
+    var formRow = document.createElement("div");
+    formRow.style.cssText =
+      "display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:8px;";
+    var formLbl = document.createElement("span");
+    formLbl.dataset.t = "toneEnvFormLabel";
+    formLbl.style.cssText = "font-size:.9em;margin-right:4px;";
+    formRow.appendChild(formLbl);
+
+    var FORMS = [
+      ["hard",   "toneEnvFormHard"],
+      ["linear", "toneEnvFormLinear"],
+      ["cos2",   "toneEnvFormCos2"],
+      ["dblin",  "toneEnvFormDblin"]
+    ];
+    var formBtns = {};
+    FORMS.forEach(function(f) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "btn btn-sm";
+      b.dataset.t = f[1];
+      b.style.cssText = "border-radius:6px;font-weight:600;";
+      b.addEventListener("click", function() {
+        setToneEnvelope({ attackForm: f[0] });
+        refreshEnvUI();
+      });
+      formBtns[f[0]] = b;
+      formRow.appendChild(b);
+    });
+    sec.appendChild(formRow);
+
+    // --- Anschwingzeit + Startpegel ---
+    var numRow = document.createElement("div");
+    numRow.style.cssText =
+      "display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:8px;";
+    var uid = "env" + Date.now();
+
+    // Anschwingzeit (editierbares Feld mit Vorschlagsliste)
+    var atkWrap = document.createElement("label");
+    atkWrap.style.cssText = "display:flex;align-items:center;gap:6px;font-size:.9em;";
+    var atkLbl = document.createElement("span");
+    atkLbl.dataset.t = "toneEnvAttackMs";
+    var atkList = document.createElement("datalist");
+    atkList.id = uid + "atk";
+    [0, 50, 100, 250, 500, 1000].forEach(function(v) {
+      var o = document.createElement("option");
+      o.value = String(v);
+      atkList.appendChild(o);
+    });
+    var atkInp = document.createElement("input");
+    atkInp.type = "number";
+    atkInp.min = "0"; atkInp.max = "3000"; atkInp.step = "10";
+    atkInp.setAttribute("list", atkList.id);
+    atkInp.style.cssText =
+      "width:72px;padding:3px 5px;border:1px solid var(--border);" +
+      "border-radius:4px;text-align:center;font-family:var(--mono);font-size:.9em;";
+    atkInp.addEventListener("change", function() {
+      var v = parseInt(atkInp.value, 10);
+      if (!isFinite(v) || v < 0) v = 0;
+      if (v > 3000) v = 3000;
+      atkInp.value = String(v);
+      setToneEnvelope({ attackMs: v });
+    });
+    var atkUnit = document.createElement("span");
+    atkUnit.textContent = "ms";
+    atkUnit.style.color = "var(--text-muted)";
+    atkWrap.append(atkLbl, atkInp, atkList, atkUnit);
+    numRow.appendChild(atkWrap);
+
+    // Startpegel (nur bei dB-linear sichtbar)
+    var flWrap = document.createElement("label");
+    flWrap.style.cssText = "display:flex;align-items:center;gap:6px;font-size:.9em;";
+    var flLbl = document.createElement("span");
+    flLbl.dataset.t = "toneEnvDbFloor";
+    var flList = document.createElement("datalist");
+    flList.id = uid + "fl";
+    [-40, -50, -60].forEach(function(v) {
+      var o = document.createElement("option");
+      o.value = String(v);
+      flList.appendChild(o);
+    });
+    var flInp = document.createElement("input");
+    flInp.type = "number";
+    flInp.min = "-80"; flInp.max = "-10"; flInp.step = "5";
+    flInp.setAttribute("list", flList.id);
+    flInp.style.cssText =
+      "width:72px;padding:3px 5px;border:1px solid var(--border);" +
+      "border-radius:4px;text-align:center;font-family:var(--mono);font-size:.9em;";
+    flInp.addEventListener("change", function() {
+      var v = parseInt(flInp.value, 10);
+      if (!isFinite(v)) v = -50;
+      if (v > -10) v = -10;
+      if (v < -80) v = -80;
+      flInp.value = String(v);
+      setToneEnvelope({ dbFloor: v });
+    });
+    var flUnit = document.createElement("span");
+    flUnit.textContent = "dB";
+    flUnit.style.color = "var(--text-muted)";
+    flWrap.append(flLbl, flInp, flList, flUnit);
+    numRow.appendChild(flWrap);
+    sec.appendChild(numRow);
+
+    // --- Ausklang ---
+    var relRow = document.createElement("div");
+    relRow.style.cssText =
+      "display:flex;gap:6px;flex-wrap:wrap;align-items:center;";
+    var relLbl = document.createElement("span");
+    relLbl.dataset.t = "toneEnvReleaseLabel";
+    relLbl.style.cssText = "font-size:.9em;margin-right:4px;";
+    relRow.appendChild(relLbl);
+
+    var RELS = [
+      ["short", "toneEnvRelShort"],
+      ["sym",   "toneEnvRelSym"],
+      ["hard",  "toneEnvRelHard"]
+    ];
+    var relBtns = {};
+    RELS.forEach(function(rr) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "btn btn-sm";
+      b.dataset.t = rr[1];
+      b.style.cssText = "border-radius:6px;font-weight:600;";
+      b.addEventListener("click", function() {
+        setToneEnvelope({ release: rr[0] });
+        refreshEnvUI();
+      });
+      relBtns[rr[0]] = b;
+      relRow.appendChild(b);
+    });
+    sec.appendChild(relRow);
+
+    // --- Refresh: liest globale Variablen, setzt Styles/Werte/Sichtbarkeit ---
+    function refreshEnvUI() {
+      Object.keys(formBtns).forEach(function(k) {
+        _envBtnStyle(formBtns[k], k === gToneEnvAttackForm);
+      });
+      Object.keys(relBtns).forEach(function(k) {
+        _envBtnStyle(relBtns[k], k === gToneEnvRelease);
+      });
+      atkInp.value = String(gToneEnvAttackMs);
+      flInp.value  = String(gToneEnvDbFloor);
+      var hard = (gToneEnvAttackForm === "hard");
+      atkInp.disabled = hard;
+      atkWrap.style.opacity = hard ? "0.45" : "1";
+      flWrap.style.display = (gToneEnvAttackForm === "dblin") ? "flex" : "none";
+    }
+    refreshEnvUI();
+
+    dlg.appendChild(sec);
+  })();
 
   // BA 239: Korrektur-Toggles. Stil analog Player-Toggles
   // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):

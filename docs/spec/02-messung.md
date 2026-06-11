@@ -162,14 +162,31 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Korrektorfunktion (`fmKbdCorrectVol`), die `onPress` pro
   Klavier-Anschlag auf Var- und Ref-Burst anwendet.
 - **Tonfolge** (`sequence_test` / `sequence_balance` / `sequence_freqmatch`, seit BA 254 je pro Test) — `'aba'` oder `'ab'`. Default je `'ab'`. Vor dem Test wählbar, während des Tests fest. Jeder Sub-Tab hat einen eigenen Dropdown; eine Änderung in einem Test beeinflusst die anderen nicht.
-- **Hüllkurve** (`applyCosRamp` in `audio.js`) — alle Tonarten
-  verwenden eine cos²-Rampe (sin² beim Anstieg, cos² beim Abfall,
-  via `setValueCurveAtTime` mit 64-Punkt-Stützstellen) mit
-  Default 50 ms. Reduziert breitbandige Onset-Klicks, die beim
-  CI besonders störend wirken (BA 213.3). Bei sehr kurzen Tönen
-  wird die effektive Rampe auf `Tondauer/2` begrenzt. Burst-Sinus
-  hat zusätzlich eine eigene 10 ms-Burst-interne Rampe, die
-  unabhängig bleibt.
+- **Hüllkurve / globale Anstiegs- und Ausklangform** (BA 270/271) —
+  vier globale Variablen steuern die Ton-Hüllkurve toolweit (gelten
+  für jeden Vorhör-Klick, unabhängig vom Aufrufer):
+  - `gToneEnvAttackForm`: `"hard"` | `"linear"` | `"cos2"` (Default) |
+    `"dblin"` — bestimmt die Anstiegsform.
+  - `gToneEnvAttackMs`: Anschwingzeit in ms (Default 500).
+    Bei `"hard"` ignoriert.
+  - `gToneEnvDbFloor`: Startpegel in dB (Default −50). Nur bei
+    `"dblin"` wirksam.
+  - `gToneEnvRelease`: `"short"` (Default) | `"sym"` | `"hard"` —
+    bestimmt die Ausklangform (symmetrisch = gleich lang wie
+    Anstieg; short = 30 ms cos²; hard = kein Ausklang).
+  Setter `setToneEnvelope(patch)` in `audio.js` schreibt ein
+  oder mehrere Felder und persistiert alles in `localStorage`.
+  **UI (BA 271):** Sektion „Anstieg & Ausklang" im Tonauswahl-Modal
+  (`tone-popup.js`). Steht **immer** sichtbar (unabhängig von
+  `cfg.showToggles`), weil die Einstellung toolweit für alle Töne
+  gilt. Vier Anstiegs-Buttons (hart / linear / weich / dB-linear),
+  editierbares Anschwingzeit-Feld (Vorschläge 0/50/100/250/500/1000 ms;
+  bei „hart" ausgegraut), Startpegel-Feld (nur bei dB-linear sichtbar),
+  drei Ausklang-Buttons (kurz / symmetrisch / hart). Jede Änderung
+  wirkt sofort ohne OK-Bestätigen. Werte werden aus `localStorage`
+  wiederhergestellt.
+  Burst-Sinus hat zusätzlich eine eigene 10 ms-Burst-interne Rampe,
+  die unabhängig von der globalen Hüllkurve bleibt.
 
 ### Slider-Wirkung (pro Test eigener Wert)
 
