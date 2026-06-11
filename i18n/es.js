@@ -438,7 +438,7 @@ Object.assign(L.es, {
     eeHowTo:
       "Instrucciones: 1) Instalar EasyEffects. 2) Copiar el archivo exportado a ~/.config/easyeffects/output/. 3) En EasyEffects, cargar y activar el preset.",
     eePlayerHint:
-      "Se tienen en cuenta los ajustes del reproductor. Atienda a los ajustes de Izquierda/Derecha/Ambos lados. IMPORTANTE: ¡EasyEffects debe estar desactivado cuando use esta herramienta para medir o escuchar!",
+      "Se tienen en cuenta los ajustes del reproductor. Atienda a los ajustes de Izquierda/Derecha/Ambos lados. Nota: el warping de frecuencia del reproductor no se incluye en la exportación — EasyEffects no ofrece un pitch-shifter dependiente de la frecuencia. IMPORTANTE: ¡EasyEffects debe estar desactivado cuando use esta herramienta para medir o escuchar!",
     tabLevels: "Deslizadores",
     tabCurves: "Curvas",
     lvTabTitle: "Deslizadores: ajuste manual individual de electrodos",
@@ -757,7 +757,30 @@ Object.assign(L.es, {
     plWarpBusyTooltip: "El warping de frecuencia se está calculando. Por favor espere.",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Compensar volumen de electrodos",
-    testIntro: "Esta prueba compara la intensidad de los electrodos entre sí. El objetivo final es encontrar una sonoridad equilibrada para todos los electrodos.<br> - Esta es la base importante para todas las optimizaciones posteriores, ya sea escuchar música o la inteligibilidad del habla.",
+    testIntro:
+      "Esta prueba compara la intensidad de los electrodos entre sí. " +
+      "El objetivo es encontrar una sonoridad equilibrada para todos los electrodos." +
+      "<br> - Esta es ya una buena configuración para sonidos naturales y música." +
+      "<br> - La intensidad corregida en todos los electrodos es la base limpia " +
+      "para todos los ajustes posteriores, especialmente para la inteligibilidad del habla, " +
+      "que más tarde puede ajustarse en la pestaña \"Curvas\"." +
+      "<br><br>Recomendaciones:" +
+      "<br> 1. Ajuste la intensidad de modo que sea aproximadamente 3/4 del volumen. " +
+      "Es decir, más que solo intermedio, pero aún no incómodamente fuerte." +
+      "<br> 2. Utilice Bluetooth para la transmisión siempre que sea posible." +
+      "<br> 3. Primero realice una prueba \"Round Robin (Completo)\", luego " +
+      "la prueba \"Convergencia\" una o varias veces. (La prueba de convergencia verifica de nuevo " +
+      "los pares de electrodos con la mayor incertidumbre de medición.)" +
+      "<br> 4. Una barra azul sobre el control deslizante indica el rango en el que " +
+      "la prueba estima el siguiente valor correcto. Puede usarlo como orientación. " +
+      "No confíe demasiado en ello." +
+      "<br><br>Otras notas:" +
+      "<br> - Puede interrumpir las pruebas en cualquier momento y reanudarlas desde el mismo punto más tarde." +
+      "<br> - La prueba \"Round Robin\" se desarrolla a lo largo de varias rondas. Después de unas 3 a 4 rondas, " +
+      "ya puede ver aproximadamente en la pestaña \"Resultados\" adónde lleva su medición." +
+      "<br> - Si un electrodo resulta no medible durante la prueba (demasiado silencioso, " +
+      "inactivo), márquelo en la pestaña \"Implante\". Será excluido entonces del test." +
+      "<br><br>Ajuste la intensidad de los dos tonos hasta que suenen igual de fuertes.",
     testRunningTitle: "Prueba de balance de volumen de electrodos en curso",
     testRunningHint: "Ajuste el volumen de los dos tonos hasta que suenen igual de fuertes.",
     lrRunningTitle: "Prueba de balance estéreo en curso",

@@ -438,7 +438,7 @@ Object.assign(L.fr, {
     eeHowTo:
       "Mode d'emploi : 1) Installer EasyEffects. 2) Copier le fichier exporté dans ~/.config/easyeffects/output/. 3) Charger et activer le preset dans EasyEffects.",
     eePlayerHint:
-      "Les réglages du Player sont pris en compte. Faites attention aux réglages Gauche/Droite/Les deux côtés. IMPORTANT : EasyEffects doit être désactivé lorsque vous utilisez cet outil pour mesurer ou écouter !",
+      "Les réglages du Player sont pris en compte. Faites attention aux réglages Gauche/Droite/Les deux côtés. À noter : le warping fréquentiel du Player n'est pas inclus dans l'export — EasyEffects ne propose pas de pitch-shifter dépendant de la fréquence. IMPORTANT : EasyEffects doit être désactivé lorsque vous utilisez cet outil pour mesurer ou écouter !",
     tabLevels: "Curseurs",
     tabCurves: "Courbes",
     lvTabTitle: "Curseurs : ajustement manuel individuel d'électrodes",
@@ -757,7 +757,30 @@ Object.assign(L.fr, {
     plWarpBusyTooltip: "Le warping fréquentiel est encore en cours de calcul. Veuillez patienter.",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Équilibrer l'intensité des électrodes",
-    testIntro: "Ce test compare l'intensité des électrodes entre elles. L'objectif final est de trouver une intensité équilibrée pour toutes les électrodes.<br> - C'est la base importante pour toutes les optimisations ultérieures, qu'il s'agisse d'écouter de la musique ou de l'intelligibilité de la parole.",
+    testIntro:
+      "Ce test compare l'intensité des électrodes entre elles. " +
+      "L'objectif est de trouver une intensité équilibrée pour toutes les électrodes." +
+      "<br> - C'est déjà un bon réglage pour les sons naturels et la musique." +
+      "<br> - L'intensité corrigée sur l'ensemble des électrodes constitue la base propre " +
+      "pour tous les ajustements ultérieurs, notamment pour l'intelligibilité de la parole, " +
+      "qui peut être réglée plus tard dans l'onglet \"Courbes\"." +
+      "<br><br>Recommandations :" +
+      "<br> 1. Réglez l'intensité de sorte qu'elle soit environ à 3/4 du volume. " +
+      "C'est-à-dire plus que moyen, mais pas encore inconfortablement fort." +
+      "<br> 2. Utilisez si possible le Bluetooth pour la diffusion." +
+      "<br> 3. Effectuez d'abord un test \"Round Robin (Complet)\", puis " +
+      "le test \"Convergence\" une ou plusieurs fois. (Le test de convergence vérifie à nouveau " +
+      "les paires d'électrodes présentant la plus grande incertitude de mesure.)" +
+      "<br> 4. Une barre bleue au-dessus du curseur indique la plage dans laquelle " +
+      "le test estime la prochaine valeur correcte. Vous pouvez l'utiliser comme repère. " +
+      "Ne vous y fiez pas trop." +
+      "<br><br>Autres remarques :" +
+      "<br> - Vous pouvez interrompre les tests à tout moment et les reprendre au même endroit plus tard." +
+      "<br> - Le test \"Round Robin\" se déroule sur plusieurs tours. Après environ 3 à 4 tours, " +
+      "vous pouvez déjà voir approximativement dans l'onglet \"Résultats\" où mène votre mesure." +
+      "<br> - Si une électrode s'avère non mesurable au cours du test (trop silencieuse, " +
+      "inactive), signalez-la dans l'onglet \"Implant\". Elle sera alors exclue du test." +
+      "<br><br>Ajustez l'intensité des deux sons jusqu'à ce qu'ils paraissent aussi forts l'un que l'autre.",
     testRunningTitle: "Test d'équilibrage d'intensité d'électrodes en cours",
     testRunningHint: "Ajustez le volume des deux sons jusqu'à ce qu'ils paraissent aussi forts l'un que l'autre.",
     lrRunningTitle: "Test de balance stéréo en cours",

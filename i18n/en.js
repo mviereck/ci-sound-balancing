@@ -437,7 +437,7 @@ Object.assign(L.en, {
     eeHowTo:
       "Instructions: 1) Install EasyEffects. 2) Copy the exported file to ~/.config/easyeffects/output/. 3) Load and activate the preset in EasyEffects.",
     eePlayerHint:
-      "The settings in the player are taken into account. Note the settings for Left/Right/Both sides. IMPORTANT: EasyEffects must be deactivated when using this tool for measuring or listening!",
+      "The settings in the player are taken into account. Note the settings for Left/Right/Both sides. Please note: the frequency warping from the player is not included in the export — EasyEffects does not provide a frequency-dependent pitch shifter. IMPORTANT: EasyEffects must be deactivated when using this tool for measuring or listening!",
     tabLevels: "Sliders",
     tabCurves: "Curves",
     lvTabTitle: "Sliders: manual individual adjustment of electrodes",
@@ -756,7 +756,31 @@ Object.assign(L.en, {
     plWarpBusyTooltip: "Frequency warping is still being computed. Please wait.",
     // New keys for unified test UI
     testExplainTitle: "Balance electrode loudness",
-    testIntro: "This test compares the loudness of the electrodes with each other. The final goal is to find an even loudness for all electrodes.<br> - This is the important basis for all further optimizations, whether listening to music or speech intelligibility.",
+    testIntro:
+      "This test compares the loudness of the electrodes with each other. " +
+      "The goal is to find a balanced loudness for all electrodes." +
+      "<br> - This is already a good setting for natural sounds and music." +
+      "<br> - The corrected loudness across all electrodes is the clean baseline " +
+      "for all further adjustments, in particular for speech intelligibility, which can " +
+      "later be set in the \"Curves\" tab." +
+      "<br><br>Recommendations:" +
+      "<br> 1. Set the loudness to about 3/4 of the maximum. " +
+      "That is, more than just medium, but not yet uncomfortably loud." +
+      "<br> 2. Use Bluetooth for streaming whenever possible." +
+      "<br> 3. First run a \"Round Robin (Complete)\" test, then run " +
+      "the \"Convergence\" test once or several times. (The convergence test re-checks " +
+      "the electrode pairs with the greatest measurement uncertainty.)" +
+      "<br> 4. A blue bar above the slider indicates the range where the test " +
+      "estimates the next correct value. You can use this as a guide. " +
+      "Do not rely on it too much." +
+      "<br><br>Further notes:" +
+      "<br> - You can pause the tests at any time and resume from the same point later." +
+      "<br> - The \"Round Robin\" test runs for several rounds. After about 3 to 4 rounds " +
+      "you can already get a rough idea in the \"Results\" tab of where your measurement is heading." +
+      "<br> - If an electrode turns out to be unmeasurable during the test (too quiet, " +
+      "inactive), mark it accordingly in the \"Implant\" tab. It will then be excluded " +
+      "from the test." +
+      "<br><br>Adjust the loudness of the two tones until they sound equally loud.",
     testRunningTitle: "Electrode loudness balance test is running",
     testRunningHint: "Adjust the loudness of the two tones until they sound equally loud.",
     lrRunningTitle: "Stereo balance test is running",
