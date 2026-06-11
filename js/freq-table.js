@@ -157,6 +157,9 @@ function buildFreqTable() {
       // BA 169: schmale Hinweise-Aktualisierung statt voller Rebuild.
       // depLockApply wird intern in updateFreqTableHints aufgerufen.
       updateFreqTableHints();
+      // Plausibilitätsprüfung neu laufen lassen (wie bei THR/Upper).
+      // Ging beim BA-169-Umbau vom vollen buildFreqTable() verloren.
+      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     }),
   );
   // Vertikale Tab-Navigation: .fo → .it → .iu (Shift+Tab rückwärts)
