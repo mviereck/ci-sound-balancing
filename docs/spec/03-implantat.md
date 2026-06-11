@@ -74,9 +74,11 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
 - **Implantat-Modell + Generation**: Dropdown. Bei Cochlear bestimmt
   das Modell automatisch die Generation A (alte Stromformel,
   0.176 dB/CL) oder B (Freedom+, 0.157 dB/CL).
-- **Globale Implantat-Parameter**: c-Wert (MED-EL), IDR / IIDR
-  (Cochlear: IIDR Default 40 dB; AB: IDR Default 60 dB). Werden für
-  die Umrechnung dB → Hersteller-Einheit im Druck genutzt.
+- **Globale Implantat-Parameter**: c-Wert (MED-EL, für MAPLAW-Simulation
+  im Player) und IDR (AB, Default 60 dB; geht direkt in die CU-Berechnung
+  im Druck ein). Für Cochlear gibt es kein zusätzliches globales Feld —
+  die dB→CL-Umrechnung benötigt nur die Generation (A/B) und den
+  C-Level pro Elektrode.
 - **Frequenz- und Elektrodentabelle** (`freq-table.js`), pro Elektrode:
   - Beschriftung mit Elektrodennummer und (bei i=0/i=n−1) apikal/basal
   - Hz Standard (Herstellervorgabe, nicht editierbar)
@@ -275,48 +277,57 @@ Die Warnung trägt **kein** `electrodeIdx` und markiert deshalb
 kein einzelnes Feld — sie erscheint nur als Box-Eintrag, weil
 sich die Aussage auf die Tabelle als Ganzes bezieht.
 
-### Globale Implantat-Parameter (Stand BA 143)
+### Globale Implantat-Parameter (Stand BA 143, IIDR-Ausbau BA 269)
 
-Prüfung der drei globalen Parameter (`s.implant.cValue`,
-`.idr`, `.iidr`) gegen Hersteller-spezifische Bereiche. Nur
+Prüfung der beiden globalen Parameter (`s.implant.cValue`,
+`s.implant.idr`) gegen Hersteller-spezifische Bereiche. Nur
 aktiv, wenn der Wert gesetzt ist (`!= null`). Zwei Stufen:
 
 - **Hardware-Range** (Level 1 rot): außerhalb der dokumentierten
   Software-Grenze. c-Wert 0–8000 (MED-EL, MAESTRO Boyd 2006),
-  IDR 20–80 dB (AB, Holden 2011), IIDR 10–100 dB (Cochlear,
-  konservativ).
+  IDR 20–80 dB (AB, Holden 2011).
 - **Typischer Bereich** (Level 3 gelb): innerhalb der Software-
   Grenze, aber außerhalb des typischen Audiologen-Bereichs.
-  c-Wert 100–2000, IDR 40–70 dB, IIDR 30–60 dB.
+  c-Wert 100–2000, IDR 40–70 dB.
 
 Pro Hersteller wird nur der jeweils relevante Parameter geprüft:
-c-Wert nur MED-EL, IDR nur AB, IIDR nur Cochlear.
+c-Wert nur MED-EL, IDR nur AB. Cochlear hat seit BA 269 kein
+globales Eingabefeld mehr — IIDR ging in keine Berechnung ein
+(siehe `docs/Berechnungsgrundlagen dB zu CI.md`, Kap. 4.4) und
+wurde mitsamt UI-Feld, Range-Prüfung und Druck-Anzeige entfernt.
 
-Markierung an den Eingabefeldern `#implC`, `#implIDR`, `#implIIDR`
-über die Schema-Erweiterung `globalEl` (vorher nur im Header
-dokumentiert, ab BA 143 tatsächlich implementiert) und den
-neuen Helfer `_implGlobalSelector`.
+Markierung an den Eingabefeldern `#implC`, `#implIDR` über die
+Schema-Erweiterung `globalEl` und den Helfer `_implGlobalSelector`.
 
-### Info-Hinweise / Level 4 blau (BA 267)
+### Info-Hinweise / Stufen-Mix (BA 267, geändert BA 269)
 
-Vier Prüfungen, die nur aktive Elektroden betrachten. Kein Feld-
-Outline — nur Listeneintrag in der Warnbox.
+Prüfungen, die nur aktive Elektroden betrachten. Kein Feld-
+Outline — nur Listeneintrag in der Warnbox. Stufenmischung seit
+BA 269:
 
-- **FreqOwn leer** (A1): alle aktiven Elektroden haben kein
-  Hz-eigen-Override — Default-Werte der Hersteller-Range werden
-  verwendet.
-- **FreqOwn unvollständig** (A2): mind. eine aktive Elektrode hat
-  Hz-eigen, mind. eine nicht.
-- **Alle aktiv** (B1): keine Elektrode ist als inaktiv markiert.
-- **Upper-Level leer** (C1): MCL/C-Level/M-Level bei allen aktiven
-  Elektroden leer — Hersteller-Werte (qu/CL/CU) im Ausdruck nicht
-  berechenbar.
-- **Upper-Level unvollständig** (C2): Upper-Level nur teilweise
-  eingetragen.
-- **THR leer** (D1, nur AB): T-Level bei allen aktiven leer — CU
-  nicht berechenbar.
-- **THR unvollständig** (D2, nur AB): T-Level nur teilweise
-  eingetragen.
+- **FreqOwn leer** (A1, Level 3 gelb seit BA 269): alle aktiven
+  Elektroden haben kein Hz-eigen-Override. Verschärfter Text:
+  Default-Werte könnten für den Nutzer falsch sein und zu
+  verfälschten Meßergebnissen führen.
+- **FreqOwn unvollständig** (A2, Level 3 gelb seit BA 269): mind.
+  eine aktive Elektrode hat Hz-eigen, mind. eine nicht.
+- **Alle aktiv** (B1, Level 4 blau): keine Elektrode ist als
+  inaktiv markiert.
+- **Upper-Level leer** (C1, Level 4 blau): MCL/C-Level/M-Level
+  bei allen aktiven Elektroden leer — Hersteller-Werte (qu/CL/CU)
+  im Ausdruck nicht berechenbar.
+- **Upper-Level unvollständig** (C2, Level 4 blau): Upper-Level
+  nur teilweise eingetragen.
+- **THR leer** (D1, nur AB, Level 4 blau): T-Level bei allen
+  aktiven leer — CU nicht berechenbar.
+- **THR unvollständig** (D2, nur AB, Level 4 blau): T-Level nur
+  teilweise eingetragen.
+- **c-Wert leer** (E1, neu BA 269, nur MED-EL, Level 4 blau):
+  globaler MAPLAW-c-Wert nicht eingetragen — wird für die
+  MAPLAW-Simulation im Player gebraucht.
+- **IDR leer** (E2, neu BA 269, nur AB, Level 3 gelb): globaler
+  IDR-Wert nicht eingetragen — geht direkt in `calcAB` ein; ohne
+  Eintrag wird Default 60 dB angenommen und im Druck markiert.
 
 Hersteller-Mapping für `{label}`/`{unit}` in den i18n-Strings:
 `IMPL_VAL_UPPER_LABEL` und `IMPL_VAL_UNIT` (beide in

@@ -262,7 +262,6 @@ function _collectSideData(side) {
         processor: impl.processor || null,
         cValue:    impl.cValue    || null,
         idr:       impl.idr       || null,
-        iidr:      impl.iidr      || null,
         generation: impl.generation || null,
         strategy:  impl.strategy  || null,
         unit,
@@ -434,7 +433,6 @@ function _archivMdConfig(data) {
     if (im.processor)  lines.push(`- ${t("archivCfgProcessor")}: ${im.processor}`);
     if (im.cValue)     lines.push(`- ${t("archivCfgCValue")}: ${im.cValue}`);
     if (im.idr)        lines.push(`- ${t("archivCfgIdr")}: ${im.idr}`);
-    if (im.iidr)       lines.push(`- ${t("archivCfgIidr")}: ${im.iidr}`);
     if (im.generation) lines.push(`- ${t("archivCfgGeneration")}: ${im.generation}`);
     if (im.strategy)   lines.push(`- ${t("archivCfgStrategy")}: ${im.strategy}`);
     lines.push("");
@@ -469,7 +467,8 @@ function _archivMdImplantTables(data) {
 
 function _archivMdTestSettings(data) {
   var TONE_LABEL_KEY = {
-    richCiHF: "toneRichCiHF", richCiH: "toneRichCiH",
+    richCiHF: "toneRichCiHF", richCiG:  "toneRichCiG",
+    richCiH:  "toneRichCiH",
     richCiP:  "toneRichCiP",
     richCiB:  "toneRichCiB",  richCiBF: "toneRichCiBF",
     richCiHA: "toneRichCiHA", richCiHS: "toneRichCiHS",
@@ -1058,7 +1057,6 @@ function _audiologMissingImplantData(mainSides) {
     const freqOwnSet = (sd && sd.elFreqOwn || []).some((v) => v != null && isFinite(v));
     if (!freqOwnSet) missing.push(t("audMissFreqOwn"));
     if (sd && sd.manufacturer === "medel" && !impl.cValue) missing.push(t("audMissCValue"));
-    if (sd && sd.manufacturer === "cochlear" && !impl.iidr) missing.push(t("audMissIidr"));
     if (sd && sd.manufacturer === "ab" && !impl.idr) missing.push(t("audMissIdr"));
     if (missing.length > 0) {
       out.push(`- **${sideLbl}**: ${missing.join(", ")}`);

@@ -9,7 +9,6 @@ function buildImplantCard() {
       processor: "",
       cValue: null,
       idr: null,
-      iidr: null,
       generation: null,
       mcl: new Array(s.nEl).fill(null),
       thr: new Array(s.nEl).fill(null),
@@ -36,7 +35,6 @@ function buildImplantCard() {
   document.getElementById("lblImplProc").textContent = t("lblImplProc");
   document.getElementById("lblImplC").textContent = t("lblImplC");
   document.getElementById("lblImplIDR").textContent = t("lblImplIDR");
-  document.getElementById("lblImplIIDR").textContent = t("lblImplIIDR");
   const genLbl = document.getElementById("lblImplGen");
   if (genLbl) genLbl.textContent = t("lblImplGen");
 
@@ -141,7 +139,7 @@ function buildImplantCard() {
 
   // BA 154: Sub-Blöcke bei unknown Hersteller verstecken und früh zurück
   if (isUnknownMfr) {
-    ["implMedelParams","implAbParams","implCochParams"].forEach(id => {
+    ["implMedelParams","implAbParams"].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = "none";
     });
@@ -164,8 +162,6 @@ function buildImplantCard() {
     m === "medel" ? "" : "none";
   document.getElementById("implAbParams").style.display =
     m === "ab" ? "" : "none";
-  document.getElementById("implCochParams").style.display =
-    m === "cochlear" ? "" : "none";
   const genGrp = document.getElementById("implGenGroup");
   if (genGrp) genGrp.style.display = m === "cochlear" ? "" : "none";
 
@@ -220,8 +216,6 @@ function buildImplantCard() {
     if (ii) ii.value = im.idr !== null ? im.idr : "";
   }
   if (m === "cochlear") {
-    const ii = document.getElementById("implIIDR");
-    if (ii) ii.value = im.iidr !== null ? im.iidr : "";
     updCochlearGen();
   }
 
@@ -246,13 +240,6 @@ function buildImplantCard() {
   if (ii)
     ii.onchange = function () {
       sideData[activeSide].implant.idr =
-        this.value !== "" ? parseFloat(this.value) : null;
-      if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
-    };
-  const iii = document.getElementById("implIIDR");
-  if (iii)
-    iii.onchange = function () {
-      sideData[activeSide].implant.iidr =
         this.value !== "" ? parseFloat(this.value) : null;
       if (typeof validateImplantTable === 'function') validateImplantTable(activeSide);
     };

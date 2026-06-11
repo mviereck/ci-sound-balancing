@@ -15,7 +15,7 @@
 //     electrodeIdx: 0..n-1  (optional, bei zeilenbezogen),
 //     field:        'hz' | 'thr' | 'upper' oder Array davon
 //                   (optional, ein Warning kann mehrere Felder markieren),
-//     globalEl:    'c' | 'idr' | 'iidr' (optional, bei globalen Feldern),
+//     globalEl:    'c' | 'idr' (optional, bei globalen Feldern),
 //     messageKey:   i18n-Key,
 //     messageParams: {…}  (Platzhalter für den i18n-Text)
 //   }
@@ -88,7 +88,7 @@ const IMPL_VAL_THR_UPPER_MIN_FOR_MAD = 5;
 
 // Globale Implantat-Parameter — Plausibilitäts-Bereiche.
 // Quellen: Berechnungsgrundlagen dB zu CI.md Kap. 3.2 (c-Wert),
-// Kap. 5.2 (IDR), Kap. 4.3 (IIDR).
+// Kap. 5.2 (IDR).
 //   hardware: Software-Limits, außerhalb → Level 1 rot.
 //   typical:  typischer Audiologen-Bereich, außerhalb → Level 3 gelb.
 //   Default-Werte sind kommentiert, werden aber nicht direkt geprüft.
@@ -99,13 +99,6 @@ const IMPL_VAL_GLOBAL_C = {
 const IMPL_VAL_GLOBAL_IDR = {
   hardware: { min: 20, max: 80 },    // Default 60
   typical:  { min: 40, max: 70 }
-};
-const IMPL_VAL_GLOBAL_IIDR = {
-  // IIDR hat keine öffentlich dokumentierte harte Software-Grenze.
-  // Konservativ als Hardware-Range das volle plausible Spektrum,
-  // typischer Bereich enger.
-  hardware: { min: 10, max: 100 },   // Default 40
-  typical:  { min: 30, max: 60  }
 };
 
 // Bezeichnung der "Upper Level"-Spalte je Hersteller — wird in
@@ -196,7 +189,6 @@ function _implFieldSelector(idx, field) {
 function _implGlobalSelector(globalEl) {
   if (globalEl === 'c')    return '#implC';
   if (globalEl === 'idr')  return '#implIDR';
-  if (globalEl === 'iidr') return '#implIIDR';
   return null;
 }
 
@@ -210,7 +202,7 @@ function _implClearMarkers() {
 }
 
 function _implApplyFieldLevel(w) {
-  // Globale-Parameter-Pfad: markiert #implC / #implIDR / #implIIDR.
+  // Globale-Parameter-Pfad: markiert #implC / #implIDR.
   if (w.globalEl) {
     const sel = _implGlobalSelector(w.globalEl);
     if (!sel) return;
@@ -836,33 +828,6 @@ function _implCheckGlobalIDR(s) {
   return warnings;
 }
 
-function _implCheckGlobalIIDR(s) {
-  const warnings = [];
-  if (!s || s.manufacturer !== 'cochlear' || !s.implant) return warnings;
-  const v = s.implant.iidr;
-  if (v == null || isNaN(v)) return warnings;
-
-  const hw = IMPL_VAL_GLOBAL_IIDR.hardware;
-  const tp = IMPL_VAL_GLOBAL_IIDR.typical;
-
-  if (v < hw.min || v > hw.max) {
-    warnings.push({
-      level: IMPL_VAL_LEVEL_RED,
-      globalEl: 'iidr',
-      messageKey: 'implValidateIIDRRangeHard',
-      messageParams: { val: v, min: hw.min, max: hw.max }
-    });
-  } else if (v < tp.min || v > tp.max) {
-    warnings.push({
-      level: IMPL_VAL_LEVEL_YELLOW,
-      globalEl: 'iidr',
-      messageKey: 'implValidateIIDRRangeTypical',
-      messageParams: { val: v, min: tp.min, max: tp.max }
-    });
-  }
-  return warnings;
-}
-
 // --- Info-Hinweise (Level 4, blau) -------------------------
 // Diese Prüfungen markieren keine Tabellenfelder mit Outline.
 // Sie erscheinen nur als Listeneintrag in der Warnbox.
@@ -883,12 +848,12 @@ function _implCheckInfoFreqOwn(s) {
 
   if (ownCount === 0) {
     warnings.push({
-      level: IMPL_VAL_LEVEL_INFO,
+      level: IMPL_VAL_LEVEL_YELLOW,
       messageKey: 'implValidateInfoFreqEmpty'
     });
   } else if (ownCount < totalActive) {
     warnings.push({
-      level: IMPL_VAL_LEVEL_INFO,
+      level: IMPL_VAL_LEVEL_YELLOW,
       messageKey: 'implValidateInfoFreqPartial'
     });
   }
@@ -971,6 +936,38 @@ function _implCheckInfoThr(s) {
   return warnings;
 }
 
+// MED-EL c-Wert (cValue) leer.
+// Wird nicht direkt in calcMedel verwendet, aber für die MAPLAW-
+// Simulation im Player gebraucht. Stufe: Info (blau).
+function _implCheckInfoCValueMedel(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'medel' || !s.implant) return warnings;
+  const v = s.implant.cValue;
+  if (v == null || isNaN(v)) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoCValueEmpty'
+    });
+  }
+  return warnings;
+}
+
+// AB IDR leer.
+// Geht direkt in calcAB ein. Bei leerem Feld nimmt der Code 60 dB
+// an und markiert "(angenommen)" im Ausdruck. Stufe: gelb.
+function _implCheckInfoIdrAb(s) {
+  const warnings = [];
+  if (!s || s.manufacturer !== 'ab' || !s.implant) return warnings;
+  const v = s.implant.idr;
+  if (v == null || isNaN(v)) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_YELLOW,
+      messageKey: 'implValidateInfoIDREmpty'
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -992,11 +989,12 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckFatOnDeactivation(s));
   warnings.push.apply(warnings, _implCheckGlobalCWert(s));
   warnings.push.apply(warnings, _implCheckGlobalIDR(s));
-  warnings.push.apply(warnings, _implCheckGlobalIIDR(s));
   warnings.push.apply(warnings, _implCheckInfoFreqOwn(s));
   warnings.push.apply(warnings, _implCheckInfoAllActive(s));
   warnings.push.apply(warnings, _implCheckInfoUpperLevel(s));
   warnings.push.apply(warnings, _implCheckInfoThr(s));
+  warnings.push.apply(warnings, _implCheckInfoCValueMedel(s));
+  warnings.push.apply(warnings, _implCheckInfoIdrAb(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);

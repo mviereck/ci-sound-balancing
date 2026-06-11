@@ -58,8 +58,6 @@ function printImplantTab() {
       paramRows.push([t("lblImplC"), String(im.cValue)]);
     if (im.idr != null && m === "ab")
       paramRows.push([t("lblImplIDR"), im.idr + " dB"]);
-    if (im.iidr != null && m === "cochlear")
-      paramRows.push([t("lblImplIIDR"), im.iidr + " dB"]);
     if (im.generation && m === "cochlear")
       paramRows.push([t("lblImplGen"), im.generation]);
   }

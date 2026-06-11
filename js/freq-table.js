@@ -462,7 +462,6 @@ function switchMfr(m) {
       processor: "",
       cValue: null,
       idr: null,
-      iidr: null,
       generation: null,
       mcl: [],
       thr: [],
