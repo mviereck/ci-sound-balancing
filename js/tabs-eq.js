@@ -84,6 +84,10 @@ function evalTabLockState() {
   const lMfr = sideData.left  && sideData.left.manufacturer;
   const rMfr = sideData.right && sideData.right.manufacturer;
   const validMfr = (m) => !!m && m !== "unknown";
+  // Jede CI-Seite muss einen Hersteller haben — sonst Sperre,
+  // auch wenn die andere Seite vollständig konfiguriert ist.
+  if (lC === "ci" && !validMfr(lMfr)) return { locked: true, reason: "unconfigured" };
+  if (rC === "ci" && !validMfr(rMfr)) return { locked: true, reason: "unconfigured" };
   const lCI = lC === "ci" && validMfr(lMfr);
   const rCI = rC === "ci" && validMfr(rMfr);
   if (!lCI && !rCI) return { locked: true, reason: "unconfigured" };

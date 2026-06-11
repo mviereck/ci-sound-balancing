@@ -33,9 +33,11 @@ Unterstützung, Links. (Player war bis BA 212 ebenfalls gesperrt; ab BA 213
 ist er immer zugänglich.)
 
 **Frei-Schwelle:** Beide Seiten haben eine konkrete Hörsituation
-(`config ≠ "unknown"`) **und** mindestens eine Seite ist CI mit
-gewähltem Hersteller (`config === "ci"` und
-`manufacturer ∈ {"medel","ab","cochlear"}`).
+(`config ≠ "unknown"`), **jede** CI-Seite hat einen gewählten
+Hersteller (`manufacturer ∈ {"medel","ab","cochlear"}`), **und**
+mindestens eine Seite ist CI mit gewähltem Hersteller. Eine CI-Seite
+ohne Hersteller hält die Sperre aufrecht, auch wenn die andere Seite
+vollständig konfiguriert ist.
 
 **Visuelle Markierung:** Gesperrte Reiter erhalten CSS-Klasse
 `.tab-locked` (opacity 0.4, cursor not-allowed). Die Buttons bleiben
