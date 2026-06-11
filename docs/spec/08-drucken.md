@@ -22,6 +22,12 @@
   einheitlich über `buildPrintHeader`. Der bestehende „Alles
   drucken"-Button in Laden/Speichern bleibt unverändert und
   druckt weiterhin beide Seiten mit allen Sektionen.
+  Seit BA 272 erscheint zwischen dem H1-Titel und der Datum/Seite/Implantat-Zeile
+  optional eine **Patientenzeile** (Nachname, Vorname und Zusatzwort aus dem
+  Tab Laden/Speichern; Format „Nachname, Vorname — Zusatzwort"; fett,
+  font-size 1.05em). Die Zeile wird nur gerendert, wenn mindestens eines der
+  drei Felder gefüllt ist; bei leeren Feldern bleibt der Kopf unverändert.
+  Aufbau durch `_printPatientLine()` in `print.js`, keine i18n-Keys.
   - **Implantat-Tab** (`#printImplantBtn`): implementiert.
   - **Meßergebnisse-Sub-Tabs** (`#printErgebnisseBtn` in der
     Sub-Tab-Leiste rechts): implementiert. Dispatcher
@@ -111,8 +117,8 @@ Der Korrektur-Bericht ist gegliedert in:
 
 1. Kopf wird vollständig vom gemeinsamen `buildPrintHeader` (`print.js`)
    gestellt: H1 „CImbel — CI sound balancing — Einstellungswünsche an den
-   Audiologen", Datum / Seite / Implantat, Tool-Versions-Zeile mit
-   Domain. Der Audiologen-Markdown-Body enthält seit BA 176 keinen
+   Audiologen", optional Patientenzeile (s. o., BA 272), Datum / Seite /
+   Implantat, Tool-Versions-Zeile mit Domain. Der Audiologen-Markdown-Body enthält seit BA 176 keinen
    eigenen H1/Datum/Versions-Block mehr.
 2. Persönliche Notiz (H2 „Notiz" + Text direkt ohne Blockquote-Prefix,
    i18n-Key `audiologSecNote`) — nur wenn `audiologUserNote` nicht leer.

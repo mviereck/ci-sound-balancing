@@ -16,6 +16,30 @@ function _printEscHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+// ---------- BA 272: Patientenzeile für den sichtbaren Druckkopf ----------
+// Setzt Nachname, Vorname und Zusatzwort (userFileSuffix) zu einer
+// Zeile zusammen. Format: "Nachname, Vorname — Zusatzwort".
+// - Ist nur eines der Namensfelder gefüllt, erscheint nur dieses
+//   (ohne Komma).
+// - Trenner zum Zusatzwort ist der Geviertstrich " — ".
+// - Sind alle drei Felder leer, liefert die Funktion "" (leerer
+//   String); der Aufrufer läßt die Zeile dann ganz weg.
+// - Ist nur das Zusatzwort gefüllt, steht dort nur das Wort.
+// Original-Schreibweise (Umlaute) bleibt erhalten; Escaping erfolgt
+// im Aufrufer per _printEscHtml.
+function _printPatientLine() {
+  const ln = (typeof userLastName   === "string" ? userLastName   : "").trim();
+  const fn = (typeof userFirstName  === "string" ? userFirstName  : "").trim();
+  const sf = (typeof userFileSuffix === "string" ? userFileSuffix : "").trim();
+  let nameBlock = "";
+  if (ln && fn) nameBlock = ln + ", " + fn;
+  else if (ln)  nameBlock = ln;
+  else if (fn)  nameBlock = fn;
+  let line = nameBlock;
+  if (sf) line = line ? (line + " — " + sf) : sf;
+  return line;
+}
+
 // Liefert HTML-String mit zweizeiligem Mini-Kopf:
 //   Zeile 1 groß:  "CImbel — CI sound balancing — <tabTitle>"
 //   Zeile 2 klein: Datum · Seite · Implantat
@@ -40,10 +64,12 @@ function buildPrintHeader(tabTitle) {
   const versionLine = versionStr
     ? _printEscHtml(t("printHeaderToolVersion").replace("{VERSION}", versionStr))
     : "";
+  const patientLine = _printPatientLine();
   return `
     <div style="margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px; font-family: sans-serif; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
       <div style="flex: 1; min-width: 0;">
         <h1 style="font-size: 1.5em; margin: 0 0 4px 0;">CImbel — CI sound balancing — ${_printEscHtml(tabTitle)}</h1>
+        ${patientLine ? `<p style="font-size: 1.05em; font-weight: 600; margin: 0 0 4px 0;">${_printEscHtml(patientLine)}</p>` : ""}
         <p style="font-size: 0.85em; margin: 0;">
           ${_printEscHtml(t("printHeaderDate"))}: ${dateStr}
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderSide"))}: ${_printEscHtml(sideStr)}${_printEscHtml(cfgSuffix)}
