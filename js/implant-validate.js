@@ -24,6 +24,7 @@
 const IMPL_VAL_LEVEL_RED = 1;
 const IMPL_VAL_LEVEL_ORANGE = 2;
 const IMPL_VAL_LEVEL_YELLOW = 3;
+const IMPL_VAL_LEVEL_INFO = 4;
 
 // Hz-Software-Range pro Hersteller.
 //   MED-EL: 70–8500 Hz (MAESTRO Kap. 24.6, FS/FSP-Strategien).
@@ -105,6 +106,23 @@ const IMPL_VAL_GLOBAL_IIDR = {
   // typischer Bereich enger.
   hardware: { min: 10, max: 100 },   // Default 40
   typical:  { min: 30, max: 60  }
+};
+
+// Bezeichnung der "Upper Level"-Spalte je Hersteller — wird in
+// den Info-Hinweisen als {label} eingesetzt, damit der Text mit
+// dem Tabellenkopf konsistent bleibt.
+const IMPL_VAL_UPPER_LABEL = {
+  medel:    'MCL',
+  cochlear: 'C-Level',
+  ab:       'M-Level'
+};
+
+// Einheit der Hersteller-Werte je Hersteller — wird in den
+// Info-Hinweisen als {unit} eingesetzt.
+const IMPL_VAL_UNIT = {
+  medel:    'qu',
+  cochlear: 'CL',
+  ab:       'CU'
 };
 
 // --- Helfer -------------------------------------------------
@@ -845,6 +863,114 @@ function _implCheckGlobalIIDR(s) {
   return warnings;
 }
 
+// --- Info-Hinweise (Level 4, blau) -------------------------
+// Diese Prüfungen markieren keine Tabellenfelder mit Outline.
+// Sie erscheinen nur als Listeneintrag in der Warnbox.
+// Sie betrachten nur aktive Elektroden (elActive[i] !== false).
+
+function _implCheckInfoFreqOwn(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+
+  let totalActive = 0;
+  let ownCount = 0;
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elActive && s.elActive[i] === false) continue;
+    totalActive++;
+    if (s.elFreqOwn && s.elFreqOwn[i] != null) ownCount++;
+  }
+  if (totalActive === 0) return warnings;
+
+  if (ownCount === 0) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoFreqEmpty'
+    });
+  } else if (ownCount < totalActive) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoFreqPartial'
+    });
+  }
+  return warnings;
+}
+
+function _implCheckInfoAllActive(s) {
+  const warnings = [];
+  if (!s || !s.nEl || !s.elActive) return warnings;
+
+  const anyInactive = s.elActive.some(function (a) { return a === false; });
+  if (!anyInactive) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoAllActive'
+    });
+  }
+  return warnings;
+}
+
+function _implCheckInfoUpperLevel(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+
+  const label = IMPL_VAL_UPPER_LABEL[s.manufacturer] || 'MCL';
+  const unit  = IMPL_VAL_UNIT[s.manufacturer] || 'qu';
+
+  let totalActive = 0;
+  let setCount = 0;
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elActive && s.elActive[i] === false) continue;
+    totalActive++;
+    if (_implUpperOf(s, i) != null) setCount++;
+  }
+  if (totalActive === 0) return warnings;
+
+  if (setCount === 0) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoUpperEmpty',
+      messageParams: { label: label, unit: unit }
+    });
+  } else if (setCount < totalActive) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoUpperPartial',
+      messageParams: { label: label, unit: unit }
+    });
+  }
+  return warnings;
+}
+
+function _implCheckInfoThr(s) {
+  const warnings = [];
+  if (!s || !s.nEl) return warnings;
+  // THR-Hinweis nur bei Advanced Bionics — bei MED-EL und Cochlear
+  // wird THR fuer die Hersteller-Werte-Berechnung nicht gebraucht.
+  if (s.manufacturer !== 'ab') return warnings;
+
+  let totalActive = 0;
+  let setCount = 0;
+  for (let i = 0; i < s.nEl; i++) {
+    if (s.elActive && s.elActive[i] === false) continue;
+    totalActive++;
+    if (_implThrOf(s, i) != null) setCount++;
+  }
+  if (totalActive === 0) return warnings;
+
+  if (setCount === 0) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoThrEmpty'
+    });
+  } else if (setCount < totalActive) {
+    warnings.push({
+      level: IMPL_VAL_LEVEL_INFO,
+      messageKey: 'implValidateInfoThrPartial'
+    });
+  }
+  return warnings;
+}
+
 // --- Hauptfunktion -----------------------------------------
 
 function validateImplantTable(side) {
@@ -867,6 +993,10 @@ function validateImplantTable(side) {
   warnings.push.apply(warnings, _implCheckGlobalCWert(s));
   warnings.push.apply(warnings, _implCheckGlobalIDR(s));
   warnings.push.apply(warnings, _implCheckGlobalIIDR(s));
+  warnings.push.apply(warnings, _implCheckInfoFreqOwn(s));
+  warnings.push.apply(warnings, _implCheckInfoAllActive(s));
+  warnings.push.apply(warnings, _implCheckInfoUpperLevel(s));
+  warnings.push.apply(warnings, _implCheckInfoThr(s));
 
   _implClearMarkers();
   warnings.forEach(_implApplyFieldLevel);

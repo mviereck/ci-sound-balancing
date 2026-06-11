@@ -1847,6 +1847,7 @@ body.dbg-active .dbg-only { display: inline-block; }
 .impl-val-dot-l1 { background: #dc2626; }
 .impl-val-dot-l2 { background: #f97316; }
 .impl-val-dot-l3 { background: #eab308; }
+.impl-val-dot-l4 { background: #3b82f6; }
 
 /* ============================================================
    DEPENDENCY-LOCK (BA 149)

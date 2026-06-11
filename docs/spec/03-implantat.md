@@ -157,13 +157,16 @@ Modul `js/implant-validate.js`. Aufruf nach jedem Re-Render der
 Frequenztabelle (Hook am Ende von `buildFreqTable`) sowie direkt
 aus den `change`-Handlern der THR- und Upper-Level-Felder in
 `freq-table.js` (damit Warnungen ohne vollständigen Re-Render
-sofort erscheinen, BA 139-bugfix). Drei
+sofort erscheinen, BA 139-bugfix). Vier
 Auffälligkeits-Stufen:
 
 - **Rot** (Level 1): logisch falsch, eindeutig fehlerhaft.
 - **Orange** (Level 2): Tippfehler-Verdacht
   (Größenordnungs-Abweichung).
 - **Gelb** (Level 3): Auffälligkeit, kann real sein.
+- **Blau** (Level 4, Info): Hinweis auf leere oder unvollständige
+  Felder; kein Fehler, nur Information. Markiert keine Felder
+  mit Outline — erscheint nur als Listeneintrag.
 
 Warnungen werden in der Box „Plausibilitätsprüfung" unter dem
 Sweep/Stop-Block aufgelistet (einklappbar, per Default offen,
@@ -293,6 +296,31 @@ Markierung an den Eingabefeldern `#implC`, `#implIDR`, `#implIIDR`
 über die Schema-Erweiterung `globalEl` (vorher nur im Header
 dokumentiert, ab BA 143 tatsächlich implementiert) und den
 neuen Helfer `_implGlobalSelector`.
+
+### Info-Hinweise / Level 4 blau (BA 267)
+
+Vier Prüfungen, die nur aktive Elektroden betrachten. Kein Feld-
+Outline — nur Listeneintrag in der Warnbox.
+
+- **FreqOwn leer** (A1): alle aktiven Elektroden haben kein
+  Hz-eigen-Override — Default-Werte der Hersteller-Range werden
+  verwendet.
+- **FreqOwn unvollständig** (A2): mind. eine aktive Elektrode hat
+  Hz-eigen, mind. eine nicht.
+- **Alle aktiv** (B1): keine Elektrode ist als inaktiv markiert.
+- **Upper-Level leer** (C1): MCL/C-Level/M-Level bei allen aktiven
+  Elektroden leer — Hersteller-Werte (qu/CL/CU) im Ausdruck nicht
+  berechenbar.
+- **Upper-Level unvollständig** (C2): Upper-Level nur teilweise
+  eingetragen.
+- **THR leer** (D1, nur AB): T-Level bei allen aktiven leer — CU
+  nicht berechenbar.
+- **THR unvollständig** (D2, nur AB): T-Level nur teilweise
+  eingetragen.
+
+Hersteller-Mapping für `{label}`/`{unit}` in den i18n-Strings:
+`IMPL_VAL_UPPER_LABEL` und `IMPL_VAL_UNIT` (beide in
+`implant-validate.js`).
 
 **Überlappung mit `deactWarnBar`**: das bestehende Warnbanner
 oberhalb der Tabelle (`#deactWarnBar` in `freq-table.js`) prüft
