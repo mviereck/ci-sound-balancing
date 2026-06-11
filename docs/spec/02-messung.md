@@ -43,15 +43,17 @@ In `state-side.js` und persistiert in JSON und localStorage:
 - **Tonart** (`toneType_test` / `toneType_balance`, seit BA 254 vollständig per Test; kein `globalToneType` mehr) — **CI-Testton harmonisch / CI-Testton
   inharmonisch** (3.2.238.1, citest-profiles.js — für CI-Messungen
   designte Stimuli mit konstanter Klangfarbe über den ganzen
-  Frequenzbereich, sanftem Anschwingen 250 ms gegen AGC-Trommelschlag,
-  Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen Stationaritätsartefakte;
+  Frequenzbereich, sanftem Anschwingen (seit BA 270 global einstellbar:
+  Default cos², 500 ms), Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen
+  Stationaritätsartefakte;
   inharmonisch mit Partial-Verstimmung ≈ Glocken-Anmutung) /
-  **CI-Test Attack-stark / AM-langsam / flach** (3.2.238.2,
-  Diagnose-Varianten zum harmonischen CI-Test gegen die bei Martin
-  beobachtete periodische ~2,7-Hz-Welle: Attack-stark hat 600 ms
-  Anschwingen und 18 % AM-Tiefe, AM-langsam moduliert mit 2,7 Hz / 25 %
-  in der Wellen-Frequenz, flach hat keine AM — bei Martin der ruhigste
-  Klang, AGC bekommt keine Modulation zum Hinterherregeln) /
+  **CI-Test Modulation mittel / AM-langsam / flach** (3.2.238.2,
+  Diagnose-Varianten zum harmonischen CI-Test: Modulation mittel (früher
+  „Attack-stark") hat 18 % AM-Tiefe als Zwischenstufe zwischen CiH (8 %)
+  und AM-langsam (25 %); AM-langsam moduliert mit 2,7 Hz / 25 % in der
+  bei Martin beobachteten Wellen-Frequenz; flach hat keine AM — bei Martin
+  der ruhigste Klang, AGC bekommt keine Modulation zum Hinterherregeln.
+  BA 270: profileigene `attackMs`-Werte entfernt, Anschwingzeit global.) /
   **CI-Test pur / inharmonisch flach** (3.2.239.2, weitere Diagnose-
   Töne nach Nutzer-Test mit CiHF: pur lässt zusätzlich Vibrato weg —
   prüft, ob bei manchen CIs Frequenzmodulation auch Welle erzeugt;
@@ -79,8 +81,11 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Sinustöne, Komplextöne, Instrumenten-Klänge, Rauschsignale) mit
   Kurzbeschreibung pro Tonart. Die CI-Testtöne-Gruppe steht oben, weil
   sie für Mess-Aufgaben empfohlen ist. Reihenfolge in der CI-Test-
-  Gruppe (3.2.239.2): CiHF (flach), CiH, CiP, CiB, CiBF, CiHA, CiHS —
-  CiHF zuerst, weil bei Martin die ruhigste Variante.
+  Gruppe (0.4.269.2): CiHF (flach), CiG, CiS, CiH, CiP, CiB, CiBF,
+  CiHA, CiHS — CiHF zuerst, weil bei Martin die ruhigste Variante.
+  CiG (Grundton mit Vibrato) und CiS (Grundton ohne Vibrato) direkt
+  danach als Diagnose-Varianten zu Akkord- und Vibrato-Hypothese aus
+  Anhang B der Konzept-Doku.
   Jede Gruppe hat eine Überschrift und einen Unter-Hinweis (i18n).
   Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
   TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu

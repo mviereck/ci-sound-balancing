@@ -7,6 +7,64 @@ function gAC() {
   if (audioCtx.state === "suspended") audioCtx.resume();
   return audioCtx;
 }
+
+// ============================================================
+// BA 270: Globale Ton-Huellkurve (Anstieg + Ausklang)
+// ============================================================
+// Toolweit global, persistent in localStorage ("ci-lb-toneEnv").
+// Gilt fuer ALLE Toene (Sinus, Rauschen, Instrumente, CI-Test-Profile).
+// Ersetzt die frueheren profil-eigenen attackMs-Werte und den 50ms-Default.
+// Bedient wird das in BA 271 (Tonauswahl-Modal). Hier nur State + Engine.
+let gToneEnvAttackForm = "cos2";  // "hard" | "linear" | "cos2" | "dblin"
+let gToneEnvAttackMs   = 500;     // Anschwingzeit in ms (bei "hard" ignoriert)
+let gToneEnvDbFloor    = -50;     // Startpegel in dB, nur fuer "dblin"
+let gToneEnvRelease    = "short"; // "short" | "sym" | "hard"
+const TONE_ENV_SHORT_MS = 30;     // feste Dauer des kurzen Ausklangs ("short")
+
+// Zentraler Setter. Nimmt ein Patch-Objekt (nur gesetzte Felder wirken),
+// schreibt die globalen Variablen und persistiert nach localStorage.
+function setToneEnvelope(patch) {
+  if (!patch) return;
+  if (patch.attackForm !== undefined) gToneEnvAttackForm = patch.attackForm;
+  if (patch.attackMs   !== undefined) gToneEnvAttackMs   = patch.attackMs;
+  if (patch.dbFloor    !== undefined) gToneEnvDbFloor    = patch.dbFloor;
+  if (patch.release    !== undefined) gToneEnvRelease    = patch.release;
+  try {
+    localStorage.setItem("ci-lb-toneEnv", JSON.stringify({
+      attackForm: gToneEnvAttackForm,
+      attackMs:   gToneEnvAttackMs,
+      dbFloor:    gToneEnvDbFloor,
+      release:    gToneEnvRelease
+    }));
+  } catch (e) { /* localStorage kann fehlen/voll sein — ignorieren */ }
+}
+
+// Liest persistierte Werte beim Laden zurueck. Wird einmal als
+// Top-Level-Aufruf am Ende dieses Blocks ausgefuehrt (localStorage ist
+// beim Script-Load synchron verfuegbar, kein DOM noetig).
+function loadToneEnvelope() {
+  try {
+    var raw = localStorage.getItem("ci-lb-toneEnv");
+    if (!raw) return;
+    var o = JSON.parse(raw);
+    if (!o || typeof o !== "object") return;
+    if (o.attackForm === "hard" || o.attackForm === "linear"
+        || o.attackForm === "cos2" || o.attackForm === "dblin") {
+      gToneEnvAttackForm = o.attackForm;
+    }
+    if (typeof o.attackMs === "number" && isFinite(o.attackMs) && o.attackMs >= 0) {
+      gToneEnvAttackMs = o.attackMs;
+    }
+    if (typeof o.dbFloor === "number" && isFinite(o.dbFloor)) {
+      gToneEnvDbFloor = o.dbFloor;
+    }
+    if (o.release === "short" || o.release === "sym" || o.release === "hard") {
+      gToneEnvRelease = o.release;
+    }
+  } catch (e) { /* defekter Stand — Defaults behalten */ }
+}
+loadToneEnvelope();
+
 function _activeTestInput(type) {
   // BA 250: Elektrodenlautstaerke-Test hat keine Header-Felder mehr —
   // Vol/Dur/Pau leben dort als State-Variablen (volume_test/duration_test/
@@ -99,26 +157,84 @@ function getElectrodeBandwidth(hz) {
   return bwLow + bwHigh;
 }
 
-// Cosinus-Quadrat-Hüllkurve (Hann-Form: sin² beim Anstieg, cos² beim Abfall).
-// Reduziert spektrale Onset-Energie gegenüber linearer Rampe; bei CI weniger
-// breitbandiger "Klick" beim Tonanfang, sauberer Pitch-Eindruck.
+// BA 270: Globale Ton-Huellkurve.
+// Liest gToneEnvAttackForm / gToneEnvAttackMs / gToneEnvDbFloor /
+// gToneEnvRelease. Der Parameter `ramp` bleibt nur fuer Signatur-
+// Kompatibilitaet erhalten und wird nicht mehr genutzt.
+//
+// Anstiegsformen:
+//   hard   — sofort voller Pegel (kein Anstieg)
+//   linear — konstante Amplituden-Steigung
+//   cos2   — Hann/Cos2 (tangential an beiden Enden), spektral glatteste Form
+//   dblin  — dB-lineare Rampe: gleichmaessig wachsende Lautheit; startet
+//            beim Startpegel gToneEnvDbFloor (z.B. -50 dB)
+// Ausklang:
+//   short  — fester kurzer Cos2-Ausklang (TONE_ENV_SHORT_MS)
+//   sym    — gleiche Form und Zeit wie der Anstieg
+//   hard   — abruptes Ende (kein Ausklang)
 function applyCosRamp(gainNode, vol, c, ms, ramp) {
-  const v       = Math.max(0, vol);
-  const t0      = c.currentTime;
-  const effRamp = Math.min(ramp, Math.max(1, ms / 2));
-  const rampSec = effRamp / 1000;
-  const N       = 64;
-  const up      = new Float32Array(N);
-  const dn      = new Float32Array(N);
-  for (let i = 0; i < N; i++) {
-    const x = i / (N - 1);                       // 0..1
-    const w = 0.5 - 0.5 * Math.cos(Math.PI * x); // sin²(πx/2), 0..1
-    up[i] = v * w;
-    dn[i] = v * (1 - w);
+  const v        = Math.max(0, vol);
+  const t0       = c.currentTime;
+  const totalSec = Math.max(0.001, ms / 1000);
+  const form     = gToneEnvAttackForm;
+
+  // Anstiegsdauer (bei "hard" = 0).
+  let atkSec = (form === "hard") ? 0 : Math.max(0, gToneEnvAttackMs) / 1000;
+
+  // Ausklangsdauer je nach Modus.
+  let relSec;
+  if (gToneEnvRelease === "hard") {
+    relSec = 0;
+  } else if (gToneEnvRelease === "sym") {
+    relSec = (form === "hard") ? 0 : Math.max(0, gToneEnvAttackMs) / 1000;
+  } else { // "short"
+    relSec = TONE_ENV_SHORT_MS / 1000;
   }
-  gainNode.gain.setValueAtTime(0, t0);
-  gainNode.gain.setValueCurveAtTime(up, t0, rampSec);
-  gainNode.gain.setValueCurveAtTime(dn, t0 + (ms - effRamp) / 1000, rampSec);
+
+  // In die Tondauer einpassen: Ausklang max. halbe Dauer, Anstieg in den Rest.
+  relSec = Math.min(relSec, totalSec / 2);
+  atkSec = Math.min(atkSec, totalSec - relSec);
+
+  // --- Anstieg ---
+  if (atkSec < 0.001) {
+    // harter Einstieg (oder zu kurz fuer eine sinnvolle Rampe)
+    gainNode.gain.setValueAtTime(v, t0);
+  } else {
+    const up = _envCurve(form, v, gToneEnvDbFloor, true);
+    gainNode.gain.setValueCurveAtTime(up, t0, atkSec);
+  }
+
+  // --- Ausklang ---
+  if (relSec >= 0.001) {
+    // Bei "sym" die Anstiegsform spiegeln, sonst sanftes Cos2.
+    const relForm = (gToneEnvRelease === "sym") ? form : "cos2";
+    const dn = _envCurve(relForm, v, gToneEnvDbFloor, false);
+    gainNode.gain.setValueCurveAtTime(dn, t0 + (totalSec - relSec), relSec);
+  }
+}
+
+// BA 270: Erzeugt ein 64-Punkt-Huellkurvenarray fuer eine gegebene Form.
+//   rising=true  -> 0..voll (Anstieg)
+//   rising=false -> voll..0 (Ausklang)
+// floorDb wird nur bei "dblin" gebraucht (negativer Startpegel in dB).
+function _envCurve(form, v, floorDb, rising) {
+  const N = 64;
+  const arr = new Float32Array(N);
+  for (let i = 0; i < N; i++) {
+    const x = i / (N - 1);            // 0..1 ueber die Rampendauer
+    const p = rising ? x : (1 - x);   // Lautstaerke-Fortschritt 0..1
+    let g;
+    if (form === "linear") {
+      g = p;
+    } else if (form === "dblin") {
+      // dB-linear: bei p=1 voll (0 dB), bei p=0 Startpegel floorDb.
+      g = Math.pow(10, (floorDb * (1 - p)) / 20);
+    } else { // "cos2" (auch Fallback)
+      g = 0.5 - 0.5 * Math.cos(Math.PI * p);
+    }
+    arr[i] = v * g;
+  }
+  return arr;
 }
 
 function playSineTone(c, hz, vol, ms, pan, ramp = 50) {
@@ -334,9 +450,9 @@ function playRichTone(c, hz, vol, ms, pan, ramp = 50) {
 function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
   // Generische richTone-Synthese aus einem Profil-Objekt
   // (siehe js/richtone-profiles.js -> RICHTONE_PROFILES.<abbr>).
-  // Felder: partials, vibratoHz, vibratoCents, amHz, amDepth, attackMs.
-  // Profil-Attack erweitert die Cos2-Rampe ueber den Default hinaus
-  // (begrenzt durch applyCosRamp auf max ms/2).
+  // Felder: partials, vibratoHz, vibratoCents, amHz, amDepth.
+  // BA 270: Anschwingen/Ausklang kommen jetzt aus der globalen
+  // Huellkurve (applyCosRamp liest gToneEnv*). Kein profil-eigener Attack.
   return new Promise((r) => {
     const VIB_HZ      = profile.vibratoHz    || 0;
     const VIB_CENTS   = profile.vibratoCents || 0;
@@ -345,7 +461,6 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
     const partials    = (profile.partials && profile.partials.length)
                           ? profile.partials
                           : [{ mult: 1, amp: 1.0 }];
-    const effRamp     = Math.max(ramp, profile.attackMs || ramp);
 
     const oscs        = [];
     const g           = c.createGain();
@@ -409,7 +524,7 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
 
     carrierMix.connect(g);
     p.pan.value = pan;
-    applyCosRamp(g, vol, c, ms, effRamp);
+    applyCosRamp(g, vol, c, ms, ramp);
     g.connect(p);
     p.connect(c.destination);
     for (let k = 0; k < oscs.length; k++) runningSources.push(oscs[k]);
