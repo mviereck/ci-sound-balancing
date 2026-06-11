@@ -468,6 +468,7 @@ function _archivMdImplantTables(data) {
 function _archivMdTestSettings(data) {
   var TONE_LABEL_KEY = {
     richCiHF: "toneRichCiHF", richCiG:  "toneRichCiG",
+    richCiS:  "toneRichCiS",
     richCiH:  "toneRichCiH",
     richCiP:  "toneRichCiP",
     richCiB:  "toneRichCiB",  richCiBF: "toneRichCiBF",

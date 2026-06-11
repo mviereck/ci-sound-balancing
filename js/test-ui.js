@@ -98,6 +98,7 @@ function _toneTypeKey(tt) {
     richCiH: 'toneRichCiH', richCiB: 'toneRichCiB',
     richCiHA: 'toneRichCiHA', richCiHS: 'toneRichCiHS', richCiHF: 'toneRichCiHF',
     richCiP: 'toneRichCiP', richCiBF: 'toneRichCiBF',
+    richCiG: 'toneRichCiG', richCiS: 'toneRichCiS',
     noise: 'toneNoise', noiseAdaptive: 'toneNoiseAdaptive',
     irn: 'toneIRN', amSine: 'toneAmSine',
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
