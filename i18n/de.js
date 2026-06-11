@@ -565,7 +565,7 @@ Object.assign(L.de, {
     freqAbfHint:
       "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
     freqExclHint:
-      "Sie können schlecht hörbare Elektroden in der Spalte <b>Ausschließen</b> von Tests ausschließen. Deaktivierte Elektroden sind automatisch von Tests ausgeschlossen.",
+      "Bitte überprüfen Sie die Klangqualität jeder Elektrode mit dem Button <b>Elektroden über Töne anspielen</b>.<ul><li>Geben Sie im Dropdown <b>Status</b> die Qualität der Elektroden an.</li><li>Sie können schlecht hörbare Elektroden in der Spalte <b>Ausschließen</b> von Tests ausschließen. Deaktivierte Elektroden sind automatisch von Tests ausgeschlossen.</li></ul>",
     plFileTitle: "Audiodatei",
     printPlayerTitle: "Player-Einstellungen",
     implTitle: "Implantat-Daten",

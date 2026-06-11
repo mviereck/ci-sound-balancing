@@ -514,7 +514,7 @@ Object.assign(L.es, {
     freqAbfHint:
       "<b>Importante – Anatomy Based Fitting (ABF) y FAT:</b> también con Anatomy Based Fitting (ABF) se aplican otras frecuencias centrales para los electrodos. En general: pregunte a su audiólogo por la FAT (Frequency Allocation Table) de su IC, para conocer todas las frecuencias asignadas a los electrodos.",
     freqExclHint:
-      "Puede excluir de las pruebas los electrodos poco audibles en la columna <b>Excluir</b>. Los electrodos desactivados se excluyen automáticamente de las pruebas.",
+      "Por favor, compruebe la calidad sonora de cada electrodo con el botón <b>Escuchar electrodos mediante tonos</b>.<ul><li>Indique la calidad de cada electrodo en el desplegable <b>Estado</b>.</li><li>Puede excluir de las pruebas los electrodos poco audibles en la columna <b>Excluir</b>. Los electrodos desactivados se excluyen automáticamente de las pruebas.</li></ul>",
     plFileTitle: "Archivo de audio",
     printPlayerTitle: "Ajustes del reproductor",
     implTitle: "Datos del implante",

@@ -513,7 +513,7 @@ Object.assign(L.en, {
     freqAbfHint:
       "<b>Important – Anatomy Based Fitting (ABF) and FAT:</b> Even with Anatomy Based Fitting (ABF), different center frequencies apply to the electrodes. In general: ask your audiologist for the FAT (Frequency Allocation Table) of your CI to learn all the frequencies assigned to the electrodes.",
     freqExclHint:
-      "You can exclude poorly audible electrodes from tests in the <b>Exclude</b> column. Deactivated electrodes are automatically excluded from tests.",
+      "Please check the sound quality of each electrode using the <b>Play electrodes via tones</b> button.<ul><li>Use the <b>Status</b> dropdown to indicate the quality of each electrode.</li><li>You can exclude poorly audible electrodes from tests in the <b>Exclude</b> column. Deactivated electrodes are automatically excluded from tests.</li></ul>",
     plFileTitle: "Audio file",
     printPlayerTitle: "Player settings",
     implTitle: "Implant data",
