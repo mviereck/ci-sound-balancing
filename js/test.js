@@ -1267,6 +1267,12 @@ document.addEventListener("DOMContentLoaded", function() {
   testEls = buildTestPanel(parentEl, cfg);
 });
 
+function testRefreshElectrodeSelectionSummary() {
+  if (testEls && testEls.header && typeof testEls.header.electrodeSelectionUpdate === 'function') {
+    testEls.header.electrodeSelectionUpdate();
+  }
+}
+
 // BA 247: "beide Toene gleichzeitig" (frueher inline am Simul-Button).
 function _testPlaySimul() {
   if (!testAct || testIdx >= testPairs.length) return;

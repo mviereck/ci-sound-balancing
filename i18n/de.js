@@ -917,7 +917,7 @@ Object.assign(L.de, {
     targetRight: "Rechts",
     targetBoth: "Beide",
     sequenceLbl: "Tonfolge:",
-    toneTypeLbl: "Tonart:",
+    toneTypeLbl: "Test-Ton Einstellungen:",
     targetLbl: "Slider-Wirkung:",
     optRandom: "Zufällig",
     optAsc: "Apikal → Basal",

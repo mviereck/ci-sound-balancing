@@ -330,6 +330,45 @@ function _buildTestPanelNew(parentEl, cfg) {
     var rowSequence = _mkEl('div', 'controls-row');
     rowSequence.dataset.row = 'sequence';
 
+    // BA 209: Tonart-Popup-Button (generisch, optional pro Verfahren).
+    var tonePopupBtn = null;
+    if (hc.tonePopupButton) {
+      var tpCfg = hc.tonePopupButton;
+      var cgTP = _mkEl('div', 'control-group');
+      var lblTP = _mkEl('label'); _tEl(lblTP, 'toneTypeLbl');
+      tonePopupBtn = _mkEl('button', 'btn btn-small');
+      tonePopupBtn.type = 'button';
+
+      function _tpUpdateLabel() {
+        var tt = tpCfg.getToneType();
+        var key = _toneTypeKey(tt);
+        if (key) {
+          tonePopupBtn.dataset.t = key;
+          if (typeof t === 'function') tonePopupBtn.textContent = t(key);
+        } else {
+          // BA 228 Fix .1: smplr-Token (Mellotron) haben keinen i18n-
+          // Key. Den Variant-Namen direkt nach dem letzten ':' als
+          // Label zeigen, data-t entfernen damit applyLang nicht
+          // überschreibt.
+          delete tonePopupBtn.dataset.t;
+          var lastColon = (typeof tt === 'string') ? tt.lastIndexOf(':') : -1;
+          tonePopupBtn.textContent = (lastColon >= 0)
+            ? tt.substring(lastColon + 1)
+            : (tt || '');
+        }
+      }
+      cgTP.append(lblTP, tonePopupBtn);
+      rowSequence.appendChild(cgTP);
+
+      tonePopupBtn.addEventListener('click', function() {
+        openToneSelectionDialog(tpCfg, _tpUpdateLabel);
+      });
+
+      _tpUpdateLabel();
+      headerRefs.tonePopupBtn = tonePopupBtn;
+      headerRefs.tonePopupUpdate = _tpUpdateLabel;
+    }
+
     if (showSeq) {
       var cg = _mkEl('div', 'control-group');
       var lbl2 = _mkEl('label'); _tEl(lbl2, 'sequenceLbl');
@@ -381,45 +420,6 @@ function _buildTestPanelNew(parentEl, cfg) {
       rowSequence.appendChild(cg3);
     }
 
-    // BA 209: Tonart-Popup-Button (generisch, optional pro Verfahren).
-    var tonePopupBtn = null;
-    if (hc.tonePopupButton) {
-      var tpCfg = hc.tonePopupButton;
-      var cgTP = _mkEl('div', 'control-group');
-      var lblTP = _mkEl('label'); _tEl(lblTP, 'toneTypeLbl');
-      tonePopupBtn = _mkEl('button', 'btn btn-small');
-      tonePopupBtn.type = 'button';
-
-      function _tpUpdateLabel() {
-        var tt = tpCfg.getToneType();
-        var key = _toneTypeKey(tt);
-        if (key) {
-          tonePopupBtn.dataset.t = key;
-          if (typeof t === 'function') tonePopupBtn.textContent = t(key);
-        } else {
-          // BA 228 Fix .1: smplr-Token (Mellotron) haben keinen i18n-
-          // Key. Den Variant-Namen direkt nach dem letzten ':' als
-          // Label zeigen, data-t entfernen damit applyLang nicht
-          // überschreibt.
-          delete tonePopupBtn.dataset.t;
-          var lastColon = (typeof tt === 'string') ? tt.lastIndexOf(':') : -1;
-          tonePopupBtn.textContent = (lastColon >= 0)
-            ? tt.substring(lastColon + 1)
-            : (tt || '');
-        }
-      }
-      cgTP.append(lblTP, tonePopupBtn);
-      rowSequence.appendChild(cgTP);
-
-      tonePopupBtn.addEventListener('click', function() {
-        openToneSelectionDialog(tpCfg, _tpUpdateLabel);
-      });
-
-      _tpUpdateLabel();
-      headerRefs.tonePopupBtn = tonePopupBtn;
-      headerRefs.tonePopupUpdate = _tpUpdateLabel;
-    }
-
     if (rowSequence.children.length) headerBox.appendChild(rowSequence);
     headerRefs.seqSelect = seqSelect;
     headerRefs.targetSelect = targetSelect;
@@ -431,11 +431,10 @@ function _buildTestPanelNew(parentEl, cfg) {
     var rowES = _mkEl('div', 'controls-row');
     rowES.dataset.row = 'electrode-selection';
     var esSummary = _mkEl('span', 'electrode-selection-summary');
-    esSummary.dataset.t = '';  // wird in _esUpdateSummary aktiv gesetzt
     var esBtn = _mkEl('button', 'btn btn-small');
     esBtn.type = 'button';
     esBtn.dataset.t = 'electrodeSelectionHeaderBtn';
-    rowES.append(esSummary, esBtn);
+    rowES.append(esBtn, esSummary);
     headerBox.appendChild(rowES);
     headerRefs.electrodeSelectionSummary = esSummary;
     headerRefs.electrodeSelectionBtn = esBtn;
@@ -445,12 +444,15 @@ function _buildTestPanelNew(parentEl, cfg) {
       var sel = esCfg.getSelection();
       var stat = esCfg.getElectrodeStatus();
       var testable = stat.testable.length;
+      if (testable === 0) { esSummary.textContent = ''; return; }
       var selected;
       if (sel == null) selected = testable;
       else selected = sel.filter(function(i) { return stat.testable.indexOf(i) >= 0; }).length;
       var tpl = (typeof t === 'function' && t('electrodeSelectionHeaderSummary'))
         || '{m} von {n} Elektroden gewählt';
-      esSummary.textContent = tpl.replace('{m}', selected).replace('{n}', testable);
+      var txt = tpl.replace('{m}', selected).replace('{n}', testable);
+      if (selected < testable) txt += ' ⚠';
+      esSummary.textContent = txt;
     }
     headerRefs.electrodeSelectionUpdate = _esUpdateSummary;
 

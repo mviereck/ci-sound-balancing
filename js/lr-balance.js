@@ -781,7 +781,7 @@ function _lrBuildExtraFragment() {
     });
   cgSide.append(lblSide, runSelect);
 
-  frag.append(cgMode, cgSide);
+  frag.append(cgSide, cgMode);
   frag._lrModeSelect = modeSelect;
   frag._lrRunSelect  = runSelect;
   return frag;
@@ -978,6 +978,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+// Wird von file.js/init.js nach loadSideData aufgerufen,
+// damit die Elektroden-Summary sofort die korrekte Anzahl zeigt.
+function lrRefreshElectrodeSelectionSummary() {
+  if (lrEls && lrEls.header && typeof lrEls.header.electrodeSelectionUpdate === 'function') {
+    lrEls.header.electrodeSelectionUpdate();
+  }
+}
 
 // Hook into balance subtab activation
 document

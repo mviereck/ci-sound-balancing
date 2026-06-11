@@ -895,6 +895,9 @@ function applyLoadedData(d) {
   if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
   if (typeof fmApplyLang === "function") fmApplyLang();
   if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+  if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+  if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
+  if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
   if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof d.levelsTabShowMeas === "boolean") lvTabShowMeas = d.levelsTabShowMeas;

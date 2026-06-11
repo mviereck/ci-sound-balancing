@@ -1348,3 +1348,9 @@ document.addEventListener("DOMContentLoaded", () => {
   _fmRefreshHGWarningVisibility();
   _fmRefreshCochlearFatHintVisibility();
 });
+
+function fmRefreshElectrodeSelectionSummary() {
+  if (fmEls && fmEls.header && typeof fmEls.header.electrodeSelectionUpdate === 'function') {
+    fmEls.header.electrodeSelectionUpdate();
+  }
+}

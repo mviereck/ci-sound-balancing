@@ -847,7 +847,7 @@ Object.assign(L.fr, {
     targetRight: "Droite",
     targetBoth: "Les deux",
     sequenceLbl: "Séquence de sons :",
-    toneTypeLbl: "Type de son :",
+    toneTypeLbl: "Réglages du son test :",
     targetLbl: "Effet du curseur :",
     optRandom: "Aléatoire",
     optAsc: "Apical → Basal",

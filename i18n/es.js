@@ -847,7 +847,7 @@ Object.assign(L.es, {
     targetRight: "Derecha",
     targetBoth: "Ambos",
     sequenceLbl: "Secuencia de tonos:",
-    toneTypeLbl: "Tipo de tono:",
+    toneTypeLbl: "Ajustes del tono de prueba:",
     targetLbl: "Efecto del deslizador:",
     optRandom: "Aleatorio",
     optAsc: "Apical → Basal",

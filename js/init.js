@@ -796,6 +796,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
       if (typeof fmApplyLang === "function") fmApplyLang();
       if (typeof _fmRefreshTabState === "function") _fmRefreshTabState();
+      if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+      if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
+      if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
       if (typeof plUpdSourceUI    === "function") plUpdSourceUI();
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();

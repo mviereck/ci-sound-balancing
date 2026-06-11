@@ -846,7 +846,7 @@ Object.assign(L.en, {
     targetRight: "Right",
     targetBoth: "Both",
     sequenceLbl: "Tone sequence:",
-    toneTypeLbl: "Tone type:",
+    toneTypeLbl: "Test tone settings:",
     targetLbl: "Slider action:",
     optRandom: "Random",
     optAsc: "Apical → Basal",
