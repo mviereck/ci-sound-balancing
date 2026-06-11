@@ -157,28 +157,28 @@ Object.assign(L.es, {
     toneSine: "Senoide",
     toneComplex: "Tono complejo",
     tonePulsedComplex: "Tono complejo pulsado (100 Hz)",
-    toneRichTone: "Tono complejo enriquecido (8 armónicos, vibrato 5 Hz, respiración AM 3 Hz)",
-    toneRichAcc:   "Acordeón (richTone)",
-    toneRichASax:  "Saxofón alto (richTone)",
-    toneRichBTb:   "Tuba baja (richTone)",
-    toneRichVa:    "Viola (richTone)",
-    toneRichBn:    "Fagot (richTone)",
-    toneRichClBb:  "Clarinete en si bemol (richTone)",
-    toneRichCb:    "Contrabajo (richTone)",
-    toneRichOb:    "Oboe (richTone)",
-    toneRichTbn:   "Trombón (richTone)",
-    toneRichFl:    "Flauta travesera (richTone)",
-    toneRichTpC:   "Trompeta en do (richTone)",
-    toneRichVn:    "Violín (richTone)",
-    toneRichVc:    "Violonchelo (richTone)",
-    toneRichHn:    "Trompa (richTone)",
+    toneRichTone: "Tono complejo enriquecido",
+    toneRichAcc:   "Acordeón",
+    toneRichASax:  "Saxofón alto",
+    toneRichBTb:   "Tuba baja",
+    toneRichVa:    "Viola",
+    toneRichBn:    "Fagot",
+    toneRichClBb:  "Clarinete en si bemol",
+    toneRichCb:    "Contrabajo",
+    toneRichOb:    "Oboe",
+    toneRichTbn:   "Trombón",
+    toneRichFl:    "Flauta travesera",
+    toneRichTpC:   "Trompeta en do",
+    toneRichVn:    "Violín",
+    toneRichVc:    "Violonchelo",
+    toneRichHn:    "Trompa",
     toneNoise: "Ruido de banda estrecha",
     toneNoiseAdaptive: "Ruido de banda estrecha adaptativo",
-    toneIRN: "Ruido ondulado iterado (16 iteraciones)",
-    toneAmSine: "Senoide AM (4 Hz)",
-    toneWarbleSine: "Senoide warble (5 Hz)",
-    toneBurstSine: "Ráfagas de senoide (4×200 ms)",
-    toneWobbleSweep: "Wobble-sweep (±5%)",
+    toneIRN: "Ruido ondulado iterado",
+    toneAmSine: "Senoide AM",
+    toneWarbleSine: "Senoide warble",
+    toneBurstSine: "Ráfagas de senoide",
+    toneWobbleSweep: "Wobble-sweep",
     thWgt: "Peso",
     thStR: "Estado",
     thRefEl: "El. ref.",
@@ -1033,19 +1033,46 @@ Object.assign(L.es, {
     electrodeSelectionHeaderSummary: "{m} de {n} electrodos seleccionados",
     electrodeSelectionEmptyEnd: "Prueba finalizada: no quedan electrodos seleccionados.",
     tonePopupTitle:  "Elegir tipo de tono",
-    tonePopupHint:   "Elija el tono para el procedimiento de prueba. IMPORTANTE: el tono elegido puede influir notablemente en el resultado de la medición. Una vez que se haya decidido por un tono, manténgalo de forma constante durante toda la prueba.",
+    tonePopupHint:
+      "Esta colección ofrece diferentes tonos de prueba. Elija uno que suene lo más limpio posible en ambos oídos." +
+      "<br><br>" +
+      "<strong>Importante:</strong> Mantenga el mismo tono durante toda la prueba — cambiarlo puede distorsionar el resultado." +
+      "<br><br>" +
+      "Dos tonos merecen una mención especial:" +
+      "<ol style='margin:6px 0 0 18px;padding:0;'>" +
+        "<li><strong>Senoide</strong> — senoide pura, estándar en audiología." +
+          "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
+            "<li><em>Ventaja:</em> reproduce exactamente una frecuencia y activa un único electrodo en su frecuencia central sin estimular los electrodos vecinos — el ideal teórico para mediciones focalizadas.</li>" +
+            "<li><em>Desventaja:</em> produce fuertes artefactos con el IC. En lugar de un tono estable, se escuchan subidas y bajadas distorsionadas; especialmente notorio al comparar con un oído normooyente. Dificulta las comparaciones.</li>" +
+          "</ul>" +
+        "</li>" +
+        "<li><strong>CI-Test plano</strong> — un compromiso práctico: simula carácter instrumental, ya que la música en los IC produce muchos menos artefactos que los senoides puros." +
+          "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
+            "<li><em>Ventaja:</em> sonido mucho más suave, más fácil de comparar.</li>" +
+            "<li><em>Desventaja:</em> el espectro más amplio estimula más los electrodos vecinos — precisión de frecuencia intercambiada por perceptibilidad.</li>" +
+          "</ul>" +
+        "</li>" +
+      "</ol>",
     tonePopupPlay:   "Reproducir",
     tonePopupOk:     "Aceptar",
     tonePopupCancel: "Cancelar",
     // BA 217: Diálogo de selección de timbre con grupos y descripciones.
+    toneGroupCiTestHint:     "Desarrollado específicamente para mediciones con IC. Un senoide puro activa con precisión un único electrodo, pero a menudo suena muy distorsionado con un IC. Estos tonos tienen un espectro más amplio (estimulando ligeramente los electrodos vecinos), pero suenan mucho más suaves con un IC y son más fáciles de comparar.",
+    toneRichCiHDesc:         "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",
+    toneRichCiBDesc:         "Fundamental + 4 parciales ligeramente desafinados (factores 1, 2,005, 3,011, 4,019, 5,028 — carácter de campana; amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, vibrato 5,0 Hz / 5,0 cents, AM 3,5 Hz / 8,0 %.",
+    toneRichCiHADesc:        "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 600 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 18,0 %.",
+    toneRichCiHSDesc:        "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 500 ms, vibrato 5,0 Hz / 6,0 cents, AM 2,7 Hz / 25,0 %.",
+    toneRichCiHFDesc:        "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 500 ms (cos²), vibrato 5,0 Hz / 6,0 cents, sin AM.",
+    toneRichCiPDesc:         "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, sin vibrato, sin AM.",
+    toneRichCiBFDesc:        "Fundamental + 4 parciales ligeramente desafinados (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, vibrato 5,0 Hz / 5,0 cents, sin AM.",
     toneGroupSine:           "Tonos sinusoidales",
-    toneGroupSineHint:       "Una frecuencia clara, espectro estrecho.",
+    toneGroupSineHint:       "Estándar en audiología. Una sola frecuencia, espectro estrecho — teóricamente ideal para la medición focalizada de un único electrodo, pero frecuentemente con fuertes artefactos con un IC.",
     toneGroupComplex:        "Tonos complejos",
     toneGroupComplexHint:    "Fundamental con armónicos, timbre rico.",
     toneGroupRich:           "Timbres de instrumentos",
-    toneGroupRichHint:       "richTones basados en muestras de instrumentos reales.",
+    toneGroupRichHint:       "Tonos sintéticos. Espectro y modulación derivados de grabaciones de instrumentos reales, idénticos en cada frecuencia.",
     toneGroupNoise:          "Señales de ruido",
-    toneGroupNoiseHint:      "Banda estrecha alrededor de la frecuencia nominal.",
+    toneGroupNoiseHint:      "Ruido de banda estrecha alrededor de la frecuencia objetivo. Carácter sonoro claramente distinto al de los otros tonos de prueba — no es un tono tonal, sino un ruido coloreado.",
     toneGroupMellotron: "Samplers Mellotron",
     toneGroupMellotronHint: "Biblioteca de sonidos del Mellotron original (se carga al primer pulsado).",
 
@@ -1098,16 +1125,31 @@ Object.assign(L.es, {
     toneSmplrMixMixedStrings:     "Cuerdas mezcladas",
     samplerKeyboardLoading: "Cargando ...",
     toneSineDesc:            "Frecuencia pura única.",
-    toneAmSineDesc:          "Sinusoide con trémolo lento (el volumen fluctúa).",
-    toneBurstSineDesc:       "Cuatro impulsos sinusoidales cortos con pausas.",
-    toneWarbleSineDesc:      "Sinusoide con vibrato fuerte (±5 %).",
+    toneAmSineDesc:          "Senoide con trémolo (el volumen fluctúa a 4 Hz).",
+    toneBurstSineDesc:       "Cuatro impulsos sinusoidales de 200 ms con pausas entre ellos.",
+    toneWarbleSineDesc:      "Senoide con vibrato (tasa de modulación 5 Hz, profundidad ±5 %).",
     toneWobbleSweepDesc:     "Sinusoide que oscila lentamente ±5 % alrededor de la frecuencia nominal.",
     toneComplexDesc:         "Fundamental más cuatro armónicos, estacionario.",
     tonePulsedComplexDesc:   "Tono complejo con pulso de amplitud a 100 Hz.",
-    toneRichToneDesc:        "Ocho armónicos con modulación de respiración.",
+    toneRichToneDesc:        "Fundamental + 8 armónicos, vibrato 5 Hz, respiración AM 3 Hz.",
     toneNoiseDesc:           "Ruido de banda estrecha con ancho fijo.",
     toneNoiseAdaptiveDesc:   "Ruido de banda estrecha con ancho dependiente de la frecuencia.",
-    toneIRNDesc:             "Ruido con altura tonal residual audible.",
+    toneIRNDesc:             "Ruido con altura tonal residual audible (16 iteraciones).",
+    // BA 264: Información sobre los 14 richTones de instrumentos.
+    toneRichAccDesc:   "12 armónicos, ataque 179,9 ms, vibrato 4,0 Hz / 8,0 cents, AM 3,6 Hz / 12,3 %.",
+    toneRichASaxDesc:  "12 armónicos, ataque 214,8 ms, vibrato 6,0 Hz / 35,0 cents, AM 2,6 Hz / 8,7 %.",
+    toneRichBnDesc:    "12 armónicos, ataque 46,4 ms, vibrato 4,5 Hz / 20,0 cents, AM 2,7 Hz / 12,1 %.",
+    toneRichBTbDesc:   "12 armónicos, ataque 92,9 ms, vibrato 3,5 Hz / 6,0 cents, AM 2,1 Hz / 9,0 %.",
+    toneRichCbDesc:    "12 armónicos, ataque 545,7 ms, vibrato 4,8 Hz / 10,3 cents, AM 3,1 Hz / 46,1 %.",
+    toneRichClBbDesc:  "12 armónicos, ataque 481,8 ms, vibrato 4,0 Hz / 8,0 cents, AM 2,6 Hz / 18,5 %.",
+    toneRichFlDesc:    "9 armónicos, ataque 336,7 ms, vibrato 5,5 Hz / 25,0 cents, AM 2,7 Hz / 16,7 %.",
+    toneRichHnDesc:    "12 armónicos, ataque 267,1 ms, vibrato 4,5 Hz / 10,0 cents, AM 4,7 Hz / 14,6 %.",
+    toneRichObDesc:    "11 armónicos, ataque 104,5 ms, vibrato 5,5 Hz / 20,0 cents, AM 3,0 Hz / 12,8 %.",
+    toneRichTbnDesc:   "12 armónicos, ataque 145,2 ms, vibrato 4,0 Hz / 8,0 cents, AM 2,6 Hz / 9,5 %.",
+    toneRichTpCDesc:   "12 armónicos, ataque 418,0 ms, vibrato 5,5 Hz / 25,0 cents, AM 2,3 Hz / 8,7 %.",
+    toneRichVaDesc:    "12 armónicos, ataque 911,3 ms, vibrato 5,4 Hz / 12,3 cents, AM 4,4 Hz / 28,4 %.",
+    toneRichVcDesc:    "12 armónicos, ataque 458,6 ms, vibrato 5,1 Hz / 15,7 cents, AM 4,7 Hz / 25,4 %.",
+    toneRichVnDesc:    "12 armónicos, ataque 923,0 ms, vibrato 5,1 Hz / 7,7 cents, AM 4,7 Hz / 22,2 %.",
 
     // BA 223 — Migración del test de latencia
     btnEndTest:    "■ Finalizar prueba",

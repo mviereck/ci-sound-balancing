@@ -157,28 +157,28 @@ Object.assign(L.en, {
     toneSine: "Sine",
     toneComplex: "Complex tone",
     tonePulsedComplex: "Pulsed complex tone (100 Hz)",
-    toneRichTone: "Rich complex tone (8 harmonics, vibrato 5 Hz, breath AM 3 Hz)",
-    toneRichAcc:   "Accordion (richTone)",
-    toneRichASax:  "Alto saxophone (richTone)",
-    toneRichBTb:   "Bass tuba (richTone)",
-    toneRichVa:    "Viola (richTone)",
-    toneRichBn:    "Bassoon (richTone)",
-    toneRichClBb:  "Clarinet in B♭ (richTone)",
-    toneRichCb:    "Double bass (richTone)",
-    toneRichOb:    "Oboe (richTone)",
-    toneRichTbn:   "Trombone (richTone)",
-    toneRichFl:    "Flute (richTone)",
-    toneRichTpC:   "Trumpet in C (richTone)",
-    toneRichVn:    "Violin (richTone)",
-    toneRichVc:    "Violoncello (richTone)",
-    toneRichHn:    "French horn (richTone)",
+    toneRichTone: "Rich complex tone",
+    toneRichAcc:   "Accordion",
+    toneRichASax:  "Alto saxophone",
+    toneRichBTb:   "Bass tuba",
+    toneRichVa:    "Viola",
+    toneRichBn:    "Bassoon",
+    toneRichClBb:  "Clarinet in B♭",
+    toneRichCb:    "Double bass",
+    toneRichOb:    "Oboe",
+    toneRichTbn:   "Trombone",
+    toneRichFl:    "Flute",
+    toneRichTpC:   "Trumpet in C",
+    toneRichVn:    "Violin",
+    toneRichVc:    "Violoncello",
+    toneRichHn:    "French horn",
     toneNoise: "Narrow-band noise",
     toneNoiseAdaptive: "Narrow-band noise adaptive",
-    toneIRN: "Iterated rippled noise (16 iterations)",
-    toneAmSine: "AM sine (4 Hz)",
-    toneWarbleSine: "Warble sine (5 Hz)",
-    toneBurstSine: "Sine bursts (4×200 ms)",
-    toneWobbleSweep: "Wobble sweep (±5%)",
+    toneIRN: "Iterated rippled noise",
+    toneAmSine: "AM sine",
+    toneWarbleSine: "Warble sine",
+    toneBurstSine: "Sine bursts",
+    toneWobbleSweep: "Wobble sweep",
     thWgt: "Weight",
     thStR: "Status",
     thRefEl: "Ref. El.",
@@ -1032,19 +1032,46 @@ Object.assign(L.en, {
     electrodeSelectionHeaderSummary: "{m} of {n} electrodes selected",
     electrodeSelectionEmptyEnd: "Test ended: no selected electrode remaining.",
     tonePopupTitle:  "Select tone type",
-    tonePopupHint:   "Select the tone for the test procedure. IMPORTANT: The chosen tone can strongly influence the result of the measurement. Once you have decided on a tone, stay with it consistently throughout the test.",
+    tonePopupHint:
+      "This collection offers various test tones. Choose one that sounds as interference-free as possible on both ears." +
+      "<br><br>" +
+      "<strong>Important:</strong> Stay with one tone throughout a test — switching can distort the result." +
+      "<br><br>" +
+      "Two tones deserve special mention:" +
+      "<ol style='margin:6px 0 0 18px;padding:0;'>" +
+        "<li><strong>Sine</strong> — pure sine tone, the standard in audiology." +
+          "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
+            "<li><em>Advantage:</em> plays exactly one frequency and activates a single electrode at its centre frequency without exciting neighbouring electrodes — the theoretical ideal for targeted measurements.</li>" +
+            "<li><em>Disadvantage:</em> produces strong artefacts in CIs. Instead of a steady tone, you hear a distorted up-and-down; particularly noticeable when compared with a normal-hearing ear. Makes comparisons difficult.</li>" +
+          "</ul>" +
+        "</li>" +
+        "<li><strong>CI-Test flat</strong> — a practical compromise: simulates an instrumental character, because music in CIs produces far fewer artefacts than pure sine tones." +
+          "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
+            "<li><em>Advantage:</em> much smoother sound, easier to compare.</li>" +
+            "<li><em>Disadvantage:</em> the broader spectrum excites neighbouring electrodes more strongly — frequency precision traded for perceptibility.</li>" +
+          "</ul>" +
+        "</li>" +
+      "</ol>",
     tonePopupPlay:   "Play",
     tonePopupOk:     "OK",
     tonePopupCancel: "Cancel",
     // BA 217: Tone selection dialog with groups and descriptions.
+    toneGroupCiTestHint:     "Developed specifically for CI measurements. A pure sine tone precisely activates a single electrode, but often sounds severely distorted in CIs. These tones have a broader spectrum (stimulating neighbouring electrodes slightly more), but sound much smoother in CIs and are easier to compare.",
+    toneRichCiHDesc:         "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, vibrato 5.0 Hz / 6.0 cents, AM 3.5 Hz / 8.0 %.",
+    toneRichCiBDesc:         "Fundamental + 4 slightly detuned partials (factors 1, 2.005, 3.011, 4.019, 5.028 — bell-like quality; amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, vibrato 5.0 Hz / 5.0 cents, AM 3.5 Hz / 8.0 %.",
+    toneRichCiHADesc:        "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 600 ms, vibrato 5.0 Hz / 6.0 cents, AM 3.5 Hz / 18.0 %.",
+    toneRichCiHSDesc:        "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 500 ms, vibrato 5.0 Hz / 6.0 cents, AM 2.7 Hz / 25.0 %.",
+    toneRichCiHFDesc:        "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 500 ms (cos²), vibrato 5.0 Hz / 6.0 cents, no AM.",
+    toneRichCiPDesc:         "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, no vibrato, no AM.",
+    toneRichCiBFDesc:        "Fundamental + 4 slightly detuned partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, vibrato 5.0 Hz / 5.0 cents, no AM.",
     toneGroupSine:           "Sine tones",
-    toneGroupSineHint:       "A clear frequency, narrow spectrum.",
+    toneGroupSineHint:       "Standard in audiology. A single frequency, narrow spectrum — theoretically ideal for targeted single-electrode measurement, but often accompanied by strong artefacts in CIs.",
     toneGroupComplex:        "Complex tones",
     toneGroupComplexHint:    "Fundamental with overtones, rich in timbre.",
     toneGroupRich:           "Instrument timbres",
-    toneGroupRichHint:       "richTones based on real instrument samples.",
+    toneGroupRichHint:       "Synthetic tones. Spectrum and modulation derived from recordings of real instruments, identical at every frequency.",
     toneGroupNoise:          "Noise signals",
-    toneGroupNoiseHint:      "Narrowband around the nominal frequency.",
+    toneGroupNoiseHint:      "Narrowband noise around the target frequency. Character noticeably different from the other test tones — not a pitched tone, but a coloured noise.",
     toneGroupMellotron: "Mellotron samplers",
     toneGroupMellotronHint: "Sample library from the original Mellotron (loads on first key press).",
 
@@ -1097,16 +1124,31 @@ Object.assign(L.en, {
     toneSmplrMixMixedStrings:     "Mixed strings",
     samplerKeyboardLoading: "Loading ...",
     toneSineDesc:            "Pure single frequency.",
-    toneAmSineDesc:          "Sine with slow tremolo (loudness fluctuates).",
-    toneBurstSineDesc:       "Four short sine pulses with pauses.",
-    toneWarbleSineDesc:      "Sine with strong vibrato (±5 %).",
+    toneAmSineDesc:          "Sine with tremolo (loudness fluctuates at 4 Hz).",
+    toneBurstSineDesc:       "Four sine pulses of 200 ms each with pauses in between.",
+    toneWarbleSineDesc:      "Sine with vibrato (5 Hz modulation rate, ±5 % depth).",
     toneWobbleSweepDesc:     "Sine slowly sweeping ±5 % around the nominal frequency.",
     toneComplexDesc:         "Fundamental plus four overtones, stationary.",
     tonePulsedComplexDesc:   "Complex tone with 100-Hz amplitude pulse.",
-    toneRichToneDesc:        "Eight overtones with breath modulation.",
+    toneRichToneDesc:        "Fundamental + 8 harmonics, vibrato 5 Hz, breath AM 3 Hz.",
     toneNoiseDesc:           "Narrowband noise with fixed bandwidth.",
     toneNoiseAdaptiveDesc:   "Narrowband noise with frequency-dependent bandwidth.",
-    toneIRNDesc:             "Noise with audible residual pitch.",
+    toneIRNDesc:             "Noise with audible residual pitch (16 iterations).",
+    // BA 264: Tooltips for the 14 instrument richTones.
+    toneRichAccDesc:   "12 harmonics, attack 179.9 ms, vibrato 4.0 Hz / 8.0 cents, AM 3.6 Hz / 12.3 %.",
+    toneRichASaxDesc:  "12 harmonics, attack 214.8 ms, vibrato 6.0 Hz / 35.0 cents, AM 2.6 Hz / 8.7 %.",
+    toneRichBnDesc:    "12 harmonics, attack 46.4 ms, vibrato 4.5 Hz / 20.0 cents, AM 2.7 Hz / 12.1 %.",
+    toneRichBTbDesc:   "12 harmonics, attack 92.9 ms, vibrato 3.5 Hz / 6.0 cents, AM 2.1 Hz / 9.0 %.",
+    toneRichCbDesc:    "12 harmonics, attack 545.7 ms, vibrato 4.8 Hz / 10.3 cents, AM 3.1 Hz / 46.1 %.",
+    toneRichClBbDesc:  "12 harmonics, attack 481.8 ms, vibrato 4.0 Hz / 8.0 cents, AM 2.6 Hz / 18.5 %.",
+    toneRichFlDesc:    "9 harmonics, attack 336.7 ms, vibrato 5.5 Hz / 25.0 cents, AM 2.7 Hz / 16.7 %.",
+    toneRichHnDesc:    "12 harmonics, attack 267.1 ms, vibrato 4.5 Hz / 10.0 cents, AM 4.7 Hz / 14.6 %.",
+    toneRichObDesc:    "11 harmonics, attack 104.5 ms, vibrato 5.5 Hz / 20.0 cents, AM 3.0 Hz / 12.8 %.",
+    toneRichTbnDesc:   "12 harmonics, attack 145.2 ms, vibrato 4.0 Hz / 8.0 cents, AM 2.6 Hz / 9.5 %.",
+    toneRichTpCDesc:   "12 harmonics, attack 418.0 ms, vibrato 5.5 Hz / 25.0 cents, AM 2.3 Hz / 8.7 %.",
+    toneRichVaDesc:    "12 harmonics, attack 911.3 ms, vibrato 5.4 Hz / 12.3 cents, AM 4.4 Hz / 28.4 %.",
+    toneRichVcDesc:    "12 harmonics, attack 458.6 ms, vibrato 5.1 Hz / 15.7 cents, AM 4.7 Hz / 25.4 %.",
+    toneRichVnDesc:    "12 harmonics, attack 923.0 ms, vibrato 5.1 Hz / 7.7 cents, AM 4.7 Hz / 22.2 %.",
 
     // BA 223 — Latency test migration
     btnEndTest:    "■ End test",

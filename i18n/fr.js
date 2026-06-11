@@ -157,28 +157,28 @@ Object.assign(L.fr, {
     toneSine: "Sinus",
     toneComplex: "Son complexe",
     tonePulsedComplex: "Son complexe pulsé (100 Hz)",
-    toneRichTone: "Son complexe enrichi (8 harmoniques, vibrato 5 Hz, souffle AM 3 Hz)",
-    toneRichAcc:   "Accordéon (richTone)",
-    toneRichASax:  "Saxophone alto (richTone)",
-    toneRichBTb:   "Tuba basse (richTone)",
-    toneRichVa:    "Alto (richTone)",
-    toneRichBn:    "Basson (richTone)",
-    toneRichClBb:  "Clarinette en si bémol (richTone)",
-    toneRichCb:    "Contrebasse (richTone)",
-    toneRichOb:    "Hautbois (richTone)",
-    toneRichTbn:   "Trombone (richTone)",
-    toneRichFl:    "Flûte traversière (richTone)",
-    toneRichTpC:   "Trompette en ut (richTone)",
-    toneRichVn:    "Violon (richTone)",
-    toneRichVc:    "Violoncelle (richTone)",
-    toneRichHn:    "Cor d'harmonie (richTone)",
+    toneRichTone: "Son complexe enrichi",
+    toneRichAcc:   "Accordéon",
+    toneRichASax:  "Saxophone alto",
+    toneRichBTb:   "Tuba basse",
+    toneRichVa:    "Alto",
+    toneRichBn:    "Basson",
+    toneRichClBb:  "Clarinette en si bémol",
+    toneRichCb:    "Contrebasse",
+    toneRichOb:    "Hautbois",
+    toneRichTbn:   "Trombone",
+    toneRichFl:    "Flûte traversière",
+    toneRichTpC:   "Trompette en ut",
+    toneRichVn:    "Violon",
+    toneRichVc:    "Violoncelle",
+    toneRichHn:    "Cor d'harmonie",
     toneNoise: "Bruit à bande étroite",
     toneNoiseAdaptive: "Bruit à bande étroite adaptatif",
-    toneIRN: "Bruit ondulé itéré (16 itérations)",
-    toneAmSine: "Sinus AM (4 Hz)",
-    toneWarbleSine: "Sinus warble (5 Hz)",
-    toneBurstSine: "Bursts de sinus (4×200 ms)",
-    toneWobbleSweep: "Sweep wobble (±5%)",
+    toneIRN: "Bruit ondulé itéré",
+    toneAmSine: "Sinus AM",
+    toneWarbleSine: "Sinus warble",
+    toneBurstSine: "Bursts de sinus",
+    toneWobbleSweep: "Sweep wobble",
     thWgt: "Poids",
     thStR: "Statut",
     thRefEl: "Él.réf.",
@@ -1033,19 +1033,46 @@ Object.assign(L.fr, {
     electrodeSelectionHeaderSummary: "{m} électrodes sélectionnées sur {n}",
     electrodeSelectionEmptyEnd: "Test terminé : plus aucune électrode sélectionnée disponible.",
     tonePopupTitle:  "Choisir le type de son",
-    tonePopupHint:   "Choisissez le son pour la procédure de test. IMPORTANT : le son choisi peut influencer fortement le résultat de la mesure. Une fois votre choix fait, conservez le même son pendant tout le test.",
+    tonePopupHint:
+      "Cette collection propose différents sons de test. Choisissez-en un qui sonne aussi clairement que possible sur les deux oreilles." +
+      "<br><br>" +
+      "<strong>Important :</strong> Gardez le même son pendant tout le test — en changer peut fausser le résultat." +
+      "<br><br>" +
+      "Deux sons méritent une mention particulière :" +
+      "<ol style='margin:6px 0 0 18px;padding:0;'>" +
+        "<li><strong>Sinus</strong> — sinus pur, standard en audiologie." +
+          "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
+            "<li><em>Avantage :</em> joue exactement une fréquence et active une seule électrode à sa fréquence centrale sans stimuler les électrodes voisines — l'idéal théorique pour des mesures ciblées.</li>" +
+            "<li><em>Inconvénient :</em> produit de forts artefacts avec l'IC. Au lieu d'un son stable, on entend des allers-retours distordus ; particulièrement notable comparé à une oreille entendante normale. Rend les comparaisons difficiles.</li>" +
+          "</ul>" +
+        "</li>" +
+        "<li><strong>CI-Test plat</strong> — un compromis pratique : simule un caractère instrumental, car la musique dans les IC produit bien moins d'artefacts que les sinus purs." +
+          "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
+            "<li><em>Avantage :</em> son bien plus doux, plus facile à comparer.</li>" +
+            "<li><em>Inconvénient :</em> le spectre plus large stimule davantage les électrodes voisines — précision fréquentielle échangée contre perceptibilité.</li>" +
+          "</ul>" +
+        "</li>" +
+      "</ol>",
     tonePopupPlay:   "Écouter",
     tonePopupOk:     "OK",
     tonePopupCancel: "Annuler",
     // BA 217: Dialogue de sélection du timbre avec groupes et descriptions.
+    toneGroupCiTestHint:     "Développé spécialement pour les mesures avec IC. Un sinus pur active précisément une seule électrode, mais sonne souvent très distordu avec un IC. Ces sons ont un spectre plus large (stimulant légèrement les électrodes voisines), mais sonnent bien plus doucement avec un IC et sont plus faciles à comparer.",
+    toneRichCiHDesc:         "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",
+    toneRichCiBDesc:         "Fondamentale + 4 partiels légèrement désaccordés (facteurs 1, 2,005, 3,011, 4,019, 5,028 — sonorité de cloches ; amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, vibrato 5,0 Hz / 5,0 cents, AM 3,5 Hz / 8,0 %.",
+    toneRichCiHADesc:        "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 600 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 18,0 %.",
+    toneRichCiHSDesc:        "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 500 ms, vibrato 5,0 Hz / 6,0 cents, AM 2,7 Hz / 25,0 %.",
+    toneRichCiHFDesc:        "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 500 ms (cos²), vibrato 5,0 Hz / 6,0 cents, sans AM.",
+    toneRichCiPDesc:         "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, sans vibrato, sans AM.",
+    toneRichCiBFDesc:        "Fondamentale + 4 partiels légèrement désaccordés (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, vibrato 5,0 Hz / 5,0 cents, sans AM.",
     toneGroupSine:           "Sons sinusoïdaux",
-    toneGroupSineHint:       "Une fréquence claire, spectre étroit.",
+    toneGroupSineHint:       "Standard en audiologie. Une seule fréquence, spectre étroit — théoriquement idéal pour la mesure ciblée d'une électrode unique, mais souvent accompagné de forts artefacts avec un IC.",
     toneGroupComplex:        "Sons complexes",
     toneGroupComplexHint:    "Fondamentale avec harmoniques, timbre riche.",
     toneGroupRich:           "Timbres d'instruments",
-    toneGroupRichHint:       "richTones basés sur de vrais échantillons d'instruments.",
+    toneGroupRichHint:       "Sons synthétiques. Spectre et modulation dérivés d'enregistrements de vrais instruments, identiques à chaque fréquence.",
     toneGroupNoise:          "Signaux de bruit",
-    toneGroupNoiseHint:      "Bande étroite autour de la fréquence nominale.",
+    toneGroupNoiseHint:      "Bruit en bande étroite autour de la fréquence cible. Caractère sonore nettement différent des autres sons de test — pas un son tonal, mais un bruit coloré.",
     toneGroupMellotron: "Echantillonneurs Mellotron",
     toneGroupMellotronHint: "Bibliotheque de sons du Mellotron original (chargee au premier appui).",
 
@@ -1098,16 +1125,31 @@ Object.assign(L.fr, {
     toneSmplrMixMixedStrings:     "Cordes mélangées",
     samplerKeyboardLoading: "Chargement ...",
     toneSineDesc:            "Fréquence pure unique.",
-    toneAmSineDesc:          "Sinus avec trémolo lent (l'intensité varie).",
-    toneBurstSineDesc:       "Quatre brèves impulsions sinusoïdales avec pauses.",
-    toneWarbleSineDesc:      "Sinus avec vibrato prononcé (±5 %).",
+    toneAmSineDesc:          "Sinus avec trémolo (l'intensité varie à 4 Hz).",
+    toneBurstSineDesc:       "Quatre impulsions sinusoïdales de 200 ms avec des pauses entre chacune.",
+    toneWarbleSineDesc:      "Sinus avec vibrato (taux de modulation 5 Hz, profondeur ±5 %).",
     toneWobbleSweepDesc:     "Sinus glissant lentement de ±5 % autour de la fréquence nominale.",
     toneComplexDesc:         "Fondamentale plus quatre harmoniques, stationnaire.",
     tonePulsedComplexDesc:   "Son complexe avec impulsion d'amplitude à 100 Hz.",
-    toneRichToneDesc:        "Huit harmoniques avec modulation de souffle.",
+    toneRichToneDesc:        "Fondamentale + 8 harmoniques, vibrato 5 Hz, souffle AM 3 Hz.",
     toneNoiseDesc:           "Bruit à bande étroite, largeur fixe.",
     toneNoiseAdaptiveDesc:   "Bruit à bande étroite, largeur dépendante de la fréquence.",
-    toneIRNDesc:             "Bruit avec hauteur résiduelle audible.",
+    toneIRNDesc:             "Bruit avec hauteur résiduelle audible (16 itérations).",
+    // BA 264 : Infobulles pour les 14 richTones d'instruments.
+    toneRichAccDesc:   "12 harmoniques, attaque 179,9 ms, vibrato 4,0 Hz / 8,0 cents, AM 3,6 Hz / 12,3 %.",
+    toneRichASaxDesc:  "12 harmoniques, attaque 214,8 ms, vibrato 6,0 Hz / 35,0 cents, AM 2,6 Hz / 8,7 %.",
+    toneRichBnDesc:    "12 harmoniques, attaque 46,4 ms, vibrato 4,5 Hz / 20,0 cents, AM 2,7 Hz / 12,1 %.",
+    toneRichBTbDesc:   "12 harmoniques, attaque 92,9 ms, vibrato 3,5 Hz / 6,0 cents, AM 2,1 Hz / 9,0 %.",
+    toneRichCbDesc:    "12 harmoniques, attaque 545,7 ms, vibrato 4,8 Hz / 10,3 cents, AM 3,1 Hz / 46,1 %.",
+    toneRichClBbDesc:  "12 harmoniques, attaque 481,8 ms, vibrato 4,0 Hz / 8,0 cents, AM 2,6 Hz / 18,5 %.",
+    toneRichFlDesc:    "9 harmoniques, attaque 336,7 ms, vibrato 5,5 Hz / 25,0 cents, AM 2,7 Hz / 16,7 %.",
+    toneRichHnDesc:    "12 harmoniques, attaque 267,1 ms, vibrato 4,5 Hz / 10,0 cents, AM 4,7 Hz / 14,6 %.",
+    toneRichObDesc:    "11 harmoniques, attaque 104,5 ms, vibrato 5,5 Hz / 20,0 cents, AM 3,0 Hz / 12,8 %.",
+    toneRichTbnDesc:   "12 harmoniques, attaque 145,2 ms, vibrato 4,0 Hz / 8,0 cents, AM 2,6 Hz / 9,5 %.",
+    toneRichTpCDesc:   "12 harmoniques, attaque 418,0 ms, vibrato 5,5 Hz / 25,0 cents, AM 2,3 Hz / 8,7 %.",
+    toneRichVaDesc:    "12 harmoniques, attaque 911,3 ms, vibrato 5,4 Hz / 12,3 cents, AM 4,4 Hz / 28,4 %.",
+    toneRichVcDesc:    "12 harmoniques, attaque 458,6 ms, vibrato 5,1 Hz / 15,7 cents, AM 4,7 Hz / 25,4 %.",
+    toneRichVnDesc:    "12 harmoniques, attaque 923,0 ms, vibrato 5,1 Hz / 7,7 cents, AM 4,7 Hz / 22,2 %.",
 
     // BA 223 — Migration test de latence
     btnEndTest:    "■ Terminer le test",
