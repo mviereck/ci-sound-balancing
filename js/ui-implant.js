@@ -320,7 +320,8 @@ function openImplantTonePopup() {
     onToneSelected: function (tt) { _implTpModalTone = tt; },
     onModalClose:   function ()   { _implTpModalTone = null; _implTpCorrectVol = null; },
 
-    hintKey: "tonePopupHintImplant",
+    hintKey:      "tonePopupHint",
+    extraHintKey: "tonePopupHintImplant",
 
     showVolume:       true,
     showDuration:     true,

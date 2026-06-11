@@ -140,7 +140,7 @@ Object.assign(L.de, {
     toneTypeLabel: "Tonart",
     toneSine: "Sinus",
     toneComplex: "Komplexton",
-    tonePulsedComplex: "Komplexton gepulst (100 Hz)",
+    tonePulsedComplex: "Komplexton gepulst",
     toneRichTone: "Reicher Komplexton",
     toneRichAcc:   "Akkordeon",
     toneRichASax:  "Altsaxophon",
@@ -161,8 +161,8 @@ Object.assign(L.de, {
     toneIRN: "Iterated Rippled Noise",
     toneAmSine: "AM-Sinus",
     toneWarbleSine: "Warble-Sinus",
-    toneBurstSine: "Sinus-Bursts",
-    toneWobbleSweep: "Wobble-Sweep",
+    toneBurstSine: "Burst-Sinus",
+    toneWobbleSweep: "Wobble-Sinus",
     thWgt: "Gewicht",
     thStR: "Status",
     thRefEl: "Ref.El.",
@@ -1101,22 +1101,24 @@ Object.assign(L.de, {
     electrodeSelectionEmptyEnd: "Test beendet: Keine ausgewählte Elektrode mehr verfügbar.",
     tonePopupTitle:  "Tonart wählen",
     tonePopupHint:
-      "Diese Sammlung bietet verschiedene Testtöne. Wählen Sie einen aus, der für Sie auf beiden Ohren möglichst störungsfrei klingt." +
+      "Diese Sammlung bietet verschiedene Testtöne." +
+      "<br><br>" +
+      "Wählen Sie je nach Testverfahren einen aus, der Ihnen gute Vergleichbarkeit mit möglichst wenig Störgeräuschen bietet." +
       "<br><br>" +
       "<strong>Wichtig:</strong> Innerhalb eines Tests bei einem Ton bleiben — ein Wechsel kann das Ergebnis verfälschen." +
       "<br><br>" +
       "Zwei Töne verdienen besondere Erwähnung:" +
       "<ol style='margin:6px 0 0 18px;padding:0;'>" +
-        "<li><strong>Sinus</strong> — reiner Sinuston, Standard in der Audiologie." +
+        "<li><strong>Sinus</strong>: reiner Sinuston, Standard in der Audiologie." +
           "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
-            "<li><em>Vorteil:</em> spielt exakt eine Frequenz und regt eine einzelne Elektrode auf ihrer Mittenfrequenz an, ohne Nachbarelektroden mitzunehmen — das theoretische Ideal für gezielte Messungen.</li>" +
-            "<li><em>Nachteil:</em> erzeugt im CI starke Artefakte. Statt eines gleichbleibenden Tons hört man ein verzerrtes Auf und Ab; besonders auffällig im Vergleich mit einem natürlich hörenden Ohr. Macht Vergleiche schwer.</li>" +
+            "<li><em>Vorteil:</em> spielt exakt eine Frequenz und kann so einzelne Elektroden gezielt auf ihrer Mittenfrequenz ansprechen.</li>" +
+            "<li><em>Nachteil:</em> erzeugt im CI starke Artefakte, die Vergleiche schwer machen, besonders im Vergleich natürlich Hören vs. CI-Hören.</li>" +
           "</ul>" +
         "</li>" +
-        "<li><strong>CI-Test flach</strong> — ein praktischer Kompromiß: simuliert instrumentalen Charakter, weil Musik im CI deutlich weniger Artefakte erzeugt als reine Sinustöne." +
+        "<li><strong>CI-Test flach</strong>: Simuliert instrumentalen Charakter. Musik im CI erzeugt deutlich weniger Artefakte als reine Sinustöne." +
           "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
             "<li><em>Vorteil:</em> viel ruhigerer Klang, leichter zu vergleichen.</li>" +
-            "<li><em>Nachteil:</em> das breitere Spektrum regt Nachbarelektroden stärker mit an — Frequenz-Präzision gegen Wahrnehmbarkeit getauscht.</li>" +
+            "<li><em>Nachteil:</em> das breitere Spektrum regt Nachbarelektroden stärker mit an.</li>" +
           "</ul>" +
         "</li>" +
       "</ol>",

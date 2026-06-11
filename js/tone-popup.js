@@ -14,6 +14,11 @@
 //   getVolume()           -> Vorspiel-Lautstaerke (0..1)
 //   getPreviewSequence()  -> Array von {hz,pan,durationMs} oder
 //                            {pauseMs}-Steps fuer den Vorspiel-Klick
+//   hintKey               -> i18n-Key fuer allgemeinen Intro-Text
+//                            (gelbe Box ganz oben), optional
+//   extraHintKey          -> i18n-Key fuer reiterspezifische
+//                            Zusatz-Hinweis-Box direkt unter der
+//                            ersten (gleiches Styling), optional
 //
 // Modal-Aufbau: GROUPS-Konstante mit allen Tonart-Gruppen (Sinus,
 // Komplex, Rich-Profile, Noise, Mellotron). Pro Item ein Radio-
@@ -43,6 +48,17 @@
 // darauf zugreifen kann.
 var GROUPS = [
   {
+    headKey: 'toneGroupSine',
+    hintKey: 'toneGroupSineHint',
+    items: [
+      ['sine',          'toneSine',          'toneSineDesc'],
+      ['amSine',        'toneAmSine',        'toneAmSineDesc'],
+      ['burstSine',     'toneBurstSine',     'toneBurstSineDesc'],
+      ['warbleSine',    'toneWarbleSine',    'toneWarbleSineDesc'],
+      ['wobbleSweep',   'toneWobbleSweep',   'toneWobbleSweepDesc']
+    ]
+  },
+  {
     headKey: 'toneGroupCiTest',
     hintKey: 'toneGroupCiTestHint',
     items: [
@@ -53,17 +69,6 @@ var GROUPS = [
       ['richCiBF', 'toneRichCiBF', 'toneRichCiBFDesc'],
       ['richCiHA', 'toneRichCiHA', 'toneRichCiHADesc'],
       ['richCiHS', 'toneRichCiHS', 'toneRichCiHSDesc']
-    ]
-  },
-  {
-    headKey: 'toneGroupSine',
-    hintKey: 'toneGroupSineHint',
-    items: [
-      ['sine',          'toneSine',          'toneSineDesc'],
-      ['amSine',        'toneAmSine',        'toneAmSineDesc'],
-      ['burstSine',     'toneBurstSine',     'toneBurstSineDesc'],
-      ['warbleSine',    'toneWarbleSine',    'toneWarbleSineDesc'],
-      ['wobbleSweep',   'toneWobbleSweep',   'toneWobbleSweepDesc']
     ]
   },
   {
@@ -232,15 +237,29 @@ function openToneSelectionDialog(cfg, onChange) {
   dlg.appendChild(title);
 
   // BA 240: Hint-Box optional und reiterspezifisch.
-  // cfg.hintKey = i18n-Key fuer den Text. Ohne Key keine Box.
+  // BA 265: Zweite Hint-Box (cfg.extraHintKey) fuer reiterspezifische
+  // Ergaenzungen, die UNTER dem allgemeinen Intro-Text stehen.
+  // Beide Boxen optional. Wenn beide gesetzt sind, hat die erste
+  // einen knapperen Bottom-Margin, damit sie zusammenruecken.
+  var _tpHasExtraHint = !!cfg.extraHintKey;
   if (cfg.hintKey) {
     var hint = document.createElement('p');
     hint.dataset.t = cfg.hintKey;
     hint.style.cssText =
-      'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
+      'margin:0 0 ' + (_tpHasExtraHint ? '8' : '14') + 'px 0;' +
+      'font-size:.92em;line-height:1.35;' +
       'background:#fff4d6;border-left:3px solid #d8a200;' +
       'padding:8px 10px;border-radius:4px;';
     dlg.appendChild(hint);
+  }
+  if (cfg.extraHintKey) {
+    var extraHint = document.createElement('p');
+    extraHint.dataset.t = cfg.extraHintKey;
+    extraHint.style.cssText =
+      'margin:0 0 14px 0;font-size:.92em;line-height:1.35;' +
+      'background:#fff4d6;border-left:3px solid #d8a200;' +
+      'padding:8px 10px;border-radius:4px;';
+    dlg.appendChild(extraHint);
   }
 
   // BA 239: Korrektur-Toggles. Stil analog Player-Toggles

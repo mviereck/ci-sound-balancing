@@ -156,7 +156,7 @@ Object.assign(L.fr, {
     toneTypeLabel: "Type de son",
     toneSine: "Sinus",
     toneComplex: "Son complexe",
-    tonePulsedComplex: "Son complexe pulsé (100 Hz)",
+    tonePulsedComplex: "Son complexe pulsé",
     toneRichTone: "Son complexe enrichi",
     toneRichAcc:   "Accordéon",
     toneRichASax:  "Saxophone alto",
@@ -177,8 +177,8 @@ Object.assign(L.fr, {
     toneIRN: "Bruit ondulé itéré",
     toneAmSine: "Sinus AM",
     toneWarbleSine: "Sinus warble",
-    toneBurstSine: "Bursts de sinus",
-    toneWobbleSweep: "Sweep wobble",
+    toneBurstSine: "Sinus en bursts",
+    toneWobbleSweep: "Sinus wobble",
     thWgt: "Poids",
     thStR: "Statut",
     thRefEl: "Él.réf.",
@@ -1034,28 +1034,38 @@ Object.assign(L.fr, {
     electrodeSelectionEmptyEnd: "Test terminé : plus aucune électrode sélectionnée disponible.",
     tonePopupTitle:  "Choisir le type de son",
     tonePopupHint:
-      "Cette collection propose différents sons de test. Choisissez-en un qui sonne aussi clairement que possible sur les deux oreilles." +
+      "Cette collection propose différents sons de test." +
+      "<br><br>" +
+      "Selon la procédure de test, choisissez-en un qui vous offre une bonne comparabilité avec aussi peu de perturbations sonores que possible." +
       "<br><br>" +
       "<strong>Important :</strong> Gardez le même son pendant tout le test — en changer peut fausser le résultat." +
       "<br><br>" +
       "Deux sons méritent une mention particulière :" +
       "<ol style='margin:6px 0 0 18px;padding:0;'>" +
-        "<li><strong>Sinus</strong> — sinus pur, standard en audiologie." +
+        "<li><strong>Sinus</strong> : sinus pur, standard en audiologie." +
           "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
-            "<li><em>Avantage :</em> joue exactement une fréquence et active une seule électrode à sa fréquence centrale sans stimuler les électrodes voisines — l'idéal théorique pour des mesures ciblées.</li>" +
-            "<li><em>Inconvénient :</em> produit de forts artefacts avec l'IC. Au lieu d'un son stable, on entend des allers-retours distordus ; particulièrement notable comparé à une oreille entendante normale. Rend les comparaisons difficiles.</li>" +
+            "<li><em>Avantage :</em> joue exactement une fréquence et peut ainsi cibler une seule électrode à sa fréquence centrale.</li>" +
+            "<li><em>Inconvénient :</em> produit de forts artefacts avec l'IC, ce qui rend les comparaisons difficiles, particulièrement entre audition naturelle et audition avec IC.</li>" +
           "</ul>" +
         "</li>" +
-        "<li><strong>CI-Test plat</strong> — un compromis pratique : simule un caractère instrumental, car la musique dans les IC produit bien moins d'artefacts que les sinus purs." +
+        "<li><strong>CI-Test plat</strong> : simule un caractère instrumental. La musique dans les IC produit bien moins d'artefacts que les sinus purs." +
           "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
             "<li><em>Avantage :</em> son bien plus doux, plus facile à comparer.</li>" +
-            "<li><em>Inconvénient :</em> le spectre plus large stimule davantage les électrodes voisines — précision fréquentielle échangée contre perceptibilité.</li>" +
+            "<li><em>Inconvénient :</em> le spectre plus large stimule davantage les électrodes voisines.</li>" +
           "</ul>" +
         "</li>" +
       "</ol>",
     tonePopupPlay:   "Écouter",
     tonePopupOk:     "OK",
     tonePopupCancel: "Annuler",
+    tonePopupApplyMeas:    "Appliquer le volume des électrodes",
+    tonePopupApplyBalance: "Appliquer l'équilibre stéréo",
+    tonePopupVolume:   "Volume",
+    tonePopupDuration: "Durée du son",
+    tonePopupPause:    "Pause sonore",
+    tonePopupSweepStart: "Démarrer le balayage",
+    implTonePopupBtn:     "Activer les électrodes par sons",
+    tonePopupHintImplant: "Le sinus est le mieux adapté pour repérer les électrodes problématiques — par exemple, si elles sifflent et à quel point.",
     // BA 217: Dialogue de sélection du timbre avec groupes et descriptions.
     toneGroupCiTestHint:     "Développé spécialement pour les mesures avec IC. Un sinus pur active précisément une seule électrode, mais sonne souvent très distordu avec un IC. Ces sons ont un spectre plus large (stimulant légèrement les électrodes voisines), mais sonnent bien plus doucement avec un IC et sont plus faciles à comparer.",
     toneRichCiHDesc:         "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",

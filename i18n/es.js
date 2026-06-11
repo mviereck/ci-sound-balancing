@@ -156,7 +156,7 @@ Object.assign(L.es, {
     toneTypeLabel: "Tipo de tono",
     toneSine: "Senoide",
     toneComplex: "Tono complejo",
-    tonePulsedComplex: "Tono complejo pulsado (100 Hz)",
+    tonePulsedComplex: "Tono complejo pulsado",
     toneRichTone: "Tono complejo enriquecido",
     toneRichAcc:   "Acordeón",
     toneRichASax:  "Saxofón alto",
@@ -177,8 +177,8 @@ Object.assign(L.es, {
     toneIRN: "Ruido ondulado iterado",
     toneAmSine: "Senoide AM",
     toneWarbleSine: "Senoide warble",
-    toneBurstSine: "Ráfagas de senoide",
-    toneWobbleSweep: "Wobble-sweep",
+    toneBurstSine: "Senoide en ráfagas",
+    toneWobbleSweep: "Senoide wobble",
     thWgt: "Peso",
     thStR: "Estado",
     thRefEl: "El. ref.",
@@ -1034,28 +1034,38 @@ Object.assign(L.es, {
     electrodeSelectionEmptyEnd: "Prueba finalizada: no quedan electrodos seleccionados.",
     tonePopupTitle:  "Elegir tipo de tono",
     tonePopupHint:
-      "Esta colección ofrece diferentes tonos de prueba. Elija uno que suene lo más limpio posible en ambos oídos." +
+      "Esta colección ofrece diferentes tonos de prueba." +
+      "<br><br>" +
+      "Según el procedimiento de prueba, elija uno que le ofrezca buena comparabilidad con la menor cantidad de interferencias posible." +
       "<br><br>" +
       "<strong>Importante:</strong> Mantenga el mismo tono durante toda la prueba — cambiarlo puede distorsionar el resultado." +
       "<br><br>" +
       "Dos tonos merecen una mención especial:" +
       "<ol style='margin:6px 0 0 18px;padding:0;'>" +
-        "<li><strong>Senoide</strong> — senoide pura, estándar en audiología." +
+        "<li><strong>Senoide</strong>: senoide pura, estándar en audiología." +
           "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
-            "<li><em>Ventaja:</em> reproduce exactamente una frecuencia y activa un único electrodo en su frecuencia central sin estimular los electrodos vecinos — el ideal teórico para mediciones focalizadas.</li>" +
-            "<li><em>Desventaja:</em> produce fuertes artefactos con el IC. En lugar de un tono estable, se escuchan subidas y bajadas distorsionadas; especialmente notorio al comparar con un oído normooyente. Dificulta las comparaciones.</li>" +
+            "<li><em>Ventaja:</em> reproduce exactamente una frecuencia y puede así dirigirse a un único electrodo en su frecuencia central.</li>" +
+            "<li><em>Desventaja:</em> produce fuertes artefactos con el IC que dificultan las comparaciones, especialmente al comparar audición natural con audición con IC.</li>" +
           "</ul>" +
         "</li>" +
-        "<li><strong>CI-Test plano</strong> — un compromiso práctico: simula carácter instrumental, ya que la música en los IC produce muchos menos artefactos que los senoides puros." +
+        "<li><strong>CI-Test plano</strong>: simula un carácter instrumental. La música en los IC produce muchos menos artefactos que los senoides puros." +
           "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
             "<li><em>Ventaja:</em> sonido mucho más suave, más fácil de comparar.</li>" +
-            "<li><em>Desventaja:</em> el espectro más amplio estimula más los electrodos vecinos — precisión de frecuencia intercambiada por perceptibilidad.</li>" +
+            "<li><em>Desventaja:</em> el espectro más amplio estimula más los electrodos vecinos.</li>" +
           "</ul>" +
         "</li>" +
       "</ol>",
     tonePopupPlay:   "Reproducir",
     tonePopupOk:     "Aceptar",
     tonePopupCancel: "Cancelar",
+    tonePopupApplyMeas:    "Aplicar volumen de electrodos",
+    tonePopupApplyBalance: "Aplicar balance estéreo",
+    tonePopupVolume:   "Volumen",
+    tonePopupDuration: "Duración del tono",
+    tonePopupPause:    "Pausa entre tonos",
+    tonePopupSweepStart: "Iniciar barrido",
+    implTonePopupBtn:     "Tocar electrodos mediante tonos",
+    tonePopupHintImplant: "El tono senoide es el más adecuado para detectar electrodos problemáticos — por ejemplo, si producen ruido y con qué intensidad.",
     // BA 217: Diálogo de selección de timbre con grupos y descripciones.
     toneGroupCiTestHint:     "Desarrollado específicamente para mediciones con IC. Un senoide puro activa con precisión un único electrodo, pero a menudo suena muy distorsionado con un IC. Estos tonos tienen un espectro más amplio (estimulando ligeramente los electrodos vecinos), pero suenan mucho más suaves con un IC y son más fáciles de comparar.",
     toneRichCiHDesc:         "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",

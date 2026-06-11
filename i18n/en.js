@@ -156,7 +156,7 @@ Object.assign(L.en, {
     toneTypeLabel: "Tone type",
     toneSine: "Sine",
     toneComplex: "Complex tone",
-    tonePulsedComplex: "Pulsed complex tone (100 Hz)",
+    tonePulsedComplex: "Pulsed complex tone",
     toneRichTone: "Rich complex tone",
     toneRichAcc:   "Accordion",
     toneRichASax:  "Alto saxophone",
@@ -177,8 +177,8 @@ Object.assign(L.en, {
     toneIRN: "Iterated rippled noise",
     toneAmSine: "AM sine",
     toneWarbleSine: "Warble sine",
-    toneBurstSine: "Sine bursts",
-    toneWobbleSweep: "Wobble sweep",
+    toneBurstSine: "Burst sine",
+    toneWobbleSweep: "Wobble sine",
     thWgt: "Weight",
     thStR: "Status",
     thRefEl: "Ref. El.",
@@ -1033,28 +1033,38 @@ Object.assign(L.en, {
     electrodeSelectionEmptyEnd: "Test ended: no selected electrode remaining.",
     tonePopupTitle:  "Select tone type",
     tonePopupHint:
-      "This collection offers various test tones. Choose one that sounds as interference-free as possible on both ears." +
+      "This collection offers various test tones." +
+      "<br><br>" +
+      "Depending on the test procedure, choose one that gives you good comparability with as little interference as possible." +
       "<br><br>" +
       "<strong>Important:</strong> Stay with one tone throughout a test — switching can distort the result." +
       "<br><br>" +
       "Two tones deserve special mention:" +
       "<ol style='margin:6px 0 0 18px;padding:0;'>" +
-        "<li><strong>Sine</strong> — pure sine tone, the standard in audiology." +
+        "<li><strong>Sine</strong>: pure sine tone, the standard in audiology." +
           "<ul style='margin:2px 0 6px 0;padding-left:18px;'>" +
-            "<li><em>Advantage:</em> plays exactly one frequency and activates a single electrode at its centre frequency without exciting neighbouring electrodes — the theoretical ideal for targeted measurements.</li>" +
-            "<li><em>Disadvantage:</em> produces strong artefacts in CIs. Instead of a steady tone, you hear a distorted up-and-down; particularly noticeable when compared with a normal-hearing ear. Makes comparisons difficult.</li>" +
+            "<li><em>Advantage:</em> plays exactly one frequency and can therefore target a single electrode at its centre frequency.</li>" +
+            "<li><em>Disadvantage:</em> produces strong artefacts in CIs that make comparisons difficult, especially when comparing natural hearing with CI hearing.</li>" +
           "</ul>" +
         "</li>" +
-        "<li><strong>CI-Test flat</strong> — a practical compromise: simulates an instrumental character, because music in CIs produces far fewer artefacts than pure sine tones." +
+        "<li><strong>CI-Test flat</strong>: Simulates an instrumental character. Music in CIs produces far fewer artefacts than pure sine tones." +
           "<ul style='margin:2px 0 0 0;padding-left:18px;'>" +
             "<li><em>Advantage:</em> much smoother sound, easier to compare.</li>" +
-            "<li><em>Disadvantage:</em> the broader spectrum excites neighbouring electrodes more strongly — frequency precision traded for perceptibility.</li>" +
+            "<li><em>Disadvantage:</em> the broader spectrum stimulates neighbouring electrodes more strongly.</li>" +
           "</ul>" +
         "</li>" +
       "</ol>",
     tonePopupPlay:   "Play",
     tonePopupOk:     "OK",
     tonePopupCancel: "Cancel",
+    tonePopupApplyMeas:    "Apply electrode volume",
+    tonePopupApplyBalance: "Apply stereo balance",
+    tonePopupVolume:   "Volume",
+    tonePopupDuration: "Tone duration",
+    tonePopupPause:    "Tone pause",
+    tonePopupSweepStart: "Start sweep",
+    implTonePopupBtn:     "Play electrodes via tones",
+    tonePopupHintImplant: "Sine is best suited for detecting problematic electrodes — for example, whether and how strongly they hiss.",
     // BA 217: Tone selection dialog with groups and descriptions.
     toneGroupCiTestHint:     "Developed specifically for CI measurements. A pure sine tone precisely activates a single electrode, but often sounds severely distorted in CIs. These tones have a broader spectrum (stimulating neighbouring electrodes slightly more), but sound much smoother in CIs and are easier to compare.",
     toneRichCiHDesc:         "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, vibrato 5.0 Hz / 6.0 cents, AM 3.5 Hz / 8.0 %.",
