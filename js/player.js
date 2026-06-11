@@ -986,9 +986,9 @@ function pBuildTbl() {
   for (let i = 0; i < nEl; i++) {
     h.innerHTML += `<th>${dENPrefix()}${dEN(i)}</th>`;
     const v = gains[i];
-    lv.innerHTML += `<td style="color:${v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#666"}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>`;
+    lv.innerHTML += `<td style="color:${v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>`;
     const g = plEqOn ? (nhSim ? v * str : -v * str) : 0;
-    gn.innerHTML += `<td style="color:${g > 0.05 ? "#16a34a" : g < -0.05 ? "#dc2626" : "#666"}">${g >= 0 ? "+" : ""}${g.toFixed(1)}</td>`;
+    gn.innerHTML += `<td style="color:${g > 0.05 ? "#16a34a" : g < -0.05 ? "#dc2626" : "#1a1a1a"}">${g >= 0 ? "+" : ""}${g.toFixed(1)}</td>`;
   }
 }
 

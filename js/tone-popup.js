@@ -547,7 +547,7 @@ function openToneSelectionDialog(cfg, onChange) {
     var subhint = document.createElement('div');
     subhint.dataset.t = grp.hintKey;
     subhint.style.cssText =
-      'margin:0 0 8px 0;font-size:.85em;color:#666;font-style:italic;';
+      'margin:0 0 8px 0;font-size:.85em;color:#1a1a1a;font-style:italic;';
     section.appendChild(subhint);
 
     var list = document.createElement('div');

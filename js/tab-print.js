@@ -251,11 +251,11 @@ function _printResLatency() {
       <h2>${t("latResTitle")}</h2>
       <p style="font-size:1.4em;font-weight:600;">${sign}${a} ms</p>
       <p>${mainTxt}</p>
-      <p style="color:#666;font-size:0.9em;">
+      <p style="font-size:0.9em;">
         ${t("latResMeasuredWith")}: ${typeLabel},
         ${t("latResInterval")} ${latencyResult.intervalMs} ms
       </p>
-      <p style="color:#666;font-size:0.9em;">
+      <p style="font-size:0.9em;">
         ${t("latResApplied")}: ${plApplyLatency ? t("yes") : t("no")}
       </p>
     </div>`;
@@ -360,10 +360,10 @@ function _buildPresetCardPrint() {
       <td class="pr-name" style="font-weight:bold;padding-right:12px;vertical-align:top">${t(PR_NAMES[pr.type])}</td>
       <td style="font-size:.9em;vertical-align:top">${params}</td>
     </tr><tr>
-      <td colspan="2" style="font-size:.78em;color:gray;padding-top:0;padding-bottom:6px">${t(PR_EXPL[pr.type])}</td>
+      <td colspan="2" style="font-size:.78em;padding-top:0;padding-bottom:6px">${t(PR_EXPL[pr.type])}</td>
     </tr>`;
   }
-  if (!rows) rows = `<tr><td style="color:gray;font-style:italic">(${t("lvPresetTitle")} — ${t("tabLevels")} keine aktiv)</td></tr>`;
+  if (!rows) rows = `<tr><td style="font-style:italic">(${t("lvPresetTitle")} — ${t("tabLevels")} keine aktiv)</td></tr>`;
   return `<div><h2 style="margin-bottom:8px">${t("lvPresetTitle") || "Kurvenfunktionen"}</h2>
     <table style="border-collapse:collapse;width:100%">${rows}</table></div>`;
 }

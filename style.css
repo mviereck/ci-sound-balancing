@@ -3,7 +3,7 @@
   --surface: #fff;
   --border: #d4d0c8;
   --text: #1a1a1a;
-  --text-muted: #666;
+  --text-muted: #1a1a1a;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
   --accent-light: #dbeafe;
@@ -470,7 +470,7 @@ canvas {
 }
 .fm-status-provisional {
   font-style: italic;
-  color: #4b5563;
+  color: var(--text);
 }
 
 .fm-slider-status {
@@ -1308,7 +1308,7 @@ select:disabled {
 }
 .support-ki-history {
   font-style: italic;
-  color: #777;
+  color: var(--text);
   font-size: 0.9em;
   margin-top: -4px;
 }

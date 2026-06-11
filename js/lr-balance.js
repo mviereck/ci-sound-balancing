@@ -490,7 +490,7 @@ function lrRenderResults() {
     } else {
       const meaning =
         v > 0.1 ? t('lrMeaningRight') : v < -0.1 ? t('lrMeaningLeft') : t('lrMeaningEqual');
-      const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#666";
+      const color = v > 0.1 ? "#dc2626" : v < -0.1 ? "#2563eb" : "#1a1a1a";
       tr.innerHTML =
         `<td style="font-weight:600">${leftLabel} / ${rightLabel}</td>` +
         `<td>${Math.round(hzL)}</td><td>${Math.round(hzR)}</td>` +

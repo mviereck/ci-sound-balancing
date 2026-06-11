@@ -44,12 +44,12 @@ function buildPrintHeader(tabTitle) {
     <div style="margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px; font-family: sans-serif; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;">
       <div style="flex: 1; min-width: 0;">
         <h1 style="font-size: 1.5em; margin: 0 0 4px 0;">CImbel — CI sound balancing — ${_printEscHtml(tabTitle)}</h1>
-        <p style="font-size: 0.85em; color: #666; margin: 0;">
+        <p style="font-size: 0.85em; margin: 0;">
           ${_printEscHtml(t("printHeaderDate"))}: ${dateStr}
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderSide"))}: ${_printEscHtml(sideStr)}${_printEscHtml(cfgSuffix)}
           &nbsp;·&nbsp; ${_printEscHtml(t("printHeaderImpl"))}: ${_printEscHtml(implStr)}
         </p>
-        ${versionLine ? `<p style="font-size: 0.78em; color: #888; margin: 4px 0 0 0; font-style: italic;">${versionLine}</p>` : ""}
+        ${versionLine ? `<p style="font-size: 0.78em; margin: 4px 0 0 0; font-style: italic;">${versionLine}</p>` : ""}
       </div>
       <img src="${logoUrl}" alt="CImbel — CI sound balancing" style="height:150px;width:auto;flex-shrink:0;" />
     </div>
