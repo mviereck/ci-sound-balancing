@@ -794,16 +794,6 @@ function pMaplawIsApplicable() {
 }
 
 function plCheck() {
-  const hMeas = bRes.length > 0;
-  const hLv = manualLevels.some((v) => v !== 0);
-  const hCur = presets.some((p) => p.on && p.strength !== 0);
-  const hasData =
-    (plSrcMeas && hMeas) ||
-    (plSrcLevels && hLv) ||
-    (plSrcCurves && hCur);
-  document
-    .getElementById("plNoD")
-    .classList.toggle("hidden", hasData || hMeas || hLv || hCur);
   if (pEqF.length > 0) pUpdEQ();
   else {
     pDrawEQ();
