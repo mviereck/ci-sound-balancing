@@ -791,7 +791,7 @@ Object.assign(L.en, {
     testRunningTitleWord_running: "running",
     btnDebugRun: "DEBUG: test run",
     fmExplainAdaptive: "The adaptive procedure asks higher/lower comparisons. The test series can take a very long time. Plan enough time and a few small breaks. The test time can be shortened if you first run the pre-estimate (slider).",
-    fmExplainSlider:   "Slider Round measures every electrode in any number of rounds. Each round runs through all active electrodes once in random order; the test never ends by itself but is paused manually. From all rounds, an aggregate value per electrode (median for 3+ readings, otherwise mean or single value) is computed — the triangle below the slider and the result chart show that value.",
+    fmExplainSlider:   "Slider Round measures every electrode in any number of rounds. You set the value using a slider. Each round runs through all active electrodes once in random order; the test never ends by itself but is paused manually. From all rounds, a median result value per electrode is computed. That value appears as a triangle above the slider.",
     fmSliderInstruction: "Adjust the slider until both tones sound equally high, then confirm. After each round the test automatically starts the next round with a new random order.",
     fmExplainSliderScience: "Several rounds with median aggregation reduce the impact of single subjective misjudgements. The bar below the slider shows the range of all readings for the current electrode (min..max); the triangle marks the median.<br><br>Slider Round is not a scientifically validated measurement, but the repetition yields markedly more stable values than a single slider pass.",
     fmSliderRoundProgress:   "Round %R · Electrode %C of %T",
