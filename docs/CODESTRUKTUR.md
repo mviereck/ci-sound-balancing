@@ -272,7 +272,7 @@ aktiven Seite), `updPlSrcButtons` und ggf.
 der Gegenkanal ist stumm. `updatePlayerForSideChange` (player.js)
 baut den Audio-Graph bei Side-Wechsel neu auf — auch während laufender
 Wiedergabe (mit kurzer Unterbrechung).
-EQ-Graph (`pDrawEQ`) und Werte-Tabelle (`pBuildTbl`) zeigen bei
+Der EQ-Graph (`pDrawEQ`) zeigt bei
 `getPlayerSide() === "both"` die **aktive Seite** (`activeSide`), nicht
 fest „left" — damit bei einseitigem CI die CI-Seite immer sichtbar ist.
 Audio bleibt stereo. Bei `getPlayerSide() === "left"/"right"` (mono)

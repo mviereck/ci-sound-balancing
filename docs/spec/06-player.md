@@ -4,7 +4,10 @@
   1. **Einleitung** — reine Textbox mit Titel „Audioplayer mit Korrektur-
      Equalizer" und Beschreibung (`plTitle`, `plDesc`). Kein blauer
      Hinweis-Strich, nur normaler Absatz.
-  2. **Equalizer-Graph** (`plEqViz`) — Kurven-Canvas plus Tabelle.
+  2. **Equalizer-Graph** (`plEqViz`) — Kurven-Canvas mit Balken pro Elektrode.
+     Die X-Achse beschriftet nur die Elektrodenbezeichnung (aktive
+     schwarz, inaktive ausgegraut); Hover über eine Bezeichnung zeigt
+     Bezeichnung, Frequenz in Hz und die wirksame Lautstärkenänderung in dB.
      Die Referenzelektrode wird im EQ-Graph durch ein fettes schwarzes
      „Ref.-El."-Label am oberen Rand markiert.
   3. **Einstellungen** (`plSettingsTitle`) — sieben Zeilen: (1) Equalizer
@@ -129,8 +132,8 @@
     (Modus `"left"` oder `"right"`).
   - Checkbox an → Stereo mit getrennten EQ-Ketten pro Kanal
     (`pEqFLeft` / `pEqFRight`), gespeist über `pChannelSplitter`
-    und `pChannelMerger` (Modus `"both"`). EQ-Graph und Werte-Tabelle
-    zeigen dabei die **aktive Seite** (`activeSide`), nicht fest „links"
+    und `pChannelMerger` (Modus `"both"`). Der EQ-Graph
+    zeigt dabei die **aktive Seite** (`activeSide`), nicht fest „links"
     — damit bei einseitigem CI-Nutzer immer die CI-Seite sichtbar ist.
     Das Audio-Routing bleibt davon unberührt (weiterhin stereo).
   - Stereo-Balance: nur im echten Stereo-Modus (`getPlayerSide() ===

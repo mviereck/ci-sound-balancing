@@ -266,7 +266,6 @@ async function sPlayCurrent() {
     pSetPlaybackMode("sentence");
     pOff = 0;
     pDrawEQ();
-    pBuildTbl();
     document.getElementById("plEqViz").style.display = "";
     sShownText = sCurRec.text || "";
     sUpdateTextBox();

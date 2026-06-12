@@ -280,7 +280,6 @@ document
       if (typeof plUpdTransportUI === "function") plUpdTransportUI();
       pBuildEQ();
       pDrawEQ();
-      pBuildTbl();
       document.getElementById("plEqViz").style.display = "";
     } catch (err) {
       alert("Error: " + err.message);
@@ -301,7 +300,6 @@ function updatePlayerForSideChange() {
     pBuf = getPlaybackBuffer();
     pBuildEQ();
     pDrawEQ();
-    pBuildTbl();
     if (wasPlaying) pPlay();
   }
   plCheck();
@@ -460,7 +458,6 @@ function pUpdEQ() {
     }
   }
   pDrawEQ();
-  pBuildTbl();
 }
 
 function pToggle() {
@@ -797,7 +794,6 @@ function plCheck() {
   if (pEqF.length > 0) pUpdEQ();
   else {
     pDrawEQ();
-    pBuildTbl();
   }
   document.getElementById("plEqViz").style.display = "";
   document
@@ -862,15 +858,20 @@ function pDrawEQ() {
     if (g > mxA) mxA = g;
   }
   mxA = Math.ceil(mxA / 2) * 2 + 2;
-  const pad = { left: 40, right: 14, top: 14, bottom: 38 },
+  const pad = { left: 40, right: 14, top: 14, bottom: 22 },
     pW = W - pad.left - pad.right,
     pH = H - pad.top - pad.bottom,
     zY = pad.top + pH / 2;
   const axis = buildCentAxis(allE, pad.left, pW, function (i) {
     return effFreqDisplay(i);
   });
-  const tX = axis.tX;
   const bW = Math.max(5, Math.min((axis.minDx || 12) * 0.6, 22));
+  const _hm = Math.ceil(bW / 2) + 2;
+  const _cMin = Math.min.apply(null, axis.centArr);
+  const _cSpan = (Math.max.apply(null, axis.centArr) - _cMin) || 1;
+  const tX = function(j) {
+    return pad.left + _hm + ((axis.centArr[j] - _cMin) / _cSpan) * (pW - _hm);
+  };
   ctx.strokeStyle = "#ddd";
   ctx.lineWidth = 1;
   ctx.setLineDash([2, 4]);
@@ -891,7 +892,7 @@ function pDrawEQ() {
     ctx.lineTo(W - pad.right, zY + yO);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = "#999";
+    ctx.fillStyle = "#1a1a1a";
     ctx.font = "9px Consolas,monospace";
     ctx.textAlign = "right";
     ctx.fillText("+" + dB.toFixed(0), pad.left - 4, zY - yO + 3);
@@ -899,7 +900,7 @@ function pDrawEQ() {
     ctx.setLineDash([2, 4]);
   }
   ctx.setLineDash([]);
-  ctx.fillStyle = "#999";
+  ctx.fillStyle = "#1a1a1a";
   ctx.font = "9px Consolas,monospace";
   ctx.textAlign = "right";
   ctx.fillText("0", pad.left - 4, zY + 3);
@@ -929,57 +930,22 @@ function pDrawEQ() {
         ctx.fillRect(x, zY - 0.5, bW, 1);
       }
     }
-    ctx.fillStyle = isAct ? "#666" : "#bbb";
-    ctx.font = "8px Segoe UI,sans-serif";
+    ctx.fillStyle = isAct ? "#1a1a1a" : "#bbb";
+    ctx.font = "11px Segoe UI,sans-serif";
     ctx.textAlign = "center";
     const lbl = dENPrefix() + dEN(i);
-    ctx.fillText(lbl, cx, H - pad.bottom + 10);
-    ctx.font = "7px Consolas,monospace";
-    ctx.fillStyle = "#999";
-    const ef_i = axis.hzArr[j];
-    ctx.fillText(
-      ef_i >= 1000 ? (ef_i / 1000).toFixed(1) + "k" : Math.round(ef_i),
-      cx,
-      H - pad.bottom + 20,
-    );
-    if (j % axis.step === 0 || j === 0 || j === allE.length - 1) {
-      const c = Math.round(axis.centArr[j]);
-      ctx.fillText((c >= 0 ? "+" : "") + c + " ¢", cx, H - pad.bottom + 30);
-    }
+    ctx.fillText(lbl, cx, H - pad.bottom + 15);
     const halfDx = Math.max(8, (axis.minDx || 12) / 2);
     cv._axisHits.push({
       x0: cx - halfDx, x1: cx + halfDx,
-      y0: H - pad.bottom + 2, y1: H - pad.bottom + 36,
+      y0: H - pad.bottom + 2, y1: H,
       label: lbl,
       hz: axis.hzArr[j],
-      cent: axis.centArr[j],
+      hzDec: 1,
+      db: ag,
     });
   }
   _attachAxisTooltip(cv);
-}
-
-function pBuildTbl() {
-  let gains = getPlayerGains();
-  if (typeof gains.left !== "undefined") {
-    gains = (activeSide === "right") ? gains.right : gains.left;
-  }
-  const str = parseInt(document.getElementById("plStr").value) / 100;
-  const nhSim = document.getElementById("plNHSim").checked;
-  const h = document.getElementById("plEqH"),
-    lv = document.getElementById("plEqLv"),
-    gn = document.getElementById("plEqGn");
-  h.innerHTML = "<th></th>";
-  lv.innerHTML =
-    '<td style="color:var(--text-muted);font-size:.78em">Pegel</td>';
-  gn.innerHTML =
-    '<td style="color:var(--text-muted);font-size:.78em">Gain</td>';
-  for (let i = 0; i < nEl; i++) {
-    h.innerHTML += `<th>${dENPrefix()}${dEN(i)}</th>`;
-    const v = gains[i];
-    lv.innerHTML += `<td style="color:${v > 0.05 ? "#2563eb" : v < -0.05 ? "#dc2626" : "#1a1a1a"}">${v >= 0 ? "+" : ""}${v.toFixed(1)}</td>`;
-    const g = plEqOn ? (nhSim ? v * str : -v * str) : 0;
-    gn.innerHTML += `<td style="color:${g > 0.05 ? "#16a34a" : g < -0.05 ? "#dc2626" : "#1a1a1a"}">${g >= 0 ? "+" : ""}${g.toFixed(1)}</td>`;
-  }
 }
 
 function pMaplawTrigger() {
@@ -1771,7 +1737,6 @@ async function plNoiseLoadSelected() {
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   pBuildEQ();
   pDrawEQ();
-  pBuildTbl();
   document.getElementById("plEqViz").style.display = "";
 }
 
@@ -1980,7 +1945,6 @@ async function plMusicLoadSelected() {
     pOff = 0;
     pBuildEQ();
     pDrawEQ();
-    pBuildTbl();
     document.getElementById("plEqViz").style.display = "";
     if (typeof plUpdDisplay     === "function") plUpdDisplay();
     if (typeof plUpdTransportUI === "function") plUpdTransportUI();
@@ -2390,7 +2354,6 @@ async function plBookLoadSelected() {
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   pBuildEQ();
   pDrawEQ();
-  pBuildTbl();
   document.getElementById("plEqViz").style.display = "";
 }
 

@@ -113,9 +113,12 @@ function _axisTooltipHandler(cv, e) {
     const elLbl = (typeof t === "function" ? t("lvTabElLabel") : "Elektrode");
     let html = "<b>" + elLbl + " " + hit.label + "</b>";
     if (hit.hz != null && isFinite(hit.hz)) {
-      html += "<br>" + Math.round(hit.hz) + " Hz";
+      const hzTxt = hit.hzDec ? hit.hz.toFixed(hit.hzDec) : Math.round(hit.hz);
+      html += "<br>" + hzTxt + " Hz";
     }
-    if (hit.cent != null && isFinite(hit.cent)) {
+    if (hit.db != null && isFinite(hit.db)) {
+      html += "<br>" + (hit.db >= 0 ? "+" : "") + hit.db.toFixed(1) + " dB";
+    } else if (hit.cent != null && isFinite(hit.cent)) {
       html += "<br>" + (hit.cent >= 0 ? "+" : "") + Math.round(hit.cent) + " ¢";
     }
     tip.innerHTML = html;
