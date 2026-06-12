@@ -133,6 +133,12 @@ function _maybeExtendSlider(slRef) {
   slRef.input.min = String(-newMax);
   slRef.input.max = String(newMax);
   slRef.input.style.setProperty('--sl-range-step', slRef.rangeIdx);
+  // BA 278: Slider-Bereich wurde erweitert -> Voreinschaetzung mit den
+  // zuletzt gesetzten Werten neu positionieren. Sonst behaelt das
+  // Dreieck/Band seine alte Prozent-Position (falscher dB-Wert), und
+  // eine zunaechst ausgeblendete Voreinschaetzung bliebe unsichtbar.
+  // setRangeHint ist ein No-op fuer Slider ohne rangeHint-Konfiguration.
+  testUI.slider.setRangeHint(slRef, slRef._rangeHintOpts);
 }
 
 function _buildTestPanelNew(parentEl, cfg) {
@@ -1492,6 +1498,10 @@ var testUI = {
      */
     setRangeHint: function(slRef, opts) {
       if (!slRef || !slRef.rangeHint) return;
+      // BA 278: zuletzt uebergebene opts am Schieber-Ref merken, damit
+      // _maybeExtendSlider die Voreinschaetzung nach einer Bereichs-
+      // erweiterung mit denselben Werten neu positionieren kann.
+      slRef._rangeHintOpts = opts || null;
       var hint = slRef.rangeHint;
       var band = slRef.rangeHintBand;
       var mark = slRef.rangeHintMark;
