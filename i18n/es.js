@@ -708,9 +708,6 @@ Object.assign(L.es, {
     acStStrongImpaired: "fuertemente afectado",
     acStAlmostMute: "casi mudo",
     acStMute: "mudo",
-    // Spiegel-Ausschluß Tooltip + Popup (BA 153)
-    exclCiMirrored: "desactivado o excluido en el IC",
-    depFieldExclCiMirrored: "Exclusión (reflejada)",
     thHzCi: "Hz (IC)",
     cfgHintAcoustic:
       "La rejilla de frecuencias se toma del lado IC {otherSide} para que exista comparabilidad entre ambos lados.",

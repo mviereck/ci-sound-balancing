@@ -457,7 +457,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       var sel = esCfg.getSelection();
       var stat = esCfg.getElectrodeStatus();
       var testable = stat.testable.length;
-      if (testable === 0) { esSummary.textContent = ''; return; }
+      // Bug 0.4.279.3: Anzeige bleibt immer sichtbar — auch bei 0 waehlbaren
+      // Elektroden steht "0 von 0 Elektroden gewaehlt" statt leerem Text.
       var selected;
       if (sel == null) selected = testable;
       else selected = sel.filter(function(i) { return stat.testable.indexOf(i) >= 0; }).length;

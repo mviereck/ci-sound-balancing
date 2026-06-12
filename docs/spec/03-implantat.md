@@ -138,12 +138,10 @@ die Ausschließen-Spalte und automatischen Ausschluß deaktivierter Elektroden
   kein „im CI deaktiviert". Hz-Werte sind read-only und zeigen die
   **effektive** Frequenz der CI-Gegenseite (inkl. Nutzereingaben, via
   `withSide(ciSide, () => effFreq(i))`); Spaltenüberschrift „Hz (CI)".
-  Spiegel-Ausschluß: wenn auf der CI-Gegenseite eine Elektrode inaktiv
-  (`elActive[i] === false`) oder manuell ausgeschlossen (`elExDur[i] != null`)
-  ist, ist die entsprechende akustische Frequenz automatisch und
-  unveränderlich ausgeschlossen (Checkbox disabled). Hover zeigt `title`-Tooltip;
-  Klick/Touch öffnet dep-lock-Popup (`data-dep-simple`-Modus: nur Titel
-  + Grund, kein Meßdaten-Boilerplate). Umgekehrt keine Wirkung.
+  Die Ausschluß-Checkbox der akustischen Seite ist frei bedienbar und
+  spiegelt **nicht** mehr den Ausschluß-Status der CI-Gegenseite (früher
+  bis BA 279 automatisch ausgegraut/gesperrt — entfernt). Nur eigene,
+  auf dieser Seite gesetzte Ausschlüsse grauen die Zeile aus.
 - Werte stehen in `sideData[side].implant.thr[i]` und `.mcl[i]`
   (MED-EL) bzw. `.upperLevel[i]` (Cochlear/AB).
 - Eingaben sind optional. Ohne THR/Upper-Level zeigt der Druck die

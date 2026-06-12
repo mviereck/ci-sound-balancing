@@ -911,9 +911,11 @@ document.addEventListener("DOMContentLoaded", function() {
               var exR = sideData.right.elExDur[rightI] !== null;
               var muL = sideData.left.elSt[i]          === 'mute';
               var muR = sideData.right.elSt[rightI]    === 'mute';
-              if (exL || exR)      excluded.push(i);
-              else if (muL || muR) muted.push(i);
-              else                 testable.push(i);
+              var deL = sideData.left.elActive  && sideData.left.elActive[i]       === false;
+              var deR = sideData.right.elActive && sideData.right.elActive[rightI] === false;
+              if (exL || exR)                       excluded.push(i);
+              else if (muL || muR || deL || deR)    muted.push(i);
+              else                                  testable.push(i);
             }
             return { testable: testable, muted: muted, excluded: excluded };
           },

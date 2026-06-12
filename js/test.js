@@ -801,6 +801,38 @@ function _testFilterByElectrodeSelection(pairs) {
     return s.has(p[0]) && s.has(p[1]);
   });
 }
+
+// Bugfix (0.4.279.1): Aenderung der Elektrodenauswahl WAEHREND eines
+// laufenden Tests. _testFilterByElectrodeSelection greift nur beim Start
+// (startTestFull/startTestConv); ohne diesen Helfer blieben abgewaehlte
+// Elektroden in der bereits gebauten Sequenz und wurden weiter abgefragt.
+// Semantik (im Modal bestaetigt): ein betroffenes aktuelles Paar wird
+// sofort uebersprungen; bereits absolvierte Vergleiche bleiben erhalten.
+function _testApplySelectionDuringRun() {
+  if (!testAct || testIdx >= testPairs.length) return;
+  var sel = _testSelectedEls;
+  if (!sel || !sel.length) return;
+  var s = new Set(sel);
+  var cur = testPairs[testIdx];
+  var curAffected = !(s.has(cur[0]) && s.has(cur[1]));
+  // Ab der aktuellen Position nur Paare behalten, deren beide Elektroden
+  // noch ausgewaehlt sind. Bereits gespielte Vergleiche unangetastet.
+  var rem = testPairs.slice(testIdx).filter(function(p) {
+    return s.has(p[0]) && s.has(p[1]);
+  });
+  testPairs = testPairs.slice(0, testIdx).concat(rem);
+  if (testIdx >= testPairs.length) {
+    endTest();
+    renderResults();
+  } else if (curAffected) {
+    // Aktuelles Paar war betroffen -> sofort zum naechsten gueltigen.
+    stopAll();
+    showCurPair();
+  } else {
+    // Aktuelles Paar bleibt; nur Restzahl/Fortschritt aktualisieren.
+    _testUpdateProgress();
+  }
+}
 function endTest() {
   stopAll();
   testAct = false;
@@ -1217,14 +1249,21 @@ document.addEventListener("DOMContentLoaded", function() {
           // BA 247fix: zwei Elektroden noetig, sonst kein Paar.
           minSelected: 2,
           getSelection:    function()    { return _testSelectedEls ? _testSelectedEls.slice() : null; },
-          setSelection:    function(sel) { _testSelectedEls = sel.slice(); },
+          setSelection:    function(sel) {
+            _testSelectedEls = sel.slice();
+            // Bugfix (0.4.279.1): bei laufendem Test verbleibende Sequenz
+            // sofort neu filtern, sonst werden abgewaehlte Elektroden
+            // weiter abgefragt.
+            _testApplySelectionDuringRun();
+          },
           getElectrodeStatus: function() {
             // BA 247: Filter NUR auf aktive Seite.
             var testable = [], muted = [], excluded = [];
             for (var i = 0; i < nEl; i++) {
-              if (elExDur[i] !== null)  excluded.push(i);
-              else if (elSt[i] === 'mute') muted.push(i);
-              else                          testable.push(i);
+              if (elExDur[i] !== null)            excluded.push(i);
+              else if (elActive && elActive[i] === false) muted.push(i);
+              else if (elSt[i] === 'mute')        muted.push(i);
+              else                                testable.push(i);
             }
             return { testable: testable, muted: muted, excluded: excluded };
           },

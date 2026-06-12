@@ -708,9 +708,6 @@ Object.assign(L.fr, {
     acStStrongImpaired: "fortement altéré",
     acStAlmostMute: "presque muet",
     acStMute: "muet",
-    // Spiegel-Ausschluß Tooltip + Popup (BA 153)
-    exclCiMirrored: "désactivé ou exclu dans l'IC",
-    depFieldExclCiMirrored: "Exclusion (miroir)",
     thHzCi: "Hz (IC)",
     cfgHintAcoustic:
       "La trame de fréquences est reprise du côté IC {otherSide}, afin que la comparabilité entre les deux côtés soit assurée.",

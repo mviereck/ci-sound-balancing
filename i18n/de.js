@@ -762,9 +762,6 @@ Object.assign(L.de, {
     acStStrongImpaired: "stark beeinträchtigt",
     acStAlmostMute: "fast stumm",
     acStMute: "stumm",
-    // Spiegel-Ausschluß Tooltip + Popup (BA 153)
-    exclCiMirrored: "im CI deaktiviert oder ausgeschlossen",
-    depFieldExclCiMirrored: "Ausschluß (gespiegelt)",
     thHzCi: "Hz (CI)",
     cfgHintAcoustic:
       "Das Frequenzraster wird von der CI-Seite {otherSide} übernommen, damit die Vergleichbarkeit zwischen beiden Seiten besteht.",

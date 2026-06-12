@@ -1,6 +1,14 @@
 // ============================================================
 // FREQUENCY TABLE
 // ============================================================
+// Bug 0.4.279.3: Aktiv-/Ausschluss-Aenderung im Implantat-Reiter sofort
+// in die "x von y Elektroden gewaehlt"-Anzeige der Mess-Verfahren
+// durchreichen (sonst erst beim naechsten Seitenwechsel/Laden aktuell).
+function _freqTableRefreshMeasSummaries() {
+  if (typeof testRefreshElectrodeSelectionSummary === "function") testRefreshElectrodeSelectionSummary();
+  if (typeof lrRefreshElectrodeSelectionSummary === "function") lrRefreshElectrodeSelectionSummary();
+  if (typeof fmRefreshElectrodeSelectionSummary === "function") fmRefreshElectrodeSelectionSummary();
+}
 function buildFreqTable() {
   const im = sideData[activeSide].implant || {};
   const cfg = sideData[activeSide].config || "ci";
@@ -55,18 +63,11 @@ function buildFreqTable() {
       let ex = "";
       if (i === 0) ex = ` <span class="el-extra">(${t("apikal")})</span>`;
       if (i === nEl - 1) ex = ` <span class="el-extra">(${t("basal")})</span>`;
-      // Spiegel-Ausschluß aus CI-Gegenseite
+      // CI-Frequenz pro Elektrode aus der Gegenseite zur Anzeige
       const ciSide = activeSide === "left" ? "right" : "left";
-      const ciIsActive = (sideData[ciSide].config || "ci") === "ci";
-      // BA 164: Quelle für „CI-Spiegel-Ausschluß" ist jetzt elActive
-      const ciMirroredExcl = ciIsActive && (
-        (sideData[ciSide].elActive && sideData[ciSide].elActive[i] === false) ||
-        (sideData[ciSide].elExDur && sideData[ciSide].elExDur[i] != null)
-      );
       const ciEffHz = Math.round(withSide(ciSide, () => effFreq(i)));
       const ownExcl = elExDur[i] != null;
-      const effExcl = ownExcl || ciMirroredExcl;
-      if (effExcl) tr.style.opacity = "0.55";
+      if (ownExcl) tr.style.opacity = "0.55";
       // Status-Optionen ohne „im CI deaktiviert", mit akustischer Wortwahl
       const so_ac =
         `<option value="">${t("acStOk")}</option>` +
@@ -75,18 +76,11 @@ function buildFreqTable() {
         `<option value="noisyHeavy">${t("acStStrongImpaired")}</option>` +
         `<option value="almostMute">${t("acStAlmostMute")}</option>` +
         `<option value="mute">${t("acStMute")}</option>`;
-      // Checkbox: bei Spiegel-Ausschluß fest + Popup-Daten für Klick/Touch
-      const cbAttrs = ciMirroredExcl
-        ? ' disabled title="' + t('exclCiMirrored') + '"'
-        : '';
-      const ecTdAttrs = ciMirroredExcl
-        ? ' data-dep-field-label="depFieldExclCiMirrored" data-dep-reasons="exclCiMirrored" data-dep-simple="1"'
-        : '';
       tr.innerHTML =
         `<td style="font-weight:600">${elPfx}${dEN(i)}${ex}</td>` +
         `<td style="font-family:var(--mono);font-size:.86em;padding:4px 6px">${ciEffHz}</td>` +
         `<td><select class="ss" data-i="${i}">${so_ac}</select></td>` +
-        `<td style="text-align:center"${ecTdAttrs}><input type="checkbox" class="ec" data-i="${i}"${effExcl ? " checked" : ""}${cbAttrs}></td>` +
+        `<td style="text-align:center"><input type="checkbox" class="ec" data-i="${i}"${ownExcl ? " checked" : ""}></td>` +
         `<td><input type="text" class="ni" data-i="${i}" value="${elNt[i] || ""}" placeholder="${t("thNote")}"></td>`;
       tb.appendChild(tr);
       tr.querySelector(".ss").value = elSt[i] || "";
@@ -250,6 +244,7 @@ function buildFreqTable() {
       elExDur[idx] = e.target.checked ? elExDur[idx] || Date.now() : null;
       buildFreqTable();
       updRef();
+      _freqTableRefreshMeasSummaries();
     }),
   );
   // BA 164: Aktiv-Checkbox
@@ -274,16 +269,9 @@ function buildFreqTable() {
       buildFreqTable();
       updRef();
       if (typeof depLockApply === 'function') depLockApply();
+      _freqTableRefreshMeasSummaries();
     }),
   );
-  // BA 153: Spiegel-Ausschluß Klick-/Touch-Popup
-  tb.querySelectorAll("td[data-dep-simple]").forEach((td) => {
-    ["mousedown", "touchstart"].forEach((evt) => {
-      td.addEventListener(evt, (e) => {
-        if (typeof depLockShowPopup === "function") depLockShowPopup(td);
-      }, true);
-    });
-  });
   tb.querySelectorAll(".ni").forEach((n) =>
     n.addEventListener("change", (e) => {
       elNt[+e.target.dataset.i] = e.target.value;

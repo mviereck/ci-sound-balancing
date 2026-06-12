@@ -707,9 +707,6 @@ Object.assign(L.en, {
     acStStrongImpaired: "strongly impaired",
     acStAlmostMute: "almost mute",
     acStMute: "mute",
-    // Mirror exclusion tooltip + popup (BA 153)
-    exclCiMirrored: "deactivated or excluded in the CI",
-    depFieldExclCiMirrored: "Exclusion (mirrored)",
     thHzCi: "Hz (CI)",
     cfgHintAcoustic:
       "The frequency grid is taken from the CI side {otherSide} so that the comparability between the two sides is maintained.",

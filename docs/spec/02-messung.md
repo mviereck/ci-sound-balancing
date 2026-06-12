@@ -259,8 +259,32 @@ Slider-Wert wird invertiert.
   Frühere Verfahren `selective`, `manual` und Modus `judgment` entfallen.
 - **Elektroden-Auswahl** (BA 247): Über den `electrodeSelection`-Header-
   Baustein kann der Nutzer die Sequenz auf bestimmte Elektroden filtern;
-  nur Paare, in denen mindestens eine gewählte Elektrode vorkommt,
-  werden gespielt. Mindestauswahl 1. State `_testSelectedEls` in test.js.
+  es werden nur Paare gespielt, in denen **beide** Elektroden gewählt
+  sind (UND-Logik, BA 247fix). Mindestauswahl 2 (`minSelected: 2`), sonst
+  käme kein Paar zustande. State `_testSelectedEls` in test.js, Filterung
+  beim Start über `_testFilterByElectrodeSelection`.
+  - **Auswahl-Änderung während laufendem Test** (Bugfix 0.4.279.1):
+    `setSelection` ruft `_testApplySelectionDuringRun` auf, das die noch
+    nicht gespielte Restsequenz (ab `testIdx`) sofort neu filtert. Bereits
+    absolvierte Vergleiche bleiben erhalten; ein betroffenes aktuell
+    angezeigtes Paar wird sofort übersprungen. Bleibt nach dem Filter
+    kein Paar übrig, endet der Test (`endTest` + `renderResults`). Zuvor
+    wirkte die Abwahl erst beim Neustart bzw. — bei Round Robin — in der
+    nächsten Runde, sodass abgewählte Elektroden im laufenden Durchlauf
+    weiter abgefragt wurden.
+  - **Aktiv-Stand und „x von y"-Anzeige** (Bugfix 0.4.279.3,
+    verfahrensübergreifend für `test`, `lr-balance`, `freqmatch`):
+    `getElectrodeStatus` zählt eine im Implantat-Reiter abgewählte
+    Elektrode (`elActive===false`) in **allen** drei Verfahren als
+    nicht-testbar (zuvor beachteten `test` und `lr-balance` nur
+    Ausschluß + Status „stumm", nicht das „Aktiv"-Häkchen). Die
+    Kopf-Anzeige „{m} von {n} Elektroden gewählt" bleibt **immer
+    sichtbar** — auch bei 0 wählbaren Elektroden steht „0 von 0 …"
+    statt leerem Text (`_esUpdateSummary` in test-ui.js). Ändert sich im
+    Implantat-Reiter ein „Aktiv"- oder „Ausschließen"-Häkchen, rechnet
+    die Anzeige **sofort** nach: die Checkbox-Handler in freq-table.js
+    rufen `_freqTableRefreshMeasSummaries()` (→ die drei
+    `*RefreshElectrodeSelectionSummary`-Funktionen) auf.
 - A/B-Zuordnung und Paarreihenfolge immer randomisiert.
 - Referenzelektroden-Auswahl erfolgt im Ergebnis-Reiter
   (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
@@ -348,8 +372,8 @@ Slider-Wert wird invertiert.
   `header.extra.fragment` als balance-spezifische Voreinstellungen.
 - Elektroden-Auswahl (`header.common.electrodeSelection`, BA 207):
   Eine Elektrode ist nur testbar, wenn sie auf beiden Seiten weder
-  ausgeschlossen noch stumm ist. Mindestens eine Elektrode muss
-  gewählt sein.
+  ausgeschlossen, abgewählt (`elActive===false`, Bugfix 0.4.279.3) noch
+  stumm ist. Mindestens eine Elektrode muss gewählt sein.
 - **Seitenabfrage vor Test-Start (BA 255):** Beim Klick auf „Test starten"
   erscheint das Seitenabfrage-Modal (`testUI.sideCheck.run({sides:'both'})`).
   Erst nach Bestätigung beider Seiten wird `_lrDoStart` aufgerufen, das die
