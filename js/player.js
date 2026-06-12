@@ -226,7 +226,7 @@ function computeGains() {
         elExDur[r.b] === null &&
         elSt[r.b] !== "mute",
     );
-    const addMeas = plSrcMeas && hd ? levels[i] : 0;
+    const addMeas = plSrcMeas && hd ? -levels[i] : 0;
     const addLvls = plSrcLevels ? -manualLevels[i] : 0;
     const addCurves = plSrcCurves ? -presetCurve[i] : 0;
     g[i] = addMeas + addLvls + addCurves;

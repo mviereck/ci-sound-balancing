@@ -227,24 +227,24 @@ function fmCorrGain(side, hz) {
     const lg = Math.log(hz);
 
     if (n === 1) {
-      return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+      return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
     }
     const lgFirst = Math.log(f[0]);
     const lgLast  = Math.log(f[n - 1]);
     const ascending = lgLast > lgFirst;
     if (ascending) {
       if (lg <= lgFirst) {
-        return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+        return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
       }
       if (lg >= lgLast) {
-        return isFinite(levels[n - 1]) ? dB2G(-levels[n - 1]) : 1;
+        return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
       }
     } else {
       if (lg >= lgFirst) {
-        return isFinite(levels[0]) ? dB2G(-levels[0]) : 1;
+        return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
       }
       if (lg <= lgLast) {
-        return isFinite(levels[n - 1]) ? dB2G(-levels[n - 1]) : 1;
+        return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
       }
     }
 
@@ -257,13 +257,13 @@ function fmCorrGain(side, hz) {
         const lvA = levels[i];
         const lvB = levels[i + 1];
         if (!isFinite(lvA) && !isFinite(lvB)) return 1;
-        if (!isFinite(lvA)) return dB2G(-lvB);
-        if (!isFinite(lvB)) return dB2G(-lvA);
+        if (!isFinite(lvA)) return dB2G(lvB);
+        if (!isFinite(lvB)) return dB2G(lvA);
         const tNum = lg - lgA;
         const tDen = lgB - lgA;
         const tt = (tDen === 0) ? 0 : (tNum / tDen);
         const lv = lvA + (lvB - lvA) * tt;
-        return dB2G(-lv);
+        return dB2G(lv);
       }
     }
     return 1;

@@ -110,7 +110,7 @@ function lrCorrGain(side, elIdx) {
   return withSide(side, () => {
     if (sideData[side].bRes.length === 0) return 1;
     const { levels } = compWLS();
-    return dB2G(-levels[elIdx]);
+    return dB2G(levels[elIdx]);
   });
 }
 

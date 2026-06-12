@@ -171,6 +171,10 @@
     100 Hz wahrgenommen wird), wird vom Warping auf 120 Hz Audio
     verschoben — das CI stimuliert dann die richtige Elektrode, und
     die Cochlea-Verzerrung bringt die Wahrnehmung wieder auf 100 Hz.
+    Die Messungs-Korrektur folgt derselben Vorzeichen-Behandlung wie die
+    Kurven: positives `levels[i]` (leise Elektrode) wird angehoben. In
+    `computeGains` fließt sie negiert ein (`addMeas = -levels[i]`),
+    analog `addCurves`.
   - **NH-Sim an:** zeigt einem normalhörenden Hörer, wie ein
     CI-Träger das Audio wahrnimmt. Frequenz-Warping wirkt in
     Simulations-Richtung — Inhalte werden auf die gewarpten
