@@ -1113,6 +1113,8 @@ Object.assign(L.de, {
       "<br><br>" +
       "Wählen Sie je nach Testverfahren einen aus, der Ihnen gute Vergleichbarkeit mit möglichst wenig Störgeräuschen bietet." +
       "<br><br>" +
+      "Der ideale Testton ist noch nicht gefunden; auch deshalb ist die Auswahl bisher sehr groß. Die Suche geht weiter." +
+      "<br><br>" +
       "<strong>Wichtig:</strong> Innerhalb eines Tests bei einem Ton bleiben — ein Wechsel kann das Ergebnis verfälschen." +
       "<br><br>" +
       "Zwei Töne verdienen besondere Erwähnung:" +
@@ -1182,6 +1184,14 @@ Object.assign(L.de, {
     toneGroupRichHint:       "Synthetische Töne. Spektrum und Modulation aus Aufnahmen echter Instrumente abgeleitet, für jede Frequenz identisch.",
     toneGroupNoise:          "Rauschsignale",
     toneGroupNoiseHint:      "Schmalbandiges Rauschen um die Zielfrequenz herum. Klangcharakter deutlich anders als bei den anderen Testtönen — kein klingender Ton, sondern ein gefärbtes Rauschen.",
+    toneGroupExperimental:     "Experimentelle Töne",
+    toneGroupExperimentalHint: "Versuchsreihe zum Stabilisieren des Mess-Tons im CI. Nicht für Routine-Messungen gedacht, sondern zum Vergleichen, welche Variante bei deinem Gerät am ruhigsten klingt.",
+    toneNeighborSine:          "Sinus + Nachbarelektroden",
+    toneNeighborSineDesc:      "Reiner Sinus auf der Zielfrequenz, dazu die beiden direkt benachbarten Elektroden-Mittenfrequenzen auf halbem Pegel. Soll den Ton im CI stabiler machen, indem die Nachbarbänder bewusst leicht mitlaufen.",
+    toneSineNoiseHalf:         "Sinus + Rauschen 50/50",
+    toneSineNoiseHalfDesc:     "Reiner Sinus und adaptives Schmalbandrauschen zu gleichen Teilen gemischt (je halber Pegel). Das Rauschband folgt der Frequenz (schmal bei tiefen, breiter bei hohen Tönen).",
+    toneSineNoiseFull:         "Sinus + Rauschen 100/50",
+    toneSineNoiseFullDesc:     "Reiner Sinus auf vollem Pegel, adaptives Schmalbandrauschen auf halbem Pegel dazugemischt.",
     toneGroupMellotron: "Mellotron-Sampler",
     toneGroupMellotronHint: "Klangbibliothek aus dem Original-Mellotron (laden beim ersten Anschlag).",
 

@@ -759,6 +759,95 @@ function playWobbleSweepTone(c, hz, vol, ms, pan, ramp = 50) {
   });
 }
 
+// BA 273: Experimentelle Toene.
+// neighborSine — Sinus auf der Zielfrequenz plus die beiden direkt
+// benachbarten Elektroden-Mittenfrequenzen auf halbem Pegel. freqs ist
+// die global an die aktive Seite gebundene Elektroden-Frequenztabelle
+// (siehe getElectrodeBandwidth / state-side.js bindActiveSide). Amplituden
+// werden gegen die Summe normalisiert, damit kein Clipping entsteht; das
+// Verhaeltnis Hauptton:Nachbar (2:1) bleibt dabei erhalten.
+function playNeighborSineTone(c, hz, vol, ms, pan, ramp = 50) {
+  return new Promise((r) => {
+    var tones = [{ f: hz, amp: 1.0 }];
+    if (typeof freqs !== "undefined" && freqs && freqs.length >= 2) {
+      var idx = 0, minDiff = Math.abs(freqs[0] - hz);
+      for (var i = 1; i < freqs.length; i++) {
+        var d = Math.abs(freqs[i] - hz);
+        if (d < minDiff) { minDiff = d; idx = i; }
+      }
+      if (idx - 1 >= 0)           tones.push({ f: freqs[idx - 1], amp: 0.5 });
+      if (idx + 1 < freqs.length) tones.push({ f: freqs[idx + 1], amp: 0.5 });
+    }
+    var total   = tones.reduce(function (s, t) { return s + t.amp; }, 0) || 1;
+    var nyquist = c.sampleRate / 2 - 100;
+    var g = c.createGain();
+    var p = c.createStereoPanner();
+    p.pan.value = pan;
+    var oscs = [];
+    for (var k = 0; k < tones.length; k++) {
+      if (tones[k].f <= 0 || tones[k].f >= nyquist) continue;
+      var o  = c.createOscillator();
+      var og = c.createGain();
+      o.type = "sine";
+      o.frequency.value = tones[k].f;
+      og.gain.value = tones[k].amp / total;
+      o.connect(og); og.connect(g);
+      o.start();
+      o.stop(c.currentTime + ms / 1000 + 0.01);
+      oscs.push(o);
+    }
+    applyCosRamp(g, vol, c, ms, ramp);
+    g.connect(p); p.connect(c.destination);
+    for (var j = 0; j < oscs.length; j++) runningSources.push(oscs[j]);
+    if (oscs.length > 0) oscs[0].onended = function () { r(); };
+    else r();
+  });
+}
+
+// sineNoiseMix — Sinus + adaptives Schmalbandrauschen. Das Rauschband
+// folgt der Frequenz (Bandbreite via getElectrodeBandwidth, identisch zu
+// playNoiseAdaptiveTone). sineLevel / noiseLevel sind Pegelfaktoren, die
+// vor der gemeinsamen vol-Huellkurve wirken.
+function playSineNoiseMixTone(c, hz, vol, ms, pan, sineLevel, noiseLevel, ramp = 50) {
+  return new Promise((r) => {
+    var envGain = c.createGain();
+    var p = c.createStereoPanner();
+    p.pan.value = pan;
+
+    var o  = c.createOscillator();
+    var sg = c.createGain();
+    o.type = "sine";
+    o.frequency.value = hz;
+    sg.gain.value = sineLevel;
+    o.connect(sg); sg.connect(envGain);
+
+    var bufLen = Math.ceil(c.sampleRate * (ms / 1000 + 0.05));
+    var buf = c.createBuffer(1, bufLen, c.sampleRate);
+    var data = buf.getChannelData(0);
+    for (var i = 0; i < bufLen; i++) data[i] = Math.random() * 2 - 1;
+    var src = c.createBufferSource();
+    src.buffer = buf;
+    var bw = getElectrodeBandwidth(hz);
+    var bp = c.createBiquadFilter();
+    bp.type = "bandpass";
+    bp.frequency.value = hz;
+    bp.Q.value = Math.max(0.5, hz / bw);
+    var ng = c.createGain();
+    ng.gain.value = noiseLevel;
+    src.connect(bp); bp.connect(ng); ng.connect(envGain);
+
+    applyCosRamp(envGain, vol, c, ms, ramp);
+    envGain.connect(p); p.connect(c.destination);
+
+    runningSources.push(o);
+    runningSources.push(src);
+    o.start(); src.start();
+    o.stop(c.currentTime + ms / 1000 + 0.01);
+    src.stop(c.currentTime + ms / 1000 + 0.01);
+    o.onended = function () { r(); };
+  });
+}
+
 // BA 225: zentrale Whitelist-Pruefung fuer toneType-Strings.
 // Wird von file.js und init.js statt der lokalen VALID_TONE_TYPES-Arrays
 // verwendet.
@@ -769,7 +858,8 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "richCiH", "richCiHA", "richCiHS", "richCiHF",
   "richCiB", "richCiP", "richCiBF",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
-  "wobbleSweep"];
+  "wobbleSweep",
+  "neighborSine", "sineNoiseHalf", "sineNoiseFull"];
 
 function isValidToneType(tt) {
   if (typeof tt !== "string" || tt.length === 0) return false;
@@ -835,6 +925,9 @@ function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   if (toneType === "warbleSine")     return playWarbleSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "burstSine")      return playBurstSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "wobbleSweep")    return playWobbleSweepTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "neighborSine")   return playNeighborSineTone(c, hz, vol, ms, pan, ramp);
+  if (toneType === "sineNoiseHalf")  return playSineNoiseMixTone(c, hz, vol, ms, pan, 0.5, 0.5, ramp);
+  if (toneType === "sineNoiseFull")  return playSineNoiseMixTone(c, hz, vol, ms, pan, 1.0, 0.5, ramp);
   if (typeof toneType === "string" && toneType.startsWith("smplr:"))
     return _playSmplrTone(c, hz, vol, ms, pan, toneType);
   return playSineTone(c, hz, vol, ms, pan, ramp);

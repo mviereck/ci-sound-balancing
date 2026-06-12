@@ -485,7 +485,9 @@ function _archivMdTestSettings(data) {
     noise: "toneNoise", noiseAdaptive: "toneNoiseAdaptive",
     irn: "toneIRN", amSine: "toneAmSine",
     warbleSine: "toneWarbleSine", burstSine: "toneBurstSine",
-    wobbleSweep: "toneWobbleSweep"
+    wobbleSweep: "toneWobbleSweep",
+    neighborSine: "toneNeighborSine",
+    sineNoiseHalf: "toneSineNoiseHalf", sineNoiseFull: "toneSineNoiseFull"
   };
   var ts = data.testSettings;
   var lines = ["\n## " + t("archivSecTest") + "\n"];

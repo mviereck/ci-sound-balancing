@@ -110,6 +110,15 @@ var GROUPS = [
       ['noiseAdaptive', 'toneNoiseAdaptive', 'toneNoiseAdaptiveDesc'],
       ['irn',           'toneIRN',           'toneIRNDesc']
     ]
+  },
+  {
+    headKey: 'toneGroupExperimental',
+    hintKey: 'toneGroupExperimentalHint',
+    items: [
+      ['neighborSine',  'toneNeighborSine',  'toneNeighborSineDesc'],
+      ['sineNoiseHalf', 'toneSineNoiseHalf', 'toneSineNoiseHalfDesc'],
+      ['sineNoiseFull', 'toneSineNoiseFull', 'toneSineNoiseFullDesc']
+    ]
   }
 ];
 

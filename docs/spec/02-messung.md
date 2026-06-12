@@ -66,7 +66,9 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Fagott / Klarinette in B / Kontrabass / Oboe / Posaune / Querflöte /
   Trompete in C / Violine / Violoncello / Waldhorn** (BA 215, Profile
   aus TinySOL/IRCAM analysiert in BA 214) /
-  AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep. Default
+  AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep /
+  **Sinus + Nachbarelektroden / Sinus + Rauschen 50/50 / Sinus + Rauschen
+  100/50** (BA 273, Gruppe „Experimentelle Töne"). Default
   `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'complex'`).
   Seit BA 254: kein gemeinsamer Dropdown mehr; jeder Test wählt seine Tonart
   über den Tonart-Popup-Button im eigenen Header.
@@ -77,8 +79,9 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
   (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
   übernimmt das Popup-Probehören diese Funktion.
-  Dialog (BA 217): Tonarten in fünf Gruppen (CI-Testtöne (3.2.238.1),
-  Sinustöne, Komplextöne, Instrumenten-Klänge, Rauschsignale) mit
+  Dialog (BA 217): Tonarten in sechs Gruppen (CI-Testtöne (3.2.238.1),
+  Sinustöne, Komplextöne, Instrumenten-Klänge, Rauschsignale,
+  Experimentelle Töne (BA 273)) mit
   Kurzbeschreibung pro Tonart. Die CI-Testtöne-Gruppe steht oben, weil
   sie für Mess-Aufgaben empfohlen ist. Reihenfolge in der CI-Test-
   Gruppe (0.4.269.2): CiHF (flach), CiG, CiS, CiH, CiP, CiB, CiBF,

@@ -102,7 +102,9 @@ function _toneTypeKey(tt) {
     noise: 'toneNoise', noiseAdaptive: 'toneNoiseAdaptive',
     irn: 'toneIRN', amSine: 'toneAmSine',
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
-    wobbleSweep: 'toneWobbleSweep'
+    wobbleSweep: 'toneWobbleSweep',
+    neighborSine: 'toneNeighborSine',
+    sineNoiseHalf: 'toneSineNoiseHalf', sineNoiseFull: 'toneSineNoiseFull'
   };
   if (map[tt]) return map[tt];
   // BA 231: smplr-Tonarten ueber die GROUPS-Tabelle in tone-popup.js aufloesen.
