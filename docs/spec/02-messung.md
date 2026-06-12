@@ -524,8 +524,12 @@ Slider-Wert wird invertiert.
   `cfg = {sides:'both'}`). Beide Seiten werden nacheinander geprüft
   (links zuerst); die Meldung verrät dabei nicht, welche Seite gerade
   gespielt wird (immer neutral: „Auf welcher Seite hören Sie den Ton?").
-  Buttons: [Ton wiederholen] [Links]
-  [Rechts] [Beide] [Nichts] [Abbrechen]. Richtige Seite →
+  Tonhöhen-Wahl [Tief] [Mittel] [Hoch] (Default Tief, gemerkt per
+  localStorage), darunter Buttons: [Ton wiederholen] [Links]
+  [Rechts] [Beide] [Nichts] [Abbrechen]. Der Prüfton ist seit BA 276
+  ein Breitband-Burst (500 / 1500 / 4000 Hz je nach Wahl), als Folge
+  von 5 Bursts im 200-ms-Takt abgespielt, ohne Lautstärke-Korrektur.
+  Richtige Seite →
   Modal schließt, Test startet. Falsche Seite / Nichts / Beide →
   Fehlermeldung + Retry-Schleife. Abbrechen → Test stoppt.
   Gilt für Slider- und adaptiven Modus. Auch der

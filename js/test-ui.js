@@ -1731,6 +1731,42 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   var _shtResult  = {};
   var _shtAskSide = null;
 
+  // BA 276: Drei Breitband-Burst-Stufen, wiederverwendet aus dem
+  // Latenztest (latBuildBurstBuffer). hz/durMs exakt wie die dortigen
+  // Klangtypen burst500 / burst1500 / burst4000 (js/latency.js Z. 91-93).
+  var _SHT_BANDS = {
+    low:  { hz: 500,  durMs: 6 },
+    mid:  { hz: 1500, durMs: 4 },
+    high: { hz: 4000, durMs: 3 }
+  };
+  // Tonfolge: 5 Bursts im 200-ms-Takt (rund 1 s), damit der kurze Burst
+  // sicher hör- und ortbar ist.
+  var _SHT_TRAIN_COUNT = 5;
+  var _SHT_TRAIN_INTERVAL_S = 0.20;
+  // Gain gegen Clipping: ein StereoPanner summiert bei hartem Pan (pan=-1
+  // bzw. +1) BEIDE Buffer-Kanäle auf eine Seite. Der Burst-Buffer hat L=R
+  // mit Amplitude 0.9 -> ohne Dämpfung läge die Spitze bei 1.8 und würde
+  // clippen. 0.4 hält die Summe sicher unter 1.0.
+  var _SHT_GAIN = 0.4;
+
+  // BA 276: gewählte Stufe, persistent in localStorage ("ci-lb-shtBand").
+  // Default "low" (Tief).
+  var _shtBand = 'low';
+  function _shtLoadBand() {
+    try {
+      var v = localStorage.getItem('ci-lb-shtBand');
+      if (v === 'low' || v === 'mid' || v === 'high') _shtBand = v;
+    } catch (e) { /* localStorage kann fehlen — Default behalten */ }
+  }
+  function _shtSetBand(band) {
+    if (band !== 'low' && band !== 'mid' && band !== 'high') return;
+    _shtBand = band;
+    try {
+      localStorage.setItem('ci-lb-shtBand', band);
+    } catch (e) { /* ignorieren */ }
+  }
+  _shtLoadBand();
+
   var _shtIdleTimer   = null;
   var _shtIdleEl      = null;
   var _shtIdleMs      = 0;
@@ -1750,6 +1786,35 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     titleEl.textContent = _shtT('shtTitle');
     var msgEl    = _mkEl('p');
 
+    // BA 276: Tonhöhen-Wahl (Tief / Mittel / Hoch). Aktiver Knopf
+    // bekommt zusätzlich die Klasse 'btn-primary'.
+    var bandRow = _mkEl('div', 'btn-group sht-band-row');
+    var bandLbl = _mkEl('span');
+    bandLbl.dataset.t   = 'shtBandLabel';
+    bandLbl.textContent = _shtT('shtBandLabel');
+    bandLbl.style.marginRight = '0.5em';
+    var bandBtnLow  = _mkEl('button', 'btn'); bandBtnLow.dataset.t  = 'shtBandLow';  bandBtnLow.textContent  = _shtT('shtBandLow');
+    var bandBtnMid  = _mkEl('button', 'btn'); bandBtnMid.dataset.t  = 'shtBandMid';  bandBtnMid.textContent  = _shtT('shtBandMid');
+    var bandBtnHigh = _mkEl('button', 'btn'); bandBtnHigh.dataset.t = 'shtBandHigh'; bandBtnHigh.textContent = _shtT('shtBandHigh');
+    bandRow.append(bandLbl, bandBtnLow, bandBtnMid, bandBtnHigh);
+
+    function _shtRefreshBandBtns() {
+      bandBtnLow.className  = 'btn' + (_shtBand === 'low'  ? ' btn-primary' : '');
+      bandBtnMid.className  = 'btn' + (_shtBand === 'mid'  ? ' btn-primary' : '');
+      bandBtnHigh.className = 'btn' + (_shtBand === 'high' ? ' btn-primary' : '');
+    }
+    _shtRefreshBandBtns();
+
+    function _shtPickBand(band) {
+      _shtSetBand(band);
+      _shtRefreshBandBtns();
+      // Sofort zur Probe abspielen, mit der gerade geprüften Seite.
+      _shtPlayTone(_shtAskSide);
+    }
+    bandBtnLow.onclick  = function() { _shtPickBand('low');  };
+    bandBtnMid.onclick  = function() { _shtPickBand('mid');  };
+    bandBtnHigh.onclick = function() { _shtPickBand('high'); };
+
     var replayRow = _mkEl('div', 'btn-group');
     var replayBtn = _mkEl('button', 'btn');
     replayBtn.dataset.t   = 'shtBtnReplay';
@@ -1765,7 +1830,7 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
 
     var phaseBtns = _mkEl('div', 'sht-phase-btns');
     phaseBtns.style.marginTop = '0.8em';
-    phaseBtns.append(replayRow, ansRow);
+    phaseBtns.append(bandRow, replayRow, ansRow);
 
     var errBtns = _mkEl('div', 'sht-err-btns');
     errBtns.hidden = true;
@@ -1798,7 +1863,25 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   }
 
   function _shtPlayTone(side) {
-    playToneTyped(gAC(), 1000, 0.25, 1000, side === 'left' ? -1 : 1, 'complex');
+    var c = (typeof gAC === 'function') ? gAC() : null;
+    if (!c) return;
+    if (typeof latBuildBurstBuffer !== 'function') return;
+    var band = _SHT_BANDS[_shtBand] || _SHT_BANDS.low;
+    var buf = latBuildBurstBuffer(c, band.hz, band.durMs);
+    var pan = (side === 'left') ? -1 : 1;
+    var t0 = c.currentTime + 0.02;
+    for (var i = 0; i < _SHT_TRAIN_COUNT; i++) {
+      var src = c.createBufferSource();
+      src.buffer = buf;
+      var g = c.createGain();
+      g.gain.value = _SHT_GAIN;
+      var p = c.createStereoPanner();
+      p.pan.value = pan;
+      src.connect(g);
+      g.connect(p);
+      p.connect(c.destination);
+      try { src.start(t0 + i * _SHT_TRAIN_INTERVAL_S); } catch (e) { /* swallow */ }
+    }
   }
 
   function _shtAsk(side) {
