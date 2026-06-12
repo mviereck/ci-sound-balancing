@@ -141,27 +141,27 @@ function resetAll() {
   slTarget_test = "balance";
   slTarget_balance = "both";
   // BA 254: Tonfolge pro Test
-  if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = "ab";
-  if (typeof sequence_test      !== "undefined") sequence_test      = "ab";
-  if (typeof sequence_balance   !== "undefined") sequence_balance   = "ab";
+  if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
+  if (typeof sequence_test      !== "undefined") sequence_test      = TEST_DEFAULTS.test.sequence;
+  if (typeof sequence_balance   !== "undefined") sequence_balance   = TEST_DEFAULTS.balance.sequence;
   // BA 246
-  if (typeof toneType_test !== "undefined") toneType_test = "richCiHF";
+  if (typeof toneType_test !== "undefined") toneType_test = TEST_DEFAULTS.test.toneType;
   // BA 250
-  if (typeof volume_test   !== "undefined") volume_test   = 75;
-  if (typeof duration_test !== "undefined") duration_test = 750;
-  if (typeof pause_test    !== "undefined") pause_test    = 300;
-  if (typeof toneType_balance !== "undefined") toneType_balance = "richCiHF";
-  if (typeof volume_balance   !== "undefined") volume_balance   = 75;
-  if (typeof duration_balance !== "undefined") duration_balance = 1000;
-  if (typeof pause_balance    !== "undefined") pause_balance    = 400;
-  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = "richCiHF";
-  if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = 75;
-  if (typeof duration_freqmatch !== "undefined") duration_freqmatch = 750;
-  if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = 400;
-  if (typeof toneType_implant !== "undefined") toneType_implant = "sine";
-  if (typeof volume_implant   !== "undefined") volume_implant   = 75;
-  if (typeof duration_implant !== "undefined") duration_implant = 1000;
-  if (typeof pause_implant    !== "undefined") pause_implant    = 500;
+  if (typeof volume_test   !== "undefined") volume_test   = TEST_DEFAULTS.test.volume;
+  if (typeof duration_test !== "undefined") duration_test = TEST_DEFAULTS.test.duration;
+  if (typeof pause_test    !== "undefined") pause_test    = TEST_DEFAULTS.test.pause;
+  if (typeof toneType_balance !== "undefined") toneType_balance = TEST_DEFAULTS.balance.toneType;
+  if (typeof volume_balance   !== "undefined") volume_balance   = TEST_DEFAULTS.balance.volume;
+  if (typeof duration_balance !== "undefined") duration_balance = TEST_DEFAULTS.balance.duration;
+  if (typeof pause_balance    !== "undefined") pause_balance    = TEST_DEFAULTS.balance.pause;
+  if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
+  if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = TEST_DEFAULTS.freqmatch.volume;
+  if (typeof duration_freqmatch !== "undefined") duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
+  if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
+  if (typeof toneType_implant !== "undefined") toneType_implant = TEST_DEFAULTS.implant.toneType;
+  if (typeof volume_implant   !== "undefined") volume_implant   = TEST_DEFAULTS.implant.volume;
+  if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
+  if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;
   // --- Latenz ---
   if (typeof latencyResult !== "undefined") latencyResult = null;
   if (typeof plApplyLatency !== "undefined") plApplyLatency = true;
@@ -366,9 +366,9 @@ async function saveJson() {
     fRes: (typeof fRes !== "undefined") ? fRes : [],
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
-    sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
-    sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : "ab",
-    sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : "ab",
+    sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
+    sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
+    sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
     slTarget_test: slTarget_test,
     slTarget_balance: slTarget_balance,
     playerSourceMeas: plSrcMeas,
@@ -383,28 +383,28 @@ async function saveJson() {
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
-      ? toneType_freqmatch : "richCiHF",
+      ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
     // BA 246
     toneType_test: (typeof toneType_test !== "undefined")
-      ? toneType_test : "richCiHF",
+      ? toneType_test : TEST_DEFAULTS.test.toneType,
     // BA 250
-    volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : 75,
-    duration_test: (typeof duration_test !== "undefined") ? duration_test : 750,
-    pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : 300,
+    volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : TEST_DEFAULTS.test.volume,
+    duration_test: (typeof duration_test !== "undefined") ? duration_test : TEST_DEFAULTS.test.duration,
+    pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : TEST_DEFAULTS.test.pause,
     // BA 240: Vol/Dur/Pau-State des Frequenzabgleichs persistieren.
-    volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : 75,
-    duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : 750,
-    pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : 400,
+    volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : TEST_DEFAULTS.freqmatch.volume,
+    duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
+    pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
     // BA 253: Vol/Dur/Pau/ToneType fuer Stereo-Balance persistieren.
     toneType_balance: (typeof toneType_balance !== "undefined")
-      ? toneType_balance : "richCiHF",
-    volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : 75,
-    duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : 1000,
-    pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : 400,
-    toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : "sine",
-    volume_implant:     (typeof volume_implant   !== "undefined") ? volume_implant   : 75,
-    duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : 1000,
-    pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : 500,
+      ? toneType_balance : TEST_DEFAULTS.balance.toneType,
+    volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : TEST_DEFAULTS.balance.volume,
+    duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
+    pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
+    toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : TEST_DEFAULTS.implant.toneType,
+    volume_implant:     (typeof volume_implant   !== "undefined") ? volume_implant   : TEST_DEFAULTS.implant.volume,
+    duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : TEST_DEFAULTS.implant.duration,
+    pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
@@ -703,7 +703,7 @@ function applyLoadedData(d) {
   function _validSeq(s) { return (s === "aba" || s === "ab") ? s : null; }
   var _legacySeq = _validSeq(d.globalSequence)
                 || _validSeq(d.paradigm)
-                || "ab";
+                || TEST_DEFAULTS.test.sequence;
   if (typeof sequence_freqmatch !== "undefined") {
     sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
   }
@@ -732,7 +732,7 @@ function applyLoadedData(d) {
     } else if (isValidToneType(d.globalToneType)) {
       toneType_freqmatch = d.globalToneType;
     } else {
-      toneType_freqmatch = "richCiHF";
+      toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
     }
   }
   // BA 246
@@ -742,34 +742,34 @@ function applyLoadedData(d) {
     } else if (isValidToneType(d.globalToneType)) {
       toneType_test = d.globalToneType;
     } else {
-      toneType_test = "richCiHF";
+      toneType_test = TEST_DEFAULTS.test.toneType;
     }
   }
   // BA 250
   if (typeof volume_test !== "undefined") {
     var _v = parseInt(d.volume_test, 10);
-    volume_test = (isFinite(_v) && _v >= 0 && _v <= 100) ? _v : 75;
+    volume_test = (isFinite(_v) && _v >= 0 && _v <= 100) ? _v : TEST_DEFAULTS.test.volume;
   }
   if (typeof duration_test !== "undefined") {
     var _du = parseInt(d.duration_test, 10);
-    duration_test = (isFinite(_du) && _du >= 100 && _du <= 3000) ? _du : 750;
+    duration_test = (isFinite(_du) && _du >= 100 && _du <= 3000) ? _du : TEST_DEFAULTS.test.duration;
   }
   if (typeof pause_test !== "undefined") {
     var _pa = parseInt(d.pause_test, 10);
-    pause_test = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : 300;
+    pause_test = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : TEST_DEFAULTS.test.pause;
   }
   // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.
   if (typeof volume_freqmatch !== "undefined") {
     var sv = parseInt(d.volume_freqmatch, 10);
-    volume_freqmatch = (isFinite(sv) && sv >= 0 && sv <= 100) ? sv : 75;
+    volume_freqmatch = (isFinite(sv) && sv >= 0 && sv <= 100) ? sv : TEST_DEFAULTS.freqmatch.volume;
   }
   if (typeof duration_freqmatch !== "undefined") {
     var sd = parseInt(d.duration_freqmatch, 10);
-    duration_freqmatch = (isFinite(sd) && sd >= 100 && sd <= 3000) ? sd : 750;
+    duration_freqmatch = (isFinite(sd) && sd >= 100 && sd <= 3000) ? sd : TEST_DEFAULTS.freqmatch.duration;
   }
   if (typeof pause_freqmatch !== "undefined") {
     var sp = parseInt(d.pause_freqmatch, 10);
-    pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : 400;
+    pause_freqmatch = (isFinite(sp) && sp >= 50 && sp <= 2000) ? sp : TEST_DEFAULTS.freqmatch.pause;
   }
   // BA 253: ToneType/Vol/Dur/Pau fuer Stereo-Balance aus JSON zuruecklesen.
   if (typeof toneType_balance !== "undefined") {
@@ -778,36 +778,36 @@ function applyLoadedData(d) {
     } else if (isValidToneType(d.globalToneType)) {
       toneType_balance = d.globalToneType;
     } else {
-      toneType_balance = "richCiHF";
+      toneType_balance = TEST_DEFAULTS.balance.toneType;
     }
   }
   if (typeof volume_balance !== "undefined") {
     var _vB = parseInt(d.volume_balance, 10);
-    volume_balance = (isFinite(_vB) && _vB >= 0 && _vB <= 100) ? _vB : 75;
+    volume_balance = (isFinite(_vB) && _vB >= 0 && _vB <= 100) ? _vB : TEST_DEFAULTS.balance.volume;
   }
   if (typeof duration_balance !== "undefined") {
     var _dB = parseInt(d.duration_balance, 10);
-    duration_balance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : 1000;
+    duration_balance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : TEST_DEFAULTS.balance.duration;
   }
   if (typeof pause_balance !== "undefined") {
     var _pB = parseInt(d.pause_balance, 10);
-    pause_balance = (isFinite(_pB) && _pB >= 50 && _pB <= 2000) ? _pB : 400;
+    pause_balance = (isFinite(_pB) && _pB >= 50 && _pB <= 2000) ? _pB : TEST_DEFAULTS.balance.pause;
   }
   // BA 242: Implantat-State aus JSON zuruecklesen.
   if (typeof toneType_implant !== "undefined") {
-    toneType_implant = isValidToneType(d.toneType_implant) ? d.toneType_implant : "sine";
+    toneType_implant = isValidToneType(d.toneType_implant) ? d.toneType_implant : TEST_DEFAULTS.implant.toneType;
   }
   if (typeof volume_implant !== "undefined") {
     var svi = parseInt(d.volume_implant, 10);
-    volume_implant = (isFinite(svi) && svi >= 0 && svi <= 100) ? svi : 75;
+    volume_implant = (isFinite(svi) && svi >= 0 && svi <= 100) ? svi : TEST_DEFAULTS.implant.volume;
   }
   if (typeof duration_implant !== "undefined") {
     var sdi = parseInt(d.duration_implant, 10);
-    duration_implant = (isFinite(sdi) && sdi >= 100 && sdi <= 3000) ? sdi : 1000;
+    duration_implant = (isFinite(sdi) && sdi >= 100 && sdi <= 3000) ? sdi : TEST_DEFAULTS.implant.duration;
   }
   if (typeof pause_implant !== "undefined") {
     var spi = parseInt(d.pause_implant, 10);
-    pause_implant = (isFinite(spi) && spi >= 50 && spi <= 2000) ? spi : 500;
+    pause_implant = (isFinite(spi) && spi >= 50 && spi <= 2000) ? spi : TEST_DEFAULTS.implant.pause;
   }
   if (typeof d.playerSourceMeas === "boolean") {
     plSrcMeas = d.playerSourceMeas;

@@ -72,12 +72,12 @@ In `state-side.js` und persistiert in JSON und localStorage:
   **Cluster ±3 Hz 2N / Cluster ±3 Hz 4N / Cluster ±8 Hz 2N / Cluster ±8 Hz 4N /
   Cluster ±10 ct 2N / Cluster ±10 ct 4N / Cluster ±30 ct 2N / Cluster ±30 ct 4N**
   (BA 274, Schwebungs-Cluster in der Gruppe „Experimentelle Töne"). Default
-  `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'complex'`).
+  `'richCiG'` (CI-Test Grundton; seit BA 280 — zuvor `'richCiHF'`/`'complex'`).
   Seit BA 254: kein gemeinsamer Dropdown mehr; jeder Test wählt seine Tonart
   über den Tonart-Popup-Button im eigenen Header.
 - **Tonart Frequenzabgleich** (`toneType_freqmatch`, BA 209) — eigene
   Tonart für Sub-Tab 3. Default
-  `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'pulsedComplex'`).
+  `'richCiG'` (CI-Test Grundton; seit BA 280 — zuvor `'richCiHF'`/`'pulsedComplex'`).
   Wird über Button + Popup-Dialog gewählt (kein
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
   (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
@@ -171,11 +171,11 @@ In `state-side.js` und persistiert in JSON und localStorage:
 - **Hüllkurve / globale Anstiegs- und Ausklangform** (BA 270/271) —
   vier globale Variablen steuern die Ton-Hüllkurve toolweit (gelten
   für jeden Vorhör-Klick, unabhängig vom Aufrufer):
-  - `gToneEnvAttackForm`: `"hard"` | `"linear"` | `"cos2"` (Default) |
-    `"dblin"` — bestimmt die Anstiegsform.
-  - `gToneEnvAttackMs`: Anschwingzeit in ms (Default 500).
+  - `gToneEnvAttackForm`: `"hard"` | `"linear"` | `"cos2"` |
+    `"dblin"` (Default) — bestimmt die Anstiegsform.
+  - `gToneEnvAttackMs`: Anschwingzeit in ms (Default 160).
     Bei `"hard"` ignoriert.
-  - `gToneEnvDbFloor`: Startpegel in dB (Default −50). Nur bei
+  - `gToneEnvDbFloor`: Startpegel in dB (Default −20). Nur bei
     `"dblin"` wirksam.
   - `gToneEnvRelease`: `"short"` (Default) | `"sym"` | `"hard"` —
     bestimmt die Ausklangform (symmetrisch = gleich lang wie
@@ -363,11 +363,11 @@ Slider-Wert wird invertiert.
 - **Tonart-Auswahl (BA 253):** Button im Header „Tonart: *Aktualwert*"
   öffnet die Tonauswahl-Modalbox (analog Frequenzabgleich BA 209 und
   Elektrodenlautstärke BA 250). Auswahl persistiert in
-  `toneType_balance` (Default `richCiHF`). Der frühere Tonart-Dropdown
+  `toneType_balance` (Default `richCiG`). Der frühere Tonart-Dropdown
   im Header ist entfernt.
 - **Vol/Dur/Pau-Felder im Modal (BA 253):** Lautstärke, Tondauer,
   Tonpause sind jetzt im Tonauswahl-Modal (State: `volume_balance`,
-  `duration_balance`, `pause_balance`; Defaults 75 / 1000 / 400). Im
+  `duration_balance`, `pause_balance`; Defaults 75 / 750 / 400). Im
   Header sind diese Felder nicht mehr sichtbar.
 - **Klavier-Widget im Modal (BA 253):** Tastenzahl = min(leftN, rightN).
   Taste ist disabled (durchgekreuzt, ausgegraut), sobald die Elektrode
@@ -423,8 +423,8 @@ Slider-Wert wird invertiert.
   ausschließlich ab; die Tonart-Auswahl erfolgt über den
   Radio-Button (und wird mit OK übernommen). OK übernimmt,
   Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`
-  (Default `richCiHF` — CI-Test flach, seit 3.2.239.4; zuvor
-  `pulsedComplex`). Das Dropdown `sliderTarget`
+  (Default `richCiG` — CI-Test Grundton, seit BA 280; zuvor
+  `richCiHF`/`pulsedComplex`). Das Dropdown `sliderTarget`
   („Slider-Wirkung") wurde ersatzlos entfernt (BA 209).
 - **Statische Methoden-Gruppen (BA 220, vorher: Dynamischer Intro-Text
   BA 160):** Beide Erklär-Gruppen werden immer angezeigt, je unter

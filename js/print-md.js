@@ -119,22 +119,22 @@ function _collectTestSettings() {
   }
   return {
     test: _row(
-      (typeof toneType_test !== "undefined") ? toneType_test : "richCiHF",
-      (typeof sequence_test !== "undefined") ? sequence_test : "ab",
+      (typeof toneType_test !== "undefined") ? toneType_test : TEST_DEFAULTS.test.toneType,
+      (typeof sequence_test !== "undefined") ? sequence_test : TEST_DEFAULTS.test.sequence,
       (typeof duration_test !== "undefined") ? duration_test : null,
       (typeof pause_test    !== "undefined") ? pause_test    : null,
       (typeof volume_test   !== "undefined") ? volume_test   : null
     ),
     balance: _row(
-      (typeof toneType_balance !== "undefined") ? toneType_balance : "richCiHF",
-      (typeof sequence_balance !== "undefined") ? sequence_balance : "ab",
+      (typeof toneType_balance !== "undefined") ? toneType_balance : TEST_DEFAULTS.balance.toneType,
+      (typeof sequence_balance !== "undefined") ? sequence_balance : TEST_DEFAULTS.balance.sequence,
       (typeof duration_balance !== "undefined") ? duration_balance : null,
       (typeof pause_balance    !== "undefined") ? pause_balance    : null,
       (typeof volume_balance   !== "undefined") ? volume_balance   : null
     ),
     freqmatch: _row(
-      (typeof toneType_freqmatch !== "undefined") ? toneType_freqmatch : "richCiHF",
-      (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
+      (typeof toneType_freqmatch !== "undefined") ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
+      (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
       (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : null,
       (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : null,
       (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : null

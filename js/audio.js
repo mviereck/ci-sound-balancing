@@ -15,10 +15,10 @@ function gAC() {
 // Gilt fuer ALLE Toene (Sinus, Rauschen, Instrumente, CI-Test-Profile).
 // Ersetzt die frueheren profil-eigenen attackMs-Werte und den 50ms-Default.
 // Bedient wird das in BA 271 (Tonauswahl-Modal). Hier nur State + Engine.
-let gToneEnvAttackForm = "cos2";  // "hard" | "linear" | "cos2" | "dblin"
-let gToneEnvAttackMs   = 500;     // Anschwingzeit in ms (bei "hard" ignoriert)
-let gToneEnvDbFloor    = -50;     // Startpegel in dB, nur fuer "dblin"
-let gToneEnvRelease    = "short"; // "short" | "sym" | "hard"
+let gToneEnvAttackForm = TONE_ENV_DEFAULTS.attackForm;  // "hard" | "linear" | "cos2" | "dblin"
+let gToneEnvAttackMs   = TONE_ENV_DEFAULTS.attackMs;    // Anschwingzeit in ms (bei "hard" ignoriert)
+let gToneEnvDbFloor    = TONE_ENV_DEFAULTS.dbFloor;     // Startpegel in dB, nur fuer "dblin"
+let gToneEnvRelease    = TONE_ENV_DEFAULTS.release;     // "short" | "sym" | "hard"
 const TONE_ENV_SHORT_MS = 30;     // feste Dauer des kurzen Ausklangs ("short")
 
 // Zentraler Setter. Nimmt ein Patch-Objekt (nur gesetzte Felder wirken),
@@ -906,7 +906,7 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "richCb", "richOb", "richTbn", "richFl", "richTpC", "richVn",
   "richVc", "richHn",
   "richCiH", "richCiHA", "richCiHS", "richCiHF",
-  "richCiB", "richCiP", "richCiBF",
+  "richCiB", "richCiP", "richCiBF", "richCiG", "richCiS",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
   "wobbleSweep",
   "neighborSine", "sineNoiseHalf", "sineNoiseFull",

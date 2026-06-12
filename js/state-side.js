@@ -720,43 +720,63 @@ let curA = -1,
   undoSt = [],
   convRnd = 0;
 
-// BA 209: Tonart speziell für Frequenzabgleich.
+// ============================================================
+// BA 280: Zentrale Default-Werte (Single Source of Truth).
+// Alle Erststart-Werte, resetAll-Rucksetzwerte, Speicher-/Lade-
+// Fallbacks und Druck-Anzeige-Fallbacks fur Test-Parameter und
+// Ton-Hullkurve greifen ausschliesslich auf diese zwei Objekte zu.
+// Wer einen Default andern will, andert ihn NUR hier.
+// ------------------------------------------------------------
+// toneType "richCiG" = CI-Test Grundton (Engine zerlegt rich+CiG).
+const TEST_DEFAULTS = {
+  freqmatch: { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
+  test:      { toneType: "richCiG", volume: 75, duration: 750, pause: 300, sequence: "ab" },
+  balance:   { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
+  implant:   { toneType: "sine",    volume: 75, duration: 1000, pause: 500 }
+};
+const TONE_ENV_DEFAULTS = {
+  attackForm: "dblin",  // Anstiegsform: dB-linear
+  attackMs:   160,      // Anschwingzeit ms
+  dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
+  release:    "short"   // Ausklang: kurz
+};
+// BA 209: Tonart speziell fur Frequenzabgleich.
 // Default 'richCiHF' (CI-Test flach).
-let toneType_freqmatch = "richCiHF";
+let toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
 // BA 246: Tonart speziell fuer Elektrodenlautstaerke. Eigene Persistenz
 // statt globalToneType, damit Tonart-Popup-Dialog (analog freqmatch)
 // pro Test funktioniert. Wird in BA 247 erstmals aus dem testUI-Header
 // gelesen/geschrieben.
-let toneType_test = "richCiHF";
+let toneType_test = TEST_DEFAULTS.test.toneType;
 // BA 240: Vol/Dur/Pau leben jetzt als State-Variablen statt im testUI-Header.
 // Vol als int 0..100 (UI-Wert); fmGVol macht die quadratische Audio-Konversion.
-let volume_freqmatch   = 75;
-let duration_freqmatch = 750;
-let pause_freqmatch    = 400;
+let volume_freqmatch   = TEST_DEFAULTS.freqmatch.volume;
+let duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
+let pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
 // BA 250: Vol/Dur/Pau fuer Elektrodenlautstaerke. Analog zu freqmatch
 // als State-Variablen statt im testUI-Header. Vol als int 0..100;
 // tGVol macht die quadratische Audio-Konversion.
-let volume_test   = 75;
-let duration_test = 750;
-let pause_test    = 300;
+let volume_test   = TEST_DEFAULTS.test.volume;
+let duration_test = TEST_DEFAULTS.test.duration;
+let pause_test    = TEST_DEFAULTS.test.pause;
 // BA 253: Tonart, Lautstaerke, Tondauer, Tonpause speziell fuer
 // Stereo-Balance. Ueber die Tonauswahl-Modalbox eingestellt; getrennt
 // vom Frequenzabgleich- und Elektrodenlautstaerke-Test.
-let toneType_balance = "richCiHF";
-let volume_balance   = 75;
-let duration_balance = 1000;
-let pause_balance    = 400;
+let toneType_balance = TEST_DEFAULTS.balance.toneType;
+let volume_balance   = TEST_DEFAULTS.balance.volume;
+let duration_balance = TEST_DEFAULTS.balance.duration;
+let pause_balance    = TEST_DEFAULTS.balance.pause;
 // BA 254: Tonfolge (AB/ABA) speziell pro Test. Ersetzt globalSequence.
-let sequence_freqmatch = "ab";
-let sequence_test      = "ab";
-let sequence_balance   = "ab";
+let sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
+let sequence_test      = TEST_DEFAULTS.test.sequence;
+let sequence_balance   = TEST_DEFAULTS.balance.sequence;
 // BA 242: Implantat-Tab-Tonauswahl. Vol/Dur/Pau analog freqmatch.
 // Default-Tonart Sinus, weil im Implantat-Tab problematische Elektroden
 // per Sinus am besten zu erkennen sind (Rauschen, Aussetzer).
-let toneType_implant = "sine";
-let volume_implant   = 75;
-let duration_implant = 1000;
-let pause_implant    = 500;
+let toneType_implant = TEST_DEFAULTS.implant.toneType;
+let volume_implant   = TEST_DEFAULTS.implant.volume;
+let duration_implant = TEST_DEFAULTS.implant.duration;
+let pause_implant    = TEST_DEFAULTS.implant.pause;
 let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"
 

@@ -982,15 +982,15 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 161: bisher nur in Datei-Save
           audiologUserNote: (typeof audiologUserNote !== "undefined") ? audiologUserNote : "",
           toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
-            ? toneType_freqmatch : "richCiHF",
+            ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
           toneType_balance: (typeof toneType_balance !== "undefined")
-            ? toneType_balance : "richCiHF",
-          volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : 75,
-          duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : 1000,
-          pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : 400,
-          sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : "ab",
-          sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : "ab",
-          sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : "ab",
+            ? toneType_balance : TEST_DEFAULTS.balance.toneType,
+          volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : TEST_DEFAULTS.balance.volume,
+          duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
+          pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
+          sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
+          sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
+          sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
           slTarget_test: slTarget_test,
           slTarget_balance: slTarget_balance,
           levelsTabMode: lvTabMode,
