@@ -780,6 +780,18 @@ Object.assign(L.en, {
       "<br><br>Adjust the loudness of the two tones until they sound equally loud.",
     testRunningTitle: "Electrode loudness balance test is running",
     testRunningHint: "Adjust the loudness of the two tones until they sound equally loud.",
+    // BA 279: Testende-Modalbox.
+    testDoneTitle:      "{name} test completed.",
+    testDoneResultHint: "You can view the test result in the Measurement results tab → {subtab}.",
+    compBtnOk:          "OK",
+    testRrName:         "Round Robin",
+    compNameFmAdaptive: "Frequency matching (Adaptive)",
+    compSubLoudness:    "Electrode loudness",
+    rrDoneExtra:        "You can refine the measurement results further with the second test procedure “Convergence”. You can listen to the effect of the correction in the player.",
+    lrDoneExtra:        "You can activate stereo balance in the player.",
+    fmDoneExtra:        "You can activate frequency warping in the player to hear the effect of an adjusted frequency shift.",
+    linksFreesoundDesc:     "Freesound aims to create a huge collaborative database of audio snippets, samples, recordings, bleeps, … released under Creative Commons licenses that allow their reuse.",
+    linksFreesoundUsedLabel: "Used in this tool",
     lrRunningTitle: "Stereo balance test is running",
     lrRunningHint: "Adjust the loudness until both sides sound equally loud.",
     lrPrereqHint: "First run the electrode loudness measurement for both sides.",
@@ -1064,6 +1076,8 @@ Object.assign(L.en, {
       "This collection offers various test tones." +
       "<br><br>" +
       "Depending on the test procedure, choose one that gives you good comparability with as little interference as possible." +
+      "<br><br>" +
+      "The ideal test tone has not yet been found; that is also why the selection is still very large. The search continues." +
       "<br><br>" +
       "<strong>Important:</strong> Stay with one tone throughout a test — switching can distort the result." +
       "<br><br>" +

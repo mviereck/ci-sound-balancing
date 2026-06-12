@@ -808,6 +808,15 @@ function endTest() {
   lockTestTabs(false, null);
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 278fix: Natuerliches Testende muss die Test-UI zuruecksetzen
+  // (testBox ausblenden, Start/Stop-Button-Zustand, Laufzustand beenden).
+  // Bisher rief nur der Stop-Button _stopTest() auf; die natuerlichen
+  // Endpfade (nextFullRound, nextConvRnd, doExcl) uebersprangen es, sodass
+  // der Test nach dem letzten Vergleich haengen blieb (kein Ton, kein
+  // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
+  // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
+  // Endlosschleife. Vgl. lrFinish in lr-balance.js.
+  if (testEls && testEls._stopTest) testEls._stopTest();
 }
 function showCurPair() {
   if (!testEls) return;
@@ -1001,6 +1010,15 @@ function nextFullRound() {
     fullSweepDonePairs = [];
     endTest();
     renderResults();
+    // BA 279: Abschluss-Box NUR beim vollstaendigen Round-Robin-Durchlauf.
+    // Konvergenz (nextConvRnd) und Pause/Stop (onStop -> endTest): KEINE Box.
+    if (testEls && typeof testUI !== 'undefined' && testUI.completion) {
+      testUI.completion.show({
+        nameKey:   'testRrName',
+        subtabKey: 'compSubLoudness',
+        bodyKey:   'rrDoneExtra'
+      });
+    }
     return;
   }
   const actSet = new Set(actEl());

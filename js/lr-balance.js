@@ -388,6 +388,15 @@ function lrFinish() {
   if (typeof depLockApply === 'function') depLockApply();
   lrRenderResults();
   lrApplyMeanToBalance();
+  // BA 279: Abschluss-Box. lrFinish ist das natuerliche Sequenz-Ende
+  // (aus lrShowPair, wenn lrSeqIdx >= lrSeq.length). lrPause (Stop): KEINE Box.
+  if (typeof testUI !== 'undefined' && testUI.completion) {
+    testUI.completion.show({
+      nameKey:   'tabBalance',
+      subtabKey: 'tabBalance',
+      bodyKey:   'lrDoneExtra'
+    });
+  }
 }
 
 // BA 245: "Stop" ist semantisch Pause — lrSeq und lrSeqIdx bleiben erhalten.

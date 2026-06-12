@@ -302,6 +302,11 @@ Slider-Wert wird invertiert.
   erscheint das Seitenabfrage-Modal (`testUI.sideCheck.run({sides:'one', side: activeSide})`).
   Nur die aktuell eingestellte Seite wird abgefragt. Erst nach Bestätigung
   startet der eigentliche Test.
+- **Abschluss-Box (BA 279):** Nach natürlichem Abschluss von „Round Robin
+  (Vollständig)" (alle Runden durch) erscheint eine Abschluss-Box
+  (`testUI.completion.show`) mit Fanfare-Klang, Titel „Test Round Robin
+  beendet." und Hinweis auf den Ergebnis-Reiter. Bei Stop/Pause und beim
+  Verfahren „Konvergenz" keine Box.
 
 ### Sub-Tab 2 — Stereo-Balance (lr-balance.js)
 
@@ -366,6 +371,9 @@ Slider-Wert wird invertiert.
   `bRes`-Befüllung analog `_fmHasLvData`. Der frühere statische
   Hinweis `lrPrereqHint` ist entfernt (i18n-Key bleibt vorerst
   stehen — Cleanup mit Migrationsplan-Schritt 6).
+- **Abschluss-Box (BA 279):** Nach natürlichem Sequenz-Ende (`lrFinish`)
+  erscheint eine Abschluss-Box (`testUI.completion.show`) mit Fanfare-Klang
+  und Hinweis auf den Ergebnis-Reiter. Bei Stop/Pause (`lrPause`) keine Box.
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 
@@ -488,6 +496,11 @@ Slider-Wert wird invertiert.
   - **Adaptiv** (2I-2AFC, `freqmatch-adaptive.js`): Beschrieben in
     `docs/spec/02b-freqmatch-adaptiv.md`. Default ist das adaptive
     Verfahren, sofern bereits adaptive Läufe vorliegen.
+    **Abschluss-Box (BA 279):** Nach natürlichem Ende (alle Tracks
+    konvergiert/abgeschlossen, `fmFinishAdaptive`) erscheint eine
+    Abschluss-Box (`testUI.completion.show`) mit Fanfare-Klang. Bei
+    Stop/Abbruch (`fmFinish`) und beim Verfahren „Vor-Schätzung
+    (Slider)" keine Box.
 
 - **Auswahl Testelektroden** (BA 207): Header-Button „Testelektroden
   auswählen" mit nebenstehender Zusammenfassung („m von n Elektroden

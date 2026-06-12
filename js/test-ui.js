@@ -2025,3 +2025,89 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
     stopIdleWatch:  _shtStopIdleWatch
   };
 })();
+
+// ===== testUI.completion — Abschluss-Box nach natuerlichem Testende =====
+// BA 279: Wiederverwendbarer Testende-Hinweis. EINE Funktion; das
+// Gemeinsame ist fest verdrahtet (Klang, Titelmuster, generischer
+// Ergebnis-Satz), pro Aufruf werden nur die individuellen i18n-Keys
+// uebergeben: nameKey (Verfahrensname), subtabKey (Messerg.-Subreiter),
+// bodyKey (Zusatztext).
+// Aufbau:  Titel   = testDoneTitle, {name}  ersetzt
+//          Zeile 1 = testDoneResultHint, {subtab} ersetzt
+//          Zeile 2 = bodyKey
+// Die Textzeilen werden bei show() direkt gesetzt (Platzhalter ersetzt)
+// und tragen KEIN data-t, sonst wuerde applyLang den Platzhalter-Ersatz
+// ueberschreiben. Die Box ist transient; Sprachwechsel bei offener Box
+// ist ein vernachlaessigbarer Edge-Case. Einblenden via 'modal-overlay'
+// + '.active' wie testUI.sideCheck.
+(function() {
+  var _CMP_SOUND = 'assets/audio/810330__mokasza__triumphant-success.mp3';
+  var _cmpEls    = null;
+  var _cmpAudio  = null;
+
+  function _cmpT(key) {
+    return (typeof t === 'function' && t(key)) || key;
+  }
+
+  function _cmpInitDom() {
+    if (_cmpEls) return;
+    var overlay  = _mkEl('div', 'modal-overlay completion-modal');
+    var box      = _mkEl('div', 'modal-box');
+    var titleEl  = _mkEl('h2');
+    var resultEl = _mkEl('p');
+    var bodyEl   = _mkEl('p');
+    var btnRow   = _mkEl('div', 'btn-group');
+    var okBtn    = _mkEl('button', 'btn btn-primary');
+    okBtn.dataset.t   = 'compBtnOk';
+    okBtn.textContent = _cmpT('compBtnOk');
+    btnRow.appendChild(okBtn);
+    box.append(titleEl, resultEl, bodyEl, btnRow);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+    _cmpEls = { overlay: overlay, titleEl: titleEl, resultEl: resultEl,
+                bodyEl: bodyEl, okBtn: okBtn };
+    okBtn.onclick = function() { _cmpClose(); };
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) _cmpClose();   // Klick auf dunklen Rand
+    });
+  }
+
+  function _cmpClose() {
+    if (!_cmpEls) return;
+    _cmpEls.overlay.classList.remove('active');
+    if (_cmpAudio) {
+      try { _cmpAudio.pause(); } catch (e) { /* ignorieren */ }
+      _cmpAudio = null;
+    }
+  }
+
+  // opts: { nameKey, subtabKey, bodyKey }  — alle drei i18n-Keys, Pflicht.
+  function _cmpShow(opts) {
+    opts = opts || {};
+    _cmpInitDom();
+
+    var name = _cmpT(opts.nameKey);
+    _cmpEls.titleEl.textContent =
+      _cmpT('testDoneTitle').replace('{name}', name);
+
+    var sub = _cmpT(opts.subtabKey);
+    _cmpEls.resultEl.textContent =
+      _cmpT('testDoneResultHint').replace('{subtab}', sub);
+
+    _cmpEls.bodyEl.textContent = _cmpT(opts.bodyKey);
+
+    _cmpEls.overlay.classList.add('active');
+    if (typeof safeFocus === 'function') safeFocus(_cmpEls.okBtn);
+    else _cmpEls.okBtn.focus();
+
+    try {
+      _cmpAudio = new Audio(_CMP_SOUND);
+      var pr = _cmpAudio.play();   // Promise; bei blockiertem Autoplay still abfangen
+      if (pr && typeof pr.catch === 'function') {
+        pr.catch(function() { /* Autoplay evtl. blockiert — Box bleibt sichtbar */ });
+      }
+    } catch (e) { /* Audio nicht verfuegbar — Box bleibt stumm */ }
+  }
+
+  testUI.completion = { show: _cmpShow, close: _cmpClose };
+})();

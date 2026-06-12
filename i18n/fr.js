@@ -780,6 +780,18 @@ Object.assign(L.fr, {
       "<br><br>Ajustez l'intensité des deux sons jusqu'à ce qu'ils paraissent aussi forts l'un que l'autre.",
     testRunningTitle: "Test d'équilibrage d'intensité d'électrodes en cours",
     testRunningHint: "Ajustez le volume des deux sons jusqu'à ce qu'ils paraissent aussi forts l'un que l'autre.",
+    // BA 279: Testende-Modalbox.
+    testDoneTitle:      "Test {name} terminé.",
+    testDoneResultHint: "Vous pouvez voir le résultat du test dans l’onglet Résultats de mesure → {subtab}.",
+    compBtnOk:          "OK",
+    testRrName:         "Round Robin",
+    compNameFmAdaptive: "Appariement fréquentiel (Adaptatif)",
+    compSubLoudness:    "Intensité des électrodes",
+    rrDoneExtra:        "Vous pouvez affiner davantage les résultats de mesure avec la deuxième procédure de test « Convergence ». Vous pouvez écouter l’effet de la correction dans le Player.",
+    lrDoneExtra:        "Vous pouvez activer la balance stéréo dans le Player.",
+    fmDoneExtra:        "Vous pouvez activer le warping fréquentiel dans le Player pour entendre l’effet d’un décalage de fréquence ajusté.",
+    linksFreesoundDesc:     "Freesound vise à créer une immense base de données collaborative de fragments audio, d’échantillons, d’enregistrements, de bips, … publiés sous licences Creative Commons qui permettent leur réutilisation.",
+    linksFreesoundUsedLabel: "Utilisé dans cet outil",
     lrRunningTitle: "Test de balance stéréo en cours",
     lrRunningHint: "Ajustez le volume jusqu'à ce que les deux côtés paraissent aussi forts.",
     lrPrereqHint: "Effectuez d'abord la mesure d'intensité d'électrode pour les deux côtés.",
@@ -1064,6 +1076,8 @@ Object.assign(L.fr, {
       "Cette collection propose différents sons de test." +
       "<br><br>" +
       "Selon la procédure de test, choisissez-en un qui vous offre une bonne comparabilité avec aussi peu de perturbations sonores que possible." +
+      "<br><br>" +
+      "Le son de test idéal n'a pas encore été trouvé ; c'est aussi pourquoi le choix est encore très large. La recherche se poursuit." +
       "<br><br>" +
       "<strong>Important :</strong> Gardez le même son pendant tout le test — en changer peut fausser le résultat." +
       "<br><br>" +

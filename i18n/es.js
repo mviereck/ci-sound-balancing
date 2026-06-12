@@ -780,6 +780,18 @@ Object.assign(L.es, {
       "<br><br>Ajuste la intensidad de los dos tonos hasta que suenen igual de fuertes.",
     testRunningTitle: "Prueba de balance de volumen de electrodos en curso",
     testRunningHint: "Ajuste el volumen de los dos tonos hasta que suenen igual de fuertes.",
+    // BA 279: Testende-Modalbox.
+    testDoneTitle:      "Prueba {name} finalizada.",
+    testDoneResultHint: "Puede ver el resultado de la prueba en la pestaña Resultados de medición → {subtab}.",
+    compBtnOk:          "OK",
+    testRrName:         "Round Robin",
+    compNameFmAdaptive: "Ajuste de frecuencia (Adaptativo)",
+    compSubLoudness:    "Volumen de electrodos",
+    rrDoneExtra:        "Puede refinar más los resultados de medición con el segundo procedimiento de prueba «Convergencia». Puede escuchar el efecto de la corrección en el reproductor.",
+    lrDoneExtra:        "Puede activar el balance estéreo en el reproductor.",
+    fmDoneExtra:        "Puede activar el warping de frecuencia en el reproductor para oír el efecto de un desplazamiento de frecuencia ajustado.",
+    linksFreesoundDesc:     "Freesound pretende crear una enorme base de datos colaborativa de fragmentos de audio, muestras, grabaciones, pitidos, … publicados bajo licencias Creative Commons que permiten su reutilización.",
+    linksFreesoundUsedLabel: "Usado en esta herramienta",
     lrRunningTitle: "Prueba de balance estéreo en curso",
     lrRunningHint: "Ajuste el volumen hasta que ambos lados suenen igual de fuertes.",
     lrPrereqHint: "Realice primero la medición de volumen de electrodos para ambos lados.",
@@ -1064,6 +1076,8 @@ Object.assign(L.es, {
       "Esta colección ofrece diferentes tonos de prueba." +
       "<br><br>" +
       "Según el procedimiento de prueba, elija uno que le ofrezca buena comparabilidad con la menor cantidad de interferencias posible." +
+      "<br><br>" +
+      "El tono de prueba ideal aún no se ha encontrado; también por eso la selección sigue siendo muy amplia. La búsqueda continúa." +
       "<br><br>" +
       "<strong>Importante:</strong> Mantenga el mismo tono durante toda la prueba — cambiarlo puede distorsionar el resultado." +
       "<br><br>" +

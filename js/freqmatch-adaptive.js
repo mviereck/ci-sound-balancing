@@ -743,6 +743,16 @@ function fmFinishAdaptive() {
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
+  // BA 279: Abschluss-Box. fmFinishAdaptive wird nur erreicht, wenn keine
+  // Tracks mehr offen sind (fmPickNextTrack === null in fmNextAdaptiveTrial)
+  // — natuerliches Ende. Pause/Abbruch laeuft ueber fmFinish: KEINE Box.
+  if (typeof testUI !== 'undefined' && testUI.completion) {
+    testUI.completion.show({
+      nameKey:   'compNameFmAdaptive',
+      subtabKey: 'subTabFreqMatch',
+      bodyKey:   'fmDoneExtra'
+    });
+  }
 }
 
 function fmRenderStatusGrid() {

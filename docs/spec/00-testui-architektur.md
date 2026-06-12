@@ -510,6 +510,21 @@ Body-Reihenfolge angepasst: `actions` (Zurück/Nochmal/Gleichzeitig) von Positio
 
 `slider`-Baustein erweitert seinen Bereich automatisch beim Loslassen (Maus/Touch) oder wenn ein Pfeiltasten-Schritt das Limit trifft. Neuer cfg-Vertrag `slider: { initialRange, maxRange, … }` ersetzt das alte `ranges: [...]`/`defaultRange`. `initialRange` ist Startbereich und Schrittweite jeder Erweiterung; `maxRange` ist absolute Obergrenze. Rückwärts-Kompat: altes `ranges` wird gelesen als `initialRange = ranges[0]`/`maxRange = ranges[-1]`, aber ohne Auto-Extend (kein Absturz). Extend-Button (`btn.extend-btn`, i18n `bExtend`) und `refs.slider.extendBtn` ersatzlos entfernt. `refs.slider` enthält jetzt `{input, lsHint, lsHintBand, lsHintMark, lsHintLabel, unit, initialRange, maxRange, rangeIdx}`. Neue Helfer-API `testUI.slider.setValue(slRef, value)`: setzt einen Wert und resettet den Bereich auf das nötige Minimum (`initialRange`-Vielfache) — wird z. B. beim Elektroden-Wechsel im Slider-Verfahren genutzt. Track-Höhe variiert via CSS-Custom-Property `--sl-range-step` (10 px Start, −0,8 px je Erweiterung, min. 4 px) — `style.css` setzt `::-webkit-slider-runnable-track` und `::-moz-range-track` entsprechend. Migration in `freqmatch.js`: Modul-Konstanten `FM_SLIDER_RANGES`/`fmSlRangeIdx` entfernt; Funktionen `_fmCheckExtend`/`_fmExtendRange` entfernt; `fmShowElectrode` nutzt `testUI.slider.setValue` statt manueller min/max-Manipulation; externer Extend-Button-Listener im DOMContentLoaded entfernt. Migration der übrigen Test-Module in den Folge-BAs.
 
+**BA 279 — testUI.completion** (Abschluss-Modalbox)
+
+IIFE nach `testUI.sideCheck` am Dateiende von `test-ui.js`. API:
+`testUI.completion.show({nameKey, subtabKey, bodyKey})` — öffnet ein Modal
+(CSS `modal-overlay.completion-modal` + `.active`) mit Titel aus i18n-Key
+`testDoneTitle` ({name} ersetzt), generischem Ergebnis-Satz aus
+`testDoneResultHint` ({subtab} ersetzt) und Zusatztext aus `bodyKey`. Spielt
+beim Öffnen einen Fanfare-Klang (`assets/audio/810330__mokasza__triumphant-success.mp3`).
+`testUI.completion.close()` blendet das Modal aus und stoppt den Klang.
+Alle drei i18n-Keys werden beim `show()`-Aufruf direkt als Textinhalt
+gesetzt (kein `data-t`), da Platzhalter-Ersatz durch `applyLang` nicht
+kompatibel wäre. Aufgerufen an genau drei Stellen: `test.js` `nextFullRound`
+(Vollende-Zweig), `lr-balance.js` `lrFinish`, `freqmatch-adaptive.js`
+`fmFinishAdaptive`. Nicht bei Stop/Pause und nicht in Konvergenz/Vor-Schätzung.
+
 ## Verwandte Dokumente
 
 - [02-messung.md](02-messung.md) — funktionale Spezifikation der

@@ -837,6 +837,19 @@ Object.assign(L.de, {
     // BA 247: Verfahren-Labels fuer Elektrodenlautstaerke (zwei Verfahren).
     testVerfahrenFull: "Round Robin (Vollständig)",
     testVerfahrenConv: "Konvergenz",
+    // BA 279: Testende-Modalbox (Abschluss-Hinweis).
+    testDoneTitle:      "Test {name} beendet.",
+    testDoneResultHint: "Sie können das Ergebnis des Tests in Reiter Meßergebnisse → {subtab} sehen.",
+    compBtnOk:          "OK",
+    testRrName:         "Round Robin",
+    compNameFmAdaptive: "Frequenzabgleich (Adaptiv)",
+    compSubLoudness:    "Elektrodenlautstärke",
+    rrDoneExtra:        "Sie können die Meßergebnisse mit dem zweiten Testverfahren „Konvergenz“ weiter verfeinern. Sie können im Player die Wirkung der Korrektur anhören.",
+    lrDoneExtra:        "Sie können Stereo-Balance im Player aktivieren.",
+    fmDoneExtra:        "Sie können Frequenz-Warping im Player aktivieren, um den Effekt einer angepaßten Frequenzverschiebung zu hören.",
+    // BA 279: Freesound-Quelle im Links-Reiter.
+    linksFreesoundDesc:     "Freesound möchte eine riesige gemeinschaftliche Datenbank von Audio-Schnipseln, Samples, Aufnahmen, Bleeps, … aufbauen, die unter Creative-Commons-Lizenzen veröffentlicht sind und deren Wiederverwendung erlauben.",
+    linksFreesoundUsedLabel: "In diesem Tool verwendet",
     lrRunningTitle: "Stereo-Balance-Test läuft",
     lrRunningHint: "Passen Sie die Lautstärke an, bis sich beide Seiten gleich laut anhören.",
     lrPrereqHint: "Führen Sie zuerst die Messung Elektrodenlautstärke für beide Seiten aus.",
