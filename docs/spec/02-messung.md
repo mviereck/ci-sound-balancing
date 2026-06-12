@@ -290,6 +290,18 @@ Slider-Wert wird invertiert.
   (Elektrodenlautstärke-Balance), nicht mehr im Test selbst. Sie
   wirkt nur auf die Anzeige und Anwendung der Ergebnisse, nicht auf
   die Messung.
+- Die Referenzelektrode ist **rein seitenspezifisch**: jede Seite
+  (jedes Ohr) hat ihre eigene gespeicherte Referenz; das Umschalten
+  zwischen den Seiten zeigt die jeweils eigene Referenz, und der
+  Player folgt automatisch der Referenz der angezeigten Seite. Der
+  **Default** ist die rechnerische Mitte der Elektrodenzahl der Seite
+  (herstellerabhängig, z.B. E7 bei 12 Elektroden), wobei deaktivierte
+  und stummgestellte Elektroden übersprungen werden — von der Mitte
+  aus nach außen die nächste nutzbare Elektrode, bei Gleichstand die
+  tiefere. Zeigt eine geladene/gespeicherte Referenz auf eine
+  inzwischen deaktivierte/stumme Elektrode oder fehlt sie, fällt sie
+  auf diesen Default zurück. Implementierung: `pickDefaultRefEl(side)`
+  und `setRefEl(v)` (einziger Schreibweg) in `state-side.js`.
 - Die Referenzelektrode ist im Loudness-Graph durch ein fettes
   schwarzes „Ref.-El."-Label am oberen Rand markiert — zusätzlich
   zur bisherigen Hervorhebung als fettes blaues Achsen-Label. In

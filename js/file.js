@@ -535,11 +535,15 @@ function loadOldFormat(d, targetSide) {
     }
   }
 
-  // Referenzelektrode
-  s.refEl =
-    d.referenceElectrode !== undefined && d.referenceElectrode < s.nEl
-      ? d.referenceElectrode
-      : Math.floor(s.nEl / 2);
+  // Referenzelektrode seitenspezifisch; bei fehlender, ungueltiger oder
+  // auf eine deaktivierte/stumme Elektrode zeigender Angabe -> Default.
+  {
+    const r = d.referenceElectrode;
+    const valid =
+      typeof r === "number" && r >= 0 && r < s.nEl &&
+      s.elExDur[r] == null && s.elSt[r] !== "mute";
+    s.refEl = valid ? r : pickDefaultRefEl(targetSide);
+  }
 
   // Messergebnisse
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend

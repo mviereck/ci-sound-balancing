@@ -853,10 +853,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const _refSel = document.getElementById('refEl');
   if (_refSel) {
     _refSel.addEventListener('change', function() {
-      refEl = +this.value;
-      if (typeof renderResults === 'function') renderResults();
-      if (typeof drawLvChart    === 'function') drawLvChart();
-      if (typeof pUpdEQ         === 'function') pUpdEQ();
+      setRefEl(+this.value);
     });
   }
 

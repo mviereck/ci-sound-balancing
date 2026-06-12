@@ -395,21 +395,27 @@ function updateFreqTableHints() {
   if (typeof depLockApply === 'function') depLockApply();
 }
 function updRef() {
-  const s = document.getElementById("refEl");
-  if (!s) return;
-  const p = s.value;
+  const sel = document.getElementById("refEl");
+  if (!sel) return;
+  const prevRef = refEl;
   const pfx = dENPrefix();
-  s.innerHTML = "";
+  sel.innerHTML = "";
   for (let i = 0; i < nEl; i++) {
     if (elExDur[i] !== null || elSt[i] === "mute") continue;
-    s.innerHTML += `<option value="${i}">${pfx}${dEN(i)}</option>`;
+    sel.innerHTML += `<option value="${i}">${pfx}${dEN(i)}</option>`;
   }
-  if (p && s.querySelector(`option[value="${p}"]`)) s.value = p;
-  else s.value = String(Math.floor(nEl / 2));
-  const newRef = +s.value;
-  const changed = (newRef !== refEl);
-  refEl = newRef;
-  if (changed) {
+  // Seitenspezifischer Wert ist die Wahrheit: behalten, solange er noch
+  // eine waehlbare (aktive) Elektrode trifft; sonst seitenspezifischer
+  // Default (Mitte, deaktivierte uebersprungen).
+  const stored = sideData[activeSide] ? sideData[activeSide].refEl : refEl;
+  let want = stored;
+  if (want == null || !sel.querySelector(`option[value="${want}"]`)) {
+    want = pickDefaultRefEl(activeSide);
+  }
+  sel.value = String(want);
+  refEl = want;
+  if (sideData[activeSide]) sideData[activeSide].refEl = want;
+  if (want !== prevRef) {
     if (typeof renderResults === 'function') renderResults();
     if (typeof drawLvChart    === 'function') drawLvChart();
     if (typeof pUpdEQ         === 'function') pUpdEQ();

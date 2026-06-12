@@ -91,6 +91,39 @@ function bindActiveSide() {
   // BA 149
   if (typeof depLockApply === 'function') depLockApply();
 }
+// Seitenspezifische Default-Referenzelektrode: rechnerische Mitte der
+// Elektrodenzahl, von dort nach aussen die naechste nutzbare (nicht
+// deaktiviert, nicht stumm) Elektrode; bei Gleichstand die tiefere
+// Index-Nummer.
+function pickDefaultRefEl(side) {
+  const s = sideData[side];
+  if (!s) return 0;
+  const n = s.nEl;
+  const mid = Math.floor(n / 2);
+  const usable = (i) =>
+    i >= 0 && i < n &&
+    (!s.elExDur || s.elExDur[i] == null) &&
+    (!s.elSt || s.elSt[i] !== "mute");
+  if (usable(mid)) return mid;
+  for (let d = 1; d < n; d++) {
+    if (usable(mid - d)) return mid - d;
+    if (usable(mid + d)) return mid + d;
+  }
+  return mid;
+}
+// Einziger Schreibweg fuer die Referenzelektrode. Die Wahrheit liegt
+// seitenspezifisch in sideData[activeSide].refEl; die gespiegelte
+// globale Ansicht wird synchron gehalten, damit der Wert beim
+// Seiten-Umschalten (bindActiveSide/withSide) nicht verlorengeht.
+// Zieht die abhaengigen Anzeigen nach (Ergebnis-Tabelle, Pegel-Graph,
+// Player-EQ).
+function setRefEl(v) {
+  refEl = v;
+  if (sideData[activeSide]) sideData[activeSide].refEl = v;
+  if (typeof renderResults === "function") renderResults();
+  if (typeof drawLvChart === "function") drawLvChart();
+  if (typeof pUpdEQ === "function") pUpdEQ();
+}
 function initSideData(side, m) {
   const s = sideData[side];
   // BA 154: Default jetzt „Keine Angabe" statt „ci"/„medel"
@@ -356,10 +389,15 @@ function loadSideData(side, d) {
       s.elExDur[_i] = s.elExDur[_i] || Date.now();
     }
   }
-  s.refEl =
-    d.referenceElectrode !== undefined
-      ? d.referenceElectrode
-      : Math.floor(s.nEl / 2);
+  // Referenzelektrode seitenspezifisch; bei fehlender, ungueltiger oder
+  // auf eine deaktivierte/stumme Elektrode zeigender Angabe -> Default.
+  {
+    const r = d.referenceElectrode;
+    const valid =
+      typeof r === "number" && r >= 0 && r < s.nEl &&
+      s.elExDur[r] == null && s.elSt[r] !== "mute";
+    s.refEl = valid ? r : pickDefaultRefEl(side);
+  }
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
   s.bRes = d.balanceResults || [];
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
