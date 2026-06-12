@@ -848,6 +848,56 @@ function playSineNoiseMixTone(c, hz, vol, ms, pan, sineLevel, noiseLevel, ramp =
   });
 }
 
+// BA 274: Cluster -- Zielfrequenz plus count eng benachbarte
+// Nebenfrequenzen, je count/2 ober- und unterhalb. unit "hz": fester
+// Hz-Abstand (Schwebung mit gleichem Tempo ueber alle Tonhoehen). unit
+// "cent": proportionaler Abstand. Alle Teiltoene gleich laut (gegen die
+// Summe normalisiert). Sehr tiefe Nebenfrequenzen werden bei MIN_HZ
+// abgefangen, zu hohe (ueber Nyquist) weggelassen.
+function playClusterTone(c, hz, vol, ms, pan, count, spacing, unit, ramp = 50) {
+  return new Promise((r) => {
+    var MIN_HZ  = 20;
+    var nyquist = c.sampleRate / 2 - 100;
+    var freqList = [hz];
+    var half = Math.floor(count / 2);
+    for (var k = 1; k <= half; k++) {
+      var up, dn;
+      if (unit === "cent") {
+        up = hz * Math.pow(2,  (k * spacing) / 1200);
+        dn = hz * Math.pow(2, -(k * spacing) / 1200);
+      } else {
+        up = hz + k * spacing;
+        dn = hz - k * spacing;
+      }
+      freqList.push(up);
+      freqList.push(dn);
+    }
+    var g = c.createGain();
+    var p = c.createStereoPanner();
+    p.pan.value = pan;
+    var amp = 1 / freqList.length;
+    var oscs = [];
+    for (var i = 0; i < freqList.length; i++) {
+      var f = freqList[i];
+      if (f < MIN_HZ || f >= nyquist) continue;
+      var o  = c.createOscillator();
+      var og = c.createGain();
+      o.type = "sine";
+      o.frequency.value = f;
+      og.gain.value = amp;
+      o.connect(og); og.connect(g);
+      o.start();
+      o.stop(c.currentTime + ms / 1000 + 0.01);
+      oscs.push(o);
+    }
+    applyCosRamp(g, vol, c, ms, ramp);
+    g.connect(p); p.connect(c.destination);
+    for (var j = 0; j < oscs.length; j++) runningSources.push(oscs[j]);
+    if (oscs.length > 0) oscs[0].onended = function () { r(); };
+    else r();
+  });
+}
+
 // BA 225: zentrale Whitelist-Pruefung fuer toneType-Strings.
 // Wird von file.js und init.js statt der lokalen VALID_TONE_TYPES-Arrays
 // verwendet.
@@ -859,7 +909,9 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "richCiB", "richCiP", "richCiBF",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
   "wobbleSweep",
-  "neighborSine", "sineNoiseHalf", "sineNoiseFull"];
+  "neighborSine", "sineNoiseHalf", "sineNoiseFull",
+  "clusterHz2x3", "clusterHz4x3", "clusterHz2x8", "clusterHz4x8",
+  "clusterCent2x10", "clusterCent4x10", "clusterCent2x30", "clusterCent4x30"];
 
 function isValidToneType(tt) {
   if (typeof tt !== "string" || tt.length === 0) return false;
@@ -928,6 +980,14 @@ function playToneTyped(c, hz, vol, ms, pan, toneType, ramp = 50) {
   if (toneType === "neighborSine")   return playNeighborSineTone(c, hz, vol, ms, pan, ramp);
   if (toneType === "sineNoiseHalf")  return playSineNoiseMixTone(c, hz, vol, ms, pan, 0.5, 0.5, ramp);
   if (toneType === "sineNoiseFull")  return playSineNoiseMixTone(c, hz, vol, ms, pan, 1.0, 0.5, ramp);
+  if (toneType === "clusterHz2x3")    return playClusterTone(c, hz, vol, ms, pan, 2, 3,  "hz",   ramp);
+  if (toneType === "clusterHz4x3")    return playClusterTone(c, hz, vol, ms, pan, 4, 3,  "hz",   ramp);
+  if (toneType === "clusterHz2x8")    return playClusterTone(c, hz, vol, ms, pan, 2, 8,  "hz",   ramp);
+  if (toneType === "clusterHz4x8")    return playClusterTone(c, hz, vol, ms, pan, 4, 8,  "hz",   ramp);
+  if (toneType === "clusterCent2x10") return playClusterTone(c, hz, vol, ms, pan, 2, 10, "cent", ramp);
+  if (toneType === "clusterCent4x10") return playClusterTone(c, hz, vol, ms, pan, 4, 10, "cent", ramp);
+  if (toneType === "clusterCent2x30") return playClusterTone(c, hz, vol, ms, pan, 2, 30, "cent", ramp);
+  if (toneType === "clusterCent4x30") return playClusterTone(c, hz, vol, ms, pan, 4, 30, "cent", ramp);
   if (typeof toneType === "string" && toneType.startsWith("smplr:"))
     return _playSmplrTone(c, hz, vol, ms, pan, toneType);
   return playSineTone(c, hz, vol, ms, pan, ramp);

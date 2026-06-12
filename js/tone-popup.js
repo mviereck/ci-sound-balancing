@@ -117,7 +117,15 @@ var GROUPS = [
     items: [
       ['neighborSine',  'toneNeighborSine',  'toneNeighborSineDesc'],
       ['sineNoiseHalf', 'toneSineNoiseHalf', 'toneSineNoiseHalfDesc'],
-      ['sineNoiseFull', 'toneSineNoiseFull', 'toneSineNoiseFullDesc']
+      ['sineNoiseFull', 'toneSineNoiseFull', 'toneSineNoiseFullDesc'],
+      ['clusterHz2x3',    'toneClusterHz2x3',    'toneClusterHz2x3Desc'],
+      ['clusterHz4x3',    'toneClusterHz4x3',    'toneClusterHz4x3Desc'],
+      ['clusterHz2x8',    'toneClusterHz2x8',    'toneClusterHz2x8Desc'],
+      ['clusterHz4x8',    'toneClusterHz4x8',    'toneClusterHz4x8Desc'],
+      ['clusterCent2x10', 'toneClusterCent2x10', 'toneClusterCent2x10Desc'],
+      ['clusterCent4x10', 'toneClusterCent4x10', 'toneClusterCent4x10Desc'],
+      ['clusterCent2x30', 'toneClusterCent2x30', 'toneClusterCent2x30Desc'],
+      ['clusterCent4x30', 'toneClusterCent4x30', 'toneClusterCent4x30Desc']
     ]
   }
 ];

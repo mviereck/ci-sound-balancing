@@ -68,7 +68,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
   aus TinySOL/IRCAM analysiert in BA 214) /
   AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep /
   **Sinus + Nachbarelektroden / Sinus + Rauschen 50/50 / Sinus + Rauschen
-  100/50** (BA 273, Gruppe „Experimentelle Töne"). Default
+  100/50** (BA 273, Gruppe „Experimentelle Töne") /
+  **Cluster ±3 Hz 2N / Cluster ±3 Hz 4N / Cluster ±8 Hz 2N / Cluster ±8 Hz 4N /
+  Cluster ±10 ct 2N / Cluster ±10 ct 4N / Cluster ±30 ct 2N / Cluster ±30 ct 4N**
+  (BA 274, Schwebungs-Cluster in der Gruppe „Experimentelle Töne"). Default
   `'richCiHF'` (CI-Test flach; seit 3.2.239.4 — zuvor `'complex'`).
   Seit BA 254: kein gemeinsamer Dropdown mehr; jeder Test wählt seine Tonart
   über den Tonart-Popup-Button im eigenen Header.
