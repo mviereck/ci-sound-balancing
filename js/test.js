@@ -1258,11 +1258,6 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         },
         sequence:     { show: true, source: 'global' },
-        sliderTarget: {
-          options:  ['a','b','balance'],
-          stateKey: 'slTarget_test',
-          default:  'balance'
-        },
         electrodeSelection: {
           // BA 247fix: zwei Elektroden noetig, sonst kein Paar.
           minSelected: 2,
@@ -1365,8 +1360,12 @@ function _testPlaySimul() {
   // Header-Feld.
   var vol = tGVol();
   var dur = tGDur();
-  var vA = Math.max(Math.min(vol * (tot < 0 ? dB2G(tot)  : 1), 1), 0);
-  var vB = Math.max(Math.min(vol * (tot > 0 ? dB2G(-tot) : 1), 1), 0);
+  // BA 283: symmetrische Verschiebung wie in playSeq (audio.js):
+  // -tot/2 zu A, +tot/2 zu B. Beide Toene werden bewegt, gleiche
+  // Wirkungsrichtung wie beim Nacheinander-Abspielen.
+  var halfOff = tot / 2;
+  var vA = Math.max(Math.min(vol * dB2G(-halfOff), 1), 0);
+  var vB = Math.max(Math.min(vol * dB2G(halfOff), 1), 0);
   var p1 = playTone(effFreq(curA), vA, dur, 50, toneType_test);
   var p2 = playTone(effFreq(curB), vB, dur, 50, toneType_test);
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];

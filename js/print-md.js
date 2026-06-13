@@ -139,7 +139,6 @@ function _collectTestSettings() {
       (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : null,
       (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : null
     ),
-    slTargetTest:    (typeof slTarget_test    !== "undefined") ? slTarget_test    : null,
     slTargetBalance: (typeof slTarget_balance !== "undefined") ? slTarget_balance : null
   };
 }
@@ -473,6 +472,11 @@ function _archivMdTestSettings(data) {
     richCiP:  "toneRichCiP",
     richCiB:  "toneRichCiB",  richCiBF: "toneRichCiBF",
     richCiHA: "toneRichCiHA", richCiHS: "toneRichCiHS",
+    richCiGVL: "toneRichCiGVL", richCiGVN: "toneRichCiGVN",
+    richCiGVS: "toneRichCiGVS",
+    richCiGA1: "toneRichCiGA1", richCiGA2: "toneRichCiGA2",
+    richCiGB:  "toneRichCiGB",
+    richCiGD1: "toneRichCiGD1", richCiGD2: "toneRichCiGD2",
     sine: "toneSine", complex: "toneComplex",
     pulsedComplex: "tonePulsedComplex", richTone: "toneRichTone",
     richAcc: "toneRichAcc", richASax: "toneRichASax",

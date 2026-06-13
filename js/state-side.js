@@ -777,7 +777,6 @@ let toneType_implant = TEST_DEFAULTS.implant.toneType;
 let volume_implant   = TEST_DEFAULTS.implant.volume;
 let duration_implant = TEST_DEFAULTS.implant.duration;
 let pause_implant    = TEST_DEFAULTS.implant.pause;
-let slTarget_test = "balance";    // "a" | "b" | "balance"
 let slTarget_balance = "both";    // "left" | "right" | "both"
 
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)

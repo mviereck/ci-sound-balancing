@@ -67,6 +67,14 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Trompete in C / Violine / Violoncello / Waldhorn** (BA 215, Profile
   aus TinySOL/IRCAM analysiert in BA 214) /
   AM-Sinus / Warble-Sinus / Sinus-Bursts / Wobble-Sweep /
+  **CI-Test Vibrato langsam / schmal / Sänger / AM dezent / AM stark /
+  Schwebung / Drift sanft / Drift stark** (0.4.282.1, Grundton-Varianten
+  in der Gruppe „Experimentelle Töne": drei Vibrato-Formen (3 Hz / 6 cent,
+  5 Hz / 3 cent, 6 Hz / 40 cent), zwei AM-Stufen (8 % bei 3,5 Hz, 25 %
+  bei 3 Hz), Schwebung über zwei Sinüsse +5 cent (~3 Hz Beat bei 1 kHz,
+  logarithmisch konstanter Cent-Abstand), zwei Drift-Varianten über
+  bandbegrenztes Rauschen — Engine `playRichToneProfile` um Profil-Felder
+  `driftHz`/`driftCents` erweitert) /
   **Sinus + Nachbarelektroden / Sinus + Rauschen 50/50 / Sinus + Rauschen
   100/50** (BA 273, Gruppe „Experimentelle Töne") /
   **Cluster ±3 Hz 2N / Cluster ±3 Hz 4N / Cluster ±8 Hz 2N / Cluster ±8 Hz 4N /
@@ -196,9 +204,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
 
 ### Slider-Wirkung (pro Test eigener Wert)
 
-- **Test 1** (`slTarget_test`): A / B / Balance. Default `Balance`.
-  Bei Slider +6 dB im Modus Balance: A wird mit −3 dB, B mit +3 dB
-  gespielt.
+- **Test 1**: kein Dropdown mehr (BA 283 entfernt). Der Slider wirkt
+  immer symmetrisch: bei Slider +6 dB wird A mit −3 dB, B mit +3 dB
+  gespielt — sowohl beim Nacheinander-Abspielen (`playSeq`) als auch
+  beim Knopf "Gleichzeitig" (`_testPlaySimul`).
 - **Test 2** (`slTarget_balance`): Links / Rechts / Beide. Default
   `Beide`, symmetrisch wie in Test 1.
 - **Test 3**: kein Dropdown, intern fest auf der
