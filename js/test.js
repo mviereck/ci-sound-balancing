@@ -877,13 +877,22 @@ function showCurPair() {
   }
 
   // BA 247: curBase ist immer 0. Slider sitzt auf dem gespeicherten
-  // Wert (falls vorhanden), sonst 0 dB.
+  // Wert (falls vorhanden).
+  // Direkt-Edit 280.1: Paar ohne eigenen Messwert startet auf der
+  // Voreinschaetzung (falls schon eine Datenbasis existiert), sonst 0 dB.
+  // Gilt fuer beide Verfahren (full / conv); im Konvergenz-Normalfall
+  // greift fast immer der gespeicherte Wert.
   curBase = 0;
   var ex = bRes.find(function(r) {
     return (r.a === curA && r.b === curB) || (r.a === curB && r.b === curA);
   });
   var startVal = 0;
-  if (ex) startVal = (ex.a === curA) ? ex.offset : -ex.offset;
+  if (ex) {
+    startVal = (ex.a === curA) ? ex.offset : -ex.offset;
+  } else {
+    var estStart = getLsEstimate(curA, curB);
+    if (estStart.hasData) startVal = estStart.estimate;
+  }
   if (vref && vref.slider) {
     testUI.slider.setValue(vref.slider, startVal);
     testUI.slider.setValueDisplay(vref.slider, startVal.toFixed(1) + " dB");
