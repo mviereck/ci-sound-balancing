@@ -437,6 +437,21 @@ Slider-Wert wird invertiert.
 - **Abschluss-Box (BA 279):** Nach natürlichem Sequenz-Ende (`lrFinish`)
   erscheint eine Abschluss-Box (`testUI.completion.show`) mit Fanfare-Klang
   und Hinweis auf den Ergebnis-Reiter. Bei Stop/Pause (`lrPause`) keine Box.
+- **Token-Maschine (BA 290):** Wiedergabe über `testUI.tonePlayer`
+  (identisch Elektrodenlautstärke-Test BA 288). Sequenz-Aufbau durch
+  `lrSequence()`: liefert Token `{hz, pan, vol, durationMs, side}` und
+  Pausen `{pauseMs}` für die laufende Elektrode. Hilfs-Funktion
+  `lrPairGains(baseL, baseR, off)` berechnet die Pegel beider Seiten
+  symmetrisch (`dB2G(±off/2)`) und kürzt beide proportional, sobald der
+  lautere Kanal über 1.0 ginge (Variante A: Gesamtunterschied bleibt
+  hörbar). `lrStopPlay` ruft `testUI.tonePlayer.stop()` auf, bevor die
+  bisherige `runningSources`-Bereinigung folgt.
+- **Deckelungs-Hinweis (BA 290):** Zeigt `clipHint` (Slot in `body`)
+  sobald ein Kanal gedeckelt wird: „RECHTS/LINKS hat die maximale
+  Lautstärke erreicht — nur LINKS/RECHTS wird noch angepasst."
+  Text kommt aus `clipHintCapped` + `sideLeft`/`sideRight`. Wird via
+  `lrUpdateClipHint()` in `lrHookOnSlide` bei jeder Schieber-Bewegung
+  aktualisiert und beim Rückschieben in den Normalbereich ausgeblendet.
 
 ### Sub-Tab 3 — Frequenzabgleich (freqmatch.js)
 

@@ -44,11 +44,6 @@ function _lrUpdCumulative(v) {
 }
 
 
-function lrPlayTone(hz, vol, ms, pan) {
-  const c = gAC();
-  return playToneTyped(c, hz, vol, ms, pan, toneType_balance);
-}
-
 function lrGVol() { return Math.pow((volume_global || 0) / 100, 2); }
 function lrGDur() { return duration_balance || 1000; }
 function lrGPau() { return pause_balance    || 400;  }
@@ -120,6 +115,57 @@ function lrDEN(side, elIdx) {
   return withSide(side, () => dEN(elIdx));
 }
 
+// BA 290: Pegel-Aufteilung fuer das Links/Rechts-Paar mit Deckelung
+// "Variante A" (Gesamt-Unterschied). baseL/baseR sind die Grundpegel je
+// Seite (vol * Elektrodenkorrektur). off = Slider in dB (positiv =
+// rechts lauter / links leiser). Beide Seiten werden symmetrisch um
+// ihren Grundpegel verschoben; ginge der lautere ueber 1.0, werden BEIDE
+// proportional heruntergezogen, bis der lautere genau 1.0 ist (Verhaeltnis
+// = hoerbarer Unterschied bleibt erhalten, kein Sprung am Anschlag).
+// Rueckgabe { vL, vR, capped } mit capped = null | 'left' | 'right'.
+function lrPairGains(baseL, baseR, off) {
+  var idealL = baseL * dB2G(-off / 2);
+  var idealR = baseR * dB2G(off / 2);
+  var m = Math.max(idealL, idealR);
+  if (m <= 1) return { vL: idealL, vR: idealR, capped: null };
+  return {
+    vL: idealL / m,
+    vR: idealR / m,
+    capped: (idealR >= idealL) ? 'right' : 'left'
+  };
+}
+
+// BA 290: Token-Liste fuer das aktuelle Links/Rechts-Paar. Liefert
+// fertige Token { hz, pan, vol, durationMs, side } (vol inkl. Korrektur
+// und Deckelung) und Pausen { pauseMs }. 'side' ('left'|'right') dient
+// nur dem Aufleuchten (onStepStart). Reihenfolge folgt lrFlipped.
+//   opts.aba === true -> erste Seite am Ende wiederholt.
+function lrSequence(opts) {
+  opts = opts || {};
+  var el = lrCurrentEl;
+  var slOff = _lrSliderVal();
+  var vol = lrGVol();
+  var dur = lrGDur();
+  var pau = lrGPau();
+  var rightNEl = sideData["right"].nEl;
+  var rightEl = el < rightNEl ? el : rightNEl - 1;
+  var hzL = lrEffFreq("left", el);
+  var hzR = lrEffFreq("right", rightEl);
+  var corrL = lrCorrGain("left", el);
+  var corrR = lrCorrGain("right", rightEl);
+  var g = lrPairGains(vol * corrL, vol * corrR, slOff);
+  var tL = { hz: hzL, pan: -1, vol: g.vL, durationMs: dur, side: 'left' };
+  var tR = { hz: hzR, pan:  1, vol: g.vR, durationMs: dur, side: 'right' };
+  var first  = lrFlipped ? tR : tL;
+  var second = lrFlipped ? tL : tR;
+  var seq = [ first, { pauseMs: pau }, second ];
+  if (opts.aba) {
+    seq.push({ pauseMs: pau });
+    seq.push(first);
+  }
+  return seq;
+}
+
 // Play the current LR comparison sequence
 async function lrPlayCurrent() {
   if (lrCurrentEl === null) return;
@@ -127,84 +173,48 @@ async function lrPlayCurrent() {
     lrStopPlay();
     await new Promise((r) => setTimeout(r, 60));
   }
-
-  const el = lrCurrentEl;
-  const slOff = _lrSliderVal(); // positive = slider side louder
-  const vol = lrGVol();
-  const dur = lrGDur();
-  const pau = lrGPau();
-
-  const rightNEl = sideData["right"].nEl;
-  const rightEl = el < rightNEl ? el : rightNEl - 1;
-  const hzL = lrEffFreq("left", el);
-  const hzR = lrEffFreq("right", rightEl);
-  const corrL = lrCorrGain("left", el);
-  const corrR = lrCorrGain("right", rightEl);
-
-  // BA 289: Schieber wirkt immer symmetrisch (Dropdown entfernt).
-  // positive = R lauter / L leiser.
-  let volL = vol * corrL * dB2G(-slOff / 2);
-  let volR = vol * corrR * dB2G(slOff / 2);
-
-  const firstSide = lrFlipped ? "right" : "left";
-  const secondSide = lrFlipped ? "left" : "right";
-  const firstHz = lrFlipped ? hzR : hzL;
-  const secondHz = lrFlipped ? hzL : hzR;
-  const firstVol = lrFlipped ? volR : volL;
-  const secondVol = lrFlipped ? volL : volR;
-  const firstPan = lrFlipped ? 1 : -1;
-  const secondPan = lrFlipped ? -1 : 1;
-
   var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
     && lrEls.verfahren.balance.pairIndicator;
-  testUI.pairIndicator.setPlaying(_lrPI, firstSide);
   lrIsPlay = true;
-
-  await lrPlayTone(firstHz, firstVol, dur, firstPan);
-  if (!lrIsPlay) return;
-  testUI.pairIndicator.setPlaying(_lrPI, null);
-  await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
-  if (!lrIsPlay) return;
-  testUI.pairIndicator.setPlaying(_lrPI, secondSide);
-  await lrPlayTone(secondHz, secondVol, dur, secondPan);
-  testUI.pairIndicator.setPlaying(_lrPI, null);
-  if (sequence_balance === "aba" && lrIsPlay) {
-    await new Promise((r) => (lrPlayTO = setTimeout(r, pau)));
-    if (!lrIsPlay) return;
-    testUI.pairIndicator.setPlaying(_lrPI, firstSide);
-    await lrPlayTone(firstHz, firstVol, dur, firstPan);
-    testUI.pairIndicator.setPlaying(_lrPI, null);
-  }
-  lrIsPlay = false;
+  testUI.tonePlayer.playSequential(
+    lrSequence({ aba: sequence_balance === 'aba' }),
+    {
+      toneType: toneType_balance,
+      onStepStart: function (index, token) {
+        testUI.pairIndicator.setPlaying(_lrPI, (token && token.side) ? token.side : null);
+      },
+      onDone: function () {
+        lrIsPlay = false;
+        testUI.pairIndicator.setPlaying(_lrPI, null);
+      }
+    }
+  );
 }
 
 function lrPlaySimul() {
   if (lrCurrentEl === null) return;
   lrStopPlay();
-  const el = lrCurrentEl;
-  const slOff = _lrSliderVal();
-  const vol = lrGVol();
-  const dur = lrGDur();
-  const rightNEl = sideData["right"].nEl;
-  const rightEl = el < rightNEl ? el : rightNEl - 1;
-  const hzL = lrEffFreq("left", el);
-  const hzR = lrEffFreq("right", rightEl);
-  const corrL = lrCorrGain("left", el);
-  const corrR = lrCorrGain("right", rightEl);
-  // BA 289: Schieber wirkt immer symmetrisch (Dropdown entfernt).
-  // positive = R lauter / L leiser.
-  let volL = vol * corrL * dB2G(-slOff / 2);
-  let volR = vol * corrR * dB2G(slOff / 2);
-  const ac = gAC();
   var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
     && lrEls.verfahren.balance.pairIndicator;
+  lrIsPlay = true;
   testUI.pairIndicator.setPlaying(_lrPI, "both");
-  var p1 = playToneTyped(ac, hzL, volL, dur, -1, toneType_balance);
-  var p2 = playToneTyped(ac, hzR, volR, dur, 1, toneType_balance);
-  Promise.all([p1, p2]).then(function() { testUI.pairIndicator.setPlaying(_lrPI, null); });
+  testUI.tonePlayer.playSimultaneous(
+    lrSequence({ aba: false }),
+    {
+      toneType: toneType_balance,
+      onDone: function () {
+        lrIsPlay = false;
+        testUI.pairIndicator.setPlaying(_lrPI, null);
+      }
+    }
+  );
 }
 
 function lrStopPlay() {
+  // BA 290: laufende Token-Sequenz der gemeinsamen Maschine abbrechen.
+  if (typeof testUI !== 'undefined' && testUI.tonePlayer) {
+    testUI.tonePlayer.stop();
+  }
   if (runningSources && runningSources.length) {
     for (let k = 0; k < runningSources.length; k++) {
       try { runningSources[k].stop(); } catch (e) {}
@@ -721,8 +731,30 @@ function lrHookOnStop() {
   lrPause();
 }
 
+// BA 290: Deckelungs-Hinweis fuer Stereo-Balance (analog Test 1,
+// _testUpdateClipHint). Nutzt lrPairGains.capped.
+function lrUpdateClipHint(off) {
+  var vref = lrEls && lrEls.verfahren && lrEls.verfahren.balance;
+  if (!vref || !vref.clipHint) return;
+  if (lrCurrentEl === null) { testUI.clipHint.set(vref.clipHint, null); return; }
+  if (off == null) off = _lrSliderVal();
+  var el = lrCurrentEl;
+  var rightNEl = sideData["right"].nEl;
+  var rightEl = el < rightNEl ? el : rightNEl - 1;
+  var vol = lrGVol();
+  var corrL = lrCorrGain("left", el);
+  var corrR = lrCorrGain("right", rightEl);
+  var g = lrPairGains(vol * corrL, vol * corrR, off);
+  if (!g.capped) { testUI.clipHint.set(vref.clipHint, null); return; }
+  var capLabel   = (g.capped === 'left') ? t('sideLeft') : t('sideRight');
+  var otherLabel = (g.capped === 'left') ? t('sideRight') : t('sideLeft');
+  var txt = t('clipHintCapped').replace('{capped}', capLabel).replace('{other}', otherLabel);
+  testUI.clipHint.set(vref.clipHint, txt);
+}
+
 function lrHookOnSlide(v) {
   _lrUpdCumulative(v);
+  lrUpdateClipHint(v);
 }
 
 function lrHookOnSwap() {
@@ -914,6 +946,7 @@ document.addEventListener("DOMContentLoaded", function() {
         slider:            { unit: 'dB', initialRange: 20, maxRange: 60, touchStep: 0.5, touchFineStep: 0.1 },
         sliderValue:       { show: true },
         cumulativeDisplay: { key: 'cumulativeDb' },
+        clipHint:          true,
         confirmButton:     { key: 'btnConfirmOffset' },
         actions:           ['undo','replay','simul','swap']
       },
