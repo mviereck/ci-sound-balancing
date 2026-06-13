@@ -43,10 +43,6 @@ function _lrUpdCumulative(v) {
   }
 }
 
-// Get current slider mode from target dropdown
-function _lrGetMode() {
-  return slTarget_balance || "both";
-}
 
 function lrPlayTone(hz, vol, ms, pan) {
   const c = gAC();
@@ -145,20 +141,10 @@ async function lrPlayCurrent() {
   const corrL = lrCorrGain("left", el);
   const corrR = lrCorrGain("right", rightEl);
 
-  // Apply slider offset depending on mode
-  const mode = _lrGetMode();
-  let volL, volR;
-  if (mode === "right") {
-    volL = vol * corrL;
-    volR = vol * corrR * dB2G(slOff);
-  } else if (mode === "left") {
-    volL = vol * corrL * dB2G(slOff);
-    volR = vol * corrR;
-  } else {
-    // 'both': positive = R up / L down
-    volL = vol * corrL * dB2G(-slOff / 2);
-    volR = vol * corrR * dB2G(slOff / 2);
-  }
+  // BA 289: Schieber wirkt immer symmetrisch (Dropdown entfernt).
+  // positive = R lauter / L leiser.
+  let volL = vol * corrL * dB2G(-slOff / 2);
+  let volR = vol * corrR * dB2G(slOff / 2);
 
   const firstSide = lrFlipped ? "right" : "left";
   const secondSide = lrFlipped ? "left" : "right";
@@ -205,18 +191,10 @@ function lrPlaySimul() {
   const hzR = lrEffFreq("right", rightEl);
   const corrL = lrCorrGain("left", el);
   const corrR = lrCorrGain("right", rightEl);
-  const mode = _lrGetMode();
-  let volL, volR;
-  if (mode === "right") {
-    volL = vol * corrL;
-    volR = vol * corrR * dB2G(slOff);
-  } else if (mode === "left") {
-    volL = vol * corrL * dB2G(slOff);
-    volR = vol * corrR;
-  } else {
-    volL = vol * corrL * dB2G(-slOff / 2);
-    volR = vol * corrR * dB2G(slOff / 2);
-  }
+  // BA 289: Schieber wirkt immer symmetrisch (Dropdown entfernt).
+  // positive = R lauter / L leiser.
+  let volL = vol * corrL * dB2G(-slOff / 2);
+  let volR = vol * corrR * dB2G(slOff / 2);
   const ac = gAC();
   var _lrPI = lrEls && lrEls.verfahren && lrEls.verfahren.balance
     && lrEls.verfahren.balance.pairIndicator;
@@ -891,11 +869,6 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         },
         sequence:  { show: true, source: 'global' },
-        sliderTarget: {
-          options:  ['left','right','both'],
-          stateKey: 'slTarget_balance',
-          default:  'both'
-        },
         electrodeSelection: {
           minSelected: 1,
           getSelection: function() { return lrSelectedEls; },

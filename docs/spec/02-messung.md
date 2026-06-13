@@ -219,8 +219,8 @@ In `state-side.js` und persistiert in JSON und localStorage:
   (BA 285): „E9 hat die maximale Lautstärke erreicht — nur E6 wird
   noch angepasst." (Elektroden-Bezeichnungen je nach Paar). Der
   Hinweis verschwindet, sobald der Slider wieder in Zone 1 liegt.
-- **Test 2** (`slTarget_balance`): Links / Rechts / Beide. Default
-  `Beide`, symmetrisch wie in Test 1.
+- **Test 2**: kein Dropdown mehr (BA 289 entfernt). Der Schieber wirkt
+  immer symmetrisch (`±off/2`): positiver Wert = rechts lauter / links leiser.
 - **Test 3**: kein Dropdown, intern fest auf der
   Nicht-Referenzohr-Seite (CI-Ohr).
 

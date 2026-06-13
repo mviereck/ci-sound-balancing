@@ -779,7 +779,6 @@ let sequence_balance   = TEST_DEFAULTS.balance.sequence;
 let toneType_implant = TEST_DEFAULTS.implant.toneType;
 let duration_implant = TEST_DEFAULTS.implant.duration;
 let pause_implant    = TEST_DEFAULTS.implant.pause;
-let slTarget_balance = "both";    // "left" | "right" | "both"
 
 // Frequenzabgleich-Ergebnisse (global, nicht pro Seite)
 // { varSide, refSide, elIdx, varFreq, refFreq, timestamp }

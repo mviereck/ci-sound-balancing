@@ -341,10 +341,9 @@ function _buildTestPanelNew(parentEl, cfg) {
   }
 
   // --- common: sequence / sliderTarget ---
-  var seqSelect = null, targetSelect = null;
+  var seqSelect = null;
   var showSeq = hc.sequence && (hc.sequence === true || hc.sequence.show !== false);
-  var showTarget = hc.sliderTarget && (hc.sliderTarget !== false);
-  if (showSeq || showTarget || hc.tonePopupButton) {
+  if (showSeq || hc.tonePopupButton) {
     var rowSequence = _mkEl('div', 'controls-row');
     rowSequence.dataset.row = 'sequence';
 
@@ -403,44 +402,8 @@ function _buildTestPanelNew(parentEl, cfg) {
       rowSequence.appendChild(cg);
     }
 
-    if (showTarget) {
-      var tOpts = (typeof hc.sliderTarget === 'object') ? hc.sliderTarget : {};
-      var cg3 = _mkEl('div', 'control-group');
-      var lbl4 = _mkEl('label'); _tEl(lbl4, 'targetLbl');
-      targetSelect = _mkEl('select');
-      var curTarget = (id === 'test') ? slTarget_test : (id === 'balance') ? slTarget_balance : null;
-      var keyMap = {
-        'a': 'targetA', 'b': 'targetB', 'balance': 'targetBalance',
-        'left': 'targetLeft', 'right': 'targetRight', 'both': 'targetBoth',
-        'ref': 'targetRef', 'var': 'targetVar'
-      };
-      (tOpts.options || ['a','b','balance']).forEach(function(key) {
-        var opt = new Option('', key);
-        _tEl(opt, keyMap[key] || key);
-        targetSelect.appendChild(opt);
-      });
-      if (tOpts.default && targetSelect.querySelector('option[value="' + tOpts.default + '"]')) {
-        targetSelect.value = tOpts.default;
-      } else if (curTarget) {
-        targetSelect.value = curTarget;
-      }
-      if (tOpts.disabled) {
-        targetSelect.disabled = true;
-        cg3.dataset.staticDisabled = 'true';
-      }
-      cg3.append(lbl4, targetSelect);
-      // Optionaler statischer Hinweis (hintKey)
-      if (tOpts.hintKey) {
-        var hintSpan = _mkEl('span', 'muted small');
-        _tEl(hintSpan, tOpts.hintKey);
-        cg3.appendChild(hintSpan);
-      }
-      rowSequence.appendChild(cg3);
-    }
-
     if (rowSequence.children.length) headerBox.appendChild(rowSequence);
     headerRefs.seqSelect = seqSelect;
-    headerRefs.targetSelect = targetSelect;
   }
 
   // BA 207: Auswahl Testelektroden (generisch, optional pro Verfahren).
@@ -1051,12 +1014,6 @@ function _buildTestPanelNew(parentEl, cfg) {
       if (id === 'test')      sequence_test      = seqSelect.value;
       if (id === 'balance')   sequence_balance   = seqSelect.value;
       if (id === 'freqmatch') sequence_freqmatch = seqSelect.value;
-    });
-  }
-  if (targetSelect) {
-    targetSelect.addEventListener('change', function() {
-      if (id === 'test') slTarget_test = targetSelect.value;
-      if (id === 'balance') slTarget_balance = targetSelect.value;
     });
   }
 

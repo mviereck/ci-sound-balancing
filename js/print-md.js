@@ -138,8 +138,7 @@ function _collectTestSettings() {
       (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : null,
       (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : null,
       (typeof volume_global      !== "undefined") ? volume_global      : null
-    ),
-    slTargetBalance: (typeof slTarget_balance !== "undefined") ? slTarget_balance : null
+    )
   };
 }
 

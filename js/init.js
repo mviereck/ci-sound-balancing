@@ -825,7 +825,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof sequence_balance !== "undefined") {
         sequence_balance = _validSeq(d.sequence_balance) || _legacySeq;
       }
-      if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
       if (typeof d.levelsTabMode === "string") lvTabMode = d.levelsTabMode;
       if (typeof d.levelsTabVariant === "string") lvTabVariant = d.levelsTabVariant;
       if (typeof d.plBothSides === "boolean") {
@@ -1022,7 +1021,6 @@ document.addEventListener("DOMContentLoaded", () => {
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
           sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
           sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
-          slTarget_balance: slTarget_balance,
           levelsTabMode: lvTabMode,
           levelsTabVariant: lvTabVariant,
           levelsTabShowMeas: lvTabShowMeas,

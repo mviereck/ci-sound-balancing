@@ -138,7 +138,6 @@ function resetAll() {
   const dfSelR = document.getElementById("defaultMfrSelect");
   if (dfSelR) dfSelR.value = "unknown";
   // --- Globale Test-Parameter ---
-  slTarget_balance = "both";
   // BA 254: Tonfolge pro Test
   if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
   if (typeof sequence_test      !== "undefined") sequence_test      = TEST_DEFAULTS.test.sequence;
@@ -364,7 +363,6 @@ async function saveJson() {
     sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
     sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
     sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
-    slTarget_balance: slTarget_balance,
     playerSourceMeas: plSrcMeas,
     playerSourceLevels: plSrcLevels,
     playerSourceCurves: plSrcCurves,
@@ -704,7 +702,6 @@ function applyLoadedData(d) {
   if (typeof sequence_balance !== "undefined") {
     sequence_balance = _validSeq(d.sequence_balance) || _legacySeq;
   }
-  if (d.slTarget_balance) slTarget_balance = d.slTarget_balance;
   if (typeof d.plBothSides === "boolean") {
     const bsEl = document.getElementById("plBothSides");
     if (bsEl) bsEl.checked = d.plBothSides;
