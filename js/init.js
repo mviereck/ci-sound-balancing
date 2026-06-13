@@ -776,6 +776,22 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof volume_balance   !== "undefined" && isFinite(parseInt(d.volume_balance,   10))) volume_balance   = parseInt(d.volume_balance,   10);
       if (typeof duration_balance !== "undefined" && isFinite(parseInt(d.duration_balance, 10))) duration_balance = parseInt(d.duration_balance, 10);
       if (typeof pause_balance    !== "undefined" && isFinite(parseInt(d.pause_balance,    10))) pause_balance    = parseInt(d.pause_balance,    10);
+      // BA 282: Per-Test-Tonart Elektrodenlautstaerke (Auto-Restore),
+      // analog zu toneType_freqmatch/toneType_balance weiter oben.
+      if (typeof toneType_test !== "undefined") {
+        if (isValidToneType(d.toneType_test)) {
+          toneType_test = d.toneType_test;
+        } else if (isValidToneType(d.globalToneType)) {
+          toneType_test = d.globalToneType;
+        }
+      }
+      if (typeof volume_test   !== "undefined" && isFinite(parseInt(d.volume_test,   10))) volume_test   = parseInt(d.volume_test,   10);
+      if (typeof duration_test !== "undefined" && isFinite(parseInt(d.duration_test, 10))) duration_test = parseInt(d.duration_test, 10);
+      if (typeof pause_test    !== "undefined" && isFinite(parseInt(d.pause_test,    10))) pause_test    = parseInt(d.pause_test,    10);
+      // BA 282: Vol/Dur/Pau Frequenzabgleich (Auto-Restore; Tonart ist oben schon dabei).
+      if (typeof volume_freqmatch   !== "undefined" && isFinite(parseInt(d.volume_freqmatch,   10))) volume_freqmatch   = parseInt(d.volume_freqmatch,   10);
+      if (typeof duration_freqmatch !== "undefined" && isFinite(parseInt(d.duration_freqmatch, 10))) duration_freqmatch = parseInt(d.duration_freqmatch, 10);
+      if (typeof pause_freqmatch    !== "undefined" && isFinite(parseInt(d.pause_freqmatch,    10))) pause_freqmatch    = parseInt(d.pause_freqmatch,    10);
       if (typeof d.userFileSuffix === "string") {
         userFileSuffix = d.userFileSuffix;
         const _el = document.getElementById("userFileSuffix");
@@ -991,6 +1007,16 @@ document.addEventListener("DOMContentLoaded", () => {
           volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : TEST_DEFAULTS.balance.volume,
           duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
           pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
+          // BA 282: Tonart/Vol/Dur/Pau Elektrodenlautstaerke (wie Datei-Save).
+          toneType_test: (typeof toneType_test !== "undefined")
+            ? toneType_test : TEST_DEFAULTS.test.toneType,
+          volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : TEST_DEFAULTS.test.volume,
+          duration_test: (typeof duration_test !== "undefined") ? duration_test : TEST_DEFAULTS.test.duration,
+          pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : TEST_DEFAULTS.test.pause,
+          // BA 282: Vol/Dur/Pau Frequenzabgleich (wie Datei-Save; Tonart ist oben schon dabei).
+          volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : TEST_DEFAULTS.freqmatch.volume,
+          duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
+          pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
           sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
           sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
