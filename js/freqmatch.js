@@ -1354,3 +1354,10 @@ function fmRefreshElectrodeSelectionSummary() {
     fmEls.header.electrodeSelectionUpdate();
   }
 }
+
+// BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
+function fmRefreshToneTypeLabel() {
+  if (fmEls && fmEls.header && typeof fmEls.header.tonePopupUpdate === 'function') {
+    fmEls.header.tonePopupUpdate();
+  }
+}

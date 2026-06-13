@@ -998,6 +998,13 @@ function lrRefreshElectrodeSelectionSummary() {
   }
 }
 
+// BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
+function lrRefreshToneTypeLabel() {
+  if (lrEls && lrEls.header && typeof lrEls.header.tonePopupUpdate === 'function') {
+    lrEls.header.tonePopupUpdate();
+  }
+}
+
 // Hook into balance subtab activation
 document
   .querySelector('.subtab[data-subtab="balance"][data-parent="messungen"]')

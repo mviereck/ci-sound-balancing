@@ -1348,6 +1348,13 @@ function testRefreshElectrodeSelectionSummary() {
   }
 }
 
+// BA 281: Tonart-Label im Kopf nach Laden eines Stands aktualisieren.
+function testRefreshToneTypeLabel() {
+  if (testEls && testEls.header && typeof testEls.header.tonePopupUpdate === 'function') {
+    testEls.header.tonePopupUpdate();
+  }
+}
+
 // BA 247: "beide Toene gleichzeitig" (frueher inline am Simul-Button).
 function _testPlaySimul() {
   if (!testAct || testIdx >= testPairs.length) return;
