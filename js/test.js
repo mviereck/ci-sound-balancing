@@ -1284,18 +1284,19 @@ document.addEventListener("DOMContentLoaded", function() {
           getElectrodeLabels:    _testTpElectrodeLabels,
           getDisabledElectrodes: _testTpDisabledElectrodes,
           getHighlightMs: function() { return tGDur(); },
-          onPress: function(electrodeIdx, hz) {
+          onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
             var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_test;
+            // Elektrodenlautstaerke: keine Mess-Korrektur (wird hier erst gemessen).
             var vol = tGVol();
-            if (typeof _testTpCorrectVol === 'function') {
-              vol = _testTpCorrectVol(vol, hz, pan);
-            }
             try {
-              playToneTyped(c, hz, vol, tGDur(), pan, tt);
+              playToneTyped(c, hz, vol, 60000, pan, tt);
             } catch (e) { /* swallow */ }
+          },
+          onRelease: function () {
+            if (typeof stopAll === 'function') stopAll();
           }
         },
         sequence:     { show: true, source: 'global' },

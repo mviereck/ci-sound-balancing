@@ -13,6 +13,7 @@ let lrFlipped = false; // if true, first tone is R then L
 let lrRunning = false;
 let lrUndoStack = []; // [{el, prev}]
 let lrPlayTO = null;
+let _lrKbT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
 let lrIsPlay = false;
 
 // Element-Lookup (gebaut von buildTestPanel)
@@ -874,33 +875,46 @@ document.addEventListener("DOMContentLoaded", function() {
           getElectrodeLabels:    _lrTpElectrodeLabels,
           getDisabledElectrodes: _lrTpDisabledElectrodes,
           getHighlightMs: function() { return lrGDur() * 2 + lrGPau(); },
-          onPress: function(electrodeIdx, hz) {
+          onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
-            var dur  = lrGDur();
-            var pau  = lrGPau();
+            _lrKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
+            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
             var vol  = lrGVol();
             var panA = (activeSide === 'left') ? -1 : 1;
-            var panB = -panA;
-            var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
-            var hzA, hzB;
+            var hzA, volA;
             if (electrodeIdx >= 0) {
-              hzA = lrEffFreq(activeSide, electrodeIdx);
-              var otherSide = (activeSide === 'left') ? 'right' : 'left';
-              var rN = sideData[otherSide] ? sideData[otherSide].nEl : 0;
-              var otherIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzB = lrEffFreq(otherSide, otherIdx);
+              hzA  = lrEffFreq(activeSide, electrodeIdx);
+              volA = vol * lrCorrGain(activeSide, electrodeIdx);
             } else {
-              hzA = hz;
-              hzB = hz;
+              hzA = hz; volA = vol;
             }
-            var volA = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hzA, panA) : vol;
-            var volB = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hzB, panB) : vol;
             try {
-              playToneTyped(c, hzA, volA, dur, panA, tt);
-              setTimeout(function() {
-                playToneTyped(c, hzB, volB, dur, panB, tt);
-              }, dur + pau);
+              playToneTyped(c, hzA, volA, 60000, panA, tt);
+            } catch (e) { /* swallow */ }
+          },
+          onRelease: function (electrodeIdx, hz) {
+            var c = (typeof gAC === 'function') ? gAC() : null;
+            if (typeof stopAll === 'function') stopAll();
+            if (!c) return;
+            var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
+            var held = Math.max(0, t1 - _lrKbT0);
+            if (held <= 0) return;
+            var tt    = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
+            var vol   = lrGVol();
+            var other = (activeSide === 'left') ? 'right' : 'left';
+            var panB  = (activeSide === 'left') ? 1 : -1;
+            var hzB, volB;
+            if (electrodeIdx >= 0) {
+              var rN = sideData[other] ? sideData[other].nEl : 0;
+              var oIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
+              hzB  = lrEffFreq(other, oIdx);
+              volB = vol * lrCorrGain(other, oIdx);
+            } else {
+              hzB = hz; volB = vol;
+            }
+            try {
+              playToneTyped(c, hzB, volB, held, panB, tt);
             } catch (e) { /* swallow */ }
           }
         },

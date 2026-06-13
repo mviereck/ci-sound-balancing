@@ -13,6 +13,7 @@
 // --- State ---
 let fmModalTone = null;   // BA 230: live-Tonart waehrend des Tonauswahl-Modals; null = kein Modal offen
 let fmKbdCorrectVol = null; // BA 239: Korrektorfunktion(vol,hz,pan) aus Modal-Toggles; null = kein Modal offen
+let _fmKbT0 = 0;   // BA 293: Zeitpunkt des Klavier-Anschlags (Haltedauer)
 let fmRunning = false;
 let fmEls = null;
 let fmRefSide = "left";
@@ -1134,29 +1135,48 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 229: Aufleucht-Dauer = volle Sequenz (Var-Burst + Pause +
           // Ref-Burst), passt zur Anschlag-Logik in onPress.
           getHighlightMs: function() { return fmGDur() * 2 + fmGPau(); },
-          onPress: function(electrodeIdx, hz) {
-            // Frequenzabgleich-Burst-Sequenz: Var-Seite-Burst,
-            // kurze Pause, dann Ref-Seite-Burst (gleiche Frequenz).
-            // Schwarze Zier-Tasten (electrodeIdx === -1) spielen
-            // ihre Mittelfrequenz auch nach diesem Schema.
+          onPress: function (electrodeIdx, hz) {
             var c = (typeof gAC === 'function') ? gAC() : null;
             if (!c) return;
-            var vol   = fmGVol();
-            var durMs = fmGDur();
-            var pauMs = fmGPau();
-            var varSide = (typeof fmVarSide === 'string' && fmVarSide)
-              ? fmVarSide : activeSide;
-            var varPan = (varSide === 'left') ? -1 : 1;
-            var refPan = -varPan;
-            var tt = (fmModalTone !== null) ? fmModalTone : toneType_freqmatch;
-            var cv = fmKbdCorrectVol;
-            var varVol = (typeof cv === 'function') ? cv(vol, hz, varPan) : vol;
-            var refVol = (typeof cv === 'function') ? cv(vol, hz, refPan) : vol;
+            _fmKbT0 = (typeof performance !== 'undefined') ? performance.now() : Date.now();
+            var tt      = (fmModalTone !== null) ? fmModalTone : toneType_freqmatch;
+            var vol     = fmGVol();
+            var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
+            var varPan  = (varSide === 'left') ? -1 : 1;
+            var balG    = (typeof getRawBalanceGains === 'function') ? getRawBalanceGains() : { left: 0, right: 0 };
+            var balDb   = (varSide === 'left') ? balG.left : balG.right;
+            var volVar  = isDeaf(varSide) ? 0 : vol * fmCorrGain(varSide, hz) * dB2G(balDb);
             try {
-              playToneTyped(c, hz, varVol, durMs, varPan, tt);
-              setTimeout(function() {
-                playToneTyped(c, hz, refVol, durMs, refPan, tt);
-              }, durMs + pauMs);
+              playToneTyped(c, hz, volVar, 60000, varPan, tt);
+            } catch (e) { /* swallow */ }
+          },
+          onRelease: function (electrodeIdx, hz) {
+            var c = (typeof gAC === 'function') ? gAC() : null;
+            if (typeof stopAll === 'function') stopAll();
+            if (!c) return;
+            var t1   = (typeof performance !== 'undefined') ? performance.now() : Date.now();
+            var held = Math.max(0, t1 - _fmKbT0);
+            if (held <= 0) return;
+            var tt      = (fmModalTone !== null) ? fmModalTone : toneType_freqmatch;
+            var vol     = fmGVol();
+            var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
+            var refSide = (varSide === 'left') ? 'right' : 'left';
+            var refPan  = (varSide === 'left') ? 1 : -1;
+            // Eingestellte Frequenz der Elektrode auf der Ref-Seite (kann
+            // sich von der Var-Seite unterscheiden).
+            var hzRef;
+            if (electrodeIdx >= 0) {
+              var rN = sideData[refSide] ? sideData[refSide].nEl : 0;
+              var rIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
+              hzRef = withSide(refSide, function () { return effFreq(rIdx); });
+            } else {
+              hzRef = hz;
+            }
+            var balG  = (typeof getRawBalanceGains === 'function') ? getRawBalanceGains() : { left: 0, right: 0 };
+            var balDb = (refSide === 'left') ? balG.left : balG.right;
+            var volRef = isDeaf(refSide) ? 0 : vol * fmCorrGain(refSide, hzRef) * dB2G(balDb);
+            try {
+              playToneTyped(c, hzRef, volRef, held, refPan, tt);
             } catch (e) { /* swallow */ }
           }
         },

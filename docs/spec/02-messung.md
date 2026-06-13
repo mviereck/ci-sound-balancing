@@ -129,10 +129,12 @@ In `state-side.js` und persistiert in JSON und localStorage:
   aber per X-Overlay durchgekreuzt und ausgegraut (früher: gefiltert).
   Disabled-Logik gilt beidseitig: eine Taste ist disabled, sobald die
   Elektrode auf var- ODER ref-Seite abgewählt/ausgeschlossen ist
-  (`getDisabledElectrodes`-Callback). Anschlag auf aktive Taste spielt
-  Burst auf var-Seite, kurze Pause, Burst auf ref-Seite — beide mit
-  aktueller Tondauer und Pause (`fmGDur`, `fmGPau`; seit BA 240 aus
-  `duration_freqmatch`/`pause_freqmatch`). Anschlag auf disabled Taste
+  (`getDisabledElectrodes`-Callback). Taste **gedrückt halten** → Ton auf
+  var-Seite mit deren Elektrodenkorrektur und Stereo-Balance-Gain
+  (`fmCorrGain * dB2G(balDb)`); **Loslassen** → stoppt und spielt die
+  ref-Seite in der Frequenz ihrer Elektrode, mit deren Korrektur, für
+  die gemessene Haltedauer (BA 293). `fmGDur`/`fmGPau` wirken nur noch
+  im Sequenz-Betrieb. Anschlag auf disabled Taste
   löst keine Wiedergabe aus (Cursor „nicht erlaubt"). Das Klavier ist
   abstrakt in `sampler-keyboard.js` implementiert (cfg.keyboardMode =
   true) und für künftige Aufrufer wiederverwendbar.
@@ -360,9 +362,9 @@ Slider-Wert wird invertiert.
   erscheint oberhalb der Tonart-Liste ein Klavier. Tastenzahl =
   Elektroden der aktiven Seite (eine Seite, da Elektrodenlautstärke
   einseitig). Abgewählte/ausgeschlossene Elektroden per X-Overlay
-  durchgekreuzt. Anschlag spielt einen Vorhör-Burst auf der aktiven
-  Seite (Pan ±1 gemäß aktive-Seite-Schalter) mit der gewählten Tondauer
-  und Lautstärke; Korrektur-Toggles wirken via `_testTpCorrectVol`.
+  durchgekreuzt. Taste **gedrückt halten** → Ton auf der aktiven Seite,
+  ohne Mess-Korrektur (die wird hier erst gemessen); **Loslassen** → Stopp
+  (BA 293). Korrektur-Toggles haben auf das Klavier keinen Effekt mehr.
 - Wenn „Round Robin (Vollständig)" angefangen aber nicht abgeschlossen
   wurde, zeigt der Ergebnis-Reiter oben einen Hinweis mit Runde X
   von Y und bestätigten Paaren des aktuellen Sweeps.
@@ -409,9 +411,12 @@ Slider-Wert wird invertiert.
   Taste ist disabled (durchgekreuzt, ausgegraut), sobald die Elektrode
   auf **einer der beiden Seiten** abgewählt (`elActive===false`) oder
   ausgeschlossen (`elExDur!=null`) ist — Stumm-Schaltung gilt nicht als
-  disabled. Klavier-Anschlag: Burst aktive Seite, Pause (`pause_balance`),
-  Burst andere Seite (`duration_balance`, `volume_balance`). Frequenzen
-  pro Seite werden getrennt abgerufen (`lrEffFreq`). Hilfsfunktionen:
+  disabled. Taste **gedrückt halten** → Ton auf aktiver Seite mit deren
+  Elektrodenkorrektur (`lrCorrGain`), ohne Stereo-Balance-Offset;
+  **Loslassen** → stoppt und spielt die andere Seite in deren Frequenz/
+  Korrektur für die Haltedauer (BA 293). `duration_balance`/`pause_balance`
+  wirken nur noch im Sequenz-Betrieb. Frequenzen pro Seite werden getrennt
+  abgerufen (`lrEffFreq`). Hilfsfunktionen:
   `_lrTpKbdN`, `_lrTpElectrodeFreqs`, `_lrTpElectrodeLabels`,
   `_lrTpDisabledElectrodes`. Modul-State: `_lrTpCorrectVol` (Korrektur-
   Toggle-Callback aus `onTogglesReady`), `_lrTpModalTone` (aktuell
