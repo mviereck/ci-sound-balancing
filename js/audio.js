@@ -86,10 +86,9 @@ function _activeTestInput(type) {
   return null;
 }
 function gVol() {
-  // BA 250: Elektrodenlautstaerke-Test liest aus dem State-Slot
-  // volume_test (in Tonart-Modalbox eingestellt).
-  if (testAct && typeof volume_test !== 'undefined') {
-    return Math.pow((volume_test || 0) / 100, 2);
+  // BA 287: gemeinsame Lautstaerke (frueher volume_test).
+  if (testAct && typeof volume_global !== 'undefined') {
+    return Math.pow((volume_global || 0) / 100, 2);
   }
   const el = _activeTestInput('vol');
   return el ? Math.pow(parseInt(el.value) / 100, 2) : 0.25;

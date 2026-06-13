@@ -43,7 +43,7 @@ function renderResults() {
   // BA 250: Elektrodenlautstaerke-Test hat kein Header-Volume-Feld
   // mehr — der Wert sitzt im State volume_test (in der Tonart-Modalbox
   // eingestellt). Fallback 75 wie bisher.
-  const vol = (typeof volume_test !== 'undefined') ? volume_test : 75;
+  const vol = (typeof volume_global !== 'undefined') ? volume_global : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
   if (hB) meta += ` · ${bRes.length} bal.`;
   meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;

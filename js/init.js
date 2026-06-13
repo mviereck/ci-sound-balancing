@@ -773,7 +773,13 @@ document.addEventListener("DOMContentLoaded", () => {
           toneType_balance = d.globalToneType;
         }
       }
-      if (typeof volume_balance   !== "undefined" && isFinite(parseInt(d.volume_balance,   10))) volume_balance   = parseInt(d.volume_balance,   10);
+      // BA 287: gemeinsame Lautstaerke (Auto-Restore). Abwaertskompat:
+      // alter Stand ohne volume_global -> volume_test uebernehmen.
+      if (typeof volume_global !== "undefined") {
+        var _vgR = parseInt(d.volume_global, 10);
+        if (!(isFinite(_vgR) && _vgR >= 0 && _vgR <= 100)) _vgR = parseInt(d.volume_test, 10);
+        if (isFinite(_vgR) && _vgR >= 0 && _vgR <= 100) volume_global = _vgR;
+      }
       if (typeof duration_balance !== "undefined" && isFinite(parseInt(d.duration_balance, 10))) duration_balance = parseInt(d.duration_balance, 10);
       if (typeof pause_balance    !== "undefined" && isFinite(parseInt(d.pause_balance,    10))) pause_balance    = parseInt(d.pause_balance,    10);
       // BA 282: Per-Test-Tonart Elektrodenlautstaerke (Auto-Restore),
@@ -785,11 +791,9 @@ document.addEventListener("DOMContentLoaded", () => {
           toneType_test = d.globalToneType;
         }
       }
-      if (typeof volume_test   !== "undefined" && isFinite(parseInt(d.volume_test,   10))) volume_test   = parseInt(d.volume_test,   10);
       if (typeof duration_test !== "undefined" && isFinite(parseInt(d.duration_test, 10))) duration_test = parseInt(d.duration_test, 10);
       if (typeof pause_test    !== "undefined" && isFinite(parseInt(d.pause_test,    10))) pause_test    = parseInt(d.pause_test,    10);
-      // BA 282: Vol/Dur/Pau Frequenzabgleich (Auto-Restore; Tonart ist oben schon dabei).
-      if (typeof volume_freqmatch   !== "undefined" && isFinite(parseInt(d.volume_freqmatch,   10))) volume_freqmatch   = parseInt(d.volume_freqmatch,   10);
+      // BA 282: Dur/Pau Frequenzabgleich (Auto-Restore; Tonart ist oben schon dabei).
       if (typeof duration_freqmatch !== "undefined" && isFinite(parseInt(d.duration_freqmatch, 10))) duration_freqmatch = parseInt(d.duration_freqmatch, 10);
       if (typeof pause_freqmatch    !== "undefined" && isFinite(parseInt(d.pause_freqmatch,    10))) pause_freqmatch    = parseInt(d.pause_freqmatch,    10);
       if (typeof d.userFileSuffix === "string") {
@@ -1003,17 +1007,16 @@ document.addEventListener("DOMContentLoaded", () => {
             ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
           toneType_balance: (typeof toneType_balance !== "undefined")
             ? toneType_balance : TEST_DEFAULTS.balance.toneType,
-          volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : TEST_DEFAULTS.balance.volume,
+          // BA 287: gemeinsame Lautstaerke.
+          volume_global: (typeof volume_global !== "undefined") ? volume_global : TEST_DEFAULTS.commonVolume,
           duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
           pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
-          // BA 282: Tonart/Vol/Dur/Pau Elektrodenlautstaerke (wie Datei-Save).
+          // BA 282: Tonart/Dur/Pau Elektrodenlautstaerke (wie Datei-Save).
           toneType_test: (typeof toneType_test !== "undefined")
             ? toneType_test : TEST_DEFAULTS.test.toneType,
-          volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : TEST_DEFAULTS.test.volume,
           duration_test: (typeof duration_test !== "undefined") ? duration_test : TEST_DEFAULTS.test.duration,
           pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : TEST_DEFAULTS.test.pause,
-          // BA 282: Vol/Dur/Pau Frequenzabgleich (wie Datei-Save; Tonart ist oben schon dabei).
-          volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : TEST_DEFAULTS.freqmatch.volume,
+          // BA 282: Dur/Pau Frequenzabgleich (wie Datei-Save; Tonart ist oben schon dabei).
           duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
           pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
           sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,

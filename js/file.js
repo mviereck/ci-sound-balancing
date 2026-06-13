@@ -145,20 +145,16 @@ function resetAll() {
   if (typeof sequence_balance   !== "undefined") sequence_balance   = TEST_DEFAULTS.balance.sequence;
   // BA 246
   if (typeof toneType_test !== "undefined") toneType_test = TEST_DEFAULTS.test.toneType;
-  // BA 250
-  if (typeof volume_test   !== "undefined") volume_test   = TEST_DEFAULTS.test.volume;
+  if (typeof volume_global !== "undefined") volume_global = TEST_DEFAULTS.commonVolume;
   if (typeof duration_test !== "undefined") duration_test = TEST_DEFAULTS.test.duration;
   if (typeof pause_test    !== "undefined") pause_test    = TEST_DEFAULTS.test.pause;
   if (typeof toneType_balance !== "undefined") toneType_balance = TEST_DEFAULTS.balance.toneType;
-  if (typeof volume_balance   !== "undefined") volume_balance   = TEST_DEFAULTS.balance.volume;
   if (typeof duration_balance !== "undefined") duration_balance = TEST_DEFAULTS.balance.duration;
   if (typeof pause_balance    !== "undefined") pause_balance    = TEST_DEFAULTS.balance.pause;
   if (typeof toneType_freqmatch !== "undefined") toneType_freqmatch = TEST_DEFAULTS.freqmatch.toneType;
-  if (typeof volume_freqmatch   !== "undefined") volume_freqmatch   = TEST_DEFAULTS.freqmatch.volume;
   if (typeof duration_freqmatch !== "undefined") duration_freqmatch = TEST_DEFAULTS.freqmatch.duration;
   if (typeof pause_freqmatch    !== "undefined") pause_freqmatch    = TEST_DEFAULTS.freqmatch.pause;
   if (typeof toneType_implant !== "undefined") toneType_implant = TEST_DEFAULTS.implant.toneType;
-  if (typeof volume_implant   !== "undefined") volume_implant   = TEST_DEFAULTS.implant.volume;
   if (typeof duration_implant !== "undefined") duration_implant = TEST_DEFAULTS.implant.duration;
   if (typeof pause_implant    !== "undefined") pause_implant    = TEST_DEFAULTS.implant.pause;
   // --- Latenz ---
@@ -385,22 +381,19 @@ async function saveJson() {
     // BA 246
     toneType_test: (typeof toneType_test !== "undefined")
       ? toneType_test : TEST_DEFAULTS.test.toneType,
-    // BA 250
-    volume_test:   (typeof volume_test   !== "undefined") ? volume_test   : TEST_DEFAULTS.test.volume,
+    // BA 287: gemeinsame Lautstaerke.
+    volume_global: (typeof volume_global !== "undefined") ? volume_global : TEST_DEFAULTS.commonVolume,
     duration_test: (typeof duration_test !== "undefined") ? duration_test : TEST_DEFAULTS.test.duration,
     pause_test:    (typeof pause_test    !== "undefined") ? pause_test    : TEST_DEFAULTS.test.pause,
-    // BA 240: Vol/Dur/Pau-State des Frequenzabgleichs persistieren.
-    volume_freqmatch:   (typeof volume_freqmatch   !== "undefined") ? volume_freqmatch   : TEST_DEFAULTS.freqmatch.volume,
+    // BA 240: Dur/Pau-State des Frequenzabgleichs persistieren.
     duration_freqmatch: (typeof duration_freqmatch !== "undefined") ? duration_freqmatch : TEST_DEFAULTS.freqmatch.duration,
     pause_freqmatch:    (typeof pause_freqmatch    !== "undefined") ? pause_freqmatch    : TEST_DEFAULTS.freqmatch.pause,
-    // BA 253: Vol/Dur/Pau/ToneType fuer Stereo-Balance persistieren.
+    // BA 253: Dur/Pau/ToneType fuer Stereo-Balance persistieren.
     toneType_balance: (typeof toneType_balance !== "undefined")
       ? toneType_balance : TEST_DEFAULTS.balance.toneType,
-    volume_balance:   (typeof volume_balance   !== "undefined") ? volume_balance   : TEST_DEFAULTS.balance.volume,
     duration_balance: (typeof duration_balance !== "undefined") ? duration_balance : TEST_DEFAULTS.balance.duration,
     pause_balance:    (typeof pause_balance    !== "undefined") ? pause_balance    : TEST_DEFAULTS.balance.pause,
     toneType_implant:   (typeof toneType_implant !== "undefined") ? toneType_implant : TEST_DEFAULTS.implant.toneType,
-    volume_implant:     (typeof volume_implant   !== "undefined") ? volume_implant   : TEST_DEFAULTS.implant.volume,
     duration_implant:   (typeof duration_implant !== "undefined") ? duration_implant : TEST_DEFAULTS.implant.duration,
     pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
@@ -742,10 +735,14 @@ function applyLoadedData(d) {
       toneType_test = TEST_DEFAULTS.test.toneType;
     }
   }
-  // BA 250
-  if (typeof volume_test !== "undefined") {
-    var _v = parseInt(d.volume_test, 10);
-    volume_test = (isFinite(_v) && _v >= 0 && _v <= 100) ? _v : TEST_DEFAULTS.test.volume;
+  // BA 287: gemeinsame Lautstaerke laden. Abwaertskompat: altes Profil
+  // ohne volume_global -> frueheren volume_test-Wert uebernehmen.
+  if (typeof volume_global !== "undefined") {
+    var _vg = parseInt(d.volume_global, 10);
+    if (!(isFinite(_vg) && _vg >= 0 && _vg <= 100)) {
+      _vg = parseInt(d.volume_test, 10);
+    }
+    volume_global = (isFinite(_vg) && _vg >= 0 && _vg <= 100) ? _vg : TEST_DEFAULTS.commonVolume;
   }
   if (typeof duration_test !== "undefined") {
     var _du = parseInt(d.duration_test, 10);
@@ -756,10 +753,6 @@ function applyLoadedData(d) {
     pause_test = (isFinite(_pa) && _pa >= 50 && _pa <= 2000) ? _pa : TEST_DEFAULTS.test.pause;
   }
   // BA 240: Vol/Dur/Pau aus gespeicherten Daten zuruecklesen, mit Default-Fallback.
-  if (typeof volume_freqmatch !== "undefined") {
-    var sv = parseInt(d.volume_freqmatch, 10);
-    volume_freqmatch = (isFinite(sv) && sv >= 0 && sv <= 100) ? sv : TEST_DEFAULTS.freqmatch.volume;
-  }
   if (typeof duration_freqmatch !== "undefined") {
     var sd = parseInt(d.duration_freqmatch, 10);
     duration_freqmatch = (isFinite(sd) && sd >= 100 && sd <= 3000) ? sd : TEST_DEFAULTS.freqmatch.duration;
@@ -778,10 +771,6 @@ function applyLoadedData(d) {
       toneType_balance = TEST_DEFAULTS.balance.toneType;
     }
   }
-  if (typeof volume_balance !== "undefined") {
-    var _vB = parseInt(d.volume_balance, 10);
-    volume_balance = (isFinite(_vB) && _vB >= 0 && _vB <= 100) ? _vB : TEST_DEFAULTS.balance.volume;
-  }
   if (typeof duration_balance !== "undefined") {
     var _dB = parseInt(d.duration_balance, 10);
     duration_balance = (isFinite(_dB) && _dB >= 100 && _dB <= 3000) ? _dB : TEST_DEFAULTS.balance.duration;
@@ -793,10 +782,6 @@ function applyLoadedData(d) {
   // BA 242: Implantat-State aus JSON zuruecklesen.
   if (typeof toneType_implant !== "undefined") {
     toneType_implant = isValidToneType(d.toneType_implant) ? d.toneType_implant : TEST_DEFAULTS.implant.toneType;
-  }
-  if (typeof volume_implant !== "undefined") {
-    var svi = parseInt(d.volume_implant, 10);
-    volume_implant = (isFinite(svi) && svi >= 0 && svi <= 100) ? svi : TEST_DEFAULTS.implant.volume;
   }
   if (typeof duration_implant !== "undefined") {
     var sdi = parseInt(d.duration_implant, 10);

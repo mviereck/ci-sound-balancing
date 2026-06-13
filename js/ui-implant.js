@@ -313,15 +313,15 @@ function openImplantTonePopup() {
     showVolume:       true,
     showDuration:     true,
     showPause:        true,
-    getVolumePercent: function ()  { return volume_implant; },
-    setVolumePercent: function (v) { volume_implant = v; },
+    getVolumePercent: function ()  { return volume_global; },
+    setVolumePercent: function (v) { volume_global = v; },
     getDurationMs:    function ()  { return duration_implant; },
     setDurationMs:    function (v) { duration_implant = v; },
     getPauseMs:       function ()  { return pause_implant; },
     setPauseMs:       function (v) { pause_implant = v; },
 
     getVolume: function () {
-      return Math.pow(volume_implant / 100, 2);
+      return Math.pow(volume_global / 100, 2);
     },
 
     getPreviewSequence: function () {
@@ -340,7 +340,7 @@ function openImplantTonePopup() {
       var c = (typeof gAC === "function") ? gAC() : null;
       if (!c) return;
       var tt  = (_implTpModalTone !== null) ? _implTpModalTone : toneType_implant;
-      var vol = Math.pow(volume_implant / 100, 2);
+      var vol = Math.pow(volume_global / 100, 2);
       if (typeof _implTpCorrectVol === "function") vol = _implTpCorrectVol(vol, hz, activePan);
       try {
         playToneTyped(c, hz, vol, 60000, activePan, tt);

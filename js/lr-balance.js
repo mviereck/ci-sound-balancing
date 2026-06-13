@@ -53,7 +53,7 @@ function lrPlayTone(hz, vol, ms, pan) {
   return playToneTyped(c, hz, vol, ms, pan, toneType_balance);
 }
 
-function lrGVol() { return Math.pow((volume_balance || 0) / 100, 2); }
+function lrGVol() { return Math.pow((volume_global || 0) / 100, 2); }
 function lrGDur() { return duration_balance || 1000; }
 function lrGPau() { return pause_balance    || 400;  }
 
@@ -836,8 +836,8 @@ document.addEventListener("DOMContentLoaded", function() {
           showVolume:   true,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function()  { return volume_balance; },
-          setVolumePercent: function(v) { volume_balance = v; },
+          getVolumePercent: function()  { return volume_global; },
+          setVolumePercent: function(v) { volume_global = v; },
           getDurationMs:    function()  { return duration_balance; },
           setDurationMs:    function(v) { duration_balance = v; },
           getPauseMs:       function()  { return pause_balance; },

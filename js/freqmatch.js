@@ -188,7 +188,7 @@ function _fmRefreshCochlearFatHintVisibility() {
 }
 
 function fmGVol() {
-  return Math.pow(volume_freqmatch / 100, 2);
+  return Math.pow(volume_global / 100, 2);
 }
 function fmGDur() {
   return duration_freqmatch || 750;
@@ -1084,8 +1084,8 @@ document.addEventListener("DOMContentLoaded", () => {
           showVolume:   true,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function() { return volume_freqmatch; },
-          setVolumePercent: function(v) { volume_freqmatch = v; },
+          getVolumePercent: function() { return volume_global; },
+          setVolumePercent: function(v) { volume_global = v; },
           getDurationMs:    function() { return duration_freqmatch; },
           setDurationMs:    function(v) { duration_freqmatch = v; },
           getPauseMs:       function() { return pause_freqmatch; },

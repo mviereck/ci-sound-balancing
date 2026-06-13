@@ -668,7 +668,7 @@ const LS_HINT_K = 3;
 // BA 250: Helfer analog fmGVol/fmGDur/fmGPau in freqmatch.js.
 // Lesen direkt aus den State-Variablen; macht die quadratische
 // Audio-Konversion fuer die Lautstaerke.
-function tGVol() { return Math.pow((volume_test || 0) / 100, 2); }
+function tGVol() { return Math.pow((volume_global || 0) / 100, 2); }
 function tGDur() { return duration_test || 750; }
 function tGPau() { return pause_test    || 300; }
 
@@ -1253,8 +1253,8 @@ document.addEventListener("DOMContentLoaded", function() {
           showVolume:   true,
           showDuration: true,
           showPause:    true,
-          getVolumePercent: function()  { return volume_test; },
-          setVolumePercent: function(v) { volume_test = v; },
+          getVolumePercent: function()  { return volume_global; },
+          setVolumePercent: function(v) { volume_global = v; },
           getDurationMs:    function()  { return duration_test; },
           setDurationMs:    function(v) { duration_test = v; },
           getPauseMs:       function()  { return pause_test; },
