@@ -27,8 +27,8 @@ Ausgeblendet (`display:none`) solange keine Tabelle gerendert wird
 akustisch). Wird eingeblendet sobald die Tabelle erscheint (BA 242, ersetzt
 die frühere Sweep/Stop-Zeile). Klick öffnet die Tonauswahl-Modal
 (`openImplantTonePopup` in `ui-implant.js`) mit Klavier-Widget, Sweep,
-Korrektur-Toggles und Vol/Dur/Pau-Feldern. State: `toneType_implant` (Default
-`"sine"`), `volume_implant` (75), `duration_implant` (1000 ms),
+Korrektur-Toggles und Vol/Dur/Pau-Feldern (letztere seit BA 296 nur im
+Debug-Modus sichtbar). State: `toneType_implant` (Default `"sine"`), `volume_implant` (75), `duration_implant` (1000 ms),
 `pause_implant` (500 ms) in `state-side.js`, persistiert in `file.js`.
 Probehör-Ton (BA 292): zuletzt am Klavier angetippte Frequenz (Default
 1000 Hz; zurückgesetzt bei jedem Box-Öffnen); Korrektur-Toggles wirken

@@ -1066,7 +1066,7 @@ Object.assign(L.fr, {
     electrodeSelectionHeaderBtn: "Sélection des électrodes de test",
     electrodeSelectionHeaderSummary: "{m} électrodes sélectionnées sur {n}",
     electrodeSelectionEmptyEnd: "Test terminé : plus aucune électrode sélectionnée disponible.",
-    tonePopupTitle:  "Choisir le type de son",
+    tonePopupTitle:  "Réglages du son de test",
     tonePopupHint:
       "Cette collection propose différents sons de test." +
       "<br><br>" +

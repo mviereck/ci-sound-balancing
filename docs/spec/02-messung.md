@@ -80,12 +80,14 @@ In `state-side.js` und persistiert in JSON und localStorage:
   **Cluster ±3 Hz 2N / Cluster ±3 Hz 4N / Cluster ±8 Hz 2N / Cluster ±8 Hz 4N /
   Cluster ±10 ct 2N / Cluster ±10 ct 4N / Cluster ±30 ct 2N / Cluster ±30 ct 4N**
   (BA 274, Schwebungs-Cluster in der Gruppe „Experimentelle Töne"). Default
-  `'richCiG'` (CI-Test Grundton; seit BA 280 — zuvor `'richCiHF'`/`'complex'`).
+  `'sine'` (Sinus; seit BA 296 — zuvor `'richCiG'` seit BA 280). Im
+  Normalbetrieb (Debug aus) wird beim Öffnen der Modalbox auf Sinus
+  zurückgezwungen; Tonart-Auswahl nur im Debug-Modus sichtbar/wählbar.
   Seit BA 254: kein gemeinsamer Dropdown mehr; jeder Test wählt seine Tonart
   über den Tonart-Popup-Button im eigenen Header.
 - **Tonart Frequenzabgleich** (`toneType_freqmatch`, BA 209) — eigene
   Tonart für Sub-Tab 3. Default
-  `'richCiG'` (CI-Test Grundton; seit BA 280 — zuvor `'richCiHF'`/`'pulsedComplex'`).
+  `'sine'` (Sinus; seit BA 296 — zuvor `'richCiG'` seit BA 280).
   Wird über Button + Popup-Dialog gewählt (kein
   Dropdown), persistiert in JSON und localStorage. Auto-Vorschau-Ton
   (750 ms) gilt nur noch für die globalen Dropdowns; im Frequenzabgleich
@@ -101,6 +103,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
   danach als Diagnose-Varianten zu Akkord- und Vibrato-Hypothese aus
   Anhang B der Konzept-Doku.
   Jede Gruppe hat eine Überschrift und einen Unter-Hinweis (i18n).
+  **BA 296:** Im Normalbetrieb (Debug aus) sind Hinweis-Boxen, Tonart-
+  Sammlung und Block „Anstieg & Ausklang" ausgeblendet; nur bei aktivem
+  Debug-Modus (Doppelklick Logo oder `?debug=1`) erscheint der volle
+  Umfang. Titel seit BA 296: „Einstellungen Testton" (alle Sprachen).
   Alle richXX-Profile haben hinterlegtes Vibrato (Streicher aus
   TinySOL-Messung, übrige aus Spielpraxis-Tabelle), das immer zu
   100 % auf die Synthese durchgreift; eine UI-Skalierung gibt es nicht.
@@ -197,10 +203,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
     Anstieg; short = 30 ms cos²; hard = kein Ausklang).
   Setter `setToneEnvelope(patch)` in `audio.js` schreibt ein
   oder mehrere Felder und persistiert alles in `localStorage`.
-  **UI (BA 271):** Sektion „Anstieg & Ausklang" im Tonauswahl-Modal
-  (`tone-popup.js`). Steht **immer** sichtbar (unabhängig von
-  `cfg.showToggles`), weil die Einstellung toolweit für alle Töne
-  gilt. Vier Anstiegs-Buttons (hart / linear / weich / dB-linear),
+  **UI (BA 271/296):** Sektion „Anstieg & Ausklang" im Tonauswahl-Modal
+  (`tone-popup.js`). Seit BA 296 nur im Debug-Modus sichtbar (zuvor
+  immer sichtbar, unabhängig von `cfg.showToggles`), weil die
+  Einstellung toolweit für alle Töne gilt. Vier Anstiegs-Buttons (hart / linear / weich / dB-linear),
   editierbares Anschwingzeit-Feld (Vorschläge 0/50/100/250/500/1000 ms;
   bei „hart" ausgegraut), Startpegel-Feld (nur bei dB-linear sichtbar),
   drei Ausklang-Buttons (kurz / symmetrisch / hart). Jede Änderung

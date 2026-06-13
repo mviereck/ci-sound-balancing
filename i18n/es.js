@@ -1066,7 +1066,7 @@ Object.assign(L.es, {
     electrodeSelectionHeaderBtn: "Seleccionar electrodos de prueba",
     electrodeSelectionHeaderSummary: "{m} de {n} electrodos seleccionados",
     electrodeSelectionEmptyEnd: "Prueba finalizada: no quedan electrodos seleccionados.",
-    tonePopupTitle:  "Elegir tipo de tono",
+    tonePopupTitle:  "Ajustes del tono de prueba",
     tonePopupHint:
       "Esta colección ofrece diferentes tonos de prueba." +
       "<br><br>" +

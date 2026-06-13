@@ -300,6 +300,9 @@ var _implTpModalTone  = null;
 function openImplantTonePopup() {
   if (typeof openToneSelectionDialog !== "function") return;
   var activePan = (activeSide === "left") ? -1 : 1;
+  // BA 296: Vol/Dur/Pau-Zeile nur im Debug-Modus zeigen.
+  var _implDbgOn = !!(window.dbg && typeof window.dbg.isActive === 'function'
+                      && window.dbg.isActive());
 
   openToneSelectionDialog({
     getToneType:    function ()   { return toneType_implant; },
@@ -310,9 +313,9 @@ function openImplantTonePopup() {
     hintKey:      "tonePopupHint",
     extraHintKey: "tonePopupHintImplant",
 
-    showVolume:       true,
-    showDuration:     true,
-    showPause:        true,
+    showVolume:       _implDbgOn,
+    showDuration:     _implDbgOn,
+    showPause:        _implDbgOn,
     getVolumePercent: function ()  { return volume_global; },
     setVolumePercent: function (v) { volume_global = v; },
     getDurationMs:    function ()  { return duration_implant; },

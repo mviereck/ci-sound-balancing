@@ -727,13 +727,15 @@ let curA = -1,
 // Ton-Hullkurve greifen ausschliesslich auf diese zwei Objekte zu.
 // Wer einen Default andern will, andert ihn NUR hier.
 // ------------------------------------------------------------
-// toneType "richCiG" = CI-Test Grundton (Engine zerlegt rich+CiG).
+// BA 296: Default-Ton fuer alle Verfahren auf "sine" (Sinus). Die
+// Tonart-Auswahl ist im Normalbetrieb ausgeblendet und nur im
+// Debug-Modus waehlbar.
 const TEST_DEFAULTS = {
   commonVolume: 50,                 // BA 287: gemeinsame Lautstaerke aller Tests + Implantat
-  freqmatch: { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
-  test:      { toneType: "richCiG", volume: 50, duration: 750, pause: 300, sequence: "ab" },
-  balance:   { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
-  implant:   { toneType: "sine",    volume: 75, duration: 1000, pause: 500 }
+  freqmatch: { toneType: "sine", volume: 75, duration: 750, pause: 400, sequence: "ab" },
+  test:      { toneType: "sine", volume: 50, duration: 750, pause: 300, sequence: "ab" },
+  balance:   { toneType: "sine", volume: 75, duration: 750, pause: 400, sequence: "ab" },
+  implant:   { toneType: "sine", volume: 75, duration: 1000, pause: 500 }
 };
 const TONE_ENV_DEFAULTS = {
   attackForm: "dblin",  // Anstiegsform: dB-linear

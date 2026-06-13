@@ -234,7 +234,21 @@ window.toneTypeI18nKey = function(tt) {
 };
 
 function openToneSelectionDialog(cfg, onChange) {
+  // BA 296: Debug-Schalter. Im Normalbetrieb ist die Box reduziert;
+  // der volle Funktionsumfang (Hinweise, Anstieg/Ausklang, Tonart-
+  // Sammlung) erscheint nur bei aktivem Debug-Modus.
+  var dbgOn = !!(window.dbg && typeof window.dbg.isActive === 'function'
+                 && window.dbg.isActive());
+
   var initial = cfg.getToneType();
+  // BA 296: Ohne Debug ist die Tonart-Auswahl ausgeblendet -> Ton wird
+  // auf Sinus gezwungen. Ein im Debug oder per Datei gesetzter anderer
+  // Ton wird so beim Oeffnen ohne Debug auf Sinus zurueckgesetzt.
+  if (!dbgOn && initial !== 'sine') {
+    cfg.setToneType('sine');
+    if (typeof onChange === 'function') onChange();
+    initial = 'sine';
+  }
   var selected = initial;
   var playing = false;
   // BA 239: Korrektur-Toggles, Default an, lokal in der Modal-Instanz.
@@ -270,7 +284,7 @@ function openToneSelectionDialog(cfg, onChange) {
   // Beide Boxen optional. Wenn beide gesetzt sind, hat die erste
   // einen knapperen Bottom-Margin, damit sie zusammenruecken.
   var _tpHasExtraHint = !!cfg.extraHintKey;
-  if (cfg.hintKey) {
+  if (dbgOn && cfg.hintKey) {
     var hint = document.createElement('p');
     hint.dataset.t = cfg.hintKey;
     hint.style.cssText =
@@ -280,7 +294,7 @@ function openToneSelectionDialog(cfg, onChange) {
       'padding:8px 10px;border-radius:4px;';
     dlg.appendChild(hint);
   }
-  if (cfg.extraHintKey) {
+  if (dbgOn && cfg.extraHintKey) {
     var extraHint = document.createElement('p');
     extraHint.dataset.t = cfg.extraHintKey;
     extraHint.style.cssText =
@@ -294,7 +308,7 @@ function openToneSelectionDialog(cfg, onChange) {
   // (unabhaengig von showToggles), weil sie toolweit fuer ALLE Toene gilt.
   // Liest die globalen gToneEnv*-Variablen (BA 270) und schreibt via
   // setToneEnvelope (sofort persistent + sofort wirksam).
-  (function buildToneEnvSection() {
+  if (dbgOn) (function buildToneEnvSection() {
     var sec = document.createElement("div");
     sec.style.cssText =
       "margin:0 0 14px 0;padding:8px 10px;border:1px solid var(--border);" +
@@ -745,7 +759,8 @@ function openToneSelectionDialog(cfg, onChange) {
   }
 
   // BA 230: Buttons-Reihe statt Radio-Grid.
-  GROUPS.forEach(function(grp) {
+  // BA 296: Tonart-Sammlung nur im Debug-Modus.
+  if (dbgOn) GROUPS.forEach(function(grp) {
     var section = document.createElement('section');
     section.style.cssText = 'margin-bottom:14px;';
 

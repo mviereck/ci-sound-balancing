@@ -1119,7 +1119,7 @@ Object.assign(L.de, {
     electrodeSelectionHeaderBtn: "Testelektroden auswählen",
     electrodeSelectionHeaderSummary: "{m} von {n} Elektroden gewählt",
     electrodeSelectionEmptyEnd: "Test beendet: Keine ausgewählte Elektrode mehr verfügbar.",
-    tonePopupTitle:  "Tonart wählen",
+    tonePopupTitle:  "Einstellungen Testton",
     tonePopupHint:
       "Diese Sammlung bietet verschiedene Testtöne." +
       "<br><br>" +
