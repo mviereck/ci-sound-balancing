@@ -450,14 +450,19 @@ function playRichTone(c, hz, vol, ms, pan, ramp = 50) {
 function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
   // Generische richTone-Synthese aus einem Profil-Objekt
   // (siehe js/richtone-profiles.js -> RICHTONE_PROFILES.<abbr>).
-  // Felder: partials, vibratoHz, vibratoCents, amHz, amDepth.
+  // Felder: partials, vibratoHz, vibratoCents, amHz, amDepth, driftHz, driftCents.
   // BA 270: Anschwingen/Ausklang kommen jetzt aus der globalen
   // Huellkurve (applyCosRamp liest gToneEnv*). Kein profil-eigener Attack.
+  // 0.4.282.1: driftHz/driftCents = bandbegrenztes Rauschen als
+  // aperiodischer Frequenz-Drift. driftHz = Tiefpass-Cutoff fuer die
+  // Drift-Rate, driftCents = Tiefe in Cent.
   return new Promise((r) => {
     const VIB_HZ      = profile.vibratoHz    || 0;
     const VIB_CENTS   = profile.vibratoCents || 0;
     const AM_HZ       = profile.amHz         || 0;
     const AM_DEPTH    = profile.amDepth      || 0;
+    const DRIFT_HZ    = profile.driftHz      || 0;
+    const DRIFT_CENTS = profile.driftCents   || 0;
     const partials    = (profile.partials && profile.partials.length)
                           ? profile.partials
                           : [{ mult: 1, amp: 1.0 }];
@@ -473,12 +478,31 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
     const vibFactor   = (VIB_HZ > 0 && VIB_CENTS > 0)
                           ? Math.pow(2, VIB_CENTS / 1200) - 1
                           : 0;
+    const driftFactor = (DRIFT_HZ > 0 && DRIFT_CENTS > 0)
+                          ? Math.pow(2, DRIFT_CENTS / 1200) - 1
+                          : 0;
 
     let vibLfo = null;
     if (vibFactor > 0) {
       vibLfo = c.createOscillator();
       vibLfo.type = "sine";
       vibLfo.frequency.value = VIB_HZ;
+    }
+
+    let driftSrc = null;
+    let driftLpf = null;
+    if (driftFactor > 0) {
+      const bufLen = Math.ceil(c.sampleRate * (ms / 1000 + 0.5));
+      const buf = c.createBuffer(1, bufLen, c.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < bufLen; i++) d[i] = Math.random() * 2 - 1;
+      driftSrc = c.createBufferSource();
+      driftSrc.buffer = buf;
+      driftLpf = c.createBiquadFilter();
+      driftLpf.type = "lowpass";
+      driftLpf.frequency.value = DRIFT_HZ;
+      driftLpf.Q.value = 0.7;
+      driftSrc.connect(driftLpf);
     }
 
     for (const part of partials) {
@@ -494,6 +518,14 @@ function playRichToneProfile(c, hz, vol, ms, pan, profile, ramp = 50) {
           vibGain.gain.value = freq * vibFactor;
           vibLfo.connect(vibGain);
           vibGain.connect(o.frequency);
+        }
+        if (driftLpf) {
+          const driftGain = c.createGain();
+          // Tiefpass-Rauschen mit Cutoff << 1 Hz liefert |out| << 1, daher
+          // Skalierung x6 als grobe Anpassung an den Cent-Headroom.
+          driftGain.gain.value = freq * driftFactor * 6;
+          driftLpf.connect(driftGain);
+          driftGain.connect(o.frequency);
         }
         o.connect(og);
         og.connect(carrierMix);
@@ -907,6 +939,9 @@ const _BASE_TONE_TYPES = ["sine", "complex", "pulsedComplex", "richTone",
   "richVc", "richHn",
   "richCiH", "richCiHA", "richCiHS", "richCiHF",
   "richCiB", "richCiP", "richCiBF", "richCiG", "richCiS",
+  "richCiGVL", "richCiGVN", "richCiGVS",
+  "richCiGA1", "richCiGA2", "richCiGB",
+  "richCiGD1", "richCiGD2",
   "noise", "noiseAdaptive", "irn", "amSine", "warbleSine", "burstSine",
   "wobbleSweep",
   "neighborSine", "sineNoiseHalf", "sineNoiseFull",
@@ -999,15 +1034,37 @@ function playTone(hz, vol, ms, ramp = 50, toneType = "sine") {
   const effectiveVol = isDeaf(activeSide) ? 0 : vol;
   return playToneTyped(c, hz, effectiveVol, ms, pan, toneType, ramp);
 }
+// BA 284: Zentrale Pegel-Aufteilung fuer ein Tonpaar (Elektrodenlautstaerke).
+//   vol = Grundpegel-Amplitude (0..1), off = Slider-Offset in dB.
+// Zone 1 (genug Headroom): symmetrisch -off/2 auf A, +off/2 auf B.
+// Zone 2 (ein Ton an der Decke): der lautere Ton bleibt bei 1.0, der
+//   andere wird um den VOLLEN off abgesenkt -> der Lautstaerkeunterschied
+//   entspricht immer exakt dem Slider-Wert.
+// Rueckgabe: { vA, vB, capped } mit capped = null | 'a' | 'b'
+//   (welcher Ton an der Decke klebt; von BA 285 fuer den Hinweis genutzt).
+function pairGains(vol, off) {
+  var halfOff = off / 2;
+  var aIdeal = vol * dB2G(-halfOff);
+  var bIdeal = vol * dB2G(halfOff);
+  if (aIdeal <= 1 && bIdeal <= 1) {
+    return { vA: aIdeal, vB: bIdeal, capped: null };
+  }
+  if (bIdeal > 1) {
+    // off > 0: B ist der lautere -> Decke; A voll abgesenkt.
+    return { vA: dB2G(-off), vB: 1, capped: 'b' };
+  }
+  // off < 0: A ist der lautere -> Decke; B voll abgesenkt.
+  return { vA: 1, vB: dB2G(off), capped: 'a' };
+}
 async function playSeq(eA, eB, off, opts) {
   const o = opts || {};
   const tt  = o.toneType || "sine";
   const aba = !!o.aba;
   const v = gVol(), d = gDur(), p = gPau();
-  // Symmetrische Verschiebung: off/2 zu B, -off/2 zu A
-  const halfOff = off / 2;
-  const vA = Math.max(Math.min(v * dB2G(-halfOff), 1), 0);
-  const vB = Math.max(Math.min(v * dB2G(halfOff), 1), 0);
+  // BA 284: Zwei-Zonen-Pegellogik (symmetrisch; bei Deckelung voller
+  // Offset auf den nicht-gedeckelten Ton). Siehe pairGains.
+  const g = pairGains(v, off);
+  const vA = g.vA, vB = g.vB;
   updInd(eA, "a");
   await playTone(effFreq(eA), vA, d, 50, tt);
   if (!isPlay) return;

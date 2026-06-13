@@ -205,9 +205,16 @@ In `state-side.js` und persistiert in JSON und localStorage:
 ### Slider-Wirkung (pro Test eigener Wert)
 
 - **Test 1**: kein Dropdown mehr (BA 283 entfernt). Der Slider wirkt
-  immer symmetrisch: bei Slider +6 dB wird A mit −3 dB, B mit +3 dB
-  gespielt — sowohl beim Nacheinander-Abspielen (`playSeq`) als auch
-  beim Knopf "Gleichzeitig" (`_testPlaySimul`).
+  über eine Zwei-Zonen-Logik (`pairGains` in `js/audio.js`):
+  - *Zone 1* (genug Reserve nach oben): beide Töne symmetrisch `±off/2`
+    — bei Slider +6 dB wird A mit −3 dB, B mit +3 dB gespielt.
+  - *Zone 2* (ein Ton am Maximalpegel): der lautere Ton bleibt am
+    Maximum, der andere wird um den vollen `off` abgesenkt — der
+    gemessene Unterschied entspricht damit immer dem Slider-Wert.
+  Gilt sowohl beim Nacheinander-Abspielen (`playSeq`) als auch beim
+  Knopf "Gleichzeitig" (`_testPlaySimul`). Default-Tool-Lautstärke:
+  **50 %** (ca. 12 dB Reserve — deckt den Standard-Slider ±20 dB ab;
+  Zone 2 nur bei erweitertem Bereich oder fast stummen Elektroden).
 - **Test 2** (`slTarget_balance`): Links / Rechts / Beide. Default
   `Beide`, symmetrisch wie in Test 1.
 - **Test 3**: kein Dropdown, intern fest auf der

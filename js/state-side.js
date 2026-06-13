@@ -730,7 +730,7 @@ let curA = -1,
 // toneType "richCiG" = CI-Test Grundton (Engine zerlegt rich+CiG).
 const TEST_DEFAULTS = {
   freqmatch: { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
-  test:      { toneType: "richCiG", volume: 75, duration: 750, pause: 300, sequence: "ab" },
+  test:      { toneType: "richCiG", volume: 50, duration: 750, pause: 300, sequence: "ab" },
   balance:   { toneType: "richCiG", volume: 75, duration: 750, pause: 400, sequence: "ab" },
   implant:   { toneType: "sine",    volume: 75, duration: 1000, pause: 500 }
 };

@@ -1360,12 +1360,9 @@ function _testPlaySimul() {
   // Header-Feld.
   var vol = tGVol();
   var dur = tGDur();
-  // BA 283: symmetrische Verschiebung wie in playSeq (audio.js):
-  // -tot/2 zu A, +tot/2 zu B. Beide Toene werden bewegt, gleiche
-  // Wirkungsrichtung wie beim Nacheinander-Abspielen.
-  var halfOff = tot / 2;
-  var vA = Math.max(Math.min(vol * dB2G(-halfOff), 1), 0);
-  var vB = Math.max(Math.min(vol * dB2G(halfOff), 1), 0);
+  // BA 284: gemeinsame Zwei-Zonen-Pegellogik wie playSeq (audio.js).
+  var g = pairGains(vol, tot);
+  var vA = g.vA, vB = g.vB;
   var p1 = playTone(effFreq(curA), vA, dur, 50, toneType_test);
   var p2 = playTone(effFreq(curB), vB, dur, 50, toneType_test);
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
