@@ -417,7 +417,9 @@ werden per Bauanleitung in eigene Sonnet-Chats ausgelagert.
   `testUI.field.setEnabled`, `testUI.confidence.getValue`,
   `testUI.cumulativeDisplay.set`, `testUI.slider.setValue` (ab BA 113),
   `testUI.clipHint.set(refs.clipHint, text)` — Deckelungs-Hinweis ein-/
-  ausblenden (body-Flag `clipHint: true`; BA 285)
+  ausblenden (body-Flag `clipHint: true`; BA 285),
+  `testUI.tonePlayer.{playSequential,playSimultaneous,stop,isPlaying}` —
+  gemeinsame Token-Abspielmaschine (BA 286)
 - Renamings vorbereiten (alte Namen `fmMode` etc. bleiben in den
   Test-Modulen, werden erst in Schritt 2 ff. mitgezogen)
 - Akzeptanztest: alle vier Sub-Reiter funktionieren unverändert
@@ -526,6 +528,24 @@ gesetzt (kein `data-t`), da Platzhalter-Ersatz durch `applyLang` nicht
 kompatibel wäre. Aufgerufen an genau drei Stellen: `test.js` `nextFullRound`
 (Vollende-Zweig), `lr-balance.js` `lrFinish`, `freqmatch-adaptive.js`
 `fmFinishAdaptive`. Nicht bei Stop/Pause und nicht in Konvergenz/Vor-Schätzung.
+
+**BA 286 — testUI.tonePlayer** (gemeinsame Token-Abspielmaschine)
+
+IIFE-Baustein im `testUI`-Objekt, direkt nach `clipHint`. API:
+`testUI.tonePlayer.playSequential(tokens, opts)` — spielt Token-Liste
+nacheinander ab (Pause-Token werden als Verzögerung behandelt);
+`testUI.tonePlayer.playSimultaneous(tokens, opts)` — startet alle
+Ton-Token zeitgleich, Pause-Token ignoriert. Token-Format:
+Ton `{ hz, pan, vol, durationMs }` (vol = fertiger absoluter Gain,
+alle Korrekturen bereits eingerechnet — die Maschine rechnet selbst
+nichts um), Pause `{ pauseMs }`. `opts`: `toneType` (Default `'sine'`),
+`onDone` (Callback nach letztem Token), `onStepStart(index, token)`
+(Hook für Aufleuchten: `index >= 0` = Ton-Token, `-1` = Pause/Ende,
+`-2` = Gleichzeitig-Block). `testUI.tonePlayer.stop()` bricht laufende
+Sequenz sofort ab; `testUI.tonePlayer.isPlaying()` gibt Laufzustand
+zurück. Erster Konsument: `_playPreview` in `tone-popup.js` (BA 286
+ersetzt dort die eigene setTimeout-Schleife); weitere Tests folgen
+in BA 287 ff.
 
 ## Verwandte Dokumente
 

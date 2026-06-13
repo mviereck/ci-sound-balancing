@@ -1367,6 +1367,103 @@ var testUI = {
     }
   },
 
+  // ---- tonePlayer (BA 286): gemeinsame Token-Abspielmaschine ----
+  // Spielt eine Token-Liste ab. Token-Arten:
+  //   Ton:   { hz, pan, vol, durationMs }   (vol = fertiger absoluter Gain)
+  //   Pause: { pauseMs }
+  // Zwei Modi: playSequential (nacheinander, mit Pausen) und
+  // playSimultaneous (alle Ton-Token parallel, Pausen ignoriert).
+  // Die Maschine rechnet KEINE Pegel/Korrekturen -- der Aufrufer liefert
+  // fertige Token. Optionaler onStepStart-Hook fuer Aufleuchten/Indikator.
+  tonePlayer: (function () {
+    var _to     = null;   // aktueller setTimeout-Handle
+    var _active = false;  // laeuft gerade?
+
+    function _stop() {
+      _active = false;
+      if (_to) { clearTimeout(_to); _to = null; }
+    }
+
+    // onStepStart(index, token):
+    //   index >= 0  -> Ton-Token startet (token = das Token)
+    //   index === -1 -> Pause oder Sequenz-Ende (token = null)
+    //   index === -2 -> Gleichzeitig-Block startet (token = Array der Toene)
+    function _playSequential(tokens, opts) {
+      opts = opts || {};
+      var c = (typeof gAC === 'function') ? gAC() : null;
+      if (!c || !Array.isArray(tokens) || tokens.length === 0) {
+        if (typeof opts.onDone === 'function') opts.onDone();
+        return;
+      }
+      _stop();
+      _active = true;
+      var idx = 0;
+      function step() {
+        if (!_active) return;
+        if (idx >= tokens.length) {
+          _active = false;
+          if (typeof opts.onStepStart === 'function') opts.onStepStart(-1, null);
+          if (typeof opts.onDone === 'function') opts.onDone();
+          return;
+        }
+        var tk = tokens[idx++];
+        if (tk && typeof tk.pauseMs === 'number') {
+          if (typeof opts.onStepStart === 'function') opts.onStepStart(-1, null);
+          _to = setTimeout(step, tk.pauseMs);
+          return;
+        }
+        if (!tk || typeof tk.hz !== 'number' || typeof tk.durationMs !== 'number') {
+          step();
+          return;
+        }
+        var vol = (typeof tk.vol === 'number') ? tk.vol : 0.25;
+        var pan = (typeof tk.pan === 'number') ? tk.pan : 0;
+        if (typeof opts.onStepStart === 'function') opts.onStepStart(idx - 1, tk);
+        try {
+          playToneTyped(c, tk.hz, vol, tk.durationMs, pan, opts.toneType || 'sine');
+        } catch (e) { /* swallow */ }
+        _to = setTimeout(step, tk.durationMs);
+      }
+      step();
+    }
+
+    function _playSimultaneous(tokens, opts) {
+      opts = opts || {};
+      var c = (typeof gAC === 'function') ? gAC() : null;
+      var tones = (Array.isArray(tokens) ? tokens : []).filter(function (tk) {
+        return tk && typeof tk.hz === 'number' && typeof tk.durationMs === 'number';
+      });
+      if (!c || tones.length === 0) {
+        if (typeof opts.onDone === 'function') opts.onDone();
+        return;
+      }
+      _stop();
+      _active = true;
+      var maxDur = 0;
+      tones.forEach(function (tk) {
+        var vol = (typeof tk.vol === 'number') ? tk.vol : 0.25;
+        var pan = (typeof tk.pan === 'number') ? tk.pan : 0;
+        if (tk.durationMs > maxDur) maxDur = tk.durationMs;
+        try {
+          playToneTyped(c, tk.hz, vol, tk.durationMs, pan, opts.toneType || 'sine');
+        } catch (e) { /* swallow */ }
+      });
+      if (typeof opts.onStepStart === 'function') opts.onStepStart(-2, tones);
+      _to = setTimeout(function () {
+        _active = false;
+        if (typeof opts.onStepStart === 'function') opts.onStepStart(-1, null);
+        if (typeof opts.onDone === 'function') opts.onDone();
+      }, maxDur);
+    }
+
+    return {
+      playSequential:   _playSequential,
+      playSimultaneous: _playSimultaneous,
+      stop:             _stop,
+      isPlaying:        function () { return _active; }
+    };
+  })(),
+
   // ---- progress ----
   progress: {
     /**

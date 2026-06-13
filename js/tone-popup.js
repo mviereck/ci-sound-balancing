@@ -875,31 +875,20 @@ function openToneSelectionDialog(cfg, onChange) {
   function _playPreview(toneType) {
     var seq = cfg.getPreviewSequence();
     if (!Array.isArray(seq) || seq.length === 0) return;
-    var c = (typeof gAC === 'function') ? gAC() : null;
-    if (!c) return;
 
     var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
-    playing = true;
-    _setToneButtonsDisabled(true);
 
-    var idx = 0;
-    function nextStep() {
-      if (idx >= seq.length) {
-        playing = false;
-        _setToneButtonsDisabled(false);
-        return;
-      }
-      var step = seq[idx++];
+    // Korrektur-Toggles wie bisher anwenden und daraus fertige Token
+    // bauen. (Die Verlagerung der Korrektur in die ...Sequence()-Funktionen
+    // der Tests folgt in spaeteren BAs; hier bleibt sie hier.)
+    var tokens = seq.map(function (step) {
       if (step && typeof step.pauseMs === 'number') {
-        setTimeout(nextStep, step.pauseMs);
-        return;
+        return { pauseMs: step.pauseMs };
       }
       if (!step || typeof step.hz !== 'number' || typeof step.durationMs !== 'number') {
-        nextStep();
-        return;
+        return { pauseMs: 0 };
       }
       var pan = (typeof step.pan === 'number') ? step.pan : 0;
-      // BA 239: Korrektur-Toggles wirken auf vol pro Step.
       var effVol = vol;
       if (applyMeasLevels) {
         var measDb = _tpMeasDbForStep(step.hz, pan);
@@ -912,12 +901,18 @@ function openToneSelectionDialog(cfg, onChange) {
                 : 0;
         if (bDb !== 0) effVol *= Math.pow(10, bDb / 20);
       }
-      try {
-        playToneTyped(c, step.hz, effVol, step.durationMs, pan, toneType);
-      } catch (e) { /* swallow */ }
-      setTimeout(nextStep, step.durationMs);
-    }
-    nextStep();
+      return { hz: step.hz, pan: pan, vol: effVol, durationMs: step.durationMs };
+    });
+
+    playing = true;
+    _setToneButtonsDisabled(true);
+    testUI.tonePlayer.playSequential(tokens, {
+      toneType: toneType,
+      onDone: function () {
+        playing = false;
+        _setToneButtonsDisabled(false);
+      }
+    });
   }
   function _setToneButtonsDisabled(flag) {
     var btns = dlg.querySelectorAll('button.tone-btn');
