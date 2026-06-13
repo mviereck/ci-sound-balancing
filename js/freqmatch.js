@@ -1056,14 +1056,22 @@ document.addEventListener("DOMContentLoaded", () => {
           hintKey: 'tonePopupHint',
           getVolume:   function() { return fmGVol(); },
           getPreviewSequence: function (lastHz) {
-            // Slider-Modus laeuft -> echte Sequenz; sonst (inkl. Adaptiv-Modus,
-            // der nicht auf die Maschine migriert ist) ein Ton mit gemerkter Frequenz.
+            // Slider-Modus laeuft -> echte Sequenz. Sonst (inkl. Adaptiv-Modus)
+            // gemerkter Ton, beide Seiten nacheinander (Vergleichs- dann
+            // Referenz-Seite), gleich laut.
             if (fmRunning && fmCurrentEl != null && !fmAdaptiveActive) {
               return fmSequence({ aba: fmGAba() });
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-            var pan = (fmVarSide === 'left') ? -1 : 1;
-            return [{ hz: hz, pan: pan, vol: fmGVol(), durationMs: fmGDur() }];
+            var vol = fmGVol();
+            var dur = fmGDur();
+            var pau = fmGPau();
+            var varPan = (fmVarSide === 'left') ? -1 : 1;
+            return [
+              { hz: hz, pan: varPan,  vol: vol, durationMs: dur },
+              { pauseMs: pau },
+              { hz: hz, pan: -varPan, vol: vol, durationMs: dur }
+            ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
           // BA 252: beidseitige Disabled-Logik, kein elActive-Filter hier.

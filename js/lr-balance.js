@@ -857,9 +857,16 @@ document.addEventListener("DOMContentLoaded", function() {
             if (lrRunning && lrCurrentEl !== null) {
               return lrSequence({ aba: sequence_balance === 'aba' });
             }
+            // Kein Test: gemerkter Ton, beide Seiten nacheinander (gleich laut).
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
-            var pan = (activeSide === 'left') ? -1 : 1;
-            return [{ hz: hz, pan: pan, vol: lrGVol(), durationMs: lrGDur() }];
+            var vol = lrGVol();
+            var dur = lrGDur();
+            var pau = lrGPau();
+            return [
+              { hz: hz, pan: -1, vol: vol, durationMs: dur },
+              { pauseMs: pau },
+              { hz: hz, pan:  1, vol: vol, durationMs: dur }
+            ];
           },
           // BA 253: Klavier mit beidseitiger Disabled-Logik.
           keyboardMode:          true,

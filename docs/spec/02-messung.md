@@ -396,7 +396,11 @@ Slider-Wert wird invertiert.
   öffnet die Tonauswahl-Modalbox (analog Frequenzabgleich BA 209 und
   Elektrodenlautstärke BA 250). Auswahl persistiert in
   `toneType_balance` (Default `richCiG`). Der frühere Tonart-Dropdown
-  im Header ist entfernt.
+  im Header ist entfernt. Probehör-Sequenz (BA 292): Test läuft →
+  echte Testsequenz mit aktuellem Schieber-Pegelunterschied
+  (`lrSequence({ aba: sequence_balance === 'aba' })`). Kein Test →
+  gemerkter Klavier-Ton links, Pause, gleicher Ton rechts (Default
+  1000 Hz; zurückgesetzt bei jedem Box-Öffnen).
 - **Vol/Dur/Pau-Felder im Modal (BA 253):** Lautstärke, Tondauer,
   Tonpause sind jetzt im Tonauswahl-Modal (State: `volume_balance`,
   `duration_balance`, `pause_balance`; Defaults 75 / 750 / 400). Im
@@ -465,9 +469,9 @@ Slider-Wert wird invertiert.
   Play-Spalte. Probehör-Sequenz (BA 292): Slider-Modus läuft →
   echte Testsequenz mit aktuellem Schieber-Tonhöhenunterschied
   (`fmSequence({ aba: fmGAba() })`). Adaptiv-Modus oder kein Test
-  läuft → ein Ton auf der var-Seite mit der zuletzt am Klavier
-  angetippten Frequenz (Default 1000 Hz; zurückgesetzt bei jedem
-  Box-Öffnen). Der Play-Button spielt
+  läuft → gemerkter Klavier-Ton auf var-Seite, Pause, gleicher Ton
+  auf ref-Seite (Default 1000 Hz; zurückgesetzt bei jedem Box-Öffnen).
+  Der Play-Button spielt
   ausschließlich ab; die Tonart-Auswahl erfolgt über den
   Radio-Button (und wird mit OK übernommen). OK übernimmt,
   Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`
