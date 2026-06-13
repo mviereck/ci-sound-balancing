@@ -191,4 +191,107 @@
     amHz:         0,
     amDepth:      0
   };
+
+  // Experimentelle Grundton-Varianten (0.4.282.1). Sortiert unter
+  // "Experimentelle Toene" in der Tonart-Auswahl, nicht unter "CI-Test".
+  // Basis ist immer CiG (1 Partial, also reine Grundton-Anregung ohne
+  // Akkord-Effekt). Variiert wird die zeitliche Bewegung: Vibrato-Form,
+  // AM, Schwebung, oder aperiodischer Drift.
+
+  // Vibrato-Varianten — Modulationsform veraendert, keine AM.
+  RICHTONE_PROFILES.CiGVL = {
+    abbr: 'CiGVL',
+    label: 'CI-Test Vibrato langsam',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    3.0,
+    vibratoCents: 6.0,
+    amHz:         0,
+    amDepth:      0
+  };
+
+  RICHTONE_PROFILES.CiGVN = {
+    abbr: 'CiGVN',
+    label: 'CI-Test Vibrato schmal',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5.0,
+    vibratoCents: 3.0,
+    amHz:         0,
+    amDepth:      0
+  };
+
+  RICHTONE_PROFILES.CiGVS = {
+    abbr: 'CiGVS',
+    label: 'CI-Test Vibrato Sänger',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    6.0,
+    vibratoCents: 40.0,
+    amHz:         0,
+    amDepth:      0
+  };
+
+  // AM-Varianten — wie CiG plus AM. Diagnose: zeigt AM-Welle auch ohne
+  // Obertoene auf?
+  RICHTONE_PROFILES.CiGA1 = {
+    abbr: 'CiGA1',
+    label: 'CI-Test AM dezent',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5.0,
+    vibratoCents: 6.0,
+    amHz:         3.5,
+    amDepth:      0.08
+  };
+
+  RICHTONE_PROFILES.CiGA2 = {
+    abbr: 'CiGA2',
+    label: 'CI-Test AM stark',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5.0,
+    vibratoCents: 6.0,
+    amHz:         3.0,
+    amDepth:      0.25
+  };
+
+  // Schwebung — zwei sehr nahe Partials (+5 cent), keine LFO-AM.
+  // Bei 1 kHz ergibt das ~2.89 Hz Beat, bei 100 Hz ~0.29 Hz, bei
+  // 5000 Hz ~14.5 Hz. Logarithmisch konstanter Schwebungsabstand
+  // (anders als Cluster-Toene mit festem Hz-Abstand).
+  RICHTONE_PROFILES.CiGB = {
+    abbr: 'CiGB',
+    label: 'CI-Test Schwebung',
+    partials: [
+      { mult: 1.00000, amp: 1.0 },
+      { mult: 1.00289, amp: 1.0 }
+    ],
+    vibratoHz:    0,
+    vibratoCents: 0,
+    amHz:         0,
+    amDepth:      0
+  };
+
+  // Drift-Varianten — aperiodischer Frequenz-Drift ueber bandbegrenztes
+  // Rauschen (engine: driftHz/driftCents, 0.4.282.1). Kein Vibrato,
+  // damit der Drift-Charakter isoliert hoerbar wird.
+  RICHTONE_PROFILES.CiGD1 = {
+    abbr: 'CiGD1',
+    label: 'CI-Test Drift sanft',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    0,
+    vibratoCents: 0,
+    amHz:         0,
+    amDepth:      0,
+    driftHz:      0.3,
+    driftCents:   10.0
+  };
+
+  RICHTONE_PROFILES.CiGD2 = {
+    abbr: 'CiGD2',
+    label: 'CI-Test Drift stark',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    0,
+    vibratoCents: 0,
+    amHz:         0,
+    amDepth:      0,
+    driftHz:      0.5,
+    driftCents:   30.0
+  };
 })();

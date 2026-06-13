@@ -591,6 +591,57 @@ A weg und C wird wahrscheinlicher (Intermodulation vor der CI-
 Filterbank — auch ohne Vibrato würde die fehlende Maskierung durch
 Obertöne hörbar werden).
 
+### Experimentelle Grundton-Varianten (0.4.282.1)
+
+Ausgehend von CiG als bevorzugtem Grundton-Test wurden acht
+Varianten in der Gruppe „Experimentelle Töne" ergänzt. Alle nutzen
+einen einzelnen Partial (Ausnahme: Schwebung) und unterscheiden sich
+in der zeitlichen Bewegung des Tons.
+
+| Profil | Vibrato | AM | Drift | Besonderheit |
+|---|---|---|---|---|
+| CiGVL | 3 Hz / 6 cent | – | – | langsames Vibrato |
+| CiGVN | 5 Hz / 3 cent | – | – | schmales Vibrato (halbe Tiefe) |
+| CiGVS | 6 Hz / 40 cent | – | – | klassisches Sänger-Vibrato |
+| CiGA1 | 5 Hz / 6 cent | 3,5 Hz / 8 % | – | dezente AM auf Grundton |
+| CiGA2 | 5 Hz / 6 cent | 3 Hz / 25 % | – | starke AM auf Grundton |
+| CiGB | – | – | – | zwei Sinüsse +5 cent (Schwebung) |
+| CiGD1 | – | – | 0,3 Hz / 10 cent | sanfter aperiodischer Drift |
+| CiGD2 | – | – | 0,5 Hz / 30 cent | starker aperiodischer Drift |
+
+**Zweck der Varianten.** Sie sind diagnostisch:
+
+- **Vibrato-Varianten** prüfen, ob die warble-Wahrnehmung bei E11
+  (siehe oben) mit der Vibrato-Rate oder -Tiefe zusammenhängt.
+  Die Sänger-Variante ist Vergleich am anderen Ende des Spektrums
+  („wo wirkt der Ton nicht mehr als Mess-Stimulus, sondern als
+  singende Stimme?").
+- **AM-Varianten** trennen AM-Wirkung von Akkord-Wirkung. Wenn AM
+  auch ohne Obertöne (also ohne Akkord-Anregung mehrerer Elektroden)
+  die AGC-Welle erzeugt, ist Schluß (b) aus dem AM-Abschnitt oben
+  noch enger gefaßt: die AGC reagiert auf den Pegel-Hüllkurven,
+  nicht auf die spektrale Verteilung.
+- **Schwebung** unterscheidet sich von den Cluster-Tönen (feste
+  Hz-Abstände, ±3/±8 Hz etc.) durch logarithmisch konstanten
+  Cent-Abstand: bei tiefen Tönen wird die Schwebung sehr langsam,
+  bei hohen sehr schnell. Vergleich zu CiGA1/CiGA2: erzeugt die
+  „akustische" AM durch Überlagerung dasselbe AGC-Verhalten wie
+  eine LFO-AM?
+- **Drift-Varianten** sind das aperiodische Gegenstück zum Vibrato.
+  Ob ein zufälliger Drift die AGC anders reizt als ein periodischer
+  Sinus-LFO, ist offen — Hypothese: weniger, weil keine
+  Resonanzanregung möglich ist.
+
+**Engine-Erweiterung.** Für den Drift wurde `playRichToneProfile`
+um zwei Profil-Felder ergänzt: `driftHz` (Tiefpass-Cutoff für die
+Rausch-Modulation) und `driftCents` (Tiefe in Cent). Mechanismus:
+ein einmal gefüllter Rausch-Buffer durchläuft einen Biquad-Tiefpaß
+mit Cutoff `driftHz`. Der Ausgang moduliert die Frequenz aller
+Partials parallel (analog zum bestehenden Vibrato-LFO). Eine grobe
+Skalierung mit Faktor 6 gleicht den Pegelabfall des Tiefpasses
+unterhalb von 1 Hz aus, damit die Modulationstiefe ungefähr den
+in `driftCents` angegebenen Wert erreicht.
+
 ### Mess-Konsequenz: nicht so dramatisch wie sie klingt
 
 Für die eigentliche Mess-Aufgabe (Tonhöhen-Vergleich links/rechts
