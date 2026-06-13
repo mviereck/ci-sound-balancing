@@ -68,7 +68,7 @@ function renderResults() {
     if (el) el.innerHTML = t(k);
   });
   if (hB) {
-    const { levels, elRes, elWt } = compWLS();
+    const { raw: levels, residual: elRes, weight: elWt } = elTestData();
     const pc = new Array(nEl).fill(0);
     const valid = bRes.filter(
       (r) =>

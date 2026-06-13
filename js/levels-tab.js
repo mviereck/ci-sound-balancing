@@ -92,14 +92,12 @@ function lvTabDrawRelative(ctx, W, H) {
     // BA 164
     elActive[i] === false || elSt[i] === "mute" || elExDur[i] !== null;
 
-  const { levels: measArr } = compWLS();
+  const measArr = elTestData().correction;
   const preArr = getTotalPresetCurve();
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
     const sch = manualLevels[i] || 0;
-    const mes = lvTabShowMeas
-      ? (bRes.some((r) => r.a === i || r.b === i) ? measArr[i] : 0)
-      : 0;
+    const mes = lvTabShowMeas ? measArr[i] : 0;
     const cur = lvTabShowCurves ? preArr[i] : 0;
     return { i, excluded: false, sch, mes, cur, sum: sch + mes + cur };
   });
@@ -172,7 +170,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
   const yMax = lvAxisMaxFor(mfr);
   const unitLbl = lvUnitLabelFor(mfr);
 
-  const { levels: measArr } = compWLS();
+  const measArr = elTestData().correction;
   const preArr = getTotalPresetCurve();
 
   const toAbs = (dB, mclAudi, thrAudi) => {
@@ -189,9 +187,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
     if (mclAudi == null) return { i, excluded: false, noMcl: true };
 
     const schDb = manualLevels[i] || 0;
-    const mesDb = lvTabShowMeas
-      ? (bRes.some((r) => r.a === i || r.b === i) ? measArr[i] : 0)
-      : 0;
+    const mesDb = lvTabShowMeas ? measArr[i] : 0;
     const curDb = lvTabShowCurves ? preArr[i] : 0;
     const sumDb = schDb + mesDb + curDb;
 

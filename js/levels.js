@@ -337,12 +337,9 @@ function drawLvChart() {
   const showPre = document.getElementById("lvChkPre").checked;
   const act = allEl();
   if (!act.length) return;
-  const { levels } = compWLS();
+  const corr = elTestData().correction;
   const pc = getTotalPresetCurve();
-  const measV = act.map((i) => {
-    const hd = bRes.some((r) => r.a === i || r.b === i);
-    return hd ? levels[i] : 0;
-  });
+  const measV = act.map((i) => corr[i]);
   const manV = act.map((i) => manualLevels[i]);
   const preV = act.map((i) => pc[i]);
   const sumV = act.map(

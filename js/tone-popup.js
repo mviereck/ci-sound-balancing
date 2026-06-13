@@ -489,13 +489,11 @@ function openToneSelectionDialog(cfg, onChange) {
   // (siehe js/tabs-eq.js updPlSrcButtons / updBalApplyBtn):
   // grün = aktiv, grau = inaktiv. Beide Default an, lokal.
   //
-  // BA 256: In den Test-Aufrufern (Elektrodenlautstärke, Stereo-Balance,
-  // Latenz, Frequenzabgleich) wird showToggles: false gesetzt — die
-  // Knopfreihe entfällt dann komplett. Die Variablen applyMeasLevels /
-  // applyBalance bleiben oben auf true; die Korrekturen wirken weiterhin
-  // auf Vorhör-Step, Klavier-Anschlag und Sweep. Im Reiter Implantat
-  // (ui-implant.js) bleiben die Knöpfe sichtbar (kein showToggles-Flag
-  // gesetzt -> Default true).
+  // Die Korrektur-Toggles (und die ueber onTogglesReady ausgegebene
+  // Korrektor-fn) werden NUR im Reiter Implantat genutzt; dort steuern
+  // sie Vorschau, Klavier und Sweep. Die Test-Aufrufer setzen
+  // showToggles:false und wenden ihre Elektrodenlautstaerke-Korrektur
+  // selbst an (lrCorrGain / fmCorrGain) — die fn liegt dort brach.
   if (cfg.showToggles !== false) {
     var togRow = document.createElement('div');
     togRow.style.cssText =
@@ -862,7 +860,7 @@ function openToneSelectionDialog(cfg, onChange) {
                   && elExDur[r.a] === null && elSt[r.a] !== 'mute'
                   && elExDur[r.b] === null && elSt[r.b] !== 'mute';
             })) return 0;
-        var lv = compWLS().levels;
+        var lv = elTestData().correction;
         var v = lv[best];
         return (typeof v === 'number' && isFinite(v)) ? v : 0;
       });

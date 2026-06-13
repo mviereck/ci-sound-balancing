@@ -214,19 +214,13 @@ function getPlaybackBuffer() {
 }
 
 function computeGains() {
-  const { levels } = compWLS();
+  const corr = elTestData().correction;
   const presetCurve = getTotalPresetCurve();
   const g = new Array(nEl).fill(0);
   for (let i = 0; i < nEl; i++) {
-    const hd = bRes.some(
-      (r) =>
-        (r.a === i || r.b === i) &&
-        elExDur[r.a] === null &&
-        elSt[r.a] !== "mute" &&
-        elExDur[r.b] === null &&
-        elSt[r.b] !== "mute",
-    );
-    const addMeas = plSrcMeas && hd ? -levels[i] : 0;
+    // corr[i] ist bereits gegatet (ungemessen/ausgeschlossen/stumm => 0),
+    // daher kein eigener hd-Check mehr noetig.
+    const addMeas = plSrcMeas ? -corr[i] : 0;
     const addLvls = plSrcLevels ? -manualLevels[i] : 0;
     const addCurves = plSrcCurves ? -presetCurve[i] : 0;
     g[i] = addMeas + addLvls + addCurves;

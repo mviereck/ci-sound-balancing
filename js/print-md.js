@@ -173,7 +173,7 @@ function _collectSideData(side) {
     let measSweep = null;
     if (measHas) {
       measRefEl = refEl;
-      const { levels, elRes } = compWLS();
+      const { raw: levels, residual: elRes } = elTestData();
       for (let i = 0; i < nEl; i++) {
         const inMeas = bRes.some((r) => r.a === i || r.b === i);
         measRows.push({

@@ -221,7 +221,9 @@ function fmCorrGain(side, hz) {
     if (typeof compWLS !== "function") return 1;
     const f = (typeof freqs !== "undefined" && freqs) ? freqs : null;
     if (!f || f.length === 0) return 1;
-    const { levels } = compWLS();
+    // Korrektur-dB pro Elektrode (zu leise => positiv = anheben).
+    // Vorzeichen + Gating zentral in elTestData.
+    const levels = elTestData().correction;
     if (!levels || !levels.length) return 1;
 
     const n = f.length;

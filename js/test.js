@@ -615,6 +615,60 @@ function compWLS() {
   };
 }
 
+// ============================================================
+// elTestData — EINZIGE Schnittstelle zu den Ergebnissen des
+// Elektrodenlautstaerke-Tests (compWLS). Alle Stellen, die diese
+// Werte brauchen (Korrektur wie Anzeige), rufen NUR diese Funktion
+// auf und drehen das Vorzeichen NICHT mehr selbst.
+//
+// Ruft compWLS() genau EINMAL pro Aufruf und liefert ein Objekt:
+//   raw[i]            rohe Mess-dB direkt aus compWLS (ungegatet).
+//                     Ist-Zustand: zu leise => negativ. Fuer Anzeige
+//                     und Statistik, die ihren eigenen Filter haben.
+//   measured[i]       Ist-Zustand, GEGATET: Elektrode ohne gueltige
+//                     Messdaten / ausgeschlossen / stumm => 0.
+//   correction[i]     KORREKTUR-dB, gegatet: zu leise => POSITIV
+//                     (= beim Abspielen anheben). = -measured.
+//   correctionGain[i] correction als linearer Faktor dB2G(correction);
+//                     ungemessen => 1 (neutral).
+//   residual[i]       Streuung/Residuum pro Elektrode (elRes).
+//   weight[i]         Gewicht pro Elektrode (elWt).
+//
+// opts.side: optionale Seite ("left"/"right"); sonst aktive Seite.
+//
+// Das Gate (gueltige Messdaten?) ist hier dieselbe Bedingung wie der
+// frueher in player.js/tone-popup.js duplizierte hd-Check.
+function elTestData(opts) {
+  opts = opts || {};
+  const run = function () {
+    const n = nEl;
+    const { levels, elRes, elWt } = compWLS();
+    const measured = new Array(n);
+    const correction = new Array(n);
+    const correctionGain = new Array(n);
+    for (let i = 0; i < n; i++) {
+      const hd = bRes.some(function (r) {
+        return (r.a === i || r.b === i)
+          && elExDur[r.a] === null && elSt[r.a] !== "mute"
+          && elExDur[r.b] === null && elSt[r.b] !== "mute";
+      });
+      const m = (hd && isFinite(levels[i])) ? levels[i] : 0;
+      measured[i] = m;
+      correction[i] = -m;
+      correctionGain[i] = dB2G(-m);
+    }
+    return {
+      raw: levels,
+      measured: measured,
+      correction: correction,
+      correctionGain: correctionGain,
+      residual: elRes,
+      weight: elWt,
+    };
+  };
+  return opts.side ? withSide(opts.side, run) : run();
+}
+
 function getConvPairs(fast) {
   if (fast && bRes.length > 0) {
     const { residuals } = compWLS();
@@ -646,7 +700,7 @@ function getConvPairs(fast) {
 // ============================================================
 function getLsEstimate(a, b) {
   if (bRes.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const { levels, elRes } = compWLS();
+  const { raw: levels, residual: elRes } = elTestData();
   const wA = gWt(a), wB = gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
   const nA = bRes.filter(r => r.a === a || r.b === a).length;

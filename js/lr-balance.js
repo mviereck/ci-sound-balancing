@@ -99,11 +99,7 @@ var _lrTpModalTone  = null;
 
 // Get corrected volume gain for electrode i on given side (WLS levels only, no manual levels)
 function lrCorrGain(side, elIdx) {
-  return withSide(side, () => {
-    if (sideData[side].bRes.length === 0) return 1;
-    const { levels } = compWLS();
-    return dB2G(levels[elIdx]);
-  });
+  return elTestData({ side }).correctionGain[elIdx];
 }
 
 // Get the effective frequency for electrode i on a given side
