@@ -878,10 +878,16 @@ function showCurPair() {
 
   // BA 247: curBase ist immer 0. Slider sitzt auf dem gespeicherten
   // Wert (falls vorhanden).
-  // Direkt-Edit 280.1: Paar ohne eigenen Messwert startet auf der
-  // Voreinschaetzung (falls schon eine Datenbasis existiert), sonst 0 dB.
-  // Gilt fuer beide Verfahren (full / conv); im Konvergenz-Normalfall
-  // greift fast immer der gespeicherte Wert.
+  // Direkt-Edit 280.2: Paar ohne eigenen Messwert startet am zufaellig
+  // gewaehlten Rand des Unsicherheitsbandes der Voreinschaetzung
+  // (estimate +/- halfWidth), nicht in dessen Mitte. Grund: ein Start
+  // exakt auf dem Schaetzwert macht blosses Bestaetigen zu einem
+  // Null-Residuum, wodurch die errechnete Unsicherheit kuenstlich gegen
+  // 0 schrumpft (Scheinkonvergenz). Das zufaellige Vorzeichen haelt den
+  // Mittelwert bias-frei, das volle halfWidth erhaelt die Streuung.
+  // Ohne Datenbasis (kein hasData) weiterhin 0 dB. Gilt fuer beide
+  // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
+  // der gespeicherte Wert.
   curBase = 0;
   var ex = bRes.find(function(r) {
     return (r.a === curA && r.b === curB) || (r.a === curB && r.b === curA);
@@ -891,7 +897,10 @@ function showCurPair() {
     startVal = (ex.a === curA) ? ex.offset : -ex.offset;
   } else {
     var estStart = getLsEstimate(curA, curB);
-    if (estStart.hasData) startVal = estStart.estimate;
+    if (estStart.hasData) {
+      var edgeSign = (Math.random() < 0.5) ? -1 : 1;
+      startVal = estStart.estimate + edgeSign * estStart.halfWidth;
+    }
   }
   if (vref && vref.slider) {
     testUI.slider.setValue(vref.slider, startVal);

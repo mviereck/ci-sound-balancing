@@ -313,9 +313,16 @@ Slider-Wert wird invertiert.
   Bandbreite ergibt sich aus Residuum und Stichproben-Aufschlag
   (`basis·k/(k+N)`, basis = 2.5 dB, k = 3). Sichtbar nur, wenn
   beide Elektroden in mindestens einer Messung vorkommen.
-- **Slider-Startwert** (BA 247): Bei bereits gemessenem Paar startet
-  der Slider auf dem gespeicherten Offset. Bei ungemessenem Paar
-  startet er auf 0. `curBase` ist immer 0 (kein Sockel mehr).
+- **Slider-Startwert** (BA 247, erweitert 280.2): Bei bereits
+  gemessenem Paar startet der Slider auf dem gespeicherten Offset. Bei
+  ungemessenem Paar startet er am **zufaellig gewaehlten Rand** des
+  Unsicherheitsbandes der LS-Schaetzung (`estimate +/- halfWidth`,
+  Vorzeichen je Aufruf zufaellig), sofern eine Datenbasis existiert;
+  sonst auf 0. Begruendung: ein Start exakt auf dem Schaetzwert macht
+  blosses Bestaetigen zu einem Null-Residuum und laesst die errechnete
+  Unsicherheit kuenstlich schrumpfen (Scheinkonvergenz); das zufaellige
+  Vorzeichen haelt den Mittelwert bias-frei. `curBase` ist immer 0
+  (kein Sockel mehr).
 - Keine Kumulations-Anzeige, keine Konfidenz-Eingabe (BA 247).
 - **Tonart** (BA 247): Eigener Popup-Dialog (state `toneType_test`,
   analog Freqmatch), nicht mehr das globale Dropdown.
