@@ -399,6 +399,48 @@ function _fmInitSides() {
   }
 }
 
+// BA 291: Token-Liste fuer den Slider-Modus des Frequenzabgleichs.
+// Liefert fertige Token { hz, pan, vol, durationMs, side } (hz mit
+// cent-Offset; vol = vol * Korrektur * Stereo-Balance, taube Seite 0)
+// und Pausen { pauseMs }. 'side' ('left'|'right') dient dem Aufleuchten.
+// Reihenfolge folgt fmFirstSide ('ref' zuerst oder 'var' zuerst).
+//   opts.aba === true -> erster Ton am Ende wiederholt.
+function fmSequence(opts) {
+  opts = opts || {};
+  var varHz, refHz;
+  if (fmSymmetric) {
+    var varBase = withSide('left',  function () { return effFreq(fmCurrentEl); });
+    var refBase = withSide('right', function () { return effFreq(fmCurrentEl); });
+    varHz = varBase * Math.pow(2, -fmCentOffset / 2 / 1200);
+    refHz = refBase * Math.pow(2, +fmCentOffset / 2 / 1200);
+  } else {
+    varHz = fmVarHz(fmCurrentEl);
+    refHz = fmFreqFromCents(varHz, fmCentOffset);
+  }
+  var vol = fmGVol();
+  var dur = fmGDur();
+  var pau = fmGPau();
+  var balG = (typeof getRawBalanceGains === "function")
+    ? getRawBalanceGains() : { left: 0, right: 0 };
+  function tok(side, hz) {
+    var pan   = side === "left" ? -1 : 1;
+    var corr  = fmCorrGain(side, hz);
+    var balDb = side === "left" ? balG.left : balG.right;
+    var v     = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
+    return { hz: hz, pan: pan, vol: v, durationMs: dur, side: side };
+  }
+  var refTok = tok(fmRefSide, refHz);
+  var varTok = tok(fmVarSide, varHz);
+  var first  = (fmFirstSide === "ref") ? refTok : varTok;
+  var second = (fmFirstSide === "ref") ? varTok : refTok;
+  var seq = [ first, { pauseMs: pau }, second ];
+  if (opts.aba) {
+    seq.push({ pauseMs: pau });
+    seq.push(first);
+  }
+  return seq;
+}
+
 // --- Tonwiedergabe ---
 async function fmPlayCurrent() {
   // --- Adaptive-Modus: Replay des aktuellen Trials über fmPlayAdaptiveTrial ---
@@ -411,88 +453,28 @@ async function fmPlayCurrent() {
     return;
   }
 
-  // --- Slider-Modus: unverändertes Altverhalten ---
+  // --- Slider-Modus: auf die Token-Maschine (BA 291) ---
   if (fmCurrentEl === null) return;
   if (isPlay) {
+    if (typeof testUI !== 'undefined' && testUI.tonePlayer) testUI.tonePlayer.stop();
     isPlay = false;
-    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise((r) => setTimeout(r, 60));
   }
-  let varHz, refHz;
-  if (fmSymmetric) {
-    const varBase = withSide('left',  function() { return effFreq(fmCurrentEl); });
-    const refBase = withSide('right', function() { return effFreq(fmCurrentEl); });
-    varHz = varBase * Math.pow(2, -fmCentOffset / 2 / 1200);
-    refHz = refBase * Math.pow(2, +fmCentOffset / 2 / 1200);
-  } else {
-    varHz = fmVarHz(fmCurrentEl);
-    refHz = fmFreqFromCents(varHz, fmCentOffset);
-  }
-  const vol = fmGVol();
-  const ms = fmGDur();
-  const pau = fmGPau();
-  const aba = fmGAba();
-
-  const balG = (typeof getRawBalanceGains === "function")
-    ? getRawBalanceGains() : { left: 0, right: 0 };
-
-  const c = gAC();
-  function playOne(side, hz) {
-    const pan = side === "left" ? -1 : 1;
-    const corr = fmCorrGain(side, hz);
-    const balDb = side === "left" ? balG.left : balG.right;
-    const effectiveVol = isDeaf(side) ? 0 : vol * corr * dB2G(balDb);
-    return playToneTyped(c, hz, effectiveVol, ms, pan, toneType_freqmatch);
-  }
-  const _spi = _fmSliderPI();
-  function indRef() {
-    testUI.pairIndicator.setPlaying(_spi, fmRefSide === "left" ? 'left' : 'right');
-  }
-  function indVar() {
-    testUI.pairIndicator.setPlaying(_spi, fmVarSide === "left" ? 'left' : 'right');
-  }
-  function indOff() {
-    testUI.pairIndicator.setPlaying(_spi, null);
-  }
-
+  var _spi = _fmSliderPI();
   isPlay = true;
-  if (fmFirstSide === "ref") {
-    indRef();
-    await playOne(fmRefSide, refHz);
-    if (!isPlay) { indOff(); return; }
-    indOff();
-    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-    if (!isPlay) return;
-    indVar();
-    await playOne(fmVarSide, varHz);
-    if (!isPlay) { indOff(); return; }
-    if (aba && isPlay) {
-      indOff();
-      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-      if (!isPlay) return;
-      indRef();
-      await playOne(fmRefSide, refHz);
+  testUI.tonePlayer.playSequential(
+    fmSequence({ aba: fmGAba() }),
+    {
+      toneType: toneType_freqmatch,
+      onStepStart: function (index, token) {
+        testUI.pairIndicator.setPlaying(_spi, (token && token.side) ? token.side : null);
+      },
+      onDone: function () {
+        isPlay = false;
+        testUI.pairIndicator.setPlaying(_spi, null);
+      }
     }
-  } else {
-    indVar();
-    await playOne(fmVarSide, varHz);
-    if (!isPlay) { indOff(); return; }
-    indOff();
-    await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-    if (!isPlay) return;
-    indRef();
-    await playOne(fmRefSide, refHz);
-    if (!isPlay) { indOff(); return; }
-    if (aba && isPlay) {
-      indOff();
-      await new Promise((r) => { playTO = setTimeout(r, 50 + pau); });
-      if (!isPlay) return;
-      indVar();
-      await playOne(fmVarSide, varHz);
-    }
-  }
-  indOff();
-  isPlay = false;
+  );
 }
 
 async function fmPlaySimultaneous() {
@@ -551,46 +533,26 @@ async function fmPlaySimultaneous() {
     return;
   }
 
-  // --- Slider-Modus: unverändertes Altverhalten ---
+  // --- Slider-Modus: auf die Token-Maschine (BA 291) ---
   if (fmCurrentEl === null) return;
   if (isPlay) {
+    if (typeof testUI !== 'undefined' && testUI.tonePlayer) testUI.tonePlayer.stop();
     isPlay = false;
-    if (fmPlayTO) { clearTimeout(fmPlayTO); fmPlayTO = null; }
     await new Promise((r) => setTimeout(r, 60));
   }
-  const c = gAC();
-  let varHz, refHz;
-  if (fmSymmetric) {
-    const varBase = withSide('left',  function() { return effFreq(fmCurrentEl); });
-    const refBase = withSide('right', function() { return effFreq(fmCurrentEl); });
-    varHz = varBase * Math.pow(2, -fmCentOffset / 2 / 1200);
-    refHz = refBase * Math.pow(2, +fmCentOffset / 2 / 1200);
-  } else {
-    varHz = fmVarHz(fmCurrentEl);
-    refHz = fmFreqFromCents(varHz, fmCentOffset);
-  }
-  const vol = fmGVol();
-  const ms = fmGDur();
-  const refPan = fmRefSide === "left" ? -1 : 1;
-  const varPan = fmVarSide === "left" ? -1 : 1;
-
-  const balG = (typeof getRawBalanceGains === "function")
-    ? getRawBalanceGains() : { left: 0, right: 0 };
-  const refCorr = fmCorrGain(fmRefSide, refHz);
-  const varCorr = fmCorrGain(fmVarSide, varHz);
-  const refBalDb = fmRefSide === "left" ? balG.left : balG.right;
-  const varBalDb = fmVarSide === "left" ? balG.left : balG.right;
-  const refVol = isDeaf(fmRefSide) ? 0 : vol * refCorr * dB2G(refBalDb);
-  const varVol = isDeaf(fmVarSide) ? 0 : vol * varCorr * dB2G(varBalDb);
-
+  var _spi = _fmSliderPI();
   isPlay = true;
-  testUI.pairIndicator.setPlaying(_fmSliderPI(), 'both');
-  await Promise.all([
-    playToneTyped(c, refHz, refVol, ms, refPan, toneType_freqmatch),
-    playToneTyped(c, varHz, varVol, ms, varPan, toneType_freqmatch)
-  ]);
-  testUI.pairIndicator.setPlaying(_fmSliderPI(), null);
-  isPlay = false;
+  testUI.pairIndicator.setPlaying(_spi, 'both');
+  testUI.tonePlayer.playSimultaneous(
+    fmSequence({ aba: false }),
+    {
+      toneType: toneType_freqmatch,
+      onDone: function () {
+        isPlay = false;
+        testUI.pairIndicator.setPlaying(_spi, null);
+      }
+    }
+  );
 }
 
 // --- Persistenz (Bauanleitung 02b/5) ---
