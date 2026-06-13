@@ -324,10 +324,11 @@ function openImplantTonePopup() {
       return Math.pow(volume_global / 100, 2);
     },
 
-    getPreviewSequence: function () {
-      var midIdx = Math.floor(nEl / 2);
-      var hz = effFreq(midIdx);
-      return [{ hz: hz, pan: activePan, durationMs: duration_implant }];
+    getPreviewSequence: function (lastHz) {
+      var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
+      var vol = Math.pow(volume_global / 100, 2);
+      if (typeof _implTpCorrectVol === 'function') vol = _implTpCorrectVol(vol, hz, activePan);
+      return [{ hz: hz, pan: activePan, vol: vol, durationMs: duration_implant }];
     },
 
     onTogglesReady: function (fn) { _implTpCorrectVol = fn; },

@@ -244,6 +244,7 @@ function openToneSelectionDialog(cfg, onChange) {
   var sweepRunning = false;
   var sweepAbort   = false;
   var sweepKbHandle = null;
+  var _tpLastKbHz = 1000;   // BA 292: zuletzt am Klavier angetippte Frequenz (Default 1000)
 
   var overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
@@ -619,7 +620,10 @@ function openToneSelectionDialog(cfg, onChange) {
         // BA 230: Klavier liest 'selected' (im Modal angeklickt),
         // nicht cfg.getToneType (erst nach OK aktualisiert).
         getCurrentToneType:  function() { return selected; },
-        onPress:             cfg.onPress,
+        onPress: function (electrodeIdx, hz) {
+          if (typeof hz === 'number' && isFinite(hz) && hz > 0) _tpLastKbHz = hz;
+          if (typeof cfg.onPress === 'function') cfg.onPress(electrodeIdx, hz);
+        },
         onRelease:           cfg.onRelease,
         getHighlightMs:      cfg.getHighlightMs,
         // BA 241: Disabled-Anzeige
@@ -873,40 +877,14 @@ function openToneSelectionDialog(cfg, onChange) {
   }
 
   function _playPreview(toneType) {
-    var seq = cfg.getPreviewSequence();
+    var seq = (typeof cfg.getPreviewSequence === 'function')
+      ? cfg.getPreviewSequence(_tpLastKbHz)
+      : null;
     if (!Array.isArray(seq) || seq.length === 0) return;
-
-    var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
-
-    // Korrektur-Toggles wie bisher anwenden und daraus fertige Token
-    // bauen. (Die Verlagerung der Korrektur in die ...Sequence()-Funktionen
-    // der Tests folgt in spaeteren BAs; hier bleibt sie hier.)
-    var tokens = seq.map(function (step) {
-      if (step && typeof step.pauseMs === 'number') {
-        return { pauseMs: step.pauseMs };
-      }
-      if (!step || typeof step.hz !== 'number' || typeof step.durationMs !== 'number') {
-        return { pauseMs: 0 };
-      }
-      var pan = (typeof step.pan === 'number') ? step.pan : 0;
-      var effVol = vol;
-      if (applyMeasLevels) {
-        var measDb = _tpMeasDbForStep(step.hz, pan);
-        if (measDb !== 0) effVol *= Math.pow(10, measDb / 20);
-      }
-      if (applyBalance) {
-        var bal = _tpBalanceDbSym();
-        var bDb = (pan < -0.01) ? bal.left
-                : (pan >  0.01) ? bal.right
-                : 0;
-        if (bDb !== 0) effVol *= Math.pow(10, bDb / 20);
-      }
-      return { hz: step.hz, pan: pan, vol: effVol, durationMs: step.durationMs };
-    });
-
+    // getPreviewSequence liefert fertige Token (vol enthalten) -> nur abspielen.
     playing = true;
     _setToneButtonsDisabled(true);
-    testUI.tonePlayer.playSequential(tokens, {
+    testUI.tonePlayer.playSequential(seq, {
       toneType: toneType,
       onDone: function () {
         playing = false;

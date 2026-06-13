@@ -1267,15 +1267,15 @@ document.addEventListener("DOMContentLoaded", function() {
           setPauseMs:       function(v) { pause_test = v; },
           // Probehoeren und Sequenz aus den neuen State-Werten.
           getVolume:   function() { return tGVol(); },
-          getPreviewSequence: function() {
-            var hz = 1000;
-            var dur = tGDur();
-            var pau = tGPau();
-            return [
-              { hz: hz, durationMs: dur },
-              { pauseMs: pau },
-              { hz: hz, durationMs: dur }
-            ];
+          getPreviewSequence: function (lastHz) {
+            // Test laeuft -> echte Sequenz (aktuelles Paar + Schieber);
+            // sonst ein Ton mit der zuletzt am Klavier angetippten Frequenz.
+            if (testAct && testIdx < testPairs.length && curA != null && curB != null) {
+              return _testSequence({ aba: sequence_test === 'aba' });
+            }
+            var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
+            var pan = (activeSide === 'left') ? -1 : 1;
+            return [{ hz: hz, pan: pan, vol: tGVol(), durationMs: tGDur() }];
           },
           // BA 252: Klavier-Widget in der Modalbox -- aktive Seite,
           // Implantat-Logik (abgewaehlt/ausgeschlossen = X-Overlay).

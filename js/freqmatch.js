@@ -1055,43 +1055,15 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 240: Hint-Text fuer Test-Verfahren.
           hintKey: 'tonePopupHint',
           getVolume:   function() { return fmGVol(); },
-          getPreviewSequence: function() {
-            var hzLeft = 1000, hzRight = 1000;
-            if (fmRunning && fmCurrentEl != null) {
-              if (fmSymmetric) {
-                var baseL = withSide('left',  function() { return effFreq(fmCurrentEl); });
-                var baseR = withSide('right', function() { return effFreq(fmCurrentEl); });
-                hzLeft  = baseL * Math.pow(2, -fmCentOffset / 2 / 1200);
-                hzRight = baseR * Math.pow(2, +fmCentOffset / 2 / 1200);
-              } else {
-                var varHz = fmVarHz(fmCurrentEl);
-                var refHz = fmFreqFromCents(varHz, fmCentOffset);
-                if (fmVarSide === 'left') { hzLeft = varHz; hzRight = refHz; }
-                else                       { hzLeft = refHz; hzRight = varHz; }
-              }
-            } else if (fmAdaptiveActive && fmCurTrackId != null
-                       && fmTracks && fmTracks[fmCurTrackId]) {
-              var tr = fmTracks[fmCurTrackId];
-              if (fmSymmetric) {
-                var bL = withSide('left',  function() { return effFreq(tr.electrodeIdx); });
-                var bR = withSide('right', function() { return effFreq(tr.electrodeIdx); });
-                var half = tr.currentOffset / 2;
-                hzLeft  = bL * Math.pow(2, -half / 1200);
-                hzRight = bR * Math.pow(2, +half / 1200);
-              } else {
-                var elHz = withSide(fmVarSide, function() { return effFreq(tr.electrodeIdx); });
-                var refHz2 = elHz * Math.pow(2, tr.currentOffset / 1200);
-                if (fmVarSide === 'left') { hzLeft = elHz;   hzRight = refHz2; }
-                else                       { hzLeft = refHz2; hzRight = elHz;   }
-              }
+          getPreviewSequence: function (lastHz) {
+            // Slider-Modus laeuft -> echte Sequenz; sonst (inkl. Adaptiv-Modus,
+            // der nicht auf die Maschine migriert ist) ein Ton mit gemerkter Frequenz.
+            if (fmRunning && fmCurrentEl != null && !fmAdaptiveActive) {
+              return fmSequence({ aba: fmGAba() });
             }
-            var dur = fmGDur();
-            var pau = fmGPau();
-            return [
-              { hz: hzLeft,  pan: -1, durationMs: dur },
-              { pauseMs: pau },
-              { hz: hzRight, pan:  1, durationMs: dur }
-            ];
+            var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
+            var pan = (fmVarSide === 'left') ? -1 : 1;
+            return [{ hz: hz, pan: pan, vol: fmGVol(), durationMs: fmGDur() }];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
           // BA 252: beidseitige Disabled-Logik, kein elActive-Filter hier.

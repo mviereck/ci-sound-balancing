@@ -164,13 +164,18 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Sichtbarkeit (seit BA 256): in den vier Test-Modalen
   (Elektrodenlautstärke, Stereo-Balance, Latenz, Frequenzabgleich) wird
   die Toggle-Reihe nicht mehr gerendert (`showToggles: false` im jeweiligen
-  `tonePopupButton`-cfg). Die Korrekturen wirken trotzdem — die internen
-  Variablen `applyMeasLevels` / `applyBalance` stehen weiterhin auf `true`.
-  Im Reiter Implantat bleibt die Reihe sichtbar (`ui-implant.js` setzt
-  das Flag nicht).
+  `tonePopupButton`-cfg). Im Reiter Implantat bleibt die Reihe sichtbar
+  (`ui-implant.js` setzt das Flag nicht).
   Latenz-Anwendung im Modal entfällt: die Vorspielsequenzen sind
-  heute sequentiell (siehe `freqmatch.js`), Inter-Ohr-Latenz
-  hätte keine hörbare Wirkung.
+  heute sequentiell, Inter-Ohr-Latenz hätte keine hörbare Wirkung.
+  **BA 292 — Probehören-Modell:** `_playPreview` ist ab BA 292 ein
+  reiner Durchreicher; fertige Token (inkl. `vol`) kommen aus
+  `getPreviewSequence(lastHz)`. Die Toggles wirken daher nur noch
+  im Reiter Implantat (dort ruft `getPreviewSequence` intern
+  `_implTpCorrectVol` auf) und bei Klavier-Anschlägen (alle Modals,
+  via `cfg.onTogglesReady(corrector)`). Auf den Preview-Button der
+  Test-Modals haben sie keinen Effekt mehr — dort war die Toggle-
+  Reihe ohnehin ausgeblendet.
   Die Toggles wirken auch auf das Klavier-Widget im Modal: über
   `cfg.onTogglesReady(corrector)` erhält `freqmatch.js` eine
   Korrektorfunktion (`fmKbdCorrectVol`), die `onPress` pro
@@ -457,11 +462,12 @@ Slider-Wert wird invertiert.
 
 - **Tonart-Auswahl (BA 209):** Button im Header „Tonart: *Aktualwert*"
   öffnet ein Popup mit Radio-Liste aller 9 Tonarten und einer
-  Play-Spalte. Probehör-Sequenz: Tondauer Pan −1 → Pause →
-  Tondauer Pan +1, Werte aus den Verfahren-Einstellungen
-  (`fmGDur()`/`fmGPau()`). Frequenzen je nach Test-Status: vor Test
-  1 kHz beidseitig, während Slider-Round / Adaptiv die aktuellen
-  Trial-Frequenzen (links/rechts). Der Play-Button spielt
+  Play-Spalte. Probehör-Sequenz (BA 292): Slider-Modus läuft →
+  echte Testsequenz mit aktuellem Schieber-Tonhöhenunterschied
+  (`fmSequence({ aba: fmGAba() })`). Adaptiv-Modus oder kein Test
+  läuft → ein Ton auf der var-Seite mit der zuletzt am Klavier
+  angetippten Frequenz (Default 1000 Hz; zurückgesetzt bei jedem
+  Box-Öffnen). Der Play-Button spielt
   ausschließlich ab; die Tonart-Auswahl erfolgt über den
   Radio-Button (und wird mit OK übernommen). OK übernimmt,
   Abbruch verwirft. Auswahl persistiert in `toneType_freqmatch`

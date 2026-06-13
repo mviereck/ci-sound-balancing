@@ -853,16 +853,13 @@ document.addEventListener("DOMContentLoaded", function() {
           getPauseMs:       function()  { return pause_balance; },
           setPauseMs:       function(v) { pause_balance = v; },
           getVolume:   function() { return lrGVol(); },
-          getPreviewSequence: function() {
-            var dur  = lrGDur();
-            var pau  = lrGPau();
-            var panA = (activeSide === 'left') ? -1 : 1;
-            var panB = -panA;
-            return [
-              { hz: 1000, pan: panA, durationMs: dur },
-              { pauseMs: pau },
-              { hz: 1000, pan: panB, durationMs: dur }
-            ];
+          getPreviewSequence: function (lastHz) {
+            if (lrRunning && lrCurrentEl !== null) {
+              return lrSequence({ aba: sequence_balance === 'aba' });
+            }
+            var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
+            var pan = (activeSide === 'left') ? -1 : 1;
+            return [{ hz: hz, pan: pan, vol: lrGVol(), durationMs: lrGDur() }];
           },
           // BA 253: Klavier mit beidseitiger Disabled-Logik.
           keyboardMode:          true,

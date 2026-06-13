@@ -30,6 +30,9 @@ die frühere Sweep/Stop-Zeile). Klick öffnet die Tonauswahl-Modal
 Korrektur-Toggles und Vol/Dur/Pau-Feldern. State: `toneType_implant` (Default
 `"sine"`), `volume_implant` (75), `duration_implant` (1000 ms),
 `pause_implant` (500 ms) in `state-side.js`, persistiert in `file.js`.
+Probehör-Ton (BA 292): zuletzt am Klavier angetippte Frequenz (Default
+1000 Hz; zurückgesetzt bei jedem Box-Öffnen); Korrektur-Toggles wirken
+via `_implTpCorrectVol` innerhalb von `getPreviewSequence`.
 
 **Ausschließen-Hinweis** (`freqExclHintEl`): Dritter Hinweis-Kasten direkt
 vor der Tabelle. Sichtbar sobald CI-Tabelle gerendert wird (CI + Hersteller
