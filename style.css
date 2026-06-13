@@ -437,6 +437,14 @@ canvas {
   font-size: 1.2em;
 }
 
+/* BA 285: Deckelungs-Hinweis im Elektrodenlautstärke-Test */
+.clip-hint {
+  margin-top: 0.5rem;
+  font-size: 0.85em;
+  color: var(--muted, #888);
+  text-align: center;
+}
+
 /* Adaptiver Frequenzabgleich — Status-Grid (Bauanleitung 02b/4) */
 .fm-status-grid {
   display: grid;

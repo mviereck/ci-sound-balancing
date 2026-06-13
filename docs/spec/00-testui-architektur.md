@@ -415,7 +415,9 @@ werden per Bauanleitung in eigene Sonnet-Chats ausgelagert.
 - Helfer-API: `testUI.pairIndicator.{setLabels,setPlaying}`,
   `testUI.progress.set`, `testUI.statusGrid.setEntries`,
   `testUI.field.setEnabled`, `testUI.confidence.getValue`,
-  `testUI.cumulativeDisplay.set`, `testUI.slider.setValue` (ab BA 113)
+  `testUI.cumulativeDisplay.set`, `testUI.slider.setValue` (ab BA 113),
+  `testUI.clipHint.set(refs.clipHint, text)` — Deckelungs-Hinweis ein-/
+  ausblenden (body-Flag `clipHint: true`; BA 285)
 - Renamings vorbereiten (alte Namen `fmMode` etc. bleiben in den
   Test-Modulen, werden erst in Schritt 2 ff. mitgezogen)
 - Akzeptanztest: alle vier Sub-Reiter funktionieren unverändert

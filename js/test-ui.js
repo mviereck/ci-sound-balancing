@@ -99,6 +99,11 @@ function _toneTypeKey(tt) {
     richCiHA: 'toneRichCiHA', richCiHS: 'toneRichCiHS', richCiHF: 'toneRichCiHF',
     richCiP: 'toneRichCiP', richCiBF: 'toneRichCiBF',
     richCiG: 'toneRichCiG', richCiS: 'toneRichCiS',
+    richCiGVL: 'toneRichCiGVL', richCiGVN: 'toneRichCiGVN',
+    richCiGVS: 'toneRichCiGVS',
+    richCiGA1: 'toneRichCiGA1', richCiGA2: 'toneRichCiGA2',
+    richCiGB:  'toneRichCiGB',
+    richCiGD1: 'toneRichCiGD1', richCiGD2: 'toneRichCiGD2',
     noise: 'toneNoise', noiseAdaptive: 'toneNoiseAdaptive',
     irn: 'toneIRN', amSine: 'toneAmSine',
     warbleSine: 'toneWarbleSine', burstSine: 'toneBurstSine',
@@ -859,6 +864,14 @@ function _buildTestPanelNew(parentEl, cfg) {
       refs.actions = actRefs;
     }
 
+    // --- clipHint (BA 285): Deckelungs-Hinweis unter der Aktionszeile ---
+    if (body.clipHint) {
+      var clipEl = _mkEl('div', 'clip-hint');
+      clipEl.style.display = 'none';
+      vWrap.appendChild(clipEl);
+      refs.clipHint = clipEl;
+    }
+
     // --- statusGrid ---
     if (body.statusGrid && (body.statusGrid === true || body.statusGrid.show !== false)) {
       var sgEl = _mkEl('div', 'fm-status-grid');
@@ -1336,6 +1349,21 @@ var testUI = {
       (els._lockTargets || []).forEach(function(btn) {
         btn.disabled = isPlaying;
       });
+    }
+  },
+
+  // ---- clipHint (BA 285) ----
+  clipHint: {
+    /**
+     * Deckelungs-Hinweis setzen oder ausblenden.
+     * el:   refs.clipHint (aus Verfahren-Refs)
+     * text: String zum Anzeigen, null/'' zum Ausblenden.
+     */
+    set: function(el, text) {
+      if (!el) return;
+      if (!text) { el.style.display = 'none'; el.textContent = ''; return; }
+      el.textContent = text;
+      el.style.display = '';
     }
   },
 

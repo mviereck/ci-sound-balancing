@@ -732,6 +732,7 @@ function _testSwap() {
     });
   }
   _testUpdateRangeHint();
+  _testUpdateClipHint();
 }
 
 // BA 247: Round-Robin-Start (frueher 'full' in startTest)
@@ -908,6 +909,7 @@ function showCurPair() {
   }
 
   _testUpdateRangeHint();
+  _testUpdateClipHint();
 
   curPlayed = false;
   updUndo();
@@ -943,6 +945,37 @@ function _testUpdateProgress() {
       fraction: (testIdx + 1) / Math.max(1, testPairs.length)
     });
   }
+}
+
+// BA 285: Deckelungs-Hinweis aktualisieren. off optional (sonst aktueller
+// Slider-Wert). Nutzt pairGains.capped aus audio.js (BA 284).
+function _testUpdateClipHint(off) {
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (!vref || !vref.clipHint) return;
+  if (off == null) off = _testSliderVal();
+  var g = pairGains(tGVol(), off);
+  if (!g.capped) {
+    testUI.clipHint.set(vref.clipHint, null);
+    return;
+  }
+  var prefix = dENPrefix();
+  var labelA = prefix + dEN(curA);
+  var labelB = prefix + dEN(curB);
+  var capLabel   = (g.capped === 'a') ? labelA : labelB;
+  var otherLabel = (g.capped === 'a') ? labelB : labelA;
+  var txt = t('clipHintCapped').replace('{capped}', capLabel).replace('{other}', otherLabel);
+  testUI.clipHint.set(vref.clipHint, txt);
+}
+
+// BA 285: Slider-Bewegung. Da jetzt ein onSlide-Hook vorhanden ist,
+// uebernimmt dieser auch die dB-Anzeige (das Auto-Update in test-ui.js
+// laeuft nur OHNE onSlide-Hook).
+function _testOnSlide(off) {
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.slider) {
+    testUI.slider.setValueDisplay(vref.slider, off.toFixed(1) + " dB");
+  }
+  _testUpdateClipHint(off);
 }
 
 function _testUpdateRangeHint() {
@@ -1172,6 +1205,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'simul',
         { kind: 'swap', labelKey: 'btnSwapAB' }
       ],
+      clipHint:       true,
       statusGrid:     { show: true }
     };
   }
@@ -1183,7 +1217,8 @@ document.addEventListener("DOMContentLoaded", function() {
       onReplay:  function() { playCur(); },
       onUndo:    function() { undoL(); },
       onSimul:   function() { _testPlaySimul(); },
-      onSwap:    function() { _testSwap(); }
+      onSwap:    function() { _testSwap(); },
+      onSlide:   function(off) { _testOnSlide(off); }
     };
   }
 

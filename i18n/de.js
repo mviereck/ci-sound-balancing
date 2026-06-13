@@ -871,6 +871,7 @@ Object.assign(L.de, {
     btnStopTest: "■ Test pausieren",
     btnSwapAB: "⇄ A↔B",
     btnSwapLR: "⇄ L↔R",
+    clipHintCapped: "{capped} hat die maximale Lautstärke erreicht — nur {other} wird noch angepasst.",
     btnConfirmOffset: "Offset bestätigen",
     btnExcludeA: "A ausschließen",
     btnExcludeB: "B ausschließen",

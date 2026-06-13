@@ -215,6 +215,10 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Knopf "Gleichzeitig" (`_testPlaySimul`). Default-Tool-Lautstärke:
   **50 %** (ca. 12 dB Reserve — deckt den Standard-Slider ±20 dB ab;
   Zone 2 nur bei erweitertem Bereich oder fast stummen Elektroden).
+  In Zone 2 erscheint unter der Knopfzeile ein dezenter Hinweis
+  (BA 285): „E9 hat die maximale Lautstärke erreicht — nur E6 wird
+  noch angepasst." (Elektroden-Bezeichnungen je nach Paar). Der
+  Hinweis verschwindet, sobald der Slider wieder in Zone 1 liegt.
 - **Test 2** (`slTarget_balance`): Links / Rechts / Beide. Default
   `Beide`, symmetrisch wie in Test 1.
 - **Test 3**: kein Dropdown, intern fest auf der

@@ -813,6 +813,7 @@ Object.assign(L.fr, {
     btnStopTest: "■ Mettre le test en pause",
     btnSwapAB: "⇄ A↔B",
     btnSwapLR: "⇄ G↔D",
+    clipHintCapped: "{capped} a atteint le volume maximum — seul {other} est encore ajusté.",
     btnConfirmOffset: "Confirmer l'offset",
     btnExcludeA: "Exclure A",
     btnExcludeB: "Exclure B",
