@@ -118,6 +118,10 @@ function isDeaf(side) {
   return (sideData[s] && (sideData[s].config || "ci") === "deaf");
 }
 function stopAll() {
+  // BA 288: laufende Token-Sequenz der gemeinsamen Maschine abbrechen.
+  if (typeof testUI !== 'undefined' && testUI.tonePlayer) {
+    testUI.tonePlayer.stop();
+  }
   if (runningSources && runningSources.length) {
     for (let k = 0; k < runningSources.length; k++) {
       try { runningSources[k].stop(); } catch (e) {}
@@ -1055,34 +1059,7 @@ function pairGains(vol, off) {
   // off < 0: A ist der lautere -> Decke; B voll abgesenkt.
   return { vA: 1, vB: dB2G(off), capped: 'a' };
 }
-async function playSeq(eA, eB, off, opts) {
-  const o = opts || {};
-  const tt  = o.toneType || "sine";
-  const aba = !!o.aba;
-  const v = gVol(), d = gDur(), p = gPau();
-  // BA 284: Zwei-Zonen-Pegellogik (symmetrisch; bei Deckelung voller
-  // Offset auf den nicht-gedeckelten Ton). Siehe pairGains.
-  const g = pairGains(v, off);
-  const vA = g.vA, vB = g.vB;
-  updInd(eA, "a");
-  await playTone(effFreq(eA), vA, d, 50, tt);
-  if (!isPlay) return;
-  updInd(-1);
-  await new Promise((r) => (playTO = setTimeout(r, 50 + p)));
-  if (!isPlay) return;
-  updInd(eB, "b");
-  await playTone(effFreq(eB), vB, d, 50, tt);
-  if (!isPlay) return;
-  if (aba) {
-    updInd(-1);
-    await new Promise((r) => (playTO = setTimeout(r, 50 + p)));
-    if (!isPlay) return;
-    updInd(eA, "a");
-    await playTone(effFreq(eA), vA, d, 50, tt);
-  }
-  isPlay = false;
-  updInd(-1);
-}
+
 function updInd(i, w) {
   document
     .querySelectorAll('.freq-table .pbtn[data-a="play"]')

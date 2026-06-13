@@ -1001,23 +1001,29 @@ function playCur() {
   if (testIdx >= testPairs.length) return;
   stopAll();
   isPlay = true;
+  curPlayed = true;
   var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
-  // BA 247fix2: setPlaying('both') setzt die Replay-Sperre (lock_targets:
-  // confirm, swap). Das Aufleuchten der einzelnen Box (left|right) macht
-  // updInd in playSeq weiter. Am Ende der Sequenz wird die Sperre via
-  // setPlaying(null) wieder aufgehoben.
+  // setPlaying('both') setzt die Replay-Sperre (confirm, swap). Das
+  // praezise Aufleuchten pro Ton macht jetzt der onStepStart-Hook.
   if (vref && vref.pairIndicator) {
     testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
   }
-  curPlayed = true;
-  playSeq(curA, curB, _testSliderVal(), {
-    toneType: toneType_test,
-    aba: (sequence_test === 'aba')
-  }).then(function() {
-    if (vref && vref.pairIndicator) {
-      testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
+  testUI.tonePlayer.playSequential(
+    _testSequence({ aba: sequence_test === 'aba' }),
+    {
+      toneType: toneType_test,
+      onStepStart: function (index, token) {
+        if (token && typeof token.eIdx === 'number') updInd(token.eIdx, token.which);
+        else updInd(-1);
+      },
+      onDone: function () {
+        isPlay = false;
+        if (vref && vref.pairIndicator) {
+          testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
+        }
+      }
     }
-  });
+  );
 }
 function recBal() {
   if (!testAct || testIdx >= testPairs.length) return;
@@ -1385,27 +1391,61 @@ function testRefreshToneTypeLabel() {
   }
 }
 
-// BA 247: "beide Toene gleichzeitig" (frueher inline am Simul-Button).
+// BA 288: Token-Liste fuer das aktuelle Paar des Elektrodenlautstaerke-
+// Tests. Liefert fertige Token { hz, pan, vol, durationMs, eIdx, which }
+// (vol inkl. pairGains-Deckelung und Stummschaltung tauber Seite) sowie
+// Pausen-Token { pauseMs }. eIdx/which dienen nur dem Aufleuchten
+// (onStepStart-Hook), die Maschine ignoriert sie.
+//   opts.aba === true  -> dritter Ton (A wiederholt) angehaengt.
+function _testSequence(opts) {
+  opts = opts || {};
+  var off  = _testSliderVal();
+  var g    = pairGains(tGVol(), off);          // { vA, vB, capped }
+  var pan  = (activeSide === 'left') ? -1 : 1;
+  var mute = isDeaf(activeSide);
+  var dur  = tGDur();
+  var pau  = tGPau();
+  function tone(eIdx, gain, which) {
+    return {
+      hz: effFreq(eIdx),
+      pan: pan,
+      vol: mute ? 0 : gain,
+      durationMs: dur,
+      eIdx: eIdx,
+      which: which
+    };
+  }
+  var seq = [ tone(curA, g.vA, 'a'), { pauseMs: pau }, tone(curB, g.vB, 'b') ];
+  if (opts.aba) {
+    seq.push({ pauseMs: pau });
+    seq.push(tone(curA, g.vA, 'a'));
+  }
+  return seq;
+}
+
+// BA 247/288: "beide Toene gleichzeitig". Nutzt dieselbe Token-Funktion
+// wie die Sequenz, aber ohne ABA-Wiederholung; die Maschine spielt die
+// Ton-Token parallel (Pausen werden im Gleichzeitig-Modus ignoriert).
 function _testPlaySimul() {
   if (!testAct || testIdx >= testPairs.length) return;
   stopAll();
   isPlay = true;
-  var tot = _testSliderVal();
-  // BA 250: Vol/Dur aus dem Test-State, nicht aus dem (entfallenen)
-  // Header-Feld.
-  var vol = tGVol();
-  var dur = tGDur();
-  // BA 284: gemeinsame Zwei-Zonen-Pegellogik wie playSeq (audio.js).
-  var g = pairGains(vol, tot);
-  var vA = g.vA, vB = g.vB;
-  var p1 = playTone(effFreq(curA), vA, dur, 50, toneType_test);
-  var p2 = playTone(effFreq(curB), vB, dur, 50, toneType_test);
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
-  if (vref && vref.pairIndicator) testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
-  Promise.all([p1, p2]).then(function() {
-    if (vref && vref.pairIndicator) testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
-    isPlay = false;
-  });
   curPlayed = true;
+  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
+  if (vref && vref.pairIndicator) {
+    testUI.pairIndicator.setPlaying(vref.pairIndicator, 'both');
+  }
+  testUI.tonePlayer.playSimultaneous(
+    _testSequence({ aba: false }),
+    {
+      toneType: toneType_test,
+      onDone: function () {
+        isPlay = false;
+        if (vref && vref.pairIndicator) {
+          testUI.pairIndicator.setPlaying(vref.pairIndicator, null);
+        }
+      }
+    }
+  );
 }
 

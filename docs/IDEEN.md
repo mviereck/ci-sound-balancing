@@ -903,3 +903,115 @@ In mehreren kleinen Bauanleitungen (Reihenfolge offen, Beispielzug):
 Vor BA-Start: dieser Eintrag aus IDEEN.md in `docs/spec/02-messung.md`
 (Abschnitt Sub-Tab 3) und ein neues Kapitel `docs/spec/02c-freqmatch-
 keyboard.md` übernehmen.
+
+---
+
+## Sequenz-Refactoring — gemeinsame Token-Maschine für alle Mess-Tests
+
+**Aufgenommen am**: 2026-06-13
+**Status**: konzeptionell besprochen, nicht gebaut. Erster Baustein
+(`pairGains`) ist mit BA 284 bereits gebaut. Restliches Refactoring
+für einen frischen Opus-Chat vorgesehen.
+
+**Hintergrund**: Beim Aufräumen der Slider-Symmetrie im Elektroden-
+lautstärke-Test (BA 283–285) wurde sichtbar, dass die Tonwiedergabe
+der Mess-Tests heute über **zwei getrennte Mechanismen** läuft, die
+dasselbe tun sollen, aber auseinanderlaufen:
+
+1. **Hartcodierte Test-Wiedergabe**: `playSeq` (Test 1, `js/audio.js`),
+   die Sequenz in `js/lr-balance.js` (Test 2), `fmPlay…` /
+   `fmPlaySimultaneous` (Test 3, `js/freqmatch.js` +
+   `js/freqmatch-adaptive.js`). Jede schreibt ihre Tonfolge, Pegel,
+   Pausen und das gleichzeitige Abspielen selbst aus.
+2. **Token-basierte Modalbox-Vorschau**: `js/tone-popup.js` hat in
+   `_playPreview` bereits eine **generische Abspiel-Maschine**, die eine
+   **Token-Liste** im Format `{hz, pan, durationMs}` bzw. `{pauseMs}`
+   abspielt. Jeder Test liefert die Liste über `getPreviewSequence()`.
+
+Folge der Doppelung: Die Vorschau entspricht nicht dem echten Test.
+Beispiel Test 1: `getPreviewSequence` spielt `1000 Hz` gegen `1000 Hz`
+**ohne Slider-Offset**, während der echte Test die Elektroden-
+frequenzen mit Pegelunterschied spielt. Außerdem driftete der
+Gleichzeitig-Pfad in Test 1 über die Zeit von `playSeq` weg (Vorzeichen
+und Deckelung), bis BA 283/284 das geradezogen haben — genau die Art
+Fehler, die eine geteilte Funktion strukturell verhindert.
+
+**Konzept**: Die hartcodierte Test-Wiedergabe durch **dieselbe Token-
+Maschine** ersetzen, die die Modalbox schon nutzt. Dann gilt:
+
+- **Pro Test eine Funktion** `…Sequence()`, die die Token-Liste für das
+  aktuelle Paar liefert (echte Frequenzen, Pegel-Offset, Panning). Der
+  *Inhalt* ist je Test verschieden (Test 1: zwei Elektroden, Pegel;
+  Test 2: links/rechts, Pegel + Korrektur `corrL/corrR`; Test 3:
+  Frequenz-Offset in cent statt Pegel) — deshalb **pro Test eigene**
+  Funktion, **keine** einzige geteilte.
+- **Eine gemeinsame Maschine** (auf `tone-popup`-/testUI-Ebene) spielt
+  die Liste — einmal **nacheinander** (mit Pausen, ABA), einmal
+  **gleichzeitig** (parallel). Das ist die allen Tests gemeinsame
+  Bedien-Ebene: automatische Sequenz bei Messbeginn, Wiederhol-Sequenz
+  per Leertaste, Gleichzeitig-Knopf.
+- **Drei Aufrufstellen teilen sich die Maschine**: Messbeginn,
+  Wiederholen (Leertaste), **und der Probehören-Knopf der Tonauswahl-
+  Modalbox** (dort soll künftig die echte Testsequenz mit dem gewählten
+  Ton laufen, nicht die vereinfachte Vorschau). Konsistenz wird damit
+  strukturell garantiert statt disziplinabhängig.
+
+**Was die gemeinsame Maschine dafür lernen muss** (testUI-API-Erweiterung,
+gemäß Notausgang-Prinzip in `docs/spec/00-testui-architektur.md`):
+
+- **Pegel/Offset pro Token** — heute kennt ein Token nur `hz/pan/dauer`;
+  der Slider-Offset (Kernsignal Test 1/2) fehlt, deshalb klingt die
+  Vorschau heute „flach". `pairGains` (BA 284, `js/audio.js`) ist der
+  fertige Baustein für die Pegel-Aufteilung eines Paars und sollte hier
+  wiederverwendet werden.
+- **Gleichzeitig-Modus** — die jetzige `_playPreview`-Maschine spielt
+  nur nacheinander (Timer-Kette); für „Gleichzeitig" muss sie dieselbe
+  Liste parallel abspielen können.
+
+**Klavier-Anspielen — bewusst entkoppelt** (im Chat entschieden):
+Das Klavier in der Tonauswahl-Modalbox spielt **nicht** die Testsequenz,
+sondern nur den **einen gedrückten Ton**, und zwar im **Halten-Modus**
+(Ton klingt, solange die Taste gedrückt ist). Die Mechanik existiert
+bereits in `js/sampler-keyboard.js` (`isHold = typeof opts.onRelease ===
+'function'`, `down`/`up`-Handler) und wird vom Reiter Implantat genutzt
+(`js/ui-implant.js`: `onPress` spielt langen Ton, `onRelease` ruft
+`stopAll`). Die drei Mess-Tests liefern heute **kein** `onRelease` und
+laufen daher im **Burst-Modus** (fester Anschlag). Sie sollen auf den
+Halten-Modus umgestellt werden.
+
+**Offener Teil-Punkt — Ausklang beim Loslassen**: Heute beendet das
+Loslassen den Ton über `stopAll()`, das ist ein **harter Schnitt** ohne
+Ausklang. Die globale Ausklang-Einstellung (`gToneEnvRelease`, Default
+`"short"`, `js/audio.js`) wirkt nur beim **natürlichen** Tonende, nicht
+beim Loslassen. „Ausklang beim Loslassen beachten" ist also eine kleine
+**neue** Funktion (sanftes Stoppen mit Release-Phase statt `stopAll`),
+von der der Implantat-Reiter gleich mitprofitieren würde.
+
+**Berührte Module** (grob, für spätere Bauanleitungen):
+- `js/audio.js`: `playSeq` auf Token-Maschine umstellen; `pairGains`
+  wiederverwenden; sanftes Stoppen (Release) als Alternative zu
+  `stopAll`.
+- `js/tone-popup.js`: `_playPreview` zur allgemeinen Token-Maschine
+  ausbauen (Pegel pro Token, Gleichzeitig-Modus).
+- `js/test.js`, `js/lr-balance.js`, `js/freqmatch.js`,
+  `js/freqmatch-adaptive.js`: je eine `…Sequence()`-Funktion, die die
+  Token-Liste liefert; eigene hartcodierte Wiedergabe entfernen;
+  Klavier auf Halten-Modus (`onRelease`).
+- `js/sampler-keyboard.js`: ggf. Release mit Ausklang.
+- `js/ui-implant.js`: Loslassen über sanftes Stoppen.
+- `js/test-ui.js`: ggf. Hooks/Verdrahtung für die gemeinsame Maschine.
+
+**Offene Design-Fragen**:
+- Wie viel Mechanik wird in `tone-popup`/testUI gehoben, wie viel bleibt
+  pro Test?
+- Token-Format final: wie wird Test 3 (Frequenz-Offset in cent) sauber
+  neben Test 1/2 (Pegel-Offset) abgebildet — gemeinsames Token mit
+  optionalen Feldern, oder zwei Token-Varianten?
+- Reihenfolge der BA-Aufteilung (vermutlich: Maschine + Token-Format
+  zuerst, dann Test für Test migrieren, Klavier/Ausklang separat).
+
+**Bemerkung**: Großer, vernetzter Umbau über ~6 Module — vor Bau in
+mehrere kleine, nummerierte Bauanleitungen aufteilen. `pairGains`
+(BA 284) ist der erste fertige Baustein. Beim Übergang in die Umsetzung
+diesen Eintrag in `docs/spec/02-messung.md` bzw.
+`docs/spec/00-testui-architektur.md` überführen.
