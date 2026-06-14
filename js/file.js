@@ -165,7 +165,7 @@ function resetAll() {
   // --- LR-Balance ---
   if (typeof lrResults !== "undefined") {
     Object.keys(lrResults).forEach(k => delete lrResults[k]);
-    if (typeof lrUndoStack !== "undefined") lrUndoStack.splice(0, lrUndoStack.length);
+    if (typeof lrResetSequence === "function") lrResetSequence();
     if (typeof lrSnapshot !== "undefined") lrSnapshot = null;
     if (typeof lrRenderResults === "function") lrRenderResults();
     if (typeof lrApplyMeanToBalance === "function") lrApplyMeanToBalance();

@@ -294,6 +294,10 @@ function lrShowPair() {
   if (slRef) {
     var startVal = (existing !== undefined && isFinite(existing)) ? existing : 0;
     testUI.slider.setValue(slRef, startVal);
+    // setValue aktualisiert nur die Slider-Position, nicht die dB-Anzeige.
+    // Wegen des onSlide-Hooks laeuft das Auto-Update in test-ui.js nicht,
+    // daher hier explizit setzen (analog test.js, BA 285).
+    testUI.slider.setValueDisplay(slRef, startVal.toFixed(1) + " dB");
   }
 
   // Update cumulative display (previous value)
@@ -361,6 +365,17 @@ function lrUndo() {
   lrRenderResults();
   lrApplyMeanToBalance();
   lrShowPair();
+}
+
+// Setzt die Vergleichsreihe vollstaendig zurueck: Reihenfolge, Position,
+// aktuelle Elektrode und Undo-Stapel. Wird beim Loeschen der Ergebnisse
+// (Clear-Button, resetAll) gebraucht, damit ein pausierter Fortschritt
+// nicht in einen frischen Start hineinblutet (Stop = Pause, BA 245).
+function lrResetSequence() {
+  lrSeq = [];
+  lrSeqIdx = 0;
+  lrCurrentEl = null;
+  lrUndoStack = [];
 }
 
 function lrFinish() {
@@ -750,6 +765,11 @@ function lrUpdateClipHint(off) {
 }
 
 function lrHookOnSlide(v) {
+  // onSlide-Hook ist verdrahtet -> Auto-dB-Anzeige in test-ui.js laeuft
+  // nicht; die Anzeige hier setzen (analog test.js, BA 285).
+  var slRef = lrEls && lrEls.verfahren && lrEls.verfahren.balance
+    && lrEls.verfahren.balance.slider;
+  if (slRef) testUI.slider.setValueDisplay(slRef, v.toFixed(1) + " dB");
   _lrUpdCumulative(v);
   lrUpdateClipHint(v);
 }
@@ -1001,6 +1021,7 @@ document.addEventListener("DOMContentLoaded", function() {
       if (!confirm(t("lrClearConfirm") || "LR-Vergleichsergebnisse löschen?")) return;
       lrResults = {};
       lrSnapshot = null;
+      lrResetSequence();
       if (typeof depLockApply === 'function') depLockApply();
       var lrRC = document.getElementById("lrResultsCard");
       if (lrRC) lrRC.style.display = "none";
