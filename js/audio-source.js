@@ -588,7 +588,7 @@ function amManifestRoot() {
 }
 
 // Konfigurierbar ueber window.CI_SB_WEBSPACE_ROOT vor Lade-Beginn.
-const AM_WEBSPACE_ROOT_DEFAULT = "http://ci-sound-balancing.honigburg.de/opus/";
+const AM_WEBSPACE_ROOT_DEFAULT = "https://honigburg.de/opus/";
 
 function amWebspaceRoot() {
   const r = (typeof window !== "undefined" && window.CI_SB_WEBSPACE_ROOT)
