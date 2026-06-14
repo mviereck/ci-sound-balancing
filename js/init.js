@@ -179,6 +179,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("eeExportBtn")
     .addEventListener("click", exportEasyEffects);
+  document
+    .getElementById("apoExportBtn")
+    .addEventListener("click", exportEqualizerAPO);
   ["lvChkMeas", "lvChkMan", "lvChkPre"].forEach((id) =>
     document.getElementById(id).addEventListener("change", drawLvChart),
   );

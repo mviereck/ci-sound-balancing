@@ -430,13 +430,23 @@ Object.assign(L.en, {
     printHeaderToolVersion: "Measurement values obtained with CImbel — CI sound balancing {VERSION} (www.ci-sound-balancing.org)",
     fResetAll: "Reset everything",
     cardResetTitle: "Delete data",
-    eeDesc:
-      "Exports the correction curve as an EasyEffects preset for PipeWire/PulseAudio.",
-    eeExport: "Export EasyEffects preset",
+    eeExport: "Download file for EasyEffects",
     eeHowTo:
-      "Instructions: 1) Install EasyEffects. 2) Copy the exported file to ~/.config/easyeffects/output/. 3) Load and activate the preset in EasyEffects.",
-    eePlayerHint:
-      "The settings in the player are taken into account. Note the settings for Left/Right/Both sides. Please note: the frequency warping from the player is not included in the export — EasyEffects does not provide a frequency-dependent pitch shifter. IMPORTANT: EasyEffects must be deactivated when using this tool for measuring or listening!",
+      "How to: 1) Install EasyEffects. 2) Copy the downloaded file to ~/.config/easyeffects/output/. 3) Load and switch on the preset in EasyEffects.",
+    sysEqTitle: "Correct your PC sound with CImbel measurements",
+    sysEqDesc:
+      "With these settings and the programs listed below, your PC can apply the same sound correction as the CImbel player. Exception: frequency warping is not supported.",
+    sysEqSideHint:
+      "The current settings from the player are used (please also note the side selection: Left / Right / Both sides).",
+    sysEqWarn:
+      "IMPORTANT: While you are measuring or listening with CImbel, the program must be switched off — otherwise the correction is applied twice and the measurement is no longer accurate.",
+    eeHead: "EasyEffects (Linux)",
+    apoHead: "Equalizer APO (Windows)",
+    apoExport: "Download file for Equalizer APO",
+    apoHowTo:
+      "How to: 1) Install Equalizer APO from equalizerapo.com. 2) Put the downloaded file into the config folder of Equalizer APO (usually C:\\Program Files\\EqualizerAPO\\config). 3) Add a line at the bottom of config.txt: Include: Filename.txt",
+    apoFileHint:
+      "Put this file into the config folder of Equalizer APO and include it from config.txt with:",
     tabLevels: "Sliders",
     tabCurves: "Curves",
     lvTabTitle: "Sliders: manual individual adjustment of electrodes",

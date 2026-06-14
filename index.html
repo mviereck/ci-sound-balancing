@@ -1719,24 +1719,44 @@
           </div>
         </div>
         <div class="card">
-          <h2>EasyEffects Export</h2>
+          <h2 data-t="sysEqTitle"></h2>
+          <p
+            style="
+              font-size: 0.84em;
+              color: var(--text-muted);
+              margin-bottom: 8px;
+            "
+            data-t="sysEqDesc"
+          ></p>
           <p
             style="
               font-size: 0.84em;
               color: var(--text-muted);
               margin-bottom: 10px;
             "
-            data-t="eeDesc"
+            data-t="sysEqSideHint"
           ></p>
           <div
             class="explain explain-warn"
-            style="margin-bottom: 10px"
-            data-t="eePlayerHint"
+            style="margin-bottom: 16px"
+            data-t="sysEqWarn"
           ></div>
+
+          <h3 style="margin: 0 0 8px" data-t="eeHead"></h3>
           <button class="btn" id="eeExportBtn">
             &#128190; <span data-t="eeExport"></span>
           </button>
-          <div class="explain" style="margin-top: 10px" data-t="eeHowTo"></div>
+          <div
+            class="explain"
+            style="margin: 10px 0 16px"
+            data-t="eeHowTo"
+          ></div>
+
+          <h3 style="margin: 0 0 8px" data-t="apoHead"></h3>
+          <button class="btn" id="apoExportBtn">
+            &#128190; <span data-t="apoExport"></span>
+          </button>
+          <div class="explain" style="margin-top: 10px" data-t="apoHowTo"></div>
         </div>
         <div class="card" id="cardReset">
           <h2 data-t="cardResetTitle"></h2>

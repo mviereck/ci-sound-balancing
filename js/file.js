@@ -1022,11 +1022,72 @@ function clearRes() {
   pUpdEQ();
 }
 
-function exportEasyEffects() {
+// Sammelt die format-unabhaengige Korrektur fuer die System-Equalizer-
+// Exporte (EasyEffects, Equalizer APO). Vorzeichen-, Staerke- und
+// NH-Sim-Logik identisch zur bisherigen exportEasyEffects-Schleife.
+//   bands[i] = { freq, q, gainL, gainR }   (gainL===gainR wenn nicht split)
+//   splitChannels: true  -> echte Stereo-Kurven (Modus "both")
+//   hasLat/latMs:  Latenz (ms>=0 verzoegert links, ms<0 rechts)
+//   hasBal/balL/balR: Stereo-Balance dB-Pegel pro Ohr (nur Modus "both")
+//   anyData: false -> nichts zu exportieren
+function collectSysEqCorrection() {
   const gains = getPlayerGains();
   const mode = getPlayerSide();
   const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
+
+  let leftArr, rightArr, splitChannels;
+  if (mode === "both") {
+    leftArr = gains.left || [];
+    rightArr = gains.right || [];
+    splitChannels = true;
+  } else {
+    const arr = Array.isArray(gains) ? gains : [];
+    leftArr = arr;
+    rightArr = arr;
+    splitChannels = false;
+  }
+
+  const hasGain = (arr) => arr.some((v) => v !== 0);
+  const hasLat = plApplyLatency && latencyResult
+    && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0;
+  const balG = (mode === "both" && plApplyBalance)
+    ? getPlayerBalanceGains() : { left: 0, right: 0 };
+  const hasBal = balG.left !== 0 || balG.right !== 0;
+
+  const anyData =
+    hasGain(leftArr) || hasGain(rightArr) || plEqOn || hasLat || hasBal;
+
+  const bands = [];
+  for (let i = 0; i < nEl; i++) {
+    const gL = plEqOn
+      ? nhSim ? (leftArr[i] || 0) * str : -(leftArr[i] || 0) * str
+      : 0;
+    const gR = plEqOn
+      ? nhSim ? (rightArr[i] || 0) * str : -(rightArr[i] || 0) * str
+      : 0;
+    bands.push({ freq: effFreq(i), q: pCompQ(i), gainL: gL, gainR: gR });
+  }
+
+  const ms = hasLat ? latencyResult.valueMs : 0;
+  return {
+    bands,
+    splitChannels,
+    hasLat,
+    latMs: ms,
+    hasBal,
+    balL: balG.left,
+    balR: balG.right,
+    anyData,
+  };
+}
+
+function exportEasyEffects() {
+  const corr = collectSysEqCorrection();
+  if (!corr.anyData) {
+    alert(t("plNoData"));
+    return;
+  }
   const makeBand = (freq, gainVal, q) => ({
     frequency: freq,
     gain: parseFloat(gainVal.toFixed(1)),
@@ -1038,50 +1099,12 @@ function exportEasyEffects() {
     type: "Bell",
     width: 4.0,
   });
-  // Gains pro Kanal ermitteln
-  let leftArr, rightArr, splitChannels;
-  if (mode === "both") {
-    // Echtes Stereo: L und R unterschiedliche Kurven
-    leftArr = gains.left || [];
-    rightArr = gains.right || [];
-    splitChannels = true;
-  } else {
-    // Mono oder eine Seite: beide Kanäle gleich
-    const arr = Array.isArray(gains) ? gains : [];
-    leftArr = arr;
-    rightArr = arr;
-    splitChannels = false;
-  }
-  const hasGain = (arr) => arr.some((v) => v !== 0);
-  // Latenz nur uebernehmen, wenn gemessen und im Player aktiv (analog EQ)
-  const hasLat = plApplyLatency && latencyResult
-    && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0;
-  // Stereo-Balance nur im echten Stereo-Modus ("both"). getPlayerBalanceGains
-  // liefert {left,right} dB-Pegel pro Ohr (0/0 wenn Balance aus oder inaktiv),
-  // beruecksichtigt das Balance-Dropdown (sym/left/right).
-  const balG = (mode === "both" && plApplyBalance)
-    ? getPlayerBalanceGains() : { left: 0, right: 0 };
-  const hasBal = balG.left !== 0 || balG.right !== 0;
-  if (!(hasGain(leftArr) || hasGain(rightArr)) && !plEqOn && !hasLat && !hasBal) {
-    alert(t("plNoData"));
-    return;
-  }
   const left = {},
     right = {};
-  for (let i = 0; i < nEl; i++) {
-    const gL = plEqOn
-      ? nhSim
-        ? (leftArr[i] || 0) * str
-        : -(leftArr[i] || 0) * str
-      : 0;
-    const gR = plEqOn
-      ? nhSim
-        ? (rightArr[i] || 0) * str
-        : -(rightArr[i] || 0) * str
-      : 0;
-    left["band" + i] = makeBand(effFreq(i), gL, pCompQ(i));
-    right["band" + i] = makeBand(effFreq(i), gR, pCompQ(i));
-  }
+  corr.bands.forEach((b, i) => {
+    left["band" + i] = makeBand(b.freq, b.gainL, b.q);
+    right["band" + i] = makeBand(b.freq, b.gainR, b.q);
+  });
   const preset = {
     output: {
       blocklist: [],
@@ -1092,21 +1115,14 @@ function exportEasyEffects() {
         left: left,
         "output-gain": 0.0,
         right: right,
-        "split-channels": splitChannels,
-        "num-bands": nEl,
+        "split-channels": corr.splitChannels,
+        "num-bands": corr.bands.length,
       },
       plugins_order: ["equalizer#0"],
     },
   };
-  // Latenz + Stereo-Balance als Verzoegerung-Plugin (EasyEffects: "delay").
-  // Latenz  -> time pro Kanal (Vorzeichen analog Player/latSetSliderMs:
-  //            ms >= 0 verzoegert links, ms < 0 verzoegert rechts).
-  // Balance -> wet-Pegel pro Ohr (dB); dry stumm (-100) => nur das
-  //            durchgereichte Signal mit Balance-Pegel kommt durch.
-  // Beides teilt sich ein Plugin; ein fehlender Anteil bleibt neutral
-  // (Latenz 0 ms / Balance 0 dB).
-  if (hasLat || hasBal) {
-    const ms = hasLat ? latencyResult.valueMs : 0;
+  if (corr.hasLat || corr.hasBal) {
+    const ms = corr.hasLat ? corr.latMs : 0;
     const tL = ms >= 0 ? Math.abs(ms) : 0;
     const tR = ms < 0 ? Math.abs(ms) : 0;
     preset.output["delay#0"] = {
@@ -1119,8 +1135,8 @@ function exportEasyEffects() {
       "output-gain": 0.0,
       "time-l": parseFloat(tL.toFixed(1)),
       "time-r": parseFloat(tR.toFixed(1)),
-      "wet-l": parseFloat(balG.left.toFixed(1)),
-      "wet-r": parseFloat(balG.right.toFixed(1)),
+      "wet-l": parseFloat(corr.balL.toFixed(1)),
+      "wet-r": parseFloat(corr.balR.toFixed(1)),
     };
     preset.output.plugins_order = ["equalizer#0", "delay#0"];
   }
@@ -1130,6 +1146,74 @@ function exportEasyEffects() {
     a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = buildCImbelFilename("easyeffects", null, ".json");
+  a.click();
+}
+
+// Equalizer APO (Windows): Textformat config.txt. PK-Filter (= Bell),
+// Channel-gebundene Delay/Preamp-Zeilen. Reihenfolge egal (alles linear),
+// daher: EQ, dann Balance (Preamp pro Kanal), dann Latenz (Delay).
+function exportEqualizerAPO() {
+  const corr = collectSysEqCorrection();
+  if (!corr.anyData) {
+    alert(t("plNoData"));
+    return;
+  }
+  const fname = buildCImbelFilename("equalizerapo", null, ".txt");
+  const fc = (n) => n.toFixed(1);
+  const g = (n) => n.toFixed(1);
+  const q = (n) => n.toFixed(2);
+
+  const L = [];
+  L.push("# CImbel");
+  L.push("# " + t("apoFileHint"));
+  L.push("#   Include: " + fname);
+  L.push("");
+
+  const eqLines = (side, ch) => {
+    L.push("Channel: " + ch);
+    corr.bands.forEach((b, i) => {
+      const gain = side === "R" ? b.gainR : b.gainL;
+      L.push(
+        "Filter " + (i + 1) + ": ON PK Fc " + fc(b.freq) +
+        " Hz Gain " + g(gain) + " dB Q " + q(b.q),
+      );
+    });
+  };
+
+  if (corr.splitChannels) {
+    eqLines("L", "L");
+    eqLines("R", "R");
+  } else {
+    // Mono / eine Seite: gleiche Kurve auf beide Ausgangskanaele.
+    eqLines("L", "L R");
+  }
+
+  // Stereo-Balance (nur Modus "both" -> splitChannels): Pegel pro Ohr
+  // als kanalweiser Preamp. Werte direkt uebernommen (analog EasyEffects
+  // wet-l/wet-r), damit der PC dieselbe Korrektur wie der Player macht.
+  if (corr.hasBal) {
+    L.push("");
+    L.push("Channel: L");
+    L.push("Preamp: " + g(corr.balL) + " dB");
+    L.push("Channel: R");
+    L.push("Preamp: " + g(corr.balR) + " dB");
+  }
+
+  // Latenz: ms>=0 verzoegert links, ms<0 rechts (analog Player/EasyEffects).
+  if (corr.hasLat) {
+    L.push("");
+    if (corr.latMs >= 0) {
+      L.push("Channel: L");
+    } else {
+      L.push("Channel: R");
+    }
+    L.push("Delay: " + Math.abs(corr.latMs).toFixed(1) + " ms");
+  }
+
+  const blob = new Blob([L.join("\n") + "\n"], { type: "text/plain" }),
+    a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = fname;
   a.click();
 }
 

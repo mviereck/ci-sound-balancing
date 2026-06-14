@@ -431,13 +431,23 @@ Object.assign(L.es, {
     printHeaderToolVersion: "Valores obtenidos con CImbel — CI sound balancing {VERSION} (www.ci-sound-balancing.org)",
     fResetAll: "Reiniciar todo",
     cardResetTitle: "Borrar datos",
-    eeDesc:
-      "Exporta la curva de corrección como preset EasyEffects para PipeWire/PulseAudio.",
-    eeExport: "Exportar preset EasyEffects",
+    eeExport: "Descargar archivo para EasyEffects",
     eeHowTo:
-      "Instrucciones: 1) Instalar EasyEffects. 2) Copiar el archivo exportado a ~/.config/easyeffects/output/. 3) En EasyEffects, cargar y activar el preset.",
-    eePlayerHint:
-      "Se tienen en cuenta los ajustes del reproductor. Atienda a los ajustes de Izquierda/Derecha/Ambos lados. Nota: el warping de frecuencia del reproductor no se incluye en la exportación — EasyEffects no ofrece un pitch-shifter dependiente de la frecuencia. IMPORTANTE: ¡EasyEffects debe estar desactivado cuando use esta herramienta para medir o escuchar!",
+      "Instrucciones: 1) Instalar EasyEffects. 2) Copiar el archivo descargado a ~/.config/easyeffects/output/. 3) En EasyEffects, cargar y activar el preset.",
+    sysEqTitle: "Corregir el sonido del PC con las mediciones de CImbel",
+    sysEqDesc:
+      "Con estos ajustes y los programas indicados, el PC puede aplicar la misma corrección de sonido que el reproductor de CImbel. Excepción: el frequency warping no es compatible.",
+    sysEqSideHint:
+      "Se utilizan los ajustes actuales del reproductor (tenga en cuenta también la selección de lado: Izquierda / Derecha / Ambos lados).",
+    sysEqWarn:
+      "IMPORTANTE: mientras mide o escucha con CImbel, el programa debe estar desactivado; de lo contrario la corrección se aplica dos veces y la medición deja de ser exacta.",
+    eeHead: "EasyEffects (Linux)",
+    apoHead: "Equalizer APO (Windows)",
+    apoExport: "Descargar archivo para Equalizer APO",
+    apoHowTo:
+      "Instrucciones: 1) Instalar Equalizer APO desde equalizerapo.com. 2) Colocar el archivo descargado en la carpeta config de Equalizer APO (normalmente C:\\Program Files\\EqualizerAPO\\config). 3) Añadir una línea al final de config.txt: Include: NombreArchivo.txt",
+    apoFileHint:
+      "Coloque este archivo en la carpeta config de Equalizer APO e inclúyalo desde config.txt con:",
     tabLevels: "Deslizadores",
     tabCurves: "Curvas",
     lvTabTitle: "Deslizadores: ajuste manual individual de electrodos",
