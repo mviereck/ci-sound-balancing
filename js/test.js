@@ -1374,8 +1374,8 @@ document.addEventListener("DOMContentLoaded", function() {
           onToneSelected: function(tt) { _testTpModalTone = tt; },
           onModalClose:   function()   { _testTpModalTone = null; _testTpCorrectVol = null; },
           onTogglesReady: function(fn) { _testTpCorrectVol = fn; },
-          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
-          showToggles:  false,
+          // BA 302: Korrektur-Schalter auch im Lautstaerke-Messreiter zeigen.
+          showToggles:  true,
           // BA 250: Lautstaerke/Tondauer/Tonpause als Modalbox-Felder.
           showVolume:   true,
           showDuration: true,
@@ -1396,7 +1396,10 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var pan = (activeSide === 'left') ? -1 : 1;
-            return [{ hz: hz, pan: pan, vol: tGVol(), durationMs: tGDur() }];
+            // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
+            var vol = tGVol();
+            if (typeof _testTpCorrectVol === 'function') vol = _testTpCorrectVol(vol, hz, pan);
+            return [{ hz: hz, pan: pan, vol: vol, durationMs: tGDur() }];
           },
           // BA 252: Klavier-Widget in der Modalbox -- aktive Seite,
           // Implantat-Logik (abgewaehlt/ausgeschlossen = X-Overlay).
@@ -1410,8 +1413,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!c) return;
             var pan = (activeSide === 'left') ? -1 : 1;
             var tt  = (_testTpModalTone !== null) ? _testTpModalTone : toneType_test;
-            // Elektrodenlautstaerke: keine Mess-Korrektur (wird hier erst gemessen).
+            // BA 302: Korrektur ueber die Schalter-fn (Default an, abschaltbar).
             var vol = tGVol();
+            if (typeof _testTpCorrectVol === 'function') vol = _testTpCorrectVol(vol, hz, pan);
             try {
               playToneTyped(c, hz, vol, 60000, pan, tt);
             } catch (e) { /* swallow */ }
