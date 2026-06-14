@@ -14,6 +14,9 @@
 //   getVolume()           -> Vorspiel-Lautstaerke (0..1)
 //   getPreviewSequence()  -> Array von {hz,pan,durationMs} oder
 //                            {pauseMs}-Steps fuer den Vorspiel-Klick
+//   titleKey              -> i18n-Key fuer den Modal-Titel, optional;
+//                            Default 'tonePopupTitle' ("Einstellungen
+//                            Testton")
 //   hintKey               -> i18n-Key fuer allgemeinen Intro-Text
 //                            (gelbe Box ganz oben), optional
 //   extraHintKey          -> i18n-Key fuer reiterspezifische
@@ -274,7 +277,9 @@ function openToneSelectionDialog(cfg, onChange) {
     'overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.3);';
 
   var title = document.createElement('h3');
-  title.dataset.t = 'tonePopupTitle';
+  // Titel per cfg.titleKey ueberschreibbar; Default "Einstellungen Testton".
+  title.dataset.t = (typeof cfg.titleKey === 'string' && cfg.titleKey)
+    ? cfg.titleKey : 'tonePopupTitle';
   title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
   dlg.appendChild(title);
 

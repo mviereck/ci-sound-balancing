@@ -310,12 +310,15 @@ function openImplantTonePopup() {
     onToneSelected: function (tt) { _implTpModalTone = tt; },
     onModalClose:   function ()   { _implTpModalTone = null; _implTpCorrectVol = null; },
 
+    titleKey:     "tonePopupTitleImplant",
     hintKey:      "tonePopupHint",
     extraHintKey: "tonePopupHintImplant",
 
+    // Tondauer + Tonpause dauerhaft sichtbar (wirken auf den Sweep);
+    // Lautstaerke bleibt nur im Debug-Modus.
     showVolume:       _implDbgOn,
-    showDuration:     _implDbgOn,
-    showPause:        _implDbgOn,
+    showDuration:     true,
+    showPause:        true,
     getVolumePercent: function ()  { return volume_global; },
     setVolumePercent: function (v) { volume_global = v; },
     getDurationMs:    function ()  { return duration_implant; },
