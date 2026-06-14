@@ -307,21 +307,38 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
     const refBase = withSide('right', function() { return effFreq(track.electrodeIdx); });
     const halfOff = track.currentOffset / 2;
     if (catchInfo) {
-      // Catch im symmetric: catchInfo.direction wird halbiert auf beide Seiten verteilt,
-      // sodass die Gesamtdifferenz zwischen den zwei Tönen catchInfo.direction Cent beträgt.
+      // Catch im symmetric: die Catch-Spreizung wird halbiert auf beide
+      // Seiten verteilt, sodass die Differenz var↔ref = direction Cent ist.
+      // direction folgt der var-relativ-zu-ref-Konvention (dir>0 = var
+      // klingt höher), die der currentOffset-Konvention (off>0 = ref höher)
+      // ENTGEGENGESETZT ist — daher +halfCatch auf var, -halfCatch auf ref.
+      // Der reguläre Offset entfällt im Catch (wie im nicht-symmetrischen
+      // Fall, wo die Differenz exakt = direction ist), damit die Spreizung
+      // unabhängig vom Tracking-Stand eindeutig in der richtigen Richtung
+      // liegt (sonst kann ein großer currentOffset die Spreizung aufheben).
       const halfCatch = catchInfo.direction / 2;
-      varHz = varBase * Math.pow(2, (-halfOff - halfCatch) / 1200);
-      refHz = refBase * Math.pow(2, (+halfOff + halfCatch) / 1200);
+      varHz = varBase * Math.pow(2, +halfCatch / 1200);
+      refHz = refBase * Math.pow(2, -halfCatch / 1200);
     } else {
       varHz = varBase * Math.pow(2, -halfOff / 1200);
       refHz = refBase * Math.pow(2, +halfOff / 1200);
     }
   } else {
     const elFreq = withSide(fmVarSide, function() { return effFreq(track.electrodeIdx); });
-    refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
-    // normaler Trial: varHz = elFreq (CI-Elektrode statisch)
-    // Catch-Trial:    varHz = refHz * 2^(±500/1200) — ±500 cent von ref
-    varHz = catchInfo ? refHz * Math.pow(2, catchInfo.direction / 1200) : elFreq;
+    if (catchInfo) {
+      // Catch-Trial: die CI-Seite (var) bleibt auf der Soll-Frequenz
+      // effFreq(i) — eine Verschiebung würde Nachbarelektroden anregen.
+      // Stattdessen wird die Referenz um die volle Catch-Spreizung
+      // verschoben. direction>0 = var soll höher klingen → ref tiefer
+      // (refHz = elFreq · 2^(-direction/1200)); Differenz var↔ref = direction.
+      varHz = elFreq;
+      refHz = elFreq * Math.pow(2, -catchInfo.direction / 1200);
+    } else {
+      // normaler Trial: varHz = elFreq (CI-Elektrode statisch),
+      // ref wird per Staircase um currentOffset verschoben.
+      refHz = elFreq * Math.pow(2, track.currentOffset / 1200);
+      varHz = elFreq;
+    }
   }
 
   const vol = fmGVol();
@@ -502,6 +519,12 @@ function _fmAggregateRunsForElectrode(side, electrodeIdx) {
   fa.runs.forEach(function(run) {
     const tr = run && run.tracks && run.tracks[key];
     if (!tr) return;
+    // Abgewählte Spuren neutral überspringen: eine in einem Lauf abgewählte
+    // Elektrode war dort schlicht nicht im Test — sie darf das kombinierte
+    // Ergebnis weder verbessern noch verschlechtern (BA 207: 'deselected'
+    // ist kein Qualitätsmerkmal). So, als wäre sie in diesem Lauf nicht
+    // dabei gewesen.
+    if (tr.status === 'deselected') return;
     lastStatus = tr.status || null;
     allStatuses.push(tr.status || 'aborted');
     if (tr.match != null) {
@@ -897,11 +920,18 @@ function fmUpdateAdaptiveProgress() {
 //   - aktiv         → Beitrag min(reversals.length / FM_REVERSALS_REQ, 0.95)
 function fmComputeProgressStats(tracks) {
   const allKeys = Object.keys(tracks);
-  const total = allKeys.length;
-  let done = 0, totalTrials = 0, contrib = 0;
+  let total = 0, done = 0, totalTrials = 0, contrib = 0;
   allKeys.forEach(function(k) {
     const tr = tracks[k];
+    // Bereits absolvierte Vergleiche bleiben gezählt (kein Rücksprung der
+    // Trial-Anzeige), auch wenn die Spur danach abgewählt wurde.
     totalTrials += tr.trialCount || 0;
+    // Abgewählte Spuren neutral aus der Fortschritts-Quote nehmen — weder
+    // als fertig noch als offen werten (raus aus Zähler UND Nenner), damit
+    // der Balken sich auf die verbliebenen Elektroden bezieht und beim
+    // Rausnehmen nicht hochspringt (BA 207: 'deselected' ist kein Endzustand).
+    if (tr.status === 'deselected') return;
+    total++;
     if (tr.status !== 'active') {
       done++;
       contrib += 1.0;

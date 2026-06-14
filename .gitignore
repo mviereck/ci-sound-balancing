@@ -1,11 +1,41 @@
-# Lokale Sprach-Datensätze (Thorsten-Voice WAVs, Freiburger, Oldenburger).
-# NIE committen — mehrere GB.
-Sprachdatensätze/
+# ============================================================
+# Grundregel: Alles, was mit "." beginnt, gehoert NICHT ins
+# oeffentliche Repo (Ausnahme: .gitignore selbst). Diese Ordner
+# bleiben lokal. Die wichtigsten explizit aufgefuehrt, damit
+# klar ist, was warum lokal bleibt.
+# ============================================================
 
-# Backups und Lokales
+# Backups und lokales Arbeitsmaterial
 .backup/
+.archive/
+
+# Bauanleitungen fuer Sonnet (internes Arbeitsmaterial)
+.bauanleitungen/
+
+# Doku, Spec, Konzepte (intern, nicht oeffentlich)
 .docs/
-archive/debug-tests/
+
+# Hilfs-Skripte (Audio-Pipeline, Build, Online-Adapter)
+.scripts/
+
+# Persoenliche Projektanweisung mit medizinischen Daten
+CLAUDE.md
+
+# Fremde PDFs/Papers (Hersteller-Handbuecher etc.) — Urheberrecht
+.manuals/
+
+# Claude-Code-eigene Settings, Hooks und temporaere Worktrees
+.claude/
+
+# API-Tokens fuer Online-Adapter (Freesound etc.) — NIE committen
+.key/
+.env
+.env.local
+secrets/
+
+# Lokale Sprach-Datensaetze (Thorsten-Voice WAVs, Freiburger,
+# Oldenburger) — mehrere GB, NIE committen
+Sprachdatensätze/
 
 # Editor / OS
 *.swp
@@ -14,14 +44,6 @@ archive/debug-tests/
 .DS_Store
 Thumbs.db
 
-# API-Tokens fuer Online-Adapter (Freesound etc.) — NIE committen
-.env
-.env.local
-secrets/
-
 # Python
 __pycache__/
 *.pyc
-
-# Audit-WAVs (lokales Probehör-Material, TinySOL-Abgeleitet)
-/audit/
