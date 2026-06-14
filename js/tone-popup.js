@@ -666,20 +666,15 @@ function openToneSelectionDialog(cfg, onChange) {
     if (vdpRow.children.length) dlg.appendChild(vdpRow);
   }
 
-  // BA 239: Korrektorfunktion für Klavier-onPress bereitstellen.
+  // BA 239 / BA 300: Korrektorfunktion fuer Klavier-onPress und Vorspiel.
+  // Rechnet ueber die zentrale corrVol (test.js); side aus dem Pan.
+  // applyMeasLevels / applyBalance bleiben die Box-Schalter (Implantat).
   if (typeof cfg.onTogglesReady === 'function') {
     cfg.onTogglesReady(function(vol, hz, pan) {
-      var ev = vol;
-      if (applyMeasLevels) {
-        var md = _tpMeasDbForStep(hz, pan);
-        if (md !== 0) ev *= Math.pow(10, md / 20);
-      }
-      if (applyBalance) {
-        var bl = _tpBalanceDbSym();
-        var bd = (pan < -0.01) ? bl.left : (pan > 0.01) ? bl.right : 0;
-        if (bd !== 0) ev *= Math.pow(10, bd / 20);
-      }
-      return ev;
+      var side = (pan < -0.01) ? 'left' : (pan > 0.01) ? 'right'
+               : (typeof activeSide === 'string' ? activeSide : 'left');
+      if (typeof corrVol !== 'function') return vol;
+      return corrVol(vol, side, hz, applyMeasLevels, applyBalance);
     });
   }
 
@@ -779,14 +774,11 @@ function openToneSelectionDialog(cfg, onChange) {
       var hz   = freqs[idx];
       var tone = selected;
       var vol = (typeof cfg.getVolume === 'function') ? cfg.getVolume() : 0.25;
-      if (applyMeasLevels) {
-        var md = _tpMeasDbForStep(hz, pan);
-        if (md !== 0) vol *= Math.pow(10, md / 20);
-      }
-      if (applyBalance) {
-        var bl = _tpBalanceDbSym();
-        var bd = (pan < -0.01) ? bl.left : (pan > 0.01) ? bl.right : 0;
-        if (bd !== 0) vol *= Math.pow(10, bd / 20);
+      // BA 300: zentrale Korrektur statt Box-interner Mathe.
+      var swpSide = (pan < -0.01) ? 'left' : (pan > 0.01) ? 'right'
+                  : (typeof activeSide === 'string' ? activeSide : 'left');
+      if (typeof corrVol === 'function') {
+        vol = corrVol(vol, swpSide, hz, applyMeasLevels, applyBalance);
       }
 
       if (sweepKbHandle && typeof sweepKbHandle.highlightElectrode === 'function') {
@@ -909,71 +901,6 @@ function openToneSelectionDialog(cfg, onChange) {
   // BA 226: Sanduhr ein-/ausblenden fuer den Button eines konkreten
   // toneType (Strings koennen Doppelpunkte und Leerzeichen enthalten,
   // deshalb ueber alle Buttons iterieren statt CSS-Selector).
-  // BA 239: Korrektur-Helfer für die Modal-Toggles.
-
-  // Mess-Lautstärke-Korrektur pro Step.
-  // hz -> nächste aktive Elektrode der step-Seite -> levels[i].
-  // Bedingung wie player.js:221-228 (hd-Check über bRes).
-  // Liefert dB-Offset (0 wenn keine Voraussetzung erfüllt).
-  function _tpMeasDbForStep(stepHz, stepPan) {
-    if (typeof withSide !== 'function'
-        || typeof compWLS !== 'function'
-        || typeof effFreq !== 'function') return 0;
-    var side = (stepPan < -0.01) ? 'left'
-             : (stepPan >  0.01) ? 'right'
-             : (typeof activeSide === 'string' ? activeSide : 'left');
-    var dB = 0;
-    try {
-      dB = withSide(side, function() {
-        if (typeof elActive === 'undefined'
-            || !Array.isArray(elActive)
-            || elActive.length === 0) return 0;
-        // Nächste aktive, nicht-stumme Elektrode finden.
-        var best = -1, bestDist = Infinity;
-        for (var i = 0; i < elActive.length; i++) {
-          if (elActive[i] === false) continue;
-          if (typeof elSt !== 'undefined' && elSt[i] === 'mute') continue;
-          var d = Math.abs(effFreq(i) - stepHz);
-          if (d < bestDist) { bestDist = d; best = i; }
-        }
-        if (best < 0) return 0;
-        // hd-Check analog player.js:221-228.
-        if (typeof bRes === 'undefined'
-            || !Array.isArray(bRes)
-            || !bRes.some(function(r) {
-              return (r.a === best || r.b === best)
-                  && elExDur[r.a] === null && elSt[r.a] !== 'mute'
-                  && elExDur[r.b] === null && elSt[r.b] !== 'mute';
-            })) return 0;
-        var lv = elTestData().correction;
-        var v = lv[best];
-        return (typeof v === 'number' && isFinite(v)) ? v : 0;
-      });
-    } catch (e) { /* swallow */ }
-    return (typeof dB === 'number' && isFinite(dB)) ? dB : 0;
-  }
-
-  // Stereo-Balance fest symmetrisch.
-  // Liefert {left, right} dB aus dem Mittelwert von lrResults.
-  // (lrResults ist global, nicht side-bound — siehe lr-balance.js:6.)
-  function _tpBalanceDbSym() {
-    if (typeof lrResults === 'undefined' || !lrResults) {
-      return { left: 0, right: 0 };
-    }
-    var vals = Object.values(lrResults).filter(function(v) {
-      return typeof v === 'number' && isFinite(v);
-    });
-    if (!vals.length) return { left: 0, right: 0 };
-    var mean = vals.reduce(function(a, b) { return a + b; }, 0) / vals.length;
-    // Player-Konvention: positive mean = rechts lauter -> -mean
-    // als symmetrischer Versatz: left=+b, right=-b
-    // (siehe state-side.js:425-430 getPlayerBalance + Z. 448).
-    var b = -mean;
-    if (!isFinite(b)) return { left: 0, right: 0 };
-    b = Math.max(-60, Math.min(60, b));
-    return { left: b, right: -b };
-  }
-
   function _playPreview(toneType) {
     var seq = (typeof cfg.getPreviewSequence === 'function')
       ? cfg.getPreviewSequence(_tpLastKbHz)

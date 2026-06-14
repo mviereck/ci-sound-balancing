@@ -669,6 +669,73 @@ function elTestData(opts) {
   return opts.side ? withSide(opts.side, run) : run();
 }
 
+// BA 300: Frequenzaufgeloeste Elektrodenlautstaerke-Korrektur (linearer
+// Gain) fuer eine Seite. Liest die bereits gegatete, vorzeichenrichtige
+// correction-dB pro Elektrode (elTestData) und interpoliert log-linear
+// ueber die Elektroden-Frequenzen bei hz. Liefert 1 (neutral), wenn keine
+// Messdaten/Frequenzen vorliegen. Logik identisch zu fmCorrGain
+// (freqmatch.js); zentralisiert, damit alle Korrektur-Aufrufer (Klavier,
+// Vorspiel, Sweep) dieselbe Quelle nutzen.
+function measGain(side, hz) {
+  return withSide(side, function () {
+    var levels = elTestData().correction;
+    if (!levels || !levels.length) return 1;
+    var f = (typeof freqs !== "undefined" && freqs) ? freqs : null;
+    if (!f || !f.length) return 1;
+    var n = f.length;
+    if (n === 1) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+    var lg = Math.log(hz);
+    var lgFirst = Math.log(f[0]);
+    var lgLast  = Math.log(f[n - 1]);
+    var ascending = lgLast > lgFirst;
+    if (ascending) {
+      if (lg <= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+      if (lg >= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
+    } else {
+      if (lg >= lgFirst) return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
+      if (lg <= lgLast)  return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
+    }
+    for (var i = 0; i < n - 1; i++) {
+      var lgA = Math.log(f[i]);
+      var lgB = Math.log(f[i + 1]);
+      var lo = Math.min(lgA, lgB);
+      var hi = Math.max(lgA, lgB);
+      if (lg >= lo && lg <= hi) {
+        var lvA = levels[i];
+        var lvB = levels[i + 1];
+        if (!isFinite(lvA) && !isFinite(lvB)) return 1;
+        if (!isFinite(lvA)) return dB2G(lvB);
+        if (!isFinite(lvB)) return dB2G(lvA);
+        var tNum = lg - lgA;
+        var tDen = lgB - lgA;
+        var tt = (tDen === 0) ? 0 : (tNum / tDen);
+        var lv = lvA + (lvB - lvA) * tt;
+        return dB2G(lv);
+      }
+    }
+    return 1;
+  });
+}
+
+// BA 300: Kombinierter Pegel-Korrektor. Wendet auf einen Grundpegel die
+// Elektrodenlautstaerke- und/oder die Stereo-Balance-Korrektur an.
+// side: "left" | "right" (vom Aufrufer aus dem Pan abgeleitet).
+// applyMeas / applyBal: einzeln schaltbar -- im Implantat-Reiter ueber die
+// zwei Box-Schalter, in den Mess-Reitern beide true. Balance kommt aus
+// getRawBalanceGains() (respektiert den Balance-Modus).
+function corrVol(vol, side, hz, applyMeas, applyBal) {
+  var v = vol;
+  if (applyMeas && typeof measGain === "function") {
+    v *= measGain(side, hz);
+  }
+  if (applyBal && typeof getRawBalanceGains === "function") {
+    var bg = getRawBalanceGains() || { left: 0, right: 0 };
+    var bd = (side === "left") ? bg.left : (side === "right") ? bg.right : 0;
+    if (bd) v *= dB2G(bd);
+  }
+  return v;
+}
+
 function getConvPairs(fast) {
   if (fast && bRes.length > 0) {
     const { residuals } = compWLS();
