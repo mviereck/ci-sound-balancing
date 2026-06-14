@@ -22,6 +22,10 @@
 //   extraHintKey          -> i18n-Key fuer reiterspezifische
 //                            Zusatz-Hinweis-Box direkt unter der
 //                            ersten (gleiches Styling), optional
+//   persistentHintKey     -> i18n-Key fuer einen DAUERHAFT sichtbaren
+//                            (auch ohne Debug) reiterspezifischen
+//                            Hinweis, optional. Steht direkt unter dem
+//                            universellen Lautstaerke-Hinweis. (BA 298)
 //
 // Modal-Aufbau: GROUPS-Konstante mit allen Tonart-Gruppen (Sinus,
 // Komplex, Rich-Profile, Noise, Mellotron). Pro Item ein Radio-
@@ -282,6 +286,35 @@ function openToneSelectionDialog(cfg, onChange) {
     ? cfg.titleKey : 'tonePopupTitle';
   title.style.cssText = 'margin:0 0 8px 0;font-size:1.05em;';
   dlg.appendChild(title);
+
+  // BA 298: Dauerhaft sichtbare Hinweise, unabhaengig vom Debug-Modus.
+  // (1) Universeller Lautstaerke-Hinweis, fest verdrahtet in jedem
+  //     Aufruf. (2) Optionaler reiterspezifischer Dauer-Hinweis ueber
+  //     cfg.persistentHintKey (aktuell: Rausch-Hinweis im Implantat-
+  //     Reiter). Gleiche gelbe Box-Optik wie die Debug-Hinweise.
+  var _tpDbgHintFollows = dbgOn && (cfg.hintKey || cfg.extraHintKey);
+  var _tpPersistStyle = function (bottomPx) {
+    return 'margin:0 0 ' + bottomPx + 'px 0;font-size:.92em;' +
+           'line-height:1.35;background:#fff4d6;' +
+           'border-left:3px solid #d8a200;padding:8px 10px;' +
+           'border-radius:4px;';
+  };
+  // Letzter sichtbarer Dauer-Hinweis braucht 14px Abstand nach unten,
+  // ausser es folgt noch ein Debug-Hinweis (dann 8px, zusammenruecken).
+  var _tpPersistLastMargin = _tpDbgHintFollows ? '8' : '14';
+
+  var stabHint = document.createElement('p');
+  stabHint.dataset.t = 'tonePopupHintStabilize';
+  stabHint.style.cssText = _tpPersistStyle(
+    cfg.persistentHintKey ? '8' : _tpPersistLastMargin);
+  dlg.appendChild(stabHint);
+
+  if (cfg.persistentHintKey) {
+    var persHint = document.createElement('p');
+    persHint.dataset.t = cfg.persistentHintKey;
+    persHint.style.cssText = _tpPersistStyle(_tpPersistLastMargin);
+    dlg.appendChild(persHint);
+  }
 
   // BA 240: Hint-Box optional und reiterspezifisch.
   // BA 265: Zweite Hint-Box (cfg.extraHintKey) fuer reiterspezifische

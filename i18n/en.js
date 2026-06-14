@@ -1103,6 +1103,10 @@ Object.assign(L.en, {
     tonePopupSweepStart: "Start sweep",
     implTonePopupBtn:     "Play electrodes via tones",
     tonePopupHintImplant: "Sine is best suited for detecting problematic electrodes — for example, whether and how strongly they hiss.",
+    tonePopupHintStabilize:
+      "When a tone starts on the CI, the loudness may change briefly — it sounds a little louder at first and then settles. Only judge the tone once the loudness has stabilised.",
+    tonePopupHintImplantNoise:
+      "Noise may indicate a poorer connection between the electrode and the auditory nerve — for example due to scar tissue or degenerated auditory nerve fibres.",
     // BA 217: Tone selection dialog with groups and descriptions.
     toneGroupCiTestHint:     "Developed specifically for CI measurements. A pure sine tone precisely activates a single electrode, but often sounds severely distorted in CIs. These tones have a broader spectrum (stimulating neighbouring electrodes slightly more), but sound much smoother in CIs and are easier to compare.",
     toneRichCiHDesc:         "Fundamental + 4 harmonic partials (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attack 250 ms, vibrato 5.0 Hz / 6.0 cents, AM 3.5 Hz / 8.0 %.",

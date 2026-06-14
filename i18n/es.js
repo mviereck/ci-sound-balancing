@@ -1103,6 +1103,10 @@ Object.assign(L.es, {
     tonePopupSweepStart: "Iniciar barrido",
     implTonePopupBtn:     "Tocar electrodos mediante tonos",
     tonePopupHintImplant: "El tono senoide es el más adecuado para detectar electrodos problemáticos — por ejemplo, si producen ruido y con qué intensidad.",
+    tonePopupHintStabilize:
+      "Al comenzar un tono en el implante coclear, el volumen puede variar brevemente: primero suena algo más fuerte y luego se estabiliza. Evalúe el tono solo cuando el volumen se haya estabilizado.",
+    tonePopupHintImplantNoise:
+      "El ruido puede indicar una peor conexión entre el electrodo y el nervio auditivo, por ejemplo debido a tejido cicatricial o a fibras del nervio auditivo degeneradas.",
     // BA 217: Diálogo de selección de timbre con grupos y descripciones.
     toneGroupCiTestHint:     "Desarrollado específicamente para mediciones con IC. Un senoide puro activa con precisión un único electrodo, pero a menudo suena muy distorsionado con un IC. Estos tonos tienen un espectro más amplio (estimulando ligeramente los electrodos vecinos), pero suenan mucho más suaves con un IC y son más fáciles de comparar.",
     toneRichCiHDesc:         "Fundamental + 4 armónicos (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Ataque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",

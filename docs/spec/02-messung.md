@@ -151,7 +151,15 @@ In `state-side.js` und persistiert in JSON und localStorage:
   Tonpause (50–2000 ms, Default 400). Werte werden live über
   `cfg.setVolumePercent/setDurationMs/setPauseMs` an State-Variablen
   zurückgeschrieben (kein OK-Bestätigen nötig). Hint-Box konfigurierbar
-  via `cfg.hintKey` (i18n-Key; ohne Key keine Box).
+  via `cfg.hintKey` (i18n-Key; ohne Key keine Box). Zweite optionale
+  Hint-Box via `cfg.extraHintKey` (reiterspezifisch, direkt darunter).
+  **Dauerhaft sichtbare Hinweise (BA 298, unabhängig vom Debug-Modus):**
+  Ganz oben erscheint immer ein universeller Lautstärke-Hinweis
+  (`tonePopupHintStabilize`, erklärt den Einschwing-Effekt am Tonanfang).
+  Optionaler reiterspezifischer Dauer-Hinweis via `cfg.persistentHintKey`
+  (i18n-Key) direkt darunter — aktuell nur im Implantat-Aufruf gesetzt
+  (`tonePopupHintImplantNoise`, Rausch-Hinweis). Gleiche gelbe Box-Optik
+  wie die Debug-Hinweise.
   Korrektur-Toggles im Modal (seit BA 239): Oberhalb der Tonart-
   Gruppen (und ggf. oberhalb des Klavier-Widgets) zwei Toggle-
   Buttons (grün/grau analog Player). Default beide an, lokal in

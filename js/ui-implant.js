@@ -313,6 +313,7 @@ function openImplantTonePopup() {
     titleKey:     "tonePopupTitleImplant",
     hintKey:      "tonePopupHint",
     extraHintKey: "tonePopupHintImplant",
+    persistentHintKey: "tonePopupHintImplantNoise",   // BA 298: Rausch-Hinweis, dauerhaft sichtbar
 
     // Tondauer + Tonpause dauerhaft sichtbar (wirken auf den Sweep);
     // Lautstaerke bleibt nur im Debug-Modus.

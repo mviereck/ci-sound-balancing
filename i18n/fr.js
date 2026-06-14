@@ -1103,6 +1103,10 @@ Object.assign(L.fr, {
     tonePopupSweepStart: "Démarrer le balayage",
     implTonePopupBtn:     "Activer les électrodes par sons",
     tonePopupHintImplant: "Le sinus est le mieux adapté pour repérer les électrodes problématiques — par exemple, si elles sifflent et à quel point.",
+    tonePopupHintStabilize:
+      "Au début d'un son dans l'implant cochléaire, le volume peut varier brièvement — il paraît d'abord un peu plus fort, puis se stabilise. N'évaluez le son qu'une fois le volume stabilisé.",
+    tonePopupHintImplantNoise:
+      "Un bruit peut indiquer une moins bonne connexion entre l'électrode et le nerf auditif — par exemple en raison de tissu cicatriciel ou de fibres du nerf auditif dégénérées.",
     // BA 217: Dialogue de sélection du timbre avec groupes et descriptions.
     toneGroupCiTestHint:     "Développé spécialement pour les mesures avec IC. Un sinus pur active précisément une seule électrode, mais sonne souvent très distordu avec un IC. Ces sons ont un spectre plus large (stimulant légèrement les électrodes voisines), mais sonnent bien plus doucement avec un IC et sont plus faciles à comparer.",
     toneRichCiHDesc:         "Fondamentale + 4 harmoniques (amplitudes 1, 1/2, 1/3, 1/4, 1/5). Attaque 250 ms, vibrato 5,0 Hz / 6,0 cents, AM 3,5 Hz / 8,0 %.",

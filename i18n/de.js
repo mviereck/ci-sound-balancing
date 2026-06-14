@@ -1168,6 +1168,10 @@ Object.assign(L.de, {
     toneEnvRelHard:      "hart",
     implTonePopupBtn:     "Elektroden über Töne anspielen",
     tonePopupHintImplant: "Die Tonart Sinus eignet sich am Besten, um problematische Elektroden zu erkennen. Beispielsweise, ob und wie stark sie rauschen.",
+    tonePopupHintStabilize:
+      "Zu Beginn eines Tons im CI kann sich die Lautstärke kurz verändern — er wirkt erst etwas lauter und pendelt sich dann ein. Bewerten Sie den Ton erst, wenn die Lautstärke sich stabilisiert hat.",
+    tonePopupHintImplantNoise:
+      "Rauschen kann auf eine schlechtere Verbindung zwischen Elektrode und Hörnerv hindeuten — etwa durch Narbengewebe oder zurückgebildete Hörnervfasern.",
     // BA 217: Tonauswahl-Dialog mit Gruppen und Beschreibungen.
     toneGroupCiTest:         "CI-Testtöne",
     toneGroupCiTestHint:     "Eigens für CI-Messungen entwickelt. Ein reiner Sinuston regt zwar eine einzelne Elektrode exakt an, klingt im CI aber oft stark verzerrt. Diese Töne haben ein breiteres Spektrum (regt Nachbarelektroden etwas mit an), klingen dafür im CI deutlich ruhiger und sind besser zu vergleichen.",
