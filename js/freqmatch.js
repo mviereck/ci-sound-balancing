@@ -992,8 +992,8 @@ document.addEventListener("DOMContentLoaded", () => {
           onToneSelected:  function(tt) { fmModalTone = tt; },
           onModalClose:    function()   { fmModalTone = null; fmKbdCorrectVol = null; },
           onTogglesReady:  function(fn) { fmKbdCorrectVol = fn; },
-          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
-          showToggles:  false,
+          // BA 304: Korrektur-Schalter auch im Frequenzabgleich zeigen.
+          showToggles:  true,
           // BA 240: Vol/Dur/Pau-Felder in der Modal aktivieren.
           showVolume:   true,
           showDuration: true,
@@ -1023,14 +1023,16 @@ document.addEventListener("DOMContentLoaded", () => {
             var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
             var refSide = (varSide === 'left') ? 'right' : 'left';
             var varPan  = (varSide === 'left') ? -1 : 1;
-            var _fmCv = function (side) {
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an);
+            // taube Seite stumm (isDeaf) wie beim Klavier. pan kodiert die Seite.
+            var _fmCv = function (side, pan) {
               if (typeof isDeaf === 'function' && isDeaf(side)) return 0;
-              return (typeof corrVol === 'function') ? corrVol(vol, side, hz, true, true) : vol;
+              return (typeof fmKbdCorrectVol === 'function') ? fmKbdCorrectVol(vol, hz, pan) : vol;
             };
             return [
-              { hz: hz, pan: varPan,  vol: _fmCv(varSide), durationMs: dur },
+              { hz: hz, pan: varPan,  vol: _fmCv(varSide, varPan),  durationMs: dur },
               { pauseMs: pau },
-              { hz: hz, pan: -varPan, vol: _fmCv(refSide), durationMs: dur }
+              { hz: hz, pan: -varPan, vol: _fmCv(refSide, -varPan), durationMs: dur }
             ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
@@ -1102,9 +1104,9 @@ document.addEventListener("DOMContentLoaded", () => {
             var vol     = fmGVol();
             var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
             var varPan  = (varSide === 'left') ? -1 : 1;
-            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
             var volVar  = isDeaf(varSide) ? 0
-              : ((typeof corrVol === 'function') ? corrVol(vol, varSide, hz, true, true) : vol);
+              : ((typeof fmKbdCorrectVol === 'function') ? fmKbdCorrectVol(vol, hz, varPan) : vol);
             try {
               playToneTyped(c, hz, volVar, 60000, varPan, tt);
             } catch (e) { /* swallow */ }
@@ -1131,9 +1133,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               hzRef = hz;
             }
-            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
             var volRef = isDeaf(refSide) ? 0
-              : ((typeof corrVol === 'function') ? corrVol(vol, refSide, hzRef, true, true) : vol);
+              : ((typeof fmKbdCorrectVol === 'function') ? fmKbdCorrectVol(vol, hzRef, refPan) : vol);
             try {
               playToneTyped(c, hzRef, volRef, held, refPan, tt);
             } catch (e) { /* swallow */ }

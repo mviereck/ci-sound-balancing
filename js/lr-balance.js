@@ -857,8 +857,8 @@ document.addEventListener("DOMContentLoaded", function() {
           onToneSelected: function(tt) { _lrTpModalTone = tt; },
           onModalClose:   function()   { _lrTpModalTone = null; _lrTpCorrectVol = null; },
           onTogglesReady: function(fn) { _lrTpCorrectVol = fn; },
-          // BA 256: Korrektur-Toggles in Tests ausgeblendet — Wirkung bleibt aktiv.
-          showToggles:  false,
+          // BA 304: Korrektur-Schalter auch in der Stereo-Balance zeigen.
+          showToggles:  true,
           hintKey: 'tonePopupHint',
           showVolume:   true,
           showDuration: true,
@@ -881,8 +881,10 @@ document.addEventListener("DOMContentLoaded", function() {
             var vol = lrGVol();
             var dur = lrGDur();
             var pau = lrGPau();
-            var volL = (typeof corrVol === 'function') ? corrVol(vol, 'left',  hz, true, true) : vol;
-            var volR = (typeof corrVol === 'function') ? corrVol(vol, 'right', hz, true, true) : vol;
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
+            // pan kodiert die Seite (-1 = links, +1 = rechts).
+            var volL = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hz, -1) : vol;
+            var volR = (typeof _lrTpCorrectVol === 'function') ? _lrTpCorrectVol(vol, hz,  1) : vol;
             return [
               { hz: hz, pan: -1, vol: volL, durationMs: dur },
               { pauseMs: pau },
@@ -908,9 +910,9 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
               hzA = hz;
             }
-            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
-            var volA = (typeof corrVol === 'function')
-              ? corrVol(vol, activeSide, hzA, true, true) : vol;
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
+            var volA = (typeof _lrTpCorrectVol === 'function')
+              ? _lrTpCorrectVol(vol, hzA, panA) : vol;
             try {
               playToneTyped(c, hzA, volA, 60000, panA, tt);
             } catch (e) { /* swallow */ }
@@ -934,9 +936,9 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
               hzB = hz;
             }
-            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
-            var volB = (typeof corrVol === 'function')
-              ? corrVol(vol, other, hzB, true, true) : vol;
+            // BA 304: ueber die schalter-abhaengige Korrektor-fn (Default an).
+            var volB = (typeof _lrTpCorrectVol === 'function')
+              ? _lrTpCorrectVol(vol, hzB, panB) : vol;
             try {
               playToneTyped(c, hzB, volB, held, panB, tt);
             } catch (e) { /* swallow */ }
