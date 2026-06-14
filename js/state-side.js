@@ -732,14 +732,14 @@ let curA = -1,
 // Debug-Modus waehlbar.
 const TEST_DEFAULTS = {
   commonVolume: 50,                 // BA 287: gemeinsame Lautstaerke aller Tests + Implantat
-  freqmatch: { toneType: "sine", volume: 75, duration: 750, pause: 400, sequence: "ab" },
-  test:      { toneType: "sine", volume: 50, duration: 750, pause: 300, sequence: "ab" },
-  balance:   { toneType: "sine", volume: 75, duration: 750, pause: 400, sequence: "ab" },
-  implant:   { toneType: "sine", volume: 75, duration: 1000, pause: 500 }
+  freqmatch: { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "ab" },
+  test:      { toneType: "sine", volume: 50, duration: 600, pause: 300, sequence: "ab" },
+  balance:   { toneType: "sine", volume: 75, duration: 600, pause: 300, sequence: "ab" },
+  implant:   { toneType: "sine", volume: 75, duration: 600, pause: 300 }
 };
 const TONE_ENV_DEFAULTS = {
   attackForm: "dblin",  // Anstiegsform: dB-linear
-  attackMs:   160,      // Anschwingzeit ms
+  attackMs:   90,       // Anschwingzeit ms
   dbFloor:    -20,      // Startpegel dB (nur bei dblin wirksam)
   release:    "short"   // Ausklang: kurz
 };

@@ -44,7 +44,7 @@ In `state-side.js` und persistiert in JSON und localStorage:
   inharmonisch** (3.2.238.1, citest-profiles.js — für CI-Messungen
   designte Stimuli mit konstanter Klangfarbe über den ganzen
   Frequenzbereich, sanftem Anschwingen (seit BA 270 global einstellbar:
-  Default cos², 500 ms), Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen
+  Default dB-linear, 90 ms), Vibrato 5 Hz/5-6 cent und AM 3.5 Hz/8 % gegen
   Stationaritätsartefakte;
   inharmonisch mit Partial-Verstimmung ≈ Glocken-Anmutung) /
   **CI-Test Modulation mittel / AM-langsam / flach** (3.2.238.2,
@@ -147,8 +147,8 @@ In `state-side.js` und persistiert in JSON und localStorage:
   **Vol/Dur/Pau-Felder im Modal (seit BA 240)**: Direkt unter den
   Korrektur-Toggles erscheinen bis zu drei Eingabefelder (je nach
   Aufrufer via `cfg.showVolume/showDuration/showPause` aktivierbar):
-  Lautstärke (0–100 %, Default 75), Tondauer (100–3000 ms, Default 750),
-  Tonpause (50–2000 ms, Default 400). Werte werden live über
+  Lautstärke (0–100 %, Default 75), Tondauer (100–3000 ms, Default 600),
+  Tonpause (50–2000 ms, Default 300). Werte werden live über
   `cfg.setVolumePercent/setDurationMs/setPauseMs` an State-Variablen
   zurückgeschrieben (kein OK-Bestätigen nötig). Hint-Box konfigurierbar
   via `cfg.hintKey` (i18n-Key; ohne Key keine Box). Zweite optionale
@@ -202,7 +202,7 @@ In `state-side.js` und persistiert in JSON und localStorage:
   für jeden Vorhör-Klick, unabhängig vom Aufrufer):
   - `gToneEnvAttackForm`: `"hard"` | `"linear"` | `"cos2"` |
     `"dblin"` (Default) — bestimmt die Anstiegsform.
-  - `gToneEnvAttackMs`: Anschwingzeit in ms (Default 160).
+  - `gToneEnvAttackMs`: Anschwingzeit in ms (Default 90).
     Bei `"hard"` ignoriert.
   - `gToneEnvDbFloor`: Startpegel in dB (Default −20). Nur bei
     `"dblin"` wirksam.
