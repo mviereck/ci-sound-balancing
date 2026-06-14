@@ -678,6 +678,11 @@ function elTestData(opts) {
 // Vorspiel, Sweep) dieselbe Quelle nutzen.
 function measGain(side, hz) {
   return withSide(side, function () {
+    // BA 303: defensive Abfragen (aus fmCorrGain uebernommen). Ohne
+    // Mess-Paare oder ohne compWLS neutral zurueck, BEVOR elTestData()
+    // gerufen wird (nutzt intern bRes.some -> wuerde sonst werfen).
+    if (typeof bRes === "undefined" || !bRes || bRes.length === 0) return 1;
+    if (typeof compWLS !== "function") return 1;
     var levels = elTestData().correction;
     if (!levels || !levels.length) return 1;
     var f = (typeof freqs !== "undefined" && freqs) ? freqs : null;

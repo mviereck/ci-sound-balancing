@@ -216,61 +216,10 @@ function fmGAba() {
 }
 
 function fmCorrGain(side, hz) {
-  return withSide(side, () => {
-    if (typeof bRes === "undefined" || !bRes || bRes.length === 0) return 1;
-    if (typeof compWLS !== "function") return 1;
-    const f = (typeof freqs !== "undefined" && freqs) ? freqs : null;
-    if (!f || f.length === 0) return 1;
-    // Korrektur-dB pro Elektrode (zu leise => positiv = anheben).
-    // Vorzeichen + Gating zentral in elTestData.
-    const levels = elTestData().correction;
-    if (!levels || !levels.length) return 1;
-
-    const n = f.length;
-    const lg = Math.log(hz);
-
-    if (n === 1) {
-      return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-    }
-    const lgFirst = Math.log(f[0]);
-    const lgLast  = Math.log(f[n - 1]);
-    const ascending = lgLast > lgFirst;
-    if (ascending) {
-      if (lg <= lgFirst) {
-        return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-      }
-      if (lg >= lgLast) {
-        return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
-      }
-    } else {
-      if (lg >= lgFirst) {
-        return isFinite(levels[0]) ? dB2G(levels[0]) : 1;
-      }
-      if (lg <= lgLast) {
-        return isFinite(levels[n - 1]) ? dB2G(levels[n - 1]) : 1;
-      }
-    }
-
-    for (let i = 0; i < n - 1; i++) {
-      const lgA = Math.log(f[i]);
-      const lgB = Math.log(f[i + 1]);
-      const lo = Math.min(lgA, lgB);
-      const hi = Math.max(lgA, lgB);
-      if (lg >= lo && lg <= hi) {
-        const lvA = levels[i];
-        const lvB = levels[i + 1];
-        if (!isFinite(lvA) && !isFinite(lvB)) return 1;
-        if (!isFinite(lvA)) return dB2G(lvB);
-        if (!isFinite(lvB)) return dB2G(lvA);
-        const tNum = lg - lgA;
-        const tDen = lgB - lgA;
-        const tt = (tDen === 0) ? 0 : (tNum / tDen);
-        const lv = lvA + (lvB - lvA) * tt;
-        return dB2G(lv);
-      }
-    }
-    return 1;
-  });
+  // BA 303: dedupliziert -- die Interpolations-Logik liegt jetzt zentral
+  // in measGain (test.js). fmCorrGain bleibt als benannter Aufrufer fuer
+  // die Frequenzabgleich-Sequenzen erhalten.
+  return (typeof measGain === "function") ? measGain(side, hz) : 1;
 }
 
 // Frequenz der variablen Seite (CI) für Elektrode elIdx
