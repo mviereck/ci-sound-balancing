@@ -1,5 +1,5 @@
 // Auto-generiert von tools/profiles_to_js.py
-// Quelle: docs/richtone_profiles.json (Lauf 2026-06-07T06:04:27.177084+00:00)
+// Quelle: .docs/richtone_profiles.json (Lauf 2026-06-07T06:04:27.177084+00:00)
 // Nicht von Hand editieren - bei Aenderungen am JSON Skript erneut laufen lassen.
 //
 // Wird in index.html vor js/audio.js geladen; globale Konstante

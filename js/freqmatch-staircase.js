@@ -2,7 +2,7 @@
 // FREQUENZABGLEICH – ADAPTIVER STAIRCASE-KERN
 // ============================================================
 // Pure-Function-Modul ohne DOM-Bezug.
-// Methodik nach docs/spec/02b-freqmatch-adaptiv.md
+// Methodik nach .docs/spec/02b-freqmatch-adaptiv.md
 //
 // Verfahren: 2I-2AFC mit adaptiver 1-down-1-up-Regel nach Levitt (1971).
 // Konvergiert direkt auf den PSE (50%-Punkt) = Match-Punkt. Eine

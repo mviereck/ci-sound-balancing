@@ -677,7 +677,7 @@ Object.assign(L.de, {
       + "<p>Jensen et al. 2021 vergleichen drei Pitch-Vergleichs-Methoden (Discrimination, Ranking, Matching) bei bilateralen CI-Trägern und finden Ranking als methodisch robusteste; Matching ist „second-best\", aber mit tolerierbaren Bias-Effekten (alle unter dem Carlyon-Kriterium 0,5). Dieses Tool verwendet bewußt Matching, weil nur Matching absolute Cent-Werte liefert, die für die Frequenz-Korrekturkurve gebraucht werden.</p>"
       + "<p><strong>Was die Messung kann — und was nicht.</strong> Sie liefert einen reproduzierbaren Anhaltspunkt, in welche Richtung und mit welcher Größenordnung die wahrgenommene Pitch-Zuordnung einzelner Elektroden von der programmierten Frequenz-Allokation abweicht. Sie ist genauer als die alleinige Slider-Methode und liefert mit Residuum und Lauf-Streuung Maße für die eigene Zuverlässigkeit.</p>"
       + "<p>Sie kann <em>nicht</em> entscheiden, ob eine gemessene Korrektur am CI zu besserem Sprachverstehen oder angenehmerem Klang führt. Die endgültige Bewertung muß durch eigenes Hören erfolgen — im Player dieses Tools, in einem vom Audiologen eingestellten Frequenz-Experimentier-Programm, und im Alltag. Das CI-Sound-Balancing-Tool stellt die Werkzeuge bereit; die Entscheidung über die richtige Korrektur liegt beim User und seinem Audiologen.</p>"
-      + "<p><strong>Quellen.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Vollständige bibliographische Angaben siehe Spec-Dokument <code>docs/spec/02b-freqmatch-adaptiv.md</code>. Die Arbeiten von Pieper und Jensen liegen im Projektordner <code>.manuals/</code> vor.</p>",
+      + "<p><strong>Quellen.</strong> Adel et al. 2019 · Carlyon et al. 2010 · Jensen et al. 2021 · Lazard et al. 2012 · Levitt 1971 · Pieper et al. 2022 · Reiss et al. 2015 · Sagi &amp; Svirsky 2021 · Schatzer et al. 2014. Vollständige bibliographische Angaben siehe Spec-Dokument <code>.docs/spec/02b-freqmatch-adaptiv.md</code>. Die Arbeiten von Pieper und Jensen liegen im Projektordner <code>.manuals/</code> vor.</p>",
     subTabLoudness: "Elektrodenlautstärke-Balance",
     subTabFreqMatch: "Frequenzabgleich",
     fmrTitle: "Ergebnis der Frequenzabgleich-Messung",
@@ -1317,7 +1317,7 @@ Object.assign(L.de, {
     toneNoiseAdaptiveDesc:   "Schmalbandiges Rauschen mit frequenzabhängiger Bandbreite.",
     toneIRNDesc:             "Rauschen mit hörbarer Resttonhöhe (16 Iterationen).",
     // BA 264: Tooltips fuer die 14 Instrumenten-richTones.
-    // Werte aus docs/richtone_profiles.json, 1 Nachkommastelle.
+    // Werte aus .docs/richtone_profiles.json, 1 Nachkommastelle.
     toneRichAccDesc:   "12 Harmonische, Anschwingen 179,9 ms, Vibrato 4,0 Hz / 8,0 cent, AM 3,6 Hz / 12,3 %.",
     toneRichASaxDesc:  "12 Harmonische, Anschwingen 214,8 ms, Vibrato 6,0 Hz / 35,0 cent, AM 2,6 Hz / 8,7 %.",
     toneRichBnDesc:    "12 Harmonische, Anschwingen 46,4 ms, Vibrato 4,5 Hz / 20,0 cent, AM 2,7 Hz / 12,1 %.",
