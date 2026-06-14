@@ -130,6 +130,11 @@ var GROUPS = [
       ['richCiGB',  'toneRichCiGB',  'toneRichCiGBDesc'],
       ['richCiGD1', 'toneRichCiGD1', 'toneRichCiGD1Desc'],
       ['richCiGD2', 'toneRichCiGD2', 'toneRichCiGD2Desc'],
+      ['richCiGT50', 'toneRichCiGT50', 'toneRichCiGT50Desc'],
+      ['richCiGT10', 'toneRichCiGT10', 'toneRichCiGT10Desc'],
+      ['richCiGV20', 'toneRichCiGV20', 'toneRichCiGV20Desc'],
+      ['richCiGVT4', 'toneRichCiGVT4', 'toneRichCiGVT4Desc'],
+      ['richCiGVT5', 'toneRichCiGVT5', 'toneRichCiGVT5Desc'],
       ['neighborSine',  'toneNeighborSine',  'toneNeighborSineDesc'],
       ['sineNoiseHalf', 'toneSineNoiseHalf', 'toneSineNoiseHalfDesc'],
       ['sineNoiseFull', 'toneSineNoiseFull', 'toneSineNoiseFullDesc'],
@@ -143,6 +148,20 @@ var GROUPS = [
       ['clusterCent4x30', 'toneClusterCent4x30', 'toneClusterCent4x30Desc']
     ]
   }
+];
+
+// BA 299: Reduzierte Tonart-Auswahl fuer den Normalbetrieb (ohne Debug).
+// Fuenf Toene als eine Button-Reihe statt der vollen GROUPS-Sammlung.
+// Reihenfolge wie hier. Drittes Feld = Tooltip-Key (unveraendert).
+// Das Rauschen nutzt hier den Kurznamen toneNoiseAdaptiveShort
+// ("Schmalbandrauschen"); in der Debug-Sammlung bleibt es bei
+// "Schmalbandrauschen adaptiv".
+var NORMAL_TONE_ITEMS = [
+  ['sine',          'toneSine',               'toneSineDesc'],
+  ['noiseAdaptive', 'toneNoiseAdaptiveShort', 'toneNoiseAdaptiveDesc'],
+  ['richCiG',       'toneRichCiG',            'toneRichCiGDesc'],
+  ['warbleSine',    'toneWarbleSine',         'toneWarbleSineDesc'],
+  ['amSine',        'toneAmSine',             'toneAmSineDesc']
 ];
 
 // 3.2.239.2: smplr-Tonarten aus der Tonart-Auswahl entfernt — Mellotron
@@ -248,10 +267,11 @@ function openToneSelectionDialog(cfg, onChange) {
                  && window.dbg.isActive());
 
   var initial = cfg.getToneType();
-  // BA 296: Ohne Debug ist die Tonart-Auswahl ausgeblendet -> Ton wird
-  // auf Sinus gezwungen. Ein im Debug oder per Datei gesetzter anderer
-  // Ton wird so beim Oeffnen ohne Debug auf Sinus zurueckgesetzt.
-  if (!dbgOn && initial !== 'sine') {
+  // BA 299: Im Normalbetrieb (kein Debug) stehen mehrere Toene zur Wahl.
+  // Erlaubt sind die fuenf NORMAL_TONE_ITEMS; ein im Debug oder per Datei
+  // gesetzter anderer Ton faellt beim Oeffnen ohne Debug auf Sinus zurueck.
+  var _normalKeys = NORMAL_TONE_ITEMS.map(function (it) { return it[0]; });
+  if (!dbgOn && _normalKeys.indexOf(initial) < 0) {
     cfg.setToneType('sine');
     if (typeof onChange === 'function') onChange();
     initial = 'sine';
@@ -305,9 +325,18 @@ function openToneSelectionDialog(cfg, onChange) {
 
   var stabHint = document.createElement('p');
   stabHint.dataset.t = 'tonePopupHintStabilize';
-  stabHint.style.cssText = _tpPersistStyle(
-    cfg.persistentHintKey ? '8' : _tpPersistLastMargin);
+  // BA 299: stabHint wird jetzt immer vom Tonauswahl-Hinweis gefolgt -> 8px.
+  stabHint.style.cssText = _tpPersistStyle('8');
   dlg.appendChild(stabHint);
+
+  // BA 299: Dauerhafter Hinweis zur Tonauswahl, direkt unter dem
+  // Stabilisierungs-Hinweis. Gleiche gelbe Box-Optik. Letzter sichtbarer
+  // Dauer-Hinweis, sofern kein persistentHintKey folgt.
+  var toneChoiceHint = document.createElement('p');
+  toneChoiceHint.dataset.t = 'tonePopupHintToneChoice';
+  toneChoiceHint.style.cssText = _tpPersistStyle(
+    cfg.persistentHintKey ? '8' : _tpPersistLastMargin);
+  dlg.appendChild(toneChoiceHint);
 
   if (cfg.persistentHintKey) {
     var persHint = document.createElement('p');
@@ -795,69 +824,87 @@ function openToneSelectionDialog(cfg, onChange) {
   }
 
   // BA 230: Buttons-Reihe statt Radio-Grid.
-  // BA 296: Tonart-Sammlung nur im Debug-Modus.
-  if (dbgOn) GROUPS.forEach(function(grp) {
-    var section = document.createElement('section');
-    section.style.cssText = 'margin-bottom:14px;';
+  // BA 299: Item-Erzeugung in _makeToneItem ausgelagert, damit Debug-
+  // Sammlung und reduzierte Normalbetrieb-Reihe identisches Button-
+  // Verhalten teilen (Auswahl, Vorspiel, Active-Markierung).
+  function _makeToneItem(key, i18nKey, descKey) {
+    // Wrapper, damit Sanduhr direkt neben dem Button steht und mitwandert.
+    var itemWrap = document.createElement('span');
+    itemWrap.className = 'tone-item';
 
-    var h4 = document.createElement('h4');
-    h4.dataset.t = grp.headKey;
-    h4.style.cssText =
-      'margin:0 0 2px 0;font-size:.98em;font-weight:600;' +
-      'color:var(--fg,#000);';
-    section.appendChild(h4);
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tone-btn' + (key === initial ? ' tone-btn--active' : '');
+    btn.dataset.toneKey = key;
+    if (i18nKey) {
+      btn.dataset.t = i18nKey;
+    } else {
+      // Fallback fuer Eintraege ohne i18n-Key (z. B. Mellotron-Varianten):
+      // letzten Token-Teil als Label anzeigen.
+      var lastColon = key.lastIndexOf(':');
+      btn.textContent = lastColon >= 0 ? key.substring(lastColon + 1) : key;
+    }
+    if (descKey) {
+      // Beschreibung als Tooltip; data-t-title wird von applyLang gesetzt.
+      btn.dataset.tTitle = descKey;
+    }
 
-    var subhint = document.createElement('div');
-    subhint.dataset.t = grp.hintKey;
-    subhint.style.cssText =
-      'margin:0 0 8px 0;font-size:.85em;color:#1a1a1a;font-style:italic;';
-    section.appendChild(subhint);
-
-    var list = document.createElement('div');
-    list.className = 'tone-btn-row';
-
-    grp.items.forEach(function(triple) {
-      var key = triple[0], i18nKey = triple[1], descKey = triple[2];
-
-      // Wrapper, damit Sanduhr direkt neben dem Button steht und mitwandert.
-      var itemWrap = document.createElement('span');
-      itemWrap.className = 'tone-item';
-
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'tone-btn' + (key === initial ? ' tone-btn--active' : '');
-      btn.dataset.toneKey = key;
-      if (i18nKey) {
-        btn.dataset.t = i18nKey;
-      } else {
-        // Fallback fuer Eintraege ohne i18n-Key (z. B. Mellotron-Varianten):
-        // letzten Token-Teil als Label anzeigen.
-        var lastColon = key.lastIndexOf(':');
-        btn.textContent = lastColon >= 0 ? key.substring(lastColon + 1) : key;
-      }
-      if (descKey) {
-        // Beschreibung als Tooltip; data-t-title wird von applyLang gesetzt.
-        btn.dataset.tTitle = descKey;
-      }
-
-      btn.addEventListener('click', function() {
-        if (playing) return;
-        _abortSweepOnToneChange();
-        var prev = dlg.querySelectorAll('.tone-btn--active');
-        prev.forEach(function(b) { b.classList.remove('tone-btn--active'); });
-        btn.classList.add('tone-btn--active');
-        selected = key;
-        if (typeof cfg.onToneSelected === 'function') cfg.onToneSelected(key);
-        _playPreview(key);
-      });
-
-      itemWrap.append(btn);
-      list.appendChild(itemWrap);
+    btn.addEventListener('click', function() {
+      if (playing) return;
+      _abortSweepOnToneChange();
+      var prev = dlg.querySelectorAll('.tone-btn--active');
+      prev.forEach(function(b) { b.classList.remove('tone-btn--active'); });
+      btn.classList.add('tone-btn--active');
+      selected = key;
+      if (typeof cfg.onToneSelected === 'function') cfg.onToneSelected(key);
+      _playPreview(key);
     });
 
-    section.appendChild(list);
-    dlg.appendChild(section);
-  });
+    itemWrap.append(btn);
+    return itemWrap;
+  }
+
+  // BA 296: Tonart-Sammlung nur im Debug-Modus.
+  if (dbgOn) {
+    GROUPS.forEach(function(grp) {
+      var section = document.createElement('section');
+      section.style.cssText = 'margin-bottom:14px;';
+
+      var h4 = document.createElement('h4');
+      h4.dataset.t = grp.headKey;
+      h4.style.cssText =
+        'margin:0 0 2px 0;font-size:.98em;font-weight:600;' +
+        'color:var(--fg,#000);';
+      section.appendChild(h4);
+
+      var subhint = document.createElement('div');
+      subhint.dataset.t = grp.hintKey;
+      subhint.style.cssText =
+        'margin:0 0 8px 0;font-size:.85em;color:#1a1a1a;font-style:italic;';
+      section.appendChild(subhint);
+
+      var list = document.createElement('div');
+      list.className = 'tone-btn-row';
+      grp.items.forEach(function(triple) {
+        list.appendChild(_makeToneItem(triple[0], triple[1], triple[2]));
+      });
+
+      section.appendChild(list);
+      dlg.appendChild(section);
+    });
+  } else {
+    // BA 299: Normalbetrieb -- reduzierte Auswahl als eine Button-Reihe,
+    // ohne Gruppen-Header. Gleiche tone-btn-row/tone-item-Optik.
+    var nSection = document.createElement('section');
+    nSection.style.cssText = 'margin-bottom:14px;';
+    var nList = document.createElement('div');
+    nList.className = 'tone-btn-row';
+    NORMAL_TONE_ITEMS.forEach(function(triple) {
+      nList.appendChild(_makeToneItem(triple[0], triple[1], triple[2]));
+    });
+    nSection.appendChild(nList);
+    dlg.appendChild(nSection);
+  }
 
   // BA 226: Sanduhr ein-/ausblenden fuer den Button eines konkreten
   // toneType (Strings koennen Doppelpunkte und Leerzeichen enthalten,

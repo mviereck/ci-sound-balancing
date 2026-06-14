@@ -181,9 +181,10 @@ Object.assign(L.es, {
     toneRichHn:    "Trompa",
     toneNoise: "Ruido de banda estrecha",
     toneNoiseAdaptive: "Ruido de banda estrecha adaptativo",
+    toneNoiseAdaptiveShort: "Ruido de banda estrecha",
     toneIRN: "Ruido ondulado iterado",
-    toneAmSine: "Senoide AM",
-    toneWarbleSine: "Senoide warble",
+    toneAmSine: "Tremolo 4×/s, 100 %",
+    toneWarbleSine: "Vibrato 5×/s, 85 ct",
     toneBurstSine: "Senoide en ráfagas",
     toneWobbleSweep: "Senoide wobble",
     thWgt: "Peso",
@@ -1105,6 +1106,8 @@ Object.assign(L.es, {
     tonePopupHintImplant: "El tono senoide es el más adecuado para detectar electrodos problemáticos — por ejemplo, si producen ruido y con qué intensidad.",
     tonePopupHintStabilize:
       "Al comenzar un tono en el implante coclear, el volumen puede variar brevemente: primero suena algo más fuerte y luego se estabiliza. Evalúe el tono solo cuando el volumen se haya estabilizado.",
+    tonePopupHintToneChoice:
+      "La elección del tono puede influir en el resultado de la prueba. Manténgase con un solo tono durante toda la serie de mediciones. El valor predeterminado es la senoide.",
     tonePopupHintImplantNoise:
       "El ruido puede indicar una peor conexión entre el electrodo y el nervio auditivo, por ejemplo debido a tejido cicatricial o a fibras del nervio auditivo degeneradas.",
     // BA 217: Diálogo de selección de timbre con grupos y descripciones.

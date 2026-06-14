@@ -181,9 +181,10 @@ Object.assign(L.en, {
     toneRichHn:    "French horn",
     toneNoise: "Narrow-band noise",
     toneNoiseAdaptive: "Narrow-band noise adaptive",
+    toneNoiseAdaptiveShort: "Narrow-band noise",
     toneIRN: "Iterated rippled noise",
-    toneAmSine: "AM sine",
-    toneWarbleSine: "Warble sine",
+    toneAmSine: "Tremolo 4×/s, 100 %",
+    toneWarbleSine: "Vibrato 5×/s, 85 ct",
     toneBurstSine: "Burst sine",
     toneWobbleSweep: "Wobble sine",
     thWgt: "Weight",
@@ -1105,6 +1106,8 @@ Object.assign(L.en, {
     tonePopupHintImplant: "Sine is best suited for detecting problematic electrodes — for example, whether and how strongly they hiss.",
     tonePopupHintStabilize:
       "When a tone starts on the CI, the loudness may change briefly — it sounds a little louder at first and then settles. Only judge the tone once the loudness has stabilised.",
+    tonePopupHintToneChoice:
+      "The choice of tone can affect the test result. Stay with one tone consistently throughout a test run. The default is sine.",
     tonePopupHintImplantNoise:
       "Noise may indicate a poorer connection between the electrode and the auditory nerve — for example due to scar tissue or degenerated auditory nerve fibres.",
     // BA 217: Tone selection dialog with groups and descriptions.

@@ -181,9 +181,10 @@ Object.assign(L.fr, {
     toneRichHn:    "Cor d'harmonie",
     toneNoise: "Bruit à bande étroite",
     toneNoiseAdaptive: "Bruit à bande étroite adaptatif",
+    toneNoiseAdaptiveShort: "Bruit à bande étroite",
     toneIRN: "Bruit ondulé itéré",
-    toneAmSine: "Sinus AM",
-    toneWarbleSine: "Sinus warble",
+    toneAmSine: "Tremolo 4×/s, 100 %",
+    toneWarbleSine: "Vibrato 5×/s, 85 ct",
     toneBurstSine: "Sinus en bursts",
     toneWobbleSweep: "Sinus wobble",
     thWgt: "Poids",
@@ -1105,6 +1106,8 @@ Object.assign(L.fr, {
     tonePopupHintImplant: "Le sinus est le mieux adapté pour repérer les électrodes problématiques — par exemple, si elles sifflent et à quel point.",
     tonePopupHintStabilize:
       "Au début d'un son dans l'implant cochléaire, le volume peut varier brièvement — il paraît d'abord un peu plus fort, puis se stabilise. N'évaluez le son qu'une fois le volume stabilisé.",
+    tonePopupHintToneChoice:
+      "Le choix du son peut influencer le résultat du test. Restez fidèle à un seul son pendant toute une série de mesures. Le réglage par défaut est le sinus.",
     tonePopupHintImplantNoise:
       "Un bruit peut indiquer une moins bonne connexion entre l'électrode et le nerf auditif — par exemple en raison de tissu cicatriciel ou de fibres du nerf auditif dégénérées.",
     // BA 217: Dialogue de sélection du timbre avec groupes et descriptions.

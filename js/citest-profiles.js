@@ -294,4 +294,58 @@
     driftHz:      0.5,
     driftCents:   30.0
   };
+
+  // BA 299: Tremolo-/Vibrato-Tiefen-Reihe und Kombi-Toene. Basis wie
+  // CiG (1 Partial = reine Grundton-Anregung). amDepth: 0..1 = 0..100 %.
+  RICHTONE_PROFILES.CiGT50 = {
+    abbr: 'CiGT50',
+    label: 'Tremolo 4x/s 50%',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    0,
+    vibratoCents: 0,
+    amHz:         4,
+    amDepth:      0.5
+  };
+
+  RICHTONE_PROFILES.CiGT10 = {
+    abbr: 'CiGT10',
+    label: 'Tremolo 4x/s 10%',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    0,
+    vibratoCents: 0,
+    amHz:         4,
+    amDepth:      0.1
+  };
+
+  RICHTONE_PROFILES.CiGV20 = {
+    abbr: 'CiGV20',
+    label: 'Vibrato 5x/s 20ct',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5,
+    vibratoCents: 20,
+    amHz:         0,
+    amDepth:      0
+  };
+
+  // Kombi entkoppelt: Vibrato 5 Hz, Tremolo 4 Hz -> Raten driften.
+  RICHTONE_PROFILES.CiGVT4 = {
+    abbr: 'CiGVT4',
+    label: 'Vibrato 5x/s 10ct + Tremolo 4x/s 10%',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5,
+    vibratoCents: 10,
+    amHz:         4,
+    amDepth:      0.1
+  };
+
+  // Kombi synchron: beide 5 Hz -> naeher am natuerlichen Klang.
+  RICHTONE_PROFILES.CiGVT5 = {
+    abbr: 'CiGVT5',
+    label: 'Vibrato 5x/s 10ct + Tremolo 5x/s 10%',
+    partials: [{ mult: 1, amp: 1.0 }],
+    vibratoHz:    5,
+    vibratoCents: 10,
+    amHz:         5,
+    amDepth:      0.1
+  };
 })();
