@@ -1053,7 +1053,16 @@ function exportEasyEffects() {
     splitChannels = false;
   }
   const hasGain = (arr) => arr.some((v) => v !== 0);
-  if (!(hasGain(leftArr) || hasGain(rightArr)) && !plEqOn) {
+  // Latenz nur uebernehmen, wenn gemessen und im Player aktiv (analog EQ)
+  const hasLat = plApplyLatency && latencyResult
+    && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0;
+  // Stereo-Balance nur im echten Stereo-Modus ("both"). getPlayerBalanceGains
+  // liefert {left,right} dB-Pegel pro Ohr (0/0 wenn Balance aus oder inaktiv),
+  // beruecksichtigt das Balance-Dropdown (sym/left/right).
+  const balG = (mode === "both" && plApplyBalance)
+    ? getPlayerBalanceGains() : { left: 0, right: 0 };
+  const hasBal = balG.left !== 0 || balG.right !== 0;
+  if (!(hasGain(leftArr) || hasGain(rightArr)) && !plEqOn && !hasLat && !hasBal) {
     alert(t("plNoData"));
     return;
   }
@@ -1089,6 +1098,32 @@ function exportEasyEffects() {
       plugins_order: ["equalizer#0"],
     },
   };
+  // Latenz + Stereo-Balance als Verzoegerung-Plugin (EasyEffects: "delay").
+  // Latenz  -> time pro Kanal (Vorzeichen analog Player/latSetSliderMs:
+  //            ms >= 0 verzoegert links, ms < 0 verzoegert rechts).
+  // Balance -> wet-Pegel pro Ohr (dB); dry stumm (-100) => nur das
+  //            durchgereichte Signal mit Balance-Pegel kommt durch.
+  // Beides teilt sich ein Plugin; ein fehlender Anteil bleibt neutral
+  // (Latenz 0 ms / Balance 0 dB).
+  if (hasLat || hasBal) {
+    const ms = hasLat ? latencyResult.valueMs : 0;
+    const tL = ms >= 0 ? Math.abs(ms) : 0;
+    const tR = ms < 0 ? Math.abs(ms) : 0;
+    preset.output["delay#0"] = {
+      bypass: false,
+      "dry-l": -100.0,
+      "dry-r": -100.0,
+      "input-gain": 0.0,
+      "invert-phase-l": false,
+      "invert-phase-r": false,
+      "output-gain": 0.0,
+      "time-l": parseFloat(tL.toFixed(1)),
+      "time-r": parseFloat(tR.toFixed(1)),
+      "wet-l": parseFloat(balG.left.toFixed(1)),
+      "wet-r": parseFloat(balG.right.toFixed(1)),
+    };
+    preset.output.plugins_order = ["equalizer#0", "delay#0"];
+  }
   const blob = new Blob([JSON.stringify(preset, null, 4)], {
       type: "application/json",
     }),
