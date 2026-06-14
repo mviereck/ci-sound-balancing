@@ -1067,6 +1067,7 @@ Object.assign(L.en, {
     electrodeSelectionHeaderSummary: "{m} of {n} electrodes selected",
     electrodeSelectionEmptyEnd: "Test ended: no selected electrode remaining.",
     tonePopupTitle:  "Test tone settings",
+    tonePopupTitleImplant: "Play electrodes at center frequencies",
     tonePopupHint:
       "This collection offers various test tones." +
       "<br><br>" +
