@@ -1061,19 +1061,27 @@ document.addEventListener("DOMContentLoaded", () => {
           getPreviewSequence: function (lastHz) {
             // Slider-Modus laeuft -> echte Sequenz. Sonst (inkl. Adaptiv-Modus)
             // gemerkter Ton, beide Seiten nacheinander (Vergleichs- dann
-            // Referenz-Seite), gleich laut.
+            // Referenz-Seite).
             if (fmRunning && fmCurrentEl != null && !fmAdaptiveActive) {
               return fmSequence({ aba: fmGAba() });
             }
+            // BA 301: jede Seite mit zentraler Korrektur (Elektrodenlautstaerke
+            // + Balance); taube Seite stumm (isDeaf) wie beim Klavier.
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var vol = fmGVol();
             var dur = fmGDur();
             var pau = fmGPau();
-            var varPan = (fmVarSide === 'left') ? -1 : 1;
+            var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
+            var refSide = (varSide === 'left') ? 'right' : 'left';
+            var varPan  = (varSide === 'left') ? -1 : 1;
+            var _fmCv = function (side) {
+              if (typeof isDeaf === 'function' && isDeaf(side)) return 0;
+              return (typeof corrVol === 'function') ? corrVol(vol, side, hz, true, true) : vol;
+            };
             return [
-              { hz: hz, pan: varPan,  vol: vol, durationMs: dur },
+              { hz: hz, pan: varPan,  vol: _fmCv(varSide), durationMs: dur },
               { pauseMs: pau },
-              { hz: hz, pan: -varPan, vol: vol, durationMs: dur }
+              { hz: hz, pan: -varPan, vol: _fmCv(refSide), durationMs: dur }
             ];
           },
           // BA 228/229: Klavier-Widget in der Modalbox aktivieren.
@@ -1145,9 +1153,9 @@ document.addEventListener("DOMContentLoaded", () => {
             var vol     = fmGVol();
             var varSide = (typeof fmVarSide === 'string' && fmVarSide) ? fmVarSide : activeSide;
             var varPan  = (varSide === 'left') ? -1 : 1;
-            var balG    = (typeof getRawBalanceGains === 'function') ? getRawBalanceGains() : { left: 0, right: 0 };
-            var balDb   = (varSide === 'left') ? balG.left : balG.right;
-            var volVar  = isDeaf(varSide) ? 0 : vol * fmCorrGain(varSide, hz) * dB2G(balDb);
+            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            var volVar  = isDeaf(varSide) ? 0
+              : ((typeof corrVol === 'function') ? corrVol(vol, varSide, hz, true, true) : vol);
             try {
               playToneTyped(c, hz, volVar, 60000, varPan, tt);
             } catch (e) { /* swallow */ }
@@ -1174,9 +1182,9 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
               hzRef = hz;
             }
-            var balG  = (typeof getRawBalanceGains === 'function') ? getRawBalanceGains() : { left: 0, right: 0 };
-            var balDb = (refSide === 'left') ? balG.left : balG.right;
-            var volRef = isDeaf(refSide) ? 0 : vol * fmCorrGain(refSide, hzRef) * dB2G(balDb);
+            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            var volRef = isDeaf(refSide) ? 0
+              : ((typeof corrVol === 'function') ? corrVol(vol, refSide, hzRef, true, true) : vol);
             try {
               playToneTyped(c, hzRef, volRef, held, refPan, tt);
             } catch (e) { /* swallow */ }

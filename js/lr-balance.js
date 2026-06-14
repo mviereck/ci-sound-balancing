@@ -874,15 +874,19 @@ document.addEventListener("DOMContentLoaded", function() {
             if (lrRunning && lrCurrentEl !== null) {
               return lrSequence({ aba: sequence_balance === 'aba' });
             }
-            // Kein Test: gemerkter Ton, beide Seiten nacheinander (gleich laut).
+            // Kein Test: gemerkter Ton, beide Seiten nacheinander.
+            // BA 301: jede Seite mit ihrer Korrektur (Elektrodenlautstaerke
+            // + Balance) ueber die zentrale corrVol -- nicht mehr "gleich laut".
             var hz  = (typeof lastHz === 'number' && lastHz > 0) ? lastHz : 1000;
             var vol = lrGVol();
             var dur = lrGDur();
             var pau = lrGPau();
+            var volL = (typeof corrVol === 'function') ? corrVol(vol, 'left',  hz, true, true) : vol;
+            var volR = (typeof corrVol === 'function') ? corrVol(vol, 'right', hz, true, true) : vol;
             return [
-              { hz: hz, pan: -1, vol: vol, durationMs: dur },
+              { hz: hz, pan: -1, vol: volL, durationMs: dur },
               { pauseMs: pau },
-              { hz: hz, pan:  1, vol: vol, durationMs: dur }
+              { hz: hz, pan:  1, vol: volR, durationMs: dur }
             ];
           },
           // BA 253: Klavier mit beidseitiger Disabled-Logik.
@@ -898,13 +902,15 @@ document.addEventListener("DOMContentLoaded", function() {
             var tt   = (_lrTpModalTone !== null) ? _lrTpModalTone : toneType_balance;
             var vol  = lrGVol();
             var panA = (activeSide === 'left') ? -1 : 1;
-            var hzA, volA;
+            var hzA;
             if (electrodeIdx >= 0) {
-              hzA  = lrEffFreq(activeSide, electrodeIdx);
-              volA = vol * lrCorrGain(activeSide, electrodeIdx);
+              hzA = lrEffFreq(activeSide, electrodeIdx);
             } else {
-              hzA = hz; volA = vol;
+              hzA = hz;
             }
+            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            var volA = (typeof corrVol === 'function')
+              ? corrVol(vol, activeSide, hzA, true, true) : vol;
             try {
               playToneTyped(c, hzA, volA, 60000, panA, tt);
             } catch (e) { /* swallow */ }
@@ -920,15 +926,17 @@ document.addEventListener("DOMContentLoaded", function() {
             var vol   = lrGVol();
             var other = (activeSide === 'left') ? 'right' : 'left';
             var panB  = (activeSide === 'left') ? 1 : -1;
-            var hzB, volB;
+            var hzB;
             if (electrodeIdx >= 0) {
               var rN = sideData[other] ? sideData[other].nEl : 0;
               var oIdx = electrodeIdx < rN ? electrodeIdx : rN - 1;
-              hzB  = lrEffFreq(other, oIdx);
-              volB = vol * lrCorrGain(other, oIdx);
+              hzB = lrEffFreq(other, oIdx);
             } else {
-              hzB = hz; volB = vol;
+              hzB = hz;
             }
+            // BA 301: zentrale Korrektur (Elektrodenlautstaerke + Balance).
+            var volB = (typeof corrVol === 'function')
+              ? corrVol(vol, other, hzB, true, true) : vol;
             try {
               playToneTyped(c, hzB, volB, held, panB, tt);
             } catch (e) { /* swallow */ }
