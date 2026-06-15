@@ -245,6 +245,35 @@ function getPlayerGains() {
   };
 }
 
+// BA 312: Effektive Pegeländerung pro Elektrode für die ANZEIGE
+// (EQ-Graph; ab BA 313 auch Ausdrucke). Natürliche Konvention:
+// positiv = Anhebung am Ohr (anders als computeGains, das die
+// negierte Korrektur liefert).
+//   - EQ-Anteil: nur wenn plEqOn; plNHSim dreht das Vorzeichen
+//     (wie pDrawEQ es bisher selbst tat).
+//   - Balance-Anteil: flacher Offset der Seite aus getPlayerBalanceGains
+//     (state-side.js; liefert 0, wenn plApplyBalance aus). Bewusst
+//     plEqOn- und plNHSim-unabhaengig, genau wie der Klang die
+//     Channel-/Mono-Balance-Gains anwendet.
+// Rueckgabe: {left,right} im "both"/"mono"-Modus, sonst ein Array
+// fuer die aktive Seite (analog getPlayerGains).
+function getPlayerTotalGains() {
+  const nhSim = document.getElementById("plNHSim").checked;
+  const balG = getPlayerBalanceGains();   // {left,right} dB, 0 wenn Balance aus
+  const conv = function (eqArr, side) {
+    const b = (side === "right") ? balG.right : balG.left;
+    return eqArr.map(function (v) {
+      return (plEqOn ? (nhSim ? v : -v) : 0) + b;
+    });
+  };
+  const raw = getPlayerGains();
+  if (typeof raw.left !== "undefined") {
+    return { left: conv(raw.left, "left"), right: conv(raw.right, "right") };
+  }
+  const mode = getPlayerSide();
+  return conv(raw, (mode === "right") ? "right" : "left");
+}
+
 function documentHasStereoAudio() {
   return pSourceBuf && pSourceBuf.numberOfChannels > 1;
 }
@@ -885,11 +914,10 @@ function pDrawEQ() {
   const ctx = cv.getContext("2d");
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, W, H);
-  let gains = getPlayerGains();
+  let gains = getPlayerTotalGains();
   if (typeof gains.left !== "undefined") {
     gains = (activeSide === "right") ? gains.right : gains.left;
   }
-  const nhSim = document.getElementById("plNHSim").checked;
   const allE = allEl();
   const act = new Set(actEl());
   let mxA = 1;
@@ -957,7 +985,10 @@ function pDrawEQ() {
       cx = tX(j),
       x = cx - bW / 2;
     const isAct = act.has(i);
-    let ag = isAct && plEqOn ? (nhSim ? gains[i] : -gains[i]) : 0;
+    // BA 312: gains[] ist bereits die fertige Pegeländerung (EQ inkl.
+    // plEqOn/nhSim + flache Balance). Balance ist plEqOn-unabhängig,
+    // daher hier kein plEqOn-Gate mehr.
+    let ag = isAct ? gains[i] : 0;
     const bH = (Math.abs(ag) / mxA) * (pH / 2),
       y = ag >= 0 ? zY - bH : zY;
     if (!isAct) {
