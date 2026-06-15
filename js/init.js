@@ -277,37 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (pEqF.length > 0) pUpdEQ();
       else plCheck();
     });
-  // Player EQ strength textbox
-  document.getElementById("plStr").addEventListener("change", function () {
-    let v = Math.max(0, Math.min(300, parseInt(this.value) || 0));
-    this.value = v;
-    pUpdEQ();
-  });
-  document.getElementById("plStr").addEventListener("keydown", function (e) {
-    if (
-      e.key === "ArrowLeft" ||
-      e.key === "ArrowRight" ||
-      e.key === "ArrowUp" ||
-      e.key === "ArrowDown"
-    ) {
-      e.preventDefault();
-      const st = e.shiftKey ? 5 : 1;
-      let v = parseInt(this.value) || 100;
-      if (e.key === "ArrowRight" || e.key === "ArrowUp")
-        v = Math.min(300, v + st);
-      if (e.key === "ArrowLeft" || e.key === "ArrowDown")
-        v = Math.max(0, v - st);
-      this.value = v;
-      pUpdEQ();
-    }
-  });
-  document.querySelectorAll(".plStrBtn").forEach((b) =>
-    b.addEventListener("click", function () {
-      const v = this.dataset.v;
-      document.getElementById("plStr").value = v;
-      pUpdEQ();
-    }),
-  );
   document.getElementById("plNHSim").addEventListener("change", function () {
     document
       .getElementById("plNHInfo")
@@ -657,8 +626,6 @@ document.addEventListener("DOMContentLoaded", () => {
         plEqOn = d.eqOn;
         updEqToggleBtn();
       }
-      if (d.eqStrength !== undefined)
-        document.getElementById("plStr").value = d.eqStrength;
       if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
       if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
       if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
@@ -1014,7 +981,6 @@ document.addEventListener("DOMContentLoaded", () => {
           playerSourceLevels: plSrcLevels,
           playerSourceCurves: plSrcCurves,
           eqOn: plEqOn,
-          eqStrength: parseInt(document.getElementById("plStr").value),
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,

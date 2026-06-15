@@ -377,7 +377,6 @@ function pBuildEQ() {
     }
   }
   const mode = getPlayerSide();
-  const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
   if (_pUseSplitChains(mode)) {
     const leftGains = withSide("left", computeGains);
@@ -393,7 +392,7 @@ function pBuildEQ() {
       lf.Q.value = pCompQ(i);
       lf.gain.value = 0;
       if (plEqOn) {
-        lf.gain.value = nhSim ? leftGains[i] * str : -leftGains[i] * str;
+        lf.gain.value = nhSim ? leftGains[i] : -leftGains[i];
       }
       pEqFLeft.push(lf);
       const rf = c.createBiquadFilter();
@@ -404,7 +403,7 @@ function pBuildEQ() {
       rf.Q.value = pCompQ(i);
       rf.gain.value = 0;
       if (plEqOn) {
-        rf.gain.value = nhSim ? rightGains[i] * str : -rightGains[i] * str;
+        rf.gain.value = nhSim ? rightGains[i] : -rightGains[i];
       }
       pEqFRight.push(rf);
     }
@@ -438,7 +437,7 @@ function pBuildEQ() {
       f.Q.value = pCompQ(i);
       f.gain.value = 0;
       if (plEqOn) {
-        f.gain.value = nhSim ? gains[i] * str : -gains[i] * str;
+        f.gain.value = nhSim ? gains[i] : -gains[i];
       }
       pEqF.push(f);
     }
@@ -448,21 +447,20 @@ function pBuildEQ() {
 
 function pUpdEQ() {
   const gains = getPlayerGains();
-  const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
   if (typeof gains.left !== "undefined") {
     for (let i = 0; i < pEqFLeft.length; i++) {
       pEqFLeft[i].gain.value = plEqOn
         ? nhSim
-          ? gains.left[i] * str
-          : -gains.left[i] * str
+          ? gains.left[i]
+          : -gains.left[i]
         : 0;
     }
     for (let i = 0; i < pEqFRight.length; i++) {
       pEqFRight[i].gain.value = plEqOn
         ? nhSim
-          ? gains.right[i] * str
-          : -gains.right[i] * str
+          ? gains.right[i]
+          : -gains.right[i]
         : 0;
     }
     if (pChannelLeftGain || pChannelRightGain) {
@@ -474,7 +472,7 @@ function pUpdEQ() {
     for (let i = 0; i < pEqF.length; i++) {
       const g = gains[i] || 0;
       if (plEqOn) {
-        pEqF[i].gain.value = nhSim ? g * str : -g * str;
+        pEqF[i].gain.value = nhSim ? g : -g;
       } else {
         pEqF[i].gain.value = 0;
       }
@@ -866,14 +864,13 @@ function pDrawEQ() {
   if (typeof gains.left !== "undefined") {
     gains = (activeSide === "right") ? gains.right : gains.left;
   }
-  const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
   const allE = allEl();
   const act = new Set(actEl());
   let mxA = 1;
   for (const i of allE) {
     if (!act.has(i)) continue;
-    const g = Math.abs(gains[i]) * str;
+    const g = Math.abs(gains[i]);
     if (g > mxA) mxA = g;
   }
   mxA = Math.ceil(mxA / 2) * 2 + 2;
@@ -935,7 +932,7 @@ function pDrawEQ() {
       cx = tX(j),
       x = cx - bW / 2;
     const isAct = act.has(i);
-    let ag = isAct && plEqOn ? (nhSim ? gains[i] * str : -gains[i] * str) : 0;
+    let ag = isAct && plEqOn ? (nhSim ? gains[i] : -gains[i]) : 0;
     const bH = (Math.abs(ag) / mxA) * (pH / 2),
       y = ag >= 0 ? zY - bH : zY;
     if (!isAct) {

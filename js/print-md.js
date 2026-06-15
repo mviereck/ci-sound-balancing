@@ -330,9 +330,7 @@ function _collectBilateral() {
 
 function _collectPlayer() {
   const sideMode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const strEl = document.getElementById("plStr");
   const nhEl  = document.getElementById("plNHSim");
-  const str   = strEl ? parseInt(strEl.value) : 100;
   const eqOn  = (typeof plEqOn !== "undefined") ? plEqOn : true;
 
   const eqGains = { left: [], right: [] };
@@ -341,7 +339,7 @@ function _collectPlayer() {
     for (const side of SIDES) {
       const gAr = withSide(side, () => computeGains());
       for (let i = 0; i < gAr.length; i++) {
-        const v = -gAr[i] * (str / 100);
+        const v = -gAr[i];
         eqGains[side].push(v);
         if (Math.abs(v) > 0) hasNonZero = true;
       }
@@ -732,15 +730,14 @@ function _audiologSideLabel(side) {
   return side === "left" ? t("sideLeft") : t("sideRight");
 }
 
-// ---------- Gewinne pro Seite (ΔdB, EQ-Stärke-skaliert) ----------
+// ---------- Gewinne pro Seite (ΔdB) ----------
 
 function _audiologDbForSide(side) {
   return withSide(side, () => {
     const g = computeGains();
-    const str = parseInt(document.getElementById("plStr").value) / 100;
     const eqOn = (typeof plEqOn !== "undefined") ? plEqOn : true;
     if (!eqOn) return g.map(() => 0);
-    return g.map((v) => -v * str);
+    return g.map((v) => -v);
   });
 }
 
@@ -832,7 +829,6 @@ function _audiologIsTestProgram(side) {
   const nhSim = document.getElementById("plNHSim")?.checked;
   if (nhSim) return false;
   return withSide(side, () => {
-    const str = parseInt(document.getElementById("plStr").value) / 100;
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
       ? getTotalPresetCurve() : new Array(nEl).fill(0);
     const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
@@ -843,7 +839,7 @@ function _audiologIsTestProgram(side) {
       active.push(i);
     }
     if (active.length === 0) return false;
-    const sums = active.map((i) => (presetC[i] + lvls[i]) * str);
+    const sums = active.map((i) => (presetC[i] + lvls[i]));
     const mean = sums.reduce((a, b) => a + b, 0) / sums.length;
     const variance = sums.reduce((a, b) => a + (b - mean) ** 2, 0) / sums.length;
     const sd = Math.sqrt(variance);

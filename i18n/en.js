@@ -238,7 +238,6 @@ Object.assign(L.en, {
     plFile: "Audio file (MP3, WAV, FLAC, OGG, M4A, MP4)",
     plEqOn: "Equalizer ON",
     plEqOff: "Equalizer OFF",
-    plEqStr: "Equalizer strength:",
     plEqTitle: "Equalizer curve (applied)",
     plNHLabel: "Simulation for normal hearing",
     plBalApply: "Apply stereo balance",

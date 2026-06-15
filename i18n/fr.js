@@ -239,7 +239,6 @@ Object.assign(L.fr, {
     plFile: "Fichier audio (MP3, WAV, FLAC, OGG, M4A, MP4)",
     plEqOn: "Égaliseur ON",
     plEqOff: "Égaliseur OFF",
-    plEqStr: "Force de l'égaliseur :",
     plEqTitle: "Courbe d'égaliseur (appliquée)",
     plNHLabel: "Simulation pour normo-entendants",
     plBalApply: "Appliquer la balance stéréo",

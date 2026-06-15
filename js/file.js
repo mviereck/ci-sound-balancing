@@ -195,8 +195,6 @@ function resetAll() {
   // --- EQ-Knopf + Stärke ---
   if (typeof plEqOn !== "undefined") plEqOn = false;
   if (typeof updEqToggleBtn === "function") updEqToggleBtn();
-  const _plStr = document.getElementById("plStr");
-  if (_plStr) _plStr.value = "100";
   // --- Warp-Block ---
   if (typeof pWarpOn !== "undefined") {
     pWarpOn = false;
@@ -375,7 +373,6 @@ async function saveJson() {
     plBothSides: document.getElementById("plBothSides").checked,
     plMonoEQ: document.getElementById("plMonoEQ").checked,
     eqOn: plEqOn,
-    eqStrength: parseInt(document.getElementById("plStr").value),
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
     // BA 246
@@ -717,7 +714,6 @@ function applyLoadedData(d) {
     plEqOn = d.eqOn;
     updEqToggleBtn();
   }
-  if (d.eqStrength !== undefined) setVal("plStr", d.eqStrength);
   // BA 209: Per-Test-Tonart Frequenzabgleich.
   // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).
   if (typeof toneType_freqmatch !== "undefined") {
@@ -1040,7 +1036,6 @@ function clearRes() {
 function collectSysEqCorrection() {
   const gains = getPlayerGains();
   const mode = getPlayerSide();
-  const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
 
   // BA 307: "both" UND "mono" liefern getrennte Kurven pro Ohr
@@ -1080,10 +1075,10 @@ function collectSysEqCorrection() {
   const bands = [];
   for (let i = 0; i < nEl; i++) {
     const gL = plEqOn
-      ? nhSim ? (leftArr[i] || 0) * str : -(leftArr[i] || 0) * str
+      ? nhSim ? (leftArr[i] || 0) : -(leftArr[i] || 0)
       : 0;
     const gR = plEqOn
-      ? nhSim ? (rightArr[i] || 0) * str : -(rightArr[i] || 0) * str
+      ? nhSim ? (rightArr[i] || 0) : -(rightArr[i] || 0)
       : 0;
     bands.push({ freq: effFreq(i), q: pCompQ(i), gainL: gL, gainR: gR });
   }
