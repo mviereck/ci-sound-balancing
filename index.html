@@ -1097,6 +1097,45 @@
             </div>
             <div id="plWarpHint" style="margin-top:4px;font-size:0.85em;color:var(--warning);display:none"></div>
           </div>
+          <!-- Zeile 3a: Stereo-Balance + Dropdown -->
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plBalApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+                data-t="plBalApply"
+              ></button>
+            </div>
+            <div class="control-group" id="plBalModeRow">
+              <label
+                for="plBalModeSelect"
+                style="font-size: 0.9em; color: var(--text-muted)"
+                data-t="plBalModeLabel"
+              ></label>
+              <select
+                id="plBalModeSelect"
+                class="btn btn-sm"
+                style="min-width: 130px"
+              >
+                <option value="sym" data-t-opt="plBalModeSym"></option>
+                <option value="left" data-t-opt="plBalModeLeft"></option>
+                <option value="right" data-t-opt="plBalModeRight"></option>
+              </select>
+            </div>
+            <span id="plLockHintBal" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+          </div>
+          <!-- Zeile 3b: Latenzausgleich -->
+          <div class="controls-row" style="margin-top: 8px">
+            <div class="control-group">
+              <button
+                id="plLatApplyBtn"
+                class="btn btn-sm"
+                style="font-weight: 600; min-width: 180px; border-radius: 6px"
+              ></button>
+              <span id="plLockHintLat" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
+            </div>
+          </div>
           <!-- Zeile 4: MAPLAW (nur bei MED-EL) -->
           <div class="controls-row" id="plMaplawRow" style="margin-top:8px;display:none">
             <div class="control-group" style="gap:8px">
@@ -1161,46 +1200,7 @@
               ></label>
             </div>
           </div>
-          <!-- Zeile 6: Stereo-Balance + Dropdown -->
-          <div class="controls-row" style="margin-top: 8px">
-            <div class="control-group">
-              <button
-                id="plBalApplyBtn"
-                class="btn btn-sm"
-                style="font-weight: 600; min-width: 180px; border-radius: 6px"
-                data-t="plBalApply"
-              ></button>
-            </div>
-            <div class="control-group" id="plBalModeRow">
-              <label
-                for="plBalModeSelect"
-                style="font-size: 0.9em; color: var(--text-muted)"
-                data-t="plBalModeLabel"
-              ></label>
-              <select
-                id="plBalModeSelect"
-                class="btn btn-sm"
-                style="min-width: 130px"
-              >
-                <option value="sym" data-t-opt="plBalModeSym"></option>
-                <option value="left" data-t-opt="plBalModeLeft"></option>
-                <option value="right" data-t-opt="plBalModeRight"></option>
-              </select>
-            </div>
-            <span id="plLockHintBal" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
-          </div>
-          <!-- Zeile 7: Latenzausgleich -->
-          <div class="controls-row" style="margin-top: 8px">
-            <div class="control-group">
-              <button
-                id="plLatApplyBtn"
-                class="btn btn-sm"
-                style="font-weight: 600; min-width: 180px; border-radius: 6px"
-              ></button>
-              <span id="plLockHintLat" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
-            </div>
-          </div>
-          <!-- Zeile 8: Normalhörende -->
+          <!-- Zeile 6: Normalhörende -->
           <div class="controls-row" style="margin-top: 8px">
             <div class="control-group">
               <label

@@ -346,13 +346,11 @@ function updEqToggleBtn() {
 function updBalApplyBtn() {
   const btn = document.getElementById("plBalApplyBtn");
   if (!btn) return;
-  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const stereoActive = (mode === "both" || mode === "mono");
-  // Disabled, wenn nicht im echten Stereo-Modus
-  btn.disabled = !stereoActive;
-  btn.style.opacity = stereoActive ? "" : "0.4";
-  btn.style.cursor = stereoActive ? "" : "not-allowed";
-  if (plApplyBalance && stereoActive) {
+  // BA 311: nicht mehr an "Beide Seiten" gekoppelt — immer bedienbar.
+  btn.disabled = false;
+  btn.style.opacity = "";
+  btn.style.cursor = "";
+  if (plApplyBalance) {
     btn.textContent = t("plBalApplyOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";
@@ -366,7 +364,7 @@ function updBalApplyBtn() {
   // Dropdown-Sichtbarkeit synchronisieren
   const row = document.getElementById("plBalModeRow");
   if (row) {
-    row.style.display = (stereoActive && plApplyBalance) ? "" : "none";
+    row.style.display = plApplyBalance ? "" : "none";
   }
   const sel = document.getElementById("plBalModeSelect");
   if (sel) sel.value = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
@@ -375,13 +373,11 @@ function updBalApplyBtn() {
 function updLatApplyBtn() {
   const btn = document.getElementById("plLatApplyBtn");
   if (!btn) return;
-  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const twoEarsActive = (mode === "both" || mode === "mono");
-  // Disabled, wenn nur eine Seite hörbar
-  btn.disabled = !twoEarsActive;
-  btn.style.opacity = twoEarsActive ? "" : "0.4";
-  btn.style.cursor = twoEarsActive ? "" : "not-allowed";
-  if (plApplyLatency && twoEarsActive) {
+  // BA 311: nicht mehr an "Beide Seiten" gekoppelt — immer bedienbar.
+  btn.disabled = false;
+  btn.style.opacity = "";
+  btn.style.cursor = "";
+  if (plApplyLatency) {
     btn.textContent = t("plLatApplyOn");
     btn.style.background = "var(--success)";
     btn.style.color = "#fff";

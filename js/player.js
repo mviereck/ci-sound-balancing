@@ -20,6 +20,7 @@ let pCtx = null,
   pChannelMerger = null,
   pChannelLeftGain = null,
   pChannelRightGain = null,
+  pMonoBalGain = null,
   pMaplawOn = false,
   pMaplawSollC = 1000,
   pMaplawNode = null,
@@ -365,6 +366,8 @@ function pBuildEQ() {
   pChannelLeftGain = null;
   pChannelRightGain && pChannelRightGain.disconnect();
   pChannelRightGain = null;
+  pMonoBalGain && pMonoBalGain.disconnect();
+  pMonoBalGain = null;
   if (!pGain) {
     pGain = c.createGain();
     pGain.gain.value = parseInt(document.getElementById("plVol").value) / 100;
@@ -442,6 +445,18 @@ function pBuildEQ() {
       pEqF.push(f);
     }
     for (let i = 0; i < pEqF.length - 1; i++) pEqF[i].connect(pEqF[i + 1]);
+    // BA 311: Stereo-Balance auch im Einseiten-Modus. Flacher
+    // Pegel-Offset der aktiven Seite als eigener Gain-Knoten am Ende
+    // der EQ-Kette (analog Channel-Gains im Split-Modus). getPlayerBalanceGains
+    // liefert bereits 0, wenn plApplyBalance aus ist.
+    if (pEqF.length > 0) {
+      pMonoBalGain = c.createGain();
+      const balG = getPlayerBalanceGains();
+      const balSide = (mode === "left" || mode === "right") ? mode : activeSide;
+      const sideB = (balSide === "right") ? balG.right : balG.left;
+      pMonoBalGain.gain.value = dB2G(sideB);
+      pEqF[pEqF.length - 1].connect(pMonoBalGain);
+    }
   }
 }
 
@@ -476,6 +491,14 @@ function pUpdEQ() {
       } else {
         pEqF[i].gain.value = 0;
       }
+    }
+    // BA 311: Balance-Gain im Einseiten-Modus live nachziehen.
+    if (pMonoBalGain) {
+      const mode = getPlayerSide();
+      const balG = getPlayerBalanceGains();
+      const balSide = (mode === "left" || mode === "right") ? mode : activeSide;
+      const sideB = (balSide === "right") ? balG.right : balG.left;
+      pMonoBalGain.gain.value = dB2G(sideB);
     }
   }
   pDrawEQ();
@@ -535,9 +558,11 @@ async function pPlay() {
       : pGain;
   const lastEq = stereoMode
     ? pChannelMerger
-    : pEqF.length > 0
-      ? pEqF[pEqF.length - 1]
-      : null;
+    : pMonoBalGain
+      ? pMonoBalGain
+      : pEqF.length > 0
+        ? pEqF[pEqF.length - 1]
+        : null;
   // Alte ausgehende Verbindung vom Ende der EQ-Chain trennen, bevor neu
   // verdrahtet wird. Sonst überlagert eine frühere lastEq→pGain Direkt-
   // verbindung das neue lastEq→pMaplawNode→pGain (Doppelpfad → MAPLAW-
