@@ -448,6 +448,7 @@ Object.assign(L.fr, {
       "Mode d'emploi : 1) Installer Equalizer APO depuis equalizerapo.com. 2) Placer le fichier téléchargé dans le dossier config d'Equalizer APO (généralement C:\\Program Files\\EqualizerAPO\\config). 3) Ajouter une ligne en bas de config.txt : Include: NomFichier.txt",
     apoFileHint:
       "Placez ce fichier dans le dossier config d'Equalizer APO et incluez-le depuis config.txt avec :",
+    apoMonoHint: "Stereo mixe en mono (pour la lecture IC).",
     tabLevels: "Curseurs",
     tabCurves: "Courbes",
     lvTabTitle: "Curseurs : ajustement manuel individuel d'électrodes",

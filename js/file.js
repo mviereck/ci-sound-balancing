@@ -1043,8 +1043,11 @@ function collectSysEqCorrection() {
   const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
 
+  // BA 307: "both" UND "mono" liefern getrennte Kurven pro Ohr
+  // (getPlayerGains -> {left,right}). Frueher fiel "mono" faelschlich
+  // in den Array-Zweig und verlor die Korrektur.
   let leftArr, rightArr, splitChannels;
-  if (mode === "both") {
+  if (mode === "both" || mode === "mono") {
     leftArr = gains.left || [];
     rightArr = gains.right || [];
     splitChannels = true;
@@ -1055,15 +1058,24 @@ function collectSysEqCorrection() {
     splitChannels = false;
   }
 
+  // BA 307: Stereo->Mono-Mischung wie im Player.
+  // "left"/"right": Monosumme auf das aktive Ohr, Gegenseite stumm.
+  // "mono":         Monosumme auf beide Ohren (EQ bleibt pro Ohr getrennt).
+  const monoSum = (mode === "left" || mode === "right" || mode === "mono");
+  const muteCh = mode === "left" ? "R" : mode === "right" ? "L" : null;
+
   const hasGain = (arr) => arr.some((v) => v !== 0);
   const hasLat = plApplyLatency && latencyResult
     && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0;
-  const balG = (mode === "both" && plApplyBalance)
+  // BA 307: Balance gilt im Player bei "both" UND "mono" (Channel-Gains
+  // in pBuildEQ via _pUseSplitChains). Frueher nur "both".
+  const balG = ((mode === "both" || mode === "mono") && plApplyBalance)
     ? getPlayerBalanceGains() : { left: 0, right: 0 };
   const hasBal = balG.left !== 0 || balG.right !== 0;
 
   const anyData =
-    hasGain(leftArr) || hasGain(rightArr) || plEqOn || hasLat || hasBal;
+    hasGain(leftArr) || hasGain(rightArr) || plEqOn || hasLat || hasBal
+    || monoSum;
 
   const bands = [];
   for (let i = 0; i < nEl; i++) {
@@ -1080,6 +1092,8 @@ function collectSysEqCorrection() {
   return {
     bands,
     splitChannels,
+    monoSum,
+    muteCh,
     hasLat,
     latMs: ms,
     hasBal,
@@ -1125,9 +1139,34 @@ function exportEasyEffects() {
         "split-channels": corr.splitChannels,
         "num-bands": corr.bands.length,
       },
-      plugins_order: ["equalizer#0"],
     },
   };
+  // BA 307: Stereo->Mono-Mischung als stereo_tools VOR dem Equalizer.
+  // "LR > L+R (Mono Sum L+R)" mittelt zu (L+R)/2 (Nutzer-getestet, kein
+  // Gain-Ausgleich noetig). Bei Einseiten-Modus die Gegenseite stummschalten.
+  if (corr.monoSum) {
+    preset.output["stereo_tools#0"] = {
+      "balance-in": 0.0,
+      "balance-out": 0.0,
+      bypass: false,
+      delay: 0.0,
+      "input-gain": 0.0,
+      "middle-level": 0.0,
+      "middle-panorama": 0.0,
+      mode: "LR > L+R (Mono Sum L+R)",
+      mutel: corr.muteCh === "L",
+      muter: corr.muteCh === "R",
+      "output-gain": 0.0,
+      phasel: false,
+      phaser: false,
+      "sc-level": 1.0,
+      "side-balance": 0.0,
+      "side-level": 0.0,
+      softclip: false,
+      "stereo-base": 0.0,
+      "stereo-phase": 0.0,
+    };
+  }
   if (corr.hasLat || corr.hasBal) {
     const ms = corr.hasLat ? corr.latMs : 0;
     const tL = ms >= 0 ? Math.abs(ms) : 0;
@@ -1145,8 +1184,14 @@ function exportEasyEffects() {
       "wet-l": parseFloat(corr.balL.toFixed(1)),
       "wet-r": parseFloat(corr.balR.toFixed(1)),
     };
-    preset.output.plugins_order = ["equalizer#0", "delay#0"];
   }
+  // BA 307: Reihenfolge zentral. Mono-Mischung zuerst, dann EQ, dann
+  // Verzoegerung/Balance.
+  const order = [];
+  if (corr.monoSum) order.push("stereo_tools#0");
+  order.push("equalizer#0");
+  if (corr.hasLat || corr.hasBal) order.push("delay#0");
+  preset.output.plugins_order = order;
   const blob = new Blob([JSON.stringify(preset, null, 4)], {
       type: "application/json",
     }),
@@ -1175,6 +1220,21 @@ function exportEqualizerAPO() {
   L.push("# " + t("apoFileHint"));
   L.push("#   Include: " + fname);
   L.push("");
+
+  // BA 307: Stereo->Mono-Mischung VOR den Filtern (analog Player und
+  // EasyEffects stereo_tools). Alle Zuweisungen in EINER Copy-Zeile
+  // (parallele Auswertung in Equalizer APO). 0.5/0.5 = (L+R)/2.
+  if (corr.monoSum) {
+    L.push("# " + t("apoMonoHint"));
+    if (corr.muteCh === "R") {
+      L.push("Copy: L=0.5*L+0.5*R R=0");
+    } else if (corr.muteCh === "L") {
+      L.push("Copy: R=0.5*L+0.5*R L=0");
+    } else {
+      L.push("Copy: L=0.5*L+0.5*R R=0.5*L+0.5*R");
+    }
+    L.push("");
+  }
 
   const eqLines = (side, ch) => {
     L.push("Channel: " + ch);
