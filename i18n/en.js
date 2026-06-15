@@ -250,7 +250,7 @@ Object.assign(L.en, {
     plLatApplyOn: "✓ Latency compensation ON",
     plLatApplyOff: "Latency compensation OFF",
     plNHExpl:
-      "Illustrates the misadjustment present without correction: the measured loudness differences are applied to the original signal (not inverted). Limitation: this only shows the loudness balance, not the CI-typical artifacts.",
+      "Illustrates the misadjustment present without correction. This allows people with normal hearing to get an impression of how the uncorrected CI settings affect the hearing experience of the CI user. All corrections are inverted.",
     plShowExpLabel: "Show experimental options",
     plExpHint: "These options are experimental. The sound experience is a simulation that has tonal weaknesses, but may give an idea of the direction the settings could take.",
     plMaplawExpNote: "Experimental option, result not guaranteed",

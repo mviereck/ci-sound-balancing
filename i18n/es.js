@@ -251,7 +251,7 @@ Object.assign(L.es, {
     plLatApplyOn: "✓ Compensación de latencia ON",
     plLatApplyOff: "Compensación de latencia OFF",
     plNHExpl:
-      "Ilustra el desajuste presente sin corrección: las diferencias de volumen medidas se aplican (sin invertir) a la señal original. Limitación: solo muestra el balance de volumen, no los artefactos típicos del IC.",
+      "Ilustra el desajuste presente sin corrección. Esto permite que las personas con audición normal se hagan una idea de cómo los ajustes de IC no corregidos afectan la experiencia auditiva del usuario de IC. Todas las correcciones están invertidas.",
     plShowExpLabel: "Mostrar opciones experimentales",
     plExpHint: "Estas opciones son experimentales. La experiencia sonora es una simulación con debilidades acústicas, pero puede dar una idea de la dirección en la que apuntan los ajustes.",
     plMaplawExpNote: "Opción experimental, resultado no garantizado",

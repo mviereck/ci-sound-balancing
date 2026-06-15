@@ -234,7 +234,7 @@ Object.assign(L.de, {
     plLatApplyOn: "✓ Latenzausgleich AN",
     plLatApplyOff: "Latenzausgleich AUS",
     plNHExpl:
-      "Veranschaulicht die Fehleinstellung, die ohne Korrektur vorliegt: die gemessenen Lautstärkeunterschiede werden auf das Originalsignal angewandt (nicht invertiert). Einschränkung: Dies zeigt nur die Lautstärkebalance, nicht die CI-typischen Artefakte.",
+      "Veranschaulicht die Fehleinstellung, die ohne Korrektur vorliegt. Damit können Normalhörende einen Eindruck davon bekommen, wie sich die noch nicht korrigierte CI Einstellung auf das Hörerleben des CI Trägers auswirkt. Alle Korrekturen werden invertiert.",
     plShowExpLabel: "Experimentelle Optionen einblenden",
     plExpHint: "Diese Optionen sind experimentell. Das Klangerlebnis ist eine Simulation, die klangliche Schwächen hat, aber eventuell eine Idee davon geben kann, in welche Richtung die Einstellungen gehen.",
     plMaplawExpNote: "Experimentelle Option, Ergebnis nicht gesichert",

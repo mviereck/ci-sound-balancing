@@ -251,7 +251,7 @@ Object.assign(L.fr, {
     plLatApplyOn: "✓ Compensation de latence ON",
     plLatApplyOff: "Compensation de latence OFF",
     plNHExpl:
-      "Illustre le mauvais réglage présent sans correction : les écarts d'intensité mesurés sont appliqués au signal original (non inversés). Limitation : cela ne montre que la balance d'intensité, pas les artefacts typiques de l'IC.",
+      "Illustre le mauvais réglage présent sans correction. Cela permet aux personnes à audition normale de se faire une idée de l'effet des réglages de l'IC non corrigés sur l'expérience auditive du porteur d'IC. Toutes les corrections sont inversées.",
     plShowExpLabel: "Afficher les options expérimentales",
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation qui présente des faiblesses sonores, mais qui peut éventuellement donner une idée de la direction dans laquelle vont les réglages.",
     plMaplawExpNote: "Option expérimentale, résultat non garanti",
