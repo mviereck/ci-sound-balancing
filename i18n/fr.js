@@ -527,6 +527,7 @@ Object.assign(L.fr, {
     plSrcLevels: "Curseurs",
     plSrcCurves: "Courbes",
     plBothLabel: "Lire les deux côtés avec leurs ajustements respectifs",
+    plMonoLabel: "Fusionner la stéréo en mono",
     freqAbfHint:
       "<b>Important — Anatomy Based Fitting (ABF) et FAT :</b> même avec Anatomy Based Fitting (ABF), d'autres fréquences centrales s'appliquent aux électrodes. En général : demandez à votre audiologiste la FAT (Frequency Allocation Table) de votre IC afin de connaître toutes les fréquences attribuées aux électrodes.",
     freqExclHint:

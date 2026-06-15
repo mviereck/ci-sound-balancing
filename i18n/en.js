@@ -526,6 +526,7 @@ Object.assign(L.en, {
     plSrcLevels: "Sliders",
     plSrcCurves: "Curves",
     plBothLabel: "Play both sides with their respective adjustments",
+    plMonoLabel: "Mix stereo down to mono",
     freqAbfHint:
       "<b>Important – Anatomy Based Fitting (ABF) and FAT:</b> Even with Anatomy Based Fitting (ABF), different center frequencies apply to the electrodes. In general: ask your audiologist for the FAT (Frequency Allocation Table) of your CI to learn all the frequencies assigned to the electrodes.",
     freqExclHint:

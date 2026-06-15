@@ -527,6 +527,7 @@ Object.assign(L.es, {
     plSrcLevels: "Deslizadores",
     plSrcCurves: "Curvas",
     plBothLabel: "Reproducir ambos lados con sus respectivos ajustes",
+    plMonoLabel: "Mezclar el estéreo a mono",
     freqAbfHint:
       "<b>Importante – Anatomy Based Fitting (ABF) y FAT:</b> también con Anatomy Based Fitting (ABF) se aplican otras frecuencias centrales para los electrodos. En general: pregunte a su audiólogo por la FAT (Frequency Allocation Table) de su IC, para conocer todas las frecuencias asignadas a los electrodos.",
     freqExclHint:

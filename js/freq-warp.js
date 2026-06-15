@@ -575,10 +575,26 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
 
   // Quell-Kanaele extrahieren (defensive Kopie — Rubberband schreibt in
   // eigenen WASM-Heap, aber wir vermeiden Aliasing-Risiken).
-  const srcL = new Float32Array(srcBuf.getChannelData(0));
-  const srcR = srcBuf.numberOfChannels > 1
-    ? new Float32Array(srcBuf.getChannelData(1))
-    : srcL;
+  // BA 306: In allen Mono-Modi (Einseiten links/rechts ODER Beide-Seiten
+  // mit Mono-Mischung) wird VOR dem Warping zu Mono gemischt. Das Warping
+  // bleibt seitenspezifisch: beide Seiten warpen denselben Mono-Inhalt,
+  // jede mit ihrer eigenen Cent-Kurve (csL/csR).
+  const monoContent = playerSide === "left"
+                   || playerSide === "right"
+                   || playerSide === "mono";
+  let srcL, srcR;
+  if (monoContent) {
+    const mono = (typeof _pDownmixMono === "function")
+      ? _pDownmixMono(srcBuf)
+      : new Float32Array(srcBuf.getChannelData(0));
+    srcL = mono;
+    srcR = mono;
+  } else {
+    srcL = new Float32Array(srcBuf.getChannelData(0));
+    srcR = srcBuf.numberOfChannels > 1
+      ? new Float32Array(srcBuf.getChannelData(1))
+      : srcL;
+  }
 
   // Ergebnis-Kanaele initial mit Original-Inhalt (= Bypass, falls nicht
   // gewarpt wird).

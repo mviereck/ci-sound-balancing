@@ -191,6 +191,7 @@ function resetAll() {
   if (_plBoth) _plBoth.checked = false;
   const _plMono = document.getElementById("plMonoEQ");
   if (_plMono) _plMono.checked = false;
+  if (typeof plUpdMonoBox === "function") plUpdMonoBox();
   // --- EQ-Knopf + Stärke ---
   if (typeof plEqOn !== "undefined") plEqOn = false;
   if (typeof updEqToggleBtn === "function") updEqToggleBtn();
@@ -372,6 +373,7 @@ async function saveJson() {
     levelsTabVariant: lvTabVariant,
     plSide: getPlayerSide(),
     plBothSides: document.getElementById("plBothSides").checked,
+    plMonoEQ: document.getElementById("plMonoEQ").checked,
     eqOn: plEqOn,
     eqStrength: parseInt(document.getElementById("plStr").value),
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
@@ -706,6 +708,11 @@ function applyLoadedData(d) {
     const bsEl = document.getElementById("plBothSides");
     if (bsEl) bsEl.checked = d.plBothSides;
   }
+  if (typeof d.plMonoEQ === "boolean") {
+    const mmEl = document.getElementById("plMonoEQ");
+    if (mmEl) mmEl.checked = d.plMonoEQ;
+  }
+  if (typeof plUpdMonoBox === "function") plUpdMonoBox();
   if (d.eqOn !== undefined) {
     plEqOn = d.eqOn;
     updEqToggleBtn();

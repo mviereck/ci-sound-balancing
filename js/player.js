@@ -35,51 +35,47 @@ function gPC() {
   return pCtx;
 }
 
+// BA 306: Liefert den Mono-Downmix (Mittelwert aller Kanaele) eines
+// AudioBuffers als Float32Array. Zentrale Quelle fuer alle Mono-Pfade
+// (Einseiten-Wiedergabe, Beide-Seiten-Mono-Mischung, Warp-Eingang).
+function _pDownmixMono(buf) {
+  const n = buf.length;
+  const ch = buf.numberOfChannels;
+  const out = new Float32Array(n);
+  for (let s = 0; s < n; s++) {
+    let sum = 0;
+    for (let c = 0; c < ch; c++) sum += buf.getChannelData(c)[s];
+    out[s] = sum / ch;
+  }
+  return out;
+}
+
 function createLeftOnlyBuffer(buf) {
   const c = gPC();
   const m = c.createBuffer(2, buf.length, buf.sampleRate);
-  const leftData = m.getChannelData(0);
-  const rightData = m.getChannelData(1);
-  const srcLeft = buf.numberOfChannels > 0 ? buf.getChannelData(0) : null;
-  for (let s = 0; s < buf.length; s++) {
-    leftData[s] = srcLeft ? srcLeft[s] : 0;
-    rightData[s] = 0;
-  }
+  // BA 306: Einseiten-Wiedergabe spielt jetzt den Mono-Downmix der Quelle
+  // auf dem aktiven (linken) Ohr -- statt nur des linken Quellkanals --,
+  // damit gegenseitig gepanntes Material nicht verloren geht.
+  m.getChannelData(0).set(_pDownmixMono(buf));
+  // rechter Kanal bleibt 0
   return m;
 }
 
 function createRightOnlyBuffer(buf) {
   const c = gPC();
   const m = c.createBuffer(2, buf.length, buf.sampleRate);
-  const leftData = m.getChannelData(0);
-  const rightData = m.getChannelData(1);
-  const srcRight =
-    buf.numberOfChannels > 1
-      ? buf.getChannelData(1)
-      : buf.numberOfChannels > 0
-        ? buf.getChannelData(0)
-        : null;
-  for (let s = 0; s < buf.length; s++) {
-    leftData[s] = 0;
-    rightData[s] = srcRight ? srcRight[s] : 0;
-  }
+  // BA 306: Mono-Downmix auf dem rechten (aktiven) Ohr.
+  m.getChannelData(1).set(_pDownmixMono(buf));
+  // linker Kanal bleibt 0
   return m;
 }
 
 function createMonoBuffer(buf) {
   const c = gPC();
   const m = c.createBuffer(2, buf.length, buf.sampleRate);
-  const leftData = m.getChannelData(0);
-  const rightData = m.getChannelData(1);
-  for (let s = 0; s < buf.length; s++) {
-    let sum = 0;
-    for (let ch = 0; ch < buf.numberOfChannels; ch++) {
-      sum += buf.getChannelData(ch)[s];
-    }
-    const val = sum / buf.numberOfChannels;
-    leftData[s] = val;
-    rightData[s] = val;
-  }
+  const mono = _pDownmixMono(buf);
+  m.getChannelData(0).set(mono);
+  m.getChannelData(1).set(mono);
   return m;
 }
 
@@ -116,10 +112,22 @@ function _buildWarpedPlaybackBuffer(mode) {
     ? pWarpAffected
     : { warpsLeft: true, warpsRight: true };
 
-  const srcL = pSourceBuf.getChannelData(0);
-  const srcR = pSourceBuf.numberOfChannels > 1
-    ? pSourceBuf.getChannelData(1)
-    : srcL;
+  // BA 306: Im Mono-Misch-Modus ist auch der un-gewarpte Rueckfall der
+  // Mono-Downmix (nicht die getrennten Stereo-Kanaele). Der Warp-Inhalt
+  // selbst wurde bereits VOR dem Warping zu Mono gemischt (siehe
+  // pComputeRubberbandWarpedBuffer in freq-warp.js) -- daher KEIN
+  // Nach-Warp-Downmix mehr.
+  let srcL, srcR;
+  if (mode === "mono") {
+    const mono = _pDownmixMono(pSourceBuf);
+    srcL = mono;
+    srcR = mono;
+  } else {
+    srcL = pSourceBuf.getChannelData(0);
+    srcR = pSourceBuf.numberOfChannels > 1
+      ? pSourceBuf.getChannelData(1)
+      : srcL;
+  }
   const srcLen = pSourceBuf.length;
   const copyLen = Math.min(len, srcLen);
 
@@ -129,13 +137,6 @@ function _buildWarpedPlaybackBuffer(mode) {
   if (affected.warpsRight) outR.set(warpR.subarray(0, len));
   else                     outR.set(srcR.subarray(0, copyLen));
 
-  if (mode === "mono") {
-    for (let i = 0; i < len; i++) {
-      const v = (outL[i] + outR[i]) * 0.5;
-      outL[i] = v;
-      outR[i] = v;
-    }
-  }
   return out;
 }
 
@@ -202,8 +203,12 @@ function getPlaybackBuffer() {
     case "right":
       if (!pRightOnlyBuf) pRightOnlyBuf = createRightOnlyBuffer(pSourceBuf);
       return pRightOnlyBuf;
-    case "both":
     case "mono":
+      // BA 306: Beide-Seiten-Mono -- Inhalt zu Mono gemischt, beide
+      // EQ-Ketten bekommen denselben (Mono-)Inhalt.
+      if (!pMonoBuf) pMonoBuf = createMonoBuffer(pSourceBuf);
+      return pMonoBuf;
+    case "both":
       if (pSourceBuf.numberOfChannels > 1) return pSourceBuf;
       if (!pMonoBuf) pMonoBuf = createMonoBuffer(pSourceBuf);
       return pMonoBuf;
@@ -232,7 +237,7 @@ function getPlayerGains() {
   const mode = getPlayerSide();
   if (mode === "left") return withSide("left", computeGains);
   if (mode === "right") return withSide("right", computeGains);
-  if (mode === "mono") return withSide(activeSide, computeGains);
+  // BA 306: "both" UND "mono" liefern per-Seite-Gains {left,right}.
   return {
     left: withSide("left", computeGains),
     right: withSide("right", computeGains),
@@ -280,6 +285,19 @@ document
     }
   });
 
+// BA 306: Die Mono-Misch-Checkbox ist nur bedienbar, wenn "Beide Seiten"
+// aktiv ist (sonst spielt ohnehin nur das aktive Ohr in Mono). Bei
+// deaktiviertem "Beide Seiten" wird sie ausgegraut.
+function plUpdMonoBox() {
+  const both = document.getElementById("plBothSides");
+  const mono = document.getElementById("plMonoEQ");
+  if (!both || !mono) return;
+  const on = !!both.checked;
+  mono.disabled = !on;
+  const lbl = mono.closest("label");
+  if (lbl) lbl.style.opacity = on ? "" : "0.4";
+}
+
 function updatePlayerForSideChange() {
   if (typeof sActive !== "undefined" && sActive
       && typeof sStop === "function") {
@@ -296,6 +314,7 @@ function updatePlayerForSideChange() {
     pDrawEQ();
     if (wasPlaying) pPlay();
   }
+  if (typeof plUpdMonoBox === "function") plUpdMonoBox();
   plCheck();
 }
 
@@ -318,6 +337,16 @@ function pCompQ(i) {
   }
   const bw = Math.log2(Math.sqrt(ef * fH)) - Math.log2(Math.sqrt(fL * ef));
   return ef / (ef * (Math.pow(2, bw / 2) - Math.pow(2, -bw / 2)));
+}
+
+// BA 306: Entscheidet, ob die getrennten Links/Rechts-EQ-Ketten
+// (pChannelSplitter -> pEqFLeft/pEqFRight -> pChannelMerger) gebaut und
+// genutzt werden. Gilt fuer "both" (echtes Stereo) UND "mono"
+// (Mono-Inhalt, aber weiterhin getrennte Seiten-Korrektur pro Ohr).
+function _pUseSplitChains(mode) {
+  if (!pSourceBuf) return false;
+  if (mode === "mono") return true;
+  return mode === "both" && pSourceBuf.numberOfChannels > 1;
 }
 
 function pBuildEQ() {
@@ -350,7 +379,7 @@ function pBuildEQ() {
   const mode = getPlayerSide();
   const str = parseInt(document.getElementById("plStr").value) / 100;
   const nhSim = document.getElementById("plNHSim").checked;
-  if (mode === "both" && pSourceBuf && pSourceBuf.numberOfChannels > 1) {
+  if (_pUseSplitChains(mode)) {
     const leftGains = withSide("left", computeGains);
     const rightGains = withSide("right", computeGains);
     pChannelSplitter = c.createChannelSplitter(2);
@@ -500,11 +529,7 @@ async function pPlay() {
   pBuf = getPlaybackBuffer();
 
   const mode = getPlayerSide();
-  const stereoMode =
-    mode === "both" &&
-    pSourceBuf &&
-    pSourceBuf.numberOfChannels > 1 &&
-    pChannelSplitter;
+  const stereoMode = _pUseSplitChains(mode) && pChannelSplitter;
   const firstNode = stereoMode
     ? pChannelSplitter
     : pEqF.length > 0

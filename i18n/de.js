@@ -582,6 +582,7 @@ Object.assign(L.de, {
     plSrcLevels: "Schieber",
     plSrcCurves: "Kurven",
     plBothLabel: "Beide Seiten mit ihren jeweiligen Anpassungen abspielen",
+    plMonoLabel: "Stereo zu Mono zusammenmischen",
     freqAbfHint:
       "<b>Wichtig – Anatomy Based Fitting (ABF) und FAT:</b> Auch bei Anatomy Based Fitting (ABF) gelten andere Mittenfrequenzen für die Elektroden. Generell: Fragen Sie Ihren Audiologen nach der FAT (Frequency Allocation Table) Ihres CI, um alle den Elektroden zugeordneten Frequenzen zu erfahren.",
     freqExclHint:

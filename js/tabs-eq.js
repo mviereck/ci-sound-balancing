@@ -347,7 +347,7 @@ function updBalApplyBtn() {
   const btn = document.getElementById("plBalApplyBtn");
   if (!btn) return;
   const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const stereoActive = (mode === "both");
+  const stereoActive = (mode === "both" || mode === "mono");
   // Disabled, wenn nicht im echten Stereo-Modus
   btn.disabled = !stereoActive;
   btn.style.opacity = stereoActive ? "" : "0.4";
@@ -376,7 +376,7 @@ function updLatApplyBtn() {
   const btn = document.getElementById("plLatApplyBtn");
   if (!btn) return;
   const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : null;
-  const twoEarsActive = (mode === "both");
+  const twoEarsActive = (mode === "both" || mode === "mono");
   // Disabled, wenn nur eine Seite hörbar
   btn.disabled = !twoEarsActive;
   btn.style.opacity = twoEarsActive ? "" : "0.4";

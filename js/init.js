@@ -112,12 +112,39 @@ document.addEventListener("DOMContentLoaded", () => {
       updatePlayerForSideChange();
       updBalApplyBtn();
       updLatApplyBtn();
+      // BA 306: Einseiten-Inhalt ist jetzt Mono -> Warp-Inhalt aendert
+      // sich beim Wechsel both <-> einseitig, neu berechnen.
+      if (typeof pWarpOn !== "undefined" && pWarpOn && plEqOn
+          && typeof pWarpTrigger === "function") {
+        pWarpTrigger();
+      }
       try {
         // BA 163: pro Browser-Tab
         const _sv = sessionStorage.getItem("ci-lb-v4");
         if (_sv) {
           const _d = JSON.parse(_sv);
           _d.plBothSides = this.checked;
+          sessionStorage.setItem("ci-lb-v4", JSON.stringify(_d));
+        }
+      } catch (_e) {}
+    });
+  // BA 306: Player — Stereo-zu-Mono-Misch-Checkbox
+  document
+    .getElementById("plMonoEQ")
+    .addEventListener("change", function () {
+      updatePlayerForSideChange();
+      updBalApplyBtn();
+      updLatApplyBtn();
+      // Warp-Inhalt haengt von der Mono-Mischung ab -> neu berechnen.
+      if (typeof pWarpOn !== "undefined" && pWarpOn && plEqOn
+          && typeof pWarpTrigger === "function") {
+        pWarpTrigger();
+      }
+      try {
+        const _sv = sessionStorage.getItem("ci-lb-v4");
+        if (_sv) {
+          const _d = JSON.parse(_sv);
+          _d.plMonoEQ = this.checked;
           sessionStorage.setItem("ci-lb-v4", JSON.stringify(_d));
         }
       } catch (_e) {}
@@ -839,6 +866,14 @@ document.addEventListener("DOMContentLoaded", () => {
           if (typeof updLatApplyBtn === "function") updLatApplyBtn();
         }
       }
+      if (typeof d.plMonoEQ === "boolean") {
+        const mmEl = document.getElementById("plMonoEQ");
+        if (mmEl) {
+          mmEl.checked = d.plMonoEQ;
+          if (typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+          if (typeof plUpdMonoBox === "function") plUpdMonoBox();
+        }
+      }
       // BA 161: bisher nur in Datei-Load
       if (typeof audiologUserNote !== "undefined") {
         audiologUserNote = (typeof d.audiologUserNote === "string") ? d.audiologUserNote : "";
@@ -1029,6 +1064,8 @@ document.addEventListener("DOMContentLoaded", () => {
           levelsTabShowMeas: lvTabShowMeas,
           levelsTabShowCurves: lvTabShowCurves,
           plBothSides: document.getElementById("plBothSides").checked,
+          plMonoEQ: document.getElementById("plMonoEQ")
+            ? document.getElementById("plMonoEQ").checked : false,
         }),
       );
     } catch (e) {}
