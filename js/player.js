@@ -243,12 +243,13 @@ function computeGains() {
 //     (zeigt die Fehleinstellung statt der Korrektur, also invertiert).
 // Klang, Graph, Ausdruck und System-EQ-Export lesen NUR hier; keiner
 // rechnet eigene EQ-/Balance-Logik.
-function getPlayerCorrection(side) {
+function getPlayerCorrection(side, applyNhSim) {
+  if (applyNhSim === undefined) applyNhSim = true;   // BA 315: Ausdruck ruft mit false
   const eqRaw = withSide(side, computeGains);   // computeGains-Konvention (negierte Korrektur)
   if (!plEqOn) {
     return { eq: eqRaw.map(function () { return 0; }), balance: 0 };
   }
-  const nhSim = document.getElementById("plNHSim").checked;
+  const nhSim = applyNhSim && document.getElementById("plNHSim").checked;
   // Normal: -eqRaw (= Korrektur, Anhebung). nhSim: +eqRaw (Fehleinstellung).
   const eq = eqRaw.map(function (v) { return nhSim ? v : -v; });
   const balG = getPlayerBalanceGains();          // {left,right} dB, 0 wenn plApplyBalance aus

@@ -333,25 +333,23 @@ function _collectPlayer() {
   const nhEl  = document.getElementById("plNHSim");
   const eqOn  = (typeof plEqOn !== "undefined") ? plEqOn : true;
 
+  // BA 315: volle Korrektur (EQ + flache Balance) aus der zentralen
+  // Quelle, nhSim NICHT angewendet (false). getPlayerCorrection gated
+  // bereits den EQ-Schalter (bei aus -> alles 0).
   const eqGains = { left: [], right: [] };
   let hasNonZero = false;
-  if (eqOn) {
-    for (const side of SIDES) {
-      const gAr = withSide(side, () => computeGains());
-      for (let i = 0; i < gAr.length; i++) {
-        const v = -gAr[i];
-        eqGains[side].push(v);
-        if (Math.abs(v) > 0) hasNonZero = true;
-      }
+  for (const side of SIDES) {
+    const corr = getPlayerCorrection(side, false);
+    for (let i = 0; i < corr.eq.length; i++) {
+      const v = corr.eq[i] + corr.balance;
+      eqGains[side].push(v);
+      if (Math.abs(v) > 0.05) hasNonZero = true;
     }
-  } else {
-    for (const side of SIDES) eqGains[side] = (sideData[side].freqs || []).map(() => 0);
   }
 
   return {
     sideMode,
     eqOn,
-    strength: str,
     nhSim: nhEl ? nhEl.checked : false,
     srcMeas:    (typeof plSrcMeas    !== "undefined") ? plSrcMeas    : true,
     srcLevels:  (typeof plSrcLevels  !== "undefined") ? plSrcLevels  : true,
@@ -654,8 +652,10 @@ function _archivMdPlayer(data) {
   const out = [`\n## ${t("archivSecPlayer")}\n`];
   out.push(`- ${t("archivPlSide")}: ${sideLabel}`);
   out.push(`- ${t("archivPlEqOn")}: ${p.eqOn ? t("on") : t("off")}`);
-  out.push(`- ${t("archivPlStrength")}: ${p.strength} %`);
   out.push(`- ${t("archivPlNH")}: ${p.nhSim ? t("on") : t("off")}`);
+  if (p.eqOn && p.nhSim) {
+    out.push(`> ${t("nhSimNotApplied")}`);
+  }
   out.push(`- ${t("archivPlSrc")}: ${t("archivSrcMeas")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
   const bmTxt = t("plBalMode" + p.balanceMode.charAt(0).toUpperCase() + p.balanceMode.slice(1)) || p.balanceMode;
   out.push(`- ${t("archivPlBalance")}: ${p.applyBalance ? t("on") : t("off")}${p.applyBalance ? " (" + bmTxt + ")" : ""}`);
@@ -733,12 +733,11 @@ function _audiologSideLabel(side) {
 // ---------- Gewinne pro Seite (ΔdB) ----------
 
 function _audiologDbForSide(side) {
-  return withSide(side, () => {
-    const g = computeGains();
-    const eqOn = (typeof plEqOn !== "undefined") ? plEqOn : true;
-    if (!eqOn) return g.map(() => 0);
-    return g.map((v) => -v);
-  });
+  // BA 315: volle Korrektur (EQ + flache Balance) aus der zentralen
+  // Quelle, nhSim NICHT angewendet. EQ-Schalter-Gate steckt in
+  // getPlayerCorrection (bei aus -> alles 0).
+  const corr = getPlayerCorrection(side, false);
+  return corr.eq.map(function (v) { return v + corr.balance; });
 }
 
 // ---------- Residuum pro Elektrode (für Tabelle + Chart) ----------
@@ -1162,6 +1161,12 @@ function buildAudiologMarkdown() {
   // ---- EQ aus ----
   if (typeof plEqOn !== "undefined" && !plEqOn) {
     parts.push(`> ${t("audiologEqOff")}\n`);
+  }
+
+  // ---- nhSim war aktiv (BA 315) ----
+  const _nhEl = document.getElementById("plNHSim");
+  if (typeof plEqOn !== "undefined" && plEqOn && _nhEl && _nhEl.checked) {
+    parts.push(`> ${t("nhSimNotApplied")}\n`);
   }
 
   // ===========================================================
