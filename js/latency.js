@@ -220,18 +220,27 @@ function latSetSliderMs(ms) {
 
 // --- Anwendung auf Player (kein Test aktiv) --------------------------
 
+// BA 313: Zentrale Quelle fuer die anzuwendende Latenz (ms).
+// EQ-Schalter-Gate (Weg A) + nhSim-Spiegelung. Klang (latApplyToPlayer)
+// und ab BA 314 der System-EQ-Export lesen NUR hier.
+function getPlayerLatencyMs() {
+  if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
+  if (!plApplyLatency) return 0;
+  if (!latencyResult || !isFinite(latencyResult.valueMs)) return 0;
+  const nh = document.getElementById("plNHSim");
+  const nhSim = nh ? nh.checked : false;
+  return nhSim ? -latencyResult.valueMs : latencyResult.valueMs;
+}
+
 // Setzt die Delays auf den gespeicherten latencyResult-Wert, falls
 // plApplyLatency aktiv ist. Wird vom Test-Start/Stop und vom
 // plApplyLatency-Toggle aufgerufen.
 function latApplyToPlayer() {
   if (latActive) return; // während Test übernimmt latSetSliderMs
   if (!pLatDelayL || !pLatDelayR) return;
-  if (plApplyLatency && latencyResult && isFinite(latencyResult.valueMs)) {
-    latSetSliderMs(latencyResult.valueMs);
-  } else {
-    pLatDelayL.delayTime.value = 0;
-    pLatDelayR.delayTime.value = 0;
-  }
+  // getPlayerLatencyMs liefert 0, wenn EQ aus / Latenz aus / kein Wert;
+  // latSetSliderMs(0) setzt beide Delays auf 0.
+  latSetSliderMs(getPlayerLatencyMs());
   if (typeof updLatApplyBtn === "function") updLatApplyBtn();
 }
 

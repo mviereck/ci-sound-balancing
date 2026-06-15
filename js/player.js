@@ -245,33 +245,27 @@ function getPlayerGains() {
   };
 }
 
-// BA 312: Effektive Pegeländerung pro Elektrode für die ANZEIGE
-// (EQ-Graph; ab BA 313 auch Ausdrucke). Natürliche Konvention:
-// positiv = Anhebung am Ohr (anders als computeGains, das die
-// negierte Korrektur liefert).
-//   - EQ-Anteil: nur wenn plEqOn; plNHSim dreht das Vorzeichen
-//     (wie pDrawEQ es bisher selbst tat).
-//   - Balance-Anteil: flacher Offset der Seite aus getPlayerBalanceGains
-//     (state-side.js; liefert 0, wenn plApplyBalance aus). Bewusst
-//     plEqOn- und plNHSim-unabhaengig, genau wie der Klang die
-//     Channel-/Mono-Balance-Gains anwendet.
-// Rueckgabe: {left,right} im "both"/"mono"-Modus, sonst ein Array
-// fuer die aktive Seite (analog getPlayerGains).
-function getPlayerTotalGains() {
-  const nhSim = document.getElementById("plNHSim").checked;
-  const balG = getPlayerBalanceGains();   // {left,right} dB, 0 wenn Balance aus
-  const conv = function (eqArr, side) {
-    const b = (side === "right") ? balG.right : balG.left;
-    return eqArr.map(function (v) {
-      return (plEqOn ? (nhSim ? v : -v) : 0) + b;
-    });
-  };
-  const raw = getPlayerGains();
-  if (typeof raw.left !== "undefined") {
-    return { left: conv(raw.left, "left"), right: conv(raw.right, "right") };
+// BA 313: EINZIGE Wertquelle fuer die Player-Korrektur einer Seite.
+// side: "left" | "right". Rueckgabe { eq:[...], balance:Zahl }, beides in
+// natuerlicher Konvention (positiv = Anhebung am Ohr) und fertig berechnet:
+//   - EQ-Schalter-Gate: bei plEqOn aus sind alle eq[] = 0 und balance = 0
+//     (Weg A: der EQ-Schalter ist Master-Bypass fuer ALLES).
+//   - plNHSim ("Simulation fuer Normalhoerende") spiegelt EQ UND Balance
+//     (zeigt die Fehleinstellung statt der Korrektur, also invertiert).
+// Klang, Graph, Ausdruck und System-EQ-Export lesen NUR hier; keiner
+// rechnet eigene EQ-/Balance-Logik.
+function getPlayerCorrection(side) {
+  const eqRaw = withSide(side, computeGains);   // computeGains-Konvention (negierte Korrektur)
+  if (!plEqOn) {
+    return { eq: eqRaw.map(function () { return 0; }), balance: 0 };
   }
-  const mode = getPlayerSide();
-  return conv(raw, (mode === "right") ? "right" : "left");
+  const nhSim = document.getElementById("plNHSim").checked;
+  // Normal: -eqRaw (= Korrektur, Anhebung). nhSim: +eqRaw (Fehleinstellung).
+  const eq = eqRaw.map(function (v) { return nhSim ? v : -v; });
+  const balG = getPlayerBalanceGains();          // {left,right} dB, 0 wenn plApplyBalance aus
+  const bRaw = (side === "right") ? balG.right : balG.left;
+  const balance = nhSim ? -bRaw : bRaw;
+  return { eq: eq, balance: balance };
 }
 
 function documentHasStereoAudio() {
@@ -411,8 +405,8 @@ function pBuildEQ() {
   const mode = getPlayerSide();
   const nhSim = document.getElementById("plNHSim").checked;
   if (_pUseSplitChains(mode)) {
-    const leftGains = withSide("left", computeGains);
-    const rightGains = withSide("right", computeGains);
+    const corrL = getPlayerCorrection("left");
+    const corrR = getPlayerCorrection("right");
     pChannelSplitter = c.createChannelSplitter(2);
     pChannelMerger = c.createChannelMerger(2);
     for (let i = 0; i < nEl; i++) {
@@ -422,10 +416,7 @@ function pBuildEQ() {
         ? effFreqDisplay(i, "left")
         : withSide("left", () => effFreq(i));
       lf.Q.value = pCompQ(i);
-      lf.gain.value = 0;
-      if (plEqOn) {
-        lf.gain.value = nhSim ? leftGains[i] : -leftGains[i];
-      }
+      lf.gain.value = corrL.eq[i];
       pEqFLeft.push(lf);
       const rf = c.createBiquadFilter();
       rf.type = "peaking";
@@ -433,10 +424,7 @@ function pBuildEQ() {
         ? effFreqDisplay(i, "right")
         : withSide("right", () => effFreq(i));
       rf.Q.value = pCompQ(i);
-      rf.gain.value = 0;
-      if (plEqOn) {
-        rf.gain.value = nhSim ? rightGains[i] : -rightGains[i];
-      }
+      rf.gain.value = corrR.eq[i];
       pEqFRight.push(rf);
     }
     for (let i = 0; i < pEqFLeft.length - 1; i++) {
@@ -447,88 +435,52 @@ function pBuildEQ() {
     pChannelSplitter.connect(pEqFRight[0], 1);
     pChannelLeftGain = c.createGain();
     pChannelRightGain = c.createGain();
-    const balG = getPlayerBalanceGains();
-    pChannelLeftGain.gain.value = dB2G(balG.left);
-    pChannelRightGain.gain.value = dB2G(balG.right);
+    pChannelLeftGain.gain.value = dB2G(corrL.balance);
+    pChannelRightGain.gain.value = dB2G(corrR.balance);
     pEqFLeft[pEqFLeft.length - 1].connect(pChannelLeftGain);
     pEqFRight[pEqFRight.length - 1].connect(pChannelRightGain);
     pChannelLeftGain.connect(pChannelMerger, 0, 0);
     pChannelRightGain.connect(pChannelMerger, 0, 1);
     pEqF.push(pChannelMerger);
   } else {
-    const gains =
-      mode === "left" || mode === "right"
-        ? withSide(mode, computeGains)
-        : mode === "mono"
-          ? withSide(activeSide, computeGains)
-          : withSide("left", computeGains);
+    const corrSide = (mode === "left" || mode === "right") ? mode : activeSide;
+    const corr = getPlayerCorrection(corrSide);
     for (let i = 0; i < nEl; i++) {
       const f = c.createBiquadFilter();
       f.type = "peaking";
       f.frequency.value = nhSim ? effFreqDisplay(i) : effFreq(i);
       f.Q.value = pCompQ(i);
-      f.gain.value = 0;
-      if (plEqOn) {
-        f.gain.value = nhSim ? gains[i] : -gains[i];
-      }
+      f.gain.value = corr.eq[i];
       pEqF.push(f);
     }
     for (let i = 0; i < pEqF.length - 1; i++) pEqF[i].connect(pEqF[i + 1]);
-    // BA 311: Stereo-Balance auch im Einseiten-Modus. Flacher
-    // Pegel-Offset der aktiven Seite als eigener Gain-Knoten am Ende
-    // der EQ-Kette (analog Channel-Gains im Split-Modus). getPlayerBalanceGains
-    // liefert bereits 0, wenn plApplyBalance aus ist.
     if (pEqF.length > 0) {
       pMonoBalGain = c.createGain();
-      const balG = getPlayerBalanceGains();
-      const balSide = (mode === "left" || mode === "right") ? mode : activeSide;
-      const sideB = (balSide === "right") ? balG.right : balG.left;
-      pMonoBalGain.gain.value = dB2G(sideB);
+      pMonoBalGain.gain.value = dB2G(corr.balance);
       pEqF[pEqF.length - 1].connect(pMonoBalGain);
     }
   }
 }
 
 function pUpdEQ() {
-  const gains = getPlayerGains();
-  const nhSim = document.getElementById("plNHSim").checked;
-  if (typeof gains.left !== "undefined") {
+  const mode = getPlayerSide();
+  if (mode === "both" || mode === "mono") {
+    const corrL = getPlayerCorrection("left");
+    const corrR = getPlayerCorrection("right");
     for (let i = 0; i < pEqFLeft.length; i++) {
-      pEqFLeft[i].gain.value = plEqOn
-        ? nhSim
-          ? gains.left[i]
-          : -gains.left[i]
-        : 0;
+      pEqFLeft[i].gain.value = corrL.eq[i] || 0;
     }
     for (let i = 0; i < pEqFRight.length; i++) {
-      pEqFRight[i].gain.value = plEqOn
-        ? nhSim
-          ? gains.right[i]
-          : -gains.right[i]
-        : 0;
+      pEqFRight[i].gain.value = corrR.eq[i] || 0;
     }
-    if (pChannelLeftGain || pChannelRightGain) {
-      const balG = getPlayerBalanceGains();
-      if (pChannelLeftGain) pChannelLeftGain.gain.value = dB2G(balG.left);
-      if (pChannelRightGain) pChannelRightGain.gain.value = dB2G(balG.right);
-    }
+    if (pChannelLeftGain) pChannelLeftGain.gain.value = dB2G(corrL.balance);
+    if (pChannelRightGain) pChannelRightGain.gain.value = dB2G(corrR.balance);
   } else {
+    const corr = getPlayerCorrection(mode === "right" ? "right" : "left");
     for (let i = 0; i < pEqF.length; i++) {
-      const g = gains[i] || 0;
-      if (plEqOn) {
-        pEqF[i].gain.value = nhSim ? g : -g;
-      } else {
-        pEqF[i].gain.value = 0;
-      }
+      pEqF[i].gain.value = corr.eq[i] || 0;
     }
-    // BA 311: Balance-Gain im Einseiten-Modus live nachziehen.
-    if (pMonoBalGain) {
-      const mode = getPlayerSide();
-      const balG = getPlayerBalanceGains();
-      const balSide = (mode === "left" || mode === "right") ? mode : activeSide;
-      const sideB = (balSide === "right") ? balG.right : balG.left;
-      pMonoBalGain.gain.value = dB2G(sideB);
-    }
+    if (pMonoBalGain) pMonoBalGain.gain.value = dB2G(corr.balance);
   }
   pDrawEQ();
 }
@@ -914,10 +866,10 @@ function pDrawEQ() {
   const ctx = cv.getContext("2d");
   ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, W, H);
-  let gains = getPlayerTotalGains();
-  if (typeof gains.left !== "undefined") {
-    gains = (activeSide === "right") ? gains.right : gains.left;
-  }
+  // BA 313: gleiche Wertquelle wie der Klang. Balken = EQ + flache Balance
+  // der angezeigten Seite (reine Addition gelieferter Werte).
+  const corr = getPlayerCorrection(activeSide);
+  const gains = corr.eq.map(function (v) { return v + corr.balance; });
   const allE = allEl();
   const act = new Set(actEl());
   let mxA = 1;
@@ -985,9 +937,7 @@ function pDrawEQ() {
       cx = tX(j),
       x = cx - bW / 2;
     const isAct = act.has(i);
-    // BA 312: gains[] ist bereits die fertige Pegeländerung (EQ inkl.
-    // plEqOn/nhSim + flache Balance). Balance ist plEqOn-unabhängig,
-    // daher hier kein plEqOn-Gate mehr.
+    // BA 313: gains[] ist EQ + Balance aus getPlayerCorrection; bei EQ aus alles 0.
     let ag = isAct ? gains[i] : 0;
     const bH = (Math.abs(ag) / mxA) * (pH / 2),
       y = ag >= 0 ? zY - bH : zY;

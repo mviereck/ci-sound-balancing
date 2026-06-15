@@ -219,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     plEqOn = !plEqOn;
     updEqToggleBtn();
     pUpdEQ();
+    if (typeof latApplyToPlayer === "function") latApplyToPlayer();
     if (pWarpOn) {
       // getPlaybackBuffer entscheidet anhand plEqOn neu; bei laufender
       // Wiedergabe Pfad an aktueller Position wechseln.
@@ -282,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .getElementById("plNHInfo")
       .classList.toggle("hidden", !this.checked);
     pUpdEQ();
+    if (typeof latApplyToPlayer === "function") latApplyToPlayer();
   });
   // balBalance wurde entfernt – kein Event-Listener nötig
   // document.getElementById("balBalance").addEventListener(...);
