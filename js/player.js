@@ -234,17 +234,6 @@ function computeGains() {
   return g;
 }
 
-function getPlayerGains() {
-  const mode = getPlayerSide();
-  if (mode === "left") return withSide("left", computeGains);
-  if (mode === "right") return withSide("right", computeGains);
-  // BA 306: "both" UND "mono" liefern per-Seite-Gains {left,right}.
-  return {
-    left: withSide("left", computeGains),
-    right: withSide("right", computeGains),
-  };
-}
-
 // BA 313: EINZIGE Wertquelle fuer die Player-Korrektur einer Seite.
 // side: "left" | "right". Rueckgabe { eq:[...], balance:Zahl }, beides in
 // natuerlicher Konvention (positiv = Anhebung am Ohr) und fertig berechnet:

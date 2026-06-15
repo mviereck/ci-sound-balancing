@@ -1026,74 +1026,78 @@ function clearRes() {
 }
 
 // Sammelt die format-unabhaengige Korrektur fuer die System-Equalizer-
-// Exporte (EasyEffects, Equalizer APO). Vorzeichen-, Staerke- und
-// NH-Sim-Logik identisch zur bisherigen exportEasyEffects-Schleife.
+// Exporte (EasyEffects, Equalizer APO). Liest ausschliesslich aus den
+// zentralen Funktionen (getPlayerCorrection, getPlayerLatencyMs) — spiegelt
+// damit exakt den Player (inkl. EQ-Schalter-Gate und nhSim).
 //   bands[i] = { freq, q, gainL, gainR }   (gainL===gainR wenn nicht split)
-//   splitChannels: true  -> echte Stereo-Kurven (Modus "both")
+//   splitChannels: true  -> echte Stereo-Kurven (Modus "both"/"mono")
 //   hasLat/latMs:  Latenz (ms>=0 verzoegert links, ms<0 rechts)
-//   hasBal/balL/balR: Stereo-Balance dB-Pegel pro Ohr (nur Modus "both")
+//   hasBal/balL/balR: Stereo-Balance dB-Pegel pro Ohr in allen Side-Modi
+//                     (Balance pro Ohr, spiegelt den Player)
 //   anyData: false -> nichts zu exportieren
 function collectSysEqCorrection() {
-  const gains = getPlayerGains();
   const mode = getPlayerSide();
-  const nhSim = document.getElementById("plNHSim").checked;
 
-  // BA 307: "both" UND "mono" liefern getrennte Kurven pro Ohr
-  // (getPlayerGains -> {left,right}). Frueher fiel "mono" faelschlich
-  // in den Array-Zweig und verlor die Korrektur.
-  let leftArr, rightArr, splitChannels;
+  // BA 314: Werte ausschliesslich aus der zentralen Quelle
+  // (getPlayerCorrection, player.js). eq[] ist fertig: EQ-Schalter-Gate
+  // + nhSim-Spiegelung, natuerliche Konvention (= was der Player-Filter
+  // setzt). balance = flacher dB-Pegel pro Ohr. So spiegelt der Export
+  // exakt den Player (inkl. nhSim), ohne eigene Rechnung.
+  let leftArr, rightArr, splitChannels, balL, balR;
   if (mode === "both" || mode === "mono") {
-    leftArr = gains.left || [];
-    rightArr = gains.right || [];
+    const corrL = getPlayerCorrection("left");
+    const corrR = getPlayerCorrection("right");
+    leftArr = corrL.eq;
+    rightArr = corrR.eq;
+    balL = corrL.balance;
+    balR = corrR.balance;
     splitChannels = true;
   } else {
-    const arr = Array.isArray(gains) ? gains : [];
-    leftArr = arr;
-    rightArr = arr;
+    const corr = getPlayerCorrection(mode);   // mode === "left" oder "right"
+    leftArr = corr.eq;
+    rightArr = corr.eq;
+    balL = (mode === "left")  ? corr.balance : 0;
+    balR = (mode === "right") ? corr.balance : 0;
     splitChannels = false;
   }
 
-  // BA 307: Stereo->Mono-Mischung wie im Player.
+  // Stereo->Mono-Mischung wie im Player (unveraendert; NICHT am
+  // EQ-Schalter, da der Mono-Downmix ueber den Buffer laeuft).
   // "left"/"right": Monosumme auf das aktive Ohr, Gegenseite stumm.
   // "mono":         Monosumme auf beide Ohren (EQ bleibt pro Ohr getrennt).
   const monoSum = (mode === "left" || mode === "right" || mode === "mono");
   const muteCh = mode === "left" ? "R" : mode === "right" ? "L" : null;
 
-  const hasGain = (arr) => arr.some((v) => v !== 0);
-  const hasLat = plApplyLatency && latencyResult
-    && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0;
-  // BA 307: Balance gilt im Player bei "both" UND "mono" (Channel-Gains
-  // in pBuildEQ via _pUseSplitChains). Frueher nur "both".
-  const balG = ((mode === "both" || mode === "mono") && plApplyBalance)
-    ? getPlayerBalanceGains() : { left: 0, right: 0 };
-  const hasBal = balG.left !== 0 || balG.right !== 0;
+  const latMs = (typeof getPlayerLatencyMs === "function")
+    ? getPlayerLatencyMs() : 0;
+  const hasLat = latMs !== 0;
+  const hasBal = balL !== 0 || balR !== 0;
 
+  const hasGain = (arr) => arr.some((v) => v !== 0);
   const anyData =
     hasGain(leftArr) || hasGain(rightArr) || plEqOn || hasLat || hasBal
     || monoSum;
 
   const bands = [];
   for (let i = 0; i < nEl; i++) {
-    const gL = plEqOn
-      ? nhSim ? (leftArr[i] || 0) : -(leftArr[i] || 0)
-      : 0;
-    const gR = plEqOn
-      ? nhSim ? (rightArr[i] || 0) : -(rightArr[i] || 0)
-      : 0;
-    bands.push({ freq: effFreq(i), q: pCompQ(i), gainL: gL, gainR: gR });
+    bands.push({
+      freq: effFreq(i),
+      q: pCompQ(i),
+      gainL: leftArr[i] || 0,
+      gainR: rightArr[i] || 0,
+    });
   }
 
-  const ms = hasLat ? latencyResult.valueMs : 0;
   return {
     bands,
     splitChannels,
     monoSum,
     muteCh,
     hasLat,
-    latMs: ms,
+    latMs,
     hasBal,
-    balL: balG.left,
-    balR: balG.right,
+    balL,
+    balR,
     anyData,
   };
 }
