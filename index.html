@@ -1878,9 +1878,15 @@
       <!-- ===== LINKS ===== -->
       <div id="panel-links" class="panel">
 
+        <!-- Kopf-Karte: Seitentitel + Einleitung -->
         <div class="card">
           <h2 data-t="linksTitle"></h2>
           <p data-t="linksIntro"></p>
+        </div>
+
+        <!-- Karte 1: Streaming an Hörgeräte -->
+        <div class="card">
+          <h2 data-t="linksStreamingTitle"></h2>
 
           <article class="link-entry">
             <h3>eira</h3>
@@ -1904,16 +1910,18 @@
           </article>
 
           <article class="link-entry">
-            <h3>HearWell</h3>
+            <h3>asha_pipewire_sink</h3>
             <p class="link-entry-urls">
-              <span data-t="linksHomepageLabel"></span>:
-              <a href="https://hearwell.life/" target="_blank" rel="noopener noreferrer">hearwell.life</a>
-              &nbsp;·&nbsp;
               <span data-t="linksProjectLabel"></span>:
-              <a href="https://github.com/rebelias/Hearwell" target="_blank" rel="noopener noreferrer">github.com/rebelias/Hearwell</a>
+              <a href="https://github.com/thewierdnut/asha_pipewire_sink" target="_blank" rel="noopener noreferrer">github.com/thewierdnut/asha_pipewire_sink</a>
             </p>
-            <p data-t="linksHearwellDesc"></p>
+            <p data-t="linksAshaPwDesc"></p>
           </article>
+        </div>
+
+        <!-- Karte 2: CI-Anpassung & Testtöne -->
+        <div class="card">
+          <h2 data-t="linksFittingTitle"></h2>
 
           <article class="link-entry">
             <h3>Binaural CI Alignment</h3>
@@ -1925,13 +1933,30 @@
           </article>
 
           <article class="link-entry">
-            <h3>asha_pipewire_sink</h3>
+            <h3>Online Tone Generator</h3>
             <p class="link-entry-urls">
-              <span data-t="linksProjectLabel"></span>:
-              <a href="https://github.com/thewierdnut/asha_pipewire_sink" target="_blank" rel="noopener noreferrer">github.com/thewierdnut/asha_pipewire_sink</a>
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://onlinetonegenerator.com/" target="_blank" rel="noopener noreferrer">onlinetonegenerator.com</a>
             </p>
-            <p data-t="linksAshaPwDesc"></p>
+            <p data-t="linksToneGenDesc"></p>
           </article>
+
+          <article class="link-entry">
+            <h3>HearWell</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://hearwell.life/" target="_blank" rel="noopener noreferrer">hearwell.life</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksProjectLabel"></span>:
+              <a href="https://github.com/rebelias/Hearwell" target="_blank" rel="noopener noreferrer">github.com/rebelias/Hearwell</a>
+            </p>
+            <p data-t="linksHearwellDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 4: Hörtraining -->
+        <div class="card">
+          <h2 data-t="linksTrainingTitle"></h2>
 
           <article class="link-entry">
             <h3>MUSIC REHAB</h3>
@@ -1943,13 +1968,99 @@
           </article>
 
           <article class="link-entry">
-            <h3>Online Tone Generator</h3>
+            <h3>Schallquelle</h3>
             <p class="link-entry-urls">
               <span data-t="linksHomepageLabel"></span>:
-              <a href="https://onlinetonegenerator.com/" target="_blank" rel="noopener noreferrer">onlinetonegenerator.com</a>
+              <a href="https://schallquelle.app/" target="_blank" rel="noopener noreferrer">schallquelle.app</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksPlayLabel"></span>:
+              <a href="https://play.google.com/store/apps/details?id=florianbiedermann.de.schallquelle" target="_blank" rel="noopener noreferrer">play.google.com</a>
             </p>
-            <p data-t="linksToneGenDesc"></p>
+            <p data-t="linksSchallquelleDesc"></p>
           </article>
+
+          <article class="link-entry">
+            <h3>ReDi</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksArticleLabel"></span>:
+              <a href="https://blog.medel.com/de/tipps-tricks/hoertrainings-app-redi-ihr-trainingspartner-fuer-besseren-hoererfolg-mit-cochlea-implantaten/" target="_blank" rel="noopener noreferrer">blog.medel.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksPlayLabel"></span>:
+              <a href="https://play.google.com/store/apps/details?id=com.medel.ai.redi" target="_blank" rel="noopener noreferrer">play.google.com</a>
+            </p>
+            <p data-t="linksRediDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Meludia</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://meludia.com/de/" target="_blank" rel="noopener noreferrer">meludia.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksArticleLabel"></span>:
+              <a href="https://blog.medel.com/de/technologie/neues-online-gehoertraining-fuer-mehr-musikgenuss-mit-hoerimplantat/" target="_blank" rel="noopener noreferrer">blog.medel.com</a>
+            </p>
+            <p data-t="linksMeludiaDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 5: Von CImbel genutzte und unterstützte Software -->
+        <div class="card">
+          <h2 data-t="linksSoftwareTitle"></h2>
+          <p data-t="linksSoftwareIntro"></p>
+
+          <article class="link-entry">
+            <h3>RubberBand</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://breakfastquay.com/rubberband/" target="_blank" rel="noopener noreferrer">breakfastquay.com/rubberband</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/breakfastquay/rubberband" target="_blank" rel="noopener noreferrer">github.com/breakfastquay/rubberband</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksWasmLabel"></span>:
+              <a href="https://github.com/Daninet/rubberband-wasm" target="_blank" rel="noopener noreferrer">github.com/Daninet/rubberband-wasm</a>
+            </p>
+            <p data-t="linksRubberbandDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>smplr</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://danigb.github.io/smplr/" target="_blank" rel="noopener noreferrer">danigb.github.io/smplr</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/danigb/smplr" target="_blank" rel="noopener noreferrer">github.com/danigb/smplr</a>
+            </p>
+            <p data-t="linksSmplrDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>EasyEffects</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://github.com/wwmm/easyeffects" target="_blank" rel="noopener noreferrer">github.com/wwmm/easyeffects</a>
+            </p>
+            <p data-t="linksEasyeffectsDesc"></p>
+          </article>
+
+          <article class="link-entry">
+            <h3>Equalizer APO</h3>
+            <p class="link-entry-urls">
+              <span data-t="linksHomepageLabel"></span>:
+              <a href="https://equalizerapo.com/" target="_blank" rel="noopener noreferrer">equalizerapo.com</a>
+              &nbsp;·&nbsp;
+              <span data-t="linksSourceLabel"></span>:
+              <a href="https://sourceforge.net/projects/equalizerapo/" target="_blank" rel="noopener noreferrer">sourceforge.net/projects/equalizerapo</a>
+            </p>
+            <p data-t="linksEqapoDesc"></p>
+          </article>
+        </div>
+
+        <!-- Karte 6: Wissen & Lesestoff -->
+        <div class="card">
+          <h2 data-t="linksKnowledgeTitle"></h2>
 
           <article class="link-entry">
             <h3>Hör-Wiki</h3>
@@ -1970,6 +2081,7 @@
           </article>
         </div>
 
+        <!-- Karte 5: Quellen für verwendete Audiodateien (unverändert) -->
         <div class="card">
           <h2 data-t="linksAudioTitle"></h2>
           <p data-t="linksAudioIntro"></p>

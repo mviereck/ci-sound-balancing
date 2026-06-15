@@ -1018,6 +1018,26 @@ Object.assign(L.en, {
     linksProjectLabel: "Project page",
     linksWebsiteLabel: "Website",
     linksMirrorLabel: "Unofficial mirror",
+    linksSourceLabel: "Source code",
+    linksWasmLabel: "WASM port",
+
+    linksStreamingTitle: "Streaming to hearing devices",
+    linksFittingTitle: "CI fitting & test tones",
+    linksSoftwareTitle: "Software used and supported by CImbel",
+    linksSoftwareIntro: "Libraries built into CImbel, and equalizer programs for which CImbel can generate matching configuration files.",
+    linksKnowledgeTitle: "Knowledge & reading",
+    linksTrainingTitle: "Hearing training",
+    linksPlayLabel: "Google Play",
+    linksArticleLabel: "Overview",
+
+    linksSchallquelleDesc: "High-quality training app for CI users for recognizing sounds and understanding speech. One-time payment of 5 euros, no subscription.",
+    linksRediDesc: "Speech hearing-training app by MED-EL. Available with a MED-EL account.",
+    linksMeludiaDesc: "Professional app for training music listening. Available with a MED-EL account.",
+
+    linksRubberbandDesc: "High-quality open-source library for time-stretching and pitch-shifting audio — tempo and pitch can be changed independently of one another. CImbel uses the WebAssembly variant (RubberBand-WASM) for the frequency-matching simulation.",
+    linksSmplrDesc: "Collection of ready-to-play sampled instruments for the Web Audio API, usable in the browser immediately and without setup. CImbel uses smplr for the Mellotron sounds of the CI test tones.",
+    linksEasyeffectsDesc: "Equalizer for Linux that can play back the computer's sound the way CImbel's player does — according to the measurement results. CImbel can generate matching configuration files for EasyEffects.",
+    linksEqapoDesc: "Open-source equalizer for Windows. Plays back the computer's sound the way CImbel's player does — according to the measurement results. CImbel can generate matching configuration files for Equalizer APO.",
 
     linksEiraDesc: "People with single-sided hearing provision live in two worlds — this becomes particularly clear when streaming. eira connects these two worlds: A mono or stereo audio stream is sent to eira, split there and simultaneously sent to the hearing aid provision and to normal headphones. Both devices have different latencies and volumes — with eira these can be matched to each other. This makes a streamed audio signal enjoyable on both “ears” without latency offset and with harmonized loudness.",
 
@@ -1029,13 +1049,13 @@ Object.assign(L.en, {
 
     linksAshaPwDesc: "Example ASHA implementation for Linux that works with Pipewire and Bluez. Detects ASHA-compatible hearing aids connected via Bluetooth and creates virtual Pipewire sinks that the user can select to stream audio to the hearing aids.",
 
-    linksMusicRehabDesc: "Rediscovering the joy of music through the cochlear implant is the real hearing goal for almost every user: music should sound as natural as one remembers it. Those who want to lead their brain back to the music experience of the past will find another tool in the Music Rehab area. Together with the rehabilitation programs of the CI manufacturers, radio and music apps, YouTube music videos (with lyrics) and many other techniques, music can become enjoyable again. Music is more complex than speech and accordingly requires more time and practice — the goal is worth it. Solo musicians from all over the world present their instrument individually, so that the brain can get to know each instrument anew.",
+    linksMusicRehabDesc: "Solo musicians from all over the world present their instrument individually, so that the brain can get to know each instrument anew.",
 
-    linksToneGenDesc: "Free, simple and uncomplicated to use.",
+    linksToneGenDesc: "Generate tones in the browser.",
 
     linksHoerwikiDesc: "Wiki on hearing provision, hearing aids, cochlear implants and related topics.",
 
-    linksGutenbergDesc: "Project Gutenberg is an online library with more than 75,000 free eBooks.",
+    linksGutenbergDesc: "Project Gutenberg is an online library with more than 75,000 free eBooks. It also includes many audiobooks, which can be found via the search function.",
 
     linksAudioTitle: "Sources of the audio files used",
     linksAudioIntro: "Origin of the speech recordings used in the player.",

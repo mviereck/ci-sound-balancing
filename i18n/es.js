@@ -1018,6 +1018,26 @@ Object.assign(L.es, {
     linksProjectLabel: "Página del proyecto",
     linksWebsiteLabel: "Sitio web",
     linksMirrorLabel: "Mirror no oficial",
+    linksSourceLabel: "Código fuente",
+    linksWasmLabel: "Adaptación WASM",
+
+    linksStreamingTitle: "Streaming a dispositivos auditivos",
+    linksFittingTitle: "Ajuste del IC y tonos de prueba",
+    linksSoftwareTitle: "Software usado y compatible con CImbel",
+    linksSoftwareIntro: "Bibliotecas integradas en CImbel y programas ecualizadores para los que CImbel puede generar archivos de configuración adecuados.",
+    linksKnowledgeTitle: "Conocimiento y lecturas",
+    linksTrainingTitle: "Entrenamiento auditivo",
+    linksPlayLabel: "Google Play",
+    linksArticleLabel: "Presentación",
+
+    linksSchallquelleDesc: "Aplicación de entrenamiento de alta calidad para portadores de IC, para reconocer sonidos y entender el habla. Pago único de 5 euros, sin suscripción.",
+    linksRediDesc: "Aplicación de entrenamiento auditivo para el habla, de MED-EL. Disponible con una cuenta MED-EL.",
+    linksMeludiaDesc: "Aplicación profesional para entrenar la escucha de música. Disponible con una cuenta MED-EL.",
+
+    linksRubberbandDesc: "Biblioteca open-source de alta calidad para estirar el tiempo y desplazar el tono del audio — el tempo y el tono pueden modificarse de forma independiente. CImbel utiliza la variante WebAssembly (RubberBand-WASM) para la simulación del ajuste de frecuencia.",
+    linksSmplrDesc: "Colección de instrumentos muestreados listos para usar para la Web Audio API, utilizables de inmediato en el navegador y sin configuración. CImbel utiliza smplr para los sonidos de Mellotron de los tonos de prueba del IC.",
+    linksEasyeffectsDesc: "Ecualizador para Linux que puede reproducir el sonido del ordenador como lo hace el reproductor de CImbel — según los resultados de la medición. CImbel puede generar archivos de configuración adecuados para EasyEffects.",
+    linksEqapoDesc: "Ecualizador open-source para Windows. Reproduce el sonido del ordenador como lo hace el reproductor de CImbel — según los resultados de la medición. CImbel puede generar archivos de configuración adecuados para Equalizer APO.",
 
     linksEiraDesc: "Las personas con provisión auditiva unilateral viven en dos mundos — esto se nota especialmente al hacer streaming. eira conecta esos dos mundos: un flujo de audio mono o estéreo se envía a eira, allí se divide y se envía simultáneamente a la provisión auditiva y a unos auriculares normales. Ambos dispositivos tienen latencias y volúmenes distintos — con eira pueden ajustarse entre sí. Así, una señal de audio en streaming puede disfrutarse en ambos «oídos» sin desfase de latencia y con volumen armonizado.",
 
@@ -1029,13 +1049,13 @@ Object.assign(L.es, {
 
     linksAshaPwDesc: "Implementación ejemplar de ASHA para Linux, que coopera con Pipewire y Bluez. Detecta audífonos compatibles con ASHA conectados por Bluetooth y crea sinks virtuales de Pipewire que el usuario puede seleccionar para enviar audio a los audífonos.",
 
-    linksMusicRehabDesc: "Volver a disfrutar de la música a través del implante coclear es, para casi cualquier portador, el verdadero objetivo auditivo: la música debe sonar de nuevo tan natural como se recuerda. Quien quiera reentrenar el cerebro hacia la experiencia musical de antes encuentra en el área de Music Rehab otra herramienta útil. Junto con los programas de rehabilitación de los fabricantes de IC, apps de radio y música, vídeos musicales de YouTube (con letra) y muchas otras técnicas, la música puede volver a ser un placer. La música es más compleja que el habla y necesita más tiempo y práctica — el objetivo merece la pena. Solistas de todo el mundo presentan su instrumento individualmente, para que el cerebro pueda volver a conocer cada instrumento.",
+    linksMusicRehabDesc: "Solistas de todo el mundo presentan su instrumento individualmente, para que el cerebro pueda volver a conocer cada instrumento.",
 
-    linksToneGenDesc: "Gratuito, sencillo y fácil de usar.",
+    linksToneGenDesc: "Generar tonos en el navegador.",
 
     linksHoerwikiDesc: "Wiki sobre provisión auditiva, audífonos, implantes cocleares y temas relacionados.",
 
-    linksGutenbergDesc: "Project Gutenberg es una biblioteca en línea con más de 75 000 eBooks gratuitos.",
+    linksGutenbergDesc: "Project Gutenberg es una biblioteca en línea con más de 75 000 eBooks gratuitos. Incluye también muchos audiolibros, que se pueden encontrar mediante la función de búsqueda.",
 
     linksAudioTitle: "Fuentes de los archivos de audio utilizados",
     linksAudioIntro: "Origen de las grabaciones de voz utilizadas en el reproductor.",
