@@ -1782,6 +1782,284 @@ document.querySelectorAll(".pl-vol-btn").forEach(function (b) {
 });
 
 // ============================================================
+// BA330: Generische Filter-Ketten-Mechanik (Musik + Geraeusche)
+// ============================================================
+
+// PL_FILTER_DECL[cat]: Deklaration der Filter-Stages je Kategorie.
+// Stages werden von plBuildFilterChain generisch gebaut/verdrahtet.
+// collection-sel / chapter-sel / speaker-sel kommen in BA331/332.
+var PL_FILTER_DECL = {};
+
+// Generische Mechanik: baut/befuellt/verdrahtet die existierenden DOM-Elemente
+// gemaess catDecl. Event-Wiring nur einmalig (Flag catDecl._wired).
+function plBuildFilterChain(catDecl) {
+  if (!catDecl) return;
+  var stages = catDecl.stages || [];
+
+  // Early-Exit-Guard: pruefen ob alle noetigen DOM-Elemente vorhanden sind.
+  for (var i = 0; i < stages.length; i++) {
+    var st = stages[i];
+    if (st.domId) {
+      var el = document.getElementById(st.domId);
+      if (!el) return;
+    }
+  }
+
+  // --- Befuellen / Label-Refresh ---
+  for (var si = 0; si < stages.length; si++) {
+    var stage = stages[si];
+    if (!stage.domId) continue;
+    var domEl = document.getElementById(stage.domId);
+    if (!domEl) continue;
+
+    if (stage.kind === "axis-sel") {
+      // Sortier-Achsen-Dropdown
+      var axes = (typeof amSortAxesFor === "function") ? amSortAxesFor(catDecl.category) : [];
+      if (domEl.options.length === 0) {
+        // Erste Befuellung: Optionen erzeugen
+        for (var ai = 0; ai < axes.length; ai++) {
+          var a = axes[ai];
+          var opt = document.createElement("option");
+          opt.value = a.key;
+          opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
+          domEl.appendChild(opt);
+        }
+        domEl.value = catDecl.stateRef.getSortAxis();
+      } else {
+        // Spater: nur Labels aktualisieren
+        for (var oi = 0; oi < domEl.options.length; oi++) {
+          var op = domEl.options[oi];
+          var ax = axes.find(function (x) { return x.key === op.value; });
+          if (ax) op.textContent = (typeof t === "function") ? t(ax.labelKey) : ax.labelDefault;
+        }
+      }
+
+    } else if (stage.kind === "bucket-sel") {
+      // Kategorie-Dropdown (abhaengig von aktueller Sortier-Achse)
+      var allItems = (typeof amCollectItems === "function") ? amCollectItems(catDecl.category) : [];
+      var buckets = (typeof amBucketsForAxis === "function")
+        ? amBucketsForAxis(catDecl.category, catDecl.stateRef.getSortAxis(), allItems) : [];
+      var prevCatVal = catDecl.stateRef.getCategory();
+      // Immer neu aufbauen (bucket-Liste haengt von Achse ab)
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+      var optAll2 = document.createElement("option");
+      optAll2.value = "_all";
+      optAll2.textContent = (typeof t === "function") ? t(stage.allLabelKey || "plCatAll") : "(alle)";
+      domEl.appendChild(optAll2);
+      for (var bi = 0; bi < buckets.length; bi++) {
+        var bk = buckets[bi];
+        var bopt = document.createElement("option");
+        bopt.value = bk;
+        bopt.textContent = bk;
+        domEl.appendChild(bopt);
+      }
+      if (buckets.indexOf(prevCatVal) >= 0 || prevCatVal === "_all") {
+        domEl.value = prevCatVal;
+      } else {
+        domEl.value = "_all";
+        catDecl.stateRef.setCategory("_all");
+      }
+      domEl.disabled = (buckets.length === 0);
+      domEl.style.opacity = domEl.disabled ? "0.5" : "1";
+
+    } else if (stage.kind === "search") {
+      // Suchfeld: nur schreiben wenn nicht fokussiert
+      if (document.activeElement !== domEl) {
+        domEl.value = catDecl.stateRef.getSearchQuery() || "";
+      }
+
+    } else if (stage.kind === "item-sel") {
+      // Item-Dropdown aus gefilterter/sortierter Sicht
+      var emptyEl = stage.emptyDomId ? document.getElementById(stage.emptyDomId) : null;
+      var visible = catDecl.visibleItems();
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+      for (var vi = 0; vi < visible.length; vi++) {
+        var vit = visible[vi];
+        var vopt = document.createElement("option");
+        vopt.value = vit.id;
+        vopt.textContent = stage.getItemLabel ? stage.getItemLabel(vit) : (vit.title || vit.id);
+        domEl.appendChild(vopt);
+      }
+      if (visible.length === 0) {
+        if (emptyEl) emptyEl.style.display = "";
+        domEl.disabled = true;
+        if (stage.onEmpty) stage.onEmpty();
+      } else {
+        if (emptyEl) emptyEl.style.display = "none";
+        domEl.disabled = false;
+        var hasId = visible.some(function (x) { return x.id === catDecl.stateRef.getSelectedId(); });
+        if (!hasId) {
+          catDecl.stateRef.setSelectedId(visible[0].id);
+        }
+        domEl.value = catDecl.stateRef.getSelectedId();
+      }
+    }
+  }
+
+  // Nach vollstaendigem Refresh: kategorie-spezifische Callbacks
+  if (catDecl.afterRefresh) catDecl.afterRefresh();
+
+  // --- Event-Wiring (einmalig) ---
+  if (catDecl._wired) return;
+  catDecl._wired = true;
+
+  for (var wi = 0; wi < stages.length; wi++) {
+    (function (wstage) {
+      if (!wstage.domId) return;
+      var wel = document.getElementById(wstage.domId);
+      if (!wel) return;
+
+      if (wstage.kind === "axis-sel") {
+        wel.addEventListener("change", function () {
+          catDecl.stateRef.setSortAxis(wel.value);
+          catDecl.stateRef.setCategory("_all"); // Achswechsel resettet Kategorie
+          plBuildFilterChain(catDecl);
+        });
+
+      } else if (wstage.kind === "bucket-sel") {
+        wel.addEventListener("change", function () {
+          catDecl.stateRef.setCategory(wel.value);
+          plBuildFilterChain(catDecl);
+        });
+
+      } else if (wstage.kind === "search") {
+        wel.addEventListener("input", function () {
+          catDecl.stateRef.setSearchQuery(wel.value || "");
+          plBuildFilterChain(catDecl);
+        });
+
+      } else if (wstage.kind === "item-sel") {
+        wel.addEventListener("change", function () {
+          catDecl.stateRef.setSelectedId(wel.value);
+          if (wstage.onItemSelect) wstage.onItemSelect(wel.value);
+        });
+      }
+    })(stages[wi]);
+  }
+
+  // Zusaetzliches Extra-Wiring je Kategorie (z.B. Ordner-Upload fuer Musik)
+  if (catDecl.extraWiring) catDecl.extraWiring();
+}
+
+// Deklaration: Musik
+PL_FILTER_DECL.musik = {
+  category: "musik",
+  _wired: false,
+  stateRef: {
+    getSortAxis:    function () { return plMusicSortAxis; },
+    setSortAxis:    function (v) { plMusicSortAxis = v; },
+    getCategory:    function () { return plMusicCategory; },
+    setCategory:    function (v) { plMusicCategory = v; },
+    getSearchQuery: function () { return plMusicSearchQuery; },
+    setSearchQuery: function (v) { plMusicSearchQuery = v; },
+    getSelectedId:  function () { return plMusicSelectedId; },
+    setSelectedId:  function (v) { plMusicSelectedId = v; }
+  },
+  visibleItems: function () { return plMusicVisibleItems(); },
+  stages: [
+    {
+      id: "sort", kind: "axis-sel", domId: "plMusicSortSel"
+    },
+    {
+      id: "cat", kind: "bucket-sel", domId: "plMusicCatSel",
+      allLabelKey: "plMusicCatAll"
+    },
+    {
+      id: "search", kind: "search", domId: "plMusicSearchInput"
+    },
+    {
+      id: "item", kind: "item-sel", domId: "plMusicItemSel",
+      emptyDomId: "plMusicEmpty",
+      getItemLabel: function (it) { return _plMusicTrackLabel(it); },
+      onEmpty: function () { plMusicSelectedId = null; },
+      onItemSelect: function (id) { plMusicSetSelected(id); }
+    }
+  ],
+  afterRefresh: function () {
+    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+    if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  },
+  extraWiring: function () {
+    // BA261: Ordner-Upload
+    var localAdd   = document.getElementById("plMusicLocalAddBtn");
+    var localInput = document.getElementById("plMusicLocalInput");
+    if (localAdd && localInput) {
+      localAdd.addEventListener("click", function () {
+        localInput.value = "";
+        localInput.click();
+      });
+      localInput.addEventListener("change", async function (e) {
+        try {
+          var res = await amMusicIngestLocalFolder(e.target.files);
+          if (res && res.cid) {
+            var visible = plMusicVisibleItems();
+            var firstOfFolder = visible.find(function (x) {
+              return typeof x.audio === "string"
+                && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
+            });
+            if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
+          }
+          plMusicRefreshLocalList();
+          plMusicRefreshUI();
+        } catch (err) {
+          console.error("[player/musik] ingest folder failed:", err);
+        }
+      });
+    }
+    plMusicRefreshLocalList();
+    plMusicRefreshUI();
+  }
+};
+
+// Deklaration: Geraeusche
+PL_FILTER_DECL.geraeusche = {
+  category: "geraeusche",
+  _wired: false,
+  stateRef: {
+    getSortAxis:    function () { return plNoiseSortAxis; },
+    setSortAxis:    function (v) { plNoiseSortAxis = v; },
+    getCategory:    function () { return plNoiseCategory; },
+    setCategory:    function (v) { plNoiseCategory = v; },
+    getSearchQuery: function () { return plNoiseSearchQuery; },
+    setSearchQuery: function (v) { plNoiseSearchQuery = v; },
+    getSelectedId:  function () { return plNoiseSelectedId; },
+    setSelectedId:  function (v) { plNoiseSelectedId = v; }
+  },
+  visibleItems: function () { return plNoiseVisibleItems(); },
+  stages: [
+    {
+      id: "sort", kind: "axis-sel", domId: "plNoiseSortSel"
+    },
+    {
+      id: "cat", kind: "bucket-sel", domId: "plNoiseCatSel",
+      allLabelKey: "plNoiseCatAll"
+    },
+    {
+      id: "search", kind: "search", domId: "plNoiseSearchInput"
+    },
+    {
+      id: "item", kind: "item-sel", domId: "plNoiseItemSel",
+      emptyDomId: "plNoiseEmpty",
+      getItemLabel: function (it) { return it.title || it.id; },
+      onItemSelect: function (id) {
+        plNoiseSelectedId = id;
+        if (plActiveSource === "noise") {
+          var wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
+          if (wasPlaying) { if (typeof pPause === "function") pPause(); }
+          plNoiseLoadSelected().then(function () {
+            if (wasPlaying && typeof pPlay === "function") pPlay();
+          });
+        }
+        if (typeof plUpdDisplay === "function") plUpdDisplay();
+      }
+    }
+  ],
+  afterRefresh: function () {
+    if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+  }
+};
+
+// ============================================================
 // BA193: Geraeusche-Quelle
 // ============================================================
 
@@ -1815,79 +2093,7 @@ function plNoiseVisibleItems() {
 }
 
 function plNoiseRefreshUI() {
-  const sortSel = document.getElementById("plNoiseSortSel");
-  const catSel  = document.getElementById("plNoiseCatSel");
-  const itemSel = document.getElementById("plNoiseItemSel");
-  const search  = document.getElementById("plNoiseSearchInput");
-  const empty   = document.getElementById("plNoiseEmpty");
-  if (!sortSel || !catSel || !itemSel) return;
-
-  // Sortier-Achsen-Dropdown
-  const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("geraeusche") : [];
-  if (sortSel.options.length === 0) {
-    for (const a of axes) {
-      const opt = document.createElement("option");
-      opt.value = a.key;
-      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
-      sortSel.appendChild(opt);
-    }
-    sortSel.value = plNoiseSortAxis;
-  } else {
-    for (let i = 0; i < sortSel.options.length; i++) {
-      const opt = sortSel.options[i];
-      const a = axes.find(function (x) { return x.key === opt.value; });
-      if (a) opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
-    }
-  }
-
-  // Kategorie-Dropdown (abhaengig von Achse)
-  const all = plNoiseAllItems();
-  const buckets = amBucketsForAxis("geraeusche", plNoiseSortAxis, all);
-  while (catSel.firstChild) catSel.removeChild(catSel.firstChild);
-  const optAll = document.createElement("option");
-  optAll.value = "_all";
-  optAll.textContent = (typeof t === "function") ? t("plNoiseCatAll") : "(alle)";
-  catSel.appendChild(optAll);
-  for (const b of buckets) {
-    const opt = document.createElement("option");
-    opt.value = b;
-    opt.textContent = b;
-    catSel.appendChild(opt);
-  }
-  if (buckets.indexOf(plNoiseCategory) >= 0 || plNoiseCategory === "_all") {
-    catSel.value = plNoiseCategory;
-  } else {
-    catSel.value = "_all";
-    plNoiseCategory = "_all";
-  }
-  catSel.disabled = (buckets.length === 0);
-  catSel.style.opacity = catSel.disabled ? "0.5" : "1";
-
-  // Suchfeld
-  if (search && document.activeElement !== search) search.value = plNoiseSearchQuery || "";
-
-  // Item-Dropdown aus gefilterter Sicht
-  const visible = plNoiseVisibleItems();
-  while (itemSel.firstChild) itemSel.removeChild(itemSel.firstChild);
-  for (const it of visible) {
-    const opt = document.createElement("option");
-    opt.value = it.id;
-    opt.textContent = it.title || it.id;
-    itemSel.appendChild(opt);
-  }
-  if (visible.length === 0) {
-    if (empty) empty.style.display = "";
-    itemSel.disabled = true;
-  } else {
-    if (empty) empty.style.display = "none";
-    itemSel.disabled = false;
-    const has = visible.some(function (x) { return x.id === plNoiseSelectedId; });
-    if (!has) {
-      plNoiseSelectedId = visible[0].id;
-    }
-    itemSel.value = plNoiseSelectedId;
-  }
-  if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+  plBuildFilterChain(PL_FILTER_DECL.geraeusche);
 }
 
 function plNoiseCurrentItem() {
@@ -1909,43 +2115,6 @@ async function plNoiseLoadSelected() {
   pBuildEQ();
   pDrawEQ();
   document.getElementById("plEqViz").style.display = "";
-}
-
-const _plNSortEl = document.getElementById("plNoiseSortSel");
-const _plNCatEl  = document.getElementById("plNoiseCatSel");
-const _plNItemEl = document.getElementById("plNoiseItemSel");
-const _plNSearchEl = document.getElementById("plNoiseSearchInput");
-if (_plNSortEl) {
-  _plNSortEl.addEventListener("change", function () {
-    plNoiseSortAxis = _plNSortEl.value;
-    plNoiseCategory = "_all";  // Achswechsel resettet Kategorie
-    plNoiseRefreshUI();
-  });
-}
-if (_plNCatEl) {
-  _plNCatEl.addEventListener("change", function () {
-    plNoiseCategory = _plNCatEl.value;
-    plNoiseRefreshUI();
-  });
-}
-if (_plNSearchEl) {
-  _plNSearchEl.addEventListener("input", function () {
-    plNoiseSearchQuery = _plNSearchEl.value || "";
-    plNoiseRefreshUI();
-  });
-}
-if (_plNItemEl) {
-  _plNItemEl.addEventListener("change", function () {
-    plNoiseSelectedId = _plNItemEl.value;
-    if (plActiveSource === "noise") {
-      const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
-      if (wasPlaying) { if (typeof pPause === "function") pPause(); }
-      plNoiseLoadSelected().then(function () {
-        if (wasPlaying && typeof pPlay === "function") pPlay();
-      });
-    }
-    if (typeof plUpdDisplay === "function") plUpdDisplay();
-  });
 }
 
 // ============================================================
@@ -1999,84 +2168,7 @@ function _plMusicTrackLabel(it) {
 }
 
 function plMusicRefreshUI() {
-  const sortSel = document.getElementById("plMusicSortSel");
-  const catSel  = document.getElementById("plMusicCatSel");
-  const itemSel = document.getElementById("plMusicItemSel");
-  const search  = document.getElementById("plMusicSearchInput");
-  const empty   = document.getElementById("plMusicEmpty");
-  if (!sortSel || !catSel || !itemSel) return;
-
-  // Sortier-Achsen-Dropdown
-  const axes = (typeof amSortAxesFor === "function") ? amSortAxesFor("musik") : [];
-  if (sortSel.options.length === 0) {
-    for (const a of axes) {
-      const opt = document.createElement("option");
-      opt.value = a.key;
-      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
-      sortSel.appendChild(opt);
-    }
-    sortSel.value = plMusicSortAxis;
-  } else {
-    for (let i = 0; i < sortSel.options.length; i++) {
-      const opt = sortSel.options[i];
-      const a = axes.find(function (x) { return x.key === opt.value; });
-      if (a) opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
-    }
-  }
-
-  // Kategorien-Dropdown (abhaengig von Achse)
-  const all = plMusicAllItems();
-  const buckets = amBucketsForAxis("musik", plMusicSortAxis, all);
-  const prevCat = plMusicCategory;
-  while (catSel.firstChild) catSel.removeChild(catSel.firstChild);
-  const optAll = document.createElement("option");
-  optAll.value = "_all";
-  optAll.textContent = (typeof t === "function") ? t("plMusicCatAll") : "(alle)";
-  catSel.appendChild(optAll);
-  for (const b of buckets) {
-    const opt = document.createElement("option");
-    opt.value = b;
-    opt.textContent = b;
-    catSel.appendChild(opt);
-  }
-  if (buckets.indexOf(prevCat) >= 0 || prevCat === "_all") {
-    catSel.value = prevCat;
-  } else {
-    catSel.value = "_all";
-    plMusicCategory = "_all";
-  }
-  // Achsen ohne sinnvolle Buckets: Kategorie ausgrauen.
-  catSel.disabled = (buckets.length === 0);
-  catSel.style.opacity = catSel.disabled ? "0.5" : "1";
-
-  // Suchfeld
-  if (search && document.activeElement !== search) search.value = plMusicSearchQuery || "";
-
-  // Track-Dropdown
-  const visible = plMusicVisibleItems();
-  while (itemSel.firstChild) itemSel.removeChild(itemSel.firstChild);
-  for (const it of visible) {
-    const opt = document.createElement("option");
-    opt.value = it.id;
-    opt.textContent = _plMusicTrackLabel(it);
-    itemSel.appendChild(opt);
-  }
-  if (visible.length === 0) {
-    if (empty) empty.style.display = "";
-    itemSel.disabled = true;
-    plMusicSelectedId = null;
-  } else {
-    if (empty) empty.style.display = "none";
-    itemSel.disabled = false;
-    // bisherige Auswahl behalten, wenn moeglich
-    const has = visible.some(function (x) { return x.id === plMusicSelectedId; });
-    if (!has) {
-      plMusicSelectedId = visible[0].id;
-    }
-    itemSel.value = plMusicSelectedId;
-  }
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
+  plBuildFilterChain(PL_FILTER_DECL.musik);
 }
 
 // Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf und ruft pBuildEQ.
@@ -2199,60 +2291,8 @@ function plMusicRefreshLocalList() {
   }
 }
 
-// Event-Wiring (sobald DOM da ist; player.js laeuft eh nach DOMContentLoaded)
-(function _plMusicWire() {
-  const sortSel = document.getElementById("plMusicSortSel");
-  const catSel  = document.getElementById("plMusicCatSel");
-  const itemSel = document.getElementById("plMusicItemSel");
-  const search  = document.getElementById("plMusicSearchInput");
-  if (!sortSel || !catSel || !itemSel || !search) return;
-
-  sortSel.addEventListener("change", function () {
-    plMusicSortAxis = sortSel.value;
-    plMusicCategory = "_all";  // Achswechsel resettet Kategorie
-    plMusicRefreshUI();
-  });
-  catSel.addEventListener("change", function () {
-    plMusicCategory = catSel.value;
-    plMusicRefreshUI();
-  });
-  itemSel.addEventListener("change", function () {
-    plMusicSetSelected(itemSel.value);
-  });
-  search.addEventListener("input", function () {
-    plMusicSearchQuery = search.value || "";
-    plMusicRefreshUI();
-  });
-
-  // BA261: Ordner-Upload
-  const localAdd   = document.getElementById("plMusicLocalAddBtn");
-  const localInput = document.getElementById("plMusicLocalInput");
-  if (localAdd && localInput) {
-    localAdd.addEventListener("click", function () {
-      localInput.value = "";
-      localInput.click();
-    });
-    localInput.addEventListener("change", async function (e) {
-      try {
-        const res = await amMusicIngestLocalFolder(e.target.files);
-        if (res && res.cid) {
-          const visible = plMusicVisibleItems();
-          const firstOfFolder = visible.find(function (x) {
-            return typeof x.audio === "string"
-              && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
-          });
-          if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
-        }
-        plMusicRefreshLocalList();
-        plMusicRefreshUI();
-      } catch (err) {
-        console.error("[player/musik] ingest folder failed:", err);
-      }
-    });
-  }
-  plMusicRefreshLocalList();
-  plMusicRefreshUI();
-})();
+// Erstaufbau Musik-UI (Wiring + initiale Befuellung via plBuildFilterChain)
+plMusicRefreshUI();
 
 // Erstaufbau
 plUpdSourceUI();
