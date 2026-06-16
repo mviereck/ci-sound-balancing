@@ -257,6 +257,8 @@ Object.assign(L.en, {
     eqHeadroomNote: "Note: All correction values were lowered together by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
     eqHeadroomWarnDoc: "Note: The loudness values for this side were matched to the other ear, even though it is not listed here (options \"Avoid overdrive\" and \"Consider both sides\").",
     eqHeadroomNoteIndep: "Note: The correction values for this side were lowered by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
+    eqHeadroomNoteIndepArchive: "Note: Each side was lowered separately — left by {dbL} dB, right by {dbR} dB (overdrive protection). The loudness relationships between the electrodes remain unchanged on each side.",
+    eqHeadroomWarnUI: "The values for this side are additionally lowered by the other side. To adjust the CI independently of the other ear, turn off \"Consider both sides\".",
     plShowExpLabel: "Show experimental options",
     plExpHint: "These options are experimental. The sound experience is a simulation that has tonal weaknesses, but may give an idea of the direction the settings could take.",
     plMaplawExpNote: "Experimental option, result not guaranteed",

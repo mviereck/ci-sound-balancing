@@ -542,6 +542,7 @@ function pUpdEQ() {
     if (pMonoBalGain) pMonoBalGain.gain.value = dB2G(corr.balance);
   }
   pDrawEQ();
+  if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
 }
 
 function pToggle() {

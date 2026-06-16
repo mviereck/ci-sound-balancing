@@ -239,8 +239,10 @@ Object.assign(L.de, {
     plEqHeadroomBothExpl:
       "An: Der Absenk-Betrag gilt für beide Seiten gemeinsam — links und rechts bleiben zueinander im Gleichgewicht, richtig zum Hören über Kopfhörer. Aus: Jede Seite wird für sich abgesenkt (etwa um ein CI unabhängig vom anderen Ohr anzupassen); die Stereo-Balance wird dabei ausgesetzt.",
     eqHeadroomNote: "Hinweis: Alle Korrekturwerte wurden gemeinsam um {db} dB abgesenkt, damit keine Elektrode über die volle Lautstärke angehoben werden muß (Schutz vor Übersteuern). Die Lautstärke-Verhältnisse zwischen den Elektroden bleiben dabei unverändert.",
-    eqHeadroomWarnDoc: "Hinweis: Die Lautstärke-Werte dieser Seite wurden an das andere Ohr mit angeglichen, obwohl dieses hier nicht aufgeführt ist (Optionen „Übersteuern vermeiden" und „Beide Seiten berücksichtigen").",
+    eqHeadroomWarnDoc: "Hinweis: Die Lautstärke-Werte dieser Seite wurden an das andere Ohr mit angeglichen, obwohl dieses hier nicht aufgeführt ist (Optionen „Übersteuern vermeiden“ und „Beide Seiten berücksichtigen“).",
     eqHeadroomNoteIndep: "Hinweis: Die Korrekturwerte dieser Seite wurden um {db} dB abgesenkt, damit keine Elektrode über die volle Lautstärke angehoben werden muß (Schutz vor Übersteuern). Die Lautstärke-Verhältnisse zwischen den Elektroden bleiben unverändert.",
+    eqHeadroomNoteIndepArchive: "Hinweis: Jede Seite wurde einzeln abgesenkt — links um {dbL} dB, rechts um {dbR} dB (Schutz vor Übersteuern). Die Lautstärke-Verhältnisse zwischen den Elektroden bleiben je Seite unverändert.",
+    eqHeadroomWarnUI: "Die Werte dieser Seite sind durch die andere Seite zusätzlich abgesenkt. Für eine vom anderen Ohr unabhängige CI-Anpassung „Beide Seiten berücksichtigen“ ausschalten.",
     plShowExpLabel: "Experimentelle Optionen einblenden",
     plExpHint: "Diese Optionen sind experimentell. Das Klangerlebnis ist eine Simulation, die klangliche Schwächen hat, aber eventuell eine Idee davon geben kann, in welche Richtung die Einstellungen gehen.",
     plMaplawExpNote: "Experimentelle Option, Ergebnis nicht gesichert",

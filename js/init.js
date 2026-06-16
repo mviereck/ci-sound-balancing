@@ -1124,4 +1124,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (typeof amWebspaceBootstrap === "function") {
     amWebspaceBootstrap();
   }
+  if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
 });

@@ -254,6 +254,9 @@ function _switchTabInternal(n) {
   if (n === "schieber") {
     if (typeof lvTabRebuild === "function") lvTabRebuild();
   }
+  if (n === "file") {
+    if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
+  }
   // BA 163: pro Browser-Tab
   try { sessionStorage.setItem("ci-lb-activeTab", n); } catch (e) {}
   if (!_suppressHashPush) history.pushState(null, "", "#" + n);

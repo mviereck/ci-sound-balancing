@@ -258,6 +258,8 @@ Object.assign(L.fr, {
     eqHeadroomNote: "Remarque : toutes les valeurs de correction ont été abaissées ensemble de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
     eqHeadroomWarnDoc: "Remarque : les valeurs de volume de ce côté ont été alignées sur l'autre oreille, bien que celle-ci ne figure pas ici (options « Éviter la saturation » et « Tenir compte des deux côtés »).",
     eqHeadroomNoteIndep: "Remarque : les valeurs de correction de ce côté ont été abaissées de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
+    eqHeadroomNoteIndepArchive: "Remarque : chaque côté a été abaissé séparément — gauche de {dbL} dB, droite de {dbR} dB (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés de chaque côté.",
+    eqHeadroomWarnUI: "Les valeurs de ce côté sont en plus abaissées par l'autre côté. Pour régler l'implant indépendamment de l'autre oreille, désactivez « Tenir compte des deux côtés ».",
     plShowExpLabel: "Afficher les options expérimentales",
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation qui présente des faiblesses sonores, mais qui peut éventuellement donner une idée de la direction dans laquelle vont les réglages.",
     plMaplawExpNote: "Option expérimentale, résultat non garanti",

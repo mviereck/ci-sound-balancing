@@ -368,6 +368,9 @@ function _collectPlayer() {
     eqGains,
     eqHasNonZero: hasNonZero,
     eqHeadroomDb: (typeof _eqHeadroomOffset === "function") ? _eqHeadroomOffset() : 0,
+    eqHeadroomBoth: (typeof plEqHeadroomBoth !== "undefined") ? plEqHeadroomBoth : true,
+    eqHeadroomDbLeft:  (typeof _eqHeadroomOffsetForSides === "function") ? _eqHeadroomOffsetForSides(["left"])  : 0,
+    eqHeadroomDbRight: (typeof _eqHeadroomOffsetForSides === "function") ? _eqHeadroomOffsetForSides(["right"]) : 0,
   };
 }
 
@@ -657,8 +660,15 @@ function _archivMdPlayer(data) {
   if (p.eqOn && p.nhSim) {
     out.push(`> ${t("nhSimNotApplied")}`);
   }
-  if (p.eqHeadroomDb && p.eqHeadroomDb > 0) {
-    out.push(`> ${t("eqHeadroomNote").replace("{db}", p.eqHeadroomDb.toFixed(1))}`);
+  if (p.eqHeadroomBoth) {
+    if (p.eqHeadroomDb && p.eqHeadroomDb > 0) {
+      out.push(`> ${t("eqHeadroomNote").replace("{db}", p.eqHeadroomDb.toFixed(1))}`);
+    }
+  } else if ((p.eqHeadroomDbLeft && p.eqHeadroomDbLeft > 0)
+          || (p.eqHeadroomDbRight && p.eqHeadroomDbRight > 0)) {
+    out.push(`> ${t("eqHeadroomNoteIndepArchive")
+      .replace("{dbL}", (p.eqHeadroomDbLeft || 0).toFixed(1))
+      .replace("{dbR}", (p.eqHeadroomDbRight || 0).toFixed(1))}`);
   }
   out.push(`- ${t("archivPlSrc")}: ${t("archivSrcMeas")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
   const bmTxt = t("plBalMode" + p.balanceMode.charAt(0).toUpperCase() + p.balanceMode.slice(1)) || p.balanceMode;
@@ -1527,6 +1537,28 @@ function _audiologFreqChartImg(side) {
 
     return `<img src="${canvas.toDataURL("image/png")}" style="width:${Wlog}px;max-width:100%;height:auto;" />`;
   });
+}
+
+// BA 321: Warnhinweis in der Audiologen-Karte. Sichtbar, wenn
+// "Beide Seiten beruecksichtigen" an ist, nur EINE Seite gedruckt wird
+// und deren Wert durch die andere Seite mit-abgesenkt wurde.
+function _audiologUpdWarn() {
+  const el = document.getElementById("audiologEqWarn");
+  if (!el) return;
+  let show = false;
+  if (typeof plEqHeadroom !== "undefined" && plEqHeadroom
+      && typeof plEqHeadroomBoth !== "undefined" && plEqHeadroomBoth
+      && typeof _eqHeadroomOffsetForSides === "function"
+      && typeof _audiologMainSides === "function") {
+    const sides = _audiologMainSides();
+    if (sides.length === 1) {
+      const side = sides[0];
+      const ownDb  = _eqHeadroomOffsetForSides([side]);
+      const bothDb = _eqHeadroomOffsetForSides(["left", "right"]);
+      if (bothDb > ownDb) show = true;
+    }
+  }
+  el.classList.toggle("hidden", !show);
 }
 
 function audiologPrint() {

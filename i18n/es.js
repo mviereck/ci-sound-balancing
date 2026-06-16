@@ -258,6 +258,8 @@ Object.assign(L.es, {
     eqHeadroomNote: "Nota: todos los valores de corrección se han bajado en conjunto en {db} dB para que ningún electrodo deba amplificarse al nivel máximo (protección contra la saturación). Las relaciones de volumen entre los electrodos permanecen sin cambios.",
     eqHeadroomWarnDoc: "Nota: los valores de volumen de este lado se han ajustado al otro oído, aunque este no aparezca aquí (opciones «Evitar saturación» y «Considerar ambos lados»).",
     eqHeadroomNoteIndep: "Nota: los valores de corrección de este lado se han bajado en {db} dB para que ningún electrodo deba amplificarse al nivel máximo (protección contra la saturación). Las relaciones de volumen entre los electrodos permanecen sin cambios.",
+    eqHeadroomNoteIndepArchive: "Nota: cada lado se ha bajado por separado — izquierda en {dbL} dB, derecha en {dbR} dB (protección contra la saturación). Las relaciones de volumen entre los electrodos permanecen sin cambios en cada lado.",
+    eqHeadroomWarnUI: "Los valores de este lado están adicionalmente bajados por el otro lado. Para ajustar el implante independientemente del otro oído, desactive «Considerar ambos lados».",
     plShowExpLabel: "Mostrar opciones experimentales",
     plExpHint: "Estas opciones son experimentales. La experiencia sonora es una simulación con debilidades acústicas, pero puede dar una idea de la dirección en la que apuntan los ajustes.",
     plMaplawExpNote: "Opción experimental, resultado no garantizado",
