@@ -256,6 +256,8 @@ Object.assign(L.fr, {
     plEqHeadroomBothExpl:
       "Activé : l'abaissement s'applique aux deux côtés ensemble — gauche et droite restent équilibrés l'un par rapport à l'autre, adapté à l'écoute au casque. Désactivé : chaque côté est abaissé pour lui-même (par ex. pour régler un implant indépendamment de l'autre oreille) ; la balance stéréo est alors suspendue.",
     eqHeadroomNote: "Remarque : toutes les valeurs de correction ont été abaissées ensemble de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
+    eqHeadroomWarnDoc: "Remarque : les valeurs de volume de ce côté ont été alignées sur l'autre oreille, bien que celle-ci ne figure pas ici (options « Éviter la saturation » et « Tenir compte des deux côtés »).",
+    eqHeadroomNoteIndep: "Remarque : les valeurs de correction de ce côté ont été abaissées de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
     plShowExpLabel: "Afficher les options expérimentales",
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation qui présente des faiblesses sonores, mais qui peut éventuellement donner une idée de la direction dans laquelle vont les réglages.",
     plMaplawExpNote: "Option expérimentale, résultat non garanti",

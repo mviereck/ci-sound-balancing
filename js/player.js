@@ -240,12 +240,11 @@ function computeGains() {
 // Rueckgabe >= 0; 0 = keine Anhebung noetig => keine Absenkung.
 // computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
 // echte Korrektur (positiv = Anhebung) ist daher -g[i].
-function _eqHeadroomOffset(scopeSide) {
+// BA 320: Kern — hoechste noetige Anhebung ueber die uebergebenen Seiten,
+// UNABHAENGIG von plEqHeadroomBoth. Fuer den Vergleich gemeinsam vs.
+// seitenweise (Audiologen-Auftrag).
+function _eqHeadroomOffsetForSides(sides) {
   if (!plEqHeadroom || !plEqOn) return 0;
-  // BA 319: bei "Beide Seiten beruecksichtigen" aus nur die uebergebene
-  // Seite heranziehen (CI unabhaengig). Ohne scopeSide-Argument oder bei
-  // an: beide Seiten (wie BA 316).
-  const sides = (plEqHeadroomBoth || !scopeSide) ? ["left", "right"] : [scopeSide];
   let mx = 0;
   sides.forEach(function (s) {
     withSide(s, function () {
@@ -260,6 +259,15 @@ function _eqHeadroomOffset(scopeSide) {
     });
   });
   return mx;
+}
+
+// BA 319/320: tatsaechlich angewandter Absenk-Betrag fuer eine Seite.
+// Bei "Beide Seiten beruecksichtigen" an (oder ohne scopeSide) ueber beide
+// Seiten, sonst nur ueber scopeSide.
+function _eqHeadroomOffset(scopeSide) {
+  if (!plEqHeadroom || !plEqOn) return 0;
+  const sides = (plEqHeadroomBoth || !scopeSide) ? ["left", "right"] : [scopeSide];
+  return _eqHeadroomOffsetForSides(sides);
 }
 
 // BA 313: EINZIGE Wertquelle fuer die Player-Korrektur einer Seite.

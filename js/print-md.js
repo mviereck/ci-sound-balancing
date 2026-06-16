@@ -1173,13 +1173,6 @@ function buildAudiologMarkdown() {
     parts.push(`> ${t("nhSimNotApplied")}\n`);
   }
 
-  // ---- Elektrodenlautstaerke abgesenkt (BA 317) ----
-  {
-    const _hr = (typeof _eqHeadroomOffset === "function") ? _eqHeadroomOffset() : 0;
-    if (_hr > 0) {
-      parts.push(`> ${t("eqHeadroomNote").replace("{db}", _hr.toFixed(1))}\n`);
-    }
-  }
 
   // ===========================================================
   // BILATERAL-BLOCK — vor den Seiten-Blöcken.
@@ -1222,6 +1215,30 @@ function buildAudiologMarkdown() {
     parts.push(_audiologLoudnessTable(side));
     parts.push("");
     parts.push(`_${t("audiologLoudnessLegend")}_`);
+    parts.push("");
+
+    // BA 320: Absenk-Hinweis fuer DIESE Seite. Drei Faelle:
+    //  - Beide-Seiten an, einseitiger Auftrag, durch andere Seite mit-
+    //    abgesenkt -> Warnhinweis.
+    //  - Beide-Seiten an, sonst -> gemeinsamer Hinweis (eqHeadroomNote).
+    //  - Beide-Seiten aus -> seitenweise Variante (eqHeadroomNoteIndep).
+    {
+      const usedDb = (typeof _eqHeadroomOffset === "function") ? _eqHeadroomOffset(side) : 0;
+      if (usedDb > 0) {
+        const both = (typeof plEqHeadroomBoth !== "undefined") ? plEqHeadroomBoth : true;
+        if (both) {
+          const ownDb  = _eqHeadroomOffsetForSides([side]);
+          const bothDb = _eqHeadroomOffsetForSides(["left", "right"]);
+          if (mainSides.length === 1 && bothDb > ownDb) {
+            parts.push(`> ${t("eqHeadroomWarnDoc")}\n`);
+          } else {
+            parts.push(`> ${t("eqHeadroomNote").replace("{db}", usedDb.toFixed(1))}\n`);
+          }
+        } else {
+          parts.push(`> ${t("eqHeadroomNoteIndep").replace("{db}", usedDb.toFixed(1))}\n`);
+        }
+      }
+    }
     parts.push("");
 
     // H3 MAPLAW-Änderung — falls relevant für diese Seite

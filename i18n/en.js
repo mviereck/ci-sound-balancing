@@ -255,6 +255,8 @@ Object.assign(L.en, {
     plEqHeadroomBothExpl:
       "On: the reduction applies to both sides together — left and right stay balanced relative to each other, right for listening over headphones. Off: each side is lowered on its own (e.g. to adjust one CI independently of the other ear); the stereo balance is then suspended.",
     eqHeadroomNote: "Note: All correction values were lowered together by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
+    eqHeadroomWarnDoc: "Note: The loudness values for this side were matched to the other ear, even though it is not listed here (options \"Avoid overdrive\" and \"Consider both sides\").",
+    eqHeadroomNoteIndep: "Note: The correction values for this side were lowered by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
     plShowExpLabel: "Show experimental options",
     plExpHint: "These options are experimental. The sound experience is a simulation that has tonal weaknesses, but may give an idea of the direction the settings could take.",
     plMaplawExpNote: "Experimental option, result not guaranteed",
