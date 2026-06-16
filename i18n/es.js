@@ -252,6 +252,9 @@ Object.assign(L.es, {
     plLatApplyOff: "Compensación de latencia OFF",
     plNHExpl:
       "Ilustra el desajuste presente sin corrección. Esto permite que las personas con audición normal se hagan una idea de cómo los ajustes de IC no corregidos afectan la experiencia auditiva del usuario de IC. Todas las correcciones están invertidas.",
+    plEqHeadroomLabel: "Bajar el volumen de los electrodos (evitar saturación)",
+    plEqHeadroomExpl:
+      "Baja todos los electrodos en conjunto lo justo para que ninguno deba amplificarse al nivel máximo — evita el recorte en el reproductor y la saturación en el implante. Ambos lados se consideran en conjunto; los electrodos silenciados y casi silenciados quedan fuera.",
     plShowExpLabel: "Mostrar opciones experimentales",
     plExpHint: "Estas opciones son experimentales. La experiencia sonora es una simulación con debilidades acústicas, pero puede dar una idea de la dirección en la que apuntan los ajustes.",
     plMaplawExpNote: "Opción experimental, resultado no garantizado",

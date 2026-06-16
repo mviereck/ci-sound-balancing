@@ -234,6 +234,30 @@ function computeGains() {
   return g;
 }
 
+// BA 316: Gemeinsamer Absenk-Betrag (dB) gegen Clipping/Uebersteuern.
+// Hoechste noetige Anhebung ueber BEIDE Seiten, aber nur unter den
+// REGULAEREN Elektroden (nicht stumm/fast stumm/deaktiviert/ausgeschlossen).
+// Rueckgabe >= 0; 0 = keine Anhebung noetig => keine Absenkung.
+// computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
+// echte Korrektur (positiv = Anhebung) ist daher -g[i].
+function _eqHeadroomOffset() {
+  if (!plEqHeadroom || !plEqOn) return 0;
+  let mx = 0;
+  ["left", "right"].forEach(function (s) {
+    withSide(s, function () {
+      const g = computeGains();
+      for (let i = 0; i < nEl; i++) {
+        if (elSt[i] === "mute" || elSt[i] === "almostMute") continue;
+        if (elActive && elActive[i] === false) continue;
+        if (elExDur[i] !== null) continue;
+        const corr = -g[i];           // echte Korrektur, positiv = Anhebung
+        if (corr > mx) mx = corr;
+      }
+    });
+  });
+  return mx;
+}
+
 // BA 313: EINZIGE Wertquelle fuer die Player-Korrektur einer Seite.
 // side: "left" | "right". Rueckgabe { eq:[...], balance:Zahl }, beides in
 // natuerlicher Konvention (positiv = Anhebung am Ohr) und fertig berechnet:
@@ -251,7 +275,13 @@ function getPlayerCorrection(side, applyNhSim) {
   }
   const nhSim = applyNhSim && document.getElementById("plNHSim").checked;
   // Normal: -eqRaw (= Korrektur, Anhebung). nhSim: +eqRaw (Fehleinstellung).
-  const eq = eqRaw.map(function (v) { return nhSim ? v : -v; });
+  let eq = eqRaw.map(function (v) { return nhSim ? v : -v; });
+  // BA 316: gemeinsame Absenkung. Derselbe Offset (ueber beide Seiten)
+  // wird in BEIDEN Modi abgezogen — im nhSim ist das die Spiegelung um
+  // die Absenkungslinie. Die fast stumme Elektrode wird mit-abgesenkt,
+  // bestimmt den Offset aber nicht mit (siehe _eqHeadroomOffset).
+  const off = _eqHeadroomOffset();
+  if (off) eq = eq.map(function (v) { return v - off; });
   const balG = getPlayerBalanceGains();          // {left,right} dB, 0 wenn plApplyBalance aus
   const bRaw = (side === "right") ? balG.right : balG.left;
   const balance = nhSim ? -bRaw : bRaw;
@@ -310,6 +340,15 @@ function plUpdMonoBox() {
   mono.disabled = !on;
   const lbl = mono.closest("label");
   if (lbl) lbl.style.opacity = on ? "" : "0.4";
+}
+
+// BA 316: Checkbox-Zustand und Sichtbarkeit der Erklaer-Zeile synchronisieren.
+function plUpdHeadroomBox() {
+  const cb = document.getElementById("plEqHeadroom");
+  if (!cb) return;
+  cb.checked = !!plEqHeadroom;
+  const info = document.getElementById("plEqHeadroomInfo");
+  if (info) info.classList.toggle("hidden", !plEqHeadroom);
 }
 
 function updatePlayerForSideChange() {

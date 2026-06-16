@@ -195,6 +195,8 @@ function resetAll() {
   // --- EQ-Knopf + Stärke ---
   if (typeof plEqOn !== "undefined") plEqOn = false;
   if (typeof updEqToggleBtn === "function") updEqToggleBtn();
+  if (typeof plEqHeadroom !== "undefined") plEqHeadroom = true;
+  if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
   // --- Warp-Block ---
   if (typeof pWarpOn !== "undefined") {
     pWarpOn = false;
@@ -373,6 +375,7 @@ async function saveJson() {
     plBothSides: document.getElementById("plBothSides").checked,
     plMonoEQ: document.getElementById("plMonoEQ").checked,
     eqOn: plEqOn,
+    eqHeadroom: (typeof plEqHeadroom !== "undefined") ? plEqHeadroom : true,
     toneType_freqmatch: (typeof toneType_freqmatch !== "undefined")
       ? toneType_freqmatch : TEST_DEFAULTS.freqmatch.toneType,
     // BA 246
@@ -713,6 +716,10 @@ function applyLoadedData(d) {
   if (d.eqOn !== undefined) {
     plEqOn = d.eqOn;
     updEqToggleBtn();
+  }
+  if (typeof plEqHeadroom !== "undefined") {
+    plEqHeadroom = (typeof d.eqHeadroom === "boolean") ? d.eqHeadroom : true;
+    if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
   }
   // BA 209: Per-Test-Tonart Frequenzabgleich.
   // Migration aus altem globalToneType-Feld (nur lesen, nicht mehr schreiben).

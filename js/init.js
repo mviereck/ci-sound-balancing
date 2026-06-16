@@ -218,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("plEqToggle").addEventListener("click", function () {
     plEqOn = !plEqOn;
     updEqToggleBtn();
+    if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
     pUpdEQ();
     if (typeof latApplyToPlayer === "function") latApplyToPlayer();
     if (pWarpOn) {
@@ -253,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updEqToggleBtn();
   updBalApplyBtn();
   updLatApplyBtn();
+  if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
   // EQ source toggle buttons
   document
     .getElementById("plSrcMeasBtn")
@@ -284,6 +286,12 @@ document.addEventListener("DOMContentLoaded", () => {
       .classList.toggle("hidden", !this.checked);
     pUpdEQ();
     if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+  });
+  document.getElementById("plEqHeadroom").addEventListener("change", function () {
+    plEqHeadroom = this.checked;
+    document.getElementById("plEqHeadroomInfo").classList.toggle("hidden", !this.checked);
+    pUpdEQ();
+    if (typeof _autoSaveState === "function") _autoSaveState();
   });
   // balBalance wurde entfernt – kein Event-Listener nötig
   // document.getElementById("balBalance").addEventListener(...);
@@ -627,6 +635,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (d.eqOn !== undefined) {
         plEqOn = d.eqOn;
         updEqToggleBtn();
+      }
+      if (typeof plEqHeadroom !== "undefined") {
+        plEqHeadroom = (typeof d.eqHeadroom === "boolean") ? d.eqHeadroom : true;
+        if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
       }
       if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
       if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
@@ -983,6 +995,7 @@ document.addEventListener("DOMContentLoaded", () => {
           playerSourceLevels: plSrcLevels,
           playerSourceCurves: plSrcCurves,
           eqOn: plEqOn,
+          eqHeadroom: (typeof plEqHeadroom !== "undefined") ? plEqHeadroom : true,
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
