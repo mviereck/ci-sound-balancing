@@ -235,6 +235,7 @@ Object.assign(L.es, {
     plNoData: "Aún no hay datos de medición. Realice primero una prueba.",
     plFile: "Archivo de audio (MP3, WAV, FLAC, OGG, M4A, MP4)",
     plNoiseFile: "Archivo de audio (MP3, WAV, FLAC, OGG, M4A, MP4)",
+    plBookFile: "Cargar archivo",
     plNoiseLocalAdd: "+ Cargar carpeta local",
     plNoiseLocalHint: "Agregar archivos de audio de una carpeta local como colección de ruidos (solo esta sesión).",
     plNoiseLocalNone: "No hay carpetas locales cargadas.",

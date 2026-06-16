@@ -2674,7 +2674,11 @@ document.querySelectorAll(".pl-snr-btn").forEach(function (b) {
 const AM_AUDIO_EXT = /\.(mp3|wav|flac|ogg|opus|m4a|m4b|mp4)$/i;
 
 async function plBookHandleUpload(fileList) {
-  const files = Array.from(fileList || []).filter(function (f) {
+  const allFiles = Array.from(fileList || []);
+  // BA335: PDF im fileList per Endung erkennen (f.type ist bei webkitdirectory unzuverlaessig)
+  const pdfFile = allFiles.find(function (f) { return /\.pdf$/i.test(f.name); });
+
+  const files = allFiles.filter(function (f) {
     return AM_AUDIO_EXT.test(f.name);
   });
   if (files.length === 0) {
@@ -2687,10 +2691,11 @@ async function plBookHandleUpload(fileList) {
     return na < nb ? -1 : (na > nb ? 1 : 0);
   });
 
+  // BA335: Einzeldatei-Fallback — kein Pfad-Separator → Werktitel aus Dateiname
   const firstPath = files[0].webkitRelativePath || files[0].name;
   const folderName = (firstPath.indexOf("/") >= 0)
     ? firstPath.split("/")[0]
-    : "Hoerbuch";
+    : files[0].name.replace(/\.[^.]+$/, "");
 
   const bookId = "local-book:" + folderName + ":" + files.length;
   // BA323: amRemoveLocalBookCollection entfällt — Sammlungen nur noch für die Laufzeit.
@@ -2713,7 +2718,8 @@ async function plBookHandleUpload(fileList) {
     title: folderName,
     lang: null,
     tags: { reader: null, work_author: null, genres: [] },
-    pdfUrl: null,
+    // BA335: PDF per Endung erkannt; URL.createObjectURL nur wenn vorhanden (kein Button/Anzeige)
+    pdfUrl: pdfFile ? URL.createObjectURL(pdfFile) : null,
     items: items,
     _isLocal: true
   };
@@ -2787,6 +2793,24 @@ PL_FILTER_DECL.hoerbuecher = {
   ],
   afterRefresh: function () {
     if (typeof plUpdDisplay === "function") plUpdDisplay();
+  },
+  extraWiring: function () {
+    // BA335: Einzeldatei-Input + Ordner-Input via plWireUploadBlock
+    plWireUploadBlock({
+      allowFile: true,
+      fileInputId: "plBookAudio",
+      allowFolder: true,
+      addBtnId: "plBookUploadBtn",
+      folderInputId: "plBookUploadInput",
+      onFile: async function (file) {
+        await plBookHandleUpload([file]);
+        plBookRefreshUI();
+      },
+      onFolder: async function (fileList) {
+        await plBookHandleUpload(fileList);
+        plBookRefreshUI();
+      }
+    });
   }
 };
 
@@ -2844,18 +2868,9 @@ function plBookSavePosition() {
   };
 }
 
-const _plBookUpBtn = document.getElementById("plBookUploadBtn");
-const _plBookUpInp = document.getElementById("plBookUploadInput");
-
-if (_plBookUpBtn && _plBookUpInp) {
-  _plBookUpBtn.addEventListener("click", function () { _plBookUpInp.click(); });
-  _plBookUpInp.addEventListener("change", function (e) {
-    plBookHandleUpload(e.target.files);
-    e.target.value = "";
-  });
-}
 // BA323: _plBookRmBtn-Handler entfernt — Entfernen-Knopf und amRemoveLocalBookCollection entfallen.
 // BA331: Sort/Sel/Ch-Event-Handler durch plBuildFilterChain-Mechanik (PL_FILTER_DECL.hoerbuecher) ersetzt.
+// BA335: Upload-Wiring (Ordner + Einzeldatei) in PL_FILTER_DECL.hoerbuecher.extraWiring verschoben.
 
 // Deklaration: Saetze (BA332)
 // Nur eine Stage speaker-sel; kein item-sel (Pool entsteht zur Laufzeit via sBuildRecordingPool).
