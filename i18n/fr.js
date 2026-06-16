@@ -251,7 +251,10 @@ Object.assign(L.fr, {
       "Illustre le mauvais réglage présent sans correction. Cela permet aux personnes à audition normale de se faire une idée de l'effet des réglages de l'IC non corrigés sur l'expérience auditive du porteur d'IC. Toutes les corrections sont inversées.",
     plEqHeadroomLabel: "Abaisser le volume des électrodes (éviter la saturation)",
     plEqHeadroomExpl:
-      "Abaisse toutes les électrodes ensemble juste assez pour qu'aucune ne doive être amplifiée au niveau maximal — évite l'écrêtage dans le lecteur et la saturation à l'implant. Les deux côtés sont pris en compte ensemble ; les électrodes muettes et presque muettes sont exclues.",
+      "Abaisse toutes les électrodes juste assez pour qu'aucune ne doive être amplifiée au niveau maximal — évite l'écrêtage dans le lecteur et la saturation à l'implant. Les électrodes muettes et presque muettes sont exclues.",
+    plEqHeadroomBothLabel: "Tenir compte des deux côtés",
+    plEqHeadroomBothExpl:
+      "Activé : l'abaissement s'applique aux deux côtés ensemble — gauche et droite restent équilibrés l'un par rapport à l'autre, adapté à l'écoute au casque. Désactivé : chaque côté est abaissé pour lui-même (par ex. pour régler un implant indépendamment de l'autre oreille) ; la balance stéréo est alors suspendue.",
     eqHeadroomNote: "Remarque : toutes les valeurs de correction ont été abaissées ensemble de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
     plShowExpLabel: "Afficher les options expérimentales",
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation qui présente des faiblesses sonores, mais qui peut éventuellement donner une idée de la direction dans laquelle vont les réglages.",

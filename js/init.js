@@ -289,7 +289,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("plEqHeadroom").addEventListener("change", function () {
     plEqHeadroom = this.checked;
-    document.getElementById("plEqHeadroomInfo").classList.toggle("hidden", !this.checked);
+    if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+    if (typeof updBalApplyBtn === "function") updBalApplyBtn();
+    pUpdEQ();
+    if (typeof _autoSaveState === "function") _autoSaveState();
+  });
+  document.getElementById("plEqHeadroomBoth").addEventListener("change", function () {
+    plEqHeadroomBoth = this.checked;
+    if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+    if (typeof updBalApplyBtn === "function") updBalApplyBtn();
     pUpdEQ();
     if (typeof _autoSaveState === "function") _autoSaveState();
   });
@@ -639,6 +647,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof plEqHeadroom !== "undefined") {
         plEqHeadroom = (typeof d.eqHeadroom === "boolean") ? d.eqHeadroom : true;
         if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+      }
+      if (typeof plEqHeadroomBoth !== "undefined") {
+        plEqHeadroomBoth = (typeof d.eqHeadroomBoth === "boolean") ? d.eqHeadroomBoth : true;
+        if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+        if (typeof updBalApplyBtn === "function") updBalApplyBtn();
       }
       if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
       if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
@@ -996,6 +1009,7 @@ document.addEventListener("DOMContentLoaded", () => {
           playerSourceCurves: plSrcCurves,
           eqOn: plEqOn,
           eqHeadroom: (typeof plEqHeadroom !== "undefined") ? plEqHeadroom : true,
+          eqHeadroomBoth: (typeof plEqHeadroomBoth !== "undefined") ? plEqHeadroomBoth : true,
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,

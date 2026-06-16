@@ -790,6 +790,7 @@ let plEqOn = true; // EQ toggle state
 let plApplyBalance = true; // Stereo-Balance anwenden
 let plBalanceMode = "sym"; // "sym" | "left" | "right" — wie Stereo-Balance angewandt wird
 let plEqHeadroom = true; // BA 316: Elektrodenlautstaerke gemeinsam absenken (Clipping-/Uebersteuern-Schutz)
+let plEqHeadroomBoth = true; // BA 319: Absenk-Betrag ueber beide Seiten (an) vs. pro Seite (aus)
 let plSrcMeas = true,
   plSrcLevels = true,
   plSrcCurves = true; // EQ source toggles

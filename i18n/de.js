@@ -234,7 +234,10 @@ Object.assign(L.de, {
       "Veranschaulicht die Fehleinstellung, die ohne Korrektur vorliegt. Damit können Normalhörende einen Eindruck davon bekommen, wie sich die noch nicht korrigierte CI Einstellung auf das Hörerleben des CI Trägers auswirkt. Alle Korrekturen werden invertiert.",
     plEqHeadroomLabel: "Elektrodenlautstärke absenken (Übersteuern vermeiden)",
     plEqHeadroomExpl:
-      "Senkt alle Elektroden gemeinsam so weit ab, daß keine über die volle Lautstärke angehoben werden muß — verhindert Clipping im Player und Übersteuern am CI. Beide Seiten werden zusammen betrachtet; stumme und fast stumme Elektroden bleiben außen vor.",
+      "Senkt alle Elektroden so weit ab, daß keine über die volle Lautstärke angehoben werden muß — verhindert Clipping im Player und Übersteuern am CI. Stumme und fast stumme Elektroden bleiben außen vor.",
+    plEqHeadroomBothLabel: "Beide Seiten berücksichtigen",
+    plEqHeadroomBothExpl:
+      "An: Der Absenk-Betrag gilt für beide Seiten gemeinsam — links und rechts bleiben zueinander im Gleichgewicht, richtig zum Hören über Kopfhörer. Aus: Jede Seite wird für sich abgesenkt (etwa um ein CI unabhängig vom anderen Ohr anzupassen); die Stereo-Balance wird dabei ausgesetzt.",
     eqHeadroomNote: "Hinweis: Alle Korrekturwerte wurden gemeinsam um {db} dB abgesenkt, damit keine Elektrode über die volle Lautstärke angehoben werden muß (Schutz vor Übersteuern). Die Lautstärke-Verhältnisse zwischen den Elektroden bleiben dabei unverändert.",
     plShowExpLabel: "Experimentelle Optionen einblenden",
     plExpHint: "Diese Optionen sind experimentell. Das Klangerlebnis ist eine Simulation, die klangliche Schwächen hat, aber eventuell eine Idee davon geben kann, in welche Richtung die Einstellungen gehen.",

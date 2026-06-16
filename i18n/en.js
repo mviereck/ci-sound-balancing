@@ -250,7 +250,10 @@ Object.assign(L.en, {
       "Illustrates the misadjustment present without correction. This allows people with normal hearing to get an impression of how the uncorrected CI settings affect the hearing experience of the CI user. All corrections are inverted.",
     plEqHeadroomLabel: "Lower electrode loudness (avoid overdrive)",
     plEqHeadroomExpl:
-      "Lowers all electrodes together just enough that none has to be boosted to full level — prevents clipping in the player and overdrive at the CI. Both sides are considered together; muted and nearly muted electrodes are left out.",
+      "Lowers all electrodes just enough that none has to be boosted to full level — prevents clipping in the player and overdrive at the CI. Muted and nearly muted electrodes are left out.",
+    plEqHeadroomBothLabel: "Consider both sides",
+    plEqHeadroomBothExpl:
+      "On: the reduction applies to both sides together — left and right stay balanced relative to each other, right for listening over headphones. Off: each side is lowered on its own (e.g. to adjust one CI independently of the other ear); the stereo balance is then suspended.",
     eqHeadroomNote: "Note: All correction values were lowered together by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
     plShowExpLabel: "Show experimental options",
     plExpHint: "These options are experimental. The sound experience is a simulation that has tonal weaknesses, but may give an idea of the direction the settings could take.",

@@ -240,10 +240,14 @@ function computeGains() {
 // Rueckgabe >= 0; 0 = keine Anhebung noetig => keine Absenkung.
 // computeGains() liefert die negierte Korrektur (eqRaw-Konvention), die
 // echte Korrektur (positiv = Anhebung) ist daher -g[i].
-function _eqHeadroomOffset() {
+function _eqHeadroomOffset(scopeSide) {
   if (!plEqHeadroom || !plEqOn) return 0;
+  // BA 319: bei "Beide Seiten beruecksichtigen" aus nur die uebergebene
+  // Seite heranziehen (CI unabhaengig). Ohne scopeSide-Argument oder bei
+  // an: beide Seiten (wie BA 316).
+  const sides = (plEqHeadroomBoth || !scopeSide) ? ["left", "right"] : [scopeSide];
   let mx = 0;
-  ["left", "right"].forEach(function (s) {
+  sides.forEach(function (s) {
     withSide(s, function () {
       const g = computeGains();
       for (let i = 0; i < nEl; i++) {
@@ -280,10 +284,15 @@ function getPlayerCorrection(side, applyNhSim) {
   // wird in BEIDEN Modi abgezogen — im nhSim ist das die Spiegelung um
   // die Absenkungslinie. Die fast stumme Elektrode wird mit-abgesenkt,
   // bestimmt den Offset aber nicht mit (siehe _eqHeadroomOffset).
-  const off = _eqHeadroomOffset();
+  // BA 319: bei "Beide Seiten beruecksichtigen" aus den Betrag nur aus
+  // dieser Seite bestimmen (CI unabhaengig).
+  const off = _eqHeadroomOffset(side);
   if (off) eq = eq.map(function (v) { return v - off; });
+  // BA 319: ist die Absenkung seitenweise (Headroom an, Beide-Seiten aus),
+  // wird die Stereo-Balance ausgesetzt (binaurale Balance ist kein Ziel).
+  const balSuppressed = plEqHeadroom && !plEqHeadroomBoth;
   const balG = getPlayerBalanceGains();          // {left,right} dB, 0 wenn plApplyBalance aus
-  const bRaw = (side === "right") ? balG.right : balG.left;
+  const bRaw = balSuppressed ? 0 : ((side === "right") ? balG.right : balG.left);
   const balance = nhSim ? -bRaw : bRaw;
   return { eq: eq, balance: balance };
 }
@@ -345,10 +354,23 @@ function plUpdMonoBox() {
 // BA 316: Checkbox-Zustand und Sichtbarkeit der Erklaer-Zeile synchronisieren.
 function plUpdHeadroomBox() {
   const cb = document.getElementById("plEqHeadroom");
-  if (!cb) return;
-  cb.checked = !!plEqHeadroom;
-  const info = document.getElementById("plEqHeadroomInfo");
-  if (info) info.classList.toggle("hidden", !plEqHeadroom);
+  if (cb) {
+    cb.checked = !!plEqHeadroom;
+    const info = document.getElementById("plEqHeadroomInfo");
+    if (info) info.classList.toggle("hidden", !plEqHeadroom);
+  }
+  // BA 319: untergeordnete Checkbox "Beide Seiten beruecksichtigen".
+  // Ausgegraut, wenn "Uebersteuern vermeiden" aus ist. Erklaer-Zeile
+  // sichtbar, wenn beide Haekchen gesetzt sind.
+  const cb2 = document.getElementById("plEqHeadroomBoth");
+  if (cb2) {
+    cb2.checked = !!plEqHeadroomBoth;
+    cb2.disabled = !plEqHeadroom;
+    const lbl2 = cb2.closest("label");
+    if (lbl2) lbl2.style.opacity = plEqHeadroom ? "" : "0.4";
+    const info2 = document.getElementById("plEqHeadroomBothInfo");
+    if (info2) info2.classList.toggle("hidden", !(plEqHeadroom && plEqHeadroomBoth));
+  }
 }
 
 function updatePlayerForSideChange() {
