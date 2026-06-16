@@ -209,17 +209,6 @@ function sDataUrlToArrayBuffer(url) {
   return bytes.buffer;
 }
 
-async function sPlayCurrent() {
-  if (!sActive || !sCurRec) return;
-  try {
-    await sLoadAndPlayCurrent();
-    if (sActive && typeof pPlay === "function") await pPlay();
-  } catch (err) {
-    console.error("[sentences] Wiedergabe-Fehler (sPlayCurrent):", err);
-    sStop();
-  }
-}
-
 // BA327: Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
 // mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
 // pSetPlaybackMode("sentences"). Ruft KEIN pPlay — Aufrufer macht das.
@@ -391,66 +380,6 @@ function sStop() {
   sShownText = "";
   sUpdateTextBox();
   if (typeof plUpdDisplay === "function") plUpdDisplay();
-}
-
-// Wird von player.js nach onended aufgerufen, falls sActive=true.
-function sOnEnded() {
-  if (!sActive) return;
-
-  // Loop hat Vorrang: gleichen Satz nochmal — den bereits dekodierten
-  // sSentenceBuf wiederverwenden (kein Re-Decode, keine Warp-Neuberechnung).
-  if (typeof plLoop !== "undefined" && plLoop) {
-    const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-    const restart = function () {
-      sPauseTimer = null;
-      if (!sActive || !plLoop) return;
-      if (typeof pPlay === "function") pPlay();
-    };
-    if (ms > 0) {
-      sPauseTimer = setTimeout(restart, ms);
-    } else {
-      restart();
-    }
-    return;
-  }
-
-  // Auto-Advance: naechster Satz gemaess Zufall/Sequenz
-  if (typeof plAutoAdvance !== "undefined" && plAutoAdvance) {
-    const spkSel = document.getElementById("plSentSpeaker").value;
-    const pool = sBuildRecordingPool(spkSel);
-    if (pool.length === 0) { sStop(); return; }
-    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-    const newRec = useRandom ? sPickRandom(pool, sCurRec) : sSeqStep(+1);
-    if (newRec) {
-      if (sCurRec) sPrevRec = sCurRec;
-      sCurRec = newRec;
-    }
-    const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-    if (ms > 0) {
-      sPauseTimer = setTimeout(function () {
-        sPauseTimer = null;
-        if (sActive && plAutoAdvance && !plLoop) {
-          sLoadAndPlayCurrent().then(function () {
-            if (sActive && typeof pPlay === "function") pPlay();
-          }).catch(function (err) {
-            console.error("[sentences] sOnEnded Auto-Advance Fehler:", err);
-            sStop();
-          });
-        }
-      }, ms);
-    } else {
-      sLoadAndPlayCurrent().then(function () {
-        if (sActive && typeof pPlay === "function") pPlay();
-      }).catch(function (err) {
-        console.error("[sentences] sOnEnded Auto-Advance Fehler:", err);
-        sStop();
-      });
-    }
-    return;
-  }
-
-  // Weder Loop noch Auto-Advance: still anhalten
-  sStop();
 }
 
 // Befüllt das Sprecher-Dropdown dynamisch je nach aktueller Tool-Sprache.

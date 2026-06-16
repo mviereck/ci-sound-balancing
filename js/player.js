@@ -652,14 +652,6 @@ async function pPlay() {
       pUpdBtn();
       pUpdTL();
 
-      // Sätze haben einen eigenen Handler (sentences.js) mit eigener
-      // Loop-/Auto-Advance-/Stop-Logik.
-      if (typeof sActive !== "undefined" && sActive
-          && typeof sOnEnded === "function") {
-        sOnEnded();
-        return;
-      }
-
       const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
 
       // Loop hat Vorrang vor Auto-Advance: gleiches Stück nach Pause nochmal.
@@ -1329,7 +1321,37 @@ const plCategories = {
     },
     prev: function () { if (typeof sPrev === "function") sPrev(); },
     next: function () { if (typeof sNext === "function") sNext(); },
-    autoAdvance: function () { /* sOnEnded steuert selbst; No-Op */ },
+    autoAdvance: function () {
+      if (!plAutoAdvance || plLoop || plActiveSource !== "sentences") return;
+      const spkSel = document.getElementById("plSentSpeaker")
+        ? document.getElementById("plSentSpeaker").value : "any";
+      const pool = (typeof sBuildRecordingPool === "function")
+        ? sBuildRecordingPool(spkSel) : [];
+      if (pool.length === 0) return;
+      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+      const newRec = useRandom
+        ? (typeof sPickRandom === "function" ? sPickRandom(pool, sCurRec) : null)
+        : (typeof sSeqStep === "function" ? sSeqStep(+1) : null);
+      if (newRec) {
+        if (typeof sCurRec !== "undefined" && sCurRec) sPrevRec = sCurRec;
+        sCurRec = newRec;
+      }
+      if (typeof plUpdDisplay === "function") plUpdDisplay();
+      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+      const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+      sPauseTimer = setTimeout(function () {
+        sPauseTimer = null;
+        if (!plAutoAdvance || plLoop || plActiveSource !== "sentences") return;
+        if (typeof sLoadAndPlayCurrent === "function") {
+          sLoadAndPlayCurrent().then(function () {
+            if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
+          }).catch(function (err) {
+            console.error("[sentences] autoAdvance Fehler:", err);
+            if (typeof sStop === "function") sStop();
+          });
+        }
+      }, ms);
+    },
     onActivate: function () {
       pSetPlaybackMode("sentences");
       if (typeof sUpdateUI === "function") sUpdateUI();
