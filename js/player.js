@@ -1814,7 +1814,8 @@ function plBuildFilterChain(catDecl) {
 
     if (stage.kind === "axis-sel") {
       // Sortier-Achsen-Dropdown
-      var axes = (typeof amSortAxesFor === "function") ? amSortAxesFor(catDecl.category) : [];
+      var axesFn = stage.axesSource || (typeof amSortAxesFor === "function" ? amSortAxesFor : null);
+      var axes = axesFn ? axesFn(catDecl.category) : [];
       if (domEl.options.length === 0) {
         // Erste Befuellung: Optionen erzeugen
         for (var ai = 0; ai < axes.length; ai++) {
@@ -1893,6 +1894,54 @@ function plBuildFilterChain(catDecl) {
         }
         domEl.value = catDecl.stateRef.getSelectedId();
       }
+
+    } else if (stage.kind === "collection-sel") {
+      // Sammlung-Dropdown (Hoerbuch: sortierte Liste aller Collections)
+      var colEmptyEl = stage.emptyDomId ? document.getElementById(stage.emptyDomId) : null;
+      var allCols = (typeof amCollectCollections === "function")
+        ? amCollectCollections(catDecl.category) : [];
+      var sortedCols = (typeof amSortCollections === "function")
+        ? amSortCollections(allCols, catDecl.category, catDecl.stateRef.getSortAxis())
+        : allCols;
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+      for (var ci = 0; ci < sortedCols.length; ci++) {
+        var coll = sortedCols[ci];
+        var copt = document.createElement("option");
+        copt.value = coll.id;
+        copt.textContent = coll.title || coll.id;
+        domEl.appendChild(copt);
+      }
+      if (sortedCols.length === 0) {
+        if (colEmptyEl) colEmptyEl.style.display = "";
+        catDecl.stateRef.setSelectedId(null);
+      } else {
+        if (colEmptyEl) colEmptyEl.style.display = "none";
+        var curColId = catDecl.stateRef.getSelectedId();
+        var colExists = sortedCols.some(function (c) { return c.id === curColId; });
+        if (!colExists) {
+          catDecl.stateRef.setSelectedId(sortedCols[0].id);
+        }
+        domEl.value = catDecl.stateRef.getSelectedId();
+      }
+
+    } else if (stage.kind === "chapter-sel") {
+      // Kapitel-Dropdown (Hoerbuch: Kapitel der aktuell gewaehlten Collection)
+      var curCol = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+      if (curCol && Array.isArray(curCol.items)) {
+        for (var ki = 0; ki < curCol.items.length; ki++) {
+          var kopt = document.createElement("option");
+          kopt.value = String(ki);
+          kopt.textContent = (ki + 1) + ". " + (curCol.items[ki].title || ("Kapitel " + (ki + 1)));
+          domEl.appendChild(kopt);
+        }
+        var chIdx = catDecl.stateRef.getChapterIdx();
+        if (chIdx >= curCol.items.length) {
+          chIdx = 0;
+          catDecl.stateRef.setChapterIdx(0);
+        }
+        domEl.value = String(chIdx);
+      }
     }
   }
 
@@ -1932,6 +1981,22 @@ function plBuildFilterChain(catDecl) {
         wel.addEventListener("change", function () {
           catDecl.stateRef.setSelectedId(wel.value);
           if (wstage.onItemSelect) wstage.onItemSelect(wel.value);
+        });
+
+      } else if (wstage.kind === "collection-sel") {
+        wel.addEventListener("change", function () {
+          if (wstage.onCollectionSelect) wstage.onCollectionSelect(wel.value);
+          else {
+            catDecl.stateRef.setSelectedId(wel.value);
+            plBuildFilterChain(catDecl);
+          }
+        });
+
+      } else if (wstage.kind === "chapter-sel") {
+        wel.addEventListener("change", function () {
+          var idx = parseInt(wel.value, 10) || 0;
+          catDecl.stateRef.setChapterIdx(idx);
+          if (wstage.onChapterSelect) wstage.onChapterSelect(idx);
         });
       }
     })(stages[wi]);
@@ -2452,63 +2517,52 @@ function plBookCurrentChapter() {
   return col.items[idx];
 }
 
+// Deklaration: Hoerbuecher
+PL_FILTER_DECL.hoerbuecher = {
+  category: "hoerbuecher",
+  _wired: false,
+  stateRef: {
+    getSortAxis:   function () { return plBookSortAxis; },
+    setSortAxis:   function (v) { plBookSortAxis = v; },
+    getSelectedId: function () { return plBookSelectedId; },
+    setSelectedId: function (v) { plBookSelectedId = v; },
+    getChapterIdx: function () { return plBookChapterIdx; },
+    setChapterIdx: function (v) { plBookChapterIdx = v; }
+  },
+  stages: [
+    {
+      id: "sort", kind: "axis-sel", domId: "plBookSortSel",
+      axesSource: (typeof amCollectionSortAxesFor === "function") ? amCollectionSortAxesFor : null
+    },
+    {
+      id: "collection", kind: "collection-sel", domId: "plBookSel",
+      emptyDomId: "plBookEmpty",
+      onCollectionSelect: function (id) {
+        plBookSavePosition();
+        plBookSelectedId = id;
+        var pos = plBookPositions && plBookPositions[id];
+        plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
+        plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
+        if (plActiveSource === "audiobook") plBookLoadSelected();
+      }
+    },
+    {
+      id: "chapter", kind: "chapter-sel", domId: "plBookChSel",
+      onChapterSelect: function (idx) {
+        plBookSavePosition();
+        plBookChapterIdx = idx;
+        if (typeof plUpdDisplay === "function") plUpdDisplay();
+        if (plActiveSource === "audiobook") plBookLoadSelected();
+      }
+    }
+  ],
+  afterRefresh: function () {
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
+  }
+};
+
 function plBookRefreshUI() {
-  const sortSel = document.getElementById("plBookSortSel");
-  const bookSel = document.getElementById("plBookSel");
-  const chSel   = document.getElementById("plBookChSel");
-  const empty   = document.getElementById("plBookEmpty");
-  if (!sortSel || !bookSel || !chSel) return;
-
-  const axes = (typeof amCollectionSortAxesFor === "function")
-    ? amCollectionSortAxesFor("hoerbuecher") : [];
-  if (sortSel.options.length === 0) {
-    for (const a of axes) {
-      const opt = document.createElement("option");
-      opt.value = a.key;
-      opt.textContent = (typeof t === "function") ? t(a.labelKey) : a.labelDefault;
-      sortSel.appendChild(opt);
-    }
-  }
-  sortSel.value = plBookSortAxis;
-
-  const all = (typeof amCollectCollections === "function")
-    ? amCollectCollections("hoerbuecher") : [];
-  const sorted = (typeof amSortCollections === "function")
-    ? amSortCollections(all, "hoerbuecher", plBookSortAxis)
-    : all;
-
-  while (bookSel.firstChild) bookSel.removeChild(bookSel.firstChild);
-  for (const c of sorted) {
-    const opt = document.createElement("option");
-    opt.value = c.id;
-    opt.textContent = c.title || c.id;
-    bookSel.appendChild(opt);
-  }
-  if (sorted.find(function (c) { return c.id === plBookSelectedId; })) {
-    bookSel.value = plBookSelectedId;
-  } else if (sorted.length > 0) {
-    plBookSelectedId = sorted[0].id;
-    bookSel.value = plBookSelectedId;
-  } else {
-    plBookSelectedId = null;
-  }
-
-  while (chSel.firstChild) chSel.removeChild(chSel.firstChild);
-  const col = plBookCurrentCollection();
-  if (col && Array.isArray(col.items)) {
-    for (let i = 0; i < col.items.length; i++) {
-      const opt = document.createElement("option");
-      opt.value = String(i);
-      opt.textContent = (i + 1) + ". " + (col.items[i].title || ("Kapitel " + (i + 1)));
-      chSel.appendChild(opt);
-    }
-    if (plBookChapterIdx >= col.items.length) plBookChapterIdx = 0;
-    chSel.value = String(plBookChapterIdx);
-  }
-
-  if (empty) empty.style.display = sorted.length === 0 ? "" : "none";
-
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
+  plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
 
 async function plBookLoadSelected() {
@@ -2563,9 +2617,6 @@ function plBookSavePosition() {
 
 const _plBookUpBtn = document.getElementById("plBookUploadBtn");
 const _plBookUpInp = document.getElementById("plBookUploadInput");
-const _plBookSortS = document.getElementById("plBookSortSel");
-const _plBookSelS  = document.getElementById("plBookSel");
-const _plBookChS   = document.getElementById("plBookChSel");
 
 if (_plBookUpBtn && _plBookUpInp) {
   _plBookUpBtn.addEventListener("click", function () { _plBookUpInp.click(); });
@@ -2574,28 +2625,5 @@ if (_plBookUpBtn && _plBookUpInp) {
     e.target.value = "";
   });
 }
-if (_plBookSortS) {
-  _plBookSortS.addEventListener("change", function () {
-    plBookSortAxis = _plBookSortS.value;
-    plBookRefreshUI();
-  });
-}
-if (_plBookSelS) {
-  _plBookSelS.addEventListener("change", function () {
-    plBookSavePosition();
-    plBookSelectedId = _plBookSelS.value;
-    const pos = plBookPositions && plBookPositions[plBookSelectedId];
-    plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
-    plBookRefreshUI();
-    if (plActiveSource === "audiobook") plBookLoadSelected();
-  });
-}
-if (_plBookChS) {
-  _plBookChS.addEventListener("change", function () {
-    plBookSavePosition();
-    plBookChapterIdx = parseInt(_plBookChS.value, 10) || 0;
-    if (typeof plUpdDisplay === "function") plUpdDisplay();
-    if (plActiveSource === "audiobook") plBookLoadSelected();
-  });
-}
 // BA323: _plBookRmBtn-Handler entfernt — Entfernen-Knopf und amRemoveLocalBookCollection entfallen.
+// BA331: Sort/Sel/Ch-Event-Handler durch plBuildFilterChain-Mechanik (PL_FILTER_DECL.hoerbuecher) ersetzt.
