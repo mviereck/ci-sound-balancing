@@ -5,7 +5,7 @@ let pCtx = null,
   pBuf = null,
   pSourceBuf = null,
   pFileBuf = null,          // Audiodatei-Buffer (überlebt Sätze-Wiedergabe)
-  pPlaybackMode = "file",   // "file" | "sentence" — Aktiver Buffer-Slot
+  pPlaybackMode = "music",   // "music" | "sentences" | "noise" | "audiobook" — aktive Kategorie (Buffer-Slot)
   pMonoBuf = null,
   pLeftOnlyBuf = null,
   pRightOnlyBuf = null,
@@ -142,15 +142,15 @@ function _buildWarpedPlaybackBuffer(mode) {
 }
 
 function pSetPlaybackMode(mode) {
-  if (!["file", "sentence", "noise", "book"].includes(mode)) return;
+  if (!["music", "sentences", "noise", "audiobook"].includes(mode)) return;
   pPlaybackMode = mode;
-  if (mode === "file") {
+  if (mode === "music") {
     pSourceBuf = pFileBuf;
-  } else if (mode === "sentence") {
+  } else if (mode === "sentences") {
     pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
   } else if (mode === "noise") {
     pSourceBuf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
-  } else { // book
+  } else { // audiobook
     pSourceBuf = (typeof pBookBuf !== "undefined") ? pBookBuf : null;
   }
   pMonoBuf = null;
@@ -327,7 +327,7 @@ document
       const c = gPC();
       const buf = await f.arrayBuffer();
       pFileBuf = await c.decodeAudioData(buf);
-      pSetPlaybackMode("file");
+      pSetPlaybackMode("music");
       // BA260: hochgeladene Datei als Musik-Provider-Item registrieren,
       // damit sie in der Bibliotheks-Liste erscheint und vom Filtering
       // erfasst wird.
@@ -553,7 +553,7 @@ function pToggle() {
       && typeof sStop === "function") {
     sStop();
     if (!pFileBuf) return;          // keine Datei geladen → nichts zu spielen
-    pSetPlaybackMode("file");
+    pSetPlaybackMode("music");
     pOff = 0;
     pPlay();
     return;
@@ -1389,7 +1389,7 @@ function plSetSource(src) {
   } else if (src === "music") {
     // Buffer auf die Musikdatei zurücksetzen, damit nach Noise/Audiobook
     // beim Play wieder die Datei läuft, nicht das vorherige Geräusch.
-    pSetPlaybackMode("file");
+    pSetPlaybackMode("music");
     // BA260: UI refreshen und ggf. ausgewaehltes Item laden.
     if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
     if (plMusicSelectedId && typeof plMusicLoadSelected === "function") {
@@ -1398,7 +1398,7 @@ function plSetSource(src) {
   } else if (src === "sentences") {
     // Falls noch ein Satz-Buffer geladen ist, ihn aktiv schalten; sonst leert
     // pSetPlaybackMode pBuf und sPlay/sPlayCurrent lädt beim Play neu nach.
-    pSetPlaybackMode("sentence");
+    pSetPlaybackMode("sentences");
   }
   plUpdDisplay();
 }
@@ -2023,7 +2023,7 @@ async function plMusicLoadSelected() {
       throw new Error("Unbekanntes Audio-Format fuer Musik-Item: " + it.audio);
     }
     pFileBuf = await c.decodeAudioData(arrayBuf);
-    pSetPlaybackMode("file");
+    pSetPlaybackMode("music");
     pOff = 0;
     pBuildEQ();
     pDrawEQ();
@@ -2417,7 +2417,7 @@ async function plBookLoadSelected() {
   if (!abuf) return;
 
   pBookBuf = abuf;
-  pSetPlaybackMode("book");
+  pSetPlaybackMode("audiobook");
 
   // Gespeicherte Position ggf. wiederherstellen (überschreibt den
   // 0-Reset aus pSetPlaybackMode).

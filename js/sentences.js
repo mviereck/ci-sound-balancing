@@ -263,7 +263,7 @@ async function sPlayCurrent() {
     }
 
     sSentenceBuf = finalBuf;
-    pSetPlaybackMode("sentence");
+    pSetPlaybackMode("sentences");
     pOff = 0;
     pDrawEQ();
     document.getElementById("plEqViz").style.display = "";
@@ -355,7 +355,7 @@ function sStop() {
   }
   pOff = 0;
   if (typeof pSetPlaybackMode === "function") {
-    pSetPlaybackMode("file");
+    pSetPlaybackMode("music");
   }
   if (typeof pUpdTL === "function") pUpdTL();
   sShownText = "";
