@@ -1491,31 +1491,14 @@ function plSetPause(ms) {
 function plSetSource(src) {
   if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
   if (src === plActiveSource) return;
-  if (plActiveSource === "audiobook" && typeof plBookSavePosition === "function") plBookSavePosition();
+  const old = plCurrentCategory();
+  if (old) old.onDeactivate();
   plStopAll();
   plActiveSource = src;
   plUpdSourceUI();
   plUpdTransportUI();
-  if (src === "noise") {
-    plNoiseRefreshUI();
-    plNoiseLoadSelected();
-  } else if (src === "audiobook") {
-    if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-    if (plBookSelectedId && typeof plBookLoadSelected === "function") plBookLoadSelected();
-  } else if (src === "music") {
-    // Buffer auf die Musikdatei zurücksetzen, damit nach Noise/Audiobook
-    // beim Play wieder die Datei läuft, nicht das vorherige Geräusch.
-    pSetPlaybackMode("music");
-    // BA260: UI refreshen und ggf. ausgewaehltes Item laden.
-    if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-    if (plMusicSelectedId && typeof plMusicLoadSelected === "function") {
-      plMusicLoadSelected();
-    }
-  } else if (src === "sentences") {
-    // Falls noch ein Satz-Buffer geladen ist, ihn aktiv schalten; sonst leert
-    // pSetPlaybackMode pBuf und sPlay/sPlayCurrent lädt beim Play neu nach.
-    pSetPlaybackMode("sentences");
-  }
+  const nu = plCurrentCategory();
+  if (nu) nu.onActivate();
   plUpdDisplay();
 }
 
