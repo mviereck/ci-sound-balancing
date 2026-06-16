@@ -1417,6 +1417,30 @@
 
           <!-- Sub-Block: Geraeusche -->
           <div id="plSubNoise" class="pl-subblock" style="margin-bottom: 12px; display: none">
+
+            <!-- BA334: Upload: einzelne Datei -->
+            <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:8px;align-items:center">
+              <label style="font-size: 0.84em; color: var(--text-muted)"
+                     data-t="plNoiseFile"></label>
+              <input type="file" id="plNoiseAudio"
+                     accept=".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*"
+                     style="font-size: 0.88em" />
+            </div>
+
+            <!-- BA334: Ordner-Upload -->
+            <div id="plNoiseLocalBlock"
+                 style="margin-bottom:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">
+                <button class="btn" id="plNoiseLocalAddBtn" type="button" style="font-size:0.85em">
+                  <span data-t="plNoiseLocalAdd"></span>
+                </button>
+                <span id="plNoiseLocalHint" style="font-size:0.78em;color:var(--text-muted)"
+                      data-t="plNoiseLocalHint"></span>
+              </div>
+              <div id="plNoiseLocalList" style="display:none;font-size:0.85em"></div>
+              <input type="file" id="plNoiseLocalInput" webkitdirectory multiple style="display:none" />
+            </div>
+
             <!-- BA262: Suchfeld -->
             <div class="controls-row" style="gap:8px;flex-wrap:wrap;margin-bottom:6px;align-items:center">
               <label data-t="plNoiseSearchLabel" style="font-size:0.88em;margin-right:6px"></label>

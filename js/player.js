@@ -2114,6 +2114,47 @@ function plBuildFilterChain(catDecl) {
   if (catDecl.extraWiring) catDecl.extraWiring();
 }
 
+// ============================================================
+// BA334: gemeinsamer Upload-Block-Verdrahter
+// ============================================================
+// Verdrahtet Klick-auf-Button -> Input-Oeffnen, und change -> Callback.
+// spec: { fileInputId, folderInputId, addBtnId, allowFile, allowFolder,
+//         onFile(file), onFolder(fileList) }
+function plWireUploadBlock(spec) {
+  if (spec.allowFile && spec.fileInputId) {
+    var fileEl = document.getElementById(spec.fileInputId);
+    if (fileEl) {
+      fileEl.addEventListener("change", async function (e) {
+        var f = e.target.files && e.target.files[0];
+        if (!f) return;
+        e.target.value = "";
+        try {
+          if (spec.onFile) await spec.onFile(f);
+        } catch (err) {
+          console.error("[plWireUploadBlock] onFile failed:", err);
+        }
+      });
+    }
+  }
+  if (spec.allowFolder && spec.folderInputId && spec.addBtnId) {
+    var addBtn = document.getElementById(spec.addBtnId);
+    var folderEl = document.getElementById(spec.folderInputId);
+    if (addBtn && folderEl) {
+      addBtn.addEventListener("click", function () {
+        folderEl.value = "";
+        folderEl.click();
+      });
+      folderEl.addEventListener("change", async function (e) {
+        try {
+          if (spec.onFolder) await spec.onFolder(e.target.files);
+        } catch (err) {
+          console.error("[plWireUploadBlock] onFolder failed:", err);
+        }
+      });
+    }
+  }
+}
+
 // Deklaration: Musik
 PL_FILTER_DECL.musik = {
   category: "musik",
@@ -2162,32 +2203,26 @@ PL_FILTER_DECL.musik = {
     if (typeof plUpdDisplay     === "function") plUpdDisplay();
   },
   extraWiring: function () {
-    // BA261: Ordner-Upload
-    var localAdd   = document.getElementById("plMusicLocalAddBtn");
-    var localInput = document.getElementById("plMusicLocalInput");
-    if (localAdd && localInput) {
-      localAdd.addEventListener("click", function () {
-        localInput.value = "";
-        localInput.click();
-      });
-      localInput.addEventListener("change", async function (e) {
-        try {
-          var res = await amMusicIngestLocalFolder(e.target.files);
-          if (res && res.cid) {
-            var visible = plMusicVisibleItems();
-            var firstOfFolder = visible.find(function (x) {
-              return typeof x.audio === "string"
-                && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
-            });
-            if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
-          }
-          plMusicRefreshLocalList();
-          plMusicRefreshUI();
-        } catch (err) {
-          console.error("[player/musik] ingest folder failed:", err);
+    // BA334: Upload via plWireUploadBlock (Ordner, verhaltens-erhaltend)
+    plWireUploadBlock({
+      allowFile: false,
+      allowFolder: true,
+      addBtnId: "plMusicLocalAddBtn",
+      folderInputId: "plMusicLocalInput",
+      onFolder: async function (fileList) {
+        var res = await amMusicIngestLocalFolder(fileList);
+        if (res && res.cid) {
+          var visible = plMusicVisibleItems();
+          var firstOfFolder = visible.find(function (x) {
+            return typeof x.audio === "string"
+              && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
+          });
+          if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
         }
-      });
-    }
+        plMusicRefreshLocalList();
+        plMusicRefreshUI();
+      }
+    });
     plMusicRefreshLocalList();
     plMusicRefreshUI();
   }
@@ -2246,6 +2281,39 @@ PL_FILTER_DECL.geraeusche = {
   ],
   afterRefresh: function () {
     if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+  },
+  extraWiring: function () {
+    // BA334: Datei + Ordner via plWireUploadBlock
+    plWireUploadBlock({
+      allowFile: true,
+      fileInputId: "plNoiseAudio",
+      allowFolder: true,
+      addBtnId: "plNoiseLocalAddBtn",
+      folderInputId: "plNoiseLocalInput",
+      onFile: async function (file) {
+        var it = (typeof amNoiseLocalSetFile === "function") ? amNoiseLocalSetFile(file) : null;
+        if (it && typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = it.id;
+        plNoiseRefreshLocalList();
+        plNoiseRefreshUI();
+        if (plActiveSource === "noise") await plNoiseLoadSelected();
+      },
+      onFolder: async function (fileList) {
+        var res = (typeof amNoiseIngestLocalFolder === "function")
+          ? await amNoiseIngestLocalFolder(fileList) : null;
+        if (res && res.cid) {
+          var visible = plNoiseVisibleItems();
+          var firstOfFolder = visible.find(function (x) {
+            return typeof x.audio === "string"
+              && x.audio.indexOf("local-noise-folder:" + res.cid + ":") === 0;
+          });
+          if (firstOfFolder) plNoiseSelectedId = firstOfFolder.id;
+        }
+        plNoiseRefreshLocalList();
+        plNoiseRefreshUI();
+      }
+    });
+    plNoiseRefreshLocalList();
+    plNoiseRefreshUI();
   }
 };
 
@@ -2476,6 +2544,32 @@ function plMusicRefreshLocalList() {
     const lbl = document.createElement("span");
     lbl.textContent = coll.label + "  (" + coll.items.length + ")";
     // BA323: Entfernen-Knopf entfällt — Ordner nur noch für die Laufzeit.
+    row.appendChild(lbl);
+    list.appendChild(row);
+  }
+}
+
+// BA334: Lokale-Ordner-Liste fuer Geraeusche (analog plMusicRefreshLocalList)
+function plNoiseRefreshLocalList() {
+  const list = document.getElementById("plNoiseLocalList");
+  if (!list) return;
+  list.innerHTML = "";
+  const folders = (typeof amNoiseListLocalFolders === "function")
+    ? amNoiseListLocalFolders() : [];
+  if (folders.length === 0) {
+    list.style.display = "";
+    const span = document.createElement("span");
+    span.style.color = "var(--text-muted)";
+    span.textContent = (typeof t === "function") ? t("plNoiseLocalNone") : "Keine lokalen Ordner geladen.";
+    list.appendChild(span);
+    return;
+  }
+  list.style.display = "";
+  for (const coll of folders) {
+    const row = document.createElement("div");
+    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
+    const lbl = document.createElement("span");
+    lbl.textContent = coll.label + "  (" + coll.items.length + ")";
     row.appendChild(lbl);
     list.appendChild(row);
   }

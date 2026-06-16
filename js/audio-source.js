@@ -359,6 +359,21 @@ async function amGetItemBuffer(ctx, item) {
   let abuf = null;
   if (item.id.indexOf("gen:") === 0) {
     abuf = amGenerateNoiseBuffer(ctx, item.id);
+  } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-file:") === 0) {
+    // BA334: lokale Einzeldatei-Geraeusch
+    const noiseFile = (typeof amNoiseLocalCurrent === "function") ? amNoiseLocalCurrent() : null;
+    if (noiseFile && noiseFile._file) {
+      const ab = await noiseFile._file.arrayBuffer();
+      abuf = await ctx.decodeAudioData(ab);
+    }
+  } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-folder:") === 0) {
+    // BA334: lokaler Geraeusche-Ordner
+    const f = (typeof amNoiseResolveLocalFile === "function")
+      ? amNoiseResolveLocalFile(item.audio) : null;
+    if (f) {
+      const ab = await f.arrayBuffer();
+      abuf = await ctx.decodeAudioData(ab);
+    }
   } else if (item.audio) {
     const r = await fetch(item.audio);
     const ab = await r.arrayBuffer();
@@ -906,6 +921,125 @@ amRegisterProvider({
     if (category !== "musik") return [];
     const out = [];
     for (const coll of _amMusicLocalFolders.values()) {
+      for (const it of coll.items) out.push(it);
+    }
+    return out;
+  }
+});
+
+// ============================================================
+// BA334: lokaler Geraeusche-Einzeldatei-Provider
+// ============================================================
+
+let _amNoiseLocalFile = null;   // { name, audio: "local-noise-file:<name>", _file } | null
+
+function amNoiseLocalSetFile(file) {
+  if (!file) { _amNoiseLocalFile = null; return null; }
+  const id = "local-noise-file:" + file.name;
+  _amNoiseLocalFile = {
+    id: id,
+    title: file.name.replace(/\.[^.]+$/, ""),
+    audio: id,
+    sourceTitle: (typeof t === "function") ? t("plNoiseLocalFileSource") : "Eigener Upload",
+    license: null,
+    credit: null,
+    tags: { kind: "", spectrum: "", source_local: "y" },
+    _file: file
+  };
+  return _amNoiseLocalFile;
+}
+
+function amNoiseLocalCurrent() {
+  return _amNoiseLocalFile;
+}
+
+amRegisterProvider({
+  id: "noise-local-file",
+  listItems: function (category) {
+    if (category !== "geraeusche") return [];
+    return _amNoiseLocalFile ? [_amNoiseLocalFile] : [];
+  }
+});
+
+// ============================================================
+// BA334: lokaler Geraeusche-Ordner-Provider
+// ============================================================
+
+let _amNoiseLocalFolders = new Map(); // cid -> { id, label, files: Map<relPath,File>, items: [...] }
+let _amNoiseLocalNextId = 1;
+
+function _amNoiseNewCid() {
+  return "noise-folder-" + (_amNoiseLocalNextId++);
+}
+
+function _amNoiseBuildFolderItems(files, cid, folderName) {
+  const out = [];
+  let n = 0;
+  for (const f of files) {
+    const baseName = f.name.replace(/\.[^.]+$/, "");
+    out.push({
+      id: "noise-folder:" + cid + ":" + (++n),
+      title: baseName,
+      audio: "local-noise-folder:" + cid + ":" + f.webkitRelativePath,
+      sourceTitle: folderName,
+      license: null,
+      credit: null,
+      tags: { kind: "", spectrum: "", source_local: "y" }
+    });
+  }
+  return out;
+}
+
+async function amNoiseIngestLocalFolder(fileList) {
+  const all = Array.from(fileList || []);
+  if (all.length === 0) return null;
+  const firstRel = all[0].webkitRelativePath || all[0].name;
+  const folderName = firstRel.split("/")[0] || "Ordner";
+  const audioFiles = all.filter(function (f) {
+    return /\.(wav|mp3|ogg|flac|m4a|mp4)$/i.test(f.name);
+  });
+  if (audioFiles.length === 0) {
+    if (typeof alert === "function") {
+      alert((typeof t === "function") ? t("plNoiseLocalNoAudio") : "Keine Audiodateien.");
+    }
+    return null;
+  }
+  const cid = _amNoiseNewCid();
+  const filesMap = new Map();
+  for (const f of audioFiles) filesMap.set(f.webkitRelativePath, f);
+  const items = _amNoiseBuildFolderItems(audioFiles, cid, folderName);
+  _amNoiseLocalFolders.set(cid, {
+    id: cid,
+    label: folderName,
+    files: filesMap,
+    items: items
+  });
+  return { cid: cid, count: audioFiles.length };
+}
+
+function amNoiseListLocalFolders() {
+  return Array.from(_amNoiseLocalFolders.values());
+}
+
+// Liefert das File-Objekt zu einem Audio-Ref der Form
+// "local-noise-folder:<cid>:<relPath>" — null wenn nicht gefunden.
+function amNoiseResolveLocalFile(audioRef) {
+  if (!audioRef || audioRef.indexOf("local-noise-folder:") !== 0) return null;
+  const second = audioRef.indexOf(":", 19);
+  if (second < 0) return null;
+  const cid = audioRef.substring(19, second);
+  const rel = audioRef.substring(second + 1);
+  const coll = _amNoiseLocalFolders.get(cid);
+  if (!coll) return null;
+  return coll.files.get(rel) || null;
+}
+
+amRegisterProvider({
+  id: "noise-local-folder",
+  listItems: function (category) {
+    if (category !== "geraeusche") return [];
+    const out = [];
+    for (const coll of _amNoiseLocalFolders.values()) {
       for (const it of coll.items) out.push(it);
     }
     return out;
