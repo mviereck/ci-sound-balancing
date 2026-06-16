@@ -255,6 +255,7 @@ Object.assign(L.fr, {
     plEqHeadroomLabel: "Abaisser le volume des électrodes (éviter la saturation)",
     plEqHeadroomExpl:
       "Abaisse toutes les électrodes ensemble juste assez pour qu'aucune ne doive être amplifiée au niveau maximal — évite l'écrêtage dans le lecteur et la saturation à l'implant. Les deux côtés sont pris en compte ensemble ; les électrodes muettes et presque muettes sont exclues.",
+    eqHeadroomNote: "Remarque : toutes les valeurs de correction ont été abaissées ensemble de {db} dB afin qu'aucune électrode ne doive être amplifiée au niveau maximal (protection contre la saturation). Les rapports de volume entre les électrodes restent inchangés.",
     plShowExpLabel: "Afficher les options expérimentales",
     plExpHint: "Ces options sont expérimentales. L'expérience sonore est une simulation qui présente des faiblesses sonores, mais qui peut éventuellement donner une idée de la direction dans laquelle vont les réglages.",
     plMaplawExpNote: "Option expérimentale, résultat non garanti",

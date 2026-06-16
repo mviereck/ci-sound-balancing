@@ -254,6 +254,7 @@ Object.assign(L.en, {
     plEqHeadroomLabel: "Lower electrode loudness (avoid overdrive)",
     plEqHeadroomExpl:
       "Lowers all electrodes together just enough that none has to be boosted to full level — prevents clipping in the player and overdrive at the CI. Both sides are considered together; muted and nearly muted electrodes are left out.",
+    eqHeadroomNote: "Note: All correction values were lowered together by {db} dB so that no electrode has to be boosted to full level (overdrive protection). The loudness relationships between the electrodes remain unchanged.",
     plShowExpLabel: "Show experimental options",
     plExpHint: "These options are experimental. The sound experience is a simulation that has tonal weaknesses, but may give an idea of the direction the settings could take.",
     plMaplawExpNote: "Experimental option, result not guaranteed",

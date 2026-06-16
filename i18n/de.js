@@ -238,6 +238,7 @@ Object.assign(L.de, {
     plEqHeadroomLabel: "Elektrodenlautstärke absenken (Übersteuern vermeiden)",
     plEqHeadroomExpl:
       "Senkt alle Elektroden gemeinsam so weit ab, daß keine über die volle Lautstärke angehoben werden muß — verhindert Clipping im Player und Übersteuern am CI. Beide Seiten werden zusammen betrachtet; stumme und fast stumme Elektroden bleiben außen vor.",
+    eqHeadroomNote: "Hinweis: Alle Korrekturwerte wurden gemeinsam um {db} dB abgesenkt, damit keine Elektrode über die volle Lautstärke angehoben werden muß (Schutz vor Übersteuern). Die Lautstärke-Verhältnisse zwischen den Elektroden bleiben dabei unverändert.",
     plShowExpLabel: "Experimentelle Optionen einblenden",
     plExpHint: "Diese Optionen sind experimentell. Das Klangerlebnis ist eine Simulation, die klangliche Schwächen hat, aber eventuell eine Idee davon geben kann, in welche Richtung die Einstellungen gehen.",
     plMaplawExpNote: "Experimentelle Option, Ergebnis nicht gesichert",

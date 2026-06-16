@@ -367,6 +367,7 @@ function _collectPlayer() {
     maplawSollC:  (typeof pMaplawSollC  !== "undefined") ? pMaplawSollC  : null,
     eqGains,
     eqHasNonZero: hasNonZero,
+    eqHeadroomDb: (typeof _eqHeadroomOffset === "function") ? _eqHeadroomOffset() : 0,
   };
 }
 
@@ -655,6 +656,9 @@ function _archivMdPlayer(data) {
   out.push(`- ${t("archivPlNH")}: ${p.nhSim ? t("on") : t("off")}`);
   if (p.eqOn && p.nhSim) {
     out.push(`> ${t("nhSimNotApplied")}`);
+  }
+  if (p.eqHeadroomDb && p.eqHeadroomDb > 0) {
+    out.push(`> ${t("eqHeadroomNote").replace("{db}", p.eqHeadroomDb.toFixed(1))}`);
   }
   out.push(`- ${t("archivPlSrc")}: ${t("archivSrcMeas")} ${p.srcMeas ? "✓" : "✗"} · ${t("archivSrcLevels")} ${p.srcLevels ? "✓" : "✗"} · ${t("archivSrcCurves")} ${p.srcCurves ? "✓" : "✗"}`);
   const bmTxt = t("plBalMode" + p.balanceMode.charAt(0).toUpperCase() + p.balanceMode.slice(1)) || p.balanceMode;
@@ -1167,6 +1171,14 @@ function buildAudiologMarkdown() {
   const _nhEl = document.getElementById("plNHSim");
   if (typeof plEqOn !== "undefined" && plEqOn && _nhEl && _nhEl.checked) {
     parts.push(`> ${t("nhSimNotApplied")}\n`);
+  }
+
+  // ---- Elektrodenlautstaerke abgesenkt (BA 317) ----
+  {
+    const _hr = (typeof _eqHeadroomOffset === "function") ? _eqHeadroomOffset() : 0;
+    if (_hr > 0) {
+      parts.push(`> ${t("eqHeadroomNote").replace("{db}", _hr.toFixed(1))}\n`);
+    }
   }
 
   // ===========================================================
