@@ -754,6 +754,7 @@ amRegisterProvider({
           tags: col.tags || {},
           license: entry.source.license || entry.meta.license,
           credit:  entry.source.credit,
+          pdfUrl:  col.pdfUrl || null,
           items: (col.items || []).map(function (it, i) {
             return {
               id: id + "#" + (it.id || ("ch" + (i+1))),
