@@ -671,113 +671,11 @@ async function pPlay() {
         return;
       }
 
-      // BA193/258: Auto-Advance bei Geräuschen — Zufall oder Sortierung.
-      if (plActiveSource === "noise" && plAutoAdvance) {
-        setTimeout(function () {
-          if (!plAutoAdvance || plLoop) return;
-          const sorted = plNoiseVisibleItems();
-          if (sorted.length === 0) return;
-          const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-          let next;
-          if (typeof plShuffle !== "undefined" && plShuffle) {
-            if (sorted.length === 1) { next = sorted[0]; }
-            else {
-              let pick;
-              do {
-                pick = sorted[Math.floor(Math.random() * sorted.length)];
-              } while (pick.id === plNoiseSelectedId);
-              next = pick;
-            }
-            _plNoisePrevId = plNoiseSelectedId;
-          } else {
-            next = sorted[(idx + 1) % sorted.length];
-          }
-          if (!next) return;
-          plNoiseSelectedId = next.id;
-          const sel = document.getElementById("plNoiseItemSel");
-          if (sel) sel.value = next.id;
-          plNoiseLoadSelected().then(function () {
-            if (typeof pPlay === "function") pPlay();
-          });
-        }, ms);
-        return;
-      }
-
-      // BA195/258: Auto-Advance bei Hörbüchern — Zufall oder nächstes Kapitel.
-      if (plActiveSource === "audiobook" && plAutoAdvance) {
-        const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-        if (col && Array.isArray(col.items) && col.items.length > 0) {
-          const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-          let next;
-          if (useRandom) {
-            if (col.items.length === 1) { next = 0; }
-            else {
-              let pick;
-              do {
-                pick = Math.floor(Math.random() * col.items.length);
-              } while (pick === plBookChapterIdx);
-              next = pick;
-            }
-          } else {
-            next = plBookChapterIdx + 1;
-            if (next >= col.items.length) next = -1;  // -1 = Buchende, still anhalten
-          }
-          if (next >= 0) {
-            setTimeout(function () {
-              if (!plAutoAdvance || plLoop) return;
-              if (typeof plBookSavePosition === "function") plBookSavePosition();
-              if (useRandom) _plBookPrevChIdx = plBookChapterIdx;
-              plBookChapterIdx = next;
-              const sel = document.getElementById("plBookChSel");
-              if (sel) sel.value = String(next);
-              if (plBookPositions[plBookSelectedId]) {
-                plBookPositions[plBookSelectedId].chapterIdx = next;
-                plBookPositions[plBookSelectedId].posSeconds = 0;
-              }
-              plBookLoadSelected().then(function () {
-                if (typeof pPlay === "function") pPlay();
-              });
-            }, ms);
-          }
-        }
-      }
-
-      // BA260: Auto-Advance bei Musik — naechstes Stueck in gefilterter Sicht.
-      if (plActiveSource === "music" && plAutoAdvance) {
-        const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
-        if (visible.length > 0) {
-          const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-          let nextItem = null;
-          if (useRandom) {
-            if (visible.length === 1) { nextItem = visible[0]; }
-            else {
-              let pick;
-              do {
-                pick = visible[Math.floor(Math.random() * visible.length)];
-              } while (pick.id === plMusicSelectedId);
-              nextItem = pick;
-            }
-            _plMusicPrevId = plMusicSelectedId;
-          } else {
-            const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
-            if (idx >= 0 && idx < visible.length - 1) {
-              nextItem = visible[idx + 1];
-            }
-            // Sequenzende: kein Wrap, still anhalten (Konzept-Entscheidung Auto-Advance-Ende = Stop).
-          }
-          if (nextItem) {
-            setTimeout(function () {
-              if (!plAutoAdvance || plLoop) return;
-              plMusicSelectedId = nextItem.id;
-              const sel = document.getElementById("plMusicItemSel");
-              if (sel) sel.value = nextItem.id;
-              plMusicLoadSelected().then(function () {
-                if (typeof pPlay === "function") pPlay();
-              });
-            }, ms);
-          }
-        }
-      }
+      // Auto-Advance einheitlich ueber Kategorie-Adapter (BA325 Lauf 2).
+      // Sequenz-Ende-Stopp und Shuffle-Logik sind in den named functions
+      // _plMusicAutoAdvance/_plNoiseAutoAdvance/_plBookAutoAdvance gekapselt.
+      const cat = plCurrentCategory();
+      if (cat && plAutoAdvance) cat.autoAdvance();
     };
   }
 
@@ -1678,34 +1576,11 @@ function plUpdTransportUI() {
   const prevBtn = document.getElementById("plPrev");
   const nextBtn = document.getElementById("plNext");
 
-  // Next ist in S/N/AB grundsaetzlich verfuegbar; bei Musik kommt es
-  // mit BA 261. (Bei H/B sequentiell am Buchende stoppt der Klick
-  // hart, das ist OK.)
-  const hasNext = (plActiveSource === "sentences"
-                || plActiveSource === "audiobook"
-                || plActiveSource === "noise"
-                || (plActiveSource === "music" && (
-                    (typeof plMusicVisibleItems === "function")
-                      ? plMusicVisibleItems().length > 0
-                      : false
-                  ))
-               );
-
-  // Prev: bei Zufall = Memory; bei sequentiell = vorheriges Item.
-  // Wir berechnen pro Quelle das Boolesche "kann zurueck".
-  let hasPrev = hasNext;
-  if (hasNext && plShuffle) {
-    hasPrev = false;
-    if (plActiveSource === "sentences" && typeof sHasPrevMemory === "function") {
-      hasPrev = sHasPrevMemory();
-    } else if (plActiveSource === "noise" && typeof plNoiseHasPrevMemory === "function") {
-      hasPrev = plNoiseHasPrevMemory();
-    } else if (plActiveSource === "audiobook" && typeof plBookHasPrevMemory === "function") {
-      hasPrev = plBookHasPrevMemory();
-    } else if (plActiveSource === "music" && typeof plMusicHasPrevMemory === "function") {
-      hasPrev = plMusicHasPrevMemory();
-    }
-  }
+  // hasNext/hasPrev kommen jetzt einheitlich vom Kategorie-Adapter.
+  // Cursor-basiert: am Listen-/Werk-Ende false → Knopf wird ausgegraut.
+  const c = plCurrentCategory();
+  const hasNext = c ? c.hasNext() : false;
+  const hasPrev = c ? c.hasPrev() : false;
 
   if (nextBtn) {
     nextBtn.disabled = !hasNext;
