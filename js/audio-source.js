@@ -388,6 +388,26 @@ async function amGetNormalizedNoiseBuffer(ctx, item) {
   return copy;
 }
 
+// RMS-Normalisierung fuer Satz-Vordergrund (BA327).
+// Cached unter "sent-norm:<item.id>" in _amItemBufCache — getrennt von
+// _amMixCache, damit amMixCacheClear() den Normalisierungs-Cache nicht loescht.
+// decodedBuffer ist der bereits dekodierte AudioBuffer (kein erneuter Fetch).
+function amGetNormalizedSentenceBuffer(ctx, item, decodedBuffer) {
+  if (!item || !item.id || !decodedBuffer) return decodedBuffer;
+  const cacheKey = "sent-norm:" + item.id;
+  const cached = _amItemBufCache.get(cacheKey);
+  if (cached) return cached;
+
+  const orig = decodedBuffer;
+  const copy = ctx.createBuffer(orig.numberOfChannels, orig.length, orig.sampleRate);
+  for (let ch = 0; ch < orig.numberOfChannels; ch++) {
+    copy.copyToChannel(orig.getChannelData(ch), ch);
+  }
+  _amNormalizeBufferRms(copy, AM_REF_RMS);
+  _amItemBufCache.set(cacheKey, copy);
+  return copy;
+}
+
 // ============================================================
 // Pre-Mix mit Hintergrund-Geraeusch (BA194)
 // ============================================================

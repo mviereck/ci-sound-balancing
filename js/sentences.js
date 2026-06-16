@@ -211,70 +211,85 @@ function sDataUrlToArrayBuffer(url) {
 
 async function sPlayCurrent() {
   if (!sActive || !sCurRec) return;
-  const audioRef = sCurRec.audio;
-  if (!audioRef) { sStop(); return; }
   try {
-    let arrayBuf;
-    if (audioRef.indexOf("data:") === 0) {
-      arrayBuf = sDataUrlToArrayBuffer(audioRef);
-    } else if (audioRef.indexOf("local:") === 0) {
-      // Form: "local:<cid>:<relPath>"
-      const second = audioRef.indexOf(":", 6);
-      const cid = audioRef.substring(6, second);
-      const rel = audioRef.substring(second + 1);
-      const coll = sLocalCollections.get(cid);
-      if (!coll) throw new Error("Lokale Sammlung " + cid + " nicht (mehr) verfügbar");
-      const file = coll.files.get(rel);
-      if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
-      arrayBuf = await file.arrayBuffer();
-    } else if (/^(https?:|blob:)/i.test(audioRef)) {
-      const res = await fetch(audioRef, { mode: "cors" });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      arrayBuf = await res.arrayBuffer();
-    } else {
-      // Relativ — Alt-Verhalten: unter assets/sentences/ suchen.
-      const res = await fetch("assets/sentences/" + audioRef);
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      arrayBuf = await res.arrayBuffer();
-    }
-    const c = gPC();
-    const decoded = await c.decodeAudioData(arrayBuf);
-    if (!sActive) return;
-
-    // BA194: Hintergrund-Geraeusch ggf. einmischen.
-    let finalBuf = decoded;
-    if (typeof plSentBgEnabled !== "undefined" && plSentBgEnabled
-        && typeof plSentBgItemId !== "undefined" && plSentBgItemId
-        && typeof amCollectItems === "function") {
-      try {
-        const allBg = amCollectItems("geraeusche");
-        const bgItem = allBg.find(function (it) { return it.id === plSentBgItemId; });
-        if (bgItem) {
-          const bgBuf = await amGetNormalizedNoiseBuffer(c, bgItem);
-          if (bgBuf) {
-            finalBuf = amMixForeground(c, audioRef, decoded, bgItem, bgBuf, plSentBgSnrDb);
-          }
-        }
-      } catch (mixErr) {
-        console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
-        finalBuf = decoded;
-      }
-      if (!sActive) return;
-    }
-
-    sSentenceBuf = finalBuf;
-    pSetPlaybackMode("sentences");
-    pOff = 0;
-    pDrawEQ();
-    document.getElementById("plEqViz").style.display = "";
-    sShownText = sCurRec.text || "";
-    sUpdateTextBox();
-    if (typeof plUpdDisplay === "function") plUpdDisplay();
-    await pPlay();
+    await sLoadAndPlayCurrent();
+    if (sActive && typeof pPlay === "function") await pPlay();
   } catch (err) {
-    console.error("[sentences] Wiedergabe-Fehler:", err);
+    console.error("[sentences] Wiedergabe-Fehler (sPlayCurrent):", err);
     sStop();
   }
+}
+
+// BA327: Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
+// mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
+// pSetPlaybackMode("sentences"). Ruft KEIN pPlay — Aufrufer macht das.
+// Gibt Promise zurueck; wirft bei Ladefehler.
+async function sLoadAndPlayCurrent() {
+  if (!sCurRec) throw new Error("kein sCurRec");
+  const audioRef = sCurRec.audio;
+  if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
+
+  let arrayBuf;
+  if (audioRef.indexOf("data:") === 0) {
+    arrayBuf = sDataUrlToArrayBuffer(audioRef);
+  } else if (audioRef.indexOf("local:") === 0) {
+    // Form: "local:<cid>:<relPath>"
+    const second = audioRef.indexOf(":", 6);
+    const cid = audioRef.substring(6, second);
+    const rel = audioRef.substring(second + 1);
+    const coll = sLocalCollections.get(cid);
+    if (!coll) throw new Error("Lokale Sammlung " + cid + " nicht (mehr) verfuegbar");
+    const file = coll.files.get(rel);
+    if (!file) throw new Error("Datei " + rel + " nicht in Sammlung " + cid);
+    arrayBuf = await file.arrayBuffer();
+  } else if (/^(https?:|blob:)/i.test(audioRef)) {
+    const res = await fetch(audioRef, { mode: "cors" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    arrayBuf = await res.arrayBuffer();
+  } else {
+    // Relativ — Alt-Verhalten: unter assets/sentences/ suchen.
+    const res = await fetch("assets/sentences/" + audioRef);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    arrayBuf = await res.arrayBuffer();
+  }
+
+  const c = gPC();
+  const decoded = await c.decodeAudioData(arrayBuf);
+  if (!sActive) return;
+
+  // BA327: Vordergrund immer RMS-normalisieren (kein Schalter).
+  const normItem = sCurRec;  // unveraendert: item mit .id fuer Cache-Key
+  let finalBuf = amGetNormalizedSentenceBuffer(c, normItem, decoded);
+
+  // BA194: Hintergrund-Geraeusch ggf. einmischen (auf normalisierten Vordergrund).
+  if (typeof plSentBgEnabled !== "undefined" && plSentBgEnabled
+      && typeof plSentBgItemId !== "undefined" && plSentBgItemId
+      && typeof amCollectItems === "function") {
+    try {
+      const allBg = amCollectItems("geraeusche");
+      const bgItem = allBg.find(function (it) { return it.id === plSentBgItemId; });
+      if (bgItem) {
+        const bgBuf = await amGetNormalizedNoiseBuffer(c, bgItem);
+        if (bgBuf) {
+          finalBuf = amMixForeground(c, audioRef, finalBuf, bgItem, bgBuf, plSentBgSnrDb);
+        }
+      }
+    } catch (mixErr) {
+      console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
+      // finalBuf bleibt normalisierter Vordergrund
+    }
+    if (!sActive) return;
+  }
+
+  sSentenceBuf = finalBuf;
+  sActive = true;
+  pSetPlaybackMode("sentences");
+  pOff = 0;
+  pDrawEQ();
+  document.getElementById("plEqViz").style.display = "";
+  sShownText = sCurRec.text || "";
+  sUpdateTextBox();
+  if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
 function sPlay() {
@@ -296,7 +311,12 @@ function sPlay() {
     }
   }
   sActive = true;
-  sPlayCurrent();
+  sLoadAndPlayCurrent().then(function () {
+    if (sActive && typeof pPlay === "function") pPlay();
+  }).catch(function (err) {
+    console.error("[sentences] sPlay Fehler:", err);
+    sStop();
+  });
   if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
@@ -315,7 +335,12 @@ function sNext() {
     sCurRec = newRec;
   }
   sActive = true;
-  sPlayCurrent();
+  sLoadAndPlayCurrent().then(function () {
+    if (sActive && typeof pPlay === "function") pPlay();
+  }).catch(function (err) {
+    console.error("[sentences] sNext Fehler:", err);
+    sStop();
+  });
   if (typeof plUpdDisplay === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
@@ -341,7 +366,12 @@ function sPrev() {
   if (target) {
     sCurRec = target;
     sActive = true;
-    sPlayCurrent();
+    sLoadAndPlayCurrent().then(function () {
+      if (sActive && typeof pPlay === "function") pPlay();
+    }).catch(function (err) {
+      console.error("[sentences] sPrev Fehler:", err);
+      sStop();
+    });
   }
   if (typeof plUpdDisplay === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
@@ -399,10 +429,22 @@ function sOnEnded() {
     if (ms > 0) {
       sPauseTimer = setTimeout(function () {
         sPauseTimer = null;
-        if (sActive && plAutoAdvance && !plLoop) sPlayCurrent();
+        if (sActive && plAutoAdvance && !plLoop) {
+          sLoadAndPlayCurrent().then(function () {
+            if (sActive && typeof pPlay === "function") pPlay();
+          }).catch(function (err) {
+            console.error("[sentences] sOnEnded Auto-Advance Fehler:", err);
+            sStop();
+          });
+        }
       }, ms);
     } else {
-      sPlayCurrent();
+      sLoadAndPlayCurrent().then(function () {
+        if (sActive && typeof pPlay === "function") pPlay();
+      }).catch(function (err) {
+        console.error("[sentences] sOnEnded Auto-Advance Fehler:", err);
+        sStop();
+      });
     }
     return;
   }
