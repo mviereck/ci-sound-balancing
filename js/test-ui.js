@@ -737,25 +737,6 @@ function _buildTestPanelNew(parentEl, cfg) {
       }
     }
 
-    // --- excludeButtons ---
-    if (body.excludeButtons) {
-      var exBtnCfg = body.excludeButtons;
-      var exRow = _mkEl('div', 'exclude-row');
-      var exLeft = _mkEl('button', 'btn btn-danger');
-      exLeft.dataset.action = 'exclude-left';
-      _tEl(exLeft, 'btnExcludeA');
-      var exRight = _mkEl('button', 'btn btn-danger');
-      exRight.dataset.action = 'exclude-right';
-      _tEl(exRight, 'btnExcludeB');
-      exRow.append(exLeft, exRight);
-      vWrap.appendChild(exRow);
-      refs.excludeButtons = { left: exLeft, right: exRight };
-      if (vCfg.hooks && vCfg.hooks.onExclude) {
-        exLeft.addEventListener('click', function() { vCfg.hooks.onExclude('left'); });
-        exRight.addEventListener('click', function() { vCfg.hooks.onExclude('right'); });
-      }
-    }
-
     // --- applyButton ---
     if (body.applyButton) {
       var applyBtn = _mkEl('button', 'btn btn-primary btn-large');

@@ -970,7 +970,7 @@ function endTest() {
   // BA 278fix: Natuerliches Testende muss die Test-UI zuruecksetzen
   // (testBox ausblenden, Start/Stop-Button-Zustand, Laufzustand beenden).
   // Bisher rief nur der Stop-Button _stopTest() auf; die natuerlichen
-  // Endpfade (nextFullRound, nextConvRnd, doExcl) uebersprangen es, sodass
+  // Endpfade (nextFullRound, nextConvRnd) uebersprangen es, sodass
   // der Test nach dem letzten Vergleich haengen blieb (kein Ton, kein
   // Abschluss). _stopTest hat einen Re-Entry-Schutz (_testRunning), der
   // Aufruf ueber den onStop-Hook (-> endTest) laeuft also nicht in eine
@@ -1282,24 +1282,6 @@ function nextConvRnd() {
     });
   }
   showCurPair();
-}
-function doExcl(i) {
-  elExDur[i] = Date.now();
-  const rem = testPairs.slice(testIdx).filter(function(p) { return p[0] !== i && p[1] !== i; });
-  testPairs = [].concat(testPairs.slice(0, testIdx), rem);
-  buildFreqTable();
-  // BA 247fix2: progress.set erwartet ein opts-Objekt.
-  var vref = testEls && testEls.verfahren && testEls.verfahren[_testActiveVerfahren];
-  if (vref && vref.progress) {
-    testUI.progress.set(vref.progress, {
-      text: dENPrefix() + dEN(i) + " " + t("exclDuring") + ". " +
-            (testPairs.length - testIdx) + " " + t("pairsRem") + "."
-    });
-  }
-  if (testIdx >= testPairs.length) {
-    endTest();
-    renderResults();
-  } else showCurPair();
 }
 
 // ============================================================
