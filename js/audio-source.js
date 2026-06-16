@@ -553,18 +553,7 @@ function amAddLocalBookCollection(col) {
   _amLocalBookCollections.push(col);
 }
 
-function amRemoveLocalBookCollection(id) {
-  const idx = _amLocalBookCollections.findIndex(function (c) { return c.id === id; });
-  if (idx >= 0) {
-    const removed = _amLocalBookCollections[idx];
-    for (const it of (removed.items || [])) {
-      if (it.audio && it.audio.indexOf("blob:") === 0) {
-        try { URL.revokeObjectURL(it.audio); } catch (e) {}
-      }
-    }
-    _amLocalBookCollections.splice(idx, 1);
-  }
-}
+// BA323: amRemoveLocalBookCollection entfernt — Entfernen-Knopf entfällt.
 
 amRegisterProvider({
   id: "local-books",
@@ -875,9 +864,7 @@ function amMusicListLocalFolders() {
   return Array.from(_amMusicLocalFolders.values());
 }
 
-function amMusicRemoveLocalFolder(cid) {
-  _amMusicLocalFolders.delete(cid);
-}
+// BA323: amMusicRemoveLocalFolder entfernt — Entfernen-Knopf entfällt (Box zustandslos).
 
 // Liefert das File-Objekt zu einem Audio-Ref der Form
 // "local-music-folder:<cid>:<relPath>" — null wenn nicht gefunden.

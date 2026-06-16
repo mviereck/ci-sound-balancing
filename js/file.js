@@ -235,29 +235,7 @@ function resetAll() {
   // --- Player-Experimental ---
   if (typeof plShowExperimental !== "undefined") plShowExperimental = false;
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
-  // --- BA192: Player-Wiedergabe-State ---
-  if (typeof plActiveSource !== "undefined") plActiveSource = "music";
-  if (typeof plAutoAdvance  !== "undefined") plAutoAdvance  = false;
-  if (typeof plLoop         !== "undefined") plLoop         = false;
-  if (typeof plShuffle      !== "undefined") plShuffle      = false;
-  if (typeof plPauseMs      !== "undefined") plPauseMs      = 2000;
-  if (typeof plSentShowText !== "undefined") plSentShowText = false;
-  // --- BA193: Geraeusche-State ---
-  if (typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = "gen:pink";
-  if (typeof plNoiseSortAxis   !== "undefined") plNoiseSortAxis   = "kind";
-  if (typeof plNoiseCategory   !== "undefined") plNoiseCategory   = "_all";
-  if (typeof plNoiseSearchQuery !== "undefined") plNoiseSearchQuery = "";
-  if (typeof plSentBgEnabled   !== "undefined") plSentBgEnabled   = false;
-  if (typeof plSentBgItemId    !== "undefined") plSentBgItemId    = "gen:pink";
-  if (typeof plSentBgSnrDb     !== "undefined") plSentBgSnrDb     = 0;
-  if (typeof plBookSelectedId  !== "undefined") plBookSelectedId  = null;
-  if (typeof plBookChapterIdx  !== "undefined") plBookChapterIdx  = 0;
-  if (typeof plBookSortAxis    !== "undefined") plBookSortAxis    = "author";
-  if (typeof plBookPositions   !== "undefined") plBookPositions   = {};
-  if (typeof plMusicSelectedId   !== "undefined") plMusicSelectedId   = null;
-  if (typeof plMusicSortAxis     !== "undefined") plMusicSortAxis     = "title";
-  if (typeof plMusicCategory     !== "undefined") plMusicCategory     = "_all";
-  if (typeof plMusicSearchQuery  !== "undefined") plMusicSearchQuery  = "";
+  // BA323: Player-Box ist zustandslos — keine Reset-Zuweisungen mehr nötig.
   // --- Sprecher-Auswahl im Player ---
   const _spk = document.getElementById("plSentSpeaker");
   if (_spk) _spk.value = "";
@@ -407,38 +385,8 @@ async function saveJson() {
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
-    plActiveSource: (typeof plActiveSource !== "undefined") ? plActiveSource : "music",
-    plAutoAdvance:  (typeof plAutoAdvance  !== "undefined") ? plAutoAdvance  : false,
-    plLoop:         (typeof plLoop         !== "undefined") ? plLoop         : false,
-    plShuffle:      (typeof plShuffle      !== "undefined") ? plShuffle      : false,
-    plPauseMs:      (typeof plPauseMs      !== "undefined") ? plPauseMs      : 2000,
-    plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
-    plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
-    plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
-    plNoiseCategory:   (typeof plNoiseCategory   !== "undefined") ? plNoiseCategory   : "_all",
-    plNoiseSearchQuery: (typeof plNoiseSearchQuery !== "undefined") ? plNoiseSearchQuery : "",
-    plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
-    plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
-    plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
-    plBookSelectedId: (typeof plBookSelectedId !== "undefined") ? plBookSelectedId : null,
-    plBookChapterIdx: (typeof plBookChapterIdx !== "undefined") ? plBookChapterIdx : 0,
-    plBookSortAxis:   (typeof plBookSortAxis   !== "undefined") ? plBookSortAxis   : "author",
-    plBookPositions:  (typeof plBookPositions  !== "undefined") ? Object.assign({}, plBookPositions) : {},
-    plMusicSelectedId:  (typeof plMusicSelectedId  !== "undefined") ? plMusicSelectedId  : null,
-    plMusicSortAxis:    (typeof plMusicSortAxis    !== "undefined") ? plMusicSortAxis    : "title",
-    plMusicCategory:    (typeof plMusicCategory    !== "undefined") ? plMusicCategory    : "_all",
-    plMusicSearchQuery: (typeof plMusicSearchQuery !== "undefined") ? plMusicSearchQuery : "",
-    localCollections: (typeof sLocalCollections !== "undefined")
-      ? Array.from(sLocalCollections.values()).map((c) => ({
-          id: c.id,
-          label: c.label,
-          lang: c.lang,
-          kind: c.kind,
-          folderName: c.folderName,
-          fileCount: c.recordings.length,
-          handleId: c.handleId || null,
-        }))
-      : [],
+    // BA323: Player-Box-Felder (plActiveSource, plLoop, plShuffle, plNoise*, plSent*,
+    // plBook*, plMusic*, localCollections) werden nicht mehr gespeichert — Box ist zustandslos.
     userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
     userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
     userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",
@@ -927,33 +875,8 @@ function applyLoadedData(d) {
   if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
   if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
   if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
-  if (typeof plActiveSource !== "undefined") {
-    plActiveSource = (d && typeof d.plActiveSource === "string"
-                      && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
-      ? d.plActiveSource : "music";
-    }
-  if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
-  if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
-  if (typeof d.plShuffle     === "boolean")  plShuffle     = d.plShuffle;
-  if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
-  if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
-  if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
-  if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
-  if (typeof d.plNoiseCategory   === "string") plNoiseCategory   = d.plNoiseCategory;
-  if (typeof d.plNoiseSearchQuery === "string") plNoiseSearchQuery = d.plNoiseSearchQuery;
-  if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
-  if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
-  if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
-  if (typeof d.plBookSelectedId === "string") plBookSelectedId = d.plBookSelectedId;
-  if (typeof d.plBookChapterIdx === "number") plBookChapterIdx = d.plBookChapterIdx;
-  if (typeof d.plBookSortAxis   === "string") plBookSortAxis   = d.plBookSortAxis;
-  if (d.plBookPositions && typeof d.plBookPositions === "object") {
-    plBookPositions = Object.assign({}, d.plBookPositions);
-  }
-  if (typeof d.plMusicSelectedId  === "string") plMusicSelectedId  = d.plMusicSelectedId;
-  if (typeof d.plMusicSortAxis    === "string") plMusicSortAxis    = d.plMusicSortAxis;
-  if (typeof d.plMusicCategory    === "string") plMusicCategory    = d.plMusicCategory;
-  if (typeof d.plMusicSearchQuery === "string") plMusicSearchQuery = d.plMusicSearchQuery;
+  // BA323: Player-Box-Felder werden beim Laden nicht mehr angewendet — Box ist zustandslos.
+  // Alte JSON-Dateien mit diesen Feldern werden fehlerfrei ignoriert.
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();
@@ -1008,10 +931,7 @@ function applyLoadedData(d) {
   updSideButtons();
   const fi = gEl("fInput");
   if (fi) fi.value = "";
-  if (Array.isArray(d.localCollections)
-      && typeof sRestoreLocalCollections === "function") {
-    sRestoreLocalCollections(d.localCollections);
-  }
+  // BA323: d.localCollections wird ignoriert — Box ist zustandslos.
   const MIGR_TYPES = ["tilt", "scurve", "pivot", "gauss"];
   const sideHasMeaningfulMigration = (side) =>
     sideData[side]._presetsMigrated === true &&

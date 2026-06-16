@@ -2104,24 +2104,8 @@ function plMusicRefreshLocalList() {
     row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
     const lbl = document.createElement("span");
     lbl.textContent = coll.label + "  (" + coll.items.length + ")";
-    const btn = document.createElement("button");
-    btn.className = "btn";
-    btn.type = "button";
-    btn.style.cssText = "padding:1px 8px;font-size:0.85em";
-    btn.title = (typeof t === "function") ? t("plMusicLocalRemove") : "Entfernen";
-    btn.textContent = "x";
-    btn.addEventListener("click", function () {
-      const cur = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
-      if (cur && typeof cur.audio === "string"
-          && cur.audio.indexOf("local-music-folder:" + coll.id + ":") === 0) {
-        plMusicSelectedId = null;
-      }
-      amMusicRemoveLocalFolder(coll.id);
-      plMusicRefreshLocalList();
-      plMusicRefreshUI();
-    });
+    // BA323: Entfernen-Knopf entfällt — Ordner nur noch für die Laufzeit.
     row.appendChild(lbl);
-    row.appendChild(btn);
     list.appendChild(row);
   }
 }
@@ -2296,9 +2280,7 @@ async function plBookHandleUpload(fileList) {
     : "Hoerbuch";
 
   const bookId = "local-book:" + folderName + ":" + files.length;
-  if (typeof amRemoveLocalBookCollection === "function") {
-    amRemoveLocalBookCollection(bookId);
-  }
+  // BA323: amRemoveLocalBookCollection entfällt — Sammlungen nur noch für die Laufzeit.
 
   const items = files.map(function (f, i) {
     return {
@@ -2455,7 +2437,6 @@ const _plBookUpInp = document.getElementById("plBookUploadInput");
 const _plBookSortS = document.getElementById("plBookSortSel");
 const _plBookSelS  = document.getElementById("plBookSel");
 const _plBookChS   = document.getElementById("plBookChSel");
-const _plBookRmBtn = document.getElementById("plBookRemoveBtn");
 
 if (_plBookUpBtn && _plBookUpInp) {
   _plBookUpBtn.addEventListener("click", function () { _plBookUpInp.click(); });
@@ -2488,15 +2469,4 @@ if (_plBookChS) {
     if (plActiveSource === "audiobook") plBookLoadSelected();
   });
 }
-if (_plBookRmBtn) {
-  _plBookRmBtn.addEventListener("click", function () {
-    if (!plBookSelectedId) return;
-    if (!confirm(t("plBookRemoveConfirm") || "Diese Hoerbuch-Auswahl entfernen?")) return;
-    const id = plBookSelectedId;
-    delete plBookPositions[id];
-    if (typeof amRemoveLocalBookCollection === "function") amRemoveLocalBookCollection(id);
-    plBookSelectedId = null;
-    plBookChapterIdx = 0;
-    plBookRefreshUI();
-  });
-}
+// BA323: _plBookRmBtn-Handler entfernt — Entfernen-Knopf und amRemoveLocalBookCollection entfallen.

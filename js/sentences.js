@@ -458,11 +458,7 @@ function sRefreshSpeakerDropdown() {
   }
 
   sel.onchange = function () {
-    const v = sel.value;
-    const coll = sLocalCollections.get(v);
-    if (coll && coll.stub) {
-      sReloadStubCollection(v);
-    }
+    // BA323: Stub-Sammlungen entfallen — keine sReloadStubCollection mehr nötig.
   };
 }
 
@@ -631,61 +627,8 @@ async function sLoadGenericManifest(allFiles, audioFilenames) {
   return new Map();
 }
 
-// ============================================================
-// INDEXEDDB FÜR ORDNER-HANDLES (Chromium/Edge)
-// ============================================================
-// Schema:
-//   DB "ciSoundBalancing", Store "folderHandles", key = handleId (String),
-//   value = { handle: FileSystemDirectoryHandle, meta: {...} }
-
-const S_IDB_NAME = "ciSoundBalancing";
-const S_IDB_STORE = "folderHandles";
-const S_IDB_VER = 1;
-
-function sIdbOpen() {
-  return new Promise((resolve, reject) => {
-    if (!window.indexedDB) { reject(new Error("no IndexedDB")); return; }
-    const req = indexedDB.open(S_IDB_NAME, S_IDB_VER);
-    req.onupgradeneeded = function () {
-      const db = req.result;
-      if (!db.objectStoreNames.contains(S_IDB_STORE)) {
-        db.createObjectStore(S_IDB_STORE);
-      }
-    };
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
-}
-
-async function sIdbPut(key, value) {
-  const db = await sIdbOpen();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(S_IDB_STORE, "readwrite");
-    tx.objectStore(S_IDB_STORE).put(value, key);
-    tx.oncomplete = () => { db.close(); resolve(); };
-    tx.onerror = () => { db.close(); reject(tx.error); };
-  });
-}
-
-async function sIdbGet(key) {
-  const db = await sIdbOpen();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(S_IDB_STORE, "readonly");
-    const req = tx.objectStore(S_IDB_STORE).get(key);
-    req.onsuccess = () => { db.close(); resolve(req.result); };
-    req.onerror = () => { db.close(); reject(req.error); };
-  });
-}
-
-async function sIdbDel(key) {
-  const db = await sIdbOpen();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(S_IDB_STORE, "readwrite");
-    tx.objectStore(S_IDB_STORE).delete(key);
-    tx.oncomplete = () => { db.close(); resolve(); };
-    tx.onerror = () => { db.close(); reject(tx.error); };
-  });
-}
+// BA323: IndexedDB-Subsystem (S_IDB_*, sIdbOpen/Put/Get/Del) entfernt.
+// Lokale Sammlungen werden nicht mehr sitzungsübergreifend gespeichert.
 
 function sFsaaAvailable() {
   return typeof window.showDirectoryPicker === "function";
@@ -871,24 +814,7 @@ async function sIngestFromHandle(rootHandle, handleId) {
 
   const before = new Set(sLocalCollections.keys());
   await sIngestLocalFolder(files);
-  const newCids = [];
-  for (const k of sLocalCollections.keys()) {
-    if (!before.has(k)) newCids.push(k);
-  }
-
-  const hid = handleId || ("h-" + Date.now() + "-" + Math.floor(Math.random() * 1e6));
-  try {
-    await sIdbPut(hid, { handle: rootHandle });
-  } catch (e) {
-    console.warn("[sentences/local] IDB put failed:", e);
-  }
-  for (const cid of newCids) {
-    const coll = sLocalCollections.get(cid);
-    if (coll) {
-      coll.handleId = hid;
-      coll.persistable = true;
-    }
-  }
+  // BA323: IDB-Put und handleId/persistable-Zuweisung entfernt — keine sitzungsübergreifende Persistenz.
   sRefreshLocalList();
 }
 
@@ -905,139 +831,18 @@ function sRefreshLocalList() {
     return;
   }
   list.style.display = "";
-  for (const [cid, coll] of sLocalCollections) {
+  for (const [, coll] of sLocalCollections) {
     const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
+    row.style.cssText = "padding:3px 0";
     const lbl = document.createElement("span");
-    let suffix;
-    if (coll.stub) {
-      suffix = "  " + t("sentLocalNotLoaded") + " · " + coll.folderName;
-    } else {
-      suffix = "  (" + coll.recordings.length + " · " + coll.folderName + ")";
-    }
-    lbl.textContent = coll.label + suffix;
-    const btn = document.createElement("button");
-    btn.className = "btn";
-    btn.type = "button";
-    btn.style.cssText = "padding:1px 8px;font-size:0.85em";
-    btn.title = t("sentLocalRemove");
-    btn.textContent = "×";
-    btn.addEventListener("click", function () {
-      sRemoveLocalCollection(cid);
-    });
+    lbl.textContent = coll.label + "  (" + coll.recordings.length + " · " + coll.folderName + ")";
+    // BA323: Entfernen-Knopf entfällt — Sammlungen nur noch für die Laufzeit.
     row.appendChild(lbl);
-    row.appendChild(btn);
     list.appendChild(row);
   }
 }
 
-async function sRemoveLocalCollection(cid) {
-  const coll = sLocalCollections.get(cid);
-  if (!coll) return;
-  if (sActive && sCurRec && sCurRec.tags && sCurRec.tags.speaker_id === cid) {
-    sStop();
-  }
-  sLocalCollections.delete(cid);
-  delete sCorpus.speakers[cid];
-  if (coll.handleId) {
-    let stillReferenced = false;
-    for (const c of sLocalCollections.values()) {
-      if (c.handleId === coll.handleId) { stillReferenced = true; break; }
-    }
-    if (!stillReferenced) {
-      try { await sIdbDel(coll.handleId); } catch (e) { /* ignore */ }
-    }
-  }
-  sRefreshLocalList();
-  sUpdateUI();
-}
-
-// Wird nach JSON-Load aufgerufen. Versucht für jede Sammlung mit
-// handleId den FSAA-Handle aus IndexedDB zu holen und neu zu mounten.
-// Bei Erfolg: Sammlung ist sofort verfügbar.
-// Bei Mißerfolg (kein Handle, keine Permission, Firefox): Stub-Sprecher.
-async function sRestoreLocalCollections(metaArr) {
-  for (const meta of metaArr) {
-    if (sLocalCollections.has(meta.id)) continue;
-    let restored = false;
-    if (meta.handleId && sFsaaAvailable()) {
-      try {
-        const rec = await sIdbGet(meta.handleId);
-        if (rec && rec.handle) {
-          const perm = await rec.handle.queryPermission({ mode: "read" });
-          let granted = perm === "granted";
-          if (!granted) {
-            const req = await rec.handle.requestPermission({ mode: "read" });
-            granted = req === "granted";
-          }
-          if (granted) {
-            await sIngestFromHandle(rec.handle, meta.handleId);
-            restored = true;
-          }
-        }
-      } catch (e) {
-        console.warn("[sentences/local] restore failed for", meta.id, e);
-      }
-    }
-    if (!restored) {
-      sLocalCollections.set(meta.id, {
-        id: meta.id,
-        label: meta.label,
-        lang: meta.lang,
-        kind: meta.kind,
-        folderName: meta.folderName,
-        files: new Map(),
-        recordings: [],
-        handleId: meta.handleId || null,
-        stub: true,
-      });
-      sCorpus.speakers[meta.id] = sMakeSpeaker(
-        meta.label + " " + t("sentLocalNotLoaded"),
-        meta.lang, meta.kind + "-stub", []
-      );
-    }
-  }
-  sRefreshLocalList();
-  sUpdateUI();
-}
-
-async function sReloadStubCollection(cid) {
-  const coll = sLocalCollections.get(cid);
-  if (!coll || !coll.stub) return;
-  const hint = t("sentLocalReloadHint") + " " + coll.folderName;
-  if (coll.handleId && sFsaaAvailable()) {
-    try {
-      const rec = await sIdbGet(coll.handleId);
-      const opts = { id: "ci-sound-saetze", mode: "read" };
-      if (rec && rec.handle) opts.startIn = rec.handle;
-      const handle = await window.showDirectoryPicker(opts);
-      sLocalCollections.delete(cid);
-      delete sCorpus.speakers[cid];
-      await sIngestFromHandle(handle, coll.handleId);
-      return;
-    } catch (err) {
-      if (err && err.name === "AbortError") return;
-      console.warn("[sentences/local] FSAA reload failed, fallback:", err);
-    }
-  }
-  alert(hint);
-  const li = document.getElementById("plSentLocalInput");
-  if (li) {
-    li.value = "";
-    const oneShot = async function (e) {
-      li.removeEventListener("change", oneShot);
-      try {
-        sLocalCollections.delete(cid);
-        delete sCorpus.speakers[cid];
-        await sIngestLocalFolder(e.target.files);
-      } catch (err) {
-        console.error("[sentences/local] webkitdir reload failed:", err);
-      }
-    };
-    li.addEventListener("change", oneShot);
-    li.click();
-  }
-}
+// BA323: sRemoveLocalCollection, sRestoreLocalCollections, sReloadStubCollection entfernt.
 
 // ============================================================
 // Verdrahtung

@@ -659,22 +659,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
       if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function") pMaplawTrigger();
-      // BA192: Player-Wiedergabe-State
-      if (typeof plActiveSource !== "undefined") {
-        plActiveSource = (d && typeof d.plActiveSource === "string"
-                          && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
-          ? d.plActiveSource : "music";
-        if (plActiveSource === "audiobook") plActiveSource = "music";
-      }
-      if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
-      if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
-      if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
-      if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
-      if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
-      if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
-      if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
-      if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
-      if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
+      // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
       // BA 161: Warp-Zustand wiederherstellen — neue Schlüsselnamen,
       // Fallback auf alte (pWarpOn etc.) für bestehende localStorage-Stände
       if (typeof pWarpOn !== "undefined") {
@@ -757,22 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
                          && ["sym", "left", "right"].includes(d.plBalanceMode))
           ? d.plBalanceMode : "sym";
       }
-      // BA192: Player-Wiedergabe-State
-      if (typeof plActiveSource !== "undefined") {
-        plActiveSource = (d && typeof d.plActiveSource === "string"
-                          && ["music", "sentences", "noise", "audiobook"].includes(d.plActiveSource))
-          ? d.plActiveSource : "music";
-        if (plActiveSource === "audiobook") plActiveSource = "music";
-      }
-      if (typeof d.plAutoAdvance === "boolean")  plAutoAdvance  = d.plAutoAdvance;
-      if (typeof d.plLoop        === "boolean")  plLoop         = d.plLoop;
-      if (typeof d.plPauseMs     === "number" && d.plPauseMs >= 0) plPauseMs = d.plPauseMs;
-      if (typeof d.plSentShowText === "boolean") plSentShowText = d.plSentShowText;
-      if (typeof d.plNoiseSelectedId === "string") plNoiseSelectedId = d.plNoiseSelectedId;
-      if (typeof d.plNoiseSortAxis   === "string") plNoiseSortAxis   = d.plNoiseSortAxis;
-      if (typeof d.plSentBgEnabled === "boolean") plSentBgEnabled = d.plSentBgEnabled;
-      if (typeof d.plSentBgItemId  === "string")  plSentBgItemId  = d.plSentBgItemId;
-      if (typeof d.plSentBgSnrDb   === "number")  plSentBgSnrDb   = d.plSentBgSnrDb;
+      // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
       if (typeof latApplyToPlayer === "function") latApplyToPlayer();
       if (typeof latRenderResults === "function") latRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
@@ -1013,16 +983,7 @@ document.addEventListener("DOMContentLoaded", () => {
           plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
           plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
           playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
-          plActiveSource: (typeof plActiveSource !== "undefined") ? plActiveSource : "music",
-          plAutoAdvance:  (typeof plAutoAdvance  !== "undefined") ? plAutoAdvance  : false,
-          plLoop:         (typeof plLoop         !== "undefined") ? plLoop         : false,
-          plPauseMs:      (typeof plPauseMs      !== "undefined") ? plPauseMs      : 2000,
-          plSentShowText: (typeof plSentShowText !== "undefined") ? plSentShowText : false,
-          plNoiseSelectedId: (typeof plNoiseSelectedId !== "undefined") ? plNoiseSelectedId : "gen:pink",
-          plNoiseSortAxis:   (typeof plNoiseSortAxis   !== "undefined") ? plNoiseSortAxis   : "kind",
-          plSentBgEnabled: (typeof plSentBgEnabled !== "undefined") ? plSentBgEnabled : false,
-          plSentBgItemId:  (typeof plSentBgItemId  !== "undefined") ? plSentBgItemId  : "gen:pink",
-          plSentBgSnrDb:   (typeof plSentBgSnrDb   !== "undefined") ? plSentBgSnrDb   : 0,
+          // BA323: Player-Box-Felder werden nicht mehr im Auto-Save gespeichert.
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
 
