@@ -809,6 +809,7 @@ let plNoiseSearchQuery = "";       // BA262: Suchfeld-Inhalt
 let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Toggle
 let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
 let plSentBgSnrDb   = 0;             // BA194: SNR in dB
+let plSentSpeakerSel = "any";         // BA332: gewaehlter Sprecher im Saetze-Dropdown ("any" = alle)
 let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
 let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
 let plBookChapterIdx = 0;             // Index des aktuellen Kapitels

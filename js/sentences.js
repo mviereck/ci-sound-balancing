@@ -154,7 +154,7 @@ function sBuildSequencePool() {
 // Liefert das nachfolgende Item in der Sequenz; bei Sprecher-Filter
 // ungleich "any" wird der Sprecher beruecksichtigt.
 function sSeqStep(delta) {
-  const spkSel = document.getElementById("plSentSpeaker").value;
+  const spkSel = plSentSpeakerSel;
   let pool;
   if (spkSel && spkSel !== "any") {
     pool = sBuildRecordingPool(spkSel);
@@ -268,7 +268,7 @@ async function sLoadAndPlayCurrent() {
 function sPlay() {
   if (!sLoaded) return;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = document.getElementById("plSentSpeaker").value;
+  const spkSel = plSentSpeakerSel;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
@@ -295,7 +295,7 @@ function sPlay() {
 function sNext() {
   if (!sLoaded) return;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = document.getElementById("plSentSpeaker").value;
+  const spkSel = plSentSpeakerSel;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
@@ -319,7 +319,7 @@ function sNext() {
 function sPrev() {
   if (!sLoaded) return;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = document.getElementById("plSentSpeaker").value;
+  const spkSel = plSentSpeakerSel;
   const pool = sBuildRecordingPool(spkSel);
   if (pool.length === 0) { sUpdateUI(); return; }
   if (typeof pPlaying !== "undefined" && pPlaying) pPause();
@@ -362,55 +362,12 @@ function sStop() {
   if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
-// Befüllt das Sprecher-Dropdown dynamisch je nach aktueller Tool-Sprache.
+// BA332: Befüllt das Sprecher-Dropdown via gemeinsamer Mechanik (speaker-sel-Stage).
+// speakerMap-Logik liegt jetzt in plBuildFilterChain (PL_FILTER_DECL.saetze).
 function sRefreshSpeakerDropdown() {
-  const sel = document.getElementById("plSentSpeaker");
-  if (!sel) return;
-  const prev = sel.value;
-
-  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-  const curLang = (typeof lang !== "undefined") ? lang : "de";
-  const itemsInLang = all.filter(function (it) {
-    return it.tags && it.tags.lang === curLang;
-  });
-
-  // Sprecher-Map aufbauen (Reihenfolge stabil: nach erstem Auftreten)
-  const speakerMap = new Map(); // speaker_id -> { label, sourceTitle }
-  for (const it of itemsInLang) {
-    const sid = it.tags.speaker_id || "unbekannt";
-    if (!speakerMap.has(sid)) {
-      speakerMap.set(sid, {
-        label: it.title || sid,
-        sourceTitle: it.sourceTitle || ""
-      });
-    }
+  if (typeof plBuildFilterChain === "function" && typeof PL_FILTER_DECL !== "undefined" && PL_FILTER_DECL.saetze) {
+    plBuildFilterChain(PL_FILTER_DECL.saetze);
   }
-
-  while (sel.firstChild) sel.removeChild(sel.firstChild);
-
-  const optAll = document.createElement("option");
-  optAll.value = "any";
-  optAll.textContent = (typeof t === "function") ? t("sentSpkAll") : "Alle";
-  sel.appendChild(optAll);
-
-  for (const [sid, meta] of speakerMap) {
-    const opt = document.createElement("option");
-    opt.value = sid;
-    opt.textContent = meta.sourceTitle && meta.sourceTitle !== meta.label
-      ? (meta.label + " — " + meta.sourceTitle)
-      : meta.label;
-    sel.appendChild(opt);
-  }
-
-  if (Array.from(speakerMap.keys()).includes(prev) || prev === "any") {
-    sel.value = prev;
-  } else {
-    sel.value = "any";
-  }
-
-  sel.onchange = function () {
-    // BA323: Stub-Sammlungen entfallen — keine sReloadStubCollection mehr nötig.
-  };
 }
 
 function sUpdateUI() {
@@ -460,9 +417,7 @@ function sUpdateUI() {
 // BA324: Prueft ob Saetze vorhanden sind (fuer Adapter-hasNext/hasPrev).
 function sHasItems() {
   if (!sLoaded) return false;
-  const spkSel = document.getElementById("plSentSpeaker")
-    ? document.getElementById("plSentSpeaker").value : "any";
-  return sBuildRecordingPool(spkSel).length > 0;
+  return sBuildRecordingPool(plSentSpeakerSel).length > 0;
 }
 
 function sUpdateButtons() {

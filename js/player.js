@@ -1942,6 +1942,48 @@ function plBuildFilterChain(catDecl) {
         }
         domEl.value = String(chIdx);
       }
+
+    } else if (stage.kind === "speaker-sel") {
+      // Sprecher-Dropdown (Saetze): speakerMap aus amCollectItems gefiltert nach globaler Sprache
+      var spkAll = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+      var spkLang = (typeof lang !== "undefined") ? lang : "de";
+      var spkInLang = spkAll.filter(function (it) {
+        return it.tags && it.tags.lang === spkLang;
+      });
+      // speakerMap aufbauen (Reihenfolge stabil: nach erstem Auftreten)
+      var speakerMap = new Map();
+      for (var spki = 0; spki < spkInLang.length; spki++) {
+        var spkit = spkInLang[spki];
+        var spkid = spkit.tags.speaker_id || "unbekannt";
+        if (!speakerMap.has(spkid)) {
+          speakerMap.set(spkid, {
+            label: spkit.title || spkid,
+            sourceTitle: spkit.sourceTitle || ""
+          });
+        }
+      }
+      while (domEl.firstChild) domEl.removeChild(domEl.firstChild);
+      var optAny = document.createElement("option");
+      optAny.value = "any";
+      optAny.textContent = (typeof t === "function") ? t("sentSpkAll") : "Alle";
+      domEl.appendChild(optAny);
+      speakerMap.forEach(function (meta, sid) {
+        var sopt = document.createElement("option");
+        sopt.value = sid;
+        sopt.textContent = (meta.sourceTitle && meta.sourceTitle !== meta.label)
+          ? (meta.label + " — " + meta.sourceTitle)
+          : meta.label;
+        domEl.appendChild(sopt);
+      });
+      // Auswahl wiederherstellen: State-Wert, falls noch gueltig
+      var prevSpk = catDecl.stateRef.getSpeakerSel();
+      var spkKeys = Array.from(speakerMap.keys());
+      if (spkKeys.indexOf(prevSpk) >= 0 || prevSpk === "any") {
+        domEl.value = prevSpk;
+      } else {
+        domEl.value = "any";
+        catDecl.stateRef.setSpeakerSel("any");
+      }
     }
   }
 
@@ -1997,6 +2039,12 @@ function plBuildFilterChain(catDecl) {
           var idx = parseInt(wel.value, 10) || 0;
           catDecl.stateRef.setChapterIdx(idx);
           if (wstage.onChapterSelect) wstage.onChapterSelect(idx);
+        });
+
+      } else if (wstage.kind === "speaker-sel") {
+        wel.addEventListener("change", function () {
+          catDecl.stateRef.setSpeakerSel(wel.value);
+          if (wstage.onSpeakerSelect) wstage.onSpeakerSelect(wel.value);
         });
       }
     })(stages[wi]);
@@ -2627,3 +2675,23 @@ if (_plBookUpBtn && _plBookUpInp) {
 }
 // BA323: _plBookRmBtn-Handler entfernt — Entfernen-Knopf und amRemoveLocalBookCollection entfallen.
 // BA331: Sort/Sel/Ch-Event-Handler durch plBuildFilterChain-Mechanik (PL_FILTER_DECL.hoerbuecher) ersetzt.
+
+// Deklaration: Saetze (BA332)
+// Nur eine Stage speaker-sel; kein item-sel (Pool entsteht zur Laufzeit via sBuildRecordingPool).
+PL_FILTER_DECL.saetze = {
+  category: "saetze",
+  _wired: false,
+  stateRef: {
+    getSpeakerSel: function () { return plSentSpeakerSel; },
+    setSpeakerSel: function (v) { plSentSpeakerSel = v; }
+  },
+  stages: [
+    {
+      id: "speaker", kind: "speaker-sel", domId: "plSentSpeaker",
+      onSpeakerSelect: function () {
+        if (typeof sUpdateUI === "function") sUpdateUI();
+      }
+    }
+  ]
+};
+// BA332: sRefreshSpeakerDropdown delegiert an plBuildFilterChain(PL_FILTER_DECL.saetze).
