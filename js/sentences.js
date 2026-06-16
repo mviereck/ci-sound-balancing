@@ -506,8 +506,18 @@ function sUpdateUI() {
   sUpdateTextBox();
 }
 
+// BA324: Prueft ob Saetze vorhanden sind (fuer Adapter-hasNext/hasPrev).
+function sHasItems() {
+  if (!sLoaded) return false;
+  const spkSel = document.getElementById("plSentSpeaker")
+    ? document.getElementById("plSentSpeaker").value : "any";
+  return sBuildRecordingPool(spkSel).length > 0;
+}
+
 function sUpdateButtons() {
   // BA192: Sätze-spezifische Knöpfe entfernt; Steuerung über zentrale Transport-Leiste
+  // BA324: Transport-Leiste aktualisieren, damit hasNext/hasPrev korrekt reflektiert wird.
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
 function sUpdateTextBox() {

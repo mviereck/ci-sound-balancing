@@ -1260,95 +1260,313 @@ function _plNoiseStep(delta) {
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
-function plPrev() {
-  if (plActiveSource === "sentences" && typeof sPrev === "function") {
-    sPrev();
-    return;
-  }
-  if (plActiveSource === "audiobook") {
-    const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-    if (!col || !col.items) return;
-    if (typeof plBookSavePosition === "function") plBookSavePosition();
+// ============================================================
+// BA324: Kategorie-Adapter (Lauf 1 — 3A)
+// plCategories[key] kapselt Prev/Next/hasNext/hasPrev/autoAdvance/
+// onActivate/onDeactivate je Quelle. plCurrentCategory() liefert den
+// aktiven Adapter. Die Auto-Advance-Logik aus pPlay-onended wird hier
+// als named functions referenziert; die Original-Inline-Bloecke in
+// pPlay-onended bleiben bis Lauf 2 unveraendert.
+// ============================================================
 
-    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-    if (useRandom) {
-      if (_plBookPrevChIdx == null) return;
-      plBookChapterIdx = _plBookPrevChIdx;
-      _plBookPrevChIdx = null;
-    } else {
-      plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
+// --- named autoAdvance-Extrakte (herauskopiert, Originale noch vorhanden) ---
+
+function _plMusicAutoAdvance() {
+  if (plActiveSource !== "music") return;
+  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+  const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
+  if (visible.length === 0) return;
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+  let nextItem = null;
+  if (useRandom) {
+    if (visible.length === 1) { nextItem = visible[0]; }
+    else {
+      let pick;
+      do {
+        pick = visible[Math.floor(Math.random() * visible.length)];
+      } while (pick.id === plMusicSelectedId);
+      nextItem = pick;
     }
+    _plMusicPrevId = plMusicSelectedId;
+  } else {
+    const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
+    if (idx >= 0 && idx < visible.length - 1) {
+      nextItem = visible[idx + 1];
+    }
+    // Sequenzende: kein Schritt mehr.
+  }
+  if (!nextItem) return;
+  setTimeout(function () {
+    if (!plAutoAdvance || plLoop) return;
+    if (plActiveSource !== "music") return;
+    plMusicSelectedId = nextItem.id;
+    const sel = document.getElementById("plMusicItemSel");
+    if (sel) sel.value = nextItem.id;
+    plMusicLoadSelected().then(function () {
+      if (typeof pPlay === "function") pPlay();
+    });
+  }, ms);
+}
+
+function _plNoiseAutoAdvance() {
+  if (plActiveSource !== "noise") return;
+  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+  const sorted = plNoiseVisibleItems();
+  if (sorted.length === 0) return;
+  const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+  let next;
+  if (useRandom) {
+    if (sorted.length === 1) { next = sorted[0]; }
+    else {
+      let pick;
+      do {
+        pick = sorted[Math.floor(Math.random() * sorted.length)];
+      } while (pick.id === plNoiseSelectedId);
+      next = pick;
+    }
+    _plNoisePrevId = plNoiseSelectedId;
+  } else {
+    // Sequenzende: nur weiter wenn nicht letztes Item.
+    if (idx >= 0 && idx < sorted.length - 1) {
+      next = sorted[idx + 1];
+    }
+  }
+  if (!next) return;
+  setTimeout(function () {
+    if (!plAutoAdvance || plLoop) return;
+    if (plActiveSource !== "noise") return;
+    plNoiseSelectedId = next.id;
+    const sel = document.getElementById("plNoiseItemSel");
+    if (sel) sel.value = next.id;
+    plNoiseLoadSelected().then(function () {
+      if (typeof pPlay === "function") pPlay();
+    });
+  }, ms);
+}
+
+function _plBookAutoAdvance() {
+  if (plActiveSource !== "audiobook") return;
+  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+  const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+  if (!col || !Array.isArray(col.items) || col.items.length === 0) return;
+  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+  let next;
+  if (useRandom) {
+    if (col.items.length === 1) { next = 0; }
+    else {
+      let pick;
+      do {
+        pick = Math.floor(Math.random() * col.items.length);
+      } while (pick === plBookChapterIdx);
+      next = pick;
+    }
+  } else {
+    next = plBookChapterIdx + 1;
+    if (next >= col.items.length) next = -1;  // Buchende: still anhalten
+  }
+  if (next < 0) return;
+  setTimeout(function () {
+    if (!plAutoAdvance || plLoop) return;
+    if (plActiveSource !== "audiobook") return;
+    if (typeof plBookSavePosition === "function") plBookSavePosition();
+    if (useRandom) _plBookPrevChIdx = plBookChapterIdx;
+    plBookChapterIdx = next;
     const sel = document.getElementById("plBookChSel");
-    if (sel) sel.value = String(plBookChapterIdx);
-    if (typeof pPause === "function" && pPlaying) pPause();
-    if (typeof plBookLoadSelected === "function") {
-      plBookLoadSelected().then(function () {
-        // BA259: Prev loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
-        pOff = 0;
-        if (typeof pPlay === "function") pPlay();
-      });
+    if (sel) sel.value = String(next);
+    if (plBookPositions[plBookSelectedId]) {
+      plBookPositions[plBookSelectedId].chapterIdx = next;
+      plBookPositions[plBookSelectedId].posSeconds = 0;
     }
-    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-    return;
+    plBookLoadSelected().then(function () {
+      if (typeof pPlay === "function") pPlay();
+    });
+  }, ms);
+}
+
+// --- Adapter-Objekte ---
+
+const plCategories = {
+  music: {
+    hasPrev: function () {
+      const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
+      if (visible.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return (typeof plMusicHasPrevMemory === "function") ? plMusicHasPrevMemory() : false;
+      }
+      const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
+      return idx > 0;
+    },
+    hasNext: function () {
+      const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
+      if (visible.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return visible.length > 1;
+      }
+      const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
+      return idx >= 0 && idx < visible.length - 1;
+    },
+    prev: function () { _plMusicStep(-1); },
+    next: function () { _plMusicStep(+1); },
+    autoAdvance: function () { _plMusicAutoAdvance(); },
+    onActivate: function () {
+      pSetPlaybackMode("music");
+      if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
+      if (plMusicSelectedId && typeof plMusicLoadSelected === "function") plMusicLoadSelected();
+    },
+    onDeactivate: function () {}
+  },
+
+  sentences: {
+    hasPrev: function () {
+      const has = (typeof sHasItems === "function") ? sHasItems() : false;
+      if (!has) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return (typeof sHasPrevMemory === "function") ? sHasPrevMemory() : false;
+      }
+      return has;
+    },
+    hasNext: function () {
+      return (typeof sHasItems === "function") ? sHasItems() : false;
+    },
+    prev: function () { if (typeof sPrev === "function") sPrev(); },
+    next: function () { if (typeof sNext === "function") sNext(); },
+    autoAdvance: function () { /* sOnEnded steuert selbst; No-Op */ },
+    onActivate: function () {
+      pSetPlaybackMode("sentences");
+      if (typeof sUpdateUI === "function") sUpdateUI();
+    },
+    onDeactivate: function () {
+      if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") sStop();
+    }
+  },
+
+  noise: {
+    hasPrev: function () {
+      const sorted = plNoiseVisibleItems();
+      if (sorted.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return (typeof plNoiseHasPrevMemory === "function") ? plNoiseHasPrevMemory() : false;
+      }
+      const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+      return idx > 0;
+    },
+    hasNext: function () {
+      const sorted = plNoiseVisibleItems();
+      if (sorted.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return sorted.length > 1;
+      }
+      const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
+      return idx >= 0 && idx < sorted.length - 1;
+    },
+    prev: function () { _plNoiseStep(-1); },
+    next: function () { _plNoiseStep(+1); },
+    autoAdvance: function () { _plNoiseAutoAdvance(); },
+    onActivate: function () {
+      if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
+      if (typeof plNoiseLoadSelected === "function") plNoiseLoadSelected();
+    },
+    onDeactivate: function () {}
+  },
+
+  audiobook: {
+    hasPrev: function () {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      if (!col || !col.items || col.items.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return (typeof plBookHasPrevMemory === "function") ? plBookHasPrevMemory() : false;
+      }
+      return plBookChapterIdx > 0;
+    },
+    hasNext: function () {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      if (!col || !col.items || col.items.length === 0) return false;
+      if (typeof plShuffle !== "undefined" && plShuffle) {
+        return col.items.length > 1;
+      }
+      return plBookChapterIdx < col.items.length - 1;
+    },
+    prev: function () {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      if (!col || !col.items) return;
+      if (typeof plBookSavePosition === "function") plBookSavePosition();
+      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+      if (useRandom) {
+        if (_plBookPrevChIdx == null) return;
+        plBookChapterIdx = _plBookPrevChIdx;
+        _plBookPrevChIdx = null;
+      } else {
+        plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
+      }
+      const sel = document.getElementById("plBookChSel");
+      if (sel) sel.value = String(plBookChapterIdx);
+      if (typeof pPause === "function" && pPlaying) pPause();
+      if (typeof plBookLoadSelected === "function") {
+        plBookLoadSelected().then(function () {
+          // BA259: Prev loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
+          pOff = 0;
+          if (typeof pPlay === "function") pPlay();
+        });
+      }
+      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+    },
+    next: function () {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      if (!col || !col.items) return;
+      if (typeof plBookSavePosition === "function") plBookSavePosition();
+      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
+      if (useRandom) {
+        if (col.items.length > 1) {
+          _plBookPrevChIdx = plBookChapterIdx;
+          let pick;
+          do {
+            pick = Math.floor(Math.random() * col.items.length);
+          } while (pick === plBookChapterIdx);
+          plBookChapterIdx = pick;
+        }
+      } else {
+        plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
+      }
+      const sel = document.getElementById("plBookChSel");
+      if (sel) sel.value = String(plBookChapterIdx);
+      if (typeof pPause === "function" && pPlaying) pPause();
+      if (typeof plBookLoadSelected === "function") {
+        plBookLoadSelected().then(function () {
+          // BA259: Next loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
+          pOff = 0;
+          if (typeof pPlay === "function") pPlay();
+        });
+      }
+      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+    },
+    autoAdvance: function () { _plBookAutoAdvance(); },
+    onActivate: function () {
+      if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+      if (plBookSelectedId && typeof plBookLoadSelected === "function") plBookLoadSelected();
+    },
+    onDeactivate: function () {
+      if (typeof plBookSavePosition === "function") plBookSavePosition();
+    }
   }
-  if (plActiveSource === "noise") {
-    _plNoiseStep(-1);
-    return;
-  }
-  if (plActiveSource === "music") {
-    _plMusicStep(-1);
-    return;
-  }
-  if (typeof pStopReset === "function") {
-    pStopReset();
-    if (typeof pToggle === "function") pToggle();
-  }
+};
+
+function plCurrentCategory() {
+  return plCategories[plActiveSource] || null;
+}
+
+// ============================================================
+// END BA324: Kategorie-Adapter
+// ============================================================
+
+function plPrev() {
+  const c = plCurrentCategory();
+  if (c && c.hasPrev()) c.prev();
 }
 
 function plNext() {
-  if (plActiveSource === "sentences" && typeof sNext === "function") {
-    sNext();
-    return;
-  }
-  if (plActiveSource === "audiobook") {
-    const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-    if (!col || !col.items) return;
-    if (typeof plBookSavePosition === "function") plBookSavePosition();
-
-    const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-    if (useRandom) {
-      if (col.items.length > 1) {
-        _plBookPrevChIdx = plBookChapterIdx;
-        let pick;
-        do {
-          pick = Math.floor(Math.random() * col.items.length);
-        } while (pick === plBookChapterIdx);
-        plBookChapterIdx = pick;
-      }
-    } else {
-      plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
-    }
-    const sel = document.getElementById("plBookChSel");
-    if (sel) sel.value = String(plBookChapterIdx);
-    if (typeof pPause === "function" && pPlaying) pPause();
-    if (typeof plBookLoadSelected === "function") {
-      plBookLoadSelected().then(function () {
-        // BA259: Next loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
-        pOff = 0;
-        if (typeof pPlay === "function") pPlay();
-      });
-    }
-    if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-    return;
-  }
-  if (plActiveSource === "noise") {
-    _plNoiseStep(1);
-    return;
-  }
-  if (plActiveSource === "music") {
-    _plMusicStep(+1);
-    return;
-  }
+  const c = plCurrentCategory();
+  if (c && c.hasNext()) c.next();
 }
 
 function plToggleLoop() {
