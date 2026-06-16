@@ -12,13 +12,11 @@
 let sCorpus = null;
 let sLoaded = false;
 let sLoading = false;
-let sActive = false;
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
 let sPrevRec = null;            // BA258: 1x-Memory fuer Zufall-Zurueck
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
 let sPauseTimer = null;
-let sPauseMsVal = 2000;
 let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
 let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
 
@@ -37,19 +35,6 @@ let sLocalNextId = 1;
 
 function sNewCollectionId() {
   return "local-" + (sLocalNextId++);
-}
-
-function sPauseMs() { return sPauseMsVal; }
-
-function sPauseSetActive(ms) {
-  sPauseMsVal = ms;
-  const container = document.getElementById("plSentPauseBtns");
-  if (!container) return;
-  for (const btn of container.querySelectorAll("button")) {
-    const active = parseInt(btn.dataset.ms, 10) === ms;
-    btn.style.opacity = active ? "1" : "0.4";
-    btn.style.fontWeight = active ? "600" : "";
-  }
 }
 
 async function sLoadIfNeeded() {
@@ -244,7 +229,7 @@ async function sLoadAndPlayCurrent() {
 
   const c = gPC();
   const decoded = await c.decodeAudioData(arrayBuf);
-  if (!sActive) return;
+  if (plActiveSource !== "sentences") return;
 
   // BA327: Vordergrund immer RMS-normalisieren (kein Schalter).
   const normItem = sCurRec;  // unveraendert: item mit .id fuer Cache-Key
@@ -267,11 +252,10 @@ async function sLoadAndPlayCurrent() {
       console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
       // finalBuf bleibt normalisierter Vordergrund
     }
-    if (!sActive) return;
+    if (plActiveSource !== "sentences") return;
   }
 
   sSentenceBuf = finalBuf;
-  sActive = true;
   pSetPlaybackMode("sentences");
   pOff = 0;
   pDrawEQ();
@@ -299,9 +283,8 @@ function sPlay() {
       sCurRec = seq.length ? seq[0] : sPickRandom(pool, null);
     }
   }
-  sActive = true;
   sLoadAndPlayCurrent().then(function () {
-    if (sActive && typeof pPlay === "function") pPlay();
+    if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
   }).catch(function (err) {
     console.error("[sentences] sPlay Fehler:", err);
     sStop();
@@ -323,9 +306,8 @@ function sNext() {
     if (sCurRec) sPrevRec = sCurRec;  // Memory pflegen
     sCurRec = newRec;
   }
-  sActive = true;
   sLoadAndPlayCurrent().then(function () {
-    if (sActive && typeof pPlay === "function") pPlay();
+    if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
   }).catch(function (err) {
     console.error("[sentences] sNext Fehler:", err);
     sStop();
@@ -354,9 +336,8 @@ function sPrev() {
   }
   if (target) {
     sCurRec = target;
-    sActive = true;
     sLoadAndPlayCurrent().then(function () {
-      if (sActive && typeof pPlay === "function") pPlay();
+      if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
     }).catch(function (err) {
       console.error("[sentences] sPrev Fehler:", err);
       sStop();
@@ -367,7 +348,6 @@ function sPrev() {
 }
 
 function sStop() {
-  sActive = false;
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
@@ -458,7 +438,7 @@ function sUpdateUI() {
   if (speakers.length === 0) {
     if (noMat) noMat.style.display = "";
     if (ctrls) ctrls.style.display = "none";
-    if (sActive) sStop();
+    if (plActiveSource === "sentences") sStop();
     return;
   }
   if (noMat) noMat.style.display = "none";
@@ -466,7 +446,7 @@ function sUpdateUI() {
   sRefreshSpeakerDropdown();
   // Falls Sätze laufen und der gewählte Sprecher in dieser Sprache nicht
   // existiert: stoppen (Dropdown ist eh schon umgesprungen auf "any").
-  if (sActive && sCurRec) {
+  if (plActiveSource === "sentences" && sCurRec) {
     const curSpk = sCurRec.tags && sCurRec.tags.speaker_id;
     if (curSpk) {
       const pool = sBuildRecordingPool(curSpk);

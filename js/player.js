@@ -314,9 +314,8 @@ document
   .addEventListener("change", async function (e) {
     const f = e.target.files[0];
     if (!f) return;
-    if (typeof sActive !== "undefined" && sActive
-        && typeof sStop === "function") {
-      sStop();
+    if (plActiveSource === "sentences") {
+      pStopReset();
     }
     // Laufende Datei-Wiedergabe sauber stoppen, bevor die neue Datei
     // dekodiert wird. Kein Autostart — der Nutzer drückt Play selbst.
@@ -382,10 +381,6 @@ function plUpdHeadroomBox() {
 }
 
 function updatePlayerForSideChange() {
-  if (typeof sActive !== "undefined" && sActive
-      && typeof sStop === "function") {
-    sStop();
-  }
   if (pSourceBuf) {
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
@@ -547,17 +542,6 @@ function pUpdEQ() {
 
 function pToggle() {
   if (pCtx && pCtx.state === "suspended") pCtx.resume();
-  // Wenn Sätze laufen: stoppen, in Datei-Modus wechseln, Datei starten.
-  // Ein Klick reicht (vorher waren zwei nötig).
-  if (typeof sActive !== "undefined" && sActive
-      && typeof sStop === "function") {
-    sStop();
-    if (!pFileBuf) return;          // keine Datei geladen → nichts zu spielen
-    pSetPlaybackMode("music");
-    pOff = 0;
-    pPlay();
-    return;
-  }
   if (!pBuf) return;                // kein Buffer → ignorieren
   if (pPlaying) pPause();
   else pPlay();
@@ -1046,15 +1030,21 @@ function playerLockApply() {
 
 function plPlayPauseToggle() {
   if (plActiveSource === "sentences") {
-    if (typeof sActive !== "undefined" && sActive && typeof pPlaying !== "undefined" && pPlaying) {
+    if (pPlaying) {
       if (typeof pPause === "function") pPause();
       return;
     }
-    if (typeof sActive !== "undefined" && sActive && typeof pPlaying !== "undefined" && !pPlaying && pBuf) {
+    if (pBuf) {
       if (typeof pPlay === "function") pPlay();
       return;
     }
-    if (typeof sPlay === "function") sPlay();
+    if (typeof sLoadAndPlayCurrent === "function") {
+      sLoadAndPlayCurrent().then(function () {
+        if (plActiveSource === "sentences" && pBuf && typeof pPlay === "function") pPlay();
+      });
+    } else if (typeof sPlay === "function") {
+      sPlay();
+    }
     return;
   }
   if (plActiveSource === "noise") {
@@ -1084,7 +1074,7 @@ function plPlayPauseToggle() {
 
 function plStopAll() {
   if (plActiveSource === "audiobook" && typeof plBookSavePosition === "function") plBookSavePosition();
-  if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") sStop();
+  if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
 }
@@ -1357,7 +1347,8 @@ const plCategories = {
       if (typeof sUpdateUI === "function") sUpdateUI();
     },
     onDeactivate: function () {
-      if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") sStop();
+      if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
+      if (typeof pStopReset === "function") pStopReset();
     }
   },
 
@@ -1720,7 +1711,7 @@ function _plClearIdleTimer() {
   if (_plIdleTimer) { clearTimeout(_plIdleTimer); _plIdleTimer = null; }
 }
 function _plNoteInteraction() {
-  if (plAutoAdvance && (pPlaying || (typeof sActive !== "undefined" && sActive))) {
+  if (plAutoAdvance && (pPlaying || (plActiveSource === "sentences" && typeof sPauseTimer !== "undefined" && sPauseTimer !== null))) {
     _plArmIdleTimer();
   }
 }
