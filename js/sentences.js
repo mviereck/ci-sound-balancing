@@ -14,7 +14,6 @@ let sLoaded = false;
 let sLoading = false;
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
-let sPrevRec = null;            // BA258: 1x-Memory fuer Zufall-Zurueck
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
 let sPauseTimer = null;
 let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
@@ -149,37 +148,6 @@ function sBuildSequencePool() {
   return out;
 }
 
-// Liefert das nachfolgende Item in der Sequenz; bei Sprecher-Filter
-// ungleich "any" wird der Sprecher beruecksichtigt.
-function sSeqStep(delta) {
-  const spkSel = plSentSpeakerSel;
-  let pool;
-  if (spkSel && spkSel !== "any") {
-    pool = sBuildRecordingPool(spkSel);
-  } else {
-    pool = sBuildSequencePool();
-  }
-  if (pool.length === 0) return null;
-  let idx = -1;
-  if (sCurRec) idx = pool.findIndex(function (x) { return x.id === sCurRec.id; });
-  if (idx < 0) return pool[0];
-  const next = (idx + delta + pool.length) % pool.length;
-  return pool[next];
-}
-
-function sHasPrevMemory() {
-  return !!sPrevRec;
-}
-
-function sPickRandom(pool, exclude) {
-  if (!pool || pool.length === 0) return null;
-  if (pool.length === 1) return pool[0];
-  let pick;
-  do {
-    pick = pool[Math.floor(Math.random() * pool.length)];
-  } while (exclude && pick.id === exclude.id && pool.length > 1);
-  return pick;
-}
 
 function sDataUrlToArrayBuffer(url) {
   // "data:audio/mp3;base64,XXXX" -> ArrayBuffer
@@ -197,7 +165,7 @@ function sDataUrlToArrayBuffer(url) {
 // pSetPlaybackMode("sentences"). Ruft KEIN pPlay — Aufrufer macht das.
 // Gibt Promise zurueck; wirft bei Ladefehler.
 async function sLoadAndPlayCurrent() {
-  if (!sCurRec) throw new Error("kein sCurRec");
+  if (!sCurRec) return;
   const audioRef = sCurRec.audio;
   if (!audioRef) { sStop(); throw new Error("kein audio-Ref"); }
 
@@ -263,87 +231,6 @@ async function sLoadAndPlayCurrent() {
   if (typeof plUpdDisplay === "function") plUpdDisplay();
 }
 
-function sPlay() {
-  if (!sLoaded) return;
-  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = plSentSpeakerSel;
-  const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) { sUpdateUI(); return; }
-  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
-  if (!sCurRec) {
-    if (typeof plShuffle !== "undefined" && plShuffle) {
-      sCurRec = sPickRandom(pool, null);
-    } else {
-      // sequentiell: erstes Item der Sequenz nach aktueller Auswahl.
-      const seq = (spkSel && spkSel !== "any")
-        ? sBuildRecordingPool(spkSel)
-        : sBuildSequencePool();
-      sCurRec = seq.length ? seq[0] : sPickRandom(pool, null);
-    }
-  }
-  sLoadAndPlayCurrent().then(function () {
-    if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
-  }).catch(function (err) {
-    console.error("[sentences] sPlay Fehler:", err);
-    sStop();
-  });
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
-}
-
-function sNext() {
-  if (!sLoaded) return;
-  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = plSentSpeakerSel;
-  const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) { sUpdateUI(); return; }
-  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
-
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-  const newRec = useRandom ? sPickRandom(pool, sCurRec) : sSeqStep(+1);
-  if (newRec) {
-    if (sCurRec) sPrevRec = sCurRec;  // Memory pflegen
-    sCurRec = newRec;
-  }
-  sLoadAndPlayCurrent().then(function () {
-    if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
-  }).catch(function (err) {
-    console.error("[sentences] sNext Fehler:", err);
-    sStop();
-  });
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-}
-
-function sPrev() {
-  if (!sLoaded) return;
-  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
-  const spkSel = plSentSpeakerSel;
-  const pool = sBuildRecordingPool(spkSel);
-  if (pool.length === 0) { sUpdateUI(); return; }
-  if (typeof pPlaying !== "undefined" && pPlaying) pPause();
-
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-  let target = null;
-  if (useRandom) {
-    if (sPrevRec) {
-      target = sPrevRec;
-      sPrevRec = null;       // 1x-Memory verbraucht
-    }
-  } else {
-    target = sSeqStep(-1);
-  }
-  if (target) {
-    sCurRec = target;
-    sLoadAndPlayCurrent().then(function () {
-      if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
-    }).catch(function (err) {
-      console.error("[sentences] sPrev Fehler:", err);
-      sStop();
-    });
-  }
-  if (typeof plUpdDisplay === "function") plUpdDisplay();
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-}
 
 function sStop() {
   if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
@@ -412,11 +299,6 @@ function sUpdateUI() {
   sUpdateTextBox();
 }
 
-// BA324: Prueft ob Saetze vorhanden sind (fuer Adapter-hasNext/hasPrev).
-function sHasItems() {
-  if (!sLoaded) return false;
-  return sBuildRecordingPool(plSentSpeakerSel).length > 0;
-}
 
 function sUpdateButtons() {
   // BA192: Sätze-spezifische Knöpfe entfernt; Steuerung über zentrale Transport-Leiste

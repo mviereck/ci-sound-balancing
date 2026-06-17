@@ -1027,47 +1027,24 @@ function playerLockApply() {
 // ===== BA192: zentrale Wiedergabe-Steuerung =====
 
 function plPlayPauseToggle() {
-  if (plActiveSource === "sentences") {
-    if (pPlaying) {
-      if (typeof pPause === "function") pPause();
-      return;
-    }
-    if (pBuf) {
-      if (typeof pPlay === "function") pPlay();
-      return;
-    }
-    if (typeof sLoadAndPlayCurrent === "function") {
-      sLoadAndPlayCurrent().then(function () {
-        if (plActiveSource === "sentences" && pBuf && typeof pPlay === "function") pPlay();
-      });
-    } else if (typeof sPlay === "function") {
-      sPlay();
-    }
+  // Laeuft -> pausieren.
+  if (typeof pPlaying !== "undefined" && pPlaying) {
+    if (typeof pPause === "function") pPause();
     return;
   }
-  if (plActiveSource === "noise") {
-    if (!pNoiseBuf || !pBuf) {
-      plNoiseLoadSelected().then(function () {
-        if (typeof pToggle === "function") pToggle();
-      });
-      return;
-    }
-    if (typeof pToggle === "function") pToggle();
+  // Pausiert mit geladenem Puffer -> an gemerkter Position fortsetzen.
+  if (pBuf) {
+    if (typeof pPlay === "function") pPlay();
     return;
   }
-  if (plActiveSource === "audiobook") {
-    if (!pBookBuf || !pBuf) {
-      if (typeof plBookLoadSelected === "function") {
-        plBookLoadSelected().then(function () {
-          if (typeof pToggle === "function") pToggle();
-        });
-      }
-      return;
-    }
-    if (typeof pToggle === "function") pToggle();
-    return;
-  }
-  if (typeof pToggle === "function") pToggle();
+  // Kein Puffer -> aktuellen Zeiger sicherstellen, laden, abspielen.
+  const cat = plCurrentCategory();
+  if (!cat) return;
+  if (typeof plNavEnsureCursor === "function") plNavEnsureCursor();
+  if (!cat.current || !cat.current()) return;   // leere Liste -> nichts
+  Promise.resolve(cat.load()).then(function () {
+    if (typeof pPlay === "function") pPlay();
+  }).catch(function (err) { console.error("[player] Play-Laden:", err); });
 }
 
 function plStopAll() {
@@ -1133,6 +1110,17 @@ const plCategories = {
   },
 
   sentences: {
+    // --- Vertrag --- (Liste = Satz-Pool; bei gewaehltem Sprecher dessen Pool,
+    // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
+    list: function () {
+      const spkSel = (typeof plSentSpeakerSel !== "undefined") ? plSentSpeakerSel : "any";
+      if (spkSel && spkSel !== "any") return sBuildRecordingPool(spkSel);
+      return sBuildSequencePool();
+    },
+    current: function () { return (typeof sCurRec !== "undefined") ? sCurRec : null; },
+    select: function (item) { if (item) sCurRec = item; },
+    load: function () { return sLoadAndPlayCurrent(); },
+    // --- Anzeige (unveraendert) ---
     currentItem: function () {
       if (typeof sCurRec === "undefined" || !sCurRec) return null;
       return {
@@ -1144,53 +1132,22 @@ const plCategories = {
         text:    sCurRec.text    || ""
       };
     },
-    hasPrev: function () {
-      const has = (typeof sHasItems === "function") ? sHasItems() : false;
-      if (!has) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return (typeof sHasPrevMemory === "function") ? sHasPrevMemory() : false;
-      }
-      return has;
-    },
-    hasNext: function () {
-      return (typeof sHasItems === "function") ? sHasItems() : false;
-    },
-    prev: function () { if (typeof sPrev === "function") sPrev(); },
-    next: function () { if (typeof sNext === "function") sNext(); },
-    autoAdvance: function () {
-      if (!plAutoAdvance || plLoop || plActiveSource !== "sentences") return;
-      const spkSel = document.getElementById("plSentSpeaker")
-        ? document.getElementById("plSentSpeaker").value : "any";
-      const pool = (typeof sBuildRecordingPool === "function")
-        ? sBuildRecordingPool(spkSel) : [];
-      if (pool.length === 0) return;
-      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-      const newRec = useRandom
-        ? (typeof sPickRandom === "function" ? sPickRandom(pool, sCurRec) : null)
-        : (typeof sSeqStep === "function" ? sSeqStep(+1) : null);
-      if (newRec) {
-        if (typeof sCurRec !== "undefined" && sCurRec) sPrevRec = sCurRec;
-        sCurRec = newRec;
-      }
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-      sPauseTimer = setTimeout(function () {
-        sPauseTimer = null;
-        if (!plAutoAdvance || plLoop || plActiveSource !== "sentences") return;
-        if (typeof sLoadAndPlayCurrent === "function") {
-          sLoadAndPlayCurrent().then(function () {
-            if (plActiveSource === "sentences" && typeof pPlay === "function") pPlay();
-          }).catch(function (err) {
-            console.error("[sentences] autoAdvance Fehler:", err);
-            if (typeof sStop === "function") sStop();
-          });
-        }
-      }, ms);
-    },
+    // --- Navigation ueber die Engine ---
+    hasPrev: function () { return plNavHasPrev(); },
+    hasNext: function () { return plNavHasNext(); },
+    prev: function () { plNavPrev(); },
+    next: function () { plNavNext(); },
+    autoAdvance: function () { plNavAutoAdvance(); },
+    // --- Lebenszyklus ---
     onActivate: function () {
       pSetPlaybackMode("sentences");
+      plNavEnsureCursor();
       if (typeof sUpdateUI === "function") sUpdateUI();
+      if (typeof sCurRec !== "undefined" && sCurRec) {
+        Promise.resolve(sLoadAndPlayCurrent()).then(function () {
+          plNavRestorePos();
+        }).catch(function (err) { console.error("[sentences] onActivate load:", err); });
+      }
     },
     onDeactivate: function () {
       if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
