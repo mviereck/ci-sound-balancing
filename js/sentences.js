@@ -162,7 +162,7 @@ function sDataUrlToArrayBuffer(url) {
 
 // BA327: Laedt den aktuellen Satz, normalisiert den Vordergrund per RMS,
 // mischt ggf. Hintergrund ein, schreibt sSentenceBuf und ruft
-// pSetPlaybackMode("sentences"). Ruft KEIN pPlay — Aufrufer macht das.
+// pSetPlaybackMode("saetze"). Ruft KEIN pPlay — Aufrufer macht das.
 // Gibt Promise zurueck; wirft bei Ladefehler.
 async function sLoadAndPlayCurrent() {
   if (!sCurRec) return;
@@ -195,7 +195,7 @@ async function sLoadAndPlayCurrent() {
 
   const c = gPC();
   const decoded = await c.decodeAudioData(arrayBuf);
-  if (plActiveSource !== "sentences") return;
+  if (plActiveSource !== "saetze") return;
 
   // BA327: Vordergrund immer RMS-normalisieren (kein Schalter).
   const normItem = sCurRec;  // unveraendert: item mit .id fuer Cache-Key
@@ -218,11 +218,11 @@ async function sLoadAndPlayCurrent() {
       console.warn("[sentences] Hintergrund-Mix fehlgeschlagen:", mixErr);
       // finalBuf bleibt normalisierter Vordergrund
     }
-    if (plActiveSource !== "sentences") return;
+    if (plActiveSource !== "saetze") return;
   }
 
   sSentenceBuf = finalBuf;
-  pSetPlaybackMode("sentences");
+  pSetPlaybackMode("saetze");
   pOff = 0;
   pDrawEQ();
   document.getElementById("plEqViz").style.display = "";
@@ -239,7 +239,7 @@ function sStop() {
   }
   pOff = 0;
   if (typeof pSetPlaybackMode === "function") {
-    pSetPlaybackMode("music");
+    pSetPlaybackMode("musik");
   }
   if (typeof pUpdTL === "function") pUpdTL();
   sShownText = "";
@@ -280,7 +280,7 @@ function sUpdateUI() {
   if (speakers.length === 0) {
     if (noMat) noMat.style.display = "";
     if (ctrls) ctrls.style.display = "none";
-    if (plActiveSource === "sentences") sStop();
+    if (plActiveSource === "saetze") sStop();
     return;
   }
   if (noMat) noMat.style.display = "none";
@@ -288,7 +288,7 @@ function sUpdateUI() {
   sRefreshSpeakerDropdown();
   // Falls Sätze laufen und der gewählte Sprecher in dieser Sprache nicht
   // existiert: stoppen (Dropdown ist eh schon umgesprungen auf "any").
-  if (plActiveSource === "sentences" && sCurRec) {
+  if (plActiveSource === "saetze" && sCurRec) {
     const curSpk = sCurRec.tags && sCurRec.tags.speaker_id;
     if (curSpk) {
       const pool = sBuildRecordingPool(curSpk);

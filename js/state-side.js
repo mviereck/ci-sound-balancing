@@ -796,7 +796,7 @@ let plSrcMeas = true,
   plSrcCurves = true; // EQ source toggles
 let plShowExperimental = false; // Toggle für experimentelle Optionen (MAPLAW + Frequenz-Warping); Default aus
 
-let plActiveSource = "music";   // "music" | "sentences" | "noise" | "audiobook"
+let plActiveSource = "musik";   // "musik" | "saetze" | "geraeusche" | "hoerbuecher"
 let plAutoAdvance  = false;     // Auto-Advance-Toggle, Default aus
 let plLoop         = false;     // Endlos-Toggle (aktuelles Stueck wiederholen), Default aus
 let plShuffle      = false;     // BA258: Zufall-Modus global, Default aus

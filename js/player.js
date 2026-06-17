@@ -5,7 +5,7 @@ let pCtx = null,
   pBuf = null,
   pSourceBuf = null,
   pFileBuf = null,          // Audiodatei-Buffer (überlebt Sätze-Wiedergabe)
-  pPlaybackMode = "music",   // "music" | "sentences" | "noise" | "audiobook" — aktive Kategorie (Buffer-Slot)
+  pPlaybackMode = "musik",   // "musik" | "saetze" | "geraeusche" | "hoerbuecher" — aktive Kategorie (Buffer-Slot)
   pMonoBuf = null,
   pLeftOnlyBuf = null,
   pRightOnlyBuf = null,
@@ -142,13 +142,13 @@ function _buildWarpedPlaybackBuffer(mode) {
 }
 
 function pSetPlaybackMode(mode) {
-  if (!["music", "sentences", "noise", "audiobook"].includes(mode)) return;
+  if (!["musik", "saetze", "geraeusche", "hoerbuecher"].includes(mode)) return;
   pPlaybackMode = mode;
-  if (mode === "music") {
+  if (mode === "musik") {
     pSourceBuf = pFileBuf;
-  } else if (mode === "sentences") {
+  } else if (mode === "saetze") {
     pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
-  } else if (mode === "noise") {
+  } else if (mode === "geraeusche") {
     pSourceBuf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
   } else { // audiobook
     pSourceBuf = (typeof pBookBuf !== "undefined") ? pBookBuf : null;
@@ -314,7 +314,7 @@ document
   .addEventListener("change", async function (e) {
     const f = e.target.files[0];
     if (!f) return;
-    if (plActiveSource === "sentences") {
+    if (plActiveSource === "saetze") {
       pStopReset();
     }
     // Laufende Datei-Wiedergabe sauber stoppen, bevor die neue Datei
@@ -326,7 +326,7 @@ document
       const c = gPC();
       const buf = await f.arrayBuffer();
       pFileBuf = await c.decodeAudioData(buf);
-      pSetPlaybackMode("music");
+      pSetPlaybackMode("musik");
       // BA260: hochgeladene Datei als Musik-Provider-Item registrieren,
       // damit sie in der Bibliotheks-Liste erscheint und vom Filtering
       // erfasst wird.
@@ -1048,7 +1048,7 @@ function plPlayPauseToggle() {
 }
 
 function plStopAll() {
-  if (plActiveSource === "audiobook" && typeof plBookSavePosition === "function") plBookSavePosition();
+  if (plActiveSource === "hoerbuecher" && typeof plBookSavePosition === "function") plBookSavePosition();
   if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
@@ -1064,7 +1064,7 @@ function plStopAll() {
 // --- Adapter-Objekte ---
 
 const plCategories = {
-  music: {
+  musik: {
     // --- Vertrag ---
     list: function () { return plMusicVisibleItems(); },
     current: function () { return plMusicCurrentItem(); },
@@ -1097,7 +1097,7 @@ const plCategories = {
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
     onActivate: function () {
-      pSetPlaybackMode("music");
+      pSetPlaybackMode("musik");
       plNavEnsureCursor();
       if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
       if (plMusicCurrentItem()) {
@@ -1109,7 +1109,7 @@ const plCategories = {
     onDeactivate: function () {}
   },
 
-  sentences: {
+  saetze: {
     // --- Vertrag --- (Liste = Satz-Pool; bei gewaehltem Sprecher dessen Pool,
     // sonst die sortierte Gesamt-Sequenz; Zeiger = sCurRec)
     list: function () {
@@ -1140,7 +1140,7 @@ const plCategories = {
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
     onActivate: function () {
-      pSetPlaybackMode("sentences");
+      pSetPlaybackMode("saetze");
       plNavEnsureCursor();
       if (typeof sUpdateUI === "function") sUpdateUI();
       if (typeof sCurRec !== "undefined" && sCurRec) {
@@ -1155,7 +1155,7 @@ const plCategories = {
     }
   },
 
-  noise: {
+  geraeusche: {
     // --- Vertrag ---
     list: function () { return plNoiseVisibleItems(); },
     current: function () { return plNoiseCurrentItem(); },
@@ -1191,7 +1191,7 @@ const plCategories = {
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
     onActivate: function () {
-      pSetPlaybackMode("noise");
+      pSetPlaybackMode("geraeusche");
       plNavEnsureCursor();
       if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
       if (plNoiseCurrentItem()) {
@@ -1203,7 +1203,7 @@ const plCategories = {
     onDeactivate: function () {}
   },
 
-  audiobook: {
+  hoerbuecher: {
     // --- Vertrag --- (Liste = Kapitel des aktuellen Werks; Zeiger = Kapitel)
     list: function () {
       const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
@@ -1245,7 +1245,7 @@ const plCategories = {
     autoAdvance: function () { plNavAutoAdvance(); },
     // --- Lebenszyklus ---
     onActivate: function () {
-      pSetPlaybackMode("audiobook");
+      pSetPlaybackMode("hoerbuecher");
       plNavEnsureCursor();
       if (typeof plBookRefreshUI === "function") plBookRefreshUI();
       if (plBookCurrentChapter()) {
@@ -1512,7 +1512,7 @@ function plSetPause(ms) {
 }
 
 function plSetSource(src) {
-  if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
+  if (!["musik", "saetze", "geraeusche", "hoerbuecher"].includes(src)) return;
   if (src === plActiveSource) return;
   const old = plCurrentCategory();
   if (old) {
@@ -1543,14 +1543,14 @@ function plUpdSourceUI() {
     btn.style.background = on ? "var(--accent, #6aa84f)" : "";
     btn.style.color      = on ? "#fff" : "";
   }
-  setActive(btnM, plActiveSource === "music");
-  setActive(btnS, plActiveSource === "sentences");
-  setActive(btnN, plActiveSource === "noise");
-  setActive(btnA, plActiveSource === "audiobook");
-  if (subM) subM.style.display = (plActiveSource === "music")     ? "" : "none";
-  if (subS) subS.style.display = (plActiveSource === "sentences") ? "" : "none";
-  if (subN) subN.style.display = (plActiveSource === "noise")     ? "" : "none";
-  if (subA) subA.style.display = (plActiveSource === "audiobook") ? "" : "none";
+  setActive(btnM, plActiveSource === "musik");
+  setActive(btnS, plActiveSource === "saetze");
+  setActive(btnN, plActiveSource === "geraeusche");
+  setActive(btnA, plActiveSource === "hoerbuecher");
+  if (subM) subM.style.display = (plActiveSource === "musik")     ? "" : "none";
+  if (subS) subS.style.display = (plActiveSource === "saetze") ? "" : "none";
+  if (subN) subN.style.display = (plActiveSource === "geraeusche")     ? "" : "none";
+  if (subA) subA.style.display = (plActiveSource === "hoerbuecher") ? "" : "none";
 }
 
 function plUpdTransportUI() {
@@ -1617,24 +1617,24 @@ function plUpdDisplay() {
   // --- Titelzeile (kategorie-spezifisch komponiert) ---
   let titleText = "";
   if (ctx) {
-    if (plActiveSource === "music") {
+    if (plActiveSource === "musik") {
       // "Artist — Titel"
       titleText = ctx.artist
         ? (ctx.artist + " — " + ctx.title)
         : ctx.title;
-    } else if (plActiveSource === "sentences") {
+    } else if (plActiveSource === "saetze") {
       // "Quelle — Sprecher"
       if (ctx.source && ctx.speaker && ctx.source !== ctx.speaker) {
         titleText = ctx.source + " — " + ctx.speaker;
       } else {
         titleText = ctx.source || ctx.speaker || "";
       }
-    } else if (plActiveSource === "audiobook") {
+    } else if (plActiveSource === "hoerbuecher") {
       // "Kapitel — Werk"
       titleText = ctx.chapter
         ? (ctx.chapter + " — " + ctx.work)
         : ctx.work;
-    } else if (plActiveSource === "noise") {
+    } else if (plActiveSource === "geraeusche") {
       // Nur Indexnummer
       titleText = ctx.index || "";
     }
@@ -1686,10 +1686,10 @@ function plUpdDisplay() {
   if (tb) tb.style.display = showBox ? "" : "none";
 
   if (showBox) {
-    if (plActiveSource === "sentences") {
+    if (plActiveSource === "saetze") {
       // Delegation an sentences.js — schreibt plSentText selbst
       if (typeof sUpdateTextBox === "function") sUpdateTextBox();
-    } else if (plActiveSource === "noise") {
+    } else if (plActiveSource === "geraeusche") {
       // Geraeusche: Name/Art/Spektrum als lesbarer mehrzeiliger Text
       const tx = document.getElementById("plSentText");
       if (tx && ctx) {
@@ -1730,7 +1730,7 @@ function _plClearIdleTimer() {
   if (_plIdleTimer) { clearTimeout(_plIdleTimer); _plIdleTimer = null; }
 }
 function _plNoteInteraction() {
-  if (plAutoAdvance && (pPlaying || (plActiveSource === "sentences" && typeof sPauseTimer !== "undefined" && sPauseTimer !== null))) {
+  if (plAutoAdvance && (pPlaying || (plActiveSource === "saetze" && typeof sPauseTimer !== "undefined" && sPauseTimer !== null))) {
     _plArmIdleTimer();
   }
 }
@@ -1744,13 +1744,13 @@ document.addEventListener("touchstart", _plNoteInteraction, true);
 
 // BA192: Quellen-Top-Toggle
 document.getElementById("plSrcMusicBtn").addEventListener("click",
-  function () { plSetSource("music"); });
+  function () { plSetSource("musik"); });
 document.getElementById("plSrcSentencesBtn").addEventListener("click",
-  function () { plSetSource("sentences"); });
+  function () { plSetSource("saetze"); });
 document.getElementById("plSrcNoiseBtn").addEventListener("click",
-  function () { plSetSource("noise"); });
+  function () { plSetSource("geraeusche"); });
 document.getElementById("plSrcAudiobookBtn").addEventListener("click",
-  function () { plSetSource("audiobook"); });
+  function () { plSetSource("hoerbuecher"); });
 
 // BA192: Transport-Knoepfe
 document.getElementById("plPrev").addEventListener("click", plPrev);
@@ -2460,7 +2460,7 @@ PL_FILTER_DECL.geraeusche = {
       getItemLabel: function (it) { return it.title || it.id; },
       onItemSelect: function (id) {
         plNoiseSelectedId = id;
-        if (plActiveSource === "noise") {
+        if (plActiveSource === "geraeusche") {
           var wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
           if (wasPlaying) { if (typeof pPause === "function") pPause(); }
           plNoiseLoadSelected().then(function () {
@@ -2487,7 +2487,7 @@ PL_FILTER_DECL.geraeusche = {
         if (it && typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = it.id;
         plNoiseRefreshLocalList();
         plNoiseRefreshUI();
-        if (plActiveSource === "noise") await plNoiseLoadSelected();
+        if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
       },
       onFolder: async function (fileList) {
         var res = (typeof amNoiseIngestLocalFolder === "function")
@@ -2559,7 +2559,7 @@ async function plNoiseLoadSelected() {
   if (!abuf) return;
 
   pNoiseBuf = abuf;
-  pSetPlaybackMode("noise");
+  pSetPlaybackMode("geraeusche");
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   pBuildEQ();
@@ -2648,7 +2648,7 @@ async function plMusicLoadSelected() {
       throw new Error("Unbekanntes Audio-Format fuer Musik-Item: " + it.audio);
     }
     pFileBuf = await c.decodeAudioData(arrayBuf);
-    pSetPlaybackMode("music");
+    pSetPlaybackMode("musik");
     pOff = 0;
     pBuildEQ();
     pDrawEQ();
@@ -2923,7 +2923,7 @@ PL_FILTER_DECL.hoerbuecher = {
         var pos = plBookPositions && plBookPositions[id];
         plBookChapterIdx = (pos && typeof pos.chapterIdx === "number") ? pos.chapterIdx : 0;
         plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
-        if (plActiveSource === "audiobook") plBookLoadSelected();
+        if (plActiveSource === "hoerbuecher") plBookLoadSelected();
       }
     },
     {
@@ -2932,7 +2932,7 @@ PL_FILTER_DECL.hoerbuecher = {
         plBookSavePosition();
         plBookChapterIdx = idx;
         if (typeof plUpdDisplay === "function") plUpdDisplay();
-        if (plActiveSource === "audiobook") plBookLoadSelected();
+        if (plActiveSource === "hoerbuecher") plBookLoadSelected();
       }
     }
   ],
@@ -2980,7 +2980,7 @@ async function plBookLoadSelected() {
   if (!abuf) return;
 
   pBookBuf = abuf;
-  pSetPlaybackMode("audiobook");
+  pSetPlaybackMode("hoerbuecher");
 
   // Gespeicherte Position ggf. wiederherstellen (überschreibt den
   // 0-Reset aus pSetPlaybackMode).
