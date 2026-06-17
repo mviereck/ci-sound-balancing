@@ -1270,6 +1270,12 @@ Object.assign(L.fr, {
     toneRichVcDesc:    "12 harmoniques, attaque 458,6 ms, vibrato 5,1 Hz / 15,7 cents, AM 4,7 Hz / 25,4 %.",
     toneRichVnDesc:    "12 harmoniques, attaque 923,0 ms, vibrato 5,1 Hz / 7,7 cents, AM 4,7 Hz / 22,2 %.",
 
+    // BA337 — Boîte de sélection de langue
+    plContentLangLabel: "Langue :",
+    plContentLangTitle: "Choisir la langue du contenu",
+    plContentLangSearch: "Rechercher une langue …",
+    plContentLangEmpty: "Aucune langue disponible.",
+
     // BA 223 — Migration test de latence
     btnEndTest:    "■ Terminer le test",
     btnCancelTest: "■ Annuler le test",

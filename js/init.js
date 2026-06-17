@@ -1094,4 +1094,23 @@ document.addEventListener("DOMContentLoaded", () => {
     amWebspaceBootstrap();
   }
   if (typeof _audiologUpdWarn === "function") _audiologUpdWarn();
+  // BA337: Flaggen-Modalbox — Knopf-Init + Event-Verdrahtung
+  if (typeof plUpdContentLangBtn === "function") plUpdContentLangBtn();
+  var _plLangBtn = document.getElementById("plContentLangBtn");
+  if (_plLangBtn && typeof plOpenContentLangModal === "function") {
+    _plLangBtn.addEventListener("click", function () { plOpenContentLangModal(); });
+  }
+  var _plLangModal = document.getElementById("plContentLangModal");
+  if (_plLangModal) {
+    // Klick auf Overlay-Hintergrund schliesst Modal
+    _plLangModal.addEventListener("click", function (e) {
+      if (e.target === _plLangModal && typeof plCloseContentLangModal === "function") {
+        plCloseContentLangModal();
+      }
+    });
+  }
+  var _plLangClose = document.getElementById("plContentLangClose");
+  if (_plLangClose && typeof plCloseContentLangModal === "function") {
+    _plLangClose.addEventListener("click", function () { plCloseContentLangModal(); });
+  }
 });

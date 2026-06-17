@@ -1398,6 +1398,12 @@ Object.assign(L.de, {
     toneRichVcDesc:    "12 Harmonische, Anschwingen 458,6 ms, Vibrato 5,1 Hz / 15,7 cent, AM 4,7 Hz / 25,4 %.",
     toneRichVnDesc:    "12 Harmonische, Anschwingen 923,0 ms, Vibrato 5,1 Hz / 7,7 cent, AM 4,7 Hz / 22,2 %.",
 
+    // BA337 — Flaggen-Modalbox Inhalts-Sprache
+    plContentLangLabel: "Sprache:",
+    plContentLangTitle: "Inhalts-Sprache wählen",
+    plContentLangSearch: "Sprache suchen …",
+    plContentLangEmpty: "Keine Sprachen verfügbar.",
+
     // BA 223 — Latenz-Migration auf testUI-API
     btnEndTest:    "■ Test beenden",
     btnCancelTest: "■ Test abbrechen",

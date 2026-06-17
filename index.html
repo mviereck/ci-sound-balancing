@@ -1286,6 +1286,15 @@
             </div>
           </div>
 
+          <!-- BA337: Inhalts-Sprache (immer sichtbar) -->
+          <div class="controls-row" style="margin-bottom: 10px">
+            <div class="control-group" style="gap: 6px; align-items: center">
+              <label data-t="plContentLangLabel" style="align-self: center"></label>
+              <button id="plContentLangBtn" class="btn btn-sm"
+                      style="font-weight: 600; border-radius: 6px; min-width: 160px; text-align: left"></button>
+            </div>
+          </div>
+
           <!-- Sub-Block: Musik -->
           <div id="plSubMusic" class="pl-subblock" style="margin-bottom: 12px">
             <div id="plDeafHintEl" class="explain explain-warn"
@@ -2252,6 +2261,22 @@
     </div>
 
     <div id="depLockPopup" hidden></div>
+
+    <!-- BA337: Flaggen-Modalbox Inhalts-Sprache -->
+    <div id="plContentLangModal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-box" style="max-width: 420px; text-align: left; padding: 20px">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px">
+          <h2 data-t="plContentLangTitle" style="margin: 0; font-size: 1.05em; font-weight: 600"></h2>
+          <button id="plContentLangClose" class="btn" style="padding: 2px 8px; font-size: 1.1em; line-height: 1">✕</button>
+        </div>
+        <input type="search" id="plContentLangSearch"
+               data-t-placeholder="plContentLangSearch"
+               style="width: 100%; box-sizing: border-box; padding: 5px 8px; margin-bottom: 10px;
+                      border: 1px solid var(--border); border-radius: 4px; font-size: 0.9em" />
+        <div id="plContentLangList"
+             style="display: flex; flex-wrap: wrap; gap: 6px; max-height: 300px; overflow-y: auto"></div>
+      </div>
+    </div>
 
     <!-- BA 172: Modal-Overlay für Tab-Sperre L1 -->
     <div id="tabLockModal" class="modal-overlay" role="dialog" aria-modal="true">

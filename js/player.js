@@ -2127,10 +2127,211 @@ function plSetContentLang(code) {
   try { localStorage.setItem("ci-lb-content-lang", code); } catch (e) {}
   if (typeof sUpdateUI === "function") sUpdateUI();
   if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+  plUpdContentLangBtn();
 }
 
 function plGetContentLang() {
   return (typeof plContentLang !== "undefined") ? plContentLang : "de";
+}
+
+// ============================================================
+// BA337: Flaggen-Modalbox — Sprach-Maps, Helfer, Modal-Logik
+// ============================================================
+
+var LANG_TO_FLAG = {
+  "de": "🇩🇪",  // DE
+  "en": "🇬🇧",  // GB
+  "en-GB": "🇬🇧",
+  "en-US": "🇺🇸",
+  "es": "🇪🇸",  // ES
+  "fr": "🇫🇷",  // FR
+  "it": "🇮🇹",  // IT
+  "pt": "🇵🇹",  // PT
+  "pt-BR": "🇧🇷",
+  "nl": "🇳🇱",  // NL
+  "pl": "🇵🇱",  // PL
+  "ru": "🇷🇺",  // RU
+  "tr": "🇹🇷",  // TR
+  "sv": "🇸🇪",  // SE
+  "da": "🇩🇰",  // DK
+  "fi": "🇫🇮",  // FI
+  "nb": "🇳🇴",  // NO
+  "no": "🇳🇴",
+  "cs": "🇨🇿",  // CZ
+  "sk": "🇸🇰",  // SK
+  "hu": "🇭🇺",  // HU
+  "ro": "🇷🇴",  // RO
+  "bg": "🇧🇬",  // BG
+  "hr": "🇭🇷",  // HR
+  "sr": "🇷🇸",  // RS
+  "el": "🇬🇷",  // GR
+  "ar": "🇸🇦",  // SA
+  "he": "🇮🇱",  // IL
+  "zh": "🇨🇳",  // CN
+  "zh-CN": "🇨🇳",
+  "zh-TW": "🇹🇼",
+  "ja": "🇯🇵",  // JP
+  "ko": "🇰🇷"   // KR
+};
+
+var LANG_NAMES = {
+  "de": "Deutsch",
+  "en": "English",
+  "en-GB": "English (UK)",
+  "en-US": "English (US)",
+  "es": "Español",
+  "fr": "Français",
+  "it": "Italiano",
+  "pt": "Português",
+  "pt-BR": "Português (BR)",
+  "nl": "Nederlands",
+  "pl": "Polski",
+  "ru": "Русский",
+  "tr": "Türkçe",
+  "sv": "Svenska",
+  "da": "Dansk",
+  "fi": "Suomi",
+  "nb": "Norsk",
+  "no": "Norsk",
+  "cs": "Čeština",
+  "sk": "Slovenčina",
+  "hu": "Magyar",
+  "ro": "Română",
+  "bg": "Български",
+  "hr": "Hrvatski",
+  "sr": "Srpski",
+  "el": "Ελληνικά",
+  "ar": "العربية",
+  "he": "עברית",
+  "zh": "中文",
+  "zh-CN": "中文（简体）",
+  "zh-TW": "中文（繁體）",
+  "ja": "日本語",
+  "ko": "한국어"
+};
+
+// Gibt die Flaggen-Emoji fuer einen BCP-47-Code zurueck.
+// Exaktes Match -> LANG_TO_FLAG[code]; Primary-Tag-Fallback; sonst Globus.
+function plLangFlag(code) {
+  if (!code) return "🌐";
+  if (LANG_TO_FLAG[code]) return LANG_TO_FLAG[code];
+  var primary = code.split("-")[0].toLowerCase();
+  if (LANG_TO_FLAG[primary]) return LANG_TO_FLAG[primary];
+  return "🌐";
+}
+
+// Gibt den ausgeschriebenen Sprachnamen zurueck (exakt oder Primary-Tag-Fallback oder code).
+function plLangName(code) {
+  if (!code) return code;
+  if (LANG_NAMES[code]) return LANG_NAMES[code];
+  var primary = code.split("-")[0].toLowerCase();
+  if (LANG_NAMES[primary]) return LANG_NAMES[primary];
+  return code;
+}
+
+// Gibt ein Array der verfuegbaren Inhalts-Sprachen zurueck (Codes, dedupliziert).
+// Quellen: tags.lang aus saetze-Items + col.lang aus hoerbuecher-Collections.
+function plContentLangAvailable() {
+  var seen = {};
+  var out = [];
+  function add(code) {
+    if (!code || code === "zzz-unbekannt" || seen[code]) return;
+    seen[code] = true;
+    out.push(code);
+  }
+  if (typeof amCollectItems === "function") {
+    var items = amCollectItems("saetze");
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (it && it.tags && it.tags.lang) add(it.tags.lang);
+    }
+  }
+  if (typeof amCollectCollections === "function") {
+    var cols = amCollectCollections("hoerbuecher");
+    for (var j = 0; j < cols.length; j++) {
+      var c = cols[j];
+      if (c && c.lang) add(c.lang);
+    }
+  }
+  out.sort(function (a, b) {
+    var known = Object.keys(LANG_NAMES);
+    var ia = known.indexOf(a);
+    var ib = known.indexOf(b);
+    if (ia < 0 && ib < 0) return a < b ? -1 : a > b ? 1 : 0;
+    if (ia < 0) return 1;
+    if (ib < 0) return -1;
+    return ia - ib;
+  });
+  return out;
+}
+
+// Aktualisiert den Beschriftungs-Knopf mit aktueller Sprache.
+function plUpdContentLangBtn() {
+  var btn = document.getElementById("plContentLangBtn");
+  if (!btn) return;
+  var code = plGetContentLang();
+  btn.textContent = plLangFlag(code) + " " + plLangName(code) + " ▾";
+}
+
+// Oeffnet die Flaggen-Modalbox.
+function plOpenContentLangModal() {
+  var modal = document.getElementById("plContentLangModal");
+  if (!modal) return;
+  var listEl = document.getElementById("plContentLangList");
+  var searchEl = document.getElementById("plContentLangSearch");
+  if (searchEl) searchEl.value = "";
+  // Liste aufbauen
+  if (listEl) {
+    listEl.innerHTML = "";
+    var langs = plContentLangAvailable();
+    var currentCode = plGetContentLang();
+    if (langs.length === 0) {
+      var emptyEl = document.createElement("div");
+      emptyEl.style.cssText = "padding:10px;color:var(--text-muted);text-align:center;font-size:0.9em";
+      emptyEl.setAttribute("data-t", "plContentLangEmpty");
+      emptyEl.textContent = (typeof t === "function") ? t("plContentLangEmpty") : "—";
+      listEl.appendChild(emptyEl);
+    } else {
+      for (var i = 0; i < langs.length; i++) {
+        (function (code) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "btn btn-sm pl-lang-btn";
+          btn.dataset.langCode = code;
+          btn.textContent = plLangFlag(code) + " " + plLangName(code) +
+            (LANG_TO_FLAG[code] || LANG_TO_FLAG[code.split("-")[0]] ? "" : " (" + code + ")");
+          if (code === currentCode) {
+            btn.style.cssText = "border-color:var(--accent);color:var(--accent);font-weight:600";
+          }
+          btn.addEventListener("click", function () {
+            plSetContentLang(code);
+            plCloseContentLangModal();
+          });
+          listEl.appendChild(btn);
+        })(langs[i]);
+      }
+    }
+    // Suchfeld-Filter verdrahten
+    if (searchEl) {
+      searchEl.oninput = function () {
+        var q = searchEl.value.trim().toLowerCase();
+        var btns = listEl.querySelectorAll(".pl-lang-btn");
+        for (var k = 0; k < btns.length; k++) {
+          var code2 = btns[k].dataset.langCode || "";
+          var name2 = plLangName(code2).toLowerCase();
+          var match = !q || name2.indexOf(q) >= 0 || code2.toLowerCase().indexOf(q) >= 0;
+          btns[k].style.display = match ? "" : "none";
+        }
+      };
+    }
+  }
+  modal.classList.add("active");
+}
+
+// Schliesst die Flaggen-Modalbox.
+function plCloseContentLangModal() {
+  var modal = document.getElementById("plContentLangModal");
+  if (modal) modal.classList.remove("active");
 }
 
 // BA334: gemeinsamer Upload-Block-Verdrahter
