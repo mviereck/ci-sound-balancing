@@ -1049,7 +1049,6 @@ function plPlayPauseToggle() {
 
 function plStopAll() {
   if (plActiveSource === "hoerbuecher" && typeof plBookSavePosition === "function") plBookSavePosition();
-  if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
 }
@@ -1150,7 +1149,6 @@ const plCategories = {
       }
     },
     onDeactivate: function () {
-      if (typeof sPauseTimer !== "undefined" && sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
       if (typeof pStopReset === "function") pStopReset();
     }
   },
@@ -1730,7 +1728,7 @@ function _plClearIdleTimer() {
   if (_plIdleTimer) { clearTimeout(_plIdleTimer); _plIdleTimer = null; }
 }
 function _plNoteInteraction() {
-  if (plAutoAdvance && (pPlaying || (plActiveSource === "saetze" && typeof sPauseTimer !== "undefined" && sPauseTimer !== null))) {
+  if (plAutoAdvance && pPlaying) {
     _plArmIdleTimer();
   }
 }

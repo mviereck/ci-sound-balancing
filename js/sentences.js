@@ -15,7 +15,6 @@ let sLoading = false;
 let sCurRec = null;     // aktuell laufendes Item (flaches amProvider-Schema)
 let sShownText = "";
 let sSentenceBuf = null;        // dekodierter aktueller Satz, getrennt von pFileBuf
-let sPauseTimer = null;
 let sOfflineMode = false;      // true = fetch hat versagt, nutze Embed
 let sEmbedLoading = new Set(); // Sprachen, deren Embed gerade lädt
 
@@ -233,7 +232,6 @@ async function sLoadAndPlayCurrent() {
 
 
 function sStop() {
-  if (sPauseTimer) { clearTimeout(sPauseTimer); sPauseTimer = null; }
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
   }
