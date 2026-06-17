@@ -1151,43 +1151,6 @@ function _plNoiseStep(delta) {
 
 // --- named autoAdvance-Extrakte (herauskopiert, Originale noch vorhanden) ---
 
-function _plMusicAutoAdvance() {
-  if (plActiveSource !== "music") return;
-  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-  const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
-  if (visible.length === 0) return;
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-  let nextItem = null;
-  if (useRandom) {
-    if (visible.length === 1) { nextItem = visible[0]; }
-    else {
-      let pick;
-      do {
-        pick = visible[Math.floor(Math.random() * visible.length)];
-      } while (pick.id === plMusicSelectedId);
-      nextItem = pick;
-    }
-    _plMusicPrevId = plMusicSelectedId;
-  } else {
-    const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
-    if (idx >= 0 && idx < visible.length - 1) {
-      nextItem = visible[idx + 1];
-    }
-    // Sequenzende: kein Schritt mehr.
-  }
-  if (!nextItem) return;
-  setTimeout(function () {
-    if (!plAutoAdvance || plLoop) return;
-    if (plActiveSource !== "music") return;
-    plMusicSelectedId = nextItem.id;
-    const sel = document.getElementById("plMusicItemSel");
-    if (sel) sel.value = nextItem.id;
-    plMusicLoadSelected().then(function () {
-      if (typeof pPlay === "function") pPlay();
-    });
-  }, ms);
-}
-
 function _plNoiseAutoAdvance() {
   if (plActiveSource !== "noise") return;
   const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
@@ -1268,6 +1231,17 @@ function _plBookAutoAdvance() {
 
 const plCategories = {
   music: {
+    // --- Vertrag ---
+    list: function () { return plMusicVisibleItems(); },
+    current: function () { return plMusicCurrentItem(); },
+    select: function (item) {
+      if (!item) return;
+      plMusicSelectedId = item.id;
+      const sel = document.getElementById("plMusicItemSel");
+      if (sel) sel.value = item.id;
+    },
+    load: function () { return plMusicLoadSelected(); },
+    // --- Anzeige (unveraendert) ---
     currentItem: function () {
       const it = (typeof plMusicCurrentItem === "function") ? plMusicCurrentItem() : null;
       if (!it) return null;
@@ -1281,31 +1255,22 @@ const plCategories = {
         license: it.license     || ""
       };
     },
-    hasPrev: function () {
-      const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
-      if (visible.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return (typeof plMusicHasPrevMemory === "function") ? plMusicHasPrevMemory() : false;
-      }
-      const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
-      return idx > 0;
-    },
-    hasNext: function () {
-      const visible = (typeof plMusicVisibleItems === "function") ? plMusicVisibleItems() : [];
-      if (visible.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return visible.length > 1;
-      }
-      const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
-      return idx >= 0 && idx < visible.length - 1;
-    },
-    prev: function () { _plMusicStep(-1); },
-    next: function () { _plMusicStep(+1); },
-    autoAdvance: function () { _plMusicAutoAdvance(); },
+    // --- Navigation ueber die Engine ---
+    hasPrev: function () { return plNavHasPrev(); },
+    hasNext: function () { return plNavHasNext(); },
+    prev: function () { plNavPrev(); },
+    next: function () { plNavNext(); },
+    autoAdvance: function () { plNavAutoAdvance(); },
+    // --- Lebenszyklus ---
     onActivate: function () {
       pSetPlaybackMode("music");
+      plNavEnsureCursor();
       if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-      if (plMusicSelectedId && typeof plMusicLoadSelected === "function") plMusicLoadSelected();
+      if (plMusicCurrentItem()) {
+        Promise.resolve(plMusicLoadSelected()).then(function () {
+          plNavRestorePos();
+        });
+      }
     },
     onDeactivate: function () {}
   },
@@ -1524,6 +1489,177 @@ function plCurrentCategory() {
 // END BA324: Kategorie-Adapter
 // ============================================================
 
+// ============================================================
+// BA338: Zentrale Liste+Zeiger-Engine
+// Arbeitet NUR ueber den Kategorie-Vertrag (list/current/select/load)
+// und plCurrentCategory(). Kennt KEINE Kategorie-Namen.
+// ============================================================
+
+let _plNavPrevItem = null;     // 1-Schritt-Zufalls-Memory (Item-Referenz)
+const plNavSavedPos = {};      // key -> Sekunde, sitzungsweit, NICHT persistiert
+
+function _plNavSameItem(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  return !!(a.id && b.id && a.id === b.id);
+}
+
+function plNavList() {
+  const cat = plCurrentCategory();
+  return (cat && typeof cat.list === "function") ? (cat.list() || []) : [];
+}
+
+function plNavCurrent() {
+  const cat = plCurrentCategory();
+  return (cat && typeof cat.current === "function") ? cat.current() : null;
+}
+
+function plNavIndex() {
+  const list = plNavList();
+  const cur  = plNavCurrent();
+  if (!cur) return -1;
+  for (let i = 0; i < list.length; i++) {
+    if (_plNavSameItem(list[i], cur)) return i;
+  }
+  return -1;
+}
+
+function _plNavPickRandom(list, exclude) {
+  if (!list || list.length === 0) return null;
+  if (list.length === 1) return list[0];
+  let pick;
+  do {
+    pick = list[Math.floor(Math.random() * list.length)];
+  } while (_plNavSameItem(pick, exclude) && list.length > 1);
+  return pick;
+}
+
+function plNavHasNext() {
+  const n = plNavList().length;
+  if (n === 0) return false;
+  if (typeof plShuffle !== "undefined" && plShuffle) return n > 1;
+  return plNavIndex() < n - 1;
+}
+
+function plNavHasPrev() {
+  const n = plNavList().length;
+  if (n === 0) return false;
+  if (typeof plShuffle !== "undefined" && plShuffle) return _plNavPrevItem != null;
+  return plNavIndex() > 0;
+}
+
+// Zeiger auf item setzen, laden, von vorn abspielen (Vor/Zurueck loesen
+// immer Play aus). select setzt NUR den Zeiger; load laedt; pOff=0 = von vorn.
+function _plNavGoTo(item) {
+  const cat = plCurrentCategory();
+  if (!cat || !item) return;
+  cat.select(item);
+  if (typeof pPause === "function" && typeof pPlaying !== "undefined" && pPlaying) pPause();
+  Promise.resolve(cat.load()).then(function () {
+    pOff = 0;
+    if (typeof pPlay === "function") pPlay();
+  });
+  if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+}
+
+function plNavNext() {
+  const list = plNavList();
+  if (list.length === 0) return;
+  const cur = plNavCurrent();
+  let next = null;
+  if (typeof plShuffle !== "undefined" && plShuffle) {
+    next = _plNavPickRandom(list, cur);
+    _plNavPrevItem = cur;
+  } else {
+    const i = plNavIndex();
+    if (i >= 0 && i < list.length - 1) next = list[i + 1];
+  }
+  if (!next) return;            // Ende der Reihe -> Schluss
+  _plNavGoTo(next);
+}
+
+function plNavPrev() {
+  const list = plNavList();
+  if (list.length === 0) return;
+  let target = null;
+  if (typeof plShuffle !== "undefined" && plShuffle) {
+    if (_plNavPrevItem) {
+      for (let i = 0; i < list.length; i++) {
+        if (_plNavSameItem(list[i], _plNavPrevItem)) { target = list[i]; break; }
+      }
+      _plNavPrevItem = null;   // 1x-Memory verbraucht
+    }
+  } else {
+    const i = plNavIndex();
+    if (i > 0) target = list[i - 1];
+  }
+  if (!target) return;
+  _plNavGoTo(target);
+}
+
+// Erst-Wahl beim Betreten: erstes bzw. (bei Zufall) gewuerfeltes Stueck.
+// NUR Zeiger setzen (anzeigen), NICHT laden/abspielen. Hat die Kategorie
+// schon einen Zeiger (Wiederkehr), bleibt er unveraendert.
+function plNavEnsureCursor() {
+  const cat = plCurrentCategory();
+  if (!cat) return;
+  if (plNavCurrent()) return;                 // Wiederkehr -> Zeiger behalten
+  const list = plNavList();
+  if (list.length === 0) return;
+  const first = (typeof plShuffle !== "undefined" && plShuffle)
+    ? _plNavPickRandom(list, null)
+    : list[0];
+  if (first) cat.select(first);
+}
+
+// Auto-Weiter: wie plNavNext, aber mit plPauseMs-Verzoegerung und
+// Ende-Stopp (Reihe). Ersetzt _plMusicAutoAdvance & Co.
+function plNavAutoAdvance() {
+  const cat = plCurrentCategory();
+  if (!cat) return;
+  if (!plAutoAdvance || plLoop) return;
+  const list = plNavList();
+  if (list.length === 0) return;
+  const cur = plNavCurrent();
+  let next = null;
+  if (typeof plShuffle !== "undefined" && plShuffle) {
+    next = _plNavPickRandom(list, cur);
+  } else {
+    const i = plNavIndex();
+    if (i >= 0 && i < list.length - 1) next = list[i + 1];
+  }
+  if (!next) return;            // Ende der Reihe -> Stopp
+  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+  setTimeout(function () {
+    if (!plAutoAdvance || plLoop) return;
+    if (plCurrentCategory() !== cat) return;   // Kategorie gewechselt -> abbrechen
+    if (typeof plShuffle !== "undefined" && plShuffle) _plNavPrevItem = cur;
+    cat.select(next);
+    if (typeof plUpdDisplay === "function") plUpdDisplay();
+    Promise.resolve(cat.load()).then(function () {
+      pOff = 0;
+      if (typeof pPlay === "function") pPlay();
+    });
+  }, ms);
+}
+
+// Position (Sekunde) sitzungsweit je Kategorie merken / wiederherstellen.
+// key ist ein opaker String (plActiveSource), KEINE Verzweigung.
+function plNavSavePos(key) {
+  if (!key) return;
+  const sec = (typeof pCtx !== "undefined" && pCtx && typeof pPlaying !== "undefined" && pPlaying)
+    ? (pCtx.currentTime - pT0)
+    : pOff;
+  plNavSavedPos[key] = Math.max(0, sec || 0);
+}
+
+function plNavRestorePos() {
+  const sec = plNavSavedPos[plActiveSource] || 0;
+  pOff = sec > 0 ? sec : 0;
+  if (typeof pUpdTL === "function") pUpdTL();
+}
+
 function plPrev() {
   const c = plCurrentCategory();
   if (c && c.hasPrev()) c.prev();
@@ -1559,7 +1695,10 @@ function plSetSource(src) {
   if (!["music", "sentences", "noise", "audiobook"].includes(src)) return;
   if (src === plActiveSource) return;
   const old = plCurrentCategory();
-  if (old) old.onDeactivate();
+  if (old) {
+    plNavSavePos(plActiveSource);   // BA338: Sekunde der alten Kategorie merken
+    old.onDeactivate();
+  }
   plStopAll();
   plActiveSource = src;
   plUpdSourceUI();
@@ -2598,12 +2737,6 @@ async function plNoiseLoadSelected() {
 // BA260: Musik-Bibliothek (UI + Wiedergabe-Anbindung)
 // ============================================================
 
-let _plMusicPrevId = null;          // BA258-Memory-Helfer
-
-function plMusicHasPrevMemory() {
-  return !!_plMusicPrevId;
-}
-
 function plMusicAllItems() {
   return (typeof amCollectItems === "function") ? amCollectItems("musik") : [];
 }
@@ -2698,48 +2831,6 @@ function plMusicSetSelected(id) {
   if (!id) return;
   plMusicSelectedId = id;
   plMusicLoadSelected();
-}
-
-function _plMusicStep(delta) {
-  const visible = plMusicVisibleItems();
-  if (visible.length === 0) return;
-  const idx = visible.findIndex(function (x) { return x.id === plMusicSelectedId; });
-
-  let nextItem = null;
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-
-  if (useRandom) {
-    if (delta < 0) {
-      if (_plMusicPrevId) {
-        nextItem = visible.find(function (x) { return x.id === _plMusicPrevId; });
-        _plMusicPrevId = null;
-      }
-      if (!nextItem) return;
-    } else {
-      if (visible.length === 1) { nextItem = visible[0]; }
-      else {
-        let pick;
-        do {
-          pick = visible[Math.floor(Math.random() * visible.length)];
-        } while (pick.id === plMusicSelectedId);
-        nextItem = pick;
-      }
-      _plMusicPrevId = plMusicSelectedId;
-    }
-  } else {
-    const nextIdx = (idx + delta + visible.length) % visible.length;
-    nextItem = visible[nextIdx];
-  }
-  if (!nextItem) return;
-  plMusicSelectedId = nextItem.id;
-  const sel = document.getElementById("plMusicItemSel");
-  if (sel) sel.value = nextItem.id;
-  if (typeof pPause === "function" && pPlaying) pPause();
-  plMusicLoadSelected().then(function () {
-    // BA259: Prev/Next loesen immer Play aus.
-    if (typeof pPlay === "function") pPlay();
-  });
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
 }
 
 function plMusicRefreshLocalList() {
