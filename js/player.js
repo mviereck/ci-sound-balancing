@@ -1077,57 +1077,12 @@ function plStopAll() {
   _plAutoAdvCancel();
 }
 
-let _plBookPrevChIdx = null;   // BA258: 1x-Memory fuer Zufall-Zurueck bei Hoerbuechern
-
-function plBookHasPrevMemory() {
-  return _plBookPrevChIdx != null;
-}
-
 // ============================================================
 // BA324: Kategorie-Adapter (Lauf 1 — 3A)
 // plCategories[key] kapselt Prev/Next/hasNext/hasPrev/autoAdvance/
 // onActivate/onDeactivate je Quelle. plCurrentCategory() liefert den
 // aktiven Adapter.
 // ============================================================
-
-function _plBookAutoAdvance() {
-  if (plActiveSource !== "audiobook") return;
-  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-  const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-  if (!col || !Array.isArray(col.items) || col.items.length === 0) return;
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-  let next;
-  if (useRandom) {
-    if (col.items.length === 1) { next = 0; }
-    else {
-      let pick;
-      do {
-        pick = Math.floor(Math.random() * col.items.length);
-      } while (pick === plBookChapterIdx);
-      next = pick;
-    }
-  } else {
-    next = plBookChapterIdx + 1;
-    if (next >= col.items.length) next = -1;  // Buchende: still anhalten
-  }
-  if (next < 0) return;
-  setTimeout(function () {
-    if (!plAutoAdvance || plLoop) return;
-    if (plActiveSource !== "audiobook") return;
-    if (typeof plBookSavePosition === "function") plBookSavePosition();
-    if (useRandom) _plBookPrevChIdx = plBookChapterIdx;
-    plBookChapterIdx = next;
-    const sel = document.getElementById("plBookChSel");
-    if (sel) sel.value = String(next);
-    if (plBookPositions[plBookSelectedId]) {
-      plBookPositions[plBookSelectedId].chapterIdx = next;
-      plBookPositions[plBookSelectedId].posSeconds = 0;
-    }
-    plBookLoadSelected().then(function () {
-      if (typeof pPlay === "function") pPlay();
-    });
-  }, ms);
-}
 
 // --- Adapter-Objekte ---
 
@@ -1292,6 +1247,25 @@ const plCategories = {
   },
 
   audiobook: {
+    // --- Vertrag --- (Liste = Kapitel des aktuellen Werks; Zeiger = Kapitel)
+    list: function () {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      return (col && Array.isArray(col.items)) ? col.items : [];
+    },
+    current: function () {
+      return (typeof plBookCurrentChapter === "function") ? plBookCurrentChapter() : null;
+    },
+    select: function (item) {
+      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+      if (!col || !Array.isArray(col.items)) return;
+      const idx = col.items.indexOf(item);
+      if (idx < 0) return;
+      plBookChapterIdx = idx;
+      const sel = document.getElementById("plBookChSel");
+      if (sel) sel.value = String(idx);
+    },
+    load: function () { return plBookLoadSelected(); },
+    // --- Anzeige (unveraendert) ---
     currentItem: function () {
       const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
       const ch  = (typeof plBookCurrentChapter    === "function") ? plBookCurrentChapter()    : null;
@@ -1306,79 +1280,22 @@ const plCategories = {
         pdfUrl:  col.pdfUrl  || ""
       };
     },
-    hasPrev: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      if (!col || !col.items || col.items.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return (typeof plBookHasPrevMemory === "function") ? plBookHasPrevMemory() : false;
-      }
-      return plBookChapterIdx > 0;
-    },
-    hasNext: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      if (!col || !col.items || col.items.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return col.items.length > 1;
-      }
-      return plBookChapterIdx < col.items.length - 1;
-    },
-    prev: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      if (!col || !col.items) return;
-      if (typeof plBookSavePosition === "function") plBookSavePosition();
-      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-      if (useRandom) {
-        if (_plBookPrevChIdx == null) return;
-        plBookChapterIdx = _plBookPrevChIdx;
-        _plBookPrevChIdx = null;
-      } else {
-        plBookChapterIdx = Math.max(0, plBookChapterIdx - 1);
-      }
-      const sel = document.getElementById("plBookChSel");
-      if (sel) sel.value = String(plBookChapterIdx);
-      if (typeof pPause === "function" && pPlaying) pPause();
-      if (typeof plBookLoadSelected === "function") {
-        plBookLoadSelected().then(function () {
-          // BA259: Prev loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
-          pOff = 0;
-          if (typeof pPlay === "function") pPlay();
-        });
-      }
-      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-    },
-    next: function () {
-      const col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
-      if (!col || !col.items) return;
-      if (typeof plBookSavePosition === "function") plBookSavePosition();
-      const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-      if (useRandom) {
-        if (col.items.length > 1) {
-          _plBookPrevChIdx = plBookChapterIdx;
-          let pick;
-          do {
-            pick = Math.floor(Math.random() * col.items.length);
-          } while (pick === plBookChapterIdx);
-          plBookChapterIdx = pick;
-        }
-      } else {
-        plBookChapterIdx = Math.min(col.items.length - 1, plBookChapterIdx + 1);
-      }
-      const sel = document.getElementById("plBookChSel");
-      if (sel) sel.value = String(plBookChapterIdx);
-      if (typeof pPause === "function" && pPlaying) pPause();
-      if (typeof plBookLoadSelected === "function") {
-        plBookLoadSelected().then(function () {
-          // BA259: Next loest immer Play aus; pOff=0 damit neues Kapitel von vorn startet.
-          pOff = 0;
-          if (typeof pPlay === "function") pPlay();
-        });
-      }
-      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-    },
-    autoAdvance: function () { _plBookAutoAdvance(); },
+    // --- Navigation ueber die Engine ---
+    hasPrev: function () { return plNavHasPrev(); },
+    hasNext: function () { return plNavHasNext(); },
+    prev: function () { plNavPrev(); },
+    next: function () { plNavNext(); },
+    autoAdvance: function () { plNavAutoAdvance(); },
+    // --- Lebenszyklus ---
     onActivate: function () {
+      pSetPlaybackMode("audiobook");
+      plNavEnsureCursor();
       if (typeof plBookRefreshUI === "function") plBookRefreshUI();
-      if (plBookSelectedId && typeof plBookLoadSelected === "function") plBookLoadSelected();
+      if (plBookCurrentChapter()) {
+        // plBookLoadSelected stellt die Pro-Werk-Position selbst wieder her
+        // (plBookPositions). KEIN plNavRestorePos hier.
+        plBookLoadSelected();
+      }
     },
     onDeactivate: function () {
       if (typeof plBookSavePosition === "function") plBookSavePosition();
