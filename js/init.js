@@ -6,6 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
       lang = sl;
     }
   } catch (e) {}
+  // BA336: Inhalts-Sprache — Default = Tool-Sprache, dann ggf. gespeicherten Wert uebernehmen
+  if (typeof plContentLang !== "undefined") {
+    plContentLang = (typeof lang !== "undefined") ? lang : "de";
+    try {
+      const cl = localStorage.getItem("ci-lb-content-lang");
+      if (cl) plContentLang = cl;
+    } catch (e) {}
+  }
   applyLang();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();

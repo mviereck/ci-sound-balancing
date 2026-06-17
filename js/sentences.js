@@ -103,7 +103,7 @@ function sSpeakersForLang(langCode) {
 
 function sBuildRecordingPool(spkSel) {
   const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-  const curLang = (typeof lang !== "undefined") ? lang : "de";
+  const curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
   return all.filter(function (it) {
     if (!it.tags || it.tags.lang !== curLang) return false;
     if (spkSel === "any") return true;
@@ -116,9 +116,7 @@ function sBuildRecordingPool(spkSel) {
 // speaker_id), innerhalb eines Sprechers nach recording.id.
 function sBuildSequencePool() {
   const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-  const curLang = (typeof plSentLang === "string" && plSentLang)
-    ? plSentLang
-    : (typeof lang !== "undefined" ? lang : "de");
+  const curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
   const filtered = all.filter(function (it) {
     return it && it.tags && it.tags.lang === curLang;
   });
@@ -378,7 +376,7 @@ function sUpdateUI() {
   // Im Offline-Mode bei Sprachwechsel ggf. Embed nachladen.
   // (fire-and-forget; sUpdateUI wird beim Embed-Load-Ende erneut gerufen.)
   if (sOfflineMode && sLoaded) {
-    sEnsureEmbedForLang(lang);
+    sEnsureEmbedForLang((typeof plContentLang !== "undefined") ? plContentLang : "de");
   }
 
   const ctrls = document.getElementById("plSentControls");
@@ -391,7 +389,7 @@ function sUpdateUI() {
     return;
   }
   if (notReady) notReady.style.display = "none";
-  const speakers = sSpeakersForLang(lang);
+  const speakers = sSpeakersForLang((typeof plContentLang !== "undefined") ? plContentLang : "de");
   if (speakers.length === 0) {
     if (noMat) noMat.style.display = "";
     if (ctrls) ctrls.style.display = "none";

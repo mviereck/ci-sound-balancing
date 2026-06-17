@@ -1960,6 +1960,11 @@ function plBuildFilterChain(catDecl) {
       var colEmptyEl = stage.emptyDomId ? document.getElementById(stage.emptyDomId) : null;
       var allCols = (typeof amCollectCollections === "function")
         ? amCollectCollections(catDecl.category) : [];
+      // BA336: Vor-Filter nach Inhalts-Sprache fuer sprach-sensible Kategorien
+      if (catDecl.languageSensitive) {
+        var _cLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
+        allCols = allCols.filter(function (c) { return !c.lang || c.lang === _cLang; });
+      }
       var sortedCols = (typeof amSortCollections === "function")
         ? amSortCollections(allCols, catDecl.category, catDecl.stateRef.getSortAxis())
         : allCols;
@@ -2004,9 +2009,9 @@ function plBuildFilterChain(catDecl) {
       }
 
     } else if (stage.kind === "speaker-sel") {
-      // Sprecher-Dropdown (Saetze): speakerMap aus amCollectItems gefiltert nach globaler Sprache
+      // Sprecher-Dropdown (Saetze): speakerMap aus amCollectItems gefiltert nach Inhalts-Sprache
       var spkAll = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
-      var spkLang = (typeof lang !== "undefined") ? lang : "de";
+      var spkLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
       var spkInLang = spkAll.filter(function (it) {
         return it.tags && it.tags.lang === spkLang;
       });
@@ -2115,6 +2120,19 @@ function plBuildFilterChain(catDecl) {
 }
 
 // ============================================================
+// BA336: Inhalts-Sprache Setter/Getter
+// Setzt plContentLang, persistiert in localStorage, loest sprach-sensible Refreshes aus.
+function plSetContentLang(code) {
+  if (typeof plContentLang !== "undefined") plContentLang = code;
+  try { localStorage.setItem("ci-lb-content-lang", code); } catch (e) {}
+  if (typeof sUpdateUI === "function") sUpdateUI();
+  if (typeof plBookRefreshUI === "function") plBookRefreshUI();
+}
+
+function plGetContentLang() {
+  return (typeof plContentLang !== "undefined") ? plContentLang : "de";
+}
+
 // BA334: gemeinsamer Upload-Block-Verdrahter
 // ============================================================
 // Verdrahtet Klick-auf-Button -> Input-Oeffnen, und change -> Callback.
@@ -2746,6 +2764,7 @@ function plBookCurrentChapter() {
 // Deklaration: Hoerbuecher
 PL_FILTER_DECL.hoerbuecher = {
   category: "hoerbuecher",
+  languageSensitive: true,
   _wired: false,
   fieldDecl: [
     { key: "chapter", labelKey: "plDispFieldChapter",  getValue: function (ctx) { return ctx.chapter  || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },
@@ -2876,6 +2895,7 @@ function plBookSavePosition() {
 // Nur eine Stage speaker-sel; kein item-sel (Pool entsteht zur Laufzeit via sBuildRecordingPool).
 PL_FILTER_DECL.saetze = {
   category: "saetze",
+  languageSensitive: true,
   _wired: false,
   fieldDecl: [
     { key: "source",  labelKey: "plDispFieldSource",   getValue: function (ctx) { return ctx.source  || ""; }, role: "title",   inFilter: false, inDisplay: true,  visibility: "always" },

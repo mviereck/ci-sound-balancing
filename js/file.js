@@ -387,6 +387,8 @@ async function saveJson() {
     playerShowExperimental: (typeof plShowExperimental !== "undefined") ? plShowExperimental : false,
     // BA323: Player-Box-Felder (plActiveSource, plLoop, plShuffle, plNoise*, plSent*,
     // plBook*, plMusic*, localCollections) werden nicht mehr gespeichert — Box ist zustandslos.
+    // BA336: Inhalts-Sprache — einzige persistente Box-Einstellung.
+    playerContentLang: (typeof plContentLang !== "undefined") ? plContentLang : "de",
     userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
     userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
     userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",
@@ -877,6 +879,13 @@ function applyLoadedData(d) {
   if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
   // BA323: Player-Box-Felder werden beim Laden nicht mehr angewendet — Box ist zustandslos.
   // Alte JSON-Dateien mit diesen Feldern werden fehlerfrei ignoriert.
+  // BA336: Inhalts-Sprache — einzige persistente Box-Einstellung.
+  if (typeof d.playerContentLang === "string" && d.playerContentLang) {
+    if (typeof plContentLang !== "undefined") {
+      plContentLang = d.playerContentLang;
+      try { localStorage.setItem("ci-lb-content-lang", plContentLang); } catch (e) {}
+    }
+  }
   if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
   if (typeof pMaplawTrigger === "function") pMaplawTrigger();

@@ -810,6 +810,7 @@ let plSentBgEnabled = false;          // BA194: Hintergrund-Geraeusch Master-Tog
 let plSentBgItemId  = "gen:pink";     // BA194: gewaehltes Hintergrund-Geraeusch
 let plSentBgSnrDb   = 0;             // BA194: SNR in dB
 let plSentSpeakerSel = "any";         // BA332: gewaehlter Sprecher im Saetze-Dropdown ("any" = alle)
+let plContentLang = "de";             // BA336: Inhalts-Sprache (entkoppelt von Tool-Sprache lang); Default wird in init.js auf Tool-Sprache gesetzt
 let pNoiseBuf         = null;         // dekodierter / generierter Geraeusch-Buffer
 let plBookSelectedId = null;          // Collection-ID des aktuellen Buchs
 let plBookChapterIdx = 0;             // Index des aktuellen Kapitels
