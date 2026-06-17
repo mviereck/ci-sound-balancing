@@ -1377,19 +1377,60 @@ function plNavPrev() {
   _plNavGoTo(target);
 }
 
-// Erst-Wahl beim Betreten: erstes bzw. (bei Zufall) gewuerfeltes Stueck.
-// NUR Zeiger setzen (anzeigen), NICHT laden/abspielen. Hat die Kategorie
-// schon einen Zeiger (Wiederkehr), bleibt er unveraendert.
+// Stellt sicher, dass der Zeiger ein gueltiges Item der aktuellen Liste ist.
+// Faellt der bisherige Zeiger aus der Liste (oder fehlt), wird neu gewaehlt:
+// erstes bzw. (bei Zufall) gewuerfeltes Item. Ist der Zeiger noch gueltig,
+// bleibt er unveraendert.
 function plNavEnsureCursor() {
   const cat = plCurrentCategory();
   if (!cat) return;
-  if (plNavCurrent()) return;                 // Wiederkehr -> Zeiger behalten
   const list = plNavList();
   if (list.length === 0) return;
+  const cur = plNavCurrent();
+  if (cur) {
+    for (let i = 0; i < list.length; i++) {
+      if (_plNavSameItem(list[i], cur)) return;   // Zeiger noch gueltig
+    }
+  }
   const first = (typeof plShuffle !== "undefined" && plShuffle)
     ? _plNavPickRandom(list, null)
     : list[0];
   if (first) cat.select(first);
+}
+
+// Nach einer Filter-/Sprecher-Aenderung der AKTIVEN Kategorie aufrufen.
+// before = Zeiger VOR dem Refresh. plBuildFilterChain hat den Zeiger bereits
+// validiert/neu gewaehlt. Hat er sich geaendert (altes Stueck rausgefallen):
+// Wiedergabe anhalten und das neue Stueck pausiert bereitstellen. Sonst laeuft
+// das Stueck unveraendert weiter.
+function plNavAfterFilterChange(before) {
+  const cat = plCurrentCategory();
+  if (!cat) return;
+  const after = plNavCurrent();
+  if (!_plNavSameItem(before, after)) {
+    if (typeof pPlaying !== "undefined" && pPlaying && typeof pPause === "function") pPause();
+    pOff = 0;
+    if (cat.current && cat.current()) {
+      Promise.resolve(cat.load()).then(function () {
+        pOff = 0;
+        if (typeof plUpdDisplay     === "function") plUpdDisplay();
+        if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+      }).catch(function (e) { console.error("[plNav] Filter-Neuwahl laden:", e); });
+      return;
+    }
+  }
+  if (typeof plUpdDisplay     === "function") plUpdDisplay();
+  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
+}
+
+// Einheitliche Behandlung einer Filter-Aenderung (Sortierung/Kategorie/Suche/
+// Sprecher): Zeiger vorher merken, State setzen, neu aufbauen, Neuwahl-Folge.
+function _plNavApplyFilterChange(catDecl, applyState) {
+  const active = (catDecl.category === plActiveSource);
+  const before = active ? plNavCurrent() : null;
+  applyState();
+  plBuildFilterChain(catDecl);
+  if (active) plNavAfterFilterChange(before);
 }
 
 // Auto-Weiter: wie plNavNext, aber mit plPauseMs-Verzoegerung und
@@ -1783,6 +1824,15 @@ function plBuildFilterChain(catDecl) {
     }
   }
 
+  // BA342: Fuer die AKTIVE Kategorie zuerst den Zeiger gegen die aktuell
+  // gefilterte Liste validieren -> zentrale, einzige Zeiger-Neuwahl (bei Zufall
+  // gewuerfelt), bevor die Dropdown-Werte gesetzt werden. Die Stage-Eigenwahl
+  // (item-sel/collection-sel visible[0]) bleibt nur Fallback fuer INAKTIVE
+  // Kategorien.
+  if (catDecl.category === plActiveSource && typeof plNavEnsureCursor === "function") {
+    plNavEnsureCursor();
+  }
+
   // --- Befuellen / Label-Refresh ---
   for (var si = 0; si < stages.length; si++) {
     var stage = stages[si];
@@ -1985,21 +2035,24 @@ function plBuildFilterChain(catDecl) {
 
       if (wstage.kind === "axis-sel") {
         wel.addEventListener("change", function () {
-          catDecl.stateRef.setSortAxis(wel.value);
-          catDecl.stateRef.setCategory("_all"); // Achswechsel resettet Kategorie
-          plBuildFilterChain(catDecl);
+          _plNavApplyFilterChange(catDecl, function () {
+            catDecl.stateRef.setSortAxis(wel.value);
+            catDecl.stateRef.setCategory("_all"); // Achswechsel resettet Kategorie
+          });
         });
 
       } else if (wstage.kind === "bucket-sel") {
         wel.addEventListener("change", function () {
-          catDecl.stateRef.setCategory(wel.value);
-          plBuildFilterChain(catDecl);
+          _plNavApplyFilterChange(catDecl, function () {
+            catDecl.stateRef.setCategory(wel.value);
+          });
         });
 
       } else if (wstage.kind === "search") {
         wel.addEventListener("input", function () {
-          catDecl.stateRef.setSearchQuery(wel.value || "");
-          plBuildFilterChain(catDecl);
+          _plNavApplyFilterChange(catDecl, function () {
+            catDecl.stateRef.setSearchQuery(wel.value || "");
+          });
         });
 
       } else if (wstage.kind === "item-sel") {
@@ -2026,7 +2079,9 @@ function plBuildFilterChain(catDecl) {
 
       } else if (wstage.kind === "speaker-sel") {
         wel.addEventListener("change", function () {
-          catDecl.stateRef.setSpeakerSel(wel.value);
+          _plNavApplyFilterChange(catDecl, function () {
+            catDecl.stateRef.setSpeakerSel(wel.value);
+          });
           if (wstage.onSpeakerSelect) wstage.onSpeakerSelect(wel.value);
         });
       }
