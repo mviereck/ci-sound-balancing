@@ -648,8 +648,6 @@ async function pPlay() {
       }
 
       // Auto-Advance einheitlich ueber Kategorie-Adapter (BA325 Lauf 2).
-      // Sequenz-Ende-Stopp und Shuffle-Logik sind in den named functions
-      // _plMusicAutoAdvance/_plNoiseAutoAdvance/_plBookAutoAdvance gekapselt.
       const cat = plCurrentCategory();
       if (cat && plAutoAdvance) cat.autoAdvance();
     };
@@ -1079,114 +1077,18 @@ function plStopAll() {
   _plAutoAdvCancel();
 }
 
-let _plNoisePrevId = null;     // BA258: 1x-Memory fuer Zufall-Zurueck
-
-function plNoiseHasPrevMemory() {
-  return !!_plNoisePrevId;
-}
-
 let _plBookPrevChIdx = null;   // BA258: 1x-Memory fuer Zufall-Zurueck bei Hoerbuechern
 
 function plBookHasPrevMemory() {
   return _plBookPrevChIdx != null;
 }
 
-function _plNoiseStep(delta) {
-  const sorted = plNoiseVisibleItems();
-  if (sorted.length === 0) return;
-  const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-
-  let nextItem = null;
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-
-  if (useRandom) {
-    if (delta < 0) {
-      // Zurueck: Memory verbrauchen, falls vorhanden.
-      if (_plNoisePrevId) {
-        nextItem = sorted.find(function (x) { return x.id === _plNoisePrevId; });
-        _plNoisePrevId = null;
-      }
-      if (!nextItem) return;
-    } else {
-      // Vorwaerts: zufaelliges anderes Item.
-      if (sorted.length === 1) { nextItem = sorted[0]; }
-      else {
-        let pick;
-        do {
-          pick = sorted[Math.floor(Math.random() * sorted.length)];
-        } while (pick.id === plNoiseSelectedId);
-        nextItem = pick;
-      }
-      _plNoisePrevId = plNoiseSelectedId;
-    }
-  } else {
-    // Sequenz mit Wrap-around.
-    const base = (idx < 0) ? 0 : idx;
-    const n = sorted.length;
-    const nextIdx = ((base + delta) % n + n) % n;
-    nextItem = sorted[nextIdx];
-  }
-  if (!nextItem) return;
-
-  plNoiseSelectedId = nextItem.id;
-  const sel = document.getElementById("plNoiseItemSel");
-  if (sel) sel.value = nextItem.id;
-  if (typeof pPause === "function" && pPlaying) pPause();
-  plNoiseLoadSelected().then(function () {
-    // BA259: Prev/Next loesen immer Play aus; pOff=0 damit neues Stueck von vorn startet.
-    pOff = 0;
-    if (typeof pPlay === "function") pPlay();
-  });
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-}
-
 // ============================================================
 // BA324: Kategorie-Adapter (Lauf 1 — 3A)
 // plCategories[key] kapselt Prev/Next/hasNext/hasPrev/autoAdvance/
 // onActivate/onDeactivate je Quelle. plCurrentCategory() liefert den
-// aktiven Adapter. Die Auto-Advance-Logik aus pPlay-onended wird hier
-// als named functions referenziert; die Original-Inline-Bloecke in
-// pPlay-onended bleiben bis Lauf 2 unveraendert.
+// aktiven Adapter.
 // ============================================================
-
-// --- named autoAdvance-Extrakte (herauskopiert, Originale noch vorhanden) ---
-
-function _plNoiseAutoAdvance() {
-  if (plActiveSource !== "noise") return;
-  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-  const sorted = plNoiseVisibleItems();
-  if (sorted.length === 0) return;
-  const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-  const useRandom = (typeof plShuffle !== "undefined" && plShuffle);
-  let next;
-  if (useRandom) {
-    if (sorted.length === 1) { next = sorted[0]; }
-    else {
-      let pick;
-      do {
-        pick = sorted[Math.floor(Math.random() * sorted.length)];
-      } while (pick.id === plNoiseSelectedId);
-      next = pick;
-    }
-    _plNoisePrevId = plNoiseSelectedId;
-  } else {
-    // Sequenzende: nur weiter wenn nicht letztes Item.
-    if (idx >= 0 && idx < sorted.length - 1) {
-      next = sorted[idx + 1];
-    }
-  }
-  if (!next) return;
-  setTimeout(function () {
-    if (!plAutoAdvance || plLoop) return;
-    if (plActiveSource !== "noise") return;
-    plNoiseSelectedId = next.id;
-    const sel = document.getElementById("plNoiseItemSel");
-    if (sel) sel.value = next.id;
-    plNoiseLoadSelected().then(function () {
-      if (typeof pPlay === "function") pPlay();
-    });
-  }, ms);
-}
 
 function _plBookAutoAdvance() {
   if (plActiveSource !== "audiobook") return;
@@ -1342,6 +1244,17 @@ const plCategories = {
   },
 
   noise: {
+    // --- Vertrag ---
+    list: function () { return plNoiseVisibleItems(); },
+    current: function () { return plNoiseCurrentItem(); },
+    select: function (item) {
+      if (!item) return;
+      plNoiseSelectedId = item.id;
+      const sel = document.getElementById("plNoiseItemSel");
+      if (sel) sel.value = item.id;
+    },
+    load: function () { return plNoiseLoadSelected(); },
+    // --- Anzeige (unveraendert: Indexnummer "n / gesamt") ---
     currentItem: function () {
       const it = (typeof plNoiseCurrentItem === "function") ? plNoiseCurrentItem() : null;
       const sorted = (typeof plNoiseVisibleItems === "function") ? plNoiseVisibleItems() : [];
@@ -1358,30 +1271,22 @@ const plCategories = {
         license:  it.license     || ""
       };
     },
-    hasPrev: function () {
-      const sorted = plNoiseVisibleItems();
-      if (sorted.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return (typeof plNoiseHasPrevMemory === "function") ? plNoiseHasPrevMemory() : false;
-      }
-      const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-      return idx > 0;
-    },
-    hasNext: function () {
-      const sorted = plNoiseVisibleItems();
-      if (sorted.length === 0) return false;
-      if (typeof plShuffle !== "undefined" && plShuffle) {
-        return sorted.length > 1;
-      }
-      const idx = sorted.findIndex(function (x) { return x.id === plNoiseSelectedId; });
-      return idx >= 0 && idx < sorted.length - 1;
-    },
-    prev: function () { _plNoiseStep(-1); },
-    next: function () { _plNoiseStep(+1); },
-    autoAdvance: function () { _plNoiseAutoAdvance(); },
+    // --- Navigation ueber die Engine ---
+    hasPrev: function () { return plNavHasPrev(); },
+    hasNext: function () { return plNavHasNext(); },
+    prev: function () { plNavPrev(); },
+    next: function () { plNavNext(); },
+    autoAdvance: function () { plNavAutoAdvance(); },
+    // --- Lebenszyklus ---
     onActivate: function () {
+      pSetPlaybackMode("noise");
+      plNavEnsureCursor();
       if (typeof plNoiseRefreshUI === "function") plNoiseRefreshUI();
-      if (typeof plNoiseLoadSelected === "function") plNoiseLoadSelected();
+      if (plNoiseCurrentItem()) {
+        Promise.resolve(plNoiseLoadSelected()).then(function () {
+          plNavRestorePos();
+        });
+      }
     },
     onDeactivate: function () {}
   },
