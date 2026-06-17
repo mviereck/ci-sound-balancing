@@ -142,17 +142,11 @@ function _buildWarpedPlaybackBuffer(mode) {
 }
 
 function pSetPlaybackMode(mode) {
-  if (!["musik", "saetze", "geraeusche", "hoerbuecher"].includes(mode)) return;
+  if (!plCategories[mode]) return;
   pPlaybackMode = mode;
-  if (mode === "musik") {
-    pSourceBuf = pFileBuf;
-  } else if (mode === "saetze") {
-    pSourceBuf = (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null;
-  } else if (mode === "geraeusche") {
-    pSourceBuf = (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null;
-  } else { // audiobook
-    pSourceBuf = (typeof pBookBuf !== "undefined") ? pBookBuf : null;
-  }
+  pSourceBuf = (typeof plCategories[mode].currentBuffer === "function")
+    ? plCategories[mode].currentBuffer()
+    : null;
   pMonoBuf = null;
   pLeftOnlyBuf = null;
   pRightOnlyBuf = null;
@@ -1048,7 +1042,8 @@ function plPlayPauseToggle() {
 }
 
 function plStopAll() {
-  if (plActiveSource === "hoerbuecher" && typeof plBookSavePosition === "function") plBookSavePosition();
+  const cat = plCurrentCategory();
+  if (cat && typeof cat.onStop === "function") cat.onStop();
   if (typeof pStopReset === "function") pStopReset();
   _plAutoAdvCancel();
 }
@@ -1091,6 +1086,7 @@ const plCategories = {
     title: function (ctx) {
       return ctx.artist ? (ctx.artist + " — " + ctx.title) : ctx.title;
     },
+    currentBuffer: function () { return pFileBuf; },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
     hasNext: function () { return plNavHasNext(); },
@@ -1140,6 +1136,7 @@ const plCategories = {
       }
       return ctx.source || ctx.speaker || "";
     },
+    currentBuffer: function () { return (typeof sSentenceBuf !== "undefined") ? sSentenceBuf : null; },
     fillReveal: function (textEl, ctx, revealFields) {
       if (typeof sUpdateTextBox === "function") sUpdateTextBox();
     },
@@ -1196,6 +1193,7 @@ const plCategories = {
     title: function (ctx) {
       return ctx.index || "";
     },
+    currentBuffer: function () { return (typeof pNoiseBuf !== "undefined") ? pNoiseBuf : null; },
     fillReveal: function (textEl, ctx, revealFields) {
       if (!textEl || !ctx) return;
       const lines = [];
@@ -1262,6 +1260,10 @@ const plCategories = {
     },
     title: function (ctx) {
       return ctx.chapter ? (ctx.chapter + " — " + ctx.work) : ctx.work;
+    },
+    currentBuffer: function () { return (typeof pBookBuf !== "undefined") ? pBookBuf : null; },
+    onStop: function () {
+      if (typeof plBookSavePosition === "function") plBookSavePosition();
     },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
@@ -1538,7 +1540,7 @@ function plSetPause(ms) {
 }
 
 function plSetSource(src) {
-  if (!["musik", "saetze", "geraeusche", "hoerbuecher"].includes(src)) return;
+  if (!plCategories[src]) return;
   if (src === plActiveSource) return;
   const old = plCurrentCategory();
   if (old) {
@@ -1554,29 +1556,25 @@ function plSetSource(src) {
   plUpdDisplay();
 }
 
+const PL_SOURCE_TABS = [
+  { key: "musik",       btnId: "plSrcMusicBtn",     subId: "plSubMusic" },
+  { key: "saetze",      btnId: "plSrcSentencesBtn", subId: "plSubSentences" },
+  { key: "geraeusche",  btnId: "plSrcNoiseBtn",     subId: "plSubNoise" },
+  { key: "hoerbuecher", btnId: "plSrcAudiobookBtn", subId: "plSubAudiobook" }
+];
+
 function plUpdSourceUI() {
-  const btnM = document.getElementById("plSrcMusicBtn");
-  const btnS = document.getElementById("plSrcSentencesBtn");
-  const btnN = document.getElementById("plSrcNoiseBtn");
-  const btnA = document.getElementById("plSrcAudiobookBtn");
-  const subM = document.getElementById("plSubMusic");
-  const subS = document.getElementById("plSubSentences");
-  const subN = document.getElementById("plSubNoise");
-  const subA = document.getElementById("plSubAudiobook");
-  function setActive(btn, on) {
-    if (!btn) return;
-    btn.classList.toggle("active", on);
-    btn.style.background = on ? "var(--accent, #6aa84f)" : "";
-    btn.style.color      = on ? "#fff" : "";
-  }
-  setActive(btnM, plActiveSource === "musik");
-  setActive(btnS, plActiveSource === "saetze");
-  setActive(btnN, plActiveSource === "geraeusche");
-  setActive(btnA, plActiveSource === "hoerbuecher");
-  if (subM) subM.style.display = (plActiveSource === "musik")     ? "" : "none";
-  if (subS) subS.style.display = (plActiveSource === "saetze") ? "" : "none";
-  if (subN) subN.style.display = (plActiveSource === "geraeusche")     ? "" : "none";
-  if (subA) subA.style.display = (plActiveSource === "hoerbuecher") ? "" : "none";
+  PL_SOURCE_TABS.forEach(function (tab) {
+    const on = (plActiveSource === tab.key);
+    const btn = document.getElementById(tab.btnId);
+    if (btn) {
+      btn.classList.toggle("active", on);
+      btn.style.background = on ? "var(--accent, #6aa84f)" : "";
+      btn.style.color      = on ? "#fff" : "";
+    }
+    const sub = document.getElementById(tab.subId);
+    if (sub) sub.style.display = on ? "" : "none";
+  });
 }
 
 function plUpdTransportUI() {
