@@ -1088,6 +1088,9 @@ const plCategories = {
         license: it.license     || ""
       };
     },
+    title: function (ctx) {
+      return ctx.artist ? (ctx.artist + " — " + ctx.title) : ctx.title;
+    },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
     hasNext: function () { return plNavHasNext(); },
@@ -1130,6 +1133,15 @@ const plCategories = {
         credit:  sCurRec.credit  || "",
         text:    sCurRec.text    || ""
       };
+    },
+    title: function (ctx) {
+      if (ctx.source && ctx.speaker && ctx.source !== ctx.speaker) {
+        return ctx.source + " — " + ctx.speaker;
+      }
+      return ctx.source || ctx.speaker || "";
+    },
+    fillReveal: function (textEl, ctx, revealFields) {
+      if (typeof sUpdateTextBox === "function") sUpdateTextBox();
     },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
@@ -1180,6 +1192,19 @@ const plCategories = {
         source:   it.sourceTitle || "",
         license:  it.license     || ""
       };
+    },
+    title: function (ctx) {
+      return ctx.index || "";
+    },
+    fillReveal: function (textEl, ctx, revealFields) {
+      if (!textEl || !ctx) return;
+      const lines = [];
+      revealFields.forEach(function (f) {
+        const val = f.getValue(ctx);
+        if (val) lines.push((typeof t === "function" ? t(f.labelKey) : f.labelKey) + ": " + val);
+      });
+      textEl.style.whiteSpace = "pre-line";
+      textEl.textContent = lines.join("\n");
     },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
@@ -1234,6 +1259,9 @@ const plCategories = {
         license: col.license || "",
         pdfUrl:  col.pdfUrl  || ""
       };
+    },
+    title: function (ctx) {
+      return ctx.chapter ? (ctx.chapter + " — " + ctx.work) : ctx.work;
     },
     // --- Navigation ueber die Engine ---
     hasPrev: function () { return plNavHasPrev(); },
@@ -1612,30 +1640,10 @@ function plUpdDisplay() {
   const decl  = (PL_FILTER_DECL[plActiveSource] || {}).fieldDecl || [];
   const ctx   = cat ? cat.currentItem() : null;
 
-  // --- Titelzeile (kategorie-spezifisch komponiert) ---
+  // --- Titelzeile (ueber den Vertrag: cat.title) ---
   let titleText = "";
-  if (ctx) {
-    if (plActiveSource === "musik") {
-      // "Artist — Titel"
-      titleText = ctx.artist
-        ? (ctx.artist + " — " + ctx.title)
-        : ctx.title;
-    } else if (plActiveSource === "saetze") {
-      // "Quelle — Sprecher"
-      if (ctx.source && ctx.speaker && ctx.source !== ctx.speaker) {
-        titleText = ctx.source + " — " + ctx.speaker;
-      } else {
-        titleText = ctx.source || ctx.speaker || "";
-      }
-    } else if (plActiveSource === "hoerbuecher") {
-      // "Kapitel — Werk"
-      titleText = ctx.chapter
-        ? (ctx.chapter + " — " + ctx.work)
-        : ctx.work;
-    } else if (plActiveSource === "geraeusche") {
-      // Nur Indexnummer
-      titleText = ctx.index || "";
-    }
+  if (ctx && cat && typeof cat.title === "function") {
+    titleText = cat.title(ctx) || "";
   }
   if (!titleText) {
     titleText = (typeof t === "function") ? t("plDispEmpty") : "Nichts geladen";
@@ -1684,24 +1692,8 @@ function plUpdDisplay() {
   if (tb) tb.style.display = showBox ? "" : "none";
 
   if (showBox) {
-    if (plActiveSource === "saetze") {
-      // Delegation an sentences.js — schreibt plSentText selbst
-      if (typeof sUpdateTextBox === "function") sUpdateTextBox();
-    } else if (plActiveSource === "geraeusche") {
-      // Geraeusche: Name/Art/Spektrum als lesbarer mehrzeiliger Text
-      const tx = document.getElementById("plSentText");
-      if (tx && ctx) {
-        const lines = [];
-        revealFields.forEach(function (f) {
-          const val = f.getValue(ctx);
-          if (val) lines.push((typeof t === "function" ? t(f.labelKey) : f.labelKey) + ": " + val);
-        });
-        tx.style.whiteSpace = "pre-line";
-        tx.textContent = lines.join("\n");
-      }
-    }
-    // Hoerbuch: pdf-Felder (visibility never) — kein Inhalt
-    // Musik: keine reveal-Felder — Toggle bereits ausgeblendet
+    const tx = document.getElementById("plSentText");
+    if (cat && typeof cat.fillReveal === "function") cat.fillReveal(tx, ctx, revealFields);
   }
 }
 
