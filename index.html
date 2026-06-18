@@ -1350,17 +1350,8 @@
                  style="display:none;font-size:0.85em;color:var(--text-muted)" data-t="sentNotReady"></div>
 
             <div id="plSentControls" style="display:none">
-              <div id="plSentLocalBlock"
-                   style="margin-bottom:10px;padding:8px;background:var(--bg);border:1px solid var(--border);border-radius:4px">
-                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px">
-                  <button class="btn" id="plSentLocalAddBtn" type="button" style="font-size:0.85em">
-                    <span data-t="sentLocalAdd"></span>
-                  </button>
-                  <span id="plSentLocalHint" style="font-size:0.78em;color:var(--text-muted)" data-t="sentLocalHint"></span>
-                </div>
-                <div id="plSentLocalList" style="display:none;font-size:0.85em"></div>
-                <input type="file" id="plSentLocalInput" webkitdirectory multiple style="display:none" />
-              </div>
+              <!-- BA351: einheitliche Upload-Box (Engine rendert Inhalt) -->
+              <div class="pl-upload-box" id="plSentUpload"></div>
 
               <div class="controls-row">
                 <div class="control-group">

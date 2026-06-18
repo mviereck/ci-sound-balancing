@@ -66,7 +66,7 @@ function _amDataStamp() {
     _amLocalFileCount(_amNoiseLocalFolders),
     _amLocalBookCollections.length,
     (typeof sLoaded !== "undefined" && sLoaded) ? 1 : 0,
-    (typeof sLocalCollections !== "undefined" && sLocalCollections) ? sLocalCollections.size : 0
+    (typeof sLocalCollections !== "undefined" && sLocalCollections) ? _amLocalFileCount(sLocalCollections) : 0
   ].join("|");
 }
 

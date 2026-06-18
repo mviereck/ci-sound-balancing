@@ -107,7 +107,8 @@ function sBuildRecordingPool(spkSel) {
   return _amCacheGet("recpool:" + curLang + ":" + spkSel, function () {
     const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
     return all.filter(function (it) {
-      if (!it.tags || it.tags.lang !== curLang) return false;
+      // BA351: lang_any-Items (Dateiupload) immer im Pool
+      if (!it.tags || (it.tags.lang !== curLang && it.tags.lang_any !== "y")) return false;
       if (spkSel === "any") return true;
       return it.tags.speaker_id === spkSel;
     });
@@ -126,7 +127,8 @@ function sBuildSequencePool() {
   return _amCacheGet("seqpool:" + curLang, function () {
     const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
     const filtered = all.filter(function (it) {
-      return it && it.tags && it.tags.lang === curLang;
+      // BA351: lang_any-Items (Dateiupload) immer im Sequenz-Pool
+      return it && it.tags && (it.tags.lang === curLang || it.tags.lang_any === "y");
     });
 
     // Sprecher-Reihenfolge gem. sRefreshSpeakerDropdown-Logik:
@@ -435,22 +437,6 @@ async function sLoadGenericManifest(allFiles, audioFilenames) {
 // BA323: IndexedDB-Subsystem (S_IDB_*, sIdbOpen/Put/Get/Del) entfernt.
 // Lokale Sammlungen werden nicht mehr sitzungsübergreifend gespeichert.
 
-function sFsaaAvailable() {
-  return typeof window.showDirectoryPicker === "function";
-}
-
-function sMakeSpeaker(label, lang, kind, recordings) {
-  return {
-    lang: lang,
-    label: label,
-    kind: kind,
-    source: "local",
-    license: "",
-    credit: "",
-    recordings: recordings,
-  };
-}
-
 function sBuildFreiburgerRecordings(files, cid) {
   const out = [];
   let n = 0;
@@ -572,80 +558,47 @@ async function sIngestLocalFolder(fileList) {
   }
 
   for (const c of created) {
+    // BA351: nur noch sLocalCollections — der sentences-local-Provider liefert
+    // sie. Kein Spiegeln nach sCorpus.speakers mehr (sonst Doppel-Sprecher ueber
+    // den Legacy-Provider).
     sLocalCollections.set(c.id, c);
-    sCorpus.speakers[c.id] = sMakeSpeaker(c.label, c.lang, c.kind, c.recordings);
   }
 
-  sRefreshLocalList();
   sUpdateUI();
 }
 
-// Liest rekursiv alle Dateien aus einem FileSystemDirectoryHandle und ruft
-// sIngestLocalFolder mit einer FileList-ähnlichen Struktur auf. Setzt
-// webkitRelativePath analog zum webkitdirectory-Verhalten.
-async function sIngestFromHandle(rootHandle, handleId) {
-  const files = [];
-  async function walk(dirHandle, relPrefix) {
-    for await (const [name, entry] of dirHandle.entries()) {
-      if (entry.kind === "file") {
-        const f = await entry.getFile();
-        const rel = relPrefix + name;
-        try {
-          Object.defineProperty(f, "webkitRelativePath", {
-            value: rel, configurable: true,
-          });
-        } catch (e) {
-          const wrap = {
-            name: f.name,
-            size: f.size,
-            type: f.type,
-            lastModified: f.lastModified,
-            webkitRelativePath: rel,
-            arrayBuffer: () => f.arrayBuffer(),
-            text: () => f.text(),
-            slice: f.slice ? f.slice.bind(f) : undefined,
-          };
-          files.push(wrap);
-          continue;
-        }
-        files.push(f);
-      } else if (entry.kind === "directory") {
-        await walk(entry, relPrefix + name + "/");
-      }
-    }
+// BA351: Einzeldatei-Upload als Sprecher "Dateiupload" (sammelnd, sprach-
+// unabhaengig sichtbar). Genau eine Sammlung "upload"; jede Datei = ein Satz.
+function sAddLocalFile(file) {
+  if (!file) return null;
+  var cid = "upload";
+  var coll = sLocalCollections.get(cid);
+  if (!coll) {
+    coll = {
+      id: cid,
+      label: (typeof t === "function") ? t("plUploadSourceFile") : "Dateiupload",
+      lang: null,
+      lang_any: "y",          // immer sichtbar, unabhaengig von der Inhalts-Sprache
+      kind: "upload",
+      folderName: (typeof t === "function") ? t("plUploadSourceFile") : "Dateiupload",
+      files: new Map(),
+      recordings: []
+    };
+    sLocalCollections.set(cid, coll);
   }
-  const rootName = rootHandle.name || "Ordner";
-  await walk(rootHandle, rootName + "/");
-
-  const before = new Set(sLocalCollections.keys());
-  await sIngestLocalFolder(files);
-  // BA323: IDB-Put und handleId/persistable-Zuweisung entfernt — keine sitzungsübergreifende Persistenz.
-  sRefreshLocalList();
+  var rel = file.name;
+  if (coll.files.has(rel)) return coll;   // schon vorhanden -> keine Dublette
+  coll.files.set(rel, file);
+  coll.recordings.push({
+    id: "loc-" + (coll.recordings.length + 1),
+    text: file.name.replace(/\.[^.]+$/, ""),
+    audio: "local:" + cid + ":" + rel
+  });
+  return coll;
 }
 
-function sRefreshLocalList() {
-  const list = document.getElementById("plSentLocalList");
-  if (!list) return;
-  list.innerHTML = "";
-  if (sLocalCollections.size === 0) {
-    list.style.display = "";
-    const span = document.createElement("span");
-    span.style.color = "var(--text-muted)";
-    span.textContent = t("sentLocalNone");
-    list.appendChild(span);
-    return;
-  }
-  list.style.display = "";
-  for (const [, coll] of sLocalCollections) {
-    const row = document.createElement("div");
-    row.style.cssText = "padding:3px 0";
-    const lbl = document.createElement("span");
-    lbl.textContent = coll.label + "  (" + coll.recordings.length + " · " + coll.folderName + ")";
-    // BA323: Entfernen-Knopf entfällt — Sammlungen nur noch für die Laufzeit.
-    row.appendChild(lbl);
-    list.appendChild(row);
-  }
-}
+// BA351: sIngestFromHandle (FSAA-Ordnerpicker) und sRefreshLocalList (Ordner-
+// Liste) entfernt — Ordner-Upload laeuft jetzt ueber die zentrale upload-Stage.
 
 // BA323: sRemoveLocalCollection, sRestoreLocalCollections, sReloadStubCollection entfernt.
 
@@ -653,44 +606,8 @@ function sRefreshLocalList() {
 // Verdrahtung
 // ============================================================
 document.addEventListener("DOMContentLoaded", function () {
-  // BA192: alte Sätze-spezifische Knöpfe entfernt; Steuerung über zentrale
-  // Transport-Leiste in player.js. Nur noch lokale Sammlungen verdrahten.
-
-  const localAdd = document.getElementById("plSentLocalAddBtn");
-  const localInput = document.getElementById("plSentLocalInput");
-  if (localAdd && localInput) {
-    localAdd.addEventListener("click", async function () {
-      if (sFsaaAvailable()) {
-        try {
-          const handle = await window.showDirectoryPicker({
-            id: "ci-sound-saetze",
-            mode: "read",
-            startIn: "music",
-          });
-          await sIngestFromHandle(handle, null);
-        } catch (err) {
-          if (err && err.name !== "AbortError") {
-            console.error("[sentences/local] picker failed:", err);
-            localInput.value = "";
-            localInput.click();
-          }
-        }
-      } else {
-        localInput.value = "";
-        localInput.click();
-      }
-    });
-    localInput.addEventListener("change", async function (e) {
-      try {
-        await sIngestLocalFolder(e.target.files);
-      } catch (err) {
-        console.error("[sentences/local] ingest failed:", err);
-        alert("Fehler beim Laden des Ordners: " + err.message);
-      }
-    });
-  }
-  sRefreshLocalList();
-
+  // BA351: Sätze-Upload läuft über die zentrale upload-Stage
+  // (PL_FILTER_DECL.saetze) — keine eigene Verdrahtung, kein FSAA-Picker mehr.
   sLoadIfNeeded();
 });
 
@@ -765,6 +682,7 @@ if (typeof amRegisterProvider === "function") {
             credit:  coll.credit  || null,
             tags: {
               lang: coll.lang || null,
+              lang_any: coll.lang_any || null,
               speaker_id: cid,
               gender: r.gender || coll.gender || "u",
               style: coll.style || null

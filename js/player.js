@@ -386,6 +386,12 @@ function pCompQ(i) {
 // (Mono-Inhalt, aber weiterhin getrennte Seiten-Korrektur pro Ohr).
 function _pUseSplitChains(mode) {
   if (!pSourceBuf) return false;
+  // Kein Implantat konfiguriert (Hersteller „—") -> nEl = 0 -> keine
+  // Elektroden-Filter zu bauen. Ohne diesen Riegel liefe pBuildEQ in den
+  // Doppel-Ketten-Zweig, baute eine leere Filterliste und scheiterte an
+  // pChannelSplitter.connect(pEqFLeft[0], …) (pEqFLeft[0] === undefined).
+  // false -> Signal läuft unbearbeitet durch (Quelle -> pGain).
+  if (typeof nEl !== "number" || nEl <= 0) return false;
   if (mode === "mono") return true;
   return mode === "both" && pSourceBuf.numberOfChannels > 1;
 }
@@ -1938,7 +1944,8 @@ function plBuildFilterChain(catDecl) {
       var spkAll = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
       var spkLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
       var spkInLang = spkAll.filter(function (it) {
-        return it.tags && it.tags.lang === spkLang;
+        // BA351: lang_any-Items (Dateiupload) immer sichtbar
+        return it.tags && (it.tags.lang === spkLang || it.tags.lang_any === "y");
       });
       // speakerMap aufbauen (Reihenfolge stabil: nach erstem Auftreten)
       var speakerMap = new Map();
@@ -2978,6 +2985,23 @@ PL_FILTER_DECL.saetze = {
     setSpeakerSel: function (v) { plSentSpeakerSel = v; }
   },
   stages: [
+    {
+      id: "upload", kind: "upload", domId: "plSentUpload",
+      allowFile: true, allowFolder: true,
+      titleKey: "plUploadTitle",
+      folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      onFile: async function (file) {
+        if (typeof sAddLocalFile === "function") sAddLocalFile(file);
+        if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
+        if (typeof sUpdateUI === "function") sUpdateUI();
+      },
+      onFolder: async function (fileList) {
+        if (typeof sIngestLocalFolder === "function") await sIngestLocalFolder(fileList);
+        if (typeof sRefreshSpeakerDropdown === "function") sRefreshSpeakerDropdown();
+        if (typeof sUpdateUI === "function") sUpdateUI();
+      }
+    },
     {
       id: "speaker", kind: "speaker-sel", domId: "plSentSpeaker",
       onSpeakerSelect: function () {
