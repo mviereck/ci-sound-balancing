@@ -554,6 +554,10 @@ Object.assign(L.en, {
       "curve settings have been converted as best as possible, but " +
       "the familiar sound may change slightly. Please check the " +
       "curves in the “Curves” tab and adjust them if necessary.",
+    loadNotCimbel:
+      "This file is not a CImbel save and cannot be loaded.",
+    loadEasyeffectsHint:
+      "It looks like an EasyEffects configuration.",
     plSrcLabel: "Equalizer source:",
     plSrcMeas: "Electrode loudness",
     plSrcLevels: "Sliders",

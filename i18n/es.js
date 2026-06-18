@@ -555,6 +555,10 @@ Object.assign(L.es, {
       "ajustes de curvas se han convertido lo mejor posible, pero el " +
       "sonido familiar puede cambiar ligeramente. Por favor, revise las " +
       "curvas en la pestaña «Curvas» y reajústelas si es necesario.",
+    loadNotCimbel:
+      "Este archivo no es un estado guardado de CImbel y no se puede cargar.",
+    loadEasyeffectsHint:
+      "Parece una configuración de EasyEffects.",
     plSrcLabel: "Fuente del ecualizador:",
     plSrcMeas: "Volumen de electrodos",
     plSrcLevels: "Deslizadores",

@@ -605,6 +605,10 @@ Object.assign(L.de, {
       "Kurven-Einstellungen wurden bestmöglich umgerechnet, der " +
       "vertraute Klang kann sich aber leicht ändern. Bitte die " +
       "Kurven im Tab „Kurven“ prüfen und ggf. nachjustieren.",
+    loadNotCimbel:
+      "Diese Datei ist kein CImbel-Speicherstand und kann nicht geladen werden.",
+    loadEasyeffectsHint:
+      "Sie sieht nach einer EasyEffects-Konfiguration aus.",
     plSrcLabel: "Equalizer-Quelle:",
     plSrcMeas: "Elektrodenlautstärke",
     plSrcLevels: "Schieber",

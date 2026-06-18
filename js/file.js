@@ -274,6 +274,7 @@ function resetAll() {
 
 async function saveJson() {
   const d = {
+    app: "CImbel",
     version: APP_VERSION,
     presetFormat: "freq-v3",
     date: new Date().toLocaleString(
@@ -397,15 +398,15 @@ async function saveJson() {
   const blob = new Blob([JSON.stringify(d, null, 2)], {
     type: "application/json",
   });
-  const fn = buildCImbelFilename(null, null, ".json");
+  const fn = buildCImbelFilename(null, null, ".cimbel");
   if (window.showSaveFilePicker) {
     try {
       const h = await window.showSaveFilePicker({
         suggestedName: fn,
         types: [
           {
-            description: "JSON",
-            accept: { "application/json": [".json"] },
+            description: "CImbel",
+            accept: { "application/json": [".cimbel"] },
           },
         ],
       });
@@ -423,115 +424,24 @@ async function saveJson() {
   a.click();
 }
 
-// Vollständig korrigierte loadOldFormat
-function loadOldFormat(d, targetSide) {
-  console.log("loadOldFormat aufgerufen für", targetSide);
-  const s = sideData[targetSide];
 
-  // Hersteller setzen
-  if (d.manufacturer && MFR[d.manufacturer]) {
-    s.manufacturer = d.manufacturer;
-  } else {
-    s.manufacturer = "medel";
-  }
+// BA 352: Erkennt einen gueltigen CImbel-Speicherstand. Neue Dateien
+// tragen das Kennzeichen app:"CImbel"; bestehende .json-Staende haben
+// (noch) keins, werden aber am Zweiseiten-Block erkannt.
+function _isCimbelSave(d) {
+  if (!d || typeof d !== "object") return false;
+  if (d.app === "CImbel") return true;
+  if (d.sides && d.sides.left && d.sides.right) return true;
+  return false;
+}
 
-  // Anzahl Elektroden und Frequenzen
-  s.nEl = MFR[s.manufacturer].n;
-  s.freqs = d.frequencies ? [...d.frequencies] : [...MFR[s.manufacturer].freqs];
-
-  // Falls die geladenen Frequenzen nicht zur Elektrodenanzahl passen, korrigieren
-  if (s.freqs.length !== s.nEl) {
-    console.warn("Frequenzanzahl passt nicht, verwende Standard");
-    s.freqs = [...MFR[s.manufacturer].freqs];
-  }
-
-  // Arrays initialisieren
-  s.elSt = d.electrodeStatus
-    ? [...d.electrodeStatus]
-    : new Array(s.nEl).fill(null);
-  s.elNt = d.electrodeNotes ? [...d.electrodeNotes] : new Array(s.nEl).fill("");
-  s.elExDur = d.electrodeExcludedDuring
-    ? [...d.electrodeExcludedDuring]
-    : new Array(s.nEl).fill(null);
-
-  // Migration: 'excluded' aus elSt in elExDur verschieben
-  for (let i = 0; i < s.elSt.length; i++) {
-    if (s.elSt[i] === "excluded") {
-      s.elExDur[i] = s.elExDur[i] || Date.now();
-      s.elSt[i] = null;
-    }
-  }
-  // BA 164: elActive aus Datei lesen oder Default true.
-  s.elActive = Array.isArray(d.electrodeActive)
-    ? d.electrodeActive.map((v) => v !== false)
-    : new Array(s.nEl).fill(true);
-  while (s.elActive.length < s.nEl) s.elActive.push(true);
-  s.elActive = s.elActive.slice(0, s.nEl);
-  // BA 164 Migration: alter elSt-Wert "deactivated" -> elActive=false + elSt=null.
-  // elExDur wird zusätzlich gesetzt, damit alte Stände auch die alte
-  // Skip-Wirkung behalten.
-  for (let _i = 0; _i < s.elSt.length; _i++) {
-    if (s.elSt[_i] === "deactivated") {
-      s.elActive[_i] = false;
-      s.elSt[_i] = null;
-      s.elExDur[_i] = s.elExDur[_i] || Date.now();
-    }
-  }
-
-  // Referenzelektrode seitenspezifisch; bei fehlender, ungueltiger oder
-  // auf eine deaktivierte/stumme Elektrode zeigender Angabe -> Default.
-  {
-    const r = d.referenceElectrode;
-    const valid =
-      typeof r === "number" && r >= 0 && r < s.nEl &&
-      s.elExDur[r] == null && s.elSt[r] !== "mute";
-    s.refEl = valid ? r : pickDefaultRefEl(targetSide);
-  }
-
-  // Messergebnisse
-  // BA 251: judgmentResults aus alten Dateien werden stillschweigend
-  // ignoriert (das Judgment-Verfahren wurde mit BA 247 entfernt).
-  s.bRes = d.balanceResults ? [...d.balanceResults] : [];
-  s.manualLevels = d.manualLevels
-    ? [...d.manualLevels]
-    : new Array(s.nEl).fill(0);
-
-  // Presets
-  if (d.presets && Array.isArray(d.presets)) {
-    s.presets = PR_TYPES.map((tp) => {
-      const found = d.presets.find((p) => p.type === tp);
-      return found || {
-        type: tp, on: false, strength: 0, center: CENT_REF_HZ, width: 1200,
-        cutoff: tp === "bassboost" ? Math.floor(s.nEl / 3) : Math.floor((s.nEl * 2) / 3),
-      };
-    });
-  } else {
-    s.presets = PR_TYPES.map((tp) => ({
-      type: tp,
-      on: false,
-      strength: 0,
-      center: CENT_REF_HZ,
-      width: 1200,
-      cutoff:
-        tp === "bassboost"
-          ? Math.floor(s.nEl / 3)
-          : Math.floor((s.nEl * 2) / 3),
-    }));
-  }
-  // elFreqOwn: split loaded freqs vs defaults
-  if (d.electrodeFreqOwn) {
-    s.elFreqOwn = [...d.electrodeFreqOwn];
-  } else {
-    const defF = MFR[s.manufacturer].freqs;
-    s.elFreqOwn = s.freqs.map((f, i) =>
-      Math.round(f) === Math.round(defF[i] || 0) ? null : f,
-    );
-  }
-  console.log(
-    "loadOldFormat fertig, nEl=",
-    s.nEl,
-    "bRes.length=",
-    s.bRes.length,
+// BA 352: grobe Heuristik fuer EasyEffects-Konfigurationsdateien
+// (oberste Ebene output/input als Objekt, keine CImbel-Merkmale).
+function _looksLikeEasyEffects(d) {
+  if (!d || typeof d !== "object") return false;
+  return (
+    (d.output && typeof d.output === "object") ||
+    (d.input && typeof d.input === "object")
   );
 }
 
@@ -541,34 +451,21 @@ function loadJson(file) {
     try {
       const d = JSON.parse(e.target.result);
 
-      // Neues Format (mit sides)
-      if (d.sides && d.sides.left && d.sides.right) {
+      if (_isCimbelSave(d)) {
         loadSideData("left", d.sides.left);
         loadSideData("right", d.sides.right);
         activeSide = SIDES.includes(d.currentSide) ? d.currentSide : "left";
         applyLoadedData(d);
         // BA 149
         if (typeof depLockApply === 'function') depLockApply();
-      }
-      // Altes Format – Modal zur Seitenwahl anzeigen
-      else {
-        const overlay = document.getElementById("loadSideOverlay");
-        overlay.classList.add("active");
-        const doLoad = (side) => {
-          overlay.classList.remove("active");
-          loadOldFormat(d, side);
-          activeSide = side;
-          applyLoadedData(d);
-          // BA 149
-          if (typeof depLockApply === 'function') depLockApply();
-        };
-        document.getElementById("loadSideLeft").onclick = () => doLoad("left");
-        document.getElementById("loadSideRight").onclick = () =>
-          doLoad("right");
-        document.getElementById("loadSideCanc").onclick = () => {
-          overlay.classList.remove("active");
-          document.getElementById("fInput").value = "";
-        };
+      } else {
+        // BA 352: keine gueltige CImbel-Datei -> abweisen, nicht laden.
+        let msg = t("loadNotCimbel");
+        if (_looksLikeEasyEffects(d)) {
+          msg += " " + t("loadEasyeffectsHint");
+        }
+        alert(msg);
+        document.getElementById("fInput").value = "";
       }
     } catch (err) {
       console.error("Fehler:", err);

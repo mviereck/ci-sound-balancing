@@ -555,6 +555,10 @@ Object.assign(L.fr, {
       "réglages de courbes ont été convertis au mieux, mais le " +
       "son familier peut légèrement changer. Veuillez vérifier " +
       "les courbes dans l'onglet « Courbes » et les ajuster si nécessaire.",
+    loadNotCimbel:
+      "Ce fichier n'est pas une sauvegarde CImbel et ne peut pas être chargé.",
+    loadEasyeffectsHint:
+      "Il ressemble à une configuration EasyEffects.",
     plSrcLabel: "Source de l'égaliseur :",
     plSrcMeas: "Intensité d'électrode",
     plSrcLevels: "Curseurs",
