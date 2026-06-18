@@ -21,7 +21,56 @@ function amRegisterProvider(p) {
   AM_PROVIDERS.push(p);
 }
 
+// BA348: Stempel-Cache fuer die Listen-Aggregation (ersetzt den Tick-Cache
+// aus BA347). amCollectItems/amCollectCollections und die Saetze-Pools
+// werden pro Bedien-Klick 7-37x aufgerufen; der teure Aufbau (Objektbau,
+// encodeURI, Tag-Vererbung, Sortierung von >25000 Saetze-Items) lief bisher
+// 1x PRO KLICK neu. Jetzt haelt der Cache das Ergebnis SITZUNGSWEIT und baut
+// nur neu, wenn sich die Datenlage aendert.
+//
+// Die Datenaenderung wird ueber einen billigen Fingerabdruck (_amDataStamp)
+// aller VERAENDERLICHEN Quellen erkannt. Aendert sich der Stempel (Bibliothek
+// nachgeladen, Datei/Ordner/Sammlung hochgeladen, Saetze-Korpus fertig
+// geladen), wird neu gebaut -- ohne dass eine Schreibstelle den Cache
+// explizit invalidieren muss.
+//
+// Stempel-Korrektheit (WICHTIG, nicht aendern ohne diese Punkte zu pruefen):
+//  - Ordner/Sammlungen (Maps/Arrays) sind rein ADDITIV (BA323 entfernte alle
+//    Remove-Knoepfe) -> size/length als Stempel-Teil genuegt.
+//  - Einzeldatei-Quellen werden ERSETZT (neue Datei, "Existenz" bleibt 1)
+//    -> hier die .id (= "local-...-file:"+Dateiname) in den Stempel, sonst
+//    bliebe der Stempel beim Datei-Wechsel gleich und der Cache veraltete.
+//  - sLoaded/sLocalCollections leben in sentences.js (laedt nach
+//    audio-source.js) -> typeof-Guard, da _amDataStamp evtl. vor dem ersten
+//    Saetze-Load aufgerufen werden koennte.
+//  - embed (CI_SB_EMBED) und generated (AM_GEN_NOISES) sind statisch beim
+//    Seitenladen -> bewusst NICHT im Stempel.
+let _amCache = new Map();   // key -> { stamp, value }
+
+function _amDataStamp() {
+  return [
+    _amWebspace.loaded.size,
+    _amMusicLocalFile ? _amMusicLocalFile.id : "-",
+    _amMusicLocalFolders.size,
+    _amNoiseLocalFile ? _amNoiseLocalFile.id : "-",
+    _amNoiseLocalFolders.size,
+    _amLocalBookCollections.length,
+    (typeof sLoaded !== "undefined" && sLoaded) ? 1 : 0,
+    (typeof sLocalCollections !== "undefined" && sLocalCollections) ? sLocalCollections.size : 0
+  ].join("|");
+}
+
+function _amCacheGet(key, build) {
+  const stamp = _amDataStamp();
+  const hit = _amCache.get(key);
+  if (hit && hit.stamp === stamp) return hit.value;
+  const value = build();
+  _amCache.set(key, { stamp: stamp, value: value });
+  return value;
+}
+
 function amCollectItems(category) {
+  return _amCacheGet("items:" + category, function () {
   const out = [];
   for (const p of AM_PROVIDERS) {
     try {
@@ -40,6 +89,7 @@ function amCollectItems(category) {
     }
   }
   return out;
+  });
 }
 
 // --- Sortier-Achsen ---
@@ -542,6 +592,7 @@ function amCollectionSortAxesFor(category) {
 }
 
 function amCollectCollections(category) {
+  return _amCacheGet("collections:" + category, function () {
   const out = [];
   for (const p of AM_PROVIDERS) {
     if (typeof p.listCollections !== "function") continue;
@@ -559,6 +610,7 @@ function amCollectCollections(category) {
     }
   }
   return out;
+  });
 }
 
 function amSortCollections(collections, category, axisKey) {

@@ -100,12 +100,17 @@ function sSpeakersForLang(langCode) {
 }
 
 function sBuildRecordingPool(spkSel) {
-  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
   const curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-  return all.filter(function (it) {
-    if (!it.tags || it.tags.lang !== curLang) return false;
-    if (spkSel === "any") return true;
-    return it.tags.speaker_id === spkSel;
+  // BA348: Stempel-Cache (analog amCollectItems) - die Pool-Bildung lief pro
+  // Bedien-Klick 2-10x (via plUpdTransportUI -> hasNext/hasPrev -> cat.list);
+  // jetzt sitzungsweit gecacht, Neuaufbau nur bei Stempel-Aenderung.
+  return _amCacheGet("recpool:" + curLang + ":" + spkSel, function () {
+    const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+    return all.filter(function (it) {
+      if (!it.tags || it.tags.lang !== curLang) return false;
+      if (spkSel === "any") return true;
+      return it.tags.speaker_id === spkSel;
+    });
   });
 }
 
@@ -113,38 +118,44 @@ function sBuildRecordingPool(spkSel) {
 // pro Sprecher blockweise (DE zuerst, sonst alphabetisch nach
 // speaker_id), innerhalb eines Sprechers nach recording.id.
 function sBuildSequencePool() {
-  const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
   const curLang = (typeof plContentLang !== "undefined") ? plContentLang : "de";
-  const filtered = all.filter(function (it) {
-    return it && it.tags && it.tags.lang === curLang;
-  });
-
-  // Sprecher-Reihenfolge gem. sRefreshSpeakerDropdown-Logik:
-  // erste Beobachtungsreihenfolge im Pool, "any" gibt's hier nicht.
-  const spkOrder = [];
-  const seen = new Set();
-  for (const it of filtered) {
-    const sid = it.tags.speaker_id || "unbekannt";
-    if (!seen.has(sid)) { seen.add(sid); spkOrder.push(sid); }
-  }
-
-  // Gruppieren und pro Sprecher nach recording.id sortieren.
-  const byId = function (it) {
-    const i = (it.id || "").lastIndexOf(":");
-    return i >= 0 ? it.id.substring(i + 1) : (it.id || "");
-  };
-  const groups = new Map();
-  for (const sid of spkOrder) groups.set(sid, []);
-  for (const it of filtered) groups.get(it.tags.speaker_id || "unbekannt").push(it);
-  for (const sid of spkOrder) {
-    groups.get(sid).sort(function (a, b) {
-      return byId(a).localeCompare(byId(b));
+  // BA348: Stempel-Cache (analog amCollectItems). Die teure Gruppierung +
+  // localeCompare-Sortierung lief pro Bedien-Klick 2-10x -> ~190 ms je Aufbau,
+  // in Summe sekundenlange UI-Blockaden. Jetzt sitzungsweit gecacht, Neuaufbau
+  // nur bei Stempel-Aenderung.
+  return _amCacheGet("seqpool:" + curLang, function () {
+    const all = (typeof amCollectItems === "function") ? amCollectItems("saetze") : [];
+    const filtered = all.filter(function (it) {
+      return it && it.tags && it.tags.lang === curLang;
     });
-  }
 
-  const out = [];
-  for (const sid of spkOrder) for (const it of groups.get(sid)) out.push(it);
-  return out;
+    // Sprecher-Reihenfolge gem. sRefreshSpeakerDropdown-Logik:
+    // erste Beobachtungsreihenfolge im Pool, "any" gibt's hier nicht.
+    const spkOrder = [];
+    const seen = new Set();
+    for (const it of filtered) {
+      const sid = it.tags.speaker_id || "unbekannt";
+      if (!seen.has(sid)) { seen.add(sid); spkOrder.push(sid); }
+    }
+
+    // Gruppieren und pro Sprecher nach recording.id sortieren.
+    const byId = function (it) {
+      const i = (it.id || "").lastIndexOf(":");
+      return i >= 0 ? it.id.substring(i + 1) : (it.id || "");
+    };
+    const groups = new Map();
+    for (const sid of spkOrder) groups.set(sid, []);
+    for (const it of filtered) groups.get(it.tags.speaker_id || "unbekannt").push(it);
+    for (const sid of spkOrder) {
+      groups.get(sid).sort(function (a, b) {
+        return byId(a).localeCompare(byId(b));
+      });
+    }
+
+    const out = [];
+    for (const sid of spkOrder) for (const it of groups.get(sid)) out.push(it);
+    return out;
+  });
 }
 
 
