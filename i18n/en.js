@@ -277,7 +277,7 @@ Object.assign(L.en, {
     sentTitle: "Play sentences",
     sentSpeaker: "Speaker:",
     sentPauseLabel: "Pause",
-    sentSpkAll: "All (random)",
+    sentSpkAll: "All",
     sentBtnPlay: "▶ Play",
     sentBtnNext: "⏭ Next sentence",
     sentBtnEndless: "♾ Endless sequence",

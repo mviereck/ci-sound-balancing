@@ -329,7 +329,7 @@ Object.assign(L.de, {
     sentTitle: "Sätze abspielen",
     sentSpeaker: "Sprecher:",
     sentPauseLabel: "Pause",
-    sentSpkAll: "Alle (zufällig)",
+    sentSpkAll: "Alle",
     sentBtnPlay: "▶ Spielen",
     sentBtnNext: "⏭ Nächster Satz",
     sentBtnEndless: "♾ Endlosfolge",

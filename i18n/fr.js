@@ -278,7 +278,7 @@ Object.assign(L.fr, {
     sentTitle: "Lire des phrases",
     sentSpeaker: "Locuteur :",
     sentPauseLabel: "Pause",
-    sentSpkAll: "Tous (aléatoire)",
+    sentSpkAll: "Tous",
     sentBtnPlay: "▶ Lire",
     sentBtnNext: "⏭ Phrase suivante",
     sentBtnEndless: "♾ Séquence infinie",
