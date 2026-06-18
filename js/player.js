@@ -308,42 +308,6 @@ function documentHasStereoAudio() {
   return pSourceBuf && pSourceBuf.numberOfChannels > 1;
 }
 
-document
-  .getElementById("plAudio")
-  .addEventListener("change", async function (e) {
-    const f = e.target.files[0];
-    if (!f) return;
-    if (plActiveSource === "saetze") {
-      pStopReset();
-    }
-    // Laufende Datei-Wiedergabe sauber stoppen, bevor die neue Datei
-    // dekodiert wird. Kein Autostart — der Nutzer drückt Play selbst.
-    if (pPlaying || pSrc || pCurrentPlayback) {
-      pStopReset();
-    }
-    try {
-      const c = gPC();
-      const buf = await f.arrayBuffer();
-      pFileBuf = await c.decodeAudioData(buf);
-      pSetPlaybackMode("musik");
-      // BA260: hochgeladene Datei als Musik-Provider-Item registrieren,
-      // damit sie in der Bibliotheks-Liste erscheint und vom Filtering
-      // erfasst wird.
-      if (typeof amMusicLocalSetFile === "function") {
-        const it = amMusicLocalSetFile(f);
-        if (it && typeof plMusicSelectedId !== "undefined") plMusicSelectedId = it.id;
-        if (typeof plMusicRefreshUI === "function") plMusicRefreshUI();
-      }
-      if (typeof plUpdDisplay === "function") plUpdDisplay();
-      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      pBuildEQ();
-      pDrawEQ();
-      document.getElementById("plEqViz").style.display = "";
-    } catch (err) {
-      alert("Error: " + err.message);
-    }
-  });
-
 // BA 306: Die Mono-Misch-Checkbox ist nur bedienbar, wenn "Beide Seiten"
 // aktiv ist (sonst spielt ohnehin nur das aktive Ohr in Mono). Bei
 // deaktiviertem "Beide Seiten" wird sie ausgegraut.
@@ -2010,6 +1974,45 @@ function plBuildFilterChain(catDecl) {
         domEl.value = "any";
         catDecl.stateRef.setSpeakerSel("any");
       }
+    } else if (stage.kind === "upload") {
+      // BA349: Upload-Box generisch rendern + verdrahten (einmalig).
+      if (domEl.childElementCount === 0) {
+        var _fBtn = stage.domId + "-folder-btn";
+        var _xBtn = stage.domId + "-file-btn";
+        var _fIn  = stage.domId + "-folder-in";
+        var _xIn  = stage.domId + "-file-in";
+        var html = "";
+        html += "<div class=\"pl-upload-title\" data-t=\"" + stage.titleKey + "\"></div>";
+        html += "<div class=\"pl-upload-btns\">";
+        if (stage.allowFolder) {
+          html += "<button class=\"btn\" type=\"button\" id=\"" + _fBtn + "\" style=\"font-size:0.85em\">"
+                + "<span data-t=\"" + stage.folderLabelKey + "\"></span></button>";
+        }
+        if (stage.allowFile) {
+          html += "<button class=\"btn\" type=\"button\" id=\"" + _xBtn + "\" style=\"font-size:0.85em\">"
+                + "<span data-t=\"" + stage.fileLabelKey + "\"></span></button>";
+        }
+        html += "</div>";
+        if (stage.allowFolder) {
+          html += "<input type=\"file\" id=\"" + _fIn + "\" webkitdirectory multiple style=\"display:none\" />";
+        }
+        if (stage.allowFile) {
+          html += "<input type=\"file\" id=\"" + _xIn + "\" accept=\""
+                + (stage.accept || ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*") + "\" style=\"display:none\" />";
+        }
+        domEl.innerHTML = html;
+        if (typeof applyLang === "function") applyLang();
+        plWireUploadBlock({
+          allowFolder: !!stage.allowFolder,
+          addBtnId:    _fBtn,
+          folderInputId: _fIn,
+          onFolder:    stage.onFolder,
+          allowFile:   !!stage.allowFile,
+          fileBtnId:   _xBtn,
+          fileInputId: _xIn,
+          onFile:      stage.onFile
+        });
+      }
     }
   }
 
@@ -2309,6 +2312,16 @@ function plWireUploadBlock(spec) {
   if (spec.allowFile && spec.fileInputId) {
     var fileEl = document.getElementById(spec.fileInputId);
     if (fileEl) {
+      // BA349: optionaler Knopf, der die versteckte Datei-Eingabe oeffnet
+      if (spec.fileBtnId) {
+        var fileBtn = document.getElementById(spec.fileBtnId);
+        if (fileBtn) {
+          fileBtn.addEventListener("click", function () {
+            fileEl.value = "";
+            fileEl.click();
+          });
+        }
+      }
       fileEl.addEventListener("change", async function (e) {
         var f = e.target.files && e.target.files[0];
         if (!f) return;
@@ -2366,6 +2379,31 @@ PL_FILTER_DECL.musik = {
   visibleItems: function () { return plMusicVisibleItems(); },
   stages: [
     {
+      id: "upload", kind: "upload", domId: "plMusicUpload",
+      allowFile: true, allowFolder: true,
+      titleKey: "plUploadTitle",
+      folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      onFile: async function (file) {
+        var it = (typeof amMusicAddLocalFile === "function") ? amMusicAddLocalFile(file) : null;
+        if (it) plMusicSelectedId = it.id;
+        plMusicRefreshUI();
+        if (plActiveSource === "musik") plMusicLoadSelected();
+      },
+      onFolder: async function (fileList) {
+        var res = await amMusicIngestLocalFolder(fileList);
+        if (res && res.cid) {
+          var visible = plMusicVisibleItems();
+          var firstOfFolder = visible.find(function (x) {
+            return typeof x.audio === "string"
+              && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
+          });
+          if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
+        }
+        plMusicRefreshUI();
+      }
+    },
+    {
       id: "sort", kind: "axis-sel", domId: "plMusicSortSel"
     },
     {
@@ -2388,27 +2426,6 @@ PL_FILTER_DECL.musik = {
     if (typeof plUpdDisplay     === "function") plUpdDisplay();
   },
   extraWiring: function () {
-    // BA334: Upload via plWireUploadBlock (Ordner, verhaltens-erhaltend)
-    plWireUploadBlock({
-      allowFile: false,
-      allowFolder: true,
-      addBtnId: "plMusicLocalAddBtn",
-      folderInputId: "plMusicLocalInput",
-      onFolder: async function (fileList) {
-        var res = await amMusicIngestLocalFolder(fileList);
-        if (res && res.cid) {
-          var visible = plMusicVisibleItems();
-          var firstOfFolder = visible.find(function (x) {
-            return typeof x.audio === "string"
-              && x.audio.indexOf("local-music-folder:" + res.cid + ":") === 0;
-          });
-          if (firstOfFolder) plMusicSelectedId = firstOfFolder.id;
-        }
-        plMusicRefreshLocalList();
-        plMusicRefreshUI();
-      }
-    });
-    plMusicRefreshLocalList();
     plMusicRefreshUI();
   }
 };
@@ -2437,6 +2454,32 @@ PL_FILTER_DECL.geraeusche = {
   },
   visibleItems: function () { return plNoiseVisibleItems(); },
   stages: [
+    {
+      id: "upload", kind: "upload", domId: "plNoiseUpload",
+      allowFile: true, allowFolder: true,
+      titleKey: "plUploadTitle",
+      folderLabelKey: "plUploadFolder", fileLabelKey: "plUploadFile",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      onFile: async function (file) {
+        var it = (typeof amNoiseAddLocalFile === "function") ? amNoiseAddLocalFile(file) : null;
+        if (it) plNoiseSelectedId = it.id;
+        plNoiseRefreshUI();
+        if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
+      },
+      onFolder: async function (fileList) {
+        var res = (typeof amNoiseIngestLocalFolder === "function")
+          ? await amNoiseIngestLocalFolder(fileList) : null;
+        if (res && res.cid) {
+          var visible = plNoiseVisibleItems();
+          var firstOfFolder = visible.find(function (x) {
+            return typeof x.audio === "string"
+              && x.audio.indexOf("local-noise-folder:" + res.cid + ":") === 0;
+          });
+          if (firstOfFolder) plNoiseSelectedId = firstOfFolder.id;
+        }
+        plNoiseRefreshUI();
+      }
+    },
     {
       id: "sort", kind: "axis-sel", domId: "plNoiseSortSel"
     },
@@ -2468,36 +2511,6 @@ PL_FILTER_DECL.geraeusche = {
     if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
   },
   extraWiring: function () {
-    // BA334: Datei + Ordner via plWireUploadBlock
-    plWireUploadBlock({
-      allowFile: true,
-      fileInputId: "plNoiseAudio",
-      allowFolder: true,
-      addBtnId: "plNoiseLocalAddBtn",
-      folderInputId: "plNoiseLocalInput",
-      onFile: async function (file) {
-        var it = (typeof amNoiseLocalSetFile === "function") ? amNoiseLocalSetFile(file) : null;
-        if (it && typeof plNoiseSelectedId !== "undefined") plNoiseSelectedId = it.id;
-        plNoiseRefreshLocalList();
-        plNoiseRefreshUI();
-        if (plActiveSource === "geraeusche") await plNoiseLoadSelected();
-      },
-      onFolder: async function (fileList) {
-        var res = (typeof amNoiseIngestLocalFolder === "function")
-          ? await amNoiseIngestLocalFolder(fileList) : null;
-        if (res && res.cid) {
-          var visible = plNoiseVisibleItems();
-          var firstOfFolder = visible.find(function (x) {
-            return typeof x.audio === "string"
-              && x.audio.indexOf("local-noise-folder:" + res.cid + ":") === 0;
-          });
-          if (firstOfFolder) plNoiseSelectedId = firstOfFolder.id;
-        }
-        plNoiseRefreshLocalList();
-        plNoiseRefreshUI();
-      }
-    });
-    plNoiseRefreshLocalList();
     plNoiseRefreshUI();
   }
 };
@@ -2609,22 +2622,15 @@ function plMusicRefreshUI() {
 }
 
 // Laedt das aktuell ausgewaehlte Musik-Item in pFileBuf und ruft pBuildEQ.
-// Lokaler Upload (audio === "local-music-file:...") nutzt das vorhandene
-// File-Objekt; sonstige Items (Webspace, spaeter Ordner) per fetch.
+// Lokaler Upload (audio === "local-music-folder:...", inkl. Sammlung "upload"
+// fuer Einzeldateien) nutzt das File-Objekt; sonstige Items (Webspace) per fetch.
 async function plMusicLoadSelected() {
   const it = plMusicCurrentItem();
   if (!it) return;
   const c = gPC();
   try {
     let arrayBuf;
-    if (typeof it.audio === "string" && it.audio.indexOf("local-music-file:") === 0) {
-      const localItem = (typeof amMusicLocalCurrent === "function") ? amMusicLocalCurrent() : null;
-      if (!localItem || !localItem._file) {
-        console.warn("[player/musik] lokales File nicht mehr verfuegbar:", it.id);
-        return;
-      }
-      arrayBuf = await localItem._file.arrayBuffer();
-    } else if (typeof it.audio === "string" && it.audio.indexOf("local-music-folder:") === 0) {
+    if (typeof it.audio === "string" && it.audio.indexOf("local-music-folder:") === 0) {
       // BA261: Folder-Ref
       const f = (typeof amMusicResolveLocalFile === "function")
         ? amMusicResolveLocalFile(it.audio) : null;
@@ -2658,58 +2664,6 @@ function plMusicSetSelected(id) {
   if (!id) return;
   plMusicSelectedId = id;
   plMusicLoadSelected();
-}
-
-function plMusicRefreshLocalList() {
-  const list = document.getElementById("plMusicLocalList");
-  if (!list) return;
-  list.innerHTML = "";
-  const folders = (typeof amMusicListLocalFolders === "function")
-    ? amMusicListLocalFolders() : [];
-  if (folders.length === 0) {
-    list.style.display = "";
-    const span = document.createElement("span");
-    span.style.color = "var(--text-muted)";
-    span.textContent = (typeof t === "function") ? t("plMusicLocalNone") : "Keine lokalen Ordner geladen.";
-    list.appendChild(span);
-    return;
-  }
-  list.style.display = "";
-  for (const coll of folders) {
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
-    const lbl = document.createElement("span");
-    lbl.textContent = coll.label + "  (" + coll.items.length + ")";
-    // BA323: Entfernen-Knopf entfällt — Ordner nur noch für die Laufzeit.
-    row.appendChild(lbl);
-    list.appendChild(row);
-  }
-}
-
-// BA334: Lokale-Ordner-Liste fuer Geraeusche (analog plMusicRefreshLocalList)
-function plNoiseRefreshLocalList() {
-  const list = document.getElementById("plNoiseLocalList");
-  if (!list) return;
-  list.innerHTML = "";
-  const folders = (typeof amNoiseListLocalFolders === "function")
-    ? amNoiseListLocalFolders() : [];
-  if (folders.length === 0) {
-    list.style.display = "";
-    const span = document.createElement("span");
-    span.style.color = "var(--text-muted)";
-    span.textContent = (typeof t === "function") ? t("plNoiseLocalNone") : "Keine lokalen Ordner geladen.";
-    list.appendChild(span);
-    return;
-  }
-  list.style.display = "";
-  for (const coll of folders) {
-    const row = document.createElement("div");
-    row.style.cssText = "display:flex;align-items:center;gap:8px;padding:3px 0";
-    const lbl = document.createElement("span");
-    lbl.textContent = coll.label + "  (" + coll.items.length + ")";
-    row.appendChild(lbl);
-    list.appendChild(row);
-  }
 }
 
 // Erstaufbau Musik-UI (Wiring + initiale Befuellung via plBuildFilterChain)
@@ -2904,6 +2858,19 @@ PL_FILTER_DECL.hoerbuecher = {
   },
   stages: [
     {
+      id: "upload", kind: "upload", domId: "plBookUploadBox",
+      allowFile: true, allowFolder: true,
+      titleKey: "plUploadTitle",
+      folderLabelKey: "plUploadBookFolder", fileLabelKey: "plUploadBookFile",
+      accept: ".mp3,.wav,.flac,.ogg,.m4a,.mp4,audio/*",
+      onFile: async function (file) {
+        await plBookHandleUpload([file]);
+      },
+      onFolder: async function (fileList) {
+        await plBookHandleUpload(fileList);
+      }
+    },
+    {
       id: "sort", kind: "axis-sel", domId: "plBookSortSel",
       axesSource: (typeof amCollectionSortAxesFor === "function") ? amCollectionSortAxesFor : null
     },
@@ -2931,24 +2898,6 @@ PL_FILTER_DECL.hoerbuecher = {
   ],
   afterRefresh: function () {
     if (typeof plUpdDisplay === "function") plUpdDisplay();
-  },
-  extraWiring: function () {
-    // BA335: Einzeldatei-Input + Ordner-Input via plWireUploadBlock
-    plWireUploadBlock({
-      allowFile: true,
-      fileInputId: "plBookAudio",
-      allowFolder: true,
-      addBtnId: "plBookUploadBtn",
-      folderInputId: "plBookUploadInput",
-      onFile: async function (file) {
-        await plBookHandleUpload([file]);
-        plBookRefreshUI();
-      },
-      onFolder: async function (fileList) {
-        await plBookHandleUpload(fileList);
-        plBookRefreshUI();
-      }
-    });
   }
 };
 
@@ -3008,7 +2957,7 @@ function plBookSavePosition() {
 
 // BA323: _plBookRmBtn-Handler entfernt — Entfernen-Knopf und amRemoveLocalBookCollection entfallen.
 // BA331: Sort/Sel/Ch-Event-Handler durch plBuildFilterChain-Mechanik (PL_FILTER_DECL.hoerbuecher) ersetzt.
-// BA335: Upload-Wiring (Ordner + Einzeldatei) in PL_FILTER_DECL.hoerbuecher.extraWiring verschoben.
+// BA350: Upload (Ordner + Einzeldatei) ist eine `upload`-Stage in PL_FILTER_DECL.hoerbuecher; ruft plBookHandleUpload.
 
 // Deklaration: Saetze (BA332)
 // Nur eine Stage speaker-sel; kein item-sel (Pool entsteht zur Laufzeit via sBuildRecordingPool).

@@ -37,9 +37,11 @@ function amRegisterProvider(p) {
 // Stempel-Korrektheit (WICHTIG, nicht aendern ohne diese Punkte zu pruefen):
 //  - Ordner/Sammlungen (Maps/Arrays) sind rein ADDITIV (BA323 entfernte alle
 //    Remove-Knoepfe) -> size/length als Stempel-Teil genuegt.
-//  - Einzeldatei-Quellen werden ERSETZT (neue Datei, "Existenz" bleibt 1)
-//    -> hier die .id (= "local-...-file:"+Dateiname) in den Stempel, sonst
-//    bliebe der Stempel beim Datei-Wechsel gleich und der Cache veraltete.
+//  - Lokale Einzeldateien (Musik/Geraeusche) sind seit BA349/350 SAMMELND:
+//    sie wandern in eine feste Ordner-Sammlung cid "upload" und wachsen Stueck
+//    fuer Stueck. Deren Map-`.size` aendert sich dabei nicht -> der Stempel
+//    nutzt _amLocalFileCount (Summe der Dateien ueber alle Sammlungen) statt
+//    `.size`, sonst bliebe die zweite hochgeladene Datei unsichtbar.
 //  - sLoaded/sLocalCollections leben in sentences.js (laedt nach
 //    audio-source.js) -> typeof-Guard, da _amDataStamp evtl. vor dem ersten
 //    Saetze-Load aufgerufen werden koennte.
@@ -47,13 +49,21 @@ function amRegisterProvider(p) {
 //    Seitenladen -> bewusst NICHT im Stempel.
 let _amCache = new Map();   // key -> { stamp, value }
 
+// BA349: Gesamtzahl der Dateien ueber alle lokalen Sammlungen (fuer den
+// Cache-Stempel: die "upload"-Sammlung waechst, ihre .size aendert sich nicht).
+function _amLocalFileCount(map) {
+  var n = 0;
+  if (map && map.forEach) map.forEach(function (coll) {
+    if (coll && coll.files && typeof coll.files.size === "number") n += coll.files.size;
+  });
+  return n;
+}
+
 function _amDataStamp() {
   return [
     _amWebspace.loaded.size,
-    _amMusicLocalFile ? _amMusicLocalFile.id : "-",
-    _amMusicLocalFolders.size,
-    _amNoiseLocalFile ? _amNoiseLocalFile.id : "-",
-    _amNoiseLocalFolders.size,
+    _amLocalFileCount(_amMusicLocalFolders),
+    _amLocalFileCount(_amNoiseLocalFolders),
     _amLocalBookCollections.length,
     (typeof sLoaded !== "undefined" && sLoaded) ? 1 : 0,
     (typeof sLocalCollections !== "undefined" && sLocalCollections) ? sLocalCollections.size : 0
@@ -409,13 +419,6 @@ async function amGetItemBuffer(ctx, item) {
   let abuf = null;
   if (item.id.indexOf("gen:") === 0) {
     abuf = amGenerateNoiseBuffer(ctx, item.id);
-  } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-file:") === 0) {
-    // BA334: lokale Einzeldatei-Geraeusch
-    const noiseFile = (typeof amNoiseLocalCurrent === "function") ? amNoiseLocalCurrent() : null;
-    if (noiseFile && noiseFile._file) {
-      const ab = await noiseFile._file.arrayBuffer();
-      abuf = await ctx.decodeAudioData(ab);
-    }
   } else if (typeof item.audio === "string" && item.audio.indexOf("local-noise-folder:") === 0) {
     // BA334: lokaler Geraeusche-Ordner
     const f = (typeof amNoiseResolveLocalFile === "function")
@@ -839,48 +842,44 @@ amRegisterProvider({
 });
 
 // ============================================================
-// BA260: lokaler Musik-File-Provider
+// BA349: lokale Musik-Einzeldateien (sammelnd, Sammlung "upload")
 // ============================================================
-// Eine einzige hochgeladene Datei wird als Musik-Item gefuehrt.
-// Beim naechsten Upload wird der Eintrag ersetzt. Audio-Dekodierung
-// passiert weiterhin im plAudio-change-Handler des Players;
-// dieser Provider liefert nur das Metadaten-Item.
+// Jede hochgeladene Einzeldatei bleibt erhalten und erscheint als Stueck.
+// Technisch eine feste Ordner-Sammlung mit cid "upload" -> selber
+// Resolver/Provider wie echte Ordner. sourceTitle = "Dateiupload".
 
-let _amMusicLocalFile = null;     // { name, audio: "local-music-file:<name>" } | null
-
-function amMusicLocalSetFile(file) {
-  if (!file) { _amMusicLocalFile = null; return null; }
-  const id = "local-music-file:" + file.name;
-  _amMusicLocalFile = {
-    id: id,
-    title: file.name.replace(/\.[^.]+$/, ""),
-    audio: id,           // markiert, dass der Player den File-Buffer direkt verwendet
-    sourceTitle: "Eigener Upload",
+function amMusicAddLocalFile(file) {
+  if (!file) return null;
+  var cid = "upload";
+  var coll = _amMusicLocalFolders.get(cid);
+  if (!coll) {
+    coll = {
+      id: cid,
+      label: (typeof t === "function") ? t("plUploadSourceFile") : "Dateiupload",
+      files: new Map(),
+      items: []
+    };
+    _amMusicLocalFolders.set(cid, coll);
+  }
+  var rel = file.name;
+  var existing = coll.items.find(function (x) {
+    return x.audio === "local-music-folder:" + cid + ":" + rel;
+  });
+  if (existing) { coll.files.set(rel, file); return existing; }
+  coll.files.set(rel, file);
+  var baseName = file.name.replace(/\.[^.]+$/, "");
+  var item = {
+    id: "music-folder:" + cid + ":file-" + (coll.items.length + 1),
+    title: baseName,
+    audio: "local-music-folder:" + cid + ":" + rel,
+    sourceTitle: coll.label,
     license: null,
     credit: null,
-    tags: {
-      artist: "",
-      album: "",
-      genres: [],
-      year: null,
-      source_local: "y"
-    },
-    _file: file          // privat: das File-Objekt zur Wiedergabe
+    tags: { artist: "", album: coll.label, genres: [], year: null, source_local: "y" }
   };
-  return _amMusicLocalFile;
+  coll.items.push(item);
+  return item;
 }
-
-function amMusicLocalCurrent() {
-  return _amMusicLocalFile;
-}
-
-amRegisterProvider({
-  id: "music-local-file",
-  listItems: function (category) {
-    if (category !== "musik") return [];
-    return _amMusicLocalFile ? [_amMusicLocalFile] : [];
-  }
-});
 
 // ============================================================
 // BA261: lokaler Musik-Ordner-Provider
@@ -980,38 +979,43 @@ amRegisterProvider({
 });
 
 // ============================================================
-// BA334: lokaler Geraeusche-Einzeldatei-Provider
+// BA350: lokale Geraeusche-Einzeldateien (sammelnd, Sammlung "upload")
 // ============================================================
+// Analog Musik (BA349): feste Ordner-Sammlung cid "upload" -> selber
+// Resolver/Provider wie echte Ordner. sourceTitle = "Dateiupload".
 
-let _amNoiseLocalFile = null;   // { name, audio: "local-noise-file:<name>", _file } | null
-
-function amNoiseLocalSetFile(file) {
-  if (!file) { _amNoiseLocalFile = null; return null; }
-  const id = "local-noise-file:" + file.name;
-  _amNoiseLocalFile = {
-    id: id,
-    title: file.name.replace(/\.[^.]+$/, ""),
-    audio: id,
-    sourceTitle: (typeof t === "function") ? t("plNoiseLocalFileSource") : "Eigener Upload",
+function amNoiseAddLocalFile(file) {
+  if (!file) return null;
+  var cid = "upload";
+  var coll = _amNoiseLocalFolders.get(cid);
+  if (!coll) {
+    coll = {
+      id: cid,
+      label: (typeof t === "function") ? t("plUploadSourceFile") : "Dateiupload",
+      files: new Map(),
+      items: []
+    };
+    _amNoiseLocalFolders.set(cid, coll);
+  }
+  var rel = file.name;
+  var existing = coll.items.find(function (x) {
+    return x.audio === "local-noise-folder:" + cid + ":" + rel;
+  });
+  if (existing) { coll.files.set(rel, file); return existing; }
+  coll.files.set(rel, file);
+  var baseName = file.name.replace(/\.[^.]+$/, "");
+  var item = {
+    id: "noise-folder:" + cid + ":file-" + (coll.items.length + 1),
+    title: baseName,
+    audio: "local-noise-folder:" + cid + ":" + rel,
+    sourceTitle: coll.label,
     license: null,
     credit: null,
-    tags: { kind: "", spectrum: "", source_local: "y" },
-    _file: file
+    tags: { kind: "", spectrum: "", source_local: "y" }
   };
-  return _amNoiseLocalFile;
+  coll.items.push(item);
+  return item;
 }
-
-function amNoiseLocalCurrent() {
-  return _amNoiseLocalFile;
-}
-
-amRegisterProvider({
-  id: "noise-local-file",
-  listItems: function (category) {
-    if (category !== "geraeusche") return [];
-    return _amNoiseLocalFile ? [_amNoiseLocalFile] : [];
-  }
-});
 
 // ============================================================
 // BA334: lokaler Geraeusche-Ordner-Provider
