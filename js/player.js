@@ -43,9 +43,14 @@ function _pDownmixMono(buf) {
   const n = buf.length;
   const ch = buf.numberOfChannels;
   const out = new Float32Array(n);
+  // BA347.1: Kanal-Arrays EINMAL vor der Schleife holen. Vorher wurde
+  // buf.getChannelData(c) pro Sample x Kanal aufgerufen (~23 Mio Aufrufe
+  // bei 4-min-Stereo) -> 160-750 ms UI-Block je Titel. Jetzt ch Aufrufe.
+  const chans = [];
+  for (let c = 0; c < ch; c++) chans.push(buf.getChannelData(c));
   for (let s = 0; s < n; s++) {
     let sum = 0;
-    for (let c = 0; c < ch; c++) sum += buf.getChannelData(c)[s];
+    for (let c = 0; c < ch; c++) sum += chans[c][s];
     out[s] = sum / ch;
   }
   return out;
