@@ -863,6 +863,7 @@ function _fmPianoLoadStep() {
   if (_ub) _ub.disabled = !(run.posInRound > 0 || run.posInBorder > 0);
 
   _fmPianoUpdateBoxes(border);
+  _fmPianoUpdateProgress();
 }
 
 // Eine Taste markieren, die dem Cent-Wert entspricht (falls im Fenster).
@@ -966,6 +967,41 @@ function _fmPianoUpdateBoxes(border) {
   if (instr) {
     instr.textContent = t('fmPianoInstruction').replace('{role}', roleUp.toLowerCase());
   }
+}
+
+// Zahl der bisher bestaetigten Grenzen (ueber alle Runden/Elektroden).
+function _fmPianoCountConfirmed() {
+  var fp = _fmPianoData();
+  if (!fp || !fp.perElectrode) return 0;
+  var c = 0;
+  Object.keys(fp.perElectrode).forEach(function(el) {
+    var rounds = fp.perElectrode[el].rounds || {};
+    Object.keys(rounds).forEach(function(rk) {
+      var r = rounds[rk];
+      if (r && typeof r.lower === 'number') c++;
+      if (r && typeof r.upper === 'number') c++;
+    });
+  });
+  return c;
+}
+
+// Fortschrittsanzeige: Text + Gesamtbalken (alle 6 Runden).
+function _fmPianoUpdateProgress() {
+  var els = fmEls && fmEls.verfahren && fmEls.verfahren.piano
+    && fmEls.verfahren.piano.progress;
+  if (!els) return;
+  var fp = _fmPianoData();
+  var run = fp && fp.run;
+  if (!run) return;
+  var m = run.roundOrder.length;
+  var n = Math.min(run.posInRound + 1, m);
+  var total = FM_PIANO_STEPS.length * run.electrodeList.length * 2;
+  var done  = _fmPianoCountConfirmed();
+  var frac  = total > 0 ? done / total : 0;
+  var txt = t('fmPianoProgress')
+    .replace('{n}', n).replace('{m}', m)
+    .replace('{r}', run.currentRound).replace('{y}', FM_PIANO_STEPS.length);
+  testUI.progress.set(els, { fraction: frac, text: txt });
 }
 
 // Runden-Uebergangs-Modal.
@@ -1608,6 +1644,7 @@ document.addEventListener("DOMContentLoaded", () => {
         labelKey:   'fmModePiano',
         explainKey: 'fmExplainPiano',
         body: {
+          progress:      { format: 'simple' },
           pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
           instruction:   { key: 'fmPianoInstruction' },
           piano:         {},

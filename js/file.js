@@ -309,6 +309,7 @@ async function saveJson() {
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
         implant: sideData.left.implant,
         freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
+        freqmatchPiano: sideData.left.freqmatchPiano || null,
       },
       right: {
         config: sideData.right.config || "ci",
@@ -330,6 +331,7 @@ async function saveJson() {
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,
         implant: sideData.right.implant,
         freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
+        freqmatchPiano: sideData.right.freqmatchPiano || null,
       },
     },
     currentSide: activeSide,

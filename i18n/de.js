@@ -697,6 +697,7 @@ Object.assign(L.de, {
     fmPianoRoundDoneMsg:   "Schrittweite {n} ct abgeschlossen. Weiter mit feinerer Schrittweite {m} ct?",
     fmPianoRoundNext:      "Weiter",
     fmPianoRoundFinish:    "Beenden",
+    fmPianoProgress:       "Elektrode {n} von {m} · Runde {r} von {y}",
     fmSliderTargetDisabledHint: "Sliderwirkung wird in eigener Erweiterung aktiviert.",
     fmSliderEstimateTitle:     "Erst Vor-Schätzung machen?",
     fmSliderEstimateMsg:       "Sie können den Frequenzabgleich beschleunigen, indem Sie zuerst pro Elektrode eine ungefähre Schieber-Einstellung treffen. Der adaptive Test startet dann nahe an Ihrer Schätzung statt aus ±100 Cent. Empfohlen vor allem, wenn Sie größere Frequenzabweichungen vermuten.",

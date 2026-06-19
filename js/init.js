@@ -949,6 +949,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
               implant: sideData.left.implant,
               freqmatchAdaptive: sideData.left.freqmatchAdaptive || null,
+              freqmatchPiano: sideData.left.freqmatchPiano || null,
               // BA 161: bisher nur in Datei-Save, jetzt auch hier
               fmMode:        sideData.left.fmMode || 'adaptive',
               fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
@@ -972,6 +973,7 @@ document.addEventListener("DOMContentLoaded", () => {
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,
               implant: sideData.right.implant,
               freqmatchAdaptive: sideData.right.freqmatchAdaptive || null,
+              freqmatchPiano: sideData.right.freqmatchPiano || null,
               // BA 161
               fmMode:        sideData.right.fmMode || 'adaptive',
               fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,

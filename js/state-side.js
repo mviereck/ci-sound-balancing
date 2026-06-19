@@ -144,6 +144,7 @@ function initSideData(side, m) {
   s.fmAdaptiveDur = 200;
   s.fmAdaptivePau = 200;
   s.freqmatchAdaptive = null;
+  s.freqmatchPiano = null;
   s.fullSweepRound = null;
   s.fullSweepDonePairs = [];
   s.implant = {
@@ -404,6 +405,7 @@ function loadSideData(side, d) {
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
   s.freqmatchAdaptive = _fmMigrateAdaptive(d.freqmatchAdaptive);
+  s.freqmatchPiano = d.freqmatchPiano || null;
   s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.presets = PR_TYPES.map((tp) => {
