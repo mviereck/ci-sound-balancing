@@ -633,6 +633,92 @@ function _buildTestPanelNew(parentEl, cfg) {
       refs.keyHint = khBox;
     }
 
+    // --- piano (BA354) ---
+    if (body.piano) {
+      var pnWrap = _mkEl("div", "tk-piano-wrap");
+      pnWrap.style.cssText = "display:flex;align-items:stretch;gap:8px;margin:10px 0;";
+
+      var pnLeft = _mkEl("button", "btn btn-sm tk-piano-arrow");
+      pnLeft.type = "button";
+      pnLeft.innerHTML = "&#9664;"; // ◀
+      pnLeft.setAttribute("aria-label", "Bereich nach links");
+
+      var pnRow = _mkEl("div", "tk-piano-row");
+      pnRow.style.cssText = "position:relative;display:flex;flex:1;height:80px;"
+        + "border:1px solid #444;border-radius:4px;overflow:hidden;"
+        + "user-select:none;-webkit-user-select:none;touch-action:none;";
+
+      var pnRight = _mkEl("button", "btn btn-sm tk-piano-arrow");
+      pnRight.type = "button";
+      pnRight.innerHTML = "&#9654;"; // ▶
+      pnRight.setAttribute("aria-label", "Bereich nach rechts");
+
+      var PN_WHITE_LABELS = ["A","S","D","F","G","H","J","K","L"];
+      var PN_BLACK_LABELS = ["W","E","R","T","Z","U","I","O"];
+      var PN_WHITE_CODES  = ["KeyA","KeyS","KeyD","KeyF","KeyG","KeyH","KeyJ","KeyK","KeyL"];
+      var PN_BLACK_CODES  = ["KeyW","KeyE","KeyR","KeyT","KeyY","KeyU","KeyI","KeyO"];
+
+      var pnWhite = [];
+      var pnBlack = [];
+
+      // Weisse Tasten (9).
+      for (var _wi = 0; _wi < 9; _wi++) {
+        var _wk = _mkEl("div", "tk-key tk-white");
+        _wk.style.cssText = "flex:1;border-right:1px solid #888;background:#fff;"
+          + "cursor:pointer;position:relative;display:flex;align-items:flex-end;"
+          + "justify-content:center;padding-bottom:4px;font-size:.78em;color:#333;";
+        _wk.textContent = PN_WHITE_LABELS[_wi];
+        _wk.dataset.slot = String(_wi);
+        _wk.dataset.black = "0";
+        pnWhite[_wi] = _wk;
+        pnRow.appendChild(_wk);
+        (function (slotIdx) {
+          _wk.addEventListener("click", function () { _pnPlaySlot(refs.piano, vCfg, slotIdx, false); });
+        })(_wi);
+      }
+
+      // Schwarze Tasten (8), zwischen weiss i und i+1.
+      var _pnWhitePct = 100 / 9;
+      for (var _bi = 0; _bi < 8; _bi++) {
+        var _bk = _mkEl("div", "tk-key tk-black");
+        var _bLeft  = (_bi + 1) * _pnWhitePct - _pnWhitePct / 4;
+        var _bWidth = _pnWhitePct / 2;
+        _bk.style.cssText = "position:absolute;top:0;left:" + _bLeft.toFixed(3) + "%;"
+          + "width:" + _bWidth.toFixed(3) + "%;height:60%;background:#222;"
+          + "border:1px solid #000;border-radius:0 0 3px 3px;cursor:pointer;"
+          + "display:flex;align-items:flex-end;justify-content:center;"
+          + "padding-bottom:3px;font-size:.72em;color:#fff;";
+        _bk.textContent = PN_BLACK_LABELS[_bi];
+        _bk.dataset.slot = String(_bi);
+        _bk.dataset.black = "1";
+        pnBlack[_bi] = _bk;
+        pnRow.appendChild(_bk);
+        (function (slotIdx) {
+          _bk.addEventListener("click", function () { _pnPlaySlot(refs.piano, vCfg, slotIdx, true); });
+        })(_bi);
+      }
+
+      pnWrap.append(pnLeft, pnRow, pnRight);
+      vWrap.appendChild(pnWrap);
+
+      pnLeft.addEventListener("click",  function () { _pnShift(refs.piano, vCfg, -1); });
+      pnRight.addEventListener("click", function () { _pnShift(refs.piano, vCfg,  1); });
+
+      refs.piano = {
+        wrap: pnWrap, row: pnRow,
+        white: pnWhite, black: pnBlack,
+        leftArrow: pnLeft, rightArrow: pnRight,
+        whiteCodes: PN_WHITE_CODES, blackCodes: PN_BLACK_CODES,
+        // Laufzeit-Modell (vom Verfahren via testUI.piano.setRound gesetzt).
+        // Default: Stufe 250 ct, Mitte = 0 ct.
+        stepCent: 250,
+        originCent: -4 * 250,
+        baseFreq: 0,
+        markedAbsCent: null,
+        markedBlack: false
+      };
+    }
+
     // --- slider ---
     if (body.slider) {
       var slCfg = body.slider;
@@ -1097,6 +1183,89 @@ function _buildTestPanelNew(parentEl, cfg) {
     return null;
   }
 
+  // ===== BA354: Klavier-Baustein (Helfer) =====
+  // p = refs.piano (Laufzeit-Modell + DOM-Referenzen).
+
+  function _pnCellCent(p, slot, isBlack) {
+    var c = p.originCent + slot * p.stepCent;
+    if (isBlack) c += p.stepCent / 2;
+    return c;
+  }
+
+  function _pnCellFreq(p, slot, isBlack) {
+    if (!p.baseFreq) return 0;
+    return p.baseFreq * Math.pow(2, _pnCellCent(p, slot, isBlack) / 1200);
+  }
+
+  // Markierungs-Hervorhebung neu zeichnen: der sichtbare Slot, der den
+  // markierten absoluten Cent-Wert zeigt, bekommt einen Rahmen.
+  function _pnRenderMark(p) {
+    for (var i = 0; i < p.white.length; i++) p.white[i].style.boxShadow = "";
+    for (var j = 0; j < p.black.length; j++) p.black[j].style.boxShadow = "";
+    if (p.markedAbsCent == null) return;
+    for (var s = 0; s < 9; s++) {
+      if (Math.abs(_pnCellCent(p, s, false) - p.markedAbsCent) < 0.001) {
+        p.white[s].style.boxShadow = "inset 0 0 0 3px var(--success)";
+        return;
+      }
+    }
+    for (var b = 0; b < 8; b++) {
+      if (Math.abs(_pnCellCent(p, b, true) - p.markedAbsCent) < 0.001) {
+        p.black[b].style.boxShadow = "inset 0 0 0 3px var(--success)";
+        return;
+      }
+    }
+  }
+
+  function _pnMarkSlot(p, slot, isBlack) {
+    p.markedAbsCent = _pnCellCent(p, slot, isBlack);
+    p.markedBlack = !!isBlack;
+    _pnRenderMark(p);
+  }
+
+  // Runde setzen: Schrittweite (cent), Mitten-Cent (Slot 4) und
+  // Basisfrequenz. Setzt die Markierung zurueck (kein sichtbarer Anker
+  // der Vorrunde).
+  function _pnSetRound(p, opts) {
+    opts = opts || {};
+    if (typeof opts.stepCent === "number")   p.stepCent = opts.stepCent;
+    if (typeof opts.centerCent === "number") p.originCent = opts.centerCent - 4 * p.stepCent;
+    if (typeof opts.baseFreq === "number")   p.baseFreq = opts.baseFreq;
+    p.markedAbsCent = null;
+    _pnRenderMark(p);
+  }
+
+  // Fenster um 5 Tasten verschieben; Komfort-Grenze: markierter Wert bleibt
+  // im Sichtfenster (keine methodische Sperre).
+  function _pnShiftWindow(p, dir) {
+    var newOrigin = p.originCent + dir * 5 * p.stepCent;
+    if (p.markedAbsCent != null) {
+      var lo = newOrigin, hi = newOrigin + 8 * p.stepCent;
+      if (p.markedAbsCent < lo)      newOrigin = p.markedAbsCent;
+      else if (p.markedAbsCent > hi) newOrigin = p.markedAbsCent - 8 * p.stepCent;
+    }
+    p.originCent = newOrigin;
+    _pnRenderMark(p);
+  }
+
+  // Anschlag (Maus/Touch/Tastatur): markieren + Callback ans Verfahren.
+  function _pnPlaySlot(p, vCfg, slot, isBlack) {
+    _pnMarkSlot(p, slot, isBlack);
+    if (vCfg && vCfg.hooks && vCfg.hooks.onPianoPlay) {
+      vCfg.hooks.onPianoPlay({
+        slot: slot,
+        isBlack: !!isBlack,
+        cent: _pnCellCent(p, slot, isBlack),
+        freq: _pnCellFreq(p, slot, isBlack)
+      });
+    }
+  }
+
+  function _pnShift(p, vCfg, dir) {
+    _pnShiftWindow(p, dir);
+    if (vCfg && vCfg.hooks && vCfg.hooks.onPianoShift) vCfg.hooks.onPianoShift(dir);
+  }
+
   // ===== Pfeiltasten-Routing =====
 
   function _installKeyListener(vCfg2) {
@@ -1150,6 +1319,20 @@ function _buildTestPanelNew(parentEl, cfg) {
           _maybeExtendSlider(slRef);
           return;
         }
+      }
+
+      // Klavier: Buchstaben-Tasten (physische Position via e.code) + Bereichs-Pfeile
+      if (body.piano && vRefs && vRefs.piano) {
+        var _p = vRefs.piano;
+        if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+          e.preventDefault();
+          _pnShift(_p, vCfg2, (e.key === "ArrowRight") ? 1 : -1);
+          return;
+        }
+        var _wIdx = _p.whiteCodes.indexOf(e.code);
+        if (_wIdx >= 0) { e.preventDefault(); _pnPlaySlot(_p, vCfg2, _wIdx, false); return; }
+        var _bIdx = _p.blackCodes.indexOf(e.code);
+        if (_bIdx >= 0) { e.preventDefault(); _pnPlaySlot(_p, vCfg2, _bIdx, true); return; }
       }
 
       // ↑ / ↓ : decisionButtons
@@ -1288,6 +1471,21 @@ var testUI = {
         btn.disabled = isPlaying;
       });
     }
+  },
+
+  // ---- piano (BA354) ----
+  // Vom Verfahren (Schritt 3) genutzte Steuer-API des Klavier-Bausteins.
+  // p = refs.piano aus den Verfahren-Refs.
+  piano: {
+    // Runde setzen: { stepCent, centerCent, baseFreq } (alle optional).
+    setRound:    function (p, opts) { _pnSetRound(p, opts); },
+    // Markierung manuell setzen (sonst automatisch beim Anschlag).
+    markSlot:    function (p, slot, isBlack) { _pnMarkSlot(p, slot, isBlack); },
+    // Fenster verschieben (dir = -1 / +1).
+    shiftWindow: function (p, dir) { _pnShiftWindow(p, dir); },
+    // Cent-Wert / Frequenz eines Slots (isBlack = true fuer schwarze Taste).
+    cellCent:    function (p, slot, isBlack) { return _pnCellCent(p, slot, isBlack); },
+    cellFreq:    function (p, slot, isBlack) { return _pnCellFreq(p, slot, isBlack); }
   },
 
   // ---- clipHint (BA 285) ----
