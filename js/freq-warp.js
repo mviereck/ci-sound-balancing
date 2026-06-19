@@ -97,49 +97,10 @@ let _pWarpFResVersion = 0;
 // abweichende Logik. fmStatus 'in-progress' und 'in-progress-early'
 // (Platzhalter cent=0) werden mitgenommen; final hat Vorrang pro
 // (varSide, elIdx).
+// BA353: Quelle = zentraler aktives-Verfahren-Filter (results.js).
+// Frueher: fRes + in-progress + Slider-Schaetzungen ungefiltert vereinigt.
 function _warpFResSource() {
-  const out = (typeof fRes !== "undefined" && Array.isArray(fRes))
-    ? fRes.slice() : [];
-  const sides = ["left", "right"];
-
-  // Stufe 2: in-progress-Pseudo-Einträge aus aktiven Tracks.
-  // Vorrang: nur einreihen, wenn kein finaler fRes-Eintrag pro (side, elIdx).
-  if (typeof _fmrBuildInProgressEntries === "function") {
-    for (const side of sides) {
-      let prov;
-      try { prov = _fmrBuildInProgressEntries(side) || []; }
-      catch (e) { prov = []; }
-      if (!prov.length) continue;
-      const finalsBySide = new Set();
-      for (const r of out) {
-        if (r && r.varSide === side) finalsBySide.add(r.elIdx);
-      }
-      for (const p of prov) {
-        if (!finalsBySide.has(p.elIdx)) out.push(p);
-      }
-    }
-  }
-
-  // Stufe 3: Slider-Vor-Schätzungen.
-  // Vorrang: nur einreihen, wenn weder finaler fRes-Eintrag noch
-  // in-progress-Eintrag pro (side, elIdx) vorhanden.
-  if (typeof _fmrBuildSliderEntries === "function") {
-    for (const side of sides) {
-      let ests;
-      try { ests = _fmrBuildSliderEntries(side) || []; }
-      catch (e) { ests = []; }
-      if (!ests.length) continue;
-      const covered = new Set();
-      for (const r of out) {
-        if (r && r.varSide === side) covered.add(r.elIdx);
-      }
-      for (const e of ests) {
-        if (!covered.has(e.elIdx)) out.push(e);
-      }
-    }
-  }
-
-  return out;
+  return (typeof fmActiveResults === "function") ? fmActiveResults() : [];
 }
 
 // Zählt die Quelle für UI-Anzeige.

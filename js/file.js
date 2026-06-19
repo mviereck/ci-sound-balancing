@@ -140,6 +140,7 @@ function resetAll() {
   // --- Globale Test-Parameter ---
   // BA 254: Tonfolge pro Test
   if (typeof sequence_freqmatch !== "undefined") sequence_freqmatch = TEST_DEFAULTS.freqmatch.sequence;
+  if (typeof fmActiveMethodVal !== "undefined") fmActiveMethodVal = null;
   if (typeof sequence_test      !== "undefined") sequence_test      = TEST_DEFAULTS.test.sequence;
   if (typeof sequence_balance   !== "undefined") sequence_balance   = TEST_DEFAULTS.balance.sequence;
   // BA 246
@@ -342,6 +343,7 @@ async function saveJson() {
     freqmatchTestSelection: (typeof freqmatchTestSelection !== "undefined")
       ? freqmatchTestSelection : null,
     sequence_freqmatch: (typeof sequence_freqmatch !== "undefined") ? sequence_freqmatch : TEST_DEFAULTS.freqmatch.sequence,
+    fmActiveMethod: (typeof fmActiveMethodVal !== "undefined") ? fmActiveMethodVal : null,
     sequence_test:      (typeof sequence_test      !== "undefined") ? sequence_test      : TEST_DEFAULTS.test.sequence,
     sequence_balance:   (typeof sequence_balance   !== "undefined") ? sequence_balance   : TEST_DEFAULTS.balance.sequence,
     playerSourceMeas: plSrcMeas,
@@ -546,6 +548,11 @@ function applyLoadedData(d) {
                 || TEST_DEFAULTS.test.sequence;
   if (typeof sequence_freqmatch !== "undefined") {
     sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
+  }
+  if (typeof fmActiveMethodVal !== "undefined") {
+    fmActiveMethodVal = (d.fmActiveMethod === "adaptive" || d.fmActiveMethod === "slider")
+      ? d.fmActiveMethod
+      : null; // alte Datei ohne Feld -> Getter leitet Default aus den Daten ab
   }
   if (typeof sequence_test !== "undefined") {
     sequence_test = _validSeq(d.sequence_test) || _legacySeq;

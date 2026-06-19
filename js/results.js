@@ -259,6 +259,7 @@ function _fmrBuildInProgressEntries(side) {
         varFreq: varHz,
         refFreq: varHz * Math.pow(2, prov.match / 1200),
         timestamp: Date.now(),
+        method:       "adaptive",
         fmStatus:     'in-progress',
         fmResidual:   prov.residual,
         fmCombinedUncertainty: null,
@@ -277,6 +278,7 @@ function _fmrBuildInProgressEntries(side) {
         varFreq: varHz,
         refFreq: varHz,
         timestamp: Date.now(),
+        method:       "adaptive",
         fmStatus:     'in-progress-early',
         fmResidual:   null,
         fmCombinedUncertainty: null,
@@ -329,6 +331,7 @@ function _fmrBuildSliderEntries(side) {
       varFreq:      varHz,
       refFreq:      refHz,
       timestamp:    est.timestamp || Date.now(),
+      method:       "slider",
       fmStatus:     'slider-estimate',
       fmResidual:   null,
       fmCombinedUncertainty: null,
@@ -342,6 +345,46 @@ function _fmrBuildSliderEntries(side) {
       _provisional:    true,
       _sliderEstimate: true
     });
+  }
+  return out;
+}
+
+// BA353: Zentrale, nach aktivem Verfahren gefilterte Ergebnis-Quelle.
+// EINZIGE Stelle, durch die Ergebnisgraph, Player (Warp) und Druck gehen.
+// Generisch: vergleicht fmEntryMethod(eintrag) mit dem aktiven Verfahren,
+// kennt die Verfahren nicht beim Namen. Vorrang final > provisorisch je
+// (varSide, elIdx) -- aber nur INNERHALB des aktiven Verfahrens.
+function fmActiveResults() {
+  const method = (typeof fmGetActiveMethod === "function") ? fmGetActiveMethod() : "adaptive";
+  const me = (typeof fmEntryMethod === "function")
+    ? fmEntryMethod
+    : function (r) { return (r && r.method === "slider") ? "slider" : "adaptive"; };
+
+  // Finale Eintraege des aktiven Verfahrens.
+  let finals = (typeof fRes !== "undefined" && Array.isArray(fRes))
+    ? fRes.filter(function (r) { return r && me(r) === method; })
+    : [];
+
+  // Provisorische Eintraege (beide Arten sammeln, dann nach method filtern).
+  let prov = [];
+  const sides = ["left", "right"];
+  for (let s = 0; s < sides.length; s++) {
+    try { prov = prov.concat(_fmrBuildInProgressEntries(sides[s]) || []); } catch (e) {}
+    try { prov = prov.concat(_fmrBuildSliderEntries(sides[s]) || []); } catch (e) {}
+  }
+  prov = prov.filter(function (r) { return r && me(r) === method; });
+
+  // Vorrang final > provisorisch je (varSide, elIdx).
+  const out = finals.slice();
+  const covered = {};
+  for (let i = 0; i < finals.length; i++) {
+    const r = finals[i];
+    if (r && r.varSide != null) covered[r.varSide + ":" + r.elIdx] = true;
+  }
+  for (let j = 0; j < prov.length; j++) {
+    const p = prov[j];
+    const k = p.varSide + ":" + p.elIdx;
+    if (!covered[k]) { out.push(p); covered[k] = true; }
   }
   return out;
 }
@@ -376,6 +419,12 @@ function renderFreqMatchResults() {
   }
   noData.style.display = "none";
   card.style.display = "";
+  // BA353: Umschalter-Hervorhebung aktualisieren.
+  if (typeof fmUpdActiveMethodButtons === "function") fmUpdActiveMethodButtons();
+
+  // BA353: Anzeige-Daten: nur das aktive Verfahren, ciSide-gefiltert.
+  const displayData = ((typeof fmActiveResults === "function") ? fmActiveResults() : [])
+    .filter(function (r) { return r && r.varSide === ciSide; });
 
   // Titel
   const titleEl = document.getElementById("fmrTitle");
@@ -388,11 +437,14 @@ function renderFreqMatchResults() {
   // Meta-Zeile
   const metaEl = document.getElementById("fmrMeta");
   if (metaEl) {
-    const finalCount = fRes.length;
-    const provCount  = provisional.length;
+    const finalCount  = displayData.filter(function (r) { return !r._provisional; }).length;
+    const provCount   = displayData.filter(function (r) { return r._provisional && !r._sliderEstimate; }).length;
+    const sliderCount = displayData.filter(function (r) { return r._sliderEstimate; }).length;
+    const last = finalCount > 0
+      ? displayData.filter(function (r) { return !r._provisional; }).slice(-1)[0]
+      : null;
     let metaText = '';
-    if (finalCount > 0) {
-      const last = fRes[fRes.length - 1];
+    if (last) {
       const d = new Date(last.timestamp);
       const dateStr = d.toLocaleString(
         lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US"
@@ -404,7 +456,6 @@ function renderFreqMatchResults() {
       const provStr = t('fmrProvisionalCount').replace('{n}', provCount);
       metaText += (metaText ? ' · ' : '') + provStr;
     }
-    const sliderCount = sliderEsts.length;
     if (sliderCount > 0) {
       const sliderStr = t('fmrSliderEstimateCount').replace('{n}', sliderCount);
       metaText += (metaText ? ' · ' : '') + sliderStr;
@@ -439,25 +490,6 @@ function renderFreqMatchResults() {
     descEl.innerHTML =
       "<p style=\"font-weight:600;margin:0 0 6px\">" + line1 + "</p>" +
       "<p style=\"margin:0\">" + line2 + "</p>";
-  }
-
-  // Vereinigte Anzeige-Daten: fRes > in-progress > slider-estimate
-  const displayData = fRes.slice();
-  const haveCovered = {};
-  for (const r of fRes) {
-    if (r.varSide === ciSide) haveCovered[r.elIdx] = true;
-  }
-  for (const p of provisional) {
-    if (!haveCovered[p.elIdx]) {
-      displayData.push(p);
-      haveCovered[p.elIdx] = true;
-    }
-  }
-  for (const e of sliderEsts) {
-    if (!haveCovered[e.elIdx]) {
-      displayData.push(e);
-      haveCovered[e.elIdx] = true;
-    }
   }
 
   // Tabellen-Body: alle Elektroden der CI-Seite
@@ -755,7 +787,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (typeof depLockApply === 'function') depLockApply();
     renderFreqMatchResults();
     if (typeof fmRefreshResumeHint === "function") fmRefreshResumeHint();
-    if (typeof fmUpdateSliderModeAvail === "function") fmUpdateSliderModeAvail();
   }
 
   const allBtn = document.getElementById("fmrClearAllBtn");
@@ -776,7 +807,7 @@ document.addEventListener("DOMContentLoaded", function() {
     sliderBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearSliderConfirm") || "Slider-Schätzungen löschen?")) return;
       for (let i = fRes.length - 1; i >= 0; i--) {
-        if (fRes[i] && fRes[i].method === 'slider') fRes.splice(i, 1);
+        if (fRes[i] && fmEntryMethod(fRes[i]) === "slider") fRes.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {
@@ -795,7 +826,7 @@ document.addEventListener("DOMContentLoaded", function() {
     adaptiveBtn.addEventListener("click", function() {
       if (!confirm(t("fmrClearAdaptiveConfirm") || "Adaptiv-Ergebnisse löschen?")) return;
       for (let i = fRes.length - 1; i >= 0; i--) {
-        if (fRes[i] && fRes[i].method === 'adaptive') fRes.splice(i, 1);
+        if (fRes[i] && fmEntryMethod(fRes[i]) === "adaptive") fRes.splice(i, 1);
       }
       if (typeof sideData !== "undefined") {
         ['left', 'right'].forEach(function(side) {

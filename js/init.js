@@ -888,6 +888,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // BA353: Umschalter aktives Verfahren.
+  const _fmAdaBtn = document.getElementById("fmActiveMethodAdaptiveBtn");
+  const _fmSliBtn = document.getElementById("fmActiveMethodSliderBtn");
+  if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { fmSetActiveMethod("adaptive"); });
+  if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { fmSetActiveMethod("slider"); });
+
   // Modus-Toggle relativ/absolut
   document.querySelectorAll('input[name="lvTabMode"]').forEach((r) => {
     r.addEventListener("change", function () {

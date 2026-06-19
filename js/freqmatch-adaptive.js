@@ -406,6 +406,8 @@ async function fmPlayAdaptiveTrial(track, firstSide, catchInfo) {
 //             oder ↑/↓-Tasten gewählt hat (bezogen auf den zweiten Ton)
 function fmHandleHeight(userChoice) {
   if (!fmAdaptiveActive || !fmAwaitingResponse) return;
+  // BA353: erste/jede adaptive Entscheidung -> Adaptiv wird aktiv.
+  if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("adaptive");
   fmAwaitingResponse = false;
   fmDisableHeightButtons();
 
@@ -639,6 +641,7 @@ function _fmRemoveResult(elIdx) {
       varFreq:               varHz,
       refFreq:               refHz,
       timestamp:             Date.now(),
+      method:                "adaptive",
       fmStatus:              agg.status || 'converged',
       fmResidual:            agg.meanResidual,
       fmCombinedUncertainty: agg.combinedUncertainty,
@@ -705,6 +708,7 @@ function _fmWriteResult(track) {
     varFreq:               varHz,
     refFreq:               refHz,
     timestamp:             Date.now(),
+    method:                "adaptive",
     fmStatus:              agg.status || track.status,
     fmResidual:            agg.meanResidual,
     fmCombinedUncertainty: agg.combinedUncertainty,
@@ -761,7 +765,6 @@ function fmFinishAdaptive() {
   fmRoundQueue = [];
 
   if (fmEls) fmEls._stopTest();
-  fmUpdateSliderModeAvail();
   fmRefreshResumeHint();
   if (typeof renderFreqMatchResults === 'function') renderFreqMatchResults();
   // BA 149

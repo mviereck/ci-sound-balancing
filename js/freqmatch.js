@@ -569,7 +569,6 @@ function _fmMarkCompleted() {
   if (!fa || fa.currentRunIdx == null) return;
   const run = fa.runs[fa.currentRunIdx];
   if (run) run.completedAt = Date.now();
-  fmUpdateSliderModeAvail();
 }
 
 function _fmClearPersist(side) {
@@ -706,7 +705,6 @@ function fmAbort() {
     fmCurTrackId       = null;
     _fmStopTimer();
     fmRefreshResumeHint();
-    fmUpdateSliderModeAvail();
     return;
   }
   fmIsPlay = false;
@@ -861,21 +859,90 @@ function _fmHasAdaptiveData() {
   });
 }
 
-function fmUpdateSliderModeAvail() {
-  if (!fmEls) return;
-  const _refVal2 = (fmEls.header && fmEls.header.refSelect)
-    ? fmEls.header.refSelect.value : null;
-  const _varSide = (!_refVal2 || _refVal2 === 'symmetric')
-    ? (_refVal2 === 'symmetric' ? 'left' : fmVarSide)
-    : (_refVal2 === 'left' ? 'right' : 'left');
-  const sd = sideData[_varSide] || {};
-  const fa = sd.freqmatchAdaptive;
-  const hasAnswers = !!(fa && Array.isArray(fa.runs) && fa.runs.some(function(r) {
-    return r.tracks && Object.keys(r.tracks).some(function(k) {
-      return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
-    });
-  }));
-  testUI.field.setEnabled(fmEls, 'verfahrenSelect.slider', !hasAnswers, {});
+// BA353: Aktives Frequenzabgleich-Verfahren.
+// Bestimmt, welches Verfahren Ergebnisgraph, Player (Warp) und Druck speist.
+// null = noch nicht gesetzt -> Default wird aus den Daten abgeleitet.
+let fmActiveMethodVal = null;
+
+// Method-Kennung eines Eintrags. Konvention: nur "slider" ist Schieber,
+// alles andere (inkl. fehlend) zaehlt als "adaptive" (Altstaende ohne Feld).
+function fmEntryMethod(r) {
+  return (r && r.method === "slider") ? "slider" : "adaptive";
+}
+
+// Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung)
+function fmMethodHasData(method) {
+  if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
+    for (let i = 0; i < fRes.length; i++) {
+      if (fRes[i] && fmEntryMethod(fRes[i]) === method) return true;
+    }
+  }
+  const sides = ["left", "right"];
+  for (let s = 0; s < sides.length; s++) {
+    const fa = sideData[sides[s]] && sideData[sides[s]].freqmatchAdaptive;
+    if (!fa) continue;
+    if (method === "slider") {
+      if (fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) return true;
+    } else {
+      if (Array.isArray(fa.runs) && fa.runs.some(function (r) {
+        return r && r.tracks && Object.keys(r.tracks).some(function (k) {
+          return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
+        });
+      })) return true;
+    }
+  }
+  return false;
+}
+
+// Aktiv geltendes Verfahren. Default (alte/ungesetzte Staende):
+// Adaptiv, falls es Werte hat; sonst Schieber, falls dieser Werte hat;
+// sonst Adaptiv (rein kosmetisch, da ohne Daten keine Anzeige).
+function fmGetActiveMethod() {
+  if (fmActiveMethodVal === "adaptive" || fmActiveMethodVal === "slider") {
+    return fmActiveMethodVal;
+  }
+  if (fmMethodHasData("adaptive")) return "adaptive";
+  if (fmMethodHasData("slider"))   return "slider";
+  return "adaptive";
+}
+
+// EINZIGE Schreibstelle fuer den Aktiv-Zustand. "Letzte Aktion gewinnt":
+// jede Bestaetigung (Trigger) und jeder Button-Klick ruft das hier.
+// Refresh (Graph + Player-Warp) nur bei echtem Wechsel.
+function fmSetActiveMethod(m) {
+  if (m !== "adaptive" && m !== "slider") return;
+  const changed = (fmActiveMethodVal !== m);
+  fmActiveMethodVal = m;
+  if (typeof fmUpdActiveMethodButtons === "function") fmUpdActiveMethodButtons();
+  if (!changed) return;
+  if (typeof renderFreqMatchResults === "function") {
+    try { renderFreqMatchResults(); } catch (e) {}
+  }
+  if (typeof pWarpTrigger === "function") {
+    try { pWarpTrigger(); } catch (e) {}
+  }
+}
+
+// Hervorhebung der zwei Umschalt-Buttons (Vorbild: updPlSrcButtons).
+function fmUpdActiveMethodButtons() {
+  const method = fmGetActiveMethod();
+  const map = [
+    { id: "fmActiveMethodAdaptiveBtn", m: "adaptive" },
+    { id: "fmActiveMethodSliderBtn",   m: "slider" }
+  ];
+  for (let i = 0; i < map.length; i++) {
+    const btn = document.getElementById(map[i].id);
+    if (!btn) continue;
+    if (map[i].m === method) {
+      btn.style.background  = "var(--success)";
+      btn.style.color       = "#fff";
+      btn.style.borderColor = "var(--success)";
+    } else {
+      btn.style.background  = "#e5e7eb";
+      btn.style.color       = "var(--text)";
+      btn.style.borderColor = "var(--border)";
+    }
+  }
 }
 
 let _fmDurStash_slider  = 400;
@@ -923,8 +990,6 @@ function fmLoadVerfahrenFromSide() {
       return r.tracks[k] && (r.tracks[k].trialCount || 0) > 0;
     });
   }));
-
-  fmUpdateSliderModeAvail();
 
   if (hasAdaptive) {
     fmSetVerfahren('adaptive', { force: true });

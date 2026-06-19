@@ -295,6 +295,8 @@ function fmLoadElectrode() {
 
 function fmConfirm() {
   if (!fmRunning || fmCurrentEl === null) return;
+  // BA353: Offset bestaetigt -> Schieber wird aktiv.
+  if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("slider");
   const varHz = fmVarHz(fmCurrentEl);
   const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
   if (!fa) return;
