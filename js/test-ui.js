@@ -231,6 +231,10 @@ function _buildTestPanelNew(parentEl, cfg) {
     _tEl(lblVerf, 'lblVerfahren');
     verfahrenSelect = _mkEl('select');
     verfahrenSelect.id = 'verfahrenSelect_' + id;
+    // BA356-fix: Browser-Formular-Wiederherstellung des Dropdowns unterbinden,
+    // sonst kann der wiederhergestellte Wert vom intern aktiven Verfahren
+    // abweichen (Dropdown zeigt X, Start faehrt Y).
+    verfahrenSelect.autocomplete = 'off';
     cfg.verfahren.forEach(function(v) {
       var opt = new Option('', v.id);
       _tEl(opt, v.labelKey);
@@ -1183,89 +1187,6 @@ function _buildTestPanelNew(parentEl, cfg) {
     return null;
   }
 
-  // ===== BA354: Klavier-Baustein (Helfer) =====
-  // p = refs.piano (Laufzeit-Modell + DOM-Referenzen).
-
-  function _pnCellCent(p, slot, isBlack) {
-    var c = p.originCent + slot * p.stepCent;
-    if (isBlack) c += p.stepCent / 2;
-    return c;
-  }
-
-  function _pnCellFreq(p, slot, isBlack) {
-    if (!p.baseFreq) return 0;
-    return p.baseFreq * Math.pow(2, _pnCellCent(p, slot, isBlack) / 1200);
-  }
-
-  // Markierungs-Hervorhebung neu zeichnen: der sichtbare Slot, der den
-  // markierten absoluten Cent-Wert zeigt, bekommt einen Rahmen.
-  function _pnRenderMark(p) {
-    for (var i = 0; i < p.white.length; i++) p.white[i].style.boxShadow = "";
-    for (var j = 0; j < p.black.length; j++) p.black[j].style.boxShadow = "";
-    if (p.markedAbsCent == null) return;
-    for (var s = 0; s < 9; s++) {
-      if (Math.abs(_pnCellCent(p, s, false) - p.markedAbsCent) < 0.001) {
-        p.white[s].style.boxShadow = "inset 0 0 0 3px var(--success)";
-        return;
-      }
-    }
-    for (var b = 0; b < 8; b++) {
-      if (Math.abs(_pnCellCent(p, b, true) - p.markedAbsCent) < 0.001) {
-        p.black[b].style.boxShadow = "inset 0 0 0 3px var(--success)";
-        return;
-      }
-    }
-  }
-
-  function _pnMarkSlot(p, slot, isBlack) {
-    p.markedAbsCent = _pnCellCent(p, slot, isBlack);
-    p.markedBlack = !!isBlack;
-    _pnRenderMark(p);
-  }
-
-  // Runde setzen: Schrittweite (cent), Mitten-Cent (Slot 4) und
-  // Basisfrequenz. Setzt die Markierung zurueck (kein sichtbarer Anker
-  // der Vorrunde).
-  function _pnSetRound(p, opts) {
-    opts = opts || {};
-    if (typeof opts.stepCent === "number")   p.stepCent = opts.stepCent;
-    if (typeof opts.centerCent === "number") p.originCent = opts.centerCent - 4 * p.stepCent;
-    if (typeof opts.baseFreq === "number")   p.baseFreq = opts.baseFreq;
-    p.markedAbsCent = null;
-    _pnRenderMark(p);
-  }
-
-  // Fenster um 5 Tasten verschieben; Komfort-Grenze: markierter Wert bleibt
-  // im Sichtfenster (keine methodische Sperre).
-  function _pnShiftWindow(p, dir) {
-    var newOrigin = p.originCent + dir * 5 * p.stepCent;
-    if (p.markedAbsCent != null) {
-      var lo = newOrigin, hi = newOrigin + 8 * p.stepCent;
-      if (p.markedAbsCent < lo)      newOrigin = p.markedAbsCent;
-      else if (p.markedAbsCent > hi) newOrigin = p.markedAbsCent - 8 * p.stepCent;
-    }
-    p.originCent = newOrigin;
-    _pnRenderMark(p);
-  }
-
-  // Anschlag (Maus/Touch/Tastatur): markieren + Callback ans Verfahren.
-  function _pnPlaySlot(p, vCfg, slot, isBlack) {
-    _pnMarkSlot(p, slot, isBlack);
-    if (vCfg && vCfg.hooks && vCfg.hooks.onPianoPlay) {
-      vCfg.hooks.onPianoPlay({
-        slot: slot,
-        isBlack: !!isBlack,
-        cent: _pnCellCent(p, slot, isBlack),
-        freq: _pnCellFreq(p, slot, isBlack)
-      });
-    }
-  }
-
-  function _pnShift(p, vCfg, dir) {
-    _pnShiftWindow(p, dir);
-    if (vCfg && vCfg.hooks && vCfg.hooks.onPianoShift) vCfg.hooks.onPianoShift(dir);
-  }
-
   // ===== Pfeiltasten-Routing =====
 
   function _installKeyListener(vCfg2) {
@@ -1429,6 +1350,81 @@ function _buildTestPanelNew(parentEl, cfg) {
 // BA 248: alte API entfaellt; Direktaufruf statt Signatur-Weiche.
 function buildTestPanel(parentEl, cfg) {
   return _buildTestPanelNew(parentEl, cfg);
+}
+
+// ===== BA354: Klavier-Baustein (Helfer, globaler Scope) =====
+// p = refs.piano (Laufzeit-Modell + DOM-Referenzen).
+
+function _pnCellCent(p, slot, isBlack) {
+  var c = p.originCent + slot * p.stepCent;
+  if (isBlack) c += p.stepCent / 2;
+  return c;
+}
+
+function _pnCellFreq(p, slot, isBlack) {
+  if (!p.baseFreq) return 0;
+  return p.baseFreq * Math.pow(2, _pnCellCent(p, slot, isBlack) / 1200);
+}
+
+function _pnRenderMark(p) {
+  for (var i = 0; i < p.white.length; i++) p.white[i].style.boxShadow = "";
+  for (var j = 0; j < p.black.length; j++) p.black[j].style.boxShadow = "";
+  if (p.markedAbsCent == null) return;
+  for (var s = 0; s < 9; s++) {
+    if (Math.abs(_pnCellCent(p, s, false) - p.markedAbsCent) < 0.001) {
+      p.white[s].style.boxShadow = "inset 0 0 0 3px var(--success)";
+      return;
+    }
+  }
+  for (var b = 0; b < 8; b++) {
+    if (Math.abs(_pnCellCent(p, b, true) - p.markedAbsCent) < 0.001) {
+      p.black[b].style.boxShadow = "inset 0 0 0 3px var(--success)";
+      return;
+    }
+  }
+}
+
+function _pnMarkSlot(p, slot, isBlack) {
+  p.markedAbsCent = _pnCellCent(p, slot, isBlack);
+  p.markedBlack = !!isBlack;
+  _pnRenderMark(p);
+}
+
+function _pnSetRound(p, opts) {
+  opts = opts || {};
+  if (typeof opts.stepCent === "number")   p.stepCent = opts.stepCent;
+  if (typeof opts.centerCent === "number") p.originCent = opts.centerCent - 4 * p.stepCent;
+  if (typeof opts.baseFreq === "number")   p.baseFreq = opts.baseFreq;
+  p.markedAbsCent = null;
+  _pnRenderMark(p);
+}
+
+function _pnShiftWindow(p, dir) {
+  var newOrigin = p.originCent + dir * 5 * p.stepCent;
+  if (p.markedAbsCent != null) {
+    var lo = newOrigin, hi = newOrigin + 8 * p.stepCent;
+    if (p.markedAbsCent < lo)      newOrigin = p.markedAbsCent;
+    else if (p.markedAbsCent > hi) newOrigin = p.markedAbsCent - 8 * p.stepCent;
+  }
+  p.originCent = newOrigin;
+  _pnRenderMark(p);
+}
+
+function _pnPlaySlot(p, vCfg, slot, isBlack) {
+  _pnMarkSlot(p, slot, isBlack);
+  if (vCfg && vCfg.hooks && vCfg.hooks.onPianoPlay) {
+    vCfg.hooks.onPianoPlay({
+      slot: slot,
+      isBlack: !!isBlack,
+      cent: _pnCellCent(p, slot, isBlack),
+      freq: _pnCellFreq(p, slot, isBlack)
+    });
+  }
+}
+
+function _pnShift(p, vCfg, dir) {
+  _pnShiftWindow(p, dir);
+  if (vCfg && vCfg.hooks && vCfg.hooks.onPianoShift) vCfg.hooks.onPianoShift(dir);
 }
 
 // ===== testUI Helfer-API =====

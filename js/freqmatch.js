@@ -30,6 +30,7 @@ let fmPlayTO = null;
 
 // Adaptiver Modus (Bauanleitung 02b/4)
 let fmAdaptiveActive   = false;
+let fmPianoActive      = false;   // true waehrend eines laufenden Klaviertests (BA356-fix)
 let fmAwaitingResponse = false;
 let fmTracks           = {};
 let fmRoundQueue       = [];   // geshuffelter Round-Robin-State
@@ -215,7 +216,7 @@ function _fmPianoRefs() {
 // Ton-Boxen des aktiven Verfahrens (fuer setPlaying-Aufleuchten).
 function _fmActivePI() {
   if (fmAdaptiveActive) return _fmAdaptPI();
-  if (fmVerfahren === 'piano') return _fmPianoPI();
+  if (fmPianoActive) return _fmPianoPI();
   return _fmSliderPI();
 }
 function _fmAdaptUndo() {
@@ -708,6 +709,7 @@ function _fmStartIdleSideCheck() {
 function fmAbort() {
   testUI.sideCheck.stopIdleWatch();
   _fmSimActive = false;
+  fmPianoActive = false;
   if (fmAdaptiveActive) {
     _fmPersist();
     fmAdaptiveActive   = false;
@@ -757,39 +759,246 @@ function fmStartPiano() {
   );
 }
 
-function _fmDoStartPiano() {
-  fmSeqIdx     = 0;
-  fmRunning    = true;
-  fmFirstSide  = 'var';
-  _fmPianoLoadElectrode();
+// ===== Klavier-Verfahren — Mess-Engine (A2a) =====
+var FM_PIANO_STEPS = [250, 100, 50, 25, 10, 5];
+
+// Roh-Speicher der var-Seite holen/anlegen.
+function _fmPianoData() {
+  var sd = sideData[fmVarSide];
+  if (!sd) return null;
+  if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
+  return sd.freqmatchPiano;
 }
 
-// A1: laedt die aktuelle Elektrode (nur fmSeq[0]) und stellt die Tastatur.
-function _fmPianoLoadElectrode() {
-  fmCurrentEl  = fmSeq[fmSeqIdx];
-  fmCentOffset = 0;
+function _fmRandBorderOrder() {
+  return (Math.random() < 0.5) ? ['lower', 'upper'] : ['upper', 'lower'];
+}
+
+// Bestaetigten Grenzwert lesen (cent) oder null.
+function _fmPianoBorderVal(elIdx, round, border) {
+  var fp = _fmPianoData();
+  var pe = fp && fp.perElectrode && fp.perElectrode[elIdx];
+  var r  = pe && pe.rounds && pe.rounds[round];
+  return (r && typeof r[border] === 'number') ? r[border] : null;
+}
+
+// Bezugswert fuer den Runden-Start: Vorrunden-Wert derselben Grenze.
+function _fmPianoPrevBorder(elIdx, round, border) {
+  if (round <= 1) return 0;
+  var v = _fmPianoBorderVal(elIdx, round - 1, border);
+  return (v == null) ? 0 : v;
+}
+
+// Grenze speichern.
+function _fmPianoSetBorder(elIdx, round, border, cent) {
+  var fp = _fmPianoData();
+  if (!fp.perElectrode[elIdx]) fp.perElectrode[elIdx] = { rounds: {} };
+  if (!fp.perElectrode[elIdx].rounds[round]) fp.perElectrode[elIdx].rounds[round] = { lower: null, upper: null };
+  fp.perElectrode[elIdx].rounds[round][border] = cent;
+}
+
+// Lauf anlegen oder fortsetzen (Pause/Resume innerhalb der Sitzung).
+function _fmPianoEnsureRun() {
+  var fp = _fmPianoData();
+  var elList = fmSeq.slice();
+  var run = fp.run;
+  if (!run || run.varSide !== fmVarSide || run.refSide !== fmRefSide
+      || run.symmetric !== fmSymmetric) {
+    run = {
+      runId:        new Date().toISOString(),
+      startedAt:    Date.now(),
+      lastUpdate:   Date.now(),
+      varSide:      fmVarSide,
+      refSide:      fmRefSide,
+      symmetric:    fmSymmetric,
+      electrodeList: elList,
+      currentRound: 1,
+      roundOrder:   _fmShuffle(elList),
+      posInRound:   0,
+      borderOrder:  _fmRandBorderOrder(),
+      posInBorder:  0
+    };
+    fp.run = run;
+    fp.perElectrode = {};
+  }
+  // (Resume: bestehenden run unveraendert weiterlaufen lassen.)
+}
+
+function _fmDoStartPiano() {
+  _fmPianoEnsureRun();
+  fmPianoActive = true;
+  fmRunning   = true;
+  fmFirstSide = 'var';     // Kandidat zuerst, dann Vergleich
+  _fmPianoLoadStep();
+  _fmStartIdleSideCheck();
+}
+
+// Aktuelle (Elektrode, Grenze) laden: Tastatur stellen, Box-Rolle setzen.
+function _fmPianoLoadStep() {
+  var run = _fmPianoData().run;
+  if (!run) return;
+  if (run.posInRound >= run.roundOrder.length) { _fmPianoRoundTransition(); return; }
+
+  var elIdx  = run.roundOrder[run.posInRound];
+  var border = run.borderOrder[run.posInBorder];   // 'lower' | 'upper'
+  var step   = FM_PIANO_STEPS[run.currentRound - 1];
+  var center = _fmPianoPrevBorder(elIdx, run.currentRound, border);
+
+  fmCurrentEl  = elIdx;
+  fmCentOffset = center;
+
   var pr = _fmPianoRefs();
   if (pr && typeof testUI !== 'undefined' && testUI.piano) {
-    testUI.piano.setRound(pr, { stepCent: 250, centerCent: 0, baseFreq: fmVarHz(fmCurrentEl) });
+    testUI.piano.setRound(pr, { stepCent: step, centerCent: center, baseFreq: fmVarHz(elIdx) });
+    // Bei Wiederholung (Zurueck) den zuvor bestaetigten Wert dieser Runde markieren.
+    var prevThisRound = _fmPianoBorderVal(elIdx, run.currentRound, border);
+    if (prevThisRound != null) {
+      _fmPianoMarkCent(pr, prevThisRound);
+      fmCentOffset = prevThisRound;
+    }
   }
-  _fmPianoUpdateBoxes();
+  // Zurueck-Knopf aktivieren, wenn in der Runde etwas zurueckliegt (BA356-fix).
+  var _ub = fmEls && fmEls.verfahren && fmEls.verfahren.piano
+    && fmEls.verfahren.piano.actions && fmEls.verfahren.piano.actions.undo;
+  if (_ub) _ub.disabled = !(run.posInRound > 0 || run.posInBorder > 0);
+
+  _fmPianoUpdateBoxes(border);
 }
 
-// Anschlag-Callback aus dem Klavier-Baustein: Cent-Offset der Taste
-// uebernehmen und ueber die vorhandene Maschine spielen.
+// Eine Taste markieren, die dem Cent-Wert entspricht (falls im Fenster).
+function _fmPianoMarkCent(pr, cent) {
+  var rel = (cent - pr.originCent) / pr.stepCent;
+  var w = Math.round(rel);
+  if (Math.abs(rel - w) < 0.01 && w >= 0 && w <= 8) {
+    testUI.piano.markSlot(pr, w, false); return;
+  }
+  var b = Math.floor(rel);
+  if (Math.abs(rel - (b + 0.5)) < 0.01 && b >= 0 && b <= 7) {
+    testUI.piano.markSlot(pr, b, true);
+  }
+}
+
+// Anschlag aus dem Baustein.
 function fmPianoOnPlay(evt) {
   if (!fmRunning || fmCurrentEl === null) return;
   fmCentOffset = (evt && typeof evt.cent === 'number') ? evt.cent : 0;
   fmPlayCurrent();
 }
 
-// Boxen: links Elektrode (Kandidat), rechts Vergleichston.
-function _fmPianoUpdateBoxes() {
+// Grenze bestaetigen: zuletzt gespielten Tasten-Offset speichern, weiter.
+function fmPianoConfirm() {
+  if (!fmRunning || fmCurrentEl === null) return;
+  var run = _fmPianoData().run;
+  if (!run) return;
+  var pr = _fmPianoRefs();
+  if (!pr || pr.markedAbsCent == null) return;   // noch keine Taste gespielt
+
+  var elIdx  = run.roundOrder[run.posInRound];
+  var border = run.borderOrder[run.posInBorder];
+  _fmPianoSetBorder(elIdx, run.currentRound, border, pr.markedAbsCent);
+  run.lastUpdate = Date.now();
+
+  run.posInBorder++;
+  if (run.posInBorder >= 2) {
+    run.posInBorder = 0;
+    run.borderOrder = _fmRandBorderOrder();
+    run.posInRound++;
+  }
+  if (run.posInRound >= run.roundOrder.length) _fmPianoRoundTransition();
+  else                                          _fmPianoLoadStep();
+}
+
+// Zurueck: in der laufenden Runde eine Elektrode zurueck (bzw. aktuelle
+// Elektrode neu beginnen). Eine abgeschlossene Runde wird nicht aufgerollt.
+function fmPianoBack() {
+  if (!fmRunning) return;
+  var run = _fmPianoData().run;
+  if (!run) return;
+  if (run.posInBorder > 0) {
+    run.posInBorder = 0;
+    run.borderOrder = _fmRandBorderOrder();
+  } else if (run.posInRound > 0) {
+    run.posInRound--;
+    run.posInBorder = 0;
+    run.borderOrder = _fmRandBorderOrder();
+  } else {
+    return; // Rundenanfang: nichts
+  }
+  _fmPianoLoadStep();
+}
+
+// Runden-Uebergang: Modal (Runden 1..5) oder direkter Abschluss (nach Runde 6).
+function _fmPianoRoundTransition() {
+  var run = _fmPianoData().run;
+  if (!run) return;
+  if (run.currentRound >= FM_PIANO_STEPS.length) { _fmPianoFinish(); return; }
+  var curStep  = FM_PIANO_STEPS[run.currentRound - 1];
+  var nextStep = FM_PIANO_STEPS[run.currentRound];
+  _fmPianoShowRoundModal(run.currentRound, FM_PIANO_STEPS.length, curStep, nextStep,
+    function onNext() {
+      run.currentRound++;
+      run.roundOrder  = _fmShuffle(run.electrodeList);
+      run.posInRound  = 0;
+      run.borderOrder = _fmRandBorderOrder();
+      run.posInBorder = 0;
+      _fmPianoLoadStep();
+    },
+    function onFinish() { _fmPianoFinish(); }
+  );
+}
+
+function _fmPianoFinish() {
+  fmRunning = false;
+  // A2a: nur beenden. Ergebnis (Mittelwert -> fRes) + Abschluss-Box kommen in B.
+  if (fmEls && typeof fmEls._stopTest === 'function') fmEls._stopTest();
+}
+
+// Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
+function _fmPianoUpdateBoxes(border) {
   var pi = _fmPianoPI();
-  if (!pi) return;
   var elLabel = withSide(fmVarSide, function() { return dENPrefix() + dEN(fmCurrentEl); });
-  pi.left.textContent  = elLabel;
-  pi.right.textContent = (typeof t === 'function') ? t('fmPianoRefBox') : 'Vergleichston';
+  var roleUp  = (border === 'lower') ? t('fmPianoBoxLower') : t('fmPianoBoxHigher');
+  if (pi) {
+    pi.left.textContent  = elLabel + ' — ' + roleUp;
+    pi.right.textContent = t('fmPianoRefBox');
+  }
+  var instr = fmEls && fmEls.verfahren && fmEls.verfahren.piano && fmEls.verfahren.piano.instruction;
+  if (instr) {
+    instr.textContent = t('fmPianoInstruction').replace('{role}', roleUp.toLowerCase());
+  }
+}
+
+// Runden-Uebergangs-Modal.
+function _fmPianoShowRoundModal(round, total, curStep, nextStep, onNext, onFinish) {
+  var overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);'
+    + 'display:flex;align-items:center;justify-content:center;z-index:9999;';
+  var box = document.createElement('div');
+  box.className = 'modal-box';
+  box.style.cssText = 'background:#fff;color:var(--text);padding:18px 22px;border-radius:8px;'
+    + 'min-width:300px;max-width:90vw;box-shadow:0 10px 30px rgba(0,0,0,.3);';
+  var h = document.createElement('h3');
+  h.style.cssText = 'margin:0 0 8px;font-size:1.05em;';
+  h.textContent = t('fmPianoRoundDoneTitle').replace('{x}', round).replace('{y}', total);
+  var p = document.createElement('p');
+  p.style.cssText = 'margin:0 0 16px;line-height:1.5;';
+  p.textContent = t('fmPianoRoundDoneMsg').replace('{n}', curStep).replace('{m}', nextStep);
+  var row = document.createElement('div');
+  row.style.cssText = 'display:flex;gap:8px;justify-content:flex-end;';
+  var bFin = document.createElement('button');
+  bFin.className = 'btn btn-sm';
+  bFin.textContent = t('fmPianoRoundFinish');
+  var bNext = document.createElement('button');
+  bNext.className = 'btn btn-sm btn-primary';
+  bNext.textContent = t('fmPianoRoundNext');
+  function close() { if (overlay.parentNode) overlay.parentNode.removeChild(overlay); }
+  bFin.addEventListener('click', function() { close(); onFinish(); });
+  bNext.addEventListener('click', function() { close(); onNext(); });
+  row.append(bFin, bNext);
+  box.append(h, p, row);
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
 }
 
 function fmFinish() {
@@ -1402,12 +1611,15 @@ document.addEventListener("DOMContentLoaded", () => {
           pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
           instruction:   { key: 'fmPianoInstruction' },
           piano:         {},
-          actions:       ['replay', 'simul']
+          confirmButton: { key: 'fmPianoConfirm' },
+          actions:       ['undo', 'replay', 'simul']
         },
         hooks: {
           onStart:     fmStartPiano,
           onStop:      fmAbort,
           onPianoPlay: fmPianoOnPlay,
+          onConfirm:   fmPianoConfirm,
+          onUndo:      fmPianoBack,
           onReplay:    fmPlayCurrent,
           onSimul:     fmPlaySimultaneous
         }
