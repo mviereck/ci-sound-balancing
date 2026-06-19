@@ -760,6 +760,7 @@ Object.assign(L.de, {
     fmrStatusProvLate:       "in Arbeit · {n} Umkehrungen",
     fmrProvisionalCount:     "{n} laufend",
     fmrStatusSliderEst:      "🎚 Vor-Schätzung",
+    fmrStatusPiano:          "Klavier",
     fmrSliderEstimateCount:  "{n} Vor-Schätzung(en)",
     fmrTipSliderEst:         "Vor-Schätzung",
     fmrProgressLabel:     "Fortschritt laufende Messung",

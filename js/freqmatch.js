@@ -899,6 +899,12 @@ function fmPianoConfirm() {
   _fmPianoSetBorder(elIdx, run.currentRound, border, pr.markedAbsCent);
   run.lastUpdate = Date.now();
 
+  if (typeof fmSetActiveMethod === "function") fmSetActiveMethod("piano");
+  _fmPianoWriteResults();
+  if (typeof renderFreqMatchResults === "function") {
+    try { renderFreqMatchResults(); } catch (e) {}
+  }
+
   run.posInBorder++;
   if (run.posInBorder >= 2) {
     run.posInBorder = 0;
@@ -950,8 +956,69 @@ function _fmPianoRoundTransition() {
 
 function _fmPianoFinish() {
   fmRunning = false;
-  // A2a: nur beenden. Ergebnis (Mittelwert -> fRes) + Abschluss-Box kommen in B.
+  _fmPianoWriteResults();
   if (fmEls && typeof fmEls._stopTest === 'function') fmEls._stopTest();
+}
+
+// B1: Klavier-Ergebnisse aus dem Roh-Speicher nach fRes (live).
+// Ergebnis je Elektrode = Mittelwert der feinsten Runde mit BEIDEN Grenzen.
+// (Plausibilitaets-Ausschluss kommt in B2.)
+function _fmPianoWriteResults() {
+  if (typeof fRes === "undefined") return;
+  for (var i = fRes.length - 1; i >= 0; i--) {
+    if (fRes[i] && fmEntryMethod(fRes[i]) === "piano") fRes.splice(i, 1);
+  }
+  var fp = _fmPianoData();
+  var run = fp && fp.run;
+  if (!run || !fp.perElectrode) return;
+  var sym = run.symmetric;
+
+  Object.keys(fp.perElectrode).forEach(function (elKey) {
+    var elIdx  = parseInt(elKey, 10);
+    var rounds = fp.perElectrode[elKey].rounds || {};
+    var best = 0, lo = null, hi = null;
+    Object.keys(rounds).forEach(function (rk) {
+      var rn = parseInt(rk, 10), rr = rounds[rk];
+      if (rr && typeof rr.lower === "number" && typeof rr.upper === "number" && rn > best) {
+        best = rn; lo = rr.lower; hi = rr.upper;
+      }
+    });
+    if (best === 0) return;
+    var pse  = (lo + hi) / 2;
+    var span = Math.abs(hi - lo);
+
+    var varHz, refHz, refSideOut;
+    if (sym) {
+      varHz = withSide("left",  function () { return effFreq(elIdx); });
+      refHz = withSide("right", function () { return effFreq(elIdx); });
+      refSideOut = "symmetric";
+    } else {
+      varHz = withSide(run.varSide, function () { return effFreq(elIdx); });
+      refHz = fmFreqFromCents(varHz, pse);
+      refSideOut = run.refSide;
+    }
+
+    var entry = {
+      varSide:   run.varSide,
+      refSide:   refSideOut,
+      elIdx:     elIdx,
+      varFreq:   varHz,
+      refFreq:   refHz,
+      timestamp: Date.now(),
+      method:    "piano",
+      fmStatus:  "piano",
+      fmResidual:            null,
+      fmCombinedUncertainty: null,
+      fmDelta:               null,
+      fmConv:                null,
+      fmRunSpread:           null,
+      fmResiduum:            span / 2,
+      fmRunsCount:           0,
+      fmStatusLast:          null
+    };
+    if (sym) entry.cent = Math.round(pse);
+    fRes.push(entry);
+  });
 }
 
 // Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
@@ -1189,7 +1256,9 @@ let fmActiveMethodVal = null;
 // Method-Kennung eines Eintrags. Konvention: nur "slider" ist Schieber,
 // alles andere (inkl. fehlend) zaehlt als "adaptive" (Altstaende ohne Feld).
 function fmEntryMethod(r) {
-  return (r && r.method === "slider") ? "slider" : "adaptive";
+  if (r && r.method === "piano")  return "piano";
+  if (r && r.method === "slider") return "slider";
+  return "adaptive";
 }
 
 // Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung)
@@ -1203,7 +1272,10 @@ function fmMethodHasData(method) {
   for (let s = 0; s < sides.length; s++) {
     const fa = sideData[sides[s]] && sideData[sides[s]].freqmatchAdaptive;
     if (!fa) continue;
-    if (method === "slider") {
+    if (method === "piano") {
+      var fpp = sideData[sides[s]] && sideData[sides[s]].freqmatchPiano;
+      if (fpp && fpp.perElectrode && Object.keys(fpp.perElectrode).length > 0) return true;
+    } else if (method === "slider") {
       if (fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) return true;
     } else {
       if (Array.isArray(fa.runs) && fa.runs.some(function (r) {
@@ -1220,7 +1292,8 @@ function fmMethodHasData(method) {
 // Adaptiv, falls es Werte hat; sonst Schieber, falls dieser Werte hat;
 // sonst Adaptiv (rein kosmetisch, da ohne Daten keine Anzeige).
 function fmGetActiveMethod() {
-  if (fmActiveMethodVal === "adaptive" || fmActiveMethodVal === "slider") {
+  if (fmActiveMethodVal === "adaptive" || fmActiveMethodVal === "slider"
+      || fmActiveMethodVal === "piano") {
     return fmActiveMethodVal;
   }
   if (fmMethodHasData("adaptive")) return "adaptive";
@@ -1232,7 +1305,7 @@ function fmGetActiveMethod() {
 // jede Bestaetigung (Trigger) und jeder Button-Klick ruft das hier.
 // Refresh (Graph + Player-Warp) nur bei echtem Wechsel.
 function fmSetActiveMethod(m) {
-  if (m !== "adaptive" && m !== "slider") return;
+  if (m !== "adaptive" && m !== "slider" && m !== "piano") return;
   const changed = (fmActiveMethodVal !== m);
   fmActiveMethodVal = m;
   if (typeof fmUpdActiveMethodButtons === "function") fmUpdActiveMethodButtons();
@@ -1250,7 +1323,8 @@ function fmUpdActiveMethodButtons() {
   const method = fmGetActiveMethod();
   const map = [
     { id: "fmActiveMethodAdaptiveBtn", m: "adaptive" },
-    { id: "fmActiveMethodSliderBtn",   m: "slider" }
+    { id: "fmActiveMethodSliderBtn",   m: "slider" },
+    { id: "fmActiveMethodPianoBtn",    m: "piano" }
   ];
   for (let i = 0; i < map.length; i++) {
     const btn = document.getElementById(map[i].id);

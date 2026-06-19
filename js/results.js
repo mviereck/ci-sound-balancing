@@ -584,7 +584,7 @@ function renderFreqMatchResults() {
       }
 
       let runSpreadCell;
-      if (isProv || isNotPerc) {
+      if (isProv || isNotPerc || r.fmStatus === 'piano') {
         runSpreadCell = '<span style="color:#9ca3af">—</span>';
       } else if (runs < 2) {
         runSpreadCell = '<span style="color:#9ca3af" title="erst ab 2 Läufen">— (1. Lauf)</span>';
@@ -648,6 +648,9 @@ function renderFreqMatchResults() {
       } else if (r.fmStatus === 'slider-estimate') {
         statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusSliderEst">'
                     + t('fmrStatusSliderEst') + '</span>';
+      } else if (r.fmStatus === 'piano') {
+        statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusPiano">'
+                    + t('fmrStatusPiano') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
