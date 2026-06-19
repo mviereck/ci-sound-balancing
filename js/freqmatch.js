@@ -19,7 +19,7 @@ let fmEls = null;
 let fmRefSide = "left";
 let fmVarSide = "right";
 let fmSymmetric = false;   // true wenn refSelect.value === 'symmetric'
-let fmVerfahren = 'adaptive';   // 'slider' | 'adaptive'
+let fmVerfahren = 'adaptive';   // 'slider' | 'adaptive' | 'piano'
 let fmSeq = [];
 let fmSeqIdx = 0;
 let fmCurrentEl = null;
@@ -204,6 +204,19 @@ function _fmAdaptPI() {
 }
 function _fmSliderPI() {
   return fmEls && fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.pairIndicator;
+}
+function _fmPianoPI() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.piano && fmEls.verfahren.piano.pairIndicator;
+}
+// Referenzen des Klavier-Bausteins (refs.piano im Verfahren 'piano').
+function _fmPianoRefs() {
+  return fmEls && fmEls.verfahren && fmEls.verfahren.piano && fmEls.verfahren.piano.piano;
+}
+// Ton-Boxen des aktiven Verfahrens (fuer setPlaying-Aufleuchten).
+function _fmActivePI() {
+  if (fmAdaptiveActive) return _fmAdaptPI();
+  if (fmVerfahren === 'piano') return _fmPianoPI();
+  return _fmSliderPI();
 }
 function _fmAdaptUndo() {
   return fmEls && fmEls.verfahren && fmEls.verfahren.adaptive && fmEls.verfahren.adaptive.actions && fmEls.verfahren.adaptive.actions.undo;
@@ -412,7 +425,7 @@ async function fmPlayCurrent() {
     isPlay = false;
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _spi = _fmSliderPI();
+  var _spi = _fmActivePI();
   isPlay = true;
   testUI.tonePlayer.playSequential(
     fmSequence({ aba: fmGAba() }),
@@ -492,7 +505,7 @@ async function fmPlaySimultaneous() {
     isPlay = false;
     await new Promise((r) => setTimeout(r, 60));
   }
-  var _spi = _fmSliderPI();
+  var _spi = _fmActivePI();
   isPlay = true;
   testUI.pairIndicator.setPlaying(_spi, 'both');
   testUI.tonePlayer.playSimultaneous(
@@ -713,6 +726,70 @@ function fmAbort() {
   fmRunning   = false;
   fmCurrentEl = null;
   fmRefreshResumeHint();
+}
+
+// --- Klavier-Verfahren (A1: nur erste Elektrode, Tonwiedergabe) ---
+function fmStartPiano() {
+  if (!fmEls) return;
+  _fmInitSides();
+  if (fmSymmetric) {
+    fmSeq = fmBuildSeqSymmetric();
+    if (fmSeq === null) {
+      alert((typeof t === 'function' && t('fmSymmetricElMismatch'))
+        || 'Symmetrischer Modus: Beide Seiten muessen dieselben aktiven Elektroden haben.');
+      fmEls._stopTest(); return;
+    }
+    if (!fmSeq.length) {
+      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden.');
+      fmEls._stopTest(); return;
+    }
+  } else {
+    fmSeq = fmBuildSeq();
+    if (!fmSeq.length) {
+      alert((typeof t === 'function' && t('fmNoActiveEl')) || 'Keine aktiven Elektroden auf der variablen Seite.');
+      fmEls._stopTest(); return;
+    }
+  }
+  testUI.sideCheck.run(
+    { sides: 'both' },
+    _fmDoStartPiano,
+    function() { if (fmEls) fmEls._stopTest(); }
+  );
+}
+
+function _fmDoStartPiano() {
+  fmSeqIdx     = 0;
+  fmRunning    = true;
+  fmFirstSide  = 'var';
+  _fmPianoLoadElectrode();
+}
+
+// A1: laedt die aktuelle Elektrode (nur fmSeq[0]) und stellt die Tastatur.
+function _fmPianoLoadElectrode() {
+  fmCurrentEl  = fmSeq[fmSeqIdx];
+  fmCentOffset = 0;
+  var pr = _fmPianoRefs();
+  if (pr && typeof testUI !== 'undefined' && testUI.piano) {
+    testUI.piano.setRound(pr, { stepCent: 250, centerCent: 0, baseFreq: fmVarHz(fmCurrentEl) });
+  }
+  _fmPianoUpdateBoxes();
+}
+
+// Anschlag-Callback aus dem Klavier-Baustein: Cent-Offset der Taste
+// uebernehmen und ueber die vorhandene Maschine spielen.
+function fmPianoOnPlay(evt) {
+  if (!fmRunning || fmCurrentEl === null) return;
+  fmCentOffset = (evt && typeof evt.cent === 'number') ? evt.cent : 0;
+  fmPlayCurrent();
+}
+
+// Boxen: links Elektrode (Kandidat), rechts Vergleichston.
+function _fmPianoUpdateBoxes() {
+  var pi = _fmPianoPI();
+  if (!pi) return;
+  var elLabel = withSide(fmVarSide, function() { return dENPrefix() + dEN(fmCurrentEl); });
+  pi.left.textContent  = elLabel;
+  pi.right.textContent = (typeof t === 'function') ? t('fmPianoRefBox') : 'Vergleichston';
 }
 
 function fmFinish() {
@@ -950,7 +1027,7 @@ let _fmPauStash_slider  = 400;
 
 function fmSetVerfahren(newVerfahren, opts) {
   opts = opts || {};
-  if (newVerfahren !== 'slider' && newVerfahren !== 'adaptive') return;
+  if (newVerfahren !== 'slider' && newVerfahren !== 'adaptive' && newVerfahren !== 'piano') return;
   if (newVerfahren === fmVerfahren && !opts.force) return;
 
   const oldVerfahren = fmVerfahren;
@@ -1315,6 +1392,24 @@ document.addEventListener("DOMContentLoaded", () => {
           onUndo:     fmUndoAdaptive,
           onSimul:    fmPlaySimultaneous,
           onDebugRun: fmRunDebugSim
+        }
+      }
+      ,{
+        id: 'piano',
+        labelKey:   'fmModePiano',
+        explainKey: 'fmExplainPiano',
+        body: {
+          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          instruction:   { key: 'fmPianoInstruction' },
+          piano:         {},
+          actions:       ['replay', 'simul']
+        },
+        hooks: {
+          onStart:     fmStartPiano,
+          onStop:      fmAbort,
+          onPianoPlay: fmPianoOnPlay,
+          onReplay:    fmPlayCurrent,
+          onSimul:     fmPlaySimultaneous
         }
       }
     ]
