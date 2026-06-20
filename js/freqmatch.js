@@ -1637,35 +1637,25 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     verfahren: [
       {
-        id: 'slider',
-        labelKey:   'fmModeSlider',
-        explainKey: 'fmExplainSlider',
+        id: 'piano',
+        labelKey:   'fmModePiano',
+        explainKey: 'fmExplainPiano',
         body: {
-          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
           progress:      { format: 'simple' },
-          instruction:   { key: 'fmSliderInstruction' },
-          keyHint:       { unitKey: 'sliderHintCent' },
-          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1, rangeHint: true },
-          sliderValue:   { show: true },
-          confirmButton: { key: 'btnConfirmOffset' },
-          actions:       ['undo', 'replay', 'simul', 'pause'],
-          statusGrid:    { show: true },
-          background: {
-            bodyKey:    'fmExplainSliderScience',
-            bodyAsHtml: true
-          },
-          debugRun:      { key: 'btnDebugRun' }
+          pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
+          instruction:   { key: 'fmPianoInstruction' },
+          piano:         {},
+          confirmButton: { key: 'fmPianoConfirm' },
+          actions:       ['undo', 'replay', 'simul']
         },
         hooks: {
-          onStart:    fmStartSlider,
-          onStop:     fmAbort,
-          onPause:    fmPauseSlider,
-          onSlide:    fmHandleSlider,
-          onConfirm:  fmConfirm,
-          onReplay:   fmPlayCurrent,
-          onUndo:     fmUndo,
-          onSimul:    fmPlaySimultaneous,
-          onDebugRun: fmRunSliderDebugSim
+          onStart:     fmStartPiano,
+          onStop:      fmAbort,
+          onPianoPlay: fmPianoOnPlay,
+          onConfirm:   fmPianoConfirm,
+          onUndo:      fmPianoBack,
+          onReplay:    fmPlayCurrent,
+          onSimul:     fmPlaySimultaneous
         }
       },
       {
@@ -1719,27 +1709,37 @@ document.addEventListener("DOMContentLoaded", () => {
           onSimul:    fmPlaySimultaneous,
           onDebugRun: fmRunDebugSim
         }
-      }
-      ,{
-        id: 'piano',
-        labelKey:   'fmModePiano',
-        explainKey: 'fmExplainPiano',
+      },
+      {
+        id: 'slider',
+        labelKey:   'fmModeSlider',
+        explainKey: 'fmExplainSlider',
         body: {
-          progress:      { format: 'simple' },
           pairIndicator: { variant: 'token', leftKey: 'fmTone1', rightKey: 'fmTone2' },
-          instruction:   { key: 'fmPianoInstruction' },
-          piano:         {},
-          confirmButton: { key: 'fmPianoConfirm' },
-          actions:       ['undo', 'replay', 'simul']
+          progress:      { format: 'simple' },
+          instruction:   { key: 'fmSliderInstruction' },
+          keyHint:       { unitKey: 'sliderHintCent' },
+          slider:        { unit: 'cent', initialRange: 100, maxRange: 1200, touchStep: 5, touchFineStep: 1, rangeHint: true },
+          sliderValue:   { show: true },
+          confirmButton: { key: 'btnConfirmOffset' },
+          actions:       ['undo', 'replay', 'simul', 'pause'],
+          statusGrid:    { show: true },
+          background: {
+            bodyKey:    'fmExplainSliderScience',
+            bodyAsHtml: true
+          },
+          debugRun:      { key: 'btnDebugRun' }
         },
         hooks: {
-          onStart:     fmStartPiano,
-          onStop:      fmAbort,
-          onPianoPlay: fmPianoOnPlay,
-          onConfirm:   fmPianoConfirm,
-          onUndo:      fmPianoBack,
-          onReplay:    fmPlayCurrent,
-          onSimul:     fmPlaySimultaneous
+          onStart:    fmStartSlider,
+          onStop:     fmAbort,
+          onPause:    fmPauseSlider,
+          onSlide:    fmHandleSlider,
+          onConfirm:  fmConfirm,
+          onReplay:   fmPlayCurrent,
+          onUndo:     fmUndo,
+          onSimul:    fmPlaySimultaneous,
+          onDebugRun: fmRunSliderDebugSim
         }
       }
     ]
