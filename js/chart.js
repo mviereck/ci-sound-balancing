@@ -403,11 +403,38 @@ function drawFreqMatchChart(cv, fResData, opts) {
   const cRange = cMax - cMin || 1;
   const tX = (ct) => pad.left + ((ct - cMin) / cRange) * pW;
 
-  // Y-Range: ΔCent, symmetrisch um 0
-  const dCents = allEls.filter(e => e.dCent !== null).map(e => e.dCent);
-  const absC = Math.max(Math.ceil(Math.max(...dCents.map(Math.abs), 50) / 50) * 50, 50);
+  // Residuum (Restunsicherheit der Frequenzbestimmung, in Cent) wird für jede
+  // gemessene Elektrode mit fmResidual > 0 angezeigt — gilt einheitlich für
+  // alle Verfahren (Klavier wie adaptiv) und für in-progress.
+  const hasResidual = (el) =>
+    el.isMeasured
+    && el.fmStatus !== 'slider-estimate'
+    && el.fmStatus !== 'in-progress-early'
+    && el.fmResidual > 0;
+
+  // Y-Range: ΔCent, symmetrisch um 0. Der senkrechte T-Balken reicht um
+  // ±Residuum über den Punkt hinaus — diese Spitzen einbeziehen, damit der
+  // Balken nicht über den Rand läuft.
+  const yExtents = [];
+  for (const e of allEls) {
+    if (e.dCent === null) continue;
+    const r = hasResidual(e) ? e.fmResidual : 0;
+    yExtents.push(Math.abs(e.dCent) + r);
+  }
+  const absC = Math.max(Math.ceil(Math.max(...yExtents, 50) / 50) * 50, 50);
   const yMin = -absC, yMax = absC;
   const tY = (c) => pad.top + ((yMax - c) / (yMax - yMin)) * pH;
+
+  // --- Waagerechte Unsicherheit: amberfarbener vertikaler Streifen auf ganzer
+  //     Graph-Höhe an der X-Position der Elektrode, ±Residuum breit.
+  //     Vor dem Grid, damit er hinter Strichen und Punkten liegt. ---
+  for (const el of allEls) {
+    if (!hasResidual(el)) continue;
+    const xL = tX(el.cSoll - el.fmResidual);
+    const xR = tX(el.cSoll + el.fmResidual);
+    ctx.fillStyle = 'rgba(245, 158, 11, 0.18)';
+    ctx.fillRect(xL, pad.top, xR - xL, pH);
+  }
 
   // --- Y-Grid (Cent-Linien, ohne Nullinie hier) ---
   const step = 100;
@@ -549,21 +576,9 @@ function drawFreqMatchChart(cv, fResData, opts) {
       // Soll-Punkt = Messpunkt bei (cSoll, ΔC)
       const xs = tX(el.cSoll), ys = tY(el.dCent);
 
-      // Restunsicherheits-Band (bei Streuung oder in-progress, hinter dem Punkt)
-      const _isStreuung = el.fmStatus === 'converged-fair'
-                       || el.fmStatus === 'converged-wide'
-                       || el.fmStatus === 'unstable';
-      const showBand = (_isStreuung                       && el.fmResidual > 0)
-                    || (el.fmStatus === 'in-progress'    && el.fmResidual > 0);
-      const showResidual = showBand
-                        || (el.fmStatus === 'converged' && el.fmResidual > 0);
-      if (showBand) {
-        const halfH = Math.abs(tY(0) - tY(el.fmResidual));
-        ctx.fillStyle = (el.fmStatus === 'in-progress')
-          ? 'rgba(59, 130, 246, 0.18)'
-          : 'rgba(245, 158, 11, 0.25)';
-        ctx.fillRect(xs - 6, ys - halfH, 12, 2 * halfH);
-      }
+      // Waagerechte Unsicherheit wird als vertikaler Streifen vor dem Grid
+      // gezeichnet (s.o.); hier nur noch der senkrechte T-Balken am Punkt.
+      const showResidual = hasResidual(el);
 
       // Punkt — blau (konvergiert: gefüllt; in-progress: hohl)
       if (el.fmStatus === 'in-progress') {
@@ -585,25 +600,17 @@ function drawFreqMatchChart(cv, fResData, opts) {
       }
       hitboxes.push({ x: xs, y: ys, el: el });
 
-      // I-Träger über dem Punkt
+      // Senkrechte Unsicherheit: T-Balken über/unter dem Punkt (±Residuum in ΔCent).
       if (showResidual) {
         const halfH = Math.abs(tY(0) - tY(el.fmResidual));
-        const halfW = Math.abs(tX(el.cSoll + el.fmResidual) - tX(el.cSoll));
         ctx.strokeStyle = '#000';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([]);
-        // Senkrecht: waagerechte Striche oben und unten
+        // Senkrechter Stamm mit waagerechten Endkappen oben und unten.
         ctx.beginPath();
+        ctx.moveTo(xs, ys - halfH); ctx.lineTo(xs, ys + halfH);
         ctx.moveTo(xs - 4, ys - halfH); ctx.lineTo(xs + 4, ys - halfH);
         ctx.moveTo(xs - 4, ys + halfH); ctx.lineTo(xs + 4, ys + halfH);
-        ctx.stroke();
-        // Waagerecht: horizontaler Strich mit senkrechten Begrenzungsstrichen
-        ctx.beginPath();
-        ctx.moveTo(xs - halfW, ys); ctx.lineTo(xs + halfW, ys);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(xs - halfW, ys - 4); ctx.lineTo(xs - halfW, ys + 4);
-        ctx.moveTo(xs + halfW, ys - 4); ctx.lineTo(xs + halfW, ys + 4);
         ctx.stroke();
       }
     } else if (el.isNotPerceivable) {
@@ -934,10 +941,11 @@ function _fmcTooltipHandler(cv, e) {
       tipHtml = "<b>E" + el.elNum + "</b><br>" +
         hzIst + "\u202fHz \u2192 " + hzSoll + "\u202fHz<br>" +
         cIst + " \u2192 " + cSoll;
-      const _streu = el.fmStatus === 'converged-fair'
-                  || el.fmStatus === 'converged-wide'
-                  || el.fmStatus === 'unstable';
-      if (_streu && el.fmResidual > 0) {
+      // Restunsicherheit nennen, wenn der Graph daf\u00fcr ein Residuum zeichnet
+      // (einheitlich f\u00fcr alle Verfahren; vgl. hasResidual in drawFreqMatchChart).
+      const _hasResidual = el.fmStatus !== 'in-progress-early'
+                        && el.fmResidual > 0;
+      if (_hasResidual) {
         tipHtml += "<br>" + tipT('fmrTipResidual', 'Restunsicherheit') +
           " \u00b1" + Math.round(el.fmResidual) + "\u202fct";
       }
