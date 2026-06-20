@@ -552,7 +552,8 @@ function applyLoadedData(d) {
     sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
   }
   if (typeof fmActiveMethodVal !== "undefined") {
-    fmActiveMethodVal = (d.fmActiveMethod === "adaptive" || d.fmActiveMethod === "slider")
+    fmActiveMethodVal = (d.fmActiveMethod === "adaptive" || d.fmActiveMethod === "slider"
+                         || d.fmActiveMethod === "piano")
       ? d.fmActiveMethod
       : null; // alte Datei ohne Feld -> Getter leitet Default aus den Daten ab
   }

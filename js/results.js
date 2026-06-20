@@ -584,7 +584,7 @@ function renderFreqMatchResults() {
       }
 
       let runSpreadCell;
-      if (isProv || isNotPerc || r.fmStatus === 'piano') {
+      if (isProv || isNotPerc || (r.fmStatus && r.fmStatus.indexOf('piano') === 0)) {
         runSpreadCell = '<span style="color:#9ca3af">—</span>';
       } else if (runs < 2) {
         runSpreadCell = '<span style="color:#9ca3af" title="erst ab 2 Läufen">— (1. Lauf)</span>';
@@ -651,6 +651,12 @@ function renderFreqMatchResults() {
       } else if (r.fmStatus === 'piano') {
         statusBadge = '<span class="fm-badge fm-badge-slider" data-t="fmrStatusPiano">'
                     + t('fmrStatusPiano') + '</span>';
+      } else if (r.fmStatus === 'piano-crossed') {
+        statusBadge = '<span class="fm-badge fm-badge-err" data-t="fmrStatusPianoCrossed">'
+                    + t('fmrStatusPianoCrossed') + '</span>';
+      } else if (r.fmStatus === 'piano-wide') {
+        statusBadge = '<span class="fm-badge fm-badge-wide" data-t="fmrStatusPianoWide">'
+                    + t('fmrStatusPianoWide') + '</span>';
       } else {
         statusBadge = '<span class="muted">—</span>';
       }
@@ -762,7 +768,11 @@ function renderFreqMatchResults() {
   const cv = document.getElementById("fmrChart");
   if (cv) {
     const notPerc = _fmrCollectNotPerceivable();
-    drawFreqMatchChart(cv, displayData, { notPerceivable: notPerc });
+    drawFreqMatchChart(
+      cv,
+      displayData.filter(function (r) { return !(r && r.fmExcluded); }),
+      { notPerceivable: notPerc }
+    );
     // Tooltip-Listener einmalig anhängen
     if (!cv._fmcListenerAttached) {
       cv.addEventListener("mousemove", (e) => _fmcTooltipHandler(cv, e));

@@ -761,6 +761,7 @@ function fmStartPiano() {
 
 // ===== Klavier-Verfahren — Mess-Engine (A2a) =====
 var FM_PIANO_STEPS = [250, 100, 50, 25, 10, 5];
+var FM_PIANO_MAX_SPAN = 1200;   // ct: groessere Spanne -> verdaechtig, ausgeschlossen
 
 // Roh-Speicher der var-Seite holen/anlegen.
 function _fmPianoData() {
@@ -987,6 +988,11 @@ function _fmPianoWriteResults() {
     var pse  = (lo + hi) / 2;
     var span = Math.abs(hi - lo);
 
+    var crossed = (lo > hi);
+    var wide    = (span > FM_PIANO_MAX_SPAN);
+    var pStatus = crossed ? "piano-crossed" : (wide ? "piano-wide" : "piano");
+    var pExcl   = (crossed || wide);
+
     var varHz, refHz, refSideOut;
     if (sym) {
       varHz = withSide("left",  function () { return effFreq(elIdx); });
@@ -1006,7 +1012,8 @@ function _fmPianoWriteResults() {
       refFreq:   refHz,
       timestamp: Date.now(),
       method:    "piano",
-      fmStatus:  "piano",
+      fmStatus:  pStatus,
+      fmExcluded:            pExcl,
       fmResidual:            null,
       fmCombinedUncertainty: null,
       fmDelta:               null,

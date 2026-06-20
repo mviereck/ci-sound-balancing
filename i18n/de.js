@@ -761,6 +761,8 @@ Object.assign(L.de, {
     fmrProvisionalCount:     "{n} laufend",
     fmrStatusSliderEst:      "🎚 Vor-Schätzung",
     fmrStatusPiano:          "Klavier",
+    fmrStatusPianoCrossed:   "Klavier — überkreuzt",
+    fmrStatusPianoWide:      "Klavier — Spanne zu breit",
     fmrSliderEstimateCount:  "{n} Vor-Schätzung(en)",
     fmrTipSliderEst:         "Vor-Schätzung",
     fmrProgressLabel:     "Fortschritt laufende Messung",
