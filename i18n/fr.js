@@ -724,6 +724,7 @@ Object.assign(L.fr, {
     fmrClearAdaptiveConfirm: "Effacer seulement les résultats Adaptatif ? Les pré-estimations Slider sont conservées.",
     fmrClearPianoBtnLabel:  "🗑 Supprimer les résultats du piano",
     fmrClearPianoConfirm:   "Supprimer les résultats du piano ? Les autres méthodes sont conservées.",
+    fmMigratePianoConfirm:  "Ce fichier contient des mesures d’autres méthodes (adaptative ou réajustement). Les reprendre comme valeurs de départ dans la méthode du piano ?",
     fmrChartHintPiano:      "Trait = fréquence d’électrode programmée, point cible = correspondance perçue. Bande orange = incertitude résiduelle (largeur = ±résidu en cents).",
     fmrQualPiano:           "Test au piano : tour {round} sur {total} terminé (approximation ±{step} cents).",
     cfgLabel: "Situation auditive",

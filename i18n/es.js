@@ -724,6 +724,7 @@ Object.assign(L.es, {
     fmrClearAdaptiveConfirm: "¿Borrar solo los resultados adaptativos? Las pre-estimaciones del deslizador se conservan.",
     fmrClearPianoBtnLabel:  "🗑 Eliminar resultados del piano",
     fmrClearPianoConfirm:   "¿Eliminar los resultados del piano? Se conservan los demás métodos.",
+    fmMigratePianoConfirm:  "Este archivo contiene mediciones de otros métodos (adaptativo o reajuste). ¿Transferirlas como valores iniciales al método del piano?",
     fmrChartHintPiano:      "Línea = frecuencia de electrodo programada, punto objetivo = coincidencia percibida. Banda naranja = incertidumbre residual (ancho = ±residuo en centésimas).",
     fmrQualPiano:           "Prueba de piano: ronda {round} de {total} completada (aproximación ±{step} centésimas).",
     cfgLabel: "Situación auditiva",

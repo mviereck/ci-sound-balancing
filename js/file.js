@@ -718,6 +718,8 @@ function applyLoadedData(d) {
     if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
     if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
     if (typeof _fmMigrateSliderRounds === "function") _fmMigrateSliderRounds();
+    // BA365: Altwerte (Adaptiv/Slider) ins Klavier uebernehmen (Abfrage).
+    if (typeof _fmMigrateAltToPiano === "function") _fmMigrateAltToPiano();
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.
   // Alte Dateien ohne dieses Feld → null (= alle aktiven testen).

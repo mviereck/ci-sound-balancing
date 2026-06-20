@@ -723,6 +723,7 @@ Object.assign(L.en, {
     fmrClearAdaptiveConfirm: "Delete only the adaptive results? The slider pre-estimates will be preserved.",
     fmrClearPianoBtnLabel:  "🗑 Delete piano results",
     fmrClearPianoConfirm:   "Delete piano results? Other methods are kept.",
+    fmMigratePianoConfirm:  "This file contains measurements from other methods (adaptive or readjustment). Transfer them as starting values into the piano method?",
     fmrChartHintPiano:      "Solid line = programmed electrode frequency, target point = perceived match. Orange band = residual uncertainty (width = ±residual in cents).",
     fmrQualPiano:           "Piano test: round {round} of {total} completed (approximation ±{step} cents).",
     cfgLabel: "Hearing situation",

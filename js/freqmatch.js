@@ -1047,6 +1047,171 @@ function _fmPianoWriteResults() {
   });
 }
 
+// BA365: Quell-Wert einer Elektrode fuer die Klavier-Uebernahme.
+// Adaptiv hat Vorrang vor Slider. Liefert { cent, refSide, symmetric } oder null.
+function _fmMigrAltForEl(side, elIdx) {
+  // 1) Adaptiv aus fRes
+  if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
+    for (var i = 0; i < fRes.length; i++) {
+      var r = fRes[i];
+      if (!r || r.elIdx !== elIdx) continue;
+      if (fmEntryMethod(r) !== "adaptive") continue;
+      var symA = (r.refSide === "symmetric");
+      if (r.varSide !== side && !symA) continue;
+      var centA = null;
+      if (typeof r.cent === "number" && isFinite(r.cent)) {
+        centA = r.cent;
+      } else if (typeof r.varFreq === "number" && typeof r.refFreq === "number"
+          && r.varFreq > 0 && r.refFreq > 0) {
+        centA = 1200 * Math.log2(r.refFreq / r.varFreq);
+      }
+      if (centA == null) continue;
+      return {
+        cent:      centA,
+        refSide:   symA ? "symmetric" : (r.refSide || (side === "left" ? "right" : "left")),
+        symmetric: symA
+      };
+    }
+  }
+  // 2) Slider aus sliderEstimates
+  var fa = sideData[side] && sideData[side].freqmatchAdaptive;
+  var est = fa && fa.sliderEstimates && fa.sliderEstimates[elIdx];
+  if (est && typeof est.cent === "number" && isFinite(est.cent)) {
+    var symS = (est.refSide === "symmetric");
+    return {
+      cent:      est.cent,
+      refSide:   est.refSide || (side === "left" ? "right" : "left"),
+      symmetric: symS
+    };
+  }
+  return null;
+}
+
+// BA365: true, wenn die Elektrode bereits einen Klavierwert hat
+// (Roh-Behaelter ODER fRes-piano-Eintrag) -> keine Uebernahme.
+function _fmMigrHasPiano(side, elIdx) {
+  var fp = sideData[side] && sideData[side].freqmatchPiano;
+  if (fp && fp.perElectrode && fp.perElectrode[elIdx]
+      && fp.perElectrode[elIdx].rounds
+      && Object.keys(fp.perElectrode[elIdx].rounds).length > 0) {
+    return true;
+  }
+  if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
+    for (var i = 0; i < fRes.length; i++) {
+      var r = fRes[i];
+      if (r && r.elIdx === elIdx && fmEntryMethod(r) === "piano"
+          && (r.varSide === side || r.refSide === "symmetric")) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// BA365: Beim Laden Altwerte (Adaptiv/Slider) ins Klavier uebernehmen.
+// Nur fuer Elektroden ohne vorhandenen Klavierwert. Eine Abfrage je Datei.
+function _fmMigrateAltToPiano() {
+  if (typeof sideData === "undefined") return;
+
+  // 1) Quell-Seite bestimmen: die EINE Seite mit Altdaten (Adaptiv/Slider).
+  //    Frequenzabgleich liefert ein interaurales Ergebnis -> nur eine Seite
+  //    traegt Rohdaten (Architektur 4.1).
+  function _sideHasAlt(side) {
+    var sd = sideData[side];
+    if (!sd) return false;
+    var fa = sd.freqmatchAdaptive;
+    if (fa && fa.sliderEstimates && Object.keys(fa.sliderEstimates).length > 0) return true;
+    if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
+      for (var i = 0; i < fRes.length; i++) {
+        var r = fRes[i];
+        if (r && fmEntryMethod(r) === "adaptive"
+            && (r.varSide === side || r.refSide === "symmetric")) return true;
+      }
+    }
+    return false;
+  }
+  var varSide = _sideHasAlt("left") ? "left"
+              : _sideHasAlt("right") ? "right" : null;
+  if (!varSide) return;
+  // (Falls wider Erwarten BEIDE Seiten Altdaten tragen -> nur die erste wird behandelt.)
+
+  // 2) Uebernehmbare Elektroden sammeln (kein vorhandener Klavierwert).
+  var todo = [];   // {elIdx, cent, refSide, symmetric}
+  var sd = sideData[varSide];
+  var elSet = {};
+  var fa = sd.freqmatchAdaptive;
+  if (fa && fa.sliderEstimates) {
+    Object.keys(fa.sliderEstimates).forEach(function (k) { elSet[k] = true; });
+  }
+  if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
+    fRes.forEach(function (r) {
+      if (r && fmEntryMethod(r) === "adaptive"
+          && (r.varSide === varSide || r.refSide === "symmetric")) {
+        elSet[r.elIdx] = true;
+      }
+    });
+  }
+  Object.keys(elSet).forEach(function (k) {
+    var elIdx = parseInt(k, 10);
+    if (!isFinite(elIdx)) return;
+    if (_fmMigrHasPiano(varSide, elIdx)) return;          // Klavier hat Vorrang
+    var alt = _fmMigrAltForEl(varSide, elIdx);
+    if (!alt || alt.cent == null || !isFinite(alt.cent)) return;
+    todo.push({ elIdx: elIdx, cent: alt.cent,
+                refSide: alt.refSide, symmetric: alt.symmetric });
+  });
+
+  if (todo.length === 0) return;
+
+  if (!confirm(t("fmMigratePianoConfirm")
+      || "Vorhandene Messwerte ins Klavier-Verfahren uebernehmen?")) {
+    return;
+  }
+
+  var band = (typeof FM_PIANO_STEPS !== "undefined" && FM_PIANO_STEPS.length)
+    ? FM_PIANO_STEPS[0] : 250;
+
+  // 3) Kuenstlichen Klavier-Lauf + Runden in den Roh-Behaelter der EINEN
+  //    Seite schreiben, dann _fmPianoWriteResults() EINMAL aufrufen.
+  if (!sd.freqmatchPiano) sd.freqmatchPiano = { run: null, perElectrode: {} };
+  var fp = sd.freqmatchPiano;
+  if (!fp.perElectrode) fp.perElectrode = {};
+
+  var sample = todo[0];   // refSide/symmetric ist fuer alle einheitlich
+  fp.run = {
+    runId:        "migrated:" + new Date().toISOString(),
+    startedAt:    Date.now(),
+    lastUpdate:   Date.now(),
+    varSide:      varSide,
+    refSide:      sample.refSide,
+    symmetric:    !!sample.symmetric,
+    electrodeList: todo.map(function (it) { return it.elIdx; }),
+    currentRound: 1,
+    roundOrder:   todo.map(function (it) { return it.elIdx; }),
+    posInRound:   0,
+    borderOrder:  ["lower", "upper"],
+    posInBorder:  0
+  };
+  // Kuenstliche Runde 1 je Elektrode: Mitte = cent, Band = +-band.
+  // _fmPianoWriteResults nimmt pse = (lower+upper)/2 = cent,
+  // fmResiduum = span/2 = band.
+  todo.forEach(function (it) {
+    fp.perElectrode[it.elIdx] = {
+      rounds: { 1: { lower: it.cent - band, upper: it.cent + band } }
+    };
+  });
+
+  // _fmPianoWriteResults liest sideData[fmVarSide] ueber _fmPianoData().
+  // fmVarSide auf die Quell-Seite lenken; mit try/finally restaurieren.
+  var _prevVarSide = fmVarSide;
+  try {
+    fmVarSide = varSide;
+    _fmPianoWriteResults();
+  } finally {
+    fmVarSide = _prevVarSide;
+  }
+}
+
 // Boxen: Kandidat (var) zeigt Elektrode + Rolle; Referenz zeigt Vergleichston.
 function _fmPianoUpdateBoxes(border) {
   var pi = _fmPianoPI();

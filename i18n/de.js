@@ -788,6 +788,7 @@ Object.assign(L.de, {
     fmrClearAdaptiveConfirm: "Nur die Adaptiv-Ergebnisse löschen? Die Slider-Vor-Schätzungen bleiben erhalten.",
     fmrClearPianoBtnLabel:  "🗑 Klavier-Ergebnisse löschen",
     fmrClearPianoConfirm:   "Klavier-Ergebnisse löschen? Andere Verfahren bleiben erhalten.",
+    fmMigratePianoConfirm:  "In dieser Datei sind Messwerte aus anderen Verfahren (Adaptiv oder Nachjustierung) gespeichert. Sollen sie als Startwerte ins Klavier-Verfahren übernommen werden?",
     fmrChartHintPiano:      "Ist-Strich = programmierte Elektroden-Frequenz, Soll-Punkt = wahrgenommene Übereinstimmung. Oranges Band = Restunsicherheit (Breite = ±Residuum in Cent).",
     fmrQualPiano:           "Klaviertest: Runde {round} von {total} abgeschlossen (Annäherung ±{step} Cent).",
     cfgLabel: "Hörsituation",
