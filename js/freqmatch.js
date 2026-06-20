@@ -137,6 +137,15 @@ function _fmRangeCent(rounds) {
   return { min: mn, max: mx };
 }
 
+function _fmShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
 // BA 206: Letzter Messwert dieser Elektrode (= Startwert für nächste Runde).
 function _fmLastRoundCent(elIdx) {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
@@ -314,7 +323,6 @@ function _fmOnSelectionChanged() {
   }
   if (fmRunning && !fmAdaptiveActive && typeof _fmApplySelectionToSliderRun === 'function') {
     _fmApplySelectionToSliderRun();
-    if (typeof fmRenderSliderStatusGrid === 'function') fmRenderSliderStatusGrid();
     if (typeof fmUpdateSliderProgress === 'function') fmUpdateSliderProgress();
   }
 
@@ -683,7 +691,19 @@ function fmUndo() {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (store) delete store[String(prevEl)];
-  fmRenderSliderStatusGrid();
+
+  // Elektrode wieder in pass.remaining aufnehmen, an der korrekten Position
+  // gemäß pass.order (Frequenz-Reihenfolge).
+  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+  const pass = fa && fa.sliderPass;
+  if (pass && !pass.remaining.includes(prevEl)) {
+    pass.remaining.push(prevEl);
+    // Reihenfolge gemäß pass.order wiederherstellen.
+    pass.remaining.sort(function(a, b) {
+      return pass.order.indexOf(a) - pass.order.indexOf(b);
+    });
+  }
+
   fmUpdateSliderProgress();
   fmLoadElectrode();
   if (typeof renderFreqMatchResults === 'function') {
@@ -1125,7 +1145,14 @@ function _fmRequestExcl() {
   if (!fmRunning || fmCurrentEl === null || !fmEls) return;
   setTestExclConfirm(fmEls.exclOverlay, fmDEN(fmCurrentEl), function() {
     withSide(fmVarSide, () => { elExDur[fmCurrentEl] = true; });
-    fmSkip();
+    // Ausschluss: aktuelle Elektrode aus dem Durchgang nehmen, weiter.
+    const _fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+    if (_fa && _fa.sliderPass) {
+      const _i = _fa.sliderPass.remaining.indexOf(fmCurrentEl);
+      if (_i >= 0) _fa.sliderPass.remaining.splice(_i, 1);
+    }
+    fmSeqIdx++;
+    fmLoadElectrode();
   });
 }
 
@@ -1133,7 +1160,6 @@ function _fmRequestExcl() {
 function fmHandleSlider(val) {
   fmCentOffset = parseFloat(val);
   fmUpdateSliderDisplay();
-  fmRenderSliderStatusGrid();
 }
 
 // --- i18n-Aktualisierung ---
@@ -1723,12 +1749,10 @@ document.addEventListener("DOMContentLoaded", () => {
           sliderValue:   { show: true },
           confirmButton: { key: 'btnConfirmOffset' },
           actions:       ['undo', 'replay', 'simul', 'pause'],
-          statusGrid:    { show: true },
           background: {
             bodyKey:    'fmExplainSliderScience',
             bodyAsHtml: true
-          },
-          debugRun:      { key: 'btnDebugRun' }
+          }
         },
         hooks: {
           onStart:    fmStartSlider,
@@ -1738,8 +1762,7 @@ document.addEventListener("DOMContentLoaded", () => {
           onConfirm:  fmConfirm,
           onReplay:   fmPlayCurrent,
           onUndo:     fmUndo,
-          onSimul:    fmPlaySimultaneous,
-          onDebugRun: fmRunSliderDebugSim
+          onSimul:    fmPlaySimultaneous
         }
       }
     ]

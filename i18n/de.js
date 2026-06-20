@@ -898,6 +898,7 @@ Object.assign(L.de, {
     compBtnOk:          "OK",
     testRrName:         "Round Robin",
     compNameFmAdaptive: "Frequenzabgleich (Adaptiv)",
+    compNameFmSlider:   "Frequenzabgleich (Nachjustierung)",
     compSubLoudness:    "Elektrodenlautstärke",
     rrDoneExtra:        "Sie können die Meßergebnisse mit dem zweiten Testverfahren „Konvergenz“ weiter verfeinern. Sie können im Player die Wirkung der Korrektur anhören.",
     lrDoneExtra:        "Sie können Stereo-Balance im Player aktivieren.",

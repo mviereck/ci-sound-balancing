@@ -831,6 +831,7 @@ Object.assign(L.es, {
     compBtnOk:          "OK",
     testRrName:         "Round Robin",
     compNameFmAdaptive: "Ajuste de frecuencia (Adaptativo)",
+    compNameFmSlider:   "Emparejamiento de frecuencia (reajuste)",
     compSubLoudness:    "Volumen de electrodos",
     rrDoneExtra:        "Puede refinar más los resultados de medición con el segundo procedimiento de prueba «Convergencia». Puede escuchar el efecto de la corrección en el reproductor.",
     lrDoneExtra:        "Puede activar el balance estéreo en el reproductor.",

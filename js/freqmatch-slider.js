@@ -137,30 +137,24 @@ function _fmUpdateSliderRangeMarker() {
 
 // --- Testablauf ---
 
-// BA 207: Synchronisiert sliderRoundRun mit der User-Auswahl.
+// Synchronisiert sliderPass mit der User-Auswahl.
 // Wird nach Auswahl-Änderung aufgerufen, wenn der Slider-Modus aktiv ist.
-// Wirkung:
-//   - run.electrodeIdxList auf gefilterte Sequenz setzen
-//   - remainingInRound auf Schnittmenge filtern
-//   - totalInRound aktualisieren
-//   - fmSeq spiegeln und fmSeqIdx auf passenden Index nachjustieren
 function _fmApplySelectionToSliderRun() {
   if (!sideData[fmVarSide]) return;
   var fa = sideData[fmVarSide].freqmatchAdaptive;
-  if (!fa || !fa.sliderRoundRun) return;
-  var run = fa.sliderRoundRun;
+  if (!fa || !fa.sliderPass) return;
+  var pass = fa.sliderPass;
   var freshSeq = fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq();
   if (!Array.isArray(freshSeq)) freshSeq = [];
-  run.electrodeIdxList = freshSeq.slice();
-  var freshSet = new Set(freshSeq);
-  run.remainingInRound = (run.remainingInRound || []).filter(function(i) { return freshSet.has(i); });
-  run.totalInRound = run.electrodeIdxList.length;
-  run.completedInRound = run.totalInRound - run.remainingInRound.length;
 
-  // Aktive fmSeq-Sicht in Übereinstimmung mit verbliebenen Elektroden.
-  fmSeq = run.remainingInRound.slice();
-  // fmSeqIdx so setzen, daß fmCurrentEl (falls noch gültig) auf [0] sitzt;
-  // sonst beginnt der Lauf bei [0] mit der nächsten verbliebenen.
+  // order und remaining auf aktuelle Auswahl (Frequenz-Reihenfolge) aktualisieren.
+  pass.order = freshSeq.slice();
+  var freshSet = new Set(freshSeq);
+  pass.remaining = (pass.remaining || []).filter(function(i) { return freshSet.has(i); });
+  if (pass.remaining.length === 0) pass.remaining = freshSeq.slice();
+
+  // fmSeq spiegeln und fmSeqIdx nachjustieren.
+  fmSeq = pass.remaining.slice();
   if (fmCurrentEl != null && freshSet.has(fmCurrentEl)) {
     var pos = fmSeq.indexOf(fmCurrentEl);
     fmSeqIdx = pos >= 0 ? pos : 0;
@@ -209,8 +203,7 @@ function fmStartSlider() {
 }
 
 function _fmDoStartSlider() {
-  _fmSliderRoundEnsureRun();
-  _fmSliderRoundLoadOrStartRound();
+  _fmSliderPassEnsure();
   fmSeqIdx  = 0;
   fmRunning = true;
   fmLoadElectrode();
@@ -218,79 +211,70 @@ function _fmDoStartSlider() {
   _fmStartIdleSideCheck();
 }
 
-// BA 206: stellt sicher, dass sliderRoundRun für die aktuelle Kombination existiert.
-function _fmSliderRoundEnsureRun() {
+function _fmSliderPassEnsure() {
   if (!sideData[fmVarSide]) return;
   const fa = sideData[fmVarSide].freqmatchAdaptive
     || (sideData[fmVarSide].freqmatchAdaptive = { runs: [], currentRunIdx: null, sliderEstimates: {} });
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
-  let run = fa.sliderRoundRun;
-  const elList = fmSeq.slice();
-  if (!run || run.varSide !== fmVarSide || run.refSide !== fmRefSide
-      || run.symmetric !== fmSymmetric) {
-    run = {
-      runId:              new Date().toISOString(),
-      startedAt:          Date.now(),
-      lastUpdate:         Date.now(),
-      varSide:            fmVarSide,
-      refSide:            fmRefSide,
-      symmetric:          fmSymmetric,
-      currentRound:       0,
-      totalInRound:       0,
-      remainingInRound:   [],
-      completedInRound:   0,
-      electrodeIdxList:   elList
+
+  // Feste Reihenfolge = die bestehende Frequenz-Reihenfolge von
+  // fmBuildSeq()/fmBuildSeqSymmetric() (tiefste Frequenz zuerst). KEIN
+  // Shuffle, KEIN Umsortieren.
+  const elList = (fmSymmetric ? fmBuildSeqSymmetric() : fmBuildSeq()).slice();
+
+  let pass = fa.sliderPass;
+  // Neuer Durchgang, wenn keiner existiert oder die Seiten-Kombination wechselt.
+  if (!pass || pass.varSide !== fmVarSide || pass.refSide !== fmRefSide
+      || pass.symmetric !== fmSymmetric) {
+    pass = {
+      varSide:   fmVarSide,
+      refSide:   fmRefSide,
+      symmetric: fmSymmetric,
+      order:     elList.slice(),
+      remaining: elList.slice()
     };
-    fa.sliderRoundRun = run;
+    fa.sliderPass = pass;
   } else {
-    run.electrodeIdxList = elList;
+    // Fortsetzen: order auf aktuelle Auswahl aktualisieren, remaining auf
+    // Schnittmenge mit der aktuellen Auswahl filtern.
+    pass.order = elList.slice();
     const set = new Set(elList);
-    run.remainingInRound = run.remainingInRound.filter(function(i) { return set.has(i); });
+    pass.remaining = pass.remaining.filter(function(i) { return set.has(i); });
+    // Falls remaining leer (voriger Durchgang fertig): neuen Durchgang starten.
+    if (pass.remaining.length === 0) pass.remaining = elList.slice();
   }
-}
 
-// BA 206: Falls die aktuelle Runde noch offene Elektroden hat, wird sie
-// fortgesetzt (Pause/Resume); sonst beginnt eine neue Runde.
-function _fmSliderRoundLoadOrStartRound() {
-  const fa = sideData[fmVarSide].freqmatchAdaptive;
-  const run = fa.sliderRoundRun;
-  const fullList = run.electrodeIdxList.slice();
-  if (!run.remainingInRound || run.remainingInRound.length === 0) {
-    run.currentRound      = (run.currentRound || 0) + 1;
-    run.totalInRound      = fullList.length;
-    run.completedInRound  = 0;
-    run.remainingInRound  = _fmShuffle(fullList);
-  } else {
-    if (run.currentRound < 1) run.currentRound = 1;
-    if (!run.totalInRound) run.totalInRound = fullList.length;
-  }
-  fmSeq = run.remainingInRound.slice();
-}
-
-function _fmShuffle(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-  }
-  return a;
+  // fmSeq spiegelt die noch offenen Elektroden in fester Reihenfolge.
+  fmSeq = pass.remaining.slice();
+  fmSeqIdx = 0;
 }
 
 function fmLoadElectrode() {
   if (fmSeqIdx >= fmSeq.length) {
-    const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
-    if (fa && fa.sliderRoundRun) fa.sliderRoundRun.remainingInRound = [];
-    _fmSliderRoundLoadOrStartRound();
-    fmSeqIdx = 0;
-    fmRenderSliderStatusGrid();
-    fmUpdateSliderProgress();
+    _fmSliderFinish();   // Durchgang fertig (Schritt 4)
+    return;
   }
   fmCurrentEl = fmSeq[fmSeqIdx];
-  fmCentOffset = fmPrevCent(fmCurrentEl);
+  fmCentOffset = fmPrevCent(fmCurrentEl);   // Start auf gespeichertem Wert
   fmFirstSide = Math.random() < 0.5 ? "ref" : "var";
   fmShowElectrode();
-  fmRenderSliderStatusGrid();
   setTimeout(() => { if (fmRunning) fmPlayCurrent(); }, 100);
+}
+
+function _fmSliderFinish() {
+  // Durchgang leeren, damit der nächste Start frisch ab Elektrode 1 beginnt.
+  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
+  if (fa && fa.sliderPass) fa.sliderPass.remaining = [];
+
+  if (fmEls && fmEls._stopTest) fmEls._stopTest();
+
+  if (typeof testUI !== 'undefined' && testUI.completion) {
+    testUI.completion.show({
+      nameKey:   'compNameFmSlider',
+      subtabKey: 'subTabFreqMatch',
+      bodyKey:   'fmDoneExtra'
+    });
+  }
 }
 
 function fmConfirm() {
@@ -301,8 +285,6 @@ function fmConfirm() {
   const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
   if (!fa) return;
   if (!fa.sliderEstimates) fa.sliderEstimates = {};
-  const run = fa.sliderRoundRun;
-  const roundNo = (run && run.currentRound) || 1;
   const now = Date.now();
   const cent = Math.round(fmCentOffset);
 
@@ -320,20 +302,18 @@ function fmConfirm() {
     fa.sliderEstimates[key] = entry;
   }
   if (!Array.isArray(entry.rounds)) entry.rounds = [];
-  entry.rounds.push({ cent: cent, ts: now, round: roundNo });
+  entry.rounds.push({ cent: cent, ts: now });
   entry.varSide   = fmVarSide;
   entry.refSide   = fmSymmetric ? 'symmetric' : fmRefSide;
   entry.varFreq   = varHz;
   entry.timestamp = now;
-  // BA 206: Aggregat ins .cent-Feld schreiben.
   const agg = _fmAggregateCent(entry.rounds);
   if (agg != null) entry.cent = Math.round(agg * 10) / 10;
 
-  if (run) {
-    const idx = run.remainingInRound.indexOf(fmCurrentEl);
-    if (idx >= 0) run.remainingInRound.splice(idx, 1);
-    run.completedInRound = (run.totalInRound || 0) - run.remainingInRound.length;
-    run.lastUpdate = now;
+  const pass = fa.sliderPass;
+  if (pass) {
+    const idx = pass.remaining.indexOf(fmCurrentEl);
+    if (idx >= 0) pass.remaining.splice(idx, 1);
   }
 
   if (typeof pApplyWarpModeDefaultFromFm === "function") {
@@ -346,20 +326,6 @@ function fmConfirm() {
     try { renderFreqMatchResults(); } catch (e) {}
   }
   if (typeof depLockApply === 'function') depLockApply();
-}
-
-// BA 206: Skip — nur Reihenfolge weiter, KEIN Wert speichern.
-function fmSkip() {
-  if (!fmRunning) return;
-  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
-  if (fa && fa.sliderRoundRun) {
-    const run = fa.sliderRoundRun;
-    const idx = run.remainingInRound.indexOf(fmCurrentEl);
-    if (idx >= 0) run.remainingInRound.splice(idx, 1);
-    run.completedInRound = (run.totalInRound || 0) - run.remainingInRound.length;
-  }
-  fmSeqIdx++;
-  fmLoadElectrode();
 }
 
 // BA 206: Pause — Lauf nicht abbrechen, nur stoppen.
@@ -375,114 +341,14 @@ function fmUpdateSliderProgress() {
   const _sprog = fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.progress;
   if (!_sprog) return;
   const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
-  const run = fa && fa.sliderRoundRun;
-  const total = run ? (run.totalInRound || 0) : (fmSeq ? fmSeq.length : 0);
-  const cur   = run ? Math.min((run.completedInRound || 0) + 1, total) : (fmSeqIdx + 1);
+  const pass = fa && fa.sliderPass;
+  const total = pass ? pass.order.length : (fmSeq ? fmSeq.length : 0);
+  const done  = pass ? (pass.order.length - pass.remaining.length) : fmSeqIdx;
+  const cur   = Math.min(done + 1, total);
   const frac  = total > 0 ? Math.min(cur / total, 1) : 0;
-  const roundNo = run ? (run.currentRound || 1) : 1;
   const lbl = (typeof t === 'function' && t('fmSliderRoundProgress')) || 'Runde %R · Elektrode %C von %T';
-  const txt = lbl.replace('%R', roundNo).replace('%C', cur).replace('%T', total);
+  const txt = lbl.replace('%R', 1).replace('%C', cur).replace('%T', total);
   testUI.progress.set(_sprog, { fraction: frac, text: txt });
 }
 
-function fmRenderSliderStatusGrid() {
-  if (!fmEls) return;
-  const grid = fmEls.verfahren && fmEls.verfahren.slider && fmEls.verfahren.slider.statusGrid;
-  if (!grid) return;
 
-  const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive
-                 && sideData[fmVarSide].freqmatchAdaptive.sliderEstimates) || {};
-  const fa  = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
-  const run = fa && fa.sliderRoundRun;
-  const fullList = (run && run.electrodeIdxList) || fmSeq || [];
-
-  const head =
-    '<tr>' +
-      '<th>' + (t('fmSliderRoundColEl')       || 'Elektrode')          + '</th>' +
-      '<th>' + (t('fmSliderRoundColStartHz')  || 'Startfreq (Hz)')      + '</th>' +
-      '<th>' + (t('fmSliderRoundColCount')    || 'Anzahl Werte')        + '</th>' +
-      '<th>' + (t('fmSliderRoundColRange')    || 'Bereich (Cent)')      + '</th>' +
-      '<th>' + (t('fmSliderRoundColAgg')      || 'Aktuelle Schaetzung') + '</th>' +
-      '<th>' + (t('fmSliderRoundColAggHz')    || 'Schaetzung (Hz)')     + '</th>' +
-      '<th>' + (t('fmSliderRoundColStatus')   || 'Status')              + '</th>' +
-    '</tr>';
-
-  const rows = [head];
-  fullList.forEach(function(el) {
-    const startHz = fmVarHz(el);
-    const isCur   = (fmCurrentEl === el && fmRunning && !fmAdaptiveActive);
-    const entry   = store[String(el)];
-    const rounds  = (entry && Array.isArray(entry.rounds)) ? entry.rounds : [];
-    const count   = rounds.length;
-    const range   = _fmRangeCent(rounds);
-    const agg     = _fmAggregateCent(rounds);
-
-    const rangeCell = (range && count >= 2)
-      ? ((range.min >= 0 ? '+' : '') + Math.round(range.min) + ' ... ' + (range.max >= 0 ? '+' : '') + Math.round(range.max))
-      : '-';
-    const aggCell = (agg != null)
-      ? ((agg >= 0 ? '+' : '') + (Math.round(agg * 10) / 10) + ' ct')
-      : '-';
-    const aggHzCell = (agg != null)
-      ? (Math.round(fmFreqFromCents(startHz, agg)) + ' Hz')
-      : '-';
-    const statusCell = count > 0 ? ('ok (' + count + ')') : '-';
-
-    rows.push(
-      '<tr' + (isCur ? ' class="current-row"' : '') + '>' +
-        '<td>E' + el + '</td>' +
-        '<td>' + Math.round(startHz) + ' Hz</td>' +
-        '<td>' + count + '</td>' +
-        '<td>' + rangeCell + '</td>' +
-        '<td>' + aggCell + '</td>' +
-        '<td>' + aggHzCell + '</td>' +
-        '<td>' + statusCell + '</td>' +
-      '</tr>'
-    );
-  });
-
-  grid.innerHTML = '<table class="fm-slider-status">' + rows.join('') + '</table>';
-}
-
-// --- Debug-Simulation ---
-
-function fmRunSliderDebugSim() {
-  if (!fmRunning) {
-    fmStartSlider();
-    setTimeout(fmRunSliderDebugSim, 100);
-    return;
-  }
-  const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
-  if (!fa) return;
-  if (!fa.sliderEstimates) fa.sliderEstimates = {};
-  const run = fa.sliderRoundRun;
-  const roundNo = (run && run.currentRound) || 1;
-  const now = Date.now();
-  (fmSeq || []).forEach(function(el) {
-    const key = String(el);
-    let entry = fa.sliderEstimates[key];
-    if (!entry) {
-      entry = { cent: 0, varSide: fmVarSide, refSide: fmRefSide, varFreq: fmVarHz(el),
-                timestamp: now, rounds: [] };
-      fa.sliderEstimates[key] = entry;
-    }
-    const cent = Math.round(-200 + Math.random() * 700);
-    entry.rounds.push({ cent: cent, ts: now, round: roundNo });
-    const agg = _fmAggregateCent(entry.rounds);
-    if (agg != null) entry.cent = Math.round(agg * 10) / 10;
-    entry.varFreq = fmVarHz(el);
-    entry.timestamp = now;
-  });
-  if (run) {
-    run.completedInRound = run.totalInRound;
-    run.remainingInRound = [];
-    run.lastUpdate = now;
-  }
-  if (typeof pApplyWarpModeDefaultFromFm === "function") pApplyWarpModeDefaultFromFm();
-  _fmSliderRoundLoadOrStartRound();
-  fmSeqIdx = 0;
-  fmLoadElectrode();
-  if (typeof renderFreqMatchResults === 'function') {
-    try { renderFreqMatchResults(); } catch (e) {}
-  }
-}

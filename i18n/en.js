@@ -831,6 +831,7 @@ Object.assign(L.en, {
     compBtnOk:          "OK",
     testRrName:         "Round Robin",
     compNameFmAdaptive: "Frequency matching (Adaptive)",
+    compNameFmSlider:   "Frequency matching (fine-tuning)",
     compSubLoudness:    "Electrode loudness",
     rrDoneExtra:        "You can refine the measurement results further with the second test procedure “Convergence”. You can listen to the effect of the correction in the player.",
     lrDoneExtra:        "You can activate stereo balance in the player.",
