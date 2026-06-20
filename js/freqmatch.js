@@ -1460,7 +1460,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { key: 'fmHintMethodCiNatural',  kind: 'plain' },
         { key: 'fmHintWarn',             kind: 'caution' },
 
-        { key: 'fmHintWorkflow',         kind: 'plain' }
+        // BA364: Vor-Schaetzung/Adaptiv-Workflow im Klavier-only-Betrieb aus.
+        { key: 'fmHintWorkflow',         kind: 'plain', id: 'fmHintWorkflowPara',
+                                         hidden: true }
       ]
     },
     header: {

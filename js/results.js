@@ -471,14 +471,21 @@ function renderFreqMatchResults() {
   const tb = document.getElementById("fmrTB");
   if (!th || !tb) return;
 
+  // BA364: Konvergenz/Laufstreuung nur bei aktivem Adaptiv (Architektur 10.3).
+  var isAdaptiveActive = (typeof fmGetActiveMethod === "function")
+    && fmGetActiveMethod() === "adaptive";
+  var advCols = isAdaptiveActive
+    ? ("<th title=\"" + t("fmrThConvTip") + "\">" + t("fmrThConv") + "</th>"
+     + "<th title=\"" + t("fmrThRunSpreadTip") + "\">" + t("fmrThRunSpread") + "</th>")
+    : "";
+
   th.innerHTML =
     "<th>" + t("fmrThEl") + "</th>" +
     "<th>" + t("fmrThVarHz").replace('{side}', varLabel) + "</th>" +
     "<th>" + t("fmrThRefHz").replace('{side}', varLabel) + "</th>" +
     "<th>" + t("fmrThDiffHz") + "</th>" +
     "<th>" + t("fmrThDiffCent") + "</th>" +
-    "<th title=\"" + t("fmrThConvTip") + "\">" + t("fmrThConv") + "</th>" +
-    "<th title=\"" + t("fmrThRunSpreadTip") + "\">" + t("fmrThRunSpread") + "</th>" +
+    advCols +
     "<th title=\"" + t("fmrThResiduumTip") + "\">" + t("fmrThResiduum") + "</th>" +
     "<th>" + t("fmrThStatus") + "</th>";
 
@@ -512,8 +519,7 @@ function renderFreqMatchResults() {
         "<td>—</td>" +
         "<td>—</td>" +
         "<td>—</td>" +
-        "<td>—</td>" +
-        "<td>—</td>" +
+        (isAdaptiveActive ? "<td>—</td><td>—</td>" : "") +
         "<td>—</td>" +
         "<td style=\"font-size:.82em\">" + t('excludedSkipped') + "</td>";
     } else if (!r) {
@@ -529,8 +535,7 @@ function renderFreqMatchResults() {
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
-        "<td style=\"color:#9ca3af\">—</td>" +
+        (isAdaptiveActive ? "<td style=\"color:#9ca3af\">—</td><td style=\"color:#9ca3af\">—</td>" : "") +
         "<td style=\"color:#9ca3af\">—</td>" +
         "<td>" + note + "</td>";
     } else {
@@ -661,14 +666,17 @@ function renderFreqMatchResults() {
         statusBadge = '<span class="muted">—</span>';
       }
 
+      // BA364: advCells nur bei aktivem Adaptiv (gleiche Bedingung wie Header).
+      var advCells = isAdaptiveActive
+        ? ("<td>" + convCell + "</td>" + "<td>" + runSpreadCell + "</td>")
+        : "";
       tr.innerHTML =
         "<td style=\"font-weight:600\">" + elLabel + "</td>" +
         "<td>" + varHzCell + "</td>" +
         "<td>" + refHzCell + "</td>" +
         "<td>" + diffHzCell + "</td>" +
         "<td>" + diffCtCell + "</td>" +
-        "<td>" + convCell + "</td>" +
-        "<td>" + runSpreadCell + "</td>" +
+        advCells +
         "<td>" + residuumCell + "</td>" +
         "<td>" + statusBadge + "</td>";
       if (isProv) tr.style.fontStyle = 'italic';
@@ -726,25 +734,47 @@ function renderFreqMatchResults() {
         .replace('{total}', totalActive)
         .replace('{res}', meanRes.toFixed(1));
     } else {
-      const noisy = finalEntries.filter(function(r) {
-        return r.fmStatus === 'converged-fair' || r.fmStatus === 'converged-wide'
-            || r.fmStatus === 'unstable';
-      });
-      const resVals = finalEntries
-        .filter(function(r) { return r.fmResidual != null; })
-        .map(function(r) { return r.fmResidual; });
-      const meanRes = resVals.length > 0
-        ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
-        : 0;
-      if (noisy.length > 0) {
-        const names = noisy.map(function(r) {
-          return withSide(ciSide, function() { return dENPrefix() + dEN(r.elIdx); });
-        }).join(', ');
-        txt = t('fmrQualOkWithNoisy')
-          .replace('{res}', meanRes.toFixed(1))
-          .replace('{names}', names);
+      // BA364: aktiver Klavier-Lauf der angezeigten Seite (oder null).
+      var _pianoRun = (sideData[ciSide] && sideData[ciSide].freqmatchPiano
+                       && sideData[ciSide].freqmatchPiano.run) || null;
+      if (isAdaptiveActive) {
+        // --- bisheriger Adaptiv-Zweig, unveraendert ---
+        const noisy = finalEntries.filter(function(r) {
+          return r.fmStatus === 'converged-fair' || r.fmStatus === 'converged-wide'
+              || r.fmStatus === 'unstable';
+        });
+        const resVals = finalEntries
+          .filter(function(r) { return r.fmResidual != null; })
+          .map(function(r) { return r.fmResidual; });
+        const meanRes = resVals.length > 0
+          ? resVals.reduce(function(s, v) { return s + v; }, 0) / resVals.length
+          : 0;
+        if (noisy.length > 0) {
+          const names = noisy.map(function(r) {
+            return withSide(ciSide, function() { return dENPrefix() + dEN(r.elIdx); });
+          }).join(', ');
+          txt = t('fmrQualOkWithNoisy')
+            .replace('{res}', meanRes.toFixed(1))
+            .replace('{names}', names);
+        } else {
+          txt = t('fmrQualOk').replace('{res}', meanRes.toFixed(1));
+        }
+      } else if (_pianoRun && _pianoRun.currentRound >= 1) {
+        // --- BA364 Klavier-Zweig ---
+        var _pTot = (typeof FM_PIANO_STEPS !== "undefined") ? FM_PIANO_STEPS.length : 6;
+        var _pRound = _pianoRun.currentRound;
+        var _pStep  = (typeof FM_PIANO_STEPS !== "undefined")
+          ? FM_PIANO_STEPS[_pRound - 1] : null;
+        if (_pStep != null) {
+          txt = t('fmrQualPiano')
+            .replace('{round}', _pRound)
+            .replace('{total}', _pTot)
+            .replace('{step}', _pStep);
+        } else {
+          txt = '';
+        }
       } else {
-        txt = t('fmrQualOk').replace('{res}', meanRes.toFixed(1));
+        txt = '';
       }
     }
     qEl.textContent = txt;
@@ -759,7 +789,8 @@ function renderFreqMatchResults() {
     const allComplete2 = provisional.length === 0
       && finalEntries.length > 0
       && finalEntries.every(function(r) { return (r.fmRunsCount || 0) >= 2; });
-    const show = hasData && !allComplete2;
+    // BA364: nur bei aktivem Adaptiv.
+    const show = isAdaptiveActive && hasData && !allComplete2;
     runHintEl.textContent = show ? t('fmrRunHint') : '';
     runHintEl.style.display = show ? '' : 'none';
   }
@@ -787,10 +818,15 @@ function renderFreqMatchResults() {
   // Chart-Hinweis
   const hintEl = document.getElementById("fmrChartHint");
   if (hintEl) {
-    const hintAdaptive = t("fmrChartHintAdaptive");
-    hintEl.textContent = (hintAdaptive && hintAdaptive !== "fmrChartHintAdaptive")
-      ? hintAdaptive
-      : t("fmrChartHint");
+    // BA364: Klavier-Legende, solange Adaptiv nicht aktiv ist.
+    if (isAdaptiveActive) {
+      const hintAdaptive = t("fmrChartHintAdaptive");
+      hintEl.textContent = (hintAdaptive && hintAdaptive !== "fmrChartHintAdaptive")
+        ? hintAdaptive
+        : t("fmrChartHint");
+    } else {
+      hintEl.textContent = t("fmrChartHintPiano");
+    }
   }
 }
 
@@ -847,6 +883,25 @@ document.addEventListener("DOMContentLoaded", function() {
           if (fa) {
             fa.runs = [];
             fa.currentRunIdx = null;
+          }
+        });
+      }
+      _fmrRefreshAfterClear();
+    });
+  }
+
+  // BA364: Klavier-Loeschbutton — entfernt nur piano-Eintraege aus fRes.
+  const pianoBtn = document.getElementById("fmrClearPianoBtn");
+  if (pianoBtn) {
+    pianoBtn.addEventListener("click", function() {
+      if (!confirm(t("fmrClearPianoConfirm") || "Klavier-Ergebnisse loeschen?")) return;
+      for (let i = fRes.length - 1; i >= 0; i--) {
+        if (fRes[i] && fmEntryMethod(fRes[i]) === "piano") fRes.splice(i, 1);
+      }
+      if (typeof sideData !== "undefined") {
+        ['left', 'right'].forEach(function(side) {
+          if (sideData[side]) {
+            sideData[side].freqmatchPiano = { run: null, perElectrode: {} };
           }
         });
       }
