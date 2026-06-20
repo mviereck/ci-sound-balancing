@@ -352,6 +352,31 @@ function _fmMigrateAltSliderFRes() {
   }
 }
 
+// BA 362: Alt-Slider-Eintraege mit rounds[]-Historie auf min/max migrieren.
+// rounds[] wird danach verworfen. cent bleibt unveraendert (Aggregat aus BA 206).
+function _fmMigrateSliderRounds() {
+  if (typeof sideData === 'undefined') return;
+  ['left', 'right'].forEach(function(side) {
+    const fa = sideData[side] && sideData[side].freqmatchAdaptive;
+    if (!fa || !fa.sliderEstimates) return;
+    Object.keys(fa.sliderEstimates).forEach(function(key) {
+      const e = fa.sliderEstimates[key];
+      if (!e || typeof e !== 'object') return;
+      if (Array.isArray(e.rounds)) {
+        // min/max nur, wenn noch nicht gesetzt und >=2 unterschiedliche Werte.
+        if ((e.min == null || e.max == null)) {
+          const range = (typeof _fmRangeCent === 'function') ? _fmRangeCent(e.rounds) : null;
+          if (range && range.min !== range.max) {
+            e.min = range.min;
+            e.max = range.max;
+          }
+        }
+        delete e.rounds;
+      }
+    });
+  });
+}
+
 function loadSideData(side, d) {
   const s = sideData[side];
   s.config = d.config || "ci";

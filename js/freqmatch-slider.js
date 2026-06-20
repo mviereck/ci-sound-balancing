@@ -87,29 +87,23 @@ function fmShowElectrode() {
   if (undoBtn) undoBtn.disabled = fmSeqIdx === 0;
 }
 
-// BA 221: Maximaler Absolutbetrag aus bisherigen Slider-Runden fuer
-// diese Elektrode — fuer minAbs in testUI.slider.setValue.
+// BA 362: Maximaler Absolutbetrag aus cent/min/max dieser Elektrode —
+// fuer minAbs in testUI.slider.setValue.
 // Liefert 0, wenn keine Daten oder keine endlichen Werte vorliegen.
 function _fmSliderMarkerMaxAbs(elIdx) {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (!store) return 0;
   const e = store[String(elIdx)];
-  const rounds = (e && Array.isArray(e.rounds)) ? e.rounds : null;
-  if (!rounds || rounds.length === 0) return 0;
-  const agg = _fmAggregateCent(rounds);
-  const range = _fmRangeCent(rounds);
+  if (!e) return 0;
   let m = 0;
-  if (agg != null && isFinite(agg)) m = Math.max(m, Math.abs(agg));
-  if (range) {
-    if (isFinite(range.min)) m = Math.max(m, Math.abs(range.min));
-    if (isFinite(range.max)) m = Math.max(m, Math.abs(range.max));
-  }
+  if (typeof e.cent === 'number' && isFinite(e.cent)) m = Math.max(m, Math.abs(e.cent));
+  if (typeof e.min === 'number' && isFinite(e.min))   m = Math.max(m, Math.abs(e.min));
+  if (typeof e.max === 'number' && isFinite(e.max))   m = Math.max(m, Math.abs(e.max));
   return m;
 }
 
-// BA 206/221: Min/Max-Band + Median-Dreieck unter dem Slider.
-// Sichtbar ab dem ersten gespeicherten Wert; Band erst ab 2 unterschiedlichen Werten.
+// BA 362: Dreieck aus .cent, Band aus min/max (falls vorhanden).
 // Daten werden an testUI.slider.setRangeHint uebergeben — dort steckt die DOM-Logik.
 function _fmUpdateSliderRangeMarker() {
   if (!fmEls || fmCurrentEl === null) return;
@@ -119,19 +113,20 @@ function _fmUpdateSliderRangeMarker() {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   const e = store ? store[String(fmCurrentEl)] : null;
-  const rounds = (e && Array.isArray(e.rounds)) ? e.rounds : null;
-  const agg = _fmAggregateCent(rounds);
-  if (agg == null) {
+
+  if (!e || typeof e.cent !== 'number' || !isFinite(e.cent)) {
     testUI.slider.setRangeHint(slRefs.slider, null);
     return;
   }
-  const range = _fmRangeCent(rounds);
-  const labelText = (agg >= 0 ? "+" : "") + (Math.round(agg * 10) / 10) + " ct";
+  const hasBand = (typeof e.min === 'number' && isFinite(e.min)
+                && typeof e.max === 'number' && isFinite(e.max)
+                && e.min !== e.max);
+  const labelText = (e.cent >= 0 ? "+" : "") + (Math.round(e.cent * 10) / 10) + " ct";
   testUI.slider.setRangeHint(slRefs.slider, {
-    marker: agg,
+    marker: e.cent,
     label:  labelText,
-    min:    (range && range.min !== range.max) ? range.min : null,
-    max:    (range && range.min !== range.max) ? range.max : null
+    min:    hasBand ? e.min : null,
+    max:    hasBand ? e.max : null
   });
 }
 
@@ -296,19 +291,18 @@ function fmConfirm() {
       varSide:   fmVarSide,
       refSide:   fmSymmetric ? 'symmetric' : fmRefSide,
       varFreq:   varHz,
-      timestamp: now,
-      rounds:    []
+      timestamp: now
+      // KEIN rounds[]. min/max nur, falls aus Migration/Uebertragung vorhanden.
     };
     fa.sliderEstimates[key] = entry;
+  } else {
+    // Ueberschreiben: nur cent + Metadaten neu; min/max bleiben unangetastet.
+    entry.cent = cent;
   }
-  if (!Array.isArray(entry.rounds)) entry.rounds = [];
-  entry.rounds.push({ cent: cent, ts: now });
   entry.varSide   = fmVarSide;
   entry.refSide   = fmSymmetric ? 'symmetric' : fmRefSide;
   entry.varFreq   = varHz;
   entry.timestamp = now;
-  const agg = _fmAggregateCent(entry.rounds);
-  if (agg != null) entry.cent = Math.round(agg * 10) / 10;
 
   const pass = fa.sliderPass;
   if (pass) {
@@ -342,12 +336,12 @@ function fmUpdateSliderProgress() {
   if (!_sprog) return;
   const fa = sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive;
   const pass = fa && fa.sliderPass;
-  const total = pass ? pass.order.length : (fmSeq ? fmSeq.length : 0);
-  const done  = pass ? (pass.order.length - pass.remaining.length) : fmSeqIdx;
+  const total = pass ? (pass.order ? pass.order.length : 0) : (fmSeq ? fmSeq.length : 0);
+  const done  = pass ? (total - (pass.remaining ? pass.remaining.length : 0)) : fmSeqIdx;
   const cur   = Math.min(done + 1, total);
   const frac  = total > 0 ? Math.min(cur / total, 1) : 0;
-  const lbl = (typeof t === 'function' && t('fmSliderRoundProgress')) || 'Runde %R · Elektrode %C von %T';
-  const txt = lbl.replace('%R', 1).replace('%C', cur).replace('%T', total);
+  const lbl = (typeof t === 'function' && t('fmSliderProgress')) || 'Elektrode %C von %T';
+  const txt = lbl.replace('%C', cur).replace('%T', total);
   testUI.progress.set(_sprog, { fraction: frac, text: txt });
 }
 

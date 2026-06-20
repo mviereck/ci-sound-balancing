@@ -880,6 +880,7 @@ Object.assign(L.en, {
     fmSliderInstruction: "Adjust the slider until both tones sound equally high, then confirm. The slider starts at the most recently stored value for this electrode.",
     fmExplainSliderScience: "Fine-tuning is not a standalone measurement but a manual correction. The triangle above the slider shows the stored result for this electrode. If an uncertainty range from another method is available, it appears as a coloured bar below the slider.",
     fmSliderRoundProgress:   "Round %R · Electrode %C of %T",
+    fmSliderProgress:        "Electrode %C of %T",
     fmSliderRoundColEl:      "Electrode",
     fmSliderRoundColStartHz: "Start freq (Hz)",
     fmSliderRoundColCount:   "Reading count",

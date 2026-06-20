@@ -880,6 +880,7 @@ Object.assign(L.fr, {
     fmSliderInstruction: "Ajustez le curseur jusqu'à ce que les deux sons aient la même hauteur, puis confirmez. Le curseur démarre sur la dernière valeur enregistrée pour cette électrode.",
     fmExplainSliderScience: "Le réajustement n'est pas une mesure autonome mais une correction manuelle. Le triangle au-dessus du curseur indique le résultat enregistré pour cette électrode. Si une plage d'incertitude provenant d'une autre méthode est disponible, elle apparaît comme une barre colorée sous le curseur.",
     fmSliderRoundProgress:   "Tour %R · Électrode %C sur %T",
+    fmSliderProgress:        "Électrode %C sur %T",
     fmSliderRoundColEl:      "Électrode",
     fmSliderRoundColStartHz: "Fréq. initiale (Hz)",
     fmSliderRoundColCount:   "Nb de mesures",

@@ -827,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function() {
           const fa = sideData[side] && sideData[side].freqmatchAdaptive;
           if (!fa) return;
           if (fa.sliderEstimates) fa.sliderEstimates = {};
-          fa.sliderRoundRun = null;
+          fa.sliderPass = null;
         });
       }
       _fmrRefreshAfterClear();

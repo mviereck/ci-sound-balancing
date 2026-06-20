@@ -146,15 +146,14 @@ function _fmShuffle(arr) {
   return a;
 }
 
-// BA 206: Letzter Messwert dieser Elektrode (= Startwert für nächste Runde).
+// BA 362: Letzter/aktueller Slider-Wert dieser Elektrode (= Startwert).
 function _fmLastRoundCent(elIdx) {
   const store = (sideData[fmVarSide] && sideData[fmVarSide].freqmatchAdaptive)
     ? sideData[fmVarSide].freqmatchAdaptive.sliderEstimates : null;
   if (!store) return null;
   const e = store[String(elIdx)];
-  if (!e || !Array.isArray(e.rounds) || e.rounds.length === 0) return null;
-  const last = e.rounds[e.rounds.length - 1];
-  return (last && typeof last.cent === 'number') ? last.cent : null;
+  if (!e || typeof e.cent !== 'number' || !isFinite(e.cent)) return null;
+  return e.cent;
 }
 
 // --- Hilfsfunktionen ---

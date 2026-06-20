@@ -948,6 +948,7 @@ Object.assign(L.de, {
     fmSliderInstruction: "Stellen Sie den Schieber so ein, dass sich beide Töne gleich hoch anhören, dann bestätigen. Der Schieber startet auf dem zuletzt gespeicherten Wert dieser Elektrode.",
     fmExplainSliderScience: "Die Nachjustierung ist kein eigenständiges Mess-Verfahren, sondern eine Feinkorrektur von Hand. Das Dreieck über dem Schieber zeigt das gespeicherte Ergebnis dieser Elektrode. Liegt aus einem anderen Verfahren ein Unsicherheitsbereich vor, erscheint er als farbiger Balken unter dem Schieber.",
     fmSliderRoundProgress:   "Runde %R · Elektrode %C von %T",
+    fmSliderProgress:        "Elektrode %C von %T",
     fmSliderRoundColEl:      "Elektrode",
     fmSliderRoundColStartHz: "Startfreq (Hz)",
     fmSliderRoundColCount:   "Anzahl Werte",

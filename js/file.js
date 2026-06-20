@@ -718,6 +718,7 @@ function applyLoadedData(d) {
     }
     if (typeof _fmCleanupLegacyFRes === "function") _fmCleanupLegacyFRes();
     if (typeof _fmMigrateAltSliderFRes === "function") _fmMigrateAltSliderFRes();
+    if (typeof _fmMigrateSliderRounds === "function") _fmMigrateSliderRounds();
   }
   // BA 207: Auswahl der Testelektroden für FreqMatch.
   // Alte Dateien ohne dieses Feld → null (= alle aktiven testen).

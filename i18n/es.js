@@ -880,6 +880,7 @@ Object.assign(L.es, {
     fmSliderInstruction: "Ajuste el deslizador hasta que ambos tonos suenen igual de altos, luego confirme. El deslizador comienza en el último valor guardado para este electrodo.",
     fmExplainSliderScience: "El reajuste no es una medición autónoma, sino una corrección manual. El triángulo sobre el deslizador muestra el resultado guardado para este electrodo. Si hay un rango de incertidumbre de otro método disponible, aparece como una barra de color bajo el deslizador.",
     fmSliderRoundProgress:   "Ronda %R · Electrodo %C de %T",
+    fmSliderProgress:        "Electrodo %C de %T",
     fmSliderRoundColEl:      "Electrodo",
     fmSliderRoundColStartHz: "Frec. inicial (Hz)",
     fmSliderRoundColCount:   "No de mediciones",
