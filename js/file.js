@@ -552,10 +552,9 @@ function applyLoadedData(d) {
     sequence_freqmatch = _validSeq(d.sequence_freqmatch) || _legacySeq;
   }
   if (typeof fmActiveMethodVal !== "undefined") {
-    fmActiveMethodVal = (d.fmActiveMethod === "adaptive" || d.fmActiveMethod === "slider"
-                         || d.fmActiveMethod === "piano")
-      ? d.fmActiveMethod
-      : null; // alte Datei ohne Feld -> Getter leitet Default aus den Daten ab
+    // BA363 Klavier-only: aktives Verfahren beim Laden hart auf piano.
+    // Gespeicherter Wert (adaptive/slider) wird verworfen; Messdaten bleiben.
+    fmActiveMethodVal = "piano";
   }
   if (typeof sequence_test !== "undefined") {
     sequence_test = _validSeq(d.sequence_test) || _legacySeq;

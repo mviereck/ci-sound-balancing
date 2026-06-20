@@ -1294,6 +1294,7 @@ function fmEntryMethod(r) {
 }
 
 // Hat ein Verfahren ueberhaupt Daten? (fuer Default-Ableitung)
+// BA363: aktuell ungenutzt (fmGetActiveMethod gibt hart "piano"), fuer Reaktivierung erhalten.
 function fmMethodHasData(method) {
   if (typeof fRes !== "undefined" && Array.isArray(fRes)) {
     for (let i = 0; i < fRes.length; i++) {
@@ -1320,17 +1321,11 @@ function fmMethodHasData(method) {
   return false;
 }
 
-// Aktiv geltendes Verfahren. Default (alte/ungesetzte Staende):
-// Adaptiv, falls es Werte hat; sonst Schieber, falls dieser Werte hat;
-// sonst Adaptiv (rein kosmetisch, da ohne Daten keine Anzeige).
+// Aktiv geltendes Verfahren. Klavier-only-Betrieb (BA363): immer "piano".
+// Der gespeicherte fmActiveMethodVal bleibt unangetastet (Reaktivierung von
+// Adaptiv/Slider ist ein reiner Sichtbarkeits-Schritt). Architektur 10.1.
 function fmGetActiveMethod() {
-  if (fmActiveMethodVal === "adaptive" || fmActiveMethodVal === "slider"
-      || fmActiveMethodVal === "piano") {
-    return fmActiveMethodVal;
-  }
-  if (fmMethodHasData("adaptive")) return "adaptive";
-  if (fmMethodHasData("slider"))   return "slider";
-  return "adaptive";
+  return "piano";
 }
 
 // EINZIGE Schreibstelle fuer den Aktiv-Zustand. "Letzte Aktion gewinnt":
@@ -1682,8 +1677,14 @@ document.addEventListener("DOMContentLoaded", () => {
           onReplay:    fmPlayCurrent,
           onSimul:     fmPlaySimultaneous
         }
-      },
-      {
+      }
+      /* BA363 Klavier-only: Adaptiv und Slider aus der UI verborgen.
+         Logik (fmStartAdaptive, fmStartSlider, Roh-Behaelter) bleibt im
+         Code. Zum Reaktivieren diesen Block-Kommentar entfernen und die
+         beiden Eintraege wieder als Array-Elemente einfuegen (mit fuehrendem
+         Komma nach dem piano-Eintrag). Architektur 10.
+
+      , {
         id: 'adaptive',
         labelKey:   'fmModeAdaptive',
         explainKey: 'fmExplainAdaptive',
@@ -1764,6 +1765,7 @@ document.addEventListener("DOMContentLoaded", () => {
           onSimul:    fmPlaySimultaneous
         }
       }
+      */
     ]
   };
 

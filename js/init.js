@@ -889,12 +889,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // BA353: Umschalter aktives Verfahren.
-  const _fmAdaBtn = document.getElementById("fmActiveMethodAdaptiveBtn");
-  const _fmSliBtn = document.getElementById("fmActiveMethodSliderBtn");
-  const _fmPiaBtn = document.getElementById("fmActiveMethodPianoBtn");
-  if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { fmSetActiveMethod("adaptive"); });
-  if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { fmSetActiveMethod("slider"); });
-  if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { fmSetActiveMethod("piano"); });
+  // BA363 Klavier-only: Listener auskommentiert; zum Reaktivieren entfernen.
+  // const _fmAdaBtn = document.getElementById("fmActiveMethodAdaptiveBtn");
+  // const _fmSliBtn = document.getElementById("fmActiveMethodSliderBtn");
+  // const _fmPiaBtn = document.getElementById("fmActiveMethodPianoBtn");
+  // if (_fmAdaBtn) _fmAdaBtn.addEventListener("click", function () { fmSetActiveMethod("adaptive"); });
+  // if (_fmSliBtn) _fmSliBtn.addEventListener("click", function () { fmSetActiveMethod("slider"); });
+  // if (_fmPiaBtn) _fmPiaBtn.addEventListener("click", function () { fmSetActiveMethod("piano"); });
 
   // Modus-Toggle relativ/absolut
   document.querySelectorAll('input[name="lvTabMode"]').forEach((r) => {
