@@ -1328,7 +1328,7 @@ Object.assign(L.en, {
     plTipAutoAdv: "Automatically play the next track when finished (stops after 30 min without interaction)",
     plAutoAdvLabel: "↪ Auto-advance",
     plPauseLabel: "Pause between tracks:",
-    pwProgressLabel: "Warp:",
+    pwProgressLabel: "Computing frequency warping:",
     amSortKind: "by type",
     amSortSpectrum: "by spectrum",
     amSortSource: "by source",

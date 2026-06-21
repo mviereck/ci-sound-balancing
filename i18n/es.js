@@ -1328,7 +1328,7 @@ Object.assign(L.es, {
     plTipAutoAdv: "Reproducir automáticamente la pieza siguiente al terminar (se detiene tras 30 min sin interacción)",
     plAutoAdvLabel: "↪ Auto-avance",
     plPauseLabel: "Pausa entre piezas:",
-    pwProgressLabel: "Warp:",
+    pwProgressLabel: "Calculando el warping de frecuencia:",
     amSortKind: "por tipo",
     amSortSpectrum: "por espectro",
     amSortSource: "por fuente",
