@@ -30,6 +30,203 @@ let pCtx = null,
   pT0 = 0,
   pWarpComputingPromise = null;  // Handle auf laufende Warp-Berechnung (für pPlay-Warten)
 
+// BA371: Streaming-Wiedergabe-State (Streaming-Pfad, pWarpLive === true).
+// Aktiv während erstem Durchlauf eines Stücks im Streaming-Modus.
+let _streamSources = [];       // laufende Abschnitts-BufferSources
+let _streamNextStart = 0;      // AudioContext-Zeit fuer den naechsten Abschnitt
+let _streamFirstReady = false; // wurde Wiedergabe fuer diesen Streaming-Lauf gestartet?
+let _streamTargetBuf = null;   // Referenz auf pWarpedBuf waehrend Streaming
+let _streamSampleRate = 0;     // SampleRate des laufenden Streaming-Bufs
+let _streamActiveGen = -1;     // Generation-Zaehler; matcht pWarpGen
+let _streamPendingPlay = null; // pOff fuer aufgeschobenes pPlay (Seek waehrend Streaming)
+
+// BA371: Hilfsfunktion -- liefert firstNode der aktuellen EQ-Kette
+// (analog zu pPlay:546-552). Genutzt von _streamScheduleSegment.
+function _pGetFirstNode() {
+  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
+  const stereoMode = (typeof _pUseSplitChains === "function") && _pUseSplitChains(mode) && pChannelSplitter;
+  return stereoMode
+    ? pChannelSplitter
+    : pEqF.length > 0
+      ? pEqF[0]
+      : pGain;
+}
+
+// BA371: Einen Abschnitts-AudioBuffer als BufferSource terminieren und abspielen.
+// segBuf: kurzer Stereo-AudioBuffer (Abschnittslaenge)
+// startTime: AudioContext.currentTime, ab dem der Abschnitt starten soll
+// gen: Generation-Zaehler -- veraltete Callbacks ignorieren.
+function _streamScheduleSegment(segBuf, startTime, gen) {
+  if (gen !== _streamActiveGen) return;
+  const c = gPC();
+  const src = c.createBufferSource();
+  src.buffer = segBuf;
+  const firstNode = _pGetFirstNode();
+  src.connect(firstNode);
+  src.start(startTime);
+  _streamSources.push(src);
+  // Aufgeräumte Sources aus dem Array entfernen, wenn beendet.
+  src.onended = function() {
+    const idx = _streamSources.indexOf(src);
+    if (idx >= 0) _streamSources.splice(idx, 1);
+  };
+}
+
+// BA371: Streaming-State zurücksetzen (vor neuem Streaming-Lauf aufrufen).
+function _streamResetState() {
+  _streamStopAll();
+  _streamSources = [];
+  _streamNextStart = 0;
+  _streamFirstReady = false;
+  _streamTargetBuf = null;
+  _streamSampleRate = 0;
+  _streamActiveGen = -1;
+  _streamPendingPlay = null;
+}
+
+// BA371: Alle laufenden Abschnitts-Sources stoppen und State aufräumen.
+function _streamStopAll() {
+  for (let i = 0; i < _streamSources.length; i++) {
+    try { _streamSources[i].stop(); } catch (e) {}
+  }
+  _streamSources = [];
+}
+
+// BA371: Gibt an, ob gerade ein Streaming-Lauf aktiv ist (Abschnitte laufen).
+function _streamIsActive() {
+  return _streamFirstReady && _streamSources.length > 0;
+}
+
+// BA371: Einen Abschnittsbereich aus pWarpedBuf als kurzen Stereo-Buffer bauen.
+// Analog zu _buildWarpedPlaybackBuffer, aber fuer einen Teilbereich [segStart, segStart+segLen).
+// Nutzt pWarpAffected und pSourceBuf -- muss also nach buildWarpStage aufgerufen werden
+// (buildWarpStage setzt pWarpAffected).
+function _buildWarpedSegmentBuffer(segStart, segLen) {
+  const c = gPC();
+  const sr = pWarpedBuf.sampleRate;
+  const out = c.createBuffer(2, segLen, sr);
+  const outL = out.getChannelData(0);
+  const outR = out.getChannelData(1);
+
+  const warpL = pWarpedBuf.getChannelData(0);
+  const warpR = pWarpedBuf.numberOfChannels > 1
+    ? pWarpedBuf.getChannelData(1)
+    : pWarpedBuf.getChannelData(0);
+
+  const mode = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
+
+  if (mode === "left") {
+    outL.set(warpL.subarray(segStart, segStart + segLen));
+    // outR bleibt 0
+    return out;
+  }
+  if (mode === "right") {
+    outR.set(warpR.subarray(segStart, segStart + segLen));
+    // outL bleibt 0
+    return out;
+  }
+
+  // mode "both" oder "mono"
+  const affected = (typeof pWarpAffected !== "undefined")
+    ? pWarpAffected
+    : { warpsLeft: true, warpsRight: true };
+
+  let srcL, srcR;
+  if (mode === "mono" && pSourceBuf) {
+    const mono = _pDownmixMono(pSourceBuf);
+    srcL = mono;
+    srcR = mono;
+  } else if (pSourceBuf) {
+    srcL = pSourceBuf.getChannelData(0);
+    srcR = pSourceBuf.numberOfChannels > 1
+      ? pSourceBuf.getChannelData(1)
+      : srcL;
+  } else {
+    srcL = warpL;
+    srcR = warpR;
+  }
+
+  const srcLen = pSourceBuf ? pSourceBuf.length : segLen;
+  const segEnd = segStart + segLen;
+
+  if (affected.warpsLeft) {
+    outL.set(warpL.subarray(segStart, segEnd));
+  } else {
+    const srcStart = Math.min(segStart, srcLen);
+    const copyEnd = Math.min(segEnd, srcLen);
+    if (copyEnd > srcStart) outL.set(srcL.subarray(srcStart, copyEnd));
+  }
+
+  if (affected.warpsRight) {
+    outR.set(warpR.subarray(segStart, segEnd));
+  } else {
+    const srcStart = Math.min(segStart, srcLen);
+    const copyEnd = Math.min(segEnd, srcLen);
+    if (copyEnd > srcStart) outR.set(srcR.subarray(srcStart, copyEnd));
+  }
+
+  return out;
+}
+
+// BA371: Callback aus pWarpTrigger/streamFillBuffer -- ein Abschnitt ist fertig.
+// segIndex: laufende Nummer, segStart/segLen in Samples, gen: Generation-Zaehler.
+// Startet Wiedergabe beim ersten Abschnitt, terminiert Folgeabschnitte lueckenlos.
+// BA371.2: async, weil _pWireOutputChain beim ersten Abschnitt awaited wird.
+async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
+  if (!pWarpedBuf) return;
+  if (typeof pWarpGen !== "undefined" && gen !== pWarpGen) return;
+
+  // Segment-Buffer aus dem (schon beschriebenen) pWarpedBuf bauen.
+  let segBuf;
+  try {
+    segBuf = _buildWarpedSegmentBuffer(segStart, segLen);
+  } catch (e) {
+    console.error("_streamOnSegmentReady: Segment-Buffer-Fehler", e);
+    return;
+  }
+
+  const c = gPC();
+  const sr = pWarpedBuf.sampleRate;
+  const segDuration = segLen / sr;
+
+  if (!_streamFirstReady) {
+    // Erster Abschnitt: Kette verdrahten und Wiedergabe starten.
+    // BA371.2: _pWireOutputChain einmal aufrufen -- verbindet
+    // firstNode -> EQ -> (MAPLAW ->) pGain -> destination.
+    // playGen = null: kein pPlay-Konkurrenz-Guard noetig.
+    _streamActiveGen = gen;
+    _streamTargetBuf = pWarpedBuf;
+    _streamSampleRate = sr;
+
+    const wired = await _pWireOutputChain(c, null);
+    // Nach dem await nochmals pruefen (Gen koennte sich geaendert haben).
+    if (!wired || (typeof pWarpGen !== "undefined" && gen !== pWarpGen)) return;
+
+    const startTime = c.currentTime + 0.1;  // etwas Vorlauf nach MAPLAW-await
+    _streamScheduleSegment(segBuf, startTime, gen);
+    _streamNextStart = startTime + segDuration;
+    _streamFirstReady = true;
+
+    // pPlaying-State setzen (damit Pause/Stop-Buttons und pTick korrekt sind).
+    pPlaying = true;
+    pT0 = c.currentTime - pOff;
+    if (typeof pUpdBtn === "function") pUpdBtn();
+    if (typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(typeof pTick === "function" ? pTick : function() {});
+    }
+  } else {
+    // Folgeabschnitt: lueckenlos hinter dem vorherigen terminieren.
+    if (gen !== _streamActiveGen) return;
+    let startTime = _streamNextStart;
+    // Unterlauf-Schutz: wenn wir zu spaet sind, kleiner Puffer.
+    if (c.currentTime > startTime) {
+      startTime = c.currentTime + 0.01;
+    }
+    _streamScheduleSegment(segBuf, startTime, gen);
+    _streamNextStart = startTime + segDuration;
+  }
+}
+
 function gPC() {
   if (!pCtx) pCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (pCtx.state === "suspended") pCtx.resume();
@@ -516,6 +713,53 @@ function pToggle() {
   else pPlay();
 }
 
+// BA371.2: Verdrahtet lastEq -> (MAPLAW ->) pGain. Gemeinsame Logik fuer
+// pPlay und den Streaming-Pfad (_streamOnSegmentReady). Gibt { firstNode,
+// lastEq } zurueck. Der optionale Parameter playGen wird nur fuer den
+// MAPLAW-await-Guard genutzt (pPlay uebergibt pPlayGen; Streaming
+// uebergibt null -> Guard uebersprungen, da kein konkurrierender Aufruf).
+async function _pWireOutputChain(c, playGen) {
+  const mode = getPlayerSide();
+  const stereoMode = _pUseSplitChains(mode) && pChannelSplitter;
+  const firstNode = stereoMode
+    ? pChannelSplitter
+    : pEqF.length > 0
+      ? pEqF[0]
+      : pGain;
+  const lastEq = stereoMode
+    ? pChannelMerger
+    : pMonoBalGain
+      ? pMonoBalGain
+      : pEqF.length > 0
+        ? pEqF[pEqF.length - 1]
+        : null;
+  // Alte ausgehende Verbindung trennen, bevor neu verdrahtet wird.
+  // Verhindert Doppelpfad lastEq->pGain + lastEq->pMaplawNode->pGain.
+  if (lastEq) {
+    try { lastEq.disconnect(); } catch (e) {}
+  }
+
+  // MAPLAW: zwischen letztem EQ-Knoten und pGain einhaengen, wenn aktiv.
+  const mapApplies = pMaplawOn && plEqOn && pMaplawIsApplicable();
+  if (mapApplies) {
+    await pInitMaplawWorklet(c);
+    // Guard nur wenn playGen gesetzt (pPlay-Kontext mit Konkurrenz-Risiko).
+    if (playGen !== null && playGen !== pPlayGen) return null;
+    pMaplawNode = pBuildMaplawNode(c, {
+      istC: pMaplawGetIstC(),
+      sollC: pMaplawSollC,
+      active: true,
+    });
+    if (lastEq) lastEq.connect(pMaplawNode);
+    pMaplawNode.connect(pGain);
+  } else {
+    if (lastEq) lastEq.connect(pGain);
+    pMaplawNode = null;
+  }
+
+  return { firstNode, lastEq };
+}
+
 async function pPlay() {
   const gen = ++pPlayGen;
 
@@ -538,52 +782,17 @@ async function pPlay() {
       && pWarpComputingPromise) {
     try { await pWarpComputingPromise; } catch (e) {}
     if (gen !== pPlayGen) return;
+    // BA371.2: Streaming-Pfad hat Wiedergabe ggf. schon gestartet (waehrend
+    // wir auf pWarpComputingPromise gewartet haben). Nicht nochmal starten.
+    if (typeof _streamFirstReady !== "undefined" && _streamFirstReady) return;
   }
 
   const c = gPC();
   pBuf = getPlaybackBuffer();
 
-  const mode = getPlayerSide();
-  const stereoMode = _pUseSplitChains(mode) && pChannelSplitter;
-  const firstNode = stereoMode
-    ? pChannelSplitter
-    : pEqF.length > 0
-      ? pEqF[0]
-      : pGain;
-  const lastEq = stereoMode
-    ? pChannelMerger
-    : pMonoBalGain
-      ? pMonoBalGain
-      : pEqF.length > 0
-        ? pEqF[pEqF.length - 1]
-        : null;
-  // Alte ausgehende Verbindung vom Ende der EQ-Chain trennen, bevor neu
-  // verdrahtet wird. Sonst überlagert eine frühere lastEq→pGain Direkt-
-  // verbindung das neue lastEq→pMaplawNode→pGain (Doppelpfad → MAPLAW-
-  // Effekt vom Originalsignal verschluckt).
-  if (lastEq) {
-    try { lastEq.disconnect(); } catch (e) {}
-  }
-
-  // MAPLAW: zwischen letztem EQ-Knoten und pGain einhängen, wenn aktiv, EQ an und MED-EL.
-  // EQ-Toggle wirkt als Master-Bypass (analog Frequenz-Warping).
-  const mapApplies = pMaplawOn && plEqOn && pMaplawIsApplicable();
-  if (mapApplies) {
-    await pInitMaplawWorklet(c);
-    if (gen !== pPlayGen) {
-      return;
-    }
-    pMaplawNode = pBuildMaplawNode(c, {
-      istC: pMaplawGetIstC(),
-      sollC: pMaplawSollC,
-      active: true,
-    });
-    if (lastEq) lastEq.connect(pMaplawNode);
-    pMaplawNode.connect(pGain);
-  } else {
-    if (lastEq) lastEq.connect(pGain);
-    pMaplawNode = null;
-  }
+  const wired = await _pWireOutputChain(c, gen);
+  if (!wired) return;  // von neuem pPlay/pPause ueberholt (MAPLAW-await)
+  const { firstNode } = wired;
 
   let leadSrc = null;
 
@@ -647,6 +856,8 @@ function pPause() {
     pCurrentPlayback.stop();
     pCurrentPlayback = null;
   }
+  // BA371: Streaming-Sources stoppen (falls Streaming-Wiedergabe aktiv).
+  _streamStopAll();
   if (pMaplawNode) {
     try { pMaplawNode.disconnect(); } catch (e) {}
     pMaplawNode = null;

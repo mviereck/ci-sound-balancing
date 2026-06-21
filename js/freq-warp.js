@@ -272,6 +272,221 @@ function centShift(f, side, points) {
 
 const _RB_FIR_ORDER = 4096; // FIR-Ordnung der Bandpaesse (linearphasig)
 
+// BA371: Abschnittslänge für gestreamtes Warping. Startwert 5 s
+// (Nutzer-Entscheidung): längeres Erst-Warten als 2-3 s, dafür weniger
+// Abschnittsgrenzen (weniger hörbare harte Kanten bis S2-Crossfade, und
+// weniger Crossfade-Aufwand). In S3 justierbar zu machen.
+const STREAM_SEGMENT_SECONDS = 5;
+
+// BA371: Stufen-agnostische Streaming-Engine (Architektur-Kapitel Paragraph3/4).
+// Fuellt `target` (Stereo-AudioBuffer voller Stuecklänge) abschnittsweise,
+// indem sie `stage.processSegment` pro Abschnitt aufruft. Meldet jeden
+// fertigen Abschnitt ueber onSegmentReady(segIndex, segStart, segLen),
+// damit der Aufrufer (Wiedergabe) ihn terminieren kann. Kennt KEINE
+// Stufen-Namen.
+//
+// Parameter:
+//   srcBuf  : Quell-AudioBuffer (Original, volle Laenge)
+//   target  : Ziel-AudioBuffer (Stereo, volle Laenge) -- wird in-place gefuellt
+//   stage   : Vertrag aus BA371 (processSegment, changesLength)
+//   onSegmentReady(segIndex, segStartSample, segLenSample): Callback nach
+//             jedem geschriebenen Abschnitt (fuer Wiedergabe-Terminierung)
+//   onProgress(frac01): Fortschritt 0..1 (fuer pWarpProgress)
+//   isCancelled(): () => bool  (Stop-Button / Generation-Wechsel)
+//
+// Rueckgabe: Promise, das nach dem letzten Abschnitt resolved (target voll).
+async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgress, isCancelled) {
+  const sr = srcBuf.sampleRate;
+  const total = srcBuf.length;
+  const segLen = Math.max(1, Math.round(STREAM_SEGMENT_SECONDS * sr));
+  const nSeg = Math.ceil(total / segLen);
+
+  for (let i = 0; i < nSeg; i++) {
+    if (isCancelled()) throw new Error("__warp_cancelled__");
+    const segStart = i * segLen;
+    const thisLen = Math.min(segLen, total - segStart);
+
+    // Quell-Segmente liefert die Stage (kapselt Mono-Logik / Quell-Extraktion).
+    const srcSeg = stage.getSourceSegment(segStart, thisLen);
+
+    const ctx = {
+      segIndex: i, segStart, segLen: thisLen, sampleRate: sr,
+      isFirst: i === 0, isLast: i === nSeg - 1,
+    };
+
+    const outSeg = await stage.processSegment(srcSeg, ctx);
+    if (isCancelled()) throw new Error("__warp_cancelled__");
+
+    // In den Ziel-Buffer schreiben (Laengen-Treue: outSeg.L/R Laenge == thisLen).
+    target.getChannelData(0).set(outSeg.L.subarray(0, thisLen), segStart);
+    target.getChannelData(1).set(outSeg.R.subarray(0, thisLen), segStart);
+
+    if (typeof onSegmentReady === "function") onSegmentReady(i, segStart, thisLen);
+    if (typeof onProgress === "function") onProgress((i + 1) / nSeg);
+  }
+}
+
+// BA371: Baut die Warp-Stage fuer die Streaming-Engine. Kapselt die
+// gesamte Vorbereitung (Punkte/Baender/cents/optionBits/Mono/Rueck-Pegel)
+// und liefert getSourceSegment + processSegment, das EINEN Abschnitt durch
+// die bestehende Band-fuer-Band-Verarbeitung schickt. KEIN Crossfade (S1).
+//
+// BA371.1: Rueck-Pegel-Bezugs-Basis = Abschnitt 0.
+// Abschnitt 0 wird mit lokaler Normierung (heutiges Verhalten) verarbeitet;
+// der dabei berechnete Faktor (peakIn/peakOut) wird als streamScaleL/R
+// gespeichert und fuer alle Folgeabschnitte als fester scaleOverride
+// uebergeben. So ist die Lautstaerke ueber alle Abschnitte konsistent
+// (kein Dynamik-Nivellieren, keine Spruenge an Grenzen). Die leichte
+// Abweichung zum Voll-Pfad (anderer Bezugspunkt: Abschnitt-0-Verhaeltnis
+// vs. stückweites Verhaeltnis) ist bewusst akzeptiert.
+// Spaeter ggf. erste N Abschnitte mitteln (Nutzer-Entscheidung).
+function buildWarpStage(srcBuf, warpMode, strength) {
+  const src = _warpFResSource();
+  if (warpMode === "off" || src.length === 0 || strength === 0) {
+    // Bypass: liefert originale Abschnitte unveraendert zurueck.
+    return {
+      changesLength: false,
+      getSourceSegment(segStart, thisLen) {
+        const L = srcBuf.getChannelData(0).subarray(segStart, segStart + thisLen);
+        const R = (srcBuf.numberOfChannels > 1 ? srcBuf.getChannelData(1) : srcBuf.getChannelData(0))
+          .subarray(segStart, segStart + thisLen);
+        return { L, R };
+      },
+      async processSegment(srcSeg) {
+        return { L: srcSeg.L, R: srcSeg.R };
+      },
+    };
+  }
+
+  const nhSim = !!(document.getElementById("plNHSim") ? document.getElementById("plNHSim").checked : false);
+  const points = buildWarpPoints(src, warpMode, !nhSim);
+  const warpAffected = _warpAffectedSides(points);
+  const str = strength / 100;
+
+  const playerSide = (typeof getPlayerSide === "function") ? getPlayerSide() : "both";
+  const decided = _rbDecideAffectedSides(points, playerSide);
+
+  const sampleRate = srcBuf.sampleRate;
+  const nyquist = sampleRate / 2;
+  const bands = _rbBuildBandEdges(points, nyquist);
+
+  const csL = points.map(function(p) { return p.csL * str; });
+  const csR = points.map(function(p) { return p.csR * str; });
+
+  const useLive = !!pRubberbandOptions.liveShifter;
+  const optionBits = useLive
+    ? _rbBuildLiveOptionBits({ formant: pRubberbandOptions.formant })
+    : _rbBuildOptionBits({
+        engine:   pRubberbandOptions.engine,
+        material: pRubberbandOptions.material,
+        formant:  pRubberbandOptions.formant,
+        fast:     pRubberbandOptions.fast,
+        realtime: !!pRubberbandOptions.realtime,
+      });
+
+  // Mono-Entscheidung (identisch zu pComputeRubberbandWarpedBuffer).
+  const monoContent = playerSide === "left"
+                   || playerSide === "right"
+                   || playerSide === "mono";
+
+  // Quell-Kanaele EINMAL extrahieren (volle Laenge; defensive Kopie).
+  let fullSrcL, fullSrcR;
+  if (monoContent) {
+    const mono = (typeof _pDownmixMono === "function")
+      ? _pDownmixMono(srcBuf)
+      : new Float32Array(srcBuf.getChannelData(0));
+    fullSrcL = mono;
+    fullSrcR = mono;
+  } else {
+    fullSrcL = new Float32Array(srcBuf.getChannelData(0));
+    fullSrcR = srcBuf.numberOfChannels > 1
+      ? new Float32Array(srcBuf.getChannelData(1))
+      : fullSrcL;
+  }
+
+  // pWarpAffected globale Variable fuer _buildWarpedPlaybackBuffer setzen.
+  pWarpAffected = warpAffected;
+
+  const sameAsLAnticipated = decided.needL && decided.needR
+    && fullSrcL === fullSrcR
+    && csL.length === csR.length
+    && csL.every(function(v, i) { return v === csR[i]; });
+
+  // rb-Handle wird lazy (beim ersten processSegment-Aufruf) geladen.
+  let rbHandle = null;
+  async function ensureRb() {
+    if (!rbHandle) rbHandle = await rubberbandLoad();
+    return rbHandle;
+  }
+
+  const _processSide = useLive ? _rbProcessMonoSideLive : _rbProcessMonoSide;
+
+  // Schritt-Zaehler fuer onBand-Callback (Fortschritt innerhalb eines Abschnitts).
+  // Im Streaming-Pfad wird der aeussere Fortschritt von streamFillBuffer gesteuert
+  // (onProgress). onBand hier leer (kein per-Band-Update im Streaming-Modus).
+  const onBand = null;
+
+  // BA371.1: Rueck-Pegel-Bezugs-Basis = Abschnitt 0.
+  // null = noch nicht bestimmt (Abschnitt 0 noch nicht verarbeitet).
+  let streamScaleL = null;
+  let streamScaleR = null;
+
+  return {
+    changesLength: false,
+
+    // Liefert { L, R } als Subarrays des voll extrahierten Quellsignals.
+    getSourceSegment(segStart, thisLen) {
+      return {
+        L: fullSrcL.subarray(segStart, segStart + thisLen),
+        R: fullSrcR.subarray(segStart, segStart + thisLen),
+      };
+    },
+
+    async processSegment(srcSeg, ctx) {
+      const rb = await ensureRb();
+      if (pWarpCancel) throw new Error("__warp_cancelled__");
+
+      let outL = srcSeg.L;
+      let outR = srcSeg.R;
+
+      // BA371.1: Abschnitt 0 ohne scaleOverride verarbeiten und Faktor merken;
+      // alle Folgeabschnitte mit diesem festen Faktor (sprungfrei, konsistent).
+      // Spaeter ggf. erste N Abschnitte mitteln (Nutzer-Entscheidung).
+      const isFirst = streamScaleL === null;
+
+      if (decided.needL) {
+        if (isFirst) {
+          const res = await _processSide(rb, srcSeg.L, sampleRate, bands, csL, onBand, optionBits, undefined, true);
+          outL = res.out;
+          streamScaleL = res.scale;
+        } else {
+          outL = await _processSide(rb, srcSeg.L, sampleRate, bands, csL, onBand, optionBits, streamScaleL);
+        }
+      }
+      if (decided.needR) {
+        if (sameAsLAnticipated && decided.needL) {
+          outR = outL;
+          if (isFirst) streamScaleR = streamScaleL;
+        } else {
+          if (pWarpCancel) throw new Error("__warp_cancelled__");
+          if (isFirst) {
+            const res = await _processSide(rb, srcSeg.R, sampleRate, bands, csR, onBand, optionBits, undefined, true);
+            outR = res.out;
+            streamScaleR = res.scale;
+          } else {
+            outR = await _processSide(rb, srcSeg.R, sampleRate, bands, csR, onBand, optionBits, streamScaleR);
+          }
+        }
+      }
+      // Falls weder L noch R berechnet wurde (kein decided.need*), Skalen auf 1 setzen.
+      if (isFirst && streamScaleL === null) streamScaleL = 1;
+      if (isFirst && streamScaleR === null) streamScaleR = 1;
+
+      return { L: outL, R: outR };
+    },
+  };
+}
+
 
 // Entscheidet, welche Kanaele tatsaechlich Rubberband durchlaufen
 // muessen — abhaengig von Player-Seite (was wird hoerbar?) und
@@ -510,7 +725,18 @@ async function _rbPitchShift(rb, signal, sampleRate, cents, optionBits) {
 
 // Eine Mono-Seite durch alle Baender schicken und summieren, mit
 // Pegelausgleich.
-async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBandDone, optionBits) {
+// BA371.1: optionaler 8. Parameter scaleOverride (Default undefined).
+//   undefined: heutiges Verhalten -- lokales peakIn/peakOut bestimmen
+//              und scale = peakIn/peakOut anwenden. Voll-Pfad nutzt
+//              immer diesen Weg (unveraendert).
+//   Zahl:      diesen Skalierungsfaktor direkt anwenden, keine eigene
+//              Peak-Messung. Streaming-Pfad ab Abschnitt 1 (Faktor
+//              aus Abschnitt 0).
+// Optionaler 9. Parameter returnScale (Default false):
+//   true:  Rueckgabe { out, scale } statt nur out. Genutzt von
+//          buildWarpStage beim ersten Abschnitt, um den Faktor zu merken.
+//   false: Rueckgabe Float32Array (Voll-Pfad, alle anderen Aufrufe).
+async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBandDone, optionBits, scaleOverride, returnScale) {
   const out = new Float32Array(srcMono.length);
   const nyquist = sampleRate / 2;
   for (let i = 0; i < bands.length; i++) {
@@ -526,17 +752,29 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBa
     for (let n = 0; n < out.length; n++) out[n] += shifted[n];
     if (typeof onBandDone === "function") onBandDone();
   }
-  // Pegelausgleich: Peak des Inputs als Ziel.
-  let peakIn = 0, peakOut = 0;
-  for (let n = 0; n < srcMono.length; n++) {
-    const ai = Math.abs(srcMono[n]); if (ai > peakIn)  peakIn  = ai;
-    const ao = Math.abs(out[n]);     if (ao > peakOut) peakOut = ao;
+  // Pegelausgleich.
+  let appliedScale = 1;
+  if (scaleOverride !== undefined) {
+    // BA371.1: festen Faktor aus Abschnitt 0 anwenden.
+    appliedScale = scaleOverride;
+    if (appliedScale !== 1) {
+      for (let n = 0; n < out.length; n++) out[n] *= appliedScale;
+    }
+  } else {
+    // Heutiges Verhalten: peakIn/peakOut lokal messen.
+    let peakIn = 0, peakOut = 0;
+    for (let n = 0; n < srcMono.length; n++) {
+      const ai = Math.abs(srcMono[n]); if (ai > peakIn) peakIn = ai;
+    }
+    for (let n = 0; n < out.length; n++) {
+      const ao = Math.abs(out[n]); if (ao > peakOut) peakOut = ao;
+    }
+    if (peakOut > 0 && peakIn > 0) {
+      appliedScale = peakIn / peakOut;
+      for (let n = 0; n < out.length; n++) out[n] *= appliedScale;
+    }
   }
-  if (peakOut > 0 && peakIn > 0) {
-    const scale = peakIn / peakOut;
-    for (let n = 0; n < out.length; n++) out[n] *= scale;
-  }
-  return out;
+  return returnScale ? { out, scale: appliedScale } : out;
 }
 
 // BA370 RESERVE: LiveShifter-Pfad, nur per Konsole erreichbar
@@ -922,12 +1160,11 @@ async function pWarpTrigger() {
   if (!pSourceBuf) { pWarpUpdUI(); return; }
 
   // Falls eine vorherige Berechnung noch läuft (anderer Buffer): abbrechen
-  // und auf deren Beendigung warten. Damit laufen zwei
-  // pComputeRubberbandWarpedBuffer-Aufrufe nicht parallel, und der
-  // überholte Run räumt sich selbst still auf (siehe myGen-Check unten —
-  // kein UI-Toggle, pWarpOn bleibt unverändert, da es kein User-Cancel war).
+  // und auf deren Beendigung warten. Damit laufen zwei Aufrufe nicht parallel.
   if (pWarpBusy) {
     pWarpCancel = true;
+    // BA371: Streaming-Sources stoppen, falls aktiv.
+    if (typeof _streamStopAll === "function") _streamStopAll();
     while (pWarpBusy) {
       await new Promise(function (r) { setTimeout(r, 20); });
       if (myGen !== pWarpGen) return;
@@ -943,19 +1180,72 @@ async function pWarpTrigger() {
   pWarpUpdUI();
 
   let cancelled = false;
-  try {
-    pWarpedBuf = await pComputeRubberbandWarpedBuffer(
-      pSourceBuf, pWarpMode, pWarpStrength
-    );
-  } catch (err) {
-    if (err && err.message === "__warp_cancelled__") {
-      cancelled = true;
-      pWarpedBuf = null;
-    } else {
-      console.error("Warp-Fehler:", err);
-      pWarpedBuf = null;
-      if (typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
-        rubberbandLastError = err && err.message ? err.message : String(err);
+
+  // BA371: Pfad-Verzweigung — pWarpLive === true -> Streaming-Pfad,
+  // pWarpLive === false -> heutiger Voll-Vorrechnen-Pfad (unverändert).
+  const useStreaming = !!pWarpLive && !pRubberbandOptions.liveShifter;
+
+  if (useStreaming) {
+    // ---- Streaming-Pfad (BA371 S1) ----
+    try {
+      const srcBuf = pSourceBuf;
+      const c = gPC();
+      // Leeren Ziel-Buffer anlegen (volle Länge, Stereo).
+      pWarpedBuf = c.createBuffer(2, srcBuf.length, srcBuf.sampleRate);
+
+      const stage = buildWarpStage(srcBuf, pWarpMode, pWarpStrength);
+
+      // BA371: Streaming-State in player.js zurücksetzen.
+      if (typeof _streamResetState === "function") _streamResetState();
+
+      await streamFillBuffer(
+        srcBuf,
+        pWarpedBuf,
+        stage,
+        function onSegmentReady(segIndex, segStart, segLen) {
+          // Abschnitt in player.js zur Wiedergabe-Terminierung melden.
+          if (typeof _streamOnSegmentReady === "function") {
+            _streamOnSegmentReady(segIndex, segStart, segLen, myGen);
+          }
+        },
+        function onProgress(frac) {
+          pWarpProgress = frac;
+          if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+        },
+        function isCancelled() {
+          return pWarpCancel || myGen !== pWarpGen;
+        }
+      );
+    } catch (err) {
+      if (err && err.message === "__warp_cancelled__") {
+        cancelled = true;
+        pWarpedBuf = null;
+        if (typeof _streamStopAll === "function") _streamStopAll();
+      } else {
+        console.error("Warp-Streaming-Fehler:", err);
+        pWarpedBuf = null;
+        if (typeof _streamStopAll === "function") _streamStopAll();
+        if (typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
+          rubberbandLastError = err && err.message ? err.message : String(err);
+        }
+      }
+    }
+  } else {
+    // ---- Voll-Vorrechnen-Pfad (unverändert) ----
+    try {
+      pWarpedBuf = await pComputeRubberbandWarpedBuffer(
+        pSourceBuf, pWarpMode, pWarpStrength
+      );
+    } catch (err) {
+      if (err && err.message === "__warp_cancelled__") {
+        cancelled = true;
+        pWarpedBuf = null;
+      } else {
+        console.error("Warp-Fehler:", err);
+        pWarpedBuf = null;
+        if (typeof rubberbandLastError !== "undefined" && !rubberbandLastError) {
+          rubberbandLastError = err && err.message ? err.message : String(err);
+        }
       }
     }
   }
@@ -983,10 +1273,30 @@ async function pWarpTrigger() {
     return;
   }
 
+  // Nach Streaming: pBuf auf den nun fertigen pWarpedBuf setzen (2. Durchlauf
+  // nutzt ihn wie der Voll-Pfad, ohne Neuberechnung).
   pBuf = getPlaybackBuffer();
   pWarpUpdUI();
 
-  if (wasPlaying && pWarpOn) pPlay();
+  if (pWarpOn) {
+    if (useStreaming) {
+      // Streaming-Pfad: _streamOnSegmentReady hat Wiedergabe bereits gestartet
+      // (pPlaying=true, Kette verdrahtet). Kein pPlay() -- wuerde eine zweite
+      // Source starten und die Kette neu verdrahten.
+      // Ausnahme: Stück so kurz, dass kein Abschnitt _streamFirstReady gesetzt
+      // hat (kaum vorkommbar). In diesem Fall normal abspielen.
+      // BA371.2: _streamFirstReady ist der verbindliche Indikator --
+      // nicht _streamIsActive() (Sources koennen am Trigger-Ende schon leer sein).
+      if (!_streamFirstReady) {
+        // Streaming hat nie gestartet (z.B. leeres Stück): normaler Pfad.
+        if (wasPlaying) pPlay();
+      }
+      // Wenn _streamFirstReady gesetzt: Wiedergabe laeuft -- nichts tun.
+    } else {
+      // Voll-Vorrechnen-Pfad: pPlay nur wenn vorher gespielt wurde.
+      if (wasPlaying) pPlay();
+    }
+  }
 }
 
 function pWarpCancelCompute() {
