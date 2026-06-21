@@ -5,7 +5,7 @@ set -f
 # set working directory to script location
 cd "${0%/*}"
 
-rubberband_version="3.3.0"
+rubberband_version="4.0.0"
 
 if [ ! -f lib/rubberband-${rubberband_version}.tar.bz2 ]; then
   [ -e lib ] && rm -r lib

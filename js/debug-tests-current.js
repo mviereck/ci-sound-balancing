@@ -69,3 +69,38 @@
     return lines.join('\n');
   });
 })();
+
+/* BA368 — LiveShifter-Methode: Diagnose-Test */
+(function() {
+  if (typeof dbg === 'undefined' || typeof dbg.test !== 'function') return;
+  dbg.test('build/BA368/liveshifter-output', { tab: 'player', label: 'LiveShifter-Output (BA368)' }, async function() {
+    var lines = [];
+    function chk(label, val) { lines.push((val ? '✓' : '✗') + ' ' + label); }
+
+    chk('_rbProcessMonoSideLive vorhanden', typeof _rbProcessMonoSideLive === 'function');
+    chk('_rbLivePitchShift vorhanden',      typeof _rbLivePitchShift === 'function');
+    chk('_rbBuildLiveOptionBits vorhanden', typeof _rbBuildLiveOptionBits === 'function');
+    chk('pRubberbandOptions.liveShifter vorhanden',
+      typeof pRubberbandOptions !== 'undefined' && 'liveShifter' in pRubberbandOptions);
+
+    // Synthetischer Sinus (440 Hz, 0.5 s bei 44100 Hz)
+    var sr = 44100;
+    var len = Math.round(sr * 0.5);
+    var sig = new Float32Array(len);
+    for (var i = 0; i < len; i++) sig[i] = Math.sin(2 * Math.PI * 440 * i / sr) * 0.5;
+
+    try {
+      var rb = await rubberbandLoad();
+      var liveOpts = _rbBuildLiveOptionBits({ formant: true });
+      var out = await _rbLivePitchShift(rb, sig, sr, 200, liveOpts);  // +200 Cent
+      chk('Output gleiche Laenge wie Input', out.length === sig.length);
+      var peakOut = 0;
+      for (var n = 0; n < out.length; n++) { var a = Math.abs(out[n]); if (a > peakOut) peakOut = a; }
+      chk('Output nicht nur Stille (peak > 0.01)', peakOut > 0.01);
+    } catch(e) {
+      lines.push('✗ Fehler: ' + e.message);
+    }
+
+    return lines.join('\n');
+  });
+})();

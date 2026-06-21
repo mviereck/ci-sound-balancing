@@ -32,6 +32,9 @@ let pRubberbandOptions = {
   realtime: false,       // BA367 Testschalter: Rubberband Realtime-Modus
                          // (Elastic). NICHT persistent — faellt bei
                          // Neuladen auf false zurueck.
+  liveShifter: false,    // BA368 Testschalter: RubberBandLiveShifter statt
+                         // Stretcher. Ignoriert dann das realtime-Bit.
+                         // NICHT persistent — faellt bei Neuladen auf false.
 };
 
 // Liefert die Rubberband-Bit-Maske aus dem Options-Objekt.
@@ -92,6 +95,19 @@ function _rbBuildOptionBits(opts) {
 
   return bits;
 }
+
+// BA368: Option-Bits fuer den RubberBandLiveShifter (eigene, kleinere
+// Enum als der Stretcher). Window fest auf Medium (beste Qualitaet —
+// vorberechnet, "Schnell" ist hier bedeutungslos). Formant aus UI.
+function _rbBuildLiveOptionBits(opts) {
+  const formant = opts.formant !== false; // Default an
+
+  let bits = 0;
+  bits |= 0x00100000;                        // OptionWindowMedium
+  bits |= formant ? 0x01000000 : 0x00000000; // FormantPreserved : Shifted
+  return bits;
+}
+
 let _pWarpFResVersion = 0;
 
 // Quelle der Warp-Punkte: fRes (final) + laufende Tracks (vorläufig), exakt
@@ -512,6 +528,139 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBa
   return out;
 }
 
+// BA368: LiveShifter-Variante von _rbProcessMonoSide. Nutzt den
+// RubberBandLiveShifter (reiner Pitch-Shift, feste Blockgroesse) statt
+// des Stretchers. Vorberechnet wie die Stretcher-Variante: blockweise
+// ueber das ganze Stueck in einen Buffer. Pegelausgleich + Latenz-
+// Abschnitt identisch zu _rbProcessMonoSide.
+//
+// liveOpts: Rubberband-LiveShifter-Option-Bits (Window + Formant).
+async function _rbProcessMonoSideLive(rb, srcMono, sampleRate, bands, csValues, onBandDone, liveOpts) {
+  const out = new Float32Array(srcMono.length);
+  const nyquist = sampleRate / 2;
+
+  for (let i = 0; i < bands.length; i++) {
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
+    const [low, high] = bands[i];
+    const lowN  = Math.max(low  / nyquist, 1e-6);
+    const highN = Math.min(high / nyquist, 1 - 1e-6);
+    const fir = _rbDesignBandpassFIR(lowN, highN, _RB_FIR_ORDER);
+    const filtered = await _rbConvolveViaWebAudio(srcMono, fir, sampleRate);
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
+
+    const shifted = await _rbLivePitchShift(rb, filtered, sampleRate, csValues[i], liveOpts);
+    if (pWarpCancel) throw new Error("__warp_cancelled__");
+
+    for (let n = 0; n < out.length; n++) out[n] += shifted[n];
+    if (typeof onBandDone === "function") onBandDone();
+  }
+
+  // Pegelausgleich: Peak des Inputs als Ziel. (Identisch zu _rbProcessMonoSide.)
+  let peakIn = 0, peakOut = 0;
+  for (let n = 0; n < srcMono.length; n++) {
+    const ai = Math.abs(srcMono[n]); if (ai > peakIn)  peakIn  = ai;
+    const ao = Math.abs(out[n]);     if (ao > peakOut) peakOut = ao;
+  }
+  if (peakOut > 0 && peakIn > 0) {
+    const scale = peakIn / peakOut;
+    for (let n = 0; n < out.length; n++) out[n] *= scale;
+  }
+  return out;
+}
+
+// BA368: Pitch-Shift eines Mono-Signals via RubberBandLiveShifter.
+// Liefert Float32Array gleicher Laenge wie signal (Anfangs-Latenz
+// abgeschnitten). cents > 0: hoeher, < 0: tiefer.
+async function _rbLivePitchShift(rb, signal, sampleRate, cents, liveOpts) {
+  if (Math.abs(cents) < 0.5) {
+    // Vernachlaessigbar — direkt zurueck (vgl. _rbPitchShift).
+    return signal;
+  }
+  const pitchScale = Math.pow(2, cents / 1200);
+
+  const state = rb.rubberband_live_new(sampleRate, 1, liveOpts);
+  rb.rubberband_live_set_pitch_scale(state, pitchScale);
+
+  // Feste Blockgroesse abfragen — rein UND raus immer genau block Frames.
+  const block = rb.rubberband_live_get_block_size(state);
+
+  // Pointer-auf-Pointer-Setup (channels = 1), wie bei _rbPitchShift.
+  const inPtrPtr  = rb.malloc(4);
+  const outPtrPtr = rb.malloc(4);
+  const inBufPtr  = rb.malloc(block * 4);
+  const outBufPtr = rb.malloc(block * 4);
+  rb.memWritePtr(inPtrPtr,  inBufPtr);
+  rb.memWritePtr(outPtrPtr, outBufPtr);
+
+  const tmpIn = new Float32Array(block);
+
+  try {
+    // Output sammeln. Der LiveShifter liefert pro shift()-Aufruf genau
+    // block Frames, mit einer Anfangs-Latenz (start_delay), die wir
+    // hinterher abschneiden. Wir fuettern das Signal in block-Haeppchen
+    // und haengen am Ende genug Null-Bloecke an, um die Latenz aus dem
+    // Shifter herauszuspuelen.
+    const startDelay = rb.rubberband_live_get_start_delay(state);
+    const totalIn = signal.length;
+    // Anzahl Eingangs-Bloecke (aufgerundet) + Latenz-Spuelung.
+    const inBlocks    = Math.ceil(totalIn / block);
+    const flushBlocks = Math.ceil(startDelay / block) + 1;
+    const totalBlocks = inBlocks + flushBlocks;
+
+    const outChunks = [];
+    let outTotal = 0;
+    let yieldCounter = 0;
+
+    for (let b = 0; b < totalBlocks; b++) {
+      if (pWarpCancel) throw new Error("__warp_cancelled__");
+
+      // Eingangs-Block fuellen (mit Stille auffuellen, wenn Signal zu Ende).
+      const base = b * block;
+      for (let k = 0; k < block; k++) {
+        const idx = base + k;
+        tmpIn[k] = (idx < totalIn) ? signal[idx] : 0;
+      }
+      rb.memWrite(inBufPtr, tmpIn);
+
+      rb.rubberband_live_shift(state, inPtrPtr, outPtrPtr);
+
+      const chunk = rb.memReadF32(outBufPtr, block);
+      const copy = new Float32Array(block);
+      copy.set(chunk);
+      outChunks.push(copy);
+      outTotal += block;
+
+      // Periodisch an den Event-Loop yielden + Cancel pruefen
+      // (analog _rbPitchShift), damit der Stop-Button reagiert.
+      if ((++yieldCounter & 15) === 0) {
+        if (pWarpCancel) throw new Error("__warp_cancelled__");
+        await new Promise(function (r) { setTimeout(r, 0); });
+      }
+    }
+
+    // Output zusammenfuegen.
+    const merged = new Float32Array(outTotal);
+    let off = 0;
+    for (const c of outChunks) { merged.set(c, off); off += c.length; }
+
+    // Anfangs-Latenz abschneiden, auf signal.length bringen.
+    // (Identische Logik wie am Ende von _rbPitchShift.)
+    const result = new Float32Array(signal.length);
+    const usable = Math.max(0, merged.length - startDelay);
+    const copyLen = Math.min(signal.length, usable);
+    if (copyLen > 0) {
+      result.set(merged.subarray(startDelay, startDelay + copyLen));
+    }
+    return result;
+  } finally {
+    rb.free(inPtrPtr);
+    rb.free(outPtrPtr);
+    rb.free(inBufPtr);
+    rb.free(outBufPtr);
+    rb.rubberband_live_delete(state);
+  }
+}
+
 async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
   const src = _warpFResSource();
   if (warpMode === "off" || src.length === 0 || strength === 0) {
@@ -585,23 +734,29 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
     }
   };
 
-  const optionBits = _rbBuildOptionBits({
-    engine:   pRubberbandOptions.engine,
-    material: pRubberbandOptions.material,
-    formant:  pRubberbandOptions.formant,
-    fast:     pRubberbandOptions.fast,
-    realtime: !!pRubberbandOptions.realtime,
-  });
+  const useLive = !!pRubberbandOptions.liveShifter;
+
+  const optionBits = useLive
+    ? _rbBuildLiveOptionBits({ formant: pRubberbandOptions.formant })
+    : _rbBuildOptionBits({
+        engine:   pRubberbandOptions.engine,
+        material: pRubberbandOptions.material,
+        formant:  pRubberbandOptions.formant,
+        fast:     pRubberbandOptions.fast,
+        realtime: !!pRubberbandOptions.realtime,
+      });
+
+  const _processSide = useLive ? _rbProcessMonoSideLive : _rbProcessMonoSide;
 
   if (decided.needL) {
-    outL = await _rbProcessMonoSide(rb, srcL, sampleRate, bands, csL, onBand, optionBits);
+    outL = await _processSide(rb, srcL, sampleRate, bands, csL, onBand, optionBits);
   }
   if (decided.needR) {
     if (sameAsLAnticipated) {
       outR = outL;
     } else {
       if (pWarpCancel) throw new Error("__warp_cancelled__");
-      outR = await _rbProcessMonoSide(rb, srcR, sampleRate, bands, csR, onBand, optionBits);
+      outR = await _processSide(rb, srcR, sampleRate, bands, csR, onBand, optionBits);
     }
   }
 

@@ -48,6 +48,8 @@ export enum RubberBandPresetOption {
 
 export type RubberBandState = number;
 
+export type RubberBandLiveState = number;
+
 export class RubberBandInterface {
   private wasm: { heap: { HEAP8: Uint8Array; HEAP32: Uint32Array }; exports: any };
 
@@ -276,5 +278,59 @@ export class RubberBandInterface {
 
   rubberband_set_default_debug_level(level: number) {
     this.wasm.exports.rb_set_default_debug_level(level);
+  }
+
+  // --- RubberBandLiveShifter (Live-Warping, blockweiser Pitch-Shift) ---
+
+  rubberband_live_new(
+    sampleRate: number,
+    channels: number,
+    options: RubberBandOption
+  ): RubberBandLiveState {
+    return this.wasm.exports.rb_live_new(sampleRate, channels, options);
+  }
+
+  rubberband_live_delete(state: RubberBandLiveState) {
+    this.wasm.exports.rb_live_delete(state);
+  }
+
+  rubberband_live_reset(state: RubberBandLiveState) {
+    this.wasm.exports.rb_live_reset(state);
+  }
+
+  rubberband_live_set_pitch_scale(state: RubberBandLiveState, scale: number) {
+    this.wasm.exports.rb_live_set_pitch_scale(state, scale);
+  }
+
+  rubberband_live_get_pitch_scale(state: RubberBandLiveState): number {
+    return this.wasm.exports.rb_live_get_pitch_scale(state);
+  }
+
+  rubberband_live_set_formant_scale(state: RubberBandLiveState, scale: number) {
+    this.wasm.exports.rb_live_set_formant_scale(state, scale);
+  }
+
+  rubberband_live_get_formant_scale(state: RubberBandLiveState): number {
+    return this.wasm.exports.rb_live_get_formant_scale(state);
+  }
+
+  rubberband_live_get_start_delay(state: RubberBandLiveState): number {
+    return this.wasm.exports.rb_live_get_start_delay(state);
+  }
+
+  rubberband_live_set_formant_option(state: RubberBandLiveState, options: RubberBandOption) {
+    this.wasm.exports.rb_live_set_formant_option(state, options);
+  }
+
+  rubberband_live_get_block_size(state: RubberBandLiveState): number {
+    return this.wasm.exports.rb_live_get_block_size(state);
+  }
+
+  rubberband_live_shift(state: RubberBandLiveState, input: number, output: number) {
+    this.wasm.exports.rb_live_shift(state, input, output);
+  }
+
+  rubberband_live_get_channel_count(state: RubberBandLiveState): number {
+    return this.wasm.exports.rb_live_get_channel_count(state);
   }
 }

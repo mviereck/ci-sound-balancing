@@ -558,6 +558,14 @@ document.addEventListener("DOMContentLoaded", () => {
     _pRbOptOnChange();
   });
 
+  // BA368: LiveShifter-Testschalter. Wie der Realtime-Schalter bewusst
+  // NICHT persistent (nicht in den Save-Stellen serialisiert). Ist er an,
+  // laeuft der LiveShifter-Pfad und das realtime-Bit wird ignoriert.
+  document.getElementById("plWarpLiveShifter").addEventListener("change", function () {
+    pRubberbandOptions.liveShifter = !!this.checked;
+    _pRbOptOnChange();
+  });
+
   // Hinweistext-Sichtbarkeit beim ersten Render synchronisieren.
   _pRbOptUpdateR3Hint();
   // Stärke-Buttons
