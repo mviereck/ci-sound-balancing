@@ -720,7 +720,16 @@ document.addEventListener("DOMContentLoaded", () => {
             pRubberbandOptions.material = (m === "speech" || m === "percussive") ? m : "standard";
           }
           if (typeof d.warpRbOptions.formant === "boolean") {
-            pRubberbandOptions.formant = d.warpRbOptions.formant;
+            // BA369: Staende, die VOR 0.4.369-beta gespeichert wurden, tragen
+            // formant:true nur als ungefragten Alt-Default — auf aus zwingen.
+            // Ab 0.4.369-beta ist der gespeicherte Wert bewusste Nutzerwahl
+            // und wird respektiert. Fehlt d.version (sehr alt), gilt der Stand
+            // als alt (_verCmp behandelt undefined als 0.0.0 < 0.4.369).
+            const _savedIsPreBA369 = (typeof _verCmp === "function")
+              && _verCmp(d.version, "0.4.369-beta") < 0;
+            pRubberbandOptions.formant = _savedIsPreBA369
+              ? false
+              : d.warpRbOptions.formant;
           }
           if (typeof d.warpRbOptions.fast === "boolean") {
             pRubberbandOptions.fast = d.warpRbOptions.fast;
@@ -1028,6 +1037,7 @@ document.addEventListener("DOMContentLoaded", () => {
           warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           warpRbOptions: (typeof pRubberbandOptions !== "undefined")
             ? { ...pRubberbandOptions } : null,
+          version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
           userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",

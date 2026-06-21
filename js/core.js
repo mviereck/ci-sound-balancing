@@ -324,3 +324,26 @@ function siiWeightsForFreqs(fArr) {
   return w.map((v) => v / mx);
 }
 
+// Versions-Vergleich fuer Save-Format-Migrationen. Vergleicht
+// Versionsstrings der Form "<maj>.<min>.<ba>[.<fix>]-beta" numerisch
+// (Stelle fuer Stelle), Suffixe wie "-beta" werden ignoriert.
+// Rueckgabe: negativ wenn a < b, 0 wenn gleich, positiv wenn a > b.
+// Fehlt/unparsebar eine Seite, wird sie als 0.0.0 behandelt.
+function _verCmp(a, b) {
+  function parse(v) {
+    if (typeof v !== "string") return [0, 0, 0, 0];
+    const core = v.split("-")[0];            // "0.4.369.1-beta" -> "0.4.369.1"
+    const parts = core.split(".").map(function (n) {
+      const x = parseInt(n, 10);
+      return isNaN(x) ? 0 : x;
+    });
+    while (parts.length < 4) parts.push(0);
+    return parts.slice(0, 4);
+  }
+  const pa = parse(a), pb = parse(b);
+  for (let i = 0; i < 4; i++) {
+    if (pa[i] !== pb[i]) return pa[i] - pb[i];
+  }
+  return 0;
+}
+

@@ -27,7 +27,9 @@ let pWarpAffected = { warpsLeft: false, warpsRight: false };
 let pRubberbandOptions = {
   engine:   "r3",        // "r3" | "r2"
   material: "standard",  // "standard" | "speech" | "percussive"
-  formant:  true,        // FormantPreserved an
+  formant:  false,       // BA369: Default AUS — Formanten wandern mit,
+                         // Mickey-Maus-Effekt wird simuliert (sicherer
+                         // Default). Option bleibt nutzerseitig schaltbar.
   fast:     false,       // R3: PitchHighSpeed; R2: WindowShort
   realtime: false,       // BA367 Testschalter: Rubberband Realtime-Modus
                          // (Elastic). NICHT persistent — faellt bei
