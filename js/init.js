@@ -548,6 +548,16 @@ document.addEventListener("DOMContentLoaded", () => {
     _pRbOptOnChange();
   });
 
+  // BA367: Realtime-Testschalter. Bewusst NICHT persistent (nicht in
+  // _autoSaveState/JSON aufgenommen) — _pRbOptOnChange ruft zwar
+  // _autoSaveState auf, aber pRubberbandOptions.realtime wird in den
+  // Save-Stellen (file.js/print-md.js/init.js) absichtlich nicht
+  // mitserialisiert, faellt also bei Neuladen auf false zurueck.
+  document.getElementById("plWarpRealtime").addEventListener("change", function () {
+    pRubberbandOptions.realtime = !!this.checked;
+    _pRbOptOnChange();
+  });
+
   // Hinweistext-Sichtbarkeit beim ersten Render synchronisieren.
   _pRbOptUpdateR3Hint();
   // Stärke-Buttons

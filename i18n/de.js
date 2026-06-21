@@ -854,6 +854,7 @@ Object.assign(L.de, {
     pwOptionsLabel: "Optionen",
     pwOptFormant:   "Formante erhalten",
     pwOptFast:      "Schnell",
+    pwOptRealtime:  "Realtime-Modus (Test)",
     pwStatusReady: "Bereit",
     pwStatusBusy: "Berechne…",
     pwStatusActiveRubberband: "Aktiv – Rubberband ({n} Stützpunkte)",

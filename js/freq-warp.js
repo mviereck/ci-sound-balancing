@@ -22,13 +22,16 @@ let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 
 // BA 191: Rubberband-Optionen. Wird per UI gesetzt, in localStorage
-// und JSON-Save persistiert. `realtime` ist Platzhalter fuer den
-// spaeter geplanten Live-Modus (BA folgt) und bleibt hier immer false.
+// und JSON-Save persistiert. `realtime` ist BA367 Testschalter und
+// bewusst NICHT persistent — faellt bei Neuladen auf false zurueck.
 let pRubberbandOptions = {
   engine:   "r3",        // "r3" | "r2"
   material: "standard",  // "standard" | "speech" | "percussive"
   formant:  true,        // FormantPreserved an
   fast:     false,       // R3: PitchHighSpeed; R2: WindowShort
+  realtime: false,       // BA367 Testschalter: Rubberband Realtime-Modus
+                         // (Elastic). NICHT persistent — faellt bei
+                         // Neuladen auf false zurueck.
 };
 
 // Liefert die Rubberband-Bit-Maske aus dem Options-Objekt.
@@ -587,7 +590,7 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
     material: pRubberbandOptions.material,
     formant:  pRubberbandOptions.formant,
     fast:     pRubberbandOptions.fast,
-    realtime: false,
+    realtime: !!pRubberbandOptions.realtime,
   });
 
   if (decided.needL) {
