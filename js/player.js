@@ -1332,14 +1332,18 @@ function plNavHasPrev() {
 
 // Zeiger auf item setzen, laden, von vorn abspielen (Vor/Zurueck loesen
 // immer Play aus). select setzt NUR den Zeiger; load laedt; pOff=0 = von vorn.
+// Zeiger auf item setzen, laden, danach abspielen NUR wenn vorher
+// gespielt wurde (Auswahl wie Vor/Zurueck folgen demselben Verhalten).
+// Die Abspiel-Position (0 s bzw. Hoerbuch-Sekunde) bestimmt cat.load(),
+// NICHT diese Funktion -- darum kein pOff hier.
 function _plNavGoTo(item) {
   const cat = plCurrentCategory();
   if (!cat || !item) return;
+  const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
   cat.select(item);
-  if (typeof pPause === "function" && typeof pPlaying !== "undefined" && pPlaying) pPause();
+  if (wasPlaying && typeof pPause === "function") pPause();
   Promise.resolve(cat.load()).then(function () {
-    pOff = 0;
-    if (typeof pPlay === "function") pPlay();
+    if (wasPlaying && typeof pPlay === "function") pPlay();
   });
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
@@ -2502,15 +2506,11 @@ PL_FILTER_DECL.geraeusche = {
       emptyDomId: "plNoiseEmpty",
       getItemLabel: function (it) { return it.title || it.id; },
       onItemSelect: function (id) {
-        plNoiseSelectedId = id;
-        if (plActiveSource === "geraeusche") {
-          var wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
-          if (wasPlaying) { if (typeof pPause === "function") pPause(); }
-          plNoiseLoadSelected().then(function () {
-            if (wasPlaying && typeof pPlay === "function") pPlay();
-          });
-        }
-        if (typeof plUpdDisplay === "function") plUpdDisplay();
+        if (plActiveSource !== "geraeusche") { plNoiseSelectedId = id; return; }
+        var item = (typeof plNoiseVisibleItems === "function")
+          ? plNoiseVisibleItems().find(function (it) { return it.id === id; })
+          : null;
+        if (item) _plNavGoTo(item);
       }
     }
   ],
@@ -2573,6 +2573,7 @@ async function plNoiseLoadSelected() {
 
   pNoiseBuf = abuf;
   pSetPlaybackMode("geraeusche");
+  pOff = 0;
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
   pBuildEQ();
@@ -2666,11 +2667,12 @@ async function plMusicLoadSelected() {
   }
 }
 
-// Wahl im Item-Dropdown wechseln + ggf. abspielen
+// Wahl im Item-Dropdown -> ueber die zentrale Engine (select/load/Play).
 function plMusicSetSelected(id) {
   if (!id) return;
-  plMusicSelectedId = id;
-  plMusicLoadSelected();
+  const item = plMusicAllItems().find(function (it) { return it.id === id; });
+  if (!item) return;
+  _plNavGoTo(item);
 }
 
 // Erstaufbau Musik-UI (Wiring + initiale Befuellung via plBuildFilterChain)
@@ -2897,9 +2899,15 @@ PL_FILTER_DECL.hoerbuecher = {
       id: "chapter", kind: "chapter-sel", domId: "plBookChSel",
       onChapterSelect: function (idx) {
         plBookSavePosition();
-        plBookChapterIdx = idx;
-        if (typeof plUpdDisplay === "function") plUpdDisplay();
-        if (plActiveSource === "hoerbuecher") plBookLoadSelected();
+        var col = (typeof plBookCurrentCollection === "function") ? plBookCurrentCollection() : null;
+        var item = (col && Array.isArray(col.items)) ? col.items[idx] : null;
+        if (plActiveSource !== "hoerbuecher") {
+          plBookChapterIdx = idx;
+          if (typeof plUpdDisplay === "function") plUpdDisplay();
+          return;
+        }
+        if (item) _plNavGoTo(item);
+        else if (typeof plUpdDisplay === "function") plUpdDisplay();
       }
     }
   ],

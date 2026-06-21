@@ -394,6 +394,15 @@ async function saveJson() {
     // plBook*, plMusic*, localCollections) werden nicht mehr gespeichert — Box ist zustandslos.
     // BA336: Inhalts-Sprache — einzige persistente Box-Einstellung.
     playerContentLang: (typeof plContentLang !== "undefined") ? plContentLang : "de",
+    // BA366.1: Hoerbuch-Positionen (max. 30 neueste Eintraege nach Key-Reihenfolge).
+    plBookPositions: (function () {
+      const pos = (typeof plBookPositions !== "undefined" && plBookPositions) ? plBookPositions : {};
+      const keys = Object.keys(pos);
+      if (keys.length <= 30) return pos;
+      const kept = {};
+      keys.slice(keys.length - 30).forEach(function (k) { kept[k] = pos[k]; });
+      return kept;
+    }()),
     userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
     userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
     userFirstName:  (typeof userFirstName  === "string") ? userFirstName  : "",
@@ -788,6 +797,10 @@ function applyLoadedData(d) {
   if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
   // BA323: Player-Box-Felder werden beim Laden nicht mehr angewendet — Box ist zustandslos.
   // Alte JSON-Dateien mit diesen Feldern werden fehlerfrei ignoriert.
+  // BA366.1: Hoerbuch-Positionen zusammenfuehren (Datei-Eintraege haben Vorrang).
+  if (d.plBookPositions && typeof d.plBookPositions === "object" && typeof plBookPositions !== "undefined") {
+    Object.assign(plBookPositions, d.plBookPositions);
+  }
   // BA336: Inhalts-Sprache — einzige persistente Box-Einstellung.
   if (typeof d.playerContentLang === "string" && d.playerContentLang) {
     if (typeof plContentLang !== "undefined") {
