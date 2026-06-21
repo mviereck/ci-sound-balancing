@@ -866,7 +866,7 @@ Object.assign(L.de, {
     pwStatusBusyProgress: "Berechne… {pct} %",
     plWarpStopBtn: "Berechnung stoppen",
     plWarpBusyTooltip: "Frequenz-Warping wird noch berechnet. Bitte warten.",
-    pwProgressLabel: "Warp:",
+    pwProgressLabel: "Berechnung Frequenz Warping:",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Elektrodenlautstärke ausgleichen",
     testIntro:
