@@ -16,14 +16,21 @@ let pWarpOn = false;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
+let pWarpLive = true;          // BA370: "Live-Berechnung" (gestreamtes
+                               // Warping). Persistent (localStorage + JSON),
+                               // Default an. In S0 noch ohne Funktion —
+                               // Verkabelung an die Streaming-Engine in S1/S2.
 let pWarpBusy = false;
 let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 
-// BA 191: Rubberband-Optionen. Wird per UI gesetzt, in localStorage
-// und JSON-Save persistiert. `realtime` ist BA367 Testschalter und
-// bewusst NICHT persistent — faellt bei Neuladen auf false zurueck.
+// BA 191: Rubberband-Optionen. engine/material/formant/fast werden per UI
+// gesetzt und persistiert. `realtime` und `liveShifter` sind RESERVE
+// (BA370): ab S0 ohne UI, nur per Konsole erreichbar
+// (pRubberbandOptions.realtime = true / .liveShifter = true). Bewusst
+// behalten fuer die Streaming-Arbeit — NICHT als toten Code entfernen.
+// Beide sind nicht persistent (werden beim Laden ignoriert, Default false).
 let pRubberbandOptions = {
   engine:   "r3",        // "r3" | "r2"
   material: "standard",  // "standard" | "speech" | "percussive"
@@ -98,6 +105,8 @@ function _rbBuildOptionBits(opts) {
   return bits;
 }
 
+// BA370 RESERVE: LiveShifter-Pfad, nur per Konsole erreichbar
+// (pRubberbandOptions.liveShifter = true). Bewusst behalten — nicht loeschen.
 // BA368: Option-Bits fuer den RubberBandLiveShifter (eigene, kleinere
 // Enum als der Stretcher). Window fest auf Medium (beste Qualitaet —
 // vorberechnet, "Schnell" ist hier bedeutungslos). Formant aus UI.
@@ -530,6 +539,8 @@ async function _rbProcessMonoSide(rb, srcMono, sampleRate, bands, csValues, onBa
   return out;
 }
 
+// BA370 RESERVE: LiveShifter-Pfad, nur per Konsole erreichbar
+// (pRubberbandOptions.liveShifter = true). Bewusst behalten — nicht loeschen.
 // BA368: LiveShifter-Variante von _rbProcessMonoSide. Nutzt den
 // RubberBandLiveShifter (reiner Pitch-Shift, feste Blockgroesse) statt
 // des Stretchers. Vorberechnet wie die Stretcher-Variante: blockweise
@@ -570,6 +581,8 @@ async function _rbProcessMonoSideLive(rb, srcMono, sampleRate, bands, csValues, 
   return out;
 }
 
+// BA370 RESERVE: LiveShifter-Pfad, nur per Konsole erreichbar
+// (pRubberbandOptions.liveShifter = true). Bewusst behalten — nicht loeschen.
 // BA368: Pitch-Shift eines Mono-Signals via RubberBandLiveShifter.
 // Liefert Float32Array gleicher Laenge wie signal (Anfangs-Latenz
 // abgeschnitten). cents > 0: hoeher, < 0: tiefer.
@@ -736,6 +749,8 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
     }
   };
 
+  // BA370 RESERVE: Methoden-/Realtime-Auswahl bleibt erhalten, auch wenn
+  // die UI-Schalter entfernt sind. liveShifter/realtime nur per Konsole.
   const useLive = !!pRubberbandOptions.liveShifter;
 
   const optionBits = useLive
@@ -989,6 +1004,13 @@ function pWarpCancelCompute() {
 // damit der gespeicherte pWarpMode nicht beim nächsten Insert
 // überschrieben wird.
 let _pPlayerWarpDefaultApplied = false;
+
+// BA370: Spiegelt den persistenten pWarpLive-Wert auf die Checkbox.
+// Nach jedem Laden (localStorage-Autoload, JSON-Datei) aufrufen.
+function pApplyWarpLive() {
+  const cb = document.getElementById("plWarpLive");
+  if (cb) cb.checked = !!pWarpLive;
+}
 
 function pApplyWarpModeDefaultFromFm() {
   if (_pPlayerWarpDefaultApplied) return;

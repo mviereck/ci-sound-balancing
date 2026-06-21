@@ -1009,7 +1009,10 @@
                 type="button"
                 style="background:none;border:none;cursor:pointer;font-size:1.1em;padding:2px 4px;color:var(--text-muted);line-height:1;vertical-align:middle"
               >&#9654;</button>
-              <span data-t="plWarpExpNote" style="font-size:0.82em;color:var(--text-muted)"></span>
+              <label style="font-size:0.85em;display:flex;align-items:center;gap:5px;cursor:pointer;color:var(--text-muted)">
+                <input type="checkbox" id="plWarpLive" checked />
+                <span data-t="pwOptLive"></span>
+              </label>
               <span id="plLockHintWarp" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
             </div>
           </div>
@@ -1056,17 +1059,6 @@
                     <span data-t="pwOptFast"></span>
                   </label>
                 </div>
-              </div>
-
-              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:5px;margin-top:6px;padding-top:8px;border-top:1px solid var(--border)">
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="checkbox" id="plWarpRealtime" />
-                  <span data-t="pwOptRealtime"></span>
-                </label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="checkbox" id="plWarpLiveShifter" />
-                  <span data-t="pwOptLiveShifter"></span>
-                </label>
               </div>
 
               <div class="control-group">

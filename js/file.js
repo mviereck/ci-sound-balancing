@@ -386,6 +386,7 @@ async function saveJson() {
     warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
     warpRbOptions: (typeof pRubberbandOptions !== "undefined")
       ? { ...pRubberbandOptions } : null,
+    playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -789,6 +790,9 @@ function applyLoadedData(d) {
     if (cS) cS.checked = !!pRubberbandOptions.fast;
     if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
   }
+  // BA370: Live-Berechnung. Migration: fehlender Wert => an (Default true).
+  pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;
+  if (typeof pApplyWarpLive === "function") pApplyWarpLive();
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.

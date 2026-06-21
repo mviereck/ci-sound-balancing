@@ -548,22 +548,13 @@ document.addEventListener("DOMContentLoaded", () => {
     _pRbOptOnChange();
   });
 
-  // BA367: Realtime-Testschalter. Bewusst NICHT persistent (nicht in
-  // _autoSaveState/JSON aufgenommen) — _pRbOptOnChange ruft zwar
-  // _autoSaveState auf, aber pRubberbandOptions.realtime wird in den
-  // Save-Stellen (file.js/print-md.js/init.js) absichtlich nicht
-  // mitserialisiert, faellt also bei Neuladen auf false zurueck.
-  document.getElementById("plWarpRealtime").addEventListener("change", function () {
-    pRubberbandOptions.realtime = !!this.checked;
-    _pRbOptOnChange();
-  });
-
-  // BA368: LiveShifter-Testschalter. Wie der Realtime-Schalter bewusst
-  // NICHT persistent (nicht in den Save-Stellen serialisiert). Ist er an,
-  // laeuft der LiveShifter-Pfad und das realtime-Bit wird ignoriert.
-  document.getElementById("plWarpLiveShifter").addEventListener("change", function () {
-    pRubberbandOptions.liveShifter = !!this.checked;
-    _pRbOptOnChange();
+  // BA370 (S0): Live-Berechnung-Checkbox. Persistenter State; die
+  // eigentliche Verkabelung an die Streaming-Engine folgt in S1/S2.
+  // In S0 ist die Checkbox bewusst noch ohne Funktion (Architektur-Kapitel
+  // 00-warp-streaming-architektur.md, Abschnitt 7 / S0).
+  document.getElementById("plWarpLive").addEventListener("change", function () {
+    pWarpLive = !!this.checked;
+    if (typeof _autoSaveState === "function") _autoSaveState();
   });
 
   // Hinweistext-Sichtbarkeit beim ersten Render synchronisieren.
@@ -745,6 +736,9 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cS) cS.checked = !!pRubberbandOptions.fast;
           if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
         }
+        // BA370: Live-Berechnung. Migration: fehlender Wert => an.
+        pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;
+        if (typeof pApplyWarpLive === "function") pApplyWarpLive();
       }
       // BA 177: wenn beim Auto-Restore schon Frequenzabgleich-Messungen
       // vorhanden sind, Default-Anwendungs-Flag setzen.
@@ -1037,6 +1031,7 @@ document.addEventListener("DOMContentLoaded", () => {
           warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
           warpRbOptions: (typeof pRubberbandOptions !== "undefined")
             ? { ...pRubberbandOptions } : null,
+          playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
           version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
