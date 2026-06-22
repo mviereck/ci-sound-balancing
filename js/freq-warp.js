@@ -1126,24 +1126,23 @@ function pWarpUpdUI() {
     cbEl.style.borderColor = "var(--border)";
   }
 
+  // SW (BA378): Play-Button NICHT mehr sperren. Berechnung und Wiedergabe
+  // sind getrennt -- Play nimmt den Wunsch auch waehrend des Rechnens an.
   const playBtn = document.getElementById("plPlay");
-  const playLocked = pWarpBusy;
   if (playBtn) {
-    playBtn.disabled = playLocked;
-    playBtn.style.pointerEvents = playLocked ? "none" : "";
+    playBtn.disabled = false;
+    playBtn.style.pointerEvents = "";
   }
 
+  // Sanduhr = "Frequenz-Warping-Berechnung laeuft" (nur waehrend pWarpBusy).
   const busyIcon = document.getElementById("plPlayBusyIcon");
-  if (busyIcon) busyIcon.style.display = playLocked ? "" : "none";
+  if (busyIcon) busyIcon.style.display = pWarpBusy ? "" : "none";
 
+  // Tooltip auf festen Text reduziert (kein Prozent, kein Sperr-Bezug).
   const busyTip = document.getElementById("plPlayBusyTip");
   if (busyTip) {
-    let tipText = t("plWarpBusyTooltip");
-    if (pWarpProgress > 0) {
-      tipText += " " + Math.round(pWarpProgress * 100) + " %";
-    }
-    busyTip.textContent = tipText;
-    if (!playLocked) busyTip.style.display = "none";
+    busyTip.textContent = t("plWarpBusyTooltip");
+    if (!pWarpBusy) busyTip.style.display = "none";
   }
 
   // Fortschrittsbalken im Transport-Bereich
@@ -1376,7 +1375,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!wrap || !tip || !btn) return;
 
   const show = () => {
-    if (!btn.disabled) return;
+    if (typeof pWarpBusy === "undefined" || !pWarpBusy) return;  // SW (BA378)
     tip.style.display = "";
   };
   const hide = () => { tip.style.display = "none"; };

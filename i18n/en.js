@@ -790,7 +790,7 @@ Object.assign(L.en, {
     pwHintNoFRes: "Please run the frequency matching test first.",
     pwStatusBusyProgress: "Computing… {pct} %",
     plWarpStopBtn: "Stop computation",
-    plWarpBusyTooltip: "Frequency warping is still being computed. Please wait.",
+    plWarpBusyTooltip: "Frequency warping is calculating",
     // New keys for unified test UI
     testExplainTitle: "Balance electrode loudness",
     testIntro:

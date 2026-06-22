@@ -791,7 +791,7 @@ Object.assign(L.fr, {
     pwHintNoFRes: "Veuillez d'abord effectuer le test d'appariement fréquentiel.",
     pwStatusBusyProgress: "Calcul en cours… {pct} %",
     plWarpStopBtn: "Arrêter le calcul",
-    plWarpBusyTooltip: "Le warping fréquentiel est encore en cours de calcul. Veuillez patienter.",
+    plWarpBusyTooltip: "Calcul du warping fréquentiel en cours",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Équilibrer l'intensité des électrodes",
     testIntro:

@@ -791,7 +791,7 @@ Object.assign(L.es, {
     pwHintNoFRes: "Por favor, realice primero la prueba de ajuste de frecuencia.",
     pwStatusBusyProgress: "Calculando… {pct} %",
     plWarpStopBtn: "Detener cálculo",
-    plWarpBusyTooltip: "El warping de frecuencia se está calculando. Por favor espere.",
+    plWarpBusyTooltip: "Calculando el warping de frecuencia",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Compensar volumen de electrodos",
     testIntro:

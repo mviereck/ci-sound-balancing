@@ -855,7 +855,7 @@ Object.assign(L.de, {
     pwHintNoFRes: "Bitte zuerst den Frequenzabgleich-Test durchführen.",
     pwStatusBusyProgress: "Berechne… {pct} %",
     plWarpStopBtn: "Berechnung stoppen",
-    plWarpBusyTooltip: "Frequenz-Warping wird noch berechnet. Bitte warten.",
+    plWarpBusyTooltip: "Frequenz-Warping-Berechnung läuft",
     pwProgressLabel: "Berechnung Frequenz Warping:",
     // Neue Keys für vereinheitlichte Test-UI
     testExplainTitle: "Elektrodenlautstärke ausgleichen",

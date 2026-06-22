@@ -30,6 +30,39 @@ let pCtx = null,
   pT0 = 0,
   pWarpComputingPromise = null;  // Handle auf laufende Warp-Berechnung (für pPlay-Warten)
 
+let pPlayWish = false;   // SW (BA378): gemerkter Play-Wunsch. true = Nutzer
+                         // will spielen, Wiedergabe startet sobald Gate offen.
+                         // Einzige Schreibstellen: _pSetPlayWish().
+
+// SW (BA378): einzige Schreibstelle fuer pPlayWish. wish=true -> Play
+// angefordert; wish=false -> Wunsch zurueckgenommen (kein Auto-Start).
+// Aktualisiert die Button-Optik (amber im Warten) zentral mit.
+function _pSetPlayWish(wish) {
+  pPlayWish = !!wish;
+  pUpdBtn();
+}
+
+// SW (BA378): Start-Gate. Gibt true zurueck, wenn an der aktuellen
+// Abspielposition abgespielt werden darf:
+//  - Warp aus / Modus "Beste": sobald pBuf vorliegt (Voll-Buffer fertig).
+//  - Streaming (Schnell/Mittel): sobald der gemessene Vorlauf erreicht ist.
+// pWarpBusy allein sperrt NICHT mehr (Button bleibt bedienbar).
+function _pGateOpen() {
+  const streaming = (typeof pWarpOn !== "undefined") && pWarpOn
+                 && (typeof plEqOn === "undefined" || plEqOn)
+                 && (typeof _warpUseStreamingForMode === "function")
+                 && _warpUseStreamingForMode()
+                 && (typeof pWarpBusy !== "undefined") && pWarpBusy;
+
+  if (!streaming) {
+    return !!pBuf;
+  }
+
+  return _streamRFinal
+      && _streamDoneSec >= _streamReleaseSec
+      && _streamDoneSec >= _streamStartPos;
+}
+
 // BA371: Streaming-Wiedergabe-State (Streaming-Pfad, Modi "fast"/"mid").
 // Aktiv während erstem Durchlauf eines Stücks im Streaming-Modus.
 let _streamSources = [];       // laufende Abschnitts-BufferSources
@@ -231,6 +264,10 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
   _streamDoneSec = (segStart + segLen) / sr0;
 
   if (!_streamFirstReady) {
+    // SW (BA378): Ohne Play-Wunsch nur rechnen, nicht abspielen.
+    // (Auto-Play bei bloszem Auswaehlen ist damit beseitigt.)
+    if (!pPlayWish) return;
+
     // BA376: Abschnitte, die komplett vor der Startposition p liegen:
     // nur zaehlen, kein Ton. (segStart+segLen)/sr0 <= p bedeutet, der
     // Abschnitt endet spaetestens bei p -- nichts davon abspielen.
@@ -299,6 +336,7 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
 
     // pPlaying-State setzen (damit Pause/Stop-Buttons und pTick korrekt sind).
     // BA376: pT0 = currentTime - p (nicht - pOff), damit Slider bei p startet.
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA378): Wunsch erfuellt
     pPlaying = true;
     pT0 = c.currentTime - _streamStartPos;
     if (typeof pUpdBtn === "function") pUpdBtn();
@@ -941,6 +979,7 @@ async function pPlay() {
 
   pT0 = c.currentTime - pOff;
   pPlaying = true;
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA378): Wunsch erfuellt
   pUpdBtn();
   requestAnimationFrame(pTick);
 }
@@ -975,6 +1014,7 @@ function pPause() {
     if (pOff > pBuf.duration) pOff = 0;
   }
   pPlaying = false;
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA378)
   pUpdBtn();
 }
 
@@ -983,6 +1023,7 @@ function pStopReset() {
   // async Vocoder-pPlay im await hängt), aber Sources schon laufen — sonst
   // bleibt der Ton hängen und der Stop-Button wirkt nicht.
   if (pPlaying || pSrc || pCurrentPlayback) pPause();
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA378): Stop bricht Warten ab
   pOff = 0;
   pUpdBtn();
   pUpdTL();
@@ -1003,9 +1044,13 @@ function pUpdTL() {
 }
 
 function pUpdBtn() {
-  document.getElementById("plPlay").textContent = pPlaying
-    ? "\u23F8"
-    : "\u25B6";
+  const btn = document.getElementById("plPlay");
+  if (!btn) return;
+  btn.textContent = pPlaying ? "\u23F8" : "\u25B6";
+  // SW (BA378): Warte-Zustand = Play-Wunsch liegt vor, aber es spielt noch
+  // nicht (Gate zu). Dann Play-Symbol gedaempft amber statt schwarz.
+  const waiting = !pPlaying && (typeof pPlayWish !== "undefined") && pPlayWish;
+  btn.style.color = waiting ? "#d97706" : "";   // amber-600; "" = Default (schwarz)
 }
 
 function pFmt(s) {
@@ -1320,6 +1365,16 @@ function plPlayPauseToggle() {
     if (typeof pPause === "function") pPause();
     return;
   }
+  // SW (BA378): Wartet schon auf das Gate -> erneuter Klick bricht den
+  // Wunsch ab (kein Auto-Start, Berechnung laeuft im Hintergrund weiter).
+  if (pPlayWish) {
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
+    return;
+  }
+  // SW (BA378): Play-Wunsch setzen. pPlay() bzw. der Streaming-Pfad
+  // entscheiden ueber das Gate, ob sofort Ton kommt oder gewartet wird.
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+
   // Pausiert mit geladenem Puffer -> an gemerkter Position fortsetzen.
   if (pBuf) {
     if (typeof pPlay === "function") pPlay();
@@ -1327,9 +1382,12 @@ function plPlayPauseToggle() {
   }
   // Kein Puffer -> aktuellen Zeiger sicherstellen, laden, abspielen.
   const cat = plCurrentCategory();
-  if (!cat) return;
+  if (!cat) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(false); return; }
   if (typeof plNavEnsureCursor === "function") plNavEnsureCursor();
-  if (!cat.current || !cat.current()) return;   // leere Liste -> nichts
+  if (!cat.current || !cat.current()) {        // leere Liste -> nichts
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
+    return;
+  }
   Promise.resolve(cat.load()).then(function () {
     if (typeof pPlay === "function") pPlay();
   }).catch(function (err) { console.error("[player] Play-Laden:", err); });
