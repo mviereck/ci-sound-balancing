@@ -441,16 +441,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Warp-Checkbox
   document.getElementById("plWarpOn").addEventListener("click", function () {
     pWarpOn = !pWarpOn;
-    // Wenn Warp deaktiviert wird waehrend Berechnung laeuft: abbrechen.
-    // pWarpTrigger() uebernimmt danach (pBuf, pPlay, UI-Update).
-    if (!pWarpOn && typeof pWarpBusy !== "undefined" && pWarpBusy) {
-      if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
-      if (typeof drawLvChart === "function") drawLvChart();
-      if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
-      return;
-    }
     pWarpUpdUI();
+
+    // EINschalten ohne fertigen Buffer -> Berechnung (an)starten.
+    // pWarpTrigger uebernimmt Play-Kopplung (Voll-Pfad: nach Fertigstellung;
+    // Streaming: nach Vorlauf). Bei laufendem Play wird in pWarpTrigger
+    // pausiert und nach Bereitschaft gewarpt weitergespielt.
     if (pWarpOn && !pWarpedBuf) {
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
@@ -458,6 +454,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
       return;
     }
+
+    // Sonst: zeitsynchron zwischen gewarpt/ungewarpt umschalten.
+    // AUSschalten bei laufender Berechnung bricht NICHT ab -- die Berechnung
+    // laeuft im Hintergrund weiter; getPlaybackBuffer liefert hier ungewarpt
+    // (pWarpOn === false), die Wiedergabe wechselt sofort.
     const wasPlaying = pPlaying;
     if (wasPlaying) pPause();
     pBuf = getPlaybackBuffer();
@@ -468,6 +469,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
+  // BA374: Stop-Button am Fortschrittsbalken. Bricht die Berechnung ab,
+  // schaltet Frequenz-Warping aus und spielt ungewarpt an gleicher
+  // Position weiter.
+  const _plWarpStopBtn = document.getElementById("plWarpStopBtn");
+  if (_plWarpStopBtn) {
+    _plWarpStopBtn.addEventListener("click", () => {
+      if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
+      pWarpOn = false;
+      const wasPlaying = pPlaying;
+      if (wasPlaying) pPause();
+      pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
+      if (typeof pWarpUpdUI === "function") pWarpUpdUI();
+      if (wasPlaying) pPlay();
+      if (typeof drawLvChart === "function") drawLvChart();
+      if (typeof pDrawEQ === "function") pDrawEQ();
+      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
+    });
+  }
+
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet

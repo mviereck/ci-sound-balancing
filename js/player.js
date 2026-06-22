@@ -175,6 +175,7 @@ function _buildWarpedSegmentBuffer(segStart, segLen) {
 async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
   if (!pWarpedBuf) return;
   if (typeof pWarpGen !== "undefined" && gen !== pWarpGen) return;
+  if (typeof pWarpOn !== "undefined" && !pWarpOn) return;  // BA374: Warp aus -> nur rechnen, nicht abspielen
 
   const c = gPC();
   const sr = pWarpedBuf.sampleRate;
