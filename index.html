@@ -1004,109 +1004,18 @@
                 id="plWarpOn"
                 style="font-weight: 600; min-width: 180px; border-radius: 6px"
               ></button>
-              <button
-                id="plWarpSettingsToggle"
-                type="button"
-                style="background:none;border:none;cursor:pointer;font-size:1.1em;padding:2px 4px;color:var(--text-muted);line-height:1;vertical-align:middle"
-              >&#9654;</button>
+              <label style="font-size:0.85em;display:flex;align-items:center;gap:5px" data-t="pwMode"></label>
+              <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
+                <option value="left" data-t-opt="pwModeLeft"></option>
+                <option value="right" data-t-opt="pwModeRight" selected></option>
+                <option value="symmetric" data-t-opt="pwModeSym"></option>
+              </select>
               <label style="font-size:0.85em;display:flex;align-items:center;gap:5px;cursor:pointer;color:var(--text-muted)">
                 <input type="checkbox" id="plWarpLive" checked />
                 <span data-t="pwOptLive"></span>
               </label>
               <span id="plLockHintWarp" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
             </div>
-          </div>
-          <div id="plWarpSettingsBox" style="display:none;margin-top:4px;margin-left:15px;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
-            <div class="controls-row" style="margin-bottom:6px;flex-wrap:wrap;gap:14px;align-items:flex-start">
-              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
-                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwEngineLabel"></label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="radio" name="plWarpEngine" value="r3" checked />
-                  <span data-t="pwEngineR3"></span>
-                </label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="radio" name="plWarpEngine" value="r2" />
-                  <span data-t="pwEngineR2"></span>
-                </label>
-              </div>
-
-              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
-                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwMaterialLabel"></label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="radio" name="plWarpMaterial" value="standard" checked />
-                  <span data-t="pwMaterialStandard"></span>
-                </label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="radio" name="plWarpMaterial" value="speech" />
-                  <span data-t="pwMaterialSpeech"></span>
-                </label>
-                <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                  <input type="radio" name="plWarpMaterial" value="percussive" />
-                  <span data-t="pwMaterialPercussive"></span>
-                </label>
-                <span id="plWarpMaterialR3Hint" style="font-size:0.76em;color:var(--text-muted);margin-top:2px;display:none;max-width:180px" data-t="pwMaterialR3Hint"></span>
-              </div>
-
-              <div class="control-group" style="flex-direction:column;align-items:flex-start;gap:3px">
-                <label style="font-size:0.78em;color:var(--text-muted)" data-t="pwOptionsLabel"></label>
-                <div style="display:flex;gap:14px">
-                  <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                    <input type="checkbox" id="plWarpFormant" />
-                    <span data-t="pwOptFormant"></span>
-                  </label>
-                  <label style="font-size:0.88em;display:flex;align-items:center;gap:5px;cursor:pointer">
-                    <input type="checkbox" id="plWarpFast" />
-                    <span data-t="pwOptFast"></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="control-group">
-                <label data-t="pwMode" style="margin-right:6px"></label>
-                <select id="plWarpModeSelect" style="padding:3px 6px;border:1px solid var(--border);border-radius:4px;font-size:0.88em">
-                  <option value="left" data-t-opt="pwModeLeft"></option>
-                  <option value="right" data-t-opt="pwModeRight" selected></option>
-                  <option value="symmetric" data-t-opt="pwModeSym"></option>
-                </select>
-              </div>
-            </div>
-            <div class="controls-row">
-              <div class="control-group">
-                <label data-t="pwStrength" style="margin-right:6px"></label>
-                <input
-                  type="number"
-                  id="plWarpStr"
-                  value="100"
-                  min="0"
-                  max="150"
-                  step="1"
-                  style="width:60px;padding:3px 5px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono);font-size:0.88em"
-                />%
-              </div>
-              <div class="btn-group" style="margin-left:6px">
-                <button class="btn btn-sm plWarpStrBtn" data-v="50">50%</button
-                ><button class="btn btn-sm plWarpStrBtn" data-v="75">75%</button
-                ><button class="btn btn-sm plWarpStrBtn" data-v="100">100%</button
-                ><button class="btn btn-sm plWarpStrBtn" data-v="150">150%</button>
-              </div>
-            </div>
-            <div
-              id="plWarpStatusRow"
-              style="margin-top:8px;display:flex;align-items:center;gap:10px"
-            >
-              <span
-                id="plWarpStatus"
-                style="font-size:0.85em;color:var(--text-muted);flex:1"
-              ></span>
-              <button
-                type="button"
-                class="btn btn-sm"
-                id="plWarpStopBtn"
-                data-t="plWarpStopBtn"
-                style="display:none;background:#c00;color:#fff;border-color:#900;font-size:0.85em"
-              ></button>
-            </div>
-            <div id="plWarpHint" style="margin-top:4px;font-size:0.85em;color:var(--warning);display:none"></div>
           </div>
           <!-- Zeile 3a: Stereo-Balance + Dropdown -->
           <div class="controls-row" style="margin-top: 8px">

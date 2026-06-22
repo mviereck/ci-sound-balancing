@@ -468,11 +468,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
-  // Dreieck-Button: Warp-Einstellungen auf-/zuklappen
-  document.getElementById("plWarpSettingsToggle").addEventListener("click", function () {
-    pWarpSettingsOpen = !pWarpSettingsOpen;
-    pWarpUpdUI();
-  });
   // Gemeinsamer Reaktor auf Parameteränderungen (Modus, Stärke):
   // - Offline: Vorberechnung neu anstoßen (pWarpTrigger regelt pause/resume)
   // - Vocoder: knackfreier postMessage-Update an laufenden Worklet
@@ -491,63 +486,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
-  // Stärke-Eingabe
-  document.getElementById("plWarpStr").addEventListener("change", function () {
-    let v = Math.max(0, Math.min(150, parseInt(this.value) || 0));
-    this.value = v;
-    pWarpStrength = v;
-    _pWarpParamsChanged();
-    if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
-    if (typeof drawLvChart === "function") drawLvChart();
-    if (typeof pDrawEQ === "function") pDrawEQ();
-    if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
-  });
-  // BA 191: Rubberband-Optionen — Engine-/Material-Radios, Toggles.
-  // Aenderungen invalidieren den vorberechneten Buffer und triggern
-  // (bei aktivem Warp) eine Neuberechnung. Reiner Zustand wird ueber
-  // _autoSaveState() persistiert.
-  function _pRbOptUpdateR3Hint() {
-    const hint = document.getElementById("plWarpMaterialR3Hint");
-    if (!hint) return;
-    hint.style.display = (pRubberbandOptions.engine === "r3") ? "" : "none";
-  }
-  window._pRbOptUpdateR3Hint = _pRbOptUpdateR3Hint;
-
-  function _pRbOptOnChange() {
-    pWarpedBuf = null;
-    _pRbOptUpdateR3Hint();
-    if (typeof _autoSaveState === "function") _autoSaveState();
-    if (!pWarpOn) return;
-    pWarpTrigger();
-  }
-
-  document.querySelectorAll('input[name="plWarpEngine"]').forEach(function (r) {
-    r.addEventListener("change", function () {
-      if (!this.checked) return;
-      pRubberbandOptions.engine = (this.value === "r2") ? "r2" : "r3";
-      _pRbOptOnChange();
-    });
-  });
-
-  document.querySelectorAll('input[name="plWarpMaterial"]').forEach(function (r) {
-    r.addEventListener("change", function () {
-      if (!this.checked) return;
-      const v = this.value;
-      pRubberbandOptions.material = (v === "speech" || v === "percussive") ? v : "standard";
-      _pRbOptOnChange();
-    });
-  });
-
-  document.getElementById("plWarpFormant").addEventListener("change", function () {
-    pRubberbandOptions.formant = !!this.checked;
-    _pRbOptOnChange();
-  });
-
-  document.getElementById("plWarpFast").addEventListener("change", function () {
-    pRubberbandOptions.fast = !!this.checked;
-    _pRbOptOnChange();
-  });
-
   // BA370 (S0): Live-Berechnung-Checkbox. Persistenter State; die
   // eigentliche Verkabelung an die Streaming-Engine folgt in S1/S2.
   // In S0 ist die Checkbox bewusst noch ohne Funktion (Architektur-Kapitel
@@ -557,28 +495,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof _autoSaveState === "function") _autoSaveState();
   });
 
-  // Hinweistext-Sichtbarkeit beim ersten Render synchronisieren.
-  _pRbOptUpdateR3Hint();
-  // Stärke-Buttons
-  document.querySelectorAll(".plWarpStrBtn").forEach((b) =>
-    b.addEventListener("click", function () {
-      const v = parseInt(this.dataset.v);
-      document.getElementById("plWarpStr").value = v;
-      pWarpStrength = v;
-      _pWarpParamsChanged();
-      if (!pPlaying && typeof pBuildEQ === "function") pBuildEQ();
-      if (typeof drawLvChart === "function") drawLvChart();
-      if (typeof pDrawEQ === "function") pDrawEQ();
-      if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
-    })
-  );
-  // Stop-Button für Rubberband-Abbruch
-  const _plWarpStopBtn = document.getElementById("plWarpStopBtn");
-  if (_plWarpStopBtn) {
-    _plWarpStopBtn.addEventListener("click", () => {
-      if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
-    });
-  }
   // Warp-UI initialisieren
   _pWarpApplyLangTexts();
   if (typeof pWarpUpdUI === "function") pWarpUpdUI();
@@ -695,47 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const sel = document.getElementById("plWarpModeSelect");
           if (sel) sel.value = pWarpMode;
         }
-        if (typeof _wStrength === "number") {
-          pWarpStrength = _wStrength;
-          const ws = document.getElementById("plWarpStr");
-          if (ws) ws.value = pWarpStrength;
-        }
         if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-        if (typeof pRubberbandOptions !== "undefined"
-            && d.warpRbOptions && typeof d.warpRbOptions === "object") {
-          if (typeof d.warpRbOptions.engine === "string") {
-            pRubberbandOptions.engine = (d.warpRbOptions.engine === "r2") ? "r2" : "r3";
-          }
-          if (typeof d.warpRbOptions.material === "string") {
-            const m = d.warpRbOptions.material;
-            pRubberbandOptions.material = (m === "speech" || m === "percussive") ? m : "standard";
-          }
-          if (typeof d.warpRbOptions.formant === "boolean") {
-            // BA369: Staende, die VOR 0.4.369-beta gespeichert wurden, tragen
-            // formant:true nur als ungefragten Alt-Default — auf aus zwingen.
-            // Ab 0.4.369-beta ist der gespeicherte Wert bewusste Nutzerwahl
-            // und wird respektiert. Fehlt d.version (sehr alt), gilt der Stand
-            // als alt (_verCmp behandelt undefined als 0.0.0 < 0.4.369).
-            const _savedIsPreBA369 = (typeof _verCmp === "function")
-              && _verCmp(d.version, "0.4.369-beta") < 0;
-            pRubberbandOptions.formant = _savedIsPreBA369
-              ? false
-              : d.warpRbOptions.formant;
-          }
-          if (typeof d.warpRbOptions.fast === "boolean") {
-            pRubberbandOptions.fast = d.warpRbOptions.fast;
-          }
-          // UI-Sync
-          const rE = document.querySelector('input[name="plWarpEngine"][value="' + pRubberbandOptions.engine + '"]');
-          if (rE) rE.checked = true;
-          const rM = document.querySelector('input[name="plWarpMaterial"][value="' + pRubberbandOptions.material + '"]');
-          if (rM) rM.checked = true;
-          const cF = document.getElementById("plWarpFormant");
-          if (cF) cF.checked = !!pRubberbandOptions.formant;
-          const cS = document.getElementById("plWarpFast");
-          if (cS) cS.checked = !!pRubberbandOptions.fast;
-          if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
-        }
         // BA370: Live-Berechnung. Migration: fehlender Wert => an.
         pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;
         if (typeof pApplyWarpLive === "function") pApplyWarpLive();
@@ -1026,11 +902,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA323: Player-Box-Felder werden nicht mehr im Auto-Save gespeichert.
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
-
           warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
-          warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
-          warpRbOptions: (typeof pRubberbandOptions !== "undefined")
-            ? { ...pRubberbandOptions } : null,
           playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
           version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",

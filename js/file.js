@@ -203,30 +203,12 @@ function resetAll() {
   if (typeof pWarpOn !== "undefined") {
     pWarpOn = false;
     pWarpMode = "right";
-    pWarpStrength = 100;
-    const _ws  = document.getElementById("plWarpStr");
-    if (_ws) _ws.value = pWarpStrength;
     const _wmd = document.getElementById("plWarpModeSelect");
     if (_wmd) _wmd.value = pWarpMode;
     if (typeof _pPlayerWarpDefaultApplied !== "undefined") {
       _pPlayerWarpDefaultApplied = false;
     }
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-    if (typeof pRubberbandOptions !== "undefined") {
-      pRubberbandOptions.engine   = "r3";
-      pRubberbandOptions.material = "standard";
-      pRubberbandOptions.formant  = false;
-      pRubberbandOptions.fast     = false;
-      const rE = document.querySelector('input[name="plWarpEngine"][value="r3"]');
-      if (rE) rE.checked = true;
-      const rM = document.querySelector('input[name="plWarpMaterial"][value="standard"]');
-      if (rM) rM.checked = true;
-      const cF = document.getElementById("plWarpFormant");
-      if (cF) cF.checked = true;
-      const cS = document.getElementById("plWarpFast");
-      if (cS) cS.checked = false;
-      if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
-    }
   }
   // --- MAPLAW-Knopf ---
   if (typeof pMaplawOn !== "undefined") pMaplawOn = false;
@@ -383,9 +365,6 @@ async function saveJson() {
     pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
-    warpStrength: (typeof pWarpStrength !== "undefined") ? pWarpStrength : 100,
-    warpRbOptions: (typeof pRubberbandOptions !== "undefined")
-      ? { ...pRubberbandOptions } : null,
     playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
@@ -746,49 +725,10 @@ function applyLoadedData(d) {
         ? _migrateLegacyWarpMode(d.warpMode, d.fRes)
         : d.warpMode;
     }
-    if (d.warpStrength !== undefined) {
-      pWarpStrength = d.warpStrength;
-      const ws = document.getElementById("plWarpStr");
-      if (ws) ws.value = pWarpStrength;
-    }
     const modeSel = document.getElementById("plWarpModeSelect");
     if (modeSel) modeSel.value = pWarpMode;
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-  }
-  if (typeof pRubberbandOptions !== "undefined"
-      && d.warpRbOptions && typeof d.warpRbOptions === "object") {
-    if (typeof d.warpRbOptions.engine === "string") {
-      pRubberbandOptions.engine = (d.warpRbOptions.engine === "r2") ? "r2" : "r3";
-    }
-    if (typeof d.warpRbOptions.material === "string") {
-      const m = d.warpRbOptions.material;
-      pRubberbandOptions.material = (m === "speech" || m === "percussive") ? m : "standard";
-    }
-    if (typeof d.warpRbOptions.formant === "boolean") {
-      // BA369: Staende, die VOR 0.4.369-beta gespeichert wurden, tragen
-      // formant:true nur als ungefragten Alt-Default — auf aus zwingen.
-      // Ab 0.4.369-beta ist der gespeicherte Wert bewusste Nutzerwahl
-      // und wird respektiert. Fehlt d.version (sehr alt), gilt der Stand
-      // als alt (_verCmp behandelt undefined als 0.0.0 < 0.4.369).
-      const _savedIsPreBA369 = (typeof _verCmp === "function")
-        && _verCmp(d.version, "0.4.369-beta") < 0;
-      pRubberbandOptions.formant = _savedIsPreBA369
-        ? false
-        : d.warpRbOptions.formant;
-    }
-    if (typeof d.warpRbOptions.fast === "boolean") {
-      pRubberbandOptions.fast = d.warpRbOptions.fast;
-    }
-    const rE = document.querySelector('input[name="plWarpEngine"][value="' + pRubberbandOptions.engine + '"]');
-    if (rE) rE.checked = true;
-    const rM = document.querySelector('input[name="plWarpMaterial"][value="' + pRubberbandOptions.material + '"]');
-    if (rM) rM.checked = true;
-    const cF = document.getElementById("plWarpFormant");
-    if (cF) cF.checked = !!pRubberbandOptions.formant;
-    const cS = document.getElementById("plWarpFast");
-    if (cS) cS.checked = !!pRubberbandOptions.fast;
-    if (typeof _pRbOptUpdateR3Hint === "function") _pRbOptUpdateR3Hint();
   }
   // BA370: Live-Berechnung. Migration: fehlender Wert => an (Default true).
   pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;

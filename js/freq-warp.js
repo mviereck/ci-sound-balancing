@@ -25,19 +25,16 @@ let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMono
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
 
-// BA 191: Rubberband-Optionen. engine/material/formant/fast werden per UI
-// gesetzt und persistiert. `realtime` und `liveShifter` sind RESERVE
+// BA 191: Rubberband-Optionen. `realtime` und `liveShifter` sind RESERVE
 // (BA370): ab S0 ohne UI, nur per Konsole erreichbar
 // (pRubberbandOptions.realtime = true / .liveShifter = true). Bewusst
 // behalten fuer die Streaming-Arbeit — NICHT als toten Code entfernen.
 // Beide sind nicht persistent (werden beim Laden ignoriert, Default false).
 let pRubberbandOptions = {
-  engine:   "r3",        // "r3" | "r2"
-  material: "standard",  // "standard" | "speech" | "percussive"
-  formant:  false,       // BA369: Default AUS — Formanten wandern mit,
-                         // Mickey-Maus-Effekt wird simuliert (sicherer
-                         // Default). Option bleibt nutzerseitig schaltbar.
-  fast:     false,       // R3: PitchHighSpeed; R2: WindowShort
+  engine:   "r3",        // bleibt; BA374 leitet aus Modus ab
+  material: "standard",  // fest (UI entfernt, BA373)
+  formant:  false,       // fest AUS (UI entfernt, BA373)
+  fast:     false,       // fest AUS (UI entfernt, BA373)
   realtime: false,       // BA367 Testschalter: Rubberband Realtime-Modus
                          // (Elastic). NICHT persistent — faellt bei
                          // Neuladen auf false zurueck.
@@ -1095,9 +1092,7 @@ async function pComputeRubberbandWarpedBuffer(srcBuf, warpMode, strength) {
 // ---- UI-Aktionen ----------------------------------------
 
 function pWarpUpdUI() {
-  const cbEl     = document.getElementById("plWarpOn");
-  const statusEl = document.getElementById("plWarpStatus");
-  const hintEl   = document.getElementById("plWarpHint");
+  const cbEl = document.getElementById("plWarpOn");
 
   if (!cbEl) return;
 
@@ -1111,68 +1106,6 @@ function pWarpUpdUI() {
     cbEl.style.background = "#e5e7eb";
     cbEl.style.color = "var(--text)";
     cbEl.style.borderColor = "var(--border)";
-  }
-  const settingsBox = document.getElementById("plWarpSettingsBox");
-  if (settingsBox) settingsBox.style.display = pWarpSettingsOpen ? "" : "none";
-  const warpChevron = document.getElementById("plWarpSettingsToggle");
-  if (warpChevron) warpChevron.textContent = pWarpSettingsOpen ? "▼" : "▶";
-
-  const stats = _warpFResStats();
-  const noData = stats.total === 0;
-  const n = stats.total;
-
-  let statusText = "";
-  if (!pWarpOn) {
-    statusText = t("pwStatusReady");
-  } else if (pWarpBusy) {
-    if (pWarpProgress > 0) {
-      const pct = Math.round(pWarpProgress * 100);
-      statusText = t("pwStatusBusyProgress").replace("{pct}", pct);
-    } else if (typeof rubberbandLastError !== "undefined" && rubberbandLastError) {
-      statusText = t("pwStatusRubberbandError").replace("{msg}", rubberbandLastError);
-    } else if (typeof rubberbandIsLoaded === "function" && !rubberbandIsLoaded()) {
-      // WASM noch nicht geladen — der eigentliche „wird geladen"-Fall.
-      statusText = t("pwStatusRubberbandLoading");
-    } else {
-      // Bereits geladen, Berechnung läuft, aber noch kein Band fertig.
-      statusText = t("pwStatusBusy");
-    }
-  } else if (noData) {
-    statusText = t("pwStatusReady");
-  } else if (typeof rubberbandLastError !== "undefined" && rubberbandLastError) {
-    statusText = t("pwStatusRubberbandError").replace("{msg}", rubberbandLastError);
-  } else {
-    statusText = pWarpedBuf
-      ? t("pwStatusActiveRubberband").replace("{n}", n)
-      : t("pwStatusReady");
-  }
-
-  // Provisorische und Vor-Schätzungs-Anteile hinten anhängen.
-  if (statusText && (stats.provisional > 0 || stats.sliderEst > 0)) {
-    const parts = [];
-    if (stats.provisional > 0) {
-      parts.push(t("pwStatusProvisional")
-        .replace("{prov}", stats.provisional)
-        .replace("{fin}", stats.finals));
-    }
-    if (stats.sliderEst > 0) {
-      parts.push(t("pwStatusSliderEst")
-        .replace("{est}", stats.sliderEst));
-    }
-    statusText += " " + parts.join(" · ");
-  }
-  if (pWarpBusy && statusText) {
-    statusText = "⏳ " + statusText;
-  }
-  if (statusEl) statusEl.textContent = statusText;
-
-  if (hintEl) {
-    if (pWarpOn && noData) {
-      hintEl.textContent = t("pwHintNoFRes");
-      hintEl.style.display = "";
-    } else {
-      hintEl.style.display = "none";
-    }
   }
 
   const playBtn = document.getElementById("plPlay");
@@ -1193,11 +1126,6 @@ function pWarpUpdUI() {
     }
     busyTip.textContent = tipText;
     if (!playLocked) busyTip.style.display = "none";
-  }
-
-  const stopBtn = document.getElementById("plWarpStopBtn");
-  if (stopBtn) {
-    stopBtn.style.display = pWarpBusy ? "" : "none";
   }
 
   // Fortschrittsbalken im Transport-Bereich
