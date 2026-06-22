@@ -176,18 +176,29 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
   if (!pWarpedBuf) return;
   if (typeof pWarpGen !== "undefined" && gen !== pWarpGen) return;
 
+  const c = gPC();
+  const sr = pWarpedBuf.sampleRate;
+
+  // BA372 (S2): Kopie xfLen frueher enden lassen (ausser letzter Abschnitt),
+  // damit die Naht zwischen den Wiedergabe-Kopien VOR der Blendzone liegt
+  // und der geblendete Kopf des Folgeabschnitts (steht in pWarpedBuf)
+  // vollstaendig von dessen Kopie getragen wird. So ist der Uebergang im
+  // 1. Durchlauf identisch zu Loop/Zurueckspringen.
+  const xfLen = (typeof STREAM_CROSSFADE_SECONDS === "number")
+    ? Math.max(0, Math.round(STREAM_CROSSFADE_SECONDS * sr))
+    : 0;
+  const isLast = (segStart + segLen) >= pWarpedBuf.length;
+  const playLen = (!isLast && segLen > xfLen) ? (segLen - xfLen) : segLen;
+  const segDuration = playLen / sr;
+
   // Segment-Buffer aus dem (schon beschriebenen) pWarpedBuf bauen.
   let segBuf;
   try {
-    segBuf = _buildWarpedSegmentBuffer(segStart, segLen);
+    segBuf = _buildWarpedSegmentBuffer(segStart, playLen);
   } catch (e) {
     console.error("_streamOnSegmentReady: Segment-Buffer-Fehler", e);
     return;
   }
-
-  const c = gPC();
-  const sr = pWarpedBuf.sampleRate;
-  const segDuration = segLen / sr;
 
   if (!_streamFirstReady) {
     // Erster Abschnitt: Kette verdrahten und Wiedergabe starten.

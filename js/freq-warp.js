@@ -278,6 +278,12 @@ const _RB_FIR_ORDER = 4096; // FIR-Ordnung der Bandpaesse (linearphasig)
 // weniger Crossfade-Aufwand). In S3 justierbar zu machen.
 const STREAM_SEGMENT_SECONDS = 5;
 
+// BA372 (S2): Equal-power-Crossfade-Laenge an Abschnittsgrenzen, in
+// Sekunden. 15 ms = robuster Kompromiss (Messbefund: Korridor 10-20 ms
+// unkritisch; <5 ms zu nah am Ausloeschungs-Tal, >=50 ms Doppel-Risiko bei
+// Transienten). In S3 justierbar gemacht; vorerst feste Konstante.
+const STREAM_CROSSFADE_SECONDS = 0.015;
+
 // BA371: Stufen-agnostische Streaming-Engine (Architektur-Kapitel Paragraph3/4).
 // Fuellt `target` (Stereo-AudioBuffer voller Stuecklänge) abschnittsweise,
 // indem sie `stage.processSegment` pro Abschnitt aufruft. Meldet jeden
@@ -301,13 +307,31 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
   const segLen = Math.max(1, Math.round(STREAM_SEGMENT_SECONDS * sr));
   const nSeg = Math.ceil(total / segLen);
 
+  // BA372 (S2): Crossfade-Laenge in Samples. Bypass-Stage (Warp aus) hat
+  // keine Grenzartefakte -> changesLength bleibt false, aber wir blenden nur,
+  // wenn die Stage tatsaechlich warpt. Indikator: stage.crossfade !== false.
+  // (buildWarpStage setzt das; Bypass-Stage liefert crossfade: false.)
+  const doXf = stage.crossfade !== false;
+  const xfLen = doXf ? Math.max(0, Math.round(STREAM_CROSSFADE_SECONDS * sr)) : 0;
+
+  // BA372: Schwanz des zuletzt geschriebenen Abschnitts (im Crossfade-Bereich),
+  // zum Blenden des naechsten Kopfes. null = noch keiner (vor Abschnitt 0).
+  let tailPrevL = null;
+  let tailPrevR = null;
+
   for (let i = 0; i < nSeg; i++) {
     if (isCancelled()) throw new Error("__warp_cancelled__");
     const segStart = i * segLen;
     const thisLen = Math.min(segLen, total - segStart);
 
-    // Quell-Segmente liefert die Stage (kapselt Mono-Logik / Quell-Extraktion).
-    const srcSeg = stage.getSourceSegment(segStart, thisLen);
+    // BA372: Folge-Abschnitte (i > 0) beginnen xfLen frueher und sind
+    // entsprechend laenger -> die ersten xfLen Output-Samples bilden den
+    // Blend-Kopf. Abschnitt 0 hat keinen Vorgaenger -> kein Vorlauf.
+    const lead = (i > 0 && tailPrevL) ? Math.min(xfLen, segStart) : 0;
+    const fetchStart = segStart - lead;
+    const fetchLen = thisLen + lead;
+
+    const srcSeg = stage.getSourceSegment(fetchStart, fetchLen);
 
     const ctx = {
       segIndex: i, segStart, segLen: thisLen, sampleRate: sr,
@@ -317,9 +341,50 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
     const outSeg = await stage.processSegment(srcSeg, ctx);
     if (isCancelled()) throw new Error("__warp_cancelled__");
 
-    // In den Ziel-Buffer schreiben (Laengen-Treue: outSeg.L/R Laenge == thisLen).
-    target.getChannelData(0).set(outSeg.L.subarray(0, thisLen), segStart);
-    target.getChannelData(1).set(outSeg.R.subarray(0, thisLen), segStart);
+    // BA372: Output ohne Vorlauf isolieren. outSeg.L/R hat Laenge fetchLen;
+    // die ersten `lead` Samples sind der Vorlauf-Kopf, danach das
+    // nominale Abschnitts-Material (Laenge thisLen).
+    let bodyL = lead > 0 ? outSeg.L.subarray(lead, lead + thisLen) : outSeg.L.subarray(0, thisLen);
+    let bodyR = lead > 0 ? outSeg.R.subarray(lead, lead + thisLen) : outSeg.R.subarray(0, thisLen);
+
+    // BA372: Equal-power-Crossfade in den KOPF dieses Abschnitts schreiben.
+    // Geblendet wird der gespeicherte Schwanz des Vorgaengers (tailPrev*) mit
+    // dem Vorlauf-Kopf dieses Abschnitts (outSeg[0..lead)). Ergebnis ueber-
+    // schreibt die ersten `lead` Samples von body* -> diese decken denselben
+    // Zeitbereich ab wie der Vorgaenger-Schwanz. Der bereits geschriebene
+    // Schwanz von i-1 in `target` bleibt UNVERAENDERT (Baustein A).
+    if (lead > 0 && tailPrevL && tailPrevR) {
+      // Kopien anlegen, weil body* Subarrays von outSeg sind und wir
+      // hineinschreiben.
+      const newL = new Float32Array(bodyL);
+      const newR = new Float32Array(bodyR);
+      const headL = outSeg.L; // Vorlauf-Kopf liegt in den ersten `lead` Samples
+      const headR = outSeg.R;
+      for (let n = 0; n < lead; n++) {
+        const t = (n + 0.5) / lead;            // 0..1 ueber den Blend-Bereich
+        const gOut = Math.cos(t * 0.5 * Math.PI); // Vorgaenger klingt aus
+        const gIn  = Math.sin(t * 0.5 * Math.PI); // dieser Abschnitt setzt ein
+        newL[n] = tailPrevL[n] * gOut + headL[n] * gIn;
+        newR[n] = tailPrevR[n] * gOut + headR[n] * gIn;
+      }
+      bodyL = newL;
+      bodyR = newR;
+    }
+
+    // In den Ziel-Buffer schreiben (Laengen-Treue: bodyL/R Laenge == thisLen).
+    target.getChannelData(0).set(bodyL.subarray(0, thisLen), segStart);
+    target.getChannelData(1).set(bodyR.subarray(0, thisLen), segStart);
+
+    // BA372: Schwanz dieses Abschnitts fuer den naechsten Blend merken
+    // (letzte xfLen Samples des gerade geschriebenen body*). Defensive Kopie,
+    // weil bodyL/R im naechsten Durchlauf wiederverwendet/ueberschrieben wird.
+    if (xfLen > 0 && thisLen >= xfLen) {
+      tailPrevL = new Float32Array(bodyL.subarray(thisLen - xfLen, thisLen));
+      tailPrevR = new Float32Array(bodyR.subarray(thisLen - xfLen, thisLen));
+    } else {
+      tailPrevL = null;
+      tailPrevR = null;
+    }
 
     if (typeof onSegmentReady === "function") onSegmentReady(i, segStart, thisLen);
     if (typeof onProgress === "function") onProgress((i + 1) / nSeg);
@@ -346,6 +411,7 @@ function buildWarpStage(srcBuf, warpMode, strength) {
     // Bypass: liefert originale Abschnitte unveraendert zurueck.
     return {
       changesLength: false,
+      crossfade: false, // BA372: Bypass hat keine Grenzartefakte -> kein Blend
       getSourceSegment(segStart, thisLen) {
         const L = srcBuf.getChannelData(0).subarray(segStart, segStart + thisLen);
         const R = (srcBuf.numberOfChannels > 1 ? srcBuf.getChannelData(1) : srcBuf.getChannelData(0))
@@ -433,8 +499,11 @@ function buildWarpStage(srcBuf, warpMode, strength) {
 
   return {
     changesLength: false,
+    crossfade: true, // BA372: Warp-Grenzen weich ueberblenden (equal-power, 15 ms)
 
     // Liefert { L, R } als Subarrays des voll extrahierten Quellsignals.
+    // BA372: Engine darf hier mit Vorlauf (segStart frueher, thisLen laenger)
+    // aufrufen; subarray bleibt korrekt, fetchStart >= 0 garantiert die Engine.
     getSourceSegment(segStart, thisLen) {
       return {
         L: fullSrcL.subarray(segStart, segStart + thisLen),
