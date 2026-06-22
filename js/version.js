@@ -1,1 +1,1 @@
-const APP_VERSION = "0.4.378-beta";
+const APP_VERSION = "0.4.380-beta";

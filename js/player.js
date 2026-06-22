@@ -44,23 +44,33 @@ function _pSetPlayWish(wish) {
 
 // SW (BA378): Start-Gate. Gibt true zurueck, wenn an der aktuellen
 // Abspielposition abgespielt werden darf:
-//  - Warp aus / Modus "Beste": sobald pBuf vorliegt (Voll-Buffer fertig).
 //  - Streaming (Schnell/Mittel): sobald der gemessene Vorlauf erreicht ist.
+//  - "Beste" waehrend Berechnung: erst wenn pWarpedBuf fertig (nicht bei
+//    blossem pBuf -- der koennte noch ungewarpt sein).
+//  - Warp aus / fertig: sobald pBuf vorliegt.
 // pWarpBusy allein sperrt NICHT mehr (Button bleibt bedienbar).
 function _pGateOpen() {
-  const streaming = (typeof pWarpOn !== "undefined") && pWarpOn
-                 && (typeof plEqOn === "undefined" || plEqOn)
+  const warpActive = (typeof pWarpOn !== "undefined") && pWarpOn
+                  && (typeof plEqOn === "undefined" || plEqOn);
+
+  // Fall 1: Streaming-Modus (Schnell/Mittel) mit laufender Berechnung.
+  const streaming = warpActive
                  && (typeof _warpUseStreamingForMode === "function")
                  && _warpUseStreamingForMode()
                  && (typeof pWarpBusy !== "undefined") && pWarpBusy;
-
-  if (!streaming) {
-    return !!pBuf;
+  if (streaming) {
+    return _streamRFinal
+        && _streamDoneSec >= _streamReleaseSec
+        && _streamDoneSec >= _streamStartPos;
   }
 
-  return _streamRFinal
-      && _streamDoneSec >= _streamReleaseSec
-      && _streamDoneSec >= _streamStartPos;
+  // Fall 2: "Beste" mit laufender Berechnung -- warten bis pWarpedBuf fertig.
+  if (warpActive && (typeof pWarpBusy !== "undefined") && pWarpBusy) {
+    return (typeof pWarpedBuf !== "undefined") && !!pWarpedBuf;
+  }
+
+  // Fall 3: Kein Warp / Berechnung fertig: Gate offen sobald abspielbarer Buffer da.
+  return !!pBuf;
 }
 
 // BA371: Streaming-Wiedergabe-State (Streaming-Pfad, Modi "fast"/"mid").

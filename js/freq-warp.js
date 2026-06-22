@@ -1300,22 +1300,21 @@ async function pWarpTrigger() {
   pWarpUpdUI();
 
   if (pWarpOn) {
+    // SW (BA380): Einheitlicher Start ueber Play-Wunsch + Gate fuer ALLE Modi.
     if (useStreaming) {
       // Streaming-Pfad: _streamOnSegmentReady hat Wiedergabe bereits gestartet
       // (pPlaying=true, Kette verdrahtet). Kein pPlay() -- wuerde eine zweite
       // Source starten und die Kette neu verdrahten.
       // Ausnahme: Stück so kurz, dass kein Abschnitt _streamFirstReady gesetzt
-      // hat (kaum vorkommbar). In diesem Fall normal abspielen.
+      // hat (kaum vorkommbar). Falls Play-Wunsch vorliegt, normal starten.
       // BA371.2: _streamFirstReady ist der verbindliche Indikator --
       // nicht _streamIsActive() (Sources koennen am Trigger-Ende schon leer sein).
-      if (!_streamFirstReady) {
-        // Streaming hat nie gestartet (z.B. leeres Stück): normaler Pfad.
-        if (wasPlaying) pPlay();
-      }
+      if (!_streamFirstReady && pPlayWish && typeof pPlay === "function") pPlay();
       // Wenn _streamFirstReady gesetzt: Wiedergabe laeuft -- nichts tun.
     } else {
-      // Voll-Vorrechnen-Pfad: pPlay nur wenn vorher gespielt wurde.
-      if (wasPlaying) pPlay();
+      // "Beste": Berechnung hier fertig (pWarpedBuf gesetzt, pWarpBusy=false).
+      // Gate in _pGateOpen() jetzt offen -> pPlay() startet sofort.
+      if (pPlayWish && typeof pPlay === "function") pPlay();
     }
   }
 }
