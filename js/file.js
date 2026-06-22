@@ -365,7 +365,7 @@ async function saveJson() {
     pause_implant:      (typeof pause_implant    !== "undefined") ? pause_implant    : TEST_DEFAULTS.implant.pause,
     warpOn: (typeof pWarpOn !== "undefined") ? pWarpOn : false,
     warpMode: (typeof pWarpMode !== "undefined") ? pWarpMode : "right",
-    playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
+    playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "fast",
 
     plMaplawOn: (typeof pMaplawOn !== "undefined") ? pMaplawOn : false,
     plMaplawSollC: (typeof pMaplawSollC !== "undefined") ? pMaplawSollC : 1000,
@@ -730,9 +730,11 @@ function applyLoadedData(d) {
     pWarpedBuf = null;
     if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   }
-  // BA370: Live-Berechnung. Migration: fehlender Wert => an (Default true).
-  pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;
-  if (typeof pApplyWarpLive === "function") pApplyWarpLive();
+  // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
+  // (alter Wert wird ignoriert). Fehlt der Wert -> Default "fast".
+  pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
+    ? d.playerWarpMode : "fast";
+  if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
   // BA 177: wenn Save-Daten Frequenzabgleich-Messungen enthielten,
   // den Default-Anwendungs-Flag setzen, damit der nächste Insert
   // den gespeicherten pWarpMode nicht überschreibt.

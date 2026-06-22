@@ -16,14 +16,22 @@ let pWarpOn = false;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
-let pWarpLive = true;          // BA370: "Live-Berechnung" (gestreamtes
-                               // Warping). Persistent (localStorage + JSON),
-                               // Default an. In S0 noch ohne Funktion —
-                               // Verkabelung an die Streaming-Engine in S1/S2.
+let pWarpCalcMode = "fast";    // BA375: Berechnungs-Modus. "fast"|"mid"|"best".
+                               // Quelle fuer engine (r2/r3) + Streaming/Voll.
+                               // Persistent (localStorage + JSON), Default "fast".
 let pWarpBusy = false;
 let pWarpCancel = false;     // wird vom Stop-Button gesetzt, von _rbProcessMonoSide gelesen
 let pWarpProgress = 0;        // 0..1, nur bei Rubberband gefüttert
 let pWarpAffected = { warpsLeft: false, warpsRight: false };
+
+// BA375: engine (r2/r3) aus dem Berechnungs-Modus. Einzige Quelle.
+function _warpEngineForMode() {
+  return (pWarpCalcMode === "fast") ? "r2" : "r3";
+}
+// BA375: true = Streaming-Pfad, false = Voll-Vorberechnung.
+function _warpUseStreamingForMode() {
+  return pWarpCalcMode === "fast" || pWarpCalcMode === "mid";
+}
 
 // BA 191: Rubberband-Optionen. `realtime` und `liveShifter` sind RESERVE
 // (BA370): ab S0 ohne UI, nur per Konsole erreichbar
@@ -1178,9 +1186,9 @@ async function pWarpTrigger() {
 
   let cancelled = false;
 
-  // BA371: Pfad-Verzweigung — pWarpLive === true -> Streaming-Pfad,
-  // pWarpLive === false -> heutiger Voll-Vorrechnen-Pfad (unverändert).
-  const useStreaming = !!pWarpLive && !pRubberbandOptions.liveShifter;
+  // BA375: Engine frisch aus dem Modus ableiten (einzige Schreibstelle).
+  pRubberbandOptions.engine = _warpEngineForMode();
+  const useStreaming = _warpUseStreamingForMode() && !pRubberbandOptions.liveShifter;
 
   if (useStreaming) {
     // ---- Streaming-Pfad (BA371 S1) ----
@@ -1312,11 +1320,12 @@ function pWarpCancelCompute() {
 // überschrieben wird.
 let _pPlayerWarpDefaultApplied = false;
 
-// BA370: Spiegelt den persistenten pWarpLive-Wert auf die Checkbox.
+// BA375: Spiegelt den persistenten pWarpCalcMode-Wert auf die Radio-Buttons.
 // Nach jedem Laden (localStorage-Autoload, JSON-Datei) aufrufen.
-function pApplyWarpLive() {
-  const cb = document.getElementById("plWarpLive");
-  if (cb) cb.checked = !!pWarpLive;
+function _pWarpCalcModeApply() {
+  const v = (pWarpCalcMode === "mid" || pWarpCalcMode === "best") ? pWarpCalcMode : "fast";
+  const r = document.querySelector('input[name="plWarpMode"][value="' + v + '"]');
+  if (r) r.checked = true;
 }
 
 function pApplyWarpModeDefaultFromFm() {

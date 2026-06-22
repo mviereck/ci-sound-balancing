@@ -1010,10 +1010,20 @@
                 <option value="right" data-t-opt="pwModeRight" selected></option>
                 <option value="symmetric" data-t-opt="pwModeSym"></option>
               </select>
-              <label style="font-size:0.85em;display:flex;align-items:center;gap:5px;cursor:pointer;color:var(--text-muted)">
-                <input type="checkbox" id="plWarpLive" checked />
-                <span data-t="pwOptLive"></span>
-              </label>
+              <span style="display:inline-flex;align-items:center;gap:10px">
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="fast" checked />
+                  <span data-t="pwModeFast"></span>
+                </label>
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="mid" />
+                  <span data-t="pwModeMid"></span>
+                </label>
+                <label style="font-size:0.85em;display:flex;align-items:center;gap:4px;cursor:pointer">
+                  <input type="radio" name="plWarpMode" value="best" />
+                  <span data-t="pwModeBest"></span>
+                </label>
+              </span>
               <span id="plLockHintWarp" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
             </div>
           </div>

@@ -30,7 +30,7 @@ let pCtx = null,
   pT0 = 0,
   pWarpComputingPromise = null;  // Handle auf laufende Warp-Berechnung (für pPlay-Warten)
 
-// BA371: Streaming-Wiedergabe-State (Streaming-Pfad, pWarpLive === true).
+// BA371: Streaming-Wiedergabe-State (Streaming-Pfad, Modi "fast"/"mid").
 // Aktiv während erstem Durchlauf eines Stücks im Streaming-Modus.
 let _streamSources = [];       // laufende Abschnitts-BufferSources
 let _streamNextStart = 0;      // AudioContext-Zeit fuer den naechsten Abschnitt

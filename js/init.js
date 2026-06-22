@@ -506,13 +506,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof pDrawEQ === "function") pDrawEQ();
     if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
   });
-  // BA370 (S0): Live-Berechnung-Checkbox. Persistenter State; die
-  // eigentliche Verkabelung an die Streaming-Engine folgt in S1/S2.
-  // In S0 ist die Checkbox bewusst noch ohne Funktion (Architektur-Kapitel
-  // 00-warp-streaming-architektur.md, Abschnitt 7 / S0).
-  document.getElementById("plWarpLive").addEventListener("change", function () {
-    pWarpLive = !!this.checked;
-    if (typeof _autoSaveState === "function") _autoSaveState();
+  // BA375: Berechnungs-Modus (Schnell/Mittel/Beste). Persistent.
+  // Quelle fuer engine + Streaming-Pfad. Wechsel bei aktivem Warp ->
+  // Buffer verwerfen und neu berechnen (kann Play kurz unterbrechen,
+  // bis die Berechnung die aktuelle Position wieder erreicht).
+  document.querySelectorAll('input[name="plWarpMode"]').forEach(function (r) {
+    r.addEventListener("change", function () {
+      if (!this.checked) return;
+      const v = this.value;
+      pWarpCalcMode = (v === "mid" || v === "best") ? v : "fast";
+      if (typeof _autoSaveState === "function") _autoSaveState();
+      // Neu berechnen, wenn Warp aktiv ist.
+      pWarpedBuf = null;
+      if (pWarpOn && typeof pWarpTrigger === "function") pWarpTrigger();
+    });
   });
 
   // Warp-UI initialisieren
@@ -632,9 +639,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (sel) sel.value = pWarpMode;
         }
         if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-        // BA370: Live-Berechnung. Migration: fehlender Wert => an.
-        pWarpLive = (typeof d.playerWarpLive === "boolean") ? d.playerWarpLive : true;
-        if (typeof pApplyWarpLive === "function") pApplyWarpLive();
+        // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
+        // (alter Wert wird ignoriert). Fehlt der Wert -> Default "fast".
+        pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
+          ? d.playerWarpMode : "fast";
+        if (typeof _pWarpCalcModeApply === "function") _pWarpCalcModeApply();
       }
       // BA 177: wenn beim Auto-Restore schon Frequenzabgleich-Messungen
       // vorhanden sind, Default-Anwendungs-Flag setzen.
@@ -923,7 +932,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // BA 161: Warp-Feldnamen vereinheitlicht (gleicher Schlüssel wie in Datei-Save)
           warpOn:       (typeof pWarpOn       !== "undefined") ? pWarpOn       : false,
           warpMode:     (typeof pWarpMode     !== "undefined") ? pWarpMode     : "right",
-          playerWarpLive: (typeof pWarpLive !== "undefined") ? pWarpLive : true,
+          playerWarpMode: (typeof pWarpCalcMode !== "undefined") ? pWarpCalcMode : "fast",
           version: (typeof APP_VERSION !== "undefined") ? APP_VERSION : "",
           userFileSuffix: (typeof userFileSuffix === "string") ? userFileSuffix : "",
           userLastName:   (typeof userLastName   === "string") ? userLastName   : "",
