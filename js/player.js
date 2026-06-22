@@ -496,6 +496,8 @@ function _buildWarpedPlaybackBuffer(mode) {
 
 function pSetPlaybackMode(mode) {
   if (!plCategories[mode]) return;
+  // SW (BA379): Kategorie-Wechsel nimmt einen gemerkten Play-Wunsch zurueck.
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
   pPlaybackMode = mode;
   pSourceBuf = (typeof plCategories[mode].currentBuffer === "function")
     ? plCategories[mode].currentBuffer()
@@ -1121,12 +1123,23 @@ document.getElementById("plTL").addEventListener("input", function () {
   if (!pBuf) return;
   pOff = (this.value / 1000) * pBuf.duration;
   document.getElementById("plCur").textContent = pFmt(pOff);
+
+  // SW (BA379): Seek = nur Position aendern, NIE neu berechnen.
   if (pPlaying) {
+    // Laeuft -> an neuer Position fortsetzen. pPlay nutzt den vorhandenen
+    // Buffer; im Streaming greift bei noch-unberechneter Stelle das Gate
+    // (amber warten, dann weiter) -- Wunsch setzen, damit das Gate startet.
     const seekTo = pOff;
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
     pPause();
     pOff = seekTo;
     pPlay();
+  } else if (typeof pPlayWish !== "undefined" && pPlayWish) {
+    // Wartet (amber): Wunsch bleibt, Gate wartet jetzt auf die neue Position.
+    // Streaming-Startposition nachfuehren, damit das Vorlauf-Gate ab hier misst.
+    if (typeof _streamSetStartPos === "function") _streamSetStartPos(pOff);
   }
+  // sonst: pausiert ohne Wunsch -> nur Position gemerkt, nichts weiter.
 });
 
 function pDrawEQ() {
@@ -1723,14 +1736,27 @@ function plNavHasPrev() {
 // gespielt wurde (Auswahl wie Vor/Zurueck folgen demselben Verhalten).
 // Die Abspiel-Position (0 s bzw. Hoerbuch-Sekunde) bestimmt cat.load(),
 // NICHT diese Funktion -- darum kein pOff hier.
-function _plNavGoTo(item) {
+// SW (BA379): opts.keepPlaying = true  -> wenn vorher gespielt wurde, spielt das
+//   neue Stueck automatisch weiter (Weiter/Zurueck = Playlist-Skip).
+//   keepPlaying = false/weggelassen -> neues Stueck bleibt still (Dropdown-Wahl).
+function _plNavGoTo(item, opts) {
   const cat = plCurrentCategory();
   if (!cat || !item) return;
+  const keepPlaying = !!(opts && opts.keepPlaying);
   const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
+
   cat.select(item);
   if (wasPlaying && typeof pPause === "function") pPause();
+  // pPause() (BA378) hat den Play-Wunsch zurueckgenommen. Nur beim Playlist-
+  // Skip mit vorher laufender Wiedergabe wird er fuer das neue Stueck erneut
+  // gesetzt -> Gate startet (kurz amber, dann Ton). Sonst bleibt still.
+  const resume = keepPlaying && wasPlaying;
+  if (resume && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+
   Promise.resolve(cat.load()).then(function () {
-    if (wasPlaying && typeof pPlay === "function") pPlay();
+    // Voll-Pfad braucht den expliziten pPlay-Anstosz; im Streaming startet
+    // _streamOnSegmentReady ueber den gesetzten Wunsch + Vorlauf selbst.
+    if (resume && typeof pPlay === "function") pPlay();
   });
   if (typeof plUpdDisplay     === "function") plUpdDisplay();
   if (typeof plUpdTransportUI === "function") plUpdTransportUI();
@@ -1749,7 +1775,7 @@ function plNavNext() {
     if (i >= 0 && i < list.length - 1) next = list[i + 1];
   }
   if (!next) return;            // Ende der Reihe -> Schluss
-  _plNavGoTo(next);
+  _plNavGoTo(next, { keepPlaying: true });
 }
 
 function plNavPrev() {
@@ -1768,7 +1794,7 @@ function plNavPrev() {
     if (i > 0) target = list[i - 1];
   }
   if (!target) return;
-  _plNavGoTo(target);
+  _plNavGoTo(target, { keepPlaying: true });
 }
 
 // Stellt sicher, dass der Zeiger ein gueltiges Item der aktuellen Liste ist.
@@ -1802,6 +1828,7 @@ function plNavAfterFilterChange(before) {
   if (!cat) return;
   const after = plNavCurrent();
   if (!_plNavSameItem(before, after)) {
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA379)
     if (typeof pPlaying !== "undefined" && pPlaying && typeof pPause === "function") pPause();
     pOff = 0;
     if (cat.current && cat.current()) {
@@ -1853,6 +1880,10 @@ function plNavAutoAdvance() {
     if (typeof plUpdDisplay === "function") plUpdDisplay();
     Promise.resolve(cat.load()).then(function () {
       pOff = 0;
+      // SW (BA379): Auto-Advance spielt automatisch -> Play-Wunsch setzen,
+      // damit auch der Streaming-Pfad ueber das Gate startet (kurz amber,
+      // dann Ton). Voll-Pfad startet ueber pPlay() (wartet bis Buffer fertig).
+      if (typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       if (typeof pPlay === "function") pPlay();
     });
   }, ms);

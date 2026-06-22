@@ -1290,7 +1290,9 @@ async function pWarpTrigger() {
     if (cb && typeof cb.checked === "boolean") cb.checked = false;
     pBuf = getPlaybackBuffer();
     pWarpUpdUI();
-    if (wasPlaying) pPlay();  // ungewarpt weiterspielen
+    // SW (BA379): ungewarpt weiterspielen ueber Wunsch-Mechanismus.
+    if (wasPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
+    if (wasPlaying && typeof pPlay === "function") pPlay();
     return;
   }
 

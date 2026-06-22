@@ -448,6 +448,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Streaming: nach Vorlauf). Bei laufendem Play wird in pWarpTrigger
     // pausiert und nach Bereitschaft gewarpt weitergespielt.
     if (pWarpOn && !pWarpedBuf) {
+      // SW (BA379): Lief Wiedergabe, soll sie GEWARPT weiterlaufen, sobald
+      // berechnet -> Play-Wunsch setzen (Gate uebernimmt: kurz amber warten,
+      // dann gewarpt weiter). pWarpTrigger pausiert intern; das Gate startet neu.
+      const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
+      if (wasPlaying && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       pWarpTrigger();
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
@@ -477,11 +482,12 @@ document.addEventListener("DOMContentLoaded", () => {
     _plWarpStopBtn.addEventListener("click", () => {
       if (typeof pWarpCancelCompute === "function") pWarpCancelCompute();
       pWarpOn = false;
-      const wasPlaying = pPlaying;
+      // SW (BA379): ueber Play-Wunsch statt wasPlaying allein.
+      const wasPlaying = (typeof pPlaying !== "undefined") ? pPlaying : false;
       if (wasPlaying) pPause();
       pBuf = getPlaybackBuffer();   // ungewarpt (pWarpOn === false)
       if (typeof pWarpUpdUI === "function") pWarpUpdUI();
-      if (wasPlaying) pPlay();
+      if (wasPlaying) { if (typeof _pSetPlayWish === "function") _pSetPlayWish(true); if (typeof pPlay === "function") pPlay(); }
       if (typeof drawLvChart === "function") drawLvChart();
       if (typeof pDrawEQ === "function") pDrawEQ();
       if (typeof lvTabUpdateWarpHint === "function") lvTabUpdateWarpHint();
@@ -516,6 +522,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const v = this.value;
       pWarpCalcMode = (v === "mid" || v === "best") ? v : "fast";
       if (typeof _autoSaveState === "function") _autoSaveState();
+      // SW (BA379): Lief Wiedergabe ODER wartete sie (amber)? Dann Wunsch
+      // halten, damit nach Neuberechnung am neuen Gate automatisch gestartet
+      // wird (§4a: Moduswechsel behaelt den Play-Wunsch).
+      const active = (typeof pPlaying !== "undefined" && pPlaying)
+                  || (typeof pPlayWish !== "undefined" && pPlayWish);
+      if (active && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
       // Neu berechnen, wenn Warp aktiv ist.
       pWarpedBuf = null;
       if (pWarpOn && typeof pWarpTrigger === "function") pWarpTrigger();
