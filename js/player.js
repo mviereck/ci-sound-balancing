@@ -64,7 +64,7 @@ function _pGetFirstNode() {
 // segBuf: kurzer Stereo-AudioBuffer (Abschnittslaenge)
 // startTime: AudioContext.currentTime, ab dem der Abschnitt starten soll
 // gen: Generation-Zaehler -- veraltete Callbacks ignorieren.
-function _streamScheduleSegment(segBuf, startTime, gen) {
+function _streamScheduleSegment(segBuf, startTime, gen, isLastPlayback) {
   if (gen !== _streamActiveGen) return;
   const c = gPC();
   const src = c.createBufferSource();
@@ -77,6 +77,11 @@ function _streamScheduleSegment(segBuf, startTime, gen) {
   src.onended = function() {
     const idx = _streamSources.indexOf(src);
     if (idx >= 0) _streamSources.splice(idx, 1);
+    // SW (BA377): letzter abgespielter Abschnitt -> gemeinsamer Ende-Handler.
+    // Nur, wenn dieser Lauf noch aktuell ist (kein Stop/Pause/neuer Gen).
+    if (isLastPlayback && gen === _streamActiveGen) {
+      _pOnPlaybackEnded();
+    }
   };
 }
 
@@ -285,7 +290,7 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
     if (!wired || (typeof pWarpGen !== "undefined" && gen !== pWarpGen)) return;
 
     const startTime = c.currentTime + 0.1;  // etwas Vorlauf nach MAPLAW-await
-    _streamScheduleSegment(segBuf, startTime, gen);
+    _streamScheduleSegment(segBuf, startTime, gen, isLast);
     // BA376: _streamNextStart zeigt auf die naechste volle Abschnittsgrenze
     // (segEnd - xfLen, falls nicht letzter Abschnitt). Die Folgeabschnitte
     // haengen dort an, normal verkettend.
@@ -320,7 +325,7 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
     if (c.currentTime > startTime) {
       startTime = c.currentTime + 0.01;
     }
-    _streamScheduleSegment(segBuf, startTime, gen);
+    _streamScheduleSegment(segBuf, startTime, gen, isLast);
     _streamNextStart = startTime + segDuration;
   }
 }
@@ -858,6 +863,32 @@ async function _pWireOutputChain(c, playGen) {
   return { firstNode, lastEq };
 }
 
+// SW (BA377): Gemeinsamer Ende-Handler fuer ALLE Wiedergabe-Modi (Voll +
+// Streaming). Wird aufgerufen, wenn die Wiedergabe das Stueckende erreicht.
+// Loop hat Vorrang vor Auto-Advance; ohne beides wird sauber gestoppt.
+function _pOnPlaybackEnded() {
+  if (!pPlaying) return;
+  pPlaying = false;
+  pOff = 0;
+  pUpdBtn();
+  pUpdTL();
+
+  const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
+
+  // Loop hat Vorrang vor Auto-Advance: gleiches Stueck nach Pause nochmal.
+  if (typeof plLoop !== "undefined" && plLoop) {
+    setTimeout(function () {
+      if (!plLoop) return;  // wurde waehrend der Pause ausgeschaltet
+      if (typeof pPlay === "function") pPlay();
+    }, ms);
+    return;
+  }
+
+  // Auto-Advance einheitlich ueber Kategorie-Adapter.
+  const cat = plCurrentCategory();
+  if (cat && plAutoAdvance) cat.autoAdvance();
+}
+
 async function pPlay() {
   const gen = ++pPlayGen;
 
@@ -905,28 +936,7 @@ async function pPlay() {
   leadSrc = pSrc;
 
   if (leadSrc) {
-    leadSrc.onended = function () {
-      if (!pPlaying) return;
-      pPlaying = false;
-      pOff = 0;
-      pUpdBtn();
-      pUpdTL();
-
-      const ms = (typeof plPauseMs !== "undefined") ? plPauseMs : 0;
-
-      // Loop hat Vorrang vor Auto-Advance: gleiches Stück nach Pause nochmal.
-      if (typeof plLoop !== "undefined" && plLoop) {
-        setTimeout(function () {
-          if (!plLoop) return;  // wurde während der Pause ausgeschaltet
-          if (typeof pPlay === "function") pPlay();
-        }, ms);
-        return;
-      }
-
-      // Auto-Advance einheitlich ueber Kategorie-Adapter (BA325 Lauf 2).
-      const cat = plCurrentCategory();
-      if (cat && plAutoAdvance) cat.autoAdvance();
-    };
+    leadSrc.onended = _pOnPlaybackEnded;
   }
 
   pT0 = c.currentTime - pOff;
