@@ -40,10 +40,13 @@ let _streamSampleRate = 0;     // SampleRate des laufenden Streaming-Bufs
 let _streamActiveGen = -1;     // Generation-Zaehler; matcht pWarpGen
 let _streamPendingPlay = null; // pOff fuer aufgeschobenes pPlay (Seek waehrend Streaming)
 // BA376: Adaptiver Vorlauf-Gate -- Felder.
-let _streamMeasuredR = null;   // gemessener r aus Abschnitt 0 (Rechenzeit / Audiodauer)
+let _streamMeasuredR = null;   // endgueltig verwendetes r
 let _streamReleaseSec = 0;     // ab dieser fertigen Audiodauer (Sek) darf gestartet werden
 let _streamDoneSec = 0;        // bislang zusammenhaengend fertige Audiodauer (Sek)
 let _streamStartPos = 0;       // p (Abspiel-Startposition in Sek) fuer diesen Lauf
+// BA376.1: r-Sammlung fuer robuste Messung.
+let _streamRSamples = [];      // gesammelte r-Messungen (erste 1 oder 4 Abschnitte)
+let _streamRFinal = false;     // r endgueltig festgelegt?
 
 // BA371: Hilfsfunktion -- liefert firstNode der aktuellen EQ-Kette
 // (analog zu pPlay:546-552). Genutzt von _streamScheduleSegment.
@@ -92,6 +95,9 @@ function _streamResetState() {
   _streamReleaseSec = 0;
   _streamDoneSec = 0;
   _streamStartPos = 0;
+  // BA376.1: r-Sammlung zuruecksetzen.
+  _streamRSamples = [];
+  _streamRFinal = false;
 }
 
 // BA376: Startposition fuer diesen Lauf setzen (von pWarpTrigger vor _streamResetState).
@@ -99,18 +105,27 @@ function _streamSetStartPos(posSec) {
   _streamStartPos = (typeof posSec === "number" && posSec > 0) ? posSec : 0;
 }
 
-// BA376: r-Messung aus Abschnitt 0 verarbeiten -> Vorlauf-Schwelle berechnen.
-function _streamSetMeasuredR(rMeasured) {
-  _streamMeasuredR = rMeasured;
+// BA376.1: r-Messung je Abschnitt sammeln; nach genuegend Messungen Vorlauf-Schwelle setzen.
+// Modus "mid" (R3) sammelt 4 Abschnitte; alle anderen 1 (R2 ist stabil genug).
+function _streamSetMeasuredR(rMeasured, segIndex) {
+  if (_streamRFinal) return;
+  _streamRSamples.push(rMeasured);
+  const need = (typeof pWarpCalcMode !== "undefined" && pWarpCalcMode === "mid") ? 4 : 1;
+  if (_streamRSamples.length < need) return;   // noch nicht genug -> weiter sammeln
+
+  const r = Math.max.apply(null, _streamRSamples);   // hoechster gemessener Wert
+  _streamRFinal = true;
+  _streamMeasuredR = r;
+
   const T = pSourceBuf ? (pSourceBuf.length / pSourceBuf.sampleRate) : 0;
   const p = _streamStartPos;
-  const rEff = 1.05 * rMeasured;           // 5 % Sicherheitszuschlag
-  let V = (T - p) * (1 - 1 / rEff);        // Vorlauf-Audio ab p
-  if (!(V > 0)) V = 0;                     // Boden: kein negativer Vorlauf
-  _streamReleaseSec = p + V;               // ab dieser fertigen Audiodauer starten
-  console.log("[Warp-Vorlauf] r=" + rMeasured.toFixed(2)
-    + " T=" + T.toFixed(1) + "s p=" + p.toFixed(1) + "s"
-    + " -> Vorlauf V=" + V.toFixed(1) + "s, Start ab fertig=" + _streamReleaseSec.toFixed(1) + "s");
+  const rEff = 1.05 * r;                       // 5 % Sicherheitszuschlag
+  let V = (T - p) * (1 - 1 / rEff);
+  if (!(V > 0)) V = 0;
+  _streamReleaseSec = p + V;
+  console.log("[Warp-Vorlauf] r=" + r.toFixed(2) + " (aus " + _streamRSamples.length
+    + " Abschnitten) T=" + T.toFixed(1) + "s p=" + p.toFixed(1)
+    + "s -> V=" + V.toFixed(1) + "s, Start ab fertig=" + _streamReleaseSec.toFixed(1) + "s");
 }
 
 // BA371: Alle laufenden Abschnitts-Sources stoppen und State aufräumen.
@@ -216,8 +231,8 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
     // Abschnitt endet spaetestens bei p -- nichts davon abspielen.
     if (_streamDoneSec <= _streamStartPos) return;
 
-    // BA376: Vorlauf-Gate: warten bis Freigabe-Schwelle erreicht.
-    const ready = _streamMeasuredR !== null
+    // BA376.1: Vorlauf-Gate: warten bis r final und Freigabe-Schwelle erreicht.
+    const ready = _streamRFinal
       && _streamDoneSec >= _streamReleaseSec
       && _streamDoneSec >= _streamStartPos;
     if (!ready) return;

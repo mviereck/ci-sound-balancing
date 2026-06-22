@@ -344,14 +344,15 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
     };
 
     let _t0 = 0;
-    if (i === 0) _t0 = (performance && performance.now) ? performance.now() : Date.now();
+    const _measR = i < 4;   // BA376.1: erste bis zu 4 Abschnitte messen
+    if (_measR) _t0 = (performance && performance.now) ? performance.now() : Date.now();
     const outSeg = await stage.processSegment(srcSeg, ctx);
-    if (i === 0) {
+    if (_measR) {
       const _t1 = (performance && performance.now) ? performance.now() : Date.now();
-      const seg0Audio = thisLen / sr;            // Sekunden Audio in Abschnitt 0
-      const seg0Compute = (_t1 - _t0) / 1000;   // Sekunden Rechenzeit
-      const rMeasured = seg0Audio > 0 ? (seg0Compute / seg0Audio) : 1;
-      if (typeof onMeasuredR === "function") onMeasuredR(rMeasured, seg0Audio);
+      const segAudio = thisLen / sr;
+      const segCompute = (_t1 - _t0) / 1000;
+      const rMeasured = segAudio > 0 ? (segCompute / segAudio) : 1;
+      if (typeof onMeasuredR === "function") onMeasuredR(rMeasured, i);
     }
     if (isCancelled()) throw new Error("__warp_cancelled__");
 
@@ -1233,8 +1234,8 @@ async function pWarpTrigger() {
         function isCancelled() {
           return pWarpCancel || myGen !== pWarpGen;
         },
-        function onMeasuredR(rMeasured, seg0Audio) {   // BA376
-          if (typeof _streamSetMeasuredR === "function") _streamSetMeasuredR(rMeasured);
+        function onMeasuredR(rMeasured, segIndex) {   // BA376.1: Index statt seg0Audio
+          if (typeof _streamSetMeasuredR === "function") _streamSetMeasuredR(rMeasured, segIndex);
         }
       );
     } catch (err) {
