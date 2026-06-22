@@ -1026,7 +1026,11 @@ function pPause() {
     if (pOff > pBuf.duration) pOff = 0;
   }
   pPlaying = false;
-  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);  // SW (BA378)
+  // SW (BA382): pPause loescht den Play-Wunsch NICHT mehr. "Pause" wird auch
+  // intern zum kurzen Anhalten (Neuberechnen/Pfadwechsel) genutzt; dort muss
+  // der Wunsch erhalten bleiben. Nur die echten Nutzer-/Stopp-/Stueck-/Kategorie-
+  // Wechsel-Wege loeschen ihn explizit (plPlayPauseToggle Pause-Zweig, pStopReset,
+  // _plNavGoTo, plNavAfterFilterChange, pSetPlaybackMode). Siehe BA382.
   pUpdBtn();
 }
 
@@ -1383,8 +1387,9 @@ function playerLockApply() {
 // ===== BA192: zentrale Wiedergabe-Steuerung =====
 
 function plPlayPauseToggle() {
-  // Laeuft -> pausieren.
+  // Laeuft -> pausieren. SW (BA382): echte Nutzer-Pause loescht den Wunsch.
   if (typeof pPlaying !== "undefined" && pPlaying) {
+    if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
     if (typeof pPause === "function") pPause();
     return;
   }

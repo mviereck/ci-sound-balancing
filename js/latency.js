@@ -139,13 +139,10 @@ function latStartTest() {
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx) return;
   if (!pLatSplitter) latInitGraph(ctx);
-  // Falls Musik/Sätze laufen: stoppen, damit der Test nicht überlagert
-  if (typeof pPlaying !== "undefined" && pPlaying && typeof pPause === "function") {
-    pPause();
-  }
-  if (typeof sActive !== "undefined" && sActive && typeof sStop === "function") {
-    sStop();
-  }
+  // SW (BA382): Andere Tabs (auch der Latenz-Test) stoppen die Player-
+  // Wiedergabe NICHT mehr (Nutzer-Regel 2026-06-22) -- weder Musik (pPause)
+  // noch Saetze (sStop). Beide laufen weiter. (Der frueher hier verhinderte
+  // Ueberlagerungs-Fall ist bewusst akzeptiert.)
   latTestBuf = latBuildLoopedTestBuffer(ctx, latClickType, latIntervalMs);
   latTestSource = ctx.createBufferSource();
   latTestSource.buffer = latTestBuf;
