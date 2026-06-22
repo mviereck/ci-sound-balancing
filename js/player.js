@@ -39,6 +39,11 @@ let _streamTargetBuf = null;   // Referenz auf pWarpedBuf waehrend Streaming
 let _streamSampleRate = 0;     // SampleRate des laufenden Streaming-Bufs
 let _streamActiveGen = -1;     // Generation-Zaehler; matcht pWarpGen
 let _streamPendingPlay = null; // pOff fuer aufgeschobenes pPlay (Seek waehrend Streaming)
+// BA376: Adaptiver Vorlauf-Gate -- Felder.
+let _streamMeasuredR = null;   // gemessener r aus Abschnitt 0 (Rechenzeit / Audiodauer)
+let _streamReleaseSec = 0;     // ab dieser fertigen Audiodauer (Sek) darf gestartet werden
+let _streamDoneSec = 0;        // bislang zusammenhaengend fertige Audiodauer (Sek)
+let _streamStartPos = 0;       // p (Abspiel-Startposition in Sek) fuer diesen Lauf
 
 // BA371: Hilfsfunktion -- liefert firstNode der aktuellen EQ-Kette
 // (analog zu pPlay:546-552). Genutzt von _streamScheduleSegment.
@@ -82,6 +87,30 @@ function _streamResetState() {
   _streamSampleRate = 0;
   _streamActiveGen = -1;
   _streamPendingPlay = null;
+  // BA376: Vorlauf-Gate-Felder zuruecksetzen.
+  _streamMeasuredR = null;
+  _streamReleaseSec = 0;
+  _streamDoneSec = 0;
+  _streamStartPos = 0;
+}
+
+// BA376: Startposition fuer diesen Lauf setzen (von pWarpTrigger vor _streamResetState).
+function _streamSetStartPos(posSec) {
+  _streamStartPos = (typeof posSec === "number" && posSec > 0) ? posSec : 0;
+}
+
+// BA376: r-Messung aus Abschnitt 0 verarbeiten -> Vorlauf-Schwelle berechnen.
+function _streamSetMeasuredR(rMeasured) {
+  _streamMeasuredR = rMeasured;
+  const T = pSourceBuf ? (pSourceBuf.length / pSourceBuf.sampleRate) : 0;
+  const p = _streamStartPos;
+  const rEff = 1.05 * rMeasured;           // 5 % Sicherheitszuschlag
+  let V = (T - p) * (1 - 1 / rEff);        // Vorlauf-Audio ab p
+  if (!(V > 0)) V = 0;                     // Boden: kein negativer Vorlauf
+  _streamReleaseSec = p + V;               // ab dieser fertigen Audiodauer starten
+  console.log("[Warp-Vorlauf] r=" + rMeasured.toFixed(2)
+    + " T=" + T.toFixed(1) + "s p=" + p.toFixed(1) + "s"
+    + " -> Vorlauf V=" + V.toFixed(1) + "s, Start ab fertig=" + _streamReleaseSec.toFixed(1) + "s");
 }
 
 // BA371: Alle laufenden Abschnitts-Sources stoppen und State aufräumen.
@@ -177,6 +206,23 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
   if (typeof pWarpGen !== "undefined" && gen !== pWarpGen) return;
   if (typeof pWarpOn !== "undefined" && !pWarpOn) return;  // BA374: Warp aus -> nur rechnen, nicht abspielen
 
+  // BA376: fertige zusammenhaengende Audiodauer fortschreiben.
+  const sr0 = pWarpedBuf.sampleRate;
+  _streamDoneSec = (segStart + segLen) / sr0;
+
+  if (!_streamFirstReady) {
+    // BA376: Abschnitte, die komplett vor der Startposition p liegen:
+    // nur zaehlen, kein Ton. (segStart+segLen)/sr0 <= p bedeutet, der
+    // Abschnitt endet spaetestens bei p -- nichts davon abspielen.
+    if (_streamDoneSec <= _streamStartPos) return;
+
+    // BA376: Vorlauf-Gate: warten bis Freigabe-Schwelle erreicht.
+    const ready = _streamMeasuredR !== null
+      && _streamDoneSec >= _streamReleaseSec
+      && _streamDoneSec >= _streamStartPos;
+    if (!ready) return;
+  }
+
   const c = gPC();
   const sr = pWarpedBuf.sampleRate;
 
@@ -189,20 +235,29 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
     ? Math.max(0, Math.round(STREAM_CROSSFADE_SECONDS * sr))
     : 0;
   const isLast = (segStart + segLen) >= pWarpedBuf.length;
-  const playLen = (!isLast && segLen > xfLen) ? (segLen - xfLen) : segLen;
-  const segDuration = playLen / sr;
-
-  // Segment-Buffer aus dem (schon beschriebenen) pWarpedBuf bauen.
-  let segBuf;
-  try {
-    segBuf = _buildWarpedSegmentBuffer(segStart, playLen);
-  } catch (e) {
-    console.error("_streamOnSegmentReady: Segment-Buffer-Fehler", e);
-    return;
-  }
 
   if (!_streamFirstReady) {
-    // Erster Abschnitt: Kette verdrahten und Wiedergabe starten.
+    // BA376: Erster abgespielter Buffer: ab Sample p starten, nicht ab segStart.
+    // Damit hoert man nie Ton vor der Startposition.
+    const pSample = Math.round(_streamStartPos * sr);
+    // Restlaenge dieses Abschnitts ab p (bis zur naechsten Abschnittsgrenze).
+    const segEnd = segStart + segLen;
+    const playStart = Math.max(pSample, segStart);  // sollte = pSample sein (p liegt in diesem Abschnitt)
+    const rawLen = segEnd - playStart;
+    const playLen = (!isLast && rawLen > xfLen) ? (rawLen - xfLen) : rawLen;
+    const segDuration = playLen / sr;
+
+    if (playLen <= 0) return;  // Sicherheit: Abschnitt komplett in der Crossfade-Zone
+
+    let segBuf;
+    try {
+      segBuf = _buildWarpedSegmentBuffer(playStart, playLen);
+    } catch (e) {
+      console.error("_streamOnSegmentReady: Segment-Buffer-Fehler (erster ab p)", e);
+      return;
+    }
+
+    // Kette verdrahten und Wiedergabe starten.
     // BA371.2: _pWireOutputChain einmal aufrufen -- verbindet
     // firstNode -> EQ -> (MAPLAW ->) pGain -> destination.
     // playGen = null: kein pPlay-Konkurrenz-Guard noetig.
@@ -216,12 +271,16 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
 
     const startTime = c.currentTime + 0.1;  // etwas Vorlauf nach MAPLAW-await
     _streamScheduleSegment(segBuf, startTime, gen);
+    // BA376: _streamNextStart zeigt auf die naechste volle Abschnittsgrenze
+    // (segEnd - xfLen, falls nicht letzter Abschnitt). Die Folgeabschnitte
+    // haengen dort an, normal verkettend.
     _streamNextStart = startTime + segDuration;
     _streamFirstReady = true;
 
     // pPlaying-State setzen (damit Pause/Stop-Buttons und pTick korrekt sind).
+    // BA376: pT0 = currentTime - p (nicht - pOff), damit Slider bei p startet.
     pPlaying = true;
-    pT0 = c.currentTime - pOff;
+    pT0 = c.currentTime - _streamStartPos;
     if (typeof pUpdBtn === "function") pUpdBtn();
     if (typeof requestAnimationFrame === "function") {
       requestAnimationFrame(typeof pTick === "function" ? pTick : function() {});
@@ -229,6 +288,18 @@ async function _streamOnSegmentReady(segIndex, segStart, segLen, gen) {
   } else {
     // Folgeabschnitt: lueckenlos hinter dem vorherigen terminieren.
     if (gen !== _streamActiveGen) return;
+
+    const playLen = (!isLast && segLen > xfLen) ? (segLen - xfLen) : segLen;
+    const segDuration = playLen / sr;
+
+    let segBuf;
+    try {
+      segBuf = _buildWarpedSegmentBuffer(segStart, playLen);
+    } catch (e) {
+      console.error("_streamOnSegmentReady: Segment-Buffer-Fehler", e);
+      return;
+    }
+
     let startTime = _streamNextStart;
     // Unterlauf-Schutz: wenn wir zu spaet sind, kleiner Puffer.
     if (c.currentTime > startTime) {

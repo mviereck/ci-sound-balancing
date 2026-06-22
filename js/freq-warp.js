@@ -306,7 +306,7 @@ const STREAM_CROSSFADE_SECONDS = 0.015;
 //   isCancelled(): () => bool  (Stop-Button / Generation-Wechsel)
 //
 // Rueckgabe: Promise, das nach dem letzten Abschnitt resolved (target voll).
-async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgress, isCancelled) {
+async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgress, isCancelled, onMeasuredR) {
   const sr = srcBuf.sampleRate;
   const total = srcBuf.length;
   const segLen = Math.max(1, Math.round(STREAM_SEGMENT_SECONDS * sr));
@@ -343,7 +343,16 @@ async function streamFillBuffer(srcBuf, target, stage, onSegmentReady, onProgres
       isFirst: i === 0, isLast: i === nSeg - 1,
     };
 
+    let _t0 = 0;
+    if (i === 0) _t0 = (performance && performance.now) ? performance.now() : Date.now();
     const outSeg = await stage.processSegment(srcSeg, ctx);
+    if (i === 0) {
+      const _t1 = (performance && performance.now) ? performance.now() : Date.now();
+      const seg0Audio = thisLen / sr;            // Sekunden Audio in Abschnitt 0
+      const seg0Compute = (_t1 - _t0) / 1000;   // Sekunden Rechenzeit
+      const rMeasured = seg0Audio > 0 ? (seg0Compute / seg0Audio) : 1;
+      if (typeof onMeasuredR === "function") onMeasuredR(rMeasured, seg0Audio);
+    }
     if (isCancelled()) throw new Error("__warp_cancelled__");
 
     // BA372: Output ohne Vorlauf isolieren. outSeg.L/R hat Laenge fetchLen;
@@ -1200,8 +1209,12 @@ async function pWarpTrigger() {
 
       const stage = buildWarpStage(srcBuf, pWarpMode, pWarpStrength);
 
+      // BA376: Startposition merken, bevor State zurueckgesetzt wird.
+      if (typeof _streamSetStartPos === "function") _streamSetStartPos(pOff);
       // BA371: Streaming-State in player.js zurücksetzen.
       if (typeof _streamResetState === "function") _streamResetState();
+      // BA376: Startposition nach Reset neu setzen (Reset nullt _streamStartPos).
+      if (typeof _streamSetStartPos === "function") _streamSetStartPos(pOff);
 
       await streamFillBuffer(
         srcBuf,
@@ -1219,6 +1232,9 @@ async function pWarpTrigger() {
         },
         function isCancelled() {
           return pWarpCancel || myGen !== pWarpGen;
+        },
+        function onMeasuredR(rMeasured, seg0Audio) {   // BA376
+          if (typeof _streamSetMeasuredR === "function") _streamSetMeasuredR(rMeasured);
         }
       );
     } catch (err) {
