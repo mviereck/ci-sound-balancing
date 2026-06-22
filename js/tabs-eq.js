@@ -248,31 +248,6 @@ function _switchTabInternal(n) {
   }
   if (n === "player") {
     plCheck();
-    // BA381: Warp-Berechnung automatisch anstoszen, wenn Warping bereits aktiv
-    // ist und noch kein fertiger gewarpter Buffer vorliegt. Behebt: nach
-    // Save-Laden / Tab-Oeffnen mit Warp=an musste man bisher manuell aus/ein
-    // schalten. Spielt NICHT automatisch ab (kein pPlayWish gesetzt) -- §4a:
-    // nur rechnen, Wiedergabe erst auf Play.
-    if (typeof pWarpOn !== "undefined" && pWarpOn
-        && (typeof plEqOn === "undefined" || plEqOn)
-        && typeof pSourceBuf !== "undefined" && pSourceBuf
-        && (typeof pWarpedBuf === "undefined" || !pWarpedBuf)
-        && (typeof pWarpBusy === "undefined" || !pWarpBusy)
-        && typeof pWarpTrigger === "function") {
-      // pWarpComputingPromise setzen wie in pSetPlaybackMode -- damit ein
-      // Play-Druck WAEHREND dieser Berechnung sauber wartet (BA378: pPlay
-      // awaitet pWarpComputingPromise; Button amber). Gleiche Schreib-/
-      // Aufraeum-Stelle wie pSetPlaybackMode, eine konsistente Quelle.
-      const p = pWarpTrigger();
-      if (typeof pWarpComputingPromise !== "undefined") {
-        pWarpComputingPromise = p;
-        if (p && typeof p.finally === "function") {
-          p.finally(function () {
-            if (pWarpComputingPromise === p) pWarpComputingPromise = null;
-          });
-        }
-      }
-    }
   }
   if (n === "levels") {
     buildPrTbl();
