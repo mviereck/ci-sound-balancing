@@ -365,6 +365,7 @@ function updLatApplyBtn() {
   if (!btn) return;
   // Beschriftung; Sperre/opacity/cursor liegen ausschliesslich in
   // plUpdLatLock (player.js) — eine Schreibstelle.
+  if (typeof plApplyLatency === "undefined") return;
   styleToggleBtn("plLatApplyBtn", plApplyLatency, "plLatName");
   if (typeof plUpdLatLock === "function") plUpdLatLock();
 }
