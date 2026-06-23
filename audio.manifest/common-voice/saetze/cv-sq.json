@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-sq",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "37655606",
         "gender": "u",
-        "accent": "gjakovar,kosovar"
+        "accent": "gjakovar,kosovar",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.67
     },
@@ -30,7 +32,9 @@
       "audio": "sq/unknown/sq_u_37795391.mp3",
       "tags": {
         "source_item_id": "37795391",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 8.35
     },
@@ -40,7 +44,9 @@
       "audio": "sq/unknown/sq_u_37800718.mp3",
       "tags": {
         "source_item_id": "37800718",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.57
     },
@@ -50,7 +56,9 @@
       "audio": "sq/unknown/sq_u_39190751.mp3",
       "tags": {
         "source_item_id": "39190751",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.8
     },
@@ -60,7 +68,9 @@
       "audio": "sq/unknown/sq_u_37795651.mp3",
       "tags": {
         "source_item_id": "37795651",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.43
     },
@@ -70,7 +80,9 @@
       "audio": "sq/unknown/sq_u_39206371.mp3",
       "tags": {
         "source_item_id": "39206371",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.28
     },
@@ -80,7 +92,9 @@
       "audio": "sq/unknown/sq_u_37800900.mp3",
       "tags": {
         "source_item_id": "37800900",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.4
     },
@@ -91,7 +105,9 @@
       "tags": {
         "source_item_id": "37775799",
         "gender": "u",
-        "accent": "gjakovar,kosovar"
+        "accent": "gjakovar,kosovar",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 4.1
     },
@@ -101,7 +117,9 @@
       "audio": "sq/unknown/sq_u_37795614.mp3",
       "tags": {
         "source_item_id": "37795614",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.89
     },
@@ -111,7 +129,9 @@
       "audio": "sq/unknown/sq_u_37800810.mp3",
       "tags": {
         "source_item_id": "37800810",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.49
     },
@@ -122,7 +142,9 @@
       "tags": {
         "source_item_id": "37655600",
         "gender": "u",
-        "accent": "gjakovar,kosovar"
+        "accent": "gjakovar,kosovar",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 2.45
     },
@@ -132,7 +154,9 @@
       "audio": "sq/unknown/sq_u_37800782.mp3",
       "tags": {
         "source_item_id": "37800782",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -142,7 +166,9 @@
       "audio": "sq/unknown/sq_u_39206427.mp3",
       "tags": {
         "source_item_id": "39206427",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -152,7 +178,9 @@
       "audio": "sq/unknown/sq_u_37800741.mp3",
       "tags": {
         "source_item_id": "37800741",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.36
     }

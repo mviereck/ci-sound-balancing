@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-zh-TW",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "31046937",
         "gender": "u",
-        "accent": "出生地：新北市"
+        "accent": "出生地：新北市",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.92
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "30161851",
         "gender": "u",
-        "accent": "出生地：桃園市,馬祖福州人,馬祖人混合客家人家庭"
+        "accent": "出生地：桃園市,馬祖福州人,馬祖人混合客家人家庭",
+        "up_votes": 8,
+        "down_votes": 0
       },
       "duration": 5.04
     },
@@ -41,7 +45,9 @@
       "audio": "zh-TW/unknown/zh-TW_u_30586068.mp3",
       "tags": {
         "source_item_id": "30586068",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.71
     },
@@ -52,7 +58,9 @@
       "tags": {
         "source_item_id": "24477433",
         "gender": "u",
-        "accent": "出生地：臺北市"
+        "accent": "出生地：臺北市",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.34
     },
@@ -63,7 +71,9 @@
       "tags": {
         "source_item_id": "30242824",
         "gender": "u",
-        "accent": "出生地：新北市"
+        "accent": "出生地：新北市",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 1.98
     },
@@ -73,7 +83,9 @@
       "audio": "zh-TW/unknown/zh-TW_u_31113803.mp3",
       "tags": {
         "source_item_id": "31113803",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 1.98
     },
@@ -83,7 +95,9 @@
       "audio": "zh-TW/unknown/zh-TW_u_26819679.mp3",
       "tags": {
         "source_item_id": "26819679",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.13
     },
@@ -94,7 +108,9 @@
       "tags": {
         "source_item_id": "19877574",
         "gender": "u",
-        "accent": "出生地：臺中市"
+        "accent": "出生地：臺中市",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.81
     },
@@ -105,7 +121,9 @@
       "tags": {
         "source_item_id": "30584884",
         "gender": "u",
-        "accent": "可以很正經也可以很溫柔,可以很俏皮,可以很撒嬌"
+        "accent": "可以很正經也可以很溫柔,可以很俏皮,可以很撒嬌",
+        "up_votes": 8,
+        "down_votes": 0
       },
       "duration": 4.36
     },
@@ -115,7 +133,9 @@
       "audio": "zh-TW/unknown/zh-TW_u_25042181.mp3",
       "tags": {
         "source_item_id": "25042181",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.6
     }

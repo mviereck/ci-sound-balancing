@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ko",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "ko/unknown/ko_u_35844569.mp3",
       "tags": {
         "source_item_id": "35844569",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 9.9
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "36880045",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.06
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "36880067",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.78
     },
@@ -51,7 +57,9 @@
       "audio": "ko/unknown/ko_u_35844225.mp3",
       "tags": {
         "source_item_id": "35844225",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.58
     },
@@ -62,7 +70,9 @@
       "tags": {
         "source_item_id": "36880207",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.29
     },
@@ -73,7 +83,9 @@
       "tags": {
         "source_item_id": "36880408",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.87
     },
@@ -83,7 +95,9 @@
       "audio": "ko/unknown/ko_u_35891712.mp3",
       "tags": {
         "source_item_id": "35891712",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 8.78
     },
@@ -93,7 +107,9 @@
       "audio": "ko/unknown/ko_u_35890848.mp3",
       "tags": {
         "source_item_id": "35890848",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.21
     },
@@ -104,7 +120,9 @@
       "tags": {
         "source_item_id": "36880081",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.6
     },
@@ -115,7 +133,9 @@
       "tags": {
         "source_item_id": "36880358",
         "gender": "u",
-        "accent": "서울"
+        "accent": "서울",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.79
     },
@@ -125,7 +145,9 @@
       "audio": "ko/unknown/ko_u_35845211.mp3",
       "tags": {
         "source_item_id": "35845211",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.16
     },
@@ -135,7 +157,9 @@
       "audio": "ko/unknown/ko_u_35971984.mp3",
       "tags": {
         "source_item_id": "35971984",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.05
     },
@@ -145,7 +169,9 @@
       "audio": "ko/unknown/ko_u_36985085.mp3",
       "tags": {
         "source_item_id": "36985085",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 7.38
     }

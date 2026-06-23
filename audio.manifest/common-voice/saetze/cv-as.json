@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-as",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "32843638",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.26
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "32843639",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.44
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "32843692",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "32869262",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.86
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "32850545",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.31
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "32862330",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.85
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "32862329",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "32841095",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.82
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "32849994",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.04
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "32850485",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "32850549",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.25
     },
@@ -141,7 +163,9 @@
       "tags": {
         "source_item_id": "32852686",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 8.03
     },
@@ -152,7 +176,9 @@
       "tags": {
         "source_item_id": "32862202",
         "gender": "u",
-        "accent": "Gaonlia"
+        "accent": "Gaonlia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.68
     }

@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-be",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "be/unknown/be_u_26760377.mp3",
       "tags": {
         "source_item_id": "26760377",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 7.74
     },
@@ -29,7 +31,9 @@
       "audio": "be/unknown/be_u_26762418.mp3",
       "tags": {
         "source_item_id": "26762418",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.85
     },
@@ -39,7 +43,9 @@
       "audio": "be/unknown/be_u_26765765.mp3",
       "tags": {
         "source_item_id": "26765765",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.51
     },
@@ -49,7 +55,9 @@
       "audio": "be/unknown/be_u_26765872.mp3",
       "tags": {
         "source_item_id": "26765872",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 7.13
     },
@@ -59,7 +67,9 @@
       "audio": "be/unknown/be_u_26766016.mp3",
       "tags": {
         "source_item_id": "26766016",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.28
     },
@@ -69,7 +79,9 @@
       "audio": "be/unknown/be_u_26766083.mp3",
       "tags": {
         "source_item_id": "26766083",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.23
     },
@@ -79,7 +91,9 @@
       "audio": "be/unknown/be_u_26766261.mp3",
       "tags": {
         "source_item_id": "26766261",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -89,7 +103,9 @@
       "audio": "be/unknown/be_u_26766302.mp3",
       "tags": {
         "source_item_id": "26766302",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.8
     },
@@ -99,7 +115,9 @@
       "audio": "be/unknown/be_u_26766547.mp3",
       "tags": {
         "source_item_id": "26766547",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.62
     },
@@ -109,7 +127,9 @@
       "audio": "be/unknown/be_u_26766622.mp3",
       "tags": {
         "source_item_id": "26766622",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.28
     }

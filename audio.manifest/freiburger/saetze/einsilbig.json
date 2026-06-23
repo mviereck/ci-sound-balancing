@@ -9,7 +9,8 @@
   "url": "https://zenodo.org/records/10082491",
   "tags": {
     "speaker_id": "freiburger-mono",
-    "style": "test"
+    "style": "test",
+    "test_set": "Freiburger Einsilber"
   },
   "items": [
     {

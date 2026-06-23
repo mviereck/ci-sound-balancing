@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ast",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "36922846",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.72
     },
@@ -30,7 +32,9 @@
       "audio": "ast/unknown/ast_u_36922968.mp3",
       "tags": {
         "source_item_id": "36922968",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "36922885",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.6
     },
@@ -51,7 +57,9 @@
       "audio": "ast/unknown/ast_u_36922969.mp3",
       "tags": {
         "source_item_id": "36922969",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -62,7 +70,9 @@
       "tags": {
         "source_item_id": "36922888",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.42
     },
@@ -72,7 +82,9 @@
       "audio": "ast/unknown/ast_u_36923048.mp3",
       "tags": {
         "source_item_id": "36923048",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.04
     },
@@ -82,7 +94,9 @@
       "audio": "ast/unknown/ast_u_36924245.mp3",
       "tags": {
         "source_item_id": "36924245",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.57
     },
@@ -93,7 +107,9 @@
       "tags": {
         "source_item_id": "37015666",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -103,7 +119,9 @@
       "audio": "ast/unknown/ast_u_36924673.mp3",
       "tags": {
         "source_item_id": "36924673",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.18
     },
@@ -114,7 +132,9 @@
       "tags": {
         "source_item_id": "37148642",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.33
     },
@@ -124,7 +144,9 @@
       "audio": "ast/unknown/ast_u_36924498.mp3",
       "tags": {
         "source_item_id": "36924498",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.87
     },
@@ -135,7 +157,9 @@
       "tags": {
         "source_item_id": "37015481",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.06
     },
@@ -146,7 +170,9 @@
       "tags": {
         "source_item_id": "37143181",
         "gender": "u",
-        "accent": "Oriental"
+        "accent": "Oriental",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -156,7 +182,9 @@
       "audio": "ast/unknown/ast_u_36923102.mp3",
       "tags": {
         "source_item_id": "36923102",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.25
     },
@@ -166,7 +194,9 @@
       "audio": "ast/unknown/ast_u_36924524.mp3",
       "tags": {
         "source_item_id": "36924524",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.29
     },
@@ -176,7 +206,9 @@
       "audio": "ast/unknown/ast_u_36924661.mp3",
       "tags": {
         "source_item_id": "36924661",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     }

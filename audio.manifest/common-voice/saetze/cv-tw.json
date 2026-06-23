@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-tw",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "35280492",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.42
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "35292449",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.92
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "35280546",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "35292434",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.17
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "35292427",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "35292440",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.28
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "35280548",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "35280547",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.28
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "35292425",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.34
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "35280594",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "35292437",
         "gender": "u",
-        "accent": "Native"
+        "accent": "Native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.52
     }

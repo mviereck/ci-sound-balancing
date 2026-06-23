@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-oc",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "oc/unknown/oc_u_36518884.mp3",
       "tags": {
         "source_item_id": "36518884",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.43
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "36609083",
         "gender": "u",
-        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 4.93
     },
@@ -40,7 +44,9 @@
       "audio": "oc/unknown/oc_u_36669469.mp3",
       "tags": {
         "source_item_id": "36669469",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.66
     },
@@ -51,7 +57,9 @@
       "tags": {
         "source_item_id": "36670048",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -61,7 +69,9 @@
       "audio": "oc/unknown/oc_u_36670730.mp3",
       "tags": {
         "source_item_id": "36670730",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.36
     },
@@ -72,7 +82,9 @@
       "tags": {
         "source_item_id": "36672502",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -82,7 +94,9 @@
       "audio": "oc/unknown/oc_u_36674051.mp3",
       "tags": {
         "source_item_id": "36674051",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.98
     },
@@ -93,7 +107,9 @@
       "tags": {
         "source_item_id": "36681334",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -103,7 +119,9 @@
       "audio": "oc/unknown/oc_u_36505431.mp3",
       "tags": {
         "source_item_id": "36505431",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -113,7 +131,9 @@
       "audio": "oc/unknown/oc_u_36674832.mp3",
       "tags": {
         "source_item_id": "36674832",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -123,7 +143,9 @@
       "audio": "oc/unknown/oc_u_36669583.mp3",
       "tags": {
         "source_item_id": "36669583",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 6.3
     },
@@ -134,7 +156,9 @@
       "tags": {
         "source_item_id": "36685631",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 8,
+        "down_votes": 0
       },
       "duration": 4.36
     },
@@ -144,7 +168,9 @@
       "audio": "oc/unknown/oc_u_36680079.mp3",
       "tags": {
         "source_item_id": "36680079",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.68
     },
@@ -155,7 +181,9 @@
       "tags": {
         "source_item_id": "36672679",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 9.22
     },
@@ -166,7 +194,9 @@
       "tags": {
         "source_item_id": "36670146",
         "gender": "u",
-        "accent": "Aranés"
+        "accent": "Aranés",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.46
     },
@@ -177,7 +207,9 @@
       "tags": {
         "source_item_id": "36686701",
         "gender": "u",
-        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.2
     },
@@ -188,7 +220,9 @@
       "tags": {
         "source_item_id": "37205420",
         "gender": "u",
-        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran"
+        "accent": "Lengua abituau e matèrna ,Aranés de Miei Aran",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -198,7 +232,9 @@
       "audio": "oc/unknown/oc_u_36682040.mp3",
       "tags": {
         "source_item_id": "36682040",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     }

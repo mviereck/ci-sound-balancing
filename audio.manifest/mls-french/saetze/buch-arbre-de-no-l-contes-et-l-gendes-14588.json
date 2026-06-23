@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "14588",
     "book_title": "arbre de Noël: contes et légendes",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 114.55,
-        "original_end_s": 125.42
+        "original_end_s": 125.42,
+        "chapter_no": 9
       },
       "duration": 10.88
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 78.42,
-        "original_end_s": 95.72
+        "original_end_s": 95.72,
+        "chapter_no": 9
       },
       "duration": 17.31
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 125.42,
-        "original_end_s": 140.44
+        "original_end_s": 140.44,
+        "chapter_no": 9
       },
       "duration": 15.03
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 48.45,
-        "original_end_s": 66.78
+        "original_end_s": 66.78,
+        "chapter_no": 9
       },
       "duration": 18.34
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 66.78,
-        "original_end_s": 78.42
+        "original_end_s": 78.42,
+        "chapter_no": 9
       },
       "duration": 11.65
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 95.72,
-        "original_end_s": 114.55
+        "original_end_s": 114.55,
+        "chapter_no": 9
       },
       "duration": 18.84
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 18.22,
-        "original_end_s": 28.5
+        "original_end_s": 28.5,
+        "chapter_no": 9
       },
       "duration": 10.29
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14588",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/arbre_de_noel_2002_librivox/arbredenoel_09_marmier_64kb.mp3",
         "original_start_s": 28.5,
-        "original_end_s": 48.45
+        "original_end_s": 48.45,
+        "chapter_no": 9
       },
       "duration": 19.96
     }

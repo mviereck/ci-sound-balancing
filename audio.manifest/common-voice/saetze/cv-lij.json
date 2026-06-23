@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-lij",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "38539724",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.74
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "38735089",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.54
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "38743827",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.71
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "39869805",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.1
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "38735287",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "38743812",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 6.52
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "38584248",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "38788861",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.53
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "38794735",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "38787591",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.71
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "38609821",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.59
     },
@@ -141,7 +163,9 @@
       "tags": {
         "source_item_id": "38789963",
         "gender": "u",
-        "accent": "Zeneise"
+        "accent": "Zeneise",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.1
     }

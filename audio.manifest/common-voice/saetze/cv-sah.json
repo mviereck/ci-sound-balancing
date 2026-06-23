@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-sah",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "sah/unknown/sah_u_18580714.mp3",
       "tags": {
         "source_item_id": "18580714",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.1
     },
@@ -29,7 +31,9 @@
       "audio": "sah/unknown/sah_u_18871573.mp3",
       "tags": {
         "source_item_id": "18871573",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.34
     },
@@ -39,7 +43,9 @@
       "audio": "sah/unknown/sah_u_18706076.mp3",
       "tags": {
         "source_item_id": "18706076",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.1
     },
@@ -49,7 +55,9 @@
       "audio": "sah/unknown/sah_u_18872006.mp3",
       "tags": {
         "source_item_id": "18872006",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.06
     },
@@ -59,7 +67,9 @@
       "audio": "sah/unknown/sah_u_18755002.mp3",
       "tags": {
         "source_item_id": "18755002",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.34
     },
@@ -69,7 +79,9 @@
       "audio": "sah/unknown/sah_u_18758590.mp3",
       "tags": {
         "source_item_id": "18758590",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.02
     },
@@ -79,7 +91,9 @@
       "audio": "sah/unknown/sah_u_18637296.mp3",
       "tags": {
         "source_item_id": "18637296",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.9
     },
@@ -89,7 +103,9 @@
       "audio": "sah/unknown/sah_u_18816538.mp3",
       "tags": {
         "source_item_id": "18816538",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.14
     },
@@ -99,7 +115,9 @@
       "audio": "sah/unknown/sah_u_18706026.mp3",
       "tags": {
         "source_item_id": "18706026",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.7
     },
@@ -109,7 +127,9 @@
       "audio": "sah/unknown/sah_u_23602969.mp3",
       "tags": {
         "source_item_id": "23602969",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.1
     },
@@ -119,7 +139,9 @@
       "audio": "sah/unknown/sah_u_18844141.mp3",
       "tags": {
         "source_item_id": "18844141",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.02
     },
@@ -129,7 +151,9 @@
       "audio": "sah/unknown/sah_u_18728729.mp3",
       "tags": {
         "source_item_id": "18728729",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.1
     }

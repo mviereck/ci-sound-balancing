@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "11957",
     "book_title": "Rana Viajera",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 57.3,
-        "original_end_s": 71.15
+        "original_end_s": 71.15,
+        "chapter_no": 6
       },
       "duration": 13.86
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 64.77,
-        "original_end_s": 83.48
+        "original_end_s": 83.48,
+        "chapter_no": 84
       },
       "duration": 18.72
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 209.63,
-        "original_end_s": 222.59
+        "original_end_s": 222.59,
+        "chapter_no": 83
       },
       "duration": 12.97
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 138.25,
-        "original_end_s": 148.42
+        "original_end_s": 148.42,
+        "chapter_no": 83
       },
       "duration": 10.18
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 163.89,
-        "original_end_s": 176.51
+        "original_end_s": 176.51,
+        "chapter_no": 83
       },
       "duration": 12.63
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 176.51,
-        "original_end_s": 195.14
+        "original_end_s": 195.14,
+        "chapter_no": 83
       },
       "duration": 18.64
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 83.48,
-        "original_end_s": 96.13
+        "original_end_s": 96.13,
+        "chapter_no": 84
       },
       "duration": 12.66
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 184.06,
-        "original_end_s": 202.24
+        "original_end_s": 202.24,
+        "chapter_no": 6
       },
       "duration": 18.19
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 162.91,
-        "original_end_s": 180.9
+        "original_end_s": 180.9,
+        "chapter_no": 84
       },
       "duration": 18.0
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 123.29,
-        "original_end_s": 138.25
+        "original_end_s": 138.25,
+        "chapter_no": 83
       },
       "duration": 14.97
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 96.13,
-        "original_end_s": 110.21
+        "original_end_s": 110.21,
+        "chapter_no": 84
       },
       "duration": 14.09
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 152.06,
-        "original_end_s": 162.91
+        "original_end_s": 162.91,
+        "chapter_no": 84
       },
       "duration": 10.86
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 135.96,
-        "original_end_s": 152.06
+        "original_end_s": 152.06,
+        "chapter_no": 84
       },
       "duration": 16.11
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 102.86,
-        "original_end_s": 119.33
+        "original_end_s": 119.33,
+        "chapter_no": 6
       },
       "duration": 16.48
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 195.14,
-        "original_end_s": 209.63
+        "original_end_s": 209.63,
+        "chapter_no": 83
       },
       "duration": 14.5
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 45.38,
-        "original_end_s": 59.12
+        "original_end_s": 59.12,
+        "chapter_no": 83
       },
       "duration": 13.75
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 202.24,
-        "original_end_s": 219.28
+        "original_end_s": 219.28,
+        "chapter_no": 6
       },
       "duration": 17.05
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 15.93,
-        "original_end_s": 32.89
+        "original_end_s": 32.89,
+        "chapter_no": 84
       },
       "duration": 16.97
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 155.24,
-        "original_end_s": 172.04
+        "original_end_s": 172.04,
+        "chapter_no": 6
       },
       "duration": 16.81
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 172.04,
-        "original_end_s": 184.06
+        "original_end_s": 184.06,
+        "chapter_no": 6
       },
       "duration": 12.03
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 110.21,
-        "original_end_s": 124.47
+        "original_end_s": 124.47,
+        "chapter_no": 84
       },
       "duration": 14.27
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 72.52,
-        "original_end_s": 83.29
+        "original_end_s": 83.29,
+        "chapter_no": 83
       },
       "duration": 10.78
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 130.74,
-        "original_end_s": 144.61
+        "original_end_s": 144.61,
+        "chapter_no": 6
       },
       "duration": 13.88
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 45.34,
-        "original_end_s": 57.3
+        "original_end_s": 57.3,
+        "chapter_no": 6
       },
       "duration": 11.97
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 31.43,
-        "original_end_s": 45.34
+        "original_end_s": 45.34,
+        "chapter_no": 6
       },
       "duration": 13.92
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 34.24,
-        "original_end_s": 45.38
+        "original_end_s": 45.38,
+        "chapter_no": 83
       },
       "duration": 11.15
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 111.95,
-        "original_end_s": 123.29
+        "original_end_s": 123.29,
+        "chapter_no": 83
       },
       "duration": 11.35
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 95.33,
-        "original_end_s": 111.95
+        "original_end_s": 111.95,
+        "chapter_no": 83
       },
       "duration": 16.63
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 32.89,
-        "original_end_s": 46.08
+        "original_end_s": 46.08,
+        "chapter_no": 84
       },
       "duration": 13.2
     },
@@ -457,10 +457,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 83.29,
-        "original_end_s": 95.33
+        "original_end_s": 95.33,
+        "chapter_no": 83
       },
       "duration": 12.05
     },
@@ -472,10 +472,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 119.33,
-        "original_end_s": 130.74
+        "original_end_s": 130.74,
+        "chapter_no": 6
       },
       "duration": 11.42
     },
@@ -487,10 +487,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 148.42,
-        "original_end_s": 163.89
+        "original_end_s": 163.89,
+        "chapter_no": 83
       },
       "duration": 15.48
     },
@@ -502,10 +502,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 83.15,
-        "original_end_s": 102.86
+        "original_end_s": 102.86,
+        "chapter_no": 6
       },
       "duration": 19.72
     },
@@ -517,10 +517,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 144.61,
-        "original_end_s": 155.24
+        "original_end_s": 155.24,
+        "chapter_no": 6
       },
       "duration": 10.64
     },
@@ -532,10 +532,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_83_camba_64kb.mp3",
         "original_start_s": 59.12,
-        "original_end_s": 72.52
+        "original_end_s": 72.52,
+        "chapter_no": 83
       },
       "duration": 13.41
     },
@@ -547,10 +547,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 124.47,
-        "original_end_s": 135.96
+        "original_end_s": 135.96,
+        "chapter_no": 84
       },
       "duration": 11.5
     },
@@ -562,10 +562,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_84_camba_64kb.mp3",
         "original_start_s": 46.08,
-        "original_end_s": 64.77
+        "original_end_s": 64.77,
+        "chapter_no": 84
       },
       "duration": 18.7
     },
@@ -577,10 +577,10 @@
         "speaker_id": "mls-es-11168",
         "gender": "w",
         "book_id": "11957",
-        "split": "test",
         "original_url": "http://www.archive.org/download/laranaviajera_1807_librivox/ranaviajera_06_camba_64kb.mp3",
         "original_start_s": 71.15,
-        "original_end_s": 83.15
+        "original_end_s": 83.15,
+        "chapter_no": 6
       },
       "duration": 12.01
     }

@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-os",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "38689165",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.24
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "40070991",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 10.37
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "38675302",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "38747482",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.38
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "38747485",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "38768457",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.58
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "38711505",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.15
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "38648638",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.06
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "38675265",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.15
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "38718720",
         "gender": "u",
-        "accent": "Цæгат"
+        "accent": "Цæгат",
+        "up_votes": 4,
+        "down_votes": 2
       },
       "duration": 5.87
     }

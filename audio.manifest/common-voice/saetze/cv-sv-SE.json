@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-sv-SE",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_18711970.mp3",
       "tags": {
         "source_item_id": "18711970",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.86
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "18737942",
         "gender": "u",
-        "accent": "Rikssvenska,Sveamål,Stockholmska,Skelleftemål"
+        "accent": "Rikssvenska,Sveamål,Stockholmska,Skelleftemål",
+        "up_votes": 10,
+        "down_votes": 0
       },
       "duration": 3.38
     },
@@ -40,7 +44,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_18747822.mp3",
       "tags": {
         "source_item_id": "18747822",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.06
     },
@@ -50,7 +56,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_18844791.mp3",
       "tags": {
         "source_item_id": "18844791",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.98
     },
@@ -60,7 +68,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_18847619.mp3",
       "tags": {
         "source_item_id": "18847619",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.26
     },
@@ -70,7 +80,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_18848640.mp3",
       "tags": {
         "source_item_id": "18848640",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.03
     },
@@ -80,7 +92,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_19101551.mp3",
       "tags": {
         "source_item_id": "19101551",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.29
     },
@@ -90,7 +104,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_19518501.mp3",
       "tags": {
         "source_item_id": "19518501",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.34
     },
@@ -100,7 +116,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_20020962.mp3",
       "tags": {
         "source_item_id": "20020962",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.72
     },
@@ -110,7 +128,9 @@
       "audio": "sv-SE/unknown/sv-SE_u_20171301.mp3",
       "tags": {
         "source_item_id": "20171301",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.0
     }

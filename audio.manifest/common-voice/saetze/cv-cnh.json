@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-cnh",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "cnh/unknown/cnh_u_17894873.mp3",
       "tags": {
         "source_item_id": "17894873",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.74
     },
@@ -29,7 +31,9 @@
       "audio": "cnh/unknown/cnh_u_17896576.mp3",
       "tags": {
         "source_item_id": "17896576",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 3.26
     },
@@ -39,7 +43,9 @@
       "audio": "cnh/unknown/cnh_u_17899706.mp3",
       "tags": {
         "source_item_id": "17899706",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 2.62
     },
@@ -49,7 +55,9 @@
       "audio": "cnh/unknown/cnh_u_17906468.mp3",
       "tags": {
         "source_item_id": "17906468",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.53
     },
@@ -59,7 +67,9 @@
       "audio": "cnh/unknown/cnh_u_17924987.mp3",
       "tags": {
         "source_item_id": "17924987",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.5
     },
@@ -69,7 +79,9 @@
       "audio": "cnh/unknown/cnh_u_17926966.mp3",
       "tags": {
         "source_item_id": "17926966",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.67
     },
@@ -79,7 +91,9 @@
       "audio": "cnh/unknown/cnh_u_17896592.mp3",
       "tags": {
         "source_item_id": "17896592",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.9
     },
@@ -89,7 +103,9 @@
       "audio": "cnh/unknown/cnh_u_17922914.mp3",
       "tags": {
         "source_item_id": "17922914",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 3.26
     },
@@ -99,7 +115,9 @@
       "audio": "cnh/unknown/cnh_u_17899934.mp3",
       "tags": {
         "source_item_id": "17899934",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.9
     },
@@ -109,7 +127,9 @@
       "audio": "cnh/unknown/cnh_u_17896212.mp3",
       "tags": {
         "source_item_id": "17896212",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.74
     },
@@ -119,7 +139,9 @@
       "audio": "cnh/unknown/cnh_u_17927114.mp3",
       "tags": {
         "source_item_id": "17927114",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.37
     },
@@ -129,7 +151,9 @@
       "audio": "cnh/unknown/cnh_u_17925034.mp3",
       "tags": {
         "source_item_id": "17925034",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 2.33
     },
@@ -139,7 +163,9 @@
       "audio": "cnh/unknown/cnh_u_17891700.mp3",
       "tags": {
         "source_item_id": "17891700",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.98
     },
@@ -149,7 +175,9 @@
       "audio": "cnh/unknown/cnh_u_17922960.mp3",
       "tags": {
         "source_item_id": "17922960",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 2.33
     },
@@ -159,7 +187,9 @@
       "audio": "cnh/unknown/cnh_u_17922943.mp3",
       "tags": {
         "source_item_id": "17922943",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.14
     },
@@ -169,7 +199,9 @@
       "audio": "cnh/unknown/cnh_u_17896225.mp3",
       "tags": {
         "source_item_id": "17896225",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.74
     }

@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-mr",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "mr/unknown/mr_u_27565097.mp3",
       "tags": {
         "source_item_id": "27565097",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 10.26
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "27872240",
         "gender": "u",
-        "accent": "Nashik Rural - Dindori,West Maharashtra"
+        "accent": "Nashik Rural - Dindori,West Maharashtra",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 5.22
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "30388718",
         "gender": "u",
-        "accent": "Praman,Boli"
+        "accent": "Praman,Boli",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 5.76
     },
@@ -51,7 +57,9 @@
       "audio": "mr/unknown/mr_u_30584799.mp3",
       "tags": {
         "source_item_id": "30584799",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.21
     },
@@ -61,7 +69,9 @@
       "audio": "mr/unknown/mr_u_30584995.mp3",
       "tags": {
         "source_item_id": "30584995",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 6.95
     },
@@ -71,7 +81,9 @@
       "audio": "mr/unknown/mr_u_30585613.mp3",
       "tags": {
         "source_item_id": "30585613",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.8
     },
@@ -81,7 +93,9 @@
       "audio": "mr/unknown/mr_u_30592694.mp3",
       "tags": {
         "source_item_id": "30592694",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.76
     },
@@ -91,7 +105,9 @@
       "audio": "mr/unknown/mr_u_30647129.mp3",
       "tags": {
         "source_item_id": "30647129",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -101,7 +117,9 @@
       "audio": "mr/unknown/mr_u_30931794.mp3",
       "tags": {
         "source_item_id": "30931794",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.4
     },
@@ -111,7 +129,9 @@
       "audio": "mr/unknown/mr_u_30932326.mp3",
       "tags": {
         "source_item_id": "30932326",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.89
     },
@@ -121,7 +141,9 @@
       "audio": "mr/unknown/mr_u_30928254.mp3",
       "tags": {
         "source_item_id": "30928254",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.87
     },
@@ -131,7 +153,9 @@
       "audio": "mr/unknown/mr_u_30721587.mp3",
       "tags": {
         "source_item_id": "30721587",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.88
     },
@@ -142,7 +166,9 @@
       "tags": {
         "source_item_id": "30390762",
         "gender": "u",
-        "accent": "Praman,Boli"
+        "accent": "Praman,Boli",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -152,7 +178,9 @@
       "audio": "mr/unknown/mr_u_30639338.mp3",
       "tags": {
         "source_item_id": "30639338",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.28
     },
@@ -162,7 +190,9 @@
       "audio": "mr/unknown/mr_u_27843940.mp3",
       "tags": {
         "source_item_id": "27843940",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.18
     },
@@ -173,7 +203,9 @@
       "tags": {
         "source_item_id": "30400158",
         "gender": "u",
-        "accent": "Nashik Rural - Dindori,West Maharashtra"
+        "accent": "Nashik Rural - Dindori,West Maharashtra",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.92
     },
@@ -183,7 +215,9 @@
       "audio": "mr/unknown/mr_u_30588196.mp3",
       "tags": {
         "source_item_id": "30588196",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 10.08
     },
@@ -193,7 +227,9 @@
       "audio": "mr/unknown/mr_u_30657485.mp3",
       "tags": {
         "source_item_id": "30657485",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.66
     },
@@ -204,7 +240,9 @@
       "tags": {
         "source_item_id": "30390350",
         "gender": "u",
-        "accent": "Praman,Boli"
+        "accent": "Praman,Boli",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.78
     }

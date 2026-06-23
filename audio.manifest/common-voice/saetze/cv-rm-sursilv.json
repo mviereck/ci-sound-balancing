@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-rm-sursilv",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20562187.mp3",
       "tags": {
         "source_item_id": "20562187",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.3
     },
@@ -29,7 +31,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20566835.mp3",
       "tags": {
         "source_item_id": "20566835",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.25
     },
@@ -39,7 +43,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20569057.mp3",
       "tags": {
         "source_item_id": "20569057",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.89
     },
@@ -49,7 +55,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20582245.mp3",
       "tags": {
         "source_item_id": "20582245",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.14
     },
@@ -59,7 +67,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20582652.mp3",
       "tags": {
         "source_item_id": "20582652",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.7
     },
@@ -69,7 +79,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20585197.mp3",
       "tags": {
         "source_item_id": "20585197",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.4
     },
@@ -79,7 +91,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_21812818.mp3",
       "tags": {
         "source_item_id": "21812818",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.74
     },
@@ -89,7 +103,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20579997.mp3",
       "tags": {
         "source_item_id": "20579997",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.78
     },
@@ -99,7 +115,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_21837546.mp3",
       "tags": {
         "source_item_id": "21837546",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.44
     },
@@ -109,7 +127,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20582528.mp3",
       "tags": {
         "source_item_id": "20582528",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.93
     },
@@ -119,7 +139,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20569805.mp3",
       "tags": {
         "source_item_id": "20569805",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.51
     },
@@ -129,7 +151,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20585934.mp3",
       "tags": {
         "source_item_id": "20585934",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.8
     },
@@ -139,7 +163,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20582742.mp3",
       "tags": {
         "source_item_id": "20582742",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.38
     },
@@ -149,7 +175,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20585271.mp3",
       "tags": {
         "source_item_id": "20585271",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.02
     },
@@ -159,7 +187,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20567247.mp3",
       "tags": {
         "source_item_id": "20567247",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.58
     },
@@ -169,7 +199,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20567945.mp3",
       "tags": {
         "source_item_id": "20567945",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.74
     },
@@ -179,7 +211,9 @@
       "audio": "rm-sursilv/unknown/rm-sursilv_u_20582282.mp3",
       "tags": {
         "source_item_id": "20582282",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.27
     }

@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-eo",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "17899187",
         "gender": "u",
-        "accent": "Internacia"
+        "accent": "Internacia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.78
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "17900191",
         "gender": "u",
-        "accent": "Internacia"
+        "accent": "Internacia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.38
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "17901088",
         "gender": "u",
-        "accent": "Internacia"
+        "accent": "Internacia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.26
     },
@@ -52,7 +58,9 @@
       "audio": "eo/unknown/eo_u_17904259.mp3",
       "tags": {
         "source_item_id": "17904259",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.1
     },
@@ -62,7 +70,9 @@
       "audio": "eo/unknown/eo_u_17909798.mp3",
       "tags": {
         "source_item_id": "17909798",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.78
     },
@@ -73,7 +83,9 @@
       "tags": {
         "source_item_id": "17913152",
         "gender": "u",
-        "accent": "Internacia"
+        "accent": "Internacia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.18
     },
@@ -84,7 +96,9 @@
       "tags": {
         "source_item_id": "17914903",
         "gender": "u",
-        "accent": "Internacia"
+        "accent": "Internacia",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.2
     },
@@ -94,7 +108,9 @@
       "audio": "eo/unknown/eo_u_17919670.mp3",
       "tags": {
         "source_item_id": "17919670",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -104,7 +120,9 @@
       "audio": "eo/unknown/eo_u_17975065.mp3",
       "tags": {
         "source_item_id": "17975065",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.5
     },
@@ -114,7 +132,9 @@
       "audio": "eo/unknown/eo_u_18236201.mp3",
       "tags": {
         "source_item_id": "18236201",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.06
     }

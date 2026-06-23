@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-nan-tw",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "nan-tw/unknown/nan-tw_u_33799190.mp3",
       "tags": {
         "source_item_id": "33799190",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "32167632",
         "gender": "u",
-        "accent": "偏漳腔,桃園"
+        "accent": "偏漳腔,桃園",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "32332804",
         "gender": "u",
-        "accent": "漳州腔"
+        "accent": "漳州腔",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.78
     },
@@ -52,7 +58,9 @@
       "tags": {
         "source_item_id": "38073544",
         "gender": "u",
-        "accent": "台北腔"
+        "accent": "台北腔",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.38
     },
@@ -63,7 +71,9 @@
       "tags": {
         "source_item_id": "32136332",
         "gender": "u",
-        "accent": "偏漳腔,桃園"
+        "accent": "偏漳腔,桃園",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 2.38
     },
@@ -74,7 +84,9 @@
       "tags": {
         "source_item_id": "32146726",
         "gender": "u",
-        "accent": "偏漳腔,桃園"
+        "accent": "偏漳腔,桃園",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.1
     },
@@ -85,7 +97,9 @@
       "tags": {
         "source_item_id": "32354655",
         "gender": "u",
-        "accent": "漳州腔"
+        "accent": "漳州腔",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 1.91
     },
@@ -96,7 +110,9 @@
       "tags": {
         "source_item_id": "32332810",
         "gender": "u",
-        "accent": "漳州腔"
+        "accent": "漳州腔",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.52
     },
@@ -107,7 +123,9 @@
       "tags": {
         "source_item_id": "32136184",
         "gender": "u",
-        "accent": "偏漳腔,桃園"
+        "accent": "偏漳腔,桃園",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 1.98
     },
@@ -117,7 +135,9 @@
       "audio": "nan-tw/unknown/nan-tw_u_30911700.mp3",
       "tags": {
         "source_item_id": "30911700",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.16
     }

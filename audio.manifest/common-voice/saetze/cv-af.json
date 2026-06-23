@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-af",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "af/unknown/af_u_39597078.mp3",
       "tags": {
         "source_item_id": "39597078",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.96
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "39809233",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.52
     },
@@ -40,7 +44,9 @@
       "audio": "af/unknown/af_u_39597091.mp3",
       "tags": {
         "source_item_id": "39597091",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.1
     },
@@ -51,7 +57,9 @@
       "tags": {
         "source_item_id": "39809234",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.63
     },
@@ -61,7 +69,9 @@
       "audio": "af/unknown/af_u_39597093.mp3",
       "tags": {
         "source_item_id": "39597093",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.52
     },
@@ -72,7 +82,9 @@
       "tags": {
         "source_item_id": "39809235",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 9.68
     },
@@ -82,7 +94,9 @@
       "audio": "af/unknown/af_u_39597119.mp3",
       "tags": {
         "source_item_id": "39597119",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.23
     },
@@ -93,7 +107,9 @@
       "tags": {
         "source_item_id": "39812027",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.18
     },
@@ -103,7 +119,9 @@
       "audio": "af/unknown/af_u_39597210.mp3",
       "tags": {
         "source_item_id": "39597210",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.34
     },
@@ -114,7 +132,9 @@
       "tags": {
         "source_item_id": "39809371",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 8.75
     },
@@ -124,7 +144,9 @@
       "audio": "af/unknown/af_u_39597176.mp3",
       "tags": {
         "source_item_id": "39597176",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.39
     },
@@ -134,7 +156,9 @@
       "audio": "af/unknown/af_u_39597042.mp3",
       "tags": {
         "source_item_id": "39597042",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.6
     },
@@ -144,7 +168,9 @@
       "audio": "af/unknown/af_u_39597146.mp3",
       "tags": {
         "source_item_id": "39597146",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.71
     },
@@ -155,7 +181,9 @@
       "tags": {
         "source_item_id": "39812025",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.11
     },
@@ -166,7 +194,9 @@
       "tags": {
         "source_item_id": "39812015",
         "gender": "u",
-        "accent": "Capetonian"
+        "accent": "Capetonian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.02
     },
@@ -176,7 +206,9 @@
       "audio": "af/unknown/af_u_39597123.mp3",
       "tags": {
         "source_item_id": "39597123",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.7
     }

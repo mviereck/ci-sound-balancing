@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "2548",
     "book_title": "Dictionnaire des idées reçues",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 42.03,
-        "original_end_s": 57.3
+        "original_end_s": 57.3,
+        "chapter_no": 16
       },
       "duration": 15.28
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 72.4,
-        "original_end_s": 86.81
+        "original_end_s": 86.81,
+        "chapter_no": 16
       },
       "duration": 14.42
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 61.81,
-        "original_end_s": 74.5
+        "original_end_s": 74.5,
+        "chapter_no": 10
       },
       "duration": 12.7
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 219.74,
-        "original_end_s": 233.82
+        "original_end_s": 233.82,
+        "chapter_no": 10
       },
       "duration": 14.09
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 116.22,
-        "original_end_s": 134.21
+        "original_end_s": 134.21,
+        "chapter_no": 16
       },
       "duration": 18.0
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 167.33,
-        "original_end_s": 184.19
+        "original_end_s": 184.19,
+        "chapter_no": 10
       },
       "duration": 16.87
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 74.5,
-        "original_end_s": 92.95
+        "original_end_s": 92.95,
+        "chapter_no": 10
       },
       "duration": 18.46
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 201.01,
-        "original_end_s": 219.74
+        "original_end_s": 219.74,
+        "chapter_no": 10
       },
       "duration": 18.74
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 50.46,
-        "original_end_s": 61.81
+        "original_end_s": 61.81,
+        "chapter_no": 10
       },
       "duration": 11.36
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 162.95,
-        "original_end_s": 173.01
+        "original_end_s": 173.01,
+        "chapter_no": 16
       },
       "duration": 10.07
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 145.36,
-        "original_end_s": 156.28
+        "original_end_s": 156.28,
+        "chapter_no": 10
       },
       "duration": 10.93
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 156.28,
-        "original_end_s": 167.33
+        "original_end_s": 167.33,
+        "chapter_no": 10
       },
       "duration": 11.06
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 57.3,
-        "original_end_s": 72.4
+        "original_end_s": 72.4,
+        "chapter_no": 16
       },
       "duration": 15.11
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 150.71,
-        "original_end_s": 162.95
+        "original_end_s": 162.95,
+        "chapter_no": 16
       },
       "duration": 12.25
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 92.95,
-        "original_end_s": 112.09
+        "original_end_s": 112.09,
+        "chapter_no": 10
       },
       "duration": 19.15
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 31.41,
-        "original_end_s": 42.03
+        "original_end_s": 42.03,
+        "chapter_no": 16
       },
       "duration": 10.63
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_10_flaubert_64kb.mp3",
         "original_start_s": 127.79,
-        "original_end_s": 145.36
+        "original_end_s": 145.36,
+        "chapter_no": 10
       },
       "duration": 17.58
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 86.81,
-        "original_end_s": 106.0
+        "original_end_s": 106.0,
+        "chapter_no": 16
       },
       "duration": 19.2
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-fr-1406",
         "gender": "m",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_16_flaubert_64kb.mp3",
         "original_start_s": 134.21,
-        "original_end_s": 150.71
+        "original_end_s": 150.71,
+        "chapter_no": 16
       },
       "duration": 16.51
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 50.28,
-        "original_end_s": 64.5
+        "original_end_s": 64.5,
+        "chapter_no": 18
       },
       "duration": 14.23
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 62.15,
-        "original_end_s": 73.79
+        "original_end_s": 73.79,
+        "chapter_no": 17
       },
       "duration": 11.65
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 192.47,
-        "original_end_s": 203.27
+        "original_end_s": 203.27,
+        "chapter_no": 17
       },
       "duration": 10.81
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 218.05,
-        "original_end_s": 231.57
+        "original_end_s": 231.57,
+        "chapter_no": 17
       },
       "duration": 13.53
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 96.44,
-        "original_end_s": 115.63
+        "original_end_s": 115.63,
+        "chapter_no": 18
       },
       "duration": 19.2
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 146.35,
-        "original_end_s": 163.1
+        "original_end_s": 163.1,
+        "chapter_no": 17
       },
       "duration": 16.76
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 129.95,
-        "original_end_s": 144.62
+        "original_end_s": 144.62,
+        "chapter_no": 18
       },
       "duration": 14.68
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 77.53,
-        "original_end_s": 96.44
+        "original_end_s": 96.44,
+        "chapter_no": 18
       },
       "duration": 18.92
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 29.46,
-        "original_end_s": 44.41
+        "original_end_s": 44.41,
+        "chapter_no": 17
       },
       "duration": 14.96
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 44.41,
-        "original_end_s": 62.15
+        "original_end_s": 62.15,
+        "chapter_no": 17
       },
       "duration": 17.75
     },
@@ -457,10 +457,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 64.5,
-        "original_end_s": 77.53
+        "original_end_s": 77.53,
+        "chapter_no": 18
       },
       "duration": 13.04
     },
@@ -472,10 +472,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 83.96,
-        "original_end_s": 101.75
+        "original_end_s": 101.75,
+        "chapter_no": 17
       },
       "duration": 17.8
     },
@@ -487,10 +487,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 158.96,
-        "original_end_s": 170.87
+        "original_end_s": 170.87,
+        "chapter_no": 18
       },
       "duration": 11.92
     },
@@ -502,10 +502,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 73.79,
-        "original_end_s": 83.96
+        "original_end_s": 83.96,
+        "chapter_no": 17
       },
       "duration": 10.18
     },
@@ -517,10 +517,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 144.62,
-        "original_end_s": 158.96
+        "original_end_s": 158.96,
+        "chapter_no": 18
       },
       "duration": 14.35
     },
@@ -532,10 +532,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 247.06,
-        "original_end_s": 257.89
+        "original_end_s": 257.89,
+        "chapter_no": 17
       },
       "duration": 10.84
     },
@@ -547,10 +547,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 203.27,
-        "original_end_s": 218.05
+        "original_end_s": 218.05,
+        "chapter_no": 17
       },
       "duration": 14.79
     },
@@ -562,10 +562,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 115.63,
-        "original_end_s": 129.95
+        "original_end_s": 129.95,
+        "chapter_no": 18
       },
       "duration": 14.33
     },
@@ -577,10 +577,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 231.57,
-        "original_end_s": 247.06
+        "original_end_s": 247.06,
+        "chapter_no": 17
       },
       "duration": 15.5
     },
@@ -592,10 +592,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_18_flaubert_64kb.mp3",
         "original_start_s": 170.87,
-        "original_end_s": 181.84
+        "original_end_s": 181.84,
+        "chapter_no": 18
       },
       "duration": 10.97
     },
@@ -607,10 +607,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 130.19,
-        "original_end_s": 146.35
+        "original_end_s": 146.35,
+        "chapter_no": 17
       },
       "duration": 16.17
     },
@@ -622,10 +622,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 101.75,
-        "original_end_s": 113.29
+        "original_end_s": 113.29,
+        "chapter_no": 17
       },
       "duration": 11.55
     },
@@ -637,10 +637,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 257.89,
-        "original_end_s": 269.32
+        "original_end_s": 269.32,
+        "chapter_no": 17
       },
       "duration": 11.44
     },
@@ -652,10 +652,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 269.32,
-        "original_end_s": 280.29
+        "original_end_s": 280.29,
+        "chapter_no": 17
       },
       "duration": 10.98
     },
@@ -667,10 +667,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 176.39,
-        "original_end_s": 192.47
+        "original_end_s": 192.47,
+        "chapter_no": 17
       },
       "duration": 16.09
     },
@@ -682,10 +682,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 163.1,
-        "original_end_s": 176.39
+        "original_end_s": 176.39,
+        "chapter_no": 17
       },
       "duration": 13.3
     },
@@ -697,10 +697,10 @@
         "speaker_id": "mls-fr-2154",
         "gender": "w",
         "book_id": "2548",
-        "split": "test",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_17_flaubert_64kb.mp3",
         "original_start_s": 113.29,
-        "original_end_s": 130.19
+        "original_end_s": 130.19,
+        "chapter_no": 17
       },
       "duration": 16.91
     },
@@ -712,10 +712,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 354.38,
-        "original_end_s": 367.25
+        "original_end_s": 367.25,
+        "chapter_no": 15
       },
       "duration": 12.88
     },
@@ -727,10 +727,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 212.82,
-        "original_end_s": 223.06
+        "original_end_s": 223.06,
+        "chapter_no": 15
       },
       "duration": 10.25
     },
@@ -742,10 +742,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 250.85,
-        "original_end_s": 265.08
+        "original_end_s": 265.08,
+        "chapter_no": 15
       },
       "duration": 14.24
     },
@@ -757,10 +757,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 124.81,
-        "original_end_s": 143.24
+        "original_end_s": 143.24,
+        "chapter_no": 13
       },
       "duration": 18.44
     },
@@ -772,10 +772,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 81.34,
-        "original_end_s": 100.23
+        "original_end_s": 100.23,
+        "chapter_no": 15
       },
       "duration": 18.9
     },
@@ -787,10 +787,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 330.41,
-        "original_end_s": 341.26
+        "original_end_s": 341.26,
+        "chapter_no": 15
       },
       "duration": 10.86
     },
@@ -802,10 +802,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 117.05,
-        "original_end_s": 130.88
+        "original_end_s": 130.88,
+        "chapter_no": 15
       },
       "duration": 13.84
     },
@@ -817,10 +817,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 29.93,
-        "original_end_s": 45.18
+        "original_end_s": 45.18,
+        "chapter_no": 15
       },
       "duration": 15.26
     },
@@ -832,10 +832,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 45.18,
-        "original_end_s": 64.99
+        "original_end_s": 64.99,
+        "chapter_no": 15
       },
       "duration": 19.82
     },
@@ -847,10 +847,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 164.02,
-        "original_end_s": 179.08
+        "original_end_s": 179.08,
+        "chapter_no": 15
       },
       "duration": 15.07
     },
@@ -862,10 +862,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 19.78,
-        "original_end_s": 29.93
+        "original_end_s": 29.93,
+        "chapter_no": 15
       },
       "duration": 10.16
     },
@@ -877,10 +877,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 489.49,
-        "original_end_s": 501.55
+        "original_end_s": 501.55,
+        "chapter_no": 15
       },
       "duration": 12.07
     },
@@ -892,10 +892,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 179.08,
-        "original_end_s": 198.01
+        "original_end_s": 198.01,
+        "chapter_no": 15
       },
       "duration": 18.94
     },
@@ -907,10 +907,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 100.23,
-        "original_end_s": 117.05
+        "original_end_s": 117.05,
+        "chapter_no": 15
       },
       "duration": 16.83
     },
@@ -922,10 +922,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 67.11,
-        "original_end_s": 81.44
+        "original_end_s": 81.44,
+        "chapter_no": 13
       },
       "duration": 14.34
     },
@@ -937,10 +937,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 265.08,
-        "original_end_s": 283.3
+        "original_end_s": 283.3,
+        "chapter_no": 15
       },
       "duration": 18.23
     },
@@ -952,10 +952,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 236.47,
-        "original_end_s": 250.85
+        "original_end_s": 250.85,
+        "chapter_no": 15
       },
       "duration": 14.39
     },
@@ -967,10 +967,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 428.31,
-        "original_end_s": 439.5
+        "original_end_s": 439.5,
+        "chapter_no": 15
       },
       "duration": 11.2
     },
@@ -982,10 +982,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 299.56,
-        "original_end_s": 314.67
+        "original_end_s": 314.67,
+        "chapter_no": 15
       },
       "duration": 15.12
     },
@@ -997,10 +997,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 173.09,
-        "original_end_s": 189.98
+        "original_end_s": 189.98,
+        "chapter_no": 13
       },
       "duration": 16.9
     },
@@ -1012,10 +1012,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 385.72,
-        "original_end_s": 397.29
+        "original_end_s": 397.29,
+        "chapter_no": 15
       },
       "duration": 11.58
     },
@@ -1027,10 +1027,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 439.5,
-        "original_end_s": 458.51
+        "original_end_s": 458.51,
+        "chapter_no": 15
       },
       "duration": 19.02
     },
@@ -1042,10 +1042,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 198.01,
-        "original_end_s": 212.82
+        "original_end_s": 212.82,
+        "chapter_no": 15
       },
       "duration": 14.82
     },
@@ -1057,10 +1057,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 93.2,
-        "original_end_s": 106.89
+        "original_end_s": 106.89,
+        "chapter_no": 13
       },
       "duration": 13.7
     },
@@ -1072,10 +1072,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 81.44,
-        "original_end_s": 93.2
+        "original_end_s": 93.2,
+        "chapter_no": 13
       },
       "duration": 11.77
     },
@@ -1087,10 +1087,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 223.06,
-        "original_end_s": 236.47
+        "original_end_s": 236.47,
+        "chapter_no": 15
       },
       "duration": 13.42
     },
@@ -1102,10 +1102,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 397.29,
-        "original_end_s": 409.82
+        "original_end_s": 409.82,
+        "chapter_no": 15
       },
       "duration": 12.54
     },
@@ -1117,10 +1117,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 501.55,
-        "original_end_s": 516.4
+        "original_end_s": 516.4,
+        "chapter_no": 15
       },
       "duration": 14.86
     },
@@ -1132,10 +1132,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 64.99,
-        "original_end_s": 81.34
+        "original_end_s": 81.34,
+        "chapter_no": 15
       },
       "duration": 16.36
     },
@@ -1147,10 +1147,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 130.88,
-        "original_end_s": 146.52
+        "original_end_s": 146.52,
+        "chapter_no": 15
       },
       "duration": 15.65
     },
@@ -1162,10 +1162,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 106.89,
-        "original_end_s": 124.81
+        "original_end_s": 124.81,
+        "chapter_no": 13
       },
       "duration": 17.93
     },
@@ -1177,10 +1177,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 143.24,
-        "original_end_s": 160.24
+        "original_end_s": 160.24,
+        "chapter_no": 13
       },
       "duration": 17.01
     },
@@ -1192,10 +1192,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 458.51,
-        "original_end_s": 473.22
+        "original_end_s": 473.22,
+        "chapter_no": 15
       },
       "duration": 14.72
     },
@@ -1207,10 +1207,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 314.67,
-        "original_end_s": 330.41
+        "original_end_s": 330.41,
+        "chapter_no": 15
       },
       "duration": 15.75
     },
@@ -1222,10 +1222,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 189.98,
-        "original_end_s": 207.39
+        "original_end_s": 207.39,
+        "chapter_no": 13
       },
       "duration": 17.42
     },
@@ -1237,10 +1237,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 146.52,
-        "original_end_s": 164.02
+        "original_end_s": 164.02,
+        "chapter_no": 15
       },
       "duration": 17.51
     },
@@ -1252,10 +1252,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 29.83,
-        "original_end_s": 48.85
+        "original_end_s": 48.85,
+        "chapter_no": 13
       },
       "duration": 19.03
     },
@@ -1267,10 +1267,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 409.82,
-        "original_end_s": 428.31
+        "original_end_s": 428.31,
+        "chapter_no": 15
       },
       "duration": 18.5
     },
@@ -1282,10 +1282,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 341.26,
-        "original_end_s": 354.38
+        "original_end_s": 354.38,
+        "chapter_no": 15
       },
       "duration": 13.13
     },
@@ -1297,10 +1297,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 283.3,
-        "original_end_s": 299.56
+        "original_end_s": 299.56,
+        "chapter_no": 15
       },
       "duration": 16.27
     },
@@ -1312,10 +1312,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_13_flaubert_64kb.mp3",
         "original_start_s": 48.85,
-        "original_end_s": 67.11
+        "original_end_s": 67.11,
+        "chapter_no": 13
       },
       "duration": 18.27
     },
@@ -1327,10 +1327,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 367.25,
-        "original_end_s": 385.72
+        "original_end_s": 385.72,
+        "chapter_no": 15
       },
       "duration": 18.48
     },
@@ -1342,10 +1342,10 @@
         "speaker_id": "mls-fr-579",
         "gender": "w",
         "book_id": "2548",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/dictionnaire_des_idees_recues_0810_librivox/dictionnairedesideesrecues_15_flaubert_64kb.mp3",
         "original_start_s": 473.22,
-        "original_end_s": 489.49
+        "original_end_s": 489.49,
+        "chapter_no": 15
       },
       "duration": 16.28
     }

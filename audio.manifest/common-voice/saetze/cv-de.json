@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-de",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "de/unknown/de_u_17300375.mp3",
       "tags": {
         "source_item_id": "17300375",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.14
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "17300423",
         "gender": "u",
-        "accent": "Deutschland Deutsch"
+        "accent": "Deutschland Deutsch",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 6.38
     },
@@ -40,7 +44,9 @@
       "audio": "de/unknown/de_u_17300571.mp3",
       "tags": {
         "source_item_id": "17300571",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.14
     },
@@ -50,7 +56,9 @@
       "audio": "de/unknown/de_u_17300660.mp3",
       "tags": {
         "source_item_id": "17300660",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 1
       },
       "duration": 6.62
     },
@@ -60,7 +68,9 @@
       "audio": "de/unknown/de_u_17300781.mp3",
       "tags": {
         "source_item_id": "17300781",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.34
     },
@@ -71,7 +81,9 @@
       "tags": {
         "source_item_id": "17301792",
         "gender": "u",
-        "accent": "Deutschland Deutsch"
+        "accent": "Deutschland Deutsch",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.65
     },
@@ -81,7 +93,9 @@
       "audio": "de/unknown/de_u_17301852.mp3",
       "tags": {
         "source_item_id": "17301852",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.7
     },
@@ -91,7 +105,9 @@
       "audio": "de/unknown/de_u_17302455.mp3",
       "tags": {
         "source_item_id": "17302455",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.5
     },
@@ -101,7 +117,9 @@
       "audio": "de/unknown/de_u_17302476.mp3",
       "tags": {
         "source_item_id": "17302476",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 4,
+        "down_votes": 1
       },
       "duration": 3.07
     },
@@ -112,7 +130,9 @@
       "tags": {
         "source_item_id": "17302554",
         "gender": "u",
-        "accent": "Deutschland Deutsch"
+        "accent": "Deutschland Deutsch",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.63
     }

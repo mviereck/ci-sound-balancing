@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-es",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "es/unknown/es_u_18310112.mp3",
       "tags": {
         "source_item_id": "18310112",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.01
     },
@@ -29,7 +31,9 @@
       "audio": "es/unknown/es_u_18311272.mp3",
       "tags": {
         "source_item_id": "18311272",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.66
     },
@@ -39,7 +43,9 @@
       "audio": "es/unknown/es_u_18311404.mp3",
       "tags": {
         "source_item_id": "18311404",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.7
     },
@@ -50,7 +56,9 @@
       "tags": {
         "source_item_id": "18311447",
         "gender": "u",
-        "accent": "España: Sur peninsular (Andalucia, Extremadura, Murcia)"
+        "accent": "España: Sur peninsular (Andalucia, Extremadura, Murcia)",
+        "up_votes": 3,
+        "down_votes": 1
       },
       "duration": 5.5
     },
@@ -60,7 +68,9 @@
       "audio": "es/unknown/es_u_18311715.mp3",
       "tags": {
         "source_item_id": "18311715",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.79
     },
@@ -70,7 +80,9 @@
       "audio": "es/unknown/es_u_18312006.mp3",
       "tags": {
         "source_item_id": "18312006",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.26
     },
@@ -81,7 +93,9 @@
       "tags": {
         "source_item_id": "18313965",
         "gender": "u",
-        "accent": "España: Islas Canarias"
+        "accent": "España: Islas Canarias",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.08
     },
@@ -91,7 +105,9 @@
       "audio": "es/unknown/es_u_18317307.mp3",
       "tags": {
         "source_item_id": "18317307",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.02
     },
@@ -101,7 +117,9 @@
       "audio": "es/unknown/es_u_18319376.mp3",
       "tags": {
         "source_item_id": "18319376",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.42
     },
@@ -111,7 +129,9 @@
       "audio": "es/unknown/es_u_18320021.mp3",
       "tags": {
         "source_item_id": "18320021",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.85
     }

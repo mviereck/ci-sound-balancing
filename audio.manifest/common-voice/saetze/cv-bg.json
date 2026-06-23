@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-bg",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "bg/unknown/bg_u_24999479.mp3",
       "tags": {
         "source_item_id": "24999479",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.72
     },
@@ -29,7 +31,9 @@
       "audio": "bg/unknown/bg_u_25570487.mp3",
       "tags": {
         "source_item_id": "25570487",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.68
     },
@@ -40,7 +44,9 @@
       "tags": {
         "source_item_id": "37118248",
         "gender": "u",
-        "accent": "Sofia accent"
+        "accent": "Sofia accent",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.28
     },
@@ -50,7 +56,9 @@
       "audio": "bg/unknown/bg_u_25078710.mp3",
       "tags": {
         "source_item_id": "25078710",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -61,7 +69,9 @@
       "tags": {
         "source_item_id": "37118330",
         "gender": "u",
-        "accent": "Sofia accent"
+        "accent": "Sofia accent",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.44
     },
@@ -71,7 +81,9 @@
       "audio": "bg/unknown/bg_u_25908066.mp3",
       "tags": {
         "source_item_id": "25908066",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.7
     },
@@ -81,7 +93,9 @@
       "audio": "bg/unknown/bg_u_24999560.mp3",
       "tags": {
         "source_item_id": "24999560",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.77
     },
@@ -91,7 +105,9 @@
       "audio": "bg/unknown/bg_u_25313101.mp3",
       "tags": {
         "source_item_id": "25313101",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.17
     },
@@ -101,7 +117,9 @@
       "audio": "bg/unknown/bg_u_25039263.mp3",
       "tags": {
         "source_item_id": "25039263",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.08
     },
@@ -111,7 +129,9 @@
       "audio": "bg/unknown/bg_u_25638791.mp3",
       "tags": {
         "source_item_id": "25638791",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.39
     },
@@ -121,7 +141,9 @@
       "audio": "bg/unknown/bg_u_25597174.mp3",
       "tags": {
         "source_item_id": "25597174",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.05
     },
@@ -132,7 +154,9 @@
       "tags": {
         "source_item_id": "37118877",
         "gender": "u",
-        "accent": "Sofia accent"
+        "accent": "Sofia accent",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.74
     },
@@ -143,7 +167,9 @@
       "tags": {
         "source_item_id": "37133441",
         "gender": "u",
-        "accent": "Sofia accent"
+        "accent": "Sofia accent",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.42
     }

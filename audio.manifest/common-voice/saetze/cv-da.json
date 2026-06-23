@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-da",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "da/unknown/da_u_27769156.mp3",
       "tags": {
         "source_item_id": "27769156",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "31401926",
         "gender": "u",
-        "accent": "Sjælland/København"
+        "accent": "Sjælland/København",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -40,7 +44,9 @@
       "audio": "da/unknown/da_u_32175613.mp3",
       "tags": {
         "source_item_id": "32175613",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.35
     },
@@ -50,7 +56,9 @@
       "audio": "da/unknown/da_u_36591912.mp3",
       "tags": {
         "source_item_id": "36591912",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.72
     },
@@ -61,7 +69,9 @@
       "tags": {
         "source_item_id": "31756435",
         "gender": "u",
-        "accent": "Sjælland/København"
+        "accent": "Sjælland/København",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.86
     },
@@ -71,7 +81,9 @@
       "audio": "da/unknown/da_u_27769248.mp3",
       "tags": {
         "source_item_id": "27769248",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.36
     },
@@ -81,7 +93,9 @@
       "audio": "da/unknown/da_u_34904470.mp3",
       "tags": {
         "source_item_id": "34904470",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -91,7 +105,9 @@
       "audio": "da/unknown/da_u_36593001.mp3",
       "tags": {
         "source_item_id": "36593001",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -101,7 +117,9 @@
       "audio": "da/unknown/da_u_36593864.mp3",
       "tags": {
         "source_item_id": "36593864",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.86
     },
@@ -111,7 +129,9 @@
       "audio": "da/unknown/da_u_32806683.mp3",
       "tags": {
         "source_item_id": "32806683",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.82
     },
@@ -121,7 +141,9 @@
       "audio": "da/unknown/da_u_32175664.mp3",
       "tags": {
         "source_item_id": "32175664",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -131,7 +153,9 @@
       "audio": "da/unknown/da_u_32219974.mp3",
       "tags": {
         "source_item_id": "32219974",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.72
     },
@@ -141,7 +165,9 @@
       "audio": "da/unknown/da_u_27776025.mp3",
       "tags": {
         "source_item_id": "27776025",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -152,7 +178,9 @@
       "tags": {
         "source_item_id": "37527603",
         "gender": "u",
-        "accent": "Sjælland/København"
+        "accent": "Sjælland/København",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.88
     }

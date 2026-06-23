@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ckb",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "ckb/unknown/ckb_u_29309236.mp3",
       "tags": {
         "source_item_id": "29309236",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.33
     },
@@ -29,7 +31,9 @@
       "audio": "ckb/unknown/ckb_u_29310353.mp3",
       "tags": {
         "source_item_id": "29310353",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.22
     },
@@ -39,7 +43,9 @@
       "audio": "ckb/unknown/ckb_u_29316846.mp3",
       "tags": {
         "source_item_id": "29316846",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.46
     },
@@ -49,7 +55,9 @@
       "audio": "ckb/unknown/ckb_u_29317526.mp3",
       "tags": {
         "source_item_id": "29317526",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.74
     },
@@ -59,7 +67,9 @@
       "audio": "ckb/unknown/ckb_u_29321873.mp3",
       "tags": {
         "source_item_id": "29321873",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.06
     },
@@ -69,7 +79,9 @@
       "audio": "ckb/unknown/ckb_u_29333232.mp3",
       "tags": {
         "source_item_id": "29333232",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.79
     },
@@ -79,7 +91,9 @@
       "audio": "ckb/unknown/ckb_u_29343838.mp3",
       "tags": {
         "source_item_id": "29343838",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.51
     },
@@ -89,7 +103,9 @@
       "audio": "ckb/unknown/ckb_u_29350665.mp3",
       "tags": {
         "source_item_id": "29350665",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.32
     },
@@ -100,7 +116,9 @@
       "tags": {
         "source_item_id": "29353742",
         "gender": "u",
-        "accent": "Hawleri,Iraqi Kurdistan"
+        "accent": "Hawleri,Iraqi Kurdistan",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.06
     },
@@ -110,7 +128,9 @@
       "audio": "ckb/unknown/ckb_u_29357429.mp3",
       "tags": {
         "source_item_id": "29357429",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     }

@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "8734",
     "book_title": "Germinal",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1116.71,
-        "original_end_s": 1135.36
+        "original_end_s": 1135.36,
+        "chapter_no": 36
       },
       "duration": 18.66
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1297.6,
-        "original_end_s": 1309.64
+        "original_end_s": 1309.64,
+        "chapter_no": 36
       },
       "duration": 12.05
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 58.07,
-        "original_end_s": 77.91
+        "original_end_s": 77.91,
+        "chapter_no": 36
       },
       "duration": 19.85
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 31.54,
-        "original_end_s": 44.88
+        "original_end_s": 44.88,
+        "chapter_no": 36
       },
       "duration": 13.35
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 484.0,
-        "original_end_s": 498.52
+        "original_end_s": 498.52,
+        "chapter_no": 36
       },
       "duration": 14.53
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 44.88,
-        "original_end_s": 58.07
+        "original_end_s": 58.07,
+        "chapter_no": 36
       },
       "duration": 13.2
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 935.88,
-        "original_end_s": 952.32
+        "original_end_s": 952.32,
+        "chapter_no": 36
       },
       "duration": 16.45
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 18.4,
-        "original_end_s": 31.54
+        "original_end_s": 31.54,
+        "chapter_no": 36
       },
       "duration": 13.15
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1167.47,
-        "original_end_s": 1181.37
+        "original_end_s": 1181.37,
+        "chapter_no": 36
       },
       "duration": 13.91
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 498.52,
-        "original_end_s": 511.42
+        "original_end_s": 511.42,
+        "chapter_no": 36
       },
       "duration": 12.91
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 123.56,
-        "original_end_s": 139.07
+        "original_end_s": 139.07,
+        "chapter_no": 36
       },
       "duration": 15.52
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 339.68,
-        "original_end_s": 359.63
+        "original_end_s": 359.63,
+        "chapter_no": 36
       },
       "duration": 19.96
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1009.18,
-        "original_end_s": 1025.85
+        "original_end_s": 1025.85,
+        "chapter_no": 36
       },
       "duration": 16.68
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 828.09,
-        "original_end_s": 839.31
+        "original_end_s": 839.31,
+        "chapter_no": 36
       },
       "duration": 11.23
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 630.79,
-        "original_end_s": 641.16
+        "original_end_s": 641.16,
+        "chapter_no": 36
       },
       "duration": 10.38
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1481.68,
-        "original_end_s": 1496.01
+        "original_end_s": 1496.01,
+        "chapter_no": 36
       },
       "duration": 14.34
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1240.42,
-        "original_end_s": 1251.65
+        "original_end_s": 1251.65,
+        "chapter_no": 36
       },
       "duration": 11.24
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1152.84,
-        "original_end_s": 1167.47
+        "original_end_s": 1167.47,
+        "chapter_no": 36
       },
       "duration": 14.64
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 465.38,
-        "original_end_s": 484.0
+        "original_end_s": 484.0,
+        "chapter_no": 36
       },
       "duration": 18.63
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 797.5,
-        "original_end_s": 811.81
+        "original_end_s": 811.81,
+        "chapter_no": 36
       },
       "duration": 14.32
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 171.46,
-        "original_end_s": 189.47
+        "original_end_s": 189.47,
+        "chapter_no": 36
       },
       "duration": 18.02
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 312.75,
-        "original_end_s": 325.45
+        "original_end_s": 325.45,
+        "chapter_no": 36
       },
       "duration": 12.71
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 422.01,
-        "original_end_s": 440.5
+        "original_end_s": 440.5,
+        "chapter_no": 36
       },
       "duration": 18.5
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1251.65,
-        "original_end_s": 1270.64
+        "original_end_s": 1270.64,
+        "chapter_no": 36
       },
       "duration": 19.0
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 692.06,
-        "original_end_s": 710.93
+        "original_end_s": 710.93,
+        "chapter_no": 36
       },
       "duration": 18.88
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1283.91,
-        "original_end_s": 1297.6
+        "original_end_s": 1297.6,
+        "chapter_no": 36
       },
       "duration": 13.7
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1338.77,
-        "original_end_s": 1354.93
+        "original_end_s": 1354.93,
+        "chapter_no": 36
       },
       "duration": 16.17
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1424.33,
-        "original_end_s": 1438.14
+        "original_end_s": 1438.14,
+        "chapter_no": 36
       },
       "duration": 13.82
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 909.22,
-        "original_end_s": 922.6
+        "original_end_s": 922.6,
+        "chapter_no": 36
       },
       "duration": 13.39
     },
@@ -457,10 +457,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 587.57,
-        "original_end_s": 598.11
+        "original_end_s": 598.11,
+        "chapter_no": 36
       },
       "duration": 10.55
     },
@@ -472,10 +472,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1057.19,
-        "original_end_s": 1076.06
+        "original_end_s": 1076.06,
+        "chapter_no": 36
       },
       "duration": 18.88
     },
@@ -487,10 +487,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 871.88,
-        "original_end_s": 882.0
+        "original_end_s": 882.0,
+        "chapter_no": 36
       },
       "duration": 10.13
     },
@@ -502,10 +502,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 359.63,
-        "original_end_s": 378.06
+        "original_end_s": 378.06,
+        "chapter_no": 36
       },
       "duration": 18.44
     },
@@ -517,10 +517,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1354.93,
-        "original_end_s": 1373.47
+        "original_end_s": 1373.47,
+        "chapter_no": 36
       },
       "duration": 18.55
     },
@@ -532,10 +532,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 111.67,
-        "original_end_s": 123.56
+        "original_end_s": 123.56,
+        "chapter_no": 36
       },
       "duration": 11.9
     },
@@ -547,10 +547,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 839.31,
-        "original_end_s": 856.72
+        "original_end_s": 856.72,
+        "chapter_no": 36
       },
       "duration": 17.42
     },
@@ -562,10 +562,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1449.49,
-        "original_end_s": 1468.43
+        "original_end_s": 1468.43,
+        "chapter_no": 36
       },
       "duration": 18.95
     },
@@ -577,10 +577,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1496.01,
-        "original_end_s": 1510.93
+        "original_end_s": 1510.93,
+        "chapter_no": 36
       },
       "duration": 14.93
     },
@@ -592,10 +592,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1025.85,
-        "original_end_s": 1044.03
+        "original_end_s": 1044.03,
+        "chapter_no": 36
       },
       "duration": 18.19
     },
@@ -607,10 +607,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 268.52,
-        "original_end_s": 281.68
+        "original_end_s": 281.68,
+        "chapter_no": 36
       },
       "duration": 13.17
     },
@@ -622,10 +622,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 570.91,
-        "original_end_s": 587.57
+        "original_end_s": 587.57,
+        "chapter_no": 36
       },
       "duration": 16.67
     },
@@ -637,10 +637,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 511.42,
-        "original_end_s": 527.01
+        "original_end_s": 527.01,
+        "chapter_no": 36
       },
       "duration": 15.6
     },
@@ -652,10 +652,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 325.45,
-        "original_end_s": 339.68
+        "original_end_s": 339.68,
+        "chapter_no": 36
       },
       "duration": 14.24
     },
@@ -667,10 +667,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 139.07,
-        "original_end_s": 158.68
+        "original_end_s": 158.68,
+        "chapter_no": 36
       },
       "duration": 19.62
     },
@@ -682,10 +682,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 453.58,
-        "original_end_s": 465.38
+        "original_end_s": 465.38,
+        "chapter_no": 36
       },
       "duration": 11.81
     },
@@ -697,10 +697,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 756.37,
-        "original_end_s": 767.59
+        "original_end_s": 767.59,
+        "chapter_no": 36
       },
       "duration": 11.23
     },
@@ -712,10 +712,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1537.04,
-        "original_end_s": 1554.31
+        "original_end_s": 1554.31,
+        "chapter_no": 36
       },
       "duration": 17.28
     },
@@ -727,10 +727,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1270.64,
-        "original_end_s": 1283.91
+        "original_end_s": 1283.91,
+        "chapter_no": 36
       },
       "duration": 13.28
     },
@@ -742,10 +742,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 659.37,
-        "original_end_s": 675.05
+        "original_end_s": 675.05,
+        "chapter_no": 36
       },
       "duration": 15.69
     },
@@ -757,10 +757,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 240.43,
-        "original_end_s": 258.36
+        "original_end_s": 258.36,
+        "chapter_no": 36
       },
       "duration": 17.94
     },
@@ -772,10 +772,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1438.14,
-        "original_end_s": 1449.49
+        "original_end_s": 1449.49,
+        "chapter_no": 36
       },
       "duration": 11.36
     },
@@ -787,10 +787,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 641.16,
-        "original_end_s": 659.37
+        "original_end_s": 659.37,
+        "chapter_no": 36
       },
       "duration": 18.22
     },
@@ -802,10 +802,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 979.4,
-        "original_end_s": 997.61
+        "original_end_s": 997.61,
+        "chapter_no": 36
       },
       "duration": 18.22
     },
@@ -817,10 +817,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 882.0,
-        "original_end_s": 894.46
+        "original_end_s": 894.46,
+        "chapter_no": 36
       },
       "duration": 12.47
     },
@@ -832,10 +832,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 406.52,
-        "original_end_s": 422.01
+        "original_end_s": 422.01,
+        "chapter_no": 36
       },
       "duration": 15.5
     },
@@ -847,10 +847,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 281.68,
-        "original_end_s": 296.8
+        "original_end_s": 296.8,
+        "chapter_no": 36
       },
       "duration": 15.13
     },
@@ -862,10 +862,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1102.12,
-        "original_end_s": 1116.71
+        "original_end_s": 1116.71,
+        "chapter_no": 36
       },
       "duration": 14.6
     },
@@ -877,10 +877,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 392.93,
-        "original_end_s": 406.52
+        "original_end_s": 406.52,
+        "chapter_no": 36
       },
       "duration": 13.6
     },
@@ -892,10 +892,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 598.11,
-        "original_end_s": 614.78
+        "original_end_s": 614.78,
+        "chapter_no": 36
       },
       "duration": 16.68
     },
@@ -907,10 +907,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1135.36,
-        "original_end_s": 1152.84
+        "original_end_s": 1152.84,
+        "chapter_no": 36
       },
       "duration": 17.49
     },
@@ -922,10 +922,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1309.64,
-        "original_end_s": 1324.94
+        "original_end_s": 1324.94,
+        "chapter_no": 36
       },
       "duration": 15.31
     },
@@ -937,10 +937,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 710.93,
-        "original_end_s": 724.76
+        "original_end_s": 724.76,
+        "chapter_no": 36
       },
       "duration": 13.84
     },
@@ -952,10 +952,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1324.94,
-        "original_end_s": 1338.77
+        "original_end_s": 1338.77,
+        "chapter_no": 36
       },
       "duration": 13.84
     },
@@ -967,10 +967,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1390.24,
-        "original_end_s": 1404.59
+        "original_end_s": 1404.59,
+        "chapter_no": 36
       },
       "duration": 14.36
     },
@@ -982,10 +982,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 894.46,
-        "original_end_s": 909.22
+        "original_end_s": 909.22,
+        "chapter_no": 36
       },
       "duration": 14.77
     },
@@ -997,10 +997,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1468.43,
-        "original_end_s": 1481.68
+        "original_end_s": 1481.68,
+        "chapter_no": 36
       },
       "duration": 13.26
     },
@@ -1012,10 +1012,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 158.68,
-        "original_end_s": 171.46
+        "original_end_s": 171.46,
+        "chapter_no": 36
       },
       "duration": 12.79
     },
@@ -1027,10 +1027,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 296.8,
-        "original_end_s": 312.75
+        "original_end_s": 312.75,
+        "chapter_no": 36
       },
       "duration": 15.96
     },
@@ -1042,10 +1042,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1404.59,
-        "original_end_s": 1424.33
+        "original_end_s": 1424.33,
+        "chapter_no": 36
       },
       "duration": 19.75
     },
@@ -1057,10 +1057,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 922.6,
-        "original_end_s": 935.88
+        "original_end_s": 935.88,
+        "chapter_no": 36
       },
       "duration": 13.29
     },
@@ -1072,10 +1072,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1194.81,
-        "original_end_s": 1213.58
+        "original_end_s": 1213.58,
+        "chapter_no": 36
       },
       "duration": 18.78
     },
@@ -1087,10 +1087,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 783.63,
-        "original_end_s": 797.5
+        "original_end_s": 797.5,
+        "chapter_no": 36
       },
       "duration": 13.88
     },
@@ -1102,10 +1102,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1521.43,
-        "original_end_s": 1537.04
+        "original_end_s": 1537.04,
+        "chapter_no": 36
       },
       "duration": 15.62
     },
@@ -1117,10 +1117,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1229.52,
-        "original_end_s": 1240.42
+        "original_end_s": 1240.42,
+        "chapter_no": 36
       },
       "duration": 10.91
     },
@@ -1132,10 +1132,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 963.01,
-        "original_end_s": 979.4
+        "original_end_s": 979.4,
+        "chapter_no": 36
       },
       "duration": 16.4
     },
@@ -1147,10 +1147,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 952.32,
-        "original_end_s": 963.01
+        "original_end_s": 963.01,
+        "chapter_no": 36
       },
       "duration": 10.7
     },
@@ -1162,10 +1162,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1044.03,
-        "original_end_s": 1057.19
+        "original_end_s": 1057.19,
+        "chapter_no": 36
       },
       "duration": 13.17
     },
@@ -1177,10 +1177,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1373.47,
-        "original_end_s": 1390.24
+        "original_end_s": 1390.24,
+        "chapter_no": 36
       },
       "duration": 16.78
     },
@@ -1192,10 +1192,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 440.5,
-        "original_end_s": 453.58
+        "original_end_s": 453.58,
+        "chapter_no": 36
       },
       "duration": 13.09
     },
@@ -1207,10 +1207,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 552.26,
-        "original_end_s": 570.91
+        "original_end_s": 570.91,
+        "chapter_no": 36
       },
       "duration": 18.66
     },
@@ -1222,10 +1222,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 675.05,
-        "original_end_s": 692.06
+        "original_end_s": 692.06,
+        "chapter_no": 36
       },
       "duration": 17.02
     },
@@ -1237,10 +1237,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 856.72,
-        "original_end_s": 871.88
+        "original_end_s": 871.88,
+        "chapter_no": 36
       },
       "duration": 15.17
     },
@@ -1252,10 +1252,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 527.01,
-        "original_end_s": 538.21
+        "original_end_s": 538.21,
+        "chapter_no": 36
       },
       "duration": 11.21
     },
@@ -1267,10 +1267,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 189.47,
-        "original_end_s": 209.19
+        "original_end_s": 209.19,
+        "chapter_no": 36
       },
       "duration": 19.73
     },
@@ -1282,10 +1282,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 614.78,
-        "original_end_s": 630.79
+        "original_end_s": 630.79,
+        "chapter_no": 36
       },
       "duration": 16.02
     },
@@ -1297,10 +1297,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 767.59,
-        "original_end_s": 783.63
+        "original_end_s": 783.63,
+        "chapter_no": 36
       },
       "duration": 16.05
     },
@@ -1312,10 +1312,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 221.8,
-        "original_end_s": 240.43
+        "original_end_s": 240.43,
+        "chapter_no": 36
       },
       "duration": 18.64
     },
@@ -1327,10 +1327,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 724.76,
-        "original_end_s": 740.57
+        "original_end_s": 740.57,
+        "chapter_no": 36
       },
       "duration": 15.82
     },
@@ -1342,10 +1342,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 997.61,
-        "original_end_s": 1009.18
+        "original_end_s": 1009.18,
+        "chapter_no": 36
       },
       "duration": 11.58
     },
@@ -1357,10 +1357,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 538.21,
-        "original_end_s": 552.26
+        "original_end_s": 552.26,
+        "chapter_no": 36
       },
       "duration": 14.06
     },
@@ -1372,10 +1372,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 811.81,
-        "original_end_s": 828.09
+        "original_end_s": 828.09,
+        "chapter_no": 36
       },
       "duration": 16.29
     },
@@ -1387,10 +1387,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1076.06,
-        "original_end_s": 1091.24
+        "original_end_s": 1091.24,
+        "chapter_no": 36
       },
       "duration": 15.19
     },
@@ -1402,10 +1402,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 740.57,
-        "original_end_s": 756.37
+        "original_end_s": 756.37,
+        "chapter_no": 36
       },
       "duration": 15.81
     },
@@ -1417,10 +1417,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 209.19,
-        "original_end_s": 221.8
+        "original_end_s": 221.8,
+        "chapter_no": 36
       },
       "duration": 12.62
     },
@@ -1432,10 +1432,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 258.36,
-        "original_end_s": 268.52
+        "original_end_s": 268.52,
+        "chapter_no": 36
       },
       "duration": 10.17
     },
@@ -1447,10 +1447,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 93.15,
-        "original_end_s": 111.67
+        "original_end_s": 111.67,
+        "chapter_no": 36
       },
       "duration": 18.53
     },
@@ -1462,10 +1462,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1091.24,
-        "original_end_s": 1102.12
+        "original_end_s": 1102.12,
+        "chapter_no": 36
       },
       "duration": 10.89
     },
@@ -1477,10 +1477,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 1181.37,
-        "original_end_s": 1194.81
+        "original_end_s": 1194.81,
+        "chapter_no": 36
       },
       "duration": 13.45
     },
@@ -1492,10 +1492,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 77.91,
-        "original_end_s": 93.15
+        "original_end_s": 93.15,
+        "chapter_no": 36
       },
       "duration": 15.25
     },
@@ -1507,10 +1507,10 @@
         "speaker_id": "mls-fr-7762",
         "gender": "w",
         "book_id": "8734",
-        "split": "test",
         "original_url": "http://www.archive.org/download/germinal_fr_1411_librivox/germinal_36_zola_64kb.mp3",
         "original_start_s": 378.06,
-        "original_end_s": 392.93
+        "original_end_s": 392.93,
+        "chapter_no": 36
       },
       "duration": 14.88
     }

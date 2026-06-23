@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-he",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "38569741",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.18
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "39753055",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 6.12
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "39609389",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.46
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "39753088",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "39753620",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.1
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "40001948",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.43
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "39027849",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "39890615",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.22
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "39753570",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.39
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "39609254",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.78
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "39753072",
         "gender": "u",
-        "accent": "israeli,native,Formal"
+        "accent": "israeli,native,Formal",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.49
     },
@@ -141,7 +163,9 @@
       "tags": {
         "source_item_id": "38569715",
         "gender": "u",
-        "accent": "Natibe"
+        "accent": "Natibe",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.06
     }

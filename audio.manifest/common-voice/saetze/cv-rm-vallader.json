@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-rm-vallader",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_20575585.mp3",
       "tags": {
         "source_item_id": "20575585",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.87
     },
@@ -29,7 +31,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21650577.mp3",
       "tags": {
         "source_item_id": "21650577",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.3
     },
@@ -39,7 +43,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21872929.mp3",
       "tags": {
         "source_item_id": "21872929",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.14
     },
@@ -49,7 +55,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_22373805.mp3",
       "tags": {
         "source_item_id": "22373805",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.9
     },
@@ -59,7 +67,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_20575627.mp3",
       "tags": {
         "source_item_id": "20575627",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.68
     },
@@ -69,7 +79,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_20575943.mp3",
       "tags": {
         "source_item_id": "20575943",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.26
     },
@@ -79,7 +91,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21870755.mp3",
       "tags": {
         "source_item_id": "21870755",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.02
     },
@@ -89,7 +103,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21872662.mp3",
       "tags": {
         "source_item_id": "21872662",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.1
     },
@@ -99,7 +115,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_20680388.mp3",
       "tags": {
         "source_item_id": "20680388",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 7.8
     },
@@ -109,7 +127,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21873168.mp3",
       "tags": {
         "source_item_id": "21873168",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.02
     },
@@ -119,7 +139,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_20575906.mp3",
       "tags": {
         "source_item_id": "20575906",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -129,7 +151,9 @@
       "audio": "rm-vallader/unknown/rm-vallader_u_21873147.mp3",
       "tags": {
         "source_item_id": "21873147",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.94
     }

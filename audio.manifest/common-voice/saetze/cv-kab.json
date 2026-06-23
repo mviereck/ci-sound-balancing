@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-kab",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "kab/unknown/kab_u_17446093.mp3",
       "tags": {
         "source_item_id": "17446093",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.62
     },
@@ -29,7 +31,9 @@
       "audio": "kab/unknown/kab_u_17516547.mp3",
       "tags": {
         "source_item_id": "17516547",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.88
     },
@@ -39,7 +43,9 @@
       "audio": "kab/unknown/kab_u_17531917.mp3",
       "tags": {
         "source_item_id": "17531917",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 5.59
     },
@@ -49,7 +55,9 @@
       "audio": "kab/unknown/kab_u_17562807.mp3",
       "tags": {
         "source_item_id": "17562807",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.02
     },
@@ -59,7 +67,9 @@
       "audio": "kab/unknown/kab_u_17580668.mp3",
       "tags": {
         "source_item_id": "17580668",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -69,7 +79,9 @@
       "audio": "kab/unknown/kab_u_17621805.mp3",
       "tags": {
         "source_item_id": "17621805",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 3.62
     },
@@ -79,7 +91,9 @@
       "audio": "kab/unknown/kab_u_17627485.mp3",
       "tags": {
         "source_item_id": "17627485",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -89,7 +103,9 @@
       "audio": "kab/unknown/kab_u_17631320.mp3",
       "tags": {
         "source_item_id": "17631320",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.94
     },
@@ -99,7 +115,9 @@
       "audio": "kab/unknown/kab_u_17730311.mp3",
       "tags": {
         "source_item_id": "17730311",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.86
     },
@@ -109,7 +127,9 @@
       "audio": "kab/unknown/kab_u_17834597.mp3",
       "tags": {
         "source_item_id": "17834597",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.58
     }

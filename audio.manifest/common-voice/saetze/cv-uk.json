@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-uk",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "21152644",
         "gender": "u",
-        "accent": "Галицький"
+        "accent": "Галицький",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.62
     },
@@ -30,7 +32,9 @@
       "audio": "uk/unknown/uk_u_21170403.mp3",
       "tags": {
         "source_item_id": "21170403",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.15
     },
@@ -40,7 +44,9 @@
       "audio": "uk/unknown/uk_u_21259349.mp3",
       "tags": {
         "source_item_id": "21259349",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.99
     },
@@ -50,7 +56,9 @@
       "audio": "uk/unknown/uk_u_21265811.mp3",
       "tags": {
         "source_item_id": "21265811",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.22
     },
@@ -60,7 +68,9 @@
       "audio": "uk/unknown/uk_u_21356507.mp3",
       "tags": {
         "source_item_id": "21356507",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 3.91
     },
@@ -70,7 +80,9 @@
       "audio": "uk/unknown/uk_u_21361245.mp3",
       "tags": {
         "source_item_id": "21361245",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -80,7 +92,9 @@
       "audio": "uk/unknown/uk_u_21374912.mp3",
       "tags": {
         "source_item_id": "21374912",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.98
     },
@@ -90,7 +104,9 @@
       "audio": "uk/unknown/uk_u_21408518.mp3",
       "tags": {
         "source_item_id": "21408518",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.7
     },
@@ -100,7 +116,9 @@
       "audio": "uk/unknown/uk_u_21425780.mp3",
       "tags": {
         "source_item_id": "21425780",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.93
     },
@@ -110,7 +128,9 @@
       "audio": "uk/unknown/uk_u_21564489.mp3",
       "tags": {
         "source_item_id": "21564489",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.78
     }

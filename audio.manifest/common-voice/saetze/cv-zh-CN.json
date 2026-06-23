@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-zh-CN",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "19427016",
         "gender": "u",
-        "accent": "出生地：52 贵州省"
+        "accent": "出生地：52 贵州省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.38
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "18768077",
         "gender": "u",
-        "accent": "出生地：37 山东省"
+        "accent": "出生地：37 山东省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.78
     },
@@ -41,7 +45,9 @@
       "audio": "zh-CN/unknown/zh-CN_u_18650517.mp3",
       "tags": {
         "source_item_id": "18650517",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.42
     },
@@ -52,7 +58,9 @@
       "tags": {
         "source_item_id": "18776487",
         "gender": "u",
-        "accent": "出生地：44 广东省"
+        "accent": "出生地：44 广东省",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.58
     },
@@ -62,7 +70,9 @@
       "audio": "zh-CN/unknown/zh-CN_u_18848889.mp3",
       "tags": {
         "source_item_id": "18848889",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -73,7 +83,9 @@
       "tags": {
         "source_item_id": "19266229",
         "gender": "u",
-        "accent": "出生地：43 湖南省"
+        "accent": "出生地：43 湖南省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.82
     },
@@ -84,7 +96,9 @@
       "tags": {
         "source_item_id": "18959687",
         "gender": "u",
-        "accent": "出生地：23 黑龙江省"
+        "accent": "出生地：23 黑龙江省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.7
     },
@@ -95,7 +109,9 @@
       "tags": {
         "source_item_id": "18627558",
         "gender": "u",
-        "accent": "出生地：11 北京市"
+        "accent": "出生地：11 北京市",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.78
     },
@@ -106,7 +122,9 @@
       "tags": {
         "source_item_id": "18797504",
         "gender": "u",
-        "accent": "出生地：34 安徽省"
+        "accent": "出生地：34 安徽省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.55
     },
@@ -117,7 +135,9 @@
       "tags": {
         "source_item_id": "18992637",
         "gender": "u",
-        "accent": "出生地：32 江苏省"
+        "accent": "出生地：32 江苏省",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.9
     }

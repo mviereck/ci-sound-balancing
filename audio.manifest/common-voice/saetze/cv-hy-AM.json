@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-hy-AM",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_26466593.mp3",
       "tags": {
         "source_item_id": "26466593",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.05
     },
@@ -29,7 +31,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39273478.mp3",
       "tags": {
         "source_item_id": "39273478",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 8.39
     },
@@ -39,7 +43,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39325546.mp3",
       "tags": {
         "source_item_id": "39325546",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -49,7 +55,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39420661.mp3",
       "tags": {
         "source_item_id": "39420661",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.6
     },
@@ -60,7 +68,9 @@
       "tags": {
         "source_item_id": "39433852",
         "gender": "u",
-        "accent": "Գրական,eastern"
+        "accent": "Գրական,eastern",
+        "up_votes": 9,
+        "down_votes": 0
       },
       "duration": 5.83
     },
@@ -71,7 +81,9 @@
       "tags": {
         "source_item_id": "39446956",
         "gender": "u",
-        "accent": "Eastern Armenian"
+        "accent": "Eastern Armenian",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.33
     },
@@ -82,7 +94,9 @@
       "tags": {
         "source_item_id": "39459169",
         "gender": "u",
-        "accent": "Female"
+        "accent": "Female",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.74
     },
@@ -92,7 +106,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39471720.mp3",
       "tags": {
         "source_item_id": "39471720",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.13
     },
@@ -102,7 +118,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39498188.mp3",
       "tags": {
         "source_item_id": "39498188",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.15
     },
@@ -112,7 +130,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39464815.mp3",
       "tags": {
         "source_item_id": "39464815",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -123,7 +143,9 @@
       "tags": {
         "source_item_id": "39462495",
         "gender": "u",
-        "accent": "Female"
+        "accent": "Female",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.79
     },
@@ -133,7 +155,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39275391.mp3",
       "tags": {
         "source_item_id": "39275391",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -143,7 +167,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_26610443.mp3",
       "tags": {
         "source_item_id": "26610443",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.55
     },
@@ -153,7 +179,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39529978.mp3",
       "tags": {
         "source_item_id": "39529978",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -164,7 +192,9 @@
       "tags": {
         "source_item_id": "39552558",
         "gender": "u",
-        "accent": "Գրական,eastern"
+        "accent": "Գրական,eastern",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 4.57
     },
@@ -175,7 +205,9 @@
       "tags": {
         "source_item_id": "39543344",
         "gender": "u",
-        "accent": "Eastern Armenian"
+        "accent": "Eastern Armenian",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.42
     },
@@ -185,7 +217,9 @@
       "audio": "hy-AM/unknown/hy-AM_u_39547775.mp3",
       "tags": {
         "source_item_id": "39547775",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -196,7 +230,9 @@
       "tags": {
         "source_item_id": "39552495",
         "gender": "u",
-        "accent": "Գրական,eastern"
+        "accent": "Գրական,eastern",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 4.21
     }

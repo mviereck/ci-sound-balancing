@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "1565",
     "book_title": "Mille et une nuits, tome 2",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 163.02,
-        "original_end_s": 179.76
+        "original_end_s": 179.76,
+        "chapter_no": 5
       },
       "duration": 16.75
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 254.53,
-        "original_end_s": 264.9
+        "original_end_s": 264.9,
+        "chapter_no": 5
       },
       "duration": 10.38
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 208.74,
-        "original_end_s": 225.83
+        "original_end_s": 225.83,
+        "chapter_no": 5
       },
       "duration": 17.1
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 32.19,
-        "original_end_s": 49.52
+        "original_end_s": 49.52,
+        "chapter_no": 5
       },
       "duration": 17.34
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 239.56,
-        "original_end_s": 254.53
+        "original_end_s": 254.53,
+        "chapter_no": 5
       },
       "duration": 14.98
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 15.47,
-        "original_end_s": 32.19
+        "original_end_s": 32.19,
+        "chapter_no": 5
       },
       "duration": 16.73
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 128.52,
-        "original_end_s": 139.48
+        "original_end_s": 139.48,
+        "chapter_no": 5
       },
       "duration": 10.97
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 333.99,
-        "original_end_s": 347.66
+        "original_end_s": 347.66,
+        "chapter_no": 5
       },
       "duration": 13.68
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 347.66,
-        "original_end_s": 362.98
+        "original_end_s": 362.98,
+        "chapter_no": 5
       },
       "duration": 15.33
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 151.93,
-        "original_end_s": 163.02
+        "original_end_s": 163.02,
+        "chapter_no": 5
       },
       "duration": 11.1
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 195.0,
-        "original_end_s": 208.74
+        "original_end_s": 208.74,
+        "chapter_no": 5
       },
       "duration": 13.75
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 287.78,
-        "original_end_s": 300.52
+        "original_end_s": 300.52,
+        "chapter_no": 5
       },
       "duration": 12.75
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 300.52,
-        "original_end_s": 312.39
+        "original_end_s": 312.39,
+        "chapter_no": 5
       },
       "duration": 11.88
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 100.24,
-        "original_end_s": 115.21
+        "original_end_s": 115.21,
+        "chapter_no": 5
       },
       "duration": 14.98
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 139.48,
-        "original_end_s": 151.93
+        "original_end_s": 151.93,
+        "chapter_no": 5
       },
       "duration": 12.46
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 49.52,
-        "original_end_s": 68.24
+        "original_end_s": 68.24,
+        "chapter_no": 5
       },
       "duration": 18.73
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 68.24,
-        "original_end_s": 83.81
+        "original_end_s": 83.81,
+        "chapter_no": 5
       },
       "duration": 15.58
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 225.83,
-        "original_end_s": 239.56
+        "original_end_s": 239.56,
+        "chapter_no": 5
       },
       "duration": 13.74
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 322.52,
-        "original_end_s": 333.99
+        "original_end_s": 333.99,
+        "chapter_no": 5
       },
       "duration": 11.48
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 264.9,
-        "original_end_s": 276.9
+        "original_end_s": 276.9,
+        "chapter_no": 5
       },
       "duration": 12.01
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 179.76,
-        "original_end_s": 195.0
+        "original_end_s": 195.0,
+        "chapter_no": 5
       },
       "duration": 15.25
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 312.39,
-        "original_end_s": 322.52
+        "original_end_s": 322.52,
+        "chapter_no": 5
       },
       "duration": 10.14
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 115.21,
-        "original_end_s": 128.52
+        "original_end_s": 128.52,
+        "chapter_no": 5
       },
       "duration": 13.32
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 83.81,
-        "original_end_s": 100.24
+        "original_end_s": 100.24,
+        "chapter_no": 5
       },
       "duration": 16.44
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_005_galland_64kb.mp3",
         "original_start_s": 276.9,
-        "original_end_s": 287.78
+        "original_end_s": 287.78,
+        "chapter_no": 5
       },
       "duration": 10.89
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 28.45,
-        "original_end_s": 43.62
+        "original_end_s": 43.62,
+        "chapter_no": 6
       },
       "duration": 15.18
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 43.62,
-        "original_end_s": 54.89
+        "original_end_s": 54.89,
+        "chapter_no": 6
       },
       "duration": 11.28
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 69.97,
-        "original_end_s": 87.1
+        "original_end_s": 87.1,
+        "chapter_no": 6
       },
       "duration": 17.14
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 98.54,
-        "original_end_s": 114.45
+        "original_end_s": 114.45,
+        "chapter_no": 6
       },
       "duration": 15.92
     },
@@ -457,10 +457,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 132.33,
-        "original_end_s": 149.02
+        "original_end_s": 149.02,
+        "chapter_no": 6
       },
       "duration": 16.7
     },
@@ -472,10 +472,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 242.04,
-        "original_end_s": 253.96
+        "original_end_s": 253.96,
+        "chapter_no": 6
       },
       "duration": 11.93
     },
@@ -487,10 +487,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 253.96,
-        "original_end_s": 265.04
+        "original_end_s": 265.04,
+        "chapter_no": 6
       },
       "duration": 11.09
     },
@@ -502,10 +502,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 114.45,
-        "original_end_s": 132.33
+        "original_end_s": 132.33,
+        "chapter_no": 6
       },
       "duration": 17.89
     },
@@ -517,10 +517,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 208.12,
-        "original_end_s": 226.89
+        "original_end_s": 226.89,
+        "chapter_no": 6
       },
       "duration": 18.78
     },
@@ -532,10 +532,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 149.02,
-        "original_end_s": 166.98
+        "original_end_s": 166.98,
+        "chapter_no": 6
       },
       "duration": 17.97
     },
@@ -547,10 +547,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 192.12,
-        "original_end_s": 208.12
+        "original_end_s": 208.12,
+        "chapter_no": 6
       },
       "duration": 16.01
     },
@@ -562,10 +562,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 14.81,
-        "original_end_s": 28.45
+        "original_end_s": 28.45,
+        "chapter_no": 6
       },
       "duration": 13.65
     },
@@ -577,10 +577,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 87.1,
-        "original_end_s": 98.54
+        "original_end_s": 98.54,
+        "chapter_no": 6
       },
       "duration": 11.45
     },
@@ -592,10 +592,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 265.04,
-        "original_end_s": 278.74
+        "original_end_s": 278.74,
+        "chapter_no": 6
       },
       "duration": 13.71
     },
@@ -607,10 +607,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 177.57,
-        "original_end_s": 192.12
+        "original_end_s": 192.12,
+        "chapter_no": 6
       },
       "duration": 14.56
     },
@@ -622,10 +622,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 166.98,
-        "original_end_s": 177.57
+        "original_end_s": 177.57,
+        "chapter_no": 6
       },
       "duration": 10.6
     },
@@ -637,10 +637,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 226.89,
-        "original_end_s": 242.04
+        "original_end_s": 242.04,
+        "chapter_no": 6
       },
       "duration": 15.16
     },
@@ -652,10 +652,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_006_galland_64kb.mp3",
         "original_start_s": 54.89,
-        "original_end_s": 69.97
+        "original_end_s": 69.97,
+        "chapter_no": 6
       },
       "duration": 15.09
     },
@@ -667,10 +667,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 288.66,
-        "original_end_s": 303.54
+        "original_end_s": 303.54,
+        "chapter_no": 7
       },
       "duration": 14.89
     },
@@ -682,10 +682,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 390.04,
-        "original_end_s": 404.24
+        "original_end_s": 404.24,
+        "chapter_no": 8
       },
       "duration": 14.21
     },
@@ -697,10 +697,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 86.41,
-        "original_end_s": 103.29
+        "original_end_s": 103.29,
+        "chapter_no": 8
       },
       "duration": 16.89
     },
@@ -712,10 +712,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 246.48,
-        "original_end_s": 260.6
+        "original_end_s": 260.6,
+        "chapter_no": 7
       },
       "duration": 14.13
     },
@@ -727,10 +727,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 320.28,
-        "original_end_s": 335.46
+        "original_end_s": 335.46,
+        "chapter_no": 7
       },
       "duration": 15.19
     },
@@ -742,10 +742,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 135.47,
-        "original_end_s": 147.39
+        "original_end_s": 147.39,
+        "chapter_no": 8
       },
       "duration": 11.93
     },
@@ -757,10 +757,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 340.48,
-        "original_end_s": 359.49
+        "original_end_s": 359.49,
+        "chapter_no": 8
       },
       "duration": 19.02
     },
@@ -772,10 +772,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 37.03,
-        "original_end_s": 55.21
+        "original_end_s": 55.21,
+        "chapter_no": 8
       },
       "duration": 18.19
     },
@@ -787,10 +787,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 303.54,
-        "original_end_s": 320.28
+        "original_end_s": 320.28,
+        "chapter_no": 7
       },
       "duration": 16.75
     },
@@ -802,10 +802,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 200.69,
-        "original_end_s": 214.37
+        "original_end_s": 214.37,
+        "chapter_no": 7
       },
       "duration": 13.69
     },
@@ -817,10 +817,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 325.99,
-        "original_end_s": 340.48
+        "original_end_s": 340.48,
+        "chapter_no": 8
       },
       "duration": 14.5
     },
@@ -832,10 +832,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 70.66,
-        "original_end_s": 89.25
+        "original_end_s": 89.25,
+        "chapter_no": 7
       },
       "duration": 18.6
     },
@@ -847,10 +847,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 15.4,
-        "original_end_s": 25.43
+        "original_end_s": 25.43,
+        "chapter_no": 7
       },
       "duration": 10.04
     },
@@ -862,10 +862,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 125.02,
-        "original_end_s": 140.0
+        "original_end_s": 140.0,
+        "chapter_no": 7
       },
       "duration": 14.99
     },
@@ -877,10 +877,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 177.05,
-        "original_end_s": 194.14
+        "original_end_s": 194.14,
+        "chapter_no": 8
       },
       "duration": 17.1
     },
@@ -892,10 +892,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 194.14,
-        "original_end_s": 210.74
+        "original_end_s": 210.74,
+        "chapter_no": 8
       },
       "duration": 16.61
     },
@@ -907,10 +907,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 25.78,
-        "original_end_s": 37.03
+        "original_end_s": 37.03,
+        "chapter_no": 8
       },
       "duration": 11.26
     },
@@ -922,10 +922,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 171.55,
-        "original_end_s": 187.33
+        "original_end_s": 187.33,
+        "chapter_no": 7
       },
       "duration": 15.79
     },
@@ -937,10 +937,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 224.21,
-        "original_end_s": 238.16
+        "original_end_s": 238.16,
+        "chapter_no": 8
       },
       "duration": 13.96
     },
@@ -952,10 +952,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 89.25,
-        "original_end_s": 107.27
+        "original_end_s": 107.27,
+        "chapter_no": 7
       },
       "duration": 18.03
     },
@@ -967,10 +967,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 152.13,
-        "original_end_s": 171.55
+        "original_end_s": 171.55,
+        "chapter_no": 7
       },
       "duration": 19.43
     },
@@ -982,10 +982,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 214.37,
-        "original_end_s": 229.66
+        "original_end_s": 229.66,
+        "chapter_no": 7
       },
       "duration": 15.3
     },
@@ -997,10 +997,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 116.02,
-        "original_end_s": 135.47
+        "original_end_s": 135.47,
+        "chapter_no": 8
       },
       "duration": 19.46
     },
@@ -1012,10 +1012,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 147.39,
-        "original_end_s": 159.06
+        "original_end_s": 159.06,
+        "chapter_no": 8
       },
       "duration": 11.68
     },
@@ -1027,10 +1027,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 107.27,
-        "original_end_s": 125.02
+        "original_end_s": 125.02,
+        "chapter_no": 7
       },
       "duration": 17.76
     },
@@ -1042,10 +1042,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 14.23,
-        "original_end_s": 25.78
+        "original_end_s": 25.78,
+        "chapter_no": 8
       },
       "duration": 11.56
     },
@@ -1057,10 +1057,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 260.6,
-        "original_end_s": 278.26
+        "original_end_s": 278.26,
+        "chapter_no": 7
       },
       "duration": 17.67
     },
@@ -1072,10 +1072,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 359.49,
-        "original_end_s": 372.33
+        "original_end_s": 372.33,
+        "chapter_no": 8
       },
       "duration": 12.85
     },
@@ -1087,10 +1087,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 39.22,
-        "original_end_s": 51.77
+        "original_end_s": 51.77,
+        "chapter_no": 7
       },
       "duration": 12.56
     },
@@ -1102,10 +1102,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 51.77,
-        "original_end_s": 70.66
+        "original_end_s": 70.66,
+        "chapter_no": 7
       },
       "duration": 18.9
     },
@@ -1117,10 +1117,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 229.66,
-        "original_end_s": 246.48
+        "original_end_s": 246.48,
+        "chapter_no": 7
       },
       "duration": 16.83
     },
@@ -1132,10 +1132,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 308.17,
-        "original_end_s": 325.99
+        "original_end_s": 325.99,
+        "chapter_no": 8
       },
       "duration": 17.83
     },
@@ -1147,10 +1147,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 295.21,
-        "original_end_s": 308.17
+        "original_end_s": 308.17,
+        "chapter_no": 8
       },
       "duration": 12.97
     },
@@ -1162,10 +1162,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 70.91,
-        "original_end_s": 86.41
+        "original_end_s": 86.41,
+        "chapter_no": 8
       },
       "duration": 15.51
     },
@@ -1177,10 +1177,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 140.0,
-        "original_end_s": 152.13
+        "original_end_s": 152.13,
+        "chapter_no": 7
       },
       "duration": 12.14
     },
@@ -1192,10 +1192,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 187.33,
-        "original_end_s": 200.69
+        "original_end_s": 200.69,
+        "chapter_no": 7
       },
       "duration": 13.37
     },
@@ -1207,10 +1207,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 210.74,
-        "original_end_s": 224.21
+        "original_end_s": 224.21,
+        "chapter_no": 8
       },
       "duration": 13.48
     },
@@ -1222,10 +1222,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 254.76,
-        "original_end_s": 267.31
+        "original_end_s": 267.31,
+        "chapter_no": 8
       },
       "duration": 12.56
     },
@@ -1237,10 +1237,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 267.31,
-        "original_end_s": 284.45
+        "original_end_s": 284.45,
+        "chapter_no": 8
       },
       "duration": 17.15
     },
@@ -1252,10 +1252,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 238.16,
-        "original_end_s": 254.76
+        "original_end_s": 254.76,
+        "chapter_no": 8
       },
       "duration": 16.61
     },
@@ -1267,10 +1267,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_008_galland_64kb.mp3",
         "original_start_s": 372.33,
-        "original_end_s": 390.04
+        "original_end_s": 390.04,
+        "chapter_no": 8
       },
       "duration": 17.72
     },
@@ -1282,10 +1282,10 @@
         "speaker_id": "mls-fr-2085",
         "gender": "w",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_007_galland_64kb.mp3",
         "original_start_s": 278.26,
-        "original_end_s": 288.66
+        "original_end_s": 288.66,
+        "chapter_no": 7
       },
       "duration": 10.41
     },
@@ -1297,10 +1297,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 191.62,
-        "original_end_s": 205.78
+        "original_end_s": 205.78,
+        "chapter_no": 15
       },
       "duration": 14.17
     },
@@ -1312,10 +1312,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 126.25,
-        "original_end_s": 139.95
+        "original_end_s": 139.95,
+        "chapter_no": 15
       },
       "duration": 13.71
     },
@@ -1327,10 +1327,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 174.74,
-        "original_end_s": 191.62
+        "original_end_s": 191.62,
+        "chapter_no": 15
       },
       "duration": 16.89
     },
@@ -1342,10 +1342,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 205.78,
-        "original_end_s": 225.14
+        "original_end_s": 225.14,
+        "chapter_no": 15
       },
       "duration": 19.37
     },
@@ -1357,10 +1357,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 57.76,
-        "original_end_s": 74.27
+        "original_end_s": 74.27,
+        "chapter_no": 15
       },
       "duration": 16.52
     },
@@ -1372,10 +1372,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 256.01,
-        "original_end_s": 273.46
+        "original_end_s": 273.46,
+        "chapter_no": 15
       },
       "duration": 17.46
     },
@@ -1387,10 +1387,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 111.66,
-        "original_end_s": 126.25
+        "original_end_s": 126.25,
+        "chapter_no": 15
       },
       "duration": 14.6
     },
@@ -1402,10 +1402,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 273.46,
-        "original_end_s": 285.57
+        "original_end_s": 285.57,
+        "chapter_no": 15
       },
       "duration": 12.12
     },
@@ -1417,10 +1417,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 156.83,
-        "original_end_s": 174.74
+        "original_end_s": 174.74,
+        "chapter_no": 15
       },
       "duration": 17.92
     },
@@ -1432,10 +1432,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 139.95,
-        "original_end_s": 156.83
+        "original_end_s": 156.83,
+        "chapter_no": 15
       },
       "duration": 16.89
     },
@@ -1447,10 +1447,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 95.51,
-        "original_end_s": 111.66
+        "original_end_s": 111.66,
+        "chapter_no": 15
       },
       "duration": 16.16
     },
@@ -1462,10 +1462,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 17.93,
-        "original_end_s": 29.72
+        "original_end_s": 29.72,
+        "chapter_no": 15
       },
       "duration": 11.8
     },
@@ -1477,10 +1477,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 74.27,
-        "original_end_s": 85.45
+        "original_end_s": 85.45,
+        "chapter_no": 15
       },
       "duration": 11.19
     },
@@ -1492,10 +1492,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 29.72,
-        "original_end_s": 46.52
+        "original_end_s": 46.52,
+        "chapter_no": 15
       },
       "duration": 16.81
     },
@@ -1507,10 +1507,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 225.14,
-        "original_end_s": 237.43
+        "original_end_s": 237.43,
+        "chapter_no": 15
       },
       "duration": 12.3
     },
@@ -1522,10 +1522,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 85.45,
-        "original_end_s": 95.51
+        "original_end_s": 95.51,
+        "chapter_no": 15
       },
       "duration": 10.07
     },
@@ -1537,10 +1537,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 237.43,
-        "original_end_s": 256.01
+        "original_end_s": 256.01,
+        "chapter_no": 15
       },
       "duration": 18.59
     },
@@ -1552,10 +1552,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 46.52,
-        "original_end_s": 57.76
+        "original_end_s": 57.76,
+        "chapter_no": 15
       },
       "duration": 11.25
     },
@@ -1567,10 +1567,10 @@
         "speaker_id": "mls-fr-2223",
         "gender": "m",
         "book_id": "1565",
-        "split": "test",
         "original_url": "http://www.archive.org/download/les1001nuits_tome2_0809_librivox/1001nuits2_015_galland_64kb.mp3",
         "original_start_s": 285.57,
-        "original_end_s": 297.58
+        "original_end_s": 297.58,
+        "chapter_no": 15
       },
       "duration": 12.02
     }

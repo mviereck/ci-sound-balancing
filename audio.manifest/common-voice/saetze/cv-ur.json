@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ur",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "ur/unknown/ur_u_26652058.mp3",
       "tags": {
         "source_item_id": "26652058",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.52
     },
@@ -29,7 +31,9 @@
       "audio": "ur/unknown/ur_u_26657544.mp3",
       "tags": {
         "source_item_id": "26657544",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -40,7 +44,9 @@
       "tags": {
         "source_item_id": "26701461",
         "gender": "u",
-        "accent": "Punjabi"
+        "accent": "Punjabi",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -50,7 +56,9 @@
       "audio": "ur/unknown/ur_u_27745883.mp3",
       "tags": {
         "source_item_id": "27745883",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 9.9
     },
@@ -60,7 +68,9 @@
       "audio": "ur/unknown/ur_u_29186220.mp3",
       "tags": {
         "source_item_id": "29186220",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.17
     },
@@ -70,7 +80,9 @@
       "audio": "ur/unknown/ur_u_30644821.mp3",
       "tags": {
         "source_item_id": "30644821",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.66
     },
@@ -80,7 +92,9 @@
       "audio": "ur/unknown/ur_u_31771683.mp3",
       "tags": {
         "source_item_id": "31771683",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.52
     },
@@ -91,7 +105,9 @@
       "tags": {
         "source_item_id": "31772079",
         "gender": "u",
-        "accent": "Islamabadi,Karachi"
+        "accent": "Islamabadi,Karachi",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 3.56
     },
@@ -101,7 +117,9 @@
       "audio": "ur/unknown/ur_u_31775378.mp3",
       "tags": {
         "source_item_id": "31775378",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -111,7 +129,9 @@
       "audio": "ur/unknown/ur_u_31780055.mp3",
       "tags": {
         "source_item_id": "31780055",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 1
       },
       "duration": 4.72
     }

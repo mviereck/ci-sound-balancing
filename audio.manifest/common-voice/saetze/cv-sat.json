@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-sat",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "29800975",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.82
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "30085857",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "30677900",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.1
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "32385202",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.39
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "29854481",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.46
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "29934107",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "29934070",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.53
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "29931364",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.47
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "30487776",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.05
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "30677897",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.43
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "30677917",
         "gender": "u",
-        "accent": "Western Odisha, India"
+        "accent": "Western Odisha, India",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.21
     }

@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "5203",
     "book_title": "Fables de La Fontaine, livre 10 (version 2)",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-6318",
         "gender": "m",
         "book_id": "5203",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fables_lafontaine_10_1206_librivox/fables_10_13_lafontaine_64kb.mp3",
         "original_start_s": 186.16,
-        "original_end_s": 198.95
+        "original_end_s": 198.95,
+        "chapter_no": 10
       },
       "duration": 12.8
     }

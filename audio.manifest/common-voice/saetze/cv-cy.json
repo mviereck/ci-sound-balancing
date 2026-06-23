@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-cy",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "19562213",
         "gender": "u",
-        "accent": "Y Deyrnas Unedig Cymraeg"
+        "accent": "Y Deyrnas Unedig Cymraeg",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.14
     },
@@ -30,7 +32,9 @@
       "audio": "cy/unknown/cy_u_19644804.mp3",
       "tags": {
         "source_item_id": "19644804",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 7.9
     },
@@ -40,7 +44,9 @@
       "audio": "cy/unknown/cy_u_19684386.mp3",
       "tags": {
         "source_item_id": "19684386",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.26
     },
@@ -51,7 +57,9 @@
       "tags": {
         "source_item_id": "19785838",
         "gender": "u",
-        "accent": "Y Deyrnas Unedig Cymraeg"
+        "accent": "Y Deyrnas Unedig Cymraeg",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.82
     },
@@ -61,7 +69,9 @@
       "audio": "cy/unknown/cy_u_19806111.mp3",
       "tags": {
         "source_item_id": "19806111",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.45
     },
@@ -71,7 +81,9 @@
       "audio": "cy/unknown/cy_u_19838981.mp3",
       "tags": {
         "source_item_id": "19838981",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.97
     },
@@ -82,7 +94,9 @@
       "tags": {
         "source_item_id": "19854845",
         "gender": "u",
-        "accent": "Y Deyrnas Unedig Cymraeg"
+        "accent": "Y Deyrnas Unedig Cymraeg",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.5
     },
@@ -93,7 +107,9 @@
       "tags": {
         "source_item_id": "19863542",
         "gender": "u",
-        "accent": "Y Deyrnas Unedig Cymraeg"
+        "accent": "Y Deyrnas Unedig Cymraeg",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 4.7
     },
@@ -104,7 +120,9 @@
       "tags": {
         "source_item_id": "20149629",
         "gender": "u",
-        "accent": "Y Deyrnas Unedig Cymraeg"
+        "accent": "Y Deyrnas Unedig Cymraeg",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.19
     },
@@ -114,7 +132,9 @@
       "audio": "cy/unknown/cy_u_20454152.mp3",
       "tags": {
         "source_item_id": "20454152",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.94
     }

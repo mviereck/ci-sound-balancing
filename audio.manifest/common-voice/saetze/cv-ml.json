@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ml",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "37032362",
         "gender": "u",
-        "accent": "Central Kerala"
+        "accent": "Central Kerala",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.94
     },
@@ -30,7 +32,9 @@
       "audio": "ml/unknown/ml_u_28930619.mp3",
       "tags": {
         "source_item_id": "28930619",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.68
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "37032363",
         "gender": "u",
-        "accent": "Central Kerala"
+        "accent": "Central Kerala",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.24
     },
@@ -51,7 +57,9 @@
       "audio": "ml/unknown/ml_u_28914077.mp3",
       "tags": {
         "source_item_id": "28914077",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 10.15
     },
@@ -61,7 +69,9 @@
       "audio": "ml/unknown/ml_u_28913913.mp3",
       "tags": {
         "source_item_id": "28913913",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.46
     },
@@ -71,7 +81,9 @@
       "audio": "ml/unknown/ml_u_28931145.mp3",
       "tags": {
         "source_item_id": "28931145",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.89
     },
@@ -82,7 +94,9 @@
       "tags": {
         "source_item_id": "37007605",
         "gender": "u",
-        "accent": "Central Kerala"
+        "accent": "Central Kerala",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -92,7 +106,9 @@
       "audio": "ml/unknown/ml_u_28913732.mp3",
       "tags": {
         "source_item_id": "28913732",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 2.63
     },
@@ -102,7 +118,9 @@
       "audio": "ml/unknown/ml_u_28914626.mp3",
       "tags": {
         "source_item_id": "28914626",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -112,7 +130,9 @@
       "audio": "ml/unknown/ml_u_28914360.mp3",
       "tags": {
         "source_item_id": "28914360",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.85
     }

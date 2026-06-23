@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-tig",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "tig/unknown/tig_u_37654239.mp3",
       "tags": {
         "source_item_id": "37654239",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -29,7 +31,9 @@
       "audio": "tig/unknown/tig_u_39778625.mp3",
       "tags": {
         "source_item_id": "39778625",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.01
     },
@@ -39,7 +43,9 @@
       "audio": "tig/unknown/tig_u_37652819.mp3",
       "tags": {
         "source_item_id": "37652819",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 8.03
     },
@@ -49,7 +55,9 @@
       "audio": "tig/unknown/tig_u_39778628.mp3",
       "tags": {
         "source_item_id": "39778628",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.75
     },
@@ -59,7 +67,9 @@
       "audio": "tig/unknown/tig_u_37654343.mp3",
       "tags": {
         "source_item_id": "37654343",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.79
     },
@@ -69,7 +79,9 @@
       "audio": "tig/unknown/tig_u_37669573.mp3",
       "tags": {
         "source_item_id": "37669573",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.8
     },
@@ -79,7 +91,9 @@
       "audio": "tig/unknown/tig_u_37654308.mp3",
       "tags": {
         "source_item_id": "37654308",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.11
     },
@@ -89,7 +103,9 @@
       "audio": "tig/unknown/tig_u_37654320.mp3",
       "tags": {
         "source_item_id": "37654320",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.4
     },
@@ -99,7 +115,9 @@
       "audio": "tig/unknown/tig_u_39778664.mp3",
       "tags": {
         "source_item_id": "39778664",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -109,7 +127,9 @@
       "audio": "tig/unknown/tig_u_37653937.mp3",
       "tags": {
         "source_item_id": "37653937",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.57
     },
@@ -119,7 +139,9 @@
       "audio": "tig/unknown/tig_u_37654204.mp3",
       "tags": {
         "source_item_id": "37654204",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.82
     },
@@ -129,7 +151,9 @@
       "audio": "tig/unknown/tig_u_37669571.mp3",
       "tags": {
         "source_item_id": "37669571",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.38
     }

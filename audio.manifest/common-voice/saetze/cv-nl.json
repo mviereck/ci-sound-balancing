@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-nl",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "17726626",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.14
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "17838891",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.28
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "21821292",
         "gender": "u",
-        "accent": "Surinaams Nederlands"
+        "accent": "Surinaams Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.38
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "22065732",
         "gender": "u",
-        "accent": "Belgisch Nederlands"
+        "accent": "Belgisch Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.38
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "22451961",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.58
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "22526031",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.58
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "22754543",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.86
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "22916535",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.46
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "23373535",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.08
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "23522441",
         "gender": "u",
-        "accent": "Nederlands Nederlands"
+        "accent": "Nederlands Nederlands",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.26
     }

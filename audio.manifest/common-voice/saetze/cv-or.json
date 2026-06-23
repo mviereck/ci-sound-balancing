@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-or",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "21832056",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 6,
+        "down_votes": 0
       },
       "duration": 4.85
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "22272012",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.38
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "22334763",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.18
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "21845724",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.81
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "22738076",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.33
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "21843555",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "22315852",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.78
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "26943527",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 9.0
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "22354606",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 6.94
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "21861928",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 3.62
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "22745901",
         "gender": "u",
-        "accent": "Central,Baleswari"
+        "accent": "Central,Baleswari",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 5.69
     }

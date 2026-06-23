@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-fi",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "fi/unknown/fi_u_22987633.mp3",
       "tags": {
         "source_item_id": "22987633",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.42
     },
@@ -29,7 +31,9 @@
       "audio": "fi/unknown/fi_u_25002715.mp3",
       "tags": {
         "source_item_id": "25002715",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -39,7 +43,9 @@
       "audio": "fi/unknown/fi_u_25004261.mp3",
       "tags": {
         "source_item_id": "25004261",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.68
     },
@@ -49,7 +55,9 @@
       "audio": "fi/unknown/fi_u_25259239.mp3",
       "tags": {
         "source_item_id": "25259239",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.13
     },
@@ -59,7 +67,9 @@
       "audio": "fi/unknown/fi_u_25299466.mp3",
       "tags": {
         "source_item_id": "25299466",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.9
     },
@@ -69,7 +79,9 @@
       "audio": "fi/unknown/fi_u_26984669.mp3",
       "tags": {
         "source_item_id": "26984669",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.92
     },
@@ -79,7 +91,9 @@
       "audio": "fi/unknown/fi_u_25595192.mp3",
       "tags": {
         "source_item_id": "25595192",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.42
     },
@@ -89,7 +103,9 @@
       "audio": "fi/unknown/fi_u_25263300.mp3",
       "tags": {
         "source_item_id": "25263300",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.32
     },
@@ -99,7 +115,9 @@
       "audio": "fi/unknown/fi_u_23391574.mp3",
       "tags": {
         "source_item_id": "23391574",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 1
       },
       "duration": 3.1
     },
@@ -109,7 +127,9 @@
       "audio": "fi/unknown/fi_u_25002803.mp3",
       "tags": {
         "source_item_id": "25002803",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.43
     },
@@ -119,7 +139,9 @@
       "audio": "fi/unknown/fi_u_28976992.mp3",
       "tags": {
         "source_item_id": "28976992",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.89
     },
@@ -129,7 +151,9 @@
       "audio": "fi/unknown/fi_u_25020941.mp3",
       "tags": {
         "source_item_id": "25020941",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.84
     },
@@ -139,7 +163,9 @@
       "audio": "fi/unknown/fi_u_22997065.mp3",
       "tags": {
         "source_item_id": "22997065",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -149,7 +175,9 @@
       "audio": "fi/unknown/fi_u_25259356.mp3",
       "tags": {
         "source_item_id": "25259356",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.7
     },
@@ -159,7 +187,9 @@
       "audio": "fi/unknown/fi_u_25299531.mp3",
       "tags": {
         "source_item_id": "25299531",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.97
     },
@@ -169,7 +199,9 @@
       "audio": "fi/unknown/fi_u_23945155.mp3",
       "tags": {
         "source_item_id": "23945155",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.3
     }

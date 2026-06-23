@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-gl",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "gl/unknown/gl_u_25383340.mp3",
       "tags": {
         "source_item_id": "25383340",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.54
     },
@@ -29,7 +31,9 @@
       "audio": "gl/unknown/gl_u_25385524.mp3",
       "tags": {
         "source_item_id": "25385524",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.7
     },
@@ -40,7 +44,9 @@
       "tags": {
         "source_item_id": "25387783",
         "gender": "u",
-        "accent": "Normativo (estándar)"
+        "accent": "Normativo (estándar)",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.46
     },
@@ -50,7 +56,9 @@
       "audio": "gl/unknown/gl_u_25400234.mp3",
       "tags": {
         "source_item_id": "25400234",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.01
     },
@@ -60,7 +68,9 @@
       "audio": "gl/unknown/gl_u_25508403.mp3",
       "tags": {
         "source_item_id": "25508403",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.22
     },
@@ -70,7 +80,9 @@
       "audio": "gl/unknown/gl_u_25998188.mp3",
       "tags": {
         "source_item_id": "25998188",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 7.2
     },
@@ -81,7 +93,9 @@
       "tags": {
         "source_item_id": "26185302",
         "gender": "u",
-        "accent": "Neofalante"
+        "accent": "Neofalante",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -92,7 +106,9 @@
       "tags": {
         "source_item_id": "26186911",
         "gender": "u",
-        "accent": "Neofalante"
+        "accent": "Neofalante",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.69
     },
@@ -103,7 +119,9 @@
       "tags": {
         "source_item_id": "26195061",
         "gender": "u",
-        "accent": "Central (gheada)"
+        "accent": "Central (gheada)",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.75
     },
@@ -114,7 +132,9 @@
       "tags": {
         "source_item_id": "26285229",
         "gender": "u",
-        "accent": "Neofalante"
+        "accent": "Neofalante",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 9.25
     }

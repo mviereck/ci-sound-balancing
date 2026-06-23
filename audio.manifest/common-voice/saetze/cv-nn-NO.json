@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-nn-NO",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "nn-NO/unknown/nn-NO_u_28722079.mp3",
       "tags": {
         "source_item_id": "28722079",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.8
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "37294404",
         "gender": "u",
-        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway"
+        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway",
+        "up_votes": 10,
+        "down_votes": 0
       },
       "duration": 3.24
     },
@@ -41,7 +45,9 @@
       "tags": {
         "source_item_id": "38529956",
         "gender": "u",
-        "accent": "sunnhordland"
+        "accent": "sunnhordland",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.85
     },
@@ -52,7 +58,9 @@
       "tags": {
         "source_item_id": "37296667",
         "gender": "u",
-        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway"
+        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway",
+        "up_votes": 10,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -63,7 +71,9 @@
       "tags": {
         "source_item_id": "38530401",
         "gender": "u",
-        "accent": "sunnhordland"
+        "accent": "sunnhordland",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -73,7 +83,9 @@
       "audio": "nn-NO/unknown/nn-NO_u_30329703.mp3",
       "tags": {
         "source_item_id": "30329703",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -83,7 +95,9 @@
       "audio": "nn-NO/unknown/nn-NO_u_28722084.mp3",
       "tags": {
         "source_item_id": "28722084",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -94,7 +108,9 @@
       "tags": {
         "source_item_id": "38530424",
         "gender": "u",
-        "accent": "sunnhordland"
+        "accent": "sunnhordland",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.89
     },
@@ -105,7 +121,9 @@
       "tags": {
         "source_item_id": "38530065",
         "gender": "u",
-        "accent": "sunnhordland"
+        "accent": "sunnhordland",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.82
     },
@@ -116,7 +134,9 @@
       "tags": {
         "source_item_id": "37294407",
         "gender": "u",
-        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway"
+        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway",
+        "up_votes": 10,
+        "down_votes": 0
       },
       "duration": 3.24
     },
@@ -127,7 +147,9 @@
       "tags": {
         "source_item_id": "37294824",
         "gender": "u",
-        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway"
+        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway",
+        "up_votes": 10,
+        "down_votes": 0
       },
       "duration": 2.74
     },
@@ -138,7 +160,9 @@
       "tags": {
         "source_item_id": "37296287",
         "gender": "u",
-        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway"
+        "accent": "Sørlandet,Sørlænding,Southern,Southern Norway",
+        "up_votes": 5,
+        "down_votes": 0
       },
       "duration": 2.52
     },
@@ -148,7 +172,9 @@
       "audio": "nn-NO/unknown/nn-NO_u_28806239.mp3",
       "tags": {
         "source_item_id": "28806239",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.4
     }

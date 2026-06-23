@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "10282",
     "book_title": "Bible (Reina Valera) 23: Isaías",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 193.17,
-        "original_end_s": 205.18
+        "original_end_s": 205.18,
+        "chapter_no": 28
       },
       "duration": 12.02
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 218.54,
-        "original_end_s": 237.99
+        "original_end_s": 237.99,
+        "chapter_no": 29
       },
       "duration": 19.46
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 265.78,
-        "original_end_s": 276.28
+        "original_end_s": 276.28,
+        "chapter_no": 29
       },
       "duration": 10.51
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 124.33,
-        "original_end_s": 143.25
+        "original_end_s": 143.25,
+        "chapter_no": 27
       },
       "duration": 18.93
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 60.51,
-        "original_end_s": 79.63
+        "original_end_s": 79.63,
+        "chapter_no": 27
       },
       "duration": 19.13
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 141.09,
-        "original_end_s": 154.45
+        "original_end_s": 154.45,
+        "chapter_no": 30
       },
       "duration": 13.37
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 374.17,
-        "original_end_s": 384.91
+        "original_end_s": 384.91,
+        "chapter_no": 30
       },
       "duration": 10.75
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 100.53,
-        "original_end_s": 118.58
+        "original_end_s": 118.58,
+        "chapter_no": 28
       },
       "duration": 18.06
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 32.62,
-        "original_end_s": 43.67
+        "original_end_s": 43.67,
+        "chapter_no": 29
       },
       "duration": 11.06
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 66.42,
-        "original_end_s": 86.35
+        "original_end_s": 86.35,
+        "chapter_no": 30
       },
       "duration": 19.94
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 29.88,
-        "original_end_s": 40.52
+        "original_end_s": 40.52,
+        "chapter_no": 27
       },
       "duration": 10.65
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 138.43,
-        "original_end_s": 156.81
+        "original_end_s": 156.81,
+        "chapter_no": 28
       },
       "duration": 18.39
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 285.23,
-        "original_end_s": 301.12
+        "original_end_s": 301.12,
+        "chapter_no": 27
       },
       "duration": 15.9
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 339.61,
-        "original_end_s": 354.04
+        "original_end_s": 354.04,
+        "chapter_no": 29
       },
       "duration": 14.44
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 242.87,
-        "original_end_s": 254.36
+        "original_end_s": 254.36,
+        "chapter_no": 27
       },
       "duration": 11.5
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 86.35,
-        "original_end_s": 104.49
+        "original_end_s": 104.49,
+        "chapter_no": 30
       },
       "duration": 18.15
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 407.4,
-        "original_end_s": 417.89
+        "original_end_s": 417.89,
+        "chapter_no": 30
       },
       "duration": 10.5
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 143.25,
-        "original_end_s": 154.37
+        "original_end_s": 154.37,
+        "chapter_no": 27
       },
       "duration": 11.13
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 85.07,
-        "original_end_s": 100.53
+        "original_end_s": 100.53,
+        "chapter_no": 28
       },
       "duration": 15.47
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 172.02,
-        "original_end_s": 183.46
+        "original_end_s": 183.46,
+        "chapter_no": 30
       },
       "duration": 11.45
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 354.04,
-        "original_end_s": 365.41
+        "original_end_s": 365.41,
+        "chapter_no": 29
       },
       "duration": 11.38
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 254.36,
-        "original_end_s": 271.96
+        "original_end_s": 271.96,
+        "chapter_no": 27
       },
       "duration": 17.61
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 59.51,
-        "original_end_s": 74.57
+        "original_end_s": 74.57,
+        "chapter_no": 28
       },
       "duration": 15.07
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 276.28,
-        "original_end_s": 295.6
+        "original_end_s": 295.6,
+        "chapter_no": 29
       },
       "duration": 19.33
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 296.48,
-        "original_end_s": 315.08
+        "original_end_s": 315.08,
+        "chapter_no": 30
       },
       "duration": 18.61
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 124.27,
-        "original_end_s": 141.09
+        "original_end_s": 141.09,
+        "chapter_no": 30
       },
       "duration": 16.83
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 251.73,
-        "original_end_s": 262.86
+        "original_end_s": 262.86,
+        "chapter_no": 30
       },
       "duration": 11.14
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 176.65,
-        "original_end_s": 193.17
+        "original_end_s": 193.17,
+        "chapter_no": 28
       },
       "duration": 16.53
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 156.81,
-        "original_end_s": 176.65
+        "original_end_s": 176.65,
+        "chapter_no": 28
       },
       "duration": 19.85
     },
@@ -457,10 +457,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 239.3,
-        "original_end_s": 253.52
+        "original_end_s": 253.52,
+        "chapter_no": 28
       },
       "duration": 14.23
     },
@@ -472,10 +472,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 315.08,
-        "original_end_s": 325.17
+        "original_end_s": 325.17,
+        "chapter_no": 30
       },
       "duration": 10.1
     },
@@ -487,10 +487,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 88.07,
-        "original_end_s": 101.33
+        "original_end_s": 101.33,
+        "chapter_no": 29
       },
       "duration": 13.27
     },
@@ -502,10 +502,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 40.52,
-        "original_end_s": 60.51
+        "original_end_s": 60.51,
+        "chapter_no": 27
       },
       "duration": 20.0
     },
@@ -517,10 +517,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 397.22,
-        "original_end_s": 407.4
+        "original_end_s": 407.4,
+        "chapter_no": 30
       },
       "duration": 10.19
     },
@@ -532,10 +532,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 154.37,
-        "original_end_s": 170.42
+        "original_end_s": 170.42,
+        "chapter_no": 27
       },
       "duration": 16.06
     },
@@ -547,10 +547,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 30.48,
-        "original_end_s": 48.64
+        "original_end_s": 48.64,
+        "chapter_no": 30
       },
       "duration": 18.17
     },
@@ -562,10 +562,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 205.18,
-        "original_end_s": 224.56
+        "original_end_s": 224.56,
+        "chapter_no": 28
       },
       "duration": 19.39
     },
@@ -577,10 +577,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 195.47,
-        "original_end_s": 206.26
+        "original_end_s": 206.26,
+        "chapter_no": 29
       },
       "duration": 10.8
     },
@@ -592,10 +592,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 271.96,
-        "original_end_s": 285.23
+        "original_end_s": 285.23,
+        "chapter_no": 27
       },
       "duration": 13.28
     },
@@ -607,10 +607,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 325.17,
-        "original_end_s": 339.14
+        "original_end_s": 339.14,
+        "chapter_no": 30
       },
       "duration": 13.98
     },
@@ -622,10 +622,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 107.27,
-        "original_end_s": 124.33
+        "original_end_s": 124.33,
+        "chapter_no": 27
       },
       "duration": 17.07
     },
@@ -637,10 +637,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 324.13,
-        "original_end_s": 339.61
+        "original_end_s": 339.61,
+        "chapter_no": 29
       },
       "duration": 15.49
     },
@@ -652,10 +652,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 79.63,
-        "original_end_s": 91.01
+        "original_end_s": 91.01,
+        "chapter_no": 27
       },
       "duration": 11.39
     },
@@ -667,10 +667,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 384.91,
-        "original_end_s": 397.22
+        "original_end_s": 397.22,
+        "chapter_no": 30
       },
       "duration": 12.32
     },
@@ -682,10 +682,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 73.76,
-        "original_end_s": 88.07
+        "original_end_s": 88.07,
+        "chapter_no": 29
       },
       "duration": 14.32
     },
@@ -697,10 +697,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 237.59,
-        "original_end_s": 251.73
+        "original_end_s": 251.73,
+        "chapter_no": 30
       },
       "duration": 14.15
     },
@@ -712,10 +712,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 48.64,
-        "original_end_s": 66.42
+        "original_end_s": 66.42,
+        "chapter_no": 30
       },
       "duration": 17.79
     },
@@ -727,10 +727,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 339.14,
-        "original_end_s": 358.96
+        "original_end_s": 358.96,
+        "chapter_no": 30
       },
       "duration": 19.83
     },
@@ -742,10 +742,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 206.26,
-        "original_end_s": 218.54
+        "original_end_s": 218.54,
+        "chapter_no": 29
       },
       "duration": 12.29
     },
@@ -757,10 +757,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 117.63,
-        "original_end_s": 133.77
+        "original_end_s": 133.77,
+        "chapter_no": 29
       },
       "duration": 16.15
     },
@@ -772,10 +772,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 146.3,
-        "original_end_s": 162.37
+        "original_end_s": 162.37,
+        "chapter_no": 29
       },
       "duration": 16.08
     },
@@ -787,10 +787,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 232.08,
-        "original_end_s": 242.87
+        "original_end_s": 242.87,
+        "chapter_no": 27
       },
       "duration": 10.8
     },
@@ -802,10 +802,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 19.42,
-        "original_end_s": 29.88
+        "original_end_s": 29.88,
+        "chapter_no": 27
       },
       "duration": 10.47
     },
@@ -817,10 +817,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 295.6,
-        "original_end_s": 306.9
+        "original_end_s": 306.9,
+        "chapter_no": 29
       },
       "duration": 11.31
     },
@@ -832,10 +832,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 19.21,
-        "original_end_s": 30.48
+        "original_end_s": 30.48,
+        "chapter_no": 30
       },
       "duration": 11.28
     },
@@ -847,10 +847,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 274.0,
-        "original_end_s": 284.71
+        "original_end_s": 284.71,
+        "chapter_no": 30
       },
       "duration": 10.72
     },
@@ -862,10 +862,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 417.89,
-        "original_end_s": 431.82
+        "original_end_s": 431.82,
+        "chapter_no": 30
       },
       "duration": 13.94
     },
@@ -877,10 +877,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 301.12,
-        "original_end_s": 315.28
+        "original_end_s": 315.28,
+        "chapter_no": 27
       },
       "duration": 14.17
     },
@@ -892,10 +892,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 101.33,
-        "original_end_s": 117.63
+        "original_end_s": 117.63,
+        "chapter_no": 29
       },
       "duration": 16.31
     },
@@ -907,10 +907,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 201.12,
-        "original_end_s": 214.71
+        "original_end_s": 214.71,
+        "chapter_no": 27
       },
       "duration": 13.6
     },
@@ -922,10 +922,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 104.49,
-        "original_end_s": 124.27
+        "original_end_s": 124.27,
+        "chapter_no": 30
       },
       "duration": 19.79
     },
@@ -937,10 +937,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 170.42,
-        "original_end_s": 188.65
+        "original_end_s": 188.65,
+        "chapter_no": 27
       },
       "duration": 18.24
     },
@@ -952,10 +952,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 18.43,
-        "original_end_s": 33.8
+        "original_end_s": 33.8,
+        "chapter_no": 28
       },
       "duration": 15.38
     },
@@ -967,10 +967,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 43.67,
-        "original_end_s": 61.61
+        "original_end_s": 61.61,
+        "chapter_no": 29
       },
       "duration": 17.95
     },
@@ -982,10 +982,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 19.1,
-        "original_end_s": 32.62
+        "original_end_s": 32.62,
+        "chapter_no": 29
       },
       "duration": 13.53
     },
@@ -997,10 +997,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 253.52,
-        "original_end_s": 272.48
+        "original_end_s": 272.48,
+        "chapter_no": 28
       },
       "duration": 18.97
     },
@@ -1012,10 +1012,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 180.73,
-        "original_end_s": 195.47
+        "original_end_s": 195.47,
+        "chapter_no": 29
       },
       "duration": 14.75
     },
@@ -1027,10 +1027,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 224.56,
-        "original_end_s": 239.3
+        "original_end_s": 239.3,
+        "chapter_no": 28
       },
       "duration": 14.75
     },
@@ -1042,10 +1042,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 183.46,
-        "original_end_s": 202.98
+        "original_end_s": 202.98,
+        "chapter_no": 30
       },
       "duration": 19.53
     },
@@ -1057,10 +1057,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 188.65,
-        "original_end_s": 201.12
+        "original_end_s": 201.12,
+        "chapter_no": 27
       },
       "duration": 12.48
     },
@@ -1072,10 +1072,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 306.9,
-        "original_end_s": 324.13
+        "original_end_s": 324.13,
+        "chapter_no": 29
       },
       "duration": 17.24
     },
@@ -1087,10 +1087,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 237.99,
-        "original_end_s": 253.83
+        "original_end_s": 253.83,
+        "chapter_no": 29
       },
       "duration": 15.85
     },
@@ -1102,10 +1102,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 154.45,
-        "original_end_s": 172.02
+        "original_end_s": 172.02,
+        "chapter_no": 30
       },
       "duration": 17.58
     },
@@ -1117,10 +1117,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 74.57,
-        "original_end_s": 85.07
+        "original_end_s": 85.07,
+        "chapter_no": 28
       },
       "duration": 10.51
     },
@@ -1132,10 +1132,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 253.83,
-        "original_end_s": 265.78
+        "original_end_s": 265.78,
+        "chapter_no": 29
       },
       "duration": 11.96
     },
@@ -1147,10 +1147,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 358.96,
-        "original_end_s": 374.17
+        "original_end_s": 374.17,
+        "chapter_no": 30
       },
       "duration": 15.22
     },
@@ -1162,10 +1162,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 202.98,
-        "original_end_s": 221.66
+        "original_end_s": 221.66,
+        "chapter_no": 30
       },
       "duration": 18.69
     },
@@ -1177,10 +1177,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 61.61,
-        "original_end_s": 73.76
+        "original_end_s": 73.76,
+        "chapter_no": 29
       },
       "duration": 12.16
     },
@@ -1192,10 +1192,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 262.86,
-        "original_end_s": 274.0
+        "original_end_s": 274.0,
+        "chapter_no": 30
       },
       "duration": 11.15
     },
@@ -1207,10 +1207,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 431.82,
-        "original_end_s": 445.31
+        "original_end_s": 445.31,
+        "chapter_no": 30
       },
       "duration": 13.5
     },
@@ -1222,10 +1222,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 44.35,
-        "original_end_s": 59.51
+        "original_end_s": 59.51,
+        "chapter_no": 28
       },
       "duration": 15.17
     },
@@ -1237,10 +1237,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_30_reinavalera_64kb.mp3",
         "original_start_s": 221.66,
-        "original_end_s": 237.59
+        "original_end_s": 237.59,
+        "chapter_no": 30
       },
       "duration": 15.94
     },
@@ -1252,10 +1252,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_29_reinavalera_64kb.mp3",
         "original_start_s": 133.77,
-        "original_end_s": 146.3
+        "original_end_s": 146.3,
+        "chapter_no": 29
       },
       "duration": 12.54
     },
@@ -1267,10 +1267,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_27_reinavalera_64kb.mp3",
         "original_start_s": 91.01,
-        "original_end_s": 107.27
+        "original_end_s": 107.27,
+        "chapter_no": 27
       },
       "duration": 16.27
     },
@@ -1282,10 +1282,10 @@
         "speaker_id": "mls-es-10367",
         "gender": "m",
         "book_id": "10282",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/isaias_1603_librivox/isaias_28_reinavalera_64kb.mp3",
         "original_start_s": 33.8,
-        "original_end_s": 44.35
+        "original_end_s": 44.35,
+        "chapter_no": 28
       },
       "duration": 10.56
     }

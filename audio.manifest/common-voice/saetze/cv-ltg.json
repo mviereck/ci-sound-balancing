@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ltg",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "38561239",
         "gender": "u",
-        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
+        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete",
+        "up_votes": 14,
+        "down_votes": 0
       },
       "duration": 5.9
     },
@@ -30,7 +32,9 @@
       "audio": "ltg/unknown/ltg_u_38608251.mp3",
       "tags": {
         "source_item_id": "38608251",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.36
     },
@@ -40,7 +44,9 @@
       "audio": "ltg/unknown/ltg_u_38641116.mp3",
       "tags": {
         "source_item_id": "38641116",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.96
     },
@@ -50,7 +56,9 @@
       "audio": "ltg/unknown/ltg_u_38661742.mp3",
       "tags": {
         "source_item_id": "38661742",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -60,7 +68,9 @@
       "audio": "ltg/unknown/ltg_u_38693077.mp3",
       "tags": {
         "source_item_id": "38693077",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.61
     },
@@ -70,7 +80,9 @@
       "audio": "ltg/unknown/ltg_u_38696755.mp3",
       "tags": {
         "source_item_id": "38696755",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.62
     },
@@ -80,7 +92,9 @@
       "audio": "ltg/unknown/ltg_u_38757668.mp3",
       "tags": {
         "source_item_id": "38757668",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.25
     },
@@ -90,7 +104,9 @@
       "audio": "ltg/unknown/ltg_u_38785422.mp3",
       "tags": {
         "source_item_id": "38785422",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.12
     },
@@ -100,7 +116,9 @@
       "audio": "ltg/unknown/ltg_u_39294258.mp3",
       "tags": {
         "source_item_id": "39294258",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.44
     },
@@ -111,7 +129,9 @@
       "tags": {
         "source_item_id": "39885261",
         "gender": "u",
-        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete"
+        "accent": "Viļāni,Viļānu pogosts,Latvija,Rīga,latgalīte,latviete",
+        "up_votes": 14,
+        "down_votes": 0
       },
       "duration": 6.23
     },
@@ -121,7 +141,9 @@
       "audio": "ltg/unknown/ltg_u_38759886.mp3",
       "tags": {
         "source_item_id": "38759886",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -131,7 +153,9 @@
       "audio": "ltg/unknown/ltg_u_38731747.mp3",
       "tags": {
         "source_item_id": "38731747",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -141,7 +165,9 @@
       "audio": "ltg/unknown/ltg_u_39919460.mp3",
       "tags": {
         "source_item_id": "39919460",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 6.52
     },
@@ -151,7 +177,9 @@
       "audio": "ltg/unknown/ltg_u_38640357.mp3",
       "tags": {
         "source_item_id": "38640357",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.53
     },
@@ -161,7 +189,9 @@
       "audio": "ltg/unknown/ltg_u_38662283.mp3",
       "tags": {
         "source_item_id": "38662283",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -171,7 +201,9 @@
       "audio": "ltg/unknown/ltg_u_38693007.mp3",
       "tags": {
         "source_item_id": "38693007",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.42
     },
@@ -181,7 +213,9 @@
       "audio": "ltg/unknown/ltg_u_39296732.mp3",
       "tags": {
         "source_item_id": "39296732",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -191,7 +225,9 @@
       "audio": "ltg/unknown/ltg_u_39919086.mp3",
       "tags": {
         "source_item_id": "39919086",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.22
     }

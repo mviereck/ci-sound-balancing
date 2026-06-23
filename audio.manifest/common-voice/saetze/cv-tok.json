@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-tok",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -19,7 +19,9 @@
       "audio": "tok/unknown/tok_u_31168501.mp3",
       "tags": {
         "source_item_id": "31168501",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.38
     },
@@ -30,7 +32,9 @@
       "tags": {
         "source_item_id": "31170994",
         "gender": "u",
-        "accent": "Polish"
+        "accent": "Polish",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.54
     },
@@ -40,7 +44,9 @@
       "audio": "tok/unknown/tok_u_31171187.mp3",
       "tags": {
         "source_item_id": "31171187",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.24
     },
@@ -50,7 +56,9 @@
       "audio": "tok/unknown/tok_u_31198643.mp3",
       "tags": {
         "source_item_id": "31198643",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -61,7 +69,9 @@
       "tags": {
         "source_item_id": "31214953",
         "gender": "u",
-        "accent": "IPA"
+        "accent": "IPA",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 5.58
     },
@@ -71,7 +81,9 @@
       "audio": "tok/unknown/tok_u_31218270.mp3",
       "tags": {
         "source_item_id": "31218270",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 3,
+        "down_votes": 0
       },
       "duration": 4.72
     },
@@ -81,7 +93,9 @@
       "audio": "tok/unknown/tok_u_36866436.mp3",
       "tags": {
         "source_item_id": "36866436",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.08
     },
@@ -91,7 +105,9 @@
       "audio": "tok/unknown/tok_u_37269635.mp3",
       "tags": {
         "source_item_id": "37269635",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.76
     },
@@ -101,7 +117,9 @@
       "audio": "tok/unknown/tok_u_31202229.mp3",
       "tags": {
         "source_item_id": "31202229",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.67
     },
@@ -112,7 +130,9 @@
       "tags": {
         "source_item_id": "31217699",
         "gender": "u",
-        "accent": "IPA"
+        "accent": "IPA",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.35
     },
@@ -122,7 +142,9 @@
       "audio": "tok/unknown/tok_u_31218334.mp3",
       "tags": {
         "source_item_id": "31218334",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.26
     },
@@ -132,7 +154,9 @@
       "audio": "tok/unknown/tok_u_37311328.mp3",
       "tags": {
         "source_item_id": "37311328",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.13
     },
@@ -142,7 +166,9 @@
       "audio": "tok/unknown/tok_u_31225677.mp3",
       "tags": {
         "source_item_id": "31225677",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.7
     },
@@ -153,7 +179,9 @@
       "tags": {
         "source_item_id": "31391106",
         "gender": "u",
-        "accent": "Polish"
+        "accent": "Polish",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 2.56
     },
@@ -163,7 +191,9 @@
       "audio": "tok/unknown/tok_u_31437314.mp3",
       "tags": {
         "source_item_id": "31437314",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.79
     },
@@ -173,7 +203,9 @@
       "audio": "tok/unknown/tok_u_36866527.mp3",
       "tags": {
         "source_item_id": "36866527",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.5
     },
@@ -183,7 +215,9 @@
       "audio": "tok/unknown/tok_u_31241450.mp3",
       "tags": {
         "source_item_id": "31241450",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.09
     },
@@ -193,7 +227,9 @@
       "audio": "tok/unknown/tok_u_36866653.mp3",
       "tags": {
         "source_item_id": "36866653",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 5.44
     }

@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-ne-NP",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "37910991",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.28
     },
@@ -31,7 +33,9 @@
       "tags": {
         "source_item_id": "37911012",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.35
     },
@@ -42,7 +46,9 @@
       "tags": {
         "source_item_id": "35314179",
         "gender": "u",
-        "accent": "nepali"
+        "accent": "nepali",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.06
     },
@@ -53,7 +59,9 @@
       "tags": {
         "source_item_id": "37913808",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.35
     },
@@ -64,7 +72,9 @@
       "tags": {
         "source_item_id": "37913737",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.14
     },
@@ -75,7 +85,9 @@
       "tags": {
         "source_item_id": "37911060",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -86,7 +98,9 @@
       "tags": {
         "source_item_id": "35314762",
         "gender": "u",
-        "accent": "nepali"
+        "accent": "nepali",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.1
     },
@@ -97,7 +111,9 @@
       "tags": {
         "source_item_id": "37911076",
         "gender": "u",
-        "accent": "native"
+        "accent": "native",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 6.16
     },
@@ -108,7 +124,9 @@
       "tags": {
         "source_item_id": "35314174",
         "gender": "u",
-        "accent": "nepali"
+        "accent": "nepali",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.0
     },
@@ -119,7 +137,9 @@
       "tags": {
         "source_item_id": "35314707",
         "gender": "u",
-        "accent": "nepali"
+        "accent": "nepali",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.24
     },
@@ -130,7 +150,9 @@
       "tags": {
         "source_item_id": "35314499",
         "gender": "u",
-        "accent": "nepali"
+        "accent": "nepali",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.28
     }

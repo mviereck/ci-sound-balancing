@@ -8,7 +8,7 @@
   "credit": "Mozilla Common Voice fsicoli/common_voice_17_0 (CC0)",
   "url": "https://commonvoice.mozilla.org",
   "tags": {
-    "speaker_id": "cv-sc",
+    "speaker_id": "crowdsourced",
     "style": "crowdsourced",
     "split_used": "train"
   },
@@ -20,7 +20,9 @@
       "tags": {
         "source_item_id": "32613356",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 7.85
     },
@@ -30,7 +32,9 @@
       "audio": "sc/unknown/sc_u_33349239.mp3",
       "tags": {
         "source_item_id": "33349239",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.68
     },
@@ -40,7 +44,9 @@
       "audio": "sc/unknown/sc_u_33351429.mp3",
       "tags": {
         "source_item_id": "33351429",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 2.92
     },
@@ -51,7 +57,9 @@
       "tags": {
         "source_item_id": "32889042",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 6.88
     },
@@ -62,7 +70,9 @@
       "tags": {
         "source_item_id": "32627895",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 6.41
     },
@@ -72,7 +82,9 @@
       "audio": "sc/unknown/sc_u_33351911.mp3",
       "tags": {
         "source_item_id": "33351911",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.07
     },
@@ -83,7 +95,9 @@
       "tags": {
         "source_item_id": "32638459",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 4.18
     },
@@ -94,7 +108,9 @@
       "tags": {
         "source_item_id": "32889711",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.35
     },
@@ -104,7 +120,9 @@
       "audio": "sc/unknown/sc_u_33351884.mp3",
       "tags": {
         "source_item_id": "33351884",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.49
     },
@@ -115,7 +133,9 @@
       "tags": {
         "source_item_id": "32630930",
         "gender": "u",
-        "accent": "Campidanesu"
+        "accent": "Campidanesu",
+        "up_votes": 4,
+        "down_votes": 0
       },
       "duration": 3.64
     },
@@ -125,7 +145,9 @@
       "audio": "sc/unknown/sc_u_33351161.mp3",
       "tags": {
         "source_item_id": "33351161",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 3.2
     },
@@ -135,7 +157,9 @@
       "audio": "sc/unknown/sc_u_33351585.mp3",
       "tags": {
         "source_item_id": "33351585",
-        "gender": "u"
+        "gender": "u",
+        "up_votes": 2,
+        "down_votes": 0
       },
       "duration": 4.93
     }

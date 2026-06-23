@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "14327",
     "book_title": "fleurs du mal",
     "origin": "librivox-via-mls"
@@ -22,10 +22,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 13.33,
-        "original_end_s": 28.27
+        "original_end_s": 28.27,
+        "chapter_no": 6
       },
       "duration": 14.95
     },
@@ -37,10 +37,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 73.2,
-        "original_end_s": 83.45
+        "original_end_s": 83.45,
+        "chapter_no": 17
       },
       "duration": 10.26
     },
@@ -52,10 +52,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 13.78,
-        "original_end_s": 25.72
+        "original_end_s": 25.72,
+        "chapter_no": 17
       },
       "duration": 11.95
     },
@@ -67,10 +67,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 154.95,
-        "original_end_s": 170.4
+        "original_end_s": 170.4,
+        "chapter_no": 6
       },
       "duration": 15.46
     },
@@ -82,10 +82,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 28.27,
-        "original_end_s": 42.18
+        "original_end_s": 42.18,
+        "chapter_no": 6
       },
       "duration": 13.92
     },
@@ -97,10 +97,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 0.0,
-        "original_end_s": 13.33
+        "original_end_s": 13.33,
+        "chapter_no": 6
       },
       "duration": 13.34
     },
@@ -112,10 +112,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
         "original_start_s": 0.0,
-        "original_end_s": 14.25
+        "original_end_s": 14.25,
+        "chapter_no": 16
       },
       "duration": 14.26
     },
@@ -127,10 +127,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
         "original_start_s": 14.25,
-        "original_end_s": 31.56
+        "original_end_s": 31.56,
+        "chapter_no": 16
       },
       "duration": 17.32
     },
@@ -142,10 +142,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 83.45,
-        "original_end_s": 97.81
+        "original_end_s": 97.81,
+        "chapter_no": 17
       },
       "duration": 14.37
     },
@@ -157,10 +157,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 141.64,
-        "original_end_s": 154.95
+        "original_end_s": 154.95,
+        "chapter_no": 6
       },
       "duration": 13.32
     },
@@ -172,10 +172,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
         "original_start_s": 11.47,
-        "original_end_s": 29.36
+        "original_end_s": 29.36,
+        "chapter_no": 9
       },
       "duration": 17.9
     },
@@ -187,10 +187,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 111.25,
-        "original_end_s": 125.99
+        "original_end_s": 125.99,
+        "chapter_no": 6
       },
       "duration": 14.75
     },
@@ -202,10 +202,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
         "original_start_s": 48.07,
-        "original_end_s": 61.21
+        "original_end_s": 61.21,
+        "chapter_no": 10
       },
       "duration": 13.15
     },
@@ -217,10 +217,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
         "original_start_s": 38.02,
-        "original_end_s": 48.07
+        "original_end_s": 48.07,
+        "chapter_no": 10
       },
       "duration": 10.06
     },
@@ -232,10 +232,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 84.61,
-        "original_end_s": 97.91
+        "original_end_s": 97.91,
+        "chapter_no": 6
       },
       "duration": 13.31
     },
@@ -247,10 +247,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 57.06,
-        "original_end_s": 73.2
+        "original_end_s": 73.2,
+        "chapter_no": 17
       },
       "duration": 16.15
     },
@@ -262,10 +262,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
         "original_start_s": 29.36,
-        "original_end_s": 45.89
+        "original_end_s": 45.89,
+        "chapter_no": 9
       },
       "duration": 16.54
     },
@@ -277,10 +277,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 125.99,
-        "original_end_s": 141.64
+        "original_end_s": 141.64,
+        "chapter_no": 6
       },
       "duration": 15.66
     },
@@ -292,10 +292,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
         "original_start_s": 43.82,
-        "original_end_s": 63.46
+        "original_end_s": 63.46,
+        "chapter_no": 16
       },
       "duration": 19.65
     },
@@ -307,10 +307,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_016_baudelaire_64kb.mp3",
         "original_start_s": 31.56,
-        "original_end_s": 43.82
+        "original_end_s": 43.82,
+        "chapter_no": 16
       },
       "duration": 12.27
     },
@@ -322,10 +322,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 42.18,
-        "original_end_s": 56.14
+        "original_end_s": 56.14,
+        "chapter_no": 6
       },
       "duration": 13.97
     },
@@ -337,10 +337,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 70.11,
-        "original_end_s": 84.61
+        "original_end_s": 84.61,
+        "chapter_no": 6
       },
       "duration": 14.51
     },
@@ -352,10 +352,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 25.72,
-        "original_end_s": 43.82
+        "original_end_s": 43.82,
+        "chapter_no": 17
       },
       "duration": 18.11
     },
@@ -367,10 +367,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 97.91,
-        "original_end_s": 111.25
+        "original_end_s": 111.25,
+        "chapter_no": 6
       },
       "duration": 13.35
     },
@@ -382,10 +382,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_009_baudelaire_64kb.mp3",
         "original_start_s": 45.89,
-        "original_end_s": 61.8
+        "original_end_s": 61.8,
+        "chapter_no": 9
       },
       "duration": 15.92
     },
@@ -397,10 +397,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_017_baudelaire_64kb.mp3",
         "original_start_s": 43.82,
-        "original_end_s": 57.06
+        "original_end_s": 57.06,
+        "chapter_no": 17
       },
       "duration": 13.25
     },
@@ -412,10 +412,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_006_baudelaire_64kb.mp3",
         "original_start_s": 56.14,
-        "original_end_s": 70.11
+        "original_end_s": 70.11,
+        "chapter_no": 6
       },
       "duration": 13.98
     },
@@ -427,10 +427,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
         "original_start_s": 26.02,
-        "original_end_s": 38.02
+        "original_end_s": 38.02,
+        "chapter_no": 10
       },
       "duration": 12.01
     },
@@ -442,10 +442,10 @@
         "speaker_id": "mls-fr-10087",
         "gender": "w",
         "book_id": "14327",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/fleurs_du_mal_2001_librivox/fleursdumal_010_baudelaire_64kb.mp3",
         "original_start_s": 12.66,
-        "original_end_s": 26.02
+        "original_end_s": 26.02,
+        "chapter_no": 10
       },
       "duration": 13.37
     }

@@ -8,7 +8,7 @@
   "credit": "MLS (Multilingual LibriSpeech) — Facebook AI",
   "url": "https://www.openslr.org/94/",
   "tags": {
-    "style": "test",
+    "style": "narration",
     "book_id": "5565",
     "book_title": "Poème du Mois - 007 Le dormeur du val",
     "origin": "librivox-via-mls"
@@ -22,7 +22,6 @@
         "speaker_id": "mls-fr-6318",
         "gender": "m",
         "book_id": "5565",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
         "original_start_s": 16.19,
         "original_end_s": 31.46
@@ -37,7 +36,6 @@
         "speaker_id": "mls-fr-6318",
         "gender": "m",
         "book_id": "5565",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
         "original_start_s": 49.3,
         "original_end_s": 62.41
@@ -52,7 +50,6 @@
         "speaker_id": "mls-fr-6318",
         "gender": "m",
         "book_id": "5565",
-        "split": "dev",
         "original_url": "http://www.archive.org/download/poeme_du_mois_1106_librivox/dormeur_du_val_2rimbaud_cebes_64kb.mp3",
         "original_start_s": 31.46,
         "original_end_s": 49.3
