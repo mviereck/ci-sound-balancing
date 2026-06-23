@@ -1380,44 +1380,6 @@ window.addEventListener("resize", () => {
     lrDrawChart();
 });
 
-// ============================================================
-// BA 173: PLAYER-BEREICH-SPERRE L3 — eine Seite taub
-// ------------------------------------------------------------
-// Disabled die drei seitenabhängigen Player-Bereiche
-// (Stereo-Balance, Latenzausgleich, Frequenz-Warping) und
-// blendet daneben einen Inline-Hinweis ein, sobald mindestens
-// eine Seite auf „Taub" steht.
-// ============================================================
-function playerLockApply() {
-  const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
-  const off = deaf.hasDeaf;
-  const setDisabled = function (id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.disabled = off;
-    if (off) el.style.opacity = "0.4";
-    else el.style.opacity = "";
-  };
-  // Stereo-Balance hat eine eigene, kombinierte Sperr-Logik (Taub ODER
-  // seitenweise Absenkung) -> plUpdBalLock. Hier NICHT mehr direkt anfassen,
-  // sonst konkurrieren zwei Schreibstellen um disabled/opacity desselben
-  // Buttons (Bug nach BA319: Taub-Sperre hob die Absenk-Sperre wieder auf).
-  setDisabled("plLatApplyBtn");
-  setDisabled("plWarpOn");
-  // Inline-Hinweise (Latenz/Warp; der Bal-Hinweis kommt aus plUpdBalLock)
-  ["plLockHintLat", "plLockHintWarp"].forEach(function (id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (off) {
-      el.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
-      el.style.display = "inline";
-    } else {
-      el.style.display = "none";
-    }
-  });
-  if (typeof plUpdBalLock === "function") plUpdBalLock();
-}
-
 // Einzige Schreibstelle fuer den Sperr-Zustand des Stereo-Balance-Buttons.
 // Zwei Sperrgruende, Vorrang Taub > seitenweise Absenkung:
 //   - Taub: mindestens eine Seite als taub eingetragen (BA173)
@@ -1457,6 +1419,53 @@ function plUpdBalLock() {
   if (row) {
     const apply = (typeof plApplyBalance === "undefined") ? true : plApplyBalance;
     row.style.display = (apply && !plBalLocked) ? "" : "none";
+  }
+}
+
+// Einzige Schreibstelle fuer den Sperr-Zustand des Latenz-Buttons.
+// Einziger Sperrgrund: Taub (mindestens eine Seite als taub eingetragen).
+// Gesperrt = nur optisch grau (opacity 0.4), KEIN disabled; der Klick wird
+// im Button-Handler (init.js) ueber plLatLocked geschluckt.
+let plLatLocked = false;
+function plUpdLatLock() {
+  const btn = document.getElementById("plLatApplyBtn");
+  const hint = document.getElementById("plLockHintLat");
+  const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
+  plLatLocked = !!deaf.hasDeaf;
+  if (btn) {
+    btn.style.opacity = plLatLocked ? "0.4" : "";
+    btn.style.cursor  = plLatLocked ? "not-allowed" : "";
+  }
+  if (hint) {
+    if (plLatLocked) {
+      hint.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
+      hint.style.display = "inline";
+    } else {
+      hint.style.display = "none";
+    }
+  }
+}
+
+// Einzige Schreibstelle fuer den Sperr-Zustand des Warping-Buttons.
+// Einziger Sperrgrund: Taub. (Die "nur im Stereo-Modus bedienbar"-Logik
+// bleibt unberuehrt anderswo; sie ist KEINE Button-Sperre.)
+let plWarpLocked = false;
+function plUpdWarpLock() {
+  const btn = document.getElementById("plWarpOn");
+  const hint = document.getElementById("plLockHintWarp");
+  const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
+  plWarpLocked = !!deaf.hasDeaf;
+  if (btn) {
+    btn.style.opacity = plWarpLocked ? "0.4" : "";
+    btn.style.cursor  = plWarpLocked ? "not-allowed" : "";
+  }
+  if (hint) {
+    if (plWarpLocked) {
+      hint.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
+      hint.style.display = "inline";
+    } else {
+      hint.style.display = "none";
+    }
   }
 }
 

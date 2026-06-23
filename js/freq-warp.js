@@ -1151,6 +1151,7 @@ function pWarpUpdUI() {
       if (progressPct) progressPct.textContent = "";
     }
   }
+  if (typeof plUpdWarpLock === "function") plUpdWarpLock();
 }
 
 let pWarpGen = 0;  // Generation-Zähler — neuer Aufruf überholt ältere Runs.

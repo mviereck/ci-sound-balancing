@@ -116,7 +116,10 @@ function tabLockApply() {
   }
   // BA 173: Sub-Tab- und Player-Bereich-Sperre L2/L3 mit nachziehen
   if (typeof subtabLockApply === "function") subtabLockApply();
-  if (typeof playerLockApply === "function") playerLockApply();
+  // BA387: playerLockApply entfaellt -> die drei Button-Sperren direkt rufen.
+  if (typeof plUpdBalLock  === "function") plUpdBalLock();
+  if (typeof plUpdLatLock  === "function") plUpdLatLock();
+  if (typeof plUpdWarpLock === "function") plUpdWarpLock();
 }
 
 // Zeigt das Sperr-Modal mit der zur Reason passenden Variante.
@@ -360,11 +363,10 @@ function updBalApplyBtn() {
 function updLatApplyBtn() {
   const btn = document.getElementById("plLatApplyBtn");
   if (!btn) return;
-  // BA 311: nicht mehr an "Beide Seiten" gekoppelt — immer bedienbar.
-  btn.disabled = false;
-  btn.style.opacity = "";
-  btn.style.cursor = "";
+  // Beschriftung; Sperre/opacity/cursor liegen ausschliesslich in
+  // plUpdLatLock (player.js) — eine Schreibstelle.
   styleToggleBtn("plLatApplyBtn", plApplyLatency, "plLatName");
+  if (typeof plUpdLatLock === "function") plUpdLatLock();
 }
 
 // ============================================================

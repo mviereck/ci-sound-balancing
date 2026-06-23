@@ -263,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("plLatApplyBtn")
     .addEventListener("click", function () {
+      if (typeof plLatLocked !== "undefined" && plLatLocked) return;
       plApplyLatency = !plApplyLatency;
       latApplyToPlayer();
       updLatApplyBtn();
@@ -448,6 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ---- Frequenz-Warping Listener ----
   // Warp-Checkbox
   document.getElementById("plWarpOn").addEventListener("click", function () {
+    if (typeof plWarpLocked !== "undefined" && plWarpLocked) return;
     pWarpOn = !pWarpOn;
     pWarpUpdUI();
 
