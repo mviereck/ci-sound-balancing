@@ -304,25 +304,31 @@ function updateTabLockState() {
 // ============================================================
 // EQ TOGGLE BUTTON
 // ============================================================
-function updPlSrcButtons() {
-  const entries = [
-    { id: "plSrcMeasBtn",   active: plSrcMeas },
-    { id: "plSrcLevelsBtn", active: plSrcLevels },
-    { id: "plSrcCurvesBtn", active: plSrcCurves },
-  ];
-  for (const { id, active } of entries) {
-    const btn = document.getElementById(id);
-    if (!btn) continue;
-    if (active) {
-      btn.style.background   = "var(--success)";
-      btn.style.color        = "#fff";
-      btn.style.borderColor  = "var(--success)";
-    } else {
-      btn.style.background   = "#e5e7eb";
-      btn.style.color        = "var(--text)";
-      btn.style.borderColor  = "var(--border)";
-    }
+
+// BA385: Einheitlicher Toggle-Button-Stil fuer die Player-Einstellungen-Box.
+// Erzeugt dynamisch "checkmark Name AN" (aktiv, gruen) bzw. "Name AUS"
+// (inaktiv, grau) aus EINEM Name-Key. Keine doppelten i18n-Keys mehr pro Toggle.
+function styleToggleBtn(btnId, active, nameKey) {
+  const btn = document.getElementById(btnId);
+  if (!btn) return;
+  const name = t(nameKey);
+  if (active) {
+    btn.textContent = "✓ " + name + " " + t("toggleOn");
+    btn.style.background  = "var(--success)";
+    btn.style.color       = "#fff";
+    btn.style.borderColor = "var(--success)";
+  } else {
+    btn.textContent = name + " " + t("toggleOff");
+    btn.style.background  = "#e5e7eb";
+    btn.style.color       = "var(--text)";
+    btn.style.borderColor = "var(--border)";
   }
+}
+
+function updPlSrcButtons() {
+  styleToggleBtn("plSrcMeasBtn",   plSrcMeas,   "plSrcMeas");
+  styleToggleBtn("plSrcLevelsBtn", plSrcLevels, "plSrcLevels");
+  styleToggleBtn("plSrcCurvesBtn", plSrcCurves, "plSrcCurves");
   // Sync hidden legacy select (best effort)
   const sel = document.getElementById("plSrc");
   if (sel) {
@@ -334,18 +340,9 @@ function updPlSrcButtons() {
   updEqToggleBtn();
 }
 function updEqToggleBtn() {
-  const btn = document.getElementById("plEqToggle");
-  if (plEqOn) {
-    btn.textContent = t("plEqOn");
-    btn.style.background = "var(--success)";
-    btn.style.color = "#fff";
-    btn.style.borderColor = "var(--success)";
-  } else {
-    btn.textContent = t("plEqOff");
-    btn.style.background = "#e5e7eb";
-    btn.style.color = "var(--text)";
-    btn.style.borderColor = "var(--border)";
-  }
+  styleToggleBtn("plEqToggle", plEqOn, "plEqName");
+  // BA385: Sichtbarkeit aller vom Master gesteuerten Box-Zeilen mitschalten.
+  if (typeof plUpdMasterVisibility === "function") plUpdMasterVisibility();
 }
 
 function updBalApplyBtn() {
@@ -364,17 +361,7 @@ function updBalApplyBtn() {
     btn.style.opacity = "";
     btn.style.cursor = "";
   }
-  if (plApplyBalance) {
-    btn.textContent = t("plBalApplyOn");
-    btn.style.background = "var(--success)";
-    btn.style.color = "#fff";
-    btn.style.borderColor = "var(--success)";
-  } else {
-    btn.textContent = t("plBalApplyOff");
-    btn.style.background = "#e5e7eb";
-    btn.style.color = "var(--text)";
-    btn.style.borderColor = "var(--border)";
-  }
+  styleToggleBtn("plBalApplyBtn", plApplyBalance, "plBalName");
   // Dropdown-Sichtbarkeit synchronisieren
   const row = document.getElementById("plBalModeRow");
   if (row) {
@@ -391,17 +378,7 @@ function updLatApplyBtn() {
   btn.disabled = false;
   btn.style.opacity = "";
   btn.style.cursor = "";
-  if (plApplyLatency) {
-    btn.textContent = t("plLatApplyOn");
-    btn.style.background = "var(--success)";
-    btn.style.color = "#fff";
-    btn.style.borderColor = "var(--success)";
-  } else {
-    btn.textContent = t("plLatApplyOff");
-    btn.style.background = "#e5e7eb";
-    btn.style.color = "var(--text)";
-    btn.style.borderColor = "var(--border)";
-  }
+  styleToggleBtn("plLatApplyBtn", plApplyLatency, "plLatName");
 }
 
 // ============================================================

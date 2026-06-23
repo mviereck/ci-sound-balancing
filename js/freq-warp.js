@@ -12,7 +12,7 @@
 
 let pWarpedBuf = null;
 let pWarpedBufNHSim = null;
-let pWarpOn = false;
+let pWarpOn = true;
 let pWarpSettingsOpen = false;
 let pWarpMode = "right";        // "left" | "right" | "symmetric" — Default synchron mit HTML
 let pWarpStrength = 100;        // 0–150
@@ -1114,17 +1114,7 @@ function pWarpUpdUI() {
 
   if (!cbEl) return;
 
-  if (pWarpOn) {
-    cbEl.textContent = t("pwEnableOn");
-    cbEl.style.background = "var(--success)";
-    cbEl.style.color = "#fff";
-    cbEl.style.borderColor = "var(--success)";
-  } else {
-    cbEl.textContent = t("pwEnableOff");
-    cbEl.style.background = "#e5e7eb";
-    cbEl.style.color = "var(--text)";
-    cbEl.style.borderColor = "var(--border)";
-  }
+  styleToggleBtn("plWarpOn", pWarpOn, "pwWarpName");
 
   // SW (BA378): Play-Button NICHT mehr sperren. Berechnung und Wiedergabe
   // sind getrennt -- Play nimmt den Wunsch auch waehrend des Rechnens an.

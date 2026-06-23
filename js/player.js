@@ -671,6 +671,25 @@ function plUpdMonoBox() {
   if (lbl) lbl.style.opacity = on ? "" : "0.4";
 }
 
+// BA385: Blendet alle vom Master-Button (Equalizer) gesteuerten Box-Zeilen
+// aus, wenn der Master aus ist. Der untere Block "Beide Seiten"/"Stereo zu
+// Mono" und der Master-Button selbst bleiben immer sichtbar (sie sind vom
+// Master unabhaengig). Die mit .pl-master-row markierten Container werden
+// passend ein-/ausgeblendet; bei Master=an wird die normale Sichtbarkeit
+// (z.B. Erklaer-Zeilen je nach Checkbox) wiederhergestellt.
+function plUpdMasterVisibility() {
+  const on = (typeof plEqOn === "undefined") ? true : plEqOn;
+  const rows = document.querySelectorAll(".pl-master-row");
+  rows.forEach(function (el) {
+    el.style.display = on ? "" : "none";
+  });
+  // Bei Master=an die feinere Sichtbarkeit der Erklaer-Zeilen wiederherstellen,
+  // die sonst von ihren eigenen Update-Funktionen gesetzt wird.
+  if (on) {
+    if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+  }
+}
+
 // BA 316: Checkbox-Zustand und Sichtbarkeit der Erklaer-Zeile synchronisieren.
 function plUpdHeadroomBox() {
   const cb = document.getElementById("plEqHeadroom");
@@ -1298,6 +1317,8 @@ function pApplyShowExperimental() {
   if (cb) cb.disabled = locked;
 }
 
+// BA385: MAPLAW-UI ist ausgeblendet. Diese Funktion und die MAPLAW-Mechanik
+// (Worklet, pMaplawTrigger) duerfen NUR fuer MED-EL verwendet werden.
 function pMaplawUpdUI() {
   const cardOn     = document.getElementById("plMaplawOn");
   const sollIn     = document.getElementById("plMaplawSollInput");
@@ -1308,8 +1329,12 @@ function pMaplawUpdUI() {
 
   const applicable = (typeof pMaplawIsApplicable === "function") ? pMaplawIsApplicable() : false;
 
-  if (maplawRow) maplawRow.style.display = applicable ? "" : "none";
-  if (settingsBox) settingsBox.style.display = (pMaplawOn && applicable) ? "" : "none";
+  // BA385: MAPLAW-UI dauerhaft ausgeblendet (Funktion derzeit unzulaenglich,
+  // wird spaeter weiterentwickelt). Logik/Worklet/Trigger bleiben vollstaendig
+  // erhalten. ACHTUNG: pMaplawUpdUI und die gesamte MAPLAW-Mechanik duerfen
+  // NUR fuer MED-EL verwendet werden (pMaplawIsApplicable()).
+  if (maplawRow) maplawRow.style.display = "none";
+  if (settingsBox) settingsBox.style.display = "none";
 
   cardOn.disabled = !applicable;
   if (pMaplawOn && applicable) {

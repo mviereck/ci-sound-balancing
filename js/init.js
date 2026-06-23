@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updSideButtons();
   updFClearBtn();
   updPlSrcButtons();
+  if (typeof plUpdMasterVisibility === "function") plUpdMasterVisibility();
   buildImplantCard();
   // Sub-Tab-Beschriftungen (werden auch von applyLang-Patch aktualisiert)
   const _btnL = document.getElementById("subTabLoudnessBtn");

@@ -961,9 +961,8 @@
             ></button>
           </div>
           <!-- Zeile 2: EQ-Quelle -->
-          <div class="controls-row" style="margin-top: 8px">
-            <div class="control-group" style="flex-wrap: wrap; gap: 6px">
-              <label data-t="plSrcLabel" style="align-self: center"></label>
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
+            <div class="control-group" style="flex-direction: column; align-items: stretch; gap: 6px">
               <button
                 id="plSrcMeasBtn"
                 class="btn btn-sm"
@@ -997,7 +996,7 @@
             </select>
           </div>
           <!-- Zeile 3: Frequenz-Warping -->
-          <div class="controls-row" style="margin-top: 8px">
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
             <div class="control-group" style="gap: 8px">
               <button
                 class="btn btn-sm"
@@ -1028,13 +1027,12 @@
             </div>
           </div>
           <!-- Zeile 3a: Stereo-Balance + Dropdown -->
-          <div class="controls-row" style="margin-top: 8px">
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
             <div class="control-group">
               <button
                 id="plBalApplyBtn"
                 class="btn btn-sm"
                 style="font-weight: 600; min-width: 180px; border-radius: 6px"
-                data-t="plBalApply"
               ></button>
             </div>
             <div class="control-group" id="plBalModeRow">
@@ -1056,7 +1054,7 @@
             <span id="plLockHintBal" style="display:none;font-size:0.82em;color:var(--warning);margin-left:8px"></span>
           </div>
           <!-- Zeile 3b: Latenzausgleich -->
-          <div class="controls-row" style="margin-top: 8px">
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
             <div class="control-group">
               <button
                 id="plLatApplyBtn"
@@ -1100,38 +1098,8 @@
                      style="width:90px;padding:4px 8px;margin-left:8px;border:1px solid var(--border);border-radius:4px;text-align:center;font-family:var(--mono)" />
             </div>
           </div>
-          <!-- Zeile 5: Beide Seiten -->
-          <div class="controls-row" style="margin-top: 8px">
-            <div class="control-group">
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 5px;
-                  cursor: pointer;
-                "
-                ><input type="checkbox" id="plBothSides" />
-                <span data-t="plBothLabel"></span
-              ></label>
-            </div>
-          </div>
-          <!-- Zeile 5b: Stereo zu Mono (Unterpunkt von Beide Seiten) -->
-          <div class="controls-row" style="margin-top: 4px">
-            <div class="control-group" style="margin-left: 22px">
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 5px;
-                  cursor: pointer;
-                "
-                ><input type="checkbox" id="plMonoEQ" />
-                <span data-t="plMonoLabel"></span
-              ></label>
-            </div>
-          </div>
           <!-- Zeile 5c: Elektrodenlautstärke absenken (Clipping-Schutz) -->
-          <div class="controls-row" style="margin-top: 8px">
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
             <div class="control-group">
               <label
                 style="
@@ -1147,11 +1115,11 @@
           </div>
           <div
             id="plEqHeadroomInfo"
-            class="explain"
+            class="explain pl-master-row"
             data-t="plEqHeadroomExpl"
           ></div>
           <!-- Zeile 5d: Beide Seiten berücksichtigen (Unterpunkt von Übersteuern vermeiden) -->
-          <div class="controls-row" style="margin-top: 4px">
+          <div class="controls-row pl-master-row" style="margin-top: 4px">
             <div class="control-group" style="margin-left: 22px">
               <label
                 style="
@@ -1167,12 +1135,12 @@
           </div>
           <div
             id="plEqHeadroomBothInfo"
-            class="explain"
+            class="explain pl-master-row"
             style="margin-left: 22px"
             data-t="plEqHeadroomBothExpl"
           ></div>
           <!-- Zeile 6: Normalhörende -->
-          <div class="controls-row" style="margin-top: 8px">
+          <div class="controls-row pl-master-row" style="margin-top: 8px">
             <div class="control-group">
               <label
                 style="
@@ -1188,9 +1156,29 @@
           </div>
           <div
             id="plNHInfo"
-            class="explain explain-warn hidden"
+            class="explain explain-warn hidden pl-master-row"
             data-t="plNHExpl"
           ></div>
+          <!-- BA385: Vom Master unabhaengiger Block, ans Box-Ende verschoben -->
+          <div class="pl-indep-sep" style="border-top:1px solid var(--border);margin-top:14px;padding-top:12px"></div>
+          <!-- Beide Seiten -->
+          <div class="controls-row">
+            <div class="control-group">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer">
+                <input type="checkbox" id="plBothSides" />
+                <span data-t="plBothLabel"></span>
+              </label>
+            </div>
+          </div>
+          <!-- Stereo zu Mono (Unterpunkt von Beide Seiten) -->
+          <div class="controls-row" style="margin-top: 4px">
+            <div class="control-group" style="margin-left: 22px">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer">
+                <input type="checkbox" id="plMonoEQ" />
+                <span data-t="plMonoLabel"></span>
+              </label>
+            </div>
+          </div>
         </div>
 
         <!-- 4. Wiedergabe (vereinheitlicht: Musik / Sätze / Hörbücher) -->
