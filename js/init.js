@@ -268,10 +268,9 @@ document.addEventListener("DOMContentLoaded", () => {
       latApplyToPlayer();
       updLatApplyBtn();
     });
-  updEqToggleBtn();
-  updBalApplyBtn();
-  updLatApplyBtn();
-  if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+  // BA388: zentraler Player-UI-Sync (ersetzt die einzelnen Box-Updates;
+  // weitere Aufrufstellen folgen in BA389/390).
+  if (typeof plSyncUI === "function") plSyncUI();
   // EQ source toggle buttons
   document
     .getElementById("plSrcMeasBtn")

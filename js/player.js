@@ -3425,6 +3425,86 @@ PL_FILTER_DECL.hoerbuecher = {
   }
 };
 
+// Buendelt die vier Bibliotheks-Listen-Refresher in fester Reihenfolge.
+// Gruppe E des zentralen Player-Sync (siehe 00-player-sync-architektur.md).
+// Jeder Refresher ist parameterlos und idempotent.
+function plSyncLibraries() {
+  if (typeof plMusicRefreshUI  === "function") plMusicRefreshUI();
+  if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
+  if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
+  if (typeof plBookRefreshUI   === "function") plBookRefreshUI();
+}
+
+// ============================================================
+// ZENTRALER PLAYER-UI-SYNC (00-player-sync-architektur.md)
+// ------------------------------------------------------------
+// Zeichnet die gesamte sichtbare Player-Oberflaeche deterministisch aus
+// dem State, unabhaengig vom ausloesenden Ereignis. Ebene 1 (UI-Spiegelung)
+// laeuft IMMER in fester Reihenfolge; Ebene 2 (teure Audio-Neuberechnung)
+// nur auf ausdrueckliche Anforderung via Flags. Graph zuletzt.
+//
+// HINWEIS BA388: Die Einzelfunktionen rufen aktuell teils noch einander auf
+// (Verschachtelung). Das ist harmlos (alle idempotent) und wird in BA390
+// aufgeloest, sobald alle externen Aufrufstellen auf plSyncUI umgestellt sind.
+// ============================================================
+function plSyncUI(opts) {
+  opts = opts || {};
+  var rebuildEQ     = !!opts.rebuildEQ;
+  var rebuildSide   = !!opts.rebuildSide;
+  var retriggerWarp = !!opts.retriggerWarp;
+
+  // --- Ebene 1: UI-Spiegelung (immer, feste Reihenfolge) ---
+
+  // A. Grundgeruest der Box
+  if (typeof plUpdMasterVisibility === "function") plUpdMasterVisibility();
+  if (typeof updEqToggleBtn        === "function") updEqToggleBtn();
+  if (typeof updPlSrcButtons       === "function") updPlSrcButtons();
+
+  // B. Korrektur-Optionen
+  if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
+  if (typeof plUpdMonoBox     === "function") plUpdMonoBox();
+  if (typeof updBalApplyBtn   === "function") updBalApplyBtn();
+  if (typeof updLatApplyBtn   === "function") updLatApplyBtn();
+  if (typeof pWarpUpdUI       === "function") pWarpUpdUI();
+  if (typeof pMaplawUpdUI     === "function") pMaplawUpdUI();
+  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
+
+  // C. Sperren (NACH B: duerfen Button-Optik zuletzt setzen, damit sie
+  //    nicht von einem spaeteren Box-Schritt ueberschrieben werden)
+  if (typeof plUpdBalLock  === "function") plUpdBalLock();
+  if (typeof plUpdLatLock  === "function") plUpdLatLock();
+  if (typeof plUpdWarpLock === "function") plUpdWarpLock();
+
+  // D. Wiedergabe-Karte
+  if (typeof plUpdSourceUI      === "function") plUpdSourceUI();
+  if (typeof plUpdTransportUI   === "function") plUpdTransportUI();
+  if (typeof plUpdDisplay       === "function") plUpdDisplay();
+  if (typeof plRefreshTooltips  === "function") plRefreshTooltips();
+  if (typeof plUpdVolBtns       === "function") plUpdVolBtns();
+  if (typeof plUpdContentLangBtn === "function") plUpdContentLangBtn();
+
+  // E. Bibliotheks-Listen
+  if (typeof plSyncLibraries === "function") plSyncLibraries();
+
+  // --- Ebene 2: teure Neuberechnung (nur auf Anforderung) ---
+  // Reihenfolge: rebuildSide vor retriggerWarp ist am realen Code belegt
+  // (plBothSides-Handler: updatePlayerForSideChange -> pWarpTrigger).
+  // rebuildEQ dazwischen ist in BA388 unkritisch, da noch KEIN Pfad
+  // rebuildEQ mit rebuildSide kombiniert (Side-Change baut den EQ via
+  // pBuildEQ ohnehin intern). Die finale Reihenfolge bei kombinierten
+  // Flags wird in BA389/390 an den realen Kombinationspfaden festgelegt.
+  if (rebuildSide   && typeof updatePlayerForSideChange === "function") updatePlayerForSideChange();
+  if (rebuildEQ     && typeof pUpdEQ        === "function") pUpdEQ();
+  if (retriggerWarp && typeof pWarpTrigger  === "function") pWarpTrigger();
+
+  // --- Zuletzt: Graph zeichnen (stellt das ggf. neu berechnete Ergebnis dar) ---
+  // Hinweis: updatePlayerForSideChange zeichnet den Graph bereits intern
+  // (pDrawEQ). Bei rebuildSide ist dieser abschliessende Aufruf also ein
+  // zweiter, idempotenter Redraw -- bewusst in Kauf genommen (billig). Die
+  // internen pDrawEQ-Aufrufe werden in BA390 entwirrt, nicht hier.
+  if (typeof pDrawEQ === "function") pDrawEQ();
+}
+
 function plBookRefreshUI() {
   plBuildFilterChain(PL_FILTER_DECL.hoerbuecher);
 }
