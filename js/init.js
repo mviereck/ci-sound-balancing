@@ -15,12 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (e) {}
   }
   applyLang();
-  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
-  if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
   updSideButtons();
   updFClearBtn();
-  updPlSrcButtons();
-  if (typeof plUpdMasterVisibility === "function") plUpdMasterVisibility();
+  // BA389: Player-UI-Einzelupdates entfernt — der zentrale plSyncUI()
+  // weiter unten (BA388, ca. Z. 273) spiegelt die Box. Dazwischen rendert
+  // nichts die Player-Box (verifiziert), daher verhaltensgleich.
   buildImplantCard();
   // Sub-Tab-Beschriftungen (werden auch von applyLang-Patch aktualisiert)
   const _btnL = document.getElementById("subTabLoudnessBtn");
@@ -59,15 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof latUpdateIntervalHint === "function") latUpdateIntervalHint();
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
-    if (typeof pWarpUpdUI === "function") pWarpUpdUI();
     // Druck-Knöpfe Kurven- und Schieber-Tab
     const _pkb = document.getElementById("printKurvenBtn");
     if (_pkb) _pkb.title = t("printBtn");
     const _psb = document.getElementById("printSchieberBtn");
     if (_psb) _psb.title = t("printBtn");
-    // Quellen-Toggle-Buttons tragen kein data-t (Text dynamisch via
-    // styleToggleBtn) -> bei Sprachwechsel hier explizit neu bauen.
-    if (typeof updPlSrcButtons === "function") updPlSrcButtons();
   };
 
   // ---- Warp i18n Hilfsfunktion (Modus-Dropdown) ----
@@ -614,31 +609,23 @@ document.addEventListener("DOMContentLoaded", () => {
         plSrcMeas = d.playerSourceMeas;
         plSrcLevels = !!d.playerSourceLevels;
         plSrcCurves = !!d.playerSourceCurves;
-        updPlSrcButtons();
       } else if (typeof d.playerSource === "string") {
         plSrcMeas = d.playerSource === "measured" || d.playerSource === "both";
         plSrcLevels = d.playerSource === "levels" || d.playerSource === "both";
         plSrcCurves = d.playerSource === "levels" || d.playerSource === "both";
-        updPlSrcButtons();
       }
       if (d.eqOn !== undefined) {
         plEqOn = d.eqOn;
-        updEqToggleBtn();
       }
       if (typeof plEqHeadroom !== "undefined") {
         plEqHeadroom = (typeof d.eqHeadroom === "boolean") ? d.eqHeadroom : true;
-        if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
       }
       if (typeof plEqHeadroomBoth !== "undefined") {
         plEqHeadroomBoth = (typeof d.eqHeadroomBoth === "boolean") ? d.eqHeadroomBoth : true;
-        if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
-        if (typeof updBalApplyBtn === "function") updBalApplyBtn();
       }
       if (typeof d.plMaplawOn === "boolean") pMaplawOn = d.plMaplawOn;
       if (typeof d.plMaplawSollC === "number") pMaplawSollC = d.plMaplawSollC;
       if (typeof d.playerShowExperimental === "boolean") plShowExperimental = d.playerShowExperimental;
-      if (typeof pApplyShowExperimental === "function") pApplyShowExperimental();
-      if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
       if (typeof pMaplawTrigger === "function") pMaplawTrigger();
       // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
       // BA 161: Warp-Zustand wiederherstellen — neue Schlüsselnamen,
@@ -659,7 +646,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const sel = document.getElementById("plWarpModeSelect");
           if (sel) sel.value = pWarpMode;
         }
-        if (typeof pWarpUpdUI === "function") pWarpUpdUI();
         // BA375: Berechnungs-Modus. Keine Migration von playerWarpLive
         // (alter Wert wird ignoriert). Fehlt der Wert -> Default "fast".
         pWarpCalcMode = (d.playerWarpMode === "fast" || d.playerWarpMode === "mid" || d.playerWarpMode === "best")
@@ -818,13 +804,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (typeof lrRefreshToneTypeLabel === "function") lrRefreshToneTypeLabel();
       if (typeof fmRefreshToneTypeLabel === "function") fmRefreshToneTypeLabel();
       if (typeof testRefreshToneTypeLabel === "function") testRefreshToneTypeLabel();
-      if (typeof plUpdSourceUI    === "function") plUpdSourceUI();
-      if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-      if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
-      if (typeof plSentBgRefreshUI === "function") plSentBgRefreshUI();
-      if (typeof plBookRefreshUI   === "function") plBookRefreshUI();
-      if (typeof plUpdDisplay      === "function") plUpdDisplay();
-      if (typeof plRefreshTooltips === "function") plRefreshTooltips();
+      // BA389: Player-UI zentral spiegeln (ersetzt die ueber den Restore
+      // verstreuten Einzel-Updates). Laeuft NACH dem Side-Change-Restore
+      // (d.plBothSides/d.plMonoEQ) und nach pBuildEQ, damit der gespiegelte
+      // Zustand aktuell ist. Kein Flag -> nichts Teures.
+      if (typeof plSyncUI === "function") plSyncUI();
     }
   } catch (e) {}
   // Referenzelektroden-Dropdown im Ergebnis-Reiter

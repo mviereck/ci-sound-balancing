@@ -96,10 +96,6 @@ function applyLang() {
   s("startBtn", "startTest");
   s("stopTBtn", "stopTest");
   s("resTitle", "resTitle");
-  updEqToggleBtn();
-  updBalApplyBtn();
-  if (typeof pMaplawUpdUI === "function") pMaplawUpdUI();
-  if (typeof pWarpUpdUI === "function") pWarpUpdUI();
   updSideButtons();
   buildFreqTable();
   if (typeof buildImplantCard === "function") buildImplantCard();
@@ -113,12 +109,9 @@ function applyLang() {
   if (typeof _implValidateApplyLang === 'function') _implValidateApplyLang();
   // BA 172: Tab-Sperre L1 — Klassen-Toggle + Modal-Texte ggf. neu aufgrund Sprachwechsel
   if (typeof tabLockApply === 'function') tabLockApply();
-  if (typeof plUpdSourceUI    === "function") plUpdSourceUI();
-  if (typeof plUpdTransportUI === "function") plUpdTransportUI();
-  if (typeof plUpdDisplay     === "function") plUpdDisplay();
-  if (typeof plRefreshTooltips === "function") plRefreshTooltips();
-  if (typeof plMusicRefreshUI  === "function") plMusicRefreshUI();
-  if (typeof plNoiseRefreshUI  === "function") plNoiseRefreshUI();
+  // BA389: Player-UI zentral spiegeln (ersetzt die Einzel-Refresher in
+  // applyLang; deckt auch die in 2a entfernten Box-Updates ab).
+  if (typeof plSyncUI === "function") plSyncUI();
   try {
     localStorage.setItem("ci-lb-lang", lang);
   } catch (e) {}
