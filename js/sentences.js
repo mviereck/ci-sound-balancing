@@ -248,6 +248,10 @@ function sStop() {
   if (typeof pPlaying !== "undefined" && pPlaying) {
     pPause();
   }
+  // BA386: pSetPlaybackMode loescht den Play-Wunsch nicht mehr -> hier
+  // explizit beenden. sStop ist ein echter Stopp (kein audio-Ref, kein
+  // Sprecher/Pool mehr); kann aus aktivem Play-Wunsch heraus laufen.
+  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
   pOff = 0;
   if (typeof pSetPlaybackMode === "function") {
     pSetPlaybackMode("musik");

@@ -496,8 +496,13 @@ function _buildWarpedPlaybackBuffer(mode) {
 
 function pSetPlaybackMode(mode) {
   if (!plCategories[mode]) return;
-  // SW (BA379): Kategorie-Wechsel nimmt einen gemerkten Play-Wunsch zurueck.
-  if (typeof _pSetPlayWish === "function") _pSetPlayWish(false);
+  // BA386: pSetPlaybackMode ist wunsch-neutral. Es laedt einen Buffer als
+  // aktives Stueck -- es loescht den Play-Wunsch NICHT mehr. Frueher (BA379)
+  // loeschte es hier bedingungslos; das zerstoerte beim Erst-Laden aus einem
+  // Play-Klick den gerade gesetzten Wunsch (Streaming-Gate startete nie).
+  // Wunsch-Beendigung liegt jetzt bei den Wegen, die sie wirklich bedeuten:
+  // pStopReset (Stop/Quellen-Wechsel), plPlayPauseToggle (Pause-Klick),
+  // plNavAfterFilterChange (Stueck faellt aus Filter), sStop (Saetze-Stopp).
   pPlaybackMode = mode;
   pSourceBuf = (typeof plCategories[mode].currentBuffer === "function")
     ? plCategories[mode].currentBuffer()
@@ -1049,7 +1054,8 @@ function pPause() {
   // intern zum kurzen Anhalten (Neuberechnen/Pfadwechsel) genutzt; dort muss
   // der Wunsch erhalten bleiben. Nur die echten Nutzer-/Stopp-/Stueck-/Kategorie-
   // Wechsel-Wege loeschen ihn explizit (plPlayPauseToggle Pause-Zweig, pStopReset,
-  // _plNavGoTo, plNavAfterFilterChange, pSetPlaybackMode). Siehe BA382.
+  // _plNavGoTo, plNavAfterFilterChange, sStop). BA386: pSetPlaybackMode ist
+  // nicht mehr in dieser Liste -- es ist jetzt wunsch-neutral.
   pUpdBtn();
 }
 
@@ -1777,9 +1783,10 @@ function _plNavGoTo(item, opts) {
 
   cat.select(item);
   if (wasPlaying && typeof pPause === "function") pPause();
-  // pPause() (BA378) hat den Play-Wunsch zurueckgenommen. Nur beim Playlist-
-  // Skip mit vorher laufender Wiedergabe wird er fuer das neue Stueck erneut
-  // gesetzt -> Gate startet (kurz amber, dann Ton). Sonst bleibt still.
+  // BA386: pPause loescht den Wunsch NICHT (BA382), pSetPlaybackMode ab jetzt
+  // auch nicht. Nur beim Playlist-Skip mit vorher laufender Wiedergabe wird
+  // der Wunsch fuer das neue Stueck gesetzt -> Gate startet (kurz amber, dann
+  // Ton). Sonst bleibt still (kein Wunsch -> kein Auto-Start).
   const resume = keepPlaying && wasPlaying;
   if (resume && typeof _pSetPlayWish === "function") _pSetPlayWish(true);
 
