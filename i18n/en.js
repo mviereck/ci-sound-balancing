@@ -1106,6 +1106,7 @@ Object.assign(L.en, {
     tabLockBodySideDeaf:
       "You have entered one side as deaf. This test compares both sides with each other; this is not feasible on a deaf side.",
     plLockHintSideDeaf: "Not available — side entered as deaf.",
+    plBalSuppressedTitle: "Not available when reducing electrode volume without considering both sides.",
 
     // BA 183: Update check banner
     updateBannerMsg: "New version available",

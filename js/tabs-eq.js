@@ -348,27 +348,13 @@ function updEqToggleBtn() {
 function updBalApplyBtn() {
   const btn = document.getElementById("plBalApplyBtn");
   if (!btn) return;
-  // BA 319: bei seitenweiser Absenkung (Headroom an, Beide-Seiten aus) ist
-  // die Stereo-Balance ausgesetzt -> Button ausgrauen und Dropdown verbergen.
-  const balSuppressed = (typeof plEqHeadroom !== "undefined" && plEqHeadroom)
-                     && (typeof plEqHeadroomBoth !== "undefined" && !plEqHeadroomBoth);
-  if (balSuppressed) {
-    btn.disabled = true;
-    btn.style.opacity = "0.4";
-    btn.style.cursor = "not-allowed";
-  } else {
-    btn.disabled = false;
-    btn.style.opacity = "";
-    btn.style.cursor = "";
-  }
+  // Grund-Beschriftung (AN/AUS). Sperr-Zustand (Taub ODER seitenweise
+  // Absenkung), Ausgrauen, Hinweistext und Dropdown-Sichtbarkeit liegen
+  // ausschliesslich in plUpdBalLock (player.js) — eine Schreibstelle.
   styleToggleBtn("plBalApplyBtn", plApplyBalance, "plBalName");
-  // Dropdown-Sichtbarkeit synchronisieren
-  const row = document.getElementById("plBalModeRow");
-  if (row) {
-    row.style.display = (plApplyBalance && !balSuppressed) ? "" : "none";
-  }
   const sel = document.getElementById("plBalModeSelect");
   if (sel) sel.value = (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym";
+  if (typeof plUpdBalLock === "function") plUpdBalLock();
 }
 
 function updLatApplyBtn() {

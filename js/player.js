@@ -1398,12 +1398,14 @@ function playerLockApply() {
     if (off) el.style.opacity = "0.4";
     else el.style.opacity = "";
   };
-  setDisabled("plBalApplyBtn");
-  setDisabled("plBalModeSelect");
+  // Stereo-Balance hat eine eigene, kombinierte Sperr-Logik (Taub ODER
+  // seitenweise Absenkung) -> plUpdBalLock. Hier NICHT mehr direkt anfassen,
+  // sonst konkurrieren zwei Schreibstellen um disabled/opacity desselben
+  // Buttons (Bug nach BA319: Taub-Sperre hob die Absenk-Sperre wieder auf).
   setDisabled("plLatApplyBtn");
   setDisabled("plWarpOn");
-  // Inline-Hinweise
-  ["plLockHintBal", "plLockHintLat", "plLockHintWarp"].forEach(function (id) {
+  // Inline-Hinweise (Latenz/Warp; der Bal-Hinweis kommt aus plUpdBalLock)
+  ["plLockHintLat", "plLockHintWarp"].forEach(function (id) {
     const el = document.getElementById(id);
     if (!el) return;
     if (off) {
@@ -1413,6 +1415,49 @@ function playerLockApply() {
       el.style.display = "none";
     }
   });
+  if (typeof plUpdBalLock === "function") plUpdBalLock();
+}
+
+// Einzige Schreibstelle fuer den Sperr-Zustand des Stereo-Balance-Buttons.
+// Zwei Sperrgruende, Vorrang Taub > seitenweise Absenkung:
+//   - Taub: mindestens eine Seite als taub eingetragen (BA173)
+//   - Absenkung pro Seite: Headroom an, Beide-Seiten aus (BA319) -> die
+//     Stereo-Balance ist in diesem Modus ausgesetzt
+// Gesperrt = nur optisch grau (opacity 0.4), KEIN disabled-Attribut. Der
+// Klick wird im Button-Handler (init.js) ueber das Flag plBalLocked
+// geschluckt; so bleibt der Button hoverbar und der Inline-Hinweis sichtbar.
+let plBalLocked = false;
+function plUpdBalLock() {
+  const btn = document.getElementById("plBalApplyBtn");
+  const hint = document.getElementById("plLockHintBal");
+  const deaf = (typeof evalDeafState === "function") ? evalDeafState() : { hasDeaf: false };
+  const suppressed = (typeof plEqHeadroom !== "undefined" && plEqHeadroom)
+                  && (typeof plEqHeadroomBoth !== "undefined" && !plEqHeadroomBoth);
+  let reason = null;
+  if (deaf.hasDeaf) reason = "deaf";
+  else if (suppressed) reason = "suppressed";
+  plBalLocked = (reason !== null);
+  if (btn) {
+    btn.style.opacity = plBalLocked ? "0.4" : "";
+    btn.style.cursor  = plBalLocked ? "not-allowed" : "";
+  }
+  if (hint) {
+    if (reason === "deaf") {
+      hint.textContent = (typeof t === "function") ? t("plLockHintSideDeaf") : "Nicht verfügbar — Seite als taub eingetragen.";
+      hint.style.display = "inline";
+    } else if (reason === "suppressed") {
+      hint.textContent = (typeof t === "function") ? t("plBalSuppressedTitle") : "Nicht verfügbar mit Elektrodenlautstärke absenken, ohne beide Seiten zu berücksichtigen.";
+      hint.style.display = "inline";
+    } else {
+      hint.style.display = "none";
+    }
+  }
+  // Dropdown (Sym/Links/Rechts) nur sichtbar, wenn Balance aktiv UND nicht gesperrt
+  const row = document.getElementById("plBalModeRow");
+  if (row) {
+    const apply = (typeof plApplyBalance === "undefined") ? true : plApplyBalance;
+    row.style.display = (apply && !plBalLocked) ? "" : "none";
+  }
 }
 
 // ===== BA192: zentrale Wiedergabe-Steuerung =====

@@ -243,6 +243,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("plBalApplyBtn")
     .addEventListener("click", function () {
+      // Gesperrt (Taub oder seitenweise Absenkung) -> Klick schlucken.
+      // Button ist nur optisch grau, nicht disabled, damit der seitliche
+      // Hinweis sichtbar bleibt.
+      if (typeof plBalLocked !== "undefined" && plBalLocked) return;
       plApplyBalance = !plApplyBalance;
       updBalApplyBtn();
       pUpdEQ();
