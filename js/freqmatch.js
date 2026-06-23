@@ -1223,7 +1223,7 @@ function _fmPianoUpdateBoxes(border) {
   }
   var instr = fmEls && fmEls.verfahren && fmEls.verfahren.piano && fmEls.verfahren.piano.instruction;
   if (instr) {
-    instr.textContent = t('fmPianoInstruction').replace('{role}', roleUp.toLowerCase());
+    instr.innerHTML = t('fmPianoInstruction').replace('{role}', roleUp.toLowerCase());
   }
 }
 

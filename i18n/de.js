@@ -649,7 +649,7 @@ Object.assign(L.de, {
     fmCochlearFatCorrectionInfo: "Die Cochlear-Default-FAT wurde am {date} auf die offiziellen Werte (CI Select / Custom Sound Pro Standard, HFE 7938 Hz) korrigiert. Cochlear-Frequenztests von vor diesem Datum beziehen sich auf eine abweichende Default-Annahme — für eine aktuelle Korrekturkurve bitte den Test wiederholen.",
     fmTitle: "Frequenzabgleich Links/Rechts",
     fmMaturityHint:
-      "Dieser Test funktioniert zwar, rein technisch gesehen, hat aber noch Schwächen und wird derzeit aktiv weiterentwickelt." +
+      "Der aktuell implementierte Klaviertest sollte gut funktionieren und zuverlässige Ergebnisse liefern. Er ist jedoch erst wenig in der Praxis erprobt." +
       "<ul>" +
       "<li>Für Träger von 2 CI sollte er bereits gut funktionieren.</li>" +
       "<li>Für Träger mit nur 1 CI ist insbesondere die sehr unterschiedliche Wahrnehmung von Tönen problematisch, die Vergleichbarkeit schwierig macht und die Meßergebnisse verfälschen kann.</li>" +
@@ -688,7 +688,7 @@ Object.assign(L.de, {
     fmModeSlider:      "Nachjustierung (Slider)",
     fmModePiano:        "Klavier (seitliche Annäherung)",
     fmExplainPiano:     "Selbstgesteuerter Frequenzabgleich über eine Klaviertastatur: Du näherst dich der passenden Tonhöhe von beiden Seiten an. (Der vollständige Runden-Ablauf folgt in den nächsten Bauschritten.)",
-    fmPianoInstruction:    "Finde die Klaviertaste, die gerade noch eindeutig {role} klingt als der Vergleichston, und bestätige sie.",
+    fmPianoInstruction:    "Finde die Klaviertaste, die gerade noch <b>eindeutig {role}</b> klingt als der Vergleichston, und bestätige sie.",
     fmPianoBoxLower:       "TIEFER",
     fmPianoBoxHigher:      "HÖHER",
     fmPianoRefBox:         "Vergleichston",

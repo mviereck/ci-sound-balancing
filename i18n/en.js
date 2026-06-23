@@ -599,7 +599,7 @@ Object.assign(L.en, {
     fmCochlearFatCorrectionInfo: "The Cochlear default FAT was corrected on {date} to the official values (CI Select / Custom Sound Pro standard, HFE 7938 Hz). Cochlear frequency tests from before this date refer to a different default assumption — for an up-to-date correction curve, please repeat the test.",
     fmTitle: "Frequency matching left/right",
     fmMaturityHint:
-      "Technically speaking, this test does work, but it still has weaknesses and is currently being actively developed." +
+      "The currently implemented piano test should work well and provide reliable results. However, it has only been tried out to a limited extent in practice." +
       "<ul>" +
       "<li>For bilateral CI users (two CIs), it should already work well.</li>" +
       "<li>For users with only one CI, the very different perception of tones is particularly problematic, making comparability difficult and potentially distorting the measurement results.</li>" +

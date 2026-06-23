@@ -600,7 +600,7 @@ Object.assign(L.es, {
     fmCochlearFatCorrectionInfo: "La FAT por defecto de Cochlear se corrigió el {date} a los valores oficiales (CI Select / Custom Sound Pro estándar, HFE 7938 Hz). Las pruebas de frecuencia de Cochlear anteriores a esa fecha se refieren a una suposición por defecto distinta — para una curva de corrección actualizada, repita la prueba.",
     fmTitle: "Ajuste de frecuencia Izquierda/Derecha",
     fmMaturityHint:
-      "Técnicamente esta prueba funciona, pero todavía presenta deficiencias y se está desarrollando activamente." +
+      "La prueba de piano actualmente implementada debería funcionar bien y ofrecer resultados fiables. No obstante, todavía se ha probado poco en la práctica." +
       "<ul>" +
       "<li>Para portadores de dos IC ya debería funcionar bien.</li>" +
       "<li>Para portadores de un solo IC resulta especialmente problemática la percepción muy distinta de los tonos, lo que dificulta la comparabilidad y puede falsear los resultados de medición.</li>" +

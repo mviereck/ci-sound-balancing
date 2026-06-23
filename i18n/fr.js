@@ -600,7 +600,7 @@ Object.assign(L.fr, {
     fmCochlearFatCorrectionInfo: "La FAT par défaut Cochlear a été corrigée le {date} aux valeurs officielles (CI Select / Custom Sound Pro Standard, HFE 7938 Hz). Les tests de fréquence Cochlear antérieurs à cette date se réfèrent à une hypothèse par défaut différente — pour une courbe de correction actuelle, veuillez refaire le test.",
     fmTitle: "Appariement fréquentiel Gauche/Droite",
     fmMaturityHint:
-      "Sur le plan technique, ce test fonctionne, mais il présente encore des faiblesses et est actuellement en cours de développement actif." +
+      "Le test au piano actuellement implémenté devrait bien fonctionner et fournir des résultats fiables. Il n'a toutefois encore été que peu éprouvé en pratique." +
       "<ul>" +
       "<li>Pour les porteurs de deux IC, il devrait déjà bien fonctionner.</li>" +
       "<li>Pour les porteurs d'un seul IC, la perception très différente des sons est particulièrement problématique : elle rend la comparabilité difficile et peut fausser les résultats de mesure.</li>" +
