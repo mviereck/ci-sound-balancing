@@ -65,6 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (_pkb) _pkb.title = t("printBtn");
     const _psb = document.getElementById("printSchieberBtn");
     if (_psb) _psb.title = t("printBtn");
+    // Quellen-Toggle-Buttons tragen kein data-t (Text dynamisch via
+    // styleToggleBtn) -> bei Sprachwechsel hier explizit neu bauen.
+    if (typeof updPlSrcButtons === "function") updPlSrcButtons();
   };
 
   // ---- Warp i18n Hilfsfunktion (Modus-Dropdown) ----

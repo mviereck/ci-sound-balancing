@@ -2018,3 +2018,35 @@ input.ec-active.dep-locked {
   gap: 8px;
   flex-wrap: wrap;
 }
+
+/* Baum-Linien fuer die eingerueckten Quellen-Buttons (Kurven/Schieber)
+   unter "Elektrodenlautstaerke" in der Player-Einstellungen-Box.
+   Reines Layout, kein zusaetzliches HTML. Einzug = margin-left:24px;
+   die Linien liegen im Freiraum links vom Button. */
+.pl-src-child {
+  position: relative;
+}
+/* Senkrechter Strang: ueberbrueckt den 6px-Gap nach oben (top:-6px) und
+   laeuft bis zur vertikalen Button-Mitte (Abzweig-Hoehe). */
+.pl-src-child::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: -6px;
+  height: calc(50% + 6px);
+  border-left: 1.5px solid var(--border);
+}
+/* Waagerechter Abzweig zur linken Button-Kante, auf halber Hoehe. */
+.pl-src-child::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  width: 12px;
+  border-top: 1.5px solid var(--border);
+}
+/* Erstes Kind (Kurven): der Strang muss auch nach UNTEN weiterlaufen,
+   damit er das naechste Kind erreicht -> volle Hoehe plus Gap. */
+.pl-src-child:not(.pl-src-child-last)::before {
+  height: calc(100% + 6px);
+}
