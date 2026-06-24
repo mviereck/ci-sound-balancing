@@ -19,7 +19,7 @@ let fmEls = null;
 let fmRefSide = "left";
 let fmVarSide = "right";
 let fmSymmetric = false;   // true wenn refSelect.value === 'symmetric'
-let fmVerfahren = 'adaptive';   // 'slider' | 'adaptive' | 'piano'
+let fmVerfahren = 'piano';   // 'slider' | 'adaptive' | 'piano' — realer Default (Klavier-only-Betrieb, BA363)
 let fmSeq = [];
 let fmSeqIdx = 0;
 let fmCurrentEl = null;
@@ -1393,11 +1393,11 @@ function _fmRefreshHGWarningVisibility() {
 }
 
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = bRes.
+// BA 251: jRes entfaellt; Lautstaerke-Daten = elektrodenlautstaerkeResults.
 function _fmHasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.bRes && s.bRes.length > 0);
+  return (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
 }
 
 function _fmRenderPrereqHints() {

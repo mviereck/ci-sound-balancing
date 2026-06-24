@@ -559,7 +559,7 @@ function gWt(i) {
 function compWLS() {
   const n = nEl,
     lv = new Array(n).fill(0);
-  const valid = bRes.filter(
+  const valid = elektrodenlautstaerkeResults.filter(
     (r) =>
       r.a >= 0 &&
       r.a < n &&
@@ -647,7 +647,7 @@ function elTestData(opts) {
     const correction = new Array(n);
     const correctionGain = new Array(n);
     for (let i = 0; i < n; i++) {
-      const hd = bRes.some(function (r) {
+      const hd = elektrodenlautstaerkeResults.some(function (r) {
         return (r.a === i || r.b === i)
           && elExDur[r.a] === null && elSt[r.a] !== "mute"
           && elExDur[r.b] === null && elSt[r.b] !== "mute";
@@ -680,8 +680,8 @@ function measGain(side, hz) {
   return withSide(side, function () {
     // BA 303: defensive Abfragen (aus fmCorrGain uebernommen). Ohne
     // Mess-Paare oder ohne compWLS neutral zurueck, BEVOR elTestData()
-    // gerufen wird (nutzt intern bRes.some -> wuerde sonst werfen).
-    if (typeof bRes === "undefined" || !bRes || bRes.length === 0) return 1;
+    // gerufen wird (nutzt intern elektrodenlautstaerkeResults.some -> wuerde sonst werfen).
+    if (typeof elektrodenlautstaerkeResults === "undefined" || !elektrodenlautstaerkeResults || elektrodenlautstaerkeResults.length === 0) return 1;
     if (typeof compWLS !== "function") return 1;
     var levels = elTestData().correction;
     if (!levels || !levels.length) return 1;
@@ -742,7 +742,7 @@ function corrVol(vol, side, hz, applyMeas, applyBal) {
 }
 
 function getConvPairs(fast) {
-  if (fast && bRes.length > 0) {
+  if (fast && elektrodenlautstaerkeResults.length > 0) {
     const { residuals } = compWLS();
     const act = new Set(actEl());
     const vr = residuals
@@ -771,12 +771,12 @@ function getConvPairs(fast) {
 // LS-HINT: Schätzung und Unsicherheit für Paar (a, b)
 // ============================================================
 function getLsEstimate(a, b) {
-  if (bRes.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
+  if (elektrodenlautstaerkeResults.length === 0) return { estimate: 0, halfWidth: 0, hasData: false };
   const { raw: levels, residual: elRes } = elTestData();
   const wA = gWt(a), wB = gWt(b);
   if (wA <= 0 || wB <= 0) return { estimate: 0, halfWidth: 0, hasData: false };
-  const nA = bRes.filter(r => r.a === a || r.b === a).length;
-  const nB = bRes.filter(r => r.a === b || r.b === b).length;
+  const nA = elektrodenlautstaerkeResults.filter(r => r.a === a || r.b === a).length;
+  const nB = elektrodenlautstaerkeResults.filter(r => r.a === b || r.b === b).length;
   const N = Math.min(nA, nB);
   const resTerm = Math.max(elRes[a] || 0, elRes[b] || 0);
   const prior = LS_HINT_BASIS_DB * LS_HINT_K / (LS_HINT_K + N);
@@ -1016,7 +1016,7 @@ function showCurPair() {
   // Verfahren (full / conv); im Konvergenz-Normalfall greift fast immer
   // der gespeicherte Wert.
   curBase = 0;
-  var ex = bRes.find(function(r) {
+  var ex = elektrodenlautstaerkeResults.find(function(r) {
     return (r.a === curA && r.b === curB) || (r.a === curB && r.b === curA);
   });
   var startVal = 0;
@@ -1156,13 +1156,13 @@ function recBal() {
   // BA 247: curBase ist immer 0.
   const a = curA, b = curB, tot = _testSliderVal();
   const ne = { a, b, offset: tot, timestamp: Date.now() };
-  const ei = bRes.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
+  const ei = elektrodenlautstaerkeResults.findIndex((x) => (x.a === a && x.b === b) || (x.a === b && x.b === a));
   if (ei >= 0) {
-    undoSt.push({ t: "b", a: "r", e: ne, p: { ...bRes[ei] } });
-    bRes[ei] = ne;
+    undoSt.push({ t: "b", a: "r", e: ne, p: { ...elektrodenlautstaerkeResults[ei] } });
+    elektrodenlautstaerkeResults[ei] = ne;
   } else {
     undoSt.push({ t: "b", a: "a", e: ne });
-    bRes.push(ne);
+    elektrodenlautstaerkeResults.push(ne);
   }
   // BA 247: Vollstaendig: gemessenes Paar als erledigt markieren.
   if (_testActiveVerfahren === "full") {
@@ -1184,11 +1184,11 @@ function undoL() {
   const u = undoSt.pop();
   // BA 247: nur noch der b-Pfad (balance); j-Pfad entfaellt mit judgment.
   if (u.a === "a") {
-    const i = bRes.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
-    if (i >= 0) bRes.splice(i, 1);
+    const i = elektrodenlautstaerkeResults.findIndex(function(x) { return x.timestamp === u.e.timestamp; });
+    if (i >= 0) elektrodenlautstaerkeResults.splice(i, 1);
   } else {
-    const i = bRes.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
-    if (i >= 0) bRes[i] = u.p;
+    const i = elektrodenlautstaerkeResults.findIndex(function(x) { return x.a === u.e.a && x.b === u.e.b; });
+    if (i >= 0) elektrodenlautstaerkeResults[i] = u.p;
   }
   // Bug-Fix §6.9: Bei full-Verfahren auch aus fullSweepDonePairs entfernen.
   if (_testActiveVerfahren === "full") {

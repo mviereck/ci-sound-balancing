@@ -1382,7 +1382,7 @@ function pMaplawUpdUI() {
 }
 
 window.addEventListener("resize", () => {
-  if (bRes.length > 0) {
+  if (elektrodenlautstaerkeResults.length > 0) {
     pDrawEQ();
     if (document.getElementById("resC").style.display !== "none")
       renderResults();

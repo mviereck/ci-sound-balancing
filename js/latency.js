@@ -428,13 +428,13 @@ function _latUpdateIntervalHint() {
 
 function _latHasBalance() {
   // Pragmatische Detektion: mindestens ein gemessener Balance-Wert
-  // existiert in lrResults ODER in sideData[*].bRes.
+  // existiert in lrResults ODER in sideData[*].elektrodenlautstaerkeResults.
   if (typeof lrResults === 'object' && lrResults
       && Object.values(lrResults).some(function(v) { return isFinite(v); })) return true;
   if (typeof sideData === 'object' && sideData) {
     for (const side of ['left', 'right']) {
       const sd = sideData[side];
-      if (sd && Array.isArray(sd.bRes) && sd.bRes.length > 0) return true;
+      if (sd && Array.isArray(sd.elektrodenlautstaerkeResults) && sd.elektrodenlautstaerkeResults.length > 0) return true;
     }
   }
   return false;

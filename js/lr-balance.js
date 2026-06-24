@@ -667,11 +667,11 @@ function lrDrawChart() {
   ctx.restore();
 }
 
-// BA 251: jRes entfaellt; Lautstaerke-Daten = bRes.
+// BA 251: jRes entfaellt; Lautstaerke-Daten = elektrodenlautstaerkeResults.
 function _lrHasLvData(side) {
   const s = sideData[side];
   if (!s) return false;
-  return (s.bRes && s.bRes.length > 0);
+  return (s.elektrodenlautstaerkeResults && s.elektrodenlautstaerkeResults.length > 0);
 }
 
 // Sichtbarkeit der dynamischen Vortest-Hinweise oben in der Erklaer-Box.
@@ -683,8 +683,8 @@ function _lrRenderPrereqHints() {
 }
 
 function lrCheckData() {
-  const hasLeft = sideData["left"].bRes.length > 0;
-  const hasRight = sideData["right"].bRes.length > 0;
+  const hasLeft = sideData["left"].elektrodenlautstaerkeResults.length > 0;
+  const hasRight = sideData["right"].elektrodenlautstaerkeResults.length > 0;
   const nd = document.getElementById("lrNoData");
   if (nd) nd.style.display = hasLeft && hasRight ? "none" : "";
   // Deaf-Hinweis

@@ -2,8 +2,8 @@
 // RESULTS
 // ============================================================
 function renderResults() {
-  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch bRes.
-  const hB = bRes.length > 0;
+  // BA 251: hJ entfaellt (judgment-Verfahren raus); nur noch elektrodenlautstaerkeResults.
+  const hB = elektrodenlautstaerkeResults.length > 0;
   if (!hB) {
     const nr = document.getElementById("noRes");
     const rc = document.getElementById("resC");
@@ -45,7 +45,7 @@ function renderResults() {
   // eingestellt). Fallback 75 wie bisher.
   const vol = (typeof volume_global !== 'undefined') ? volume_global : 75;
   let meta = `${new Date().toLocaleString(lang === "de" ? "de-DE" : lang === "fr" ? "fr-FR" : lang === "es" ? "es-ES" : "en-US")}`;
-  if (hB) meta += ` · ${bRes.length} bal.`;
+  if (hB) meta += ` · ${elektrodenlautstaerkeResults.length} bal.`;
   meta += ` · ${t("lblVol")} ${vol}% · ${MFR[mfr].name}`;
   const rMeta = document.getElementById("resMeta");
   if (rMeta) rMeta.innerHTML = meta;
@@ -70,7 +70,7 @@ function renderResults() {
   if (hB) {
     const { raw: levels, residual: elRes, weight: elWt } = elTestData();
     const pc = new Array(nEl).fill(0);
-    const valid = bRes.filter(
+    const valid = elektrodenlautstaerkeResults.filter(
       (r) =>
         elExDur[r.a] === null &&
         elSt[r.a] !== "mute" &&

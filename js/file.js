@@ -117,7 +117,7 @@ function resetAll() {
     sideData[s].elFreqOwn = new Array(sideData[s].nEl).fill(null);
     sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
     sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
-    sideData[s].bRes = [];
+    sideData[s].elektrodenlautstaerkeResults = [];
     sideData[s].presets = [];
     initSideData(s, "unknown");
   }
@@ -281,7 +281,7 @@ async function saveJson() {
         electrodeNotes: sideData.left.elNt,
         electrodeExcludedDuring: sideData.left.elExDur,
         referenceElectrode: sideData.left.refEl,
-        balanceResults: sideData.left.bRes,
+        balanceResults: sideData.left.elektrodenlautstaerkeResults,
         fmMode: sideData.left.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
@@ -303,7 +303,7 @@ async function saveJson() {
         electrodeNotes: sideData.right.elNt,
         electrodeExcludedDuring: sideData.right.elExDur,
         referenceElectrode: sideData.right.refEl,
-        balanceResults: sideData.right.bRes,
+        balanceResults: sideData.right.elektrodenlautstaerkeResults,
         fmMode: sideData.right.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
@@ -835,10 +835,10 @@ function applyLoadedData(d) {
 function clearRes() {
   const ch = confirm(t("delConfirmMeas"));
   if (!ch) return;
-  sideData[activeSide].bRes.splice(0, sideData[activeSide].bRes.length);
+  sideData[activeSide].elektrodenlautstaerkeResults.splice(0, sideData[activeSide].elektrodenlautstaerkeResults.length);
   sideData[activeSide].fullSweepRound = null;
   sideData[activeSide].fullSweepDonePairs = [];
-  bRes = sideData[activeSide].bRes;
+  elektrodenlautstaerkeResults = sideData[activeSide].elektrodenlautstaerkeResults;
   fullSweepRound = null;
   fullSweepDonePairs = [];
   renderResults();

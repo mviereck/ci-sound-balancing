@@ -14,7 +14,7 @@ let mfr,
   elExDur,
   elektrodenlautstaerkeSchieber,
   refEl,
-  bRes,
+  elektrodenlautstaerkeResults,
   config;
 // effFreq[i] = elFreqOwn[i] ?? freqs[i] (MFR default)
 function effFreq(i) {
@@ -83,7 +83,7 @@ function bindActiveSide() {
   elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
   presets = s.presets;
   refEl = s.refEl;
-  bRes = s.bRes;
+  elektrodenlautstaerkeResults = s.elektrodenlautstaerkeResults;
   elActive = s.elActive || (s.elActive = new Array(s.nEl).fill(true));
   config = s.config || "ci";
   fullSweepRound = s.fullSweepRound !== undefined ? s.fullSweepRound : null;
@@ -137,7 +137,7 @@ function initSideData(side, m) {
   s.elFreqOwn = new Array(s.nEl).fill(null);
   s.elektrodenlautstaerkeSchieber = new Array(s.nEl).fill(0);
   s.refEl = Math.floor(s.nEl / 2);
-  s.bRes = [];
+  s.elektrodenlautstaerkeResults = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
   s.elActive = new Array(s.nEl).fill(true);
   s.fmMode = 'adaptive';
@@ -425,7 +425,7 @@ function loadSideData(side, d) {
     s.refEl = valid ? r : pickDefaultRefEl(side);
   }
   // BA 251: judgmentResults aus alten Dateien werden stillschweigend ignoriert.
-  s.bRes = d.balanceResults || [];
+  s.elektrodenlautstaerkeResults = d.balanceResults || [];
   s.fmMode = (d.fmMode === 'slider' || d.fmMode === 'adaptive') ? d.fmMode : 'adaptive';
   s.fmAdaptiveDur = (d.fmAdaptiveDur != null) ? d.fmAdaptiveDur : 200;
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
@@ -541,7 +541,7 @@ function withSide(side, fn) {
     elektrodenlautstaerkeSchieber,
     presets,
     refEl,
-    bRes,
+    elektrodenlautstaerkeResults,
   };
   activeSide = side;
   bindActiveSide();

@@ -167,7 +167,7 @@ function _collectSideData(side) {
     }
 
     // Messungen
-    const measHas = Array.isArray(bRes) && bRes.length > 0;
+    const measHas = Array.isArray(elektrodenlautstaerkeResults) && elektrodenlautstaerkeResults.length > 0;
     let measRows = [];
     let measRefEl = null;
     let measSweep = null;
@@ -175,7 +175,7 @@ function _collectSideData(side) {
       measRefEl = refEl;
       const { raw: levels, residual: elRes } = elTestData();
       for (let i = 0; i < nEl; i++) {
-        const inMeas = bRes.some((r) => r.a === i || r.b === i);
+        const inMeas = elektrodenlautstaerkeResults.some((r) => r.a === i || r.b === i);
         measRows.push({
           idx: i,
           label: `${dENPrefix()}${dEN(i)}`,
@@ -1108,7 +1108,7 @@ function _audiologAdvice() {
   return lines.join("\n");
 }
 
-// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus bRes.
+// BA 251: jRes entfaellt; letzte Messung kommt nur noch aus elektrodenlautstaerkeResults.
 
 function _audiologLastMeas(side) {
   const sd = sideData[side];
@@ -1118,7 +1118,7 @@ function _audiologLastMeas(side) {
     if (!Array.isArray(arr)) return;
     for (const e of arr) if (e && e.timestamp && e.timestamp > max) max = e.timestamp;
   };
-  collect(sd.bRes);
+  collect(sd.elektrodenlautstaerkeResults);
   return max > 0 ? new Date(max) : null;
 }
 

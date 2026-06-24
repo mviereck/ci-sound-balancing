@@ -235,7 +235,7 @@ function _switchTabInternal(n) {
     // Aktiven Sub-Tab prüfen; falls keiner aktiv oder aktiver leer, sinnvollen wählen
     const activeSubtab = document.querySelector('.subtab[data-parent="ergebnisse"].active');
     const currentName = activeSubtab ? activeSubtab.dataset.subtab : null;
-    const hasBal = typeof bRes !== "undefined" && bRes.length > 0;
+    const hasBal = typeof elektrodenlautstaerkeResults !== "undefined" && elektrodenlautstaerkeResults.length > 0;
     const hasFR = typeof fRes !== "undefined" && fRes.length > 0;
     const hasLR = typeof lrResults !== "undefined" && Object.keys(lrResults).length > 0;
     if (!currentName || currentName === "results") {
