@@ -115,7 +115,7 @@ function resetAll() {
     sideData[s].elNt = new Array(sideData[s].nEl).fill("");
     sideData[s].elExDur = new Array(sideData[s].nEl).fill(null);
     sideData[s].elFreqOwn = new Array(sideData[s].nEl).fill(null);
-    sideData[s].manualLevels = new Array(sideData[s].nEl).fill(0);
+    sideData[s].elektrodenlautstaerkeSchieber = new Array(sideData[s].nEl).fill(0);
     sideData[s].refEl = Math.floor(sideData[s].nEl / 2);
     sideData[s].bRes = [];
     sideData[s].presets = [];
@@ -285,7 +285,7 @@ async function saveJson() {
         fmMode: sideData.left.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.left.fmAdaptiveDur != null ? sideData.left.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.left.fmAdaptivePau != null ? sideData.left.fmAdaptivePau : 200,
-        manualLevels: sideData.left.manualLevels,
+        manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
         presets: sideData.left.presets,
         fullSweepRound: sideData.left.fullSweepRound,
         fullSweepDonePairs: sideData.left.fullSweepDonePairs,
@@ -307,7 +307,7 @@ async function saveJson() {
         fmMode: sideData.right.fmMode || 'adaptive',
         fmAdaptiveDur: sideData.right.fmAdaptiveDur != null ? sideData.right.fmAdaptiveDur : 200,
         fmAdaptivePau: sideData.right.fmAdaptivePau != null ? sideData.right.fmAdaptivePau : 200,
-        manualLevels: sideData.right.manualLevels,
+        manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
         presets: sideData.right.presets,
         fullSweepRound: sideData.right.fullSweepRound,
         fullSweepDonePairs: sideData.right.fullSweepDonePairs,

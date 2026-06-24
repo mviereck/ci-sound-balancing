@@ -12,7 +12,7 @@ let mfr,
   elSt,
   elNt,
   elExDur,
-  manualLevels,
+  elektrodenlautstaerkeSchieber,
   refEl,
   bRes,
   config;
@@ -80,7 +80,7 @@ function bindActiveSide() {
   elSt = s.elSt;
   elNt = s.elNt;
   elExDur = s.elExDur;
-  manualLevels = s.manualLevels;
+  elektrodenlautstaerkeSchieber = s.elektrodenlautstaerkeSchieber;
   presets = s.presets;
   refEl = s.refEl;
   bRes = s.bRes;
@@ -135,7 +135,7 @@ function initSideData(side, m) {
   s.elNt = new Array(s.nEl).fill("");
   s.elExDur = new Array(s.nEl).fill(null);
   s.elFreqOwn = new Array(s.nEl).fill(null);
-  s.manualLevels = new Array(s.nEl).fill(0);
+  s.elektrodenlautstaerkeSchieber = new Array(s.nEl).fill(0);
   s.refEl = Math.floor(s.nEl / 2);
   s.bRes = [];
   // BA 164: Aktivitäts-Flag pro Elektrode (true = arbeitet im CI)
@@ -431,7 +431,7 @@ function loadSideData(side, d) {
   s.fmAdaptivePau = (d.fmAdaptivePau != null) ? d.fmAdaptivePau : 200;
   s.freqmatchAdaptive = _fmMigrateAdaptive(d.freqmatchAdaptive);
   s.freqmatchPiano = d.freqmatchPiano || null;
-  s.manualLevels = d.manualLevels || new Array(s.nEl).fill(0);
+  s.elektrodenlautstaerkeSchieber = d.manualLevels || new Array(s.nEl).fill(0);
   if (d.presets && Array.isArray(d.presets)) {
     s.presets = PR_TYPES.map((tp) => {
       const found = d.presets.find((p) => p.type === tp);
@@ -538,7 +538,7 @@ function withSide(side, fn) {
     elSt,
     elNt,
     elExDur,
-    manualLevels,
+    elektrodenlautstaerkeSchieber,
     presets,
     refEl,
     bRes,
@@ -658,7 +658,7 @@ function syncFreqsToAcoustic() {
           otherData.elFreqOwn = new Array(otherData.nEl).fill(null);
         }
         // Arrays auf neue Elektrodenzahl anpassen
-        ["elSt","elNt","elExDur","manualLevels"].forEach(k => {
+        ["elSt","elNt","elExDur","elektrodenlautstaerkeSchieber"].forEach(k => {
           if (!otherData[k] || otherData[k].length !== otherData.nEl) {
             const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
             otherData[k] = new Array(otherData.nEl).fill(def);
@@ -689,7 +689,7 @@ function syncFreqsToAcoustic() {
             s.freqs = [...MFR[defaultMfr].freqs];
             s.manufacturer = defaultMfr;
             s.elFreqOwn = new Array(defN).fill(null);
-            ["elSt","elNt","elExDur","manualLevels"].forEach(k => {
+            ["elSt","elNt","elExDur","elektrodenlautstaerkeSchieber"].forEach(k => {
               if (!s[k] || s[k].length !== defN) {
                 const def = k === "elSt" || k === "elExDur" ? null : (k === "elNt" ? "" : 0);
                 s[k] = new Array(defN).fill(def);

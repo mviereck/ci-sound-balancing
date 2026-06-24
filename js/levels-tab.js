@@ -1,7 +1,7 @@
 // ============================================================
 // LEVELS-TAB (Schieber)
 // ============================================================
-// Senkrechte Balken pro Elektrode, eigener State manualLevels (Seite
+// Senkrechte Balken pro Elektrode, eigener State elektrodenlautstaerkeSchieber (Seite
 // gebunden), diverging stacked bar mit drei Quellen.
 // Pfeiltasten-Navigation, "Alles auf 0"-Button.
 // Zwei Anzeigemodi: relativ (±dB) und absolut (qu/CL/CU).
@@ -96,7 +96,7 @@ function lvTabDrawRelative(ctx, W, H) {
   const preArr = getTotalPresetCurve();
   const cols = all.map((i) => {
     if (isExcluded(i)) return { i, excluded: true };
-    const sch = manualLevels[i] || 0;
+    const sch = elektrodenlautstaerkeSchieber[i] || 0;
     const mes = lvTabShowMeas ? measArr[i] : 0;
     const cur = lvTabShowCurves ? preArr[i] : 0;
     return { i, excluded: false, sch, mes, cur, sum: sch + mes + cur };
@@ -186,7 +186,7 @@ function lvTabDrawAbsolute(ctx, W, H) {
     const thrAudi = im.thr?.[i];
     if (mclAudi == null) return { i, excluded: false, noMcl: true };
 
-    const schDb = manualLevels[i] || 0;
+    const schDb = elektrodenlautstaerkeSchieber[i] || 0;
     const mesDb = lvTabShowMeas ? measArr[i] : 0;
     const curDb = lvTabShowCurves ? preArr[i] : 0;
     const sumDb = schDb + mesDb + curDb;
@@ -545,7 +545,7 @@ function lvTabStepAbsolute(i, dir, shift) {
   if (mclAudi == null) return;
 
   const step = shift ? 5 : 1;
-  const curDb = manualLevels[i] || 0;
+  const curDb = elektrodenlautstaerkeSchieber[i] || 0;
   let curAbs;
   if (isMedel) curAbs = calcMedel(curDb, mclAudi).absolute;
   else if (isCoch) curAbs = calcCochlear(curDb, mclAudi, detectCochlearGen(im.model)).absolute;
@@ -585,7 +585,7 @@ function lvTabOnSchieberChange(i, newVal) {
     val = +newVal.toFixed(1);
     val = Math.max(-LV_TAB_RANGE, Math.min(LV_TAB_RANGE, val));
   }
-  manualLevels[i] = val;
+  elektrodenlautstaerkeSchieber[i] = val;
   if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
@@ -593,7 +593,7 @@ function lvTabOnSchieberChange(i, newVal) {
 }
 
 function lvTabResetAll() {
-  for (let i = 0; i < nEl; i++) manualLevels[i] = 0;
+  for (let i = 0; i < nEl; i++) elektrodenlautstaerkeSchieber[i] = 0;
   if (typeof buildPrTbl === "function") buildPrTbl();
   if (typeof drawLvChart === "function") drawLvChart();
   if (typeof pEqF !== "undefined" && pEqF.length > 0) pUpdEQ();
@@ -723,7 +723,7 @@ document.addEventListener("DOMContentLoaded", () => {
       lvTabStepAbsolute(lvTabFocus, dir, fine);
     } else {
       var st = fine ? 0.1 : 0.5;
-      var cur = manualLevels[lvTabFocus] || 0;
+      var cur = elektrodenlautstaerkeSchieber[lvTabFocus] || 0;
       lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
     }
   }

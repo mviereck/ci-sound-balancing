@@ -285,7 +285,7 @@ function printSchieberTab() {
   const cv = document.getElementById("lvTabCv");
   const canvasImg = cv ? canvasToImg(cv, 800) : "";
 
-  const ml = s.manualLevels || [];
+  const ml = s.elektrodenlautstaerkeSchieber || [];
   const im = s.implant || {};
   const headers = ["Nr.", "dB-Wert"];
   if (isAbs) headers.push(_upperHdr(m) + " (neu)");

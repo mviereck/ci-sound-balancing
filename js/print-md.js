@@ -197,7 +197,7 @@ function _collectSideData(side) {
     }
 
     // Schieber
-    const ml = manualLevels || [];
+    const ml = elektrodenlautstaerkeSchieber || [];
     const schHasNonZero = ml.some((v) => v != null && v !== 0);
     const schRows = [];
     if (schHasNonZero) {
@@ -831,7 +831,7 @@ function _audStatusText(side, i) {
 
 // ---------- Testprogramm-Heuristik ----------
 // Erkennt: keine elektroden-spezifische Klangformung.
-// Schieber (getTotalPresetCurve) + Kurven (manualLevels) werden mit
+// Schieber (getTotalPresetCurve) + Kurven (elektrodenlautstaerkeSchieber) werden mit
 // EQ-Stärke skaliert; Mittelwert wird abgezogen (reine Pegelver-
 // schiebung ist erlaubt); Standardabweichung über aktive Elektroden
 // muß < 0.2 dB sein. Außerdem: EQ aktiv, NH-Sim aus.
@@ -845,7 +845,7 @@ function _audiologIsTestProgram(side) {
     const presetC = (typeof plSrcCurves !== "undefined" && plSrcCurves)
       ? getTotalPresetCurve() : new Array(nEl).fill(0);
     const lvls = (typeof plSrcLevels !== "undefined" && plSrcLevels)
-      ? manualLevels.slice() : new Array(nEl).fill(0);
+      ? elektrodenlautstaerkeSchieber.slice() : new Array(nEl).fill(0);
     const active = [];
     for (let i = 0; i < nEl; i++) {
       if (elSt[i] === "mute" || elExDur[i] !== null) continue;

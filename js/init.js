@@ -574,7 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lvTabStepAbsolute(lvTabFocus, dir, e.shiftKey);
       } else {
         const st = e.shiftKey ? 0.1 : 0.5;
-        const cur = manualLevels[lvTabFocus] || 0;
+        const cur = elektrodenlautstaerkeSchieber[lvTabFocus] || 0;
         lvTabOnSchieberChange(lvTabFocus, cur + dir * st);
       }
     }
@@ -877,7 +877,7 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeExcludedDuring: sideData.left.elExDur,
               referenceElectrode: sideData.left.refEl,
               balanceResults: sideData.left.bRes,
-              manualLevels: sideData.left.manualLevels,
+              manualLevels: sideData.left.elektrodenlautstaerkeSchieber,
               presets: sideData.left.presets,
               fullSweepRound: sideData.left.fullSweepRound,
               fullSweepDonePairs: sideData.left.fullSweepDonePairs,
@@ -901,7 +901,7 @@ document.addEventListener("DOMContentLoaded", () => {
               electrodeExcludedDuring: sideData.right.elExDur,
               referenceElectrode: sideData.right.refEl,
               balanceResults: sideData.right.bRes,
-              manualLevels: sideData.right.manualLevels,
+              manualLevels: sideData.right.elektrodenlautstaerkeSchieber,
               presets: sideData.right.presets,
               fullSweepRound: sideData.right.fullSweepRound,
               fullSweepDonePairs: sideData.right.fullSweepDonePairs,

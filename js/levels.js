@@ -108,7 +108,7 @@ function getTotalPresetCurve() {
 }
 function getEffectiveLevels() {
   const pc = getTotalPresetCurve();
-  return manualLevels.map((m, i) => m + pc[i]);
+  return elektrodenlautstaerkeSchieber.map((m, i) => m + pc[i]);
 }
 
 function lvOnChange() {
@@ -340,7 +340,7 @@ function drawLvChart() {
   const corr = elTestData().correction;
   const pc = getTotalPresetCurve();
   const measV = act.map((i) => corr[i]);
-  const manV = act.map((i) => manualLevels[i]);
+  const manV = act.map((i) => elektrodenlautstaerkeSchieber[i]);
   const preV = act.map((i) => pc[i]);
   const sumV = act.map(
     (_, j) =>
