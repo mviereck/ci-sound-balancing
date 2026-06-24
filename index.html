@@ -449,7 +449,7 @@
         <div class="subtabs">
           <button class="subtab active" data-subtab="test" data-parent="messungen" data-t="subTabLoudness"></button>
           <button class="subtab" data-subtab="balance" data-parent="messungen" data-t="tabBalance"></button>
-          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latSubtabBtn" data-t="tabLatenz"></button>
+          <button class="subtab" data-subtab="latenz" data-parent="messungen" id="latenzSubtabBtn" data-t="tabLatenz"></button>
           <button class="subtab" data-subtab="freqmatch" data-parent="messungen" id="fmSubtabBtn" data-t="subTabFreqMatch"></button>
         </div>
         <div id="subpanel-messungen-test" class="subpanel active">
@@ -462,7 +462,7 @@
 
       <!-- ===== LATENZ ===== -->
       <div id="subpanel-messungen-latenz" class="subpanel">
-        <div id="snapHint_lat"></div><!-- BA 156 -->
+        <div id="snapHint_latenz"></div><!-- BA 156 -->
         <!-- Inhalt wird von latency.js / test-ui.js erzeugt -->
       </div>
 
@@ -729,20 +729,20 @@
         <!-- ===== ERGEBNIS LATENZ ===== -->
         <div id="subpanel-ergebnisse-latenz" class="subpanel">
           <div class="card">
-            <h2 data-t="latResTitle">Latenz</h2>
-            <div id="latResNone" style="color:var(--text-muted);">
-              <p data-t="latResNoneText">Noch keine Latenz gemessen. Im Reiter „Messungen" → „Latenz" durchführen.</p>
+            <h2 data-t="latenzResTitle">Latenz</h2>
+            <div id="latenzResNone" style="color:var(--text-muted);">
+              <p data-t="latenzResNoneText">Noch keine Latenz gemessen. Im Reiter „Messungen" → „Latenz" durchführen.</p>
             </div>
-            <div id="latResContent" hidden>
+            <div id="latenzResContent" hidden>
               <div style="text-align:center;margin:12px 0 16px;padding:14px;background:var(--accent-light);border-radius:8px;border:2px solid var(--accent);">
-                <div style="font-size:0.8em;color:var(--text-muted);margin-bottom:4px;" data-t="latResLabel">Gemessener Zeitversatz</div>
-                <div id="latResValueBig" style="font-size:2.2em;font-weight:700;font-family:var(--mono);color:var(--accent);">—</div>
-                <div id="latResText" style="font-size:0.85em;color:var(--text-muted);margin-top:4px;"></div>
+                <div style="font-size:0.8em;color:var(--text-muted);margin-bottom:4px;" data-t="latenzResLabel">Gemessener Zeitversatz</div>
+                <div id="latenzResValueBig" style="font-size:2.2em;font-weight:700;font-family:var(--mono);color:var(--accent);">—</div>
+                <div id="latenzResText" style="font-size:0.85em;color:var(--text-muted);margin-top:4px;"></div>
               </div>
-              <div id="latResContext" style="color:var(--text-muted);font-size:0.85em;margin:8px 0;text-align:center;"></div>
+              <div id="latenzResContext" style="color:var(--text-muted);font-size:0.85em;margin:8px 0;text-align:center;"></div>
             </div>
             <div style="margin-top:16px">
-              <button class="btn" id="latClearBtn" style="color:var(--danger)" data-t="latClearBtnLabel"></button>
+              <button class="btn" id="latenzClearBtn" style="color:var(--danger)" data-t="latenzClearBtnLabel"></button>
             </div>
           </div>
         </div>

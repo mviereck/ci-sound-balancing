@@ -35,14 +35,14 @@ function _switchSubtabInternal(parent, subtab) {
     renderFreqMatchResults();
   }
   if (parent === "ergebnisse" && subtab === "latenz") {
-    if (typeof latRenderResults === "function") latRenderResults();
+    if (typeof latenzRenderResults === "function") latenzRenderResults();
   }
   if (parent === "messungen" && subtab === "balance") {
     lrCheckData();
   }
   if (parent === "messungen" && subtab === "latenz") {
     if (typeof renderSnapshotHint === 'function') {
-      renderSnapshotHint('lat', document.getElementById('snapHint_lat'));
+      renderSnapshotHint('latenz', document.getElementById('snapHint_latenz'));
     }
   }
   if (parent === "messungen" && subtab === "freqmatch") {
@@ -51,10 +51,10 @@ function _switchSubtabInternal(parent, subtab) {
   }
   // Sub-Tab-Wechsel weg vom Latenz-Tab: Test stoppen
   if (parent === "messungen" && subtab !== "latenz") {
-    if (typeof latActive !== "undefined" && latActive
-        && typeof latStopTest === "function") {
-      latStopTest();
-      if (typeof latUpdateButtonStates === "function") latUpdateButtonStates();
+    if (typeof latenzActive !== "undefined" && latenzActive
+        && typeof latenzStopTest === "function") {
+      latenzStopTest();
+      if (typeof latenzUpdateButtonStates === "function") latenzUpdateButtonStates();
       if (typeof updateTabLockState === "function") updateTabLockState();
     }
   }
@@ -209,7 +209,7 @@ function switchTab(n) {
   const anyTestRunning = testAct
     || (typeof lrRunning !== "undefined" && lrRunning)
     || (typeof fmRunning !== "undefined" && fmRunning)
-    || (typeof latActive !== "undefined" && latActive);
+    || (typeof latenzActive !== "undefined" && latenzActive);
   if (anyTestRunning && n !== "messungen") {
     return; // Tab-Wechsel blockiert
   }
@@ -272,12 +272,12 @@ function _switchTabInternal(n) {
 function updateTabLockState() {
   const locked = testAct || (typeof lrRunning !== "undefined" && lrRunning)
                           || (typeof fmRunning !== "undefined" && fmRunning)
-                          || (typeof latActive !== "undefined" && latActive);
+                          || (typeof latenzActive !== "undefined" && latenzActive);
   var activeTestId = null;
   if (testAct) activeTestId = 'test';
   else if (typeof lrRunning !== "undefined" && lrRunning) activeTestId = 'balance';
   else if (typeof fmRunning !== "undefined" && fmRunning) activeTestId = 'freqmatch';
-  else if (typeof latActive !== "undefined" && latActive) activeTestId = 'latenz';
+  else if (typeof latenzActive !== "undefined" && latenzActive) activeTestId = 'latenz';
   lockTestTabs(locked, activeTestId);
   // BA 249: lockedHint liegt in der neuen API unter els.header.lockedHint,
   // nicht direkt auf els. _buildTestPanelNew setzt das DOM-Flag beim
@@ -295,9 +295,9 @@ function updateTabLockState() {
       && fmEls.header && fmEls.header.lockedHint) {
     fmEls.header.lockedHint.hidden = !(typeof fmRunning !== "undefined" && fmRunning);
   }
-  if (typeof latEls !== "undefined" && latEls
-      && latEls.header && latEls.header.lockedHint) {
-    latEls.header.lockedHint.hidden = !(typeof latActive !== "undefined" && latActive);
+  if (typeof latenzEls !== "undefined" && latenzEls
+      && latenzEls.header && latenzEls.header.lockedHint) {
+    latenzEls.header.lockedHint.hidden = !(typeof latenzActive !== "undefined" && latenzActive);
   }
   // ciSideSelect auch sperren
   const sideSelect = document.getElementById("ciSideSelect");

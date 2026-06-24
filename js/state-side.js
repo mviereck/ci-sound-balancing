@@ -617,15 +617,15 @@ function implantSnapshotsDiffer(a, b) {
   return !(_eqSide(a.left, b.left) && _eqSide(a.right, b.right));
 }
 
-// BA 156: Hinweis-Banner-Helper. testKey ∈ {'lr', 'lat'}.
+// BA 156: Hinweis-Banner-Helper. testKey ∈ {'lr', 'latenz'}.
 function renderSnapshotHint(testKey, containerEl) {
   if (!containerEl) return;
   let oldSnap = null;
   if (testKey === 'lr') {
     oldSnap = (typeof lrSnapshot !== 'undefined') ? lrSnapshot : null;
-  } else if (testKey === 'lat') {
-    oldSnap = (typeof latencyResult !== 'undefined' && latencyResult)
-            ? latencyResult.implantSnapshot : null;
+  } else if (testKey === 'latenz') {
+    oldSnap = (typeof latenzResult !== 'undefined' && latenzResult)
+            ? latenzResult.implantSnapshot : null;
   }
   if (!oldSnap) { containerEl.innerHTML = ''; return; }
   const curSnap = implantSnapshot();

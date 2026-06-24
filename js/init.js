@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
       renderFreqMatchResults();
     }
     // Latenz-UI-Texte
-    if (typeof latRenderResults === "function") latRenderResults();
-    if (typeof latUpdateValueText === "function") latUpdateValueText();
-    if (typeof latUpdateIntervalHint === "function") latUpdateIntervalHint();
+    if (typeof latenzRenderResults === "function") latenzRenderResults();
+    if (typeof latenzUpdateValueText === "function") latenzUpdateValueText();
+    if (typeof latenzUpdateIntervalHint === "function") latenzUpdateIntervalHint();
     // Warp-UI-Texte
     _pWarpApplyLangTexts();
     // Druck-Knöpfe Kurven- und Schieber-Tab
@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updEqToggleBtn();
     if (typeof plUpdHeadroomBox === "function") plUpdHeadroomBox();
     pUpdEQ();
-    if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+    if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
     if (pWarpOn) {
       // getPlaybackBuffer entscheidet anhand plEqOn neu; bei laufender
       // Wiedergabe Pfad an aktueller Position wechseln.
@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function () {
       if (typeof plLatLocked !== "undefined" && plLatLocked) return;
       plApplyLatency = !plApplyLatency;
-      latApplyToPlayer();
+      latenzApplyToPlayer();
       updLatApplyBtn();
     });
   // BA388: zentraler Player-UI-Sync (ersetzt die einzelnen Box-Updates;
@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .getElementById("plNHInfo")
       .classList.toggle("hidden", !this.checked);
     pUpdEQ();
-    if (typeof latApplyToPlayer === "function") latApplyToPlayer();
+    if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
   });
   document.getElementById("plEqHeadroom").addEventListener("change", function () {
     plEqHeadroom = this.checked;
@@ -667,8 +667,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.assign(lrResults, d.lrResults);
         if (typeof lrRenderResults === "function") lrRenderResults();
       }
-      if (typeof latencyResult !== "undefined") {
-        latencyResult = (d && d.latencyResult) ? d.latencyResult : null;
+      if (typeof latenzResult !== "undefined") {
+        latenzResult = (d && d.latencyResult) ? d.latencyResult : null;
       }
       if (typeof plApplyLatency !== "undefined") {
         plApplyLatency = (d && typeof d.plApplyLatency === "boolean")
@@ -684,8 +684,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ? d.plBalanceMode : "sym";
       }
       // BA323: Player-Box-Felder werden beim Auto-Restore nicht mehr angewendet.
-      if (typeof latApplyToPlayer === "function") latApplyToPlayer();
-      if (typeof latRenderResults === "function") latRenderResults();
+      if (typeof latenzApplyToPlayer === "function") latenzApplyToPlayer();
+      if (typeof latenzRenderResults === "function") latenzRenderResults();
       if (Array.isArray(d.fRes) && typeof fRes !== "undefined") {
         // BA 106: KEIN Filter, dieselbe Migrations-Sequenz wie in file.js.
         fRes.splice(0, fRes.length, ...d.fRes);
@@ -919,7 +919,7 @@ document.addEventListener("DOMContentLoaded", () => {
           lrResults: (typeof lrResults !== "undefined") ? lrResults : {},
           // BA 161
           lrSnapshot: (typeof lrSnapshot !== "undefined") ? lrSnapshot : null,
-          latencyResult: (typeof latencyResult !== "undefined") ? latencyResult : null,
+          latencyResult: (typeof latenzResult !== "undefined") ? latenzResult : null,
           plApplyLatency: (typeof plApplyLatency !== "undefined") ? plApplyLatency : true,
           plApplyBalance: (typeof plApplyBalance !== "undefined") ? plApplyBalance : true,
           plBalanceMode: (typeof plBalanceMode !== "undefined") ? plBalanceMode : "sym",

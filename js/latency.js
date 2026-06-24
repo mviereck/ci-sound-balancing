@@ -2,64 +2,64 @@
 // latency.js — Latenz-Messung (Inter-Ohr-Zeitversatz)
 // --------------------------------------------------------------------
 // Exportierte Globals:
-//   latencyResult           {valueMs, clickType, intervalMs} | null
+//   latenzResult           {valueMs, clickType, intervalMs} | null
 //   plApplyLatency          bool — im Player anwenden?
-//   latSliderMs             aktuell vom UI gesetzter Wert (Live-Test)
-//   latActive               Test läuft gerade?
-//   latClickType            "click" | "burst500" | "burst1500" | "burst4000"
-//   latIntervalMs           Klick-Intervall in ms (manuell wählbar)
+//   latenzSliderMs             aktuell vom UI gesetzter Wert (Live-Test)
+//   latenzActive               Test läuft gerade?
+//   latenzClickType            "click" | "burst500" | "burst1500" | "burst4000"
+//   latenzIntervalMs           Klick-Intervall in ms (manuell wählbar)
 //
 //   pLatSplitter, pLatDelayL, pLatDelayR, pLatMerger
 //                           — Audio-Nodes, werden in player.js
 //                             eingehängt (siehe Schritt 3 unten)
 //
 // Exportierte Funktionen:
-//   latBuildClickBuffer(ctx)
-//   latBuildBurstBuffer(ctx, freqHz, durMs)
-//   latBuildLoopedTestBuffer(ctx, clickType, intervalMs)
-//   latStartTest()
-//   latStopTest()
-//   latSetSliderMs(ms)
-//   latApplyToPlayer()
-//   latInitGraph(ctx)
+//   latenzBuildClickBuffer(ctx)
+//   latenzBuildBurstBuffer(ctx, freqHz, durMs)
+//   latenzBuildLoopedTestBuffer(ctx, clickType, intervalMs)
+//   latenzStartTest()
+//   latenzStopTest()
+//   latenzSetSliderMs(ms)
+//   latenzApplyToPlayer()
+//   latenzInitGraph(ctx)
 // ====================================================================
 
-let latencyResult = null;      // {valueMs, clickType, intervalMs}
+let latenzResult = null;      // {valueMs, clickType, intervalMs}
 let plApplyLatency = true;     // analog plApplyBalance
 
-let latSliderMs = 0;           // aktueller Schieber-Wert (Test-Live)
-let latActive = false;
-let latClickType = "click";
-let latIntervalMs = 1000;
+let latenzSliderMs = 0;           // aktueller Schieber-Wert (Test-Live)
+let latenzActive = false;
+let latenzClickType = "click";
+let latenzIntervalMs = 1000;
 
-let latTestSource = null;      // BufferSource für Test-Klicks
-let latTestBuf = null;         // aktuell verwendeter Loop-Buffer
-let latBalSplitter = null;
-let latBalGainL    = null;
-let latBalGainR    = null;
-let latBalMerger   = null;
-let latClickMuteGain = null;   // BA391: Klick-Mute (1=hoerbar, 0=stumm)
+let latenzTestSource = null;      // BufferSource für Test-Klicks
+let latenzTestBuf = null;         // aktuell verwendeter Loop-Buffer
+let latenzBalSplitter = null;
+let latenzBalGainL    = null;
+let latenzBalGainR    = null;
+let latenzBalMerger   = null;
+let latenzClickMuteGain = null;   // BA391: Klick-Mute (1=hoerbar, 0=stumm)
 
-let latClicksAudible = true;   // BA392: Schalter "Klicktoene hoerbar"
-let latPlayerAudible = true;   // BA392: Schalter "Player hoerbar"
+let latenzClicksAudible = true;   // BA392: Schalter "Klicktoene hoerbar"
+let latenzPlayerAudible = true;   // BA392: Schalter "Player hoerbar"
 
 // BA392: Zentrale Definition der zwei Hoerbarkeits-Schalter. Eine Stelle;
 // Erzeugung UND Optik-Refresh iterieren hierueber. Neuer Schalter = neuer
 // Eintrag. getFlag/setFlag kapseln das Flag, getMuteNode liefert den
-// Ziel-Gain ZUM KLICKZEITPUNKT (latClickMuteGain wechselt pro Test).
+// Ziel-Gain ZUM KLICKZEITPUNKT (latenzClickMuteGain wechselt pro Test).
 const LAT_AUD_TOGGLES = [
   {
-    id: 'latToggleClicks',
-    tKey: 'latToggleClicks',
-    getFlag: function() { return latClicksAudible; },
-    setFlag: function(v) { latClicksAudible = v; },
-    getMuteNode: function() { return latClickMuteGain; }
+    id: 'latenzToggleClicks',
+    tKey: 'latenzToggleClicks',
+    getFlag: function() { return latenzClicksAudible; },
+    setFlag: function(v) { latenzClicksAudible = v; },
+    getMuteNode: function() { return latenzClickMuteGain; }
   },
   {
-    id: 'latTogglePlayer',
-    tKey: 'latTogglePlayer',
-    getFlag: function() { return latPlayerAudible; },
-    setFlag: function(v) { latPlayerAudible = v; },
+    id: 'latenzTogglePlayer',
+    tKey: 'latenzTogglePlayer',
+    getFlag: function() { return latenzPlayerAudible; },
+    setFlag: function(v) { latenzPlayerAudible = v; },
     getMuteNode: function() {
       return (typeof pPlayerMuteGain !== "undefined") ? pPlayerMuteGain : null;
     }
@@ -74,7 +74,7 @@ let pLatMerger = null;
 // BA391: Setzt einen Gain mit kurzer linearer Rampe (20 ms) auf 0 (stumm)
 // oder 1 (hoerbar). Gemeinsame Mute-Mechanik fuer Player- und Klick-Mute.
 const LAT_MUTE_RAMP_S = 0.02; // 20 ms
-function latRampGain(gainNode, audible) {
+function latenzRampGain(gainNode, audible) {
   if (!gainNode) return;
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx) { gainNode.gain.value = audible ? 1 : 0; return; }
@@ -90,7 +90,7 @@ function latRampGain(gainNode, audible) {
 // 1-ms-Klick, breitbandig, Hann-gefenstert um Knack-Artefakte zu
 // vermeiden. Stereo (L=R), damit er gleichmäßig durch die Delays
 // geht.
-function latBuildClickBuffer(ctx) {
+function latenzBuildClickBuffer(ctx) {
   const sr = ctx.sampleRate;
   const samples = Math.max(2, Math.round(sr * 0.001));  // 1 ms
   const buf = ctx.createBuffer(2, samples, sr);
@@ -107,7 +107,7 @@ function latBuildClickBuffer(ctx) {
 }
 
 // Tone-Burst mit Hann-Fenster, n Perioden, mindestens 3.
-function latBuildBurstBuffer(ctx, freqHz, durMs) {
+function latenzBuildBurstBuffer(ctx, freqHz, durMs) {
   const sr = ctx.sampleRate;
   const samples = Math.max(8, Math.round(sr * durMs / 1000));
   const buf = ctx.createBuffer(2, samples, sr);
@@ -124,16 +124,16 @@ function latBuildBurstBuffer(ctx, freqHz, durMs) {
 }
 
 // Komplettes Loop-Buffer: ein Klick pro Intervall, fertig zum Schleifen.
-function latBuildLoopedTestBuffer(ctx, clickType, intervalMs) {
+function latenzBuildLoopedTestBuffer(ctx, clickType, intervalMs) {
   const sr = ctx.sampleRate;
 
   let click;
   switch (clickType) {
-    case "burst500":  click = latBuildBurstBuffer(ctx, 500,  6); break;
-    case "burst1500": click = latBuildBurstBuffer(ctx, 1500, 4); break;
-    case "burst4000": click = latBuildBurstBuffer(ctx, 4000, 3); break;
+    case "burst500":  click = latenzBuildBurstBuffer(ctx, 500,  6); break;
+    case "burst1500": click = latenzBuildBurstBuffer(ctx, 1500, 4); break;
+    case "burst4000": click = latenzBuildBurstBuffer(ctx, 4000, 3); break;
     case "click":
-    default:          click = latBuildClickBuffer(ctx);
+    default:          click = latenzBuildClickBuffer(ctx);
   }
   const cL = click.getChannelData(0);
   const cN = click.length;
@@ -153,7 +153,7 @@ function latBuildLoopedTestBuffer(ctx, clickType, intervalMs) {
 
 // Wird einmalig aus player.js aufgerufen, sobald pGain existiert.
 // Hängt die Latenz-Delays zwischen pGain und c.destination ein.
-function latInitGraph(ctx) {
+function latenzInitGraph(ctx) {
   if (pLatSplitter) return; // schon initialisiert
 
   pLatSplitter = ctx.createChannelSplitter(2);
@@ -170,91 +170,91 @@ function latInitGraph(ctx) {
   pLatMerger.connect(ctx.destination);
 
   // Wenn schon ein Wert gemessen wurde, anwenden.
-  latApplyToPlayer();
+  latenzApplyToPlayer();
 }
 
 // --- Test-Klicks Start/Stop ------------------------------------------
 
-function latStartTest() {
-  if (latActive) latStopTest();
+function latenzStartTest() {
+  if (latenzActive) latenzStopTest();
   const ctx = (typeof gPC === "function") ? gPC() : null;
   if (!ctx) return;
-  if (!pLatSplitter) latInitGraph(ctx);
+  if (!pLatSplitter) latenzInitGraph(ctx);
   // SW (BA382): Andere Tabs (auch der Latenz-Test) stoppen die Player-
   // Wiedergabe NICHT mehr (Nutzer-Regel 2026-06-22) -- weder Musik (pPause)
   // noch Saetze (sStop). Beide laufen weiter. (Der frueher hier verhinderte
   // Ueberlagerungs-Fall ist bewusst akzeptiert.)
-  latTestBuf = latBuildLoopedTestBuffer(ctx, latClickType, latIntervalMs);
-  latTestSource = ctx.createBufferSource();
-  latTestSource.buffer = latTestBuf;
-  latTestSource.loop = true;
+  latenzTestBuf = latenzBuildLoopedTestBuffer(ctx, latenzClickType, latenzIntervalMs);
+  latenzTestSource = ctx.createBufferSource();
+  latenzTestSource.buffer = latenzTestBuf;
+  latenzTestSource.loop = true;
 
   // Stereo-Balance-Gains (vor pGain). Splitter + L/R-Gains + Merger
   // entstehen pro Test und werden beim Stop wieder verworfen.
   const balG = (typeof getRawBalanceGains === "function")
     ? getRawBalanceGains() : { left: 0, right: 0 };
   const volFactor = _latGetVolumeFactor();   // 0..1, Default 0.5 (=50%)
-  latBalSplitter = ctx.createChannelSplitter(2);
-  latBalMerger   = ctx.createChannelMerger(2);
-  latBalGainL    = ctx.createGain();
-  latBalGainR    = ctx.createGain();
-  latBalGainL.gain.value = dB2G(balG.left)  * volFactor;
-  latBalGainR.gain.value = dB2G(balG.right) * volFactor;
-  latTestSource.connect(latBalSplitter);
-  latBalSplitter.connect(latBalGainL, 0);
-  latBalSplitter.connect(latBalGainR, 1);
-  latBalGainL.connect(latBalMerger, 0, 0);
-  latBalGainR.connect(latBalMerger, 0, 1);
+  latenzBalSplitter = ctx.createChannelSplitter(2);
+  latenzBalMerger   = ctx.createChannelMerger(2);
+  latenzBalGainL    = ctx.createGain();
+  latenzBalGainR    = ctx.createGain();
+  latenzBalGainL.gain.value = dB2G(balG.left)  * volFactor;
+  latenzBalGainR.gain.value = dB2G(balG.right) * volFactor;
+  latenzTestSource.connect(latenzBalSplitter);
+  latenzBalSplitter.connect(latenzBalGainL, 0);
+  latenzBalSplitter.connect(latenzBalGainR, 1);
+  latenzBalGainL.connect(latenzBalMerger, 0, 0);
+  latenzBalGainR.connect(latenzBalMerger, 0, 1);
 
-  latClickMuteGain = ctx.createGain();
-  latClickMuteGain.gain.value = 1; // Default hoerbar; Toggle-Steuerung in BA392
-  latBalMerger.connect(latClickMuteGain);
+  latenzClickMuteGain = ctx.createGain();
+  latenzClickMuteGain.gain.value = 1; // Default hoerbar; Toggle-Steuerung in BA392
+  latenzBalMerger.connect(latenzClickMuteGain);
   if (pLatSplitter) {
-    latClickMuteGain.connect(pLatSplitter);
+    latenzClickMuteGain.connect(pLatSplitter);
   } else {
     // Fallback: keine Latenz-Kette vorhanden (sollte nach BA390-Warmlauf
     // nicht vorkommen) -> direkt zum Ausgang, ohne Latenz.
-    latClickMuteGain.connect(ctx.destination);
+    latenzClickMuteGain.connect(ctx.destination);
   }
-  latTestSource.start();
-  latActive = true;
+  latenzTestSource.start();
+  latenzActive = true;
 }
 
-function latStopTest() {
-  if (latTestSource) {
-    try { latTestSource.stop(); } catch (e) {}
-    try { latTestSource.disconnect(); } catch (e) {}
-    latTestSource = null;
+function latenzStopTest() {
+  if (latenzTestSource) {
+    try { latenzTestSource.stop(); } catch (e) {}
+    try { latenzTestSource.disconnect(); } catch (e) {}
+    latenzTestSource = null;
   }
-  if (latBalSplitter) { try { latBalSplitter.disconnect(); } catch (e) {} latBalSplitter = null; }
-  if (latBalGainL)    { try { latBalGainL.disconnect();    } catch (e) {} latBalGainL = null; }
-  if (latBalGainR)    { try { latBalGainR.disconnect();    } catch (e) {} latBalGainR = null; }
-  if (latBalMerger)   { try { latBalMerger.disconnect();   } catch (e) {} latBalMerger = null; }
-  if (latClickMuteGain) { try { latClickMuteGain.disconnect(); } catch (e) {} latClickMuteGain = null; }
-  latTestBuf = null;
-  latActive = false;
+  if (latenzBalSplitter) { try { latenzBalSplitter.disconnect(); } catch (e) {} latenzBalSplitter = null; }
+  if (latenzBalGainL)    { try { latenzBalGainL.disconnect();    } catch (e) {} latenzBalGainL = null; }
+  if (latenzBalGainR)    { try { latenzBalGainR.disconnect();    } catch (e) {} latenzBalGainR = null; }
+  if (latenzBalMerger)   { try { latenzBalMerger.disconnect();   } catch (e) {} latenzBalMerger = null; }
+  if (latenzClickMuteGain) { try { latenzClickMuteGain.disconnect(); } catch (e) {} latenzClickMuteGain = null; }
+  latenzTestBuf = null;
+  latenzActive = false;
   // BA392: Player-Mute hoerbar zuruecksetzen -- Test-Audio ist beendet,
   // der Player soll wieder normal laufen. Einzige Stelle dafuer (beide
-  // Test-Enden laufen durch latStopTest).
+  // Test-Enden laufen durch latenzStopTest).
   if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
-    latRampGain(pPlayerMuteGain, true);
+    latenzRampGain(pPlayerMuteGain, true);
   }
 }
 
 // Wird bei laufendem Test aufgerufen, wenn der User Klick-Typ,
 // Intervall oder Abwechseln-Modus ändert. Buffer neu bauen und
 // Wiedergabe neu starten.
-function latRestartIfActive() {
-  if (latActive) {
-    latStopTest();
-    latStartTest();
+function latenzRestartIfActive() {
+  if (latenzActive) {
+    latenzStopTest();
+    latenzStartTest();
   }
 }
 
 // --- Live-Slider-Wert in Delays ---------------------------------------
 
-function latSetSliderMs(ms) {
-  latSliderMs = ms;
+function latenzSetSliderMs(ms) {
+  latenzSliderMs = ms;
   if (!pLatDelayL || !pLatDelayR) return;
   const sec = Math.abs(ms) / 1000;
   if (ms >= 0) {
@@ -269,26 +269,26 @@ function latSetSliderMs(ms) {
 // --- Anwendung auf Player (kein Test aktiv) --------------------------
 
 // BA 313: Zentrale Quelle fuer die anzuwendende Latenz (ms).
-// EQ-Schalter-Gate (Weg A) + nhSim-Spiegelung. Klang (latApplyToPlayer)
+// EQ-Schalter-Gate (Weg A) + nhSim-Spiegelung. Klang (latenzApplyToPlayer)
 // und ab BA 314 der System-EQ-Export lesen NUR hier.
 function getPlayerLatencyMs() {
   if (typeof plEqOn !== "undefined" && !plEqOn) return 0;
   if (!plApplyLatency) return 0;
-  if (!latencyResult || !isFinite(latencyResult.valueMs)) return 0;
+  if (!latenzResult || !isFinite(latenzResult.valueMs)) return 0;
   const nh = document.getElementById("plNHSim");
   const nhSim = nh ? nh.checked : false;
-  return nhSim ? -latencyResult.valueMs : latencyResult.valueMs;
+  return nhSim ? -latenzResult.valueMs : latenzResult.valueMs;
 }
 
-// Setzt die Delays auf den gespeicherten latencyResult-Wert, falls
+// Setzt die Delays auf den gespeicherten latenzResult-Wert, falls
 // plApplyLatency aktiv ist. Wird vom Test-Start/Stop und vom
 // plApplyLatency-Toggle aufgerufen.
-function latApplyToPlayer() {
-  if (latActive) return; // während Test übernimmt latSetSliderMs
+function latenzApplyToPlayer() {
+  if (latenzActive) return; // während Test übernimmt latenzSetSliderMs
   if (!pLatDelayL || !pLatDelayR) return;
   // getPlayerLatencyMs liefert 0, wenn EQ aus / Latenz aus / kein Wert;
-  // latSetSliderMs(0) setzt beide Delays auf 0.
-  latSetSliderMs(getPlayerLatencyMs());
+  // latenzSetSliderMs(0) setzt beide Delays auf 0.
+  latenzSetSliderMs(getPlayerLatencyMs());
   if (typeof updLatApplyBtn === "function") updLatApplyBtn();
 }
 
@@ -297,13 +297,13 @@ function latApplyToPlayer() {
 // Test-UI Migration (BA 223)
 // =====================================================================
 
-let latEls = null;          // panel-refs aus buildTestPanel
-let latVolume = 75;         // 0..100, eigener Lautstärkewert (Test-lokal)
+let latenzEls = null;          // panel-refs aus buildTestPanel
+let latenzVolume = 75;         // 0..100, eigener Lautstärkewert (Test-lokal)
 
 function _latGetVolumeFactor() {
   // 0..1, fallback 0.5
-  const v = (latEls && latEls.header && latEls.header.volInput)
-    ? parseFloat(latEls.header.volInput.value) : latVolume;
+  const v = (latenzEls && latenzEls.header && latenzEls.header.volInput)
+    ? parseFloat(latenzEls.header.volInput.value) : latenzVolume;
   if (!isFinite(v)) return 0.5;
   return Math.max(0, Math.min(100, v)) / 100;
 }
@@ -311,32 +311,32 @@ function _latGetVolumeFactor() {
 function _latBuildExtraFragment() {
   // Zwei Button-Reihen: Klick-Intervall und Klangtyp.
   const frag = document.createElement('div');
-  frag.className = 'lat-extra';
+  frag.className = 'latenz-extra';
 
   // Klick-Intervall
   const intvWrap = document.createElement('div');
   intvWrap.style.margin = '12px 0';
   const intvLbl = document.createElement('div');
   intvLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
-  intvLbl.dataset.t = 'latIntervalLabel';
+  intvLbl.dataset.t = 'latenzIntervalLabel';
   const intvRow = document.createElement('div');
   intvRow.className = 'btn-row';
   intvRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
   [100, 200, 500, 1000, 2000].forEach(function(ms) {
     const b = document.createElement('button');
-    b.className = 'btn lat-interval-btn' + (ms === latIntervalMs ? ' active' : '');
+    b.className = 'btn latenz-interval-btn' + (ms === latenzIntervalMs ? ' active' : '');
     b.dataset.ms = String(ms);
     b.textContent = ms + ' ms';
     b.addEventListener('click', function() {
-      latIntervalMs = ms;
+      latenzIntervalMs = ms;
       _latRefreshExtraActives();
       _latUpdateIntervalHint();
-      latRestartIfActive();
+      latenzRestartIfActive();
     });
     intvRow.appendChild(b);
   });
   const intvHint = document.createElement('div');
-  intvHint.id = 'latIntervalHint';
+  intvHint.id = 'latenzIntervalHint';
   intvHint.style.cssText = 'font-size:0.85em;color:var(--text-muted);margin-top:4px;';
   intvWrap.append(intvLbl, intvRow, intvHint);
 
@@ -345,24 +345,24 @@ function _latBuildExtraFragment() {
   typeWrap.style.margin = '12px 0';
   const typeLbl = document.createElement('div');
   typeLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
-  typeLbl.dataset.t = 'latTypeLabel';
+  typeLbl.dataset.t = 'latenzTypeLabel';
   const typeRow = document.createElement('div');
   typeRow.className = 'btn-row';
   typeRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
   [
-    ['click',     'latTypeClick'],
-    ['burst500',  'latTypeBurst500'],
-    ['burst1500', 'latTypeBurst1500'],
-    ['burst4000', 'latTypeBurst4000']
+    ['click',     'latenzTypeClick'],
+    ['burst500',  'latenzTypeBurst500'],
+    ['burst1500', 'latenzTypeBurst1500'],
+    ['burst4000', 'latenzTypeBurst4000']
   ].forEach(function(pair) {
     const b = document.createElement('button');
-    b.className = 'btn lat-click-btn' + (pair[0] === latClickType ? ' active' : '');
+    b.className = 'btn latenz-click-btn' + (pair[0] === latenzClickType ? ' active' : '');
     b.dataset.type = pair[0];
     b.dataset.t = pair[1];
     b.addEventListener('click', function() {
-      latClickType = pair[0];
+      latenzClickType = pair[0];
       _latRefreshExtraActives();
-      latRestartIfActive();
+      latenzRestartIfActive();
     });
     typeRow.appendChild(b);
   });
@@ -373,21 +373,21 @@ function _latBuildExtraFragment() {
   audWrap.style.margin = '12px 0';
   const audLbl = document.createElement('div');
   audLbl.style.cssText = 'font-weight:600;margin-bottom:6px;';
-  audLbl.dataset.t = 'latAudibleLabel';
+  audLbl.dataset.t = 'latenzAudibleLabel';
   const audRow = document.createElement('div');
   audRow.className = 'btn-row';
   audRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
 
   LAT_AUD_TOGGLES.forEach(function(tg) {
     const b = document.createElement('button');
-    b.className = 'btn lat-aud-btn' + (tg.getFlag() ? ' active' : '');
+    b.className = 'btn latenz-aud-btn' + (tg.getFlag() ? ' active' : '');
     b.id = tg.id;
     b.dataset.t = tg.tKey;
     b.addEventListener('click', function() {
       const next = !tg.getFlag();
       tg.setFlag(next);
       b.classList.toggle('active', next);
-      if (latActive) latRampGain(tg.getMuteNode(), next);
+      if (latenzActive) latenzRampGain(tg.getMuteNode(), next);
     });
     audRow.appendChild(b);
   });
@@ -399,13 +399,13 @@ function _latBuildExtraFragment() {
 }
 
 function _latRefreshExtraActives() {
-  if (!latEls || !latEls.header || !latEls.header.extraFragment) return;
-  const frag = latEls.header.extraFragment;
-  frag.querySelectorAll('.lat-interval-btn').forEach(function(b) {
-    b.classList.toggle('active', parseInt(b.dataset.ms, 10) === latIntervalMs);
+  if (!latenzEls || !latenzEls.header || !latenzEls.header.extraFragment) return;
+  const frag = latenzEls.header.extraFragment;
+  frag.querySelectorAll('.latenz-interval-btn').forEach(function(b) {
+    b.classList.toggle('active', parseInt(b.dataset.ms, 10) === latenzIntervalMs);
   });
-  frag.querySelectorAll('.lat-click-btn').forEach(function(b) {
-    b.classList.toggle('active', b.dataset.type === latClickType);
+  frag.querySelectorAll('.latenz-click-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.type === latenzClickType);
   });
 }
 
@@ -417,12 +417,12 @@ function _latRefreshAudibleBtns() {
 }
 
 function _latUpdateIntervalHint() {
-  if (!latEls || !latEls.header || !latEls.header.extraFragment) return;
-  const hint = latEls.header.extraFragment.querySelector('#latIntervalHint');
+  if (!latenzEls || !latenzEls.header || !latenzEls.header.extraFragment) return;
+  const hint = latenzEls.header.extraFragment.querySelector('#latenzIntervalHint');
   if (!hint) return;
-  const unique = latIntervalMs / 2;
-  let s = (t("latUniqueRange") || "Eindeutiger Bereich:") + " ±" + unique + " ms";
-  if (unique < 200) s += " " + (t("latUniqueRangeAmbig") || "");
+  const unique = latenzIntervalMs / 2;
+  let s = (t("latenzUniqueRange") || "Eindeutiger Bereich:") + " ±" + unique + " ms";
+  if (unique < 200) s += " " + (t("latenzUniqueRangeAmbig") || "");
   hint.textContent = s;
 }
 
@@ -441,21 +441,21 @@ function _latHasBalance() {
 }
 
 function _latRefreshPrereqHints() {
-  if (!latEls) return;
-  testUI.explain.setVisible(latEls, 'latVortestBalanceMissing', !_latHasBalance());
+  if (!latenzEls) return;
+  testUI.explain.setVisible(latenzEls, 'latenzVortestBalanceMissing', !_latHasBalance());
 }
 
 // --- Hook-Implementierungen ---
 
-function latHookOnStart() {
+function latenzHookOnStart() {
   // Seitenhörtest vor Start (analog freqmatch slider).
   testUI.sideCheck.run(
     { sides: 'both' },
     function() {
       // Startwert: vorhandenes Ergebnis oder 0
-      const startMs = (latencyResult && isFinite(latencyResult.valueMs))
-        ? latencyResult.valueMs : 0;
-      const slRef = latEls.verfahren.lat.slider;
+      const startMs = (latenzResult && isFinite(latenzResult.valueMs))
+        ? latenzResult.valueMs : 0;
+      const slRef = latenzEls.verfahren.lat.slider;
       if (slRef) {
         testUI.slider.setValue(slRef, startMs);
         // setValue setzt nur Range/Wert, nicht die Anzeige -> sonst zeigt
@@ -463,48 +463,48 @@ function latHookOnStart() {
         // erneut schiebt. Anzeige analog lr-balance.js explizit setzen.
         testUI.slider.setValueDisplay(slRef, startMs.toFixed(1) + " ms");
       }
-      latSetSliderMs(startMs);
+      latenzSetSliderMs(startMs);
       _latUpdateIntervalHint();
       // BA392: Hoerbarkeit bei jedem Start auf "beide hoerbar" zuruecksetzen
-      latClicksAudible = true;
-      latPlayerAudible = true;
+      latenzClicksAudible = true;
+      latenzPlayerAudible = true;
       _latRefreshAudibleBtns();
-      latStartTest();
+      latenzStartTest();
       if (typeof pPlayerMuteGain !== "undefined" && pPlayerMuteGain) {
-        latRampGain(pPlayerMuteGain, true);
+        latenzRampGain(pPlayerMuteGain, true);
       }
     },
     function() {
       // Abbruch im sideCheck -> testUI stoppt; wir raeumen nur unsere Resourcen.
-      if (latEls && latEls._stopTest) latEls._stopTest();
+      if (latenzEls && latenzEls._stopTest) latenzEls._stopTest();
     }
   );
 }
 
-function latHookOnStop() {
+function latenzHookOnStop() {
   // = "Test abbrechen": Audio-Loop stoppen, KEIN Speichern.
-  latStopTest();
-  latApplyToPlayer();   // setzt Delays auf gespeicherten Wert (falls vorhanden)
+  latenzStopTest();
+  latenzApplyToPlayer();   // setzt Delays auf gespeicherten Wert (falls vorhanden)
 }
 
-function latHookOnSlide(ms) {
-  latSetSliderMs(ms);
+function latenzHookOnSlide(ms) {
+  latenzSetSliderMs(ms);
 }
 
-function latHookOnApply() {
+function latenzHookOnApply() {
   // = "Offset bestaetigen": aktuellen Schieberwert speichern + Test beenden.
-  latencyResult = {
-    valueMs:    latSliderMs,
-    clickType:  latClickType,
-    intervalMs: latIntervalMs,
+  latenzResult = {
+    valueMs:    latenzSliderMs,
+    clickType:  latenzClickType,
+    intervalMs: latenzIntervalMs,
     timestamp:  Date.now(),
     implantSnapshot: (typeof implantSnapshot === 'function') ? implantSnapshot() : null
   };
-  latApplyToPlayer();
-  if (typeof latRenderResults === 'function') latRenderResults();
+  latenzApplyToPlayer();
+  if (typeof latenzRenderResults === 'function') latenzRenderResults();
   if (typeof depLockApply === 'function') depLockApply();
   // Test sauber beenden
-  if (latEls && latEls._stopTest) latEls._stopTest();
+  if (latenzEls && latenzEls._stopTest) latenzEls._stopTest();
 }
 
 // --- DOMContentLoaded: testUI-Panel bauen ---
@@ -516,16 +516,16 @@ document.addEventListener("DOMContentLoaded", function() {
   const cfg = {
     id: 'latenz',
     explain: {
-      titleKey: 'latMeasTitle',
+      titleKey: 'latenzMeasTitle',
       preserveOrder: false,
       paragraphs: [
-        { key: 'latMaturityHint',           kind: 'info'    },
-        { key: 'latBTWarning',              kind: 'caution' },
-        { key: 'latVortestBalanceMissing',  kind: 'warn',  id: 'latVortestBalanceMissing',  hidden: true },
-        { key: 'latPrereqHint',             kind: 'warn'    },
-        { key: 'latMeasIntro2',             kind: 'plain'   },
-        { key: 'latMeasIntro',              kind: 'plain'   },
-        { key: 'latLocHint',                kind: 'plain'   }
+        { key: 'latenzMaturityHint',           kind: 'info'    },
+        { key: 'latenzBTWarning',              kind: 'caution' },
+        { key: 'latenzVortestBalanceMissing',  kind: 'warn',  id: 'latenzVortestBalanceMissing',  hidden: true },
+        { key: 'latenzPrereqHint',             kind: 'warn'    },
+        { key: 'latenzMeasIntro2',             kind: 'plain'   },
+        { key: 'latenzMeasIntro',              kind: 'plain'   },
+        { key: 'latenzLocHint',                kind: 'plain'   }
       ]
     },
     header: {
@@ -539,42 +539,42 @@ document.addEventListener("DOMContentLoaded", function() {
         sliderTarget: false
       },
       extra:    { fragment: _latBuildExtraFragment() },
-      startStop:{ startKey: 'latStartBtn', stopKey: 'btnCancelTest', resumable: false }
+      startStop:{ startKey: 'latenzStartBtn', stopKey: 'btnCancelTest', resumable: false }
     },
     verfahren: [{
-      id: 'lat',
-      labelKey:   'latVerfahrenLabel',
+      id: 'latenz',
+      labelKey:   'latenzVerfahrenLabel',
       explainKey: null,
       body: {
-        instruction:  { key: 'latInstruction' },
+        instruction:  { key: 'latenzInstruction' },
         keyHint:      { unitKey: 'sliderHintMs' },
         slider:       { unit: 'ms', initialRange: 50, maxRange: 2000, touchStep: 5, touchFineStep: 1 },
         sliderValue:  { show: true },
         applyButton:  { key: 'btnConfirmOffset' }
       },
       hooks: {
-        onStart:  latHookOnStart,
-        onStop:   latHookOnStop,
-        onSlide:  latHookOnSlide,
-        onApply:  latHookOnApply
+        onStart:  latenzHookOnStart,
+        onStop:   latenzHookOnStop,
+        onSlide:  latenzHookOnSlide,
+        onApply:  latenzHookOnApply
       }
     }]
   };
 
-  latEls = buildTestPanel(parentEl, cfg);
+  latenzEls = buildTestPanel(parentEl, cfg);
 
   // Volume-Default setzen
-  if (latEls.header && latEls.header.volInput) {
-    latEls.header.volInput.value = String(latVolume);
-    latEls.header.volInput.addEventListener('change', function() {
-      latVolume = parseFloat(latEls.header.volInput.value) || 50;
+  if (latenzEls.header && latenzEls.header.volInput) {
+    latenzEls.header.volInput.value = String(latenzVolume);
+    latenzEls.header.volInput.addEventListener('change', function() {
+      latenzVolume = parseFloat(latenzEls.header.volInput.value) || 50;
       // Wenn der Test läuft: Gains live nachziehen
-      if (latActive && latBalGainL && latBalGainR) {
+      if (latenzActive && latenzBalGainL && latenzBalGainR) {
         const balG = (typeof getRawBalanceGains === "function")
           ? getRawBalanceGains() : { left: 0, right: 0 };
         const f = _latGetVolumeFactor();
-        latBalGainL.gain.value = dB2G(balG.left)  * f;
-        latBalGainR.gain.value = dB2G(balG.right) * f;
+        latenzBalGainL.gain.value = dB2G(balG.left)  * f;
+        latenzBalGainR.gain.value = dB2G(balG.right) * f;
       }
     });
   }
@@ -592,7 +592,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   // Falls kein subtab-shown-Event existiert: Tab-Button-Klick als Fallback
-  const tabBtn = document.getElementById('latSubtabBtn');
+  const tabBtn = document.getElementById('latenzSubtabBtn');
   if (tabBtn) {
     tabBtn.addEventListener('click', function() { setTimeout(_latRefreshPrereqHints, 0); });
   }
@@ -605,59 +605,59 @@ document.addEventListener("DOMContentLoaded", function() {
 // Ergebnis-Tab (Bauanleitung 27)
 // =====================================================================
 
-let latResEls = null;
+let latenzResEls = null;
 
-function latRenderResults() {
-  if (!latResEls) {
-    latResEls = {
-      none:      document.getElementById("latResNone"),
-      content:   document.getElementById("latResContent"),
-      valueBig:  document.getElementById("latResValueBig"),
-      text:      document.getElementById("latResText"),
-      context:   document.getElementById("latResContext"),
+function latenzRenderResults() {
+  if (!latenzResEls) {
+    latenzResEls = {
+      none:      document.getElementById("latenzResNone"),
+      content:   document.getElementById("latenzResContent"),
+      valueBig:  document.getElementById("latenzResValueBig"),
+      text:      document.getElementById("latenzResText"),
+      context:   document.getElementById("latenzResContext"),
     };
   }
-  if (!latResEls.none || !latResEls.content) return;
+  if (!latenzResEls.none || !latenzResEls.content) return;
 
-  if (!latencyResult || !isFinite(latencyResult.valueMs)) {
-    latResEls.none.hidden = false;
-    latResEls.content.hidden = true;
+  if (!latenzResult || !isFinite(latenzResult.valueMs)) {
+    latenzResEls.none.hidden = false;
+    latenzResEls.content.hidden = true;
     return;
   }
-  latResEls.none.hidden = true;
-  latResEls.content.hidden = false;
+  latenzResEls.none.hidden = true;
+  latenzResEls.content.hidden = false;
 
-  const v = latencyResult.valueMs;
+  const v = latenzResult.valueMs;
   const a = Math.abs(v).toFixed(1).replace(".", ",");
   if (Math.abs(v) < 0.05) {
-    latResEls.valueBig.textContent = "0,0 ms";
-    latResEls.text.textContent = (typeof t === "function")
-      ? t("latResNoOffset") : "Kein Versatz.";
+    latenzResEls.valueBig.textContent = "0,0 ms";
+    latenzResEls.text.textContent = (typeof t === "function")
+      ? t("latenzResNoOffset") : "Kein Versatz.";
   } else if (v > 0) {
-    latResEls.valueBig.textContent = `+${a} ms`;
-    latResEls.text.textContent = (typeof t === "function")
-      ? t("latResLeftFaster").replace("{ms}", a)
+    latenzResEls.valueBig.textContent = `+${a} ms`;
+    latenzResEls.text.textContent = (typeof t === "function")
+      ? t("latenzResLeftFaster").replace("{ms}", a)
       : `Linke Seite war ${a} ms schneller.`;
   } else {
-    latResEls.valueBig.textContent = `−${a} ms`;
-    latResEls.text.textContent = (typeof t === "function")
-      ? t("latResRightFaster").replace("{ms}", a)
+    latenzResEls.valueBig.textContent = `−${a} ms`;
+    latenzResEls.text.textContent = (typeof t === "function")
+      ? t("latenzResRightFaster").replace("{ms}", a)
       : `Rechte Seite war ${a} ms schneller.`;
   }
 
   const typeKey = {
-    "click":     "latTypeClick",
-    "burst500":  "latTypeBurst500",
-    "burst1500": "latTypeBurst1500",
-    "burst4000": "latTypeBurst4000",
-  }[latencyResult.clickType];
+    "click":     "latenzTypeClick",
+    "burst500":  "latenzTypeBurst500",
+    "burst1500": "latenzTypeBurst1500",
+    "burst4000": "latenzTypeBurst4000",
+  }[latenzResult.clickType];
   const typeLabel = (typeof t === "function" && typeKey)
-    ? t(typeKey) : (latencyResult.clickType || "");
-  latResEls.context.textContent =
-    `${t("latResMeasuredWith")}: ${typeLabel}, ${t("latResInterval")} ${latencyResult.intervalMs} ms`;
+    ? t(typeKey) : (latenzResult.clickType || "");
+  latenzResEls.context.textContent =
+    `${t("latenzResMeasuredWith")}: ${typeLabel}, ${t("latenzResInterval")} ${latenzResult.intervalMs} ms`;
   // BA 156
-  if (typeof renderSnapshotHint === 'function' && latEls && latEls.snapHintBox) {
-    renderSnapshotHint('lat', latEls.snapHintBox);
+  if (typeof renderSnapshotHint === 'function' && latenzEls && latenzEls.snapHintBox) {
+    renderSnapshotHint('latenz', latenzEls.snapHintBox);
   }
 }
 

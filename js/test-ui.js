@@ -2000,7 +2000,7 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   var _shtAskSide = null;
 
   // BA 276: Drei Breitband-Burst-Stufen, wiederverwendet aus dem
-  // Latenztest (latBuildBurstBuffer). hz/durMs exakt wie die dortigen
+  // Latenztest (latenzBuildBurstBuffer). hz/durMs exakt wie die dortigen
   // Klangtypen burst500 / burst1500 / burst4000 (js/latency.js Z. 91-93).
   var _SHT_BANDS = {
     low:  { hz: 500,  durMs: 6 },
@@ -2133,9 +2133,9 @@ function _openElectrodeSelectionDialog(cfg, onChange) {
   function _shtPlayTone(side) {
     var c = (typeof gAC === 'function') ? gAC() : null;
     if (!c) return;
-    if (typeof latBuildBurstBuffer !== 'function') return;
+    if (typeof latenzBuildBurstBuffer !== 'function') return;
     var band = _SHT_BANDS[_shtBand] || _SHT_BANDS.low;
-    var buf = latBuildBurstBuffer(c, band.hz, band.durMs);
+    var buf = latenzBuildBurstBuffer(c, band.hz, band.durMs);
     var pan = (side === 'left') ? -1 : 1;
     var t0 = c.currentTime + 0.02;
     for (var i = 0; i < _SHT_TRAIN_COUNT; i++) {

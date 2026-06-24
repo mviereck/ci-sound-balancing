@@ -306,7 +306,7 @@ function _calcAbsDelta(side, i, dB, mfrLocal, impl) {
 }
 
 function _collectBilateral() {
-  const out = { lr: { has: false, rows: [], mean: null }, latency: { has: false, value: null } };
+  const out = { lr: { has: false, rows: [], mean: null }, latenz: { has: false, value: null } };
   if (typeof lrResults !== "undefined") {
     const keys = Object.keys(lrResults).filter((k) => isFinite(lrResults[k]));
     if (keys.length > 0) {
@@ -316,13 +316,13 @@ function _collectBilateral() {
       out.lr.mean = sorted.reduce((a, k) => a + lrResults[k], 0) / sorted.length;
     }
   }
-  if (typeof latencyResult !== "undefined" && latencyResult
-      && isFinite(latencyResult.valueMs) && latencyResult.valueMs !== 0) {
-    out.latency.has = true;
-    out.latency.value = {
-      ms: latencyResult.valueMs,
-      clickType: latencyResult.clickType || null,
-      intervalMs: latencyResult.intervalMs || null,
+  if (typeof latenzResult !== "undefined" && latenzResult
+      && isFinite(latenzResult.valueMs) && latenzResult.valueMs !== 0) {
+    out.latenz.has = true;
+    out.latenz.value = {
+      ms: latenzResult.valueMs,
+      clickType: latenzResult.clickType || null,
+      intervalMs: latenzResult.intervalMs || null,
     };
   }
   return out;
@@ -621,7 +621,7 @@ function _archivMdFreqmatch(sd) {
 
 function _archivMdBilateral(data) {
   const bil = data.bilateral;
-  if (!bil.lr.has && !bil.latency.has) return "";
+  if (!bil.lr.has && !bil.latenz.has) return "";
   const out = [`\n## ${t("archivSecBilateral")}\n`];
   if (bil.lr.has) {
     out.push(`### ${t("balTitle")}`);
@@ -635,10 +635,10 @@ function _archivMdBilateral(data) {
     out.push(`**${t("archivBalMean")}**: ${_mdFmtDb(bil.lr.mean, true)}`);
     out.push("");
   }
-  if (bil.latency.has) {
-    const v = bil.latency.value;
+  if (bil.latenz.has) {
+    const v = bil.latenz.value;
     const sideTxt = v.ms >= 0 ? t("sideRight") : t("sideLeft");
-    out.push(`### ${t("latResTitle") || "Inter-Ohr-Latenz"}`);
+    out.push(`### ${t("latenzResTitle") || "Inter-Ohr-Latenz"}`);
     out.push(`- ${t("archivLatValue")}: ${Math.abs(v.ms).toFixed(2)} ms (${sideTxt})`);
     if (v.clickType)  out.push(`- ${t("archivLatClick")}: ${v.clickType}`);
     if (v.intervalMs) out.push(`- ${t("archivLatInterval")}: ${v.intervalMs} ms`);
@@ -1030,11 +1030,11 @@ function _audiologBalanceBlock(mainSides) {
 // ---------- Latenz (immer wenn gemessen, auch einseitig) ----------
 
 function _audiologLatencyBlock(mainSides) {
-  if (typeof latencyResult === "undefined" || !latencyResult) return "";
-  if (!isFinite(latencyResult.valueMs)) return "";
-  const ms = latencyResult.valueMs;
+  if (typeof latenzResult === "undefined" || !latenzResult) return "";
+  if (!isFinite(latenzResult.valueMs)) return "";
+  const ms = latenzResult.valueMs;
   if (ms === 0) return "";
-  const latActive = (typeof plApplyLatency !== "undefined") && plApplyLatency
+  const latenzActive = (typeof plApplyLatency !== "undefined") && plApplyLatency
                  && (mainSides.length === 2);
   const earlierSide = ms >= 0 ? t("sideLeft")  : t("sideRight");
   const laterSide   = ms >= 0 ? t("sideRight") : t("sideLeft");

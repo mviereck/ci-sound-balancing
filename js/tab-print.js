@@ -221,43 +221,43 @@ function _printResFreqmatch() {
 }
 
 function _printResLatency() {
-  if (!latencyResult || !isFinite(latencyResult.valueMs)) {
-    return openPrintWindow(t("latResTitle"),
-      `<div class="print-card"><h2>${t("latResTitle")}</h2>` +
-      `<p>${t("latResNoneText")}</p></div>`);
+  if (!latenzResult || !isFinite(latenzResult.valueMs)) {
+    return openPrintWindow(t("latenzResTitle"),
+      `<div class="print-card"><h2>${t("latenzResTitle")}</h2>` +
+      `<p>${t("latenzResNoneText")}</p></div>`);
   }
-  const v = latencyResult.valueMs;
+  const v = latenzResult.valueMs;
   const a = Math.abs(v).toFixed(1).replace(".", ",");
   let mainTxt;
   if (Math.abs(v) < 0.05) {
-    mainTxt = t("latResNoOffset");
+    mainTxt = t("latenzResNoOffset");
   } else if (v > 0) {
-    mainTxt = t("latResLeftFaster").replace("{ms}", a);
+    mainTxt = t("latenzResLeftFaster").replace("{ms}", a);
   } else {
-    mainTxt = t("latResRightFaster").replace("{ms}", a);
+    mainTxt = t("latenzResRightFaster").replace("{ms}", a);
   }
   const typeKey = {
-    "click":     "latTypeClick",
-    "burst500":  "latTypeBurst500",
-    "burst1500": "latTypeBurst1500",
-    "burst4000": "latTypeBurst4000",
-  }[latencyResult.clickType];
-  const typeLabel = typeKey ? t(typeKey) : (latencyResult.clickType || "");
+    "click":     "latenzTypeClick",
+    "burst500":  "latenzTypeBurst500",
+    "burst1500": "latenzTypeBurst1500",
+    "burst4000": "latenzTypeBurst4000",
+  }[latenzResult.clickType];
+  const typeLabel = typeKey ? t(typeKey) : (latenzResult.clickType || "");
   const sign = v >= 0 ? "+" : "−";
   const body = `
     <div class="print-card">
-      <h2>${t("latResTitle")}</h2>
+      <h2>${t("latenzResTitle")}</h2>
       <p style="font-size:1.4em;font-weight:600;">${sign}${a} ms</p>
       <p>${mainTxt}</p>
       <p style="font-size:0.9em;">
-        ${t("latResMeasuredWith")}: ${typeLabel},
-        ${t("latResInterval")} ${latencyResult.intervalMs} ms
+        ${t("latenzResMeasuredWith")}: ${typeLabel},
+        ${t("latenzResInterval")} ${latenzResult.intervalMs} ms
       </p>
       <p style="font-size:0.9em;">
-        ${t("latResApplied")}: ${plApplyLatency ? t("yes") : t("no")}
+        ${t("latenzResApplied")}: ${plApplyLatency ? t("yes") : t("no")}
       </p>
     </div>`;
-  openPrintWindow(t("latResTitle"), body);
+  openPrintWindow(t("latenzResTitle"), body);
 }
 
 // --- Kurven-Tab ---
