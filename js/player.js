@@ -770,6 +770,23 @@ function _pUseSplitChains(mode) {
   return mode === "both" && pSourceBuf.numberOfChannels > 1;
 }
 
+// BA390: Stellt pGain und die Latenz-Delay-Kette her, ohne EQ-Filter und
+// ohne Wiedergabe. Idempotent (baut nur, wenn pGain noch fehlt). Wird vom
+// Warmlauf beim Seitenaufruf UND aus pBuildEQ genutzt -- eine Schreibstelle
+// fuer die Graph-Grundstruktur.
+function pEnsureOutputBase(c) {
+  if (pGain) return;
+  pGain = c.createGain();
+  pGain.gain.value = parseInt(document.getElementById("plVol").value) / 100;
+  // Latenz-Kette zwischen pGain und destination einhaengen
+  if (typeof latInitGraph === "function") {
+    latInitGraph(c);
+    pGain.connect(pLatSplitter);
+  } else {
+    pGain.connect(c.destination);
+  }
+}
+
 function pBuildEQ() {
   const c = gPC();
   pEqF.forEach((f) => f.disconnect());
@@ -788,17 +805,7 @@ function pBuildEQ() {
   pChannelRightGain = null;
   pMonoBalGain && pMonoBalGain.disconnect();
   pMonoBalGain = null;
-  if (!pGain) {
-    pGain = c.createGain();
-    pGain.gain.value = parseInt(document.getElementById("plVol").value) / 100;
-    // Latenz-Kette zwischen pGain und destination einhängen
-    if (typeof latInitGraph === "function") {
-      latInitGraph(c);
-      pGain.connect(pLatSplitter);
-    } else {
-      pGain.connect(c.destination);
-    }
-  }
+  pEnsureOutputBase(c);
   const mode = getPlayerSide();
   const nhSim = document.getElementById("plNHSim").checked;
   if (_pUseSplitChains(mode)) {
@@ -3608,3 +3615,18 @@ PL_FILTER_DECL.saetze = {
   ]
 };
 // BA332: sRefreshSpeakerDropdown delegiert an plBuildFilterChain(PL_FILTER_DECL.saetze).
+
+// BA390: Player-Warmlauf -- Audiograph beim Seitenaufruf still aufbauen,
+// damit pGain und die Latenz-Kette bereitstehen, bevor der Latenz-Test sie
+// braucht. KEIN abgespielter Ton; nur Knoten-Erzeugung. Ein evtl.
+// suspendierter AudioContext ist hier unkritisch (kein Audio laeuft).
+document.addEventListener("DOMContentLoaded", function() {
+  try {
+    const c = gPC();
+    pEnsureOutputBase(c);
+  } catch (e) {
+    // Warmlauf ist Best-Effort: scheitert er, baut der normale pPlay-Pfad
+    // den Graphen spaeter wie bisher auf.
+    console.warn("BA390 Player-Warmlauf uebersprungen:", e);
+  }
+});
